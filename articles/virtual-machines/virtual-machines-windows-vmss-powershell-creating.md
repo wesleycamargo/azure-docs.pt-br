@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Criando Conjuntos de Escala de Máquina Virtual usando cmdlets do PowerShell | Microsoft Azure"
-	description="Introdução à criação e ao gerenciamento dos seus primeiros Conjuntos de Escalas de Máquina Virtual do Azure usando cmdlets do Azure PowerShell"
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="danielsollondon"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Criando Conjuntos de Escala de Máquina Virtual usando cmdlets do PowerShell | Microsoft Docs
+description: Introdução à criação e ao gerenciamento dos seus primeiros Conjuntos de Escalas de Máquina Virtual do Azure usando cmdlets do Azure PowerShell
+services: virtual-machines-windows
+documentationcenter: ''
+author: danielsollondon
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/30/2016"
-	ms.author="danielsollondon"/>
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/30/2016
+ms.author: danielsollondon
 
+---
 # Criando Conjuntos de Escala de Máquina Virtual usando cmdlets do PowerShell
-
 Este é um exemplo de como criar um VMSS (Conjunto de Escala de Máquina Virtual). Ele cria um VMSS de 3 nós, com todas as Redes e Armazenamento associados.
 
 ## Primeiras Etapas
@@ -27,9 +26,7 @@ Certifique-se de ter o módulo do Azure PowerShell mais recente esteja instalado
 Para localizar commandlets relacionados ao VMSS, use a cadeia de caracteres de pesquisa * VMSS*.
 
 ## Criando uma VMSS
-
 ##### Criar grupo de recursos
-
 ```
 $loc = 'westus';
 $rgname = 'mynewrgwu';
@@ -37,7 +34,6 @@ $rgname = 'mynewrgwu';
 ```
 
 ##### Criar Conta de Armazenamento
-
 Definir o nome/o tipo de conta de armazenamento
 
 ```
@@ -49,16 +45,13 @@ $stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stonam
 ```
 
 #### Criar Rede (Rede Virtual/Sub-rede)
-
 ##### Especificação de Sub-rede
-
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
 ##### Especificação de Rede Virtual
-
 ```
 $vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -DnsServer "10.1.1.1" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
@@ -68,7 +61,6 @@ $subnetId = $vnet.Subnets[0].Id;
 ```
 
 ##### Criar Recurso IP Público para Permitir o Acesso Externo
-
 Isso será associado ao Balanceador de Carga.
 
 ```
@@ -77,7 +69,6 @@ $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName
 ```
 
 ##### Criar e Configurar o Balanceador de Carga
-
 ```
 $frontendName = 'fe' + $rgname
 $backendAddressPoolName = 'bepool' + $rgname
@@ -141,7 +132,6 @@ $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
 ##### Configurar e Criar VMSS
-
 Observe que este exemplo de infraestrutura mostra como instalar a distribuição e o dimensionamento de tráfego da Web através de VMSS, mas as imagens das VMs especificadas aqui não tem serviços Web instalados.
 
 ```

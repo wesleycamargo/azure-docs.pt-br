@@ -1,36 +1,35 @@
-<properties 
-	pageTitle="Operações comuns na API de recomendações de Aprendizado de Máquina | Microsoft Azure" 
-	description="Aplicativo de exemplo de recomendação do Azure ML" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: Operações comuns na API de recomendações de Aprendizado de Máquina | Microsoft Docs
+description: Aplicativo de exemplo de recomendação do Azure ML
+services: machine-learning
+documentationcenter: ''
+author: LuisCabrer
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2016" 
-	ms.author="luisca"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: luisca
 
-
+---
 # Passo a passo do aplicativo de exemplo da API de Recomendações
+> [!NOTE]
+> Você deve começar a usar o Serviço Cognitivo da API de Recomendações em vez desta versão. O Serviço Cognitivo de Recomendações substituirá esse serviço, e todos os recursos novos serão desenvolvidos lá. Ele possui novos recursos como suporte ao processamento em lotes, um Gerenciador de API aprimorado, uma superfície de API mais limpa, uma experiência de inscrição/cobrança mais consistente etc. Saiba mais sobre [Como migrar para o novo Serviço Cognitivo](http://aka.ms/recomigrate)
+> 
+> 
 
->[AZURE.NOTE] Você deve começar a usar o Serviço Cognitivo da API de Recomendações em vez desta versão. O Serviço Cognitivo de Recomendações substituirá esse serviço, e todos os recursos novos serão desenvolvidos lá. Ele possui novos recursos como suporte ao processamento em lotes, um Gerenciador de API aprimorado, uma superfície de API mais limpa, uma experiência de inscrição/cobrança mais consistente etc. Saiba mais sobre [Como migrar para o novo Serviço Cognitivo](http://aka.ms/recomigrate)
-
-##Finalidade
-
+## Finalidade
 Este documento mostra o uso da API de Recomendações do Aprendizado de Máquina do Azure por meio de um [aplicativo de exemplo](https://code.msdn.microsoft.com/Recommendations-144df403).
 
 Esse aplicativo não deve incluir a funcionalidade completa nem usa todas as APIs. Ele demonstra algumas operações comuns para executar quando você quiser experimentar o serviço de recomendação do Aprendizado de Máquina pela primeira vez.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##Introdução ao serviço de recomendação do Aprendizado de Máquina
-
+## Introdução ao serviço de recomendação do Aprendizado de Máquina
 As recomendações por meio do serviço de recomendação do Aprendizado de Máquina são habilitadas quando você compila um modelo de recomendação com base nos seguintes dados:
 
 * Um repositório dos itens que você deseja recomendar, também conhecido como um catálogo
@@ -56,18 +55,15 @@ Para habilitar o cenário anterior, faça o seguinte no serviço de recomendaç�
 
 Você normalmente invocará Obter Recomendação por determinado período de tempo. Durante esse período de tempo, você pode redirecionar dados de uso para o sistema de recomendação do Aprendizado de Máquina, que adiciona esses dados ao contêiner do modelo especificado. Quando tiver dados de uso suficientes, você poderá criar um novo modelo de recomendação que incorpora os dados de uso adicionais.
 
-##Pré-requisitos
-
+## Pré-requisitos
 * Visual Studio 2013
 * Acesso à Internet
 * Assinatura da API de Recomendações (https://datamarket.azure.com/dataset/amla/recommendations).
 
-##Solução de aplicativo de exemplo do Aprendizado de Máquina do Azure
-
+## Solução de aplicativo de exemplo do Aprendizado de Máquina do Azure
 Essa solução contém o código-fonte, um exemplo de uso, o arquivo de catálogo e diretivas para baixar os pacotes que são necessários para a compilação.
 
-##As APIs usadas
-
+## As APIs usadas
 O aplicativo usa a funcionalidade de recomendação do Aprendizado de Máquina por meio de um subconjunto de APIs disponíveis. As seguintes APIs são demonstradas no aplicativo:
 
 * Criar o modelo: crie um contêiner lógico para armazenar dados e modelos de recomendação. Um modelo é identificado por um nome, e você não pode criar mais de um modelo com o mesmo nome.
@@ -83,13 +79,11 @@ Para obter uma descrição completa das APIs, consulte a documentação do Micro
 **Observação**: um modelo pode ter várias compilações ao longo do tempo (não simultaneamente). Cada compilação é criada com o mesmo catálogo ou um catálogo atualizado e dados de uso adicionais.
 
 ## Armadilhas comuns
-
 * Você precisa fornecer seu nome de usuário e sua chave de conta principal do Microsoft Azure Marketplace para executar o aplicativo de exemplo.
 * A execução consecutiva do aplicativo de exemplo falhará. O fluxo de aplicativo inclui criar, carregar, compilar o monitor e obter recomendações de um modelo predefinido. Portanto, haverá falha na execução consecutiva se você não alterar o nome do modelo entre invocações.
 * Recomendações podem ser retornadas sem dados. O aplicativo de exemplo usa um arquivo de catálogo e uso muito pequeno. Portanto, alguns itens do catálogo não terão itens recomendados.
 
 ## Isenção de responsabilidade
 O aplicativo de exemplo não se destina a ser executado em um ambiente de produção. Os dados fornecidos no catálogo são muito pequenos e não fornecerão um modelo de recomendação significativo. Os dados são fornecidos como uma demonstração.
- 
 
 <!---HONumber=AcomDC_0914_2016-->

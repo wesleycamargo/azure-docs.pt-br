@@ -1,6 +1,6 @@
 <a name="tellmecs"></a>
-## Fale-me sobre os serviços de nuvem
 
+## Fale-me sobre os serviços de nuvem
 Os Serviços de Nuvem é um exemplo de PaaS (Plataforma como Serviço). Como o [Serviço de Aplicativo](../articles/app-service-web/app-service-web-overview.md), essa tecnologia foi desenvolvida para oferecer suporte a aplicativos escalonáveis, confiáveis e baratos. Assim como o Serviço de Aplicativo é hospedado em VMs, os Serviços de Nuvem também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software nas VMs do Serviço de Nuvem e controlá-los remotamente.
 
 ![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)

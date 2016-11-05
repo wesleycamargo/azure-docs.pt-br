@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Configurar O IIS Express para teste de serviço móvel local | Serviços Móveis do Azure"
-	description="Saiba como configurar o IIS Express para permitir conexões com um projeto de serviço móvel local para testes."
-	authors="ggailey777"
-	manager="dwrede"
-	services="mobile-services"
-	documentationCenter=""
-	editor=""/>
+---
+title: Configurar O IIS Express para teste de serviço móvel local | Microsoft Docs
+description: Saiba como configurar o IIS Express para permitir conexões com um projeto de serviço móvel local para testes.
+author: ggailey777
+manager: dwrede
+services: mobile-services
+documentationcenter: ''
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
+---
 # Configurar o servidor web local para permitir conexões a um Serviço Móvel local
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 &nbsp;
 
@@ -26,6 +25,6 @@ Os Serviços Móveis do Azure permitem criar seu Serviço Móvel no Visual Studi
 
 Para testar um serviço móvel localmente com clientes que executam em um emulador, máquina virtual ou em uma estação de trabalho separada, você precisa configurar o servidor Web local e o computador host para permitir conexões ao endereço IP e à porta da estação de trabalho. Este tópico mostra como configurar o IIS Express para habilitar conexões ao serviço móvel hospedado localmente.
 
-[AZURE.INCLUDE [mobile-services-how-to-configure-iis-express](../../includes/mobile-services-how-to-configure-iis-express.md)]
+[!INCLUDE [mobile-services-how-to-configure-iis-express](../../includes/mobile-services-how-to-configure-iis-express.md)]
 
 <!---HONumber=AcomDC_0727_2016-->

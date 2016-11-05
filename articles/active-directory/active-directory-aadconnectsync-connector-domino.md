@@ -1,28 +1,27 @@
-<properties
-   pageTitle="Conector Lotus Domino | Microsoft Azure"
-   description="Este artigo descreve como configurar o conector Lotus Domino da Microsoft."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: Conector Lotus Domino | Microsoft Docs
+description: Este artigo descreve como configurar o conector Lotus Domino da Microsoft.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="08/30/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: billmath
 
-
+---
 # <a name="lotus-domino-connector-technical-reference"></a>Referência técnica do conector Lotus Domino
 Este artigo descreve o conector Lotus Domino. O artigo se aplica aos seguintes produtos:
 
-- Microsoft Identity Manager 2016 (MIM2016)
-- Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   É necessário usar o hotfix 4.1.3671.0 ou posterior [KB3092178](https://support.microsoft.com/kb/3092178).
+* Microsoft Identity Manager 2016 (MIM2016)
+* Forefront Identity Manager 2010 R2 (FIM2010R2)
+  * É necessário usar o hotfix 4.1.3671.0 ou posterior [KB3092178](https://support.microsoft.com/kb/3092178).
 
 Para MIM2016 e FIM2010R2, o conector está disponível para download no [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -31,56 +30,56 @@ O conector Lotus Domino permite integrar o serviço de sincronização ao servid
 
 Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na versão atual do conector:
 
-Recurso | Suporte
---- | ---
-Fonte de dados conectada | Servidor:  <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Notes 9.x</li>
-Cenários | <li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senha</li>
-Operações | <li>Importação completa e Delta</li><li>Exportação</li><li>Definir e alterar a senha em senha HTTP</li>
-Esquema | <li>Pessoa (Roaming do usuário, Contato (pessoas sem certificado))</li><li>Agrupar</li><li>Recurso (Recurso, Reunião online, Sala)</li><li>Banco de dados Entrada de Email</li><li>Descoberta dinâmica de atributos para objetos com suporte</li>
+| Recurso | Suporte |
+| --- | --- |
+| Fonte de dados conectada |Servidor:  <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Notes 9.x</li> |
+| Cenários |<li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senha</li> |
+| Operações |<li>Importação completa e Delta</li><li>Exportação</li><li>Definir e alterar a senha em senha HTTP</li> |
+| Esquema |<li>Pessoa (Roaming do usuário, Contato (pessoas sem certificado))</li><li>Agrupar</li><li>Recurso (Recurso, Reunião online, Sala)</li><li>Banco de dados Entrada de Email</li><li>Descoberta dinâmica de atributos para objetos com suporte</li> |
 
 O conector Lotus Domino usa o cliente Lotus Notes para se comunicar com o servidor Lotus Domino. Como consequência dessa dependência, um cliente Lotus Notes compatível deve ser instalado no servidor de sincronização. A comunicação entre o cliente e o servidor é implementada por meio da interface de interoperabilidade do .NET do Lotus Notes (Interop.domino.dll). Essa interface facilita a comunicação entre o cliente Lotus Notes e a plataforma Microsoft.NET, além de oferecer suporte ao acesso a documentos e exibições do Lotus Domino. Na importação delta, também é possível que a interface nativa C++ seja usada (dependendo do método de importação delta selecionado).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
 
-- Microsoft .NET 4.5.2 Framework ou posterior
-- O cliente Lotus Notes deve estar instalado no servidor de sincronização
-- O conector Lotus Domino requer que o banco de dados do esquema LDAP do Lotus Domino padrão (schema.nsf) esteja presente no servidor do diretório Domino. Se não estiver, você poderá instalá-lo executando ou reiniciando o serviço LDAP no servidor Domino.
+* Microsoft .NET 4.5.2 Framework ou posterior
+* O cliente Lotus Notes deve estar instalado no servidor de sincronização
+* O conector Lotus Domino requer que o banco de dados do esquema LDAP do Lotus Domino padrão (schema.nsf) esteja presente no servidor do diretório Domino. Se não estiver, você poderá instalá-lo executando ou reiniciando o serviço LDAP no servidor Domino.
 
 ### <a name="connected-data-source-permissions"></a>Permissões da fonte de dados conectada
 Para executar qualquer uma das tarefas com suporte no conector Lotus Domino, você deve ser um membro dos seguintes grupos:
 
-- Administradores com acesso completo
-- Administradores
-- Administradores de banco de dados
+* Administradores com acesso completo
+* Administradores
+* Administradores de banco de dados
 
 A tabela a seguir lista as permissões que são necessárias para cada operação:
 
-Operação | Direitos de acesso
---- | ---
-Importar | <li>Ler documentos públicos</li><li> Administrador com acesso completo (como membro do grupo Administradores de acesso completo, você tem automaticamente o acesso efetivo na ACL).</li>
-Exportar e definir senha | Acesso efetivo:  <li>Criar documentos</li><li>Excluir documentos</li><li>Ler documentos públicos</li><li>Gravar documentos públicos</li><li>Replicar ou copiar documentos</li>Para operações de exportação, você também precisa das seguintes funções: <li>CreateResource</li><li>GroupCreator</li><li>GroupModifier</li><li>UserCreator</li><li>UserModifier</li>
+| Operação | Direitos de acesso |
+| --- | --- |
+| Importar |<li>Ler documentos públicos</li><li> Administrador com acesso completo (como membro do grupo Administradores de acesso completo, você tem automaticamente o acesso efetivo na ACL).</li> |
+| Exportar e definir senha |Acesso efetivo:  <li>Criar documentos</li><li>Excluir documentos</li><li>Ler documentos públicos</li><li>Gravar documentos públicos</li><li>Replicar ou copiar documentos</li>Para operações de exportação, você também precisa das seguintes funções: <li>CreateResource</li><li>GroupCreator</li><li>GroupModifier</li><li>UserCreator</li><li>UserModifier</li> |
 
 ### <a name="direct-operations-and-adminp"></a>Operações diretas e AdminP
 As operações vão diretamente para o diretório Domino ou passam pelo processo AdminP. As tabelas a seguir listam todos os objetos com suporte, operações e, se aplicável, o método de implementação relacionado:
 
 **Catálogo de endereços principal**
 
-Objeto | Criação | Atualização | Exclusão
---- | --- | --- | ---
-Pessoa | AdminP | Direta | AdminP
-Agrupar | AdminP | Direta | AdminP
-MailInDB | Direta | Direta | Direta
-Recurso | AdminP | Direta | AdminP
+| Objeto | Criação | Atualização | Exclusão |
+| --- | --- | --- | --- |
+| Pessoa |AdminP |Direta |AdminP |
+| Agrupar |AdminP |Direta |AdminP |
+| MailInDB |Direta |Direta |Direta |
+| Recurso |AdminP |Direta |AdminP |
 
 **Catálogo de endereços secundário**
 
-Objeto | Criação | Atualização | Exclusão
---- | --- | --- | ---
-Pessoa | N/D | Direta | Direta
-Agrupar | Direta | Direta | Direta
-MailInDB | Direta | Direta | Direta
-Recurso | N/D | N/D | N/D
+| Objeto | Criação | Atualização | Exclusão |
+| --- | --- | --- | --- |
+| Pessoa |N/D |Direta |Direta |
+| Agrupar |Direta |Direta |Direta |
+| MailInDB |Direta |Direta |Direta |
+| Recurso |N/D |N/D |N/D |
 
 Quando um recurso é criado, um documento do Notes é criado. Da mesma forma, quando um recurso é excluído, o documento é excluído.
 
@@ -90,10 +89,9 @@ O cliente IBM Lotus Notes e os servidores Domino se comunicam usando a NRPC (Cha
 ### <a name="not-supported"></a>Sem suporte
 As operações a seguir não têm suporte da versão atual do conector Lotus Domino:
 
-- Mover caixa de correio entre servidores.
+* Mover caixa de correio entre servidores.
 
 ## <a name="create-a-new-connector"></a>Criar um novo conector
-
 ### <a name="client-software-installation-and-configuration"></a>Instalação e configuração do software cliente
 O Lotus Notes deve ser instalado no servidor **antes** de o conector ser instalado.
 
@@ -117,8 +115,8 @@ Na página Conectividade, é preciso especificar o nome do servidor Lotus Domino
 
 A propriedade Domino Server oferece suporte a dois formatos de nome de servidor:
 
-- ServerName
-- ServerName/DirectoryName
+* ServerName
+* ServerName/DirectoryName
 
 O **ServerName/DirectoryName** é o formato preferencial para esse atributo, pois ele fornece uma resposta mais rápida quando o conector contata o servidor Domino.
 
@@ -126,14 +124,14 @@ O arquivo UserID fornecido é armazenado no banco de dados de configuração do 
 
 Na **Importação Delta** , você tem estas opções:
 
-- **Nenhum**. O conector não faz importações delta.
-- **Adicionar/Atualizar**. O conector vai adicionar importação delta e atualizar as operações. Para excluir, é necessária uma operação **Importação Completa** . Essa operação está usando a interoperabilidade .Net.
-- **Adicionar/Atualizar/Excluir**. O conector adiciona, atualiza e exclui operações de importação delta. Essa operação está usando as interfaces C++ nativas.
+* **Nenhum**. O conector não faz importações delta.
+* **Adicionar/Atualizar**. O conector vai adicionar importação delta e atualizar as operações. Para excluir, é necessária uma operação **Importação Completa** . Essa operação está usando a interoperabilidade .Net.
+* **Adicionar/Atualizar/Excluir**. O conector adiciona, atualiza e exclui operações de importação delta. Essa operação está usando as interfaces C++ nativas.
 
 Em **Opções do Esquema** , você tem as seguintes opções:
 
-- **Esquema Padrão**. O conector detecta o esquema do servidor Domino. Essa é a opção padrão.
-- **Esquema DSML**. Usado somente se o servidor Domino não expuser o esquema. Desse modo, você pode criar um arquivo DSML com o esquema e importá-lo. Para obter mais informações sobre o DSML, confira [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
+* **Esquema Padrão**. O conector detecta o esquema do servidor Domino. Essa é a opção padrão.
+* **Esquema DSML**. Usado somente se o servidor Domino não expuser o esquema. Desse modo, você pode criar um arquivo DSML com o esquema e importá-lo. Para obter mais informações sobre o DSML, confira [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
 
 Quando você clica em Avançar, os parâmetros de configuração de senha UserID são verificados.
 
@@ -148,8 +146,8 @@ Essa opção de configuração é necessária para oferecer suporte às operaç�
 #### <a name="import-settings,-method"></a>Configurações de importação, método
 O recurso **Executar Importação Completa por** possui as seguintes opções:
 
-- Pesquisar
-- Exibição (Recomendado)
+* Pesquisar
+* Exibição (Recomendado)
 
 **Pesquisa** está usando indexação no Domino, mas é comum que os índices não sejam atualizados em tempo real e os dados retornados do servidor nem sempre estejam corretos. Em um sistema com muitas alterações, essa opção geralmente não funciona bem e fornece exclusões falsas em algumas situações. No entanto, a **pesquisa** é mais rápida que a **exibição**.
 
@@ -158,9 +156,9 @@ O recurso **Executar Importação Completa por** possui as seguintes opções:
 #### <a name="creation-of-virtual-contact-objects"></a>Criação de objetos Contato Virtual
 O recurso **Habilitar criação do \_objeto Contact** tem as seguintes opções:
 
-- Nenhum
-- Valores de Não Referência
-- Valores de Referência e Não Referência
+* Nenhum
+* Valores de Não Referência
+* Valores de Referência e Não Referência
 
 No Domino, os atributos de referência podem conter muitos formatos diferentes para fazer referência a outros objetos. Para poder representar variações diferentes, o conector implementa objetos \_Contact, também conhecidos como VC **(Contatos Virtuais)**. Esses objetos são criados para que possam ingressar em objetos existentes de MV ou projetados como novos objetos. Dessa forma, as referências de atributo podem ser preservadas.
 
@@ -194,38 +192,38 @@ Muitos atributos no Lotus Domino têm vários valores. Os atributos do metaverso
 **Exportarar**  
  A opção de operação Exportar é compatível com dois modos:
 
-- Acrescentar item
-- Substituir item
+* Acrescentar item
+* Substituir item
 
 **Substituir Item** : quando você seleciona essa opção, o conector sempre remove os valores atuais do atributo no Domino e os substitui pelos valores fornecidos. O atributo com valor fornecido pode ter um valor único ou vários valores.
 
 Exemplo: o atributo Assistente de um objeto de pessoa tem os seguintes valores:
 
-- CN=Vinicius Monte/OU=Contoso/O=Americas,NAB=names.nsf
-- CN=Paulo Araújo/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Vinicius Monte/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Paulo Araújo/OU=Contoso/O=Americas,NAB=names.nsf
 
 Se um novo Assistente chamado **Pedro Gonçalves** for atribuído a esse objeto de pessoa, o resultado será:
 
-- CN=Pedro Gonçalves/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Pedro Gonçalves/OU=Contoso/O=Americas,NAB=names.nsf
 
 **Acrescentar Item** : quando você seleciona essa opção, o conector mantém os valores existentes no atributo no Domino e insere novos valores no topo da lista de dados.
 
 Exemplo: o atributo Assistente de um objeto de pessoa tem os seguintes valores:
 
-- CN=Vinicius Monte/OU=Contoso/O=Americas,NAB=names.nsf
-- CN=Paulo Araújo/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Vinicius Monte/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Paulo Araújo/OU=Contoso/O=Americas,NAB=names.nsf
 
 Se um novo Assistente chamado **Pedro Gonçalves** for atribuído a esse objeto de pessoa, o resultado será:
 
-- CN=Pedro Gonçalves/OU=Contoso/O=Americas,NAB=names.nsf
-- CN=Vinicius Monte/OU=Contoso/O=Americas,NAB=names.nsf
-- CN=Paulo Araújo/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Pedro Gonçalves/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Vinicius Monte/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Paulo Araújo/OU=Contoso/O=Americas,NAB=names.nsf
 
 **Importarar**  
  A opção de operação Importar é compatível com dois modos:
 
-- Padrão
-- Múltiplos Valores para Valor Único
+* Padrão
+* Múltiplos Valores para Valor Único
 
 **Padrão** : quando você seleciona a opção Padrão, todos os valores de todos os atributos são importados.
 
@@ -233,9 +231,9 @@ Se um novo Assistente chamado **Pedro Gonçalves** for atribuído a esse objeto 
 
 Exemplo: o atributo Assistente de um objeto de pessoa tem os seguintes valores:
 
-- CN=Pedro Gonçalves/OU=Contoso/O=Americas,NAB=names.nsf
-- CN=Vinicius Monte/OU=Contoso/O=Americas,NAB=names.nsf
-- CN=Paulo Araújo/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Pedro Gonçalves/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Vinicius Monte/OU=Contoso/O=Americas,NAB=names.nsf
+* CN=Paulo Araújo/OU=Contoso/O=Americas,NAB=names.nsf
 
 A atualização mais recente para esse atributo é **Pedro Gonçalves**. Como a opção de operação Importar é definida como Múltiplos Valores para Valor Único, o conector importa apenas **Pedro Gonçalves** no espaço do conector.
 
@@ -269,43 +267,43 @@ Esta seção apresenta uma visão geral dos diferentes objetos no Domino.
 ### <a name="person-objects"></a>Objetos de pessoa
 O objeto de pessoa representa usuários na Organização e nas Unidades Organizacionais. Além dos atributos padrão, o administrador do Domino pode adicionar atributos personalizados a um objeto Person. No mínimo, um objeto Person deve incluir todos os atributos obrigatórios. Para obter uma lista completa de atributos obrigatórios, confira [Propriedades do Lotus Notes](#lotus-notes-properties). Para registrar um objeto de pessoa, os seguintes pré-requisitos devem ser atendidos:
 
-- O catálogo de endereços (names.nsf) deve ter sido definido e deve ser o catálogo de endereços principal.
-- Você deve ter a ID do certificador da O/UO e a senha para registrar um usuário específico na Organização/Unidade Organizacional.
-- É preciso definir um conjunto específico de propriedades do Lotus Notes para um objeto de pessoa. Essas propriedades são usadas para provisionar o objeto de pessoa. Para obter mais detalhes, confira a seção chamada [Propriedades do Lotus Notes](#lotus-notes-properties) mais adiante neste documento.
-- A senha HTTP inicial para uma pessoa é um atributo e definido durante o provisionamento.
-- O objeto de pessoa deve ser um destes três tipos com suporte:
-    1. Usuário Normal que tenha um arquivo de email e um arquivo de id de usuário
-    2. Usuário móvel (um Usuário Normal que inclua todos os arquivos de banco de dados móvel)
-    3. Contatos (usuário sem arquivo de id)
+* O catálogo de endereços (names.nsf) deve ter sido definido e deve ser o catálogo de endereços principal.
+* Você deve ter a ID do certificador da O/UO e a senha para registrar um usuário específico na Organização/Unidade Organizacional.
+* É preciso definir um conjunto específico de propriedades do Lotus Notes para um objeto de pessoa. Essas propriedades são usadas para provisionar o objeto de pessoa. Para obter mais detalhes, confira a seção chamada [Propriedades do Lotus Notes](#lotus-notes-properties) mais adiante neste documento.
+* A senha HTTP inicial para uma pessoa é um atributo e definido durante o provisionamento.
+* O objeto de pessoa deve ser um destes três tipos com suporte:
+  1. Usuário Normal que tenha um arquivo de email e um arquivo de id de usuário
+  2. Usuário móvel (um Usuário Normal que inclua todos os arquivos de banco de dados móvel)
+  3. Contatos (usuário sem arquivo de id)
 
 As pessoas (exceto contatos) ainda podem ser agrupadas em Usuários dos EUA e Usuários Internacionais, conforme definido pelo valor da propriedade \_MMS\_IDRegType. Essas pessoas usam o cliente Notes para acessar servidores Lotus Domino que têm uma ID do Notes e um documento Person. Se estiverem usando o email do Notes, eles também terão um arquivo de email. O usuário deve ser registrado para se tornar ativo. Para obter mais informações, consulte:
 
-- [Setting up Notes users](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_SETTING_UP_NOTES_USERS.html)
-- [User Registration](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_REGISTERING_USERS.html)
-- [Managing users](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_MANAGING_USERS_5151.html)
-- [Renaming users](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_RENAMING_A_USER_AUTOMATICALLY.html)
+* [Setting up Notes users](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_SETTING_UP_NOTES_USERS.html)
+* [User Registration](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_REGISTERING_USERS.html)
+* [Managing users](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_MANAGING_USERS_5151.html)
+* [Renaming users](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_RENAMING_A_USER_AUTOMATICALLY.html)
 
 Todas essas operações são executadas no Lotus Domino e importadas no serviço de sincronização.
 
 ### <a name="resources-and-rooms"></a>Recursos e salas
 Um Recurso é outro tipo de banco de dados do Lotus Domino. Os Recursos podem ser salas de conferência com vários tipos de equipamento, como projetores. Há subtipos de recurso que têm suporte do conector Lotus Domino, que são definidos com base no atributo Tipo de Recurso:
 
-Tipo de recurso | Atributo Tipo de Recurso
---- | ---
-Sala | 1
-Recurso (Outros) | 2
-Reunião Online | 3
+| Tipo de recurso | Atributo Tipo de Recurso |
+| --- | --- |
+| Sala |1 |
+| Recurso (Outros) |2 |
+| Reunião Online |3 |
 
 Para que o tipo de objeto Recurso funcione, os seguintes itens são obrigatórios:
 
-- O banco de dados Reserva de Recursos já deve existir no servidor Domino conectado
-- O site já deve estar definido para o Recurso
+* O banco de dados Reserva de Recursos já deve existir no servidor Domino conectado
+* O site já deve estar definido para o Recurso
 
 O banco de dados Reserva de Recursos contém três tipos de documento:
 
-- Perfil do Site
-- Recurso
-- Reserva
+* Perfil do Site
+* Recurso
+* Reserva
 
 Para obter mais detalhes sobre a configuração do banco de dados Reserva de Recursos, confira [Setting up the Resource Reservations database](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html)(Configurando o banco de dados Reservas de Recursos).
 
@@ -329,11 +327,11 @@ Para criar um banco de dados de Entrada de Email, o banco de dados já deve exis
 ### <a name="group-management"></a>Gerenciamento de grupos
 Você pode obter uma visão geral detalhada do gerenciamento de grupos do Lotus Domino nos seguintes recursos:
 
-- [Using groups](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_USING_GROUPS_OVER.html)
-- [Creating a group](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_CREATING_AND_MODIFYING_GROUPS_STEPS_MIDTOPIC_55038956829238418.html)
-- [Creating and modifying groups](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_CREATING_AND_MODIFYING_GROUPS_STEPS.html)
-- [Managing groups](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_MANAGING_GROUPS_1804.html)
-- [Renaming a group](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_RENAMING_A_GROUP_STEPS.html)
+* [Using groups](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_USING_GROUPS_OVER.html)
+* [Creating a group](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_CREATING_AND_MODIFYING_GROUPS_STEPS_MIDTOPIC_55038956829238418.html)
+* [Creating and modifying groups](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_CREATING_AND_MODIFYING_GROUPS_STEPS.html)
+* [Managing groups](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_MANAGING_GROUPS_1804.html)
+* [Renaming a group](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_RENAMING_A_GROUP_STEPS.html)
 
 ### <a name="password-management"></a>Gerenciamento de senha
 Para um usuário registrado do Lotus Domino, existem dois tipos de senha:
@@ -348,13 +346,13 @@ Para executar o gerenciamento de senha, você deve habilitá-lo para o conector 
 
 O conector Lotus Domino oferece suporte às seguintes operações em Senha da Internet:
 
-- Definir Senha: defina uma nova senha de HTTP/Internet no usuário, no Domino. Por padrão, a conta também é desbloqueada. O sinalizador de desbloqueio é exposto na interface do WMI do Mecanismo de Sincronização.
-- Alterar Senha: nesse cenário, um usuário poderá alterar a senha ou será solicitado a alterar a senha após um tempo especificado. Para que essa operação ocorra, ambas (a senha antiga e nova) são obrigatórias. Depois de alterada, a nova senha é atualizada no Lotus Domino.
+* Definir Senha: defina uma nova senha de HTTP/Internet no usuário, no Domino. Por padrão, a conta também é desbloqueada. O sinalizador de desbloqueio é exposto na interface do WMI do Mecanismo de Sincronização.
+* Alterar Senha: nesse cenário, um usuário poderá alterar a senha ou será solicitado a alterar a senha após um tempo especificado. Para que essa operação ocorra, ambas (a senha antiga e nova) são obrigatórias. Depois de alterada, a nova senha é atualizada no Lotus Domino.
 
 Para obter mais informações, consulte:
 
-- [Using the Internet lockout feature](http://www.ibm.com/developerworks/lotus/library/domino8-lockout/)
-- [Managing Internet passwords](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_NOTES_AND_INTERNET_PASSWORD_SYNCHRONIZATION_7570_OVER.html)
+* [Using the Internet lockout feature](http://www.ibm.com/developerworks/lotus/library/domino8-lockout/)
+* [Managing Internet passwords](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_NOTES_AND_INTERNET_PASSWORD_SYNCHRONIZATION_7570_OVER.html)
 
 ## <a name="reference-information"></a>Informações de referência
 Esta seção lista as descrições de atributo e os requisitos de atributo para o conector Lotus Domino.
@@ -364,29 +362,29 @@ Quando você provisiona objetos Person para seu diretório Lotus Domino, seus ob
 
 A tabela a seguir lista essas propriedades e fornece uma descrição delas.
 
-Propriedade | Descrição
---- | ---
-\_MMS_AltFullName | O nome completo alternativo do usuário.
-\_MMS_AltFullNameLanguage | O idioma a ser usado para especificar o nome completo alternativo do usuário.
-\_MMS_CertDaysToExpire | O número de dias a partir da data atual para expiração do certificado. Se não for especificado, a data padrão será de dois anos a partir da data atual.
-\_MMS_Certifier | A propriedade que contém o nome da hierarquia organizacional do certificador. Por exemplo: OU=OrganizationUnit,O=Org,C=Country.
-\_MMS_IDPath | Se a propriedade estiver vazia, nenhum arquivo de identificação do usuário será criado localmente no Servidor de Sincronização. Se a propriedade contiver um nome de arquivo, um arquivo de ID de usuário será criado na pasta de metadados. A propriedade também pode conter um caminho completo.
-\__MMS_IDRegType | As pessoas podem ser classificadas como contatos, Usuários dos EUA e Usuários internacionais. A tabela a seguir lista os valores possíveis:  <li>0 - Contato</li><li>1 - Usuário dos EUA</li><li>2 - Usuário internacional</li>
-\_MMS_IDStoreType | Propriedade necessária para os usuários dos EUA e internacionais. A propriedade contém um valor inteiro que especifica se a identificação do usuário é armazenada como um anexo no catálogo de endereços do Notes ou no arquivo de email da pessoa. Se o arquivo ID do Usuário for um anexo no catálogo de endereços, como opção, ele poderá ser criado como um arquivo com \_MMS_IDPath. <li>Vazio — arquivo de ID do repositório no Cofre de ID, nenhum arquivo de identificação (usado para Contatos).</li><li>  1 - Anexo no catálogo de endereços do Notes. A propriedade \_MMS_Password deve ser definida para os arquivos de identificação de usuário anexados</li><li>2 - ID do repositório no arquivo de email da pessoa. O \_MMS_UseAdminP deve ser definido como falso para permitir que o arquivo de email seja criado durante o registro de Pessoa. A propriedade \_MMS_Password deve ser definida para os arquivos de identificação de usuário.</li>
-\_MMS_MailQuotaSizeLimit | O número de megabytes que são permitidos para o banco de dados do arquivo de email.
-\_MMS_MailQuotaWarningThreshold | O número de megabytes que são permitidos para o banco de dados do arquivo de email antes de um aviso ser emitido.
-\_MMS_MailTemplateName | O arquivo de modelo de email que é usado para criar o arquivo de email do usuário. Se um modelo for especificado, o arquivo de email será criado usando o modelo especificado. Se nenhum modelo for especificado, o arquivo de modelo padrão será usado para criar o arquivo.
-\_MMS_OU | A propriedade opcional que é o nome da UO sob o certificador. Essa propriedade deve estar vazia para os contatos.
-\_MMS_Password | A propriedade necessária para os usuários. A propriedade contém a senha para o arquivo de identificação do objeto.
-\_MMS_UseAdminP | A propriedade deve ser definida como true se o arquivo de email deve ser criado pelo processo AdminP no servidor Domino (assíncrono para o processo de exportação). Se a propriedade for definida como falsa, o arquivo de email será criado com o usuário Domino (síncrono no processo de exportação).
+| Propriedade | Descrição |
+| --- | --- |
+| \_MMS_AltFullName |O nome completo alternativo do usuário. |
+| \_MMS_AltFullNameLanguage |O idioma a ser usado para especificar o nome completo alternativo do usuário. |
+| \_MMS_CertDaysToExpire |O número de dias a partir da data atual para expiração do certificado. Se não for especificado, a data padrão será de dois anos a partir da data atual. |
+| \_MMS_Certifier |A propriedade que contém o nome da hierarquia organizacional do certificador. Por exemplo: OU=OrganizationUnit,O=Org,C=Country. |
+| \_MMS_IDPath |Se a propriedade estiver vazia, nenhum arquivo de identificação do usuário será criado localmente no Servidor de Sincronização. Se a propriedade contiver um nome de arquivo, um arquivo de ID de usuário será criado na pasta de metadados. A propriedade também pode conter um caminho completo. |
+| \__MMS_IDRegType |As pessoas podem ser classificadas como contatos, Usuários dos EUA e Usuários internacionais. A tabela a seguir lista os valores possíveis:  <li>0 - Contato</li><li>1 - Usuário dos EUA</li><li>2 - Usuário internacional</li> |
+| \_MMS_IDStoreType |Propriedade necessária para os usuários dos EUA e internacionais. A propriedade contém um valor inteiro que especifica se a identificação do usuário é armazenada como um anexo no catálogo de endereços do Notes ou no arquivo de email da pessoa. Se o arquivo ID do Usuário for um anexo no catálogo de endereços, como opção, ele poderá ser criado como um arquivo com \_MMS_IDPath. <li>Vazio — arquivo de ID do repositório no Cofre de ID, nenhum arquivo de identificação (usado para Contatos).</li><li>  1 - Anexo no catálogo de endereços do Notes. A propriedade \_MMS_Password deve ser definida para os arquivos de identificação de usuário anexados</li><li>2 - ID do repositório no arquivo de email da pessoa. O \_MMS_UseAdminP deve ser definido como falso para permitir que o arquivo de email seja criado durante o registro de Pessoa. A propriedade \_MMS_Password deve ser definida para os arquivos de identificação de usuário.</li> |
+| \_MMS_MailQuotaSizeLimit |O número de megabytes que são permitidos para o banco de dados do arquivo de email. |
+| \_MMS_MailQuotaWarningThreshold |O número de megabytes que são permitidos para o banco de dados do arquivo de email antes de um aviso ser emitido. |
+| \_MMS_MailTemplateName |O arquivo de modelo de email que é usado para criar o arquivo de email do usuário. Se um modelo for especificado, o arquivo de email será criado usando o modelo especificado. Se nenhum modelo for especificado, o arquivo de modelo padrão será usado para criar o arquivo. |
+| \_MMS_OU |A propriedade opcional que é o nome da UO sob o certificador. Essa propriedade deve estar vazia para os contatos. |
+| \_MMS_Password |A propriedade necessária para os usuários. A propriedade contém a senha para o arquivo de identificação do objeto. |
+| \_MMS_UseAdminP |A propriedade deve ser definida como true se o arquivo de email deve ser criado pelo processo AdminP no servidor Domino (assíncrono para o processo de exportação). Se a propriedade for definida como falsa, o arquivo de email será criado com o usuário Domino (síncrono no processo de exportação). |
 
 Para um usuário com um arquivo de identificação associado, a propriedade \_MMS_Password deve conter um valor. Para acesso de email por meio do cliente Lotus Notes, as propriedades MailServer e MailFile de um usuário devem conter um valor.
 
 Para acessar o email por meio de um navegador da Web, as seguintes propriedades deverão conter valores:
 
-- MailFile - propriedade necessária que contém o caminho no servidor Lotus Domino, onde o arquivo de email está armazenado.
-- MailServer - propriedade necessária que contém o nome do servidor Lotus Domino. Esse valor é o nome a ser usado ao criar o arquivo de email Lotus no servidor Domino.
-- HTTPPassword - propriedade opcional que contém a senha de acesso da Web para o objeto.
+* MailFile - propriedade necessária que contém o caminho no servidor Lotus Domino, onde o arquivo de email está armazenado.
+* MailServer - propriedade necessária que contém o nome do servidor Lotus Domino. Esse valor é o nome a ser usado ao criar o arquivo de email Lotus no servidor Domino.
+* HTTPPassword - propriedade opcional que contém a senha de acesso da Web para o objeto.
 
 Para acessar o servidor Domino sem o recurso de email, a propriedade HTTPPassword deve conter um valor. A propriedade MailFile e a propriedade MailServer podem estar vazias.
 
@@ -395,30 +393,29 @@ Com \_MMS_ IDStoreType = 2 (ID do repositório no arquivo de email), a proprieda
 ### <a name="mandatory-attributes"></a>Atributos obrigatórios
 O conector Lotus Domino é compatível basicamente com esses tipos de objeto (tipos de documento):
 
-- Agrupar
-- Banco de dados Entrada de Email
-- Pessoa
-- Contato (Indivíduo sem certificador)
-- Recurso
+* Agrupar
+* Banco de dados Entrada de Email
+* Pessoa
+* Contato (Indivíduo sem certificador)
+* Recurso
 
 Esta seção lista os atributos que são obrigatórios para cada tipo de objeto com suporte para exportar para um servidor Domino.
 
-Tipo de objeto | Atributos obrigatórios
---- | ---
-Agrupar | <li>ListName</li>
-Banco de dados de Entrada de Email | <li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li>
-Pessoa | <li>Sobrenome</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\__MMS_IDRegType</li><li>\_MMS_UseAdminP</li>
-Contato (Indivíduo sem certificador) | <li>\__MMS_IDRegType</li>
-Recurso | <li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>displayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li>
+| Tipo de objeto | Atributos obrigatórios |
+| --- | --- |
+| Agrupar |<li>ListName</li> |
+| Banco de dados de Entrada de Email |<li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
+| Pessoa |<li>Sobrenome</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\__MMS_IDRegType</li><li>\_MMS_UseAdminP</li> |
+| Contato (Indivíduo sem certificador) |<li>\__MMS_IDRegType</li> |
+| Recurso |<li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>displayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## <a name="common-issues-and-questions"></a>Problemas e perguntas comuns
-
 ### <a name="schema-detection-does-not-work"></a>Detecção de esquema não funciona
 Para ser capaz de detectar o esquema, é necessário que o arquivo schema.nsf esteja presente no servidor Domino. Esse arquivo aparecerá somente se o LDAP estiver instalado no servidor. Se o esquema não for detectável, verifique o seguinte:
 
-- O arquivo schema.nsf está presente na pasta raiz do servidor Domino
-- O usuário tem permissões para ver o arquivo schema.nsf.
-- Force a reinicialização do servidor LDAP. Abra o **Console do Lotus Domino** e use o comando **Tell LDAP ReloadSchema** para recarregar o esquema.
+* O arquivo schema.nsf está presente na pasta raiz do servidor Domino
+* O usuário tem permissões para ver o arquivo schema.nsf.
+* Force a reinicialização do servidor LDAP. Abra o **Console do Lotus Domino** e use o comando **Tell LDAP ReloadSchema** para recarregar o esquema.
 
 ### <a name="not-all-secondary-address-books-are-visible"></a>Nem todos os catálogos de endereços secundários estão visíveis
 O conector Domino depende do recurso **Directory Assistance** para poder encontrar os catálogos de endereços secundários. Se os catálogos de endereços secundários estiverem ausentes, verifique se o [Directory Assistance](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_DIRECTORY_ASSISTANCE.html) foi habilitado e configurado no servidor Domino.
@@ -430,16 +427,16 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parece um 
 
 1. Crie uma cópia do Modelo do Diretório Domino {PUBNAMES.NTF} seguindo [estas etapas](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (você não deve personalizar o modelo do diretório padrão IBM Lotus Domino):
 2. Abra o modelo do diretório Cópia do Domino {CONTOSO.NTF} que foi criado no Domino Designer e siga estas etapas:
-    - Clique em Elementos Compartilhados e expanda os Subformulários
-    - Clique duas vezes no subformulário ${ObjectName}InheritableSchema (em que {ObjectName} é o nome da classe do objeto estrutural padrão, por exemplo: Person).
-    - Nome do atributo que você deseja adicionar ao esquema {MyPersonAtrribute} e correspondente a esse atributo. Crie um campo ao escolher o menu **Criar** e depois **Campo** no menu.
-    - No campo adicionado, defina suas propriedades escolhendo seu Tipo, Estilo, Tamanho, Fonte e outros parâmetros relacionados na janela Propriedades do campo.
-    - Mantenha o valor Padrão do atributo igual ao nome fornecido para esse atributo (por exemplo, se o nome do atributo for MyPersonAttribute, mantenha o valor padrão com o mesmo nome).
-    - Salve o subformulário ${ObjectName}InheritableSchema com os valores atualizados.
+   * Clique em Elementos Compartilhados e expanda os Subformulários
+   * Clique duas vezes no subformulário ${ObjectName}InheritableSchema (em que {ObjectName} é o nome da classe do objeto estrutural padrão, por exemplo: Person).
+   * Nome do atributo que você deseja adicionar ao esquema {MyPersonAtrribute} e correspondente a esse atributo. Crie um campo ao escolher o menu **Criar** e depois **Campo** no menu.
+   * No campo adicionado, defina suas propriedades escolhendo seu Tipo, Estilo, Tamanho, Fonte e outros parâmetros relacionados na janela Propriedades do campo.
+   * Mantenha o valor Padrão do atributo igual ao nome fornecido para esse atributo (por exemplo, se o nome do atributo for MyPersonAttribute, mantenha o valor padrão com o mesmo nome).
+   * Salve o subformulário ${ObjectName}InheritableSchema com os valores atualizados.
 3. Substitua o Modelo do Diretório Domino {PUBNAMES.NTF} pelo novo modelo personalizado {CONTOSO.NTF} seguindo [estas etapas](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 4. Feche o Admin. do Domino e abra o Console do Domino para reiniciar o serviço LDAP e recarregar o esquema LDAP:
-    - No Console do Domino, insira o comando sob o texto **Comando do Domino** arquivado para reiniciar o serviço LDAP – [Restart Task LDAP]( http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
-    - Para recarregar o esquema LDAP, use o comando Tell LDAP - Tell LDAP ReloadSchema
+   * No Console do Domino, insira o comando sob o texto **Comando do Domino** arquivado para reiniciar o serviço LDAP – [Restart Task LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
+   * Para recarregar o esquema LDAP, use o comando Tell LDAP - Tell LDAP ReloadSchema
 5. Abra o Admin. do Domino e escolha a guia Pessoas e Grupos para ver se o atributo adicionado é refletido em Adicionar Pessoa do Domino.
 6. Abra Schema.nsf na guia **Arquivos** e veja se o atributo adicionado é refletido na classe do objeto LDAP dominoPerson.
 
@@ -450,28 +447,28 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parece um 
 3. No painel esquerdo, selecione o Código Compartilhado e, em seguida, os subformulários.
 4. Clique em Novo Subformulário
 5. Siga as etapas abaixo para especificar as propriedades do novo subformulário:
-    - Com o novo subformulário aberto, escolha Design - Propriedades de Subformulário
-    - Ao lado da propriedade Nome, digite um nome para a classe de objeto auxiliar; por exemplo, TestSubform.
-    - Mantenha marcada a propriedade Opções “Incluir na caixa de diálogo Subformulário de Inserção...”
-    - Desmarque a propriedade Opções "Renderizar HTML de transferência no Notes".
-    - Mantenha as outras propriedades como estão e feche a caixa Propriedades do Subformulário.
-    - Salve e feche o novo subformulário.
+   * Com o novo subformulário aberto, escolha Design - Propriedades de Subformulário
+   * Ao lado da propriedade Nome, digite um nome para a classe de objeto auxiliar; por exemplo, TestSubform.
+   * Mantenha marcada a propriedade Opções “Incluir na caixa de diálogo Subformulário de Inserção...”
+   * Desmarque a propriedade Opções "Renderizar HTML de transferência no Notes".
+   * Mantenha as outras propriedades como estão e feche a caixa Propriedades do Subformulário.
+   * Salve e feche o novo subformulário.
 6. Siga o procedimento abaixo para adicionar um campo e definir a classe de objeto auxiliar:
-    - Abra o subformulário que você criou.
-    - Escolha Criar - Campo.
-    - Ao lado de Nome na guia Básico da caixa de diálogo Campo, especifique qualquer nome, por exemplo: {MyPersonTestAttribute}.
-    - No campo adicionado, defina suas propriedades escolhendo seu Tipo, Estilo, Tamanho, Fonte e outras propriedades relacionadas.
-    - Mantenha o valor Padrão do atributo igual ao nome fornecido para esse atributo (por exemplo, se o nome do atributo for MyPersonTestAttribute, mantenha o valor padrão com o mesmo nome).
-    - Salve o subformulário com valores atualizados e siga este procedimento:
-        - No painel esquerdo, selecione o Código Compartilhado e, em seguida, Subformulários.
-        - Selecione o novo subformulário e escolha Design - Propriedades de Design.
-        - Clique na terceira guia da esquerda e selecione **Propagar essa proibição de alteração de design**.
+   * Abra o subformulário que você criou.
+   * Escolha Criar - Campo.
+   * Ao lado de Nome na guia Básico da caixa de diálogo Campo, especifique qualquer nome, por exemplo: {MyPersonTestAttribute}.
+   * No campo adicionado, defina suas propriedades escolhendo seu Tipo, Estilo, Tamanho, Fonte e outras propriedades relacionadas.
+   * Mantenha o valor Padrão do atributo igual ao nome fornecido para esse atributo (por exemplo, se o nome do atributo for MyPersonTestAttribute, mantenha o valor padrão com o mesmo nome).
+   * Salve o subformulário com valores atualizados e siga este procedimento:
+     * No painel esquerdo, selecione o Código Compartilhado e, em seguida, Subformulários.
+     * Selecione o novo subformulário e escolha Design - Propriedades de Design.
+     * Clique na terceira guia da esquerda e selecione **Propagar essa proibição de alteração de design**.
 7. Abra o subformulário ${ObjectName}ExtensibleSchema, (em que {ObjectName} é o nome da classe de objeto estrutural padrão, por exemplo, Person).
 8. Insira Recurso e escolha o Subformulário (que você criou, por exemplo, TestSubform) e salve o subformulário ${ObjectName}ExtensibleSchema.
 9. Substitua o Modelo do Diretório Domino {PUBNAMES.NTF} pelo novo modelo personalizado {CONTOSO.NTF} seguindo [estas etapas](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 10. Feche o Admin. do Domino e abra o Console do Domino para reiniciar o serviço LDAP e recarregar o esquema LDAP:
-    - No Console do Domino, insira o comando sob o texto **Comando do Domino** arquivado para reiniciar o serviço LDAP – [Restart Task LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
-    - Para recarregar o esquema LDAP, use o comando Tell LDAP **Tell LDAP ReloadSchema**.
+    * No Console do Domino, insira o comando sob o texto **Comando do Domino** arquivado para reiniciar o serviço LDAP – [Restart Task LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
+    * Para recarregar o esquema LDAP, use o comando Tell LDAP **Tell LDAP ReloadSchema**.
 11. Abra o Admin. do Domino e escolha a guia Pessoas e Grupos para ver se o atributo adicionado é refletido em Adicionar Pessoa do Domino (na guia Outros).
 12. Abra Schema.nsf na guia **Arquivos** e veja se o atributo adicionado é refletido sob a classe de objeto auxiliar TestSubform LDAP.
 
@@ -487,10 +484,7 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parece um 
 8. Uma ExtensibleObjectClass é criada para a classe de objeto padrão respectiva com atributos estendidos.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-
--   Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
+* Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,24 +1,23 @@
-<properties
-	pageTitle="O painel do Power BI na Stream Analytics | Microsoft Azure"
-	description="Use um painel de Power BI de transmissão em tempo real para reunir inteligência comercial e analisar grandes volumes de dados de um trabalho de Stream Analytics."
-	keywords="painel de análise, painel em tempo real"
-	services="stream-analytics"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: O painel do Power BI na Stream Analytics | Microsoft Docs
+description: Use um painel de Power BI de transmissão em tempo real para reunir inteligência comercial e analisar grandes volumes de dados de um trabalho de Stream Analytics.
+keywords: painel de análise, painel em tempo real
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="09/26/2016"
-	ms.author="jeffstok"/>
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 09/26/2016
+ms.author: jeffstok
 
-#  Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming
-
+---
+# Stream Analytics e Power BI: Um painel de análise em tempo real para dados de streaming
 A Stream Analytics do Azure permite aproveitar uma das principais ferramentas de business intelligence, o Microsoft Power BI. Saiba como usar a Stream Analytics do Azure para analisar grandes volumes, dados de streaming e obter insight em um painel de análise do Power BI em tempo real.
 
 Use o [Microsoft Power BI](https://powerbi.com/) para criar um painel dinâmico rapidamente. [Assista a um vídeo que ilustra o cenário](https://www.youtube.com/watch?v=SGUpT-a99MA).
@@ -26,13 +25,11 @@ Use o [Microsoft Power BI](https://powerbi.com/) para criar um painel dinâmico 
 Neste artigo, saiba como criar suas próprias ferramentas de inteligência de negócios personalizadas usando o Power BI como uma saída de seus trabalhos da Stream Analytics do Azure e utilize um painel em tempo real.
 
 ## Pré-requisitos
-
 * Conta do Microsoft Azure
 * Uma entrada para o trabalho da Stream Analytics de onde serão consumidos dados de streaming. A Stream Analytics aceita a entrada do armazenamento do Hubs de eventos do Azure ou Armazenamento do blob do Azure.
 * Conta corporativa ou de estudante para Power BI
 
 ## Criar trabalho do Azure Stream Analytics
-
 No [Portal clássico do Azure](https://manage.windowsazure.com), clique em **Novo, Serviços de Dados, Stream Analytics, Criação Rápida**.
 
 Especifique os valores a seguir, então clique em **Criar trabalho do Stream Analytics**:
@@ -45,89 +42,92 @@ Clique em **Stream Analytics** no painel esquerdo para listar os trabalhos do St
 
 ![elementográfico1][graphic1]
 
-> [AZURE.TIP] O novo trabalho será listado com um status **Não Iniciado**. Observe que o botão **Iniciar** na parte inferior da página está desabilitado. Esse é o comportamento esperado, já que você deve configurar a entrada do trabalho, a saída, a consulta e assim por diante antes de poder iniciar o trabalho.
+> [!TIP]
+> O novo trabalho será listado com um status **Não Iniciado**. Observe que o botão **Iniciar** na parte inferior da página está desabilitado. Esse é o comportamento esperado, já que você deve configurar a entrada do trabalho, a saída, a consulta e assim por diante antes de poder iniciar o trabalho.
+> 
+> 
 
 ## Especificar entrada de trabalho
-
 Para este tutorial, estamos supondo que você esteja usando o Hub de Eventos como uma entrada com serialização JSON e codificação UTF-8.
 
 * Clique no nome do trabalho.
 * Clique em **Entradas** na parte superior da página e então clique em **Adicionar Entrada**. A caixa de diálogo que se abre vai orientar você por algumas etapas para configurar sua entrada.
-*	Selecione **Fluxo de Dados** e então clique no botão direito.
-*	Selecione **Hub de Eventos** e então clique no botão direito.
-*	Digite ou selecione os seguintes valores na terceira página:
-  *	**Alias de Entrada** - Insira um nome amigável para essa entrada de trabalho. Observe que você usará esse nome na consulta posteriormente.
+* Selecione **Fluxo de Dados** e então clique no botão direito.
+* Selecione **Hub de Eventos** e então clique no botão direito.
+* Digite ou selecione os seguintes valores na terceira página:
+  * **Alias de Entrada** - Insira um nome amigável para essa entrada de trabalho. Observe que você usará esse nome na consulta posteriormente.
   * **Hub de Eventos** - Se o Hub de Eventos que você criou estiver na mesma assinatura que o trabalho do Stream Analytics, selecione o namespace que contém o hub de eventos.
-*	Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente as informações para o **Namespace do Barramento de Serviço**, o **Nome do Hub de Eventos**, o **Nome da Política do Hub de Eventos**, a **Chave de Política do Hub de Eventos** e a **Contagem de Partições do Hub de Eventos**.
+* Se o hub de eventos estiver em uma assinatura diferente, selecione **Usar Hub de Eventos de Outra Assinatura** e insira manualmente as informações para o **Namespace do Barramento de Serviço**, o **Nome do Hub de Eventos**, o **Nome da Política do Hub de Eventos**, a **Chave de Política do Hub de Eventos** e a **Contagem de Partições do Hub de Eventos**.
 
-> [AZURE.NOTE]	Este exemplo usa o número de partições padrão, que é 16.
+> [!NOTE]
+> Este exemplo usa o número de partições padrão, que é 16.
+> 
+> 
 
 * **Nome do Hub de Eventos** - Selecione o nome do Hub de Eventos do Azure que você tem.
 * **Nome de Política do Hub de Eventos** -Selecione a política de Hub de Eventos para o Hub de Eventos que você está usando. Verifique se essa política tem permissões de gerenciamento.
-*	**Grupo de Consumidores do Hub de Eventos** – Você pode deixar esta opção vazia ou especificar um grupo de consumidores que você tem em seu hub de eventos. Observe que cada grupo de consumidores de um hub de eventos pode ter apenas cinco leitores por vez. Dessa forma, decida qual é o grupo de consumidores certo para seu trabalho. Se você deixar o campo em branco, ele usará o grupo de consumidores padrão.
-
-*	Clique no botão direito.
-*	Especifique os seguintes valores:
-  *	**Formato do Serializador de Eventos** - JSON
-  *	**Codificação** - UTF8
-*	Clique no botão de seleção para adicionar essa fonte e verificar se a Análise de fluxo pode se conectar com êxito ao Hub de eventos.
+* **Grupo de Consumidores do Hub de Eventos** – Você pode deixar esta opção vazia ou especificar um grupo de consumidores que você tem em seu hub de eventos. Observe que cada grupo de consumidores de um hub de eventos pode ter apenas cinco leitores por vez. Dessa forma, decida qual é o grupo de consumidores certo para seu trabalho. Se você deixar o campo em branco, ele usará o grupo de consumidores padrão.
+* Clique no botão direito.
+* Especifique os seguintes valores:
+  * **Formato do Serializador de Eventos** - JSON
+  * **Codificação** - UTF8
+* Clique no botão de seleção para adicionar essa fonte e verificar se a Análise de fluxo pode se conectar com êxito ao Hub de eventos.
 
 ## Adicionar saída do Power BI
-
-1.  Clique em **Saída** na parte superior da página e então clique em **Adicionar Saída**. Você verá o Power BI listado como uma opção de saída.
-
-    ![elementográfico2][graphic2]
-
-2.  Selecione **Power BI** e então clique no botão direito.
-3.  Você verá uma tela como esta:
-
-    ![elementográfico3][graphic3]
-
-4.  Nesta etapa, forneça uma conta corporativa ou de estudante para a saída de trabalho do Stream Analytics. Se você já tiver uma conta do Power BI, selecione **Autorizar Agora**. Se não, escolha **Inscreva-se agora**. [Aqui você encontrará um blog com detalhes de orientação para a inscrição no Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
-
-    ![elementográfico11][graphic11]
-
-5.  Em seguida, você verá uma tela como esta:
-
-    ![elementográfico4][graphic4]
+1. Clique em **Saída** na parte superior da página e então clique em **Adicionar Saída**. Você verá o Power BI listado como uma opção de saída.
+   
+   ![elementográfico2][graphic2]
+2. Selecione **Power BI** e então clique no botão direito.
+3. Você verá uma tela como esta:
+   
+   ![elementográfico3][graphic3]
+4. Nesta etapa, forneça uma conta corporativa ou de estudante para a saída de trabalho do Stream Analytics. Se você já tiver uma conta do Power BI, selecione **Autorizar Agora**. Se não, escolha **Inscreva-se agora**. [Aqui você encontrará um blog com detalhes de orientação para a inscrição no Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+   
+   ![elementográfico11][graphic11]
+5. Em seguida, você verá uma tela como esta:
+   
+   ![elementográfico4][graphic4]
 
 Forneça valores como a seguir:
 
 * **Alias de Saída** – Você pode colocar qualquer alias de saída que seja fácil de lembrar. Esse alias de saída será particularmente útil se você optar por ter várias saídas para seu trabalho. Nesse caso, você precisa se referir a essa saída em sua consulta. Por exemplo, vamos usar o valor do alias de saída = "OutPbi".
 * **Nome do Conjunto de Dados** -Forneça um nome de conjunto de dados que você deseja que a saída do Power BI tenha. Por exemplo, usaremos “pbidemo”.
-*	**Nome da Tabela** - Forneça um nome de tabela sob o conjunto de dados da sua saída do Power BI. Digamos que nós a chamaremos de “pbidemo”. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados.
-*	**Espaço de trabalho**: selecione um espaço de trabalho no seu locatário do Power BI sob a qual o conjunto de dados será criado.
+* **Nome da Tabela** - Forneça um nome de tabela sob o conjunto de dados da sua saída do Power BI. Digamos que nós a chamaremos de “pbidemo”. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados.
+* **Espaço de trabalho**: selecione um espaço de trabalho no seu locatário do Power BI sob a qual o conjunto de dados será criado.
 
->	[AZURE.NOTE] Não crie explicitamente este conjunto de dados e esta tabela na conta do Power BI. Eles serão criados automaticamente quando você iniciar o trabalho do Stream Analytics e este começar a colocar a saída no Power BI. Se sua consulta de trabalhar não retornar nenhum resultado, o conjunto de dados e a tabela não serão criados.
+> [!NOTE]
+> Não crie explicitamente este conjunto de dados e esta tabela na conta do Power BI. Eles serão criados automaticamente quando você iniciar o trabalho do Stream Analytics e este começar a colocar a saída no Power BI. Se sua consulta de trabalhar não retornar nenhum resultado, o conjunto de dados e a tabela não serão criados.
+> 
+> 
 
-*	Clique em **OK**, **Testar Conexão** e agora sua configuração de saída está concluída.
+* Clique em **OK**, **Testar Conexão** e agora sua configuração de saída está concluída.
 
->	[AZURE.WARNING] Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
-
+> [!WARNING]
+> Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
+> 
+> 
 
 ## Gravar consulta
-
 Vá para a guia **Consulta** do seu trabalho. Escreva sua consulta, a saída da qual você deseja em seu Power BI. Por exemplo, ela poderia ser algo como a seguinte consulta SQL:
 
     SELECT
-    	MAX(hmdt) AS hmdt,
-    	MAX(temp) AS temp,
-    	System.TimeStamp AS time,
-    	dspl
+        MAX(hmdt) AS hmdt,
+        MAX(temp) AS temp,
+        System.TimeStamp AS time,
+        dspl
     INTO
         OutPBI
     FROM
-    	Input TIMESTAMP BY time
+        Input TIMESTAMP BY time
     GROUP BY
-    	TUMBLINGWINDOW(ss,1),
-    	dspl
+        TUMBLINGWINDOW(ss,1),
+        dspl
 
 
 
 Inicie o trabalho. Valide se o seu hub de eventos está recebendo eventos e se sua consulta gera os resultados esperados. Se a sua consulta tiver como saída 0 linhas, o conjunto de dados e as tabelas do Power BI não serão criados automaticamente.
 
 ## Criar o painel no Power BI
-
 Acesse [Powerbi.com](https://powerbi.com) e faça logon com a sua conta corporativa ou de estudante. Se a consulta do trabalho do Stream Analytics tiver como saída resultados, você verá seu conjunto de dados já criado:
 
 ![elementográfico5][graphic5]
@@ -163,7 +163,6 @@ Observe que este tutorial demonstrou como criar um tipo de gráfico para um conj
 Para obter mais informações sobre como configurar uma saída do Power BI e utilizar grupos do Power BI, analise a [seção Power BI](stream-analytics-define-outputs.md#power-bi) de [Noções básicas sobre saídas do Stream Analytics](stream-analytics-define-outputs.md "Noções básicas sobre saídas do Stream Analytics"). Outro recurso útil para saber mais sobre como criar Painéis com o Power BI é [Painéis no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 ## Limitações e práticas recomendadas
-
 O Power BI emprega restrições de simultaneidade e taxa de transferência conforme descrito aqui: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Preço do Power BI")
 
 Por causa dessas restrições, o Power BI se ajusta bem mais naturalmente nos casos em que a Stream Analytics do Azure faz uma significativa redução de carga de dados. É recomendável usar a TumblingWindow ou a HoppingWindow para garantir que o push de dados seja no máximo 1 push/segundo e que sua consulta esteja dentro dos requisitos de taxa de transferência – pode ser usada a seguinte equação para calcular o valor da sua janela em segundos:
@@ -177,26 +176,24 @@ Exemplo – se você tiver 1.000 dispositivos que enviam dados a cada segundo, v
 Isso significa que mudaríamos a consulta original para:
 
     SELECT
-    	MAX(hmdt) AS hmdt,
-    	MAX(temp) AS temp,
-    	System.TimeStamp AS time,
-    	dspl
+        MAX(hmdt) AS hmdt,
+        MAX(temp) AS temp,
+        System.TimeStamp AS time,
+        dspl
     INTO
-    	OutPBI
+        OutPBI
     FROM
-    	Input TIMESTAMP BY time
+        Input TIMESTAMP BY time
     GROUP BY
-    	TUMBLINGWINDOW(ss,4),
-    	dspl
+        TUMBLINGWINDOW(ss,4),
+        dspl
 
 ### Atualização de exibição do PowerBI
-
 Uma pergunta comum é "Por que o painel não se atualiza automaticamente no PowerBI?".
 
 Para fazer isso, no PowerBI utiliza P e R, faz uma pergunta como "Valor máximo por arquivo temporário cujo carimbo de data/hora indica hoje" e fixa esse bloco ao painel.
 
 ### Renovar autorização
-
 Você precisará autenticar novamente sua conta do Power BI caso sua senha tenha sido alterada depois de seu trabalho ser criado ou autenticado pela última vez. Se a MFA (Multi-Factor Authentication) estiver configurada no locatário do AAD (Azure Active Directory) também será necessário renovar a autorização do Power BI a cada 2 semanas. Um sintoma desse problema é nenhuma saída de trabalho e um "erro de Autenticar usuário" nos Logs de Operação:
 
 ![elementográfico12][graphic12]
@@ -204,7 +201,6 @@ Você precisará autenticar novamente sua conta do Power BI caso sua senha tenha
 Da mesma forma, se um trabalho tentar iniciar enquanto o token estiver vencido, ocorrerá um erro e o início do trabalho falhará. O erro será algo semelhante a isto:
 
 ![Erro de validação do Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-power-bi-dashboard-token-expire.png)
- 
 
 Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Power BI. Clique no link "Renovar autorização" e reinicie o trabalho a partir da Hora da Última Interrupção para evitar a perda de dados.
 
@@ -218,13 +214,11 @@ Após a atualização da autorização com o Power BI, você verá um alerta ver
 Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
 
 ## Próximas etapas
-
-- [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
-- [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
-- [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-- [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
+* [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
+* [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [graphic1]: ./media/stream-analytics-power-bi-dashboard/1-stream-analytics-power-bi-dashboard.png
 [graphic2]: ./media/stream-analytics-power-bi-dashboard/2-stream-analytics-power-bi-dashboard.png

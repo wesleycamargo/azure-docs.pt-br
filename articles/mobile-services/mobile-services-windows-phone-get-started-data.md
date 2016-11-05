@@ -1,177 +1,152 @@
-<properties
-	pageTitle="Adicionar Serviços Móveis a um aplicativo existente (WP8) | Microsoft Azure"
-	description="Saiba como começar a usar os dados do seu aplicativo do Windows Phone 8 nos serviços móveis do Azure."
-	services="mobile-services"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+---
+title: Adicionar Serviços Móveis a um aplicativo existente (WP8) | Microsoft Docs
+description: Saiba como começar a usar os dados do seu aplicativo do Windows Phone 8 nos serviços móveis do Azure.
+services: mobile-services
+documentationcenter: windows
+author: ggailey777
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows-phone"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows-phone
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
-
+---
 # Adicionar Serviços Móveis a um aplicativo existente
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 &nbsp;
 
+[!INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
-
-##Visão geral
-
+## Visão geral
 Este tópico mostra como usar os Serviços Móveis do Azure para utilizar dados em um aplicativo do Windows Phone 8. Neste tutorial, você baixará um aplicativo que armazena dados na memória, criará um novo serviço móvel, integrará o serviço móvel ao aplicativo e fará logon no [Portal clássico do Azure] para exibir as alterações nos dados feitas durante a execução do aplicativo.
 
 Você também pode ver Nick Harris demonstrar isso no vídeo a seguir:
->[AZURE.VIDEO mobile-get-started-with-data-windows-phone]
 
-##Pré-requisitos
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Phone-app-Getting-Started-with-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services/player]
+> 
+> 
 
-+ O Visual Studio 2012 Express para Windows Phone 8 e o [SDK do Windows Phone 8] em execução no Windows 8. Para concluir este tutorial para criar um aplicativo Windows Phone 8.1, você deve usar o Visual Studio 2013 atualização 2 ou posterior.
+## Pré-requisitos
+* O Visual Studio 2012 Express para Windows Phone 8 e o [SDK do Windows Phone 8] em execução no Windows 8. Para concluir este tutorial para criar um aplicativo Windows Phone 8.1, você deve usar o Visual Studio 2013 atualização 2 ou posterior.
+* Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F).
 
-+ Uma conta do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Farticles%2Fdocumentation%2Fmobile-services-windows-phone-get-started-data%2F).
-
-##<a name="download-app"></a>Baixar o projeto GetStartedWithData
-
+## <a name="download-app"></a>Baixar o projeto GetStartedWithData
 Este tutorial é baseado no [aplicativo GetStartedWithData][Developer Code Samples site], que é um aplicativo do projeto do Windows Phone Silverlight 8.
 
 1. Baixe o projeto do aplicativo de exemplo GetStartedWithData do [Site de Exemplos de Código do Desenvolvedor].
-
-	>[AZURE.NOTE]Para criar um aplicativo do Windows Phone Silverlight 8.1, simplesmente altere o SO de destino no projeto do aplicativo para Windows Phone Silverlight 8 baixado para o Windows Phone 8.1. Para criar um aplicativo do Windows Phone Store, baixe a [versão do aplicativo do Windows Phone Store](http://go.microsoft.com/fwlink/p/?LinkId=397372) do projeto do aplicativo de exemplo GetStartedWithData.
-
+   
+   > [!NOTE]
+   > Para criar um aplicativo do Windows Phone Silverlight 8.1, simplesmente altere o SO de destino no projeto do aplicativo para Windows Phone Silverlight 8 baixado para o Windows Phone 8.1. Para criar um aplicativo do Windows Phone Store, baixe a [versão do aplicativo do Windows Phone Store](http://go.microsoft.com/fwlink/p/?LinkId=397372) do projeto do aplicativo de exemplo GetStartedWithData.
+   > 
+   > 
 2. No Visual Studio, abra o projeto baixado e examine o arquivo MainPage.xaml.cs.
-
-   	Observe que os objetos **TodoItem** adicionados estão armazenados em um **ObservableCollection&lt;TodoItem&gt;** na memória.
-
+   
+       Observe que os objetos **TodoItem** adicionados estão armazenados em um **ObservableCollection&lt;TodoItem&gt;** na memória.
 3. Pressione a tecla **F5** para recompilar o projeto e iniciar o aplicativo.
-
 4. No aplicativo, digite algum texto na caixa de texto e clique no botão **Salvar**.
+   
+       ![][0]
+   
+       Observe que o texto salvo é exibido na lista abaixo.
 
-   	![][0]
+## <a name="create-service"></a>Criar um novo serviço móvel no portal clássico do Azure
+[!INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
-   	Observe que o texto salvo é exibido na lista abaixo.
+## <a name="add-table"></a>Adicionar uma nova tabela ao serviço móvel
+[!INCLUDE [mobile-services-create-new-service-data-2](../../includes/mobile-services-create-new-service-data-2.md)]
 
-##<a name="create-service"></a>Criar um novo serviço móvel no portal clássico do Azure
-
-[AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
-
-##<a name="add-table"></a>Adicionar uma nova tabela ao serviço móvel
-
-[AZURE.INCLUDE [mobile-services-create-new-service-data-2](../../includes/mobile-services-create-new-service-data-2.md)]
-
-##<a name="update-app"></a>Atualizar o aplicativo para usar o serviço móvel para acesso a dados
-
+## <a name="update-app"></a>Atualizar o aplicativo para usar o serviço móvel para acesso a dados
 Agora que seu dispositivo móvel está pronto, você pode atualizar o aplicativo para armazenar itens nos Serviços Móveis em vez de na coleção local.
 
 1. No **Gerenciador de Soluções** do Visual Studio, clique com o botão direito do mouse no nome do projeto e selecione **Gerenciar Pacotes NuGet**.
-
 2. No painel esquerdo, selecione a categoria **Online**, procure `WindowsAzure.MobileServices`, clique em **Instalar** no pacote **Serviços Móveis do Azure** e aceite o contrato de licença.
-
-  	![][7]
-
-  	Isso adiciona a biblioteca de cliente dos Serviços Móveis ao projeto.
-
+   
+      ![][7]
+   
+      Isso adiciona a biblioteca de cliente dos Serviços Móveis ao projeto.
 3. No [Portal clássico do Azure], clique em **Serviços Móveis** e no serviço móvel que você acabou de criar.
-
 4. Clique na guia **Painel** e anote a **URL do Site**, clique em **Gerenciar Chaves** e anote a **Chave do aplicativo**.
-
-   	![][8]
-
-  	Você precisará desses valores ao acessar o serviço móvel com o código de seu aplicativo.
-
+   
+       ![][8]
+   
+      Você precisará desses valores ao acessar o serviço móvel com o código de seu aplicativo.
 5. No Visual Studio, abra o arquivo App.xaml.cs e adicione ou remova o comentário da seguinte instrução `using`:
-
-       	using Microsoft.WindowsAzure.MobileServices;
-
+   
+           using Microsoft.WindowsAzure.MobileServices;
 6. Nesse mesmo arquivo, remova os comentários do código a seguir que define a variável **MobileService** e forneça a URL e a chave do aplicativo do serviço móvel no construtor **MobileServiceClient**, nessa ordem.
-
-		//public static MobileServiceClient MobileService = new MobileServiceClient(
+   
+        //public static MobileServiceClient MobileService = new MobileServiceClient(
         //    "AppUrl",
         //    "AppKey"
         //);
-
-  	Isso criará uma nova instância de **MobileServiceClient** que é usada para acessar seu serviço móvel.
-
-6. No arquivo MainPage.cs, adicione ou remova o comentário das seguintes instruções `using`:
-
-       	using Microsoft.WindowsAzure.MobileServices;
-		using Newtonsoft.Json;
-
-7. Nesta pasta DataModel, substitua a definição da classe **TodoItem** pelo seguinte código:
-
+   
+      Isso criará uma nova instância de **MobileServiceClient** que é usada para acessar seu serviço móvel.
+7. No arquivo MainPage.cs, adicione ou remova o comentário das seguintes instruções `using`:
+   
+           using Microsoft.WindowsAzure.MobileServices;
+        using Newtonsoft.Json;
+8. Nesta pasta DataModel, substitua a definição da classe **TodoItem** pelo seguinte código:
+   
         public class TodoItem
         {
             public string Id { get; set; }
-
+   
             [JsonProperty(PropertyName = "text")]
             public string Text { get; set; }
-
+   
             [JsonProperty(PropertyName = "complete")]
             public bool Complete { get; set; }
         }
-
-7. Comente a linha que define a coleção existente **items** e remova os comentários das linhas a seguir:
-
+9. Comente a linha que define a coleção existente **items** e remova os comentários das linhas a seguir:
+   
         private MobileServiceCollection<TodoItem, TodoItem> items;
         private IMobileServiceTable<TodoItem> todoTable =
-			App.MobileService.GetTable<TodoItem>();
-
-   	Esse código cria uma coleção de ligação com reconhecimento dos serviços móveis (**items**) e uma classe de proxy para a tabela de Banco de Dados SQL **TodoItem** (**todoTable**).
-
-7. No método **InsertTodoItem**, remova a linha de código que define a propriedade **TodoItem**.**Id**, adicione o modificador **async** ao método e remova o comentário da seguinte linha de código:
-
-        await todoTable.InsertAsync(todoItem);
-
-  	Esse código insere um novo item na tabela.
-
-8. No método **RefreshTodoItems**, adicione o modificador **async** ao método e, em seguida, remova o comentário da linha de código a seguir:
-
-        items = await todoTable.ToCollectionAsync();
-
-   	Isso define a associação à coleção de itens em todoTable, que contém todos os objetos TodoItem retornados do serviço móvel.
-
-9. No método **UpdateCheckedTodoItem**, adicione o modificador **async** ao método e remova o comentário da linha de código a seguir:
-
-         await todoTable.UpdateAsync(item);
-
-   	Isso envia uma atualização de item para o serviço móvel.
+            App.MobileService.GetTable<TodoItem>();
+   
+       Esse código cria uma coleção de ligação com reconhecimento dos serviços móveis (**items**) e uma classe de proxy para a tabela de Banco de Dados SQL **TodoItem** (**todoTable**).
+10. No método **InsertTodoItem**, remova a linha de código que define a propriedade **TodoItem**.**Id**, adicione o modificador **async** ao método e remova o comentário da seguinte linha de código:
+    
+         await todoTable.InsertAsync(todoItem);
+    
+       Esse código insere um novo item na tabela.
+11. No método **RefreshTodoItems**, adicione o modificador **async** ao método e, em seguida, remova o comentário da linha de código a seguir:
+    
+         items = await todoTable.ToCollectionAsync();
+    
+        Isso define a associação à coleção de itens em todoTable, que contém todos os objetos TodoItem retornados do serviço móvel.
+12. No método **UpdateCheckedTodoItem**, adicione o modificador **async** ao método e remova o comentário da linha de código a seguir:
+    
+          await todoTable.UpdateAsync(item);
+    
+        Isso envia uma atualização de item para o serviço móvel.
 
 Agora que o aplicativo foi atualizado para usar os Serviços Móveis para o armazenamento de back-end, é hora de testar o aplicativo com os Serviços Móveis.
 
-##<a name="test-app"></a>Testar o aplicativo com seu novo serviço móvel
-
+## <a name="test-app"></a>Testar o aplicativo com seu novo serviço móvel
 1. No Visual Studio, pressione F5 para executar o aplicativo.
-
 2. Como anteriormente, digite texto na caixa de texto e clique no botão **Salvar**.
-
-   	Isso envia um novo item como uma inserção no serviço móvel.
-
+   
+       Isso envia um novo item como uma inserção no serviço móvel.
 3. No [Portal clássico do Azure], clique em **Serviços Móveis** e, em seguida, clique no seu serviço móvel.
-
 4. Clique na guia **Dados** e, em seguida, clique em **Procurar**.
-
-   	![][9]
-
-   	Observe que a tabela **TodoItem** agora contém dados com valores de id gerados pelos Serviços Móveis, e que as colunas foram automaticamente adicionadas à tabela para coincidir com a classe TodoItem no aplicativo.
+   
+       ![][9]
+   
+       Observe que a tabela **TodoItem** agora contém dados com valores de id gerados pelos Serviços Móveis, e que as colunas foram automaticamente adicionadas à tabela para coincidir com a classe TodoItem no aplicativo.
 
 Isso conclui o tutorial.
 
 ## <a name="next-steps"> </a>Próximas etapas
-
 Este tutorial demonstrou as noções básicas sobre a habilitação de um aplicativo do Windows Phone 8 para trabalhar com dados nos Serviços Móveis. Em seguida, considere a leitura de um destes outros tópicos:
 
 * [Introdução à autenticação para seu aplicativo](mobile-services-windows-phone-get-started-users.md) <br/>Saiba como autenticar usuários de seu aplicativo.
-
 * [Adicionar notificações por push ao seu aplicativo](mobile-services-javascript-backend-windows-phone-get-started-push.md) <br/>Saiba como enviar uma notificação por push bem básica ao seu aplicativo com os Serviços Móveis.
-
 * [Referência conceitual de tutorial de C# dos Serviços Móveis](mobile-services-dotnet-how-to-use-client-library.md) <br/>Saiba mais sobre como usar os Serviços Móveis com o .NET.
 
 <!-- Anchors. -->

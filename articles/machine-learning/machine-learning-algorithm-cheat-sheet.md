@@ -1,32 +1,28 @@
-<properties
-	pageTitle="Página de dicas úteis de algoritmo de Aprendizado de Máquina | Microsoft Azure"
-	description="Uma página de dicas úteis de algoritmo de Aprendizado de Máquina que pode ser impressa o ajuda a escolher o algoritmo certo para o seu modelo de previsão no Estúdio de Aprendizado de Máquina do Azure."
-	keywords="folha de consulta de algoritmo, folha de consulta, algoritmo de aprendizado de máquina"
-	services="machine-learning"
-	documentationCenter=""
-	authors="brohrer"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Página de dicas úteis de algoritmo de Aprendizado de Máquina | Microsoft Docs
+description: Uma página de dicas úteis de algoritmo de Aprendizado de Máquina que pode ser impressa o ajuda a escolher o algoritmo certo para o seu modelo de previsão no Estúdio de Aprendizado de Máquina do Azure.
+keywords: folha de consulta de algoritmo, folha de consulta, algoritmo de aprendizado de máquina
+services: machine-learning
+documentationcenter: ''
+author: brohrer
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/09/2016"
-	ms.author="brohrer;garye" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: brohrer;garye
 
-
+---
 # Página de dicas úteis do algoritmo para Aprendizado de Máquina para o Estúdio de Aprendizado de Máquina do Microsoft Azure
-
 A **Folha de Consulta do Algoritmo de Aprendizado de Máquina do Microsoft Azure** ajuda a escolher o algoritmo certo para o seu modelo de análise preditiva.
 
 O [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/) tem uma ampla biblioteca de algoritmos das famílias ***regressão***, ***classificação***, ***clustering***, e ***detecção de anomalias***. Cada um foi projetado para atender a um tipo diferente de problema de aprendizado de máquina.
 
-
 ## Baixe: Folha de Consulta do algoritmo de Aprendizado de Máquina
-
 **Baixe a folha de consulta daqui: [Folha de consulta de algoritmos do Aprendizado de Máquina do Microsoft Azure (11 x 17 pol.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**
 
 ![Página de dicas úteis de algoritmo de Aprendizado de Máquina: Saiba como escolher um algoritmo de Aprendizado de Máquina.][cheat-sheet]
@@ -35,17 +31,18 @@ O [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/) te
 
 Baixar e imprimir a folha de consulta do algoritmo do Aprendizado de Máquina em tamanho tabloide para mantê-lo à mão e obter ajuda para escolher um algoritmo.
 
-> [AZURE.NOTE] Confira o artigo [Como escolher algoritmos para o Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice.md) para obter um guia detalhado para usar essa página de dicas úteis.
+> [!NOTE]
+> Confira o artigo [Como escolher algoritmos para o Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice.md) para obter um guia detalhado para usar essa página de dicas úteis.
+> 
+> 
 
 ## Obter ajuda com algoritmos
-
 * Para obter uma discussão mais detalhada sobre os diferentes tipos de algoritmos de aprendizado de máquina, como eles são usados e como usar esta página de dicas úteis para escolher o algoritmo correto, confira [Como escolher algoritmos para o Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-choice.md).
 * Para obter uma lista por categoria de todos os algoritmos de aprendizado de máquina disponíveis no Estúdio de Aprendizado de Máquina, consulte [Inicializar modelo][initialize-model] na Ajuda de módulo e no algoritmo do Estúdio de Aprendizado de Máquina.
 * Para obter uma lista completa de algoritmos e módulos no Estúdio de Aprendizado de Máquina, consulte a [Lista de A-Z de módulos do Estúdio de Aprendizado de Máquina][a-z-list] na Ajuda de módulo e no algoritmo de Estúdio de Aprendizado de Máquina.
 * Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 <!-- This needs to be updated based on the new Choosing and Algorithm article
 

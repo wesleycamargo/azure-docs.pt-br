@@ -1,33 +1,32 @@
-<properties
-	pageTitle="Backup do Azure – Implantar e gerenciar o backup para o DPM usando o PowerShell | Microsoft Azure"
-	description="Saiba como implantar e gerenciar o backup do Azure para o Data Protection Manager (DPM) usando o PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="NKolli1"
-	manager="shreeshd"
-	editor=""/>
+---
+title: Backup do Azure – Implantar e gerenciar o backup para o DPM usando o PowerShell | Microsoft Docs
+description: Saiba como implantar e gerenciar o backup do Azure para o Data Protection Manager (DPM) usando o PowerShell
+services: backup
+documentationcenter: ''
+author: NKolli1
+manager: shreeshd
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="jimpark; anuragm;trinadhk;markgal"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: jimpark; anuragm;trinadhk;markgal
 
-
+---
 # Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
-
-> [AZURE.SELECTOR]
-- [ARM](backup-dpm-automation.md)
-- [Clássico](backup-dpm-automation-classic.md)
+> [!div class="op_single_selector"]
+> * [ARM](backup-dpm-automation.md)
+> * [Clássico](backup-dpm-automation-classic.md)
+> 
+> 
 
 Este artigo mostra como usar o Azure PowerShell para configurar o Backup do Azure em um servidor DPM e para gerenciar backups e recuperações.
 
 ## Configurando o ambiente do PowerShell
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Antes de usar o PowerShell para gerenciar backups do Data Protection Manager para o Azure, você precisará ter o ambiente certo no PowerShell. No início da sessão do PowerShell, certifique-se de executar o comando a seguir para importar os módulos corretos e permitir que você faça referência corretamente aos cmdlets do DPM:
 
@@ -56,44 +55,41 @@ PS C:\> Switch-AzureMode AzureResourceManager
 
 As seguintes tarefas de configuração e de registro podem ser automatizadas com o PowerShell:
 
-- Criar um cofre dos Serviços de Recuperação
-- Instalando o agente de Backup do Azure
-- Registrando-se no serviço de Backup do Azure
-- Configurações de rede
-- Configurações de criptografia
+* Criar um cofre dos Serviços de Recuperação
+* Instalando o agente de Backup do Azure
+* Registrando-se no serviço de Backup do Azure
+* Configurações de rede
+* Configurações de criptografia
 
 ## Criar um cofre dos Serviços de Recuperação
-
 As etapas a seguir orientarão você durante a criação de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de Backup.
 
 1. Se você estiver usando um Backup do Azure pela primeira vez, deverá usar o cmdlet **Register-AzureRMResourceProvider** para registrar o provedor do Serviço de Recuperação do Azure com sua assinatura.
-
+   
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 2. O cofre dos Serviços de Recuperação é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Você pode usar um grupo de recursos existente ou criar um novo. Ao criar um novo grupo de recursos, especifique o nome e o local para o grupo de recursos.
-
+   
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-
 3. Use o cmdlet **New-AzureRmRecoveryServicesVault** para criar um novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
-
+   
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-
 4. Especifique o tipo de redundância de armazenamento a ser usado, o [LRS (Armazenamento com Redundância Local)](../storage/storage-redundancy.md#locally-redundant-storage) ou o [GRS (Armazenamento com Redundância Geográfica)](../storage/storage-redundancy.md#geo-redundant-storage). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testVault está definida como GeoRedundant.
-
-    > [AZURE.TIP] Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável.
-
+   
+   > [!TIP]
+   > Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável.
+   > 
+   > 
+   
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
-
-
 
 ## Exibir os cofres em uma assinatura
 Use **Get-AzureRmRecoveryServicesVault** para exibir a lista de todos os cofres da assinatura atual. Você pode usar esse comando para verificar se um novo cofre foi criado ou para ver quais cofres estão disponíveis na assinatura.
@@ -137,20 +133,19 @@ PS C:\> MARSAgentInstaller.exe /?
 As opções disponíveis incluem:
 
 | Opção | Detalhes | Padrão |
-| ---- | ----- | ----- |
-| /q | Instalação silenciosa | - | 
-| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | 
-| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | 
-| /m | Inscreva no Microsoft Update | - | 
-| /nu | Não verificar se há atualizações após a conclusão da instalação | - | 
-| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - | 
-| /Ph | Endereço de Host do Proxy | - | 
-| /po | Número da porta do Host do Proxy | - | 
-| /pu | Nome de usuário do Host do Host | - | 
-| /pw | Senha do Proxy | - |
+| --- | --- | --- |
+| /q |Instalação silenciosa |- |
+| /p:"local" |Caminho para a pasta de instalação do agente de Backup do Azure. |C:\\Program Files\\Microsoft Azure Recovery Services Agent |
+| /s:"local" |Caminho para a pasta de cache do agente de Backup do Azure. |C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
+| /m |Inscreva no Microsoft Update |- |
+| /nu |Não verificar se há atualizações após a conclusão da instalação |- |
+| /d |Desinstala o agente de Serviços de Recuperação do Microsoft Azure |- |
+| /Ph |Endereço de Host do Proxy |- |
+| /po |Número da porta do Host do Proxy |- |
+| /pu |Nome de usuário do Host do Host |- |
+| /pw |Senha do Proxy |- |
 
 ## Registrar o DPM para um Cofre dos Serviços de Recuperação
-
 Depois de criar o cofre dos Serviços de Recuperação, baixe o agente mais recente e as credenciais do cofre e armazene-os em um local conveniente como C:\\Downloads.
 
 ```
@@ -207,7 +202,6 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 No exemplo acima, a área de preparo será definida como *C:\\StagingArea* no objeto ```$setting``` do PowerShell. Verifique se a pasta especificada já existe, ou a confirmação final das configurações de assinatura falhará.
 
-
 ### Configurações de criptografia
 Os dados de backup enviados para o Backup do Azure são criptografados para proteger a confidencialidade dos dados. A senha de criptografia é a "senha" para descriptografar os dados no momento da restauração. É importante manter essas informações seguras depois de defini-las.
 
@@ -219,7 +213,10 @@ PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPl
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -EncryptionPassphrase $Passphrase
 ```
 
-> [AZURE.IMPORTANT] Mantenha as informações de senha seguras e protegidas depois de defini-las. Você não poderá restaurar os dados do Azure sem essa senha.
+> [!IMPORTANT]
+> Mantenha as informações de senha seguras e protegidas depois de defini-las. Você não poderá restaurar os dados do Azure sem essa senha.
+> 
+> 
 
 Neste ponto, você deve fez todas as alterações necessárias ao objeto ```$setting```. Lembre-se de confirmar as alterações.
 
@@ -338,9 +335,10 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 ## Exibir os pontos de backup
 Você pode usar o cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) para obter uma lista de todos os pontos de recuperação para uma fonte de dados. Neste exemplo, iremos:
-- buscar todos os PGs no servidor DPM e armazenados em uma matriz ```$PG```
-- obter as fontes de dados correspondente ao ```$PG[0]```
-- obter todos os pontos de recuperação para uma fonte de dados.
+
+* buscar todos os PGs no servidor DPM e armazenados em uma matriz ```$PG```
+* obter as fontes de dados correspondente ao ```$PG[0]```
+* obter todos os pontos de recuperação para uma fonte de dados.
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
@@ -353,9 +351,9 @@ A restauração de dados é uma combinação de um objeto ```RecoverableItem``` 
 
 No exemplo a seguir, demonstramos como restaurar uma máquina virtual Hyper-V por meio do Backup do Azure, combinando os pontos de backup com o destino para recuperação. Este exemplo inclui:
 
-- Criar uma opção de recuperação usando o cmdlet [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592).
-- Obter a matriz de pontos de backup usando o cmdlet ```Get-DPMRecoveryPoint```.
-- Escolher um ponto de backup por meio do qual fazer a restauração.
+* Criar uma opção de recuperação usando o cmdlet [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592).
+* Obter a matriz de pontos de backup usando o cmdlet ```Get-DPMRecoveryPoint```.
+* Escolher um ponto de backup por meio do qual fazer a restauração.
 
 ```
 PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation “C:\VMRecovery”
@@ -370,7 +368,6 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 Os comandos podem ser facilmente estendidos para qualquer tipo de fonte de dados.
 
 ## Próximas etapas
-
-- Para saber mais sobre o DPM para o Backup do Azure, confira [Introdução ao Backup do DPM](backup-azure-dpm-introduction.md)
+* Para saber mais sobre o DPM para o Backup do Azure, confira [Introdução ao Backup do DPM](backup-azure-dpm-introduction.md)
 
 <!---HONumber=AcomDC_0907_2016-->

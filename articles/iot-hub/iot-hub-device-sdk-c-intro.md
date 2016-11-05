@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Usar o SDK do dispositivo IoT do Microsoft Azure para C | Microsoft Azure"
-	description="Saiba mais sobre como começar a trabalhar com o exemplo de código no SDK do dispositivo IoT do Azure para C."
-	services="iot-hub"
-	documentationCenter=""
-	authors="olivierbloch"
-	manager="timlt"
-	editor=""/>
+---
+title: Usar o SDK do dispositivo IoT do Microsoft Azure para C | Microsoft Docs
+description: Saiba mais sobre como começar a trabalhar com o exemplo de código no SDK do dispositivo IoT do Azure para C.
+services: iot-hub
+documentationcenter: ''
+author: olivierbloch
+manager: timlt
+editor: ''
 
-<tags
-     ms.service="iot-hub"
-     ms.devlang="cpp"
-     ms.topic="article"
-     ms.tgt_pltfrm="na"
-     ms.workload="na"
-     ms.date="09/06/2016"
-     ms.author="obloch"/>
+ms.service: iot-hub
+ms.devlang: cpp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/06/2016
+ms.author: obloch
 
+---
 # Introdução ao SDK do dispositivo IoT do Azure para C
-
 O **SDK do dispositivo IoT do Azure** é um conjunto de bibliotecas projetadas para simplificar o processo de envio de eventos e o recebimento de mensagens do serviço **Hub IoT do Azure**. Existem diferentes variações do SDK, cada uma visando uma plataforma específica, mas este artigo descreve o **SDK do dispositivo IoT do Azure para C**.
 
 O SDK do dispositivo IoT do Azure para C foi escrito em ANSI (C99) para maximizar a portabilidade. Isso o torna bastante adequado para a operação em vários dispositivos e plataformas, especialmente quando a minimização do volume de disco e de memória for uma prioridade.
@@ -26,10 +25,14 @@ Há uma ampla variedade de plataformas nas quais o SDK foi testado (confira a [l
 
 Neste artigo, você será apresentado à arquitetura do SDK do dispositivo IoT do Azure para C. Demonstraremos como inicializar a biblioteca de dispositivos, enviar eventos ao Hub IoT, bem como receber mensagens dele. As informações neste artigo devem ser suficientes para começar a usar o SDK, mas também há indicações para se saber mais sobre as bibliotecas.
 
->> [AZURE.NOTE] Este artigo inclui informações sobre como usar os recursos de *gerenciamento de dispositivo* das bibliotecas C no SDK. Para saber como usar os recursos de gerenciamento de dispositivos, confira [Apresentação da biblioteca de gerenciamento de dispositivos do Hub IoT do Azure para C](iot-hub-device-management-library.md).
+> > [!NOTE]
+> > Este artigo inclui informações sobre como usar os recursos de *gerenciamento de dispositivo* das bibliotecas C no SDK. Para saber como usar os recursos de gerenciamento de dispositivos, confira [Apresentação da biblioteca de gerenciamento de dispositivos do Hub IoT do Azure para C](iot-hub-device-management-library.md).
+> > 
+> > 
+> 
+> 
 
 ## Arquitetura do SDK
-
 Você pode encontrar o **SDK do dispositivo IoT do Azure para C** no repositório GitHub dos [SDKs de IoT do Microsoft Azure](https://github.com/Azure/azure-iot-sdks) e exibir os detalhes da API na [referência da API C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
 
 A versão mais recente das bibliotecas pode ser encontrada na ramificação **mestre** deste repositório:
@@ -43,15 +46,15 @@ Esse repositório contém a família inteira de SDKs do dispositivo IoT do Azure
 * A implementação principal do SDK pode ser encontrada na pasta **iothub\_client**, que contém a implementação da camada de API mais baixa no SDK: a biblioteca **IoTHubClient**. A biblioteca **IoTHubClient** contém APIs que implementam mensagens brutas para enviar mensagens para o Hub IoT, além de receber mensagens dele. Ao usar essa biblioteca, você é responsável por implementar a serialização de mensagens (eventualmente usando a amostra de serializador descrita abaixo), mas outros detalhes da comunicação com o Hub IoT são tratados para você.
 * A pasta **serializador** contém funções auxiliares e exemplos que mostram como serializar os dados antes de enviar para o Hub IoT do Azure usando a biblioteca de cliente. Observe que o uso do serializador não é obrigatório e só é fornecido como uma conveniência. Ao usar a biblioteca **serializer**, você começa definindo um modelo que especifica os eventos que deseja enviar ao Hub IoT, bem como as mensagens que espera receber dele. Assim que o modelo é definido, o SDK fornece uma superfície de API que permite a você trabalhar facilmente com eventos e mensagens, sem ter de se preocupar com os detalhes da serialização. A biblioteca depende de outras bibliotecas de software livre que implementam o transporte usando vários protocolos (AMQP, MQTT).
 * A biblioteca **IoTHubClient** depende de outras bibliotecas de software livre:
-   * A biblioteca de [utilitários compartilhados do Azure C](https://github.com/Azure/azure-c-shared-utility), que fornece funcionalidades comuns para tarefas básicas (como cadeia de caracteres, manipulação de listas, E/S, etc.) necessárias entre vários SDKs para C relacionados ao Azure
-   * A biblioteca [uAMQP do Azure](https://github.com/Azure/azure-uamqp-c) é a implementação do lado do cliente do AMQP otimizada para dispositivos com restrição de recursos.
-   * A biblioteca [uMQTT do Azure](https://github.com/Azure/azure-umqtt-c), que é uma biblioteca de finalidade geral, com o protocolo MQTT implementado e otimizada para dispositivos com restrição de recursos.
+  * A biblioteca de [utilitários compartilhados do Azure C](https://github.com/Azure/azure-c-shared-utility), que fornece funcionalidades comuns para tarefas básicas (como cadeia de caracteres, manipulação de listas, E/S, etc.) necessárias entre vários SDKs para C relacionados ao Azure
+  * A biblioteca [uAMQP do Azure](https://github.com/Azure/azure-uamqp-c) é a implementação do lado do cliente do AMQP otimizada para dispositivos com restrição de recursos.
+  * A biblioteca [uMQTT do Azure](https://github.com/Azure/azure-umqtt-c), que é uma biblioteca de finalidade geral, com o protocolo MQTT implementado e otimizada para dispositivos com restrição de recursos.
 
 Mas é mais fácil entender tudo isso examinando exemplos de código. As seções a seguir explicam alguns exemplos de aplicativo incluídos no SDK. Isso deve dar uma boa ideia dos vários recursos das camadas de arquitetura do SDK, bem como uma introdução ao funcionamento da API.
 
 ## Antes de executar os exemplos
-
 Antes de executar os exemplos no SDK do dispositivo IoT do Azure para C, você deverá criar uma instância do serviço em sua assinatura do Azure, se ainda não tiver uma, e concluir duas tarefas:
+
 * preparar o seu ambiente de desenvolvimento
 * obter credenciais do dispositivo.
 
@@ -60,40 +63,31 @@ Se precisar criar uma instância do Hub IoT do Azure em sua assinatura do Azure,
 O [arquivo Leiame](https://github.com/Azure/azure-iot-sdks/tree/master/c) incluído com o SDK fornece instruções para preparar seu ambiente de desenvolvimento e obter credenciais de dispositivo. As seções a seguir incluem alguns comentários adicionais sobre essas instruções.
 
 ### Preparando o ambiente de desenvolvimento
-
 Enquanto os pacotes são fornecidos para algumas plataformas (como o NuGet para Windows ou apt\_get para Debian e Ubuntu) e os exemplos usam esses pacotes quando estiverem disponíveis, as instruções abaixo detalham como criar a biblioteca e os exemplos diretamente do código.
 
 Em primeiro lugar, será necessário obter uma cópia do SDK no GitHub e criar a origem. Você deve obter uma cópia da origem na ramificação **master** do [repositório GitHub](https://github.com/Azure/azure-iot-sdks).
 
 Quando tiver baixado uma cópia da origem, você deve concluir as etapas descritas no artigo do SDK ["Preparar o seu ambiente de desenvolvimento"](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md).
 
-
 Eis algumas dicas que ajudam você a concluir o procedimento descrito no guia de preparação:
 
--   Quando você instalar o utilitário **CMake**, escolha a opção para adicionar o **CMake** ao sistema PATH para **todos os usuários** (a adição ao **usuário atual** também funciona):
-
+* Quando você instalar o utilitário **CMake**, escolha a opção para adicionar o **CMake** ao sistema PATH para **todos os usuários** (a adição ao **usuário atual** também funciona):
+  
   ![](media/iot-hub-device-sdk-c-intro/08-CMake.PNG)
-
-
--   Antes de abrir o **Prompt de Comando do Desenvolvedor para VS2015**, instale as ferramentas de linha de comando do Git. Para instalar essas ferramentas, conclua as seguintes etapas:
-
-	1. Inicie o programa de instalação do **Visual Studio 2015** (ou escolha **Microsoft Visual Studio 2015** no painel de controle **Programas e Recursos** e selecione **Alterar**).
-	
-	2. Verifique se o recurso **Git para Windows** está selecionado no instalador, mas é interessante também marcar a opção **Extensão GitHub para Visual Studio** para fornecer a integração IDE:
-
-  		![](media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
-
-	3. Conclua o assistente de instalação para instalar as ferramentas.
-
-	4. Adicione o diretório **bin** das ferramentas Git à variável de ambiente **PATH** do sistema. No Windows, isso se parece com o seguinte:
-
-  		![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
-
+* Antes de abrir o **Prompt de Comando do Desenvolvedor para VS2015**, instale as ferramentas de linha de comando do Git. Para instalar essas ferramentas, conclua as seguintes etapas:
+  
+  1. Inicie o programa de instalação do **Visual Studio 2015** (ou escolha **Microsoft Visual Studio 2015** no painel de controle **Programas e Recursos** e selecione **Alterar**).
+  2. Verifique se o recurso **Git para Windows** está selecionado no instalador, mas é interessante também marcar a opção **Extensão GitHub para Visual Studio** para fornecer a integração IDE:
+     
+        ![](media/iot-hub-device-sdk-c-intro/10-GitTools.PNG)
+  3. Conclua o assistente de instalação para instalar as ferramentas.
+  4. Adicione o diretório **bin** das ferramentas Git à variável de ambiente **PATH** do sistema. No Windows, isso se parece com o seguinte:
+     
+        ![](media/iot-hub-device-sdk-c-intro/11-GitToolsPath.PNG)
 
 Após concluir todas as etapas descritas na página ["Preparar seu ambiente de desenvolvimento"](https://github.com/Azure/azure-iot-sdks/blob/master/c/doc/devbox_setup.md), você estará pronto para compilar os aplicativos de exemplo.
 
 ### Obtendo credenciais do dispositivo
-
 Agora que o seu ambiente de desenvolvimento está configurado, a última coisa a fazer será obter um conjunto de credenciais de dispositivo. Para um dispositivo poder acessar um Hub IoT, primeiro você deverá adicionar o dispositivo ao Registro de dispositivo do Hub IoT. Ao adicionar o dispositivo, você terá um conjunto de credenciais de dispositivo de que precisará para que o dispositivo possa se conectar a um Hub IoT. Os aplicativos de exemplo que veremos na próxima seção esperam essas credenciais na forma de uma **cadeia de conexão de dispositivo**.
 
 São fornecidas algumas ferramentas no repositório de código-fonte aberto do SDK para ajudar a gerenciar o Hub IoT. Uma é um aplicativo do Windows chamado Gerenciador de Dispositivos, a segunda é uma ferramenta CLI baseada em Node.js para várias plataformas chamada iothub-explorer. Você pode aprender mais sobre essas ferramentas [aqui](https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md).
@@ -137,7 +131,6 @@ static const char* connectionString = "[device connection string]";
 Se quiser acompanhar, insira sua cadeia de conexão de dispositivo aqui, recompile a solução e o exemplo poderia ser executado.
 
 ## IoTHubClient
-
 Na pasta **iothub\_client** no repositório azure-iot-sdks, há uma pasta de **exemplos** que contém um aplicativo chamado **iothub\_client\_sample\_amqp**.
 
 A versão do Windows do aplicativo **iothub\_client\_sample\_ampq** inclui a seguinte solução do Visual Studio:
@@ -146,10 +139,10 @@ A versão do Windows do aplicativo **iothub\_client\_sample\_ampq** inclui a seg
 
 Essa solução contém um único projeto. Mas vale a pena observar que há quatro pacotes NuGet instalados na solução:
 
-- Microsoft.Azure.C.SharedUtility
-- Microsoft.Azure.IoTHub.AmqpTransport
-- Microsoft.Azure.IoTHub.IoTHubClient
-- Microsoft.Azure.uamqp
+* Microsoft.Azure.C.SharedUtility
+* Microsoft.Azure.IoTHub.AmqpTransport
+* Microsoft.Azure.IoTHub.IoTHubClient
+* Microsoft.Azure.uamqp
 
 Você sempre precisará do pacote **Microsoft.Azure.C.SharedUtility** quando estiver trabalhando com o SDK. Uma vez que esse exemplo se baseia no AMQP, você também deverá incluir os pacotes **Microsoft.Azure.uamqp** e **Microsoft.Azure.IoTHub.AmqpTransport** (há pacotes equivalentes para HTTP e MQTT). Como o exemplo usa a biblioteca **IoTHubClient**, você também deverá incluir o pacote **Microsoft.Azure.IoTHub.IoTHubClient** em sua solução.
 
@@ -158,8 +151,10 @@ Você pode encontrar a implementação para o aplicativo de exemplo no arquivo d
 Usaremos esse exemplo de aplicativo para explicar o que é necessário para usar a biblioteca **IoTHubClient**.
 
 ### Inicializando a biblioteca
-
-> [AZURE.NOTE] Antes de começar a trabalhar com as bibliotecas, talvez seja necessário executar alguma inicialização específica de plataforma. Por exemplo, se você planeja usar o AMQPS no Linux, você deverá inicializar a biblioteca OpenSSL. Os exemplos de [repositório GitHub](https://github.com/Azure/azure-iot-sdks) chamam a função de utilitário **platform\_init** quando o cliente inicia, e chamam a função **platform\_deinit** antes de encerrar. Essas funções são declaradas no arquivo de cabeçalho "platform.h". Você deve examinar as definições dessas funções para sua plataforma de destino no [repositório](https://github.com/Azure/azure-iot-sdks) para determinar se é necessário incluir qualquer código de inicialização de plataforma no seu cliente.
+> [!NOTE]
+> Antes de começar a trabalhar com as bibliotecas, talvez seja necessário executar alguma inicialização específica de plataforma. Por exemplo, se você planeja usar o AMQPS no Linux, você deverá inicializar a biblioteca OpenSSL. Os exemplos de [repositório GitHub](https://github.com/Azure/azure-iot-sdks) chamam a função de utilitário **platform\_init** quando o cliente inicia, e chamam a função **platform\_deinit** antes de encerrar. Essas funções são declaradas no arquivo de cabeçalho "platform.h". Você deve examinar as definições dessas funções para sua plataforma de destino no [repositório](https://github.com/Azure/azure-iot-sdks) para determinar se é necessário incluir qualquer código de inicialização de plataforma no seu cliente.
+> 
+> 
 
 Para começar a trabalhar com as bibliotecas, você deve primeiro alocar um identificador de cliente do Hub IoT:
 
@@ -173,7 +168,6 @@ Observe que estamos passando uma cópia da nossa cadeia de conexão de dispositi
 Quando você tiver um **IOTHUB\_CLIENT\_HANDLE** válido, será possível iniciar a chamada a APIs para enviar eventos ao Hub IoT e receber mensagens dele. Vamos analisar isso a seguir.
 
 ### Enviando eventos
-
 O envio de eventos para o Hub IoT exige que você conclua as seguintes etapas:
 
 Em primeiro lugar, crie uma mensagem:
@@ -206,7 +200,6 @@ static void SendConfirmationCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, v
 Observe a chamada à função **IoTHubMessage\_Destroy** quando terminar com a mensagem. Você optar por isso para liberar os recursos alocados quando criou a mensagem.
 
 ### Recebendo mensagens
-
 O recebimento de uma mensagem é uma operação assíncrona. Primeiro, você registra um retorno de chamada a ser invocado quando o dispositivo recebe uma mensagem:
 
 ```
@@ -238,7 +231,6 @@ static IOTHUBMESSAGE_DISPOSITION_RESULT ReceiveMessageCallback(IOTHUB_MESSAGE_HA
 Observe que você usa a função **IoTHubMessage\_GetByteArray** para recuperar a mensagem que, neste exemplo, é uma cadeia de caracteres.
 
 ### Cancelando a inicialização da biblioteca
-
 Quando acabar de enviar eventos e de receber mensagens, você poderá cancelar a inicialização da biblioteca IoT. Para fazer isso, emita a seguinte chamada de função:
 
 ```
@@ -252,7 +244,6 @@ Como você pode ver, é fácil enviar eventos e receber mensagens com a bibliote
 A biblioteca **IoTHubClient** também fornece controle preciso sobre como serializar os eventos que o seu dispositivo envia ao Hub IoT. Em alguns casos, essa é uma vantagem, mas em outros, é um detalhe de implementação com o qual você não quer se preocupar. Se for esse o caso, você poderá considerar usar a biblioteca **serializer**, que descreveremos na seção a seguir.
 
 ## Serializer
-
 Conceitualmente, a biblioteca **serializer** fica acima da biblioteca **IoTHubClient** no SDK. Ela usa a biblioteca **IoTHubClient** para a comunicação subjacente com o Hub IoT, mas adiciona recursos de modelagem que removem a sobrecarga de lidar com a serialização de mensagens do desenvolvedor. O funcionamento dessa biblioteca é mais bem demonstrado por um exemplo.
 
 Na pasta **serializer** do repositório azure-iot-sdks, há uma pasta **samples** que contém um aplicativo chamado **simplesample\_amqp**. A versão para Windows deste exemplo inclui a seguinte solução do Visual Studio:
@@ -261,11 +252,11 @@ Na pasta **serializer** do repositório azure-iot-sdks, há uma pasta **samples*
 
 Assim como no exemplo anterior, este inclui vários pacotes NuGet:
 
-- Microsoft.Azure.C.SharedUtility
-- Microsoft.Azure.IoTHub.AmqpTransport
-- Microsoft.Azure.IoTHub.IoTHubClient
-- Microsoft.Azure.IoTHub.Serializer
-- Microsoft.Azure.uamqp
+* Microsoft.Azure.C.SharedUtility
+* Microsoft.Azure.IoTHub.AmqpTransport
+* Microsoft.Azure.IoTHub.IoTHubClient
+* Microsoft.Azure.IoTHub.Serializer
+* Microsoft.Azure.uamqp
 
 Já vimos a maior parte disso no exemplo anterior, mas **Microsoft.Azure.IoTHub.Serializer** é novo. Isso é necessário quando usamos a biblioteca **serializer**.
 
@@ -274,7 +265,6 @@ A implementação do aplicativo de exemplo pode ser encontrada no arquivo **simp
 As seções a seguir explicam as principais partes desse exemplo.
 
 ### Inicializando a biblioteca
-
 Para começar a trabalhar com a biblioteca **serializer**, você deverá chamar as APIs de inicialização:
 
 ```
@@ -290,7 +280,6 @@ A chamada à função **serializer\_init** é uma chamada única e é usada para
 Por fim, chame a função **CREATE\_MODEL\_INSTANCE**. Observe que **WeatherStation** é o namespace do modelo e **ContosoAnemometer** é o nome do modelo. Depois que a instância do modelo for definida, você poderá usá-lo para começar a enviar eventos e a receber mensagens. No entanto, em primeiro lugar, é importante entender o que é um modelo.
 
 ### Definindo o modelo
-
 Um modelo na biblioteca **serializer** define os eventos que seu dispositivo pode enviar ao Hub IoT e as mensagens, chamadas de *ações* na linguagem de modelagem, que ele pode receber. Defina um modelo usando um conjunto de macros C, como no exemplo de aplicativo **simplesample\_amqp**:
 
 ```
@@ -314,7 +303,6 @@ Neste exemplo, há um único modelo chamado **ContosoAnemometer**. Esse modelo d
 Os eventos e ações definidos no modelo definem uma superfície de API que você pode usar para enviar eventos ao Hub IoT, bem como para responder a mensagens que estão sendo enviadas ao dispositivo. Isso é mais bem entendido por meio de um exemplo.
 
 ### Enviando eventos
-
 O modelo define os eventos que você pode enviar ao Hub IoT. Neste exemplo, isso significa um dos dois eventos definidos usando a macro **WITH\_DATA**. Por exemplo, se você quiser enviar um evento **WindSpeed** a um Hub IoT, haverá algumas etapas envolvidas para que isso aconteça. A primeira é definir os dados que deseja enviar:
 
 ```
@@ -381,7 +369,6 @@ O segundo parâmetro é um ponteiro para contexto do usuário, o mesmo ponteiro 
 E isso é tudo sobre o envio de eventos. Agora nos resta falar sobre o recebimento de mensagens.
 
 ### Recebendo mensagens
-
 O recebimento de uma mensagem funciona de forma semelhante a como as mensagens funcionam na biblioteca **IoTHubClient**. Primeiramente, você registra uma função de retorno de chamada de mensagem:
 
 ```
@@ -450,7 +437,6 @@ Observe que o nome da função corresponde ao nome da ação no modelo e que os 
 Quando o dispositivo recebe uma mensagem que corresponde a essa assinatura, a função correspondente é chamada. Portanto, além de ter que incluir o código clichê de **IoTHubMessage**, receber mensagens será apenas uma questão de definir uma função simples para cada ação definida no seu modelo.
 
 ### Cancelando a inicialização da biblioteca
-
 Quando acabar de enviar dados e de receber mensagens, você poderá cancelar a inicialização da biblioteca IoT:
 
 ```
@@ -464,7 +450,6 @@ serializer_deinit();
 Cada uma dessas três funções se alinha às três funções de inicialização descritas anteriormente. Chamar essas APIs garante a liberação dos recursos alocados anteriormente.
 
 ## Próximas etapas
-
 Este artigo abordou os conceitos básicos de como usar as bibliotecas no **SDK do dispositivo IoT do Azure para C**. Ele forneceu informações suficientes para entender o que está incluído no SDK, sua arquitetura e como começar a trabalhar com os exemplos do Windows. O próximo artigo continua a descrição do SDK, explicando [mais sobre a biblioteca IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
 Para saber como usar os recursos de gerenciamento de dispositivos no **SDK do dispositivo IoT do Azure para C**, confira [Introducing the Azure IoT Hub device management library for C](iot-hub-device-management-library.md) (Apresentação da biblioteca de gerenciamento de dispositivos do Hub IoT do Azure para C).
@@ -473,10 +458,10 @@ Para saber mais sobre como desenvolver para o Hub IoT, consulte os [SDKs do Hub 
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-- [Projetar sua solução][lnk-design]
-- [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
-- [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
-- [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
+* [Projetar sua solução][lnk-design]
+* [Explorar o gerenciamento de dispositivo usando a interface do usuário de exemplo][lnk-dmui]
+* [Simular um dispositivo com o SDK do Gateway][lnk-gateway]
+* [Usar o Portal do Azure para gerenciar o Hub IoT][lnk-portal]
 
 [lnk-file upload]: iot-hub-csharp-csharp-file-upload.md
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

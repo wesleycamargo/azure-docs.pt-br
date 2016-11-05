@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Personalizar o portal do desenvolvedor no Gerenciamento de API do Azure | Microsoft Azure"
-	description="Saiba como personalizar o portal do desenvolvedor no Gerenciamento de API do Azure."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="erikre"
-	editor=""/>
+---
+title: Personalizar o portal do desenvolvedor no Gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como personalizar o portal do desenvolvedor no Gerenciamento de API do Azure.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2016"
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Personalizar o portal do desenvolvedor no Gerenciamento de API do Azure
-
 Este guia mostra como modificar a aparência do portal do desenvolvedor no Gerenciamento de API do Azure para manter a consistência com a sua marca.
 
 ## <a name="change-page-headers"> </a>Alterar o texto ou logotipo no cabeçalho da página
-
 Um dos principais aspectos da personalização do portal é a substituição do texto na parte superior de todas as páginas pelo nome ou logotipo de sua empresa.
 
 O conteúdo no portal do desenvolvedor é modificado por meio do portal do publicador, que é acessado pelo Portal Clássico do Azure. Para acessar o portal do editor de API, clique em **Gerenciar** no Portal Clássico do Azure do serviço de Gerenciamento de API.
@@ -37,9 +35,10 @@ O conteúdo do cabeçalho é editável no campo **Corpo**. Altere o texto para "
 Agora você poderá ver o novo cabeçalho em cada página no portal do desenvolvedor.
 
 > Para abrir o portal do desenvolvedor enquanto estiver no portal do publicador, clique em **Portal do desenvolvedor** na barra superior.
+> 
+> 
 
 ## <a name="change-headers-styling"> </a>Alterar o estilo dos cabeçalhos
-
 As cores, fontes, tamanhos, espaços e outros elementos relacionados ao estilo de qualquer página no portal são definidos pelas regras de status. Para editar os estilos, clique em **Aparência** no menu **Portal do desenvolvedor** no portal do publicador; então, clique em **Começar a personalização** para habilitar o editor de estilo.
 
 Seu navegador alterna para uma página oculta no portal do desenvolvedor que contém exemplos de conteúdo, com exemplos para todas as regras de estilo usadas em qualquer parte do site. Para abrir o editor de estilo, mova o cursor sobre a linha cinza vertical fina na parte extrema esquerda da página. A barra de ferramentas do editor será exibida.
@@ -52,7 +51,9 @@ Nesta seção gostaríamos de alterar o estilo somente dos cabeçalhos. Clique n
 
 Cada regra representa uma propriedade de estilo do elemento selecionado. Por exemplo, para o texto do cabeçalho selecionado acima, o tamanho do texto está em @font-size-h1, enquanto que o nome da fonte com alternativas está em in @headings-font-family.
 
-> Se estiver familiarizado com [bootstrap][], essas regras são, na verdade, [variáveis LESS][] no tema do bootstrap usadas pelo portal do desenvolvedor.
+> Se estiver familiarizado com [bootstrap][bootstrap], essas regras são, na verdade, [variáveis LESS][variáveis LESS] no tema do bootstrap usadas pelo portal do desenvolvedor.
+> 
+> 
 
 Vamos alterar a cor do texto do cabeçalho. Selecione a entrada no campo **@headings-color** e digite **#000000**. Esse é o código hexadecimal para a cor preta. Quando você fizer isso, verá que um indicador de cor quadrado aparece no final da caixa de texto. Se você clicar nesse indicador, um seletor de cor permitirá que você escolha uma cor.
 
@@ -63,9 +64,10 @@ Ao finalizar as alterações nos estilos do elemento selecionado, clique em **Vi
 ![Menu Publicar][api-management-customization-toolbar-publish-form]
 
 > Para alterar as regras de estilo que se aplicam a qualquer outro elemento na página, siga o mesmo procedimento utilizado para o cabeçalho. Clique em **Escolher um elemento** do editor de estilos, selecione o elemento em que você está interessado e comece a modificar os valores das regras de estilo exibidos na tela.
+> 
+> 
 
 ## <a name="edit-page-contents"> </a>Editar o conteúdo de uma página
-
 O portal do desenvolvedor consiste em páginas geradas automaticamente, como APIs, Produtos, Aplicativos, Questões e conteúdo escrito manualmente. Como ele está baseado em um sistema de gerenciamento de conteúdo, você pode criar esse conteúdo conforme necessário.
 
 Para ver uma lista de todas as páginas de conteúdo existentes, clique em **Conteúdo** no menu **Portal do desenvolvedor** no portal do publicador.
@@ -75,10 +77,11 @@ Para ver uma lista de todas as páginas de conteúdo existentes, clique em **Con
 Clique na página **Bem-vindo** para editar o que é exibido na home page do portal do desenvolvedor. Faça as alterações desejadas, visualize-as se necessário e depois clique em **Publicar Agora** para torná-las visíveis para todos.
 
 > A home page usa um layout especial que permite exibir uma faixa na parte superior. Essa faixa não é editável na seção **Conteúdo**. Para editá-la, clique em **Widgets** no menu **Portal do desenvolvedor**, depois selecione **Home page** na lista suspensa **Camada Atual** e, em seguida, abra o item **Faixa** na **seção Em destaque**. O conteúdo desse widget pode ser editado como o conteúdo de qualquer outra página.
+> 
+> 
 
 ## <a name="next-steps"> </a>Próximas etapas
-
--	Saiba como personalizar o conteúdo das páginas do portal do desenvolvedor usando [Modelos de portal do desenvolvedor](api-management-developer-portal-templates.md).
+* Saiba como personalizar o conteúdo das páginas do portal do desenvolvedor usando [Modelos de portal do desenvolvedor](api-management-developer-portal-templates.md).
 
 [Change the text/logo in the page headers]: #change-page-headers
 [Change the styling of the headers]: #change-headers-styling

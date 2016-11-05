@@ -1,28 +1,30 @@
-<properties
-	pageTitle="Desenvolver a API para o PowerApps Enterprise | Microsoft Azure"
-	description="Desenvolver ou compilar APIs personalizadas para o PowerApps"
-	services=""
-    suite="powerapps"
-	documentationCenter="" 
-	authors="rajram"
-	manager="erikre"
-	editor=""/>
+---
+title: Desenvolver a API para o PowerApps Enterprise | Microsoft Docs
+description: Desenvolver ou compilar APIs personalizadas para o PowerApps
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: rajram
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/02/2016"
-   ms.author="rajram"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/02/2016
+ms.author: rajram
 
+---
 # Desenvolva uma API para o PowerApps
-
-> [AZURE.IMPORTANT] Esse tópico foi arquivado e será removido em breve. Venha ver as novidades do [PowerApps](https://powerapps.microsoft.com).
+> [!IMPORTANT]
+> Esse tópico foi arquivado e será removido em breve. Venha ver as novidades do [PowerApps](https://powerapps.microsoft.com).
 > 
-> - Para saber mais sobre PowerApps e para começar, vá para [PowerApps](https://powerapps.microsoft.com).  
-> - Para saber mais sobre APIs personalizadas no PowerApps, vá para [O que são APIs Personalizadas](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+> * Para saber mais sobre PowerApps e para começar, vá para [PowerApps](https://powerapps.microsoft.com).  
+> * Para saber mais sobre APIs personalizadas no PowerApps, vá para [O que são APIs Personalizadas](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+> 
+> 
 
 <!--Archived
 You can create or develop your own API that can be used within PowerApps. The steps include:
@@ -66,7 +68,7 @@ If an operation is marked as "important", the Logic Flow client is expected to h
 
 ##### x-ms-trigger
 Defines whether this operation can be used as a trigger in the Logic Flow. Options include:
-	
+
 - none (default): The operation cannot be used as a trigger.
 - single: This operation can also be used as a trigger.
 - batched: This operation can be used as a trigger.  In addition, this operation responds with a JSON  'array' of objects, and the Logic Flow fires a trigger for each item in the array.
@@ -76,7 +78,7 @@ Defines whether this operation can be used as a trigger in the Logic Flow. Optio
 This is a hint to the Logic Flow designer that the API provides a list of dynamically allowed values for this parameter. The Logic Flow designer can invoke an operation as defined by the value of this field, and extract the possible values from the result.  The Logic Flow designer can then display these values as options to the end user.  
 
 The value is an object that contains the following properties:
-	
+
 - operationId: A string that matches the operationId for the operation that is invoked
 - parameters: An object whose properties define the parameters required for the operation
 - value-collection: A path string that evaluates to an array of objects in the response payload

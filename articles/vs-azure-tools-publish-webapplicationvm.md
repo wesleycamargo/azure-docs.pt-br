@@ -1,22 +1,22 @@
-<properties
-   pageTitle="Publicar WebApplicationVM | Microsoft Azure"
-   description="Saiba como implantar um aplicativo Web para uma máquina virtual. Se os recursos necessários não existirem, este script criará tais recursos em sua assinatura do Azure."
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="TomArcher"
-   manager="douge"
-   editor="" />
-<tags
-   ms.service="multiple"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="multiple"
-   ms.date="08/15/2016"
-   ms.author="tarcher" />
+---
+title: Publicar WebApplicationVM | Microsoft Docs
+description: Saiba como implantar um aplicativo Web para uma máquina virtual. Se os recursos necessários não existirem, este script criará tais recursos em sua assinatura do Azure.
+services: visual-studio-online
+documentationcenter: na
+author: TomArcher
+manager: douge
+editor: ''
 
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 08/15/2016
+ms.author: tarcher
+
+---
 # Publish-WebApplicationVM (script do Windows PowerShell)
-
 Implanta um aplicativo Web em uma máquina virtual. Se os recursos necessários não existirem, o script criará tais recursos em sua assinatura do Azure.
 
 ```
@@ -31,91 +31,83 @@ Publish-WebApplicationVM
 ```
 
 ### Configuração
-
 O caminho para o arquivo de configuração de JSON que descreve os detalhes da implantação.
 
-|Aliases|nenhum|
-|---|---|
-|Obrigatório?|verdadeiro|
-|Position|nomeado|
-|Valor padrão|nenhum|
-|Aceitar entrada do Pipeline?|false|
-|Aceitar caracteres curinga?|false|
+| Aliases | nenhum |
+| --- | --- |
+| Obrigatório? |verdadeiro |
+| Position |nomeado |
+| Valor padrão |nenhum |
+| Aceitar entrada do Pipeline? |false |
+| Aceitar caracteres curinga? |false |
 
 ### SubscriptionName
-
 O nome da assinatura do Azure no qual você deseja criar a máquina virtual.
 
-|Aliases|nenhum|
-|---|---|
-|Obrigatório?|false|
-|Position|nomeado|
-|Valor padrão|Usa a primeira assinatura no arquivo de assinatura|
-|Aceitar entrada do Pipeline?|false|
-|Aceitar caracteres curinga?|false|
+| Aliases | nenhum |
+| --- | --- |
+| Obrigatório? |false |
+| Position |nomeado |
+| Valor padrão |Usa a primeira assinatura no arquivo de assinatura |
+| Aceitar entrada do Pipeline? |false |
+| Aceitar caracteres curinga? |false |
 
 ### WebDeployPackage
-
 O caminho para o pacote de implantação da web para publicar na máquina virtual. Você pode criar este pacote usando o assistente Publicar Web no Visual Studio. Consulte [Como: criar um pacote de implantação da Web no Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
-|Aliases|nenhum|
-|---|---|
-|Obrigatório?|false|
-|Position|nomeado|
-|Valor padrão|nenhum|
-|Aceitar entrada do Pipeline?|false|
-|Aceitar caracteres curinga?|false|
+| Aliases | nenhum |
+| --- | --- |
+| Obrigatório? |false |
+| Position |nomeado |
+| Valor padrão |nenhum |
+| Aceitar entrada do Pipeline? |false |
+| Aceitar caracteres curinga? |false |
 
 ### AllowUntrusted
-
 Se for verdadeiro, permite o uso de certificados que não está assinado por uma autoridade raiz confiável.
 
-|Aliases|nenhum|
-|---|---|
-|Obrigatório?|false|
-|Position|nomeado|
-|Valor padrão|false|
-|Aceitar entrada do Pipeline?|false|
-|Aceitar caracteres curinga?|false|
+| Aliases | nenhum |
+| --- | --- |
+| Obrigatório? |false |
+| Position |nomeado |
+| Valor padrão |false |
+| Aceitar entrada do Pipeline? |false |
+| Aceitar caracteres curinga? |false |
 
 ### VMPassword
-
 As credenciais da conta de máquina virtual. Exemplo: -VMPassword @{Name = "admin"; Password = "password"}
 
-|Aliases|nenhum|
-|---|---|
-|Obrigatório?|false|
-|Position|nomeado|
-|Valor padrão|nenhum|
-|Aceitar entrada do Pipeline?|false|
-|Aceitar caracteres curinga?|false|
+| Aliases | nenhum |
+| --- | --- |
+| Obrigatório? |false |
+| Position |nomeado |
+| Valor padrão |nenhum |
+| Aceitar entrada do Pipeline? |false |
+| Aceitar caracteres curinga? |false |
 
 ### DatabaseServerPassword
-
 As credenciais do banco de dados SQL no Azure. Exemplo:-DatabaseServerPassword @{Name = "admin"; Password = "password"}
 
-|Aliases|nenhum|
-|---|---|
-|Obrigatório?|false|
-|Position|nomeado|
-|Valor padrão|nenhum|
-|Aceitar entrada do Pipeline?|false|
-|Aceitar caracteres curinga?|false|
+| Aliases | nenhum |
+| --- | --- |
+| Obrigatório? |false |
+| Position |nomeado |
+| Valor padrão |nenhum |
+| Aceitar entrada do Pipeline? |false |
+| Aceitar caracteres curinga? |false |
 
 ### SendHostMessagesToOutput
-
 Se seu valor for true, imprimir mensagens do script para o fluxo de saída.
 
-|Aliases|nenhum|
-|---|---|
-|Obrigatório?|false|
-|Position|nomeado|
-|Valor padrão|false|
-|Aceitar entrada do Pipeline?|false|
-|Aceitar caracteres curinga?|false|
+| Aliases | nenhum |
+| --- | --- |
+| Obrigatório? |false |
+| Position |nomeado |
+| Valor padrão |false |
+| Aceitar entrada do Pipeline? |false |
+| Aceitar caracteres curinga? |false |
 
 ## Comentários
-
 Para obter uma explicação completa de como usar o script para criar ambientes de desenvolvimento e teste, consulte [Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste](vs-azure-tools-publishing-using-powershell-scripts.md).
 
 O arquivo de configuração JSON especifica os detalhes daquilo que está para ser implantado. Ele inclui as informações que você especificou quando criou o projeto, como o nome, grupo de afinidades, imagem de VHD e tamanho da máquina virtual. Também inclui os pontos de extremidade na máquina virtual, os bancos de dados a provisionar, se houver, e os parâmetros de implantação de web. O código a seguir mostra um exemplo de arquivo de configuração JSON:

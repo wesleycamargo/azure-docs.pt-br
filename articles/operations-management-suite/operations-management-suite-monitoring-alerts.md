@@ -1,23 +1,22 @@
-<properties 
-   pageTitle="Gerenciamento de alertas nos produtos de monitoramento da Microsoft | Microsoft Azure"
-   description="Um alerta indica algum problema que requer atenção de um administrador.  Este artigo descreve as diferenças na forma como os alertas são criados e gerenciados no SCOM (System Center Operations Manager) e no Log Analytics, além de fornecer as melhores práticas ao aproveitar os dois produtos para uma estratégia de gerenciamento de alertas híbridos." 
-   services="operations-management-suite"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags 
-   ms.service="operations-management-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
-   ms.author="bwren" />
+---
+title: Gerenciamento de alertas nos produtos de monitoramento da Microsoft | Microsoft Docs
+description: Um alerta indica algum problema que requer atenção de um administrador.  Este artigo descreve as diferenças na forma como os alertas são criados e gerenciados no SCOM (System Center Operations Manager) e no Log Analytics, além de fornecer as melhores práticas ao aproveitar os dois produtos para uma estratégia de gerenciamento de alertas híbridos.
+services: operations-management-suite
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/06/2016
+ms.author: bwren
 
-# <a name="managing-alerts-with-microsoft-monitoring"></a>Gerenciando alertas com o monitoramento da Microsoft 
-
+---
+# <a name="managing-alerts-with-microsoft-monitoring"></a>Gerenciando alertas com o monitoramento da Microsoft
 Um alerta indica algum problema que requer atenção de um administrador.  Há diferenças marcantes entre o SCOM (System Center Operations Manager) e o Log Analytics no OMS (Operations Management Suite) em termos de como os alertas são criados, como são gerenciados e analisados e como você será notificado de que um problema crítico foi detectado.
 
 ## <a name="alerts-in-operations-manager"></a>Alertas no Operations Manager
@@ -59,7 +58,7 @@ Contudo, não é possível gerenciar por completo os alertas do SCOM no Log Anal
 
 ## <a name="alert-remediation"></a>Correção de alertas
 [Correção](http://technet.microsoft.com/library/mt614775.aspx) refere-se a uma tentativa de corrigir automaticamente o problema identificado por um alerta.
-  
+
 O SCOM permite executar Diagnóstico e Recuperações em resposta a um monitor que entra em um estado não íntegro.  Isso ocorre simultaneamente à criação do alerta pelo monitor.  Em geral, o diagnóstico e as recuperações são implementados como um script executado no agente.  Um diagnóstico tenta coletar mais informações sobre o problema detectado, ao passo que uma recuperação tenta corrigir o problema.
 
 O Log Analytics permite iniciar um [runbook da Automação do Azure](https://azure.microsoft.com/documentation/services/automation/) ou chamar um webhook em resposta a um alerta do Log Analytics.  Os runbooks podem conter uma lógica complexa implementada no PowerShell.  O script é executado no Azure e pode acessar quaisquer recursos do Azure ou recursos externos disponíveis na nuvem.  A Automação do Azure tem a capacidade de executar runbooks em um servidor em seu data center local, mas esse recurso não está disponível no momento ao iniciar o runbook em resposta a alertas do Log Analytics.
@@ -69,9 +68,7 @@ Tanto as recuperações no SCOM quanto os runbooks em OMS podem conter scripts d
 Se você usar o SCOM como uma fonte de dados para o Log Analytics, você poderá criar um alerta do Log Analytics usando uma consulta de log para recuperar os alertas do SCOM armazenados no repositório do OMS.  Isso permitirá que você execute um runbook da Automação do Azure em resposta a um alerta do SCOM.  Evidentemente, como o runbook será executado no Azure, essa não seria uma estratégia viável para recuperações de problemas locais.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Conheça os detalhes dos [alertas no SCOM (System Center Operations Manager)](https://technet.microsoft.com/library/hh212913.aspx).
-
+* Conheça os detalhes dos [alertas no SCOM (System Center Operations Manager)](https://technet.microsoft.com/library/hh212913.aspx).
 
 <!--HONumber=Oct16_HO2-->
 

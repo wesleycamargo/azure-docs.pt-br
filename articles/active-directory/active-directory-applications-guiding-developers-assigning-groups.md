@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Aplicativos do Azure AD: Atribuindo grupos a um aplicativo | Microsoft Azure"
-	description="Como implementar a atribuição de grupos para aplicativos do Azure."
-	services="active-directory"
-	documentationCenter=""
-	authors="IHenkel"
-	manager="femila"
-	editor=""/>
+---
+title: 'Aplicativos do Azure AD: Atribuindo grupos a um aplicativo | Microsoft Docs'
+description: Como implementar a atribuição de grupos para aplicativos do Azure.
+services: active-directory
+documentationcenter: ''
+author: IHenkel
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
-	ms.author="inhenk"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/03/2015
+ms.author: inhenk
 
+---
 # Aplicativos do Azure AD: Atribuindo grupos a um aplicativo
 Antes de atribuir usuários e grupos a um aplicativo, você precisa exigir a atribuição de usuários. Para saber como exigir a atribuição de usuário, consulte o artigo [Exigindo Atribuição de Usuário](active-directory-applications-guiding-developers-requiring-user-assignment.md).
 
@@ -34,6 +34,6 @@ Este artigo pressupõe que você já tenha criado grupos no Active Directory que
 10. Clique em **sim** quando solicitado.
 
 ## Próximas etapas
-[AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
+[!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
 <!---HONumber=AcomDC_0928_2016-->

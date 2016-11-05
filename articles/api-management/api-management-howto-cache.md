@@ -1,38 +1,41 @@
-<properties
-	pageTitle="Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure | Microsoft Azure"
-	description="Saiba como aprimorar a latência, carregar o consumo de largura de banda e o serviço Web para chamadas de serviço de Gerenciamento de API."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="erikre"
-	editor=""/>
+---
+title: Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure | Microsoft Docs
+description: Saiba como aprimorar a latência, carregar o consumo de largura de banda e o serviço Web para chamadas de serviço de Gerenciamento de API.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2016"
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure
-
 É possível configurar as operações do Gerenciamento de API para cache das respostas. O cache das respostas pode reduzir significativamente a latência da API, o consumo da largura de banda e a carga de serviço Web para dados que não são alterados com frequência.
 
 Este guia mostra como adicionar o caching das respostas para sua API e configurar políticas para as operações de API de Eco. Você pode chamar a operação por meio do portal do desenvolvedor para verificar o caching em ação.
 
->[AZURE.NOTE] Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
+> [!NOTE]
+> Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
+> 
+> 
 
 ## Pré-requisitos
-
-Antes de seguir as etapas neste guia, você deve ter uma instância do serviço de Gerenciamento de API com uma API e um produto configurado. Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][] no tutorial [Introdução ao Gerenciamento de API do Azure][].
+Antes de seguir as etapas neste guia, você deve ter uma instância do serviço de Gerenciamento de API com uma API e um produto configurado. Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][Criar uma instância de serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
 
 ## <a name="configure-caching"> </a>Configurar uma operação para caching
-
 Nesta etapa, você examinará as configurações de cache da operação **Recurso GET (em cache)** do exemplo de API de Eco.
 
->[AZURE.NOTE] Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de Eco que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para obter mais informações, consulte [Introdução ao Gerenciamento de API do Azure][].
+> [!NOTE]
+> Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de Eco que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para obter mais informações, consulte [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+> 
+> 
 
 Para começar, clique em **Gerenciar** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
@@ -59,7 +62,6 @@ A resposta de cada operação tem uma chave baseada nos valores dos campos **Var
 Utilizando a configuração de cache neste exemplo, a primeira solicitação para a operação **Recurso GET (em cache)** retorna uma resposta do serviço de back-end. Esta resposta será armazenada em cache, com uma chave de acordo com os parâmetros de cadeia de consulta e cabeçalhos especificados. Chamadas subsequentes para a operação, com parâmetros correspondentes, retornarão respostas em cache até que o intervalo de duração de cache expire.
 
 ## <a name="caching-policies"> </a>Examinar as políticas de cache
-
 Nesta etapa, você analisará as configurações de cache da operação **Recurso GET (em cache)** do exemplo de API de Echo.
 
 Quando as configurações de cache são definidas para uma operação na guia **Cache**, políticas de cache são adicionadas à operação. Essas políticas podem ser vistas e editadas no editor de políticas.
@@ -74,25 +76,27 @@ Exibe as políticas para esta operação no editor de políticas.
 
 A definição de política para esta operação inclui as políticas que definem a configuração de cache, que foram revisadas usando a guia **Cache** na etapa anterior.
 
-	<policies>
-		<inbound>
-			<base />
-			<cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-				<vary-by-header>Accept</vary-by-header>
-				<vary-by-header>Accept-Charset</vary-by-header>
-			</cache-lookup>
-			<rewrite-uri template="/resource" />
-		</inbound>
-		<outbound>
-			<base />
-			<cache-store caching-mode="cache-on" duration="3600" />
-		</outbound>
-	</policies>
+    <policies>
+        <inbound>
+            <base />
+            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+                <vary-by-header>Accept</vary-by-header>
+                <vary-by-header>Accept-Charset</vary-by-header>
+            </cache-lookup>
+            <rewrite-uri template="/resource" />
+        </inbound>
+        <outbound>
+            <base />
+            <cache-store caching-mode="cache-on" duration="3600" />
+        </outbound>
+    </policies>
 
->[AZURE.NOTE] As alterações feitas nas políticas de cache no editor de políticas serão refletidas na guia **Cache** de uma operação e vice-versa.
+> [!NOTE]
+> As alterações feitas nas políticas de cache no editor de políticas serão refletidas na guia **Cache** de uma operação e vice-versa.
+> 
+> 
 
 ## <a name="test-operation"> </a>Chamar uma operação e testar o cache
-
 Para ver o cache em funcionamento, podemos chamar a operação por meio do portal do desenvolvedor. Clique em **Portal do desenvolvedor** no menu superior direito.
 
 ![Portal do desenvolvedor][api-management-developer-portal-menu]
@@ -101,7 +105,9 @@ Clique em **APIs** no menu superior e selecione **API de Eco**.
 
 ![API de Eco][api-management-apis-echo-api]
 
->Se você tem apenas uma API configurada ou visível na conta, clicar em APIs levará você diretamente às operações dessa API.
+> Se você tem apenas uma API configurada ou visível na conta, clicar em APIs levará você diretamente às operações dessa API.
+> 
+> 
 
 Selecione a operação **Recurso GET (em cache)** e clique em **Abrir Console**.
 
@@ -128,9 +134,8 @@ Insira **25** no campo **param2** e clique em **HTTP Get**.
 Observe que agora o valor de **sampleheader** na resposta será **value2**. Como os resultados da operação têm uma chave de acordo com a cadeia de consulta, a resposta em cache anterior não foi retornada.
 
 ## <a name="next-steps"> </a>Próximas etapas
-
--	Para saber mais sobre as políticas de cache, veja [Políticas de cache][] na [Referência de política do Gerenciamento de API][].
--	Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
+* Para saber mais sobre as políticas de cache, veja [Políticas de cache][Políticas de cache] na [Referência de política do Gerenciamento de API][Referência de política do Gerenciamento de API].
+* Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Azure AD Connect: perguntas frequentes | Microsoft Azure"
-    description="Esta página tem perguntas frequentes sobre o Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+---
+title: 'Azure AD Connect: perguntas frequentes | Microsoft Docs'
+description: Esta página tem perguntas frequentes sobre o Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/08/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect-faq"></a>Perguntas frequentes do Azure AD Connect
-
 ## <a name="general-installation"></a>Instalação geral
 **P: a instalação funcionará se o Administrador Global do AD do Azure tem 2FA habilitado?**  
  Há suporte para isso nas compilações de fevereiro de 2016.
@@ -59,8 +57,8 @@ Use as diretrizes descritas no artigo [Renovar certificados](active-directory-aa
 **P: O atributo UPN (userPrincipalName) no AD do Azure não coincide com o UPN local - por quê?**  
  Consulte estes artigos:
 
-- [Os nomes de usuário no Office 365, Azure ou Intune não coincidem com o UPN local ou a ID de logon alternativa](https://support.microsoft.com/en-us/kb/2523192)
-- [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Active Directory depois que você altera o UPN de uma conta de usuário para usar um domínio federado diferente](https://support.microsoft.com/en-us/kb/2669550)
+* [Os nomes de usuário no Office 365, Azure ou Intune não coincidem com o UPN local ou a ID de logon alternativa](https://support.microsoft.com/en-us/kb/2523192)
+* [As alterações não são sincronizadas pela ferramenta de sincronização do Azure Active Directory depois que você altera o UPN de uma conta de usuário para usar um domínio federado diferente](https://support.microsoft.com/en-us/kb/2669550)
 
 Você também pode configurar o Azure AD para permitir que o mecanismo de sincronização atualize o userPrincipalName da forma descrita em [Azure AD Connect sync service features (Recursos do serviço de sincronização do Azure AD Connect)](active-directory-aadconnectsyncservice-features.md).
 
@@ -76,17 +74,15 @@ Não. Essa opção não irá recuperar todos os parâmetros de configuração e 
 
 [Pesquise a Base de Dados de Conhecimento (KB) Microsoft](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
-- Pesquise a KB (Base de Dados de Conhecimento) da Microsoft para obter soluções técnicas de conserto de problemas comuns de suporte ao Azure AD Connect.
+* Pesquise a KB (Base de Dados de Conhecimento) da Microsoft para obter soluções técnicas de conserto de problemas comuns de suporte ao Azure AD Connect.
 
 [Fóruns do Active Directory do Microsoft Azure](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
-- Você pode pesquisar e procurar perguntas e respostas técnicas na comunidade ou fazer sua própria pergunta clicando [aqui](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+* Você pode pesquisar e procurar perguntas e respostas técnicas na comunidade ou fazer sua própria pergunta clicando [aqui](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Atendimento ao cliente do Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
 
-- Use este link para obter suporte por meio do Portal do Azure.
-
-
+* Use este link para obter suporte por meio do Portal do Azure.
 
 <!--HONumber=Oct16_HO2-->
 

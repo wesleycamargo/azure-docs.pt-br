@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Acesso a aplicativo de autoatendimento e gerenciamento delegado com o Active Directory do Azure| Microsoft Azure"
-    description="Este artigo descreve como habilitar acesso a aplicativo de autoatendimento e gerenciamento delegado com o Active Directory do Azure."
-    services="active-directory"
-    documentationCenter=""
-    authors="asmalser-msft"
-    manager="femila"
-    editor=""/>
+---
+title: Acesso a aplicativo de autoatendimento e gerenciamento delegado com o Active Directory do Azure| Microsoft Docs
+description: Este artigo descreve como habilitar acesso a aplicativo de autoatendimento e gerenciamento delegado com o Active Directory do Azure.
+services: active-directory
+documentationcenter: ''
+author: asmalser-msft
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/09/2016"
-    ms.author="asmalser"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/09/2016
+ms.author: asmalser
 
-
-#<a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Acesso a aplicativos de autoatendimento e gerenciamento delegado com o Active Directory do Azure
-
+---
+# <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Acesso a aplicativos de autoatendimento e gerenciamento delegado com o Active Directory do Azure
 A habilitação de recursos de autoatendimento para usuários finais é um cenário comum para TI empresarial. Muitos usuários, muitos aplicativos e a pessoa mais bem informada para tomar decisões de concessão de acesso podem não ser o administrador do diretório. Geralmente, a melhor pessoa a decidir quem pode acessar um aplicativo é um líder de equipe ou outro administrador delegado. Mas, afinal, ele é o usuário que usa o aplicativo e o usuário sabe o que precisa para fazer seu trabalho.
 
 O acesso a aplicativo de autoatendimento é um recurso do [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) que permite aos administradores do diretório:
@@ -34,9 +32,7 @@ Este artigo descreve como:
 * Configurar acesso de aplicativo de autoatendimento para usuários finais, incluindo a configuração de um fluxo de trabalho de aprovação opcional 
 * Delegar gerenciamento de acesso a aplicativos específicos às pessoas mais apropriados na organização e habilitá-las a usar o painel de acesso do AD do Azure para aprovar solicitações de acesso, atribuir diretamente o acesso a usuários selecionados ou, (opcionalmente), definir credenciais para acesso ao aplicativo quando o logon único baseado em senha estiver configurado
 
-
-##<a name="configuring-self-service-application-access"></a>Configurando acesso ao aplicativo de autoatendimento
-
+## <a name="configuring-self-service-application-access"></a>Configurando acesso ao aplicativo de autoatendimento
 Para habilitar o acesso do aplicativo de autoatendimento e configurar quais aplicativos podem ser adicionados ou solicitados pelos usuários finais, siga as instruções abaixo.
 
 **1:** entre no [portal clássico do Azure](https://manage.windowsazure.com/).
@@ -71,40 +67,33 @@ Se nenhuma aprovação for necessária, os usuários receberão instantaneamente
 
 **13:** o email direciona o aprovador para entrar no painel de acesso do AD do Azure e aprovar a solicitação. Depois que a solicitação for aprovada (e quaisquer processos especiais que você definir forem executados pelo aprovador), o usuário verá o aplicativo na guia **Aplicativos** em que ele poderá entrar.
 
-##<a name="delegated-application-access-management"></a>Gerenciamento de acesso delegado ao aplicativo
-
+## <a name="delegated-application-access-management"></a>Gerenciamento de acesso delegado ao aplicativo
 Um aprovador de acesso ao aplicativo pode ser qualquer usuário em sua organização que seja a pessoa mais apropriada para aprovar ou negar acesso ao aplicativo em questão. Este usuário pode ser responsável pela conta de provisionamento, licenciamento, ou qualquer outro processo de negócios que sua organização exige, antes de conceder acesso a um aplicativo.
- 
+
 Ao configurar o acesso do aplicativo de autoatendimento descrito acima, qualquer aplicativo atribuído aprovadores verá um bloco adicional **Gerenciar aplicativos** no painel de acesso do AD do Azure, que mostra quais aplicativos são o administrador de acesso para. Clicar em um aplicativo mostra uma tela com várias opções.
 
 ![][2]
 
-###<a name="approve-requests"></a>Aprovar solicitações
-
+### <a name="approve-requests"></a>Aprovar solicitações
 O bloco **Aprovar Solicitações** permite que os aprovadores vejam aprovações pendentes específicas do aplicativo e redireciona para a guia Aprovações em que as solicitações podem ser confirmadas ou negadas. Observe que o aprovador também recebe emails automáticos sempre que uma solicitação é criada, instruindo-o do que fazer.
 
-###<a name="add-users"></a>Adicionar Usuários
-
+### <a name="add-users"></a>Adicionar Usuários
 O bloco **Adicionar Usuários** permite que os aprovadores concedam diretamente aos usuários selecionados acesso ao aplicativo. Ao clicar nesse bloco, o aprovador vê que uma caixa de diálogo permite exibir e pesquisar usuários em seu diretório. Adicionar um usuário faz com que o aplicativo seja mostrado nos painéis de acesso do AD do Azure desse usuário ou no Office 365. Se qualquer processo de provisionamento manual do usuário for necessário no aplicativo antes que o usuário possa entrar, o aprovador deve executar esse processo antes de atribuir acesso.  
 
-###<a name="manage-users"></a>Gerenciar Usuários
-
+### <a name="manage-users"></a>Gerenciar Usuários
 O bloco **Gerenciar Usuários** permite aos aprovadores atualizar ou remover diretamente os usuários que têm acesso ao aplicativo. 
 
-###<a name="configure-password-sso-credentials-(if-applicable)"></a>Configurar credenciais de SSO de senha (se aplicável)
-
+### <a name="configure-password-sso-credentials-(if-applicable)"></a>Configurar credenciais de SSO de senha (se aplicável)
 O bloco **Configurar** só será mostrado se o aplicativo foi configurado pelo administrador de TI para usar logon único baseado em senha, e o administrador garantiu ao aprovador a capacidade de definir credenciais SSO de senha, conforme descrito anteriormente. Quando selecionado, são apresentadas várias opções ao aprovador sobre como as credenciais serão propagadas aos usuários atribuídos:
 
 ![][3]
 
 * **Os usuários entram com suas próprias senhas** – deste modo, os usuários atribuídos sabem que seus nomes de usuário e senhas são para o aplicativo e serão solicitados a inseri-las no primeiro acesso ao aplicativo. Isso corresponde à senha SSO em que os [usuários gerenciam credenciais](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
-
 * **Os usuários entram automaticamente usando contas separadas que eu gerencio** – assim, os usuários atribuídos não precisam inserir nem saber suas credenciais específicas do aplicativo ao entrar no aplicativo. Em vez disso, o aprovador define as credenciais para cada usuário depois de atribuir acesso usando o bloco **Adicionar Usuário** . Quando o usuário clica no aplicativo no seu painel de acesso ou no Office 365, ele será conectado automaticamente usando as credenciais definidas pelo aprovador. Isso corresponde à senha SSO em que os [administradores gerenciam credenciais](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
-
 * **Os usuários entram automaticamente usando uma única conta que eu gerencio** –esse é um caso especial e é apropriado quando for necessário conceder acesso a todos os usuários atribuídos utilizando uma conta compartilhada. O caso de uso mais comum para isso são os aplicativos de mídia social, em que uma organização tem uma única conta "corporativa" e vários usuários precisam fazer atualizações nessa conta. Isso também corresponde à senha SSO, em que os [administradores gerenciam credenciais](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). No entanto, depois de selecionar essa opção, o aprovador deverá inserir o nome de usuário e a senha para a conta compartilhada única. Depois de concluído, todos os usuários atribuídos serão conectados usando essa conta ao clicar no aplicativo nos painéis de acesso do AD do Azure ou no Office 365.
 
-##<a name="additional-resources"></a>Recursos adicionais
-- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+## <a name="additional-resources"></a>Recursos adicionais
+* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG

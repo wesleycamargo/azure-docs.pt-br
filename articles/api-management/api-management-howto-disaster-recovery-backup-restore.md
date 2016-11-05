@@ -1,46 +1,53 @@
-<properties 
-	pageTitle="Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure | Microsoft Azure" 
-	description="Saiba como usar o backup e restauração para executar a recuperação de desastres no Gerenciamento de API no Azure." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure | Microsoft Docs
+description: Saiba como usar o backup e restauração para executar a recuperação de desastres no Gerenciamento de API no Azure.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: sdanie
 
+---
 # Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
-
 Ao escolher publicar e gerenciar suas APIs através do Gerenciamento de API do Azure, você está tirando proveito de muitos recursos de tolerância e infraestrutura que você precisaria criar, implementar e gerenciar. A plataforma Azure atenua grande parte das falhas potenciais a uma fração do custo.
 
 Para se recuperar de problemas de disponibilidade que afetam a região onde o serviço de Gerenciamento de API está hospedado, você deverá estar pronto para reconstituir seu serviço em uma região diferente a qualquer momento. Dependendo de suas metas de disponibilidade e objetivo de tempo de recuperação, você pode querer reservar um serviço de backup em uma ou mais regiões e tentar manter suas configurações e conteúdos na sincronização com o serviço ativo. O backup do serviço e o recurso de restauração fornece o bloco de criação necessário para implementação de sua estratégia de recuperação de desastre.
 
 Este guia mostra como autenticar solicitações do Gerenciador de Recursos do Azure e como fazer backup e restaurar suas instâncias de serviço de Gerenciamento de API.
 
->[AZURE.NOTE] O processo de backup e restauração de uma instância do serviço Gerenciamento de API para recuperação de desastres também pode ser usado para replicar as instâncias de serviço Gerenciamento de API para cenários como preparação.
->
->Observe que cada backup expira após 7 dias. Se você tentar restaurar um backup após o período de expiração de 7 dias, a restauração falhará com uma mensagem `Cannot restore: backup expired`.
+> [!NOTE]
+> O processo de backup e restauração de uma instância do serviço Gerenciamento de API para recuperação de desastres também pode ser usado para replicar as instâncias de serviço Gerenciamento de API para cenários como preparação.
+> 
+> Observe que cada backup expira após 7 dias. Se você tentar restaurar um backup após o período de expiração de 7 dias, a restauração falhará com uma mensagem `Cannot restore: backup expired`.
+> 
+> 
 
 ## Autenticação de solicitações do gerenciador de recursos do Azure
-
->[AZURE.IMPORTANT] A API REST para backup e restauração usa o Gerenciador de Recursos do Azure e tem um mecanismo de autenticação diferentes das APIs REST para gerenciar suas entidades de Gerenciamento de API. As etapas desta seção descrevem como autenticar solicitações do Gerenciador de Recursos do Azure. Para mais informações, consulte [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+> [!IMPORTANT]
+> A API REST para backup e restauração usa o Gerenciador de Recursos do Azure e tem um mecanismo de autenticação diferentes das APIs REST para gerenciar suas entidades de Gerenciamento de API. As etapas desta seção descrevem como autenticar solicitações do Gerenciador de Recursos do Azure. Para mais informações, consulte [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+> 
+> 
 
 Todas as tarefas que você faz em recursos usando o Gerenciador de Recursos do Azure devem ser autenticadas com o Active Directory do Azure usando as etapas a seguir.
 
--	Adicione um aplicativo no locatário do Active Directory do Azure.
--	Defina permissões para o aplicativo que você adicionou.
--	Obtenha o token para autenticar solicitações ao Gerenciador de Recursos do Azure.
+* Adicione um aplicativo no locatário do Active Directory do Azure.
+* Defina permissões para o aplicativo que você adicionou.
+* Obtenha o token para autenticar solicitações ao Gerenciador de Recursos do Azure.
 
 A primeira etapa é criar um aplicativo do Active Directory do Azure. Faça logon no [Portal Clássico do Azure](http://manage.windowsazure.com/) usando a assinatura que contém sua instância de serviço Gerenciamento de API e navegue até a guia **Aplicativos** para o Active Directory do Azure padrão.
 
->[AZURE.NOTE] Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta. Para obter informações sobre como localizar seu diretório padrão, consulte [Localizar seu diretório padrão](../virtual-machines/resource-group-create-work-id-from-persona.md#locate-your-default-directory-in-the-azure-portal).
+> [!NOTE]
+> Se o diretório padrão do Active Directory do Azure não é visível para sua conta, contate o administrador da assinatura do Azure para conceder as permissões necessárias para sua conta. Para obter informações sobre como localizar seu diretório padrão, consulte [Localizar seu diretório padrão](../virtual-machines/resource-group-create-work-id-from-persona.md#locate-your-default-directory-in-the-azure-portal).
+> 
+> 
 
 ![Criar aplicativo do Active Directory do Azure][api-management-add-aad-application]
 
@@ -60,28 +67,28 @@ Clique em **Permissões delegadas** ao lado do aplicativo recém-adicionado **AP
 
 Antes de chamar as APIs que geram o backup e o restauram, é necessário obter um token. O exemplo a seguir usa o pacote do nuget [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) para recuperar o token.
 
-	using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using System;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using System;
 
-	namespace GetTokenResourceManagerRequests
-	{
+    namespace GetTokenResourceManagerRequests
+    {
         class Program
-	    {
-	        static void Main(string[] args)
-	        {
-	            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-	            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+        {
+            static void Main(string[] args)
+            {
+                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+                var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
-	            if (result == null) {
-	                throw new InvalidOperationException("Failed to obtain the JWT token");
-	            }
+                if (result == null) {
+                    throw new InvalidOperationException("Failed to obtain the JWT token");
+                }
 
-	            Console.WriteLine(result.AccessToken);
+                Console.WriteLine(result.AccessToken);
 
-	            Console.ReadLine();
-	        }
-    	}
-	}
+                Console.ReadLine();
+            }
+        }
+    }
 
 Substitua `{tentand id}`, `{application id}` e `{redirect uri}` usando as instruções a seguir.
 
@@ -101,7 +108,7 @@ Depois que os valores são especificados, o exemplo de código deve retornar um 
 
 Antes de chamar as operações de backup e restauração descritas nas seções a seguir, defina o cabeçalho de solicitação de autorização para a chamada de REST.
 
-	request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 
 ## <a name="step1"> </a>Fazer backup de um serviço de Gerenciamento de API
 Para fazer backup de um serviço de Gerenciamento de API, execute a seguinte solicitação HTTP:
@@ -117,12 +124,12 @@ onde:
 
 No corpo da solicitação, especifique o nome da conta de armazenamento de destino do Azure, a chave de acesso, o nome do contêiner Blob e o nome de backup:
 
-	'{  
-	    storageAccount : {storage account name for the backup},  
-	    accessKey : {access key for the account},  
-	    containerName : {backup container name},  
-	    backupName : {backup blob name}  
-	}'
+    '{  
+        storageAccount : {storage account name for the backup},  
+        accessKey : {access key for the account},  
+        containerName : {backup container name},  
+        backupName : {backup blob name}  
+    }'
 
 Defina o valor do cabeçalho de solicitação `Content-Type` para `application/json`.
 
@@ -130,10 +137,10 @@ O backup é uma operação longa de execução que pode levar vários minutos pa
 
 **Observação**:
 
-- o **contêiner** especificado no corpo solicitado **deve existir**.
+* o **contêiner** especificado no corpo solicitado **deve existir**.
 * Enquanto o backup está em andamento, você **não deve tentar quaisquer operações de gerenciamento de serviço**, como atualização ou downgrade de SKU, alteração do nome do domínio, etc.
 * A restauração de um **backup é garantida somente por 7 dias** desde o momento de sua criação.
-* Os **dados de uso** usados para a criação de relatórios de análise **não estão incluídos** no backup. Use o [API REST de Gerenciamento de API do Azure][] para recuperar periodicamente os relatórios analíticos por questões de segurança.
+* Os **dados de uso** usados para a criação de relatórios de análise **não estão incluídos** no backup. Use o [API REST de Gerenciamento de API do Azure][API REST de Gerenciamento de API do Azure] para recuperar periodicamente os relatórios analíticos por questões de segurança.
 * A frequência com que você executa os backups de serviço afetarão seu objetivo do ponto de recuperação. Para minimizar, aconselhamos a implementação de backups regular, bem como a execução de backups sob demanda depois de fazer alterações importantes para seu serviço de Gerenciamento de API.
 * As **alterações** feitas à configuração de serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto a operação de backup está em andamento **podem não ser incluídas no backup e, portanto, serão perdidas**.
 
@@ -151,28 +158,31 @@ onde:
 
 No corpo da solicitação, especifique o local de arquivo de backup, por exemplo, o nome da conta de armazenamento do Azure, chave de acesso, nome do contêiner Blob e nome de backup:
 
-	'{  
-	    storageAccount : {storage account name for the backup},  
-	    accessKey : {access key for the account},  
-	    containerName : {backup container name},  
-	    backupName : {backup blob name}  
-	}'
+    '{  
+        storageAccount : {storage account name for the backup},  
+        accessKey : {access key for the account},  
+        containerName : {backup container name},  
+        backupName : {backup blob name}  
+    }'
 
 Defina o valor do cabeçalho de solicitação `Content-Type` para `application/json`.
 
 Restaure uma operação longa de execução que pode levar até 30 minutos ou mais para concluir. Se a solicitação foi bem sucedida e o processo de restauração foi iniciado, você receberá um código de status de resposta `202 Accepted` com um cabeçalho do `Location`. Faça solicitações “GET” para a URL no cabeçalho do `Location` para descobrir o status da operação. Enquanto a restauração está em andamento, você continuará a receber o código de status “202 Aceito”. Um código de resposta `200 OK` indicará a conclusão com sucesso da operação de restauração.
 
->[AZURE.IMPORTANT] **O SKU** do serviço que está sendo restaurado **deve combinar** com o SKU do serviço de backup sendo restaurado.
->
->As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto restauram a operação que está em andamento **podem ser substituídas**.
+> [!IMPORTANT]
+> **O SKU** do serviço que está sendo restaurado **deve combinar** com o SKU do serviço de backup sendo restaurado.
+> 
+> As **alterações** feitas na configuração do serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto restauram a operação que está em andamento **podem ser substituídas**.
+> 
+> 
 
 ## Próximas etapas
 Confira os seguintes blogs da Microsoft para duas diferentes orientações passo a passo do processo de backup/restauração.
 
--	[Replicar contas de Gerenciamento de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
-	-	Agradecemos a Gisela por sua contribuição neste artigo.
--	[Gerenciamento de API do Azure: Fazendo backup e restaurando a configuração](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-	-	A abordagem detalhada por Stuart não coincide com as diretrizes oficiais, mas é muito interessante.
+* [Replicar contas de Gerenciamento de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
+  * Agradecemos a Gisela por sua contribuição neste artigo.
+* [Gerenciamento de API do Azure: Fazendo backup e restaurando a configuração](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+  * A abordagem detalhada por Stuart não coincide com as diretrizes oficiais, mas é muito interessante.
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
@@ -189,6 +199,6 @@ Confira os seguintes blogs da Microsoft para duas diferentes orientações passo
 [api-management-aad-resources]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-aad-resources.png
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
- 
+
 
 <!---HONumber=AcomDC_0810_2016-->

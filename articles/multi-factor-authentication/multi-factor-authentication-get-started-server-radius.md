@@ -1,35 +1,32 @@
-<properties 
-	pageTitle="Servidor Azure Multi-Factor Authentication e autenticação RADIUS"
-	description="Esta é a página do Azure Multi-Factor Authentication que auxiliará na implantação de autenticação RADIUS e do servidor Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtand"/>
+---
+title: Servidor Azure Multi-Factor Authentication e autenticação RADIUS
+description: Esta é a página do Azure Multi-Factor Authentication que auxiliará na implantação de autenticação RADIUS e do servidor Azure Multi-Factor Authentication.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtand
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/15/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: kgremban
 
-
-
+---
 # Servidor Azure Multi-Factor Authentication e autenticação RADIUS
-
 A seção Autenticação RADIUS permite habilitar e configurar a autenticação RADIUS para o servidor Azure Multi-Factor Authentication. RADIUS é um protocolo padrão para aceitar solicitações de autenticação e processar essas solicitações. O servidor Multi-Factor Authentication do Azure atua como um servidor RADIUS e é inserido entre o cliente RADIUS (por exemplo, o dispositivo VPN) e o destino de autenticação, que pode ser o Active Directory (AD), um diretório LDAP ou outro servidor RADIUS, para adicionar o Azure Multi-Factor Authentication. Para o Azure Multi-Factor Authentication funcionar, você deve configurar o servidor Azure Multi-Factor Authentication para que ele possa se comunicar com os servidores clientes e o destino de autenticação. O servidor Azure Multi-Factor Authentication aceita solicitações de um cliente RADIUS, valida as credenciais usando o destino de autenticação, adiciona o Azure Multi-Factor Authentication e envia uma resposta ao cliente RADIUS. A autenticação completa só terá êxito se a autenticação primária e o Azure Multi-Factor Authentication tiverem êxito.
 
->[AZURE.NOTE]
-O servidor MFA só dá suporte a PAP (protocolo de autenticação de senha) e o MSCHAPv2 (Microsoft’s Challenge Handshake Authentication Protocol) de protocolos de RADIUS agindo como um servidor RADIUS. Outros protocolos, como o EAP (protocolo de autenticação extensível) podem ser usados quando o servidor MFA atua como um proxy RADIUS para outro servidor RADIUS que dá suporte a esse protocolo, como Microsoft NPS. </br> Ao usar outros protocolos nessa configuração, os tokens SMS e OATH unidirecionais não funcionarão, pois o servidor MFA não é capaz de iniciar uma resposta bem-sucedida de Challenge RADIUS usando esse protocolo.
-
+> [!NOTE]
+> O servidor MFA só dá suporte a PAP (protocolo de autenticação de senha) e o MSCHAPv2 (Microsoft’s Challenge Handshake Authentication Protocol) de protocolos de RADIUS agindo como um servidor RADIUS. Outros protocolos, como o EAP (protocolo de autenticação extensível) podem ser usados quando o servidor MFA atua como um proxy RADIUS para outro servidor RADIUS que dá suporte a esse protocolo, como Microsoft NPS. </br> Ao usar outros protocolos nessa configuração, os tokens SMS e OATH unidirecionais não funcionarão, pois o servidor MFA não é capaz de iniciar uma resposta bem-sucedida de Challenge RADIUS usando esse protocolo.
+> 
+> 
 
 ![Autenticação Radius](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
 ## Configuração da autenticação RADIUS
-
 Para configurar a autenticação RADIUS, instale o servidor Azure Multi-Factor Authentication em um servidor Windows. Se você tiver um ambiente do Active Directory, o servidor deve ser associado ao domínio dentro da rede. Use o procedimento a seguir para configurar o servidor Azure Multi-Factor Authentication:
 
 1. No servidor Azure Multi-Factor Authentication, clique no ícone de Autenticação RADIUS no menu esquerdo.
@@ -51,13 +48,11 @@ Para configurar a autenticação RADIUS, instale o servidor Azure Multi-Factor A
 17. Você deve adicionar o Azure Multi-Factor Authentication como um cliente RADIUS no outro servidor RADIUS para que ele processe as solicitações de acesso enviadas do servidor Azure Multi-Factor Authentication. Você deve usar o mesmo segredo compartilhado configurado no servidor Azure Multi-Factor Authentication.
 18. Você pode repetir esta etapa para adicionar servidores RADIUS adicionais e configurar a ordem em que o servidor deve chamá-los com os botões Mover para Cima e Mover para Baixo. Isso conclui a configuração do servidor Azure Multi-Factor Authentication. O servidor agora está escutando nas portas configuradas solicitações de acesso RADIUS dos clientes configurados.
 
-
 ## Configuração do cliente RADIUS
-
 Para configurar o cliente RADIUS, use as diretrizes:
 
-- Configure o dispositivo/servidor para autenticar via RADIUS para o endereço IP do servidor Azure Multi-Factor Authentication, que atuará como o servidor RADIUS.
-- Use o mesmo segredo compartilhado que foi configurado acima.
-- Configure o tempo limite RADIUS para 30 a 60 segundos, de forma que haja tempo para validar as credenciais do usuário, executar a autenticação multifator, receber a resposta e responder à solicitação de acesso RADIUS.
+* Configure o dispositivo/servidor para autenticar via RADIUS para o endereço IP do servidor Azure Multi-Factor Authentication, que atuará como o servidor RADIUS.
+* Use o mesmo segredo compartilhado que foi configurado acima.
+* Configure o tempo limite RADIUS para 30 a 60 segundos, de forma que haja tempo para validar as credenciais do usuário, executar a autenticação multifator, receber a resposta e responder à solicitação de acesso RADIUS.
 
 <!---HONumber=AcomDC_0921_2016-->

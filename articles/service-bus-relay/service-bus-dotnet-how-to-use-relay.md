@@ -1,31 +1,27 @@
-<properties
-    pageTitle="Como usar a retransmissão do Barramento de Serviço com .NET | Microsoft Azure"
-    description="Saiba como usar o serviço de Retransmissão do Barramento de Serviço do Azure para conectar dois aplicativos hospedados em locais diferentes."
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+---
+title: Como usar a retransmissão do Barramento de Serviço com .NET | Microsoft Docs
+description: Saiba como usar o serviço de Retransmissão do Barramento de Serviço do Azure para conectar dois aplicativos hospedados em locais diferentes.
+services: service-bus
+documentationcenter: .net
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="09/16/2016"
-    ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: sethm
 
-
-
-# <a name="how-to-use-the-azure-service-bus-relay-service"></a>Como usar o serviço de retransmissão do Barramento de Serviço do Azure 
-
+---
+# <a name="how-to-use-the-azure-service-bus-relay-service"></a>Como usar o serviço de retransmissão do Barramento de Serviço do Azure
 Este artigo descreve como usar o serviço de Retransmissão do Barramento de Serviço. Os exemplos são escritos em C# e usam a API da WCF (Windows Communication Foundation) com extensões contidas no assembly do Barramento de Serviço. Para saber mais sobre a retransmissão do Barramento de Serviço, confira a seção [Sistema de mensagens de retransmissão do Barramento de Serviço](service-bus-relay-overview.md).
 
-[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## <a name="what-is-the-service-bus-relay?"></a>O que é a Retransmissão de Service Bus?
-
 O serviço de [retransmissão do *Barramento de Serviço*](service-bus-relay-overview.md) permite a compilação de aplicativos híbridos que executem tanto no datacenter do Azure quanto em seu próprio ambiente corporativo local. A retransmissão do Barramento de Serviço facilita isso permitindo que você exponha com segurança os serviços do Windows Communication Foundation (WCF) que residem em uma rede corporativa para a nuvem pública, sem precisar abrir uma conexão de firewall ou exigir mudanças intrusivas em uma infraestrutura da rede corporativa.
 
 ![Conceitos de retransmissão](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
@@ -35,40 +31,36 @@ A retransmissão do Barramento de serviço permite que você hospede serviços W
 Este artigo demonstra como usar a retransmissão do Barramento de Serviço para criar um serviço Web do WCF exibido usando uma associação de canal TCP, que implementa uma conversa segura entre duas partes.
 
 ## <a name="create-a-service-namespace"></a>Criar um namespace de serviço
-
 Para começar a usar a retransmissão do Barramento de Serviço, primeiro você deve criar um namespace. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo.
 
 Para criar um namespace de serviço:
 
-[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="get-the-service-bus-nuget-package"></a>Obtenha o pacote do NuGet do Barramento de Serviço
-
 O [pacote NuGet de Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de Serviço e configurar seu aplicativo com todas as dependências do Barramento de Serviço. Para instalar o pacote do NuGet em seu projeto, proceda da seguinte maneira:
 
-1.  No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
-2.  Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure** . Clique em **Instalar** para concluir a instalação e feche a seguinte caixa de diálogo:
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
+1. No Gerenciador de Soluções, clique com o botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
+2. Procure "Barramento de Serviço" e selecione o item **Barramento de Serviço do Microsoft Azure** . Clique em **Instalar** para concluir a instalação e feche a seguinte caixa de diálogo:
+   
+   ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
 ## <a name="use-service-bus-to-expose-and-consume-a-soap-web-service-with-tcp"></a>Use o Barramento de Serviço para expor e consumir um serviço Web SOAP com TCP
-
 Para expor um serviço Web SOAP WCF existente para consumo externo, você deve alterar as associações e endereços do serviço. Isso pode exigir alterações em seu arquivo de configuração ou exigir alterações de código, dependendo de como você instalou e configurou seus serviços WCF. Observe que o WCF permite ter vários pontos de extremidade de rede sobre o mesmo serviço, portanto, você pode manter os pontos de extremidade internos existentes ao adicionar pontos de extremidade do Barramento de serviço para acesso externo ao mesmo tempo.
 
 Nesta tarefa, você criará um serviço WCF simples e adicionará um ouvinte do Barramento de serviço a ele. Este exercício pressupõe alguma familiaridade com o Visual Studio e, portanto, não percorre todos os detalhes da criação de um projeto. Em vez disso, ele se concentra no código.
 
 Antes de iniciar as etapas a seguir, conclua o seguinte procedimento para configurar seu ambiente:
 
-1.  No Visual Studio, crie um aplicativo de console que contenha dois projetos: “Cliente” e “Serviço” na solução.
-2.  Adicione o pacote NuGet do Barramento de Serviço do Microsoft Azure aos dois projetos. Esse pacote adiciona todas as referências ao assembly necessárias para seus projetos.
+1. No Visual Studio, crie um aplicativo de console que contenha dois projetos: “Cliente” e “Serviço” na solução.
+2. Adicione o pacote NuGet do Barramento de Serviço do Microsoft Azure aos dois projetos. Esse pacote adiciona todas as referências ao assembly necessárias para seus projetos.
 
 ### <a name="how-to-create-the-service"></a>Como criar o serviço
-
 Primeiro, crie o serviço. Qualquer serviço WCF consiste em pelo menos três partes distintas:
 
--   Definição de um contrato que descreve quais mensagens são trocadas e quais operações devem ser chamadas.
--   Implementação do contrato mencionado.
--   Host que hospeda o serviço WCF e exibe vários pontos de extremidade.
+* Definição de um contrato que descreve quais mensagens são trocadas e quais operações devem ser chamadas.
+* Implementação do contrato mencionado.
+* Host que hospeda o serviço WCF e exibe vários pontos de extremidade.
 
 Os exemplos de código desta seção abordam cada um desses componentes.
 
@@ -100,7 +92,6 @@ class ProblemSolver : IProblemSolver
 ```
 
 ### <a name="configure-a-service-host-programmatically"></a>Configure um host de serviço de forma programática
-
 Com o contrato e a implementação estabelecidos, você agora pode hospedar o serviço. A hospedagem ocorre dentro de um objeto [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/azure/system.servicemodel.servicehost.aspx), que cuida do gerenciamento de instâncias do serviço e hospeda os pontos de extremidade que detectam as mensagens. O código a seguir configura o serviço com um ponto de extremidade local normal e um ponto de extremidade do Barramento de Serviço para ilustrar a aparência, lado a lado, dos pontos de extremidade internos e externos. Substitua a cadeia de caracteres *namespace* pelo nome do namespace e *yourKey* pela chave SAS obtida na etapa de configuração anterior.
 
 ```
@@ -127,7 +118,6 @@ sh.Close();
 No exemplo, você cria dois pontos de extremidade que estão na mesma implementação de contrato. Um é local e o outro é projetado por meio do Barramento de Serviço. As principais diferenças entre eles são as associações; [NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) para aquela no local e [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) para o ponto de extremidade e os endereços do Barramento de Serviço. O ponto de extremidade local tem um endereço de rede local com uma porta distinta. O ponto de extremidade do Barramento de Serviço tem um endereço de ponto de extremidade composto da cadeia de caracteres `sb`, o nome do seu namespace e o caminho “solver”. Isso resulta no URI `sb://[serviceNamespace].servicebus.windows.net/solver` identificando o ponto de extremidade de serviço como um ponto de extremidade TCP do Barramento de Serviço com um nome DNS externo totalmente qualificado. Se você colocar o código substituindo os espaços reservados, na função `Main` do aplicativo **Serviço**, você terá um serviço funcional. Se desejar que o serviço detecte exclusivamente o Barramento de serviço, remova a declaração de ponto de extremidade local.
 
 ### <a name="configure-a-service-host-in-the-app.config-file"></a>Configure um host de serviço no arquivo App.config
-
 Você também pode configurar o host usando o arquivo App.config. O serviço de hospedagem de código, nesse caso, é exibido no exemplo a seguir.
 
 ```
@@ -169,9 +159,7 @@ Substitua os espaços reservados com seu namespace do Barramento de Serviço e a
 Depois de fazer essas alterações, o serviço é iniciado como antes, mas com dois pontos de extremidade ativos: um local e um escutando na nuvem.
 
 ### <a name="create-the-client"></a>Crie o cliente
-
 #### <a name="configure-a-client-programmatically"></a>Configure um cliente de forma programática
-
 Para consumir o serviço, você pode construir um cliente WCF usando um objeto [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx). O Barramento de Serviço usa um modelo de segurança baseado em token implementado com a SAS. A classe [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa um provedor de token de segurança com métodos de fábrica internos que retornam alguns provedores de token conhecidos. O exemplo a seguir usa o método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para lidar com a aquisição do token SAS apropriado. O nome e a chave são os obtidos no portal, conforme descrito na seção anterior.
 
 Primeiro, faça referência ou copie o código do contrato `IProblemSolver` do serviço para o projeto cliente.
@@ -195,7 +183,6 @@ using (var ch = cf.CreateChannel())
 Agora, você pode compilar o cliente e o serviço, executá-los (execute o serviço primeiro) e o cliente chama o serviço e imprime **9**. Você pode executar o cliente e o servidor em máquinas diferentes, até entre redes, e a comunicação ainda funcionará. O código do cliente também pode ser executado na nuvem ou localmente.
 
 #### <a name="configure-a-client-in-the-app.config-file"></a>Configure um cliente no arquivo App.config
-
 O código a seguir mostra como configurar o cliente usando o arquivo App.config.
 
 ```
@@ -229,16 +216,15 @@ As definições de ponto de extremidade são movidas para o arquivo App.config. 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-
 Agora que você já aprendeu os conceitos básicos do serviço de retransmissão do Barramento de Serviço, siga estes links para saber mais.
 
-- [Visão geral do sistema de mensagens de retransmissão do Barramento de Serviço](service-bus-relay-overview.md)
-- [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-- Baixe exemplos de Barramento de Serviço dos [exemplos do Azure][] ou consulte a [visão geral dos exemplos de Barramento de Serviço][].
+* [Visão geral do sistema de mensagens de retransmissão do Barramento de Serviço](service-bus-relay-overview.md)
+* [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* Baixe exemplos de Barramento de Serviço dos [exemplos do Azure][] ou consulte a [visão geral dos exemplos de Barramento de Serviço][visão geral dos exemplos de Barramento de Serviço].
 
-  [Autenticação de assinatura de acesso compartilhado com Barramento de serviço]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
-  [Amostras do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [visão geral dos exemplos de Barramento de Serviço]: ../service-bus-messaging/service-bus-samples.md
+[Autenticação de assinatura de acesso compartilhado com Barramento de serviço]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
+[Amostras do Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+[visão geral dos exemplos de Barramento de Serviço]: ../service-bus-messaging/service-bus-samples.md
 
 
 <!--HONumber=Oct16_HO2-->

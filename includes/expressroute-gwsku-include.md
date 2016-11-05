@@ -2,11 +2,14 @@ Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway 
 
 Os gateways de rede virtual de ExpressRoute podem usar os seguintes SKUs: 
 
-- Standard
-- HighPerformance
-- UltraPerformance
+* Standard
+* HighPerformance
+* UltraPerformance
 
->[AZURE.IMPORTANT] Atualmente, o gateway UltraPerformance do ExpressRoute está disponível nas regiões Centro Oeste dos EUA e Centro dos EUA e pode ser vinculado a circuitos do ExpressRoute localizados em Chicago e Dallas. Mais regiões do Azure e locais do ExpressRoute estarão disponíveis nas próximas semanas. 
+> [!IMPORTANT]
+> Atualmente, o gateway UltraPerformance do ExpressRoute está disponível nas regiões Centro Oeste dos EUA e Centro dos EUA e pode ser vinculado a circuitos do ExpressRoute localizados em Chicago e Dallas. Mais regiões do Azure e locais do ExpressRoute estarão disponíveis nas próximas semanas. 
+> 
+> 
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,30 +1,27 @@
-<properties 
-    pageTitle="AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure | Microsoft Azure" 
-    description="Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure" 
-    services="service-bus,event-hubs" 
-    documentationCenter=".net" 
-    authors="clemensv" 
-    manager="timlt" 
-    editor=""/>
+---
+title: AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure | Microsoft Docs
+description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure
+services: service-bus,event-hubs
+documentationcenter: .net
+author: clemensv
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na" 
-    ms.date="07/01/2016"
-    ms.author="clemensv;jotaub;hillaryc;sethm"/>
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/01/2016
+ms.author: clemensv;jotaub;hillaryc;sethm
 
-
+---
 # <a name="amqp-1.0-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
-
 O Advanced Message Queueing Protocol 1.0 é um protocolo de enquadramento e transferência padronizado para transferir mensagens de forma assíncrona, segura e confiável entre duas partes. É o principal protocolo de Mensagens do Barramento de Serviço e dos Hubs de Eventos do Azure. Ambos os serviços também oferecem suporte a HTTPS. O protocolo proprietário SBMP, que também é compatível, está sendo desativado em favor do AMQP.
 
 O AMQP 1.0 é o resultado da colaboração de todo o setor, que reuniu fornecedores de middleware, como a Microsoft e a Red Hat, com muitos usuários de middleware de mensagens, como a JP Morgan Chase, representando o setor de serviços financeiros. O fórum de padronização técnica para as especificações de protocolo e de extensão do AMQP é o OASIS, e ele obteve aprovação formal como um padrão internacional como ISO/IEC 19494.
 
 ## <a name="goals"></a>Metas
-
 Rapidamente, este artigo resume os principais conceitos da especificação de mensagens AMQP 1.0 juntamente com um pequeno conjunto de especificações de extensão de rascunho que atualmente está sendo finalizado no comitê técnico AMQP OASIS e explica como o Barramento de Serviço do Azure implementa e se baseia nessas especificações.
 
 O objetivo é que qualquer desenvolvedor usando qualquer pilha de cliente existente do AMQP 1.0 em qualquer plataforma seja capaz de interagir com o Barramento de Serviço do Azure por meio do AMQP 1.0.
@@ -36,7 +33,6 @@ Na discussão a seguir, vamos pressupor que o gerenciamento de conexões, de ses
 Ao discutir os recursos avançados do Barramento de Serviço do Azure, como a procura de mensagens ou o gerenciamento de sessões, aqueles serão explicados nos termos do AMQP, mas também como uma pseudo-implementação em camadas sobre essa abstração de API assumida.
 
 ## <a name="what-is-amqp?"></a>O que é AMQP?
-
 AMQP é um protocolo de enquadramento e transferência. O enquadramento significa que ele fornece a estrutura para fluxos de dados binários que fluem em qualquer direção de uma conexão de rede. A estrutura oferece delineação para que blocos de dados distintos – quadros – sejam trocados entre as partes conectadas. Os recursos de transferência garantem que ambas as partes da comunicação possam estabelecer uma compreensão geral sobre quando os quadros deverão ser transferidos e quando as transferências deverão ser consideradas concluídas.
 
 Ao contrário das versões de rascunho expiradas anteriores produzidas pelo grupo de trabalho de AMQP que ainda estão em uso por alguns agentes de mensagens, o protocolo AMQP 1.0 final e padronizado do grupo de trabalho não prescreve a presença de um agente de mensagem ou qualquer topologia específica para entidades dentro de um agente de mensagem.
@@ -46,13 +42,11 @@ O protocolo pode ser usado para comunicação ponto a ponto simétrica, para int
 O protocolo AMQP 1.0 foi projetado para ser extensível, permitindo que mais especificações aperfeiçoem seus recursos. As especificações de três extensões que discutiremos neste documento ilustram isso. Para a comunicação na infraestrutura existente de HTTPS/WebSockets, onde pode ser difícil configurar as portas TCP AMQP nativas, uma especificação de associação define como criar camadas AMQP sobre WebSockets. Para interagir com a infraestrutura de mensagens no formato solicitação/resposta para fins de gerenciamento ou para fornecer funcionalidade avançada, a especificação do Gerenciamento AMQP define os primitivos de interação básicos necessários. Para a integração do modelo de autorização federado, a especificação de segurança com base em declarações AMQP define como associar e renovar tokens de autorização associados a links.
 
 ## <a name="basic-amqp-scenarios"></a>Cenários básicos de AMQP
-
 Esta seção explica o uso básico do AMQP 1.0 com o Barramento de Serviço do Azure, que inclui a criação de conexões, sessões e links, e a transferência de mensagens de e para entidades do Barramento de Serviço, como filas, tópicos e assinaturas.
 
 A fonte mais confiável para saber mais sobre o funcionamento do AMQP é a especificação AMQP 1.0, mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [this video course][].
 
 ### <a name="connections-and-sessions"></a>Conexões e sessões
-
 ![][1]
 
 O AMQP chama os programas de comunicação de *contêiners*; eles contêm *nós*, que são as entidades de comunicação dentro desses contêineres. Uma fila pode ser um nó assim. O AMQP permite multiplexação, para que uma única conexão possa ser usada para vários caminhos de comunicação entre os nós. Por exemplo, um cliente de aplicativo pode receber de uma fila e enviar para outra fila na mesma conexão de rede simultaneamente.
@@ -63,9 +57,8 @@ O Barramento de Serviço do Azure requer o uso de TLS em todos os momentos. Ele 
 
 Depois de configurar a conexão e o TLS, o Barramento de Serviço oferece duas opções de mecanismo SASL:
 
--   O SASL SIMPLES normalmente é usado para passar credenciais de nome de usuário e de senha para um servidor. O Barramento de Serviço não tem contas, mas [regras de Segurança de Acesso Compartilhado](service-bus-shared-access-signature-authentication.md) nomeadas, que conferem direitos e estão associadas com uma chave. O nome de uma regra é usado como o nome de usuário e a chave (como texto codificado em base64) é usado como a senha. Os direitos associados à regra escolhida controlam as operações permitidas na conexão.
-
--   O SASL ANÔNIMO é usado para ignorar a autorização SASL quando o cliente quiser usar o modelo CBS (segurança com base em declarações), que será descrito posteriormente. Com essa opção, uma conexão de cliente pode ser estabelecida anonimamente por um curto período, durante o qual o cliente só poderá interagir com o ponto de extremidade CBS e o handshake CBS deverá ser concluído.
+* O SASL SIMPLES normalmente é usado para passar credenciais de nome de usuário e de senha para um servidor. O Barramento de Serviço não tem contas, mas [regras de Segurança de Acesso Compartilhado](../service-bus/service-bus-shared-access-signature-authentication.md) nomeadas, que conferem direitos e estão associadas com uma chave. O nome de uma regra é usado como o nome de usuário e a chave (como texto codificado em base64) é usado como a senha. Os direitos associados à regra escolhida controlam as operações permitidas na conexão.
+* O SASL ANÔNIMO é usado para ignorar a autorização SASL quando o cliente quiser usar o modelo CBS (segurança com base em declarações), que será descrito posteriormente. Com essa opção, uma conexão de cliente pode ser estabelecida anonimamente por um curto período, durante o qual o cliente só poderá interagir com o ponto de extremidade CBS e o handshake CBS deverá ser concluído.
 
 Uma vez estabelecida a conexão de transporte, os contêineres declararam o tamanho máximo do quadro com que estão dispostos a lidar e o tempo limite de ociosidade após o qual eles serão unilateralmente desconectados se não houver atividade na conexão.
 
@@ -80,7 +73,6 @@ Atualmente, o Barramento de Serviço do Azure usa exatamente uma sessão para ca
 As conexões, os canais e as sessões são efêmeros. Se a conexão subjacente for recolhida,as conexões, o túnel TLS, o contexto de autorização SASL e as sessões deverão ser restabelecidas.
 
 ### <a name="links"></a>Links
-
 ![][2]
 
 O AMQP transfere mensagens sobre links. Um link é um caminho de comunicação criado em uma sessão que permite transferir mensagens em uma direção; a negociação de status de transferência é feita no link e é bidirecional entre as partes conectadas.
@@ -96,7 +88,6 @@ No Barramento de Serviço do Azure, um nó é diretamente equivalente a uma fila
 O cliente de conexão também é necessário para usar um nome de nó local para criar links; o Barramento de Serviço não é prescritivo sobre esses nomes de nó e não os interpretará. As pilhas de cliente do AMQP 1.0 geralmente usam um esquema para garantir que esses nomes de nó efêmero sejam exclusivos no escopo do cliente.
 
 ### <a name="transfers"></a>Transferências
-
 ![][3]
 
 Após o estabelecimento de um link, as mensagens podem ser transferidas sobre esse link. No AMQP, uma transferência é executada com um gesto de protocolo explícito (a *transferência* performativa) que move uma mensagem do remetente ao destinatário sobre um link. Uma transferência é concluída quando é "liquidada", o que significa que as duas partes estabeleceram uma compreensão geral do resultado dessa transferência.
@@ -116,7 +107,6 @@ Dessa forma, o Barramento de Serviço e os Hubs de Eventos do Azure dão suporte
 Para compensar possíveis envios de duplicidades, o Barramento de Serviço do Azure dá suporte à detecção de duplicidades como um recurso opcional em filas e tópicos. A detecção de duplicidades registra as IDs de mensagem de todas as mensagens recebidas durante uma janela de tempo definida pelo usuário e descarta silenciosamente todas as mensagens enviadas com as mesmas IDs de mensagem durante a mesma janela.
 
 ### <a name="flow-control"></a>Controle de fluxo
-
 ![][4]
 
 Além do modelo de controle de fluxo no nível de sessão discutido anteriormente, cada link tem seu próprio modelo de fluxo de controle. O controle de fluxo de nível de sessão protege o contêiner de ter que lidar com muitos quadros de uma vez, o controle de fluxo no nível de link torna o aplicativo responsável por quantas mensagens ele deseja tratar de um link e quando.
@@ -140,115 +130,105 @@ Em resumo, as seções a seguir fornecem uma visão geral esquemática do fluxo 
 As setas mostram a direção do fluxo performativo.
 
 #### <a name="create-message-receiver"></a>Criar Receptor da Mensagem
-
-| Cliente                                                                                                                                                | BARRAMENTO DE SERVIÇO                                                                                                                                   |
-|---------------------------------------------------------------------------------------------------------------------------------------------------    |--------------------------------------------------------------------------------------------------------------------------------------------   |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>)         | O cliente o anexa a entidade como receptor                                                                                                         |
-| o Barramento de Serviço responde ao anexar o final do link                                                                                                     | <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>)       |
+| Cliente | BARRAMENTO DE SERVIÇO |
+| --- | --- |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>) |O cliente o anexa a entidade como receptor |
+| o Barramento de Serviço responde ao anexar o final do link |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>) |
 
 #### <a name="create-message-sender"></a>Criar Remetente da Mensagem
-
-| Cliente                                                                                                            | BARRAMENTO DE SERVIÇO                                                                                                           |
-|------------------------------------------------------------------------------------------------------------------ |--------------------------------------------------------------------------------------------------------------------   |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>)   | Nenhuma ação                                                                                                                     |
-| Nenhuma ação                                                                                                                 | <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>)     |
+| Cliente | BARRAMENTO DE SERVIÇO |
+| --- | --- |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
 
 #### <a name="create-message-sender-(error)"></a>Criar Remetente da Mensagem (Erro)
-
-| Cliente                                                                                                            | BARRAMENTO DE SERVIÇO                                                           |
-|------------------------------------------------------------------------------------------------------------------ |---------------------------------------------------------------------  |
-| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>)   | Nenhuma ação                                                                     |
-| Nenhuma ação                                                                                                                 | <-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>)  |
+| Cliente | BARRAMENTO DE SERVIÇO |
+| --- | --- |
+| --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
 #### <a name="close-message-receiver/sender"></a>Fechar Receptor/Remetente da Mensagem
-
-| Cliente                                            | BARRAMENTO DE SERVIÇO                                       |
-|-------------------------------------------------  |-------------------------------------------------  |
-| --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)    | Nenhuma ação                                                 |
-| Nenhuma ação                                                 | <-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>)    |
+| Cliente | BARRAMENTO DE SERVIÇO |
+| --- | --- |
+| --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
 #### <a name="send-(success)"></a>Enviar (Êxito)
-
-| Cliente                                                                                                                        | BARRAMENTO DE SERVIÇO                                                                                           |
-|------------------------------------------------------------------------------------------------------------------------------ |------------------------------------------------------------------------------------------------------ |
-| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   | Nenhuma ação                                                                                                     |
-| Nenhuma ação                                                                                                                             | <-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>)   |
+| Cliente | BARRAMENTO DE SERVIÇO |
+| --- | --- |
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
 #### <a name="send-(error)"></a>Enviar (Erro)
-
-| Cliente                                                                                                                        | BARRAMENTO DE SERVIÇO                                                                                                                   |
-|------------------------------------------------------------------------------------------------------------------------------ |-----------------------------------------------------------------------------------------------------------------------------  |
-| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   | Nenhuma ação                                                                                                                             |
-| Nenhuma ação                                                                                                                             | <-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>)     |
+| Cliente | BARRAMENTO DE SERVIÇO |
+| --- | --- |
+| --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
+| Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
 #### <a name="receive"></a>Receber
-
-| Cliente                                                                                                | BARRAMENTO DE SERVIÇO                                                                                                                   |
-|------------------------------------------------------------------------------------------------------ |------------------------------------------------------------------------------------------------------------------------------ |
-| --> flow(<br/>link-credit=1<br/>)                                                                                 | Nenhuma ação                                                                                                                             |
-| Nenhuma ação                                                                                                     | < transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)     |
-| --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>)   | Nenhuma ação                                                                                                                             |
+| Cliente | BARRAMENTO DE SERVIÇO |
+| --- | --- |
+| --> flow(<br/>link-credit=1<br/>) |Nenhuma ação |
+| Nenhuma ação |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma ação |
 
 #### <a name="multi-message-receive"></a>Receber Várias Mensagens
-
-| Cliente                                                                                                    | BARRAMENTO DE SERVIÇO                                                                                                                       |
-|--------------------------------------------------------------------------------------------------------   |--------------------------------------------------------------------------------------------------------------------------------   |
-| --> flow(<br/>link-credit=3<br/>)                                                                                 | Nenhuma ação                                                                                                                                 |
-| Nenhuma ação                                                                                                         | < transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)     |
-| Nenhuma ação                                                                                                         | < transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   |
-| Nenhuma ação                                                                                                         | < transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>)   |
-| --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>)     | Nenhuma ação                                                                                                                                 |
+| Cliente | BARRAMENTO DE SERVIÇO |
+| --- | --- |
+| --> flow(<br/>link-credit=3<br/>) |Nenhuma ação |
+| Nenhuma ação |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| Nenhuma ação |< transfer(<br/>delivery-id={numeric handle+1},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| Nenhuma ação |< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
+| --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma ação |
 
 ### <a name="messages"></a>Mensagens
-
 As seções a seguir explicam quais propriedades das seções padrão de mensagem do AMQP são usadas pelo Barramento de Serviço e como elas são mapeadas para as APIs do Barramento de Serviço oficial.
 
 #### <a name="header"></a>cabeçalho
-
-| Nome do campo        | Uso                             | Nome da API          |
-|----------------   |-------------------------------    |---------------    |
-| durável           | -                                 | -                 |
-| prioridade          | -                                 | -                 |
-| ttl               | Vida útil desta mensagem     | [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)     |
-| primeiro comprador    | -                                 | -                 |
-| Contagem de entrega    | -                                 | [DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx)   |
+| Nome do campo | Uso | Nome da API |
+| --- | --- | --- |
+| durável |- |- |
+| prioridade |- |- |
+| ttl |Vida útil desta mensagem |[TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx) |
+| primeiro comprador |- |- |
+| Contagem de entrega |- |[DeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.deliverycount.aspx) |
 
 #### <a name="properties"></a>propriedades
-
-| Nome do campo            | Uso                                                                                                                             | Nome da API                                      |
-|---------------------- |---------------------------------------------------------------------------------------------------------------------------------  |--------------------------------------------   |
-| message-id            | Identificador de forma livre definido pelo aplicativo para esta mensagem. Usado para detecção de duplicidade.                                         | [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx)                                   |
-| user-id               | Identificador de usuário definido pelo aplicativo, não interpretado pelo Barramento de Serviço.                                                              | Não é acessível por meio da API do Barramento de Serviço.   |
-| para                    | Identificador de destino definido pelo aplicativo, não é interpretado pelo Barramento de Serviço.                                                       | [Para](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.to.aspx)                                             |
-| subject               | Identificador de finalidade de mensagem definido pelo aplicativo, não é interpretado pelo Barramento de Serviço.                                                   | [Rótulo](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)                                       |
-| reply-to              | Identificador reply-path definido pelo aplicativo, não é interpretado pelo Barramento de Serviço.                                                         | [ReplyTo](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replyto.aspx)                                       |
-| correlation-id        | Identificador de correlação definido pelo aplicativo, não é interpretado pelo Barramento de Serviço.                                                       | [CorrelationId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.correlationid.aspx)                               |
-| content-type          | Identificador content-type definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço.                                          | [ContentType](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx)                                   |
-| content-encoding      | Identificador content-encoding definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço.                                      | Não é acessível por meio da API do Barramento de Serviço.   |
-| absolute-expiry-time  | Declara em qual instante absoluto a mensagem irá expirar. Ignorado na entrada (a vida útil do cabeçalho é observada), autoritativo na saída.   | [ExpiresAtUtc](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.expiresatutc.aspx)                                 |
-| creation-time         | Declara a hora em que a mensagem foi criada. Não é usado pelo Barramento de Serviço                                                           | Não é acessível por meio da API do Barramento de Serviço.   |
-| group-id              | Identificador definido pelo aplicativo para um conjunto relacionado de mensagens. Usado para sessões do Barramento de Serviço.                                      | [SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx)                                   |
-| group-sequence        | Contador que identifica o número de sequência relativa da mensagem em uma sessão. Ignorado pelo Barramento de Serviço.                         | Não é acessível por meio da API do Barramento de Serviço.   |
-| reply-to-group-id     | -                                                                                                                                 | [ReplyToSessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replytosessionid.aspx)                             |
+| Nome do campo | Uso | Nome da API |
+| --- | --- | --- |
+| message-id |Identificador de forma livre definido pelo aplicativo para esta mensagem. Usado para detecção de duplicidade. |[MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) |
+| user-id |Identificador de usuário definido pelo aplicativo, não interpretado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
+| para |Identificador de destino definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Para](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.to.aspx) |
+| subject |Identificador de finalidade de mensagem definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[Rótulo](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) |
+| reply-to |Identificador reply-path definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[ReplyTo](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replyto.aspx) |
+| correlation-id |Identificador de correlação definido pelo aplicativo, não é interpretado pelo Barramento de Serviço. |[CorrelationId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.correlationid.aspx) |
+| content-type |Identificador content-type definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço. |[ContentType](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) |
+| content-encoding |Identificador content-encoding definido pelo aplicativo para o corpo, não é interpretado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
+| absolute-expiry-time |Declara em qual instante absoluto a mensagem irá expirar. Ignorado na entrada (a vida útil do cabeçalho é observada), autoritativo na saída. |[ExpiresAtUtc](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.expiresatutc.aspx) |
+| creation-time |Declara a hora em que a mensagem foi criada. Não é usado pelo Barramento de Serviço |Não é acessível por meio da API do Barramento de Serviço. |
+| group-id |Identificador definido pelo aplicativo para um conjunto relacionado de mensagens. Usado para sessões do Barramento de Serviço. |[SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) |
+| group-sequence |Contador que identifica o número de sequência relativa da mensagem em uma sessão. Ignorado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
+| reply-to-group-id |- |[ReplyToSessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.replytosessionid.aspx) |
 
 ## <a name="advanced-service-bus-capabilities"></a>Recursos avançados do Barramento de Serviço
-
 Esta seção aborda os recursos avançados do Barramento de Serviço do Azure baseados em extensões de rascunho para AMQP atualmente sendo desenvolvidos no Comitê Técnico OASIS para AMQP. O Barramento de Serviço do Azure implementa o status mais recente desses rascunhos e adotará as alterações introduzidas quando esses rascunhos atingirem o status padrão.
 
-> [AZURE.NOTE] As operações avançadas de Mensagens do barramento de serviço têm suporte de um padrão de solicitação/resposta. Os detalhes dessas operações estão descritos no documento [AMQP 1.0 no Barramento de Serviço: operações baseadas em solicitação/resposta](https://msdn.microsoft.com/library/azure/mt727956.aspx).
+> [!NOTE]
+> As operações avançadas de Mensagens do barramento de serviço têm suporte de um padrão de solicitação/resposta. Os detalhes dessas operações estão descritos no documento [AMQP 1.0 no Barramento de Serviço: operações baseadas em solicitação/resposta](https://msdn.microsoft.com/library/azure/mt727956.aspx).
+> 
+> 
 
 ### <a name="amqp-management"></a>Gerenciamento de AMQP
-
 A especificação de Gerenciamento de AMQP é a primeira das extensões de rascunho que discutiremos aqui. Essa especificação define um conjunto de gestos de protocolo em camadas sobre o protocolo AMQP que permite interações de gerenciamento com a infraestrutura de mensagens sobre AMQP. A especificação define operações genéricas como *criação*, *leitura*, *atualização* e *exclusão* para gerenciar as entidades dentro de uma infraestrutura de mensagens e um conjunto de operações de consulta.
 
 Todos os gestos exigem uma interação de solicitação/resposta entre o cliente e a infraestrutura de mensagens e, portanto, a especificação define como modelar esse padrão de interação sobre AMQP: o cliente se conecta à infraestrutura de mensagens, inicia uma sessão e, em seguida, cria um par de links. Em um link, o cliente atua como remetente e no outro atua como receptor, criando assim um par de links que pode atuar como um canal bidirecional.
 
-| Operação Lógica            | Cliente                      | Barramento de Serviço                 |
-|------------------------------|-----------------------------|-----------------------------|
-| Criar caminho de resposta de solicitação | --> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>)                            |Nenhuma ação                             |
-|Criar caminho de resposta de solicitação                              |Nenhuma ação                             | \<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>)                            |
-|Criar caminho de resposta de solicitação                              | --> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>)                            |                             |Nenhuma ação
-|Criar caminho de resposta de solicitação                              |Nenhuma ação                             | \<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>)                            |
+| Operação Lógica | Cliente | Barramento de Serviço |
+| --- | --- | --- |
+| Criar caminho de resposta de solicitação |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=**null**,<br/>target=”myentity/$management”<br/>) |Nenhuma ação |
+| Criar caminho de resposta de solicitação |Nenhuma ação |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=null,<br/>target=”myentity”<br/>) |
+| Criar caminho de resposta de solicitação |--> attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**receiver**,<br/>source=”myentity/$management”,<br/>target=”myclient$id”<br/>) | |
+| Criar caminho de resposta de solicitação |Nenhuma ação |\<-- attach(<br/>name={*link name*},<br/>handle={*numeric handle*},<br/>role=**sender**,<br/>source=”myentity”,<br/>target=”myclient$id”<br/>) |
 
 Tendo esse par de links em funcionamento, a implementação de solicitação/resposta é simples: uma solicitação é uma mensagem enviada a uma entidade dentro a infraestrutura de mensagens que compreende esse padrão. Nessa mensagem de solicitação, o campo *reply-to* na seção *properties* é definida como o identificador *target*para o link para o qual será fornecida a resposta. A entidade de tratamento processará a solicitação e então fornecerá a resposta pelo link cujo identificador *target* corresponda ao identificador *reply-to* indicado.
 
@@ -259,16 +239,14 @@ As trocas de mensagens usadas para o protocolo de gerenciamento e para todos os 
 O Barramento de Serviço do Azure não implementa qualquer um dos principais recursos da especificação de gerenciamento no momento, mas o padrão de solicitação/resposta definido pela especificação de gerenciamento é a base para o recurso de segurança com base em declarações e para quase todos os recursos avançados que discutiremos nas seções a seguir.
 
 ### <a name="claims-based-authorization"></a>Autorização baseada em declarações
-
 O esboço da especificação CBS (Autorização com Base em Declarações) do AMQP se baseia no padrão de solicitação/resposta da especificação de gerenciamento e descreve um modelo generalizado para saber como usar tokens de segurança federada com AMQP.
 
 O modelo de segurança padrão do AMQP discutido na introdução se baseia no SASL e se integra ao handshake de conexão AMQP. O uso de SASL tem a vantagem de que ele oferece um modelo extensível para o qual foi definido um conjunto de mecanismos e do qual qualquer protocolo que dependa formalmente de SASL pode se beneficiar. Entre esses mecanismos estão "SIMPLES" para a transferência de nomes de usuário e senhas, "EXTERNO" para associar a segurança em nível de TLS, "ANÔNIMO" para expressar a ausência de autenticação/autorização explícita e uma ampla variedade de mecanismos adicionais que permitem a passagem de autenticação e/ou as credenciais de autorização ou tokens.
 
 A integração do SASL do AMQP tem duas desvantagens:
 
--   Todas as credenciais e os tokens têm como escopo a conexão. Uma infraestrutura de mensagens pode desejar fornecer controle de acesso diferenciado por entidade. Por exemplo, ao permitir que o portador de um token envie para a fila A, mas não para a fila B. Com o contexto de autorização ancorado na conexão, não é possível usar uma única conexão e ainda usar tokens de acesso diferentes para a fila A e a fila B.
-
--   Os tokens de acesso geralmente só são válidos por um período limitado. Isso força o usuário a readquirir periodicamente tokens e oferece uma oportunidade para o emissor do token de se recusar a emitir um token de novo, caso as permissões de acesso do usuário tenham sido alteradas. As conexões AMQP podem durar por longos períodos. O modelo SASL apenas fornece uma oportunidade para definir um token no momento da conexão, o que significa que a infraestrutura de mensagens precisa desconectar o cliente quando o token expira ou precisa aceitar o risco de permitir a comunicação contínua com um cliente cujos direitos de acesso possam ter sido revogados nesse ínterim.
+* Todas as credenciais e os tokens têm como escopo a conexão. Uma infraestrutura de mensagens pode desejar fornecer controle de acesso diferenciado por entidade. Por exemplo, ao permitir que o portador de um token envie para a fila A, mas não para a fila B. Com o contexto de autorização ancorado na conexão, não é possível usar uma única conexão e ainda usar tokens de acesso diferentes para a fila A e a fila B.
+* Os tokens de acesso geralmente só são válidos por um período limitado. Isso força o usuário a readquirir periodicamente tokens e oferece uma oportunidade para o emissor do token de se recusar a emitir um token de novo, caso as permissões de acesso do usuário tenham sido alteradas. As conexões AMQP podem durar por longos períodos. O modelo SASL apenas fornece uma oportunidade para definir um token no momento da conexão, o que significa que a infraestrutura de mensagens precisa desconectar o cliente quando o token expira ou precisa aceitar o risco de permitir a comunicação contínua com um cliente cujos direitos de acesso possam ter sido revogados nesse ínterim.
 
 A especificação CBS do AMQP, implementada pelo Barramento de Serviço do Azure, permite uma solução elegante para ambos os problemas: permite que um cliente associe os tokens de acesso a cada nó e atualize esses tokens antes de expirarem, sem interromper o fluxo de mensagens.
 
@@ -278,29 +256,29 @@ O gesto de protocolo é uma troca de solicitação/resposta, conforme definido p
 
 A mensagem de solicitação tem as seguintes propriedades de aplicativo:
 
-| Chave        | Opcional | Tipo de valor | Conteúdo de valor                             |
-|------------|----------|------------|--------------------------------------------|
-| operation  | Não       | string     | **put-token**                                |
-| type       | Não       | string     | O tipo do token colocado.            |
-| name       | Não       | string     | O "público" ao qual o token se aplica. |
-| expiração | Sim      | timestamp  | A hora de expiração do token.              |
+| Chave | Opcional | Tipo de valor | Conteúdo de valor |
+| --- | --- | --- | --- |
+| operation |Não |string |**put-token** |
+| type |Não |string |O tipo do token colocado. |
+| name |Não |string |O "público" ao qual o token se aplica. |
+| expiração |Sim |timestamp |A hora de expiração do token. |
 
 A propriedade *name* identifica a entidade à qual o token deve ser associado. No Barramento de Serviço, é o caminho para a fila ou tópico/assinatura. A propriedade *type* identifica o tipo de token:
 
-| Tipo de token                      | Descrição do token      | Tipo de corpo           | Observações                                                    |
-|---------------------------------|------------------------|---------------------|----------------------------------------------------------|
-| amqp:jwt                        | JWT (Token Web JSON)   | Valor de AMQP (cadeia de caracteres) | Ainda não está disponível.  |
-| amqp:swt                        | SWT (Token Web Simples) | Valor de AMQP (cadeia de caracteres) | Só tem suporte para tokens SWT emitidos pelo AAD/ACS          |
-| servicebus.windows.net:sastoken | Token SAS do barramento de serviço  | Valor de AMQP (cadeia de caracteres) | -                                                        |
+| Tipo de token | Descrição do token | Tipo de corpo | Observações |
+| --- | --- | --- | --- |
+| amqp:jwt |JWT (Token Web JSON) |Valor de AMQP (cadeia de caracteres) |Ainda não está disponível. |
+| amqp:swt |SWT (Token Web Simples) |Valor de AMQP (cadeia de caracteres) |Só tem suporte para tokens SWT emitidos pelo AAD/ACS |
+| servicebus.windows.net:sastoken |Token SAS do barramento de serviço |Valor de AMQP (cadeia de caracteres) |- |
 
 Os tokens conferem direitos. O Barramento de Serviço conhece três direitos fundamentais: "Enviar" permite o envio, "Ouvir" permite o recebimento e "Gerenciar" permite a manipulação de entidades. Os tokens SWT emitidos pelo ACS/AAD incluem explicitamente esses direitos como declarações. Os tokens SAS do Barramento de Serviço consultam regras configuradas no namespace ou na entidade, e essas regras são configuradas com direitos. Assinar o token com a chave associada a essa regra, portanto, faz com que o token expresse os respectivos direitos. O símbolo associado a uma entidade que usa *put-token* permitirá que o cliente conectado interaja com a entidade de acordo com os direitos do token. Um link em que o cliente assume a função de *sender* requer o direito "Envio", e assumir a função *receiver* requer o direito "Ouvir".
 
 A mensagem de resposta tem os seguintes valores de *application-properties*
 
-| Chave                | Opcional | Tipo de valor | Conteúdo de valor                    |
-|--------------------|----------|------------|-----------------------------------|
-| status-code        | Não       | int        | Código de resposta HTTP **[RFC2616]**. |
-| status-description | Sim      | string     | A descrição do status.        |
+| Chave | Opcional | Tipo de valor | Conteúdo de valor |
+| --- | --- | --- | --- |
+| status-code |Não |int |Código de resposta HTTP **[RFC2616]**. |
+| status-description |Sim |string |A descrição do status. |
 
 O cliente pode chamar *put-token* repetidamente e para qualquer entidade na infraestrutura de mensagens. Os tokens estão no escopo do cliente atual e ancorados na conexão atual, o que significa que o servidor cancelará todos os tokens retidos quando a conexão cair.
 
@@ -313,12 +291,11 @@ Uma vez estabelecida a conexão e a sessão, anexar os links ao nó *$cbs* e env
 O cliente é subsequentemente responsável por manter o controle de expiração do token. Quando um token expira, o Barramento de Serviço imediatamente remove todos os links da conexão com a respectiva entidade. Para evitar isso, o cliente pode substituir o token para o nó por um novo, a qualquer momento, por meio do nó de gerenciamento virtual *$cbs* com os mesmos gestos de *put-token* sem atrapalhar o tráfego de conteúdo que flui em links diferentes.
 
 ## <a name="next-steps"></a>Próximas etapas
-
 Para saber mais sobre o AMQP, confira o seguinte:
 
-- [Visão geral do AMQP do Barramento de Serviço]
-- [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]
-- [AMQP no Barramento de Serviço para Windows Server]
+* [Visão geral do AMQP do Barramento de Serviço]
+* [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]
+* [AMQP no Barramento de Serviço para Windows Server]
 
 [este curso de vídeo]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp/amqp1.png

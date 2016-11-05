@@ -1,22 +1,22 @@
-<properties
-   pageTitle="Configurar tempo limite de ociosidade do TCP do balanceador de carga | Microsoft Azure"
-   description="Configurar tempo limite de ociosidade do TCP do balanceador de carga"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
-   ms.author="sewhee" />
+---
+title: Configurar tempo limite de ociosidade do TCP do balanceador de carga | Microsoft Docs
+description: Configurar tempo limite de ociosidade do TCP do balanceador de carga
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/03/2016
+ms.author: sewhee
+
+---
 # Alterar as configurações de tempo limite de ociosidade do TCP para o Balanceador de Carga
-
 Em sua configuração padrão, o Azure Load Balancer tem uma configuração de tempo limite de ociosidade de quatro minutos.
 
 Isso significa que, se um período de inatividade for maior que o valor de tempo limite, não haverá nenhuma garantia de que a sessão TCP ou HTTP entre o cliente e o serviço de nuvem ainda existirá.
@@ -35,18 +35,22 @@ Para dar suporte a esses cenários, adicionamos suporte para um tempo limite de 
 
 As seções a seguir descrevem como alterar as configurações de tempo limite de ociosidade em máquinas virtuais e serviços de nuvem.
 
->[AZURE.NOTE] Para dar suporte para definir essas configurações, verifique se você instalou o pacote mais recente do Azure PowerShell.
+> [!NOTE]
+> Para dar suporte para definir essas configurações, verifique se você instalou o pacote mais recente do Azure PowerShell.
+> 
+> 
 
 ## Configure o tempo limite de TCP para o IP Público em Nível de Instância para 15 minutos
-
     Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 
 `IdleTimeoutInMinutes` é opcional. Se não for definido, o tempo limite padrão será de quatro minutos.
 
->[AZURE.NOTE] O intervalo de tempo limite aceitável é entre quatro e 30 minutos.
+> [!NOTE]
+> O intervalo de tempo limite aceitável é entre quatro e 30 minutos.
+> 
+> 
 
 ## Defina o tempo limite de ociosidade durante a criação de um ponto de extremidade do Azure em uma máquina virtual
-
 Altere a configuração de tempo limite para um ponto de extremidade:
 
     Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
@@ -72,13 +76,11 @@ Recupere a configuração do tempo limite de ociosidade:
     IdleTimeoutInMinutes : 15
 
 ## Defina o tempo limite do TCP em um conjunto do ponto de extremidade com balanceamento de carga
-
 Se os pontos de extremidade forem parte de um conjunto de ponto de extremidade com balanceamento de carga, o tempo limite do TCP deverá ser definido no conjunto de pontos de extremidade com balanceamento de carga:
 
     Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
 
 ## Alterar as configurações de tempo limite para serviços de nuvem
-
 Você pode usar o SDK do Azure para .NET 2.4 para atualizar seu serviço de nuvem.
 
 Você pode fazer configurações de ponto de extremidade para serviços de nuvem no arquivo .csdef. A atualização do tempo limite do TCP para a implantação de um serviço de nuvem exige uma atualização da implantação. Uma exceção é se o tempo limite do TCP é especificado somente para um IP público. As configurações de IP público estão no arquivo .cscfg e podem ser atualizadas por intermédio da atualização e do upgrade da implantação.
@@ -105,7 +107,6 @@ As alterações no .cscfg para a configuração de tempo limite em IPs públicos
     </NetworkConfiguration>
 
 ## Exemplo de API REST
-
 Você pode configurar o tempo limite de ociosidade de TCP usando a API de Gerenciamento de Serviços. Certifique-se de que o cabeçalho x-ms-version esteja configurado para a versão 2014-06-01 ou superior.
 
 Atualize a configuração dos pontos de extremidade de entrada com balanceamento de carga especificado em todas as máquinas virtuais em uma implantação.
@@ -147,7 +148,6 @@ Atualize a configuração dos pontos de extremidade de entrada com balanceamento
     </LoadBalancedEndpointList>
 
 ## Próximas etapas
-
 [Visão geral do balanceador de carga interno](load-balancer-internal-overview.md)
 
 [Introdução à configuração de um balanceador de carga para a Internet](load-balancer-get-started-internet-arm-ps.md)

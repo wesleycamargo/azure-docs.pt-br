@@ -1,34 +1,35 @@
-<properties
-    pageTitle="Tipos do ponto de extremidade v2.0 | Microsoft Azure"
-    description="Os tipos de aplicativos e cenários com suporte no ponto de extremidade v2.0 do Azure AD."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+---
+title: Tipos do ponto de extremidade v2.0 | Microsoft Docs
+description: Os tipos de aplicativos e cenários com suporte no ponto de extremidade v2.0 do Azure AD.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/30/2016
+ms.author: dastrock
 
-
+---
 # <a name="types-of-apps-for-the-v2.0-endpoint"></a>Tipos de aplicativos para o ponto de extremidade v2.0
 O ponto de extremidade v2.0 oferece suporte à autenticação para diversas arquiteturas de aplicativos modernos, que se baseiam nos protocolos padrão da indústria [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) e/ou [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  Esse documento descreve brevemente os tipos de aplicativos que você pode criar, independentemente do idioma ou da plataforma que você preferir.  Ele ajudará você a compreender os cenários de alto níveis antes de [ir diretamente ao código](active-directory-appmodel-v2-overview.md#getting-started).
 
-> [AZURE.NOTE]
-    Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0.  Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
+> [!NOTE]
+> Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0.  Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
+> 
+> 
 
 ## <a name="the-basics"></a>Noções básicas
 Todo aplicativo que usar o ponto de extremidade v2.0 precisará ser registrado em [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
 
-- Uma **Id de Aplicativo** que identifica exclusivamente o aplicativo
-- Um **URI de Redirecionamento** que pode ser usado para direcionar as respostas de volta ao aplicativo
-- Alguns outros valores específicos de cenário.  Para obter mais detalhes, saiba como [registrar um aplicativo](active-directory-v2-app-registration.md).
+* Uma **Id de Aplicativo** que identifica exclusivamente o aplicativo
+* Um **URI de Redirecionamento** que pode ser usado para direcionar as respostas de volta ao aplicativo
+* Alguns outros valores específicos de cenário.  Para obter mais detalhes, saiba como [registrar um aplicativo](active-directory-v2-app-registration.md).
 
 Depois de registrado, o aplicativo se comunica com o Azure AD enviando solicitações ao ponto de extremidade v2.0 do Azure Active Directory.  Fornecemos bibliotecas e estruturas de software livre que cuidam dos detalhes dessas solicitações, ou então você pode implementar a lógica de autenticação por conta própria criando solicitações para esses pontos de extremidade:
 
@@ -89,7 +90,6 @@ Para saber mais sobre authorization_codes, refresh_tokens e as etapas detalhadas
 
 Para saber como proteger uma API Web com access_tokens do OAuth2, confira os exemplos de código da API Web em nossa [seção Introdução](active-directory-appmodel-v2-overview.md#getting-started).
 
-
 ## <a name="mobile-and-native-apps"></a>Aplicativos móveis e nativos
 Os aplicativos que são instalados em um dispositivo, como aplicativos móveis e de desktop, geralmente precisam acessar serviços de back-end ou APIs da Web que armazenam dados e executam várias funções em nome de um usuário.  Esses aplicativos podem adicionar credenciais e autorização a serviços de back-end usando o [fluxo de Código de Autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md).  
 
@@ -122,8 +122,6 @@ Esses tipos de aplicativos não têm suporte no momento no ponto de extremidade 
 Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo ponto de extremidade v2.0.  Este cenário é comum em clientes nativos que têm um back-end de API da Web que, por sua vez, chama um serviço Microsoft Online, como o Office 365 ou o Graph API.
 
 Este cenário de API da Web encadeado pode ter suporte com o uso da concessão OAuth 2.0 Jwt Bearer Credential, também conhecida como [Fluxo Em Nome De](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow).  No entanto, o fluxo Em Nome De não está implementado atualmente no ponto de extremidade v2.0.  Para ver como esse fluxo funciona no serviço do AD do Azure disponível ao público geral, confira o [exemplo de código Em Nome De no GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

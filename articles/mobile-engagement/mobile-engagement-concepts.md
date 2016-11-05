@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Conceitos do Mobile Engagement | Microsoft Azure"
-	description="Conceitos do Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor="" />
+---
+title: Conceitos do Mobile Engagement | Microsoft Docs
+description: Conceitos do Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/19/2016"
-	ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Conceitos do Azure Mobile Engagement
-
 O Mobile Engagement define alguns conceitos comuns a todas as plataformas com suporte. Este artigo descreve resumidamente os conceitos.
 
 Este artigo é um bom começo, se você for novo no Mobile Engagement. Além disso, leia a documentação específica da plataforma que você está usando, como ela refinará os conceitos descritos neste artigo com mais detalhes e exemplos, bem como possíveis limitações.
@@ -79,10 +78,9 @@ Os extras são estruturados de forma semelhante aos objetos JSON: são feitos de
 A árvore inteira de pares chave/valor é armazenada como um objeto JSON. No entanto, somente o primeiro nível de chaves/valores é decomposto para estar diretamente acessível para algumas funções avançadas como Segmentos (por exemplo, você pode definir facilmente um segmento chamado “Fãs de ficção científica” composto por todos os usuários que enviaram pelo menos 10 vezes o evento chamado "content\_viewed" com a chave extra "content\_type" definida como o valor "scifi" no último mês). Ele, portanto, é altamente recomendável para enviar apenas extras feitos de listas simples de pares chave/valor usando valores escalares (por exemplo, cadeias de caracteres, datas, números inteiros ou booliano).
 
 ## Próximas etapas
-
-- [Visão geral do SDK do Windows Universal para o Mobile Engagement do Azure](mobile-engagement-windows-store-sdk-overview.md)
-- [Visão geral do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure](mobile-engagement-windows-phone-sdk-overview.md)
-- [SDK do iOS para o Mobile Engagement do Azure](mobile-engagement-ios-sdk-overview.md)
-- [SDK do Android do Mobile Engagement do Azure](mobile-engagement-android-sdk-overview.md)
+* [Visão geral do SDK do Windows Universal para o Mobile Engagement do Azure](mobile-engagement-windows-store-sdk-overview.md)
+* [Visão geral do SDK do Windows Phone Silverlight para o Mobile Engagement do Azure](mobile-engagement-windows-phone-sdk-overview.md)
+* [SDK do iOS para o Mobile Engagement do Azure](mobile-engagement-ios-sdk-overview.md)
+* [SDK do Android do Mobile Engagement do Azure](mobile-engagement-android-sdk-overview.md)
 
 <!---HONumber=AcomDC_0824_2016-->

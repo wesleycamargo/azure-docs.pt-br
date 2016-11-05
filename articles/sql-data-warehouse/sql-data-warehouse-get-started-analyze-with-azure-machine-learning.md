@@ -1,43 +1,45 @@
-<properties
-   pageTitle="Analisar dados com o Aprendizado de Máquina do Azure | Microsoft Azure"
-   description="Use o Aprendizado de Máquina do Azure para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="kevinvngo"
-   manager="barbkess"
-   editor=""/>
+---
+title: Analisar dados com o Aprendizado de Máquina do Azure | Microsoft Docs
+description: Use o Aprendizado de Máquina do Azure para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure.
+services: sql-data-warehouse
+documentationcenter: NA
+author: kevinvngo
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="09/14/2016"
-   ms.author="kevin;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 09/14/2016
+ms.author: kevin;barbkess;sonyama
 
+---
 # Analisar dados com o Aprendizado de Máquina do Azure
-
-> [AZURE.SELECTOR]
-- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-- [Aprendizado de Máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> [!div class="op_single_selector"]
+> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Aprendizado de Máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> 
+> 
 
 Este tutorial usa o Aprendizado de Máquina do Azure para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure. Especificamente, isso compila uma campanha de marketing direcionado da Adventure Works, uma loja de bicicletas, prevendo se um cliente tem probabilidade de comprar uma bicicleta ou não.
 
-> [AZURE.VIDEO integrating-azure-machine-learning-with-azure-sql-data-warehouse]
-
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
+> 
+> 
 
 ## Pré-requisitos
 Para acompanhar este tutorial, você precisará:
 
-- Um SQL Data Warehouse pré-carregado com os dados de exemplo do AdventureWorksDW. Para provisionar isso, consulte [Criar um SQL Data Warehouse][] e optar por carregar os dados de exemplo. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][].
+* Um SQL Data Warehouse pré-carregado com os dados de exemplo do AdventureWorksDW. Para provisionar isso, consulte [Criar um SQL Data Warehouse][Criar um SQL Data Warehouse] e optar por carregar os dados de exemplo. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][carregar dados de exemplo manualmente].
 
 ## 1\. Obter dados
 Os dados estão na exibição dbo.vTargetMail no banco de dados AdventureWorksDW. Para ler esses dados:
 
-1. Entre no [Estúdio de Aprendizado de Máquina do Azure][] e clique em Meus Testes.
+1. Entre no [Estúdio de Aprendizado de Máquina do Azure][Estúdio de Aprendizado de Máquina do Azure] e clique em Meus Testes.
 2. Clique em **+NOVO** e selecione **Teste em Branco**.
 3. Insira um nome para o seu teste: Marketing Direcionado.
 4. Arraste o módulo **Leitor** do painel de módulos na tela.
@@ -66,18 +68,14 @@ FROM [dbo].[vTargetMail]
 
 Execute o teste clicando em **Executar** na tela do teste. ![Executar o teste][1]
 
-
 Após o teste terminar de ser executado com êxito, clique na porta de saída na parte inferior do módulo Leitor e selecione **Visualizar** para ver os dados importados. ![Exibir dados importados][3]
-
 
 ## 2\. Limpar os dados
 Para limpar os dados, remova algumas colunas que não são relevantes para o modelo. Para fazer isso:
 
 1. Arraste o módulo **Colunas do Projeto** na tela.
 2. Clique em **Iniciar seletor de colunas** no painel Propriedades para especificar quais colunas você deseja remover. ![Colunas do projeto][4]
-
 3. Exclua duas colunas: CustomerAlternateKey e GeographyKey. ![Remover colunas desnecessárias][5]
-
 
 ## 3\. Compilar o modelo
 Dividiremos os dados 80-20: 80% para treinar um modelo de aprendizado de máquina e 20% para testar o modelo. Usaremos os algoritmos de “Duas Classes” para esse problema de classificação binária.
@@ -86,10 +84,9 @@ Dividiremos os dados 80-20: 80% para treinar um modelo de aprendizado de máquin
 2. Insira 0.8 para a Fração de linhas no primeiro conjunto de dados de saída no painel Propriedades. ![Dividir os dados em conjuntos de treinamento e teste.][6]
 3. Arraste o módulo **Árvore de Decisão Aumentada de duas classes** na tela.
 4. Arraste o módulo **Modelo de Treinamento** na tela e especifique as entradas. Depois, clique em **Iniciar seletor de coluna** no painel de Propriedades.
-      - Primeira entrada: algoritmo de ML.
-      - Segunda entrada: dados para treinar o algoritmo. ![Conectar o módulo Treinar Modelo][7]
+   * Primeira entrada: algoritmo de ML.
+   * Segunda entrada: dados para treinar o algoritmo. ![Conectar o módulo Treinar Modelo][7]
 5. Selecione a coluna **BikeBuyer** como a coluna a ser prevista. ![Selecionar a Coluna a prever][8]
-
 
 ## 4\. Pontuar o modelo
 Agora, testaremos o desempenho do modelo nos dados de teste. Vamos comparar o algoritmo de nossa escolha com um algoritmo diferente para ver que tem um desempenho melhor.
@@ -105,14 +102,13 @@ As métricas fornecidas são a curva ROC, o diagrama de comparação de precisã
 
 Você verá duas ou mais colunas adicionadas ao seu conjunto de dados de teste.
 
-- Probabilidades Pontuadas: a probabilidade de que um cliente é um comprador de bicicleta.
-- Rótulos Pontuados: a classificação feita pelo modelo – comprador de bicicleta (1) ou não (0). Esse limite de probabilidade para a rotulagem é definido como 50% e pode ser ajustado.
+* Probabilidades Pontuadas: a probabilidade de que um cliente é um comprador de bicicleta.
+* Rótulos Pontuados: a classificação feita pelo modelo – comprador de bicicleta (1) ou não (0). Esse limite de probabilidade para a rotulagem é definido como 50% e pode ser ajustado.
 
 Ao comparar a coluna BikeBuyer (real) com os Rótulos Pontuados (previsão), é possível ver o desempenho do modelo. Como as próximas etapas, você pode usar esse modelo para fazer previsões para novos clientes e publicar esse modelo como um serviço Web ou gravar os resultados de volta no SQL Data Warehouse.
 
 ## Próximas etapas
-
-Para saber mais sobre a criação de modelos de aprendizado de máquina de previsão, consulte [Introdução ao Aprendizado de Máquina no Azure][].
+Para saber mais sobre a criação de modelos de aprendizado de máquina de previsão, consulte [Introdução ao Aprendizado de Máquina no Azure][Introdução ao Aprendizado de Máquina no Azure].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png

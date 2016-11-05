@@ -1,30 +1,27 @@
-<properties
-	pageTitle="Tratando do estado em modelos do Resource Manager | Microsoft Azure"
-	description="Mostra abordagens recomendadas para usar objetos complexos para compartilhar dados de estado com modelos e modelos vinculados do Gerenciador de Recursos do Azure"
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="timlt"
-	editor="tysonn"/>
+---
+title: Tratando do estado em modelos do Resource Manager | Microsoft Docs
+description: Mostra abordagens recomendadas para usar objetos complexos para compartilhar dados de estado com modelos e modelos vinculados do Gerenciador de Recursos do Azure
+services: azure-resource-manager
+documentationcenter: ''
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/12/2016
+ms.author: tomfitz
 
+---
 # Compartilhando estado em modelos do Gerenciador de Recursos do Azure
-
 Este tópico mostra as melhores práticas para gerenciar e compartilhar o estado em modelos. Os parâmetros e variáveis mostrados neste tópico são exemplos dos tipos de objetos que você pode definir para organizar seus requisitos de implantação convenientemente. A partir desses exemplos, você pode implementar seus próprios objetos com valores de propriedade que façam sentido para o seu ambiente.
 
 Este tópico faz parte de um whitepaper mais amplo. Para ler o documento completo, baixe [Considerações e práticas comprovadas de modelos ARM de nível mundial](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
-
 ## Fornecer configurações padrão
-
 Em vez de oferecer um modelo com total flexibilidade e inúmeras variações, um padrão comum é fornecer a capacidade de selecionar configurações conhecidas; na verdade, tamanhos de camiseta padrão como tamanho único, pequeno, médio e grande. Outros exemplos de tamanhos de camiseta são ofertas de produtos, como community edition ou enterprise edition. Em outros casos, podem se tratar de configurações de uma tecnologia específicas para uma determinada carga de trabalho - como mapear/reduzir ou no SQL.
 
 Com objetos complexos, você pode criar variáveis que contenham coleções de dados, às vezes conhecidos como "conjunto de propriedades", e usar esses dados para orientar a declaração de recurso em seu modelo. Essa abordagem fornece boas configurações conhecidas, de tamanhos variados que são pré-configurados para os clientes. Sem configurações conhecidas, os clientes finais devem determinar o tamanho do cluster por conta própria, levar em consideração restrições de recursos de plataforma e fazer cálculos para identificar o particionamento resultante de contas de armazenamento e outros recursos (devido a restrições de recursos e de tamanho do cluster). É mais fácil dar suporte a um pequeno número de configurações conhecidas; além disso, o uso de um pequeno número delas resulta em uma melhor experiência para o cliente e pode ajudá-lo a oferecer um maior nível de densidade.
@@ -166,21 +163,20 @@ Você pode fazer referência a essas variáveis posteriormente no modelo. A capa
     }
 
 ## Passar o estado para um modelo
-
 Você pode compartilhar o estado em um modelo por meio de parâmetros fornecidos diretamente durante a implantação.
 
 A tabela a seguir lista os parâmetros normalmente usados em modelos.
 
-Nome | Valor | Descrição
----- | ----- | -----------
-location | Cadeia de caracteres de uma lista restrita de regiões do Azure | O local onde os recursos serão implantados.
-storageAccountNamePrefix | Cadeia de caracteres | Nome DNS exclusivo da conta de armazenamento na qual serão colocados os discos da VM
-domainName | Cadeia de caracteres | Nome de domínio da VM jumpbox publicamente acessível no formato: **{domainName}.{local}.cloudapp.com** Por exemplo: **nomedomeudomínio.westus.cloudapp.azure.com**
-adminUsername | Cadeia de caracteres | Nome de usuário das VMs
-adminPassword | Cadeia de caracteres | A senha das VMs
-tshirtSize | Cadeia de caracteres de uma lista restrita de tamanhos de camiseta oferecidos | O tamanho da unidade de escala nomeada para provisionamento. Por exemplo, "Pequeno", "Médio", "Grande"
-virtualNetworkName | Cadeia de caracteres | Nome da rede virtual que o consumidor deseja usar.
-enableJumpbox | Cadeia de caracteres de uma lista restrita (habilitada/desabilitada) | Parâmetro que identifica se um Jumpbox será habilitado para o ambiente. Valores: "habilitado", "desabilitado"
+| Nome | Valor | Descrição |
+| --- | --- | --- |
+| location |Cadeia de caracteres de uma lista restrita de regiões do Azure |O local onde os recursos serão implantados. |
+| storageAccountNamePrefix |Cadeia de caracteres |Nome DNS exclusivo da conta de armazenamento na qual serão colocados os discos da VM |
+| domainName |Cadeia de caracteres |Nome de domínio da VM jumpbox publicamente acessível no formato: **{domainName}.{local}.cloudapp.com** Por exemplo: **nomedomeudomínio.westus.cloudapp.azure.com** |
+| adminUsername |Cadeia de caracteres |Nome de usuário das VMs |
+| adminPassword |Cadeia de caracteres |A senha das VMs |
+| tshirtSize |Cadeia de caracteres de uma lista restrita de tamanhos de camiseta oferecidos |O tamanho da unidade de escala nomeada para provisionamento. Por exemplo, "Pequeno", "Médio", "Grande" |
+| virtualNetworkName |Cadeia de caracteres |Nome da rede virtual que o consumidor deseja usar. |
+| enableJumpbox |Cadeia de caracteres de uma lista restrita (habilitada/desabilitada) |Parâmetro que identifica se um Jumpbox será habilitado para o ambiente. Valores: "habilitado", "desabilitado" |
 
 O parâmetro **tshirtSize** usado na seção anterior é definido como:
 
@@ -201,11 +197,9 @@ O parâmetro **tshirtSize** usado na seção anterior é definido como:
 
 
 ## Passar o estado para modelos vinculados
-
 Ao conectar-se aos modelos vinculados, geralmente você utilizará uma combinação de variáveis estáticas e geradas.
 
 ### Variáveis estáticas
-
 Variáveis estáticas geralmente são usadas para fornecer valores de base, como URLs, que são usados em um modelo.
 
 No trecho do modelo abaixo, `templateBaseUrl` especifica o local raiz do modelo no GitHub. A próxima linha cria uma nova variável `sharedTemplateUrl`, que concatena o URL base com o nome conhecido do modelo de recursos compartilhados. Abaixo dela, uma variável de objeto complexo é usada para armazenar um tamanho de camiseta, em que o URL base é concatenado ao local do modelo de configuração conhecido e armazenado na propriedade `vmTemplate`.
@@ -232,15 +226,12 @@ O benefício desta abordagem é que, se o local do modelo for alterado, você s�
     }
 
 ### Variáveis geradas
-
 Além de variáveis estáticas, diversas variáveis são geradas dinamicamente. Esta seção identifica alguns dos tipos comuns de variáveis geradas.
 
 #### tshirtSize
-
 Você está familiarizado com essa variável gerada dos exemplos acima.
 
 #### networkSettings
-
 Em um modelo de capacidade, recurso ou solução de escopo completa, os modelos vinculados normalmente criam recursos que existem em uma rede. Uma abordagem simples é usar um objeto complexo para armazenar as configurações de rede e passá-las para modelos vinculados.
 
 Um exemplo de configurações de rede de comunicação pode ser visto abaixo.
@@ -263,7 +254,6 @@ Um exemplo de configurações de rede de comunicação pode ser visto abaixo.
     }
 
 #### availabilitySettings
-
 Recursos criados em modelos vinculados geralmente são colocados em um conjunto de disponibilidade. No exemplo a seguir, o nome do conjunto de disponibilidade é especificado e também a contagem de domínios de falha e de atualização para uso.
 
     "availabilitySetSettings": {
@@ -275,7 +265,6 @@ Recursos criados em modelos vinculados geralmente são colocados em um conjunto 
 Se precisar de vários conjuntos de disponibilidade (por exemplo, um para nós mestres e outro para nós de dados), você pode usar um nome como um prefixo, especificar vários conjuntos de disponibilidade ou seguir o modelo mostrado anteriormente para a criação de uma variável para um tamanho de camiseta específico.
 
 #### storageSettings
-
 Detalhes de armazenamento geralmente são compartilhados com modelos vinculados. No exemplo abaixo, um objeto *storageSettings* fornece detalhes sobre os nomes de contêiner e da conta de armazenamento.
 
     "storageSettings": {
@@ -285,7 +274,6 @@ Detalhes de armazenamento geralmente são compartilhados com modelos vinculados.
     }
 
 #### osSettings
-
 Com modelos vinculados, você precisa passar configurações do sistema operacional para vários tipos de nós em todos os tipos de configuração diferentes conhecidos. Um objeto complexo é uma maneira fácil de armazenar e compartilhar informações de sistema operacional e também torna mais fácil dar suporte a várias opções de sistema operacional para implantação.
 
 O exemplo a seguir mostra um objeto para *osSettings*:
@@ -300,7 +288,6 @@ O exemplo a seguir mostra um objeto para *osSettings*:
     }
 
 #### machineSettings
-
 Uma variável gerada, *machineSettings*, é um objeto complexo que contém uma mistura de variáveis principais para a criação de uma nova VM: o nome de usuário e a senha de administrador, um prefixo para os nomes de VM e uma referência de imagem de sistema operacional, como mostrado abaixo:
 
     "machineSettings": {
@@ -318,7 +305,6 @@ Uma variável gerada, *machineSettings*, é um objeto complexo que contém uma m
 Observe que *osImageReference* recupera os valores da variável *osSettings* definida no modelo principal. Isso significa que você pode alterar facilmente o sistema operacional de uma VM — completamente ou com base na preferência de um consumidor de modelo.
 
 #### vmScripts
-
 O objeto *vmScripts* contém detalhes sobre os scripts a serem baixados e executados em uma instância de VM, incluindo referências externas e internas. Referências externas incluem a infraestrutura. Referências internas incluem o software instalado e a configuração.
 
 Você usa a propriedade *scriptsToDownload* para listar os scripts a serem baixados na VM.
@@ -341,7 +327,6 @@ A seção de variáveis é onde você encontrará as variáveis que definem o te
 
 
 ## Retornar o estado de um modelo
-
 Você pode não só passar dados para um modelo, mas também pode compartilhar dados de volta para o modelo de chamada. Na seção **outputs** de um modelo vinculado, você pode fornecer os pares de chave-valor que podem ser consumidos pelo modelo de origem.
 
 O exemplo a seguir mostra como passar o endereço IP privado gerado em um modelo vinculado.
@@ -364,11 +349,10 @@ Você pode usar essa expressão na seção de saídas ou na seção de recursos 
         "value": "[reference('master-node').outputs.masterip.value]",
         "type": "string"
       }
-     
+
 Para obter um exemplo de como usar a seção de saídas de um modelo vinculado para retornar discos de dados para uma máquina virtual, consulte [Criando vários discos de dados para uma Máquina Virtual](resource-group-create-multiple.md#creating-multiple-data-disks-for-a-virtual-machine).
 
 ## Definir configurações de autenticação para uma máquina virtual
-
 Você pode usar o mesmo padrão mostrado acima para definições de configuração, com o fim de especificar as configurações de autenticação para uma máquina virtual. Você cria um parâmetro para passar o tipo de autenticação.
 
     "parameters": {
@@ -423,7 +407,7 @@ Ao definir a máquina virtual, você define o **osProfile** para a variável que
 
 
 ## Próximas etapas
-- Para saber mais sobre as seções do modelo, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md)
-- Para ver as funções que estão disponíveis em um modelo, confira [Funções do modelo do Azure Resource Manager](resource-group-template-functions.md).
+* Para saber mais sobre as seções do modelo, confira [Criando modelos do Azure Resource Manager](resource-group-authoring-templates.md)
+* Para ver as funções que estão disponíveis em um modelo, confira [Funções do modelo do Azure Resource Manager](resource-group-template-functions.md).
 
 <!---HONumber=AcomDC_0713_2016-->

@@ -1,28 +1,26 @@
-<properties
-   pageTitle="Scripts personalizados em VMs do Windows com o uso de modelos | Microsoft Azure"
-   description="Automatizar tarefas de configuração de VM do Windows usando a extensão do Script Personalizado com modelos do Gerenciador de Recursos"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Scripts personalizados em VMs do Windows com o uso de modelos | Microsoft Docs
+description: Automatizar tarefas de configuração de VM do Windows usando a extensão do Script Personalizado com modelos do Gerenciador de Recursos
+services: virtual-machines-windows
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 03/29/2016
+ms.author: kundanap
 
+---
 # Extensões de Script Personalizado de VM do Windows com modelos do Azure Resource Manager
-
-[AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
+[!INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
 
 ## Exemplo de modelo para uma VM do Windows
-
 Defina o recurso a seguir na seção de Recursos do modelo.
 
        {
@@ -52,7 +50,6 @@ No exemplo anterior, substitua a URL do arquivo e o nome do arquivo por suas pr�
 Se você quiser manter particulares os parâmetros e as URLs de script, pode definir a URL de script como **particular**. Se a URL de script for definida como **particular**, ela só poderá ser acessada com um nome de conta de armazenamento e uma chave enviada como configurações protegidas. Os parâmetros do script também podem ser fornecidos como configurações protegidas com a versão 1.7 ou posterior da extensão de Script Personalizado.
 
 ## Exemplo de modelo para uma VM do Windows com configurações protegidas
-
         {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",

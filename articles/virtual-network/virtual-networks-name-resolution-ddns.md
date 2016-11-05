@@ -1,34 +1,32 @@
-<properties
-   pageTitle="Usando o DNS Dinâmico para registrar nomes de host"
-   description="Esta página fornece detalhes sobre como configurar o DNS dinâmico para registrar os nomes de host em seus próprios servidores DNS."
-   services="dns"
-   documentationCenter="na"
-   authors="GarethBradshawMSFT"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
-   ms.author="sewhee" />
+---
+title: Usando o DNS Dinâmico para registrar nomes de host
+description: Esta página fornece detalhes sobre como configurar o DNS dinâmico para registrar os nomes de host em seus próprios servidores DNS.
+services: dns
+documentationcenter: na
+author: GarethBradshawMSFT
+manager: carmonm
+editor: ''
 
+ms.service: dns
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/31/2016
+ms.author: sewhee
+
+---
 # Usando o DNS dinâmico para registrar os nomes de host em seu próprio servidor DNS
-
 O [Azure fornece resolução de nomes](virtual-networks-name-resolution-for-vms-and-role-instances.md) para VMs (máquinas virtuais) e instâncias de função. Contudo, quando a resolução de nome precisar ir além do que é fornecido pelo Azure, você pode fornecer seus próprios servidores DNS. Isso permite que você personalize sua solução DNS para ajustá-la às suas próprias necessidades específicas. Por exemplo, você poderá precisar acessar recursos locais por meio do controlador de domínio Active Directory.
 
 Quando os servidores DNS personalizados forem hospedados como VMs do Azure, você poderá encaminhar consultas de nome de host para a mesma rede virtual do Azure para resolver nomes de host. Se você não desejar usar essa rota, você poderá registrar os nomes de host da VM no servidor DNS usando o DNS Dinâmico. O Azure não tem a capacidade (por exemplo, credenciais) para criar diretamente registros nos servidores DNS, de modo que organizações alternativas são muitas vezes necessárias. Aqui estão alguns cenários comuns com alternativas.
 
 ## Clientes do Windows
-
 Clientes do Windows não unidos por domínio tentam atualizações não seguras de DNS dinâmico (DDNS) quando eles são inicializados ou quando seu endereço IP for alterado. O nome DNS é o nome do host mais o sufixo DNS primário. O Azure deixa o sufixo DNS primário em branco, mas você pode configurá-lo na VM, por meio da [interface do usuário](https://technet.microsoft.com/library/cc794784.aspx) ou [usando a automação](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
 
 Os clientes unidos por domínio do Windows registram seus endereços IP com o controlador de domínio usando o DNS dinâmico seguro. O processo de ingresso no domínio define o sufixo DNS primário no cliente e cria e mantém a relação de confiança.
 
 ## Clientes Linux
-
 Clientes Linux geralmente não se registram no servidor DNS na inicialização, eles supõem que o servidor DHCP faça isso. Os servidores DHCP do Azure não são capazes ou não tem as credenciais para manter os registros no seu servidor DNS. Você pode usar uma ferramenta chamada *nsupdate*, que está incluída no pacote de Associação, para enviar atualizações do DNS dinâmico. Como o protocolo DNS dinâmico é padronizado, você pode usar *nsupdate* mesmo quando não estiver usando Associação no servidor DNS.
 
 Você pode usar os ganchos que são fornecidos pelo cliente DHCP para criar e manter a entrada do nome do host no servidor DNS. Durante o ciclo DHCP, o cliente executa os scripts em */etc/dhcp/dhclient-exit-hooks.d/*. Isso pode ser usado para registrar o novo endereço IP usando *nsupdate*. Por exemplo:

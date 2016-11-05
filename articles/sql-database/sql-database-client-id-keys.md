@@ -1,143 +1,109 @@
-<properties
-   pageTitle="Registrar seu aplicativo e obter a ID do cliente e a chave para se conectar ao Banco de Dados SQL do código | Microsoft Azure"
-   description="Obtenha a ID do cliente e a chave para acessar o Banco de Dados SQL do código."
-   services="sql-database"
-   documentationCenter=""
-   authors="stevestein"
-   manager="jhubbard"
-   editor=""
-   tags=""/>
+---
+title: Registrar seu aplicativo e obter a ID do cliente e a chave para se conectar ao Banco de Dados SQL do código | Microsoft Docs
+description: Obtenha a ID do cliente e a chave para acessar o Banco de Dados SQL do código.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
+tags: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="06/06/2016"
-   ms.author="sstein"/>
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 06/06/2016
+ms.author: sstein
 
+---
 # Obter a ID do cliente e a chave para se conectar ao Banco de Dados SQL do código
-
 Para criar e gerenciar o Banco de Dados SQL do código, você deve registrar seu aplicativo no domínio do AAD (Azure Active Directory) associado à assinatura em que os recursos do Azure foram criados. Quando você registrar seu aplicativo, o Azure gerará uma ID de cliente e uma chave que serão necessárias em seu código para autenticar seu aplicativo. Para obter mais informações, consulte [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ## Registrar um aplicativo cliente nativo e obter a ID do cliente
-
 Para criar um novo aplicativo e registrá-lo, faça o seguinte:
 
 1. Faça logon no [Portal Clássico](https://manage.windowsazure.com/) (atualmente, o registro de aplicativos precisa ser feito no Portal Clássico).
-1. Localize o **Active Directory** no menu e selecione-o.
-
+2. Localize o **Active Directory** no menu e selecione-o.
+   
     ![AAD][1]
-
-2. Selecione o diretório para autenticar o aplicativo e clique no respectivo **Nome**.
-
+3. Selecione o diretório para autenticar o aplicativo e clique no respectivo **Nome**.
+   
     ![Diretórios][4]
-
-3. Na página do diretório, clique em **APLICATIVOS**.
-
+4. Na página do diretório, clique em **APLICATIVOS**.
+   
     ![Aplicativos][5]
-
-4. Clique em **ADICIONAR** para criar um aplicativo novo.
-
+5. Clique em **ADICIONAR** para criar um aplicativo novo.
+   
     ![Adicionar aplicativo][6]
-
-5. Forneça um **NOME** para o aplicativo e selecione **APLICATIVO CLIENTE NATIVO**.
-
+6. Forneça um **NOME** para o aplicativo e selecione **APLICATIVO CLIENTE NATIVO**.
+   
     ![Adicionar aplicativo][7]
-
-6. Forneça um **URI DE REDIRECIONAMENTO**. Não precisa ser um ponto de extremidade real, apenas um URI válido.
-
+7. Forneça um **URI DE REDIRECIONAMENTO**. Não precisa ser um ponto de extremidade real, apenas um URI válido.
+   
     ![Adicionar aplicativo][8]
-
-7. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID DO CLIENTE** (este é o valor de que você precisará em seu código).
-
+8. Conclua a criação do aplicativo, clique em **CONFIGURAR** e copie a **ID DO CLIENTE** (este é o valor de que você precisará em seu código).
+   
     ![obter id do cliente][9]
-
-
-1. Role para baixo na página e clique em **Adicionar aplicativo**.
-1. Selecione **Aplicativos da Microsoft**.
-1. Selecione **API de Gerenciamento de Serviços do Microsoft Azure** e conclua o assistente.
-2. Na seção **permissões para outros aplicativos**, localize a **API de Gerenciamento de Serviços do Microsoft Azure** e clique em **Permissões Delegadas**.
-3. Selecione **Acessar o Gerenciamento de Serviços do Azure...**.
-
-    ![permissões][2]
-
-2. Na parte inferior da página, clique em **SALVAR**.
-
-
+9. Role para baixo na página e clique em **Adicionar aplicativo**.
+10. Selecione **Aplicativos da Microsoft**.
+11. Selecione **API de Gerenciamento de Serviços do Microsoft Azure** e conclua o assistente.
+12. Na seção **permissões para outros aplicativos**, localize a **API de Gerenciamento de Serviços do Microsoft Azure** e clique em **Permissões Delegadas**.
+13. Selecione **Acessar o Gerenciamento de Serviços do Azure...**.
+    
+     ![permissões][2]
+14. Na parte inferior da página, clique em **SALVAR**.
 
 ## Registre um aplicativo Web (ou API da Web) e obtenha a ID e a chave do cliente
-
 Para criar um novo aplicativo e registrá-lo no active directory correto, faça o seguinte:
 
 1. Faça logon no [Portal Clássico](https://manage.windowsazure.com/).
-1. Localize o **Active Directory** no menu e selecione-o.
-
+2. Localize o **Active Directory** no menu e selecione-o.
+   
     ![AAD][1]
-
-2. Selecione o diretório para autenticar o aplicativo e clique no respectivo **Nome**.
-
+3. Selecione o diretório para autenticar o aplicativo e clique no respectivo **Nome**.
+   
     ![Diretórios][4]
-
-3. Na página do diretório, clique em **APLICATIVOS**.
-
+4. Na página do diretório, clique em **APLICATIVOS**.
+   
     ![Aplicativos][5]
-
-4. Clique em **ADICIONAR** para criar um aplicativo novo.
-
+5. Clique em **ADICIONAR** para criar um aplicativo novo.
+   
     ![Adicionar aplicativo][6]
-
-5. Forneça um **NOME** para o aplicativo e selecione **APLICATIVO WEB E/OU API DA WEB**.
-
+6. Forneça um **NOME** para o aplicativo e selecione **APLICATIVO WEB E/OU API DA WEB**.
+   
     ![Adicionar aplicativo][10]
-
-6. Forneça uma **URL de logon** e um **URI DA ID DO APLICATIVO**. Não precisa ser um ponto de extremidade real, apenas um URI válido.
-
+7. Forneça uma **URL de logon** e um **URI DA ID DO APLICATIVO**. Não precisa ser um ponto de extremidade real, apenas um URI válido.
+   
     ![Adicionar aplicativo][11]
-
-7. Conclua a criação do aplicativo e clique em **CONFIGURAR**.
-
+8. Conclua a criação do aplicativo e clique em **CONFIGURAR**.
+   
     ![configurar][12]
-
-8. Role até a seção **chaves** e selecione **1 ano** na lista **Selecionar duração**. O valor da chave será exibido depois que você salvar, então voltaremos e copiaremos a chave mais tarde.
-
+9. Role até a seção **chaves** e selecione **1 ano** na lista **Selecionar duração**. O valor da chave será exibido depois que você salvar, então voltaremos e copiaremos a chave mais tarde.
+   
     ![definir duração da chave][13]
-
-
-
-1. Role para baixo na página e clique em **Adicionar aplicativo**.
-1. Selecione **Aplicativos da Microsoft**.
-1. Localize e selecione **API de Gerenciamento de Serviços do Microsoft Azure** e conclua o assistente.
-2. Na seção **permissões para outros aplicativos**, localize a **API de Gerenciamento de Serviços do Microsoft Azure** e clique em **Permissões Delegadas**.
-3. Selecione **Acessar o Gerenciamento de Serviços do Azure...**.
-
-    ![permissões][2]
-
-2. Na parte inferior da página, clique em **SALVAR**.
-3. Após o salvamento ser concluído, localize e salve a ID do cliente e a chave:
-
-    ![segredos do aplicativo Web][14]
-
-
+10. Role para baixo na página e clique em **Adicionar aplicativo**.
+11. Selecione **Aplicativos da Microsoft**.
+12. Localize e selecione **API de Gerenciamento de Serviços do Microsoft Azure** e conclua o assistente.
+13. Na seção **permissões para outros aplicativos**, localize a **API de Gerenciamento de Serviços do Microsoft Azure** e clique em **Permissões Delegadas**.
+14. Selecione **Acessar o Gerenciamento de Serviços do Azure...**.
+    
+     ![permissões][2]
+15. Na parte inferior da página, clique em **SALVAR**.
+16. Após o salvamento ser concluído, localize e salve a ID do cliente e a chave:
+    
+     ![segredos do aplicativo Web][14]
 
 ## Obter seu nome de domínio
-
 Às vezes, o nome de domínio é necessário para seu código de autorização. Uma maneira fácil de identificar o nome de domínio adequado é:
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Passe o mouse sobre o nome no canto superior direito e observe o Domínio que aparece na janela pop-up.
-
+   
     ![Identificar nome de domínio][3]
 
-
-
-
 ## Exemplo de aplicativo de console
-
-
 Obtenha as bibliotecas de gerenciamento necessárias instalando os pacotes a seguir com o [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console) no Visual Studio (**Ferramentas** > **Gerenciador de Pacotes NuGet** > **Console do Gerenciador de Pacotes**):
-
 
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
@@ -146,7 +112,7 @@ Crie um aplicativo de console chamado **SqlDbAuthSample** e substitua o conteúd
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using System;
-    
+
     namespace SqlDbAuthSample
     {
     class Program
@@ -228,11 +194,8 @@ Crie um aplicativo de console chamado **SqlDbAuthSample** e substitua o conteúd
 Para exemplos de código específicos relacionados à autenticação do Azure AD, confira o [Blog sobre segurança do SQL Server](http://blogs.msdn.com/b/sqlsecurity/) no MSDN.
 
 ## Consulte também
-
-- [Criar um Banco de Dados SQL com C#](sql-database-get-started-csharp.md)
-- [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
-
-
+* [Criar um Banco de Dados SQL com C#](sql-database-get-started-csharp.md)
+* [Conectar-se ao Banco de Dados SQL usando a autenticação do Active Directory do Azure](sql-database-aad-authentication.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-client-id-keys/aad.png

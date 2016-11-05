@@ -1,54 +1,51 @@
-<properties
-    pageTitle="Gerenciar servidores e cofres dos serviços de recuperação do Azure | Microsoft Azure"
-    description="Use este tutorial para aprender a gerenciar os servidores e cofres dos serviços de recuperação do Azure."
-    services="backup"
-    documentationCenter=""
-    authors="Jim-Parker"
-    manager="jwhit"
-    editor="tysonn"/>
+---
+title: Gerenciar servidores e cofres dos serviços de recuperação do Azure | Microsoft Docs
+description: Use este tutorial para aprender a gerenciar os servidores e cofres dos serviços de recuperação do Azure.
+services: backup
+documentationcenter: ''
+author: Jim-Parker
+manager: jwhit
+editor: tysonn
 
-<tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="07/19/2016"
-    ms.author="jimpark; markgal"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/19/2016
+ms.author: jimpark; markgal
 
-
-
+---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Monitore e gerencie os cofres dos serviços de recuperação do Azure e os servidores para os computadores que usam o Windows
-
-> [AZURE.SELECTOR]
-- [Gerenciador de Recursos](backup-azure-manage-windows-server.md)
-- [Clássico](backup-azure-manage-windows-server-classic.md)
+> [!div class="op_single_selector"]
+> * [Gerenciador de Recursos](backup-azure-manage-windows-server.md)
+> * [Clássico](backup-azure-manage-windows-server-classic.md)
+> 
+> 
 
 Neste artigo, você encontrará uma visão geral das tarefas de gerenciamento de backup disponíveis no portal de gerenciamento do Azure e do agente de Backup do Microsoft Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+
+modelo de implantação clássica.
 
 ## <a name="management-portal-tasks"></a>Tarefas do portal de gerenciamento
-
 ### <a name="access-your-recovery-services-vaults"></a>Acessar seus cofres dos Serviços de Recuperação
-
 1. Entre no [Portal do Azure](https://portal.azure.com/) usando sua assinatura do Azure.
-
 2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começar a digitar, a lista será filtrada com base em sua entrada. Clique em **Cofres dos Serviços de Recuperação**.
-
+   
     ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-manage-windows-server/browse-to-rs-vaults.png) <br/>
-
-2. Selecione o nome do cofre que você deseja exibir na lista para abrir a folha do painel do cofre dos Serviços de Recuperação.
-
+3. Selecione o nome do cofre que você deseja exibir na lista para abrir a folha do painel do cofre dos Serviços de Recuperação.
+   
     ![painel do cofre dos serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-dashboard.png) <br/>
 
 ## <a name="monitor-jobs-and-alerts"></a>Monitorar trabalhos e alertas
 Você monitora os trabalhos e alertas no painel do cofre dos Serviços de Recuperação, onde vê:
 
-- Detalhes dos alertas de backup
-- Arquivos e pastas, bem como máquinas virtuais do Azure protegidas na nuvem
-- Armazenamento total consumido no Azure
-- Status do trabalho de backup
+* Detalhes dos alertas de backup
+* Arquivos e pastas, bem como máquinas virtuais do Azure protegidas na nuvem
+* Armazenamento total consumido no Azure
+* Status do trabalho de backup
 
 ![Tarefas do painel Backup](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
 
@@ -56,17 +53,19 @@ Clicar nas informações em cada um desses blocos abrirá a folha associada onde
 
 Na parte superior do Painel:
 
-- As configurações fornecem acesso às tarefas de backup disponíveis.
-- Backup - ajuda a fazer backup de novos arquivos e pastas (ou VMs do Azure) no cofre dos Serviços de Recuperação.
-- Excluir - se um cofre dos serviços de recuperação ainda não estiver sendo usado, você poderá exclui-lo para liberar espaço de armazenamento. A exclusão é habilitada somente depois que todos os servidores protegidos foram excluídos do cofre.
+* As configurações fornecem acesso às tarefas de backup disponíveis.
+* Backup - ajuda a fazer backup de novos arquivos e pastas (ou VMs do Azure) no cofre dos Serviços de Recuperação.
+* Excluir - se um cofre dos serviços de recuperação ainda não estiver sendo usado, você poderá exclui-lo para liberar espaço de armazenamento. A exclusão é habilitada somente depois que todos os servidores protegidos foram excluídos do cofre.
 
 ![Tarefas do painel Backup](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
+
 ## <a name="alerts-for-backups-using-azure-backup-agent:"></a>Alertas de backups usando o agente de backup do Azure:
-| Nível de alerta  | Alertas enviados |
-| ------------- | ------------- |
-| Crítico | Falha de backup, falha na recuperação  |
-| Aviso  | Backup foi concluído com avisos (quando menos de centenas de arquivos ficam sem backup devido a problemas de corrupção e mais de um milhão de arquivos têm o backup feito com êxito)  |
-| Informativo  | Nenhum  |
+| Nível de alerta | Alertas enviados |
+| --- | --- |
+| Crítico |Falha de backup, falha na recuperação |
+| Aviso |Backup foi concluído com avisos (quando menos de centenas de arquivos ficam sem backup devido a problemas de corrupção e mais de um milhão de arquivos têm o backup feito com êxito) |
+| Informativo |Nenhum |
+
 ## <a name="manage-backup-alerts"></a>Gerenciar alertas de Backup
 Clique no bloco **Alertas de Backup** para abrir a folha **Alertas de Backup** e gerenciar os alertas.
 
@@ -74,23 +73,21 @@ Clique no bloco **Alertas de Backup** para abrir a folha **Alertas de Backup** e
 
 O bloco Alertas de Backup mostra o número de:
 
-- alertas críticos não resolvidos nas últimas 24 horas
-- alertas de aviso não resolvidos nas últimas 24 horas
+* alertas críticos não resolvidos nas últimas 24 horas
+* alertas de aviso não resolvidos nas últimas 24 horas
 
 Clicar em cada um desses links leva você para a folha **Alertas de Backup** com uma exibição filtrada desses alertas (crítico ou aviso).
 
 Na folha Alertas de Backup, você:
 
-- Escolhe as informações apropriadas para incluir com seus alertas.
-
+* Escolhe as informações apropriadas para incluir com seus alertas.
+  
     ![Escolher colunas](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
-
-- Filtra os alertas quanto à gravidade, status e horários de início/término.
-
+* Filtra os alertas quanto à gravidade, status e horários de início/término.
+  
     ![Filtrar alertas](./media/backup-azure-manage-windows-server/filter-alerts.png)
-
-- Configura as notificações quanto à gravidade, frequência e destinatários, bem como ativa ou desativa os alertas.
-
+* Configura as notificações quanto à gravidade, frequência e destinatários, bem como ativa ou desativa os alertas.
+  
     ![Filtrar alertas](./media/backup-azure-manage-windows-server/configure-notifications.png)
 
 Se **Por Alerta** estiver selecionado como a frequência para **Notificar**, não ocorrerá nenhum agrupamento ou redução nos emails. Cada alerta resulta em uma notificação. Essa é a configuração padrão e o email de resolução também é enviado imediatamente.
@@ -99,15 +96,18 @@ Se **Consumir por Hora** estiver selecionado como a frequência para **Notificar
 
 Os alertas podem ser enviados para os seguintes níveis de gravidade:
 
-- Crítico
-- Aviso
-- informações
+* Crítico
+* Aviso
+* informações
 
 Você desativa o alerta com o botão **desativar** na folha de detalhes do trabalho. Quando você clica em desativar, pode fornecer observações de resolução.
 
 Você escolhe as colunas que deseja que apareça como parte do alerta com o botão **Escolher colunas** .
 
->[AZURE.NOTE] Na folha **Configurações**, você gerencia os alertas de backup selecionando **Monitoramento e Relatórios > Alertas e Eventos > Alertas de Backup**, em seguida, clicando em **Filtro** ou **Configurar Notificações**.
+> [!NOTE]
+> Na folha **Configurações**, você gerencia os alertas de backup selecionando **Monitoramento e Relatórios > Alertas e Eventos > Alertas de Backup**, em seguida, clicando em **Filtro** ou **Configurar Notificações**.
+> 
+> 
 
 ## <a name="manage-backup-items"></a>Gerenciar itens de Backup
 O gerenciamento de backups locais agora está disponível no portal de gerenciamento. Na seção Backup do painel, o bloco **Itens de Backup** mostra o número de itens de backup protegidos no cofre.
@@ -122,7 +122,10 @@ A folha Itens de Backup abre com o filtro definido para Pasta de Arquivos onde v
 
 Se você clicar em um item de backup específico na lista, verá os detalhes essenciais desse item.
 
->[AZURE.NOTE] Na folha **Configurações**, você gerencia os arquivos e pastas selecionando **Itens Protegidos > Itens de Backup**, em seguida, selecionando **Pastas de Arquivos** no menu suspenso.
+> [!NOTE]
+> Na folha **Configurações**, você gerencia os arquivos e pastas selecionando **Itens Protegidos > Itens de Backup**, em seguida, selecionando **Pastas de Arquivos** no menu suspenso.
+> 
+> 
 
 ![Itens de backup das configurações](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
 
@@ -131,8 +134,8 @@ Os trabalhos de Backup para os backups locais (quando o servidor local está faz
 
 Na seção Backup do painel, o bloco Trabalho de Backup mostra o número de trabalhos:
 
-- em andamento
-- com falha nas últimas 24 horas
+* em andamento
+* com falha nas últimas 24 horas
 
 Para gerenciar seus trabalhos de backup, clique no bloco **Trabalhos de Backup** , que abre a folha Trabalhos de Backup.
 
@@ -144,12 +147,16 @@ Use o botão **Filtro** para selecionar entre arquivos e pastas e o backup da m�
 
 Se você não vir os arquivos e pastas com backup, clique no botão **Filtrar** na parte superior da página e selecione **Arquivos e pastas** no menu Tipo de Item.
 
->[AZURE.NOTE] Na folha **Configurações**, você gerencia os trabalhos de backup selecionando **Monitoramento e Relatórios > Trabalhos > Trabalhos de Backup**, em seguida, selecionando **Pastas de Arquivos** no menu suspenso.
+> [!NOTE]
+> Na folha **Configurações**, você gerencia os trabalhos de backup selecionando **Monitoramento e Relatórios > Trabalhos > Trabalhos de Backup**, em seguida, selecionando **Pastas de Arquivos** no menu suspenso.
+> 
+> 
 
 ## <a name="monitor-backup-usage"></a>Monitorar o uso do Backup
 Na seção Backup do painel, o bloco Uso do Backup mostra o armazenamento consumido no Azure. O uso do armazenamento é fornecido para:
-- Uso do armazenamento LRS de nuvem associado ao cofre
-- Uso do armazenamento GRS de nuvem associado ao cofre
+
+* Uso do armazenamento LRS de nuvem associado ao cofre
+* Uso do armazenamento GRS de nuvem associado ao cofre
 
 ## <a name="production-servers"></a>Servidores de produção
 Para gerenciar seus servidores de produção, clique em **Configurações**. Em Gerenciar, clique em **Infraestrutura do Backup > Servidores de Produção**.
@@ -159,119 +166,103 @@ A folha Servidores de Produção lista todos os servidores de produção dispon�
 ![Itens protegidos](./media/backup-azure-manage-windows-server/production-server-list.png)
 
 ## <a name="microsoft-azure-backup-agent-tasks"></a>Tarefas do agente de Backup do Microsoft Azure
-
 ## <a name="open-the-backup-agent"></a>Abrir o agente de backup
-
 Abra o **agente de Backup do Microsoft Azure** (você o localiza procurando *Backup do Microsoft Azure*em seu computador).
 
 ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
 
 Nas **Ações** disponíveis à direita do console do agente de backup, você executa as seguintes tarefas de gerenciamento:
 
-- Registrar Servidor
-- Agendar backup
-- Fazer backup agora
-- Alterar propriedades
+* Registrar Servidor
+* Agendar backup
+* Fazer backup agora
+* Alterar propriedades
 
 ![Ações do console do agente de Backup do Microsoft Azure](./media/backup-azure-manage-windows-server/console-actions.png)
 
->[AZURE.NOTE] Para **Recuperar Dados**, consulte [Restaurar arquivos para um computador cliente Windows ou um servidor Windows](backup-azure-restore-windows-server.md).
+> [!NOTE]
+> Para **Recuperar Dados**, consulte [Restaurar arquivos para um computador cliente Windows ou um servidor Windows](backup-azure-restore-windows-server.md).
+> 
+> 
 
 ## <a name="modify-an-existing-backup"></a>Modificar um backup existente
-
 1. No agente de Backup do Microsoft Azure, clique em **Agendar Backup**.
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
-
 2. No **Assistente de Agendamento de Backup**, deixe a opção **Fazer alterações aos itens ou horários de backup** selecionada e clique em **Avançar**.
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
-
 3. Se quiser adicionar ou alterar itens, na tela **Selecionar Itens para Backup**, clique em **Adicionar Itens**.
-
+   
     Você também pode definir **Configurações de Exclusão** nesta página do assistente. Se você quiser excluir arquivos ou tipos de arquivo, leia o procedimento para adicionar [configurações de exclusão](#exclusion-settings).
-
 4. Selecione os arquivos e as pastas dos quais você deseja fazer backup e clique em **OK**.
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/add-items-modify.png)
-
 5. Especifique o **agendamento de backup** e clique em **Avançar**.
-
+   
     Você pode agendar backups diários (no máximo três vezes por dia) ou backups semanais.
-
+   
     ![Itens para o backup do Windows Server](./media/backup-azure-manage-windows-server/specify-backup-schedule-modify-close.png)
-
-    >[AZURE.NOTE] A especificação do agendamento de backup é explicada em detalhes neste [artigo](backup-azure-backup-cloud-as-tape.md).
-
+   
+   > [!NOTE]
+   > A especificação do agendamento de backup é explicada em detalhes neste [artigo](backup-azure-backup-cloud-as-tape.md).
+   > 
+   > 
 6. Selecione a **Política de Retenção** para a cópia de backup e clique em **Avançar**.
-
+   
     ![Itens para o backup do Windows Server](./media/backup-azure-manage-windows-server/select-retention-policy-modify.png)
-
 7. Na tela **Confirmação**, examine as informações e clique em **Concluir**.
-
 8. Depois que o assistente terminar de criar o **agendamento de backup**, clique em **Fechar**.
-
+   
     Depois de modificar a proteção, é possível confirmar se os backups estão sendo acionados corretamente acessando a guia **Trabalhos** e confirmando se as alterações são refletidas nos trabalhos de backup.
 
-## <a name="enable-network-throttling"></a>Habilitar a limitação de rede  
+## <a name="enable-network-throttling"></a>Habilitar a limitação de rede
 O agente de Backup do Azure fornece uma guia Limitação, que permite controlar como a largura de banda é usada durante a transferência de dados. Esse controle pode ser útil se você precisa fazer backup de dados durante o horário de expediente, mas não quer que o processo de backup interfira no outro tráfego de Internet. A limitação da transferência de dados aplica-se a atividades de backup e restauração.  
 
 Para habilitar a limitação:
 
 1. No **agente de backup**, clique em **Alterar Propriedades**.
-
 2. Marque a caixa de seleção **Habilitar limitação de uso da largura de banda da Internet para as operações de backup** .
-
+   
     ![Limitação de rede](./media/backup-azure-manage-windows-server/throttling-dialog.png)
-
 3. Depois de habilitar a limitação, especifique a largura de banda permitida para a transferência de dados de backup durante as **Horas úteis** e **Horas não úteis**.
-
+   
     Os valores de largura de banda começam em 512 quilobytes por segundo (Kbps) e podem ir até 1023 megabytes por segundo (Mbps). Você também pode indicar o início e o término das **Horas úteis**e quais dias da semana são considerados dias úteis. O tempo fora das Horas úteis indicadas é considerado como hora não útil.
-
 4. Clique em **OK**.
 
 ## <a name="manage-exclusion-settings"></a>Gerenciar configurações de exclusão
-
 1. Abra o **agente de Backup do Microsoft Azure** (você poderá localizá-lo procurando *Backup do Microsoft Azure*em seu computador).
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/snap-in-search.png)
-
 2. No agente de Backup do Microsoft Azure, clique em **Agendar Backup**.
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/schedule-backup.png)
-
 3. No Assistente de Agendamento de Backup, deixe a opção **Fazer alterações aos itens ou horários de backup** selecionada e clique em **Avançar**.
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
-
 4. Clique em **Configurações de Exclusões**.
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/exclusion-settings.png)
-
 5. Clique em **Adicionar Exclusão**.
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/add-exclusion.png)
-
 6. Selecione o local e clique em **OK**.
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/exclusion-location.png)
-
 7. Adicione a extensão de arquivo no campo **Tipo de Arquivo** .
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/exclude-file-type.png)
-
+   
     Adição de uma extensão .mp3
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/exclude-mp3.png)
-
+   
     Para adicionar outra extensão, clique em **Adicionar Exclusão** e insira outra extensão do tipo de arquivo (adicionando uma extensão .jpeg).
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/exclude-jpg.png)
-
 8. Quando tiver adicionado todas as extensões, clique em **OK**.
-
 9. Prossiga com o Assistente de Agendamento de Backup clicando em **Avançar** até a **página Confirmação** e clique em **Concluir**.
-
+   
     ![Agendar um Backup do Windows Server](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
@@ -287,9 +278,9 @@ R2. Um alerta é gerado dentro de 20 minutos na falha do backup do Azure.
 
 R3. A seguir, os casos quando a notificação não será enviada para reduzir o ruído de alerta: 
 
-   - Se as notificações forem configuradas por hora e um alerta for gerado e resolvido em uma hora
-   - o Trabalho será cancelado.
-   - O segundo trabalho de backup falhou porque o trabalho de backup original estava em andamento. 
+* Se as notificações forem configuradas por hora e um alerta for gerado e resolvido em uma hora
+* o Trabalho será cancelado.
+* O segundo trabalho de backup falhou porque o trabalho de backup original estava em andamento. 
 
 ## <a name="troubleshooting-monitoring-issues<br>"></a>Solucionando problemas de monitoramento<br>
 #### <a name="issue:-jobs-and-alerts-from-azure-backup-agent-does-not-appear-on-the-portal."></a>Problema: trabalhos e alertas do agente de backup do Azure não aparecem no portal.
@@ -300,11 +291,9 @@ Para saber mais, procure os logs em "pasta de instalação do agente de backup d
 <b>Por exemplo:</b> C:\Arquivos de Programas\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
-- Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
-- Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-
-
+* [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
+* Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
+* Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
 <!--HONumber=Oct16_HO2-->
 

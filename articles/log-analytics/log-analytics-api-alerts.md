@@ -1,23 +1,22 @@
-<properties
-   pageTitle="API REST de alerta do Log Analytics"
-   description="A API de REST do Log Analytics permite criar e gerenciar alertas no OMS (Operations Management Suite).  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
-   ms.author="bwren" />
+---
+title: API REST de alerta do Log Analytics
+description: A API de REST do Log Analytics permite criar e gerenciar alertas no OMS (Operations Management Suite).  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+ms.author: bwren
 
+---
 # <a name="log-analytics-alert-rest-api"></a>API REST de alerta do Log Analytics
-
 A API de REST do Log Analytics permite criar e gerenciar alertas no OMS (Operations Management Suite).  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes.
 
 A API REST de Pesquisa do Log Analytics é RESTful e pode ser acessada por meio da API REST do Azure Resource Manager. Neste documento, você encontrará exemplos em que a API é acessada por meio de uma linha de comando do PowerShell usando o [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager. O uso do ARMClient e do PowerShell é uma das muitas opções para acessar a API de Pesquisa do Log Analytics. Com essas ferramentas, você pode utilizar a API RESTful do Azure Resource Manager para fazer chamadas aos espaços de trabalho do OMS e executar comandos de pesquisa dentro deles. A API produzirá resultados da pesquisa para você no formato JSON, permitindo que você use os resultados da pesquisa de diferentes maneiras por meio de programação.
@@ -29,11 +28,11 @@ Atualmente, os alertas somente podem ser criados com uma pesquisa salva no Log A
 Uma pesquisa salva pode ter um ou mais agendamentos. O agendamento define a frequência com que a pesquisa é executada e o intervalo de tempo em que os critérios são identificados.
 Os agendamentos têm as propriedades indicadas na tabela a seguir.
 
-| Propriedade  | Descrição |
-|:--|:--|
-| Intervalo | A frequência com que a pesquisa é executada. Medida em minutos. |
-| QueryTimeSpan | O intervalo durante o qual os critérios são avaliados. Deve ser igual ou maior que Interval. Medida em minutos. |
-| Versão | A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
+| Propriedade | Descrição |
+|:--- |:--- |
+| Intervalo |A frequência com que a pesquisa é executada. Medida em minutos. |
+| QueryTimeSpan |O intervalo durante o qual os critérios são avaliados. Deve ser igual ou maior que Interval. Medida em minutos. |
+| Versão |A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
 
 Por exemplo, considere uma consulta de evento com um Interval (Intervalo) de 15 minutos e Timespan (Período) de 30 minutos. Nesse caso, a consulta deverá ser executada a cada 15 minutos e um alerta deverá ser disparado se os critérios continuarem a ser resolvidos como verdadeiro por um período de 30 minutos.
 
@@ -81,10 +80,10 @@ Um agendamento pode ter várias ações. Uma ação pode definir um ou mais proc
 Todas as ações têm as propriedades indicadas na tabela a seguir.  Diferentes tipos de alertas têm diferentes propriedades adicionais que são descritas abaixo.
 
 | Propriedade | Descrição |
-|:--|:--|
-| Tipo | Tipo da ação.  Atualmente, os valores possíveis são Alerta e Webhook. |
-| Nome | Nome de exibição para o alerta. |
-| Versão | A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
+|:--- |:--- |
+| Tipo |Tipo da ação.  Atualmente, os valores possíveis são Alerta e Webhook. |
+| Nome |Nome de exibição para o alerta. |
+| Versão |A versão da API que está sendo usada.  Atualmente, isso sempre deve ser definido como 1. |
 
 ### <a name="retrieving-actions"></a>Recuperando ações
 Use o método Get para recuperar todas as ações de um agendamento.
@@ -111,10 +110,10 @@ Use o método Delete com a ID de ação para excluir uma ação.
 Um Agendamento deve ter somente uma ação de Alerta.  Ações de alerta têm uma ou mais das seções na tabela a seguir.  Elas são descritas em mais detalhes abaixo.
 
 | Seção | Descrição |
-|:--|:--|
-| Limite | Critérios para quando a ação for executada. |  
-| EmailNotification | Envie email para vários destinatários. |
-| Correção | Inicie um runbook na Automação do Azure para tentar corrigir o problema identificado. |
+|:--- |:--- |
+| Limite |Critérios para quando a ação for executada. |
+| EmailNotification |Envie email para vários destinatários. |
+| Correção |Inicie um runbook na Automação do Azure para tentar corrigir o problema identificado. |
 
 #### <a name="thresholds"></a>Limites
 Uma ação de Alerta deve ter somente um limite.  Quando os resultados de pesquisas salvas coincidem com o limite de uma ação associada à pesquisa, outros processos nesta ação são executados.  Uma ação também pode conter apenas um limite para ser usado com ações de outros tipos que não contêm os limites.
@@ -122,9 +121,9 @@ Uma ação de Alerta deve ter somente um limite.  Quando os resultados de pesqui
 Os limites têm as propriedades indicadas na tabela a seguir.
 
 | Propriedade | Descrição |
-|:--|:--|
-| Operador | Operador de comparação de limite. <br> gt = Maior Que <br>  lt = Menor Que |
-| Valor | Valor para o limite. |
+|:--- |:--- |
+| Operador |Operador de comparação de limite. <br> gt = Maior Que <br>  lt = Menor Que |
+| Valor |Valor para o limite. |
 
 Por exemplo, considere uma consulta de evento com um Interval (Intervalo) de 15 minutos, Timespan (Período) de 30 minutos e Threshold (Limite) maior que 10. Nesse caso, a consulta deverá ser executada a cada 15 minutos e um alerta deverá ser disparado se ela retornar 10 eventos criados dentro de um período de 30 minutos.
 
@@ -155,10 +154,10 @@ Use o método Put com uma ID de ação existente para criar uma nova ação de l
 Notificações por Email enviam email para um ou mais destinatários.  Elas incluem as propriedades indicadas na tabela a seguir.
 
 | Propriedade | Descrição |
-|:--|:--|
-| Destinatários | Lista de endereços de email. |
-| Assunto | O assunto do email. |
-| Anexo | Atualmente, não há suporte para nexos, por isso este item sempre terá um valor de "None" (Nenhum). |
+|:--- |:--- |
+| Destinatários |Lista de endereços de email. |
+| Assunto |O assunto do email. |
+| Anexo |Atualmente, não há suporte para nexos, por isso este item sempre terá um valor de "None" (Nenhum). |
 
 Veja a seguir uma resposta de exemplo para uma ação de notificação por email com um limite.  
 
@@ -197,10 +196,10 @@ As correções iniciam um runbook na Automação do Azure que tenta corrigir o p
 As correções incluem as propriedades indicadas na tabela a seguir.
 
 | Propriedade | Descrição |
-|:--|:--|
-| RunbookName | Nome do runbook. Isso deve corresponder a um runbook publicado na conta de automação configurada na Solução de Automação no seu espaço de trabalho do OMS. |
-| WebhookUri | O URI do webhook.
-| Expiry | A data e hora de expiração do webhook.  Caso o webhook não expire, esta pode ser qualquer data futura válida. |
+|:--- |:--- |
+| RunbookName |Nome do runbook. Isso deve corresponder a um runbook publicado na conta de automação configurada na Solução de Automação no seu espaço de trabalho do OMS. |
+| WebhookUri |O URI do webhook. |
+| Expiry |A data e hora de expiração do webhook.  Caso o webhook não expire, esta pode ser qualquer data futura válida. |
 
 Veja a seguir uma resposta de exemplo para uma ação de correção com um limite.
 
@@ -254,9 +253,9 @@ Ações de Webhook não têm um limite, devendo ser adicionadas a um agendamento
 Ações de webhook incluem as propriedades indicadas na tabela a seguir.
 
 | Propriedade | Descrição |
-|:--|:--|
-| WebhookUri | O assunto do email. |
-| CustomPayload | Carga personalizada a ser enviada para o webhook.  O formato dependerá do que o webhook está esperando. |
+|:--- |:--- |
+| WebhookUri |O assunto do email. |
+| CustomPayload |Carga personalizada a ser enviada para o webhook.  O formato dependerá do que o webhook está esperando. |
 
 Veja a seguir um exemplo de resposta para a ação de webhook e uma ação de alerta associada com um limite.
 
@@ -305,10 +304,7 @@ Use o método Put com uma ID de ação existente para modificar uma ação de we
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Use a [API REST para executar pesquisas de log](log-analytics-log-search-api.md) no Log Analytics.
-
-
+* Use a [API REST para executar pesquisas de log](log-analytics-log-search-api.md) no Log Analytics.
 
 <!--HONumber=Oct16_HO2-->
 

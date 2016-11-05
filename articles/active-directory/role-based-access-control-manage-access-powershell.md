@@ -1,39 +1,37 @@
-<properties
-	pageTitle="Gerenciar função com base no Controle de Acesso (RBAC) com o Azure PowerShell | Microsoft Azure"
-	description="Como gerenciar o RBAC com o Azure PowerShell, incluindo listagem e atribuição e funções, e exclusão de atribuições de funções."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Gerenciar função com base no Controle de Acesso (RBAC) com o Azure PowerShell | Microsoft Docs
+description: Como gerenciar o RBAC com o Azure PowerShell, incluindo listagem e atribuição e funções, e exclusão de atribuições de funções.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/22/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 07/22/2016
+ms.author: kgremban
 
+---
 # Gerenciar o Controle de Acesso baseado em função com o Azure PowerShell
-
-> [AZURE.SELECTOR]
-- [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
-- [API REST](role-based-access-control-manage-access-rest.md)
-
+> [!div class="op_single_selector"]
+> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [CLI do Azure](role-based-access-control-manage-access-azure-cli.md)
+> * [API REST](role-based-access-control-manage-access-rest.md)
+> 
+> 
 
 Você pode usar o RBAC (Controle de Acesso Baseado em Função) no portal do Azure e na API de Gerenciamento de Recursos do Azure para gerenciar o acesso à sua assinatura em um nível refinado. Com esse recurso, você pode conceder acesso aos usuários, grupos ou entidades de serviço do Active Directory atribuindo algumas funções para eles em um determinado escopo.
 
 Para poder usar o PowerShell para gerenciar o RBAC, você deve ter o seguinte:
 
-- PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
-
-- Cmdlets do Azure Resource Manager. Instale os [cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) no PowerShell.
+* PowerShell do Azure, versão 0.8.8 ou posterior. Para instalar a versão mais recente e associá-la à sua assinatura do Azure, consulte [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+* Cmdlets do Azure Resource Manager. Instale os [cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) no PowerShell.
 
 ## Listar funções
-
 ### Relacionar todas as funções disponíveis
 Para listar as funções RBAC disponíveis para a atribuição e inspecionar as operações para as quais elas concedem acesso, use `Get-AzureRmRoleDefinition`.
 
@@ -57,7 +55,7 @@ Get-AzureRmRoleDefinition Contributor | FL Actions, NotActions
 ## Veja quem tem acesso
 Para listar as atribuições de acesso do RBAC, use `Get-AzureRmRoleAssignment`.
 
-###	Listar as atribuições de função em um escopo específico
+### Listar as atribuições de função em um escopo específico
 Você pode ver todas as atribuições de acesso para uma assinatura, grupo de recursos ou recurso especificados. Por exemplo, para ver todas as atribuições ativas para um grupo de recursos, use `Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>`.
 
 ```
@@ -180,7 +178,6 @@ Set-AzureRmRoleDefinition -Role $role)
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
 
 ## Excluir uma função personalizada
-
 Para excluir uma função personalizada, use o comando `Remove-AzureRmRoleDefinition`.
 
 O exemplo a seguir remove a função personalizada *Operador de Máquina Virtual*.
@@ -209,7 +206,7 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - captura de tela](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## Consulte também
-- [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+* [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md)
+  [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 <!---HONumber=AcomDC_0810_2016-->

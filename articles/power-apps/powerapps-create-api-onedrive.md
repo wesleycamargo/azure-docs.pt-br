@@ -1,28 +1,30 @@
-<properties
-	pageTitle="Adicione a API do OneDrive ao PowerApps Enterprise | Microsoft Azure"
-	description="Crie ou configure uma nova API do OneDrive no ambiente de serviço de aplicativo da sua organização"
-	services=""
-    suite="powerapps"
-	documentationCenter="" 
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+---
+title: Adicione a API do OneDrive ao PowerApps Enterprise | Microsoft Docs
+description: Crie ou configure uma nova API do OneDrive no ambiente de serviço de aplicativo da sua organização
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: rajeshramabathiran
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="03/29/2016"
-   ms.author="litran"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/29/2016
+ms.author: litran
 
+---
 # Criar uma nova API do OneDrive no PowerApps Enterprise
-
-> [AZURE.IMPORTANT] Esse tópico foi arquivado e será removido em breve. Venha ver as novidades do [PowerApps](https://powerapps.microsoft.com).
+> [!IMPORTANT]
+> Esse tópico foi arquivado e será removido em breve. Venha ver as novidades do [PowerApps](https://powerapps.microsoft.com).
 > 
-> - Para saber mais sobre PowerApps e para começar, vá para [PowerApps](https://powerapps.microsoft.com).  
-> - Para saber mais sobre conexões disponíveis no PowerApps, vá para [Conexões Disponíveis](https://powerapps.microsoft.com/tutorials/connections-list/). 
+> * Para saber mais sobre PowerApps e para começar, vá para [PowerApps](https://powerapps.microsoft.com).  
+> * Para saber mais sobre conexões disponíveis no PowerApps, vá para [Conexões Disponíveis](https://powerapps.microsoft.com/tutorials/connections-list/). 
+> 
+> 
 
 <!--Archived
 Add the Onedrive API to your organization's (tenant) app service environment. 
@@ -30,7 +32,7 @@ Add the Onedrive API to your organization's (tenant) app service environment.
 ## Create the API in the Azure portal
 
 1. No [Portal do Azure](https://portal.azure.com/), entre com sua conta de trabalho. Por exemplo, entre com *Seunomedeusuário*@*SuaEmpresa*.com. Quando fizer isso, entrará automaticamente na assinatura de sua empresa.
- 
+
 2. Select **Browse** in the task bar:  
 ![][14]
 
@@ -44,7 +46,7 @@ Add the Onedrive API to your organization's (tenant) app service environment.
 ![Add API][2]
 
 6. Enter a descriptive **name** for your API.  
-	
+
 7. In **Source**, select **Available APIs** to select the pre-built APIs, and select **OneDrive**:  
 ![select OneDrive api][3]
 
@@ -53,7 +55,7 @@ Add the Onedrive API to your organization's (tenant) app service environment.
 
 9. Enter the *App Key* and *App Secret* of your OneDrive application. If you don't have one, see the "Register a OneDrive app for use with PowerApps" section in this topic to create the key and secret values you need.  
 
-	> [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
+    > [AZURE.IMPORTANT] Save the **redirect URL**. You may need this value later in this topic.
 
 10. Select **OK** to complete the steps.
 
@@ -70,11 +72,11 @@ If you don't have an existing OneDrive app with the key and secret values, then 
 
 3. In the settings page:  
 
-	1. Select **API Settings**.  
-	2. Set the redirect URL to the redirect URL you received when you added the new OneDrive API in the Azure Portal (in this topic).  
-	3. Select **Save**.  
+    1. Select **API Settings**.  
+    2. Set the redirect URL to the redirect URL you received when you added the new OneDrive API in the Azure Portal (in this topic).  
+    3. Select **Save**.  
 
-	![OneDrive app API settings][7]
+    ![OneDrive app API settings][7]
 
 A new OneDrive app is created. You can use this app in your OneDrive API configuration in the Azure portal. 
 

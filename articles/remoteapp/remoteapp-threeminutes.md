@@ -1,27 +1,26 @@
 
-<properties
-    pageTitle="Experimente o RemoteApp do Azure em seu dispositivo em 3 minutos ou menos | Microsoft Azure"
-    description="Faça um test drive da funcionalidade do RemoteApp do Azure sem instalar o serviço."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Experimente o RemoteApp do Azure em seu dispositivo em 3 minutos ou menos | Microsoft Docs
+description: Faça um test drive da funcionalidade do RemoteApp do Azure sem instalar o serviço.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/15/2016"
-    ms.author="mbaldwin" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/15/2016
+ms.author: mbaldwin
 
-
-
+---
 # Experimente o RemoteApp do Azure em seu dispositivo em 3 minutos ou menos
-
-> [AZURE.IMPORTANT]
-O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> [!IMPORTANT]
+> O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> 
+> 
 
 Deseja ver o RemoteApp do Azure em seu dispositivo? Você pode acessar nossa implantação de demonstração por 10 minutos, desde que tenha uma conta da Microsoft. Temos o Office e alguns outros aplicativos disponíveis. Essa é uma ótima maneira de avaliar a experiência do usuário para o RemoteApp do Azure em menos de 3 minutos.
 
@@ -36,6 +35,9 @@ Agora você pode acessar aplicativos em execução em tempo real no RemoteApp do
 
 Sua opinião é importante. No final de cada sessão, você verá uma caixa de diálogo para seus comentários. Se você tiver um minuto, conte-nos suas ideias e diga se gostaria que a Microsoft entrasse em contato com você para obter informações adicionais.
 
->[AZURE.NOTE] Como esse é um ambiente controlado para uso de demonstração, não habilitamos acesso externo à Internet por meio dos aplicativos de demonstração publicados. Por isso, serviços como o OneDrive não estão acessíveis. Além disso, o compartilhamento da área de transferência (copiar e colar) e redirecionamento de impressora e USB estão desabilitados.
+> [!NOTE]
+> Como esse é um ambiente controlado para uso de demonstração, não habilitamos acesso externo à Internet por meio dos aplicativos de demonstração publicados. Por isso, serviços como o OneDrive não estão acessíveis. Além disso, o compartilhamento da área de transferência (copiar e colar) e redirecionamento de impressora e USB estão desabilitados.
+> 
+> 
 
 <!---HONumber=AcomDC_0817_2016-->

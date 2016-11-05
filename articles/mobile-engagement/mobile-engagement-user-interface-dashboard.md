@@ -1,37 +1,37 @@
-<properties 
-   pageTitle="Interface do usuário do Mobile Engagement do Azure - Painel" 
-   description="Saiba como exibir e gerenciar os gráficos de dados sobre seu aplicativo usando o Mobile Engagement do Azure" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Interface do usuário do Mobile Engagement do Azure - Painel
+description: Saiba como exibir e gerenciar os gráficos de dados sobre seu aplicativo usando o Mobile Engagement do Azure
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Como exibir e gerenciar os gráficos de dados sobre seu aplicativo
 A seção do painel de controle da interface do usuário permite aos clientes criar gráficos personalizados para maximizar seu tempo fornecendo as informações exatas que desejam em vez de procurá-las na seção de análise. Um painel mostra as tendências de seu aplicativo e a contas de usuário ativas para versões diferentes do seu aplicativo durante um determinado momento (hora/dia/semana/mês/personalizado). As tendências mostradas baseiam-se nos últimos 7 dias.
 
 ### Confira também
--  [Guia de solução de problemas - Análise][Link 21]
+* [Guia de solução de problemas - Análise][Link 21]
 
 ## Painel
-- Você pode adicionar gráficos a um painel vazio escolhendo a ação “Enviar ao painel” no menu de engrenagem de qualquer gráfico na seção Análise da interface do usuário que você gostaria de ver em um painel.
- 
+* Você pode adicionar gráficos a um painel vazio escolhendo a ação “Enviar ao painel” no menu de engrenagem de qualquer gráfico na seção Análise da interface do usuário que você gostaria de ver em um painel.
+
 ## + (Adicionar um painel de controle):
-- Você pode usar o item de menu da faixa de opções “+” para criar um novo painel que será exibido no menu da faixa de opções.
- 
+* Você pode usar o item de menu da faixa de opções “+” para criar um novo painel que será exibido no menu da faixa de opções.
+
 ## Menu de engrenagem
-- Você pode usar o menu de engrenagem de um painel para Excluir, Renomear, Compartilhar ou o Agendar (recepção de Email) de seu painel. Você pode usar a opção de Agendamento para definir a agenda na qual você gostaria de receber seu painel personalizado por email. Você pode agendar para recebê-lo diária, semanal ou mensalmente. Você pode escolher a hora do dia e o dia da semana ou dia do mês em que você gostaria de receber o email. Seu endereço de email e o fuso horário com base nas configurações que você configurou na seção Minha conta da interface do usuário.
- 
- ![dashboard1][34]
+* Você pode usar o menu de engrenagem de um painel para Excluir, Renomear, Compartilhar ou o Agendar (recepção de Email) de seu painel. Você pode usar a opção de Agendamento para definir a agenda na qual você gostaria de receber seu painel personalizado por email. Você pode agendar para recebê-lo diária, semanal ou mensalmente. Você pode escolher a hora do dia e o dia da semana ou dia do mês em que você gostaria de receber o email. Seu endereço de email e o fuso horário com base nas configurações que você configurou na seção Minha conta da interface do usuário.
+  
+  ![dashboard1][34]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -127,6 +127,6 @@ A seção do painel de controle da interface do usuário permite aos clientes cr
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

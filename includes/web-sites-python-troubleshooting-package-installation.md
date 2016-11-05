@@ -3,22 +3,20 @@ Alguns pacotes podem não ser instalados usando pip durante a execução do Azur
 Nesta seção, examinaremos modos de lidar com esse problema.
 
 ### Solicitar discos
-
 Se a instalação do pacote requer um compilador, você deve tentar entrar em contato com o proprietário do pacote para solicitar que discos sejam disponibilizados para o pacote.
 
-Com o lançamento recente do compilador [Microsoft Visual C++ para Python 2.7][], agora é mais fácil criar pacotes que têm código nativo para o Python 2.7.
+Com o lançamento recente do compilador [Microsoft Visual C++ para Python 2.7][Microsoft Visual C++ para Python 2.7], agora é mais fácil criar pacotes que têm código nativo para o Python 2.7.
 
 ### Compilar discos(requires Windows)
-
 Observação: ao usar essa opção, compile o pacote usando um ambiente Python que corresponda à plataforma/arquitetura/versão usada no aplicativo Web no Serviço de Aplicativo do Azure (Windows/32 bits/2.7 ou 3.4).
 
 Se o pacote não for instalado porque exige um compilador, você pode instalar o compilador em sua máquina local e criar um disco para o pacote, que em seguida, você incluirá no repositório.
 
-Usuários do Mac/Linux: se você não tiver acesso a uma máquina do Windows, consulte [Criar uma máquina Virtual executando Windows][] para saber como criar uma máquina virtual no Azure. Você pode usá-lo para criar os discos, adicioná-los ao repositório e descartar a VM se desejar.
+Usuários do Mac/Linux: se você não tiver acesso a uma máquina do Windows, consulte [Criar uma máquina Virtual executando Windows][Criar uma máquina Virtual executando Windows] para saber como criar uma máquina virtual no Azure. Você pode usá-lo para criar os discos, adicioná-los ao repositório e descartar a VM se desejar.
 
-Para o Python 2.7, você pode instalar o [Compilador do Microsoft Visual C++ para Python 2.7][].
+Para o Python 2.7, você pode instalar o [Compilador do Microsoft Visual C++ para Python 2.7][Compilador do Microsoft Visual C++ para Python 2.7].
 
-Para o Python 3.4, você pode instalar o [Microsoft Visual C++ 2010 Express][].
+Para o Python 3.4, você pode instalar o [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express].
 
 Para criar os discos, você precisará do pacote de discos:
 
@@ -40,7 +38,6 @@ Se você quiser incluir todas as suas dependências na pasta \\wheelhouse e não
     --no-index
 
 ### Personalizar a instalação
-
 Você pode personalizar o script de implantação para instalar um pacote no ambiente virtual usando um instalador alternativo, como easy\\_install. Consulte deploy.cmd para obter um exemplo que é comentado. Certifique-se de que esses pacotes não são listados em requirements.txt, para impedir que o pip os instale.
 
 Adicione isto ao script de implantação:
@@ -54,7 +51,6 @@ Adicione isto ao script de implantação:
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
 ### Incluir o ambiente virtual no repositório (requer o Windows)
-
 Observação: ao usar essa opção, use um ambiente virtual que corresponda à plataforma/arquitetura/versão usada no aplicativo Web no Serviço de Aplicativo do Azure (Windows/32 bits/2.7 ou 3.4).
 
 Se você incluir o ambiente virtual no repositório poderá, pela criação de um arquivo vazio, impedir que o script de implantação faça o gerenciamento do ambiente virtual no Azure:
@@ -62,7 +58,6 @@ Se você incluir o ambiente virtual no repositório poderá, pela criação de u
     .skipPythonDeployment
 
 É recomendável que você exclua o ambiente virtual existente no aplicativo Web, para impedir que sobrem arquivos de quando o ambiente virtual for gerenciado automaticamente.
-
 
 [Criar uma máquina Virtual executando Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Compilador do Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27

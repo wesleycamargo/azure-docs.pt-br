@@ -1,57 +1,51 @@
-<properties
-    pageTitle="Distribuições endossadas do Linux | Microsoft Azure"
-    description="Saiba mais sobre o Linux nas distribuições endossadas do Azure, incluindo diretrizes para Ubuntu, OpenLogic, Oracle e SUSE."
-    services="virtual-machines-linux"
-    documentationCenter=""
-    authors="szarkos"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management,azure-resource-manager"
-    />
+---
+title: Distribuições endossadas do Linux | Microsoft Docs
+description: Saiba mais sobre o Linux nas distribuições endossadas do Azure, incluindo diretrizes para Ubuntu, OpenLogic, Oracle e SUSE.
+services: virtual-machines-linux
+documentationcenter: ''
+author: szarkos
+manager: timlt
+editor: tysonn
+tags: azure-service-management,azure-resource-manager
 
-<tags
-    ms.service="virtual-machines-linux"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-linux"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/24/2016"
-    ms.author="szark"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 08/24/2016
+ms.author: szark
 
-
-
-
-#<a name="linux-on-azure-endorsed-distributions"></a>Linux em distribuições endossadas pelo Azure
-
-> [AZURE.NOTE] Se tiver alguns minutos, ajude-nos a melhorar a documentação das VMs do Linux do Azure respondendo a essa [pesquisa rápida](https://aka.ms/linuxdocsurvey) sobre suas experiências. Cada resposta nos ajuda a realizar seu trabalho.
+---
+# <a name="linux-on-azure-endorsed-distributions"></a>Linux em distribuições endossadas pelo Azure
+> [!NOTE]
+> Se tiver alguns minutos, ajude-nos a melhorar a documentação das VMs do Linux do Azure respondendo a essa [pesquisa rápida](https://aka.ms/linuxdocsurvey) sobre suas experiências. Cada resposta nos ajuda a realizar seu trabalho.
+> 
+> 
 
 As imagens Linux na Galeria do Azure ou no Marketplace são fornecidas por alguns parceiros e estamos trabalhando com várias comunidades Linux para adicionar ainda mais opções à lista de Distribuições Endossadas. Enquanto isso, para distribuições não disponíveis na Galeria, você sempre pode Trazer o Próprio Linux seguindo as diretrizes [nesta página](virtual-machines-linux-classic-create-upload-vhd.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-
-## <a name="supported-distributions-&-versions"></a>Distribuições e versões com suporte ##
-
+## <a name="supported-distributions-&-versions"></a>Distribuições e versões com suporte
 A tabela a seguir lista as distribuições e versões do Linux com suporte no Azure. Confira também o [suporte para imagens do Linux no Microsoft Azure](https://support.microsoft.com/en-us/kb/2941892) para obter mais informações.
 
 Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são módulos de kernel que a Microsoft contribui diretamente para o kernel upstream do Linux.  Os drivers LIS também são internos ao kernel da distribuição por padrão ou, para distribuições com base em RHEL/CentOS mais antigas estão disponíveis como um download separado [aqui](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409).  Confira [este artigo](virtual-machines-linux-create-upload-generic.md#linux-kernel-requirements) para saber mais sobre os drivers LIS.
 
 O Agente Linux do Azure já vem pré-instalado nas imagens da Galeria do Azure e normalmente está disponível no repositório de pacotes de distribuição.  O código-fonte pode ser encontrado no [GitHub](https://github.com/azure/walinuxagent).
 
-Distribuição|Versão|Drivers|Agente
----|---|---|---
-CentOS by OpenLogic | CentOS 6.3+, 7.0+ | CentOS 6.3: [download do LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: no Kernel | Pacote: no [repositório do OpenLogic](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) em "WALinuxAgent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
-[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) | 494.4.0+ | No kernel | Código-fonte: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
-Debian | Debian 7.9+, 8.2+ | No kernel | Pacote: no repositório, em "waagent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
-Oracle Linux | 6.4+, 7.0+ | No kernel | Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-Red Hat Enterprise Linux | RHEL 6.7+, 7.1+ | No kernel|Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
-SUSE Linux Enterprise | SLES 11 SP4, SLES 12+ e  <p>  SLES para SAP 11.3+ | No kernel | Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "python-azure-agent" <br/>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE | openSUSE 13.2+ | No kernel | Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "python-azure-agent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
-Ubuntu|Ubuntu 12.04, 14.04 e 16.04 | No kernel | Pacote: no repositório em "python-azure-agent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent)
-
+| Distribuição | Versão | Drivers | Agente |
+| --- | --- | --- | --- |
+| CentOS by OpenLogic |CentOS 6.3+, 7.0+ |CentOS 6.3: [download do LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: no Kernel |Pacote: no [repositório do OpenLogic](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) em "WALinuxAgent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |No kernel |Código-fonte: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
+| Debian |Debian 7.9+, 8.2+ |No kernel |Pacote: no repositório, em "waagent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Oracle Linux |6.4+, 7.0+ |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| Red Hat Enterprise Linux |RHEL 6.7+, 7.1+ |No kernel |Pacote: no repositório, em "WALinuxAgent"  <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| SUSE Linux Enterprise |SLES 11 SP4, SLES 12+ e  <p>  SLES para SAP 11.3+ |No kernel |Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "python-azure-agent" <br/>Código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| openSUSE |openSUSE 13.2+ |No kernel |Pacote: no repositório [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) em "python-azure-agent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04, 14.04 e 16.04 |No kernel |Pacote: no repositório em "python-azure-agent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="partners"></a>Parceiros
-
 ### <a name="openlogic"></a>OpenLogic
 [http://www.openlogic.com/azure](http://www.openlogic.com/azure)
 
@@ -63,7 +57,6 @@ O OpenLogic é líder no fornecimento de soluções empresariais de software liv
 No site CoreOS:
 
 *O CoreOS foi projetado para segurança, consistência e confiabilidade. Em vez de instalar os pacotes por meio de yum ou apt, o CoreOS usa contêineres do Linux para gerenciar seus serviços em um nível mais alto de abstração. Um único código de serviço e todas as dependências são empacotados em um contêiner que pode ser executado em uma ou várias máquinas CoreOS.*
-
 
 ### <a name="credativ"></a>Credativ
 [http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
@@ -91,9 +84,6 @@ O SUSE Linux Enterprise Server no Azure é uma plataforma testada que fornece co
 O controle aberto da comunidade e a engenharia da Canonical impulsionam o sucesso do Ubuntu no cliente, no servidor e na computação em nuvem, incluindo serviços de nuvem pessoais para os consumidores. A visão da Canonical de uma plataforma livre unificada no Ubuntu, do telefone à nuvem, com uma família de interfaces coerentes para telefone, tablet, TV e área de trabalho, torna o Ubuntu a primeira opção para diversas instituições que vão desde provedores de nuvem pública até fabricantes de aparelhos eletrônicos e um favorito entre tecnólogos individuais.
 
 Com desenvolvedores e centros de engenharia no mundo inteiro, a Canonical está posicionada exclusivamente para fazer parceria com fabricantes de hardware, provedores de conteúdo e desenvolvedores de software para oferecer soluções de Ubuntu no mercado, de PCs a servidores e dispositivos portáteis.
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

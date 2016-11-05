@@ -1,25 +1,23 @@
-<properties 
-	pageTitle="Implementação do Azure Mobile Engagement para Aplicativos de Mídia"
-	description="Cenário de aplicativo de mídia para implementação do Azure Mobile Engagement" 
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+---
+title: Implementação do Azure Mobile Engagement para Aplicativos de Mídia
+description: Cenário de aplicativo de mídia para implementação do Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-engagement"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.workload="mobile" 
-	ms.date="08/19/2016"
-	ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
-#Implementar o Mobile Engagement com os Aplicativos de Mídia
-
+---
+# Implementar o Mobile Engagement com os Aplicativos de Mídia
 ## Visão geral
-
 Pedro é gerente de projetos móveis de uma grande empresa de mídia. Recentemente, ele lançou um novo aplicativo com uma contagem de downloads muito alta. Ele atingiu seus objetivos de download, mas ainda assim seu ROI (Retorno sobre o Investimento) por usuário não atendeu aos seus requisitos.
 
 Pedro já identificou a causa de seu ROI muito baixo. Com frequência, os usuários param de usar o aplicativo depois de apenas duas semanas e a maioria não volta mais. Ele deseja aumentar a retenção do aplicativo.
@@ -28,8 +26,7 @@ Depois de alguns testes iniciais, ele descobriu que quando os usuários são env
 
 Recentemente, Pedro leu [Azure Mobile Engagement - Guia de introdução com as práticas recomendadas](mobile-engagement-getting-started-best-practices.md) e decidiu implementar as recomendações do guia.
 
-##Objetivos e KPIs
-
+## Objetivos e KPIs
 Há uma reunião com os principais participantes no aplicativo de Pedro. Os negócios são gerados de anúncios à medida que os usuários consomem a mídia. Aumentando o conteúdo consumido por usuário, Pedro aumenta sua receita. Todos concordam com um objetivo principal: aumentar as vendas de anúncios em 25%. Eles criam Indicadores de Desempenho Principais (KPIs) de Negócios para medir e direcionar esse objetivo
 
 * Número de anúncios clicados por usuário
@@ -55,7 +52,6 @@ Com base nas recomendações da equipe de TI, os seguintes KPIs Técnicos foram 
 Para cada KPI, ele classifica os dados necessários e os registra no local apropriado da sua cartilha.
 
 ## Programa de envolvimento e integração
-
 Agora que Pedro terminou de definir os KPIs, ele iniciará a fase de estratégia de Envolvimento definindo quatro programas de envolvimento e seus objetivos: ![][1]
 
 Em seguida, Pedro vai mais além, detalhando as notificações por push para cada programa. As notificações por push são definidas por cinco elementos:
@@ -65,15 +61,14 @@ Em seguida, Pedro vai mais além, detalhando as notificações por push para cad
 3. Destino: quem receberá a notificação?
 4. Conteúdo: como será o texto e o formato da notificação (no aplicativo/fora do aplicativo)
 5. Quando: qual é o melhor momento para enviar a notificação por push
-
-	![][2]
+   
+    ![][2]
 
 Para saber mais, confira as [Cartilhas](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks).
 
 De acordo com a segunda parte do white paper, Pedro usa a seção de destino para definir quais dados deseja coletar e escreve seu Plano de Marcas em conjunto com a equipe de TI para implementar a solução. Depois de uma semana de implementação e de testes de aceitação de usuário, Pedro pode finalmente lançar seus programas.
 
-##Resultados do programa
-
+## Resultados do programa
 Quatro meses depois, Pedro examina o desempenho dos programas. O Programa de Boas-vindas e o Programa Semanal estão atendendo às suas metas. O número de usuários com apenas uma sessão diminui, mais recursos do aplicativo estão sendo usados e o número de conexões por semana dobrou.
 
 O **Programa Inativo** está ajudando Pedro a compreender as tendências de usuário. Parece que 15% dos usuários inativos voltam para o aplicativo. No entanto, a maioria deles não permanece ativa mais de um mês. Pedro prevê uma potencial otimização dessa sequência com notificações adicionais e a expansão de suas opções de conteúdo.
@@ -85,9 +80,7 @@ Pedro decide usar a API Reach, que é uma API REST HTTP que permite o gerenciame
 Para garantir que esse recurso funcione corretamente, Pedro solicita que a equipe de TI esteja atenta aos seguintes pontos:
 
 1. **Sistemas operacionais** : todos eles têm suas próprias regras para administrar as notificações por push e, portanto, Pedro decide listar todos os casos e verificar se as APIs conseguem lidar com eles. Por exemplo: o sistema de push do Android permite a visão global, o que não é o caso com o iOS.
-
 2. **Período**: Pedro quer uma API que defina o período e defina um final para as campanhas. Ele deseja preservar os usuários de qualquer bombardeio de notificações que possa gerar interrupções.
-
 3. **Categorias**: a equipe de marketing prepara o modelo de cada tipo de alerta. Pedro solicita que a equipe de TI defina categorias dentro da API.
 
 Depois de alguns testes, Pedro está satisfeito. Graças a essa API, os jornalistas ainda podem enviar notificações por push com o CMS e o Azure Mobile Engagement coleta todos os dados de comportamentos para eles

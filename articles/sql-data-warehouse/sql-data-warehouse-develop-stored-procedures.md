@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Procedimentos armazenados no SQL Data Warehouse | Microsoft Azure"
-   description="Dicas para implementar procedimentos armazenados no SQL Data Warehouse do Azure para desenvolvimento de soluções."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Procedimentos armazenados no SQL Data Warehouse | Microsoft Docs
+description: Dicas para implementar procedimentos armazenados no SQL Data Warehouse do Azure para desenvolvimento de soluções.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/30/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Procedimentos armazenados no SQL Data Warehouse
-
 O SQL Data Warehouse oferece suporte a muitos recursos Transact-SQL encontrados no SQL Server. Mais importante, há recursos específicos de expansão que vamos aproveitar para maximizar o desempenho da sua solução.
 
 No entanto, para manter a escala e o desempenho do SQL Data Warehouse também há alguns recursos e funcionalidades que apresentam diferenças de comportamento e outros que não têm suporte.
@@ -42,6 +41,7 @@ A chamada de procedimento armazenado de nível superior é igual ao nível 1 de 
 EXEC prc_nesting
 ```
 Se o procedimento armazenado também fizer outra chamada EXEC, isso aumentará o nível de aninhamento para 2
+
 ```sql
 CREATE PROCEDURE prc_nesting
 AS
@@ -50,6 +50,7 @@ GO
 EXEC prc_nesting
 ```
 Se o segundo procedimento então executar algum sql dinâmico, isso aumentará o nível de aninhamento para 3
+
 ```sql
 CREATE PROCEDURE prc_nesting_2
 AS
@@ -66,25 +67,24 @@ O SQL Data Warehouse não permite que você consuma o conjunto de resultados de 
 Confira o seguinte artigo sobre [tabelas temporárias] para obter um exemplo de como fazer isso.
 
 ## Limitações
-
 Há alguns aspectos de procedimentos armazenados Transact-SQL que não são implementados no SQL Data Warehouse.
 
 Eles são:
 
-- procedimentos armazenados temporariamente
-- procedimentos armazenados numerados
-- procedimentos armazenados estendidos
-- procedimentos armazenados de CLR
-- opção de criptografia
-- opção de replicação
-- parâmetros com valor de tabela
-- parâmetros somente leitura
-- parâmetros padrão
-- contextos de execução
-- instrução return
+* procedimentos armazenados temporariamente
+* procedimentos armazenados numerados
+* procedimentos armazenados estendidos
+* procedimentos armazenados de CLR
+* opção de criptografia
+* opção de replicação
+* parâmetros com valor de tabela
+* parâmetros somente leitura
+* parâmetros padrão
+* contextos de execução
+* instrução return
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][Visão geral do desenvolvimento].
 
 <!--Image references-->
 

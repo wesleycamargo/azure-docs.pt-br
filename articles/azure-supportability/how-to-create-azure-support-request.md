@@ -1,29 +1,28 @@
-<properties
-	 pageTitle="Como criar uma solicitação de suporte do Azure | Microsoft Azure"
-	 description="Como criar uma solicitação de suporte do Azure."
-	 services="Azure Supportability"
-	 documentationCenter=""
-	 authors="ganganarayanan"
-	 manager="scotthit"
-	 editor=""/>
+---
+title: Como criar uma solicitação de suporte do Azure | Microsoft Docs
+description: Como criar uma solicitação de suporte do Azure.
+services: Azure Supportability
+documentationcenter: ''
+author: ganganarayanan
+manager: scotthit
+editor: ''
 
-<tags
-	 ms.service="azure-supportability"
-	 ms.workload="na"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/25/2016"
-	 ms.author="gangan"/>
+ms.service: azure-supportability
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/25/2016
+ms.author: gangan
 
+---
 # Como criar uma solicitação de suporte do Azure
-
 ## Resumo
 Os clientes do Azure podem criar e gerenciar solicitações de suporte no Portal do Azure, [https://portal.azure.com](https://portal.azure.com). Com base nos comentários dos clientes, atualizamos a experiência de solicitação de suporte com foco em três metas principais:
 
-- **Otimizada**: reduzir cliques e folhas para simplificar o processo de envio de uma solicitação de suporte.
-- **Integrada**: quando você estiver solucionando um problema com um recurso do Azure, deverá ser fácil abrir uma solicitação de suporte para esse recurso sem alternância de contexto.
-- **Eficiente**: reunir as principais informações que o engenheiro de suporte precisará para resolver eficazmente o problema.
+* **Otimizada**: reduzir cliques e folhas para simplificar o processo de envio de uma solicitação de suporte.
+* **Integrada**: quando você estiver solucionando um problema com um recurso do Azure, deverá ser fácil abrir uma solicitação de suporte para esse recurso sem alternância de contexto.
+* **Eficiente**: reunir as principais informações que o engenheiro de suporte precisará para resolver eficazmente o problema.
 
 ## Introdução
 Você pode criar uma solicitação de suporte no menu de navegação superior ou diretamente na folha de um recurso.
@@ -43,7 +42,10 @@ Vamos ver um exemplo: Você está com dificuldades técnicas em sua máquina vir
 
 ![Folha de Noções básicas](./media/how-to-create-azure-support-request/Basics.png)
 
->[AZURE.NOTE] O Azure fornece suporte ilimitado para o gerenciamento das assinaturas (itens como cobrança, ajustes de cota e transferências de conta). Para obter suporte técnico, você precisa de um plano de suporte. [Saiba mais sobre planos de suporte](https://azure.microsoft.com/support/plans).
+> [!NOTE]
+> O Azure fornece suporte ilimitado para o gerenciamento das assinaturas (itens como cobrança, ajustes de cota e transferências de conta). Para obter suporte técnico, você precisa de um plano de suporte. [Saiba mais sobre planos de suporte](https://azure.microsoft.com/support/plans).
+> 
+> 
 
 ## Problema
 A segunda etapa do assistente coleta detalhes adicionais sobre o problema. Fornecer detalhes precisos nesta etapa nos permite encaminhar seu caso para o melhor engenheiro de suporte e começar a diagnosticar o problema assim que possível.
@@ -75,7 +77,10 @@ Se quiser alterar a severidade da solicitação, clique no bloco **Impacto nos n
 
 Clicar no bloco mostra a lista de severidades que é possível atribuir a uma solicitação de suporte em aberto.
 
->[AZURE.NOTE] O nível máximo de severidade depende do seu plano de suporte. [Saiba mais sobre planos de suporte](https://azure.microsoft.com/support/plans).
+> [!NOTE]
+> O nível máximo de severidade depende do seu plano de suporte. [Saiba mais sobre planos de suporte](https://azure.microsoft.com/support/plans).
+> 
+> 
 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 

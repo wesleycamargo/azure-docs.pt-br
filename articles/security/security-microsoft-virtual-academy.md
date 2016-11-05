@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Cursos de segurança do Azure da Microsoft Virtual Academy | Microsoft Azure"
-   description="Este artigo fornece uma coleção estruturada de cursos relacionados à segurança do Azure oferecidos pela Microsoft Virtual Academy. A Microsoft Virtual Academy oferece treinamento gratuito e online com a finalidade de ajudar Desenvolvedores, Profissionais de TI e de Dados, bem como alunos, a aprender a tecnologia mais avançada, desenvolver suas habilidades e impulsionar suas carreiras."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Cursos de segurança do Azure da Microsoft Virtual Academy | Microsoft Docs
+description: Este artigo fornece uma coleção estruturada de cursos relacionados à segurança do Azure oferecidos pela Microsoft Virtual Academy. A Microsoft Virtual Academy oferece treinamento gratuito e online com a finalidade de ajudar Desenvolvedores, Profissionais de TI e de Dados, bem como alunos, a aprender a tecnologia mais avançada, desenvolver suas habilidades e impulsionar suas carreiras.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Cursos de segurança do Azure da Microsoft Virtual Academy
-
 A Microsoft Virtual Academy oferece treinamento gratuito e online com a finalidade de ajudar Desenvolvedores, Profissionais de TI e de Dados, bem como alunos, a aprender a tecnologia mais avançada, desenvolver suas habilidades e impulsionar suas carreiras.
 
 Nesta página, você encontra uma coleção estruturada dos cursos relacionados à segurança do Azure. Visite a [Microsoft Virtual Academy](https://mva.microsoft.com/) para ver todos os cursos disponíveis.

@@ -1,50 +1,47 @@
-<properties
-   pageTitle="Prever uma resposta com um modelo simples – modelo de regressão | Microsoft Azure"
-   description="Como criar um modelo simples para prever o preço de um diamante em Ciência de dados para iniciantes, vídeo 4. Inclui uma regressão linear básica com dados de destino."                                  
-   keywords="criar um modelo, modelo simples, modelo de dados simples, previsão de preço, modelo de regressão simples"
-   services="machine-learning"
-   documentationCenter="na"
-   authors="brohrer-ms"
-   manager="jhubbard"
-   editor="cjgronlund"/>
+---
+title: Prever uma resposta com um modelo simples – modelo de regressão | Microsoft Docs
+description: Como criar um modelo simples para prever o preço de um diamante em Ciência de dados para iniciantes, vídeo 4. Inclui uma regressão linear básica com dados de destino.
+keywords: criar um modelo, modelo simples, modelo de dados simples, previsão de preço, modelo de regressão simples
+services: machine-learning
+documentationcenter: na
+author: brohrer-ms
+manager: jhubbard
+editor: cjgronlund
 
-<tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/15/2016
+ms.author: cgronlun;brohrer;garye
 
+---
 # Prever uma resposta com um modelo simples
-
 ## Vídeo 4: Série de ciência de dados para iniciantes
-
 Saiba como criar um modelo simples para prever o preço de um diamante em Ciência de dados para iniciantes, vídeo 4. Vamos desenhar um modelo de regressão com dados de destino.
 
 Para aproveitar ao máximo a série, assista aos vídeos na ordem. [Acesse a lista de vídeos](#other-videos-in-this-series)
 
-> [AZURE.VIDEO data-science-for-beginners-series-predict-an-answer-with-a-simple-model]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
+> 
+> 
 
 ## Outros vídeos nesta série
-
 *Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
 
-  * Vídeo 1: [As cinco perguntas que a ciência de dados responde](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 s)*
-  * Vídeo 2: [Seus dados estão prontos para a ciência de dados?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
-  * Video 3: [Faça uma pergunta que você possa responder com dados](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
-  * Vídeo 4: Preveja uma resposta com um modelo simples
-  * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
+* Vídeo 1: [As cinco perguntas que a ciência de dados responde](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 s)*
+* Vídeo 2: [Seus dados estão prontos para a ciência de dados?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
+* Video 3: [Faça uma pergunta que você possa responder com dados](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 s)*
+* Vídeo 4: Preveja uma resposta com um modelo simples
+* Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
 
 ## Transcrição: Preveja uma resposta com um modelo simples
-
 Bem-vindos ao quarto vídeo da série "Ciência de dados para iniciantes". Neste vídeo, vamos criar um modelo simples e fazer uma previsão.
 
 Um *modelo* é uma história simplificada sobre nossos dados. Mostrarei o que quero dizer.
 
 ## Colete dados relevantes, precisos, conectados e suficientes
-
 Vamos supor que eu queira comprar um diamante. Eu tenho um anel que pertencia a minha avó com um espaço para um diamante de 1,35 quilate, e eu quero ter uma ideia de quanto esse diamante custará. Levo um bloco de notas e uma caneta até a loja de joias e anoto o preço e o quilate de todos os diamantes em exposição. Começando com o primeiro diamante: ele tem 1,01 quilate e custa $7.366.
 
 Agora eu faço isso para os outros diamantes na loja.
@@ -61,13 +58,11 @@ Na verdade, criamos um pequeno conjunto de dados aqui; uma tabela. Observe que i
 * E, como veremos, eles têm uma quantidade **suficiente** de dados para responder à nossa pergunta
 
 ## Faça uma pergunta inteligente
-
 Agora, faremos nosso pergunta de uma forma direta: "Quanto custará para comprar um diamante de 1,35 quilate?"
 
 Nossa lista não tem um diamante de 1,35 quilate, então teremos que usar o restante de dados para obter uma resposta para a pergunta.
 
 ## Plotar os dados existentes
-
 A primeira coisa que faremos é desenhar uma linha horizontal de números, chamada de eixo, para colocar os pesos no gráfico. A faixa dos pesos vai de 0 a 2, portanto, vamos desenhar uma linha que cubra essa faixa e colocar marcações a cada meio quilate.
 
 Em seguida, desenharemos um eixo vertical para registrar o preço e o conectaremos ao eixo horizontal de peso. Isso será em unidades de dólares. Agora temos um conjunto de eixos coordenados.
@@ -83,7 +78,6 @@ Agora fazemos isso para cada diamante nesta lista. Quando terminarmos, este ser�
 ![Plotagem de dispersão](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
 
 ## Desenhar o modelo usando os pontos de dados
-
 Agora, se você os pontos e semicerrar os olhos, a coleção parecerá uma linha espessa e difusa. Podemos usar nosso marcador para desenhar uma linha reta através deles.
 
 Desenhando uma linha, criamos um *modelo*. Pense nisso como pegar o mundo real e fazer uma versão simples em desenho dele. Agora, o desenho está incorreto, a linha não passa por todos os pontos de dados. Mas, é uma simplificação útil.
@@ -95,7 +89,6 @@ O fato de que todos os pontos não passam exatamente pela linha não tem qualque
 Como estamos tentando responder à pergunta *quanto custa?*, isso é chamado de *regressão*. E, como estamos usando uma linha reta, é uma *regressão linear*.
 
 ## Usar o modelo para encontrar a resposta
-
 Agora, temos um modelo e fazemos a nossa pergunta: quanto custará um diamante de 1,35 quilate?
 
 Para responder à nossa pergunta, nós identificamos visualmente o 1,35 quilate e desenhamos uma linha vertical. Onde ela cruzar a linha do modelo, identificamos visualmente uma linha horizontal no eixo de dólar. Ela atinge diretamente 10.000. Pronto! Essa é a resposta: um diamante de 1,35 quilate custa aproximadamente $10.000.
@@ -103,7 +96,6 @@ Para responder à nossa pergunta, nós identificamos visualmente o 1,35 quilate 
 ![Encontrar a resposta no modelo](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## Criar um intervalo de confiança
-
 É natural se preocupar com a precisão dessa previsão. É muito útil saber se o preço do diamante de 1,35 quilate será muito próximo de $10.000, mais barato ou mais caro. Para descobrir isso, vamos desenhar um envelope ao redor da linha de regressão que inclua a maioria dos pontos. Esse envelope é chamado de nosso *intervalo de confiança*: estamos bem confiantes de que os preços se enquadram nesse envelope, pois, no passado, a maioria deles se enquadrou. Podemos desenhar outras duas linhas horizontais a partir das quais a linha de 1,35 quilate cruza a parte superior e inferior do envelope.
 
 ![Intervalo de confiança](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
@@ -111,7 +103,6 @@ Para responder à nossa pergunta, nós identificamos visualmente o 1,35 quilate 
 Agora podemos dizer algo sobre o intervalo de confiança: podemos dizer com segurança que o preço de um diamante de 1,35 quilate é de aproximadamente $10.000, mas pode ser $8.000 e pode ser $12.000.
 
 ## Pronto, sem matemática ou computadores
-
 Fizemos o que os cientistas de dados são pagos para fazer, e fizemos isso apenas desenhando:
 
 * Fizemos uma pergunta que pudemos responder com dados
@@ -134,11 +125,8 @@ Hoje, falamos sobre como fazer a regressão linear e fizemos uma previsão usand
 
 Confira outros vídeos da série "Ciência de dados para iniciantes" no Aprendizado de Máquina do Microsoft Azure.
 
-
-
 ## Próximas etapas
-
-  * [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
-  * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
+* [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
 <!---HONumber=AcomDC_0914_2016-->

@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Gerenciador de Recursos de Cluster do Service Fabric – Políticas de posicionamento | Microsoft Azure"
-   description="Visão geral das políticas de posicionamento adicionais e das regras para os Serviços do Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Gerenciador de Recursos de Cluster do Service Fabric – Políticas de posicionamento | Microsoft Docs
+description: Visão geral das políticas de posicionamento adicionais e das regras para os Serviços do Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Políticas de posicionamento para serviços do Service Fabric
 Há muitas regras adicionais diferentes que podem acabar sendo um motivo de preocupação caso seu cluster do Service Fabric esteja distribuído por uma distância geográfica, digamos, em vários datacenters ou regiões do Azure, ou caso seu ambiente abranja várias áreas de controle geopolítico (ou algum outro caso em que você tenha limites legais ou da política que sejam de seu interesse, ou então, as distâncias envolvidas têm um impacto de desempenho real/de latência). A maioria delas pode ser configurada por meio das propriedades de nó e de restrições de posicionamento, mas algumas são mais complicadas. Para tornar as coisas mais simples, fornecemos essas comandos adicionais. Assim como as outras restrições de posicionamento, as políticas de posicionamento podem ser configuradas de acordo com a instância de serviço nomeada.
 
@@ -96,7 +96,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Agora, seria possível usar essas configurações para serviços em um cluster que não tenha sido distribuído geograficamente? Claro que sim! Mas não há uma boa razão também, especialmente as configurações de domínio necessárias, inválidas e preferenciais devem ser evitadas, a menos que você esteja realmente executando um cluster geograficamente estendido - não faz sentido tentar forçar uma determinada carga de trabalho para execução em um único rack ou dar preferência a algum segmento do seu cluster local em vez de outro a menos que haja tipos diferentes de segmentação de hardware ou a carga de trabalho em andamento e esses casos podem ser tratados por meio de restrições de posicionamento normais.
 
 ## Próximas etapas
-- Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis do Gerenciador de Recursos de Cluster em [Saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
+* Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis do Gerenciador de Recursos de Cluster em [Saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png

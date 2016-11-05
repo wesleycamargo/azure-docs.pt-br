@@ -1,28 +1,27 @@
-<properties
-   pageTitle="Conector LDAP genérico | Microsoft Azure"
-   description="Este artigo descreve como configurar o Conector LDAP genérico da Microsoft."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: Conector LDAP genérico | Microsoft Docs
+description: Este artigo descreve como configurar o Conector LDAP genérico da Microsoft.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="08/30/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: billmath
 
-
+---
 # <a name="generic-ldap-connector-technical-reference"></a>Referência técnica do Conector LDAP genérico
 Este artigo descreve o Conector LDAP genérico. O artigo se aplica aos seguintes produtos:
 
-- Microsoft Identity Manager 2016 (MIM2016)
-- Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   É necessário usar o hotfix 4.1.3671.0 ou posterior [KB3092178](https://support.microsoft.com/kb/3092178).
+* Microsoft Identity Manager 2016 (MIM2016)
+* Forefront Identity Manager 2010 R2 (FIM2010R2)
+  * É necessário usar o hotfix 4.1.3671.0 ou posterior [KB3092178](https://support.microsoft.com/kb/3092178).
 
 Para MIM2016 e FIM2010R2 o conector está disponível para download do [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -36,63 +35,63 @@ Determinados elementos de operações e esquema, como aqueles necessários para 
 
 Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na versão atual do conector:
 
-Recurso | Suporte
---- | --- |
-Fonte de dados conectada | O Conector recebe suporte com todos os servidores LDAP v3 (compatíveis com RFC 4510). Ele foi testado com as seguintes opções:  <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catálogo Global do Microsoft Active Directory (AD GC)</li><li>Directory Server 389</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (antiga Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Não há suporte para diretórios notáveis:** <li>Microsoft Active Directory Domain Services do Azure (AD DS) [Em vez disso, use o Active Directory Connector interno]</li><li>Oracle Internet Directory (OID)</li>
-Cenários   | <li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senha</li>
-Operações |As seguintes operações têm suporte em todos os diretórios LDAP:  <li>Importação completa</li><li>Exportação</li>As seguintes operações só têm suporte em diretórios especificados: <li>Importação delta</li><li>Definir senha, alterar senha</li>
-Esquema | <li>O esquema é detectado no esquema LDAP (RFC3673 e RFC4512/4.2)</li><li>Oferece suporte a classes estruturais, classes auxiliares e à classe de objeto extensibleObject (RFC4512/4.3)</li>
+| Recurso | Suporte |
+| --- | --- |
+| Fonte de dados conectada |O Conector recebe suporte com todos os servidores LDAP v3 (compatíveis com RFC 4510). Ele foi testado com as seguintes opções:  <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catálogo Global do Microsoft Active Directory (AD GC)</li><li>Directory Server 389</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (antiga Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Não há suporte para diretórios notáveis:** <li>Microsoft Active Directory Domain Services do Azure (AD DS) [Em vez disso, use o Active Directory Connector interno]</li><li>Oracle Internet Directory (OID)</li> |
+| Cenários |<li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senha</li> |
+| Operações |As seguintes operações têm suporte em todos os diretórios LDAP:  <li>Importação completa</li><li>Exportação</li>As seguintes operações só têm suporte em diretórios especificados: <li>Importação delta</li><li>Definir senha, alterar senha</li> |
+| Esquema |<li>O esquema é detectado no esquema LDAP (RFC3673 e RFC4512/4.2)</li><li>Oferece suporte a classes estruturais, classes auxiliares e à classe de objeto extensibleObject (RFC4512/4.3)</li> |
 
 ### <a name="delta-import-and-password-management-support"></a>Suporte de gerenciamento de importação delta e de senha
 Diretórios com suporte para gerenciamento de importação delta e de senha:
 
-- Microsoft Active Directory Lightweight Directory Services (AD LDS)
-    - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição de senha
-- Catálogo Global do Microsoft Active Directory (AD GC)
-    - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição de senha
-- Directory Server 389
-    - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição e alteração de senha
-- Apache Directory Server
-    - Não oferece suporte para importação delta, pois esse diretório não tem um log de alteração persistente
-    - Oferece suporte para definição de senha
-- IBM Tivoli DS
-    - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição e alteração de senha
-- Isode Directory
-    - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição e alteração de senha
-- Novell eDirectory e NetIQ eDirectory
-    - Oferece suporte para operações de adição, atualização e renomeação para importação delta
-    - Não oferece suporte para operações de exclusão para importação delta
-    - Oferece suporte para definição e alteração de senha
-- Open DJ
-    - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição e alteração de senha
-- Open DS
-    - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição e alteração de senha
-- Open LDAP (openldap.org)
-    - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição de senha
-    - Não oferece suporte para alteração de senha
-- Oracle (antiga Sun) Directory Server Enterprise Edition
-    - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição e alteração de senha
-- RadiantOne Virtual Directory Server (VDS)
-    - Deve usar a versão 7.1.1 ou superior
-    - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição e alteração de senha
--  Sun One Directory Server
-    - Oferece suporte para todas as operações de importação delta
-    - Oferece suporte para definição e alteração de senha
+* Microsoft Active Directory Lightweight Directory Services (AD LDS)
+  * Oferece suporte para todas as operações de importação delta
+  * Oferece suporte para definição de senha
+* Catálogo Global do Microsoft Active Directory (AD GC)
+  * Oferece suporte para todas as operações de importação delta
+  * Oferece suporte para definição de senha
+* Directory Server 389
+  * Oferece suporte para todas as operações de importação delta
+  * Oferece suporte para definição e alteração de senha
+* Apache Directory Server
+  * Não oferece suporte para importação delta, pois esse diretório não tem um log de alteração persistente
+  * Oferece suporte para definição de senha
+* IBM Tivoli DS
+  * Oferece suporte para todas as operações de importação delta
+  * Oferece suporte para definição e alteração de senha
+* Isode Directory
+  * Oferece suporte para todas as operações de importação delta
+  * Oferece suporte para definição e alteração de senha
+* Novell eDirectory e NetIQ eDirectory
+  * Oferece suporte para operações de adição, atualização e renomeação para importação delta
+  * Não oferece suporte para operações de exclusão para importação delta
+  * Oferece suporte para definição e alteração de senha
+* Open DJ
+  * Oferece suporte para todas as operações de importação delta
+  * Oferece suporte para definição e alteração de senha
+* Open DS
+  * Oferece suporte para todas as operações de importação delta
+  * Oferece suporte para definição e alteração de senha
+* Open LDAP (openldap.org)
+  * Oferece suporte para todas as operações de importação delta
+  * Oferece suporte para definição de senha
+  * Não oferece suporte para alteração de senha
+* Oracle (antiga Sun) Directory Server Enterprise Edition
+  * Oferece suporte para todas as operações de importação delta
+  * Oferece suporte para definição e alteração de senha
+* RadiantOne Virtual Directory Server (VDS)
+  * Deve usar a versão 7.1.1 ou superior
+  * Oferece suporte para todas as operações de importação delta
+  * Oferece suporte para definição e alteração de senha
+* Sun One Directory Server
+  * Oferece suporte para todas as operações de importação delta
+  * Oferece suporte para definição e alteração de senha
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
 
-- Microsoft .NET 4.5.2 Framework ou posterior
+* Microsoft .NET 4.5.2 Framework ou posterior
 
 ### <a name="detecting-the-ldap-server"></a>Como detectar o servidor LDAP
 O Conector depende de diversas técnicas para detectar e identificar o servidor LDAP. O Conector usa Root DSE, o nome e a versão do fornecedor e inspeciona o esquema para localizar objetos exclusivos e atributos presentes em determinados servidores LDAP. Esses dados, se forem encontrados, serão usados para preencher previamente as opções de configuração no Conector.
@@ -134,15 +133,15 @@ O conector tenta detectar as opções presentes no servidor. Se não for possív
 ### <a name="delta-import"></a>Importação delta
 A importação delta só estará disponível quando um diretório de suporte tiver sido detectado. Os métodos a seguir são usados no momento:
 
-- LDAP Accesslog. Confira [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
-- LDAP Changelog. Confira [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
-- TimeStamp. Para Novell/NetIQ eDirectory, o Conector usa a última data/hora para obter objetos criados e atualizados. Novell/NetIQ eDirectory não fornece um meio equivalente de recuperar objetos excluídos. Essa opção também pode ser usada se nenhum outro método de importação delta estiver ativo no servidor LDAP. Essa opção não pode importar objetos excluídos.
-- USNChanged. Confira: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
+* LDAP Accesslog. Confira [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
+* LDAP Changelog. Confira [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
+* TimeStamp. Para Novell/NetIQ eDirectory, o Conector usa a última data/hora para obter objetos criados e atualizados. Novell/NetIQ eDirectory não fornece um meio equivalente de recuperar objetos excluídos. Essa opção também pode ser usada se nenhum outro método de importação delta estiver ativo no servidor LDAP. Essa opção não pode importar objetos excluídos.
+* USNChanged. Confira: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
 ### <a name="not-supported"></a>Sem suporte
 Não há suporte para os seguintes recursos LDAP:
 
-- Referências de LDAP entre servidores (RFC 4511/4.1.10)
+* Referências de LDAP entre servidores (RFC 4511/4.1.10)
 
 ## <a name="create-a-new-connector"></a>Criar um novo conector
 Para criar um conector LDAP genérico, em **Serviço de Sincronização** selecione **Agente de Gerenciamento** e **Criar**. Escolha o Conector **LDAP Genérico (Microsoft)** .
@@ -154,10 +153,10 @@ Na página Conectividade, especifique as informações de Host, Porta e Associa�
 
 ![Conectividade](./media/active-directory-aadconnectsync-connector-genericldap/connectivity.png)
 
-- A configuração de Tempo Limite de Conexão é usada apenas para a primeira conexão com o servidor durante a detecção do esquema.
-- Se a Associação for Anônima, nenhum nome de usuário/senha ou certificado será usado.
-- Para outras associações, insira informações em nome de usuário/senha ou escolha um certificado.
-- Se você estiver usando o Kerberos para autenticar, forneça também o Realm/Domínio do usuário.
+* A configuração de Tempo Limite de Conexão é usada apenas para a primeira conexão com o servidor durante a detecção do esquema.
+* Se a Associação for Anônima, nenhum nome de usuário/senha ou certificado será usado.
+* Para outras associações, insira informações em nome de usuário/senha ou escolha um certificado.
+* Se você estiver usando o Kerberos para autenticar, forneça também o Realm/Domínio do usuário.
 
 A caixa de texto **aliases de atributo** é usada para atributos definidos no esquema com a sintaxe RFC4522. Esses atributos não podem ser detectados durante a detecção de esquema, e o conector precisa de ajuda para identificar esses atributos. Por exemplo, é necessário inserir o seguinte na caixa de aliases de atributo a fim de identificar corretamente o atributo userCertificate como um atributo binário:
 
@@ -180,29 +179,29 @@ A seção superior mostra informações fornecidas pelo próprio servidor, como 
 
 As caixas de seleção dos **controles com suporte** controlam o comportamento de determinadas operações:
 
-- Com a opção de exclusão de árvore marcada, uma hierarquia é excluída com uma chamada LDAP. Com a opção de exclusão de árvore desmarcada, o conector realiza uma exclusão recursiva, se for necessário.
-- Com a opção de resultados paginados marcada, o conector realiza importações paginadas com o tamanho especificado nas etapas de execução.
-- VLVControl e SortControl são alternativas ao pagedResultsControl para leitura de dados do diretório LDAP.
-- Se todas as três opções (pagedResultsControl, VLVControl e SortControl) estiverem desmarcadas, o Conector importa todos os objetos em uma única operação, que poderá falhar se o diretório for grande.
-- ShowDeletedControl é usado somente quando o método de Importação delta é USNChanged.
+* Com a opção de exclusão de árvore marcada, uma hierarquia é excluída com uma chamada LDAP. Com a opção de exclusão de árvore desmarcada, o conector realiza uma exclusão recursiva, se for necessário.
+* Com a opção de resultados paginados marcada, o conector realiza importações paginadas com o tamanho especificado nas etapas de execução.
+* VLVControl e SortControl são alternativas ao pagedResultsControl para leitura de dados do diretório LDAP.
+* Se todas as três opções (pagedResultsControl, VLVControl e SortControl) estiverem desmarcadas, o Conector importa todos os objetos em uma única operação, que poderá falhar se o diretório for grande.
+* ShowDeletedControl é usado somente quando o método de Importação delta é USNChanged.
 
 O DN de log de alterações é o contexto de nomenclatura usado pelo log de alterações delta, por exemplo, **cn=changelog**. Esse valor deve ser especificado para que seja possível fazer a importação de delta.
 
 Veja a seguir uma lista de DNs de log de alteração padrão:
 
-Diretório | Log de alterações delta
---- | ---
-Microsoft AD LDS e AD GC | Detectado automaticamente. USNChanged.
-Apache Directory Server | Não disponível.
-Directory 389 | Log de alterações. Valor padrão a ser usado: **cn=changelog**
-IBM Tivoli DS | Log de alterações. Valor padrão a ser usado: **cn=changelog**
-Isode Directory | Log de alterações. Valor padrão a ser usado: **cn=changelog**
-Novell/NetIQ eDirectory | Não disponível. TimeStamp. O Conector usa a data/hora da última atualização para obter os registros adicionados e atualizados.
-Open DJ/DS | Log de alterações.  Valor padrão a ser usado: **cn=changelog**
-Open LDAP | Log de acesso. Valor padrão a ser usado: **cn=accesslog**
-Oracle DSEE | Log de alterações. Valor padrão a ser usado: **cn=changelog**
-RadiantOne VDS | Diretório virtual. Depende do diretório conectado ao VDS.
-Sun One Directory Server | Log de alterações. Valor padrão a ser usado: **cn=changelog**
+| Diretório | Log de alterações delta |
+| --- | --- |
+| Microsoft AD LDS e AD GC |Detectado automaticamente. USNChanged. |
+| Apache Directory Server |Não disponível. |
+| Directory 389 |Log de alterações. Valor padrão a ser usado: **cn=changelog** |
+| IBM Tivoli DS |Log de alterações. Valor padrão a ser usado: **cn=changelog** |
+| Isode Directory |Log de alterações. Valor padrão a ser usado: **cn=changelog** |
+| Novell/NetIQ eDirectory |Não disponível. TimeStamp. O Conector usa a data/hora da última atualização para obter os registros adicionados e atualizados. |
+| Open DJ/DS |Log de alterações.  Valor padrão a ser usado: **cn=changelog** |
+| Open LDAP |Log de acesso. Valor padrão a ser usado: **cn=accesslog** |
+| Oracle DSEE |Log de alterações. Valor padrão a ser usado: **cn=changelog** |
+| RadiantOne VDS |Diretório virtual. Depende do diretório conectado ao VDS. |
+| Sun One Directory Server |Log de alterações. Valor padrão a ser usado: **cn=changelog** |
 
 O atributo de senha é o nome do atributo que o Conector deve usar para definir a senha nas operações de alteração e definição de senha.
 Esse valor está definido por padrão como **userPassword** , mas pode ser alterado, quando necessário, para um determinado sistema LDAP.
@@ -232,19 +231,19 @@ Essa página sempre têm um valor pré-configurado e não pode ser alterada. Se 
 
 Veja a seguir uma lista de servidores LDAP e a âncora usada:
 
-Diretório | Atributo de âncora
---- | ---
-Microsoft AD LDS e AD GC | objectGUID
-Directory Server 389 | dn
-Apache Directory | dn
-IBM Tivoli DS | dn
-Isode Directory | dn
-Novell/NetIQ eDirectory | GUID
-Open DJ/DS | dn
-Open LDAP | dn
-Oracle ODSEE | dn
-RadiantOne VDS | dn
-Sun One Directory Server | dn
+| Diretório | Atributo de âncora |
+| --- | --- |
+| Microsoft AD LDS e AD GC |objectGUID |
+| Directory Server 389 |dn |
+| Apache Directory |dn |
+| IBM Tivoli DS |dn |
+| Isode Directory |dn |
+| Novell/NetIQ eDirectory |GUID |
+| Open DJ/DS |dn |
+| Open LDAP |dn |
+| Oracle ODSEE |dn |
+| RadiantOne VDS |dn |
+| Sun One Directory Server |dn |
 
 ## <a name="other-notes"></a>Outras observações
 Esta seção fornece informações sobre aspectos específicos a esse Conector, ou que por outros motivos sejam importante conhecer.
@@ -257,10 +256,7 @@ Para Novell eDirectory, a importação de delta não está detectando exclusões
 Para diretórios com um log de alterações de delta com base na data/hora, é altamente recomendável executar uma importação completa em horários periódicos. Esse processo permite que o mecanismo de sincronização localize diferenças entre o servidor LDAP e o que está atualmente no espaço do conector.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-
--   Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
+* Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
 <!--HONumber=Oct16_HO2-->
 

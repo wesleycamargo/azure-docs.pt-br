@@ -1,23 +1,21 @@
-<properties
-    pageTitle="Azure Active Directory Domain Services: cenários de implantação | Microsoft Azure"
-    description="Cenários de implantação dos Serviços de Domínio do Azure AD"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+---
+title: 'Azure Active Directory Domain Services: cenários de implantação | Microsoft Docs'
+description: Cenários de implantação dos Serviços de Domínio do Azure AD
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/21/2016"
-    ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/21/2016
+ms.author: maheshu
 
-
-
+---
 # <a name="deployment-scenarios-and-use-cases"></a>Cenários de implantação e casos de uso
 Nesta seção, examinamos alguns cenários e casos de uso que podem aproveitar os Serviços de Domínio do AD (Azure Active Directory).
 
@@ -34,15 +32,11 @@ Conforme servidores e outras infraestruturas atingem o fim da vida útil, a Cont
 
 Considere os seguintes pontos importantes para este cenário de implantação:
 
-- Domínios gerenciados fornecidos pelos Serviços de Domínio do Azure AD fornecem uma única estrutura de UO (unidade organizacional) simples por padrão. Todos os computadores que ingressaram no domínio residem em uma única UO simples. No entanto, você pode optar por criar UOs personalizadas.
-
-- Os Serviços de Domínio do AD do Azure dão suporte à política de grupo simples na forma de um GPO interno para os usuários e um para os contêineres de computador. Você não pode definir GP por departamento/UO, realizar a filtragem WMI ou criar GPOs personalizados.
-
-- Os Serviços de Domínio do AD do Azure dão suporte ao esquema do objeto de computador AD base. Você não pode estender o esquema do objeto de computador.
-
+* Domínios gerenciados fornecidos pelos Serviços de Domínio do Azure AD fornecem uma única estrutura de UO (unidade organizacional) simples por padrão. Todos os computadores que ingressaram no domínio residem em uma única UO simples. No entanto, você pode optar por criar UOs personalizadas.
+* Os Serviços de Domínio do AD do Azure dão suporte à política de grupo simples na forma de um GPO interno para os usuários e um para os contêineres de computador. Você não pode definir GP por departamento/UO, realizar a filtragem WMI ou criar GPOs personalizados.
+* Os Serviços de Domínio do AD do Azure dão suporte ao esquema do objeto de computador AD base. Você não pode estender o esquema do objeto de computador.
 
 ## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>Fazer a mudança de aplicativos locais que usam autenticação de associação LDAP para os Serviços de Infraestrutura do Azure
-
 ![Associação LDAP](./media/active-directory-domain-services-scenarios/ldap-bind.png)
 
 A Contoso tem um aplicativo local que foi comprado de um ISV há muitos anos. O aplicativo está atualmente no modo de manutenção pelo ISV e a solicitação de alterações no aplicativo é extremamente dispendioso para Contoso. Este aplicativo tem um front-end baseado na Web que coleta credenciais de usuário usando um formulário da Web e autentica usuários executando uma associação LDAP para o Active Directory corporativo. A Contoso deseja migrar esse aplicativo para os Serviços de Infraestrutura do Azure. É recomendável que o aplicativo funcione como está, sem exigir nenhuma alteração. Além disso, os usuários devem ser capazes de autenticar usando suas credenciais corporativas existentes e sem ter que ser treinados novamente para fazer coisas de forma diferente. Em outras palavras, os usuários finais não devem se lembrar de onde o aplicativo está sendo executado e a migração deve ser clara para eles.
@@ -51,10 +45,8 @@ A Contoso tem um aplicativo local que foi comprado de um ISV há muitos anos. O 
 
 Considere os seguintes pontos importantes para este cenário de implantação:
 
-- Verifique se o aplicativo não precisa modificar/gravar no diretório. Não há suporte a acesso para gravação LDAP para domínios gerenciados fornecidos pelos Serviços de Domínio do Azure AD.
-
-- Você não pode alterar senhas diretamente em relação ao domínio gerenciado. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são automaticamente sincronizadas e disponibilizadas no domínio gerenciado.
-
+* Verifique se o aplicativo não precisa modificar/gravar no diretório. Não há suporte a acesso para gravação LDAP para domínios gerenciados fornecidos pelos Serviços de Domínio do Azure AD.
+* Você não pode alterar senhas diretamente em relação ao domínio gerenciado. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são automaticamente sincronizadas e disponibilizadas no domínio gerenciado.
 
 ## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-read-to-access-the-directory-to-azure-infrastructure-services"></a>Fazer a mudança de aplicativos locais que usam leitura LDAP para acessar o diretório que leva aos Serviços de Infraestrutura do Azure
 A Contoso tem um aplicativo de LOB (linha de negócios) local desenvolvido quase uma década atrás. Esse aplicativo percebe diretórios e foi projetado para funcionar com o AD do Windows Server. O aplicativo usa LDAP (Lightweight Directory Access Protocol) para ler informações/atributos sobre os usuários do Active Directory. O aplicativo não modifica atributos ou gravar no diretório de forma alguma. A Contoso deseja migrar esse aplicativo para os Serviços de Infraestrutura do Azure e desativar o hardware local antigo que atualmente hospeda esse aplicativo. O aplicativo não pode ser reescrito para usar APIs de diretório modernas, como a Graph API do Azure AD baseada em REST. Portanto, uma opção de mudança é desejada por meio da qual o aplicativo possa ser migrado para executar na nuvem sem modificar o código ou reescrever o aplicativo.
@@ -63,10 +55,8 @@ A Contoso tem um aplicativo de LOB (linha de negócios) local desenvolvido quase
 
 Considere os seguintes pontos importantes para este cenário de implantação:
 
-- Verifique se o aplicativo não precisa modificar/gravar no diretório. Não há suporte a acesso para gravação LDAP para domínios gerenciados fornecidos pelos Serviços de Domínio do Azure AD.
-
-- Verifique se o aplicativo não precisa de um esquema do Active Directory estendido/personalizado. As extensões de esquema não têm suporte nos Serviços de Domínio do AD do Azure.
-
+* Verifique se o aplicativo não precisa modificar/gravar no diretório. Não há suporte a acesso para gravação LDAP para domínios gerenciados fornecidos pelos Serviços de Domínio do Azure AD.
+* Verifique se o aplicativo não precisa de um esquema do Active Directory estendido/personalizado. As extensões de esquema não têm suporte nos Serviços de Domínio do AD do Azure.
 
 ## <a name="migrate-an-on-premises-service-or-daemon-application-to-azure-infrastructure-services"></a>Migrar um aplicativo de serviço ou daemon do local para os Serviços de Infraestrutura do Azure
 Alguns aplicativos consistem em várias camadas, em que uma das camadas precisa realizar chamadas autenticadas para uma camada de back-end, como uma camada de banco de dados. Contas de serviço do Active Directory são usadas para esses casos de uso. Você pode arrastar e deslocar aplicativos para os Serviços de Infraestrutura do Azure e usar os Serviços de Domínio do Azure AD para as necessidades de identidade desses aplicativos. Você pode optar por usar a mesma conta de serviço que é sincronizada do seu diretório local para o Azure AD. Como alternativa, você pode criar primeiro uma UO personalizada e, em seguida, criar uma conta de serviço separada na UO para implantar esses aplicativos.
@@ -79,10 +69,8 @@ A Contoso tem um aplicativo personalizado de cofre que inclui um front-end da We
 
 Considere os seguintes pontos importantes para este cenário de implantação:
 
-- Verifique se o aplicativo usa o nome de usuário e senha para autenticação. A autenticação com certificado/cartão inteligente não tem suporte dos Serviços de Domínio do AD do Azure.
-
-- Você não pode alterar senhas diretamente em relação ao domínio gerenciado. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são automaticamente sincronizadas e disponibilizadas no domínio gerenciado.
-
+* Verifique se o aplicativo usa o nome de usuário e senha para autenticação. A autenticação com certificado/cartão inteligente não tem suporte dos Serviços de Domínio do AD do Azure.
+* Você não pode alterar senhas diretamente em relação ao domínio gerenciado. Os usuários finais podem alterar suas senhas ou usando o mecanismo de alteração de senha de autoatendimento do Azure AD ou no diretório local. Essas alterações são automaticamente sincronizadas e disponibilizadas no domínio gerenciado.
 
 ## <a name="azure-remoteapp"></a>RemoteApp do Azure
 O RemoteApp do Azure permite que o administrador do Contoso crie uma coleção associada a um domínio. Esse recurso permite que aplicativos remotos atendidos pelo RemoteApp do Azure sejam executados em computadores associados ao domínio e acessem outros recursos usando a autenticação integrada do Windows. O Contoso pode usar os Serviços de Domínio do AD do Azure para fornecer um domínio gerenciado usado pelas coleções associadas ao domínio do RemoteApp do Azure.
@@ -90,8 +78,6 @@ O RemoteApp do Azure permite que o administrador do Contoso crie uma coleção a
 ![RemoteApp do Azure](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
 
 Para saber mais sobre esse cenário de implantação, confira o artigo do Blog de Serviços de Área de Trabalho Remota intitulado [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)(Levantar e deslocar suas cargas de trabalho com o Azure RemoteApp e os Azure AD Domain Services).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

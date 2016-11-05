@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Como usar o Twilio para voz e SMS (Java) | Microsoft Azure" 
-	description="Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos de códigos escritos em Java." 
-	services="" 
-	documentationCenter="java" 
-	authors="devinrader" 
-	manager="twilio" 
-	editor="mollybos"/>
+---
+title: Como usar o Twilio para voz e SMS (Java) | Microsoft Docs
+description: Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos de códigos escritos em Java.
+services: ''
+documentationcenter: java
+author: devinrader
+manager: twilio
+editor: mollybos
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="11/25/2014" 
-	ms.author="microsofthelp@twilio.com"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: Java
+ms.topic: article
+ms.date: 11/25/2014
+ms.author: microsofthelp@twilio.com
 
+---
 # Como usar a Twilio para obter recursos de voz e SMS no Java
-
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do Twilio no Azure. Os cenários abrangidos incluem fazer uma chamada telefônica e enviar uma mensagem serviço de mensagem curta (SMS). Para obter mais informações sobre o Twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [Próximas etapas](#NextSteps).
 
 ## <a id="WhatIs"></a>O que é Twilio?
@@ -144,14 +143,14 @@ Abaixo é mostrado como enviar uma mensagem SMS usando a classe **SmsFactory**. 
 
     // Send an SMS message.
     MessageFactory messageFactory = account.getMessageFactory();
-    
+
     List<NameValuePair> params = new ArrayList<NameValuePair>();
     params.add(new BasicNameValuePair("To", "+14159352345")); // Replace with a valid phone number for your account.
     params.add(new BasicNameValuePair("From", "+14158141829")); // Replace with a valid phone number for your account.
     params.add(new BasicNameValuePair("Body", "Where's Wallace?"));
-    
+
     Message sms = messageFactory.create(params);
-        
+
 Para obter mais informações sobre os parâmetros passados para o método **SmsFactory.create**, consulte [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
 ## <a id="howto_provide_twiml_responses"></a>Como fornecer respostas TwiML de seu próprio site
@@ -167,7 +166,6 @@ A página JSP seguinte resulta em uma resposta de TwiML que diz **Hello World** 
     </Response>
 
 A página JSP seguinte resulta em uma resposta de TwiML que diz algum texto, tem várias pausas e diz informações sobre a versão de API do Twilio e o nome da função do Azure.
-
 
     <%@ page contentType="text/xml" %>
     <Response> 

@@ -1,28 +1,27 @@
-<properties
-   pageTitle="Coletar logs usando o Diagnóstico do Azure | Microsoft Azure"
-   description="Este artigo descreve como configurar o Diagnóstico do Azure para coletar logs de um cluster do Service Fabric em execução no Azure."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="ms-toddabel"
-   manager="timlt"
-   editor=""/>
+---
+title: Coletar logs usando o Diagnóstico do Azure | Microsoft Docs
+description: Este artigo descreve como configurar o Diagnóstico do Azure para coletar logs de um cluster do Service Fabric em execução no Azure.
+services: service-fabric
+documentationcenter: .net
+author: ms-toddabel
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/28/2016"
-   ms.author="toddabel"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/28/2016
+ms.author: toddabel
 
-
-
+---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Coletar logs usando o Diagnóstico do Azure
-
-> [AZURE.SELECTOR]
-- [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-- [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
+> * [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> 
+> 
 
 Quando você estiver executando um cluster de Service Fabric do Azure, é uma boa ideia coletar os logs de todos os nós em um local central. Ter os logs em um local central ajuda a analisar e solucionar problemas no cluster ou nos aplicativos e serviços em execução nesse cluster.
 
@@ -37,14 +36,12 @@ Você pode usar essas ferramentas para executar algumas das operações neste do
 * [Cliente do Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Modelo do Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
-
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Fontes de log que você talvez queira coletar
-- **Logs do Service Fabric:** emitidos pela plataforma para canais de ETW (Rastreamento de Eventos para Windows) e EventSource padrão. Os logs podem ser de vários tipos:
-  - Eventos operacionais: logs para operações executadas pela plataforma do Service Fabric. Os exemplos incluem criação de aplicativos e serviços, alterações de estado do nó e informações de atualização.
-  - [Eventos do modelo de programação Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-  - [Eventos do modelo de programação Reliable Services](service-fabric-reliable-services-diagnostics.md)
-- **Eventos do aplicativo:** eventos emitidos do código de serviços e escritos usando a classe auxiliar EventSource fornecida nos modelos do Visual Studio. Para obter mais informações sobre como gravar logs de seu aplicativo, consulte [Monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-
+* **Logs do Service Fabric:** emitidos pela plataforma para canais de ETW (Rastreamento de Eventos para Windows) e EventSource padrão. Os logs podem ser de vários tipos:
+  * Eventos operacionais: logs para operações executadas pela plataforma do Service Fabric. Os exemplos incluem criação de aplicativos e serviços, alterações de estado do nó e informações de atualização.
+  * [Eventos do modelo de programação Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+  * [Eventos do modelo de programação Reliable Services](service-fabric-reliable-services-diagnostics.md)
+* **Eventos do aplicativo:** eventos emitidos do código de serviços e escritos usando a classe auxiliar EventSource fornecida nos modelos do Visual Studio. Para obter mais informações sobre como gravar logs de seu aplicativo, consulte [Monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 ## <a name="deploy-the-diagnostics-extension"></a>Implantar a extensão de Diagnóstico
 A primeira etapa para coletar logs será implantar a extensão Diagnóstico em cada uma das VMs no cluster do Service Fabric. A extensão de Diagnóstico coleta logs em cada VM e os carrega para a conta de armazenamento especificada. As etapas variam um pouco com base em seu uso do Portal do Azure ou do Azure Resource Manager. As etapas também variam com base em se a implantação faz parte da criação do cluster ou é para um cluster que já existe. Vejamos as etapas para cada cenário.
@@ -77,7 +74,6 @@ Para usar o modelo baixado para atualizar uma configuração:
 2. Modifique o conteúdo para refletir a nova configuração.
 3. Inicie o PowerShell e altere para a pasta para a qual você extraiu o conteúdo.
 4. Execute **deploy.ps1** e preencha a ID da assinatura, o nome do grupo de recursos (use o mesmo nome para atualizar a configuração) e um nome exclusivo da implantação.
-
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Implantar a extensão de diagnóstico como parte da criação de cluster usando o Gerenciador de Recursos do Azure
 Para criar um cluster usando o Resource Manager, você precisa adicionar a configuração de Diagnóstico JSON para o modelo do Resource Manager completo do cluster antes de criar o cluster. Fornecemos um exemplo de modelo de Gerenciador de Recursos de cluster de cinco VMs com configuração de Diagnóstico adicionada a ele como parte dos exemplos do modelo de Gerenciador de Recursos. Você pode vê-lo nesse local na Galeria de exemplos do Azure: [cluster cinco nós com exemplo de modelo do Gerenciador de Recursos de Diagnóstico](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
@@ -193,7 +189,6 @@ Em seguida, atualize a seção `VirtualMachineProfile` do arquivo template.json 
 
 Após modificar o arquivo template.json conforme descrito, republique o modelo do Resource Manager. Se o modelo tiver sido exportado, a execução do arquivo deploy.ps1 republicará o modelo. Após implantar, verifique se o status de **ProvisioningState** é **Com êxito**.
 
-
 ## <a name="update-diagnostics-to-collect-and-upload-logs-from-new-eventsource-channels"></a>Atualizar o Diagnóstico para coletar e carregar os logs de novos canais EventSource
 Para atualizar o Diagnóstico para coletar logs de novos canais de EventSource que representam um novo aplicativo que você está prestes a implantar, basta executar as mesmas etapas da [seção acima](#deploywadarm) para configurar o Diagnóstico para um cluster existente.
 
@@ -216,12 +211,9 @@ Para coletar contadores de desempenho ou logs de eventos, modifique o modelo do 
 ## <a name="next-steps"></a>Próximas etapas
 Para compreender com mais detalhes quais eventos você deve analisar enquanto soluciona problemas, consulte os eventos de diagnóstico para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) e [Reliable Services](service-fabric-reliable-services-diagnostics.md).
 
-
 ## <a name="related-articles"></a>Artigos relacionados
 * [Aprenda a coletar contadores de desempenho ou logs usando a extensão de Diagnóstico](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 * [Solução do Service Fabric no Log Analytics](../log-analytics/log-analytics-service-fabric.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

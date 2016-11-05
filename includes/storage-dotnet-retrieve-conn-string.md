@@ -6,9 +6,9 @@ Você pode usar o tipo **CloudStorageAccount** para representar as informações
 
 Se estiver criando um aplicativo sem nenhuma referência ao Microsoft.WindowsAzure.CloudConfigurationManager, e sua cadeia de conexão estiver localizada no `web.config` ou `app.config`, como mostrado acima, você poderá usar o **ConfigurationManager** para recuperar a cadeia de conexão. Você precisará adicionar uma referência ao System.Configuration.dll a seu projeto e adicionar outra declaração de namespace para ele:
 
-	using System.Configuration;
-	...
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		ConfigurationManager.AppSettings["StorageConnectionString"]);
+    using System.Configuration;
+    ...
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        ConfigurationManager.AppSettings["StorageConnectionString"]);
 
 <!---HONumber=AcomDC_0309_2016-->

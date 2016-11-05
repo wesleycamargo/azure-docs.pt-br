@@ -1,44 +1,44 @@
-<properties
-	pageTitle="Enviar notificações por push para usuários autenticados (Back-end .NET)"
-	description="Saiba como enviar notificações por push para especificar"
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+---
+title: Enviar notificações por push para usuários autenticados (Back-end .NET)
+description: Saiba como enviar notificações por push para especificar
+services: mobile-services,notification-hubs
+documentationcenter: ios
+author: krisragh
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
+---
 # Enviar notificações por push para usuários autenticados
-[AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+[!INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Para a versão de aplicativos móveis equivalente deste tópico, consulte [Como enviar notificações por push para um usuário autenticado](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#push-user).
+> 
+> 
 
 Neste tópico, você aprenderá como enviar notificações por push para um usuário autenticado no iOS. Antes de iniciar este tutorial, conclua primeiro [Introdução à autenticação] e [Introdução às notificações por push].
 
 Neste tutorial, tem que exigir que os usuários se autentiquem primeiro, registrem no hub de notificação para notificações por push e atualizar scripts de servidor para enviar essas notificações somente para os usuários autenticados.
 
-##<a name="register"></a>Atualizar o serviço para solicitar autenticação para registro
+## <a name="register"></a>Atualizar o serviço para solicitar autenticação para registro
+[!INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
+## <a name="update-app"></a>Atualizar aplicativo a entrar antes do registro
+[!INCLUDE [mobile-services-ios-push-notifications-app-users-login](../../includes/mobile-services-ios-push-notifications-app-users-login.md)]
 
-##<a name="update-app"></a>Atualizar aplicativo a entrar antes do registro
-
-[AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../../includes/mobile-services-ios-push-notifications-app-users-login.md)]
-
-##<a name="test"></a>Testar o aplicativo
-
-[AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
+## <a name="test"></a>Testar o aplicativo
+[!INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
 <!-- Anchors. -->
 [Updating the service to require authentication for registration]: #register

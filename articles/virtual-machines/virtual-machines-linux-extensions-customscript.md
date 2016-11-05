@@ -1,39 +1,36 @@
-<properties
-   pageTitle="Scripts personalizados em VMs do Linux | Microsoft Azure"
-   description="Automatizar tarefas de configuração de VM do Linux usando a extensão de script personalizado"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="neilpeterson"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Scripts personalizados em VMs do Linux | Microsoft Docs
+description: Automatizar tarefas de configuração de VM do Linux usando a extensão de script personalizado
+services: virtual-machines-linux
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="09/22/2016"
-   ms.author="nepeters"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/22/2016
+ms.author: nepeters
 
+---
 # Uso da extensão de script personalizado do Azure com máquinas virtuais do Linux
-
 A extensão de script personalizado baixa e executa scripts em máquinas virtuais do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Scripts podem ser baixados do armazenamento do Azure ou de outra localização acessível da Internet ou fornecidos para o tempo de execução da extensão. A extensão de script personalizado se integra com modelos do Azure Resource Manager e também pode ser executada usando a CLI do Azure, o PowerShell, o portal do Azure ou a API REST da máquina virtual do Azure.
 
 Este documento fornece detalhes sobre como usar a extensão de script personalizado na CLI do Azure e um modelo do Azure Resource Manager e também fornece detalhes sobre as etapas de solução de problemas em sistemas Linux.
 
 ## Configuração da extensão
-
 A configuração de extensão de script personalizado especifica itens como localização de script e o comando a ser executado. Essa configuração pode ser armazenada em arquivos de configuração, especificada na linha de comando ou em um modelo do Azure Resource Manager. Dados confidenciais podem ser armazenados em uma configuração protegida, que é criptografada e descriptografada somente dentro da máquina virtual. A configuração protegida é útil quando o comando de execução inclui segredos, como uma senha.
 
 ### Configuração pública
-
 Esquema:
 
-- **commandToExecute**: (obrigatório, cadeia de caracteres) o script de ponto de entrada a ser executado
-- **fileUris**: (opcional, matriz de cadeia de caracteres) as URLs de arquivos a serem baixados.
-- **timestamp** (opcional, inteiro) use este campo somente para disparar uma nova execução do script, alterando o valor desse campo.
+* **commandToExecute**: (obrigatório, cadeia de caracteres) o script de ponto de entrada a ser executado
+* **fileUris**: (opcional, matriz de cadeia de caracteres) as URLs de arquivos a serem baixados.
+* **timestamp** (opcional, inteiro) use este campo somente para disparar uma nova execução do script, alterando o valor desse campo.
 
 ```none
 {
@@ -43,13 +40,11 @@ Esquema:
 ```
 
 ### Configuração protegida
-
 Esquema:
 
-- **commandToExecute**: (opcional, cadeia de caracteres) o script de ponto de entrada a ser executado. Use este campo se o comando tiver segredos, como senhas.
-- **storageAccountName**: (opcional, cadeia de caracteres) o nome da conta de armazenamento. Se você especificar credenciais de armazenamento, todos os fileUris deverão ser URLs para Blobs do Azure.
-- **storageAccountKey**: (opcional, cadeia de caracteres) a tecla de acesso da conta de armazenamento.
-
+* **commandToExecute**: (opcional, cadeia de caracteres) o script de ponto de entrada a ser executado. Use este campo se o comando tiver segredos, como senhas.
+* **storageAccountName**: (opcional, cadeia de caracteres) o nome da conta de armazenamento. Se você especificar credenciais de armazenamento, todos os fileUris deverão ser URLs para Blobs do Azure.
+* **storageAccountKey**: (opcional, cadeia de caracteres) a tecla de acesso da conta de armazenamento.
 
 ```json
 {
@@ -60,7 +55,6 @@ Esquema:
 ```
 
 ## CLI do Azure
-
 Ao usar a CLI do Azure para executar a extensão de script personalizado, crie um arquivo de configuração ou arquivos que contêm pelo menos o URI do arquivo e o comando de execução do script.
 
 ```none
@@ -74,7 +68,6 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 ```
 
 ### Exemplos de CLI do Azure
-
 **Exemplo 1** – Configuração pública com o arquivo de script.
 
 ```json
@@ -129,11 +122,9 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 ```
 
 ## Modelo do Resource Manager
-
 A extensão de script personalizado do Azure pode ser executada no momento da implantação de máquina virtual usando um modelo do Resource Manager. Para fazer isso, adicione JSON formatado corretamente ao modelo de implantação.
 
 ### Exemplos do Resource Manager
-
 **Exemplo 1** – Configuração pública.
 
 ```json
@@ -197,7 +188,6 @@ A extensão de script personalizado do Azure pode ser executada no momento da im
 Consulte a Demonstração da Loja de Música do .Net Core para ver um exemplo completo – [Demonstração da Loja de Música](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
 
 ## Solucionar problemas
-
 Quando a extensão de script personalizado é executada, o script é criado ou baixado em um diretório semelhante ao exemplo a seguir. A saída do comando também é salva nesse diretório no arquivo `stdout` e `stderr`.
 
 ```none
@@ -229,7 +219,6 @@ info:    vm extension get command OK
 ```
 
 ## Próximas etapas
-
-Para obter informações sobre outras extensões de script de VM, consulte [Visão geral da extensão de script do Azure para Linux](./virtual-machines-linux-extensions-features.md).
+Para obter informações sobre outras extensões de script de VM, consulte [Visão geral da extensão de script do Azure para Linux](virtual-machines-linux-extensions-features.md).
 
 <!---HONumber=AcomDC_0928_2016-->

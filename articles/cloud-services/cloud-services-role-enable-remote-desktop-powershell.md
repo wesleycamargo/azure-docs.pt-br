@@ -1,35 +1,34 @@
-<properties
-pageTitle="Habilitar a Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell"
-description="Como configurar seu aplicativo de serviço de nuvem do Azure usando o PowerShell para permitir conexões de área de trabalho remota"
-services="cloud-services"
-documentationCenter=""
-authors="thraka"
-manager="timlt"
-editor=""/>
-<tags
-ms.service="cloud-services"
-ms.workload="tbd"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="08/05/2016"
-ms.author="adegeo"/>
+---
+title: Habilitar a Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell
+description: Como configurar seu aplicativo de serviço de nuvem do Azure usando o PowerShell para permitir conexões de área de trabalho remota
+services: cloud-services
+documentationcenter: ''
+author: thraka
+manager: timlt
+editor: ''
 
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/05/2016
+ms.author: adegeo
+
+---
 # Habilitar a Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell
-
->[AZURE.SELECTOR]
-- [Portal clássico do Azure](cloud-services-role-enable-remote-desktop.md)
-- [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
-
+> [!div class="op_single_selector"]
+> * [Portal clássico do Azure](cloud-services-role-enable-remote-desktop.md)
+> * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
+> 
+> 
 
 A área de trabalho remota permite que você acesse a área de trabalho de uma função em execução no Azure. Você pode usar a conexão da área de trabalho remota para solucionar e diagnosticar problemas com seu aplicativo durante a execução.
 
 Este artigo descreve como habilitar a área de trabalho remota em suas funções de serviço de nuvem usando o PowerShell. Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para os pré-requisitos necessários para este artigo. O PowerShell usa a Extensão da Área de Trabalho Remota para que você possa habilitar a Área de Trabalho Remota depois que o aplicativo for implantado.
 
-
 ## Configurar a Área de Trabalho Remota por meio do PowerShell
-
 O cmdlet [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) permite habilitar a Área de Trabalho Remota em funções especificadas ou todas as funções da implantação do serviço de nuvem. O cmdlet permite que você especifique o nome de usuário e a senha para o usuário da área de trabalho remota por meio do parâmetro *Credential*, que aceita um objeto PSCredential.
 
 Se estiver usando o PowerShell interativamente, você pode definir facilmente o objeto PSCredential chamando o cmdlet [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx).
@@ -48,7 +47,10 @@ Você também pode criar um arquivo de senha segura para que não precise digita
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
->[AZURE.IMPORTANT] Ao definir a senha, atenda aos [requisitos de complexidade](https://technet.microsoft.com/library/cc786468.aspx).
+> [!IMPORTANT]
+> Ao definir a senha, atenda aos [requisitos de complexidade](https://technet.microsoft.com/library/cc786468.aspx).
+> 
+> 
 
 Para criar o objeto de credencial com base no arquivo de senha segura, você deve ler os conteúdos do arquivo e convertê-los novamente em uma cadeia de caracteres segura, usando [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
@@ -67,7 +69,6 @@ Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $cr
 Você também pode especificar o slot de implantação e as funções em que deseja habilitar a área de trabalho remota. Se esses parâmetros não forem especificados, o cmdlet habilitará a área de trabalho remota em todas as funções no slot de implantação de **Produção**.
 
 A extensão de Área de Trabalho Remota está associada uma implantação. Se você criar uma nova implantação para o serviço, precisará habilitar novamente a área de trabalho remota nessa implantação. Se você sempre quiser ter a área de trabalho remota habilitada em suas implantações, deverá considerar a integração dos scripts do PowerShell em seu fluxo de trabalho de implantação.
-
 
 ## Área de Trabalho Remota em uma instância de função
 O cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) é usado para a área de trabalho remota em uma instância de função específica do serviço de nuvem. Você pode usar o parâmetro *LocalPath* para baixar o arquivo RDP localmente. Ou você pode usar o parâmetro *Launch* para iniciar diretamente a caixa de diálogo Conexão de Área de Trabalho Remota para acessar a instância de função do serviço de nuvem.
@@ -93,14 +94,14 @@ Para remover a extensão de área de trabalho remota de uma implantação, você
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 
->[AZURE.NOTE] Para remover completamente a configuração de extensão, você deve chamar o cmdlet *remove* com o parâmetro **UninstallConfiguration**.
->
->O parâmetro **UninstallConfiguration** desinstala qualquer configuração de extensão aplicada ao serviço. Todas as configurações de extensão estão associadas à configuração do serviço. Chamar o cmdlet *remove* sem **UninstallConfiguration** dissocia a <mark>implantação</mark> da configuração de extensão, removendo assim efetivamente a extensão. No entanto, a configuração de extensão permanece associada ao serviço.
-
-
+> [!NOTE]
+> Para remover completamente a configuração de extensão, você deve chamar o cmdlet *remove* com o parâmetro **UninstallConfiguration**.
+> 
+> O parâmetro **UninstallConfiguration** desinstala qualquer configuração de extensão aplicada ao serviço. Todas as configurações de extensão estão associadas à configuração do serviço. Chamar o cmdlet *remove* sem **UninstallConfiguration** dissocia a <mark>implantação</mark> da configuração de extensão, removendo assim efetivamente a extensão. No entanto, a configuração de extensão permanece associada ao serviço.
+> 
+> 
 
 ## Recursos adicionais
-
 [Como configurar serviços de nuvem](cloud-services-how-to-configure.md)
 
 <!---HONumber=AcomDC_0810_2016-->

@@ -1,27 +1,27 @@
-<properties
-   pageTitle="Usar o Backup do Azure para substituir a infraestrutura de fita | Microsoft Azure"
-   description="Saiba como o Backup do Azure fornece semântica semelhante à fita que permite fazer backup e restaurar dados no Azure"
-   services="backup"
-   documentationCenter=""
-   authors="trinadhk"
-   manager="vijayts"
-   editor=""/>
-<tags
-   ms.service="backup"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage-backup-recovery"
-   ms.date="09/27/2016"
-   ms.author="jimpark;trinadhk;markgal"/>
+---
+title: Usar o Backup do Azure para substituir a infraestrutura de fita | Microsoft Docs
+description: Saiba como o Backup do Azure fornece semântica semelhante à fita que permite fazer backup e restaurar dados no Azure
+services: backup
+documentationcenter: ''
+author: trinadhk
+manager: vijayts
+editor: ''
 
+ms.service: backup
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 09/27/2016
+ms.author: jimpark;trinadhk;markgal
+
+---
 # Usar o Backup do Azure para substituir a infraestrutura de fita
-
 Os clientes do Backup do Azure e do System Center Data Protection Manager podem:
 
-- Fazer backup de dados em agendas mais adequadas às necessidades da organização.
-- Manter os dados de backup por períodos mais longos
-- Tornar o Azure parte das necessidades de retenção de longo prazo (em vez de fita).
+* Fazer backup de dados em agendas mais adequadas às necessidades da organização.
+* Manter os dados de backup por períodos mais longos
+* Tornar o Azure parte das necessidades de retenção de longo prazo (em vez de fita).
 
 Este artigo explica como os clientes podem habilitar políticas de backup e retenção. Os clientes que usam fitas para tratar suas necessidades de retenção de longo prazo agora têm uma alternativa viável e eficiente com a disponibilidade desse recurso. O recurso está habilitado na versão mais recente do Backup do Azure (que está disponível [aqui](http://aka.ms/azurebackup_agent)). Os clientes do System Center DPM devem atualizar para, pelo menos, o DPM 2012 R2 UR5 antes de usar o DPM com o serviço de Backup do Azure.
 
@@ -42,7 +42,6 @@ A política de retenção especifica durante quanto tempo o backup deve ser arma
 O número total de “pontos de retenção” especificado nessa política é de 90 (pontos diários) + 40 (um a cada trimestre por 10 anos) = 130.
 
 ## Exemplo – Juntando ambos
-
 ![Tela de exemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Política de retenção diária**: os backups diários são armazenados por sete dias.
@@ -52,14 +51,17 @@ O número total de “pontos de retenção” especificado nessa política é de
 
 O número total de “pontos de retenção” (dos quais um cliente pode restaurar dados) no diagrama anterior é calculado da seguinte forma:
 
-- dois pontos por dia por sete dias = 14 pontos de recuperação
-- dois pontos por semana por quatro semanas = oito pontos de recuperação
-- dois pontos por mês por 12 meses = 24 pontos de recuperação
-- um ponto por ano por 10 anos = 10 pontos de recuperação
+* dois pontos por dia por sete dias = 14 pontos de recuperação
+* dois pontos por semana por quatro semanas = oito pontos de recuperação
+* dois pontos por mês por 12 meses = 24 pontos de recuperação
+* um ponto por ano por 10 anos = 10 pontos de recuperação
 
 O número total de pontos de recuperação é 56.
 
-> [AZURE.NOTE] O backup do Azure não tem uma restrição para o número de pontos de recuperação.
+> [!NOTE]
+> O backup do Azure não tem uma restrição para o número de pontos de recuperação.
+> 
+> 
 
 ## Configuração avançada
 Clicando em **Modificar** na tela anterior, os clientes têm mais flexibilidade para especificar agendamentos de retenção.
@@ -69,7 +71,7 @@ Clicando em **Modificar** na tela anterior, os clientes têm mais flexibilidade 
 ## Próximas etapas
 Para saber mais sobre o Backup do Azure, veja:
 
-- [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
-- [Teste o Backup do Azure](backup-try-azure-backup-in-10-mins.md)
+* [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
+* [Teste o Backup do Azure](backup-try-azure-backup-in-10-mins.md)
 
 <!---HONumber=AcomDC_0928_2016-->

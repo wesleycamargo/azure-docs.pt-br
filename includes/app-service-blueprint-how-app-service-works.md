@@ -11,7 +11,6 @@
 * [Suporte a Pilhas de Desenvolvimento de Serviço de Aplicativo do Azure](/blog/windows-azure-websites-development-stacks-support/)
 
 ## Vídeos
-
 * [Arquitetura de Serviço de Aplicativo do Azure](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
 <!---HONumber=AcomDC_0224_2016-->

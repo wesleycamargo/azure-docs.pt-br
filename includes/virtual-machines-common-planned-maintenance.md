@@ -1,7 +1,6 @@
 
 
 ## Atualizações que preservam a memória
-
 Para uma classe de atualizações no Microsoft Azure, os clientes não sentirão qualquer impacto em suas máquinas virtuais em execução. Muitas dessas atualizações são componentes ou serviços que podem ser atualizados sem interferir na instância em execução. Algumas são atualizações de infraestrutura de plataforma no sistema operacional do host, que podem ser aplicadas sem exigir uma reinicialização completa das máquinas virtuais.
 
 Essas atualizações são realizadas com uma tecnologia que permite a migração dinâmica in-loco, também chamada de uma atualização para “preservar a memória”. Durante a atualização, a máquina virtual é colocada em estado de "pausa", preservando a memória RAM, enquanto o sistema operacional subjacente do host recebe as atualizações e os patches necessários. A máquina virtual é retomada após 30 segundos no estado de pausa. Após ser reiniciada, o relógio da máquina virtual será sincronizado automaticamente.
@@ -11,7 +10,6 @@ Nem todas as atualizações podem ser implantadas usando esse mecanismo, mas, da
 Para máquinas virtuais de múltiplas instâncias (em um conjunto de disponibilidade), essas atualizações são aplicadas em um domínio por vez.
 
 ## Configurações de máquina virtual
-
 Existem dois tipos de configurações de máquina virtual: instâncias múltiplas e instância única. Em uma configuração de várias instâncias, as máquinas virtuais semelhantes são colocadas em um conjunto de disponibilidade.
 
 A configuração de várias instâncias fornece redundância entre computadores físicos, potência e rede, sendo recomendada para garantir a disponibilidade do aplicativo. Todas as máquinas virtuais do conjunto de disponibilidade devem servir ao mesmo propósito para seu aplicativo.
@@ -22,9 +20,7 @@ Por outro lado, uma configuração de instância única é usada para máquinas 
 
 Para saber mais sobre SLAs, consulte a seção "Serviços de Nuvem, máquinas virtuais e rede virtual" dos [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/).
 
-
 ## Atualizações de configuração de várias instâncias
-
 Durante a manutenção planejada, a plataforma Microsoft Azure primeiro atualiza o conjunto de máquinas virtuais que estão hospedadas em uma configuração de várias instâncias. Isso causa uma reinicialização para essas máquinas virtuais com aproximadamente 15 minutos de tempo de inatividade.
 
 Em uma atualização da configuração de várias instâncias, as máquinas virtuais são atualizadas de maneira a preservar a disponibilidade ao longo de todo o processo, pressupondo que cada máquina atenda a uma função semelhante às outras no conjunto.
@@ -48,7 +44,6 @@ Use o visualizador para determinar quais máquinas virtuais são configuradas em
 ![][image4]
 
 ## Atualizações de configuração de instância única
-
 Depois de concluir as atualizações de configuração de várias instâncias, o Azure executará atualizações de configuração de instância única. Essa atualização causará uma reinicialização das máquinas virtuais que não estão em execução nos conjuntos de disponibilidade.
 
 Observe que mesmo se você tiver apenas uma instância em execução em um conjunto de disponibilidade, a plataforma do Azure tratará isso como uma atualização de configuração de várias instâncias.
@@ -58,32 +53,30 @@ Para máquinas virtuais em uma configuração de instância única, as máquinas
 Esse evento de manutenção planejada afetará a disponibilidade do aplicativo para esse tipo de configuração de máquina virtual. O Azure oferece notificações de manutenção planejada de máquinas virtuais com uma semana de antecedência na configuração de instância única.
 
 ## Notificação por email
-
 Somente para configurações de máquina virtual de única instância ou várias instâncias, o Azure envia um comunicado prévio por email para alertar você sobre a próxima manutenção planejada (com 1 semana de antecedência). Este email será enviado para as contas de email do administrador e coadministrador da assinatura. Veja um exemplo desse tipo de email:
 
 <!--Image reference-->
 ![][image1]
 
 ## Pares de regiões
-
 Ao executar a manutenção, o Azure atualizará apenas as instâncias de Máquina Virtual em uma única região de seu par. Por exemplo, ao atualizar as Máquinas Virtuais no Centro-Norte dos EUA, o Azure não atualizará qualquer Máquina Virtual no Centro-Sul dos EUA ao mesmo tempo. Isso será agendado em outro momento, permitindo o failover ou o balanceamento de carga entre regiões. No entanto, outras regiões, como o Norte da Europa, podem estar em manutenção simultaneamente com Leste dos EUA.
 
 Veja a tabela a seguir para saber mais sobre os atuais pares de regiões:
 
-Região 1 | Região 2
-:----- | ------:
-Centro-Norte dos EUA | Centro-Sul dos Estados Unidos
-Leste dos EUA | Oeste dos EUA
-Leste dos EUA 2 | Centro dos EUA
-Norte da Europa | Europa Ocidental
-Sudeste da Ásia | Ásia Oriental
-China Oriental | Norte da China
-Leste do Japão | Oeste do Japão
-Sul do Brasil | Centro-Sul dos Estados Unidos
-Sudeste da Austrália | Leste da Austrália
-Centro da Índia | Sul da Índia
-Oeste da Índia | Sul da Índia
-Gov. dos EUA – Iowa | Gov. dos EUA – Virgínia
+| Região 1 | Região 2 |
+|:--- | ---:|
+| Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
+| Leste dos EUA |Oeste dos EUA |
+| Leste dos EUA 2 |Centro dos EUA |
+| Norte da Europa |Europa Ocidental |
+| Sudeste da Ásia |Ásia Oriental |
+| China Oriental |Norte da China |
+| Leste do Japão |Oeste do Japão |
+| Sul do Brasil |Centro-Sul dos Estados Unidos |
+| Sudeste da Austrália |Leste da Austrália |
+| Centro da Índia |Sul da Índia |
+| Oeste da Índia |Sul da Índia |
+| Gov. dos EUA – Iowa |Gov. dos EUA – Virgínia |
 
 <!--Anchors-->
 [image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png

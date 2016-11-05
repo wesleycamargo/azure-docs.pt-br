@@ -1,27 +1,26 @@
-<properties
-   pageTitle="Como registrar as fontes de dados | Microsoft Azure"
-   description="Artigo de instruções destacando como registrar fontes de dados ao Catálogo de Dados do Azure, incluindo os campos de metadados extraídos durante o registro."
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="10/04/2016"
-   ms.author="maroche"/>
+---
+title: Como registrar as fontes de dados | Microsoft Docs
+description: Artigo de instruções destacando como registrar fontes de dados ao Catálogo de Dados do Azure, incluindo os campos de metadados extraídos durante o registro.
+services: data-catalog
+documentationcenter: ''
+author: steelanddata
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 10/04/2016
+ms.author: maroche
 
-
+---
 # <a name="how-to-register-data-sources"></a>Como registrar fontes de dados
-
 ## <a name="introduction"></a>Introdução
 **Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o **Catálogo de Dados do Azure** ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de seus dados existentes. E a primeira etapa para tornar uma fonte de passível de ser descoberta no **Catálogo de Dados do Azure** é registrar essa fonte de dados.
+
 ## <a name="registering-data-sources"></a>Registrar fontes de dados
 Registro é o ato de extrair metadados da fonte de dados e copiá-los no serviço de **Catálogo de Dados do Azure** . Os dados permanecem onde atualmente residem e permanecem sob o controle dos administradores e políticas do sistema atual.
 
@@ -34,7 +33,6 @@ Depois que a fonte de dados tiver sido registrada, o catálogo rastreia o local 
 Consulte o [DSR do Catálogo de Dados](data-catalog-dsr.md) para obter a lista de fontes de dados com suporte no momento.
 <br/>
 
-
 ## <a name="structural-metadata"></a>Metadados estruturais
 Quando você estiver registrando uma fonte de dados, a ferramenta de registro vai extrair informações sobre a estrutura dos objetos selecionados — isso é referido como metadados estruturais.
 
@@ -46,17 +44,16 @@ Além dos principais metadados estruturais extraídos da fonte de dados, a ferra
 Além dos metadados descritivos extraídos da fonte de dados, os usuários também podem inserir metadados descritivos usando a ferramenta de registro de fonte de dados. Os usuários podem adicionar marcas e podem identificar especialistas para os objetos que estão sendo registrados. Todos esses metadados descritivos são copiados no serviço do **Catálogo de Dados do Azure** juntamente com os metadados estruturais.
 
 ## <a name="including-previews"></a>Incluindo visualizações
-
 Por padrão, somente os metadados são extraídos das fontes de dados e copiados no serviço do **Catálogo de Dados do Azure** , mas para compreender com mais facilidade uma fonte de dados, veja um exemplo dos dados que ela contém.
 
 A ferramenta de registro de fonte de dados do **Catálogo de Dados do Azure** permite que os usuários incluam uma visualização de instantâneo dos dados em cada tabela e do modo de exibição registrado. Se o usuário aceitar incluir visualizações durante o registro, a ferramenta de registro incluirá até 20 registros de cada tabela e exibição. Esse instantâneo é, então, copiado para o catálogo junto com os metadados estruturais e descritivos.
 
-
-> [AZURE.NOTE]  Tabelas largas com um grande número de colunas podem ter menos de 20 registros incluídos na sua visualização.
-
+> [!NOTE]
+> Tabelas largas com um grande número de colunas podem ter menos de 20 registros incluídos na sua visualização.
+> 
+> 
 
 ## <a name="including-data-profiles"></a>Incluindo perfis de dados
-
 Assim como incluir visualizações pode fornecer um contexto valioso aos usuários que pesquisam fontes de dados no **Catálogo de Dados do Azure**, incluir um perfil de dados também pode facilitar a compreensão das fontes de dados descobertas.
 
 A ferramenta de registro de fonte de dados do **Catálogo de Dados do Azure** permite aos usuários incluir um perfil de dados para cada tabela e exibição registrada. Se o usuário optar por incluir um perfil de dados durante o registro, a ferramenta de registro incluirá estatísticas agregadas sobre os dados em cada tabela e exibição, incluindo:
@@ -68,10 +65,12 @@ A ferramenta de registro de fonte de dados do **Catálogo de Dados do Azure** pe
 
 Essas estatísticas são copiadas no catálogo com os metadados estruturais e descritivos.
 
-> [AZURE.NOTE]  As colunas de data e texto não incluirão estatísticas de desvio médio ou padrão no respectivo perfil de dados.
+> [!NOTE]
+> As colunas de data e texto não incluirão estatísticas de desvio médio ou padrão no respectivo perfil de dados.
+> 
+> 
 
 ## <a name="updating-registrations"></a>Atualização de registros
-
 Registrar uma fonte de dados a tornará detectável no **Catálogo de Dados do Azure** usando os metadados e a visualização opcional extraídos durante o registro. Se a fonte de dados precisa ser atualizada no catálogo (por exemplo, se o esquema de um objeto foi alterado, ou tabelas originalmente excluídas devem ser incluídas ou um usuário quiser atualizar os dados incluídos nas visualizações), a ferramenta de registro da fonte de dados pode ser executada novamente.
 
 O novo registro de uma fonte de dados já registrada executa uma operação de mesclagem "upsert": objetos existentes serão atualizados, enquanto os novos objetos serão criados. Todos os metadados fornecidos por usuários por meio do portal do **Catálogo de Dados do Azure** serão mantidos.
@@ -80,9 +79,7 @@ O novo registro de uma fonte de dados já registrada executa uma operação de m
 Registrar uma fonte de dados no **Catálogo de Dados do Azure** facilita a descoberta e a compreensão desta fonte de dados ao copiar os metadados estruturais e descritivos da fonte de dados no serviço do catálogo. Depois que uma fonte de dados tiver sido registrada, ela poderá ser anotada, gerenciada e descoberta usando o portal do **Catálogo de Dados do Azure** .
 
 ## <a name="see-also"></a>Consulte também
-- [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como registrar fontes de dados.
-
-
+* [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como registrar fontes de dados.
 
 <!--HONumber=Oct16_HO2-->
 

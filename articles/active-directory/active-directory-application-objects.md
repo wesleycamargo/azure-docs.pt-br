@@ -1,21 +1,21 @@
-<properties
-pageTitle="Objetos de entidade de serviço e aplicativo do Azure Active Directory | Microsoft Azure"
-description="Uma discussão sobre a relação entre objetos de aplicativo e de entidade de serviço no Azure Active Directory"
-documentationCenter="dev-center-name"
-authors="bryanla"
-manager="mbaldwin"
-services="active-directory"
-editor=""/>
+---
+title: Objetos de entidade de serviço e aplicativo do Azure Active Directory | Microsoft Docs
+description: Uma discussão sobre a relação entre objetos de aplicativo e de entidade de serviço no Azure Active Directory
+documentationcenter: dev-center-name
+author: bryanla
+manager: mbaldwin
+services: active-directory
+editor: ''
 
-<tags
-ms.service="active-directory"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="identity"
-ms.date="08/10/2016"
-ms.author="bryanla;mbaldwin"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/10/2016
+ms.author: bryanla;mbaldwin
 
+---
 # Objetos de entidade de serviço e aplicativo no Azure Active Directory
 Quando você lê sobre um "aplicativo" do Azure Active Directory (AD), nem sempre é exatamente claro a que o autor se refere. A meta deste artigo é deixar isso claro, definindo os aspectos conceituais e concretos de integração de aplicativos do Azure AD, seguidos de um exemplo de registro e consentimento para um [aplicativo multilocatário](active-directory-dev-glossary.md#multi-tenant-application).
 
@@ -35,14 +35,17 @@ O objeto de entidade de serviço define a política e as permissões para um apl
 
 Um objeto de entidade de serviço é necessário em cada locatário para o qual uma instância do uso do aplicativo deve ser representada, habilitando o acesso seguro aos recursos pertencentes a contas de usuário do locatário. Um aplicativo único locatário terá apenas uma entidade de serviço (em seu locatário doméstico). Um [aplicativo Web](active-directory-dev-glossary.md#web-client) multilocatário também terá uma entidade de serviço em cada locatário em que um administrador ou usuários desse locatário tenham dado consentimento, permitindo que ele acesse seus recursos. Após o consentimento, o objeto de entidade de serviço será consultado para futuras solicitações de autorização.
 
-> [AZURE.NOTE] As alterações feitas no objeto de aplicativo também são refletidas apenas no objeto de entidade de serviço do locatário inicial do aplicativo (o locatário em que ele foi registrado). Para aplicativos multilocatário, as alterações no objeto de aplicativo não serão refletidas em objetos de entidade de serviço de locatários do consumidor até que o locatário do consumidor remova o acesso e o conceda novamente.
+> [!NOTE]
+> As alterações feitas no objeto de aplicativo também são refletidas apenas no objeto de entidade de serviço do locatário inicial do aplicativo (o locatário em que ele foi registrado). Para aplicativos multilocatário, as alterações no objeto de aplicativo não serão refletidas em objetos de entidade de serviço de locatários do consumidor até que o locatário do consumidor remova o acesso e o conceda novamente.
+> 
+> 
 
 ## Exemplo
 O diagrama a seguir ilustra o relacionamento entre o objeto de aplicativo de um aplicativo e os objetos de entidade de serviço correspondentes, no contexto de um aplicativo multilocatário de exemplo chamado **aplicativo de RH**. Há três locatários do Azure AD nesse cenário:
 
-- **Adatum** - o locatário usado pela empresa que desenvolveu o **aplicativo de HR**
-- **Contoso** - locatário utilizado pela empresa Contoso, que é consumidora do **aplicativo de HR**
-- **Fabrikam** - o locatário usado pela organização Fabrikam, que também consome o **aplicativo de HR**
+* **Adatum** - o locatário usado pela empresa que desenvolveu o **aplicativo de HR**
+* **Contoso** - locatário utilizado pela empresa Contoso, que é consumidora do **aplicativo de HR**
+* **Fabrikam** - o locatário usado pela organização Fabrikam, que também consome o **aplicativo de HR**
 
 ![Relação entre um objeto de aplicativo e um objeto de entidade de serviço](./media/active-directory-application-objects/application-objects-relationship.png)
 
@@ -56,8 +59,6 @@ Na etapa 3, cada um dos locatários do consumidor do aplicativo de RH (Contoso e
 Um objeto de aplicativo do aplicativo pode ser acessado por meio da API do Graph do Azure AD, conforme representado por sua [entidade de Aplicativo][AAD-Graph-App-Entity] OData
 
 Um objeto de entidade de serviço do aplicativo pode ser acessado por meio da API do Graph do Azure AD, conforme representado por sua [entidade ServicePrincipal][AAD-Graph-Sp-Entity] OData
-
-
 
 <!--Image references-->
 

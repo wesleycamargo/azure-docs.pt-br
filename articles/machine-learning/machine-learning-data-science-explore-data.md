@@ -1,32 +1,31 @@
-<properties 
-	pageTitle="Explorar dados no Processo de Ciência de Dados de Equipe | Microsoft Azure" 
-	description="Como explorar dados em vários ambientes de armazenamento." 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="jhubbard" 
-	editor="cgronlun" />
+---
+title: Explorar dados no Processo de Ciência de Dados de Equipe | Microsoft Docs
+description: Como explorar dados em vários ambientes de armazenamento.
+services: machine-learning,storage
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/13/2016" 
-	ms.author="bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/13/2016
+ms.author: bradsev
 
-#Explorar dados no Processo de Ciência de Dados de Equipe
-
+---
+# Explorar dados no Processo de Ciência de Dados de Equipe
 Este documento aborda como explorar dados em quatro ambientes diferentes, normalmente usados no Processo de Ciência de Dados:
 
-- **Contêiner de blob do azure** Os dados são explorados usando o pacote Python [Pandas](http://pandas.pydata.org/).
-- **Dados do SQL Server** são explorados usando SQL e usando uma linguagem de programação como o Python.
-- **Tabela do Hive** Os dados são explorados usando consultas de Hive.
-- Os dados do **Studio de AML(Aprendizado de Máquina do Azure)** são explorados usando módulos do AML.
+* **Contêiner de blob do azure** Os dados são explorados usando o pacote Python [Pandas](http://pandas.pydata.org/).
+* **Dados do SQL Server** são explorados usando SQL e usando uma linguagem de programação como o Python.
+* **Tabela do Hive** Os dados são explorados usando consultas de Hive.
+* Os dados do **Studio de AML(Aprendizado de Máquina do Azure)** são explorados usando módulos do AML.
 
 Os links no **menu** a seguir levam aos tópicos que descrevem como usar essas ferramentas para explorar dados de vários ambientes de armazenamento.
 
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+[!INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 <!---HONumber=AcomDC_0914_2016-->

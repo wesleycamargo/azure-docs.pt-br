@@ -1,59 +1,48 @@
-<properties
-   pageTitle="Conectar um dispositivo usando C no Windows | Microsoft Azure"
-   description="Descreve como conectar um dispositivo à solução pré-configurada de monitoramento remoto do Azure IoT Suite usando um aplicativo escrito em C em execução no Windows."
-   services=""
-   suite="iot-suite"
-   documentationCenter="na"
-   authors="dominicbetts"
-   manager="timlt"
-   editor=""/>
+---
+title: Conectar um dispositivo usando C no Windows | Microsoft Docs
+description: Descreve como conectar um dispositivo à solução pré-configurada de monitoramento remoto do Azure IoT Suite usando um aplicativo escrito em C em execução no Windows.
+services: ''
+suite: iot-suite
+documentationcenter: na
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="iot-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/14/2016"
-   ms.author="dobett"/>
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/14/2016
+ms.author: dobett
 
-
+---
 # Conectar seu dispositivo à solução pré-configurada de monitoramento remoto (Windows)
-
-[AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
+[!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## Criar um exemplo de solução C no Windows
-
 As etapas a seguir mostrar como usar o Visual Studio para criar um aplicativo cliente simples escrito em C que se comunica com a solução pré-configurada de Monitoramento Remoto.
 
 Crie um projeto inicial no Visual Studio 2015 e adicione os pacotes NuGet de cliente do dispositivo Hub IoT:
 
 1. No Visual Studio 2015, crie um novo aplicativo de console C usando o modelo **Aplicativo do Console Win32** do Visual C++. Dê o nome de **RMDevice** ao projeto.
-
 2. Na página **Configurações de Aplicativos** no **Assistente do Aplicativo Win32**, verifique se **Aplicativo do Console** está selecionado e desmarque **Cabeçalho pré-compilado** e **Verificações do SDL (Security Development Lifecycle)**.
-
 3. No **Gerenciador de Soluções**, exclua os arquivos stdafx.h, targetver.h e stdafx.cpp.
-
 4. No **Gerenciador de Soluções**, renomeie o arquivo RMDevice.cpp para RMDevice.c.
-
 5. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **RMDevice** e clique em **Gerenciar Pacotes NuGet**. Clique em **Procurar** para encontrar e instalar os seguintes pacotes NuGet no projeto:
-
-    - Microsoft.Azure.IoTHub.Serializer
-    - Microsoft.Azure.IoTHub.IoTHubClient
-    - Microsoft.Azure.IoTHub.HttpTransport
-
+   
+   * Microsoft.Azure.IoTHub.Serializer
+   * Microsoft.Azure.IoTHub.IoTHubClient
+   * Microsoft.Azure.IoTHub.HttpTransport
 6. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **RMDevice** e clique em **Propriedades** para abrir a caixa de diálogo **Páginas de Propriedade**. Para obter detalhes, confira [Definindo as propriedades do projeto no Visual C++][lnk-c-project-properties].
-
 7. Clique na pasta **Vinculador** e clique na página de propriedade **Entrada**.
-
 8. Adicione **crypt32.lib** à propriedade **Dependências Adicionais**. Clique em **OK** e **OK** novamente para salvar os valores da propriedade do projeto.
 
 ## Especificar o comportamento do dispositivo Hub IoT
-
 As bibliotecas de cliente do Hub IoT usam um modelo para especificar o formato das mensagens que o dispositivo envia ao Hub IoT e os comandos do Hub IoT aos quais o dispositivo responde.
 
 1. No Visual Studio, abra o arquivo RMDevice.c. Substitua as instruções `#include` existentes pelo seguinte:
-
+   
     ```
     #include "iothubtransporthttp.h"
     #include "schemalib.h"
@@ -63,61 +52,58 @@ As bibliotecas de cliente do Hub IoT usam um modelo para especificar o formato d
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
     ```
-
 2. Adicione as declarações de variável a seguir após as instruções `#include`. Substitua os valores do espaço reservado [ID do Dispositivo] e [Chave do Dispositivo] pelos valores do seu dispositivo no painel da solução de monitoramento remoto. Use o nome de host do Hub IoT no painel para substituir [IoTHub Name]. Por exemplo, se o nome de host do Hub IoT for **contoso.azure-devices.net**, substitua [Nome do HubIoT] por **contoso**:
-
+   
     ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "azure-devices.net";
     ```
-
 3. Adicione o código a seguir para definir o modelo que permite ao dispositivo se comunicar com o Hub IoT. Esse modelo especifica que o dispositivo envia temperatura, temperatura externa, umidade e uma ID de dispositivo como telemetria. O dispositivo também envia metadados sobre o dispositivo ao Hub IoT, incluindo uma lista de comandos permitidos pelo dispositivo. Esse dispositivo responde aos comandos **SetTemperature** e **SetHumidity**:
-
+   
     ```
     // Define the Model
     BEGIN_NAMESPACE(Contoso);
-
+   
     DECLARE_STRUCT(SystemProperties,
     ascii_char_ptr, DeviceID,
     _Bool, Enabled
     );
-
+   
     DECLARE_STRUCT(DeviceProperties,
     ascii_char_ptr, DeviceID,
     _Bool, HubEnabledState
     );
-
+   
     DECLARE_MODEL(Thermostat,
-
+   
     /* Event data (temperature, external temperature and humidity) */
     WITH_DATA(int, Temperature),
     WITH_DATA(int, ExternalTemperature),
     WITH_DATA(int, Humidity),
     WITH_DATA(ascii_char_ptr, DeviceId),
-
+   
     /* Device Info - This is command metadata + some extra fields */
     WITH_DATA(ascii_char_ptr, ObjectType),
     WITH_DATA(_Bool, IsSimulatedDevice),
     WITH_DATA(ascii_char_ptr, Version),
     WITH_DATA(DeviceProperties, DeviceProperties),
     WITH_DATA(ascii_char_ptr_no_quotes, Commands),
-
+   
     /* Commands implemented by the device */
     WITH_ACTION(SetTemperature, int, temperature),
     WITH_ACTION(SetHumidity, int, humidity)
     );
-
+   
     END_NAMESPACE(Contoso);
     ```
 
 ## Implementar o comportamento do dispositivo
-
 Agora você deve adicionar o código que implementa o comportamento definido no modelo.
 
 1. Adicione as seguintes funções que serão executadas quando o dispositivo receber os comandos **SetTemperature** e **SetHumidity** do Hub IoT:
-
+   
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
     {
@@ -125,7 +111,7 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
       thermostat->Temperature = temperature;
       return EXECUTE_COMMAND_SUCCESS;
     }
-
+   
     EXECUTE_COMMAND_RESULT SetHumidity(Thermostat* thermostat, int humidity)
     {
       (void)printf("Received humidity %d\r\n", humidity);
@@ -133,9 +119,8 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
       return EXECUTE_COMMAND_SUCCESS;
     }
     ```
-
 2. Adicione a seguinte função que envia uma mensagem ao Hub IoT:
-
+   
     ```
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size)
     {
@@ -154,15 +139,14 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
         {
           printf("IoTHubClient accepted the message for delivery\r\n");
         }
-
+   
         IoTHubMessage_Destroy(messageHandle);
       }
     free((void*)buffer);
     }
     ```
-
 3. Adicione a seguinte função que conecta a biblioteca de serialização no SDK:
-
+   
     ```
     static IOTHUBMESSAGE_DISPOSITION_RESULT IoTHubMessage(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
@@ -198,9 +182,8 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
       return result;
     }
     ```
-
 4. Adicione a função a seguir para se conectar ao Hub IoT, enviar e receber mensagens e se desconectar do hub. Observe como o dispositivo envia metadados sobre si mesmo, incluindo os comandos com os quais é compatível, ao Hub IoT assim que se conecta — isso permite que a solução atualize o status do dispositivo para **Em execução** no painel:
-
+   
     ```
     void remote_monitoring_run(void)
     {
@@ -212,7 +195,7 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
       {
         IOTHUB_CLIENT_CONFIG config;
         IOTHUB_CLIENT_HANDLE iotHubClientHandle;
-
+   
         config.deviceId = deviceId;
         config.deviceKey = deviceKey;
         config.iotHubName = hubName;
@@ -235,14 +218,14 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
           else
           {
             STRING_HANDLE commandsMetadata;
-
+   
             if (IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, thermostat) != IOTHUB_CLIENT_OK)
             {
               printf("unable to IoTHubClient_SetMessageCallback\r\n");
             }
             else
             {
-
+   
               /* send the device info upon startup so that the cloud app knows
               what commands are available and the fact that the device is up */
               thermostat->ObjectType = "DeviceInfo";
@@ -250,7 +233,7 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
               thermostat->Version = "1.0";
               thermostat->DeviceProperties.HubEnabledState = true;
               thermostat->DeviceProperties.DeviceID = (char*)deviceId;
-
+   
               commandsMetadata = STRING_new();
               if (commandsMetadata == NULL)
               {
@@ -268,7 +251,7 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
                   unsigned char* buffer;
                   size_t bufferSize;
                   thermostat->Commands = (char*)STRING_c_str(commandsMetadata);
-
+   
                   /* Here is the actual send of the Device Info */
                   if (SERIALIZE(&buffer, &bufferSize, thermostat->ObjectType, thermostat->Version, thermostat->IsSimulatedDevice, thermostat->DeviceProperties, thermostat->Commands) != IOT_AGENT_OK)
                   {
@@ -278,24 +261,24 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
                   {
                     sendMessage(iotHubClientHandle, buffer, bufferSize);
                   }
-
+   
                 }
-
+   
                 STRING_delete(commandsMetadata);
               }
-
+   
               thermostat->Temperature = 50;
               thermostat->ExternalTemperature = 55;
               thermostat->Humidity = 50;
               thermostat->DeviceId = (char*)deviceId;
-
+   
               while (1)
               {
                 unsigned char*buffer;
                 size_t bufferSize;
-
+   
                 (void)printf("Sending sensor value Temperature = %d, Humidity = %d\r\n", thermostat->Temperature, thermostat->Humidity);
-
+   
                 if (SERIALIZE(&buffer, &bufferSize, thermostat->DeviceId, thermostat->Temperature, thermostat->Humidity, thermostat->ExternalTemperature) != IOT_AGENT_OK)
                 {
                   (void)printf("Failed sending sensor value\r\n");
@@ -304,11 +287,11 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
                 {
                   sendMessage(iotHubClientHandle, buffer, bufferSize);
                 }
-
+   
                 ThreadAPI_Sleep(1000);
               }
             }
-
+   
             DESTROY_MODEL_INSTANCE(thermostat);
           }
           IoTHubClient_Destroy(iotHubClientHandle);
@@ -317,9 +300,9 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
       }
     }
     ```
-    
+   
     Para referência, veja um exemplo de mensagem de **DeviceInfo** enviada ao Hub IoT na inicialização:
-
+   
     ```
     {
       "ObjectType":"DeviceInfo",
@@ -336,15 +319,15 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
       ]
     }
     ```
-    
+   
     Para referência, veja um exemplo de mensagem de **Telemetria** enviada ao Hub IoT:
-
+   
     ```
     {"DeviceId":"mydevice01", "Temperature":50, "Humidity":50, "ExternalTemperature":55}
     ```
-    
+   
     Para referência, veja um exemplo de **Comando** recebido do Hub IoT:
-    
+   
     ```
     {
       "Name":"SetHumidity",
@@ -353,9 +336,8 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
       "Parameters":{"humidity":23}
     }
     ```
-
 5. Substitua a função **main** pelo seguinte código para invocar a função **remote\_monitoring\_run**:
-
+   
     ```
     int main()
     {
@@ -363,13 +345,10 @@ Agora você deve adicionar o código que implementa o comportamento definido no 
       return 0;
     }
     ```
-
 6. Clique em **Compilar** e em **Compilar Solução** para compilar o aplicativo do dispositivo.
-
 7. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto **RMDevice**, clique em **Depurar** e em **Iniciar nova instância** para executar o exemplo. O console exibe mensagens à medida que o aplicativo envia a telemetria de exemplo ao Hub IoT e recebe comandos.
 
-[AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
-
+[!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
 [lnk-c-project-properties]: https://msdn.microsoft.com/library/669zx6zc.aspx
 

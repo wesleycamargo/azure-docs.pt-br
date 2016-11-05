@@ -1,42 +1,38 @@
-<properties 
-   pageTitle="Como testar as configurações do Gerenciador de Tráfego | Microsoft Azure"
-   description="Este artigo o ajudará a testar as configurações do Gerenciador de Tráfego"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
-   ms.author="sewhee" />
+---
+title: Como testar as configurações do Gerenciador de Tráfego | Microsoft Docs
+description: Este artigo o ajudará a testar as configurações do Gerenciador de Tráfego
+services: traffic-manager
+documentationcenter: ''
+author: sdwheeler
+manager: carmonm
+editor: tysonn
 
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/17/2016
+ms.author: sewhee
+
+---
 # Teste as configurações do Gerenciador de Tráfego
-
 A melhor maneira de testar suas configurações do Gerenciador de Tráfego é configurar vários clientes e desativar os pontos de extremidade, que consistem em serviços de nuvem e sites, um de cada vez em seu perfil. As dicas a seguir o ajudarão a testar seu perfil do Gerenciador de Tráfego:
 
 ## Etapas básicas de teste
-
-- **Defina o TTL DNS como muito baixo**, de forma que as alterações sejam propagadas rapidamente (30 segundos, por exemplo).
-- **Conheça os endereços IP de seus serviços de nuvem do Azure e sites** no perfil que você está testando.
-- **Use ferramentas que permitam resolver um nome DNS para um endereço IP** e exibir esse endereço. Você está verificando se o nome de domínio de sua empresa é resolvido na forma de endereços IP dos pontos de extremidade em seu perfil. Eles devem ser resolvidos de maneira consistente com o método de roteamento de tráfego do seu perfil do Gerenciador de Tráfego. Se estiver em um computador que executa o Windows, você poderá usar a ferramenta Nslookup.exe em um prompt de comando ou do Windows PowerShell. Outras ferramentas disponíveis publicamente que permitem que você "se aprofunde" em um endereço IP também estão prontamente disponíveis na Internet.
+* **Defina o TTL DNS como muito baixo**, de forma que as alterações sejam propagadas rapidamente (30 segundos, por exemplo).
+* **Conheça os endereços IP de seus serviços de nuvem do Azure e sites** no perfil que você está testando.
+* **Use ferramentas que permitam resolver um nome DNS para um endereço IP** e exibir esse endereço. Você está verificando se o nome de domínio de sua empresa é resolvido na forma de endereços IP dos pontos de extremidade em seu perfil. Eles devem ser resolvidos de maneira consistente com o método de roteamento de tráfego do seu perfil do Gerenciador de Tráfego. Se estiver em um computador que executa o Windows, você poderá usar a ferramenta Nslookup.exe em um prompt de comando ou do Windows PowerShell. Outras ferramentas disponíveis publicamente que permitem que você "se aprofunde" em um endereço IP também estão prontamente disponíveis na Internet.
 
 ### Para verificar um perfil do Gerenciador de Tráfego usando nslookup
-
 1. Abra um prompt de comando ou do Windows PowerShell como administrador.
 2. Digite `ipconfig /flushdns` para liberar o cache do resolvedor DNS.
 3. Digite `nslookup <your Traffic Manager domain name>`. Por exemplo, o comando a seguir verifica o nome de domínio com o prefixo *myapp.contoso*: nslookup myapp.contoso.trafficmanager.net. Um resultado típico mostrará o seguinte:
-   - O nome DNS e o endereço IP do servidor DNS que está sendo acessado para resolver o nome de domínio do Gerenciador de Tráfego.
-   - O nome de domínio do Gerenciador de Tráfego digitado na linha de comando após "nslookup" e o endereço IP para o qual o domínio do Gerenciador de Tráfego é resolvido. O segundo endereço IP é o importante para a verificação. Ele deve corresponder a um endereço VIP (IP virtual) público de um dos serviços de nuvem ou sites no perfil do Gerenciador de Tráfego que você está testando.
+   * O nome DNS e o endereço IP do servidor DNS que está sendo acessado para resolver o nome de domínio do Gerenciador de Tráfego.
+   * O nome de domínio do Gerenciador de Tráfego digitado na linha de comando após "nslookup" e o endereço IP para o qual o domínio do Gerenciador de Tráfego é resolvido. O segundo endereço IP é o importante para a verificação. Ele deve corresponder a um endereço VIP (IP virtual) público de um dos serviços de nuvem ou sites no perfil do Gerenciador de Tráfego que você está testando.
 
 ## Como testar os métodos de roteamento de tráfego
-
 ### Para testar um método de roteamento de tráfego de failover
-
 1. Deixe todos os pontos de extremidade ativados.
 2. Use um único cliente.
 3. Solicite a resolução de DNS para o nome de domínio da empresa usando a ferramenta Nslookup.exe ou um utilitário semelhante.
@@ -48,7 +44,6 @@ A melhor maneira de testar suas configurações do Gerenciador de Tráfego é co
 9. Repita o processo, desativando o ponto de extremidade secundário, seguido pelo terciário e assim por diante. A cada vez, verifique se a resolução de DNS retorna o endereço IP do próximo ponto de extremidade na lista. Quando todos os pontos de extremidade estiverem desativados, você deverá obter o endereço IP do ponto de extremidade primário novamente.
 
 ### Para testar um método de roteamento de tráfego de round robin
-
 1. Deixe todos os pontos de extremidade ativados.
 2. Use um único cliente.
 3. Solicite a resolução de DNS para o domínio de sua empresa usando a ferramenta Nslookup.exe ou um utilitário semelhante.
@@ -56,20 +51,13 @@ A melhor maneira de testar suas configurações do Gerenciador de Tráfego é co
 5. Libere o cache do cliente DNS e repita as etapas 3 e 4 repetidamente. Você deverá ver diferentes endereços IP retornados para cada um de seus pontos de extremidade. Em seguida, o processo será repetido.
 
 ### Para testar um método de roteamento de tráfego de desempenho
-
 Para testar efetivamente um método de roteamento de tráfego de desempenho, você deve ter clientes localizados em diferentes partes do mundo. Você pode criar clientes no Azure que tentarão chamar seus serviços por meio do nome de domínio de sua empresa. Como alternativa, se a sua empresa for global, você poderá fazer logon remotamente em clientes em outras partes do mundo e realizar testes por meio desses clientes.
 
 Há serviços gratuitos de dig e pesquisa de DNS baseados na Web disponíveis. Alguns deles possibilitam que você verifique a resolução de nome DNS a partir de vários locais. Pesquise "Pesquisa de DNS" para obter exemplos. Outra opção é usar uma solução de terceiros, como Gomez ou Keynote, para confirmar que os perfis estão distribuindo o tráfego conforme o esperado.
 
 ## Próximas etapas
-
 [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
 
 [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
-
-
-
-
- 
 
 <!---HONumber=AcomDC_0824_2016-->

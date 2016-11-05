@@ -1,31 +1,28 @@
-<properties
-   pageTitle="Diagnosticando falhas dos aplicativos lógicos | Microsoft Azure"
-   description="Abordagens comuns para compreender onde os aplicativos lógicos estão falhando"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="jeffhollan"
-   manager="erikre"
-   editor=""/>
+---
+title: Diagnosticando falhas dos aplicativos lógicos | Microsoft Docs
+description: Abordagens comuns para compreender onde os aplicativos lógicos estão falhando
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: jeffhollan
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="05/18/2016"
-   ms.author="jehollan"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 05/18/2016
+ms.author: jehollan
 
+---
 # Diagnosticando falhas nos aplicativos lógicos
-
 Se você tiver problemas ou falhas com o recurso de aplicativos lógicos do Serviço de Aplicativo do Azure, algumas abordagens poderão ajudá-lo a entender melhor a origem das falhas.
 
 ## Ferramentas do portal do Azure
-
 O Portal do Azure fornece várias ferramentas para diagnosticar cada aplicativo lógico em cada etapa.
 
 ### Histórico de gatilho
-
 Cada aplicativo lógico tem pelo menos um gatilho. Se você perceber que os aplicativos não são acionados, o primeiro lugar para obter informações adicionais será o histórico de gatilhos. Você pode acessar o histórico de gatilhos na folha principal do aplicativo lógico.
 
 ![Exibir o histórico de gatilho][1]
@@ -39,11 +36,9 @@ Os diferentes status que você pode ver são:
 * **Falha**. Um erro foi gerado.
 
 #### Iniciar um gatilho manualmente
-
 Se você quiser que o aplicativo lógico verifique imediatamente se há um gatilho disponível (sem aguardar a próxima recorrência), você poderá clicar no botão **Selecionar Gatilho** na folha principal para forçar uma verificação. Por exemplo, clicar nesse link com um gatilho Dropbox fará com que o fluxo de trabalho sonde o Dropbox imediatamente em busca de novos arquivos.
 
 ### Histórico da execução
-
 Cada gatilho que é acionado resulta em uma execução. Você pode acessar informações da execução da folha principal, que contém muitas informações que podem ser úteis para entender o que aconteceu durante o fluxo de trabalho.
 
 ![Localizando o histórico da execução][2]
@@ -58,25 +53,22 @@ Uma execução exibe um dos seguintes status:
 Quando você estiver observando um histórico da execução, você pode analisar para obter mais detalhes.
 
 #### Saídas do gatilho
-
 As saídas do gatilho mostrarão os dados recebidos do gatilho. Isso pode ajudá-lo a determinar se todas as propriedades retornaram conforme o esperado.
 
->[AZURE.NOTE] Poderá ser útil entender como o recurso Aplicativos Lógicos [lida com os diferentes tipos de conteúdo](app-service-logic-content-type.md) se você vir qualquer conteúdo que não entender.
+> [!NOTE]
+> Poderá ser útil entender como o recurso Aplicativos Lógicos [lida com os diferentes tipos de conteúdo](app-service-logic-content-type.md) se você vir qualquer conteúdo que não entender.
+> 
+> 
 
 ![Exemplos de saída do gatilho][3]
 
 #### Entradas e saídas da ação
-
 Você pode analisar as entradas e saídas que uma ação recebeu. Isso é útil para entender o tamanho e a forma das saídas, bem como ver todas as mensagens de erro que possam ter sido geradas.
 
 ![Entradas e saídas da ação][4]
 
 ## Depurando o tempo de execução do fluxo de trabalho
-
 Além de monitorar as entradas, saídas e gatilhos de uma execução, pode ser útil adicionar algumas etapas em um fluxo de trabalho para ajudar na depuração. O [RequestBin](http://requestb.in) é uma ferramenta poderosa que você pode adicionar como uma etapa em um fluxo de trabalho. Usando o RequestBin, você pode configurar um inspetor de solicitação HTTP para determinar exatamente o tamanho, forma e formato de uma solicitação HTTP. Você pode criar um novo RequestBin e colar a URL em uma Ação HTTP POST do aplicativo lógico junto com qualquer conteúdo do corpo que você deseje testar (por exemplo, uma expressão, ou outra saída da etapa). Depois de executar o aplicativo lógico, você poderá atualizar o RequestBin para ver como a solicitação foi formada, já que ela foi gerada do mecanismo dos Aplicativos Lógicos.
-
-
-
 
 <!-- image references -->
 [1]: ./media/app-service-logic-diagnosing-failures/triggerHistory.PNG

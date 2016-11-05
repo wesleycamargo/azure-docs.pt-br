@@ -1,39 +1,34 @@
-<properties
-    pageTitle="Como usar o Armazenamento de tabela do Python | Microsoft Azure"
-    description="Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
-    services="storage"
-    documentationCenter="python"
-    authors="tamram"
-    manager="carmonm"
-    editor="tysonn"/>
+---
+title: Como usar o Armazenamento de tabela do Python | Microsoft Docs
+description: Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL.
+services: storage
+documentationcenter: python
+author: tamram
+manager: carmonm
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="python"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="tamram"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: tamram
 
-
-
+---
 # <a name="how-to-use-table-storage-from-python"></a>Como usar o Armazenamento de tabela do Python
+[!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Visão geral
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Tabela do Azure. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python](SDK do Armazenamento do Microsoft Azure para Python.md). Os cenários abrangidos incluem criar e excluir uma tabela, além de inserir e consultar entidades em uma tabela.
 
-Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Tabela do Azure. Os exemplos são escritos em Python e usam o [Microsoft Azure Storage SDK for Python](SDK do Armazenamento do Microsoft Azure para Python). Os cenários abrangidos incluem criar e excluir uma tabela, além de inserir e consultar entidades em uma tabela.
+[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-table"></a>Criar uma tabela
-
 O objeto **TableService** permite que você trabalhe com serviços de tabela. O código a seguir cria um objeto **TableService** . Adicione o código próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o Armazenamento do Azure programaticamente:
 
     from azure.storage.table import TableService, Entity
@@ -45,7 +40,6 @@ O código a seguir cria um objeto **TableService** usando o nome da conta de arm
     table_service.create_table('tasktable')
 
 ## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
-
 Para adicionar uma entidade, crie primeiro um dicionário ou Entidade que defina os nomes e os valores das propriedade da sua entidade. Observe que, para cada entidade, é necessário especificar **PartitionKey** e **RowKey**. Esses são os identificadores exclusivos das suas entidades. É possível consultar usando esses valores de forma muito mais rápida do que com as outras propriedades. O sistema usa o **PartitionKey** para distribuir automaticamente as entidades das tabelas por vários nós de armazenamento.
 As entidades com o mesmo **PartitionKey** são armazenadas no mesmo nó. **RowKey** é o ID exclusivo da entidade na partição à qual pertence.
 
@@ -64,7 +58,6 @@ Você também pode passar uma instância da classe **Entity** para o método **i
     table_service.insert_entity('tasktable', task)
 
 ## <a name="update-an-entity"></a>Atualizar uma entidade
-
 Este código mostra como substituir a versão antiga de uma entidade existente por uma versão atualizada.
 
     task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the garbage', 'priority' : 250}
@@ -80,7 +73,6 @@ No exemplo a seguir, a primeira chamada substituirá a entidade existente. A seg
     table_service.insert_or_replace_entity('tasktable', 'tasksSeattle', '1', task, content_type='application/atom+xml')
 
 ## <a name="change-a-group-of-entities"></a>Alterar um grupo de entidades
-
 Às vezes, convém enviar várias operações juntas em um lote para garantir o processamento atômico pelo servidor. Para conseguir isso, você deve usar a classe **TableBatch** . Quando você desejar enviar o lote, chame **commit\_batch**. Observe que todas as entidades devem estar na mesma partição para que sejam alteradas como um lote. O exemplo a seguir adiciona duas entidades juntas em um lote.
 
     from azure.storage.table import TableBatch
@@ -102,7 +94,6 @@ Lotes também podem ser usados com a sintaxe do gerenciador de contexto:
 
 
 ## <a name="query-for-an-entity"></a>Consultar uma entidade
-
 Para consultar uma entidade em uma tabela, use o método **get\_entity**, passando **PartitionKey** e **RowKey**.
 
     task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
@@ -110,7 +101,6 @@ Para consultar uma entidade em uma tabela, use o método **get\_entity**, passan
     print(task.priority)
 
 ## <a name="query-a-set-of-entities"></a>Consultar um conjunto de entidades
-
 Este exemplo localiza todas as tarefas em Seattle com base em **PartitionKey**.
 
     tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'")
@@ -119,7 +109,6 @@ Este exemplo localiza todas as tarefas em Seattle com base em **PartitionKey**.
         print(task.priority)
 
 ## <a name="query-a-subset-of-entity-properties"></a>consultar um subconjunto de propriedades da entidade
-
 Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma entidade.
 Essa técnica, chamada *projeção*, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. Use o parâmetro **select** e transmita os nomes das propriedades que você deseja trazer para o cliente.
 
@@ -132,25 +121,22 @@ A consulta no código a seguir retorna apenas as descrições das entidades na t
         print(task.description)
 
 ## <a name="delete-an-entity"></a>Excluir uma entidade
-
 É possível excluir uma entidade usando suas chaves de partição e de linha.
 
     table_service.delete_entity('tasktable', 'tasksSeattle', '1')
 
 ## <a name="delete-a-table"></a>Excluir uma tabela
-
 O código a seguir exclui uma tabela de uma conta de armazenamento.
 
     table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>Próximas etapas
-
 Agora que você aprendeu os conceitos básicos do Armazenamento de Tabelas, siga estes links para saber mais.
 
-- [Centro de desenvolvedores do Python](/develop/python/)
-- [API REST de serviços de armazenamento do Azure](http://msdn.microsoft.com/library/azure/dd179355)
-- [Blog da equipe de Armazenamento do Azure]
-- [SDK do Armazenamento do Microsoft Azure para Python]
+* [Centro de desenvolvedores do Python](/develop/python/)
+* [API REST de serviços de armazenamento do Azure](http://msdn.microsoft.com/library/azure/dd179355)
+* [Blog da equipe de Armazenamento do Azure]
+* [SDK do Armazenamento do Microsoft Azure para Python]
 
 [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [SDK do Armazenamento do Microsoft Azure para Python]: https://github.com/Azure/azure-storage-python

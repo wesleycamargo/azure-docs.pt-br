@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Tópicos de ajuda do Portal de Registro de Aplicativos | Microsoft Azure"
-	description="Uma descrição de vários recursos no Portal de Registro de Aplicativos da Microsoft."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Tópicos de ajuda do Portal de Registro de Aplicativos | Microsoft Docs
+description: Uma descrição de vários recursos no Portal de Registro de Aplicativos da Microsoft.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
+---
 # Referência de registro de aplicativo
 Este documento fornece contexto e descrições de vários recursos encontrados no Portal de Registro de Aplicativos da Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).
 

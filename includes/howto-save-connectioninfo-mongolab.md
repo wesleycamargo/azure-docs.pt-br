@@ -1,17 +1,13 @@
 Enquanto é possível colar um URI MongoLab no seu código, é recomendável configurá-lo no ambiente para facilidade de gerenciamento. Dessa forma, se o URI for alterado, você poderá atualizá-lo por meio do Portal do Azure sem precisar acessar o código.
 
-
 1. No Portal do Azure, selecione **Aplicativos Web**.
-1. Clique no nome do aplicativo Web na lista de Aplicativos Web. ![WebAppEntry][entry-website] O painel de Aplicativos Web é exibido.
-
-1. Clique em **Configurar** na barra de menus. ![WebAppDashboardConfig][focus-mongolab-websitedashboard-config]
-
-1. Role para baixo até a seção Cadeias de Conexão. ![WebAppConnectionStrings][focus-mongolab-websiteconnectionstring]
-
-1. Para **nome**, digite MONGOLAB\_URI.
-1. Para **valor**, cole a cadeia de conexão que obtivemos na seção anterior.
-1. Selecione **personalizado** no **tipo** lista suspensa (em vez do padrão **SQLAzure**).
-1. Clique em **Salvar** na barra de ferramentas. ![SaveWebApp][button-website-save]
+2. Clique no nome do aplicativo Web na lista de Aplicativos Web. ![WebAppEntry][entry-website] O painel de Aplicativos Web é exibido.
+3. Clique em **Configurar** na barra de menus. ![WebAppDashboardConfig][focus-mongolab-websitedashboard-config]
+4. Role para baixo até a seção Cadeias de Conexão. ![WebAppConnectionStrings][focus-mongolab-websiteconnectionstring]
+5. Para **nome**, digite MONGOLAB\_URI.
+6. Para **valor**, cole a cadeia de conexão que obtivemos na seção anterior.
+7. Selecione **personalizado** no **tipo** lista suspensa (em vez do padrão **SQLAzure**).
+8. Clique em **Salvar** na barra de ferramentas. ![SaveWebApp][button-website-save]
 
 **Observação:** O Azure adiciona o prefixo **CUSTOMCONNSTR\_** a esta variável, que é a razão de o código acima fazer referência a **CUSTOMCONNSTR\_MONGOLAB\_URI.**
 

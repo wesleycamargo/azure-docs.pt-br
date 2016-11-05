@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Gerenciador de Recursos do Azure | Microsoft Azure"
-   description="Descreve o Gerenciador de Recursos do Azure e como ele pode ser usado para exibir e atualizar implantações por meio do Azure Resource Manager"
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="stuartleeks"
-   manager="ankodu"
-   editor=""/>
+---
+title: Gerenciador de Recursos do Azure | Microsoft Docs
+description: Descreve o Gerenciador de Recursos do Azure e como ele pode ser usado para exibir e atualizar implantações por meio do Azure Resource Manager
+services: azure-resource-manager
+documentationcenter: na
+author: stuartleeks
+manager: ankodu
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/01/2016"
-   ms.author="stuartle;tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/01/2016
+ms.author: stuartle;tomfitz
 
+---
 # Usar o Gerenciador de Recursos do Azure para exibir e modificar recursos
 O [Gerenciador de Recursos do Azure](https://resources.azure.com) é uma excelente ferramenta para procurar nos recursos criados em sua assinatura. Com essa ferramenta, é possível entender como os recursos são estruturados e ver as propriedades atribuídas a cada um deles. É possível saber mais sobre as operações API REST e os cmdlets do PowerShell disponíveis para um tipo de recurso, e também emitir comandos por meio da interface. O Gerenciador de Recursos pode ser particularmente útil quando estiver criando modelos do Gerenciador de Recursos, já que ele permite exibir as propriedades dos recursos existentes.
 
@@ -45,7 +45,6 @@ Ao explorar um banco de dados, são mostradas suas propriedades. Na captura de t
 ![banco de dados sql](./media/resource-manager-resource-explorer/are-04-database-get.png)
 
 ## Alterar os recursos
-
 Depois de navegar até um recurso, é possível selecionar o botão Editar para tornar o conteúdo JSON editável. Em seguida, é possível usar o Gerenciador de Recursos para editar o JSON e enviar uma solicitação PUT para alterar o recurso. Por exemplo, a imagem abaixo mostra a camada de banco de dados alterada para `S0`:
 
 ![banco de dados – solicitação PUT](./media/resource-manager-resource-explorer/are-05-database-put.png)
@@ -57,7 +56,6 @@ Depois que a solicitação tiver sido enviada, o Gerenciador de Recursos emitir�
 ![banco de dados – solicitação GET 2](./media/resource-manager-resource-explorer/are-06-database-get2.png)
 
 ## Executando Ações em recursos
-
 A guia **Ações** permite ver e executar outras operações REST. Por exemplo, após a seleção de um recurso de site, a guia Ações apresentará uma longa lista de operações disponíveis, algumas das quais são mostradas abaixo.
 
 ![web – solicitação POST](./media/resource-manager-resource-explorer/are-web-post.png)

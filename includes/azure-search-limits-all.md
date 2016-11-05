@@ -1,21 +1,21 @@
-Recurso|Grátis|Basic (Visualização) <sup>6</sup>|S1|S2 <sup>7</sup>
----|---|---|---|----
-Máximo de serviços de pesquisa<sup>8</sup>|1 por assinatura|12 por assinatura|12 por assinatura|1 por assinatura
-Tamanho máximo de armazenamento <sup>1</sup>|50 MB ou 10.000 documentos|2 GB por serviço|25 GB por partição ou 300 GB de documentos por serviço|100 GB por partição ou 1,2 TB por serviço
-Máximo de documentos hospedados|10\.000 no total|1 milhão por serviço|15 milhões por partição (até 180 milhões de documentos por serviço)|60 milhões por partição (até 720 milhões de documentos por serviço)
-Índices máximos|3|5|50|200
-Indexadores máximos|3|5|50|200
-Indexador máximo de fontes de dados|3|5|50|200
-Índice: campos máximos por índice|1000|100 <sup>5</sup>|1000|1000
-Índice: máximo de perfis de pontuação por índice|16|16|16|16
-Índice: funções máximas por perfil|8|8|8|8
-Indexadores: carga de indexação máxima por invocação|10\.000 documentos|Limitado apenas pelo máximo de documentos|Limitado apenas pelo máximo de documentos|Limitado apenas pelo máximo de documentos
-Indexadores: tempo de execução máximo|3 minutos|24 horas|24 horas|24 horas
-Indexador de blob: tamanho máximo do blob, MB|16|16|128|256
-Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob|32\.000|64\.000|4 milhões|4 milhões
-QPS (Consultas por segundo) <sup>2</sup>|N/D|~3 por réplica|~15 por réplica|~60 por réplica
-Escala horizontal: máximo de unidades de pesquisa (SU) <sup>3</sup>|N/D|Até 3 unidades (3 réplicas e 1 partição)|36 unidades|36 unidades
-Preço <sup>4</sup>|N/D|U$75 por SU por mês|U$250 por SU por mês|U$1000 por SU por mês
+| Recurso | Grátis | Basic (Visualização) <sup>6</sup> | S1 | S2 <sup>7</sup> |
+| --- | --- | --- | --- | --- |
+| Máximo de serviços de pesquisa<sup>8</sup> |1 por assinatura |12 por assinatura |12 por assinatura |1 por assinatura |
+| Tamanho máximo de armazenamento <sup>1</sup> |50 MB ou 10.000 documentos |2 GB por serviço |25 GB por partição ou 300 GB de documentos por serviço |100 GB por partição ou 1,2 TB por serviço |
+| Máximo de documentos hospedados |10\.000 no total |1 milhão por serviço |15 milhões por partição (até 180 milhões de documentos por serviço) |60 milhões por partição (até 720 milhões de documentos por serviço) |
+| Índices máximos |3 |5 |50 |200 |
+| Indexadores máximos |3 |5 |50 |200 |
+| Indexador máximo de fontes de dados |3 |5 |50 |200 |
+| Índice: campos máximos por índice |1000 |100 <sup>5</sup> |1000 |1000 |
+| Índice: máximo de perfis de pontuação por índice |16 |16 |16 |16 |
+| Índice: funções máximas por perfil |8 |8 |8 |8 |
+| Indexadores: carga de indexação máxima por invocação |10\.000 documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |
+| Indexadores: tempo de execução máximo |3 minutos |24 horas |24 horas |24 horas |
+| Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |
+| Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob |32\.000 |64\.000 |4 milhões |4 milhões |
+| QPS (Consultas por segundo) <sup>2</sup> |N/D |~3 por réplica |~15 por réplica |~60 por réplica |
+| Escala horizontal: máximo de unidades de pesquisa (SU) <sup>3</sup> |N/D |Até 3 unidades (3 réplicas e 1 partição) |36 unidades |36 unidades |
+| Preço <sup>4</sup> |N/D |U$75 por SU por mês |U$250 por SU por mês |U$1000 por SU por mês |
 
 <sup>1</sup> O tamanho do armazenamento é um valor fixo ou o número de documentos por serviço, o que ocorrer primeiro.
 

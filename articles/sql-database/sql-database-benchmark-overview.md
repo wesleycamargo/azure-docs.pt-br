@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Visão geral do parâmetro de comparação do Banco de Dados SQL do Azure"
-	description="Este tópico descreve o Parâmetro de Comparação do Banco de Dados SQL do Azure usado para medir o desempenho do Banco de Dados SQL do Azure."
-	services="sql-database"
-	documentationCenter="na"
-	authors="CarlRabeler"
-	manager="jhubbard"
-	editor="monicar" />
+---
+title: Visão geral do parâmetro de comparação do Banco de Dados SQL do Azure
+description: Este tópico descreve o Parâmetro de Comparação do Banco de Dados SQL do Azure usado para medir o desempenho do Banco de Dados SQL do Azure.
+services: sql-database
+documentationcenter: na
+author: CarlRabeler
+manager: jhubbard
+editor: monicar
 
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 06/21/2016
+ms.author: carlrab
 
-<tags
-	ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="06/21/2016"
-	ms.author="carlrab" />
-
+---
 # Visão geral do parâmetro de comparação do Banco de Dados SQL do Azure
-
 ## Visão geral
 O Banco de Dados SQL do Microsoft Azure oferece três [camadas de serviço](sql-database-service-tiers.md) com vários níveis de desempenho. Cada nível de desempenho fornece um conjunto de recursos cada vez maior, ou ‘potência’, projetada para fornecer uma taxa de transferência crescente.
 
@@ -49,40 +47,40 @@ O banco de dados é dimensionado com base em um "fator de escala". O fator de es
 A carga de trabalho consiste em nove tipos de transação, conforme mostrado na tabela a seguir. Cada transação é projetada para realçar um conjunto de características do sistema em particular no mecanismo de banco de dados e no hardware do sistema, com alto contraste em relação às outras transações. Essa abordagem facilita a avaliação do impacto dos diferentes componentes no desempenho geral. Por exemplo, a transação "Leitura Intensa" gera um número significativo de operações de leitura do disco.
 
 | Tipo de transação | Descrição |
-|---|---|
-| Leitura Simples | SELECT; na memória; somente leitura |
-| Leitura Média | SELECT; maior parte na memória; somente leitura |
-| Leitura Intensa | SELECT; maior parte fora da memória; somente leitura |
-| Atualização Simples | UPDATE; na memória; leitura/gravação |
-| Atualização Intensa | UPDATE; maior parte fora da memória; leitura/gravação |
-| Inserção Simples | INSERT; na memória; leitura/gravação |
-| Inserção Intensa | INSERT; maior parte fora da memória; leitura/gravação |
-| Excluir | DELETE; combinação de na memória e não na memória; leitura/gravação |
-| CPU Intensa | SELECT; na memória; carga de CPU relativamente intensa; somente leitura |
+| --- | --- |
+| Leitura Simples |SELECT; na memória; somente leitura |
+| Leitura Média |SELECT; maior parte na memória; somente leitura |
+| Leitura Intensa |SELECT; maior parte fora da memória; somente leitura |
+| Atualização Simples |UPDATE; na memória; leitura/gravação |
+| Atualização Intensa |UPDATE; maior parte fora da memória; leitura/gravação |
+| Inserção Simples |INSERT; na memória; leitura/gravação |
+| Inserção Intensa |INSERT; maior parte fora da memória; leitura/gravação |
+| Excluir |DELETE; combinação de na memória e não na memória; leitura/gravação |
+| CPU Intensa |SELECT; na memória; carga de CPU relativamente intensa; somente leitura |
 
 ## Combinação de carga de trabalho
 As transações são selecionadas aleatoriamente em uma distribuição ponderada com a combinação geral a seguir. A combinação geral tem uma taxa de leitura/gravação de aproximadamente 2:1.
 
 | Tipo de transação | % de combinação |
-|---|---|
-| Leitura Simples | 35 |
-| Leitura Média | 20 |
-| Leitura Intensa | 5 |
-| Atualização Simples | 20 |
-| Atualização Intensa | 3 |
-| Inserção Simples | 3 |
-| Inserção Intensa | 2 |
-| Excluir | 2 |
-| CPU Intensa | 10 |
+| --- | --- |
+| Leitura Simples |35 |
+| Leitura Média |20 |
+| Leitura Intensa |5 |
+| Atualização Simples |20 |
+| Atualização Intensa |3 |
+| Inserção Simples |3 |
+| Inserção Intensa |2 |
+| Excluir |2 |
+| CPU Intensa |10 |
 
 ## Usuários e definição
 O parâmetro de comparação de desempenho é direcionado de uma ferramenta que envia transações por meio de um conjunto de conexões para simular o comportamento de alguns usuários simultâneos. Embora todas as conexões e transações sejam geradas por máquina, para manter a simplicidade nos referimos a essas conexões como "usuários". Embora cada usuário opere independentemente dos demais, todos os usuários realizam o mesmo ciclo de etapas mostrado abaixo:
 
 1. Estabeleça uma conexão de banco de dados.
 2. Repita até receber um sinal para sair:
-	- Selecione uma transação aleatoriamente (de uma distribuição ponderada).
-	- Execute a transação selecionada e meça o tempo de resposta.
-	- Aguarde uma definição de atraso.
+   * Selecione uma transação aleatoriamente (de uma distribuição ponderada).
+   * Execute a transação selecionada e meça o tempo de resposta.
+   * Aguarde uma definição de atraso.
 3. Feche a conexão de banco de dados.
 4. Sair.
 
@@ -96,14 +94,14 @@ Por exemplo, um fator de escala de 500 (SF = 500) bancos de dados terá 100 usu�
 A tabela a seguir mostra o número de usuários realmente mantidos para cada nível de desempenho e da camada de serviço.
 
 | Camada de serviço (nível de desempenho) | Usuários | Tamanho do banco de dados |
-|---|---|---|
-| Basic | 5 | 720 MB |
-| Standard (S0) | 10 | 1 GB |
-| Standard (S1) | 20 | 2,1 GB |
-| Standard (S2) | 50 | 7,1 GB |
-| Premium (P1) | 100 | 14 GB |
-| Premium (P2) | 200 | 28 GB |
-| Premium (P6/P3) | 800 | 114 GB |
+| --- | --- | --- |
+| Basic |5 |720 MB |
+| Standard (S0) |10 |1 GB |
+| Standard (S1) |20 |2,1 GB |
+| Standard (S2) |50 |7,1 GB |
+| Premium (P1) |100 |14 GB |
+| Premium (P2) |200 |28 GB |
+| Premium (P6/P3) |800 |114 GB |
 
 ## Duração da medida
 Uma execução válida do parâmetro de comparação exige uma duração da medida permanente de pelo menos uma hora.
@@ -111,14 +109,14 @@ Uma execução válida do parâmetro de comparação exige uma duração da medi
 ## Métricas
 As principais métricas no parâmetro de comparação são a taxa de transferência e o tempo de resposta.
 
-- A taxa de transferência é a medida de desempenho essencial no parâmetro de comparação. A taxa de transferência é informada em transações por unidade de tempo, contando todos os tipos de transação.
-- O tempo de resposta é uma medida da previsibilidade do desempenho. A restrição de tempo de resposta varia de acordo com a classe de serviço, com classes superiores de serviço com um requisito de tempo de resposta mais rigoroso, conforme mostrado abaixo.
+* A taxa de transferência é a medida de desempenho essencial no parâmetro de comparação. A taxa de transferência é informada em transações por unidade de tempo, contando todos os tipos de transação.
+* O tempo de resposta é uma medida da previsibilidade do desempenho. A restrição de tempo de resposta varia de acordo com a classe de serviço, com classes superiores de serviço com um requisito de tempo de resposta mais rigoroso, conforme mostrado abaixo.
 
 | Classe de serviço | Medida de taxa de transferência | Requisito de tempo de resposta |
-|---|---|---|
-| Premium | Transações por segundo | 95º percentil em 0,5 segundo |
-| Standard | Transações por minuto | 90º percentil em 1,0 segundo |
-| Basic | Transações por hora | 80º percentil em 2,0 segundos |
+| --- | --- | --- |
+| Premium |Transações por segundo |95º percentil em 0,5 segundo |
+| Standard |Transações por minuto |90º percentil em 1,0 segundo |
+| Basic |Transações por hora |80º percentil em 2,0 segundos |
 
 ## Conclusão
 O Parâmetro de Comparação do Banco de Dados SQL do Azure mede o desempenho relativo do Banco de Dados SQL do Azure em execução no intervalo de camadas de serviço disponíveis e nos níveis de desempenho. O parâmetro de comparação exercita uma combinação de operações básicas de banco de dados que ocorrem com mais frequência em cargas de trabalho de processamento de transações online (OLTP). Ao medir o desempenho real, o parâmetro de comparação fornece uma avaliação mais significativa do impacto na taxa de transferência da alteração do nível de desempenho que é possível apenas listando os recursos fornecidos por cada nível, como a velocidade da CPU, o tamanho da memória e o IOPS. No futuro, continuaremos a desenvolver esse parâmetro de comparação para ampliar seu escopo e expandir os dados fornecidos.

@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Sincronização do Azure AD Connect: extensões do Directory | Microsoft Azure"
-   description="Este tópico descreve o recurso de extensões de diretório no Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Sincronização do Azure AD Connect: extensões do Directory | Microsoft Docs'
+description: Este tópico descreve o recurso de extensões de diretório no Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/19/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/19/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect-sync:-directory-extensions"></a>Sincronização do Azure AD Connect: extensões do Directory
 Extensões de diretório permite que você estenda o esquema no Azure AD com seus próprios atributos do Active Directory local. Esse recurso permite criar aplicativos de LOB que consumem atributos que você continua gerenciando localmente. Esses atributos podem ser consumidos por meio de [extensões de diretório do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou [Microsoft Graph](https://graph.microsoft.io/). Você pode ver os atributos disponíveis usando [gerenciador do Azure AD Graph](https://graphexplorer.cloudapp.net) e o [gerenciador do Microsoft Graph](https://graphexplorer2.azurewebsites.net/), respectivamente.
 
@@ -25,9 +24,9 @@ No momento, nenhuma carga de trabalho do Office 365 consome esses atributos.
 Configure quais atributos adicionais você deseja sincronizar no caminho de configurações personalizadas no assistente de instalação.
 ![Assistente da Extensão de Esquema](./media/active-directory-aadconnectsync-feature-directory-extensions/extension2.png) A instalação mostra os seguintes atributos, que são candidatos válidos:
 
-- Tipos de objeto de Usuário e de Grupo
-- Atributos de valor único: String, Boolean, Integer, Binary
-- Atributos de vários valores: String, Binary
+* Tipos de objeto de Usuário e de Grupo
+* Atributos de valor único: String, Boolean, Integer, Binary
+* Atributos de vários valores: String, Binary
 
 A lista de atributos é lida do cache criado durante a instalação do Azure AD Connect. Se você estendeu o esquema do Active Directory com atributos adicionais, o [esquema deve ser atualizado](active-directory-aadconnectsync-installation-wizard.md#refresh-directory-schema) para que esses novos atributos fiquem visíveis.
 
@@ -45,8 +44,6 @@ Os atributos são prefixados com extension\_{AppClientId}\_. O AppClientId tem o
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

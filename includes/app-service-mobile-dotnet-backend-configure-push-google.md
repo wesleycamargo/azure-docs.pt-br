@@ -1,17 +1,13 @@
 Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-end .NET](#dotnet) ou [back-end Node.js](#nodejs).
 
 ### <a name="dotnet"></a>Projeto de back-end .NET
-
 1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **Gerenciar pacotes NuGet**, pesquise por `Microsoft.Azure.NotificationHubs` e clique em **Instalar**. Isso instala a biblioteca de cliente de Hubs de notificação.
-
 2. Na pasta Controladores, abra TodoItemController.cs e adicione as instruções a seguir `using`:
-
+   
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
-
 3. Substitua o método `PostTodoItem` pelo seguinte código:
 
-      
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
@@ -50,59 +46,56 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-4. Republicar o projeto de servidor.
+1. Republicar o projeto de servidor.
 
 ### <a name="nodejs"></a>Projeto de back-end Node.js
-
-1. Se você ainda não fez isso, [baixe o projeto de início rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no Portal do Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
- 
-1. Substitua o código existente no arquivo todoitem.js pelo código a seguir:
-
-		var azureMobileApps = require('azure-mobile-apps'),
-		promises = require('azure-mobile-apps/src/utilities/promises'),
-		logger = require('azure-mobile-apps/src/logger');
-		
-		var table = azureMobileApps.table();
-		
-		table.insert(function (context) {
-		// For more information about the Notification Hubs JavaScript SDK, 
-		// see http://aka.ms/nodejshubs
-		logger.info('Running TodoItem.insert');
-		
-		// Define the GCM payload.
-		var payload = {
-		    "data": {
-		        "message": context.item.text
-		    }
-		};   
-		
-		// Execute the insert.  The insert returns the results as a Promise,
-		// Do the push as a post-execute action within the promise flow.
-		return context.execute()
-		    .then(function (results) {
-		        // Only do the push if configured
-		        if (context.push) {
-					// Send a GCM native notification.
-		            context.push.gcm.send(null, payload, function (error) {
-		                if (error) {
-		                    logger.error('Error while sending push notification: ', error);
-		                } else {
-		                    logger.info('Push notification sent successfully!');
-		                }
-		            });
-		        }
-		        // Don't forget to return the results from the context.execute()
-		        return results;
-		    })
-		    .catch(function (error) {
-		        logger.error('Error while running context.execute: ', error);
-		    });
-		});
-		
-		module.exports = table;  
-
-	Isso envia uma notificação GCM que contém o item.text quando um novo item todo é inserido.
-
-2. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
+1. Se você ainda não fez isso, [baixe o projeto de início rápido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no Portal do Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+2. Substitua o código existente no arquivo todoitem.js pelo código a seguir:
+   
+        var azureMobileApps = require('azure-mobile-apps'),
+        promises = require('azure-mobile-apps/src/utilities/promises'),
+        logger = require('azure-mobile-apps/src/logger');
+   
+        var table = azureMobileApps.table();
+   
+        table.insert(function (context) {
+        // For more information about the Notification Hubs JavaScript SDK, 
+        // see http://aka.ms/nodejshubs
+        logger.info('Running TodoItem.insert');
+   
+        // Define the GCM payload.
+        var payload = {
+            "data": {
+                "message": context.item.text
+            }
+        };   
+   
+        // Execute the insert.  The insert returns the results as a Promise,
+        // Do the push as a post-execute action within the promise flow.
+        return context.execute()
+            .then(function (results) {
+                // Only do the push if configured
+                if (context.push) {
+                    // Send a GCM native notification.
+                    context.push.gcm.send(null, payload, function (error) {
+                        if (error) {
+                            logger.error('Error while sending push notification: ', error);
+                        } else {
+                            logger.info('Push notification sent successfully!');
+                        }
+                    });
+                }
+                // Don't forget to return the results from the context.execute()
+                return results;
+            })
+            .catch(function (error) {
+                logger.error('Error while running context.execute: ', error);
+            });
+        });
+   
+        module.exports = table;  
+   
+    Isso envia uma notificação GCM que contém o item.text quando um novo item todo é inserido.
+3. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
 
 <!---HONumber=AcomDC_1223_2015-->

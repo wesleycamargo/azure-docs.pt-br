@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Implantar LAMP em uma máquina virtual Linux | Microsoft Azure"
-	description="Saiba como instalar a pilha LAMP em uma VM Linux"
-	services="virtual-machines-linux"
-	documentationCenter="virtual-machines"
-	authors="jluk"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Implantar LAMP em uma máquina virtual Linux | Microsoft Docs
+description: Saiba como instalar a pilha LAMP em uma VM Linux
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: jluk
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.date="06/07/2016"
-	ms.author="jluk"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: NA
+ms.topic: article
+ms.date: 06/07/2016
+ms.author: jluk
 
+---
 # Implantar pilha LAMP no Azure
 Este artigo explica como implantar um servidor Web Apache, MySQL e PHP (a pilha LAMP) no Azure. Você precisará de uma conta do Azure ([obtenha uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)) e a [CLI do Azure](../xplat-cli-install.md) que é [conectada à sua conta do Azure](../xplat-cli-connect.md).
 
 Este artigo mostra dois métodos de instalação da LAMP:
 
 ## Resumo rápido do comando
-
 1) Implantar LAMP na nova VM
 
 ```
@@ -40,7 +39,6 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 ```
 
 ## Passo a passo da implantação da LAMP em uma nova VM
-
 Você pode começar criando um novo [grupo de recursos](../resource-group-overview.md) que conterá a VM:
 
     $ azure group create uniqueResourceGroup westus
@@ -97,21 +95,19 @@ Você deverá ver uma resposta solicitando mais algumas entradas:
 Agora você criou uma VM Linux com LAMP já instalada. Se quiser, você pode verificar a instalação indo até [Verificar se a LAMP foi instalada com êxito].
 
 ## Passo a passo da implantação de LAMP em VM existente
-
-Se você precisar de ajuda para criar uma VM Linux, clique [aqui para saber como criar uma VM Linux](./virtual-machines-linux-quick-create-cli.md). Em seguida, você precisará acessar via SSH a VM Linux. Se você precisar de ajuda com a criação de uma chave SSH clique [aqui para saber como criar uma chave SSH no Linux/Mac](./virtual-machines-linux-mac-create-ssh-keys.md). Se você já tiver uma chave SSH, prossiga e acesse via SSH em sua VM Linux com `ssh username@uniqueDNS`.
+Se você precisar de ajuda para criar uma VM Linux, clique [aqui para saber como criar uma VM Linux](virtual-machines-linux-quick-create-cli.md). Em seguida, você precisará acessar via SSH a VM Linux. Se você precisar de ajuda com a criação de uma chave SSH clique [aqui para saber como criar uma chave SSH no Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md). Se você já tiver uma chave SSH, prossiga e acesse via SSH em sua VM Linux com `ssh username@uniqueDNS`.
 
 Agora que você está trabalhando em sua VM Linux, vamos detalhar a instalação da pilha LAMP em distribuições baseadas em Debian. Os comandos exatos podem ser diferentes para outras distribuições de Linux.
 
 #### Instalação no Debian/Ubuntu
-
 Você precisará dos seguintes pacotes instalados: `apache2`, `mysql-server`, `php5` e `php5-mysql`. Você pode instalá-los pegando esses pacotes diretamente ou usando Tasksel. As instruções para as duas opções estão listadas abaixo. Antes de instalar, você precisará baixar e atualizar as listas de pacote.
 
     user@ubuntu$ sudo apt-get update
-    
+
 ##### Pacotes individuais
 Como usar apt-get:
 
-	user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
+    user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 
 ##### Como usar Tasksel
 Como alternativa, você pode baixar o Tasksel, uma ferramenta do Debian/Ubuntu que instala vários pacotes relacionados como uma “tarefa” coordenada em seu sistema.
@@ -125,11 +121,10 @@ Após executar uma das opções acima, você receberá uma solicitação para in
 
 Execute o comando a seguir para ver outras extensões PHP que estão disponíveis em pacotes:
 
-	user@ubuntu$ apt-cache search php5
+    user@ubuntu$ apt-cache search php5
 
 
 #### Criar documento info.php
-
 Agora você deve ser capaz de verificar qual versão do Apache, MySQL e PHP você tem por meio da linha de comando digitando `apache2 -v`, `mysql -v` ou `php -v`.
 
 Se você quiser realizar mais testes, crie uma página de informações rápida de PHP para exibição em um navegador. Crie um novo arquivo com o editor de texto Nano usando este comando:
@@ -149,7 +144,6 @@ Reinicie o Apache com este comando para que todas as novas instalações tenham 
     user@ubuntu$ sudo service apache2 restart
 
 ## Verificar se a LAMP foi instalada com êxito
-
 Agora você pode verificar a página de informações de PHP que você criou em seu navegador acessando http://youruniqueDNS/info.php, ela deve ser semelhante a esta.
 
 ![][2]
@@ -161,10 +155,9 @@ Você pode verificar a instalação do Apache exibindo a Página Padrão do Apac
 Parabéns, você instalou uma pilha LAMP em sua VM do Azure!
 
 ## Próximas etapas
-
 Consulte a documentação do Ubuntu sobre a pilha LAMP:
 
-- [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+* [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
 [1]: ./media/virtual-machines-linux-deploy-lamp-stack/configmysqlpassword-small.png
 [2]: ./media/virtual-machines-linux-deploy-lamp-stack/phpsuccesspage.png

@@ -1,24 +1,23 @@
-<properties 
-pageTitle="Comunicação para funções nos Serviços de Nuvem | Microsoft Azure" 
-description="As instâncias de função nos Serviços de Nuvem podem ter pontos de extremidade (http, https, tcp, udp) definidos que se comunicam com a parte externa ou entre outras instâncias de função." 
-services="cloud-services" 
-documentationCenter="" 
-authors="Thraka" 
-manager="timlt" 
-editor=""/>
-<tags 
-ms.service="cloud-services" 
-ms.workload="tbd" 
-ms.tgt_pltfrm="na" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.date="09/06/2016" 
-ms.author="adegeo"/>
+---
+title: Comunicação para funções nos Serviços de Nuvem | Microsoft Docs
+description: As instâncias de função nos Serviços de Nuvem podem ter pontos de extremidade (http, https, tcp, udp) definidos que se comunicam com a parte externa ou entre outras instâncias de função.
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
+editor: ''
 
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: adegeo
+
+---
 # Habilitar a comunicação para instâncias de função no Azure
-
 As funções de serviço de nuvem se comunicam por meio de conexões internas e externas. As conexões externas são chamadas de **pontos de extremidade de entrada**, enquanto as conexões internas são chamadas de **pontos de extremidade internos**. Este tópico descreve como modificar a [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos de extremidade.
-
 
 ## Ponto de extremidade de entrada
 O ponto de extremidade de entrada é usado quando você deseja expor uma porta para o exterior. Você especifica o tipo de protocolo e a porta do ponto de extremidade e então o aplica às portas externa e interna do ponto de extremidade. Se desejar, você pode especificar uma porta interna diferente para o ponto de extremidade com o atributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint).
@@ -75,9 +74,7 @@ Você também pode usar um intervalo de portas.
 
 
 ## Funções de trabalho versus Funções da Web
-
 Há uma diferença mínima em relação aos pontos de extremidade quando você trabalha com as funções Web e de trabalho. A função Web deve ter pelo menos um ponto de extremidade de entrada único usando o protocolo **HTTP**.
-
 
 ```xml
 <Endpoints>
@@ -89,7 +86,10 @@ Há uma diferença mínima em relação aos pontos de extremidade quando você t
 ## Usando o SDK do .NET para acessar um ponto de extremidade
 A Biblioteca Gerenciada do Azure fornece métodos para que instâncias de função se comuniquem no tempo de execução. A partir da execução de código em uma instância de função, você poderá recuperar informações sobre a existência de outras instâncias de função e de seus pontos de extremidade, bem como informações sobre a instância de função atual.
 
-> [AZURE.NOTE] Você só pode recuperar informações sobre instâncias de função que estejam sendo executadas em seu serviço de nuvem e que definam pelo menos um ponto de extremidade interno. Não é possível obter dados sobre instâncias de função que estejam sendo executadas em um serviço diferente.
+> [!NOTE]
+> Você só pode recuperar informações sobre instâncias de função que estejam sendo executadas em seu serviço de nuvem e que definam pelo menos um ponto de extremidade interno. Não é possível obter dados sobre instâncias de função que estejam sendo executadas em um serviço diferente.
+> 
+> 
 
 Você pode usar a propriedade [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) para recuperar instâncias de uma função. Primeiro use [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) para retornar uma referência à instância da função atual e use a propriedade [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) para retornar uma referência à função propriamente dita.
 
@@ -101,7 +101,10 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 
 A propriedade **Instances** retorna uma coleção de objetos **RoleInstance**. Esta coleção sempre contém a instância atual. Se a função não definir um ponto de extremidade interno, a coleção incluirá a instância atual, mas nenhuma outra instância. O número de instâncias de função na coleção sempre será 1 quando nenhum ponto de extremidade interno for definido para a função. Se a função definir um ponto de extremidade interno, suas instâncias serão descobríveis no tempo de execução e o número de instâncias na coleção corresponderá ao número de instâncias especificadas para a função no arquivo de configuração de serviço.
 
-> [AZURE.NOTE] A Biblioteca Gerenciada do Azure não oferece um meio de determinar a integridade de outras instâncias de função, mas você pode implementar essas avaliações de integridade caso o serviço precise dessa funcionalidade. Você pode usar o [Diagnóstico do Azure](cloud-services-dotnet-diagnostics.md) para obter informações sobre as instâncias de função em execução.
+> [!NOTE]
+> A Biblioteca Gerenciada do Azure não oferece um meio de determinar a integridade de outras instâncias de função, mas você pode implementar essas avaliações de integridade caso o serviço precise dessa funcionalidade. Você pode usar o [Diagnóstico do Azure](cloud-services-dotnet-diagnostics.md) para obter informações sobre as instâncias de função em execução.
+> 
+> 
 
 Para determinar o número da porta de um ponto de extremidade interno em uma instância de função, você poderá usar a propriedade [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) para retornar um objeto de Dicionário que contenha nomes de ponto de extremidade e seus endereços IP e portas correspondentes. A propriedade [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) retorna o endereço IP e a porta de um ponto de extremidade especificado. A propriedade **PublicIPEndpoint** retorna a porta de um ponto de extremidade com balanceamento de carga. A parte do endereço IP da propriedade **PublicIPEndpoint** não é usada.
 
@@ -120,7 +123,10 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 
 Veja um exemplo de função de trabalho que expõe o ponto de extremidade por meio da definição de serviço e começa a escutar conexões.
 
-> [AZURE.WARNING] Este código só funcionará para um serviço implantado. Quando executados no Emulador de Computação do Azure, os elementos de configuração de serviço que criam pontos de extremidade de porta direta (elementos **InstanceInputEndpoint**) são ignorados.
+> [!WARNING]
+> Este código só funcionará para um serviço implantado. Quando executados no Emulador de Computação do Azure, os elementos de configuração de serviço que criam pontos de extremidade de porta direta (elementos **InstanceInputEndpoint**) são ignorados.
+> 
+> 
 
 ```csharp
 using System;
@@ -145,18 +151,18 @@ namespace WorkerRole1
         // Initialize method-wide variables
         var epName = "Endpoint1";
         var roleInstance = RoleEnvironment.CurrentRoleInstance;
-        
+
         // Identify direct communication port
         var myPublicEp = roleInstance.InstanceEndpoints[epName].PublicIPEndpoint;
         Trace.TraceInformation("IP:{0}, Port:{1}", myPublicEp.Address, myPublicEp.Port);
 
         // Identify public endpoint
         var myInternalEp = roleInstance.InstanceEndpoints[epName].IPEndpoint;
-                
+
         // Create socket listener
         var listener = new Socket(
           myInternalEp.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-                
+
         // Bind socket listener to internal endpoint and listen
         listener.Bind(myInternalEp);
         listener.Listen(10);
@@ -242,7 +248,10 @@ O exemplo de código a seguir mostra as definições de função das funções m
 </ServiceDefinition>
 ```
 
-> [AZURE.NOTE] A restrição de comunicação entre funções pode ocorrer com pontos de extremidade internos de portas fixas e atribuídas automaticamente.
+> [!NOTE]
+> A restrição de comunicação entre funções pode ocorrer com pontos de extremidade internos de portas fixas e atribuídas automaticamente.
+> 
+> 
 
 Por padrão, após a definição de um ponto de extremidade interno, a comunicação poderá fluir de qualquer função para o ponto de extremidade interno de uma função sem qualquer restrição. Para restringir a comunicação, você deverá adicionar um elemento **NetworkTrafficRules** ao elemento **ServiceDefinition** no arquivo de definição de serviço.
 

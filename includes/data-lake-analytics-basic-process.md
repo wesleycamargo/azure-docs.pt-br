@@ -1,7 +1,7 @@
 **O processo básico da Análise Data Lake:**
-	
+
 ![Diagrama de fluxo do processo da Análise Azure Data Lake](./media/data-lake-analytics-basic-process-include/data-lake-analytics-process.png)
-	
+
 1. Crie uma conta da Análise Data Lake.
 2. Prepare os dados de origem. Os trabalhos da Análise do Data Lake podem ler dados de contas do Repositório Azure Data Lake ou de contas de armazenamento de Blob do Azure.
 3. Desenvolva um script U-SQL.

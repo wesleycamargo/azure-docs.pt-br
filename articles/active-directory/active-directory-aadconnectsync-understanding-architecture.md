@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Sincronização do Azure AD Connect: noções básicas sobre a arquitetura | Microsoft Azure"
-   description="Este tópico descreve a arquitetura da sincronização do Azure AD Connect e explica os termos usados."
-   services="active-directory"
-   documentationCenter=""
-   authors="andkjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Sincronização do Azure AD Connect: noções básicas sobre a arquitetura | Microsoft Docs'
+description: Este tópico descreve a arquitetura da sincronização do Azure AD Connect e explica os termos usados.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="08/31/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/31/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect-sync:-understanding-the-architecture"></a>Sincronização do Azure AD Connect: noções básicas sobre a arquitetura
 Este tópico aborda a arquitetura básica para a sincronização do Azure AD Connect. Em muitos aspectos, ela é semelhante à de seus predecessores MIIS 2003, ILM 2007 e FIM 2010. A sincronização do Azure AD Connect é a evolução dessas tecnologias. Se você estiver familiarizado com qualquer uma dessas tecnologias mais antigas, o conteúdo deste tópico também será familiar. Se você ainda não estiver familiarizado com a sincronização, este tópico é para você. No entanto, não é um requisito saber os detalhes deste tópico para conseguir fazer as personalizações na sincronização do Azure AD Connect (chamada de mecanismo de sincronização neste tópico).
 
@@ -43,8 +42,8 @@ Se a fonte de dados conectada usar componentes estruturais, como partições ou 
 ### <a name="internal-structure-of-the-sync-engine-namespace"></a>Estrutura interna do namespace do mecanismo de sincronização
 O namespace do mecanismo de sincronização completo consiste em dois namespaces que armazenam as informações de identidade. Os dois namespaces são:
 
-- O espaço do conector
-- O metaverso
+* O espaço do conector
+* O metaverso
 
 O **espaço do conector** é uma área de preparação que contém representações dos objetos designados de uma fonte de dados conectada e os atributos especificados na lista de inclusão de atributo. O mecanismo de sincronização usa o espaço do conector para determinar o que mudou na fonte de dados conectada e para testar as alterações recebidas. O mecanismo de sincronização também usa o espaço do conector para preparar as alterações de saída para exportação para a fonte de dados conectada. O mecanismo de sincronização mantém um espaço do conector diferente da área de preparação para cada Conector.
 
@@ -66,8 +65,8 @@ Quando o mecanismo de sincronização se comunica com uma fonte de dados conecta
 
 Todos os objetos no espaço do conector têm dois atributos:
 
-- Um identificador global exclusivo (GUID)
-- Um nome distinto (também conhecido como DN)
+* Um identificador global exclusivo (GUID)
+* Um nome distinto (também conhecido como DN)
 
 Se a fonte de dados conectada atribui um atributo exclusivo ao objeto, objetos no espaço do conector também podem ter um atributo de âncora. O atributo de âncora identifica exclusivamente um objeto na fonte de dados conectada. O mecanismo de sincronização usa a âncora para localizar a representação desse objeto correspondente na fonte de dados conectada. O mecanismo de sincronização supõe que a âncora de um objeto nunca muda durante a vida útil do objeto.
 
@@ -77,8 +76,8 @@ Nesse caso, a âncora é criada a partir de um ou mais atributos exclusivos de u
 
 Podem ser objetos de espaço do conector:
 
-- Um objeto de preparação
-- Um espaço reservado
+* Um objeto de preparação
+* Um espaço reservado
 
 ### <a name="staging-objects"></a>Objetos de preparação
 Um objeto de preparação representa uma instância dos tipos de objeto designado da fonte de dados conectada. Além do GUID e do nome distinto, um objeto de preparação sempre tem um valor que indica o tipo de objeto.
@@ -139,9 +138,9 @@ Um objeto de importação é criado como um objeto separado. Um objeto de export
 ## <a name="sync-engine-identity-management-process"></a>Processo de gerenciamento de identidades do mecanismo de sincronização
 O processo de gerenciamento de identidades controla como as informações de identidade são atualizadas entre as diferentes fontes de dados conectadas. O gerenciamento de identidades ocorre em três processos:
 
-- Importar
-- Sincronização
-- Exportação
+* Importar
+* Sincronização
+* Exportação
 
 Durante o processo de importação, o mecanismo de sincronização avaliará as informações de identidade de entrada de uma fonte de dados conectada. Quando forem detectadas alterações, ele criará novos objetos de preparação ou atualizará os objetos de preparação existentes no espaço do conector para sincronização.
 
@@ -158,34 +157,34 @@ Durante o processo de importação, o mecanismo de sincronização avalia as atu
 
 Ao preparar objetos no espaço do conector antes da sincronização, o mecanismo de sincronização só poderá processar as informações de identidade alteradas. Esse processo oferece os seguintes benefícios:
 
-- **Sincronização eficiente**. A quantidade de dados processados durante a sincronização é minimizada.
-- **Ressincronização eficiente**. Você pode alterar a forma como o mecanismo de sincronização processa as informações de identidade sem reconectar o mecanismo de sincronização à fonte de dados.
-- **Oportunidade de visualizar a sincronização**. Você pode visualizar a sincronização para verificar se suas suposições sobre o processo de gerenciamento de identidades estão corretas.
+* **Sincronização eficiente**. A quantidade de dados processados durante a sincronização é minimizada.
+* **Ressincronização eficiente**. Você pode alterar a forma como o mecanismo de sincronização processa as informações de identidade sem reconectar o mecanismo de sincronização à fonte de dados.
+* **Oportunidade de visualizar a sincronização**. Você pode visualizar a sincronização para verificar se suas suposições sobre o processo de gerenciamento de identidades estão corretas.
 
 Para cada objeto especificado no Conector, o mecanismo de sincronização primeiro tenta localizar uma representação do objeto no espaço do conector do Conector. O mecanismo de sincronização examina todos os objetos de preparação no espaço do conector e tenta localizar um objeto de preparação correspondente que tenha um atributo de âncora correspondente. Se nenhum objeto de preparação existente tiver um atributo de âncora correspondente, o mecanismo de sincronização tentará encontrar um objeto de preparação correspondente com o mesmo nome distinto.
 
 Quando o mecanismo de sincronização encontrar um objeto de preparação que corresponda ao nome distinto, mas não por âncora, ocorrerá o seguinte comportamento especial:
 
-- Se o objeto localizado no espaço do conector não tiver âncoras, o mecanismo de sincronização removerá o objeto do espaço do conector e marcará o objeto de metaverso ao qual ele está vinculado como **tentar provisionar novamente na próxima execução de sincronização**. Em seguida, ele criará o novo objeto de importação.
-- Se o objeto localizado no espaço do conector tiver uma âncora, o mecanismo de sincronização suporá que esse objeto foi renomeado ou excluído no diretório conectado. Ele atribui um novo nome distinto temporário ao objeto de espaço do conector para que ele possa preparar o objeto de entrada. O objeto antigo se torna **transitório**, aguardando o Conector importar a renomeação ou a exclusão para resolver a situação.
+* Se o objeto localizado no espaço do conector não tiver âncoras, o mecanismo de sincronização removerá o objeto do espaço do conector e marcará o objeto de metaverso ao qual ele está vinculado como **tentar provisionar novamente na próxima execução de sincronização**. Em seguida, ele criará o novo objeto de importação.
+* Se o objeto localizado no espaço do conector tiver uma âncora, o mecanismo de sincronização suporá que esse objeto foi renomeado ou excluído no diretório conectado. Ele atribui um novo nome distinto temporário ao objeto de espaço do conector para que ele possa preparar o objeto de entrada. O objeto antigo se torna **transitório**, aguardando o Conector importar a renomeação ou a exclusão para resolver a situação.
 
 Se o mecanismo de sincronização localizar um objeto de preparação que corresponda ao objeto especificado no Conector, ele determinará que tipo de alterações serão aplicadas. Por exemplo, o mecanismo de sincronização pode renomear ou excluir o objeto da fonte de dados conectada ou pode apenas atualizar os valores de atributo do objeto.
 
 Os objetos de preparação com dados atualizados são marcados como importação pendente. Tipos diferentes de importações pendentes estão disponíveis. Dependendo do resultado do processo de importação, um objeto de preparação no espaço do conector terá um dos seguintes tipos de importação pendente:
 
-- **Nenhum**. Nenhuma alteração em qualquer um dos atributos do objeto de preparação está disponível. O mecanismo de sincronização não sinaliza esse tipo como importação pendente.
-- **Adicionar**. O objeto de preparação é um objeto de importação novo no espaço do conector. O mecanismo de sincronização sinaliza esse tipo como importação pendente para processamento adicional no metaverso.
-- **Atualizar**. O mecanismo de sincronização encontra um objeto de preparação correspondente no espaço do conector e sinaliza esse tipo como importação pendente para que as atualizações dos atributos possam ser processadas no metaverso. As atualizações incluem a renomeação do objeto.
-- **Excluir**. O mecanismo de sincronização encontra um objeto de preparação correspondente no espaço do conector e sinaliza esse tipo como importação pendente para que o objeto unido possa ser excluído.
-- **Excluir/Adicionar**. O mecanismo de sincronização encontra um objeto de preparação correspondente no espaço do conector, mas os tipos de objeto não correspondem. Nesse caso, uma modificação excluir-adicionar é preparada. Uma modificação excluir-adicionar indica para o mecanismo de sincronização que deverá ocorrer uma ressincronização completa do objeto porque são aplicados conjuntos de regras diferentes a esse objeto quando o tipo de objeto é alterado.
+* **Nenhum**. Nenhuma alteração em qualquer um dos atributos do objeto de preparação está disponível. O mecanismo de sincronização não sinaliza esse tipo como importação pendente.
+* **Adicionar**. O objeto de preparação é um objeto de importação novo no espaço do conector. O mecanismo de sincronização sinaliza esse tipo como importação pendente para processamento adicional no metaverso.
+* **Atualizar**. O mecanismo de sincronização encontra um objeto de preparação correspondente no espaço do conector e sinaliza esse tipo como importação pendente para que as atualizações dos atributos possam ser processadas no metaverso. As atualizações incluem a renomeação do objeto.
+* **Excluir**. O mecanismo de sincronização encontra um objeto de preparação correspondente no espaço do conector e sinaliza esse tipo como importação pendente para que o objeto unido possa ser excluído.
+* **Excluir/Adicionar**. O mecanismo de sincronização encontra um objeto de preparação correspondente no espaço do conector, mas os tipos de objeto não correspondem. Nesse caso, uma modificação excluir-adicionar é preparada. Uma modificação excluir-adicionar indica para o mecanismo de sincronização que deverá ocorrer uma ressincronização completa do objeto porque são aplicados conjuntos de regras diferentes a esse objeto quando o tipo de objeto é alterado.
 
 Ao definir o status de um objeto de preparação como importação pendente, você pode reduzir significativamente a quantidade de dados processados durante a sincronização, já que isso permite que o sistema processe somente os objetos com dados atualizados.
 
 ### <a name="synchronization-process"></a>Processo de sincronização
 A sincronização consiste em dois processos relacionados:
 
-- A sincronização de entrada, quando o conteúdo do metaverso é atualizado com os dados no espaço do conector.
-- A sincronização de saída, quando o conteúdo do espaço do conector é atualizado com os dados no metaverso.
+* A sincronização de entrada, quando o conteúdo do metaverso é atualizado com os dados no espaço do conector.
+* A sincronização de saída, quando o conteúdo do espaço do conector é atualizado com os dados no metaverso.
 
 Usando as informações preparadas no espaço do conector, o processo de sincronização de entrada cria no metaverso a exibição integrada dos dados armazenados nas fontes de dados conectadas. Todos os objetos de preparação ou apenas aqueles com informações de importação pendente são agregados, dependendo de como as regras forem configuradas.
 
@@ -197,9 +196,9 @@ A sincronização de entrada cria a exibição integrada no metaverso das inform
 
 A sincronização de entrada inclui os seguintes processos:
 
-- **Provisionamento** (também chamado de **Projeção** se for importante distinguir este processo do provisionamento de sincronização de saída). O mecanismo de sincronização cria um novo objeto de metaverso com base em um objeto de preparação e os vincula. O provisionamento é uma operação que ocorre no nível do objeto.
-- **Junção**. O mecanismo de sincronização vincula um objeto de preparação a um objeto de metaverso existente. Uma junção é uma operação que ocorre no nível do objeto.
-- **Fluxo de atributos de importação**. O mecanismo de sincronização atualiza os valores de atributo, chamados de fluxo de atributos, do objeto no metaverso. O fluxo de atributos de importação é uma operação que ocorre no nível do atributo que exige um vínculo entre um objeto de preparação e um objeto de metaverso.
+* **Provisionamento** (também chamado de **Projeção** se for importante distinguir este processo do provisionamento de sincronização de saída). O mecanismo de sincronização cria um novo objeto de metaverso com base em um objeto de preparação e os vincula. O provisionamento é uma operação que ocorre no nível do objeto.
+* **Junção**. O mecanismo de sincronização vincula um objeto de preparação a um objeto de metaverso existente. Uma junção é uma operação que ocorre no nível do objeto.
+* **Fluxo de atributos de importação**. O mecanismo de sincronização atualiza os valores de atributo, chamados de fluxo de atributos, do objeto no metaverso. O fluxo de atributos de importação é uma operação que ocorre no nível do atributo que exige um vínculo entre um objeto de preparação e um objeto de metaverso.
 
 O provisionamento é o único processo que cria objetos no metaverso. O provisionamento afeta apenas os objetos de importação separados. Durante o provisionamento, o mecanismo de sincronização cria um objeto de metaverso que corresponde ao tipo de objeto do objeto de importação e estabelece um vínculo entre os dois objetos criando, assim, um objeto unido.
 
@@ -217,17 +216,17 @@ A sincronização de saída atualiza objetos de exportação quando um objeto de
 
 A sincronização de saída tem três processos:
 
-- **Provisionamento**
-- **Desprovisionamento**
-- **Fluxo de atributos de exportação**
+* **Provisionamento**
+* **Desprovisionamento**
+* **Fluxo de atributos de exportação**
 
 O provisionamento e o desprovisionamento são ambas operações que ocorrem no nível do objeto. O desprovisionamento depende do provisionamento porque somente o provisionamento pode iniciá-lo. O desprovisionamento é disparado quando o provisionamento remove o vínculo entre um objeto do metaverso e um objeto de exportação.
 
 O provisionamento sempre é disparado quando as alterações são aplicadas a objetos no metaverso. Quando são feitas alterações nos objetos de metaverso, o mecanismo de sincronização pode executar as tarefas a seguir como parte do processo de provisionamento:
 
-- Criar objetos unidos, onde um objeto de metaverso é vinculado a um objeto de exportação recém-criado.
-- Renomear um objeto unido.
-- Separar os vínculos entre um objeto de metaverso e objetos de preparação, criando um objeto separado.
+* Criar objetos unidos, onde um objeto de metaverso é vinculado a um objeto de exportação recém-criado.
+* Renomear um objeto unido.
+* Separar os vínculos entre um objeto de metaverso e objetos de preparação, criando um objeto separado.
 
 Se o provisionamento exigir que o mecanismo de sincronização crie um novo objeto de conector, o objeto de preparação ao qual o objeto de metaverso está vinculado sempre será um objeto de exportação porque o objeto ainda não existirá na fonte de dados conectada.
 
@@ -254,8 +253,6 @@ Por exemplo, se o mecanismo de sincronização exportar o atributo C, com um val
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,25 +1,26 @@
 
-<properties
-    pageTitle="Usando o Office com o RemoteApp do Azure | Microsoft Azure" 
-    description="Saiba como o Office e o RemoteApp do Azure funcionam juntos"
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Usando o Office com o RemoteApp do Azure | Microsoft Docs
+description: Saiba como o Office e o RemoteApp do Azure funcionam juntos
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
+---
 # Usando o Office com o RemoteApp do Azure
-
-> [AZURE.IMPORTANT]
-O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> [!IMPORTANT]
+> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> 
+> 
 
 Você tem duas opções para hospedar aplicativos do Office no RemoteApp do Azure: Office 365 ProPlus ou Office 2013 Professional Plus Trial.
 
@@ -34,7 +35,6 @@ Para usar a Ativação de Computador Compartilhado do Office 365, você precisa 
 
 Você pode gerenciar licenças do Office 365 dos usuários no [Portal de administração do Office 365](https://portal.office365.com/). Para obter mais informações sobre os [Planos de serviço do Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx).
 
-
 ## Versão de avaliação do Office 2013 Professional Plus
 Durante uma avaliação de 30 dias do RemoteApp, você pode usar a imagem de modelo do Office 2013 Professional Plus (avaliação) para criar uma coleção de RemoteApp. Você pode atribuir usuários a esta coleção de avaliação usando suas contas de trabalho do Active Directory do Azure ou contas da Microsoft. Nenhuma assinatura adicional é necessária.
 
@@ -45,10 +45,9 @@ Quando você inicia sua avaliação gratuita de 30 dias, uma observação na se�
 
 Quando você ativar sua conta, isso afetará todas as coleções de RemoteApp em sua conta.
 
-- Coleções que executam o Windows Server 2012 R2 ou as imagens de modelo do Office 365 ProPlus farão a transição para a produção perfeitamente. Todos os dados de usuário e configurações, incluindo sessões em andamento, permanecerão intactas.
-- Se você carregou imagens de modelo personalizada, as coleções usando essas imagens também mudarão perfeitamente.
-- A imagem de modelo do Office 2013 Professional Plus (avaliação) destina-se somente para avaliação. Coleções com esta imagem de modelo não podem ser transferidas para produção. Elas serão colocadas no estado “desativadas".
-
+* Coleções que executam o Windows Server 2012 R2 ou as imagens de modelo do Office 365 ProPlus farão a transição para a produção perfeitamente. Todos os dados de usuário e configurações, incluindo sessões em andamento, permanecerão intactas.
+* Se você carregou imagens de modelo personalizada, as coleções usando essas imagens também mudarão perfeitamente.
+* A imagem de modelo do Office 2013 Professional Plus (avaliação) destina-se somente para avaliação. Coleções com esta imagem de modelo não podem ser transferidas para produção. Elas serão colocadas no estado “desativadas".
 
 Se você não fizer a transição para o modo de produção até a expiração da sua avaliação, as coleções de RemoteApp serão desabilitadas. Não se preocupe – suas configurações e dados de usuários serão salvas por outros 90 dias para que você ainda possa ativar o serviço e alternar para o modo de produção sem qualquer perda de dados.
 

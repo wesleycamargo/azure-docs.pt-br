@@ -1,35 +1,31 @@
-<properties
-	pageTitle="Instalar o Python e o SDK - Azure"
-	description="Saiba como instalar o Python e o SDK para usar com o Azure."
-	services=""
-	documentationCenter="python"
-	authors="lmazuel"
-	manager="wpickett"
-	editor=""/>
+---
+title: Instalar o Python e o SDK - Azure
+description: Saiba como instalar o Python e o SDK para usar com o Azure.
+services: ''
+documentationcenter: python
+author: lmazuel
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="lmazuel"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: lmazuel
 
+---
 # Instalando o Python e o SDK
-
 O Python é fácil de ser instalado no Windows e é fornecido pré-instalado no Mac, no Linux e no [Bash para Windows](https://msdn.microsoft.com/commandline/wsl/about). Este guia o orientará na instalação e na preparação de seu computador para o uso com o Azure.
 
 ## Novidades no SDK do Python Azure
-
 O SDK do Azure para o Python inclui componentes que permitem que você desenvolva, implante e gerencie aplicativos do Python para o Azure. O SDK do Azure para o Python inclui especificamente o seguinte:
 
 * **Bibliotecas de gerenciamento**. Essas bibliotecas de classes fornecem uma interface para gerenciar recursos do Azure, como as contas de armazenamento e as máquinas virtuais.
-
 * **Bibliotecas de tempo de execução**. Essas bibliotecas de classes fornecem uma interface para acessar recursos do Azure, como o armazenamento e o barramento de serviço.
 
 ## Qual Python e qual versão usar
-
 Existem vários tipos de interpretadores do Python disponíveis - alguns exemplos incluem:
 
 * CPython - o interpretador do Python padrão e mais geralmente usado
@@ -40,23 +36,21 @@ Existem vários tipos de interpretadores do Python disponíveis - alguns exemplo
 O **CPython** v2.7 ou v3.3+ e o PyPy 5.4.0 são testados e dão suporte ao SDK do Azure para Python.
 
 ## Onde obter o Python?
-
 Existem várias maneiras de obter o CPython:
 
-* [Diretamente][] do site www.python.org
-* De um distribuidor respeitável, como [www.continuum.io][], [www.enthought.com][] ou [www.activestate.com][]
+* [Diretamente][Diretamente] do site www.python.org
+* De um distribuidor respeitável, como [www.continuum.io][www.continuum.io], [www.enthought.com][www.enthought.com] ou [www.activestate.com][www.activestate.com]
 * Criá-lo a partir do código-fonte!
 
 A menos que você tenha uma necessidade específica, recomendamos as duas primeiras opções.
 
 ## Instalação do SDK no Windows, Linux e MacOS (apenas bibliotecas de cliente)
-
-Se já tiver o Python instalado, você poderá usar pip para instalar um pacote de todas as bibliotecas de cliente em seu ambiente Python 2.7 ou Python 3.3+ existente. Isso baixará os pacotes do [Índice de Pacotes do Python][] \(PyPI).
+Se já tiver o Python instalado, você poderá usar pip para instalar um pacote de todas as bibliotecas de cliente em seu ambiente Python 2.7 ou Python 3.3+ existente. Isso baixará os pacotes do [Índice de Pacotes do Python][Índice de Pacotes do Python] \(PyPI).
 
 Você pode precisar de direitos de administrador:
 
-- Para Linux e MacOS, use o comando `sudo`: `sudo pip install azure-mgmt-compute`.
-- Para Windows: abra o PowerShell/prompt de comando como administrador
+* Para Linux e MacOS, use o comando `sudo`: `sudo pip install azure-mgmt-compute`.
+* Para Windows: abra o PowerShell/prompt de comando como administrador
 
 Você pode instalar cada biblioteca individualmente para cada serviço do Azure:
 
@@ -72,14 +66,15 @@ Pacotes de preview podem ser instalados usando o sinalizador `--pre`:
 ```
 
 Você também pode instalar um conjunto de bibliotecas do Azure em uma única linha usando o pacote meta `azure`. Como nem todos os pacotes neste pacote meta estão publicados como estáveis, o pacote meta `azure` ainda está em preview. No entanto, os pacotes essenciais podem ser considerados "estáveis" no momento do ponto de vista da integridade e da qualidade do código.
-- Ela será oficialmente rotulada como tal em sincronia com outras linguagens assim que possível. Não planejamos outras alterações importantes até então.
+
+* Ela será oficialmente rotulada como tal em sincronia com outras linguagens assim que possível. Não planejamos outras alterações importantes até então.
 
 Como se trata de uma versão de preview, você precisa usar o sinalizador `--pre`:
 
 ```console
    $ pip install --pre azure
 ```
-   
+
 ou diretamente
 
 ```console
@@ -87,57 +82,49 @@ ou diretamente
 ```
 
 ## Obter mais paquetes
-
-O [Índice de Pacote do Python][] \(PyPI) tem uma seleção completa de bibliotecas do Python. Caso tenha optado por instalar uma Distribuição, você já terá a maioria das partes interessantes para vários cenários, do desenvolvimento para Web até a Computação Técnica.
-
+O [Índice de Pacote do Python][Índice de Pacote do Python] \(PyPI) tem uma seleção completa de bibliotecas do Python. Caso tenha optado por instalar uma Distribuição, você já terá a maioria das partes interessantes para vários cenários, do desenvolvimento para Web até a Computação Técnica.
 
 ## Python Tools para Visual Studio
-
-O [PTVS][] \(Ferramentas Python para o Visual Studio) é um plug-in gratuito/OSS da Microsoft que transforma o VS em um IDE completo para Python:
+O [PTVS][PTVS] \(Ferramentas Python para o Visual Studio) é um plug-in gratuito/OSS da Microsoft que transforma o VS em um IDE completo para Python:
 
 ![como-instalar-o-webpi-do-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
 O uso do PTVS é opcional, mas recomendável, pois ele dá suporte a Solução/Projeto Web e Python, depuração, criação de perfil, janela interativa, edição de Modelos e Intellisense.
 
-O PTVS também torna fácil a implantação ao Microsoft Azure, com suporte para implementação em [Serviços de Nuvem][] e [Sites][].
+O PTVS também torna fácil a implantação ao Microsoft Azure, com suporte para implementação em [Serviços de Nuvem][Serviços de Nuvem] e [Sites][Sites].
 
 O PTVS funciona com sua instalação existente do Visual Studio 2013 ou 2015. Para documentação, downloads e discussões, consulte [Ferramentas do Python Visual Studio].
 
 ## Cenários do Python Azure para Linux e MacOS
-
 Para Linux ou MacOS, os principais cenários do Azure têm suporte:
 
 1. Usando os Serviços do Azure por meio das bibliotecas de cliente para Python
-
 2. Executando o seu aplicativo em uma VM com Linux
-
 3. Desenvolver e publicar sites do Azure usando Git
 
-O primeiro cenário permite que você crie aplicativos Web avançados que aproveitam recursos do Azure PaaS como [armazenamento de blobs][], [armazenamento de filas][], [armazenamento de tabela][] etc., por meio de wrappers do Pythonic para as APIs REST do Azure. Eles funcionam de forma idêntica no Windows, Mac e Linux. Você também pode usar essas bibliotecas cliente de sua máquina de desenvolvimento local ou em uma VM do Linux em execução no Azure.
+O primeiro cenário permite que você crie aplicativos Web avançados que aproveitam recursos do Azure PaaS como [armazenamento de blobs][armazenamento de blobs], [armazenamento de filas][armazenamento de filas], [armazenamento de tabela][armazenamento de tabela] etc., por meio de wrappers do Pythonic para as APIs REST do Azure. Eles funcionam de forma idêntica no Windows, Mac e Linux. Você também pode usar essas bibliotecas cliente de sua máquina de desenvolvimento local ou em uma VM do Linux em execução no Azure.
 
-Para o cenário da VM, basta iniciar uma VM com Linux de sua escolha (Ubuntu, CentOS, Suse) e executar/gerenciar os itens desejados. Por exemplo, você pode executar [IPython][] REPL/notebook no seu computador com Windows/Mac/Linux e apontar o navegador para uma VM com Linux ou Windows de proc múltiplo que esteja executando o IPython Engine no Azure. Consulte o tutorial [IPython Notebook no Azure][] para obter mais informações.
+Para o cenário da VM, basta iniciar uma VM com Linux de sua escolha (Ubuntu, CentOS, Suse) e executar/gerenciar os itens desejados. Por exemplo, você pode executar [IPython][IPython] REPL/notebook no seu computador com Windows/Mac/Linux e apontar o navegador para uma VM com Linux ou Windows de proc múltiplo que esteja executando o IPython Engine no Azure. Consulte o tutorial [IPython Notebook no Azure][IPython Notebook no Azure] para obter mais informações.
 
-Para obter informações sobre como configurar uma VM do Linux, consulte o tutorial [Criar uma Máquina Virtual Executando o Linux][].
+Para obter informações sobre como configurar uma VM do Linux, consulte o tutorial [Criar uma Máquina Virtual Executando o Linux][Criar uma Máquina Virtual Executando o Linux].
 
 Usando a implantação do Git, você pode desenvolver um aplicativo da Web Python e publicá-lo em um site do Azure de qualquer sistema operacional. Quando você envia seu repositório para o Azure, ele criará automaticamente um ambiente virtual e o pip instalará os pacotes necessários.
 
-Para obter mais informações sobre como desenvolver e publicar Sites do Azure, consulte os tutoriais [Criando Sites com Django][], [Criando Sites com Bottle][] e [Criando sites com Flash][]. Para obter mais informações gerais sobre como usar qualquer estrutura compatível com WSGI, consulte [Configurando Python com os Sites do Azure][].
-
+Para obter mais informações sobre como desenvolver e publicar Sites do Azure, consulte os tutoriais [Criando Sites com Django][Criando Sites com Django], [Criando Sites com Bottle][Criando Sites com Bottle] e [Criando sites com Flash][Criando sites com Flash]. Para obter mais informações gerais sobre como usar qualquer estrutura compatível com WSGI, consulte [Configurando Python com os Sites do Azure][Configurando Python com os Sites do Azure].
 
 ## Software adicional e recursos:
-
 * [SDK do Azure para Python no ReadTheDocs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 * [SDK do Azure para Python no Github](https://github.com/Azure/azure-sdk-for-python)
 * [Exemplos oficiais do Azure para Python](https://azure.microsoft.com/documentation/samples/?platform=python)
-* [Distribuição do Python de Análise de Continuidade][]
-* [Distribuição do Python de Enthought][]
-* [Distribuição do Python de ActiveState][]
-* [SciPy – um conjunto de Bibliotecas científicas para Python][]
-* [NumPy – uma biblioteca de numéricos para o Python][]
-* [Projeto Django – uma estrutura da Web/CMS sólida][]
-* [IPython – um REPL/Notebook avançado para o Python][]
-* [IPython Notebook no Azure][]
-* [Python Tools para Visual Studio no GitHub][]
+* [Distribuição do Python de Análise de Continuidade][Distribuição do Python de Análise de Continuidade]
+* [Distribuição do Python de Enthought][Distribuição do Python de Enthought]
+* [Distribuição do Python de ActiveState][Distribuição do Python de ActiveState]
+* [SciPy – um conjunto de Bibliotecas científicas para Python][SciPy – um conjunto de Bibliotecas científicas para Python]
+* [NumPy – uma biblioteca de numéricos para o Python][NumPy – uma biblioteca de numéricos para o Python]
+* [Projeto Django – uma estrutura da Web/CMS sólida][Projeto Django – uma estrutura da Web/CMS sólida]
+* [IPython – um REPL/Notebook avançado para o Python][IPython – um REPL/Notebook avançado para o Python]
+* [IPython Notebook no Azure][IPython Notebook no Azure]
+* [Python Tools para Visual Studio no GitHub][Python Tools para Visual Studio no GitHub]
 * [Centro de desenvolvedores do Python](/develop/python/)
 
 [Distribuição do Python de Análise de Continuidade]: http://continuum.io

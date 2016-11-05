@@ -1,25 +1,22 @@
-<properties
-   pageTitle="Aviso de desativação da família 1 de SOs convidados | Microsoft Azure"
-   description="Fornece informações sobre quando ocorreu a desativação da família 1 sistemas operacionais convidados do Azure e determinar se você foi afetado"
-   services="cloud-services"
-   documentationCenter="na"
-   authors="yuemlu"
-   manager="timlt"
-   editor=""/>
+---
+title: Aviso de desativação da família 1 de SOs convidados | Microsoft Docs
+description: Fornece informações sobre quando ocorreu a desativação da família 1 sistemas operacionais convidados do Azure e determinar se você foi afetado
+services: cloud-services
+documentationcenter: na
+author: yuemlu
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="06/10/2016"
-   ms.author="yuemlu"/>
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: tbd
+ms.date: 06/10/2016
+ms.author: yuemlu
 
-
-
+---
 # Aviso de desativação da família 1 de SO convidados
-
 A desativação da família 1 do sistema operacional foi anunciada em 1º de junho de 2013.
 
 **2 de setembro de 2014** A família 1.x do sistema operacional convidado do Azure (SO convidado), que se baseia no sistema operacional Windows Server 2008, foi oficialmente desativada. Todas as tentativas para implantar novos serviços ou atualizar serviços existentes usando a família 1 falharão com uma mensagem de erro informando que a família 1 dos sistemas operacionais convidados foi desativada.
@@ -28,11 +25,7 @@ A desativação da família 1 do sistema operacional foi anunciada em 1º de jun
 
 Se você tiver outras dúvidas, visite os [Fóruns dos Serviços de Nuvem](http://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) ou [entre em contato com o suporte do Azure](https://azure.microsoft.com/support/options/).
 
-
-
-
 ## Você foi afetado?
-
 Os Serviços de Nuvem são afetados se qualquer uma das opções a seguir se aplicar:
 
 1. Você tem um valor de "osFamily = "1" explicitamente especificado no arquivo ServiceConfiguration.cscfg para seu serviço de nuvem.
@@ -54,7 +47,6 @@ foreach($subscription in Get-AzureSubscription) {
 Os serviços de nuvem serão afetados pela desativação da família 1 do sistema operacional se a coluna osFamily na saída do script estiver vazia ou contiver um "1".
 
 ## Recomendações se você for afetado
-
 Recomendamos que você migre suas funções de serviço de nuvem para uma das famílias dos sistemas operacionais convidados com suporte:
 
 **Família 4.x dos SOs convidados** - Windows Server 2012 R2 *(recomendado)*
@@ -62,18 +54,15 @@ Recomendamos que você migre suas funções de serviço de nuvem para uma das fa
 1. Certifique-se de que seu aplicativo esteja usando o SDK 2.1 ou posterior com o .NET Framework 4.0, 4.5 ou 4.5.1.
 2. Defina o atributo osFamily para "4" no arquivo ServiceConfiguration.cscfg e reimplante o serviço de nuvem.
 
-
 **Família 3.x dos SOs convidados** - Windows Server 2012
 
 1. Certifique-se de que seu aplicativo esteja usando o SDK 1.8 ou posterior com o .NET Framework 4.0 ou 4.5.
 2. Defina o atributo osFamily como "3" no arquivo ServiceConfiguration.cscfg e reimplante o serviço de nuvem.
 
-
 **Família 2.x dos SOs convidados** - Windows Server 2008 R2
 
 1. Certifique-se de que seu aplicativo esteja usando o SDK 1.3 e posterior com o .NET Framework 3.5 ou 4.0.
 2. Defina o atributo osFamily para "2" no arquivo ServiceConfiguration.cscfg e reimplante o serviço de nuvem.
-
 
 ## O suporte estendido para a Família 1 dos sistemas operacionais convidados terminou em 3 de novembro de 2014
 Não há mais suporte para serviços de nuvem na família 1 dos sistemas operacionais convidados. Migre da família 1 assim que possível para evitar a interrupção do serviço.

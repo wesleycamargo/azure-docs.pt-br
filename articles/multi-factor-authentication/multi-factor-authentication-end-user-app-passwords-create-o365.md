@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Criar senhas de aplicativo no portal do Office 365 para o Azure Multi-Factor Authentication"
-	description="Estas página mostra aos usuários como eles podem criar senhas de aplicativo adicionais no portal do Office 365."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Criar senhas de aplicativo no portal do Office 365 para o Azure Multi-Factor Authentication
+description: Estas página mostra aos usuários como eles podem criar senhas de aplicativo adicionais no portal do Office 365.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Criar ou excluir senhas de aplicativo no portal do Office 365 para o Azure Multi-Factor Authentication
-
 Se você usar uma multi-factor authentication com o Office 365, talvez seja conveniente criar e excluir senhas de aplicativo por meio do portal do Office 365.
 
 ## Para criar senhas de aplicativo no portal do Office 365
---------------------------------------------------------------------------------
-
+- - -
 <ol>
+
 <li>Entre no portal do Office 365</li>
 <li>No canto superior direito, selecione o widget de configurações</li>
 <li>À esquerda, selecione Verificação de Segurança Adicional</li>
@@ -46,9 +45,9 @@ Se você usar uma multi-factor authentication com o Office 365, talvez seja conv
 
 
 ## Para excluir senhas de aplicativo no portal do Office 365
---------------------------------------------------------------------------------
-
+- - -
 <ol>
+
 <li>Entre no portal do Office 365</li>
 <li>No canto superior direito, selecione o widget e escolha as configurações do Office 365</li>
 <li>Na parte inferior, clique em verificação de segurança adicional e selecione * * Atualizar seus números de telefone usados para a segurança da conta**.3</li>

@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Como fazer uma chamada telefônica do Twilio (Java) | Microsoft Azure" 
-	description="Saiba como fazer uma chamada telefônica de uma página da Web usando o Twilio em um aplicativo Java no Azure." 
-	services="" 
-	documentationCenter="java" 
-	authors="devinrader" 
-	manager="twilio" 
-	editor="mollybos"/>
+---
+title: Como fazer uma chamada telefônica do Twilio (Java) | Microsoft Docs
+description: Saiba como fazer uma chamada telefônica de uma página da Web usando o Twilio em um aplicativo Java no Azure.
+services: ''
+documentationcenter: java
+author: devinrader
+manager: twilio
+editor: mollybos
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="11/25/2014" 
-	ms.author="microsofthelp@twilio.com"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: Java
+ms.topic: article
+ms.date: 11/25/2014
+ms.author: microsofthelp@twilio.com
 
-# Como fazer uma chamada telefônica usando o Twilio em um aplicativo Java no Azure 
-
+---
+# Como fazer uma chamada telefônica usando o Twilio em um aplicativo Java no Azure
 O exemplo a seguir mostra como você pode usar a Twilio para fazer uma chamada de uma página da web hospedada no Azure. O aplicativo resultante solicitará valores de chamada telefônica ao usuário, conforme mostrado na seguinte captura de tela.
 
 ![Formulário de chamada do Azure usando a Twilio e o Java][twilio_java]
@@ -33,7 +32,6 @@ Você precisará fazer o seguinte para usar o código deste tópico:
 Além disso, é altamente recomendável você se familiarizar com as informações de [Criando um aplicativo Hello World usando o Kit de Ferramenta do Azure para Eclipse][azure_java_eclipse_hello_world] ou com outras técnicas de hospedagem de aplicativos Java no Azure se você não estiver usando o Eclipse.
 
 ## Criar um formulário da web para fazer uma chamada
-
 O código a seguir mostra como criar um formulário da web para recuperar dados do usuário para fazer uma chamada. Para o objetivo deste exemplo, um novo projeto web dinâmico, chamado **TwilioCloud**, foi criado, e **callform.jsp** foi adicionado como um arquivo JSP.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -99,7 +97,7 @@ O código a seguir, que é chamado quando o usuário preenche o formulário most
          // of the placeholders shown here.
          String accountSID = "your_twilio_account";
          String authToken = "your_twilio_authentication_token";
-     
+
          // Instantiate an instance of the Twilio client.     
          TwilioRestClient client;
          client = new TwilioRestClient(accountSID, authToken);
@@ -109,37 +107,37 @@ O código a seguir, que é chamado quando o usuário preenche o formulário most
 
          // Display the client endpoint. 
          out.println("<p>Using Twilio endpoint " + client.getEndpoint() + ".</p>");
-     
+
          // Display the API version.
          String APIVERSION = TwilioRestClient.DEFAULT_VERSION;
          out.println("<p>Twilio client API version is " + APIVERSION + ".</p>");
-    
+
          // Retrieve the values entered by the user.
          String callTo = request.getParameter("callTo");  
          // The Outgoing Caller ID, used for the From parameter,
          // must have previously been verified with Twilio.
          String callFrom = request.getParameter("callFrom");
          String userText = request.getParameter("callText");
-     
+
          // Replace spaces in the user's text with '%20', 
          // to make the text suitable for a URL.
          userText = userText.replace(" ", "%20");
-     
+
          // Create a URL using the Twilio message and the user-entered text.
          String Url="http://twimlets.com/message";
          Url = Url + "?Message%5B0%5D=" + userText;
-     
+
          // Display the message URL.
          out.println("<p>");
          out.println("The URL is " + Url);
          out.println("</p>");
-    
+
          // Place the call From, To and URL values into a hash map. 
          HashMap<String, String> params = new HashMap<String, String>();
          params.put("From", callFrom);
          params.put("To", callTo);
          params.put("Url", Url);
-     
+
          CallFactory callFactory = account.getCallFactory();
          Call call = callFactory.create(params);
          out.println("<p>Call status: " + call.getStatus()  + "</p>"); 

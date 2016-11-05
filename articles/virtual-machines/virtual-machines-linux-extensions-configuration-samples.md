@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Exemplo de configuração de extensões de VM do Linux | Microsoft Azure"
-   description="Configuração de exemplo para criação de modelos com extensões para VMs do Linux"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Exemplo de configuração de extensões de VM do Linux | Microsoft Docs
+description: Configuração de exemplo para criação de modelos com extensões para VMs do Linux
+services: virtual-machines-linux
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="09/13/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/13/2016
+ms.author: kundanap
 
-
+---
 # <a name="linux-vm-extension-configuration-samples"></a>Exemplos de configuração de extensão de VM Linux.
-
-> [AZURE.SELECTOR]
-- [PowerShell – modelo](virtual-machines-windows-extensions-configuration-samples.md)
-- [CLI - Modelo](virtual-machines-linux-extensions-configuration-samples.md)
+> [!div class="op_single_selector"]
+> * [PowerShell – modelo](virtual-machines-windows-extensions-configuration-samples.md)
+> * [CLI - Modelo](virtual-machines-linux-extensions-configuration-samples.md)
+> 
+> 
 
 <br>
 
@@ -56,7 +56,6 @@ O trecho do modelo para Implantação de extensões tem a seguinte aparência:
       }
 
 ## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Trecho de código do modelo de exemplo para extensões de VM com Conjuntos de Escala de VM.
-
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -217,8 +216,6 @@ Nos exemplos acima, substitua o número de versão pelo número de versão mais 
 Veja abaixo um modelo de VM completo para a criação de uma VM do Linux com uma extensão:
 
 [Extensão de script personalizado em uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

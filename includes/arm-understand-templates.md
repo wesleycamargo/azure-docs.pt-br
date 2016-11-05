@@ -1,6 +1,5 @@
 ## Noções básicas sobre grupos de recursos e modelos de recursos do Azure
-
-A maioria dos aplicativos implantados e executados no Microsoft Azure é criada com base em uma combinação de diferentes tipos de recurso de nuvem (por exemplo, uma ou mais VMs e contas de Armazenamento, um banco de dados SQL, uma rede virtual, uma CDN etc.). [Com os modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md), é possível implantar e gerenciar esses recursos diferentes em conjunto usando uma descrição JSON dos recursos e parâmetros associados de configuração e implantação.
+A maioria dos aplicativos implantados e executados no Microsoft Azure é criada com base em uma combinação de diferentes tipos de recurso de nuvem (por exemplo, uma ou mais VMs e contas de Armazenamento, um banco de dados SQL, uma rede virtual, uma CDN etc.). [Com os modelos do Gerenciador de Recursos do Azure](../articles/resource-group-authoring-templates.md), é possível implantar e gerenciar esses recursos diferentes em conjunto usando uma descrição JSON dos recursos e parâmetros associados de configuração e implantação.
 
 Depois de definir um modelo de recurso baseado em JSON, você poderá executá-lo e fazer com que os recursos definidos nele sejam implantados no Azure usando um comando do PowerShell. Você pode executar esse comando do PowerShell de forma autônoma no shell de comando do PowerShell ou integrá-lo a um script do PowerShell que contenha lógica de automação adicional.
 

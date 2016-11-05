@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Como criar um aplicativo que pode conectar qualquer usuário do Azure Active Directory| Microsoft Azure"
-   description="Instruções passo a passo para a criação de um aplicativo que pode conectar um usuário de qualquer locatário do Azure Active Directory, também conhecido como aplicativo multilocatário."
-   services="active-directory"
-   documentationCenter=""
-   authors="skwan"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Como criar um aplicativo que pode conectar qualquer usuário do Azure Active Directory| Microsoft Docs
+description: Instruções passo a passo para a criação de um aplicativo que pode conectar um usuário de qualquer locatário do Azure Active Directory, também conhecido como aplicativo multilocatário.
+services: active-directory
+documentationcenter: ''
+author: skwan
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/25/2016"
-   ms.author="skwan;bryanla"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 07/25/2016
+ms.author: skwan;bryanla
 
+---
 # Como entrar em qualquer usuário do Azure AD (Active Directory) usando o padrão de aplicativo multilocatário
 Se você oferecer um aplicativo Software como Serviço para muitas organizações, poderá configurar seu aplicativo para aceitar entradas de qualquer locatário do Azure AD. No Azure AD, isso é chamado de tornar seu aplicativo multilocatário. Os usuários em qualquer locatário do Azure AD poderão entrar em seu aplicativo após o consentimento para usar sua conta com o aplicativo.
 
@@ -23,15 +23,14 @@ Caso você tenha um aplicativo existente que tem seu próprio sistema de conta o
 
 [![Botão Entrar][AAD-Sign-In]][AAD-App-Branding]
 
-
 Este artigo pressupõe que você já está familiarizado com a criação de um aplicativo de locatário único do Azure AD. Se não estiver, retorne à [homepage do guia do desenvolvedor][AAD-Dev-Guide] e experimente um de nossos inícios rápidos!
 
 Há quatro etapas simples para converter seu aplicativo em um aplicativo multilocatário do Azure AD:
 
-1.	Atualizar seu registro de aplicativo para ser multilocatário
-2.	Atualizar seu código para enviar solicitações para o ponto de extremidade /common
-3.	Atualizar seu código para lidar com vários valores de emissor
-4.	Entender o consentimento do usuário e administrador e fazer as alterações de código apropriadas
+1. Atualizar seu registro de aplicativo para ser multilocatário
+2. Atualizar seu código para enviar solicitações para o ponto de extremidade /common
+3. Atualizar seu código para lidar com vários valores de emissor
+4. Entender o consentimento do usuário e administrador e fazer as alterações de código apropriadas
 
 Vamos examinar cada etapa detalhadamente. Você também pode ir diretamente para [esta lista de exemplos de multilocatário][AAD-Samples-MT].
 
@@ -64,7 +63,10 @@ Vamos examinar o uso do ponto de extremidade /common e a sua implementação de 
 ## Atualizar seu código para lidar com vários valores de emissor
 Os aplicativos Web e as APIs Web recebem e validam os tokens do Azure AD.
 
-> [AZURE.NOTE] Embora os aplicativos cliente nativos solicitem e recebam tokens do Azure AD, eles fazem isso para enviá-los para APIs, nas quais eles são validados. Os aplicativos nativos não validam os tokens e devem tratá-los como opacos.
+> [!NOTE]
+> Embora os aplicativos cliente nativos solicitem e recebam tokens do Azure AD, eles fazem isso para enviá-los para APIs, nas quais eles são validados. Os aplicativos nativos não validam os tokens e devem tratá-los como opacos.
+> 
+> 
 
 Vamos examinar como um aplicativo valida os tokens que ele recebe do Azure AD. Um aplicativo de locatário único normalmente terá um valor de ponto de extremidade como:
 
@@ -103,8 +105,8 @@ Para um aplicativo multilocatário, o registro inicial para o aplicativo reside 
 
 Essa experiência de consentimento é afetada pelas permissões solicitadas pelo aplicativo. O Azure AD dá suporte a dois tipos de permissões, somente do aplicativo e delegadas:
 
-- Uma permissão delegada concede a um aplicativo a capacidade de atuar como um usuário conectado para um subconjunto das ações que o usuário pode realizar. Por exemplo, você pode conceder a um aplicativo a permissão delegada para ler o calendário do usuário conectado.
-- Uma permissão somente do aplicativo é concedida diretamente à identidade do aplicativo. Por exemplo, você pode conceder a permissão somente do aplicativo a um aplicativo para ler a lista de usuários em um locatário e ele poderá fazer isso independentemente de quem estiver conectado ao aplicativo.
+* Uma permissão delegada concede a um aplicativo a capacidade de atuar como um usuário conectado para um subconjunto das ações que o usuário pode realizar. Por exemplo, você pode conceder a um aplicativo a permissão delegada para ler o calendário do usuário conectado.
+* Uma permissão somente do aplicativo é concedida diretamente à identidade do aplicativo. Por exemplo, você pode conceder a permissão somente do aplicativo a um aplicativo para ler a lista de usuários em um locatário e ele poderá fazer isso independentemente de quem estiver conectado ao aplicativo.
 
 Algumas permissões podem ser consentidas por um usuário normal, enquanto outras exigem o consentimento de um administrador de locatários.
 
@@ -121,7 +123,10 @@ Se um aplicativo exigir o consentimento do administrador e o administrador entra
 
 Um administrador de locatários pode desabilitar a capacidade dos usuários regulares consentirem aplicativos. Se essa funcionalidade estiver desabilitada, o consentimento do administrador sempre será necessário para o aplicativo a ser configurado no locatário. Se você quiser testar seu aplicativo com o consentimento do usuário normal desabilitado, poderá encontrar a opção de configuração na seção de configuração do locatário do Azure AD do [portal clássico do Azure][AZURE-classic-portal].
 
-> [AZURE.NOTE] Alguns aplicativos desejam uma experiência em que os usuários normais podem consentir inicialmente e posteriormente o aplicativo pode envolver o administrador e solicitar permissões que exigem o consentimento do administrador. Não é possível fazer isso com um registro de aplicativo único no Azure AD atualmente. O próximo ponto de extremidade do Azure AD v2 permitirá que os aplicativos solicitem permissões no tempo de execução em vez de no momento do registro, o que permitirá esse cenário. Para saber mais, consulte o [Guia do desenvolvedor do modelo de aplicativo do Azure AD v2][AAD-V2-Dev-Guide].
+> [!NOTE]
+> Alguns aplicativos desejam uma experiência em que os usuários normais podem consentir inicialmente e posteriormente o aplicativo pode envolver o administrador e solicitar permissões que exigem o consentimento do administrador. Não é possível fazer isso com um registro de aplicativo único no Azure AD atualmente. O próximo ponto de extremidade do Azure AD v2 permitirá que os aplicativos solicitem permissões no tempo de execução em vez de no momento do registro, o que permitirá esse cenário. Para saber mais, consulte o [Guia do desenvolvedor do modelo de aplicativo do Azure AD v2][AAD-V2-Dev-Guide].
+> 
+> 
 
 ### Aplicativos de várias camadas e consentimento
 Seu aplicativo pode ter várias camadas, cada uma representada por seu próprio registro no Azure AD. Por exemplo, um aplicativo nativo que chama uma API Web ou um aplicativo Web que chama uma API Web. Em ambos os casos, o cliente (aplicativo nativo ou aplicativo Web) solicita permissões para chamar o recurso (API Web). Para o cliente ter o consentimento com êxito em um locatário do cliente, todos os recursos aos quais ele solicita permissões já devem existir no locatário do cliente. Se essa condição não for atendida, o Azure AD retornará um erro de que o recurso deve ser adicionado primeiro.
@@ -143,8 +148,8 @@ O diagrama a seguir fornece uma visão geral de consentimento para um aplicativo
 ### Revogando o consentimento
 Os usuários e administradores podem revogar o consentimento para seu aplicativo a qualquer momento:
 
-- Os usuários revogam o acesso a aplicativos individuais removendo-os da lista de [Aplicativos do Painel de Acesso][AAD-Access-Panel].
-- Os administradores revogam o acesso a aplicativos removendo-os do Azure AD usando a seção de gerenciamento do Azure AD do [portal clássico do Azure][AZURE-classic-portal].
+* Os usuários revogam o acesso a aplicativos individuais removendo-os da lista de [Aplicativos do Painel de Acesso][AAD-Access-Panel].
+* Os administradores revogam o acesso a aplicativos removendo-os do Azure AD usando a seção de gerenciamento do Azure AD do [portal clássico do Azure][AZURE-classic-portal].
 
 Se um administrador der o consentimento a um aplicativo para todos os usuários em um locatário, os usuários não poderão revogar o acesso individualmente. Somente o administrador pode revogar o acesso e somente para o aplicativo inteiro.
 
@@ -155,15 +160,14 @@ O consentimento tem suporte no Azure AD por meio dos protocolos OAuth, OpenID Co
 Os aplicativos multilocatários também podem obter tokens de acesso para chamar APIs que são protegidas pelo Azure AD. Um erro comum ao usar a ADAL (Biblioteca de Autenticação do Active Directory) com um aplicativo multilocatário é solicitar inicialmente um token para um usuário usando /common, receber uma resposta e solicitar um token subsequente para o mesmo usuário também usando /common. Uma vez que a resposta do Azure AD vem de um locatário, não de /common, a ADAL armazena em cache o token como sendo do locatário. A chamada subsequente para /common para obter um token de acesso para o usuário perde a entrada de cache e o usuário é solicitado a entrar novamente. Para evitar a perda de cache, certifique-se de que as chamadas subsequentes para um usuário já conectado sejam feitas para o ponto de extremidade do locatário.
 
 ## Conteúdo relacionado
-
-- [Exemplos de aplicativos multilocatários][AAD-Samples-MT]
-- [Diretrizes de identidade visual para aplicativos][AAD-App-Branding]
-- [Guia do Desenvolvedor do Azure AD][AAD-Dev-Guide]
-- [Objetos de Aplicativo e de Entidade de Serviço][AAD-App-SP-Objects]
-- [Integrando aplicativos ao Active Directory do Azure][AAD-Integrating-Apps]
-- [Visão geral da estrutura de consentimento][AAD-Consent-Overview]
-- [Escopos de permissão da API do Microsoft Graph][MSFT-Graph-AAD]
-- [Escopos de permissão da API do Azure AD Graph][AAD-Graph-Perm-Scopes]
+* [Exemplos de aplicativos multilocatários][AAD-Samples-MT]
+* [Diretrizes de identidade visual para aplicativos][AAD-App-Branding]
+* [Guia do Desenvolvedor do Azure AD][AAD-Dev-Guide]
+* [Objetos de Aplicativo e de Entidade de Serviço][AAD-App-SP-Objects]
+* [Integrando aplicativos ao Active Directory do Azure][AAD-Integrating-Apps]
+* [Visão geral da estrutura de consentimento][AAD-Consent-Overview]
+* [Escopos de permissão da API do Microsoft Graph][MSFT-Graph-AAD]
+* [Escopos de permissão da API do Azure AD Graph][AAD-Graph-Perm-Scopes]
 
 Use a seção de comentários do Disqus abaixo para fornecer seus comentários e ajudar a refinar e a moldar o nosso conteúdo.
 

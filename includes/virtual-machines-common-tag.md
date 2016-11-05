@@ -2,7 +2,6 @@
 
 
 ## Marcando uma máquina virtual por meio de modelos
-
 Primeiramente, vamos observar uma marcação por meio de modelos. [Este modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) coloca marcas nos seguintes recursos: Computação (Máquina Virtual), Armazenamento (Conta de Armazenamento) e Rede (Endereço IP Público, Rede Virtual e Interface de Rede). Esse modelo destina-se a uma VM do Windows, mas pode ser adaptada para VMs do Linux.
 
 Clique no botão **Implantar no Azure** no [link do modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Você será direcionado para o [Portal do Azure](https://portal.azure.com/), onde poderá implantar esse modelo.
@@ -28,9 +27,7 @@ Em seguida, na seção **Editar Parâmetros**, você pode preencher os valores d
 
 Clique em **Criar** para implantar esse modelo com seus valores de marca.
 
-
 ## Marcando por meio do portal
-
 Depois de criar seus recursos com marcas, você pode exibir, adicionar e excluir as marcas no portal.
 
 Selecione o ícone de marcas para exibir suas marcas:

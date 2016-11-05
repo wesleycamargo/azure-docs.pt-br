@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="Modelo de dados do Application Insights" 
-	description="Descreve as propriedades exportadas de exportação contínua em JSON e usados como filtros." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Modelo de dados do Application Insights
+description: Descreve as propriedades exportadas de exportação contínua em JSON e usados como filtros.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/21/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 03/21/2016
+ms.author: awills
 
+---
 # Modelo de dados de exportação do Application Insights
-
 Esta tabela lista as propriedades de telemetria enviadas dos SDKs do [Application Insights](app-insights-overview.md) para o portal. Você verá essas propriedades na saída de dados de [Exportação Contínua](app-insights-export-telemetry.md). Elas também aparecerão em filtros de propriedade em [Gerenciador de Métricas](app-insights-metrics-explorer.md) e em [Pesquisa de Diagnóstico](app-insights-diagnostic-search.md).
 
 Pontos a serem observados:
@@ -27,10 +26,7 @@ Pontos a serem observados:
 
 Existem vários [exemplos](app-insights-export-telemetry.md#code-samples) que ilustram como usá-los.
 
-
-
 ## Exemplo
-
     // A server report about an HTTP request
     {
     "request": [ 
@@ -110,220 +106,187 @@ Existem vários [exemplos](app-insights-export-telemetry.md#code-samples) que il
     }
   }
 
-
-
-
 ## Contexto
-
 Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem todos esses campos são transmitidos com cada ponto de dados.
 
-
-
-|Caminho|Tipo|Observações|
-|---|---|---|
-| context.custom.dimensions [0] | object [ ] | Pares de cadeira de caractere chave-valor definidos pelo parâmetro das propriedades personalizadas. Comprimento máximo da chave 100, comprimento máximo dos valores 1024. Mais de 100 valores exclusivos, é possível pesquisar na propriedade, mas não usá-la para segmentação. Máximo de 200 chaves por ikey. |
-| context.custom.metrics [0] | object [ ] | Pares de chave-valor definidos pelo parâmetro de medidas personalizadas e por TrackMetrics. Comprimento máximo da chave 100, os valores podem ser numéricos. |
-| context.data.eventTime | string | UTC |
-| context.data.isSynthetic | booleano | A solicitação parece ser proveniente de um teste na Web ou de um bot. |
-| context.data.samplingRate | número | Porcentagem de telemetria gerada pelo SDK enviado ao portal. Intervalo 0.0-100.0.|
-| context.device | objeto | Dispositivo de cliente |
-| context.device.browser | string | IE, Chrome, ... |
-| context.device.browserVersion | string | Chrome 48.0, ... |
-| context.device.deviceModel | string | |
-| context.device.deviceName | string | |
-| context.device.id | string | |
-| context.device.locale | string | en-GB, de-DE, ... |
-| context.device.network | string | |
-| context.device.oemName | string | |
-| context.device.osVersion | string | SO host |
-| context.device.roleInstance | string | ID do host do servidor |
-| context.device.roleName | string | |
-| context.device.type | string | PC, navegador,... |
-| context.location | objeto | Derivado de clientip. |
-| context.location.city | string | Derivado de clientip, se conhecido |
-| context.location.clientip | string | Último octógono tornado anônimo pelo valor 0. |
-| context.location.continent | string | |
-| context.location.country | string | |
-| context.location.province | string | Estado ou província |
-| context.operation.id | string | Itens que têm a mesma ID de operação são mostrados como Itens Relacionados no portal. Normalmente a ID da solicitação. |
-| context.operation.name | string | nome solicitação ou url |
-| context.operation.parentId | string | Permite itens relacionados aninhados. |
-| context.session.id | string | ID de um grupo de operações da mesma fonte. Um período de 30 minutos sem uma operação sinaliza o término de uma sessão. |
-| context.session.isFirst | booleano | |
-| context.user.accountAcquisitionDate | string | |
-| context.user.anonAcquisitionDate | string | |
-| context.user.anonId | string | |
-| context.user.authAcquisitionDate | string | [Usuário autenticado](app-insights-api-custom-events-metrics.md#authenticated-users) |
-| context.user.isAuthenticated | booleano | |
-| internal.data.documentVersion | string | |
-| internal.data.id | string | |
-
-
+| Caminho | Tipo | Observações |
+| --- | --- | --- |
+| context.custom.dimensions [0] |object [ ] |Pares de cadeira de caractere chave-valor definidos pelo parâmetro das propriedades personalizadas. Comprimento máximo da chave 100, comprimento máximo dos valores 1024. Mais de 100 valores exclusivos, é possível pesquisar na propriedade, mas não usá-la para segmentação. Máximo de 200 chaves por ikey. |
+| context.custom.metrics [0] |object [ ] |Pares de chave-valor definidos pelo parâmetro de medidas personalizadas e por TrackMetrics. Comprimento máximo da chave 100, os valores podem ser numéricos. |
+| context.data.eventTime |string |UTC |
+| context.data.isSynthetic |booleano |A solicitação parece ser proveniente de um teste na Web ou de um bot. |
+| context.data.samplingRate |número |Porcentagem de telemetria gerada pelo SDK enviado ao portal. Intervalo 0.0-100.0. |
+| context.device |objeto |Dispositivo de cliente |
+| context.device.browser |string |IE, Chrome, ... |
+| context.device.browserVersion |string |Chrome 48.0, ... |
+| context.device.deviceModel |string | |
+| context.device.deviceName |string | |
+| context.device.id |string | |
+| context.device.locale |string |en-GB, de-DE, ... |
+| context.device.network |string | |
+| context.device.oemName |string | |
+| context.device.osVersion |string |SO host |
+| context.device.roleInstance |string |ID do host do servidor |
+| context.device.roleName |string | |
+| context.device.type |string |PC, navegador,... |
+| context.location |objeto |Derivado de clientip. |
+| context.location.city |string |Derivado de clientip, se conhecido |
+| context.location.clientip |string |Último octógono tornado anônimo pelo valor 0. |
+| context.location.continent |string | |
+| context.location.country |string | |
+| context.location.province |string |Estado ou província |
+| context.operation.id |string |Itens que têm a mesma ID de operação são mostrados como Itens Relacionados no portal. Normalmente a ID da solicitação. |
+| context.operation.name |string |nome solicitação ou url |
+| context.operation.parentId |string |Permite itens relacionados aninhados. |
+| context.session.id |string |ID de um grupo de operações da mesma fonte. Um período de 30 minutos sem uma operação sinaliza o término de uma sessão. |
+| context.session.isFirst |booleano | |
+| context.user.accountAcquisitionDate |string | |
+| context.user.anonAcquisitionDate |string | |
+| context.user.anonId |string | |
+| context.user.authAcquisitionDate |string |[Usuário autenticado](app-insights-api-custom-events-metrics.md#authenticated-users) |
+| context.user.isAuthenticated |booleano | |
+| internal.data.documentVersion |string | |
+| internal.data.id |string | |
 
 ## Eventos
-
 Eventos personalizados gerados por [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
 
-
-|Caminho|Tipo|Observações|
-|---|---|---|
-| event [0] count | inteiro | 100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
-| event [0] name | string | Nome do evento. Comprimento máximo 250. |
-| event [0] url | string | |
-| event [0] urlData.base | string | |
-| event [0] urlData.host | string | |
+| Caminho | Tipo | Observações |
+| --- | --- | --- |
+| event [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
+| event [0] name |string |Nome do evento. Comprimento máximo 250. |
+| event [0] url |string | |
+| event [0] urlData.base |string | |
+| event [0] urlData.host |string | |
 
 ## Exceções
-
 [Exceções](app-insights-asp-net-exceptions.md) do relatório no servidor e no navegador.
 
-
-|Caminho|Tipo|Observações|
-|---|---|---|
-| basicException [0] assembly | string | |
-| basicException [0] count | inteiro | 100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
-| basicException [0] exceptionGroup | string | |
-| basicException [0] exceptionType | string | |string | |
-| basicException [0] failedUserCodeMethod | string | |
-| basicException [0] failedUserCodeAssembly | string | |
-| basicException [0] handledAt | string | |
-| basicException [0] hasFullStack | booleano | |
-| basicException [0] id | string | |
-| basicException [0] method | string | |
-| basicException [0] message | string | Mensagem de exceção. Comprimento máximo 10k.|
-| basicException [0] outerExceptionMessage | string | |
-| basicException [0] outerExceptionThrownAtAssembly | string | |
-| basicException [0] outerExceptionThrownAtMethod | string | |
-| basicException [0] outerExceptionType | string | |
-| basicException [0] outerId | string | |
-| basicException [0] parsedStack [0] assembly | string | |
-| basicException [0] parsedStack [0] fileName | string | |
-| basicException [0] parsedStack [0] level | inteiro | |
-| basicException [0] parsedStack [0] line | inteiro | |
-| basicException [0] parsedStack [0] method | string | |
-| basicException [0] stack | string | Comprimento máximo 10k|
-| basicException [0] typeName | string | |
-
-
+| Caminho | Tipo | Observações |
+| --- | --- | --- |
+| basicException [0] assembly |string | |
+| basicException [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
+| basicException [0] exceptionGroup |string | |
+| basicException [0] exceptionType |string | |
+| basicException [0] failedUserCodeMethod |string | |
+| basicException [0] failedUserCodeAssembly |string | |
+| basicException [0] handledAt |string | |
+| basicException [0] hasFullStack |booleano | |
+| basicException [0] id |string | |
+| basicException [0] method |string | |
+| basicException [0] message |string |Mensagem de exceção. Comprimento máximo 10k. |
+| basicException [0] outerExceptionMessage |string | |
+| basicException [0] outerExceptionThrownAtAssembly |string | |
+| basicException [0] outerExceptionThrownAtMethod |string | |
+| basicException [0] outerExceptionType |string | |
+| basicException [0] outerId |string | |
+| basicException [0] parsedStack [0] assembly |string | |
+| basicException [0] parsedStack [0] fileName |string | |
+| basicException [0] parsedStack [0] level |inteiro | |
+| basicException [0] parsedStack [0] line |inteiro | |
+| basicException [0] parsedStack [0] method |string | |
+| basicException [0] stack |string |Comprimento máximo 10k |
+| basicException [0] typeName |string | |
 
 ## Mensagens de rastreamento
-
 Enviado por [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) e pelos [adaptadores de registro em log](app-insights-asp-net-trace-logs.md).
 
-
-|Caminho|Tipo|Observações|
-|---|---|---|
-| message [0] loggerName | string ||
-| message [0] parameters | string ||
-| message [0] raw | string | A mensagem de log, comprimento máximo de 10 mil. |
-| message [0] severityLevel | string | |
-
-
+| Caminho | Tipo | Observações |
+| --- | --- | --- |
+| message [0] loggerName |string | |
+| message [0] parameters |string | |
+| message [0] raw |string |A mensagem de log, comprimento máximo de 10 mil. |
+| message [0] severityLevel |string | |
 
 ## Dependência remota
-
 Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamadas para dependências](app-insights-asp-net-dependencies.md) no servidor, e chamadas do AJAX no navegador.
 
-|Caminho|Tipo|Observações|
-|---|---|---|
-| remoteDependency [0] async | booleano | |
-| remoteDependency [0] baseName | string | |
-| remoteDependency [0] commandName | string | Por exemplo, "home/index" |
-| remoteDependency [0] count | inteiro | 100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
-| remoteDependency [0] dependencyTypeName | string | HTTP, SQL, ... |
-| remoteDependency [0] durationMetric.value | número | Tempo desde a chamada até a conclusão da resposta por dependência |
-| remoteDependency [0] id | string | |
-| remoteDependency [0] name | string | Url. Comprimento máximo 250.|
-| remoteDependency [0] resultCode | string | da dependência de HTTP |
-| remoteDependency [0] success | booleano | |
-| remoteDependency [0] type | string | Http, Sql,... |
-| remoteDependency [0] url | string | Comprimento máximo 2000 |
-| remoteDependency [0] urlData.base | string | Comprimento máximo 2000 |
-| remoteDependency [0] urlData.hashTag | string | |
-| remoteDependency [0] urlData.host | string | Comprimento máximo 200 |
-
+| Caminho | Tipo | Observações |
+| --- | --- | --- |
+| remoteDependency [0] async |booleano | |
+| remoteDependency [0] baseName |string | |
+| remoteDependency [0] commandName |string |Por exemplo, "home/index" |
+| remoteDependency [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
+| remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
+| remoteDependency [0] durationMetric.value |número |Tempo desde a chamada até a conclusão da resposta por dependência |
+| remoteDependency [0] id |string | |
+| remoteDependency [0] name |string |Url. Comprimento máximo 250. |
+| remoteDependency [0] resultCode |string |da dependência de HTTP |
+| remoteDependency [0] success |booleano | |
+| remoteDependency [0] type |string |Http, Sql,... |
+| remoteDependency [0] url |string |Comprimento máximo 2000 |
+| remoteDependency [0] urlData.base |string |Comprimento máximo 2000 |
+| remoteDependency [0] urlData.hashTag |string | |
+| remoteDependency [0] urlData.host |string |Comprimento máximo 200 |
 
 ## Solicitações
-
 Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). Os módulos padrão usam isso para indicar o tempo de resposta do servidor, medido no servidor.
 
-
-|Caminho|Tipo|Observações|
-|---|---|---|
-| request [0] count | inteiro | 100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo: 4 =&gt; 25%. |
-| request [0] durationMetric.value | número | Tempo de chegada da solicitação até a resposta. 1e7 == 1s |
-| request [0] id | string | ID da operação |
-| request [0] name | string | GET/POST + url base. Comprimento máximo 250 |
-| request [0] responseCode | inteiro | Resposta HTTP enviada ao cliente |
-| request [0] success | Booleano | Padrão == (responseCode &lt; 400) |
-| request [0] url | string | Não incluindo o host |
-| request [0] urlData.base | string | |
-| request [0] urlData.hashTag | string | |
-| request [0] urlData.host | string | |
-
+| Caminho | Tipo | Observações |
+| --- | --- | --- |
+| request [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo: 4 =&gt; 25%. |
+| request [0] durationMetric.value |número |Tempo de chegada da solicitação até a resposta. 1e7 == 1s |
+| request [0] id |string |ID da operação |
+| request [0] name |string |GET/POST + url base. Comprimento máximo 250 |
+| request [0] responseCode |inteiro |Resposta HTTP enviada ao cliente |
+| request [0] success |Booleano |Padrão == (responseCode &lt; 400) |
+| request [0] url |string |Não incluindo o host |
+| request [0] urlData.base |string | |
+| request [0] urlData.hashTag |string | |
+| request [0] urlData.host |string | |
 
 ## Desempenho de exibição da página
-
 Enviado pelo navegador. Mede o tempo de processamento de uma página, desde o início da solicitação do usuário até a exibição completa (excluindo as chamadas do AJAX assíncronas).
 
 Os valores de contexto mostram a versão do navegador e do sistema operacional cliente.
 
-
-|Caminho|Tipo|Observações|
-|---|---|---|
-| clientPerformance [0] clientProcess.value | inteiro | Tempo desde o término do recebimento do HTML até a exibição da página. |
-| clientPerformance [0] name | string | |
-| clientPerformance [0] networkConnection.value | inteiro | Tempo necessário para estabelecer uma conexão de rede. |
-| clientPerformance [0] receiveRequest.value | inteiro | Tempo desde o término do envio da solicitação até o recebimento do HTML na resposta. |
-| clientPerformance [0] sendRequest.value | inteiro | Tempo necessário para enviar a solicitação HTTP. |
-| clientPerformance [0] total.value | inteiro | Tempo desde o início até o envio da solicitação para exibição da página. |
-| clientPerformance [0] url | string | URL dessa solicitação |
-| clientPerformance [0] urlData.base | string | |
-| clientPerformance [0] urlData.hashTag | string | |
-| clientPerformance [0] urlData.host | string | |
-| clientPerformance [0] urlData.protocol | string | |
+| Caminho | Tipo | Observações |
+| --- | --- | --- |
+| clientPerformance [0] clientProcess.value |inteiro |Tempo desde o término do recebimento do HTML até a exibição da página. |
+| clientPerformance [0] name |string | |
+| clientPerformance [0] networkConnection.value |inteiro |Tempo necessário para estabelecer uma conexão de rede. |
+| clientPerformance [0] receiveRequest.value |inteiro |Tempo desde o término do envio da solicitação até o recebimento do HTML na resposta. |
+| clientPerformance [0] sendRequest.value |inteiro |Tempo necessário para enviar a solicitação HTTP. |
+| clientPerformance [0] total.value |inteiro |Tempo desde o início até o envio da solicitação para exibição da página. |
+| clientPerformance [0] url |string |URL dessa solicitação |
+| clientPerformance [0] urlData.base |string | |
+| clientPerformance [0] urlData.hashTag |string | |
+| clientPerformance [0] urlData.host |string | |
+| clientPerformance [0] urlData.protocol |string | |
 
 ## Visualizações de página
-
 Enviado pelo trackPageView() ou [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)
 
-|Caminho|Tipo|Observações|
-|---|---|---|
-| view [0] count | inteiro | 100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
-| view [0] durationMetric.value | inteiro | Valor definido opcionalmente em trackPageView() ou por startTrackPage() - stopTrackPage(). Não é igual aos valores de clientPerformance. |
-| view [0] name | string | Título da página. Comprimento máximo 250 |
-| view [0] url | string | |
-| view [0] urlData.base | string | |
-| view [0] urlData.hashTag | string | |
-| view [0] urlData.host | string | |
-
-
+| Caminho | Tipo | Observações |
+| --- | --- | --- |
+| view [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
+| view [0] durationMetric.value |inteiro |Valor definido opcionalmente em trackPageView() ou por startTrackPage() - stopTrackPage(). Não é igual aos valores de clientPerformance. |
+| view [0] name |string |Título da página. Comprimento máximo 250 |
+| view [0] url |string | |
+| view [0] urlData.base |string | |
+| view [0] urlData.hashTag |string | |
+| view [0] urlData.host |string | |
 
 ## Disponibilidade
-
 Relata os [testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md).
 
-|Caminho|Tipo|Observações|
-|---|---|---|
-| availability [0] availabilityMetric.name | string | disponibilidade |
-| availability [0] availabilityMetric.value | número |1\.0 ou 0.0 |
-| availability [0] count | inteiro | 100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
-| availability [0] dataSizeMetric.name | string | |
-| availability [0] dataSizeMetric.value | inteiro | |
-| availability [0] durationMetric.name | string | |
-| availability [0] durationMetric.value | número | Duração do teste. 1e7==1s |
-| availability [0] message | string | Diagnóstico de falha |
-| availability [0] result | string | Aprovado/Reprovado |
-| availability [0] runLocation | string | Fonte geográfica de solicitações http |
-| availability [0] testName | string | |
-| availability [0] testRunId | string | |
-| availability [0] testTimestamp | string | |
-
-
-
+| Caminho | Tipo | Observações |
+| --- | --- | --- |
+| availability [0] availabilityMetric.name |string |disponibilidade |
+| availability [0] availabilityMetric.value |número |1\.0 ou 0.0 |
+| availability [0] count |inteiro |100/(taxa de[amostragem](app-insights-sampling.md)). Por exemplo, 4 =&gt; 25%. |
+| availability [0] dataSizeMetric.name |string | |
+| availability [0] dataSizeMetric.value |inteiro | |
+| availability [0] durationMetric.name |string | |
+| availability [0] durationMetric.value |número |Duração do teste. 1e7==1s |
+| availability [0] message |string |Diagnóstico de falha |
+| availability [0] result |string |Aprovado/Reprovado |
+| availability [0] runLocation |string |Fonte geográfica de solicitações http |
+| availability [0] testName |string | |
+| availability [0] testRunId |string | |
+| availability [0] testTimestamp |string | |
 
 ## Métricas
-
 Gerado por TrackMetric().
 
 O valor da métrica é encontrado em context.custom.metrics[0]
@@ -354,7 +317,6 @@ Por exemplo:
     }
 
 ## Sobre valores de métricas
-
 Valores de métricas, tanto em relatórios de métrica quanto em outros locais, são relatados com uma estrutura de objeto padrão. Por exemplo:
 
       "durationMetric": {
@@ -376,15 +338,10 @@ Nas tabelas acima, omitimos os campos min, max, stdDev e sampledValue, que são 
 
 Em vez de agregar previamente as métricas, você pode usar a [amostragem](app-insights-sampling.md) se precisar reduzir o volume de telemetria.
 
-
 ### Durações
-
 Exceto quando indicado o contrário, as durações são representadas em décimos de microssegundo, de modo que 10000000.0 significa 1 segundo.
 
-
-
 ## Consulte também
-
 * [Application Insights](app-insights-overview.md) 
 * [Exportação Contínua](app-insights-export-telemetry.md)
 * [Exemplos de código](app-insights-export-telemetry.md#code-samples)

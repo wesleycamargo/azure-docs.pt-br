@@ -1,38 +1,37 @@
-<properties
-   pageTitle="Interface do usuário do Azure Mobile Engagement - Monitor"
-   description="Saiba como monitorar dados em tempo real sobre seu aplicativo usando o Azure Mobile Engagement"
-   services="mobile-engagement"
-   documentationCenter=""
-   authors="piyushjo"
-   manager="dwrede"
-   editor=""/>
+---
+title: Interface do usuário do Azure Mobile Engagement - Monitor
+description: Saiba como monitorar dados em tempo real sobre seu aplicativo usando o Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile"
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Como monitorar dados em tempo real sobre o seu aplicativo
-
 Este artigo descreve a guia **MONITORAR** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement**.
-
 
 A seção Monitorar da interface do usuário fornece informações de análise em tempo real e permite que você defina alertas quando os limites são atingidos para a maior parte das mesmas informações que estão disponíveis historicamente na seção [ANÁLISE](mobile-engagement-user-interface-analytics.md) da interface do usuário. Veja a seção **Glossário** no tópico [Conceitos](http://go.microsoft.com/fwlink/?LinkId=525555) para ver as definições de termos e abreviaturas na Análise e no Monitoramento (como os seguintes: Usuário Ativo, Novo Usuário, Usuário Retido, Sessão, Gráfico de Trajetória do Usuário, Mapa de Usuários, URLs de Acompanhamento, Tendências, Atividade, Eventos, Trabalho, Erro, Informações Adicionais, Falha e Informações do Aplicativo).
 
->[AZURE.NOTE] Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
+> [!NOTE]
+> Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
+> 
+> 
 
 ## Monitorar - sessões, trabalhos, eventos, erros e falhas
-
 Você pode ver quantos usuários estão atualmente na sessão e em telas específicas ou executando ações específicas. Você pode exibir atividades de usuário divididas em sessões, trabalhos, eventos, erros e falhas. Você pode ver as informações atuais e mostrar as informações da última hora, dia ou semana. Você pode ver todas as informações em cada categoria ou classificação especificamente segundo a sessão, trabalho, evento, erro e falha. Monitoramento em tempo real é útil para uso durante eventos como uma campanha de envio por push para ver se há um aumento na ação à direita após enviar sua notificação de Push.
 
 ![Monitor1][14]
 
 ## Solucionando problemas com o Monitor - Eventos - Detalhes
-
 Gerar um evento em seu aplicativo do dispositivo de teste e encontrá-lo em Monitor - Eventos - Detalhes é uma das maneiras mais fáceis de encontrar a ID do dispositivo para o dispositivo de teste e confirmar que a integração de Segmentos, Monitoramento e Análise do Azure Mobile Engagement está funcionando em seu aplicativo. Uma vez que você tenha a ID de dispositivo do seu dispositivo de teste, você poderá adicioná-la a seus dispositivos de teste em "Minha conta – dispositivos". Se você não pode gerar um evento, certifique-se de que o Azure Mobile Engagement esteja corretamente integrado em seu aplicativo do Android/iOS/Web/Windows/Windows Phone com o SDK.
 
 Para obter mais informações, veja: [Documentação do SDK][Link 5]
@@ -40,7 +39,6 @@ Para obter mais informações, veja: [Documentação do SDK][Link 5]
 ![Monitor2][15]
 
 ## Solucionando problemas com Monitor - Falhas - Detalhes
-
 Você pode examinar informações de falhas sobre seu aplicativo em Monitor - Falhas - Detalhes para ajudar a determinar por que seu aplicativo está falhando. Você também deve procurar problemas conhecidos com cada versão do SDK nas notas de versão para cada versão do SDK para Android/iOS/Web/Windows/Windows Phone.
 
 Para obter mais informações, veja: [Documentação do SDK - Notas de versão][Link 5]
@@ -54,11 +52,9 @@ Você também pode especificar uma taxa de detecção mínima, que é a quantida
 
 ![Monitor4][17]
 
-
 ## Confira também
-
-- [Conceitos][Link 6]
-- [Serviço do Guia de Solução de Problemas][Link 24]
+* [Conceitos][Link 6]
+* [Serviço do Guia de Solução de Problemas][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

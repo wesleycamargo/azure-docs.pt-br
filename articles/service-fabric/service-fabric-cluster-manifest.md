@@ -1,26 +1,23 @@
-<properties
-   pageTitle="Configurar o cluster autônomo | Microsoft Azure"
-   description="Este artigo descreve como configurar seu cluster autônomo ou particular do Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="dsk-2015"
-   manager="timlt"
-   editor=""/>
+---
+title: Configurar o cluster autônomo | Microsoft Docs
+description: Este artigo descreve como configurar seu cluster autônomo ou particular do Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: dsk-2015
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="06/23/2016"
-   ms.author="dkshir"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 06/23/2016
+ms.author: dkshir
 
-
-
+---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Definições de configuração para o cluster autônomo no Windows
-
-Este artigo descreve como configurar um cluster autônomo do Service Fabric usando o arquivo _**ClusterConfig.JSON**_. Esse arquivo é baixado em seu computador de trabalho quando você [baixa o pacote do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). O arquivo ClusterConfig.JSON permite que você especifique informações, como os nós do Service Fabric e seus endereços IP, tipos diferentes de nós no cluster, configurações de segurança, bem como a topologia da rede em termos de domínios de falha/atualização, para o cluster do Service Fabric. 
+Este artigo descreve como configurar um cluster autônomo do Service Fabric usando o arquivo ***ClusterConfig.JSON***. Esse arquivo é baixado em seu computador de trabalho quando você [baixa o pacote do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). O arquivo ClusterConfig.JSON permite que você especifique informações, como os nós do Service Fabric e seus endereços IP, tipos diferentes de nós no cluster, configurações de segurança, bem como a topologia da rede em termos de domínios de falha/atualização, para o cluster do Service Fabric. 
 
 Vamos examinar abaixo as várias seções desse arquivo.
 
@@ -33,8 +30,8 @@ Isso abrange as configurações específicas mais amplas do cluster, conforme mo
 
 Você pode atribuir qualquer nome amigável ao cluster do Service Fabric, atribuindo a ele a variável **name** . Você pode alterar o **clusterManifestVersion** de acordo com a sua configuração; será necessário atualizá-lo antes de atualizar sua configuração do Service Fabric. Você pode deixar a **apiVersion** com o valor padrão.
 
-
 <a id="clusternodes"></a>
+
 ## <a name="nodes-on-the-cluster"></a>Nós no cluster
 Você pode configurar os nós no cluster de seu Service Fabric usando a seção **nós** , como mostra o trecho de código a seguir.
 
@@ -60,17 +57,15 @@ Você pode configurar os nós no cluster de seu Service Fabric usando a seção 
 
 Um cluster do Service Fabric exige no mínimo 3 nós. Você pode adicionar mais nós a esta seção de acordo com a sua configuração. A tabela a seguir explica as definições de configuração para cada nó.
 
-|**Configuração de nó**|**Descrição**|
-|-----------------------|--------------------------|
-|nodeName|Você pode atribuir qualquer nome amigável ao nó.|
-|iPAddress|Descubra o endereço IP do seu nó abrindo uma janela de comando e digitando `ipconfig`. Anote o endereço IPV4 e atribua a ele a variável **iPAddress** .|
-|nodeTypeRef|Cada nó pode ser receber um tipo de nó diferente. Os [tipos de nó](#nodetypes) são definidos na seção abaixo.|
-|faultDomain|Os domínios de falha permitem que os administradores de cluster definam os nós físicos que podem falhar ao mesmo tempo devido às dependências físicas compartilhadas.|
-|upgradeDomain|Os domínios de atualização descrevem conjuntos de nós que são desligados para atualizações do Service Fabric quase ao mesmo tempo. Você pode escolher quais nós atribuir a quais Domínios de atualização, pois eles não são limitados por quaisquer requisitos físicos.| 
-
+| **Configuração de nó** | **Descrição** |
+| --- | --- |
+| nodeName |Você pode atribuir qualquer nome amigável ao nó. |
+| iPAddress |Descubra o endereço IP do seu nó abrindo uma janela de comando e digitando `ipconfig`. Anote o endereço IPV4 e atribua a ele a variável **iPAddress** . |
+| nodeTypeRef |Cada nó pode ser receber um tipo de nó diferente. Os [tipos de nó](#nodetypes) são definidos na seção abaixo. |
+| faultDomain |Os domínios de falha permitem que os administradores de cluster definam os nós físicos que podem falhar ao mesmo tempo devido às dependências físicas compartilhadas. |
+| upgradeDomain |Os domínios de atualização descrevem conjuntos de nós que são desligados para atualizações do Service Fabric quase ao mesmo tempo. Você pode escolher quais nós atribuir a quais Domínios de atualização, pois eles não são limitados por quaisquer requisitos físicos. |
 
 ## <a name="cluster-**properties**"></a> **Propriedades**
-
 A seção **propriedades** no ClusterConfig.JSON é usada para configurar o cluster da seguinte maneira.
 
 ### <a name="**diagnosticsstore**"></a>**diagnosticsStore**
@@ -94,7 +89,7 @@ Os **metadados** são uma descrição do diagnóstico do cluster e podem ser def
         "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
     }
 
-### <a name="**security**"></a>**segurança** 
+### <a name="**security**"></a>**segurança**
 A seção **segurança** é necessária para um cluster autônomo seguro do Service Fabric. O trecho a seguir mostra uma parte desta seção.
 
     "security": {
@@ -110,11 +105,11 @@ Os **metadados** são uma descrição de seu cluster seguro e podem ser definido
 O **reliabilityLevel** define o número de cópias de serviços do sistema que podem ser executadas nos nós primários do cluster. Isso aumenta a confiabilidade desses serviços e, portanto, do cluster. Você pode definir essa variável como *Bronze*, *Prata*, *Ouro* ou *Platina* para três, cinco, sete ou nove cópias desses serviços, respectivamente. Veja um exemplo abaixo.
 
     "reliabilityLevel": "Bronze",
-    
+
 Observe que, uma vez que um nó principal executa uma única cópia dos serviços do sistema, você precisaria de pelo menos três nós primários para os níveis de confiabilidade *Bronze*, cinco para *Prata*, sete para *Ouro* e nove para *Platina*.
 
-
 <a id="nodetypes"></a>
+
 ### <a name="**nodetypes**"></a>**nodeTypes**
 A seção **nodeTypes** descreve o tipo de nó que seu cluster tem. Pelo menos um tipo de nó deve ser especificado para um cluster, como mostrado no fragmento a seguir. 
 
@@ -138,7 +133,6 @@ A seção **nodeTypes** descreve o tipo de nó que seu cluster tem. Pelo menos u
 
 O **nome** é o nome amigável para esse tipo de nó específico. Para criar um nó desse tipo de nó, será necessário atribuir o nome amigável para esse tipo de nó à variável **nodeTypeRef** daquele nó, conforme mencionado na seção [Nós no cluster](#clusternodes) acima. Para cada tipo de nó, você pode definir vários pontos de extremidade para se conectar a esse cluster. Você pode escolher qualquer número de porta para esses pontos de extremidade de conexão, desde que eles não entrem em conflito com qualquer outro ponto de extremidade neste cluster. Se deseja criar uma porta de gateway de aplicativo http, você pode especificar "reverseProxyEndpointPort": [número da porta], além das outras portas mostradas acima. Em um cluster com vários tipos de nó, haverá um tipo de nó primário, com **isPrimary** definido como *true*. O restante dos nós terá **isPrimary** definido como *false*. Leia [Considerações de planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md) para saber mais sobre os valores de **nodeTypes** e **reliabilityLevel**, de acordo com a capacidade de seu cluster, bem como para saber a diferença entre os tipos de nó primários e não primários.
 
-
 ### <a name="**fabricsettings**"></a>**fabricSettings**
 Esta seção permite que você defina os diretórios raiz para os dados e logs do Service Fabric. Você pode personalizá-los somente durante a criação inicial do cluster. Veja abaixo um exemplo de trecho de código desta seção.
 
@@ -154,14 +148,8 @@ Esta seção permite que você defina os diretórios raiz para os dados e logs d
 
 Recomenda-se usar uma unidade não de SO, como FabricDataRoot e FabricLogRoot, pois isso proporciona mais confiabilidade contra falhas do SO. Observe que se você personalizar somente a raiz dos dados, a raiz do log será colocada um nível abaixo da raiz dos dados.
 
-
 ## <a name="next-steps"></a>Próximas etapas
-
 Quando o arquivo ClusterConfig.JSON estiver totalmente configurado de acordo com a configuração de cluster autônomo, você poderá implantar o cluster seguindo as instruções no artigo [Criar um cluster do Azure Service Fabric local ou na nuvem](service-fabric-cluster-creation-for-windows-server.md) e, em seguida, em [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

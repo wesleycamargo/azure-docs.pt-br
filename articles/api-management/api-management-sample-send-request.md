@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Usando o serviço Gerenciamento de API para gerar solicitações HTTP"
-	description="Saiba como usar políticas de solicitação e de resposta no Gerenciamento de API para chamar serviços externos de sua API"
-	services="api-management"
-	documentationCenter=""
-	authors="darrelmiller"
-	manager=""
-	editor=""/>
+---
+title: Usando o serviço Gerenciamento de API para gerar solicitações HTTP
+description: Saiba como usar políticas de solicitação e de resposta no Gerenciamento de API para chamar serviços externos de sua API
+services: api-management
+documentationcenter: ''
+author: darrelmiller
+manager: ''
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/09/2016"
-	ms.author="darrmi"/>
+ms.service: api-management
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: darrmi
 
-
+---
 # Uso dos serviços externos do serviço de Gerenciamento de API do Azure
-
 As políticas disponíveis no serviço de Gerenciamento de API do Azure permitem uma ampla variedade de trabalhos úteis com base apenas na solicitação de entrada, na resposta de saída e em informações básicas de configuração. No entanto, a capacidade de interagir com serviços externos das políticas de Gerenciamento de API abre muitas outras oportunidades.
 
 Vimos anteriormente como podemos interagir com o [serviço Hub de Eventos do Azure para registro em log, monitoramento e análise](api-management-log-to-eventhub-sample.md). Neste artigo, demonstraremos as políticas que permitem a interação com qualquer serviço externo baseado em HTTP. Essas políticas podem ser usadas para disparar eventos remotos ou para recuperar informações que serão usadas para manipular a solicitação e resposta originais de alguma forma.
@@ -130,17 +128,17 @@ Juntando todas as peças, temos a seguinte política:
       </send-request>
 
       <choose>
-  			<!-- Check active property in response -->
-  			<when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-  				<!-- Return 401 Unauthorized with http-problem payload -->
-  				<return-response response-variable-name="existing response variable">
-  					<set-status code="401" reason="Unauthorized" />
-  					<set-header name="WWW-Authenticate" exists-action="override">
-  						<value>Bearer error="invalid_token"</value>
-  					</set-header>
-  				</return-response>
-  			</when>
-  		</choose>
+              <!-- Check active property in response -->
+              <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+                  <!-- Return 401 Unauthorized with http-problem payload -->
+                  <return-response response-variable-name="existing response variable">
+                      <set-status code="401" reason="Unauthorized" />
+                      <set-header name="WWW-Authenticate" exists-action="override">
+                          <value>Bearer error="invalid_token"</value>
+                      </set-header>
+                  </return-response>
+              </when>
+          </choose>
       <base />
     </inbound>
 
@@ -149,7 +147,7 @@ Este é apenas um dos muitos exemplos de como a política `send-request` pode se
 ## Composição da resposta
 A política `send-request` pode ser usada para melhorar a uma solicitação primária para um sistema back-end, como vimos no exemplo anterior, ou pode ser usada como uma substituição completa para a chamada back-end. Com essa técnica podemos criar facilmente recursos de composição agregados de vários sistemas diferentes.
 
-### Criando um painel   
+### Criando um painel
 Às vezes, você quer expor as informações existentes em vários sistemas de back-end, por exemplo, para gerar um painel. Os KPIs vêm de todos os back-ends diferentes, mas convém não fornecer acesso direto a eles, e seria bom se todas as informações pudessem ser recuperadas em uma única solicitação. Talvez algumas informações de back-end precisem de um pouco de organização e uma pequena limpeza primeiro! Ser capaz de armazenar em cache o recurso composto é útil para reduzir a carga back-end, pois você sabe que os usuários têm o hábito de pressionar sem parar a tecla F5 para ver se suas métricas com baixo desempenho mudam.
 
 ### Falsificando o recurso
@@ -192,7 +190,6 @@ Assim que tivermos essas informações poderemos fazer solicitações para todos
 Essas solicitações serão executadas em sequência, o que não é ideal. Em uma versão futura apresentaremos uma nova política chamada `wait`, que permitirá a execução em paralelo de todas essas solicitações.
 
 ### Respondendo
-
 Para construir a resposta composta, podemos usar a política [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). O elemento `set-body` pode usar uma expressão para construir um novo `JObject` com todas as representações de componente incorporadas como propriedades.
 
     <return-response response-variable-name="existing response variable">
@@ -212,7 +209,7 @@ Para construir a resposta composta, podemos usar a política [return-response](h
 A política completa tem a seguinte aparência:
 
     <policies>
-    	<inbound>
+        <inbound>
 
       <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
       <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
@@ -250,13 +247,13 @@ A política completa tem a seguinte aparência:
                           ).ToString())
           </set-body>
         </return-response>
-    	</inbound>
-    	<backend>
-    		<base />
-    	</backend>
-    	<outbound>
-    		<base />
-    	</outbound>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
     </policies>
 
 Na configuração da operação de espaço reservado podemos configurar o recurso de painel para ser armazenado em cache durante pelo menos uma hora, pois entendemos que a natureza dos dados significa que mesmo se estiver uma hora desatualizado, ainda será suficientemente eficaz para transmitir as informações valiosas aos usuários.
@@ -267,6 +264,8 @@ O serviço de Gerenciamento de API do Azure fornece políticas flexíveis que po
 ## Assista a uma visão geral dessas políticas em vídeo
 Para obter mais informações sobre as políticas [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) e [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) abordadas neste artigo, assista ao vídeo a seguir.
 
-> [AZURE.VIDEO send-request-and-return-response-policies]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
+> 
+> 
 
 <!---HONumber=AcomDC_0810_2016-->

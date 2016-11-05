@@ -1,24 +1,23 @@
-<properties
-pageTitle="Adicionar o conector do Excel | Microsoft Azure"
-description="Visão geral do Conector do Excel com os parâmetros da API REST"
-services=""    
-documentationCenter=""     
-authors="msftman"    
-manager="erikre"    
-editor=""
-tags="connectors"/>
+---
+title: Adicionar o conector do Excel | Microsoft Docs
+description: Visão geral do Conector do Excel com os parâmetros da API REST
+services: ''
+documentationcenter: ''
+author: msftman
+manager: erikre
+editor: ''
+tags: connectors
 
-<tags
-ms.service="multiple"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="08/23/2016"
-ms.author="deonhe"/>
+ms.service: multiple
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/23/2016
+ms.author: deonhe
 
+---
 # Introdução ao conector do Excel
-
 Atualmente, não há um conector Excel nos Aplicativos Lógicos.
 
 ## Para usar dados do Excel

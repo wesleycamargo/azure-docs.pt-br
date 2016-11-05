@@ -1,31 +1,31 @@
-<properties
-   pageTitle="Descrição de cluster do Balanceador do Recursos | Microsoft Azure"
-   description="Descrever um cluster do Service Fabric especificando domínios de falha, domínios de atualização, propriedades de nó e capacidades de nó para o Gerenciador de Recursos de Cluster."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Descrição de cluster do Balanceador do Recursos | Microsoft Docs
+description: Descrever um cluster do Service Fabric especificando domínios de falha, domínios de atualização, propriedades de nó e capacidades de nó para o Gerenciador de Recursos de Cluster.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Descrevendo um cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Gerenciador de Recursos de Cluster usa essas informações para garantir a alta disponibilidade dos serviços executados no cluster, além de assegurar que os recursos do cluster sejam usados apropriadamente.
 
 ## Principais conceitos
 Os recursos do Gerenciador de Recursos de Cluster oferecem suporte a vários recursos que descrevem um cluster:
 
-- Domínios de falha
-- Domínios de atualização
-- Propriedades de nó
-- Capacidades de nó
+* Domínios de falha
+* Domínios de atualização
+* Propriedades de nó
+* Capacidades de nó
 
 ## Domínios de falha
 Um domínio de falha é qualquer área da falha coordenada. Um único computador é um domínio de falha (já que ele pode falhar sozinho por vários motivos diferentes, desde falhas de fornecimento de energia até falhas devido a firmware NIC inválido). Um grupo de computadores conectados ao mesmo comutador Ethernet estão no mesmo domínio de falha, como estariam aqueles conectados a uma única fonte de alimentação. Uma vez que é natural que eles se sobreponham, os domínios de falha são hierárquicos por natureza e são representados como URIs no Service Fabric.
@@ -70,8 +70,8 @@ O Gerenciador de recursos de Cluster trata o desejo de manter um serviço balanc
 
 Vamos dar uma olhada em um exemplo. Digamos que temos um cluster com seis nós, configurados com cinco domínios de falha e cinco domínios de atualização.
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
 | UD0 |N1 | | | | |
 | UD1 |N6 |N2 | | | |
 | UD2 | | |N3 | | |
@@ -82,39 +82,38 @@ Agora vamos supor que criamos um serviço com um TargetReplicaSetSize de cinco. 
 
 Aqui está o nosso layout e o número total de réplicas por domínio de falha e de atualização.
 
-
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 | UD0 |R1 | | | | |1 |
 | UD1 | |R2 | | | |1 |
 | UD2 | | |R3 | | |1 |
 | UD3 | | | |R4 | |1 |
 | UD4 | | | | |R5 |1 |
-|FDTotal|1 |1 |1 |1 |1 |- |
+| FDTotal |1 |1 |1 |1 |1 |- |
 
 Observe que esse layout é balanceado em termos de nós por domínio de falha e domínio de atualização e ele também é balanceado em termos do número de réplicas por domínio de falha e de atualização. Cada domínio possui o mesmo número de nós e o mesmo número de réplicas.
 
 Agora, vamos ver o que aconteceria se tivéssemos usado N6 em vez de N2. Como as réplicas seriam distribuídas? O resultado deve ser algo como:
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 | UD0 |R1 | | | | |1 |
 | UD1 |R5 | | | | |1 |
 | UD2 | | |R2 | | |1 |
 | UD3 | | | |R3 | |1 |
 | UD4 | | | | |R4 |1 |
-|FDTotal|2 |0 |1 |1 |1 |- |
+| FDTotal |2 |0 |1 |1 |1 |- |
 
 Isso viola a nossa definição para a restrição de domínio de falha, já que FD0 tem 2 réplicas, enquanto FD1 tem 0, tornando a diferença total 2 e, portanto, o Gerenciador de Recursos de Cluster não permitirá essa disposição. Da mesma forma se tivéssemos escolhido N2 a N6 obteríamos:
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 | UD0 | | | | | |0 |
 | UD1 |R5 |R1 | | | |2 |
 | UD2 | | |R2 | | |1 |
 | UD3 | | | |R3 | |1 |
 | UD4 | | | | |R4 |1 |
-|FDTotal|1 |1 |1 |1 |1 |- |
+| FDTotal |1 |1 |1 |1 |1 |- |
 
 Que apesar de equilibrada em termos de domínios de falha viola a restrição de domínio de atualização (já que UD0 tem 0 réplicas enquanto UD1 tem 2) e, portanto, também será inválida.
 
@@ -143,14 +142,17 @@ ClusterManifest.xml
     </WindowsServer>
   </Infrastructure>
 ```
-> [AZURE.NOTE] Em implantações do Azure, domínios de falha e domínios de atualização são atribuídos pelo Azure. Portanto, a definição dos seus nós e funções na opção infraestrutura do Azure não inclui informações sobre o domínio de falha ou o domínio de atualização.
+> [!NOTE]
+> Em implantações do Azure, domínios de falha e domínios de atualização são atribuídos pelo Azure. Portanto, a definição dos seus nós e funções na opção infraestrutura do Azure não inclui informações sobre o domínio de falha ou o domínio de atualização.
+> 
+> 
 
 ## Restrições de posicionamento e propriedades do nó
 Às vezes (na verdade, na maioria das vezes), convém assegurar que determinadas cargas de trabalho sejam executadas apenas em alguns nós ou em certos conjuntos de nós no cluster. Por exemplo, algumas cargas de trabalho podem exigir GPUs ou SSDs, enquanto outras, não. Um bom exemplo disso é praticamente qualquer arquitetura de n camadas, em que certos computadores atuam como front-end/interface de atendimento do aplicativo (estando, portanto, provavelmente expostos à Internet), enquanto outro conjunto (frequentemente com recursos de hardware diferentes) lida com o trabalho das camadas de computação ou armazenamento (normalmente não expostos à Internet). O Service Fabric espera que, mesmo em um mundo de microsserviços, haja casos em que cargas de trabalho específicas precisem ser executadas em configurações de hardware específicas, por exemplo:
 
-- um aplicativo de n camadas existente foi "transferido e posicionado" em um ambiente do Service Fabric
-- uma carga de trabalho deseja ser executada em um hardware específico por motivos de desempenho, escala ou isolamento de segurança
--	Uma carga de trabalho precisa ser isolada de outras cargas de trabalho por motivos de política ou consumo de recursos
+* um aplicativo de n camadas existente foi "transferido e posicionado" em um ambiente do Service Fabric
+* uma carga de trabalho deseja ser executada em um hardware específico por motivos de desempenho, escala ou isolamento de segurança
+* Uma carga de trabalho precisa ser isolada de outras cargas de trabalho por motivos de política ou consumo de recursos
 
 Para dar suporte a esses tipos de configurações, o Service Fabric tem uma noção avançada do que chamamos de restrições de posicionamento. As restrições de posicionamento podem ser usadas para indicar onde determinados serviços devem ser executados. O conjunto de restrições é extensível aos usuários, o que significa que as pessoas podem marcar nós com propriedades personalizadas e, depois, selecioná-los também.
 
@@ -158,26 +160,26 @@ Para dar suporte a esses tipos de configurações, o Service Fabric tem uma noç
 
 As diferentes marcas de chave/valor em nós são conhecidas como *propriedades* de posicionamento do nó (ou apenas propriedades de nó), enquanto a instrução no serviço é chamada de *restrição* de posicionamento. O valor especificado na propriedade do nó pode ser uma cadeia de caracteres, bool ou signed long. A restrição pode ser qualquer instrução booliana que opera sobre as diferentes propriedades de nó no cluster. Os seletores válidos nessas instruções boolianas (que são cadeias de caracteres) são:
 
-- verificações condicionais para a criação de instruções
-  - "igual a" ==
-  - "maior que" >
-  - "menor que" <
-  - "não é igual a" !=
-  - "maior ou igual a" >=
-  - "menor ou igual a" <=
-- instruções boolianas para agrupamento e negação
-  - "e" &&
-  - "ou" ||
-  - "não" !
-- parênteses para agrupar operações
-  - ()
-
+* verificações condicionais para a criação de instruções
+  * "igual a" ==
+  * "maior que" >
+  * "menor que" <
+  * "não é igual a" !=
+  * "maior ou igual a" >=
+  * "menor ou igual a" <=
+* instruções boolianas para agrupamento e negação
+  * "e" &&
+  * "ou" ||
+  * "não" !
+* parênteses para agrupar operações
+  
+  * ()
+  
   Aqui estão alguns exemplos de instruções de restrição básicas que usam alguns dos símbolos acima. Observe que as propriedades de nó podem ser cadeias de caracteres, bools ou valores numéricos.
-
-  - "Foo >= 5"
-  - "NodeColor != green"
-  - "((OneProperty < 100) || ((AnotherProperty == false) && (OneProperty >= 100)))"
-
+  
+  * "Foo >= 5"
+  * "NodeColor != green"
+  * "((OneProperty < 100) || ((AnotherProperty == false) && (OneProperty >= 100)))"
 
 Somente nós em que a instrução geral é avaliada como "True" podem ter o serviço colocado nos mesmos. Nós sem uma propriedade definida não correspondem a nenhuma restrição de posicionamento que contenha essa propriedade.
 
@@ -334,10 +336,10 @@ LoadMetricInformation     :
 ```
 
 ## Próximas etapas
-- Para obter informações sobre arquitetura e fluxo de informações no Resource Manager de Cluster, confira [este artigo](service-fabric-cluster-resource-manager-architecture.md)
-- Definir as Métricas de Desfragmentação é uma forma de consolidar a carga em nós, em vez de distribuí-la. Para saber como configurar a desfragmentação, leia [este artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-- Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
+* Para obter informações sobre arquitetura e fluxo de informações no Resource Manager de Cluster, confira [este artigo](service-fabric-cluster-resource-manager-architecture.md)
+* Definir as Métricas de Desfragmentação é uma forma de consolidar a carga em nós, em vez de distribuí-la. Para saber como configurar a desfragmentação, leia [este artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+* Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+* Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png

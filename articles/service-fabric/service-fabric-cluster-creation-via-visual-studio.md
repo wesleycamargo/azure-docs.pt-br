@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Configurar um cluster do Service Fabric usando o Visual Studio | Microsoft Azure"
-   description="Descreve como configurar um cluster do Service Fabric usando o modelo do Azure Resource Manager criado por um projeto de Grupo de Recursos do Azure no Visual Studio"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="karolz-ms"
-   manager="adegeo"
-   editor=""/>
+---
+title: Configurar um cluster do Service Fabric usando o Visual Studio | Microsoft Docs
+description: Descreve como configurar um cluster do Service Fabric usando o modelo do Azure Resource Manager criado por um projeto de Grupo de Recursos do Azure no Visual Studio
+services: service-fabric
+documentationcenter: .net
+author: karolz-ms
+manager: adegeo
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotNet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="10/06/2016"
-   ms.author="karolz@microsoft.com"/>
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 10/06/2016
+ms.author: karolz@microsoft.com
 
-
+---
 # <a name="set-up-a-service-fabric-cluster-by-using-visual-studio"></a>Configurar um cluster do Service Fabric usando o Visual Studio
 Este artigo descreve como configurar um cluster do Service Fabric do Azure usando o Visual Studio e um modelo do Azure Resource Manager. Usaremos o projeto de grupo de recursos do Azure do Visual Studio para criar o modelo. Depois que o modelo tiver sido criado, ele pode ser implantado diretamente no Azure a partir do Visual Studio. Ele também pode ser usado em um script, ou como parte do recurso de CI (integração contínua).
 
@@ -27,7 +26,10 @@ Para começar, abra o Visual Studio e crie um projeto de grupo de recursos do Az
 
 Você pode criar uma nova solução do Visual Studio para este projeto ou adicioná-lo a uma solução existente.
 
->[AZURE.NOTE] Se você não vir o projeto do grupo de recursos do Azure sob o nó da Nuvem, o SDK do Azure não estará instalado. Inicie o Web Platform Installer ([instale-o agora](http://www.microsoft.com/web/downloads/platform.aspx) caso ainda não tenha feito isso), pesquise "SDK do Azure para .NET" e instale a versão compatível com sua versão do Visual Studio.
+> [!NOTE]
+> Se você não vir o projeto do grupo de recursos do Azure sob o nó da Nuvem, o SDK do Azure não estará instalado. Inicie o Web Platform Installer ([instale-o agora](http://www.microsoft.com/web/downloads/platform.aspx) caso ainda não tenha feito isso), pesquise "SDK do Azure para .NET" e instale a versão compatível com sua versão do Visual Studio.
+> 
+> 
 
 Depois que pressionar o botão OK, Visual Studio solicitará que você selecione o modelo do Gerenciador de Recursos que deseja criar:
 
@@ -38,12 +40,12 @@ Selecione o modelo Cluster do Service Fabric e pressione o botão OK novamente. 
 ## <a name="prepare-the-template-for-deployment"></a>Preparar o modelo para implantação
 Antes da implantação do modelo para a criação do cluster, você deve fornecer valores para os parâmetros necessários do modelo. Esses valores de parâmetro são lidos no arquivo `ServiceFabricCluster.parameters.json`, que está na pasta `Templates` do projeto de grupo de recursos. Abra o arquivo e forneça os seguintes valores:
 
-|Nome do parâmetro           |Descrição|
-|-----------------------  |--------------------------|
-|adminUserName            |O nome da conta de administrador para máquinas do Service Fabric (nós).|
-|certificateThumbprint    |A impressão digital do certificado que protege o cluster.|
-|sourceVaultResourceId    |A *ID do recurso* do cofre da chave no qual o certificado que protege o cluster é armazenado.|
-|certificateUrlValue      |A URL do certificado de segurança do cluster.|
+| Nome do parâmetro | Descrição |
+| --- | --- |
+| adminUserName |O nome da conta de administrador para máquinas do Service Fabric (nós). |
+| certificateThumbprint |A impressão digital do certificado que protege o cluster. |
+| sourceVaultResourceId |A *ID do recurso* do cofre da chave no qual o certificado que protege o cluster é armazenado. |
+| certificateUrlValue |A URL do certificado de segurança do cluster. |
 
 O modelo do Gerenciador de Recursos do Service Fabric do Visual Studio cria um cluster seguro que é protegido por um certificado. Esse certificado é identificado pelos três últimos parâmetros do modelo (`certificateThumbprint`, `sourceVaultValue`, e `certificateUrlValue`), e ele deve existir em um **Cofre de Chaves do Azure**. Para saber mais sobre como criar o certificado de segurança do cluster, veja o artigo [Cenários de segurança do cluster do Service Fabric](service-fabric-cluster-security.md#x509-certificates-and-service-fabric) .
 
@@ -56,13 +58,12 @@ Por padrão, o nome do cluster é gerado automaticamente e se torna exclusivo pe
 Talvez você queira alterar as portas públicas de aplicativos do cluster antes de implantá-lo. Por padrão, o modelo abre apenas duas portas TCP públicas (80 e 8081). Se você precisar de mais para seus aplicativos, modifique a definição de Balanceador de Carga do Azure no modelo. A definição é armazenada no arquivo de modelo principal (`ServiceFabricCluster.json`). Abra o arquivo e procure por `loadBalancedAppPort`. Cada porta está associada a três artefatos:
 
 1. Uma variável de modelo que define o valor da porta TCP para a porta:
-
+   
     ```json
     "loadBalancedAppPort1": "80"
     ```
-
 2. Uma *investigação* que define com que frequência, e por quanto tempo, o Azure load balancer tenta usar um nó específico do Service Fabric antes de executar o failover para outro nó. As investigações fazem parte do recurso de Balanceador de Carga. Esta é a definição de investigação para a primeira porta de aplicativo padrão:
-
+   
     ```json
     {
         "name": "AppPortProbe1",
@@ -74,9 +75,8 @@ Talvez você queira alterar as portas públicas de aplicativos do cluster antes 
         }
     }
     ```
-
 3. Uma *regra de balanceamento de carga* que vincula a porta e a investigação, o que permite o balanceamento de carga em um conjunto de nós de cluster do Service Fabric:
-
+   
     ```json
     {
         "name": "AppPortLBRule1",
@@ -98,7 +98,7 @@ Talvez você queira alterar as portas públicas de aplicativos do cluster antes 
         }
     }
     ```
-Se os aplicativos que planeja implantar no cluster precisarem de mais portas, você poderá adicioná-las criando mais definições de investigação e de regra de balanceamento de carga. Para saber mais sobre como trabalhar com o Azure Load Balancer por meio de modelos do Gerenciador de Recursos, veja [Introdução à criação de um balanceador de carga interno usando um modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md).
+   Se os aplicativos que planeja implantar no cluster precisarem de mais portas, você poderá adicioná-las criando mais definições de investigação e de regra de balanceamento de carga. Para saber mais sobre como trabalhar com o Azure Load Balancer por meio de modelos do Gerenciador de Recursos, veja [Introdução à criação de um balanceador de carga interno usando um modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md).
 
 ## <a name="deploy-the-template-by-using-visual-studio"></a>Implantar o modelo usando o Visual Studio
 Após salvar todos os valores de parâmetro necessários no arquivo`ServiceFabricCluster.param.dev.json` , você está pronto para implantar o modelo e criar o cluster do Service Fabric. Clique com botão direito no projeto de grupo de recursos no Gerenciador de Soluções do Visual Studio e escolha **Implantar | Nova Implantação...**. Se necessário, o Visual Studio mostrará a caixa de diálogo **Implantar no Grupo de Recursos**, solicitando a autenticação do Azure:
@@ -109,21 +109,31 @@ A caixa de diálogo permite que você escolha um grupo de recursos existente do 
 
 Após pressionar o botão Implantar, o Visual Studio solicitará a confirmação dos valores de parâmetro do modelo. Clique no botão **Salvar** . Um parâmetro não tem um valor persistente: a senha da conta administrativa para o cluster. Você precisa fornecer um valor de senha quando o Visual Studio solicitar um.
 
->[AZURE.NOTE] Começando com o Azure SDK 2.9, o Visual Studio oferece suporte à leitura de senhas do **Cofre de Chaves do Azure** durante a implantação. Na caixa de diálogo de parâmetros de modelo, observe que a caixde texto `adminPassword` de parâmetro tem um pequeno ícone de "chave" à direita. Esse ícone permite que você selecione um segredo do cofre de chaves existente como a senha administrativa para o cluster. Apenas certifique-se primeiro de habilitar o acesso do Azure Resource Manager para implantação do modelo nas Políticas de Acesso Avançado do seu Cofre de Chaves. 
+> [!NOTE]
+> Começando com o Azure SDK 2.9, o Visual Studio oferece suporte à leitura de senhas do **Cofre de Chaves do Azure** durante a implantação. Na caixa de diálogo de parâmetros de modelo, observe que a caixde texto `adminPassword` de parâmetro tem um pequeno ícone de "chave" à direita. Esse ícone permite que você selecione um segredo do cofre de chaves existente como a senha administrativa para o cluster. Apenas certifique-se primeiro de habilitar o acesso do Azure Resource Manager para implantação do modelo nas Políticas de Acesso Avançado do seu Cofre de Chaves. 
+> 
+> 
 
 Você pode monitorar o andamento do processo de implantação na janela de saída do Visual Studio. Após a conclusão da implantação do modelo, o novo cluster estará pronto para uso!
 
->[AZURE.NOTE] Se o PowerShell nunca tiver sido usado para administrar o Azure no computador que você está usando no momento, é necessário fazer uma pequena limpeza.
->1. Habilite o script do PowerShell executando o comando [`Set-ExecutionPolicy`](https://technet.microsoft.com/library/hh849812.aspx) . Para os computadores de desenvolvimento a política "irrestrita" é geralmente aceitável.
->2. Decida se deseja permitir a coleta de dados de diagnóstico de comandos do Azure PowerShell e execute [`Enable-AzureRmDataCollection`](https://msdn.microsoft.com/library/mt619303.aspx) ou [`Disable-AzureRmDataCollection`](https://msdn.microsoft.com/library/mt619236.aspx), conforme necessário. Isso evitará solicitações desnecessárias durante a implantação do modelo.
+> [!NOTE]
+> Se o PowerShell nunca tiver sido usado para administrar o Azure no computador que você está usando no momento, é necessário fazer uma pequena limpeza.
+> 
+> 1. Habilite o script do PowerShell executando o comando [`Set-ExecutionPolicy`](https://technet.microsoft.com/library/hh849812.aspx) . Para os computadores de desenvolvimento a política "irrestrita" é geralmente aceitável.
+> 2. Decida se deseja permitir a coleta de dados de diagnóstico de comandos do Azure PowerShell e execute [`Enable-AzureRmDataCollection`](https://msdn.microsoft.com/library/mt619303.aspx) ou [`Disable-AzureRmDataCollection`](https://msdn.microsoft.com/library/mt619236.aspx), conforme necessário. Isso evitará solicitações desnecessárias durante a implantação do modelo.
+> 
+> 
 
 Em caso de erros, vá para o [portal do Azure](https://portal.azure.com/) e abra o grupo de recursos que você implantou. Clique em **Todas as configurações** e, em seguida, clique em **Implantações** na folha de configurações. Uma implantação com falha do grupo de recursos deixa informações detalhadas sobre o diagnóstico nesse local.
 
->[AZURE.NOTE] Os clusters de Service Fabric exigem um determinado número de nós esteja ativo para manter a disponibilidade e preservar o estado – conhecido como "manter o quórum". Portanto, não é seguro desligar todos os computadores no cluster, a menos que você tenha primeiro executado um [backup completo do estado](service-fabric-reliable-services-backup-restore.md).
+> [!NOTE]
+> Os clusters de Service Fabric exigem um determinado número de nós esteja ativo para manter a disponibilidade e preservar o estado – conhecido como "manter o quórum". Portanto, não é seguro desligar todos os computadores no cluster, a menos que você tenha primeiro executado um [backup completo do estado](service-fabric-reliable-services-backup-restore.md).
+> 
+> 
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Saiba mais sobre como configurar o cluster do Service Fabric usando o portal do Azure](service-fabric-cluster-creation-via-portal.md)
-- [Saiba mais sobre como gerenciar e implantar aplicativos do Service Fabric usando o Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+* [Saiba mais sobre como configurar o cluster do Service Fabric usando o portal do Azure](service-fabric-cluster-creation-via-portal.md)
+* [Saiba mais sobre como gerenciar e implantar aplicativos do Service Fabric usando o Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-cluster-creation-via-visual-studio/azure-resource-group-project-creation.png

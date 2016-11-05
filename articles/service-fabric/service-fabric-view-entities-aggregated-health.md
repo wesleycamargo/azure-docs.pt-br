@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Como exibir a integridade agregada das entidades do Azure Service Fabric | Microsoft Azure"
-   description="Descreve como consultar, exibir e avaliar a integridade agregada das entidades do Azure Service Fabric, por meio de consultas de integridade e consultas gerais."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="oanapl"
-   manager="timlt"
-   editor=""/>
+---
+title: Como exibir a integridade agregada das entidades do Azure Service Fabric | Microsoft Docs
+description: Descreve como consultar, exibir e avaliar a integridade agregada das entidades do Azure Service Fabric, por meio de consultas de integridade e consultas gerais.
+services: service-fabric
+documentationcenter: .net
+author: oanapl
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/28/2016"
-   ms.author="oanapl"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/28/2016
+ms.author: oanapl
 
-
+---
 # <a name="view-service-fabric-health-reports"></a>Como exibir relatórios de integridade do Service Fabric
 O Azure Service Fabric apresenta um [modelo de integridade](service-fabric-health-introduction.md) composto por entidades de integridade nas quais os componentes do sistema e watchdogs podem relatar condições locais que estão monitorando. O [repositório de integridade](service-fabric-health-introduction.md#health-store) agrega todos os dados de integridade para determinar se as entidades estão íntegras.
 
@@ -24,11 +23,9 @@ Pronto para uso, o cluster é populado com relatórios de integridade enviados p
 
 O Service Fabric fornece várias maneiras de obter a integridade agregada de entidades:
 
-- [Gerenciador de Malha do Serviço](service-fabric-visualizing-your-cluster.md) ou outras ferramentas de visualização
-
-- Consultas de integridade (por meio do PowerShell, API ou REST)
-
-- Consultas gerais que retornam uma lista de entidades que têm a integridade como uma das propriedades (por meio do PowerShell, API ou REST)
+* [Gerenciador de Malha do Serviço](service-fabric-visualizing-your-cluster.md) ou outras ferramentas de visualização
+* Consultas de integridade (por meio do PowerShell, API ou REST)
+* Consultas gerais que retornam uma lista de entidades que têm a integridade como uma das propriedades (por meio do PowerShell, API ou REST)
 
 Para demonstrar essas opções, vamos usar um cluster local com cinco nós. Ao lado do aplicativo **fabric:/System** (que existe originalmente), alguns outros aplicativos são implantados. Um deles é **fabric:/WordCount**. Esse aplicativo contém um serviço com estado configurado com sete réplicas. Como há apenas cinco nós, os componentes do sistema mostram um aviso de que a partição está abaixo da contagem de destino.
 
@@ -43,11 +40,9 @@ Para demonstrar essas opções, vamos usar um cluster local com cinco nós. Ao l
 ## <a name="health-in-service-fabric-explorer"></a>Integridade no Gerenciador da Malha do Serviço
 O Gerenciador da Malha do Serviço fornece uma exibição visual do cluster. Na imagem abaixo, você pode ver que:
 
-- O aplicativo **fabric:/WordCount** está vermelho (em erro) porque ele tem um evento de erro relatado por **MyWatchdog** para a propriedade **Disponibilidade**.
-
-- Um de seus serviços, **fabric:/WordCount/WordCountService** está amarelo (em aviso). Uma vez que o serviço está configurado com sete réplicas e há apenas cinco nós, elas não podem ser todas colocadas. Embora não seja mostrado aqui, a partição de serviço está amarela devido ao relatório do sistema. A partição amarela dispara o serviço amarelo.
-
-- O cluster está vermelho devido ao aplicativo vermelho.
+* O aplicativo **fabric:/WordCount** está vermelho (em erro) porque ele tem um evento de erro relatado por **MyWatchdog** para a propriedade **Disponibilidade**.
+* Um de seus serviços, **fabric:/WordCount/WordCountService** está amarelo (em aviso). Uma vez que o serviço está configurado com sete réplicas e há apenas cinco nós, elas não podem ser todas colocadas. Embora não seja mostrado aqui, a partição de serviço está amarela devido ao relatório do sistema. A partição amarela dispara o serviço amarelo.
+* O cluster está vermelho devido ao aplicativo vermelho.
 
 A avaliação usa políticas padrão do manifesto do cluster e do manifesto do aplicativo. Elas são políticas rígidas e não toleram falhas.
 
@@ -58,35 +53,39 @@ Visualização do cluster com o Gerenciador do Service Fabric:
 [1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
 
-> [AZURE.NOTE] Leia mais sobre o [Gerenciador da Malha do Serviço](service-fabric-visualizing-your-cluster.md).
+> [!NOTE]
+> Leia mais sobre o [Gerenciador da Malha do Serviço](service-fabric-visualizing-your-cluster.md).
+> 
+> 
 
 ## <a name="health-queries"></a>Consultas de integridade
 A Malha do Serviço expõe consultas de integridade para cada um dos [tipos de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy)com suporte. Elas podem ser acessados por API (os métodos podem ser encontrados em **FabricClient.HealthManager**), por cmdlets do PowerShell e por REST. Essas consultas retornam informações de integridade completas sobre a entidade: o estado de integridade agregada, eventos de integridade da entidade, estados de integridade dos filhos (quando aplicável) e avaliações não íntegras quando a entidade não está íntegra.
 
-> [AZURE.NOTE] Uma entidade de integridade retorna para o usuário quando ela é totalmente populada no repositório de integridade. A entidade deve estar ativa (não excluída) e ter um relatório do sistema. Suas entidades pai na cadeia hierárquica também devem ter relatórios do sistema. Se alguma dessas condições não for atendida, as consultas de integridade retornarão uma exceção que mostra por que a entidade não retornou.
+> [!NOTE]
+> Uma entidade de integridade retorna para o usuário quando ela é totalmente populada no repositório de integridade. A entidade deve estar ativa (não excluída) e ter um relatório do sistema. Suas entidades pai na cadeia hierárquica também devem ter relatórios do sistema. Se alguma dessas condições não for atendida, as consultas de integridade retornarão uma exceção que mostra por que a entidade não retornou.
+> 
+> 
 
 As consultas de integridade devem passar pelo identificador da entidade, que depende do tipo de entidade. As consultas aceitam parâmetros opcionais da política de integridade. Se nenhuma política de integridade for especificada, as [políticas de integridade](service-fabric-health-introduction.md#health-policies) do manifesto do cluster ou do aplicativo serão usadas para avaliação. As consultas também aceitam filtros para retornar apenas eventos ou filhos parciais; aqueles que respeitarem os filtros especificados.
 
-> [AZURE.NOTE] Os filtros de saída são aplicados no lado do servidor, de modo que o tamanho da resposta da mensagem é reduzido. Recomendamos o uso dos filtros de saída para limitar os dados retornados, em vez de aplicar filtros no lado do cliente.
+> [!NOTE]
+> Os filtros de saída são aplicados no lado do servidor, de modo que o tamanho da resposta da mensagem é reduzido. Recomendamos o uso dos filtros de saída para limitar os dados retornados, em vez de aplicar filtros no lado do cliente.
+> 
+> 
 
 A integridade da entidade contém:
 
-- O estado da integridade agregada da entidade. Ele é calculado pelo repositório de integridade com base nos relatórios de integridade da entidade, pelos estados da integridade dos filhos (quando aplicável) e por políticas de integridade. Leia mais sobre [Avaliação de integridade da entidade](service-fabric-health-introduction.md#entity-health-evaluation).  
-
-- Os eventos de integridade da entidade.
-
-- A coleção de estados de integridade de todos os filhos das entidades que podem ter filhos. Os estados da integridade contêm identificadores de entidade e o estado da integridade agregada. Para obter toda a integridade de um filho, chame a integridade de consulta do tipo de entidade filho e passe o identificador do filho.
-
-- As avaliações não íntegras que apontam para o relatório que disparou o estado da entidade, se a entidade não estiver íntegra.
+* O estado da integridade agregada da entidade. Ele é calculado pelo repositório de integridade com base nos relatórios de integridade da entidade, pelos estados da integridade dos filhos (quando aplicável) e por políticas de integridade. Leia mais sobre [Avaliação de integridade da entidade](service-fabric-health-introduction.md#entity-health-evaluation).  
+* Os eventos de integridade da entidade.
+* A coleção de estados de integridade de todos os filhos das entidades que podem ter filhos. Os estados da integridade contêm identificadores de entidade e o estado da integridade agregada. Para obter toda a integridade de um filho, chame a integridade de consulta do tipo de entidade filho e passe o identificador do filho.
+* As avaliações não íntegras que apontam para o relatório que disparou o estado da entidade, se a entidade não estiver íntegra.
 
 ## <a name="get-cluster-health"></a>Obter integridade do cluster
 Retorna a integridade da entidade do cluster e contém os estados da integridade de aplicativos e nós (filhos do cluster). Entrada:
 
-- [Opcional] A política de integridade do cluster usada para avaliar os nós e os eventos de cluster.
-
-- [Opcional] Mapa da política de integridade do aplicativo, com políticas de integridade usadas para substituir as políticas do manifesto do aplicativo.
-
-- [Opcional] Filtros de eventos, nós e aplicativos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos, nós e aplicativos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
+* [Opcional] A política de integridade do cluster usada para avaliar os nós e os eventos de cluster.
+* [Opcional] Mapa da política de integridade do aplicativo, com políticas de integridade usadas para substituir as políticas do manifesto do aplicativo.
+* [Opcional] Filtros de eventos, nós e aplicativos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos, nós e aplicativos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
 Para obter a integridade do cluster, crie um `FabricClient` e chame o método [GetClusterHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthasync.aspx) em seu **HealthManager**.
@@ -214,11 +213,9 @@ Você pode obter a integridade do cluster com uma [solicitação GET](https://ms
 ## <a name="get-node-health"></a>Obter integridade do nó
 Retorna a integridade de uma entidade de nó e contém os eventos de integridade reportados no nó. Entrada:
 
-- [Obrigatório] O nome do nó que identifica o nó.
-
-- [Opcional] As configurações da política de integridade do cluster usadas para avaliar a integridade.
-
-- [Opcional] Filtros de eventos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
+* [Obrigatório] O nome do nó que identifica o nó.
+* [Opcional] As configurações da política de integridade do cluster usadas para avaliar a integridade.
+* [Opcional] Filtros de eventos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
 Para obter a integridade do nó por meio da API, crie um `FabricClient` e chame o método [GetNodeHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getnodehealthasync.aspx) em seu HealthManager.
@@ -285,11 +282,9 @@ Você pode obter a integridade do nó com uma [solicitação GET](https://msdn.m
 ## <a name="get-application-health"></a>Obter integridade do aplicativo
 Retorna a integridade de uma entidade de aplicativo. Contém os estados de integridade do aplicativo implantado e filhos de serviço. Entrada:
 
-- [Obrigatório] O nome do aplicativo (URI) que identifica o aplicativo.
-
-- [Opcional] A política de integridade do aplicativo usada para substituir as políticas do manifesto do aplicativo.
-
-- [Opcional] Filtros de eventos, serviços e aplicativos implantados que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos, serviços e aplicativos implantados são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
+* [Obrigatório] O nome do aplicativo (URI) que identifica o aplicativo.
+* [Opcional] A política de integridade do aplicativo usada para substituir as políticas do manifesto do aplicativo.
+* [Opcional] Filtros de eventos, serviços e aplicativos implantados que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos, serviços e aplicativos implantados são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
 Para obter a integridade do aplicativo, crie um `FabricClient` e chame o método [GetApplicationHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getapplicationhealthasync.aspx) em seu HealthManager.
@@ -433,11 +428,9 @@ Você pode obter a integridade do aplicativo com uma [solicitação GET](https:/
 ## <a name="get-service-health"></a>Obter integridade do serviço
 Retorna a integridade de uma entidade de serviço. Além disso, contém os estados de integridade da partição. Entrada:
 
-- [Obrigatório] O nome de serviço (URI) que identifica o serviço.
-
-- [Opcional] A política de integridade do aplicativo usada para substituir a política do manifesto do aplicativo.
-
-- [Opcional] Filtros de eventos e partições que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos e partições são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
+* [Obrigatório] O nome de serviço (URI) que identifica o serviço.
+* [Opcional] A política de integridade do aplicativo usada para substituir a política do manifesto do aplicativo.
+* [Opcional] Filtros de eventos e partições que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos e partições são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
 Para obter a integridade do serviço por meio de API, crie um `FabricClient` e chame o método [GetServiceHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getservicehealthasync.aspx) em seu HealthManager.
@@ -537,11 +530,9 @@ Você pode obter a integridade do serviço com uma [solicitação GET](https://m
 ## <a name="get-partition-health"></a>Obter integridade da partição
 Retorna a integridade de uma entidade de partição. Além disso, contém os estados de integridade da réplica. Entrada:
 
-- [Obrigatório] A ID de partição (GUID) que identifica a partição.
-
-- [Opcional] A política de integridade do aplicativo usada para substituir a política do manifesto do aplicativo.
-
-- [Opcional] Filtros para eventos e réplicas que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos e réplicas são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
+* [Obrigatório] A ID de partição (GUID) que identifica a partição.
+* [Opcional] A política de integridade do aplicativo usada para substituir a política do manifesto do aplicativo.
+* [Opcional] Filtros para eventos e réplicas que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos e réplicas são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
 Para obter a integridade da partição por meio de API, crie um `FabricClient` e chame o método [GetPartitionHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getpartitionhealthasync.aspx) em seu HealthManager. Para especificar parâmetros opcionais, crie [PartitionHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.partitionhealthquerydescription.aspx).
@@ -600,11 +591,9 @@ Você pode obter a integridade da partição com uma [solicitação GET](https:/
 ## <a name="get-replica-health"></a>Obter integridade da réplica
 Retorna a integridade de uma réplica de serviço com estado ou uma instância de serviço sem estado. Entrada:
 
-- [Obrigatório] A ID da partição (GUID) e a ID da réplica que identifica a réplica.
-
-- [Opcional] Os parâmetros da política de integridade do aplicativo usados para substituir as políticas de manifesto do aplicativo.
-
-- [Opcional] Filtros de eventos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
+* [Obrigatório] A ID da partição (GUID) e a ID da réplica que identifica a réplica.
+* [Opcional] Os parâmetros da política de integridade do aplicativo usados para substituir as políticas de manifesto do aplicativo.
+* [Opcional] Filtros de eventos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
 Para obter a integridade da réplica por meio de API, crie um `FabricClient` e chame o método [GetReplicaHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getreplicahealthasync.aspx) em seu HealthManager. Para especificar parâmetros avançados, use [ReplicaHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.replicahealthquerydescription.aspx).
@@ -645,11 +634,9 @@ Você pode obter a integridade da réplica com uma [solicitação GET](https://m
 ## <a name="get-deployed-application-health"></a>Obter integridade do aplicativo implantado
 Retorna a integridade de um aplicativo implantado em uma entidade de nó. Além disso, contém os estados de integridade do pacote de serviço implantado. Entrada:
 
-- [Obrigatório] O nome do aplicativo (URI) e o nome do nó (cadeia de caracteres) que identificam o aplicativo implantado
-
-- [Opcional] A política de integridade do aplicativo usada para substituir as políticas do manifesto do aplicativo.
-
-- [Opcional] Filtros de eventos e pacotes de serviço implantados que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos e pacotes de serviço implantados são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
+* [Obrigatório] O nome do aplicativo (URI) e o nome do nó (cadeia de caracteres) que identificam o aplicativo implantado
+* [Opcional] A política de integridade do aplicativo usada para substituir as políticas do manifesto do aplicativo.
+* [Opcional] Filtros de eventos e pacotes de serviço implantados que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos e pacotes de serviço implantados são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
 Para obter a integridade de um aplicativo implantado em um nó por meio de API, crie um `FabricClient` e chame o método [GetDeployedApplicationHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync.aspx) em seu HealthManager. Para especificar parâmetros opcionais, use [DeployedApplicationHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.deployedapplicationhealthquerydescription.aspx).
@@ -700,11 +687,9 @@ Você pode obter a integridade do aplicativo implantado com uma [solicitação G
 ## <a name="get-deployed-service-package-health"></a>Obter integridade do pacote de serviço implantado
 Retorna a integridade de uma entidade de pacote de serviço implantada. Entrada:
 
-- [Obrigatório] O nome do aplicativo (URI), nome do nó (cadeia de caracteres) e nome do manifesto do serviço (cadeia de caracteres) que identificam o pacote de serviço implantado
-
-- [Opcional] A política de integridade do aplicativo usada para substituir a política do manifesto do aplicativo.
-
-- [Opcional] Filtros de eventos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
+* [Obrigatório] O nome do aplicativo (URI), nome do nó (cadeia de caracteres) e nome do manifesto do serviço (cadeia de caracteres) que identificam o pacote de serviço implantado
+* [Opcional] A política de integridade do aplicativo usada para substituir a política do manifesto do aplicativo.
+* [Opcional] Filtros de eventos que especificam quais entradas são interessantes e devem retornar nos resultados (por exemplo, apenas erros ou avisos e erros). Todos os eventos são usados para avaliar a integridade agregada da entidade, independentemente do filtro.
 
 ### <a name="api"></a>API
 Para obter a integridade de um pacote de serviço implantado por meio de API, crie um `FabricClient` e chame o método [GetDeployedServicePackageHealthAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync.aspx) em seu HealthManager. Para especificar parâmetros opcionais, use [DeployedServicePackageHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.deployedservicepackagehealthquerydescription.aspx).
@@ -775,35 +760,26 @@ As [consultas de integridade](service-fabric-view-entities-aggregated-health.md#
 
 O valor da consulta em blocos é que você pode obter o estado da integridade para mais entidades de cluster (potencialmente todas as entidades de cluster começando na raiz exigida) em uma chamada. Você pode expressar uma consulta de integridade complexa da seguinte maneira:
 
-- Retorne apenas os aplicativos com erro e, para esses aplicativos, inclua todos os serviços em warning|error. Para os serviços retornados, inclua todas as partições.
-
-- Retorne apenas a integridade dos quatro aplicativos, especificados por seus nomes.
-
-- Retorne apenas a integridade dos aplicativos de um tipo de aplicativo desejado.
-
-- Retorne todas as entidades implantadas em um nó. Retorna todos os aplicativos, todos os aplicativos implantados no nó especificado e todos os pacotes de serviço implantados nesse nó.
-
-- Retorna todas as réplicas com erro. Retorna todos os aplicativos, serviços, partições e somente réplicas com erro.
-
-- Retorna todos os aplicativos. Para um serviço específico, inclua todas as partições.
+* Retorne apenas os aplicativos com erro e, para esses aplicativos, inclua todos os serviços em warning|error. Para os serviços retornados, inclua todas as partições.
+* Retorne apenas a integridade dos quatro aplicativos, especificados por seus nomes.
+* Retorne apenas a integridade dos aplicativos de um tipo de aplicativo desejado.
+* Retorne todas as entidades implantadas em um nó. Retorna todos os aplicativos, todos os aplicativos implantados no nó especificado e todos os pacotes de serviço implantados nesse nó.
+* Retorna todas as réplicas com erro. Retorna todos os aplicativos, serviços, partições e somente réplicas com erro.
+* Retorna todos os aplicativos. Para um serviço específico, inclua todas as partições.
 
 Atualmente, a consulta de integridade em blocos é exposta somente para a entidade do cluster. Ela retorna uma parte da integridade do cluster, que contém:
 
-- O estado de integridade agregado do cluster.
-
-- A lista de nós da parte de estado de integridade que respeita os filtros de entrada.
-
-- A lista de aplicativos da parte de estado de integridade que respeita os filtros de entrada. Cada parte do estado de integridade do aplicativo contém uma lista com todos os serviços que respeitam os filtros de entrada e uma lista com todos os aplicativos implantados que respeitam os filtros. O mesmo vale para os filhos dos serviços e aplicativos implantados. Dessa forma, todas as entidades no cluster podem retornar caso solicitado, de uma maneira hierárquica.
+* O estado de integridade agregado do cluster.
+* A lista de nós da parte de estado de integridade que respeita os filtros de entrada.
+* A lista de aplicativos da parte de estado de integridade que respeita os filtros de entrada. Cada parte do estado de integridade do aplicativo contém uma lista com todos os serviços que respeitam os filtros de entrada e uma lista com todos os aplicativos implantados que respeitam os filtros. O mesmo vale para os filhos dos serviços e aplicativos implantados. Dessa forma, todas as entidades no cluster podem retornar caso solicitado, de uma maneira hierárquica.
 
 ### <a name="cluster-health-chunk-query"></a>Consulta em bloco sobre a integridade do cluster
 Retorna a integridade da entidade do cluster e contém as partes hierárquicas do estado de integridade dos filhos necessários. Entrada:
 
-- [Opcional] A política de integridade do cluster usada para avaliar os nós e os eventos de cluster.
-
-- [Opcional] Mapa da política de integridade do aplicativo, com políticas de integridade usadas para substituir as políticas do manifesto do aplicativo.
-
-- [Opcional] Filtros de eventos, nós e aplicativos que especificam quais entradas são interessantes e devem retornar no resultado. Os filtros são específicos a uma entidade/grupo de entidades ou são aplicáveis a todas as entidades nesse nível. A lista de filtros pode conter um filtro geral e/ou filtros para identificadores específicos, a fim de refinar as entidades retornadas pela consulta. Se estiver vazia, os filhos não retornarão por padrão.
-Leia mais sobre os filtros em [NodeHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.nodehealthstatefilter.aspx) e [ApplicationHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthstatefilter.aspx). O filtros de aplicativo pode especificar de forma recursiva os filtros avançados para os filhos.
+* [Opcional] A política de integridade do cluster usada para avaliar os nós e os eventos de cluster.
+* [Opcional] Mapa da política de integridade do aplicativo, com políticas de integridade usadas para substituir as políticas do manifesto do aplicativo.
+* [Opcional] Filtros de eventos, nós e aplicativos que especificam quais entradas são interessantes e devem retornar no resultado. Os filtros são específicos a uma entidade/grupo de entidades ou são aplicáveis a todas as entidades nesse nível. A lista de filtros pode conter um filtro geral e/ou filtros para identificadores específicos, a fim de refinar as entidades retornadas pela consulta. Se estiver vazia, os filhos não retornarão por padrão.
+  Leia mais sobre os filtros em [NodeHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.nodehealthstatefilter.aspx) e [ApplicationHealthStateFilter](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthstatefilter.aspx). O filtros de aplicativo pode especificar de forma recursiva os filtros avançados para os filhos.
 
 O resultado da parte inclui os filhos que respeitam os filtros.
 
@@ -1010,38 +986,43 @@ Você pode obter parte da integridade do cluster com uma [solicitação GET](htt
 ## <a name="general-queries"></a>Consultas gerais
 As consultas gerais retornam a lista de entidades do Service Fabric de um tipo especificado. Elas são expostas por meio da API (métodos em **FabricClient.QueryManager**), dos cmdlets do PowerShell e da REST. Essas consultas agregam subconsultas de vários componentes. Um deles é o [Repositório de Integridade](service-fabric-health-introduction.md#health-store), que preenche o estado de integridade agregada para cada resultado da consulta.  
 
-> [AZURE.NOTE] As consultas gerais retornam o estado da integridade da entidade agregada e não contêm dados de integridade avançados. Se uma entidade não estiver íntegra, você poderá acompanhá-la com consultas de integridade a fim de obter todas as informações de integridade, incluindo eventos, estados da integridade dos filhos e avaliações não íntegras.
+> [!NOTE]
+> As consultas gerais retornam o estado da integridade da entidade agregada e não contêm dados de integridade avançados. Se uma entidade não estiver íntegra, você poderá acompanhá-la com consultas de integridade a fim de obter todas as informações de integridade, incluindo eventos, estados da integridade dos filhos e avaliações não íntegras.
+> 
+> 
 
 Se as consultas gerais retornarem um estado de integridade desconhecido para uma entidade, talvez o repositório de integridade não tenha dados completos sobre a entidade. Também é possível que uma subconsulta ao repositório de integridade não tenha êxito (por exemplo, ocorreu um erro de comunicação ou repositório de integridade apresentava alguma restrição). Acompanhe uma consulta de integridade da entidade. Se a subconsulta tiver encontrado erros transitórios, como problemas de rede, essa consulta de acompanhamento poderá ser bem-sucedida. Ela também pode fornecer mais detalhes, com base no repositório de integridade, sobre o motivo de a entidade não ser exposta.
 
 As consultas que contêm **HealthState** para entidades são:
 
-- Lista de nós: retorna os nós da lista no cluster (paginados).
-  - API: [FabricClient.QueryClient.GetNodeListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getnodelistasync.aspx)
-  - PowerShell: Get-ServiceFabricNode
-- Lista de aplicativos: retorna a lista de aplicativos no cluster (paginados).
-  - API: [FabricClient.QueryClient.GetApplicationListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getapplicationlistasync.aspx)
-  - PowerShell: Get-ServiceFabricApplication
-- Lista de serviços: retorna a lista de serviços em um aplicativo (paginados).
-  - API: [FabricClient.QueryClient.GetServiceListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getservicelistasync.aspx)
-  - PowerShell: Get-ServiceFabricService
-- Lista de partições: retorna a lista de partições em um serviço (paginadas).
-  - API: [FabricClient.QueryClient.GetPartitionListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getpartitionlistasync.aspx)
-  - PowerShell: Get-ServiceFabricPartition
-- Lista de réplicas: retorna a lista de réplicas em uma partição (paginadas).
-  - API: [FabricClient.QueryClient.GetReplicaListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getreplicalistasync.aspx)
-  - PowerShell: Get-ServiceFabricReplica
-- Lista de aplicativos implantados: retorna a lista de aplicativos implantados em um nó.
-  - API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync.aspx)
-  - PowerShell: Get-ServiceFabricDeployedApplication
-- Lista de pacotes de serviço implantados: retorna a lista de pacotes de serviço em um aplicativo implantado.
-  - API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync.aspx)
-  - PowerShell: Get-ServiceFabricDeployedApplication
+* Lista de nós: retorna os nós da lista no cluster (paginados).
+  * API: [FabricClient.QueryClient.GetNodeListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getnodelistasync.aspx)
+  * PowerShell: Get-ServiceFabricNode
+* Lista de aplicativos: retorna a lista de aplicativos no cluster (paginados).
+  * API: [FabricClient.QueryClient.GetApplicationListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getapplicationlistasync.aspx)
+  * PowerShell: Get-ServiceFabricApplication
+* Lista de serviços: retorna a lista de serviços em um aplicativo (paginados).
+  * API: [FabricClient.QueryClient.GetServiceListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getservicelistasync.aspx)
+  * PowerShell: Get-ServiceFabricService
+* Lista de partições: retorna a lista de partições em um serviço (paginadas).
+  * API: [FabricClient.QueryClient.GetPartitionListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getpartitionlistasync.aspx)
+  * PowerShell: Get-ServiceFabricPartition
+* Lista de réplicas: retorna a lista de réplicas em uma partição (paginadas).
+  * API: [FabricClient.QueryClient.GetReplicaListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getreplicalistasync.aspx)
+  * PowerShell: Get-ServiceFabricReplica
+* Lista de aplicativos implantados: retorna a lista de aplicativos implantados em um nó.
+  * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync.aspx)
+  * PowerShell: Get-ServiceFabricDeployedApplication
+* Lista de pacotes de serviço implantados: retorna a lista de pacotes de serviço em um aplicativo implantado.
+  * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync.aspx)
+  * PowerShell: Get-ServiceFabricDeployedApplication
 
-> [AZURE.NOTE] Algumas das consultas retornam resultados paginados. O retorno dessas consultas é uma lista derivada de [PagedList<T>](https://msdn.microsoft.com/library/azure/mt280056.aspx). Se os resultados não couberem em uma mensagem, serão retornados apenas uma página e um ContinuationToken que acompanha onde a enumeração parou. Você deve continuar a chamar a mesma consulta e passar o token de continuação da consulta anterior a fim de obter os próximos resultados.
+> [!NOTE]
+> Algumas das consultas retornam resultados paginados. O retorno dessas consultas é uma lista derivada de [PagedList<T>](https://msdn.microsoft.com/library/azure/mt280056.aspx). Se os resultados não couberem em uma mensagem, serão retornados apenas uma página e um ContinuationToken que acompanha onde a enumeração parou. Você deve continuar a chamar a mesma consulta e passar o token de continuação da consulta anterior a fim de obter os próximos resultados.
+> 
+> 
 
 ### <a name="examples"></a>Exemplos
-
 O código a seguir obtém os aplicativos não íntegros no cluster:
 
 ```csharp
@@ -1151,7 +1132,10 @@ Leia mais sobre a [Atualização de aplicativo do Service Fabric](service-fabric
 ## <a name="use-health-evaluations-to-troubleshoot"></a>Usar avaliações de integridade para solucionar problemas
 Sempre que houver um problema no cluster ou aplicativo, observe a integridade do cluster ou do aplicativo para identificar o que está errado. As avaliações não íntegras mostram detalhes sobre o que disparou o estado não íntegro atual. Se for necessário, você poderá analisar entidades filho não íntegras para identificar a causa raiz.
 
-> [AZURE.NOTE] As avaliações não íntegras mostram o primeiro motivo pelo qual a entidade é avaliada com o estado de integridade atual. Pode haver vários outros eventos que disparam esse estado, mas eles não são mostrados nas avaliações. Para obter mais informações, faça uma busca detalhada das entidades de integridade para descobrir todos os relatórios não íntegros no cluster.
+> [!NOTE]
+> As avaliações não íntegras mostram o primeiro motivo pelo qual a entidade é avaliada com o estado de integridade atual. Pode haver vários outros eventos que disparam esse estado, mas eles não são mostrados nas avaliações. Para obter mais informações, faça uma busca detalhada das entidades de integridade para descobrir todos os relatórios não íntegros no cluster.
+> 
+> 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Usar relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
@@ -1163,8 +1147,6 @@ Sempre que houver um problema no cluster ou aplicativo, observe a integridade do
 [Monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

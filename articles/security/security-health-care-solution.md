@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Um guia prático para criar soluções de serviços de saúde seguras no Azure | Microsoft Azure"
-   description=" Este artigo o ajuda a entender como aumentar a segurança para suas soluções de serviços de saúde usando os serviços e recursos do Azure que você configura. "
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Um guia prático para criar soluções de serviços de saúde seguras no Azure | Microsoft Docs
+description: " Este artigo o ajuda a entender como aumentar a segurança para suas soluções de serviços de saúde usando os serviços e recursos do Azure que você configura. "
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/06/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/06/2016
+ms.author: terrylan
 
+---
 # Um guia prático para projetar soluções de serviços de saúde seguras no Azure
-
 Novas empresas do setor de saúde, SIs (integradores de sistemas), ISVs (fornecedores independentes de software) e organizações de serviços de saúde que estão considerando a migração para o Azure buscam orientação para incorporar controles de segurança a fim de atender às suas obrigações de conformidade.
 
 O [Guia prático para criar soluções de serviços médicos seguras no Microsoft Azure](https://aka.ms/azureindustrysecurity) o ajuda a entender como você pode aumentar a segurança de suas soluções usando os serviços e recursos do Azure que pode configurar com base em seus requisitos. O conteúdo é dividido em três seções principais:

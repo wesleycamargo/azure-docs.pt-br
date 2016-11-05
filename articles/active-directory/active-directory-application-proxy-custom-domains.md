@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Trabalhando com Domínios Personalizados no Proxy de Aplicativo do AD do Azure | Microsoft Azure"
-	description="Aborda como trabalhar com domínios personalizados no Proxy de Aplicativo do AD do Azure."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Trabalhando com Domínios Personalizados no Proxy de Aplicativo do AD do Azure | Microsoft Docs
+description: Aborda como trabalhar com domínios personalizados no Proxy de Aplicativo do AD do Azure.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/22/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/22/2016
+ms.author: kgremban
 
+---
 # Trabalhando com domínios personalizados no Proxy de Aplicativo do AD do Azure
-
 Usando um domínio padrão permite que você defina a mesma URL como URL interna e externa para acessar o aplicativo, para que seus usuários tenham que lembrar de apenas uma URL para acessar o aplicativo, independentemente de onde eles estejam acessando. Isso também permite criar um único atalho no Painel de Acesso para o aplicativo. Se você usar o domínio padrão fornecido pelo Proxy de Aplicativo do AD do Azure, não há nenhuma configuração adicional que seja necessária para habilitar o seu domínio. Se você usar um domínio personalizado, há algumas coisas que você precisa fazer para certificar-se de que o Proxy do Aplicativo reconheça seu domínio e valide seus certificados.
 
 ## Selecionando o domínio personalizado
-
 1. Publique seu aplicativo seguindo as instruções em [Publicar aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-publish.md).
 2. Depois que o aplicativo aparecer na lista de aplicativos, selecione-o e clique em **Configurar**.
 3. Em **URL Externa**, digite seu domínio personalizado.
@@ -29,7 +27,6 @@ Usando um domínio padrão permite que você defina a mesma URL como URL interna
 5. Certifique-se de adicionar um registro DNS que roteie a URL interna para o aplicativo, que permite que você tenha a mesma URL para acesso interno e externo e um único atalho para o aplicativo na lista de aplicativos do usuário.
 
 ## Perguntas frequentes sobre como trabalhar com domínios personalizados
-
 P: Posso selecionar um certificado já carregado sem carregá-lo novamente? R: Certificados carregados previamente são vinculados automaticamente a um aplicativo e há exatamente um certificado que corresponde ao nome de host do aplicativo.
 
 P: Como fazer para adicionar um certificado e em que formato o certificado exportado deve ser carregado? R: O certificado deve ser carregado por meio da página de configuração do aplicativo. O certificado deve ser um arquivo PFX.
@@ -56,13 +53,11 @@ P: Posso usar um certificado autoassinado? A: Sim, os certificados autoassinados
 
 P: Existe um lugar para ver todos os certificados para o meu locatário? R: Não há suporte para isso na versão atual.
 
-
 ## Consulte também
-
-- [Publique aplicativos com proxy de aplicativo](active-directory-application-proxy-publish.md)
-- [Habilitar logon único](active-directory-application-proxy-sso-using-kcd.md)
-- [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
-- [Adicionar seu nome de domínio personalizado ao Azure AD](active-directory-add-domain.md)
+* [Publique aplicativos com proxy de aplicativo](active-directory-application-proxy-publish.md)
+* [Habilitar logon único](active-directory-application-proxy-sso-using-kcd.md)
+* [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
+* [Adicionar seu nome de domínio personalizado ao Azure AD](active-directory-add-domain.md)
 
 Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
 

@@ -1,5 +1,5 @@
 ### Pré-requisitos
-- Uma conta do [OneDrive](http://OneDrive.com) 
+* Uma conta do [OneDrive](http://OneDrive.com) 
 
 Antes de usar sua conta do OneDrive for Business em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do OneDrive for Business. Felizmente, você pode fazer isso facilmente a partir de seu aplicativo lógico no Portal do Azure.
 
@@ -9,3 +9,4 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 2. Se você não tiver criado quaisquer conexões OneDrive for Business antes, será solicitado a fornecer suas credenciais do OneDrive for Business. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do OneDrive for Business e usá-los: ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-2.png)
 3. Forneça seu nome de usuário do OneDrive for Business e a senha para autorizar seu aplicativo lógico: ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-3.png)   
 4. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: ![](./media/connectors-create-api-onedriveforbusiness/onedriveforbusiness-4.png)   
+

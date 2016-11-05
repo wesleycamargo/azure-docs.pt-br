@@ -1,25 +1,21 @@
-<properties 
-	pageTitle="Como usar o Twilio para voz e SMS (Ruby) | Microsoft Azure" 
-	description="Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos de códigos escritos em Ruby." 
-	services="" 
-	documentationCenter="ruby" 
-	authors="devinrader" 
-	manager="twilio" 
-	editor=""/>
+---
+title: Como usar o Twilio para voz e SMS (Ruby) | Microsoft Docs
+description: Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Exemplos de códigos escritos em Ruby.
+services: ''
+documentationcenter: ruby
+author: devinrader
+manager: twilio
+editor: ''
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="11/25/2014" 
-	ms.author="MicrosoftHelp@twilio.com"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: ruby
+ms.topic: article
+ms.date: 11/25/2014
+ms.author: MicrosoftHelp@twilio.com
 
-
-
-
-
+---
 # Como usar o Twilio para recursos de voz e SMS no Ruby
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do Twilio no Azure. Os cenários abrangidos incluem fazer uma chamada telefônica e enviar uma mensagem serviço de mensagem curta (SMS). Para obter mais informações sobre o Twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [Próximas etapas](#NextSteps).
 
@@ -114,23 +110,23 @@ A seguir você verá como fazer uma chamada de saída. Os conceitos principais i
 Adicione esta função a `web.md`:
 
     # Set your account ID and authentication token.
-	sid = "your_twilio_account_sid";
-	token = "your_twilio_authentication_token";
+    sid = "your_twilio_account_sid";
+    token = "your_twilio_authentication_token";
 
-	# The number of the phone initiating the the call.
+    # The number of the phone initiating the the call.
     # This should either be a Twilio number or a number that you've verified
-	from = "NNNNNNNNNNN";
+    from = "NNNNNNNNNNN";
 
-	# The number of the phone receiving call.
-	to = "NNNNNNNNNNN";
+    # The number of the phone receiving call.
+    to = "NNNNNNNNNNN";
 
-	# Use the Twilio-provided site for the TwiML response.
+    # Use the Twilio-provided site for the TwiML response.
     url = "http://yourdomain.cloudapp.net/voice_url";
-      
+
     get '/make_call' do
-	  # Create the call client.
-	  client = Twilio::REST::Client.new(sid, token);
-      
+      # Create the call client.
+      client = Twilio::REST::Client.new(sid, token);
+
       # Make the call
       client.account.calls.create(to: to, from: from, url: url)
     end
@@ -140,7 +136,7 @@ Adicione esta função a `web.md`:
          <Say>Hello Monkey!</Say>
        </Response>"
     end
-    
+
 Se você reabrir `http://yourdomain.cloudapp.net/make_call` em um navegador, isso disparará a chamada de API do Twilio para fazer a chamada telefônica. Os dois primeiros parâmetros em `client.account.calls.create` são auto-explicativos: o número da chamada é `from` e o número de chamada é `to`.
 
 O terceiro parâmetro (`url`) é a URL solicitada pelo Twilio para obter instruções sobre o que fazer quando a chamada estiver conectada. Nesse caso, configuramos uma URL (`http://yourdomain.cloudapp.net`) que retorna um documento simples de TwiML e usa o verbo `<Say>` para fazer uma conversão de texto em fala e dizer "Olá" à pessoa que estiver recebendo a chamada.

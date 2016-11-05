@@ -1,21 +1,21 @@
-<properties
-   pageTitle="SQL dinâmico no SQL Data Warehouse | Microsoft Azure"
-   description="Dicas para usar SQL dinâmico no SQL Data Warehouse do Azure para desenvolvimento de soluções."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL dinâmico no SQL Data Warehouse | Microsoft Docs
+description: Dicas para usar SQL dinâmico no SQL Data Warehouse do Azure para desenvolvimento de soluções.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # SQL dinâmico no SQL Data Warehouse
 Ao desenvolver o código do aplicativo para o SQL Data Warehouse, talvez seja preciso usar um sql dinâmico para ajudar a fornecer soluções flexíveis, genéricas e modulares. No momento, o SQL Data Warehouse não dá suporte a tipos de dados de blob. Isso pode limitar o tamanho de suas sequências de caracteres como tipos de blob que incluem tipos varchar(max) e nvarchar(max). Se você usou estes tipos no código do seu aplicativo ao compilar cadeias de caracteres muito grandes, você precisará dividir o código em partes e usar a instrução EXEC em seu lugar.
 
@@ -29,12 +29,15 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Se a cadeia de caracteres for curta, você pode usar [sp\_executesql][] normalmente.
+Se a cadeia de caracteres for curta, você pode usar [sp\_executesql][sp\_executesql] normalmente.
 
-> [AZURE.NOTE] Instruções executadas como SQL dinâmico ainda estarão sujeitas a todas as regras de validação de TSQL.
+> [!NOTE]
+> Instruções executadas como SQL dinâmico ainda estarão sujeitas a todas as regras de validação de TSQL.
+> 
+> 
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][Visão geral do desenvolvimento].
 
 <!--Image references-->
 

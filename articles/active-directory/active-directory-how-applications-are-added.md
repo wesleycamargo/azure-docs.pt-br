@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Como os aplicativos são adicionados ao Active Directory do Azure."
-   description="Este artigo descreve como os aplicativos são adicionados a uma instância do Active Directory do Azure."
-   services="active-directory"
-   documentationCenter=""
-   authors="shoatman"
-   manager="kbrint"
-   editor=""/>
+---
+title: Como os aplicativos são adicionados ao Active Directory do Azure.
+description: Este artigo descreve como os aplicativos são adicionados a uma instância do Active Directory do Azure.
+services: active-directory
+documentationcenter: ''
+author: shoatman
+manager: kbrint
+editor: ''
 
-   <tags
-      ms.service="active-directory"
-      ms.devlang="na"
-      ms.topic="article"
-      ms.tgt_pltfrm="na"
-      ms.workload="identity"
-      ms.date="02/09/2016"
-      ms.author="shoatman"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 02/09/2016
+ms.author: shoatman
 
+---
 # Como e por que os aplicativos são adicionados ao AD do Azure
-
 Uma das coisas inicialmente confusas ao exibir uma lista de aplicativos na sua instância do Active Directory do Azure é compreender de onde vieram os aplicativos e por que eles existem. Este artigo fornece uma visão geral de alto nível de como os aplicativos são representados no diretório, além de contexto que irá ajudá-lo a compreender como um aplicativo passou a estar em seu diretório.
 
 ## Que serviços do AD do Azure fornece aos aplicativos?
-
 Os aplicativos são adicionados ao AD do Azure para aproveitar um ou mais serviços que ele fornece. Esses serviços incluem:
 
 * Autenticação e autorização de aplicativo
@@ -33,7 +31,6 @@ Os aplicativos são adicionados ao AD do Azure para aproveitar um ou mais servi�
 * Publicação de aplicativo e proxy; publicar um aplicativo na Internet a partir de uma rede privada
 
 ## Como os aplicativos são representados no diretório?
-
 Aplicativos são representados no AD do Azure usando dois objetos: um objeto de aplicativo e um objeto de entidade de serviço. Há um objeto de aplicativo registrado no diretório "home"/"proprietário" ou "publicação", além de um ou mais objetos de entidade de serviço representando o aplicativo em cada diretório em que ele atua.
 
 O objeto de aplicativo descreve o aplicativo ao AD do Azure (o serviço multilocatário) e pode incluir qualquer um dos seguintes itens: (*Observação*: esso não é uma lista completa.)
@@ -52,16 +49,15 @@ A entidade de serviço é um registro do aplicativo em cada diretório, onde o a
 * Faz referência a um objeto de aplicativo por meio da propriedade de id do aplicativo
 * Registra atribuições de função de aplicativo de usuários e grupos locais
 * Registra as permissões de administrador e usuário local concedidas ao aplicativo
-    * Por exemplo: permissão para que o aplicativo acesse o email de um usuário específico
+  * Por exemplo: permissão para que o aplicativo acesse o email de um usuário específico
 * Registra políticas locais, incluindo a política de acesso condicional
 * Registra configurações alternativas locais para um aplicativo
-    * Declara regras de transformação
-    * Mapeamentos de atributos (provisionamento do usuário)
-    * Funções de aplicativo específicas de locatário (se o aplicativo dá suporte a funções personalizadas)
-    * Nome/logotipo
+  * Declara regras de transformação
+  * Mapeamentos de atributos (provisionamento do usuário)
+  * Funções de aplicativo específicas de locatário (se o aplicativo dá suporte a funções personalizadas)
+  * Nome/logotipo
 
 ### Um diagrama de objetos de aplicativo e entidades de serviço entre diretórios
-
 ![Um diagrama que ilustra como objetos de aplicativo e entidades de serviço coexistem com instâncias do AD do Azure.][apps_service_principals_directory]
 
 Como você pode ver no diagrama acima. A Microsoft mantém dois diretórios internamente (à esquerda), que utiliza para publicar aplicativos.
@@ -78,35 +74,32 @@ Os aplicativos que você adiciona por conta própria incluem:
 * Aplicativos publicados por você usando o proxy de aplicativo do AD do Azure.
 
 ### Algumas observações e exceções
-
 * Nem todas as entidades de serviço apontam de volta para objetos de aplicativo. Hein? Quando o AD do Azure foi originalmente criado, os serviços fornecidos aos aplicativos eram muito mais limitados e a entidade de serviço foi suficiente para estabelecer uma identidade de aplicativo. A entidade de serviço original era mais próxima, em termos de formato, da conta de serviço do Active Directory do Windows Server. Por esse motivo, ainda é possível criar entidades de serviço usando o PowerShell do AD do Azure sem primeiro criar um objeto de aplicativo. A Graph API requer um objeto de aplicativo antes de criar uma entidade de serviço.
 * Nem todas as informações descritas acima estão expostas programaticamente. Os itens a seguir estão disponíveis apenas na interface do usuário:
-    * Declara regras de transformação
-    * Mapeamentos de atributos (provisionamento do usuário)
+  * Declara regras de transformação
+  * Mapeamentos de atributos (provisionamento do usuário)
 * Para obter informações mais detalhadas sobre a entidade de serviço e objetos de aplicativo, consulte a documentação de referência de Graph API REST do AD do Azure. *Dica*: a documentação da Graph API do AD do Azure é o mais parecida possível com uma referência a esquema do AD do Azure que está disponível no momento.  
-    * [Aplicativo](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-    * [Entidade de serviço](https://msdn.microsoft.com/library/azure/dn194452.aspx)
-
+  * [Aplicativo](https://msdn.microsoft.com/library/azure/dn151677.aspx)
+  * [Entidade de serviço](https://msdn.microsoft.com/library/azure/dn194452.aspx)
 
 ## Como os aplicativos são adicionados à minha instância do AD do Azure?
 Há muitas maneiras pelas quais um aplicativo pode ser adicionado ao AD do Azure:
 
 * Adicionar um aplicativo a partir de [Galeria de aplicativos do Active Directory do Azure](https://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
 * Inscrever-se/entrar em um aplicativo de terceiros integrado ao Active Directory do Azure (por exemplo: [Smartsheet](https://app.smartsheet.com/b/home) ou [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
-    * Durante a inscrição/entrada será solicitado aos usuários que concedam permissão ao aplicativo para acessar seus perfis, além de outras permissões. A primeira pessoa a dar consentimento faz com que uma entidade de serviço que representa o aplicativo seja adicionada ao diretório.
+  * Durante a inscrição/entrada será solicitado aos usuários que concedam permissão ao aplicativo para acessar seus perfis, além de outras permissões. A primeira pessoa a dar consentimento faz com que uma entidade de serviço que representa o aplicativo seja adicionada ao diretório.
 * Inscrever-se/entrar nos serviços online da Microsoft, como o [Office 365](http://products.office.com/)
-    * Quando você se inscrever no Office 365 ou iniciar uma avaliação, uma ou mais entidades de serviço serão criadas no diretório que representa os vários serviços usados para fornecer toda a funcionalidade associada ao Office 365.
-    * Alguns serviços do Office 365 como o SharePoint criam entidades de serviço em uma base contínua para permitir a comunicação segura entre componentes, incluindo fluxos de trabalho.
+  * Quando você se inscrever no Office 365 ou iniciar uma avaliação, uma ou mais entidades de serviço serão criadas no diretório que representa os vários serviços usados para fornecer toda a funcionalidade associada ao Office 365.
+  * Alguns serviços do Office 365 como o SharePoint criam entidades de serviço em uma base contínua para permitir a comunicação segura entre componentes, incluindo fluxos de trabalho.
 * Adicione um aplicativo que você está desenvolvendo no Portal de Gerenciamento do Azure, consulte: https://msdn.microsoft.com/library/azure/dn132599.aspx
 * Adicione um aplicativo que você está desenvolvendo com o Visual Studio, consulte:
-    * [Métodos de autenticação do ASP.Net](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)
-    * [Serviços conectados](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+  * [Métodos de autenticação do ASP.Net](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)
+  * [Serviços conectados](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 * Adicionar um aplicativo para usar o [Proxy de aplicativo do AD do Azure](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 * Conectar a um aplicativo para logon único usando SAML ou SSO de senha
 * Muitas outras, incluindo várias experiências de desenvolvedor no Azure e/ou experiências no Gerenciador de APIs entre centros de desenvolvedores
 
 ## Quem tem permissão para adicionar aplicativos à minha instância do AD do Azure?
-
 Somente os administradores globais podem:
 
 * Adicionar aplicativos da Galeria de Aplicativos do AD do Azure (aplicativos de terceiros pré-integrados)
@@ -129,10 +122,8 @@ Com tudo isso, é possível impedir que os usuários em seu diretório adicionem
 
 ![Uma captura de tela da interface do usuário para definir as configurações do aplicativo integrado][app_settings]
 
-
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
-
 Saiba mais sobre como adicionar aplicativos ao AD do Azure e como configurar serviços para aplicativos.
 
 * Desenvolvedores: [Saiba como integrar um aplicativo ao AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)
@@ -143,8 +134,7 @@ Saiba mais sobre como adicionar aplicativos ao AD do Azure e como configurar ser
 * Profissionais de TI: [Saiba como publicar um aplicativo usando o Proxy do aplicativo do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 
 ## Consulte também
-
-- [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg

@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Definindo e gerenciando o estado | Microsoft Azure"
-   description="Como definir e gerenciar o estado do serviço na malha de serviço"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: Definindo e gerenciando o estado | Microsoft Docs
+description: Como definir e gerenciar o estado do serviço na malha de serviço
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # Estado do serviço
 **Estado do serviço** refere-se aos dados que o serviço requer para funcionar. São as estruturas de dados e variáveis que o serviço lê e grava para realizar trabalhos.
 
@@ -31,13 +31,10 @@ O estado pode ser externalizado ou localizado em conjunto com o código que est�
 O estado também pode ser localizado com o código que manipula esse código. Serviços com monitoração de estado na malha de serviço são criados usando esse modelo. O Service Fabric fornece a infraestrutura para garantir que esse estado seja altamente disponível e tolerante a falhas em caso de uma falha.
 
 ## Próximas etapas
-
 Para obter informações sobre os conceitos do Service Fabric, consulte o seguinte:
 
-- [Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)
-
-- [Escalabilidade de serviços da Malha do Serviço](service-fabric-concepts-scalability.md)
-
-- [Particionando serviços da Malha do Serviço](service-fabric-concepts-partitioning.md)
+* [Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)
+* [Escalabilidade de serviços da Malha do Serviço](service-fabric-concepts-scalability.md)
+* [Particionando serviços da Malha do Serviço](service-fabric-concepts-partitioning.md)
 
 <!---HONumber=AcomDC_0810_2016-->

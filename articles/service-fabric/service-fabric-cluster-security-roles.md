@@ -1,38 +1,31 @@
 
-<properties
-   pageTitle="Segurança de cluster do Service Fabric: funções de cliente | Microsoft Azure"
-   description="Este artigo descreve as duas funções de clientes e as permissões fornecidas para as funções."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="mani-ramaswamy"
-   manager="coreysa"
-   editor=""/>
+---
+title: 'Segurança de cluster do Service Fabric: funções de cliente | Microsoft Docs'
+description: Este artigo descreve as duas funções de clientes e as permissões fornecidas para as funções.
+services: service-fabric
+documentationcenter: .net
+author: mani-ramaswamy
+manager: coreysa
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/14/2016"
-   ms.author="subramar"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/14/2016
+ms.author: subramar
 
-
-
+---
 # Controle de acesso baseado em função para clientes do Service Fabric
-
 O Service Fabric dá suporte a dois tipos de controle de acesso diferentes para clientes conectados a um cluster do Service Fabric: administrador e usuário. O controle de acesso permite que o administrador de cluster limite o acesso a determinadas operações de cluster para diferentes grupos de usuários, tornando o cluster mais seguro.
 
 Os **administradores** têm acesso completo aos recursos de gerenciamento (incluindo recursos de leitura/gravação). Por padrão, os **usuários** têm apenas acesso de leitura aos recursos de gerenciamento (por exemplo, recursos de consulta) e a capacidade de resolver serviços e aplicativos.
 
 As duas funções de clientes (administrador ou cliente) são especificadas no momento da criação do cluster, com o fornecimento de certificados separados para cada um. Confira [Service Fabric cluster security](service-fabric-cluster-security.md) (Segurança de cluster do Service Fabric) para obter detalhes sobre como configurar um cluster do Service Fabric.
 
-
 ## Configurações padrão de controle de acesso
-
-
 O tipo de controle de acesso de administrador tem acesso total a todas as APIs FabricClient. Com ele, é possível executar qualquer operação de leitura e gravação no cluster do Service Fabric, incluindo as seguintes:
-
 
 ### Operações de aplicativos e serviço
 * **CreateService**: criação de serviço
@@ -53,7 +46,6 @@ O tipo de controle de acesso de administrador tem acesso total a todas as APIs F
 * **RecoverPartitions**: recuperar partições
 * **RecoverServicePartitions**: recuperar partições de serviço
 * **RecoverSystemPartitions**: recuperar partições de serviço do sistema
-
 
 ### Operações de cluster
 * **ProvisionFabric**: MSI e/ou provisionamento de manifesto do cluster
@@ -84,8 +76,6 @@ O tipo de controle de acesso de administrador tem acesso total a todas as APIs F
 * **Query**: todas as consultas permitidas
 * **NameExists**: verificações de existência do URI de nomenclatura
 
-
-
 O tipo de Controle de Acesso de Usuários é, por padrão, limitado às operações a seguir:
 
 * **EnumerateSubnames**: nomenclatura de enumeração de URI
@@ -106,11 +96,9 @@ O tipo de Controle de Acesso de Usuários é, por padrão, limitado às operaç�
 O Controle de Acesso de administrador também tem acesso às operações anteriores.
 
 ## Alterando as configurações padrão para funções do cliente
-
 No arquivo de manifesto do cluster,você pode fornecer recursos de administração ao cliente, se for necessário. Você pode alterar os padrões ao acessar a opção **Configurações da Malha** durante a [criação do cluster](service-fabric-cluster-creation-via-portal.md) e fornecer as configurações anteriores nos campos **nome**, **administrador**, **usuário** e **valor**.
 
 ## Próximas etapas
-
 [Segurança do Cluster do Service Fabric](service-fabric-cluster-security.md)
 
 [Criação de cluster do Service Fabric](service-fabric-cluster-creation-via-portal.md)

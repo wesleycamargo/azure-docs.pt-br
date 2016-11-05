@@ -1,24 +1,23 @@
-<properties 
-	pageTitle="Conexão segura a recursos de Back-end a partir de um ambiente do Serviço de Aplicativo" 
-	description="Saiba como realizar conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Conexão segura a recursos de Back-end a partir de um ambiente do Serviço de Aplicativo
+description: Saiba como realizar conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo.
+services: app-service
+documentationcenter: ''
+author: ccompy
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/11/2016" 
-	ms.author="stefsch"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/11/2016
+ms.author: stefsch
 
-# Conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo #
-
-## Visão geral ##
+---
+# Conexão segura a recursos de back-end a partir de um ambiente do Serviço de Aplicativo
+## Visão geral
 Como um Ambiente do Serviço de Aplicativo sempre é criado em uma rede virtual do Azure Resource Manager **ou** uma [rede virtual][virtualnetwork] de modelo de implantação clássico, as conexões de saída de um Ambiente de Serviço de Aplicativo com outros recursos de back-end podem fluir exclusivamente pela rede virtual. Com uma alteração recente feita em junho de 2016, os ASEs também podem ser implantados em redes virtuais que usam os intervalos de endereço público ou espaços de endereço RFC1918 (ou seja, os endereços privados).
 
 Por exemplo, pode haver um SQL Server em execução em um cluster de máquinas virtuais com a porta 1433 bloqueada. O ponto de extremidade pode ser ACLd, para permitir apenas acesso de outros recursos na mesma rede virtual.
@@ -29,9 +28,9 @@ Para todos esses cenários, aplicativos em execução em um ambiente do serviço
 
 Uma limitação se aplica ao tráfego de saída de um ambiente de Serviço de Aplicativo para pontos de extremidade em uma rede virtual. Ambientes do Serviço de Aplicativo não podem acessar pontos de extremidade de máquinas virtuais localizados na **mesma** sub-rede que o ambiente do Serviço de Aplicativo. Isso não deve ser um problema, desde que os ambientes do Serviço de Aplicativo sejam implantados em uma sub-rede reservada para uso exclusivo pelo ambiente do Serviço de Aplicativo.
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Requisitos de DNS e conectividade de saída ##
+## Requisitos de DNS e conectividade de saída
 Para um Ambiente de Serviço de Aplicativo funcionar corretamente, ele requer acesso de saída a vários pontos de extremidade. Uma lista completa dos pontos de extremidade externos usado por um ASE está na seção "Conectividade de rede necessária" do artigo [Configuração de rede para a Rota Expressa](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity).
 
 Ambientes de Serviço de Aplicativo exigem uma infraestrutura DNS válida configurada para a rede virtual. Se por algum motivo, a configuração do DNS for alterada após ter sido criado um Ambiente do Serviço de Aplicativo, os desenvolvedores podem forçar um Ambiente do Serviço de Aplicativo para captar a nova configuração de DNS. Disparar uma reinicialização do ambiente sem interrupção usando o ícone "Reiniciar" localizado na parte superior da folha de gerenciamento do Ambiente de Serviço de Aplicativo no portal fará com que o ambiente capture a nova configuração de DNS.
@@ -45,14 +44,10 @@ Uma configuração comum do SQL Server tem um ponto de extremidade escutando na 
 
 Há duas abordagens para restringir o tráfego para esse ponto de extremidade:
 
-
-- [Listas de controle de acesso a redes][NetworkAccessControlLists] \(ACLs de rede)
-
-- [Grupos de segurança de rede][NetworkSecurityGroups]
-
+* [Listas de controle de acesso a redes][NetworkAccessControlLists] \(ACLs de rede)
+* [Grupos de segurança de rede][NetworkSecurityGroups]
 
 ## Restringindo o acesso com uma ACL de rede
-
 A porta 1433 pode ser protegida usando uma lista de controle de acesso de rede. O exemplo abaixo coloca endereços de cliente originados dentro de uma rede virtual em lista branca e bloqueia o acesso a todos os outros clientes.
 
 ![Exemplo de lista de controle de acesso de rede][NetworkAccessControlListExample]
@@ -79,11 +74,10 @@ Como resultado, bloquear o acesso ao SQL Server é tão simples quanto a aplica�
 O exemplo a seguir aplica a um grupo de segurança de rede à sub-rede que o contém:
 
     Get-AzureNetworkSecurityGroup -Name "testNSGExample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-1'
-    
+
 O resultado final é um conjunto de regras de segurança que bloqueiam o acesso externo, permitindo acesso interno VNet:
 
 ![Regras de segurança de rede padrão][DefaultNetworkSecurityRules]
-
 
 ## Introdução
 Todos os artigos e instruções sobre os Ambientes do Serviço de Aplicativo estão disponíveis no [LEIAME para Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md).
@@ -94,10 +88,9 @@ Para obter detalhes sobre como controlar o tráfego de entrada para seu ambiente
 
 Para obter mais informações sobre a plataforma do Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure][AzureAppService].
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/

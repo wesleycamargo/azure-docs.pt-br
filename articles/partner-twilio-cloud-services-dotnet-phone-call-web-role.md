@@ -1,32 +1,27 @@
-<properties 
-	pageTitle="Como fazer uma chamada telefônica do Twilio (.NET) | Microsoft Azure" 
-	description="Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Amostras de código gravadas no .NET." 
-	services="" 
-	documentationCenter=".net" 
-	authors="devinrader" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Como fazer uma chamada telefônica do Twilio (.NET) | Microsoft Docs
+description: Saiba como fazer uma chamada telefônica e enviar uma mensagem SMS com o serviço de API do Twilio no Azure. Amostras de código gravadas no .NET.
+services: ''
+documentationcenter: .net
+author: devinrader
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/04/2016" 
-	ms.author="microsofthelp@twilio.com"/>
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 05/04/2016
+ms.author: microsofthelp@twilio.com
 
-
-
-
+---
 # Como fazer uma chamada telefônica usando a Twilio em uma função web no Azure
-
 Este guia demonstra como usar a Twilio para fazer uma chamada de uma página da web hospedada no Azure. O aplicativo resultante solicita valores de chamada telefônica ao usuário, conforme mostrado na seguinte captura de tela.
 
 ![Formulário de chamada do Azure usando a Twilio e o ASP.NET][twilio_dotnet_basic_form]
 
 ## <a name="twilio-prereqs"></a>Pré-requisitos
-
 Você precisará fazer o seguinte para usar o código deste tópico:
 
 1. Obter uma conta e um token de autenticação da Twilio. Para começar com a Twilio, inscreva-se em [https://www.twilio.com/try-twilio][try_twilio]. Você pode avaliar os preços em [http://www.twilio.com/pricing][twilio_pricing]. Para obter informações sobre a API fornecida pela Twilio, consulte [http://www.twilio.com/voice/api][twilio_api].
@@ -35,15 +30,14 @@ Você precisará fazer o seguinte para usar o código deste tópico:
 Você deve estar familiarizado com a criação de uma função web básica no Azure.
 
 ## <a name="howtocreateform"></a>Como criar um formulário Web para fazer uma chamada
-
 <a id="use_nuget"></a>Para adicionar as bibliotecas Twilio ao seu projeto de função Web:
 
-1.  Abra sua solução no Visual Studio.
-2.  Clique com o botão direito do mouse em **Referências**.
-3.  Clique em **Gerenciar Pacotes NuGet**
-4.  Clique em **Online**.
-5.  Na caixa Pesquisar Online, digite *tiwlio*.
-6.  Clique em **Instalar** no pacote Twilio.
+1. Abra sua solução no Visual Studio.
+2. Clique com o botão direito do mouse em **Referências**.
+3. Clique em **Gerenciar Pacotes NuGet**
+4. Clique em **Online**.
+5. Na caixa Pesquisar Online, digite *tiwlio*.
+6. Clique em **Instalar** no pacote Twilio.
 
 O código a seguir mostra como criar um formulário da web para recuperar dados do usuário para fazer uma chamada. Neste exemplo, uma função web do ASP.NET chamada **TwilioCloud** é criada.
 
@@ -163,7 +157,7 @@ Esse código foi fornecido para mostrar a funcionalidade básica usando a Twilio
 * Leia as diretrizes de segurança da Twilio em [https://www.twilio.com/docs/security][twilio_docs_security].
 * Saiba mais sobre a Twilio em [https://www.twilio.com/docs][twilio_docs].
 
-##<a name="seealso"></a>Consulte também
+## <a name="seealso"></a>Consulte também
 * [Como usar o Twilio para funcionalidades de voz e SMS do Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing

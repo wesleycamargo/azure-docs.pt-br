@@ -1,26 +1,23 @@
 
-<properties
-	pageTitle="Solução de problemas de associação dinâmica para grupos| Microsoft Azure"
-	description="Solução de problemas para a associação dinâmica para grupos no Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="femila"
-	editor=""
-	/>
+---
+title: Solução de problemas de associação dinâmica para grupos| Microsoft Docs
+description: Solução de problemas para a associação dinâmica para grupos no Azure AD.
+services: active-directory
+documentationcenter: ''
+author: curtand
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="curtand"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/10/2016
+ms.author: curtand
 
-
+---
 # Solucionando problemas de associações dinâmicas a grupos
-
 **Configurei uma regra em um grupo, mas nenhuma associação é atualizada no grupo**<br/>Verifique se a configuração **Habilitar gerenciamento de grupo delegado** está definida como **Sim** na guia **Configurar**. Você verá essa configuração somente se estiver conectado como um usuário que recebe uma licença do Azure Active Directory Premium. Verifique os valores dos atributos de usuário na regra: há usuários que atendem à regra?
 
 **Configurei uma regra, mas agora os membros existentes da regra foram removidos**<br/>Este comportamento é esperado. Membros existentes do grupo são removidos quando uma regra é habilitada ou alterada. Os usuários retornados da avaliação da regra são adicionados como membros ao grupo.

@@ -1,28 +1,27 @@
-<properties
-	pageTitle="Usar o telefone comercial como método de contato com o Azure MFA"
-	description="Esta página mostrará aos usuários como usar o telefone comercial como o método de contato principal para o Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Usar o telefone comercial como método de contato com o Azure MFA
+description: Esta página mostrará aos usuários como usar o telefone comercial como o método de contato principal para o Azure MFA.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Usar o telefone comercial como método de contato com o Azure Multi-Factor Authentication
-
 Se desejar usar seu telefone comercial como o método de contato principal, você poderá usar este artigo. Ele vai ajudar a configurar a autenticação multifator para usar o telefone comercial para uma ligação como seu método de contato.
 
 ## Para usar o telefone comercial como o método de contato
-
 <ol>
+
 <li>Selecione Telefone Comercial na lista suspensa</li>
 
 <center>![Configuração](./media/multi-factor-authentication-end-user-first-time-office-phone/office.png)</center>

@@ -1,7 +1,7 @@
-Recurso|Grátis|Basic (Preview)|S1|S2
----|---|---|---|----
-Máximo de serviços em cada tipo por assinatura <sup>1</sup>|1 |12 |12 |1
-Máximo de escala por tipo <sup>2</sup>|N/D|3 SU (até 3 réplicas e 1 partição)|36 SU|36 SU  
+| Recurso | Grátis | Basic (Preview) | S1 | S2 |
+| --- | --- | --- | --- | --- |
+| Máximo de serviços em cada tipo por assinatura <sup>1</sup> |1 |12 |12 |1 |
+| Máximo de escala por tipo <sup>2</sup> |N/D |3 SU (até 3 réplicas e 1 partição) |36 SU |36 SU |
 
 <sup>1</sup> Cada serviço é provisionado em um determinado tipo de preço, com limites no número de serviços que você pode provisionar em cada tipo em uma única assinatura do Azure. Durante o período de Visualização, os tipos ficam disponíveis por uma taxa introdutória de 50% do preço total.
 

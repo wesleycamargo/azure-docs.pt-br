@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Usuários com atividade de entrada anômala"
-	description="Um relatório que indica todas as contas de usuário para as quais uma atividade anômala de entrada foi identificada."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: Usuários com atividade de entrada anômala
+description: Um relatório que indica todas as contas de usuário para as quais uma atividade anômala de entrada foi identificada.
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
+---
 # Usuários com atividade de entrada anômala
 Este é um relatório agregado que combina entradas suspeitas dos seguintes relatórios:
 

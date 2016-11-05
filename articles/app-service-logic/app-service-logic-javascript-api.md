@@ -1,24 +1,26 @@
-<properties
-   pageTitle="Usando o aplicativo de API do JavaScript em um Aplicativo Lógico | Microsoft Azure"
-   description="Conector ou aplicativo de API de JavaScript"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="stepsic-microsoft-com"
-   manager="dwrede"
-   editor=""/>
+---
+title: Usando o aplicativo de API do JavaScript em um Aplicativo Lógico | Microsoft Docs
+description: Conector ou aplicativo de API de JavaScript
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: stepsic-microsoft-com
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="09/01/2016"
-   ms.author="stepsic"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 09/01/2016
+ms.author: stepsic
 
+---
 # Aplicativo de API de JavaScript
-
->[AZURE.NOTE] Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview dos Aplicativos Lógicos.
+> [!NOTE]
+> Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview dos Aplicativos Lógicos.
+> 
+> 
 
 O Aplicativo de API do JavaScript fornece uma maneira fácil de executar as expressões JavaScript simples *enquanto seu Aplicativo lógico é executado*.
 
@@ -39,8 +41,9 @@ Para usar o aplicativo de API de JavaScript, você precisa primeiro criar uma in
 Você pode criar um gatilho que o serviço de aplicativo lógico vai sondar (em um intervalo que você definir) e, se ele retornar algum conteúdo, o aplicativo lógico será executado; caso contrário, ele aguardará até o próximo intervalo de sondagem para verificar novamente.
 
 As entradas para o gatilho são:
-- **Expressão JavaScript** - uma expressão que será avaliada. Ela é invocada dentro de uma função e deve retornar `false` quando você não quiser que o Aplicativo lógico seja executado, podendo retornar qualquer outra coisa quando você quiser que o Aplicativo lógico seja executado. Você pode usar o conteúdo da resposta nas ações do aplicativo lógico.
-- **Objeto de contexto** - um objeto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
+
+* **Expressão JavaScript** - uma expressão que será avaliada. Ela é invocada dentro de uma função e deve retornar `false` quando você não quiser que o Aplicativo lógico seja executado, podendo retornar qualquer outra coisa quando você quiser que o Aplicativo lógico seja executado. Você pode usar o conteúdo da resposta nas ações do aplicativo lógico.
+* **Objeto de contexto** - um objeto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
 
 Você pode ter um gatilho simples que somente executa seu aplicativo lógico entre os minutos 15 e 30 da hora:
 
@@ -49,35 +52,36 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 ```
 
 ### Ação
-
 Da mesma forma, você pode fornecer uma ação a ser executada.
 
 As entradas para a ação são:
-- **Expressão JavaScript** - uma expressão que será avaliada. Você precisa incluir a instrução `return` para obter qualquer conteúdo.
-- **Objeto de contexto** - um objeto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
+
+* **Expressão JavaScript** - uma expressão que será avaliada. Você precisa incluir a instrução `return` para obter qualquer conteúdo.
+* **Objeto de contexto** - um objeto opcional que pode ser passado para o gatilho. Você pode definir quantas propriedades quiser, mas a entidade de nível superior deve ser um objeto, por exemplo, `{ "bar" : 0}`.
 
 Por exemplo, imagine que você está usando o gatilho do Office 365 **Novo Email**. Isso retorna o seguinte objeto:
+
 ```
 {
-	...
-	"Attachments" : [
-		{
-			"name" : "Picture.png",
-			"content" : {
-				"ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
-				"ContentType" : "image/png",
-				"ContentTransferEncoding" : "Base64"
-			}
-		},	
-		{
-			"name" : "File.txt",
-			"content" : {
-				"ContentData" : "Don't worry, be happy!",
-				"ContentType" : "text/plain",
-				"ContentTransferEncoding" : "None"
-			}
-		}	
-	]
+    ...
+    "Attachments" : [
+        {
+            "name" : "Picture.png",
+            "content" : {
+                "ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
+                "ContentType" : "image/png",
+                "ContentTransferEncoding" : "Base64"
+            }
+        },    
+        {
+            "name" : "File.txt",
+            "content" : {
+                "ContentData" : "Don't worry, be happy!",
+                "ContentType" : "text/plain",
+                "ContentTransferEncoding" : "None"
+            }
+        }    
+    ]
 }
 ```
 
@@ -91,8 +95,6 @@ A ação retorna o JSON retornado da sua função. Portanto, no aplicativo de AP
 
 ## Faça mais com seu Conector
 Agora que o conector foi criado, você pode adicioná-lo a um fluxo comercial usando um Aplicativo Lógico. Consulte [O que são Aplicativos lógicos?](app-service-logic-what-are-logic-apps.md).
-
- 
 
 <!--References -->
 

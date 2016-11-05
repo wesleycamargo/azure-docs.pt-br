@@ -1,36 +1,32 @@
-<properties
-	pageTitle="Como configurar um Ambiente do Serviço de Aplicativo | Microsoft Azure"
-	description="Configuração, gerenciamento e monitoramento de Ambientes do Serviço de Aplicativo"
-	services="app-service"
-	documentationCenter=""
-	authors="ccompy"
-	manager="stefsch"
-	editor=""/>
+---
+title: Como configurar um Ambiente do Serviço de Aplicativo | Microsoft Docs
+description: Configuração, gerenciamento e monitoramento de Ambientes do Serviço de Aplicativo
+services: app-service
+documentationcenter: ''
+author: ccompy
+manager: stefsch
+editor: ''
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="ccompy"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/12/2016
+ms.author: ccompy
 
-
-# Configurando um Ambiente do Serviço de Aplicativo #
-
-## Visão geral ##
-
+---
+# Configurando um Ambiente do Serviço de Aplicativo
+## Visão geral
 Em um nível elevado, um Ambiente do Serviço de Aplicativo do Azure consiste em vários componentes principais:
 
-- Recursos de computação que estão em execução no serviço hospedado do Ambiente do Serviço de Aplicativo
-- Armazenamento
-- Um banco de dados
-- Uma VNet (rede virtual) do Azure Clássica (V1) ou do Resource Manager (V2)
-- Uma sub-rede na qual está em execução o serviço hospedado do Ambiente do Serviço de Aplicativo
+* Recursos de computação que estão em execução no serviço hospedado do Ambiente do Serviço de Aplicativo
+* Armazenamento
+* Um banco de dados
+* Uma VNet (rede virtual) do Azure Clássica (V1) ou do Resource Manager (V2)
+* Uma sub-rede na qual está em execução o serviço hospedado do Ambiente do Serviço de Aplicativo
 
 ### Recursos de computação
-
 Use os recursos de computação para os quatro pools de recursos. Cada ASE (Ambiente do Serviço de Aplicativo) tem um conjunto de front-ends e três pools de trabalho possíveis. Você não precisa usar todos os três pools de trabalho. Se quiser, poderá usar apenas um ou dois.
 
 Os hosts nos pools de recursos (front-ends e trabalhadores) não podem ser acessados diretamente pelos locatários. Você não pode usar o RDP (protocolo de área de trabalho remota) para se conectar a eles, alterar o provisionamento ou agir como um administrador.
@@ -39,50 +35,47 @@ Você pode definir o tamanho e a quantidade de pools de recursos. Em um ASE, voc
 
 **Front-ends** Os front-ends são os pontos de extremidade HTTP/HTTPS para os aplicativos mantidos em seu ASE. Não execute cargas de trabalho nos front-ends.
 
-- Um ASE começa com duas P2s, o que é suficiente para cargas de trabalho de desenvolvimento e teste e para cargas de trabalho de produção de nível baixo. Recomendamos P3 para cargas de trabalho de produção moderada a pesada.
-- Para as cargas de trabalho de produção moderada a pesada, recomendamos que você tenha pelo menos quatro P3s a fim de garantir uma quantidade suficiente de front-ends em execução durante a manutenção agendada. As atividades de manutenção agendada desligarão um front-end de cada vez. Isso reduz a capacidade de front-end disponível no geral durante as atividades de manutenção.
-- Você não pode adicionar instantaneamente uma nova instância de front-end. Pode demorar de duas a três horas para provisionar um.
-- Para obter um ajuste mais fino do dimensionamento, você deve monitorar a porcentagem de CPU, a porcentagem de Memória e as métricas de Solicitações Ativas do pool de front-end. Se os percentuais de memória ou CPU ficam acima de 70% ao executar P3s, adicione mais front-ends. Se a média de valores de Solicitações Ativas for de 15 mil a 20 mil por front-end, você também deverá adicionar mais front-ends. O objetivo geral é manter os percentuais de CPU e de Memória abaixo de 70%, e as Solicitações Ativas com uma média abaixo de 15 mil solicitações por front-end durante a execução de P3s.
+* Um ASE começa com duas P2s, o que é suficiente para cargas de trabalho de desenvolvimento e teste e para cargas de trabalho de produção de nível baixo. Recomendamos P3 para cargas de trabalho de produção moderada a pesada.
+* Para as cargas de trabalho de produção moderada a pesada, recomendamos que você tenha pelo menos quatro P3s a fim de garantir uma quantidade suficiente de front-ends em execução durante a manutenção agendada. As atividades de manutenção agendada desligarão um front-end de cada vez. Isso reduz a capacidade de front-end disponível no geral durante as atividades de manutenção.
+* Você não pode adicionar instantaneamente uma nova instância de front-end. Pode demorar de duas a três horas para provisionar um.
+* Para obter um ajuste mais fino do dimensionamento, você deve monitorar a porcentagem de CPU, a porcentagem de Memória e as métricas de Solicitações Ativas do pool de front-end. Se os percentuais de memória ou CPU ficam acima de 70% ao executar P3s, adicione mais front-ends. Se a média de valores de Solicitações Ativas for de 15 mil a 20 mil por front-end, você também deverá adicionar mais front-ends. O objetivo geral é manter os percentuais de CPU e de Memória abaixo de 70%, e as Solicitações Ativas com uma média abaixo de 15 mil solicitações por front-end durante a execução de P3s.
 
 **Trabalhos** Os trabalhos são os locais onde seus aplicativos são realmente executados. Ao escalar verticalmente seus Planos de Serviço de Aplicativo, você usará os trabalhadores no pool de trabalhadores associado.
 
-- Não é possível adicionar trabalhadores instantaneamente. O provisionamento pode demorar de duas a três horas, independentemente de quantos estão sendo adicionados.
-- O dimensionamento de um recurso de computação para qualquer pool demorará de duas a três horas por domínio de atualização. Há 20 domínios de atualização em um ASE. Se você tiver dimensionado o tamanho de computação de um pool de trabalho com 10 instâncias, talvez demore de 20 a 30 horas para a conclusão.
-- se você alterar o tamanho dos recursos de computação usados em um pool de trabalho, causará inicializações a frio dos aplicativos em execução nesse pool de trabalho.
+* Não é possível adicionar trabalhadores instantaneamente. O provisionamento pode demorar de duas a três horas, independentemente de quantos estão sendo adicionados.
+* O dimensionamento de um recurso de computação para qualquer pool demorará de duas a três horas por domínio de atualização. Há 20 domínios de atualização em um ASE. Se você tiver dimensionado o tamanho de computação de um pool de trabalho com 10 instâncias, talvez demore de 20 a 30 horas para a conclusão.
+* se você alterar o tamanho dos recursos de computação usados em um pool de trabalho, causará inicializações a frio dos aplicativos em execução nesse pool de trabalho.
 
 Veja a seguir a maneira mais rápida de alterar o tamanho do recurso de computação de um pool de trabalho que não esteja executando aplicativos:
 
-- Reduzir verticalmente a contagem de instâncias até 0. Levará cerca de 30 minutos para desalocar suas instâncias.
-- Selecionar o novo tamanho de computação e o número de instâncias. A partir daqui, a conclusão demorará de duas a três horas.
+* Reduzir verticalmente a contagem de instâncias até 0. Levará cerca de 30 minutos para desalocar suas instâncias.
+* Selecionar o novo tamanho de computação e o número de instâncias. A partir daqui, a conclusão demorará de duas a três horas.
 
 Se os aplicativos exigirem um recurso de computação maior, você não poderá aproveitar a orientação anterior. Em vez de alterar o tamanho do pool de trabalho que hospeda esses aplicativos, você pode preencher outro pool de trabalho com trabalhos do tamanho desejado e mover seus aplicativos para esse pool.
 
-- Criar instâncias adicionais com o tamanho de computação necessário em outro pool de trabalho. Isso levará de duas a três horas para ser concluído.
-- Reatribuir os Planos de Serviço de Aplicativo que hospedam os aplicativos que precisam de um tamanho maior para o pool de trabalho recém-configurado. Essa é uma operação rápida que deve demorar menos de um minuto para ser concluída.
-- Reduzir verticalmente o primeiro pool de trabalho se você não precisar mais dessas instâncias não utilizadas. Essa operação demora cerca de 30 minutos para ser concluída.
+* Criar instâncias adicionais com o tamanho de computação necessário em outro pool de trabalho. Isso levará de duas a três horas para ser concluído.
+* Reatribuir os Planos de Serviço de Aplicativo que hospedam os aplicativos que precisam de um tamanho maior para o pool de trabalho recém-configurado. Essa é uma operação rápida que deve demorar menos de um minuto para ser concluída.
+* Reduzir verticalmente o primeiro pool de trabalho se você não precisar mais dessas instâncias não utilizadas. Essa operação demora cerca de 30 minutos para ser concluída.
 
 **Dimensionamento automático**: uma das ferramentas que podem ajudá-lo a gerenciar o consumo de recursos de computação é o dimensionamento automático. Você pode usar o dimensionamento automático para o front-end ou para os pools de trabalho. Você pode aumentar suas instâncias de algum tipo de pool de manhã e reduzi-las durante a noite. Ou você pode adicionar instâncias quando o número de trabalhador disponíveis em um pool de trabalho cair abaixo de um certo limite.
 
 Se você quiser definir regras de dimensionamento automático com relação às métricas de pool de recursos de computação, lembre-se do tempo necessário para o provisionamento. Para obter mais detalhes sobre o dimensionamento automático dos Ambientes do Serviço de Aplicativo, confira [Como configurar o dimensionamento automático em um Ambiente de Serviço de Aplicativo][ASEAutoscale].
 
 ### Armazenamento
-
 Cada ASE é configurado com 500 GB de armazenamento. Esse espaço é usado em todos os aplicativos do ASE. Esse espaço de armazenamento faz parte do ASE e atualmente não pode ser alternado para usar seu espaço de armazenamento. Se você estiver fazendo ajustes no roteamento ou segurança de rede virtual, ainda será necessário permitir o acesso ao Armazenamento do Azure ou o ASE não funcionará.
 
 ### Banco de dados
-
 O banco de dados armazena as informações que definem o ambiente, bem como detalhes sobre os aplicativos executados nele. Isso também é uma parte da assinatura gerenciada pelo Azure. Não é algo que você tenha a capacidade direta de manipular. Se você estiver fazendo ajustes no roteamento ou segurança de rede virtual, ainda será necessário permitir o acesso ao SQL Azure ou o ASE não funcionará.
 
 ### Rede
-
 A rede virtual usada com seu ASE pode ser uma daquelas criadas durante a criação do ASE ou uma já existente. Se você quiser que a rede virtual esteja em um grupo de recursos separado daquele usado para o ASE, precisará criar sua rede virtual separadamente do fluxo de criação do ASE. Se você criar a sub-rede durante a criação do ASE, obrigará o ASE a estar no mesmo grupo de recursos que a rede virtual.
 
 Há algumas restrições na rede virtual que é usada para um ASE:
- 
-- A rede virtual deve ser uma rede virtual regional.
-- Deve haver uma sub-rede com oito ou mais endereços nos quais o ASE é implantado.
-- Quando uma sub-rede é usada para hospedar um ASE, o intervalo de endereços da sub-rede não pode ser alterado. Por esse motivo, recomendamos que a sub-rede contenha pelo menos 64 endereços a fim acomodar qualquer crescimento futuro do ASE.
-- Nada mais pode existir na sub-rede além do ASE.
+
+* A rede virtual deve ser uma rede virtual regional.
+* Deve haver uma sub-rede com oito ou mais endereços nos quais o ASE é implantado.
+* Quando uma sub-rede é usada para hospedar um ASE, o intervalo de endereços da sub-rede não pode ser alterado. Por esse motivo, recomendamos que a sub-rede contenha pelo menos 64 endereços a fim acomodar qualquer crescimento futuro do ASE.
+* Nada mais pode existir na sub-rede além do ASE.
 
 Ao contrário do serviço hospedado que contém o ASE, a [rede virtual][virtualnetwork] e a sub-rede estão sob o controle do usuário. Você pode administrar sua rede virtual por meio da interface do usuário de rede virtual ou do PowerShell. Um ASE pode ser implantado em uma VNet clássica ou do Resource Manager. O portal e as experiências de API são um pouco diferentes entre as VNets Clássica e do Resource Manager, mas a experiência do ASE é a mesma.
 
@@ -95,16 +88,13 @@ Por exemplo, você pode usar a Integração VNET para integrar-se a uma Rede Vir
 Caso você tenha configurado sua rede virtual com uma VPN da Rota Expressa, deverá estar ciente das necessidades de rotas de um ASE. Há algumas configurações de UDR (rota definida pelo usuário) que são incompatíveis com um ASE. Para obter mais detalhes sobre como executar um ASE em uma rede virtual com a Rota Expressa, confira [Executando um Ambiente de Serviço de Aplicativo em uma rede virtual com a Rota Expressa][ExpressRoute].
 
 #### Protegendo o tráfego de entrada
-
 Há dois métodos principais para controlar o tráfego de entrada para seu ASE. Você pode usar NSGs (Grupos de Segurança de Rede) para controlar quais endereços IP podem acessar seu ASE conforme descrito aqui [Como controlar o tráfego de entrada em um Ambiente de Serviço de Aplicativo](app-service-app-service-environment-control-inbound-traffic.md) e também pode configurar seu ASE com um ILB (Balanceador de Carga Interno). Esses recursos também podem ser usados juntos para restringir o acesso usando NSGs para seu ASE ILB.
 
 Quando você cria um ASE, ele cria um VIP em sua rede virtual. Há dois tipos de VIP, internos e externos. Quando você cria um ASE com um VIP externo, seus aplicativos no ASE poderão ser acessados por meio de um endereço IP que pode ser roteado na Internet. Quando você seleciona seu ASE interno, ele será configurado com um ILB e não poderá ser acessado diretamente pela Internet. Um ASE ILB ainda requer um VIP externo, mas ele é usado somente para acesso de gerenciamento e manutenção do Azure.
 
 Durante a criação do ASE ILB, você fornecerá o subdomínio usado pelo ASE ILB e terá que gerenciar seu próprio DNS para o subdomínio que especificar. Como você define o nome de subdomínio, também precisa gerenciar o certificado usado para acesso HTTPS. Após a criação do ASE, você precisará fornecer o certificado. Para saber mais sobre a criação e o uso de um ASE ILB, leia [Usando um Balanceador de Carga Interno com um Ambiente de Serviço de Aplicativo][ILBASE].
 
-
 ## Portal
-
 Você pode gerenciar e monitorar o ambiente de serviço de aplicativo usando a interface do usuário no portal do Azure. Se você tiver um ASE, provavelmente verá o símbolo do Serviço de Aplicativo em sua barra lateral. Esse símbolo é usado para representar Ambientes do Serviço de Aplicativo no portal do Azure:
 
 ![Símbolo do Ambiente do Serviço de Aplicativo][1]
@@ -116,7 +106,6 @@ Para abrir a interface do usuário que lista todos os seus Ambientes de Serviço
 A primeira folha mostra algumas propriedades do seu ASE junto com um gráfico de métricas por pool de recursos. Algumas das propriedades mostradas no bloco **Fundamentos** também são hiperlinks que abrirão a folha associada a ele. Por exemplo, você pode selecionar o Nome da **rede virtual** para abrir a interface do usuário associada à rede virtual em que o ASE está sendo executado. Os **Planos do Serviço de Aplicativo** e os **Aplicativos** abrem folhas que listam esses itens em seu ASE.
 
 ### Monitoramento
-
 Os gráficos permitem a você ver uma variedade de métricas de desempenho em cada pool de recursos. Para o pool de front-ends, você pode monitorar a média de memória e de CPU . Para pools de trabalho, você pode monitorar a quantidade usada e a quantidade disponível.
 
 Vários Planos do Serviço de Aplicativo podem usar os trabalhadores em um pool de trabalho. A carga de trabalho não é distribuída da mesma forma que ocorre com servidores front-end. Portanto, o uso de CPU e de memória não oferece muitas informações úteis. É mais importante controlar quantos trabalhadores foram usados e estão disponíveis, especialmente se você estiver gerenciando esse sistema para outros usuários.
@@ -130,7 +119,6 @@ As métricas que acabamos de discutir são as métricas do Ambiente do Serviço 
 Em um ASE, todos os Planos de Serviço de Aplicativo são planos de serviço de aplicativo dedicados. Isso significa que somente aplicativos executados nos hosts alocados para aquele Plano do Serviço de Aplicativo são aplicativos desse Plano de Serviço de Aplicativo. Para ver detalhes sobre o Plano do Serviço de Aplicativo, simplesmente abra o ASP de qualquer uma das listas na interface do usuário do ASE ou de **Procurar Planos do Serviço de Aplicativo** (o que listará todos eles).
 
 ### Configurações
-
 Na folha do ASE, há uma seção **Configurações** que contém vários recursos importantes:
 
 **Configurações** > **Propriedades**: a folha **Configurações** será aberta automaticamente quando você abrir a folha de seu ASE. As **Propriedades** estão na parte superior. Há alguns itens aqui que são redundantes para o que você vê em **Fundamentos**, mas o que é muito útil é o **Endereço VIP Virtual**, bem como o **Endereço IP de Saída**.
@@ -145,19 +133,18 @@ A folha base de cada pool de recursos oferece um gráfico com métricas para o p
 
 ![Interface do usuário de configurações do pool de trabalho][5]
 
-### Recursos de dimensionamento do portal  
-
+### Recursos de dimensionamento do portal
 Existem três operações em escala:
 
-- Alteração do número de endereços IP no ASE que estão disponíveis para uso do IP SSL.
-- Alteração do tamanho do recurso de computação usado em um pool de recursos.
-- Alteração do número de recursos de computação usados em um pool de recursos manualmente ou por meio de dimensionamento automático.
+* Alteração do número de endereços IP no ASE que estão disponíveis para uso do IP SSL.
+* Alteração do tamanho do recurso de computação usado em um pool de recursos.
+* Alteração do número de recursos de computação usados em um pool de recursos manualmente ou por meio de dimensionamento automático.
 
 No portal, existem três maneiras de controlar quantos servidores você tem nos pools de recursos:
 
-- Uma operação de dimensionamento da folha principal do ASE na parte superior. Você pode fazer várias alterações de configuração de escala nos pools de front-end e de trabalho. Elas são aplicadas como uma única operação.
-- Uma operação de dimensionamento manual da folha **Escala** de pool de recursos individuais, que está em **Configurações**.
-- Dimensionamento Automático, que você configura na folha **Escala** do pool de recursos individuais.
+* Uma operação de dimensionamento da folha principal do ASE na parte superior. Você pode fazer várias alterações de configuração de escala nos pools de front-end e de trabalho. Elas são aplicadas como uma única operação.
+* Uma operação de dimensionamento manual da folha **Escala** de pool de recursos individuais, que está em **Configurações**.
+* Dimensionamento Automático, que você configura na folha **Escala** do pool de recursos individuais.
 
 Para usar a operação Escala na folha ASE, arraste o controle deslizante até a quantidade desejada e salve. Essa interface do usuário também oferece suporte à alteração do tamanho.
 
@@ -168,42 +155,39 @@ Para usar os recursos manuais ou de dimensionamento automático em um pool de re
 ![Interface do usuário de configurações de escala][7]
 
 ## Considerações sobre a tolerância a falhas
-
 Você pode configurar um Ambiente do Serviço de Aplicativo para usar até um total de 55 recursos de computação. Desses 55 recursos de computação, apenas 50 podem ser usados para cargas de trabalho do host. A razão para isso é dupla. Há um mínimo de dois recursos de computação front-end. Com isso, restam até 53 para dar suporte a alocação do pool de trabalho. Para oferecer tolerância a falhas, você precisa ter um recurso de computação adicional alocado de acordo com as seguintes regras:
 
-- Cada pool de trabalho precisa de pelo menos um recurso de computação adicional que não está disponível para atribuição a uma carga de trabalho.
-- Quando a quantidade de recursos de computação em um pool de trabalho ultrapassa um determinado valor, outro recurso de computação torna-se necessário para tolerância a falhas. Esse não é o caso no pool de front-end.
+* Cada pool de trabalho precisa de pelo menos um recurso de computação adicional que não está disponível para atribuição a uma carga de trabalho.
+* Quando a quantidade de recursos de computação em um pool de trabalho ultrapassa um determinado valor, outro recurso de computação torna-se necessário para tolerância a falhas. Esse não é o caso no pool de front-end.
 
 Dentro de qualquer pool de trabalho individual, os requisitos de tolerância a falhas são aqueles para um determinado valor de X recursos atribuídos a um pool de trabalho:
 
-- Se X estiver entre 2 e 20, a quantidade de recursos de computação utilizáveis que você pode usar para cargas de trabalho será X-1.
-- Se X estiver entre 21 a 40, a quantidade de recursos de computação utilizáveis que você pode usar para cargas de trabalho será X-2.
-- Se X estiver entre 41 a 53, a quantidade de recursos de computação utilizáveis que você pode usar para cargas de trabalho será X-3.
+* Se X estiver entre 2 e 20, a quantidade de recursos de computação utilizáveis que você pode usar para cargas de trabalho será X-1.
+* Se X estiver entre 21 a 40, a quantidade de recursos de computação utilizáveis que você pode usar para cargas de trabalho será X-2.
+* Se X estiver entre 41 a 53, a quantidade de recursos de computação utilizáveis que você pode usar para cargas de trabalho será X-3.
 
 A superfície mínima tem dois servidores front-end e dois trabalhadores. Com as instruções acima, veja alguns exemplos para que tudo fique mais claro:
 
-- Se você tiver 30 trabalhadores em um único pool, então 28 deles poderão ser usados para hospedar cargas de trabalho.
-- Se você tiver dois trabalhadores em um único pool, então um deles poderá ser usado para hospedar cargas de trabalho.
-- Se você tiver 20 trabalhadores em um único pool, então 19 deles poderão ser usados para hospedar cargas de trabalho.
-- Se você tiver 21 trabalhadores em um único pool, então ainda assim 19 deles poderão ser usados para hospedar cargas de trabalho.
+* Se você tiver 30 trabalhadores em um único pool, então 28 deles poderão ser usados para hospedar cargas de trabalho.
+* Se você tiver dois trabalhadores em um único pool, então um deles poderá ser usado para hospedar cargas de trabalho.
+* Se você tiver 20 trabalhadores em um único pool, então 19 deles poderão ser usados para hospedar cargas de trabalho.
+* Se você tiver 21 trabalhadores em um único pool, então ainda assim 19 deles poderão ser usados para hospedar cargas de trabalho.
 
 O aspecto de tolerância a falhas é importante, mas você precisará tê-lo em mente quando dimensionar acima de determinados limites. Se quiser adicionar mais capacidade a partir de 20 instâncias, insira 22 ou mais, já que 21 não adicionam mais capacidade. O mesmo será verdadeiro se o número de instâncias for maior do que 40, onde o próximo número que adicionará capacidade será 42.
 
-## Excluindo um Ambiente do Serviço de Aplicativo ##
-
+## Excluindo um Ambiente do Serviço de Aplicativo
 Se você deseja excluir um ambiente do serviço de aplicativo, simplesmente use a ação **Excluir** na parte superior da folha Ambiente do Serviço de Aplicativo. Quando você fizer isso, será solicitada a inserção do nome do seu Ambiente do Serviço de Aplicativo para confirmar a operação. Observe que quando você exclui um Ambiente do Serviço de Aplicativo, exclui todo o conteúdo dentro dele também.
 
 ![Interface do usuário Excluir um Ambiente de Serviço de Aplicativo][9]
 
 ## Introdução
-
 Para se familiarizar com os Ambientes de Serviços de Aplicativo, consulte [Como criar um Ambiente de Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md).
 
 Para obter mais informações sobre a plataforma de Serviço de Aplicativo do Azure, consulte [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!--Image references-->
 [1]: ./media/app-service-web-configure-an-app-service-environment/ase-icon.png

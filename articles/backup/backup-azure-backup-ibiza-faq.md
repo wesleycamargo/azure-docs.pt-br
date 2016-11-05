@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Perguntas frequentes sobre o cofre dos Serviços de Recuperação | Microsoft Azure"
-   description="Esta versão das perguntas frequentes é compatível com a versão de Visualização Pública do serviço Backup do Azure. Respostas para perguntas frequentes sobre agente de backup, backup e retenção, recuperação, segurança e outras perguntas comuns sobre a solução de Backup do Azure."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="solução de backup; serviço de backup"/>
+---
+title: Perguntas frequentes sobre o cofre dos Serviços de Recuperação | Microsoft Docs
+description: Esta versão das perguntas frequentes é compatível com a versão de Visualização Pública do serviço Backup do Azure. Respostas para perguntas frequentes sobre agente de backup, backup e retenção, recuperação, segurança e outras perguntas comuns sobre a solução de Backup do Azure.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: solução de backup; serviço de backup
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="08/21/2016"
-	 ms.author="trinadhk; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/21/2016
+ms.author: trinadhk; markgal; jimpark;
 
+---
 # Cofre dos Serviços de Recuperação - Perguntas Frequentes
-
-> [AZURE.SELECTOR]
-- [Perguntas frequentes sobre backup para o modo Clássico](backup-azure-backup-faq.md)
-- [Perguntas frequentes sobre backup para o modo do Gerenciador de recursos](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Perguntas frequentes sobre backup para o modo Clássico](backup-azure-backup-faq.md)
+> * [Perguntas frequentes sobre backup para o modo do Gerenciador de recursos](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 Este artigo fornece informações específicas ao cofre de Serviços de Recuperação e complementa as [Perguntas frequentes sobre Backup do Azure](backup-azure-backup-faq.md). As perguntas frequentes sobre o Backup do Azure oferecem o conjunto completo de perguntas e respostas sobre o serviço Backup do Azure.
 

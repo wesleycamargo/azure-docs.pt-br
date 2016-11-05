@@ -1,38 +1,35 @@
-<properties
-    pageTitle="Configurações e perguntas frequentes sobre o roaming de dados | Microsoft Azure"
-    description="Responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo."
-    services="active-directory"
-    keywords="configurações do enterprise state roaming, nuvem do windows, perguntas frequentes sobre o enterprise state roaming"
-    documentationCenter=""
-    authors="femila"
-    manager="swadhwa"
-    editor="curtand"/>
+---
+title: Configurações e perguntas frequentes sobre o roaming de dados | Microsoft Docs
+description: Responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo.
+services: active-directory
+keywords: configurações do enterprise state roaming, nuvem do windows, perguntas frequentes sobre o enterprise state roaming
+documentationcenter: ''
+author: femila
+manager: swadhwa
+editor: curtand
 
-<tags
-    ms.service="active-directory"  
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    ms.author="femila"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: femila
 
-
+---
 # <a name="settings-and-data-roaming-faq"></a>Configurações e perguntas frequentes sobre o roaming de dados
-
 Este tópico responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo.
 
 ## <a name="what-data-roams?"></a>Quais dados são movidos?
 **Configurações do Windows**: as configurações internas do PC do sistema operacional Windows. Em geral, essas são as configurações que personalizam seu PC e incluem as seguintes grandes categorias:
 
-- *Tema*, que inclui recursos como configurações de tema e barra de tarefas da área de trabalho.
-- *Configurações do Internet Explorer*, incluindo guias abertas recentemente e favoritos.
-- *Configurações do navegador Edge*, como favoritos e lista de leitura.
-- *Senhas*, incluindo senhas da Internet, perfis de Wi-Fi e outros.
-- *Preferências de idioma*, que inclui configurações de layouts de teclado, idioma do sistema, data e hora e outros.
-- *Recursos de facilidade de acesso*, como tema de alto contraste, Narrador e Lupa.
-- *Outras configurações do Windows*, como configurações do prompt de comando e lista de aplicativos.
-
+* *Tema*, que inclui recursos como configurações de tema e barra de tarefas da área de trabalho.
+* *Configurações do Internet Explorer*, incluindo guias abertas recentemente e favoritos.
+* *Configurações do navegador Edge*, como favoritos e lista de leitura.
+* *Senhas*, incluindo senhas da Internet, perfis de Wi-Fi e outros.
+* *Preferências de idioma*, que inclui configurações de layouts de teclado, idioma do sistema, data e hora e outros.
+* *Recursos de facilidade de acesso*, como tema de alto contraste, Narrador e Lupa.
+* *Outras configurações do Windows*, como configurações do prompt de comando e lista de aplicativos.
 
 **Dados de aplicativo**: os aplicativos Universais do Windows podem gravar dados de configurações em uma pasta de roaming e todos os dados gravados nessa pasta serão automaticamente sincronizados. Cabe ao desenvolvedor de aplicativos individuais criar um aplicativo para tirar proveito desse recurso. Para obter mais detalhes sobre como desenvolver um aplicativo Universal do Windows que usa roaming, confira a [API de armazenamento appdata](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [blog do desenvolvedor sobre roaming appdata do Windows 8](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
@@ -45,13 +42,15 @@ No Windows 10, apenas a conta principal do dispositivo pode ser usada para a sin
 
 Os dados nunca são misturados entre as diferentes contas de usuário no dispositivo. Há duas regras para a sincronização de configurações:
 
-- As configurações do Windows sempre serão movidas com a conta principal.
-- Os dados do aplicativo serão marcados com a conta usada para adquirir o aplicativo. Somente os aplicativos marcados com a conta principal serão sincronizados. A marcação de propriedade do aplicativo é determinada quando um aplicativo tem sideload por meio da Windows Store ou por meio do MDM (gerenciamento de dispositivo móvel).
+* As configurações do Windows sempre serão movidas com a conta principal.
+* Os dados do aplicativo serão marcados com a conta usada para adquirir o aplicativo. Somente os aplicativos marcados com a conta principal serão sincronizados. A marcação de propriedade do aplicativo é determinada quando um aplicativo tem sideload por meio da Windows Store ou por meio do MDM (gerenciamento de dispositivo móvel).
 
 Se o proprietário de um aplicativo não puder ser identificado, o aplicativo será movido com a conta principal. Se um dispositivo for atualizado do Windows 8 ou do Windows 8.1 para o Windows 10, todos os aplicativos serão marcados como adquiridos por conta da Microsoft. Isso ocorre porque a maioria dos usuários adquire aplicativos por meio da Windows Store, e não havia nenhum suporte da Windows Store para contas do Azure AD antes do Windows 10. Se um aplicativo for instalado por meio de uma licença offline, o aplicativo será marcado usando a conta principal no dispositivo.
 
->[AZURE.NOTE]  
+> [!NOTE]
 > Os dispositivos do Windows 10 que pertencem à empresa e estão conectados ao Azure AD não podem mais conectar suas Contas da Microsoft a uma conta de domínio. A capacidade de conectar uma conta da Microsoft a uma conta de domínio e de sincronizar todos os dados do usuário para a conta da Microsoft (ou seja, o roaming da conta da Microsoft por meio da funcionalidade de conta da Microsoft conectada e Active Directory) foi removida dos dispositivos Windows 10 ingressados em um ambiente do Active Directory ou Azure AD conectado.
+> 
+> 
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10?"></a>Como eu atualizo a partir da sincronização das configurações da conta da Microsoft no Windows 8 para a sincronização das configurações do AD do Azure no Windows 10?
 Se você tiver ingressado no domínio do Active Directory executando o Windows 8 ou o Windows 8.1 com uma conta da Microsoft conectada, você sincronizará as configurações por meio da conta da sua conta da Microsoft. Após a atualização para o Windows 10, você continuará a sincronizar as configurações de usuário por meio da conta da Microsoft, desde que você seja um usuário ingressado em domínio e o domínio do Active Directory não se conecte ao Azure AD.
@@ -60,9 +59,8 @@ Se o domínio do Active Directory local se conectar ao Azure AD, seu dispositivo
 
 Se você tiver armazenado dados pessoais em seu dispositivo corporativo, você deverá estar ciente de que o sistema operacional Windows e os dados do aplicativo começarão a ser sincronizados para o Azure AD. Porém, há as seguintes implicações:
 
-- Suas configurações da conta da Microsoft pessoal serão separadas em suas contas de trabalho ou escola do Azure AD. Isso ocorre porque a sincronização da conta da Microsoft e do Azure AD agora estão usando contas separadas.
-- Dados pessoais, como senhas de Wi-Fi, credenciais da Web e favoritos do Internet Explorer que eram sincronizados anteriormente por meio de uma conta da Microsoft conectada serão sincronizados por meio do Azure AD.
-
+* Suas configurações da conta da Microsoft pessoal serão separadas em suas contas de trabalho ou escola do Azure AD. Isso ocorre porque a sincronização da conta da Microsoft e do Azure AD agora estão usando contas separadas.
+* Dados pessoais, como senhas de Wi-Fi, credenciais da Web e favoritos do Internet Explorer que eram sincronizados anteriormente por meio de uma conta da Microsoft conectada serão sincronizados por meio do Azure AD.
 
 ## <a name="how-do-microsoft-account-and-azure-ad-enterprise-state-roaming-interoperability-work?"></a>Como funciona a conta da Microsoft e a interoperabilidade do Enterprise State Roaming do Azure AD?
 Nas versões de novembro de 2015 ou posteriores do Windows 10, o Enterprise State Roaming só tem suporte para uma única conta de cada vez. Se você entrar no Windows usando uma conta corporativa ou de estudante do Azure AD, todos os dados serão sincronizados por meio do Azure AD. Se você entrar no Windows usando uma conta pessoal da Microsoft, todos os dados serão sincronizados por meio da conta da Microsoft. Os dados de aplicativos universais farão roaming usando somente a conta de entrada principal no dispositivo e farão roaming somente se a licença do aplicativo for de propriedade da conta principal. Os dados de aplicativos universais para os aplicativos pertencentes a quaisquer contas secundárias não serão sincronizados.
@@ -72,24 +70,22 @@ Quando houver várias contas do Azure AD de diferentes locatários do AD do Azur
 
 1. Encontre o GUID de cada locatário do Azure AD. Abra o portal clássico do Azure e escolha um locatário do AD do Azure. O GUID do locatário é a URL na barra de endereços do navegador. Por exemplo:  `https://manage.windowsazure.com/YourAccount.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/Tenant GUID/directoryQuickStart`
 2. Depois de ter o GUID, você precisará adicionar a chave do Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\SettingSync\WinMSIPC\<GUID da ID do locatário**.
-Por meio da chave do **GUID da ID do locatário**, crie um novo valor de cadeia de caracteres múltipla (REG-MULTI-SZ) denominado **AllowedRMSServerUrls**. Para seus dados, especifique as URLs de ponto de distribuição licenciamento de outros locatários do Azure que o dispositivo acessa.
+   Por meio da chave do **GUID da ID do locatário**, crie um novo valor de cadeia de caracteres múltipla (REG-MULTI-SZ) denominado **AllowedRMSServerUrls**. Para seus dados, especifique as URLs de ponto de distribuição licenciamento de outros locatários do Azure que o dispositivo acessa.
 3. Você pode encontrar as URLs de ponto de distribuição de licenciamento executando o cmdlet **Get-AadrmConfiguration** . Se os valores de **LicensingIntranetDistributionPointUrl** e de **LicensingExtranetDistributionPointUrl** forem diferentes, especifique ambos os valores. Se os valores forem iguais, especifique o valor apenas uma vez.
-
 
 ## <a name="what-are-the-roaming-settings-options-for-existing-windows-desktop-applications?"></a>Quais são as opções de configurações de roaming para aplicativos da área de trabalho do Windows existentes?
 O roaming só funciona para aplicativos Universais do Windows. Há duas opções para habilitar o roaming em um aplicativo da área de trabalho existente do Windows:
 
-- A [Ponte da Área de Trabalho](http://aka.ms/desktopbridge) ajuda você a levar seus aplicativos da área de trabalho existentes do Windows para a Plataforma Universal do Windows. A partir daqui, alterações mínimas de código deverão poder aproveitar o roaming de dados de aplicativo do Azure AD. A Ponte da Área de Trabalho fornece aos aplicativos uma identidade de aplicativo, que é necessária para habilitar o roaming de dados de aplicativo para aplicativos da área de trabalho existentes.
-- [UE-V (User Experience Virtualization)](https://technet.microsoft.com/library/dn458947.aspx) ajuda você a criar um modelo de configurações personalizado para aplicativos da área de trabalho existentes do Windows e habilitar o roaming para aplicativos do Win32. Essa opção não exige que o desenvolvedor altere o código do aplicativo. O UE-V é limitado ao roaming do Active Directory local para clientes que adquiriram o Microsoft Desktop Optimization Pack.
+* A [Ponte da Área de Trabalho](http://aka.ms/desktopbridge) ajuda você a levar seus aplicativos da área de trabalho existentes do Windows para a Plataforma Universal do Windows. A partir daqui, alterações mínimas de código deverão poder aproveitar o roaming de dados de aplicativo do Azure AD. A Ponte da Área de Trabalho fornece aos aplicativos uma identidade de aplicativo, que é necessária para habilitar o roaming de dados de aplicativo para aplicativos da área de trabalho existentes.
+* [UE-V (User Experience Virtualization)](https://technet.microsoft.com/library/dn458947.aspx) ajuda você a criar um modelo de configurações personalizado para aplicativos da área de trabalho existentes do Windows e habilitar o roaming para aplicativos do Win32. Essa opção não exige que o desenvolvedor altere o código do aplicativo. O UE-V é limitado ao roaming do Active Directory local para clientes que adquiriram o Microsoft Desktop Optimization Pack.
 
 Administradores podem configurar o UE-V para fazer roaming de dados de aplicativo da área de trabalho do Windows alterando o roaming de configurações do sistema operacional do Windows e dados de aplicativos universais por meio de [políticas de grupo do UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2), incluindo:
 
-- Política de grupo Roaming de configurações do Windows
-- Política de grupo Não sincronizar aplicativos do Windows
-- Roaming do Internet Explorer na seção de aplicativos
+* Política de grupo Roaming de configurações do Windows
+* Política de grupo Não sincronizar aplicativos do Windows
+* Roaming do Internet Explorer na seção de aplicativos
 
 No futuro, a Microsoft poderá investigar maneiras de tornar a UE-V ainda mais integrada ao Windows e de estender a UE-V para mover as configurações por meio da nuvem do AD do Azure.
-
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises?"></a>Posso armazenar configurações e dados sincronizados localmente?
 O Roaming de Estado da Empresa armazena todos os dados sincronizados na nuvem do Azure. O UE-V oferece uma solução de roaming local.
@@ -110,35 +106,30 @@ A Microsoft tem algumas soluções de roaming de configurações diferentes disp
 
 Ao se usar o Enterprise State Roaming e o UE-V, as seguintes regras são aplicáveis:
 
-- O Enterprise State Roaming é o principal agente de roaming no dispositivo. A UE-V está sendo usada para suplementar a "lacuna do Win32".
-- As configurações de roaming de UE-V para Windows e dados de aplicativos modernos de UWP devem estar desabilitadas ao usar políticas de grupo do UE-V. Eles já estão cobertos pelo Roaming de Estado de Empresa.
+* O Enterprise State Roaming é o principal agente de roaming no dispositivo. A UE-V está sendo usada para suplementar a "lacuna do Win32".
+* As configurações de roaming de UE-V para Windows e dados de aplicativos modernos de UWP devem estar desabilitadas ao usar políticas de grupo do UE-V. Eles já estão cobertos pelo Roaming de Estado de Empresa.
 
 ## <a name="how-does-enterprise-state-roaming-support-virtual-desktop-infrastructure-(vdi)?"></a>Como o Roaming de Estado de Empresa dá suporte ao VDI (Virtual Desktop Infrastructure)?
 O Roaming de Estado de Empresa tem suporte em SKUs de cliente do Windows 10, mas não em SKUs de servidor. Se uma VM cliente for hospedada em um computador de hipervisor e você se conectar remotamente à máquina virtual, seus dados farão roaming. Se vários usuários compartilharem o mesmo sistema operacional e os usuários se conectarem remotamente a um servidor para obter uma experiência de área de trabalho completa, o roaming poderá não funcionar. O cenário com base na segunda sessão não tem suporte oficial.
-
 
 ## <a name="what-happens-when-my-organization-purchases-azure-rms-after-using-roaming?"></a>O que acontece quando minha organização adquire o Azure RMS depois de usar o roaming?
 Se sua organização já estiver usando o roaming no Windows 10 com a assinatura gratuita de uso limitado do Azure RMS, a compra de uma assinatura paga do Azure RMS não terá qualquer impacto na funcionalidade do recurso de roaming, e o administrador de TI não precisará fazer alterações de configuração.
 
 ## <a name="known-issues"></a>Problemas conhecidos
-
-- Se você tentar entrar em seu dispositivo Windows usando um cartão inteligente ou um cartão inteligente Virtual, a sincronização das configurações vai parar de funcionar. Atualizações futuras do Windows 10 poderão resolver esse problema.
-- Você precisará da atualização cumulativa de julho do Windows 10 (build 10586.494 ou superior) para que sincronização de favoritos do Internet Explorer funcione.
-- Dados protegidos com o Windows Information Protection não serão sincronizados por meio de Roaming de Estado da Empresa. Além disso, computadores que têm o Windows Information Protection habilitado não terão a sincronização de tema. 
-- Em determinadas condições, o Roaming de Estado de Empresa poderá não sincronizar dados se a Azure Multi-Factor Authentication estiver configurada.
-    - Se o dispositivo está configurado para exigir [Multi-Factor Authentication](multi-factor-authentication.md) no portal do Azure Active Directory, você pode não conseguir sincronizar configurações ao entrar em um dispositivo Windows 10 usando uma senha. Esse tipo de configuração de Multi-Factor Authentication destina-se a proteger uma conta de administrador do Azure. Os usuários administradores talvez ainda possam executar a sincronização entrando em seus dispositivos Windows 10 com o PIN do [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou concluindo o Multi-Factor Authentication durante o acesso a outros serviços do Azure, como o Office 365.
-    - A sincronização poderá falhar se o administrador configurar a política de acesso condicional do Multi-Factor Authentication dos Serviços de Federação do Active Directory (AD FS) e o token de acesso do dispositivo expirará.  Certifique-se de entrar e sair usando o PIN do [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou conclua a Multi-Factor Authentication durante o acesso a outros serviços do Azure, como o Office 365.
-
-- Se um computador tiver ingressado no domínio com registro automático em dispositivos do Azure Active Directory, poderá apresentar falhas de sincronização se ficar fora do local por longos períodos e se não for possível concluir a autenticação no domínio. Para resolver esse problema, conecte o computador a uma rede corporativa para que a sincronização possa ser retomada.
-
+* Se você tentar entrar em seu dispositivo Windows usando um cartão inteligente ou um cartão inteligente Virtual, a sincronização das configurações vai parar de funcionar. Atualizações futuras do Windows 10 poderão resolver esse problema.
+* Você precisará da atualização cumulativa de julho do Windows 10 (build 10586.494 ou superior) para que sincronização de favoritos do Internet Explorer funcione.
+* Dados protegidos com o Windows Information Protection não serão sincronizados por meio de Roaming de Estado da Empresa. Além disso, computadores que têm o Windows Information Protection habilitado não terão a sincronização de tema. 
+* Em determinadas condições, o Roaming de Estado de Empresa poderá não sincronizar dados se a Azure Multi-Factor Authentication estiver configurada.
+  
+  * Se o dispositivo está configurado para exigir [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) no portal do Azure Active Directory, você pode não conseguir sincronizar configurações ao entrar em um dispositivo Windows 10 usando uma senha. Esse tipo de configuração de Multi-Factor Authentication destina-se a proteger uma conta de administrador do Azure. Os usuários administradores talvez ainda possam executar a sincronização entrando em seus dispositivos Windows 10 com o PIN do [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou concluindo o Multi-Factor Authentication durante o acesso a outros serviços do Azure, como o Office 365.
+  * A sincronização poderá falhar se o administrador configurar a política de acesso condicional do Multi-Factor Authentication dos Serviços de Federação do Active Directory (AD FS) e o token de acesso do dispositivo expirará.  Certifique-se de entrar e sair usando o PIN do [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) ou conclua a Multi-Factor Authentication durante o acesso a outros serviços do Azure, como o Office 365.
+* Se um computador tiver ingressado no domínio com registro automático em dispositivos do Azure Active Directory, poderá apresentar falhas de sincronização se ficar fora do local por longos períodos e se não for possível concluir a autenticação no domínio. Para resolver esse problema, conecte o computador a uma rede corporativa para que a sincronização possa ser retomada.
 
 ## <a name="related-topics"></a>Tópicos relacionados
-- [Visão geral do enterprise state roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-- [Habilitar o enterprise state roaming no Active Directory do Azure](active-directory-windows-enterprise-state-roaming-enable.md)
-- [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-- [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-
-
+* [Visão geral do enterprise state roaming](active-directory-windows-enterprise-state-roaming-overview.md)
+* [Habilitar o enterprise state roaming no Active Directory do Azure](active-directory-windows-enterprise-state-roaming-enable.md)
+* [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+* [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
 <!--HONumber=Oct16_HO2-->
 

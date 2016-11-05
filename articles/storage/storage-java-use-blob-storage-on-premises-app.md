@@ -1,40 +1,35 @@
-<properties
-	pageTitle="Aplicativo local com armazenamento de blob (Java) | Microsoft Azure"
-	description="Saiba como criar um aplicativo de console que carrega uma imagem para o Azure e a exibe no navegador. Amostras de código em Java."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor="tysonn"/>
+---
+title: Aplicativo local com armazenamento de blob (Java) | Microsoft Docs
+description: Saiba como criar um aplicativo de console que carrega uma imagem para o Azure e a exibe no navegador. Amostras de código em Java.
+services: storage
+documentationcenter: java
+author: rmcmurray
+manager: wpickett
+editor: tysonn
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="jwillis;rmcmurray"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: Java
+ms.topic: article
+ms.date: 08/11/2016
+ms.author: jwillis;rmcmurray
 
+---
 # Aplicativo local com armazenamento de blob
-
 ## Visão geral
-
 O exemplo a seguir mostra como você pode usar o armazenamento do Azure paraarmazenar imagens no Azure. O código deste arquivo é de um aplicativo de console que carrega uma imagem para o Azure e cria um arquivo HTML que exibe a imagem no seu navegador.
 
 ## Pré-requisitos
+* Um JDK (Java Developer Kit) versão 1.6 ou posterior deve estar instalado.
+* O SDK do Azure deve estar instalado.
+* O JAR das bibliotecas do Azure para Java e todos os JARs de dependência aplicáveis devem estar instalados e no caminho de compilação usado por seu compilador Java. Para saber mais sobre como instalar as bibliotecas do Azure para Java, consulte [Baixar o SDK do Azure para Java](../java-download-azure-sdk.md).
+* Uma conta de armazenamento do Azure deve ter sido configurada. O nome e a chave da conta de armazenamento serão usados pelo código deste artigo. Consulte [Como criar uma Conta de Armazenamento](storage-create-storage-account.md#create-a-storage-account) para obter informações sobre como criar uma conta de armazenamento e [Exibir e copiar chaves de acesso de armazenamento](storage-create-storage-account.md#view-and-copy-storage-access-keys) para obter informações sobre como recuperar a chave de conta.
+* Você criou um arquivo de imagem local armazenado no caminho c:\\minhasimagens\\image1.jpg. Como alternativa, modifique o construtor **FileInputStream** no exemplo para usar um caminho de imagem e um nome de arquivo diferentes.
 
-- Um JDK (Java Developer Kit) versão 1.6 ou posterior deve estar instalado.
-- O SDK do Azure deve estar instalado.
-- O JAR das bibliotecas do Azure para Java e todos os JARs de dependência aplicáveis devem estar instalados e no caminho de compilação usado por seu compilador Java. Para saber mais sobre como instalar as bibliotecas do Azure para Java, consulte [Baixar o SDK do Azure para Java](../../articles/java-download-azure-sdk.md).
-- Uma conta de armazenamento do Azure deve ter sido configurada. O nome e a chave da conta de armazenamento serão usados pelo código deste artigo. Consulte [Como criar uma Conta de Armazenamento](storage-create-storage-account.md#create-a-storage-account) para obter informações sobre como criar uma conta de armazenamento e [Exibir e copiar chaves de acesso de armazenamento](storage-create-storage-account.md#view-and-copy-storage-access-keys) para obter informações sobre como recuperar a chave de conta.
-
-- Você criou um arquivo de imagem local armazenado no caminho c:\\minhasimagens\\image1.jpg. Como alternativa, modifique o construtor **FileInputStream** no exemplo para usar um caminho de imagem e um nome de arquivo diferentes.
-
-[AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## Para usar o armazenamento de blobs do Azure para carregar um arquivo
-
 Um procedimento passo a passo é apresentado aqui. Se você quiser pular, todo o código será apresentado mais tarde neste artigo.
 
 Inicie o código incluindo as importações das principais classes de armazenamento do Azure, as classes de cliente do blob do Azure, as classes de E/S de Java e a classe **URISyntaxException**.
@@ -64,10 +59,10 @@ Adicione sua declaração para **main**, inclua um bloco **try** e inclua os col
 
 Declare as variáveis do tipo a seguir (as descrições são sobre como elas são usadas neste exemplo):
 
--   **CloudStorageAccount**: usada para inicializar o objeto de conta com o nome e a chave da sua conta de armazenamento do Azure e para criar o objeto de cliente do blob.
--   **CloudBlobClient**: usada para acessar o serviço Blob.
--   **CloudBlobContainer**: usada para criar um contêiner de blobs, listar os blobs no contêiner e excluir o contêiner.
--   **CloudBlockBlob**: usada para carregar um arquivo de imagem local para o contêiner.
+* **CloudStorageAccount**: usada para inicializar o objeto de conta com o nome e a chave da sua conta de armazenamento do Azure e para criar o objeto de cliente do blob.
+* **CloudBlobClient**: usada para acessar o serviço Blob.
+* **CloudBlobContainer**: usada para criar um contêiner de blobs, listar os blobs no contêiner e excluir o contêiner.
+* **CloudBlockBlob**: usada para carregar um arquivo de imagem local para o contêiner.
 
 <!-- -->
 
@@ -126,10 +121,10 @@ Feche o bloco **try** inserindo um colchete de fechamento: **}**
 
 Utilize as seguintes exceções:
 
--   **FileNotFoundException**: pode ser gerada pelos construtores **FileInputStream** ou **FileOutputStream**.
--   **StorageException**: pode ser gerada pela biblioteca de armazenamento de cliente do Azure.
--   **URISyntaxException**: pode ser gerada pelo método **ListBlobItem.getUri**.
--   **Exception**: manipulação de exceção genérica.
+* **FileNotFoundException**: pode ser gerada pelos construtores **FileInputStream** ou **FileOutputStream**.
+* **StorageException**: pode ser gerada pela biblioteca de armazenamento de cliente do Azure.
+* **URISyntaxException**: pode ser gerada pelo método **ListBlobItem.getUri**.
+* **Exception**: manipulação de exceção genérica.
 
 <!-- -->
 
@@ -298,7 +293,6 @@ Além de carregar o arquivo de imagem local para o armazenamento do Azure, esse 
 Como o código contém o nome e a chave da sua conta, certifique-se de que seu código-fonte seja seguro.
 
 ## Para excluir um contêiner
-
 Como você é cobrado pelo armazenamento, talvez queira excluir o contêiner **gettingstarted** após concluir os testes com este exemplo. Para excluir um contêiner, use o método **CloudBlobContainer.delete**.
 
     container = serviceClient.getContainerReference("gettingstarted");
@@ -351,12 +345,11 @@ Para chamar o método **CloudBlobContainer.delete**, o processo de inicializar o
 Para obter uma visão geral de outras classes e outros métodos de armazenamento de blobs, consulte [Como usar o Armazenamento de Blobs do Java](storage-java-how-to-use-blob-storage.md).
 
 ## Próximas etapas
-
 Siga estes links para saber mais sobre as tarefas mais complexas de armazenamento.
 
-- [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
-- [Referência de SDK do Cliente de Armazenamento do Azure](http://dl.windowsazure.com/storage/javadoc/)
-- [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-- [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* [SDK de Armazenamento do Azure para Java](https://github.com/azure/azure-storage-java)
+* [Referência de SDK do Cliente de Armazenamento do Azure](http://dl.windowsazure.com/storage/javadoc/)
+* [API REST de serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Blog da equipe de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
 <!---HONumber=AcomDC_0928_2016-->

@@ -7,9 +7,6 @@ Você pode criar a tabela de armazenamento do Azure usando o **Gerenciador de Se
 3. Selecione o nó **Tabelas** e escolha**Criar Tabela** no menu de contexto.
 4. Digite um nome para a tabela e escolha **OK**.   
 
-
-
-
 [Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png
 
 <!---HONumber=Oct15_HO3-->

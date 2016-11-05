@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Azure AD Connect: conceitos de design | Microsoft Azure"
-   description="Este tópico detalha determinadas áreas de design da implementação"
-   services="active-directory"
-   documentationCenter=""
-   authors="billmath"
-   manager="femila"
-   editor=""/>
+---
+title: 'Azure AD Connect: conceitos de design | Microsoft Docs'
+description: Este tópico detalha determinadas áreas de design da implementação
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.custom = "azure-ad-connect"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="Identity"
-   ms.date="09/13/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.custom: azure-ad-connect
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: Identity
+ms.date: 09/13/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect:-design-concepts"></a>Azure AD Connect: conceitos de design
 O objetivo deste tópico é descrever as áreas que devem ser consideradas durante o design de implementação do Azure AD Connect. Este tópico é um aprofundamento em determinadas áreas e esses conceitos também são descritos brevemente em outros tópicos.
 
@@ -28,23 +27,23 @@ A palavra imutável, ou seja, "que não pode ser alterado", é importante neste 
 
 O atributo é usado para os seguintes cenários:
 
-- Quando um novo servidor de mecanismo de sincronização é compilado ou recompilado após um cenário de recuperação de desastre, esse atributo vincula objetos existentes no Azure AD a objetos locais.
-- Se você for de uma identidade somente em nuvem para um modelo de identidade sincronizado, esse atributo permitirá que os objetos efetuem o "hard match" dos objetos existentes no Azure AD em relação aos objetos locais.
-- Se você usar federação, esse atributo, junto com **userPrincipalName** , é usado na declaração para identificar exclusivamente um usuário.
+* Quando um novo servidor de mecanismo de sincronização é compilado ou recompilado após um cenário de recuperação de desastre, esse atributo vincula objetos existentes no Azure AD a objetos locais.
+* Se você for de uma identidade somente em nuvem para um modelo de identidade sincronizado, esse atributo permitirá que os objetos efetuem o "hard match" dos objetos existentes no Azure AD em relação aos objetos locais.
+* Se você usar federação, esse atributo, junto com **userPrincipalName** , é usado na declaração para identificar exclusivamente um usuário.
 
 Este tópico trata somente de sourceAnchor no que diz respeito aos usuários. As mesmas regras se aplicam a todos os tipos de objeto, mas somente para usuários para os quais esse problema normalmente é uma preocupação.
 
 ### <a name="selecting-a-good-sourceanchor-attribute"></a>Selecionando um bom atributo sourceAnchor
 O valor do atributo deve seguir as regras a seguir:
 
-- Ter menos de 60 caracteres
-    - Caracteres diferentes de a-z, A-Z ou 0-9 são codificados e contados como 3 caracteres
-- Não conter nenhum caractere especial: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
-- Ser globalmente exclusivo
-- Ser uma cadeia de caracteres, um inteiro ou um binário
-- Não ser baseado no nome do usuário, já que isso muda
-- Não diferenciar maiúsculas de minúsculas e evitar valores que podem variar maiúsculas e minúsculas
-- Ser atribuído quando o objeto é criado
+* Ter menos de 60 caracteres
+  * Caracteres diferentes de a-z, A-Z ou 0-9 são codificados e contados como 3 caracteres
+* Não conter nenhum caractere especial: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* Ser globalmente exclusivo
+* Ser uma cadeia de caracteres, um inteiro ou um binário
+* Não ser baseado no nome do usuário, já que isso muda
+* Não diferenciar maiúsculas de minúsculas e evitar valores que podem variar maiúsculas e minúsculas
+* Ser atribuído quando o objeto é criado
 
 Se o sourceAnchor selecionado não for do tipo de cadeia de caracteres, o Azure AD Connect usará Base64Encode no valor do atributo para assegurar que nenhum caractere especial será exibido. Se você usar outro servidor de federação em vez do ADFS, verifique se o servidor também pode usar Base64Encode para o atributo.
 
@@ -63,9 +62,9 @@ O valor do atributo sourceAnchor não pode ser alterado após o objeto ser criad
 
 Por esse motivo, as seguintes restrições se aplicam ao Azure AD Connect:
 
-- O atributo sourceAnchor somente pode ser definido durante a instalação inicial. Se você executar o assistente de instalação novamente, essa opção será somente leitura. Se você precisar alterar essa configuração, desinstale e reinstale.
-- Se você instalar outro servidor do Azure AD Connect, você deverá selecionar o mesmo atributo sourceAnchor usado anteriormente. Se você usava o DirSync anteriormente e mudou para o Azure AD Connect, será preciso usar **objectGUID** , já que ele é o atributo usado pelo DirSync.
-- Se o valor de sourceAnchor for alterado após o objeto ser exportado para o Azure AD, a sincronização do Azure AD Connect gerará um erro e não permitirá nenhuma outra alteração no objeto antes de o problema ser corrigido e o sourceAnchor ser alterado de volta no diretório de origem.
+* O atributo sourceAnchor somente pode ser definido durante a instalação inicial. Se você executar o assistente de instalação novamente, essa opção será somente leitura. Se você precisar alterar essa configuração, desinstale e reinstale.
+* Se você instalar outro servidor do Azure AD Connect, você deverá selecionar o mesmo atributo sourceAnchor usado anteriormente. Se você usava o DirSync anteriormente e mudou para o Azure AD Connect, será preciso usar **objectGUID** , já que ele é o atributo usado pelo DirSync.
+* Se o valor de sourceAnchor for alterado após o objeto ser exportado para o Azure AD, a sincronização do Azure AD Connect gerará um erro e não permitirá nenhuma outra alteração no objeto antes de o problema ser corrigido e o sourceAnchor ser alterado de volta no diretório de origem.
 
 ## <a name="azure-ad-sign-in"></a>Entrar no Azure AD
 Ao integrar seu diretório local ao Azure AD, é importante compreender como as configurações de sincronização podem afetar a maneira de autenticar o usuário. O Azure AD usa userPrincipalName (UPN) para autenticar o usuário. No entanto, ao sincronizar os usuários, você deve escolher o atributo a ser usado para o valor de userPrincipalName cuidadosamente.
@@ -73,8 +72,8 @@ Ao integrar seu diretório local ao Azure AD, é importante compreender como as 
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Escolher o atributo para userPrincipalName
 Ao selecionar o atributo para fornecer o valor de UPN a ser usado no Azure, garanta que
 
-- Os valores de atributo estão de acordo com a sintaxe UPN (RFC 822), ou seja, eles devem estar no formato username@domain
-- O sufixo nos valores corresponde a um dos domínios personalizados verificados no Azure AD
+* Os valores de atributo estão de acordo com a sintaxe UPN (RFC 822), ou seja, eles devem estar no formato username@domain
+* O sufixo nos valores corresponde a um dos domínios personalizados verificados no Azure AD
 
 Em configurações expressas, a opção suposta para o atributo é userPrincipalName. Se o atributo userPrincipalName não contém o valor que você deseja que os usuários usem para entrar no Azure, escolha **Instalação Personalizada**.
 
@@ -92,8 +91,6 @@ O Azure AD Connect detecta se você está executando em um ambiente de domínio 
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

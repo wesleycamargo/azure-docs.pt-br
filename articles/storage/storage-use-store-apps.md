@@ -1,38 +1,32 @@
-<properties
-    pageTitle="Usar o Armazenamento do Azure em aplicativos da Windows Store | Microsoft Azure"
-    description="Saiba como criar um aplicativo da Windows Store que usa o Armazenamento de Arquivos, Tabela, Fila ou Blobs do Azure."
-    services="storage"
-    documentationCenter=""
-    authors="tamram"
-    manager="carmonm"
-    editor="tysonn"/>
+---
+title: Usar o Armazenamento do Azure em aplicativos da Windows Store | Microsoft Docs
+description: Saiba como criar um aplicativo da Windows Store que usa o Armazenamento de Arquivos, Tabela, Fila ou Blobs do Azure.
+services: storage
+documentationcenter: ''
+author: tamram
+manager: carmonm
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="mobile-windows-store"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="tamram"/>
-    
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: mobile-windows-store
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: tamram
 
+---
 # <a name="how-to-use-azure-storage-in-windows-store-apps"></a>Como usar o Armazenamento do Azure em aplicativos da Windows Store
-
 ## <a name="overview"></a>Visão geral
-
 Este guia mostra como iniciar o desenvolvimento de um aplicativo da Windows Store que utiliza o armazenamento do Azure.
 
 ## <a name="download-required-tools"></a>Baixar as ferramentas necessárias
-
-- O [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) facilita a criação, a depuração, a localização, o empacotamento e a implantação de aplicativos da Windows Store. É necessário o Visual Studio 2012 ou posterior.
-- A [Biblioteca de cliente de armazenamento do Azure](https://www.nuget.org/packages/WindowsAzure.Storage) fornece uma biblioteca de classes do Windows Runtime para trabalhar com o armazenamento do Azure.
-- [Ferramentas do WCF Data Services para aplicativos da Windows Store](http://www.microsoft.com/download/details.aspx?id=30714) ampliam a experiência Adicionar Referência de Serviço com o suporte a OData no lado do cliente para aplicativos da Windows Store no Visual Studio.
+* O [Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) facilita a criação, a depuração, a localização, o empacotamento e a implantação de aplicativos da Windows Store. É necessário o Visual Studio 2012 ou posterior.
+* A [Biblioteca de cliente de armazenamento do Azure](https://www.nuget.org/packages/WindowsAzure.Storage) fornece uma biblioteca de classes do Windows Runtime para trabalhar com o armazenamento do Azure.
+* [Ferramentas do WCF Data Services para aplicativos da Windows Store](http://www.microsoft.com/download/details.aspx?id=30714) ampliam a experiência Adicionar Referência de Serviço com o suporte a OData no lado do cliente para aplicativos da Windows Store no Visual Studio.
 
 ## <a name="develop-apps"></a>Desenvolver aplicativos
-
 ### <a name="getting-ready"></a>Preparando-se
-
 Crie um novo projeto de aplicativo da Windows Store no Visual Studio 2012 ou posterior:
 
 ![store-apps-storage-vs-project][store-apps-storage-vs-project]
@@ -42,7 +36,6 @@ Em seguida, adicione uma referência à Biblioteca de Cliente de Armazenamento d
 ![store-apps-storage-choose-library][store-apps-storage-choose-library]
 
 ### <a name="using-the-library-with-the-blob-and-queue-services"></a>Usando a biblioteca com os serviços Blob e Fila
-
 Neste ponto, seu aplicativo está pronto para chamar os serviços Blob e Fila do Azure. Adicione as instruções **using** a seguir, de forma que os tipos de armazenamento do Azure possam ser referenciados diretamente:
 
     using Microsoft.WindowsAzure.Storage;
@@ -61,7 +54,6 @@ Esse código pressupõe que você tenha duas variáveis de cadeia de caracteres,
 Compile e execute o aplicativo. Clicar no botão verificará se existe um contêiner chamado *container1* em sua conta e, se não existir, ele será criado.
 
 ### <a name="using-the-library-with-the-table-service"></a>Usando a biblioteca com o serviço Tabela
-
 Os tipos que são usados para se comunicar com o serviço Tabela do Azure dependem do WFC Data Services para a biblioteca de aplicativos da Windows Store. Em seguida, adicione uma referência às bibliotecas necessárias do WCF usando o Console do Gerenciador de Pacotes:
 
 ![store-apps-storage-package-manager][store-apps-storage-package-manager]
@@ -83,8 +75,6 @@ Quando fizer referência ao pacote NuGet do WCF Data Services, altere o código 
 Esse código verifica se uma tabela nomeada *table1* existe em sua conta, criando-a se ela não existir.
 
 Você também pode adicionar uma referência à Microsoft.WindowsAzure.Storage.Table.dll, que está disponível no mesmo pacote que você baixou. Essa biblioteca contém funcionalidades adicionais, como consultas genéricas e serialização com base em reflexão. Observe que essa biblioteca não dá suporte a JavaScript.
-
-
 
 [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png

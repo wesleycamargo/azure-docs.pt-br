@@ -2,16 +2,15 @@ Ao criar um gateway de rede virtual, você precisa especificar o SKU do gateway 
 
 O Gateway de VPN pode usar os SKUs a seguir:
 
-- Basic
-- Standard
-- HighPerformance
+* Basic
+* Standard
+* HighPerformance
 
 Ao selecionar uma SKU, considere as seguintes limitações:
 
-- Se quiser usar um tipo PolicyBased VPN, você deverá usar a SKU de gateway Básica. VPNs PolicyBased (anteriormente chamadas de Roteamento Estático) não têm suporte em qualquer outro tipo de SKU.
-- BGP não tem suporte na SKU Básica.
-- Configurações de coexistência de ExpressRoute-Gateway de VPN não têm suporte na SKU Básica.
-
+* Se quiser usar um tipo PolicyBased VPN, você deverá usar a SKU de gateway Básica. VPNs PolicyBased (anteriormente chamadas de Roteamento Estático) não têm suporte em qualquer outro tipo de SKU.
+* BGP não tem suporte na SKU Básica.
+* Configurações de coexistência de ExpressRoute-Gateway de VPN não têm suporte na SKU Básica.
 
 <!--HONumber=Oct16_HO2-->
 

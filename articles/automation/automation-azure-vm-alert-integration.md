@@ -1,22 +1,22 @@
-<properties
-    pageTitle="Corrigir alertas de VM do Azure com runbooks de Automação | Microsoft Azure"
-    description="Este artigo demonstra como integrar os alertas de Máquina Virtual do Azure com runbooks de Automação do Azure e corrigir automaticamente os problemas"
-    services="automation"
-    documentationCenter=""
-    authors="mgoedtel"
-    manager="jwhit"
-    editor="tysonn" />    
-<tags
-    ms.service="automation"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="06/14/2016"
-    ms.author="csand;magoedte" />
+---
+title: Corrigir alertas de VM do Azure com runbooks de Automação | Microsoft Docs
+description: Este artigo demonstra como integrar os alertas de Máquina Virtual do Azure com runbooks de Automação do Azure e corrigir automaticamente os problemas
+services: automation
+documentationcenter: ''
+author: mgoedtel
+manager: jwhit
+editor: tysonn
 
+ms.service: automation
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 06/14/2016
+ms.author: csand;magoedte
+
+---
 # Cenário de Automação do Azure - corrigir alertas de VM do Azure
-
 As Máquinas Virtuais do Azure e a Automação do Azure lançaram um novo recurso que permite que você configure os alertas de VM (Máquina Virtual) para executar runbooks de Automação. Essa nova funcionalidade permite que você execute a correção standard automaticamente em resposta a alertas de VM, como reiniciar ou parar a VM.
 
 Anteriormente, durante a criação de regra de alerta de VM você podia [especificar um webhook de Automação](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/) para um runbook para executar o runbook sempre que o alerta fosse disparado. No entanto, isso exigia que você realizasse o trabalho de criar o runbook, criar o webhook para o runbook e, em seguida, copiasse e colasse o webhook durante a criação da regra de alerta. Com essa nova versão, o processo é muito mais fácil, porque você pode escolher diretamente um runbook em uma lista durante a criação da regra de alerta e pode escolher uma conta de Automação que executará o runbook ou facilmente criar uma conta.
@@ -24,10 +24,12 @@ Anteriormente, durante a criação de regra de alerta de VM você podia [especif
 Neste artigo, mostraremos como é fácil configurar um alerta de VM do Azure e configurar um runbook de Automação para ser executado sempre que o alerta for disparado. Os cenários de exemplo incluem reiniciar uma VM quando o uso de memória exceder algum limite devido a um aplicativo na VM com um vazamento de memória ou parar uma VM quando o tempo de usuário da CPU foi abaixo de 1% na hora anterior e não está em uso. Explicaremos também como a criação automatizada de uma entidade de serviço em sua conta de Automação simplifica o uso de runbooks na correção de alerta do Azure.
 
 ## Criar um alerta em uma VM
-
 Execute as seguintes etapas para configurar um alerta para iniciar um runbook quando o limite for atingido.
 
->[AZURE.NOTE] Com esta versão, damos suporte apenas a máquinas virtuais V2 e o suporte para VMs clássicas será adicionado em breve.
+> [!NOTE]
+> Com esta versão, damos suporte apenas a máquinas virtuais V2 e o suporte para VMs clássicas será adicionado em breve.
+> 
+> 
 
 1. Faça logon no portal do Azure e clique em **Máquinas Virtuais**.  
 2. Selecione uma das máquinas virtuais. A folha do painel da máquina virtual será exibida e a folha **Configurações** à sua direita.  
@@ -37,12 +39,14 @@ Execute as seguintes etapas para configurar um alerta para iniciar um runbook qu
 Isso abrirá a folha **Adicionar uma regra de alerta**, na qual você pode configurar as condições para o alerta e escolher entre uma ou todas essas opções: enviar email para alguém, use um webhook para encaminhar o alerta para outro sistema de e/ou executar um runbook de Automação na tentativa de resposta para corrigir o problema.
 
 ## Configurar um runbook
-
 Para configurar um runbook para ser executado quando o limite de alerta da VM for atingido, selecione **Runbook de Automação**. Na folha **Configurar runbook**, você pode selecionar o runbook para ser executado e a conta de Automação na qual executar o runbook.
 
 ![Configurar um runbook de Automação e criar uma nova conta de Automação](media/automation-azure-vm-alert-integration/ConfigureRunbookNewAccount.png)
 
->[AZURE.NOTE] Para esta versão, você pode escolher entre três runbooks que o serviço fornece: Reiniciar VM, Parar VM ou Remover VM (excluí-la). A capacidade de selecionar outros runbooks ou um de seus próprios runbooks estará disponível em uma versão futura.
+> [!NOTE]
+> Para esta versão, você pode escolher entre três runbooks que o serviço fornece: Reiniciar VM, Parar VM ou Remover VM (excluí-la). A capacidade de selecionar outros runbooks ou um de seus próprios runbooks estará disponível em uma versão futura.
+> 
+> 
 
 ![Runbooks dentre os quais escolher](media/automation-azure-vm-alert-integration/RunbooksToChoose.png)
 
@@ -50,7 +54,10 @@ Depois de selecionar um dos três runbooks disponíveis, a lista suspensa **Cont
 
 Os runbooks fornecidos se autenticam no Azure usando uma entidade de serviço. Se você optar por executar o runbook em uma de suas contas de Automação existentes, criaremos automaticamente a entidade de serviço para você. Se você optar por criar uma nova conta de Automação, criaremos automaticamente a conta e a entidade de serviço. Em ambos os casos, também serão criados dois ativos na conta de Automação: um ativo de certificado chamado **AzureRunAsCertificate** e um ativo de conexão chamado **AzureRunAsConnection**. Os runbooks usarão o **AzureRunAsConnection** para se autenticar com o Azure para executar a ação de gerenciamento na VM.
 
->[AZURE.NOTE] A entidade de serviço é criada no escopo de assinatura e é atribuída à função de Colaborador. Essa função é necessária para a conta ter permissão para executar runbooks de Automação para gerenciar VMs do Azure. A criação de uma conta de Automação e/ou entidade de serviço é um evento único. Depois que elas forem criadas, você poderá usar essa conta para executar runbooks para outros alertas de VM do Azure.
+> [!NOTE]
+> A entidade de serviço é criada no escopo de assinatura e é atribuída à função de Colaborador. Essa função é necessária para a conta ter permissão para executar runbooks de Automação para gerenciar VMs do Azure. A criação de uma conta de Automação e/ou entidade de serviço é um evento único. Depois que elas forem criadas, você poderá usar essa conta para executar runbooks para outros alertas de VM do Azure.
+> 
+> 
 
 Quando você clica em **OK**, o alerta é configurado e, se você selecionou a opção para criar uma nova conta de automação, ela é criada junto com a entidade de serviço. Isso pode levar alguns segundos para ser concluído.
 
@@ -63,11 +70,9 @@ Após a configuração ser concluída, você verá o nome do runbook aparecer na
 Clique em **OK** na folha **Adicionar uma regra de alerta** e a regra de alerta será criada e ativada se a máquina virtual estiver em estado de execução.
 
 ### Habilitar ou desabilitar um runbook
-
 Se você tiver um runbook configurado para um alerta, poderá desabilitá-lo sem remover a configuração do runbook. Isso permite que você mantenha o alerta em execução e talvez teste algumas das regras de alerta e depois habilite novamente o runbook.
 
 ## Criar um runbook que funciona com um alerta do Azure
-
 Quando você escolhe um runbook como parte de uma regra de alerta do Azure, o runbook deve conter lógica para gerenciar os dados de alerta que são passados para ele. Quando um runbook é configurado em uma regra de alerta, um Webhook é criado para o runbook; esse Webhook, em seguida, é usado para iniciar o runbook toda vez o alerta é disparado. A chamada real para iniciar o runbook é uma solicitação HTTP POST para a URL do Webhook. O corpo da solicitação POST contém um objeto com o formato JSON que contém propriedades úteis relacionadas ao alerta. Como você pode ver abaixo, os dados de alerta contém detalhes como subscriptionID, resourceGroupName, resourceName e resourceType.
 
 ### Exemplo de Dados de alerta
@@ -75,30 +80,30 @@ Quando você escolhe um runbook como parte de uma regra de alerta do Azure, o ru
 {
     "WebhookName": "AzureAlertTest",
     "RequestBody": "{
-	"status":"Activated",
-	"context": {
-		"id":"/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/microsoft.insights/alertrules/AlertTest",
-		"name":"AlertTest",
-		"description":"",
-		"condition": {
-			"metricName":"CPU percentage guest OS",
-			"metricUnit":"Percent",
-			"metricValue":"4.26337916666667",
-			"threshold":"1",
-			"windowSize":"60",
-			"timeAggregation":"Average",
-			"operator":"GreaterThan"},
-		"subscriptionId":<subscriptionID> ",
-		"resourceGroupName":"TestResourceGroup",
-		"timestamp":"2016-04-24T23:19:50.1440170Z",
-		"resourceName":"TestVM",
-		"resourceType":"microsoft.compute/virtualmachines",
-		"resourceRegion":"westus",
-		"resourceId":"/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM",
-		"portalLink":"https://portal.azure.com/#resource/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM"
-		},
-	"properties":{}
-	}",
+    "status":"Activated",
+    "context": {
+        "id":"/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/microsoft.insights/alertrules/AlertTest",
+        "name":"AlertTest",
+        "description":"",
+        "condition": {
+            "metricName":"CPU percentage guest OS",
+            "metricUnit":"Percent",
+            "metricValue":"4.26337916666667",
+            "threshold":"1",
+            "windowSize":"60",
+            "timeAggregation":"Average",
+            "operator":"GreaterThan"},
+        "subscriptionId":<subscriptionID> ",
+        "resourceGroupName":"TestResourceGroup",
+        "timestamp":"2016-04-24T23:19:50.1440170Z",
+        "resourceName":"TestVM",
+        "resourceType":"microsoft.compute/virtualmachines",
+        "resourceRegion":"westus",
+        "resourceId":"/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM",
+        "portalLink":"https://portal.azure.com/#resource/subscriptions/<subscriptionId>/resourceGroups/TestResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM"
+        },
+    "properties":{}
+    }",
     "RequestHeader": {
         "Connection": "Keep-Alive",
         "Host": "<webhookURL>"
@@ -109,7 +114,6 @@ Quando você escolhe um runbook como parte de uma regra de alerta do Azure, o ru
 Quando o serviço de Automação de Webhook recebe o HTTP POST, ele extrai os dados de alerta e passa-os para o runbook no parâmetro de entrada de runbook WebhookData. Abaixo está um exemplo de runbook que mostra como usar o parâmetro WebhookData, extrair os dados de alerta e usá-lo para gerenciar os recursos do Azure que disparou o alerta.
 
 ### Runbook de exemplo
-
 ```
 #  This runbook will restart an ARM (V2) VM in response to an Azure VM alert.
 
@@ -119,43 +123,43 @@ param ( [object] $WebhookData )
 
 if ($WebhookData)
 {
-	# Get the data object from WebhookData
-	$WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
+    # Get the data object from WebhookData
+    $WebhookBody = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
 
     # Assure that the alert status is 'Activated' (alert condition went from false to true)
     # and not 'Resolved' (alert condition went from true to false)
-	if ($WebhookBody.status -eq "Activated")
+    if ($WebhookBody.status -eq "Activated")
     {
-	    # Get the info needed to identify the VM
-	    $AlertContext = [object] $WebhookBody.context
-	    $ResourceName = $AlertContext.resourceName
-	    $ResourceType = $AlertContext.resourceType
+        # Get the info needed to identify the VM
+        $AlertContext = [object] $WebhookBody.context
+        $ResourceName = $AlertContext.resourceName
+        $ResourceType = $AlertContext.resourceType
         $ResourceGroupName = $AlertContext.resourceGroupName
         $SubId = $AlertContext.subscriptionId
 
-	    # Assure that this is the expected resource type
-	    Write-Verbose "ResourceType: $ResourceType"
-	    if ($ResourceType -eq "microsoft.compute/virtualmachines")
-	    {
-		    # This is an ARM (V2) VM
+        # Assure that this is the expected resource type
+        Write-Verbose "ResourceType: $ResourceType"
+        if ($ResourceType -eq "microsoft.compute/virtualmachines")
+        {
+            # This is an ARM (V2) VM
 
-		    # Authenticate to Azure with service principal and certificate
+            # Authenticate to Azure with service principal and certificate
             $ConnectionAssetName = "AzureRunAsConnection"
-		    $Conn = Get-AutomationConnection -Name $ConnectionAssetName
-		    if ($Conn -eq $null) {
+            $Conn = Get-AutomationConnection -Name $ConnectionAssetName
+            if ($Conn -eq $null) {
                 throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
             }
-		    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
-		    Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
+            Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Verbose
+            Set-AzureRmContext -SubscriptionId $SubId -ErrorAction Stop | Write-Verbose
 
             # Restart the VM
-		    Restart-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName
-	    } else {
-		    Write-Error "$ResourceType is not a supported resource type for this runbook."
-	    }
+            Restart-AzureRmVM -Name $ResourceName -ResourceGroupName $ResourceGroupName
+        } else {
+            Write-Error "$ResourceType is not a supported resource type for this runbook."
+        }
     } else {
         # The alert status was not 'Activated' so no action taken
-		Write-Verbose ("No action taken. Alert status: " + $WebhookBody.status)
+        Write-Verbose ("No action taken. Alert status: " + $WebhookBody.status)
     }
 } else {
     Write-Error "This runbook is meant to be started from an Azure alert only."
@@ -163,13 +167,11 @@ if ($WebhookData)
 ```
 
 ## Resumo
-
 Quando você configura um alerta em uma VM do Azure, agora você tem a capacidade de configurar facilmente um runbook de Automação para executar a ação de correção automaticamente quando o alerta for disparado. Para esta versão, você pode escolher dentre runbooks para reiniciar, parar ou excluir uma VM dependendo do cenário de alerta. Isso é apenas o começo da habilitação de cenários em que você controla as ações (notificação, solução de problemas, correção) que serão executadas automaticamente quando um alerta for disparado.
 
 ## Próximas etapas
-
-- Para começar a usar runbooks gráficos, veja [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
-- Para começar a usar os runbooks de fluxo de trabalho do PowerShell, confira [Meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
-- Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
+* Para começar a usar runbooks gráficos, veja [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
+* Para começar a usar os runbooks de fluxo de trabalho do PowerShell, confira [Meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
+* Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 
 <!---HONumber=AcomDC_0615_2016-->

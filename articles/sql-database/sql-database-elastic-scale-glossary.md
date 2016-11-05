@@ -1,21 +1,21 @@
-<properties 
-    pageTitle="Glossário de ferramentas de Banco de Dados Elástico | Microsoft Azure" 
-    description="Explicação dos termos usados para as ferramentas de banco de dados elástico" 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor=""/>
+---
+title: Glossário de ferramentas de Banco de Dados Elástico | Microsoft Docs
+description: Explicação dos termos usados para as ferramentas de banco de dados elástico
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: ddove
+editor: ''
 
-<tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/27/2016" 
-    ms.author="ddove"/>
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/27/2016
+ms.author: ddove
 
+---
 # Glossário de ferramentas do banco de dados elástico
 Os termos a seguir são definidos para as [ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-introduction.md), um recurso do Banco de Dados SQL do Azure. As ferramentas são usadas para gerenciar [mapas de fragmentos](sql-database-elastic-scale-shard-map-management.md) e incluem a [biblioteca de cliente](sql-database-elastic-database-client-library.md), a [ferramenta de divisão/mesclagem](sql-database-elastic-scale-overview-split-and-merge.md), [pools elásticos](sql-database-elastic-pool.md) e [consultas](sql-database-elastic-query-overview.md).
 
@@ -65,9 +65,7 @@ Esta é uma representação de bancos de dados de único locatário e multilocat
 
 ![Mapeamentos][2]
 
-
-##Verbos
-
+## Verbos
 **Escala horizontal**: o ato de escalar horizontal (ou verticalmente) uma coleção de fragmentos adicionando ou removendo fragmentos de um mapa de fragmentos, como mostrado abaixo.
 
 ![Dimensionamento horizontal e vertical][3]
@@ -82,12 +80,12 @@ Esta é uma representação de bancos de dados de único locatário e multilocat
 
 **Dimensionamento vertical**: o ato de escalar (ou reduzir) verticalmente o nível de desempenho de um fragmento individual. Por exemplo, alterar um fragmento de Standard para Premium (o que resulta em mais recursos de computação).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
- 
+
 
 <!---HONumber=AcomDC_0601_2016-->

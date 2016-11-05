@@ -1,54 +1,52 @@
-<properties
-   pageTitle="Visão geral de Segurança de Rede do Azure | Microsoft Azure"
-   description=" Este artigo facilita o entendimento do que o Microsoft Azure tem a oferecer na área de segurança de rede. Fornecemos explicações básicas sobre os principais requisitos e conceitos de segurança de rede, além de informações sobre o que o Azure tem a oferecer em cada uma dessas áreas. "
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Visão geral de Segurança de Rede do Azure | Microsoft Docs
+description: " Este artigo facilita o entendimento do que o Microsoft Azure tem a oferecer na área de segurança de rede. Fornecemos explicações básicas sobre os principais requisitos e conceitos de segurança de rede, além de informações sobre o que o Azure tem a oferecer em cada uma dessas áreas. "
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Azure Network Security Overview (Visão geral da segurança de rede do Azure)
-
 O Microsoft Azure inclui uma infraestrutura de rede robusta para dar suporte a seus requisitos de conectividade de aplicativo e de serviço. A conectividade de rede é possível entre os recursos localizados no Azure, entre os recursos locais e aqueles hospedados no Azure e de origem e destino à Internet e ao Azure.
 
 O objetivo deste artigo é facilitar o entendimento do que o Microsoft Azure tem a oferecer na área de segurança de rede. Aqui, fornecemos explicações básicas sobre os principais requisitos e conceitos de segurança de rede. Também apresentamos informações sobre o que o Azure tem a oferecer em cada uma dessas áreas. Há vários links para outros tipos de conteúdo que proporcionam um entendimento mais profundo das áreas de seu interesse.
 
 Este artigo de Visão geral da Segurança de Rede do Azure tem como foco os seguintes tópicos:
 
-- Rede do Azure
-- Controle de acesso à rede
-- Acesso remoto seguro e conectividade entre instalações
-- Disponibilidade
-- Registro em log
-- Resolução de nomes
-- Arquitetura do DMZ
-- Central de Segurança do Azure
+* Rede do Azure
+* Controle de acesso à rede
+* Acesso remoto seguro e conectividade entre instalações
+* Disponibilidade
+* Registro em log
+* Resolução de nomes
+* Arquitetura do DMZ
+* Central de Segurança do Azure
 
 ## Rede do Azure
-
 As máquinas virtuais precisam de conectividade de rede. Para dar suporte a esse requisito, o Azure exige que as máquinas virtuais sejam conectadas a uma Rede Virtual do Azure. Uma Rede Virtual do Azure é um constructo lógico criado na malha de rede física do Azure. Cada Rede Virtual do Azure lógica é isolada das todas as outras Redes Virtuais do Azure. Isso ajuda a garantir que o tráfego de rede em suas implantações não está acessível para outros clientes do Microsoft Azure.
 
 Saiba mais:
 
-- [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
+* [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
 
 ## Controle de acesso à rede
 O controle de acesso à rede é o ato de limitar a conectividade de entrada ou saída de sub-redes ou dispositivos específicos em uma Rede Virtual do Azure. O objetivo do controle de acesso à rede é certificar-se de que suas máquinas virtuais e seus serviços são acessíveis apenas aos usuários e dispositivos para os quais você deseja que tenham esse acesso. Os controles de acesso baseiam-se em decisões de permissão ou negação para conexões de entrada ou saída da máquina virtual ou do serviço.
 
 O Azure dá suporte a vários tipos de controle de acesso à rede. Estão incluídos:
 
-- Controle de camada de rede
-- Controle de rota e túnel forçado
-- Dispositivos de segurança de rede virtual
+* Controle de camada de rede
+* Controle de rota e túnel forçado
+* Dispositivos de segurança de rede virtual
 
 ### Controle de camada de rede
 Qualquer implantação segura requer alguma medida de controle de acesso à rede. O objetivo do controle de acesso à rede é certificar-se de que suas máquinas virtuais e os serviços de rede executados nessas máquinas virtuais podem se comunicar apenas com outros dispositivos de rede com os quais precisam se comunicar, bloqueando, assim, todas as outras tentativas de conexão.
@@ -57,7 +55,7 @@ Caso você precise de um controle de acesso no nível de rede básico (baseado n
 
 Saiba mais:
 
-- [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md)
+* [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md)
 
 ### Controle de rota e túnel forçado
 A capacidade de controlar o comportamento de roteamento em suas Redes Virtuais do Azure é uma funcionalidade crítica de controle de acesso e segurança de rede. Se o roteamento estiver configurado incorretamente, os aplicativos e serviços hospedados na máquina virtual poderão se conectar a dispositivos indesejáveis, incluindo dispositivos de propriedade e operados por invasores potenciais.
@@ -74,21 +72,21 @@ Em vez disso, é adequado usar o túnel forçado para evitar essa situação. Ao
 
 Saiba mais:
 
-- [O que são Rotas Definidas pelo Usuário e Encaminhamento de IP](../virtual-network/virtual-networks-udr-overview.md)
+* [O que são Rotas Definidas pelo Usuário e Encaminhamento de IP](../virtual-network/virtual-networks-udr-overview.md)
 
 ### Dispositivos de segurança de rede virtual
 Embora os Grupos de Segurança de Rede, as Rotas Definidas pelo Usuário e o túnel forçado forneçam um nível de segurança nas camadas de rede e de transporte do [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), poderão haver ocasiões em que você desejará habilitar a segurança em níveis superiores à rede.
 
 Por exemplo, seus requisitos de segurança podem incluir:
 
-- Autenticação e autorização antes da permissão do acesso ao seu aplicativo
-- Detecção de intrusões e resposta a intrusões
-- Inspeção da camada do aplicativo para os protocolos de nível alto
-- Filtragem de URL
-- Antimalware e antivírus no nível de rede
-- Proteção contra bots
-- Controle de acesso de aplicativo
-- Proteção de DDoS adicional (acima da proteção de DDoS fornecida pela própria malha do Azure)
+* Autenticação e autorização antes da permissão do acesso ao seu aplicativo
+* Detecção de intrusões e resposta a intrusões
+* Inspeção da camada do aplicativo para os protocolos de nível alto
+* Filtragem de URL
+* Antimalware e antivírus no nível de rede
+* Proteção contra bots
+* Controle de acesso de aplicativo
+* Proteção de DDoS adicional (acima da proteção de DDoS fornecida pela própria malha do Azure)
 
 É possível acessar esses recursos avançados de segurança de rede por meio de uma solução de parceiros do Azure. Você pode encontrar as soluções mais atuais de segurança de rede de parceiros do Azure visitando o [Azure Marketplace](https://azure.microsoft.com/marketplace/) e pesquisando por “segurança” e “segurança de rede”.
 
@@ -97,10 +95,10 @@ A instalação, a configuração e o gerenciamento de seus recursos do Azure pre
 
 A rede do Azure dá suporte aos seguintes cenários de acesso remoto:
 
-- Conectar estações de trabalho individuais a uma Rede Virtual do Azure
-- Conectar a rede local a uma Rede Virtual do Azure com uma VPN
-- Conectar a rede local a uma Rede Virtual do Azure com uma conexão WAN dedicada
-- Conectar Redes Virtuais do Azure entre si
+* Conectar estações de trabalho individuais a uma Rede Virtual do Azure
+* Conectar a rede local a uma Rede Virtual do Azure com uma VPN
+* Conectar a rede local a uma Rede Virtual do Azure com uma conexão WAN dedicada
+* Conectar Redes Virtuais do Azure entre si
 
 ### Conectar estações de trabalho individuais a uma Rede Virtual do Azure
 Pode haver ocasiões em que você desejará permitir que os desenvolvedores individuais ou a equipe de operações gerenciem as máquinas virtuais e os serviços no Azure. Por exemplo, você precisa ter acesso a uma máquina virtual em uma Rede Virtual do Azure e sua política de segurança não deve permitir o acesso remoto RDP ou SSH a máquinas virtuais individuais. Nesse caso, você pode usar uma conexão VPN ponto a site.
@@ -109,7 +107,7 @@ A conexão VPN ponto a site usa o protocolo [SSTP VPN](https://technet.microsoft
 
 Saiba mais:
 
-- [Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
 ### Conectar a rede local a uma Rede Virtual do Azure com uma VPN
 Talvez você queira conectar toda a sua rede corporativa, ou partes dela, a uma Rede Virtual do Azure. Isso é comum em cenários de TI híbrida, em que as empresas [estendem seu data center local para o Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Em muitos casos, as empresas hospedarão algumas partes de um serviço no Azure e outras localmente, por exemplo, quando uma solução inclui servidores Web front-end no Azure e bancos de dados back-end localmente. Esses tipos de conexões “entre instalações” também tornam o gerenciamento dos recursos localizados no Azure mais seguros e possibilitam cenários como a extensão dos controladores de domínio do Active Directory para o Azure.
@@ -118,20 +116,20 @@ Uma maneira de fazer isso é usar uma [VPN site a site](https://www.techopedia.c
 
 Saiba mais:
 
-- [Criar uma rede virtual do Resource Manager com uma conexão VPN site a site usando o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Planejamento e design para o Gateway de VPN](../vpn-gateway/vpn-gateway-plan-design.md)
+* [Criar uma rede virtual do Resource Manager com uma conexão VPN site a site usando o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Planejamento e design para o Gateway de VPN](../vpn-gateway/vpn-gateway-plan-design.md)
 
 ### Conectar a rede local a uma Rede Virtual do Azure com uma conexão WAN dedicada
 As conexões VPN ponto a site e site a site são eficazes para habilitar a conectividade entre instalações. No entanto, algumas organizações consideram que elas trazem as seguintes desvantagens:
 
-- As conexões VPN movem os dados pela Internet – isso expõe essas conexões a problemas potenciais de segurança envolvidos na movimentação de dados em uma rede pública. Além disso, a confiabilidade e a disponibilidade de conexões com a Internet não podem ser garantidas.
-- As conexões VPN a Redes Virtuais do Azure podem ser consideradas restritas por largura de banda para alguns aplicativos e algumas finalidades, pois seu limite máximo é em torno de 200 Mbps.
+* As conexões VPN movem os dados pela Internet – isso expõe essas conexões a problemas potenciais de segurança envolvidos na movimentação de dados em uma rede pública. Além disso, a confiabilidade e a disponibilidade de conexões com a Internet não podem ser garantidas.
+* As conexões VPN a Redes Virtuais do Azure podem ser consideradas restritas por largura de banda para alguns aplicativos e algumas finalidades, pois seu limite máximo é em torno de 200 Mbps.
 
 As organizações que precisam do nível mais alto de segurança e disponibilidade para suas conexões entre instalações normalmente usam conexões WAN dedicadas para se conectarem a sites remotos. O Azure fornece a capacidade de usar uma conexão WAN dedicada que pode ser usada para conectar sua rede local a uma Rede Virtual do Azure. Isso é habilitado por meio da Rota Expressa do Azure.
 
 Saiba mais:
 
-- [Visão Geral Técnica da Rota Expressa](../expressroute/expressroute-introduction.md)
+* [Visão Geral Técnica da Rota Expressa](../expressroute/expressroute-introduction.md)
 
 ### Conectar Redes Virtuais do Azure entre si
 É possível usar várias Redes Virtuais do Azure para suas implantações. Há muitas razões pelas quais você poderia fazer isso. Uma das razões poderia ser simplificar o gerenciamento; outra razão poderia ser por motivos de segurança. Independentemente da motivação ou da lógica para colocar os recursos em diferentes Redes Virtuais do Azure, pode haver ocasiões em que você pode desejar que os recursos em cada uma das redes conectem-se entre si.
@@ -144,47 +142,47 @@ A vantagem de usar uma VPN site a site da Rede Virtual do Azure à Rede Virtual 
 
 Saiba mais:
 
-- [Configurar uma conexão de rede virtual com rede virtual usando o PowerShell e o Azure Resource Manager](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
+* [Configurar uma conexão de rede virtual com rede virtual usando o PowerShell e o Azure Resource Manager](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 ## Disponibilidade
 A disponibilidade é um componente fundamental de qualquer programa de segurança. Se seus usuários e sistemas não conseguem acessar o que precisam pela rede, o serviço pode ser considerado comprometido. O Azure tem as tecnologias de rede que dão suporte aos seguintes mecanismos de alta disponibilidade:
 
-- Balanceamento de carga baseado em HTTP
-- Balanceamento de carga no nível de rede
-- Balanceamento de carga global
+* Balanceamento de carga baseado em HTTP
+* Balanceamento de carga no nível de rede
+* Balanceamento de carga global
 
 Balanceamento de carga é um mecanismo criado para distribuir as conexões igualmente entre vários dispositivos. Os objetivos do balanceamento de carga são:
 
-- Aumentar a disponibilidade – ao balancear a carga de conexões entre vários dispositivos, um ou mais dos dispositivos podem se tornar indisponíveis e os serviços em execução nos dispositivos online restantes podem continuar fornecendo o conteúdo do serviço
-- Aumentar o desempenho – ao balancear a carga de conexões entre vários dispositivos, um único dispositivo não precisa receber o impacto do processador. Em vez disso, as demandas de processamento e memória para o fornecimento de conteúdo são distribuídas entre vários dispositivos.
+* Aumentar a disponibilidade – ao balancear a carga de conexões entre vários dispositivos, um ou mais dos dispositivos podem se tornar indisponíveis e os serviços em execução nos dispositivos online restantes podem continuar fornecendo o conteúdo do serviço
+* Aumentar o desempenho – ao balancear a carga de conexões entre vários dispositivos, um único dispositivo não precisa receber o impacto do processador. Em vez disso, as demandas de processamento e memória para o fornecimento de conteúdo são distribuídas entre vários dispositivos.
 
 ### Balanceamento de carga baseado em HTTP
 Com frequência, as organizações que executam serviços baseados na Web desejam ter um balanceador de carga baseado em HTTP na frente desses serviços Web, a fim de ajudar a garantir níveis adequados de desempenho e de alta disponibilidade. Ao contrário dos balanceadores de carga tradicionais baseados na rede, as decisões de balanceamento de carga tomadas pelos balanceadores de carga baseados em HTTP apoiam-se nas características do protocolo HTTP, não dos protocolos de camada de transporte e de rede.
 
 Para fornecer o balanceamento de carga baseado em HTTP para seus serviços baseados na Web, o Azure fornece o Azure Application Gateway. O Azure Application Gateway dá suporte aos seguintes:
 
-- Balanceamento de carga baseado em HTTP – as decisões de balanceamento de carga são tomadas de acordo com as características especiais do protocolo HTTP
-- Afinidade de sessão baseada em cookie – essa funcionalidade garante que as conexões estabelecidas com um dos servidores por trás do balanceador de carga permanecem intactas entre o cliente e o servidor. Isso assegura a estabilidade das transações.
-- Descarregamento de SSL – quando uma conexão de cliente é estabelecida com o balanceador de carga, a sessão entre o cliente e o balanceador de carga é criptografada usando o protocolo HTTPS (SSL/). No entanto, para aumentar o desempenho, você tem a opção de fazer com que a conexão entre o balanceador de carga e o servidor Web por trás do balanceador de carga use o protocolo HTTP (não criptografado). Isso é chamado de “descarregamento de SSL”, pois os servidores Web por trás do balanceador de carga não enfrentam a sobrecarga de processador envolvida com a criptografia e, portanto, devem ter a capacidade de atender a solicitações mais rapidamente.
-- Roteamento de conteúdo baseado em URL – esse recurso possibilita que o balanceador de carga tome decisões em relação ao local em que serão encaminhadas as conexões de acordo com a URL de destino. Isso oferece muito mais flexibilidade do que as soluções que tomam decisões de balanceamento de carga de acordo com os endereços IP.
+* Balanceamento de carga baseado em HTTP – as decisões de balanceamento de carga são tomadas de acordo com as características especiais do protocolo HTTP
+* Afinidade de sessão baseada em cookie – essa funcionalidade garante que as conexões estabelecidas com um dos servidores por trás do balanceador de carga permanecem intactas entre o cliente e o servidor. Isso assegura a estabilidade das transações.
+* Descarregamento de SSL – quando uma conexão de cliente é estabelecida com o balanceador de carga, a sessão entre o cliente e o balanceador de carga é criptografada usando o protocolo HTTPS (SSL/). No entanto, para aumentar o desempenho, você tem a opção de fazer com que a conexão entre o balanceador de carga e o servidor Web por trás do balanceador de carga use o protocolo HTTP (não criptografado). Isso é chamado de “descarregamento de SSL”, pois os servidores Web por trás do balanceador de carga não enfrentam a sobrecarga de processador envolvida com a criptografia e, portanto, devem ter a capacidade de atender a solicitações mais rapidamente.
+* Roteamento de conteúdo baseado em URL – esse recurso possibilita que o balanceador de carga tome decisões em relação ao local em que serão encaminhadas as conexões de acordo com a URL de destino. Isso oferece muito mais flexibilidade do que as soluções que tomam decisões de balanceamento de carga de acordo com os endereços IP.
 
 Saiba mais:
 
-- [Visão geral do Application Gateway](../application-gateway/application-gateway-introduction.md)
+* [Visão geral do Application Gateway](../application-gateway/application-gateway-introduction.md)
 
 ### Balanceamento de carga no nível de rede
 Ao contrário do balanceamento de carga baseado em HTTP, o balanceamento de carga no nível de rede toma decisões de balanceamento de carga de acordo com o endereço IP e os números de porta (TCP ou UDP). Você pode obter os benefícios do uso do balanceamento de carga no nível de rede no Azure usando o Azure Load Balancer. Entre algumas das principais características do Azure Load Balancer estão:
 
-- Balanceamento de carga no nível de rede de acordo com o endereço IP e números de porta
-- Suporte para qualquer protocolo de camada de aplicativo
-- Balanceia a carga para máquinas virtuais e instâncias de função dos serviços de nuvem do Azure
-- Pode ser usado para aplicativos e máquinas virtuais para a Internet (balanceamento de carga externo) e não voltadas à Internet (balanceamento de carga interno)
-- Monitoramento do ponto de extremidade, que é usado para determinar se um dos serviços por trás do balanceador de carga ficou indisponível
+* Balanceamento de carga no nível de rede de acordo com o endereço IP e números de porta
+* Suporte para qualquer protocolo de camada de aplicativo
+* Balanceia a carga para máquinas virtuais e instâncias de função dos serviços de nuvem do Azure
+* Pode ser usado para aplicativos e máquinas virtuais para a Internet (balanceamento de carga externo) e não voltadas à Internet (balanceamento de carga interno)
+* Monitoramento do ponto de extremidade, que é usado para determinar se um dos serviços por trás do balanceador de carga ficou indisponível
 
 Saiba mais:
 
-- [Balanceador de carga para a Internet entre várias Máquinas Virtuais ou serviços](../load-balancer/load-balancer-internet-overview.md)
-- [Visão geral do Balanceador de Carga Interno](../load-balancer/load-balancer-internal-overview.md)
+* [Balanceador de carga para a Internet entre várias Máquinas Virtuais ou serviços](../load-balancer/load-balancer-internet-overview.md)
+* [Visão geral do Balanceador de Carga Interno](../load-balancer/load-balancer-internal-overview.md)
 
 ### Balanceamento de carga global
 Algumas organizações estarão interessadas no nível mais alto de disponibilidade possível. Uma maneira de atingir esse objetivo é hospedar os aplicativos em data centers distribuídos globalmente. Quando um aplicativo é hospedado em data centers localizados em todo o mundo, é possível que toda uma região geopolítica se torne indisponível, mas ainda ter o aplicativo em execução.
@@ -195,43 +193,43 @@ O balanceamento de carga global pode proporcionar essas duas vantagens. No Azure
 
 Saiba mais:
 
-- [O que é o Gerenciador de Tráfego?](../traffic-manager/traffic-manager-overview.md)
+* [O que é o Gerenciador de Tráfego?](../traffic-manager/traffic-manager-overview.md)
 
 ## Registro em log
 O log em um nível de rede é uma função essencial em qualquer cenário de segurança de rede. No Azure, é possível registrar as informações obtidas dos Grupos de Segurança de Rede para obter informações de log no nível de rede. Com o log do NSG, você obtém informações dos seguintes:
 
-- Logs de auditoria – usados para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure.
-- Logs de eventos – esses logs fornecem informações sobre quais regras do NSG foram aplicadas.
-- Logs do contador – permitem saber quantas vezes cada regra NSG foi aplicada para negar ou permitir o tráfego.
+* Logs de auditoria – usados para exibir todas as operações enviadas às assinaturas do Azure. Esses logs são habilitados por padrão e podem ser usados no portal do Azure.
+* Logs de eventos – esses logs fornecem informações sobre quais regras do NSG foram aplicadas.
+* Logs do contador – permitem saber quantas vezes cada regra NSG foi aplicada para negar ou permitir o tráfego.
 
 Você também pode usar o [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), uma ferramenta de visualização de dados avançada, para exibir e analisar esses logs.
 
 Saiba mais:
 
-- [Análise de logs para NSGs (grupos de segurança de rede)](../virtual-network/virtual-network-nsg-manage-log.md)
+* [Análise de logs para NSGs (grupos de segurança de rede)](../virtual-network/virtual-network-nsg-manage-log.md)
 
 ## Resolução de nomes
 Resolução de nomes é uma função crítica para todos os serviços hospedados no Azure. De uma perspectiva de segurança, o comprometimento da função de resolução de nomes pode fazer com que um invasor redirecione as solicitações de seus sites para o site do invasor. Uma resolução de nomes segura é um requisito de todos os serviços hospedados na nuvem.
 
 Há dois tipos de resolução de nomes que precisam ser abordados:
 
-- Resolução de nomes interna – usada pelos serviços nas Redes Virtuais do Azure, nas redes locais ou em ambas. Os nomes usados para a resolução de nomes interna não são acessíveis pela Internet. Para uma segurança ideal, é importante que seu esquema de resolução de nomes interna não seja acessível a usuários externos.
-- Resolução de nome externa – usada por pessoas e dispositivos fora das redes locais e das Redes Virtuais do Azure. Esses são os nomes visíveis para a Internet e que são usados para direcionar a conexão para os serviços baseados na nuvem.
+* Resolução de nomes interna – usada pelos serviços nas Redes Virtuais do Azure, nas redes locais ou em ambas. Os nomes usados para a resolução de nomes interna não são acessíveis pela Internet. Para uma segurança ideal, é importante que seu esquema de resolução de nomes interna não seja acessível a usuários externos.
+* Resolução de nome externa – usada por pessoas e dispositivos fora das redes locais e das Redes Virtuais do Azure. Esses são os nomes visíveis para a Internet e que são usados para direcionar a conexão para os serviços baseados na nuvem.
 
 Para a resolução de nomes interna, você tem duas opções:
 
-- Um servidor DNS da Rede Virtual do Azure – ao criar uma nova Rede Virtual do Azure, um servidor DNS é criado para você. Esse servidor DNS pode resolver os nomes dos computadores localizados nessa Rede Virtual do Azure. O servidor DNS não é configurável e é gerenciado pelo gerenciador de malha do Azure, tornando-o uma solução de resolução de nomes segura.
-- Traga seu próprio servidor DNS – você tem a opção de colocar um servidor DNS de sua escolha em sua Rede Virtual do Azure. Esse servidor DNS pode ser um servidor DNS integrado ao Active Directory ou uma solução de servidor DNS dedicada fornecida por um parceiro do Azure, que pode ser obtida no Azure Marketplace.
+* Um servidor DNS da Rede Virtual do Azure – ao criar uma nova Rede Virtual do Azure, um servidor DNS é criado para você. Esse servidor DNS pode resolver os nomes dos computadores localizados nessa Rede Virtual do Azure. O servidor DNS não é configurável e é gerenciado pelo gerenciador de malha do Azure, tornando-o uma solução de resolução de nomes segura.
+* Traga seu próprio servidor DNS – você tem a opção de colocar um servidor DNS de sua escolha em sua Rede Virtual do Azure. Esse servidor DNS pode ser um servidor DNS integrado ao Active Directory ou uma solução de servidor DNS dedicada fornecida por um parceiro do Azure, que pode ser obtida no Azure Marketplace.
 
 Saiba mais:
 
-- [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
-- [Gerenciar servidores DNS usados por uma rede virtual (VNet)](../virtual-network/virtual-networks-manage-dns-in-vnet.md)
+* [Visão geral da Rede Virtual](../virtual-network/virtual-networks-overview.md)
+* [Gerenciar servidores DNS usados por uma rede virtual (VNet)](../virtual-network/virtual-networks-manage-dns-in-vnet.md)
 
 Para a resolução DNS externa, você tem duas opções:
 
-- Hospedar seu próprio servidor DNS externo localmente
-- Hospedar seu próprio servidor DNS externo com um provedor de serviços
+* Hospedar seu próprio servidor DNS externo localmente
+* Hospedar seu próprio servidor DNS externo com um provedor de serviços
 
 Muitas organizações de grande porte hospedarão seus próprios servidores DNS localmente. Elas podem fazer isso porque têm competências sobre rede e a presença global para tomar essa decisão.
 
@@ -241,7 +239,7 @@ O Azure oferece uma solução de DNS externo de alta disponibilidade e alto dese
 
 Saiba mais:
 
-- [Visão geral do DNS do Azure](../dns/dns-overview.md)
+* [Visão geral do DNS do Azure](../dns/dns-overview.md)
 
 ## Arquitetura do DMZ
 Muitas empresas usam DMZs para segmentar suas redes a fim de criar uma zona de buffer entre a Internet e seus serviços. A parte de DMZ da rede é considerada uma zona de baixa segurança e nenhum ativo de alto valor é colocado nesse segmento da rede. Normalmente, você verá dispositivos de segurança de rede que têm uma interface de rede no segmento de DMZ e outra interface de rede conectada a uma rede com máquinas virtuais e serviços que aceitam conexões de entrada da Internet.
@@ -250,19 +248,19 @@ Há diversas variações de design de DMZ, e a decisão de implantar um DMZ, bem
 
 Saiba mais:
 
-- [Segurança de rede e Serviços de Nuvem da Microsoft](../best-practices-network-security.md)
+* [Segurança de rede e Serviços de Nuvem da Microsoft](../best-practices-network-security.md)
 
 ## Central de Segurança do Azure
 A Central de Segurança ajuda a prevenir, detectar e responder a ameaças e oferece maior visibilidade e controle sobre a segurança de seus recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
 A Central de Segurança do Azure ajuda a otimizar e a monitorar a segurança da rede:
 
-- Fornecendo recomendações de segurança de rede
-- Monitorando o estado de configuração de segurança da rede
-- Alertando você contra ameaças baseadas em rede, nos níveis do ponto de extremidade e de rede
+* Fornecendo recomendações de segurança de rede
+* Monitorando o estado de configuração de segurança da rede
+* Alertando você contra ameaças baseadas em rede, nos níveis do ponto de extremidade e de rede
 
 Saiba mais:
 
-- [Introdução à Central de Segurança do Azure](../security-center/security-center-intro.md)
+* [Introdução à Central de Segurança do Azure](../security-center/security-center-intro.md)
 
 <!---HONumber=AcomDC_0810_2016-->

@@ -1,7 +1,7 @@
 
 Para mais informações sobre discos, consulte [Sobre discos da máquina virtual no Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
 
-##<a id="cliattachempty"></a>Tutorial: anexar um disco vazio
+## <a id="cliattachempty"></a>Tutorial: anexar um disco vazio
 Anexar um disco vazio é a maneira mais simples de adicionar um disco de dados. Execute o seguinte comando para anexar um novo disco vazio:
 
     vm disk attach-new <vm-name> <size-in-gb> [blob-url]

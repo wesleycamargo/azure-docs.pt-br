@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Vinculando recursos no Azure Resource Manager | Microsoft Azure" 
-	description="Crie um link entre os recursos relacionados em diferentes grupos de recursos no Azure Resource Manager." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="timlt" 
-	editor="tysonn"/>
+---
+title: Vinculando recursos no Azure Resource Manager | Microsoft Docs
+description: Crie um link entre os recursos relacionados em diferentes grupos de recursos no Azure Resource Manager.
+services: azure-resource-manager
+documentationcenter: ''
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/01/2016" 
-	ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/01/2016
+ms.author: tomfitz
 
+---
 # Vinculando recursos no Gerenciador de Recursos do Azure
-
 Durante a implantação, você pode marcar um recurso como dependente de outro recurso, mas esse ciclo de vida termina na implantação. Após a conclusão da implantação, não há nenhuma relação identificada entre os recursos dependentes. O Azure Resource Manager oferece um recurso chamado vinculação de recursos para estabelecer relações entre os recursos.
 
 Com a vinculação de recursos, você pode documentar as relações que se estendem pelos grupos de recursos. Por exemplo, é comum colocar um banco de dados com seu próprio ciclo de vida em um grupo de recursos e um aplicativo com um ciclo de vida diferente em outro grupo de recursos. O aplicativo se conecta ao banco de dados e, portanto, marque um link entre o aplicativo e o banco de dados.
@@ -25,7 +24,6 @@ Com a vinculação de recursos, você pode documentar as relações que se esten
 Todos os recursos vinculados devem pertencer à mesma assinatura. Cada recurso pode ser vinculado a 50 outros recursos. A única maneira de consultar os recursos relacionados é por meio da API REST. Se um dos recursos vinculados for excluído ou movido, o proprietário do vínculo deverá remover o vínculo restante. Você **não** será avisado quando excluir um recurso que esteja vinculado a outros recursos.
 
 ## Vinculando em modelos
-
 Para definir um link em um modelo, inclua um tipo de recurso que combine o namespace do provedor de recursos e o tipo de recurso de origem com **/providers/links**. O nome deve incluir o nome do recurso de origem. Forneça a ID do recurso de destino. O exemplo a seguir estabelece um link entre um site e uma conta de armazenamento.
 
     {
@@ -43,7 +41,6 @@ Para definir um link em um modelo, inclua um tipo de recurso que combine o names
 Para obter uma descrição completa do formato de modelo, confira [Links de recursos - esquema de modelo](resource-manager-template-links.md).
 
 ## Vinculando com a API REST
-
 Para definir um vínculo entre recursos implantados, execute:
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/{provider-namespace}/{resource-type}/{resource-name}/providers/Microsoft.Resources/links/{link-name}?api-version={api-version}
@@ -69,8 +66,7 @@ Você pode consultar os links de consulta em sua assinatura com:
 Para obter mais exemplos, incluindo como recuperar informações sobre vínculos, consulte [Recursos vinculados](https://msdn.microsoft.com/library/azure/mt238499.aspx).
 
 ## Próximas etapas
-
-- Você também pode organizar seus recursos com marcas. Para saber mais sobre marcação de recursos, consulte [Usando marcas para organizar os recursos](resource-group-using-tags.md).
-- Para obter uma descrição de como criar modelos e definir os recursos a serem implantados, consulte [Criando modelos](resource-group-authoring-templates.md).
+* Você também pode organizar seus recursos com marcas. Para saber mais sobre marcação de recursos, consulte [Usando marcas para organizar os recursos](resource-group-using-tags.md).
+* Para obter uma descrição de como criar modelos e definir os recursos a serem implantados, consulte [Criando modelos](resource-group-authoring-templates.md).
 
 <!---HONumber=AcomDC_0803_2016-->

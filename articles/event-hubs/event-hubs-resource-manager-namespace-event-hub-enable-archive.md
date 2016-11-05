@@ -1,53 +1,50 @@
-<properties
-    pageTitle="Criar um namespace de Hubs de Eventos com o Hub de Eventos e habilitar o Arquivo Morto usando um modelo do Azure Resource Manager | Microsoft Azure"
-    description="Criar um namespace de Hubs de Eventos com o Hub de Eventos e habilitar o Arquivo Morto usando um modelo do Azure Resource Manager"
-    services="event-hubs"
-    documentationCenter=".net"
-    authors="ShubhaVijayasarathy"
-    manager="timlt"
-    editor=""/>
+---
+title: Criar um namespace de Hubs de Eventos com o Hub de Eventos e habilitar o Arquivo Morto usando um modelo do Azure Resource Manager | Microsoft Docs
+description: Criar um namespace de Hubs de Eventos com o Hub de Eventos e habilitar o Arquivo Morto usando um modelo do Azure Resource Manager
+services: event-hubs
+documentationcenter: .net
+author: ShubhaVijayasarathy
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="event-hubs"
-    ms.devlang="tbd"
-    ms.topic="article"
-    ms.tgt_pltfrm="dotnet"
-    ms.workload="na"
-    ms.date="09/14/2016"
-    ms.author="ShubhaVijayasarathy"/>
+ms.service: event-hubs
+ms.devlang: tbd
+ms.topic: article
+ms.tgt_pltfrm: dotnet
+ms.workload: na
+ms.date: 09/14/2016
+ms.author: ShubhaVijayasarathy
 
-
+---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Criar um namespace de Hubs de Eventos com o Hub de Eventos e habilitar o Arquivo Morto usando um modelo do Azure Resource Manager
-
 Este artigo mostra como usar um modelo do Azure Resource Manager, que cria um namespace de Hubs de Eventos com um Hub de Eventos e habilita o Arquivo Morto em seu Hub de Eventos. Você aprende como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades
 
 Para saber mais sobre a criação de modelos, consulte [Criação de modelos do Azure Resource Manager][].
 
-Para obter mais informações sobre as práticas e os padrões de convenções de nomenclatura de Recursos do Azure, confira [Azure Resources Naming Conventions][](Convenções de Nomenclatura de Recursos do Azure).
+Para obter mais informações sobre as práticas e os padrões de convenções de nomenclatura de Recursos do Azure, confira [Azure Resources Naming Conventions][](Convenções de Nomenclatura de Recursos do Azure.md).
 
-Para ver o modelo completo, confira [Event Hub and enable Archive template][] (Hub de Eventos e modelo para habilitar o Arquivo Morto) no GitHub.
+Para ver o modelo completo, confira [Event Hub and enable Archive template][](Hub de Eventos e modelo para habilitar o Arquivo Morto.md) no GitHub.
 
->[AZURE.NOTE]
->Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][] e procure por Hubs de Eventos.
+> [!NOTE]
+> Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Modelos de Início Rápido do Azure] e procure por Hubs de Eventos.
+> 
+> 
 
 ## <a name="what-you-deploy?"></a>O que implantar?
-
 Com este modelo, você implanta um namespace de Hubs de Eventos com um Hub de Eventos e habilita o Arquivo Morto.
 
-[Hubs de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md) é um serviço de processamento de eventos usado para fornecer entrada a telemetria e eventos para o Azure em grande escala, com baixa latência e alta confiabilidade. O Arquivo Morto de Hubs de Eventos permitirá que você forneça automaticamente os dados de streaming em seus Hubs de Eventos para o Armazenamento de Blobs do Azure de sua escolha, dentro de um período especificado ou do intervalo de tamanho de sua preferência.
+[Hubs de Eventos](event-hubs-what-is-event-hubs.md) é um serviço de processamento de eventos usado para fornecer entrada a telemetria e eventos para o Azure em grande escala, com baixa latência e alta confiabilidade. O Arquivo Morto de Hubs de Eventos permitirá que você forneça automaticamente os dados de streaming em seus Hubs de Eventos para o Armazenamento de Blobs do Azure de sua escolha, dentro de um período especificado ou do intervalo de tamanho de sua preferência.
 
 Para executar a implantação automaticamente, clique no seguinte botão:
 
 [![Implantar no Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-archive%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parâmetros
-
 Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores que deseja especificar quando o modelo é implantado. O modelo inclui uma seção chamada `Parameters` , que contém todos os valores de parâmetro. Você deve definir um parâmetro para os valores que variam de acordo com o projeto que você está implantando ou com o ambiente em que a implantação ocorre. Não defina parâmetros para valores que permanecem sempre os mesmos. Cada valor de parâmetro é usado no modelo para definir os recursos que são implantados.
 
 O modelo define os parâmetros a seguir.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
-
 O nome do namespace Hubs de Evento a criar.
 
 ```
@@ -60,7 +57,6 @@ O nome do namespace Hubs de Evento a criar.
 ```
 
 ### <a name="eventhubname"></a>eventHubName
-
 O nome do Hub de Evento criado no namespace Hubs de Evento.
 
 ```
@@ -73,7 +69,6 @@ O nome do Hub de Evento criado no namespace Hubs de Evento.
 ```
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
-
 O número de dias que você quer que as mensagens sejam retidas em seu Hub de Eventos. 
 
 ```
@@ -89,7 +84,6 @@ O número de dias que você quer que as mensagens sejam retidas em seu Hub de Ev
 ```
 
 ### <a name="partitioncount"></a>partitionCount
-
 O número de partições que você deseja em seu Hub de Eventos.
 
 ```
@@ -105,7 +99,6 @@ O número de partições que você deseja em seu Hub de Eventos.
 ```
 
 ### <a name="archiveenabled"></a>archiveEnabled
-
 Habilite o Arquivo Morto em seu Hub de Eventos.
 
 ```
@@ -121,7 +114,6 @@ Habilite o Arquivo Morto em seu Hub de Eventos.
  }
 ```
 ### <a name="archiveencodingformat"></a>archiveEncodingFormat
-
 O formato de codificação que você especificar para serializar os Dados do Evento.
 
 ```
@@ -137,7 +129,6 @@ O formato de codificação que você especificar para serializar os Dados do Eve
 ```
 
 ### <a name="archivetime"></a>archiveTime
-
 O intervalo de tempo em que o Arquivo Morto começa a arquivar os dados no Armazenamento de Blobs do Azure.
 
 ```
@@ -153,7 +144,6 @@ O intervalo de tempo em que o Arquivo Morto começa a arquivar os dados no Armaz
 ```
 
 ### <a name="archivesize"></a>archiveSize
-
 O intervalo de tamanho em que o Arquivo Morto começa a arquivar os dados no Armazenamento de Blobs do Azure.
 
 ```
@@ -169,7 +159,6 @@ O intervalo de tamanho em que o Arquivo Morto começa a arquivar os dados no Arm
 ```
 
 ### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
-
 O Arquivo Morto exige uma ID de recurso da conta de armazenamento para habilitar o arquivamento no Armazenamento do Azure desejado.
 
 ```
@@ -182,7 +171,6 @@ O Arquivo Morto exige uma ID de recurso da conta de armazenamento para habilitar
 ```
 
 ### <a name="blobcontainername"></a>blobContainerName
-
 O contêiner de blob no qual você deseja que seus dados de evento sejam arquivados.
 
 ```
@@ -196,7 +184,6 @@ O contêiner de blob no qual você deseja que seus dados de evento sejam arquiva
 
 
 ### <a name="apiversion"></a>apiVersion
-
 A versão da API do modelo.
 
 ```
@@ -210,7 +197,6 @@ A versão da API do modelo.
 ```
 
 ## <a name="resources-to-deploy"></a>Recursos a implantar
-
 Cria um namespace do tipo **EventHubs**com um Hub de Eventos e habilita o Arquivo Morto.
 
 ```
@@ -249,9 +235,9 @@ Cria um namespace do tipo **EventHubs**com um Hub de Eventos e habilita o Arquiv
                             }
                         } 
                   }
-                  
+
                }
-               
+
             }
          ]
       }
@@ -259,17 +245,14 @@ Cria um namespace do tipo **EventHubs**com um Hub de Eventos e habilita o Arquiv
 ```
 
 ## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
-
-[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-
 ```
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-archive/azuredeploy.json
 ```
 
 ## <a name="azure-cli"></a>CLI do Azure
-
 ```
 azure config mode arm
 

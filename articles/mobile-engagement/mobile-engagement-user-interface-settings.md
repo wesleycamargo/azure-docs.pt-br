@@ -1,110 +1,94 @@
-<properties 
-   pageTitle="Interface do usuário do Mobile Engagement do Azure - Configurações" 
-   description="Como gerenciar as configurações globais do seu aplicativo usando o Mobile Engagement do Azure" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Interface do usuário do Mobile Engagement do Azure - Configurações
+description: Como gerenciar as configurações globais do seu aplicativo usando o Mobile Engagement do Azure
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Como gerenciar as configurações globais do seu aplicativo
-
 As opções do menu **Configurações** disponíveis para um aplicativo variam, dependendo da plataforma do aplicativo e das permissões que você recebeu para o aplicativo. As configurações incluem: Detalhes, Projetos, Push Nativo, Velocidade do Push, Marca (informações do aplicativo) e Pressão Comercial. A opção de menu Marca (informações do aplicativo) da seção Configurações pode ser gerenciada pelo seu aplicativo (usando o SDK) ou por seu back-end (usando a API do Dispositivo).
 
-
->[AZURE.NOTE] Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
+> [!NOTE]
+> Muitas seções da interface do usuário do portal do **Mobile Engagement** contêm o botão **MOSTRAR AJUDA**. Pressione este botão para obter mais informações contextuais sobre uma seção.
+> 
+> 
 
 ## Detalhes
-
 Permite que você altere o nome e a descrição do seu aplicativo e exiba o proprietário do aplicativo e as permissões da função.
 
 A configuração de análise permite exibir ou alterar o dia de início das semanas e o tempo de retenção em dia(s).
- 
-  ![settings1][46]
- 
-## Projetos
 
+  ![settings1][46]
+
+## Projetos
 Permite selecionar todos os projetos em que você quer que o aplicativo apareça.
 
 Você também pode pesquisar um projeto e exibir o nome, descrição, proprietário e as permissões da função de qualquer projeto de que seu aplicativo faz parte.
 
 Para obter mais informações, veja: [Documentação da interface do usuário – Página Inicial][Link 13]
- 
+
   ![settings3][48]
 
 ## Push nativo
-
 Permite o registro de um novo certificado ou a exclusão de um certificado existente para o uso com o envio nativo. O Push nativo permite o Mobile Engagement do Azure a enviar por push para o seu aplicativo a qualquer momento, mesmo quando ele não está em execução.
 
 Após fornecer as credenciais ou certificados para pelo menos um serviço de push nativo, pode-se selecionar "Sempre" ao criar de campanhas Reach, bem como usar o parâmetro "notificação" na API de envio.
 
-
-
 ### Serviço de notificação por push da Apple (APNS)
-
 Para habilitar o envio nativo usando o serviço de notificação por push da Apple você precisará registrar seu certificado. Você precisará especificar o tipo de certificado como desenvolvimento (DES) ou de produção (PROD). Em seguida, você precisará carregar o certificado e a senha.
 
 Para obter mais informações, veja: [Documentação do SDK - iOS - Como preparar seu aplicativo para notificações por push da Apple][Link 5]
- 
+
 ![settings4][49]
- 
+
 ### Serviço de notificação por push do Windows (WPNS)
-
 Para habilitar o envio nativo usando o serviço de notificação do Windows, você deve fornecer as credenciais do seu aplicativo. Você precisará do seu identificador de segurança do pacote (SID) e da chave secreta.
- 
-![settings5][50]
- 
-### Google Cloud Messaging para Android (GCM)
 
+![settings5][50]
+
+### Google Cloud Messaging para Android (GCM)
 Para habilitar o push nativo usando o GCM, você precisa seguir as instruções do Google. Em seguida, cole uma chave simples de API do servidor, configurada sem restrições de IP. Requer integração com o SDK para Android v1.12.0 +.
 
 Para obter mais informações, consulte:
 
-- [Documentação do SDK – Android – Como integrar o GCM][Link 5]
-- [Guia do GCM do desenvolvedor do Google](http://developer.android.com/guide/google/gcm/gs.html)
- 
-### Dispositivo Amazon Messaging para Android (ADM)
+* [Documentação do SDK – Android – Como integrar o GCM][Link 5]
+* [Guia do GCM do desenvolvedor do Google](http://developer.android.com/guide/google/gcm/gs.html)
 
+### Dispositivo Amazon Messaging para Android (ADM)
 Para habilitar o push nativo usando o ADM, é preciso fornecer as <credenciais do OAuth> do Amazon que consiste em uma ID de cliente e o segredo do cliente (requer integração com o SDK para Android versão 2.1.0+).
 
 Para obter mais informações, consulte:
 
-- [Documentação do SDK – Android – Como integrar o ADM][Link 5]
-- [Documentação do ADM Amazon Developer](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
- 
+* [Documentação do SDK – Android – Como integrar o ADM][Link 5]
+* [Documentação do ADM Amazon Developer](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
+
 ![settings6][51]
 
 ## Velocidade de push
-
 Mostra a velocidade de push atual do seu aplicativo e permite que você defina a velocidade de push do seu aplicativo.
- 
+
   ![settings7][52]
 
 ## Marca (informações do aplicativo)
-
 ![settings11][56]
-  
+
 ## Pressão comercial
-
-
 ![settings12][57]
 
-
 ## Confira também
-
-- [Conceitos][Link 6]
-- [Serviço do Guia de Solução de Problemas][Link 24]
-
- 
+* [Conceitos][Link 6]
+* [Serviço do Guia de Solução de Problemas][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -200,6 +184,6 @@ Mostra a velocidade de push atual do seu aplicativo e permite que você defina a
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

@@ -1,31 +1,30 @@
-<properties
- pageTitle="Soluções do Azure para a Internet das coisas | Microsoft Azure"
- description="Visão geral de IoT no Azure, incluindo uma arquitetura da solução do exemplo e como se relaciona com os Hub IoT do Azure, SDKs do dispositivo e soluções pré-configuradas"
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Soluções do Azure para a Internet das coisas | Microsoft Docs
+description: Visão geral de IoT no Azure, incluindo uma arquitetura da solução do exemplo e como se relaciona com os Hub IoT do Azure, SDKs do dispositivo e soluções pré-configuradas
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/05/2016"
- ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-[AZURE.INCLUDE [iot-azure-e-iot](../../includes/iot-azure-and-iot.md)]
+---
+[!INCLUDE [iot-azure-e-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Próximas etapas
-
 O Hub IoT do Azure é um serviço do Azure que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end de aplicativo. Ele permite que o aplicativo back-end:
 
-- Receba telemetria em escala de seus dispositivos.
-- Encaminhe os dados de seus dispositivos para um processador de eventos de fluxo.
-- Receba carregamentos de arquivos de dispositivos.
-- Envie comandos da nuvem para o dispositivo para dispositivos específicos.
+* Receba telemetria em escala de seus dispositivos.
+* Encaminhe os dados de seus dispositivos para um processador de eventos de fluxo.
+* Receba carregamentos de arquivos de dispositivos.
+* Envie comandos da nuvem para o dispositivo para dispositivos específicos.
 
 Você pode usar o Hub IoT para implementar seu próprio back-end de solução. Além disso, o Hub IoT inclui um registro de identidade do dispositivo usado para provisionar dispositivos, suas credenciais de segurança e os direitos de conexão ao hub. Para saber mais sobre o Hub IoT, confira [O que é o Hub IoT?][lnk-iot-hub].
 

@@ -1,43 +1,43 @@
-<properties
-    pageTitle="Criar uma VM com o modelo do Resource Manager | Microsoft Azure"
-    description="Use um modelo do Resource Manager e o PowerShell para criar facilmente uma nova máquina virtual do Windows."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="davidmu1"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+---
+title: Criar uma VM com o modelo do Resource Manager | Microsoft Docs
+description: Use um modelo do Resource Manager e o PowerShell para criar facilmente uma nova máquina virtual do Windows.
+services: virtual-machines-windows
+documentationcenter: ''
+author: davidmu1
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-    ms.service="virtual-machines-windows"
-    ms.workload="na"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/06/2016"
-    ms.author="davidmu"/>
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 10/06/2016
+ms.author: davidmu
 
-
+---
 # <a name="create-a-windows-virtual-machine-with-a-resource-manager-template"></a>Criar uma máquina virtual do Windows com um modelo do Gerenciador de Recursos
-
 Este artigo apresenta um modelo do Azure Resource Manager e mostra como usar o PowerShell para implantá-lo. O modelo implanta uma única máquina virtual que executa o Windows Server em uma nova rede virtual com uma única sub-rede.
 
 Deve levar cerca de 20 minutos para executar as etapas neste artigo.
 
-> [AZURE.IMPORTANT] Se você quiser que sua VM seja parte de um conjunto de disponibilidade, adicione-a ao conjunto ao criá-la. Atualmente, não há uma maneira de adicionar uma VM a um conjunto de disponibilidade após ela ter sido criada.
+> [!IMPORTANT]
+> Se você quiser que sua VM seja parte de um conjunto de disponibilidade, adicione-a ao conjunto ao criá-la. Atualmente, não há uma maneira de adicionar uma VM a um conjunto de disponibilidade após ela ter sido criada.
+> 
+> 
 
 ## <a name="step-1:-create-the-template-file"></a>Etapa 1: Criar o arquivo do modelo
-
 Você pode criar seu próprio modelo usando as informações encontradas em [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Você também pode implantar modelos que foram criados para você de [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
 
 1. Abra o editor de texto da sua preferência e adicione o devido elemento do esquema e o elemento contentVersion:
-
+   
         {
           "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
         }
 2. [Parâmetros](../resource-group-authoring-templates.md#parameters) nem sempre são necessários, mas eles fornecem uma maneira de entrar valores quando o modelo é implantado. Adicione o elemento parameters e seus elementos filho após o elemento contentVersion:
-
+   
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -46,9 +46,8 @@ Você pode criar seu próprio modelo usando as informações encontradas em [Cri
             "adminPassword": { "type": "securestring" }
           },
         }
-
 3. [Variáveis](../resource-group-authoring-templates.md#variables) podem ser usadas em um modelo para especificar valores que podem ser alterados com frequência ou que precisam ser criados com base em uma combinação de valores de parâmetros. Adicione o elemento variables após a seção de parâmetros:
-
+   
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -61,9 +60,8 @@ Você pode criar seu próprio modelo usando as informações encontradas em [Cri
             "subnetRef": "[concat(variables('vnetID'),'/subnets/mysn1')]"  
           },
         }
-        
 4. [Recursos](../resource-group-authoring-templates.md#resources) como a máquina virtual, a rede virtual e a conta de armazenamento são definidos no modelo em seguida. Adicione a seção de recursos após a seção de variáveis:
-
+   
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -168,17 +166,18 @@ Você pode criar seu próprio modelo usando as informações encontradas em [Cri
               }
             } ]
           }
-          
-    >[AZURE.NOTE] Este artigo cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, veja [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](virtual-machines-linux-cli-ps-findimage.md).  
-            
-2. Salve o arquivo de modelo como *VirtualMachineTemplate.json*.
+   
+   > [!NOTE]
+   > Este artigo cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, veja [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](virtual-machines-linux-cli-ps-findimage.md).  
+   > 
+   > 
+5. Salve o arquivo de modelo como *VirtualMachineTemplate.json*.
 
 ## <a name="step-2:-create-the-parameters-file"></a>Etapa 2: Criar o arquivo de parâmetros
-
 Para especificar valores para os parâmetros dos recursos que foram definidos no modelo, crie um arquivo de parâmetros contendo os valores usados na implantação do modelo.
 
 1. No editor de texto, copie esse conteúdo do JSON em um novo arquivo chamado *Parameters.json*:
-
+   
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -187,34 +186,32 @@ Para especificar valores para os parâmetros dos recursos que foram definidos no
             "adminPassword": { "value": "mytestpass1" }
           }
         }
-
-    >[AZURE.NOTE] Veja mais sobre os [requisitos de nome de usuário e senha](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
-
+   
+   > [!NOTE]
+   > Veja mais sobre os [requisitos de nome de usuário e senha](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+   > 
+   > 
 2. Salve o arquivo de parâmetros.
 
 ## <a name="step-3:-install-azure-powershell"></a>Etapa 3: Instalar o Azure PowerShell
-
 Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 
 ## <a name="step-4:-create-a-resource-group"></a>Etapa 4: Criar um grupo de recursos
-
 Todos os recursos devem estar implantados em um [grupo de recursos](../resource-group-overview.md).
 
 1. Obtenha uma lista dos locais disponíveis nos quais os recursos podem ser criados.
-
+   
         Get-AzureRmLocation | sort DisplayName | Select DisplayName
-
 2. Substitua o valor **$locName** por uma localização na lista, por exemplo, **EUA Central**. Crie a variável.
-
+   
         $locName = "location name"
-        
 3. Substitua o valor **$rgName** pelo nome do novo grupo de recursos. Crie a variável e o grupo de recursos.
-
+   
         $rgName = "resource group name"
         New-AzureRmResourceGroup -Name $rgName -Location $locName
-        
+   
     Você deverá ver algo como este exemplo:
-    
+   
         ResourceGroupName : myrg1
         Location          : centralus
         ProvisioningState : Succeeded
@@ -222,7 +219,6 @@ Todos os recursos devem estar implantados em um [grupo de recursos](../resource-
         ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myrg1
 
 ## <a name="step-5:-create-the-resources-with-the-template-and-parameters"></a>Etapa 5: Criar os recursos com o modelo e os parâmetros
-
 Substitua o valor **$templateFile** pelo caminho e nome do arquivo de modelo. Substitua o valor **$parameterFile** pelo caminho e nome do arquivo de parâmetros. Crie as variáveis e, em seguida, implante o modelo. 
 
         $templateFile = "template file"
@@ -245,14 +241,14 @@ Substitua o valor **$templateFile** pelo caminho e nome do arquivo de modelo. Su
 
         Outputs           :
 
->[AZURE.NOTE] Você também pode implantar os modelos e os parâmetros de uma conta de armazenamento do Azure. Para saber mais, consulte [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md).
+> [!NOTE]
+> Você também pode implantar os modelos e os parâmetros de uma conta de armazenamento do Azure. Para saber mais, consulte [Usando o Azure PowerShell com o Armazenamento do Azure](../storage/storage-powershell-guide-full.md).
+> 
+> 
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando problemas de implantações do grupo de recursos com o portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
-- Saiba como gerenciar a máquina virtual que você criou examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
-
-
+* Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando problemas de implantações do grupo de recursos com o portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
+* Saiba como gerenciar a máquina virtual que você criou examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
 
 <!--HONumber=Oct16_HO2-->
 

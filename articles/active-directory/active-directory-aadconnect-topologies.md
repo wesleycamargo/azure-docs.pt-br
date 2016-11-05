@@ -1,38 +1,36 @@
-<properties
-    pageTitle="Azure AD Connect: Topologias com suporte | Microsoft Azure"
-    description="Este tópico detalha as topologias com e sem suporte para o Azure AD Connect"
-    services="active-directory"
-    documentationCenter=""
-    authors="AndKjell"
-    manager="femila"
-    editor=""/>
-<tags
-    ms.service="active-directory"
-    ms.devlang="na"
-    ms.tgt_pltfrm="na"
-    ms.workload="identity"
-    ms.topic="article"
-    ms.date="06/27/2016"
-    ms.author="billmath"/>
+---
+title: 'Azure AD Connect: Topologias com suporte | Microsoft Docs'
+description: Este tópico detalha as topologias com e sem suporte para o Azure AD Connect
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
+ms.service: active-directory
+ms.devlang: na
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.topic: article
+ms.date: 06/27/2016
+ms.author: billmath
 
+---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
-
 O objetivo deste tópico é descrever diferentes topologias locais e do Azure AD com o Azure AD Connect Sync como a solução de integração principal. Ele descreve as configurações com e sem suporte.
 
 Legenda de imagens no documento:
 
-Descrição | ícone
------|-----
-Floresta do Active Directory local| ![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png)
-Active Directory com importação filtrada| ![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png)
-Servidor do Azure AD Connect Sync| ![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync1.png)
-“Modo de preparo” do servidor do Azure AD Connect Sync| ![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync2.png)
-GALSync com FIM2010 ou MIM2016| ![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync3.png)
-Servidor do Azure AD Connect Sync detalhado| ![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync4.png)
-Diretório do AD do Azure |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png)
-Cenário sem suporte | ![Sem suporte](./media/active-directory-aadconnect-topologies/LegendUnsupported.png)
-
+| Descrição | ícone |
+| --- | --- |
+| Floresta do Active Directory local |![AD](./media/active-directory-aadconnect-topologies/LegendAD1.png) |
+| Active Directory com importação filtrada |![AD](./media/active-directory-aadconnect-topologies/LegendAD2.png) |
+| Servidor do Azure AD Connect Sync |![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync1.png) |
+| “Modo de preparo” do servidor do Azure AD Connect Sync |![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync2.png) |
+| GALSync com FIM2010 ou MIM2016 |![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync3.png) |
+| Servidor do Azure AD Connect Sync detalhado |![Sincronizar](./media/active-directory-aadconnect-topologies/LegendSync4.png) |
+| Diretório do AD do Azure |![AAD](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
+| Cenário sem suporte |![Sem suporte](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
 
 ## <a name="single-forest,-single-azure-ad-directory"></a>Uma única floresta, um único diretório do AD do Azure
 ![Diretório único de floresta única](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
@@ -64,8 +62,8 @@ A configuração padrão do Azure AD Connect sync supõe:
 
 Se seu ambiente não corresponder a essas suposições, acontecerá o seguinte:
 
-- Se você tiver mais de uma conta ativa ou mais de uma caixa de correio, o mecanismo de sincronização escolherá uma e ignorará as outras.
-- Uma caixa de correio vinculada sem nenhuma outra conta ativa não é exportada para o Azure AD. A conta de usuário não é representada como um membro de nenhum grupo. Uma caixa de correio vinculada em DirSync seria representada como uma caixa de correio normal, por isso esta alteração é um comportamento intencionalmente diferente para dar melhor suporte a cenários de várias florestas.
+* Se você tiver mais de uma conta ativa ou mais de uma caixa de correio, o mecanismo de sincronização escolherá uma e ignorará as outras.
+* Uma caixa de correio vinculada sem nenhuma outra conta ativa não é exportada para o Azure AD. A conta de usuário não é representada como um membro de nenhum grupo. Uma caixa de correio vinculada em DirSync seria representada como uma caixa de correio normal, por isso esta alteração é um comportamento intencionalmente diferente para dar melhor suporte a cenários de várias florestas.
 
 Mais detalhes podem ser encontrados em [Noções básicas sobre a configuração padrão](active-directory-aadconnectsync-understanding-default-configuration.md).
 
@@ -119,10 +117,10 @@ Nesse cenário, uma (ou mais) **floresta de recursos** confia em todas as **flor
 ## <a name="office-365-and-topology-considerations"></a>Office 365 e considerações de topologia
 Algumas cargas de trabalho do Office 365 têm certas restrições a topologias com suporte. Se você planeja usar qualquer um deles, leia o tópico de topologias com suporte para a carga de trabalho.
 
-Carga de trabalho |  
---------- | ---------
-Exchange Online | Se houver mais de uma organização do Exchange local (ou seja, o Exchange for implantado em mais de uma floresta), você deve usar o Exchange 2013 SP1 ou posterior. Os detalhes podem ser encontrados aqui: [Implantações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/library/jj873754.aspx)
-Skype for Business | Ao usar várias florestas locais, somente a topologia de floresta conta-recurso terá suporte. Detalhes para topologias com suporte podem ser encontradas aqui: [requisitos ambientais do Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx)
+| Carga de trabalho |
+| --- | --- |
+| Exchange Online |
+| Skype for Business |
 
 ## <a name="staging-server"></a>servidor de preparo
 ![servidor de preparo](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -139,9 +137,9 @@ Esse método também pode ser usado para substituir o servidor de sincronizaçã
 A Microsoft recomenda ter um único diretório no Azure AD para uma organização.
 Antes de você planeja usar vários diretórios do Azure AD, consulte esses tópicos que abrangem cenários comuns que permitirão a você usar um único diretório.
 
-Tópico |  
---------- | ---------
-Delegação usando unidades administrativas | [Gerenciamento de unidades administrativas no AD do Azure ](active-directory-administrative-units-management.md)
+| Tópico |
+| --- | --- |
+| Delegação usando unidades administrativas |
 
 ![Diretório múltiplo de várias florestas](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 
@@ -156,28 +154,28 @@ Não há nenhum GALsync entre as instâncias de diretório do Azure AD. O catál
 
 Essa topologia tem as seguintes restrições aos cenários que, caso contrário, têm suporte:
 
-- Apenas um dos diretórios do AD do Azure pode habilitar o Exchange híbrido com o Active Directory local.
-- Os dispositivos Windows 10 só podem ser associados a um diretório do AD do Azure.
+* Apenas um dos diretórios do AD do Azure pode habilitar o Exchange híbrido com o Active Directory local.
+* Os dispositivos Windows 10 só podem ser associados a um diretório do AD do Azure.
 
 O requisito para um conjunto de objetos mutuamente exclusivo também se aplica ao write-back. Alguns recursos de write-back não tem suporte com esta topologia, pois esses recursos supõem a existência de uma única configuração local:
 
--   Write-back de grupo com configuração padrão
--   Write-back de dispositivo
+* Write-back de grupo com configuração padrão
+* Write-back de dispositivo
 
 ### <a name="each-object-multiple-times-in-an-azure-ad-directory"></a>Cada objeto várias vezes em um diretório do AD do Azure
 ![Diretório múltiplo de floresta única sem suporte](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![Conectores múltiplos de floresta única sem suporte](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
 
-- Ele não tem suporte para sincronização do mesmo usuário para vários diretórios do AD do Azure.
-- Ele não dá suporte para alterar uma configuração para fazer os usuários de um Azure AD aparecerem como contatos em outro diretório do Azure AD.
-- Também não há suporte para modificar o Azure AD Connect Sync para se conectar a vários diretórios do Azure AD.
+* Ele não tem suporte para sincronização do mesmo usuário para vários diretórios do AD do Azure.
+* Ele não dá suporte para alterar uma configuração para fazer os usuários de um Azure AD aparecerem como contatos em outro diretório do Azure AD.
+* Também não há suporte para modificar o Azure AD Connect Sync para se conectar a vários diretórios do Azure AD.
 
 ### <a name="galsync-by-using-writeback"></a>GALsync com o uso de write-back
 ![MultiForestMultiDirectoryGALSync1Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![MultiForestMultiDirectoryGALSync2Unsupported](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
 
 Diretórios do AD do Azure são isolados por padrão.
 
-- Não há suporte para alterações da configuração do Azure AD Connect Sync para ler dados de outro diretório do Azure AD.
-- Não há suporte para a exportação de usuários como contatos para outro AD local usando o Azure AD Connect Sync.
+* Não há suporte para alterações da configuração do Azure AD Connect Sync para ler dados de outro diretório do Azure AD.
+* Não há suporte para a exportação de usuários como contatos para outro AD local usando o Azure AD Connect Sync.
 
 ### <a name="galsync-with-on-premises-sync-server"></a>GALsync com o servidor de sincronização local
 ![MultiForestMultiDirectoryGALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync.png)
@@ -185,13 +183,11 @@ Diretórios do AD do Azure são isolados por padrão.
 Há suporte para o uso do FIM2010/MIM2016 local para usuários GALsync entre duas organizações do Exchange. Os usuários em uma organização aparecerão como usuários/contatos externos em outras organizações. Esses ADs locais diferentes poderão então ser sincronizados para seus próprios diretórios do AD do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber como instalar o Azure AD Connect para esses cenários, veja [Instalação personalizada do Azure AD Connect](./aad-connect/active-directory-aadconnect-get-started-custom.md).
+Para saber como instalar o Azure AD Connect para esses cenários, veja [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

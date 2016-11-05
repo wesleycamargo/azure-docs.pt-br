@@ -1,38 +1,41 @@
-<properties 
-	pageTitle="Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure" 
-	description="Aprenda a autorizar os usuários usando o OAuth 2.0 no Gerenciamento de API." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure
+description: Aprenda a autorizar os usuários usando o OAuth 2.0 no Gerenciamento de API.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/24/2016" 
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure
-
 Muitas APIs dão suporte ao [OAuth 2.0](http://oauth.net/2/) para proteger a API e garantir que apenas usuários válidos tenham acesso e possam acessar apenas os recursos para os quais eles estão qualificados. Para usar o Console de desenvolvedor interativo do Gerenciamento de API do Azure com essas APIs, o serviço permite que você configure sua instância de serviço para funcionar com sua API habilitada para o OAuth 2.0.
 
 ## <a name="prerequisites"> </a>Pré-requisitos
-
 Este guia mostra como configurar sua instância de serviço de Gerenciamento de API para usar a autorização OAuth 2.0 para contas do desenvolvedor, mas não mostra como configurar um provedor OAuth 2.0. A configuração para cada provedor OAuth 2.0 é diferente, embora as etapas sejam semelhantes e as peças de informações necessárias usadas ao configurar o OAuth 2.0 na sua instância de serviço de Gerenciamento de API sejam as mesmas. Este tópico mostra exemplos ao usar o Active Directory do Azure como um provedor OAuth 2.0.
 
->[AZURE.NOTE] Para obter mais informações sobre a configuração do OAuth 2.0 usando o Active Directory do Azure, consulte a amostra [WebApp-GraphAPI-DotNet][].
+> [!NOTE]
+> Para obter mais informações sobre a configuração do OAuth 2.0 usando o Active Directory do Azure, consulte a amostra [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet].
+> 
+> 
 
 ## <a name="step1"> </a>Configurar um servidor de autorização do OAuth 2.0 no Gerenciamento de API
-
 Para começar, clique em **Gerenciar** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
->[AZURE.NOTE] Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][] no tutorial [Introdução ao Gerenciamento de API do Azure][].
+> [!NOTE]
+> Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][Criar uma instância de serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+> 
+> 
 
 Clique em **Segurança** no menu de **Gerenciamento da API** à esquerda, clique em **OAuth 2.0** e em **Adicionar servidor de autorização**.
 
@@ -44,7 +47,10 @@ Após clicar em **Adicionar servidor de autorização**, a nova forma do servido
 
 Digite um nome e uma descrição opcional nos campos **Nome** e **Descrição**.
 
->[AZURE.NOTE] Esses campos são usados para identificar o servidor de autorização OAuth 2.0 dentro da instância do serviço de Gerenciamento de API atual e seus valores não vêm do servidor OAuth 2.0.
+> [!NOTE]
+> Esses campos são usados para identificar o servidor de autorização OAuth 2.0 dentro da instância do serviço de Gerenciamento de API atual e seus valores não vêm do servidor OAuth 2.0.
+> 
+> 
 
 Digite a **URL da página de registro do cliente**. Essa página é onde os usuários podem criar e gerenciar suas contas e varia de acordo com o provedor OAuth 2.0 usado. A **URL de página de registro do cliente** aponta para a página que os usuários podem usar para criar e configurar suas próprias contas para provedores OAuth 2.0 que dão suporte a gerenciamento de contas por usuários. Algumas organizações não configuram nem usam essa funcionalidade, mesmo se o provedor OAuth 2.0 dá suporte a ele. Se seu provedor OAuth 2.0 não tem o gerenciamento de contas por usuários configurado, insira uma URL de espaço reservado aqui, como a URL da sua empresa, ou uma URL como `https://placeholder.contoso.com`.
 
@@ -81,7 +87,6 @@ Se os **Tipos de concessão do código de autorização** são definidos para **
 Uma vez que o formulário está concluído, clique em **Salvar** para salvar a configuração do servidor de autorização do OAuth 2.0 de Gerenciamento de API. Quando a configuração do servidor for salva, você pode configurar as APIs para usar esta configuração, conforme mostrado na seção seguinte.
 
 ## <a name="step2"> </a>Configurar uma API para usar a autorização do usuário do OAuth 2.0
-
 Clique em **APIs** no menu de **Gerenciamento de API** à esquerda, clique no nome da API desejada, clique em **Segurança** e marque a caixa para **OAuth 2.0**.
 
 ![Autorização do usuário][api-management-user-authorization]
@@ -91,7 +96,6 @@ Selecione o **Servidor de autorização** desejado a partir da lista suspensa e 
 ![Autorização do usuário][api-management-user-authorization-save]
 
 ## <a name="step3"> </a>Testar a autorização do usuário do OAuth 2.0 no Portal do Desenvolvedor
-
 Depois de configurar seu servidor de autorização OAuth 2.0 e configurar sua API para usar esse servidor, você pode testá-lo indo para o Portal do Desenvolvedor e chamando a API. Clique em **Portal do desenvolvedor** no menu superior direito.
 
 ![Portal do desenvolvedor][api-management-developer-portal-menu]
@@ -100,7 +104,10 @@ Clique em **APIs** no menu superior e selecione **API de Eco**.
 
 ![API de Eco][api-management-apis-echo-api]
 
->[AZURE.NOTE] Se você tem apenas uma API configurada ou visível na conta, clicar em APIs levará você diretamente às operações dessa API.
+> [!NOTE]
+> Se você tem apenas uma API configurada ou visível na conta, clicar em APIs levará você diretamente às operações dessa API.
+> 
+> 
 
 Selecione a operação **Recurso GET**, clique em **Abrir Console** e selecione **Código de Autorização** na lista suspensa.
 
@@ -108,7 +115,10 @@ Selecione a operação **Recurso GET**, clique em **Abrir Console** e selecione 
 
 Quando o **Código de autorização** está selecionado, uma janela pop-up é exibida com a forma de entrada do provedor OAuth 2.0. Neste exemplo, o formulário de inscrição é fornecido pelo Active Directory do Azure.
 
->[AZURE.NOTE] Se você tiver pop-ups desativados, será solicitado a habilitá-los pelo navegador. Depois de habilitar, selecione **Código de autorização** novamente e a forma de entrada será exibida.
+> [!NOTE]
+> Se você tiver pop-ups desativados, será solicitado a habilitá-los pelo navegador. Depois de habilitar, selecione **Código de autorização** novamente e a forma de entrada será exibida.
+> 
+> 
 
 ![Entrar][api-management-oauth2-signin]
 
@@ -119,10 +129,11 @@ Depois de entrar, os **Cabeçalhos de solicitação** são preenchidos com um ca
 Nesse momento, você pode configurar os valores desejados para os parâmetros restantes e enviar a solicitação.
 
 ## Próximas etapas
-
 Para obter mais informações sobre como usar OAuth 2.0 e Gerenciamento de API, consulte o vídeo a seguir e o [artigo](api-management-howto-protect-backend-with-aad.md) que o acompanha.
 
-> [AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Protecting-Web-API-Backend-with-Azure-Active-Directory-and-API-Management/player]
+> 
+> 
 
 [api-management-management-console]: ./media/api-management-howto-oauth2/api-management-management-console.png
 [api-management-oauth2]: ./media/api-management-howto-oauth2/api-management-oauth2.png

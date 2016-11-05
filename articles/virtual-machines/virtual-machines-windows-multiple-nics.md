@@ -1,25 +1,28 @@
-<properties
-   pageTitle="Configurar várias NICs em uma VM do Windows | Microsoft Azure"
-   description="Saiba como criar uma VM com várias NICs anexadas usando o Azure PowerShell ou modelos do Gerenciador de Recursos."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Configurar várias NICs em uma VM do Windows | Microsoft Docs
+description: Saiba como criar uma VM com várias NICs anexadas usando o Azure PowerShell ou modelos do Gerenciador de Recursos.
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure"
-   ms.date="08/04/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 08/04/2016
+ms.author: iainfou
 
+---
 # Criando uma VM com diversas NICs
 Você pode criar uma VM (máquina virtual) no Azure que tenha várias NICs (interfaces de rede virtual) anexadas a ela. Um cenário comum seria ter sub-redes diferentes para conectividade de front-end e de back-end ou uma rede dedicada a uma solução de monitoramento ou de backup. Este artigo fornece comandos rápidos para criar uma VM com várias NICs anexadas a ela. Para obter informações detalhadas, incluindo como criar várias NICs dentro de seus próprios scripts do PowerShell, leia mais sobre a [implantação de VMs com várias NICs](../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Diferentes [tamanhos de VM](virtual-machines-windows-sizes.md) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente.
 
->[AZURE.WARNING] Você deverá anexar várias NICs quando criar a VM – não é possível adicionar NICs a uma VM existente. Você pode [criar uma nova VM com base nos discos virtuais originais](virtual-machines-windows-specialized-image.md) e criar várias NICs conforme implantar a VM.
+> [!WARNING]
+> Você deverá anexar várias NICs quando criar a VM – não é possível adicionar NICs a uma VM existente. Você pode [criar uma nova VM com base nos discos virtuais originais](virtual-machines-windows-specialized-image.md) e criar várias NICs conforme implantar a VM.
+> 
+> 
 
 ## Criar recursos fundamentais
 Verifique se você tem a versão mais recente do [Azure PowerShell instalada e configurada](../powershell-install-configure.md).
@@ -67,7 +70,6 @@ $NIC2 = New-AzureRmNetworkInterface -Name NIC2 -ResourceGroupName TestRG `
 ```
 
 Normalmente, você também criaria um [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md) ou [balanceador de carga](../load-balancer/load-balancer-overview.md) para ajudar a gerenciar e distribuir o tráfego entre suas VMs. O artigo [mais detalhado sobre VMs com várias NICs](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) o orientará na criação de um Grupo de segurança de rede e na atribuição de NICs.
-
 
 ## Criar a máquina virtual
 Agora, comece a criar sua configuração de VM. Cada tamanho de VM tem um limite para o número total de NICs que podem ser adicionada a uma VM. Leia mais sobre [Tamanhos de VM do Windows](virtual-machines-windows-sizes.md). O exemplo a seguir usa um tamanho de VM que dá suporte a até duas NICs (`Standard_DS2_v2`):

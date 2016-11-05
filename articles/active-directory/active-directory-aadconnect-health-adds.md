@@ -1,22 +1,22 @@
 
-<properties
-	pageTitle="Usando o Azure AD Connect Health com o AD DS | Microsoft Azure"
-	description="Esta é a página Azure AD Connect Health que discutirá como monitorar o AD DS."
-	services="active-directory"
-	documentationCenter=""
-	authors="arluca"
-	manager="samueld"
-	editor="curtand"/>
+---
+title: Usando o Azure AD Connect Health com o AD DS | Microsoft Docs
+description: Esta é a página Azure AD Connect Health que discutirá como monitorar o AD DS.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/30/2016"
-	ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/30/2016
+ms.author: arluca
 
+---
 # Usar o Azure AD Connect Health com o AD DS
 A documentação a seguir é específica para o monitoramento dos Serviços de Domínio do Active Directory com o Azure AD Connect Health. As versões com suporte do AD DS são: Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.
 
@@ -51,7 +51,6 @@ Esse recurso fornece tendências gráficas de diferentes contadores de desempenh
 Por padrão, selecionamos previamente quatro contadores de desempenho. No entanto, você pode incluir outros clicando no comando de filtro e marcando ou desmarcando todos os contadores de desempenho desejados. Além disso, você pode clicar duas vezes em um gráfico do contador de desempenho para abrir uma nova folha, que inclui pontos de dados para cada um dos controladores de domínio monitorados.
 
 ## Links relacionados
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Instalação do Agente do Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operações de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)

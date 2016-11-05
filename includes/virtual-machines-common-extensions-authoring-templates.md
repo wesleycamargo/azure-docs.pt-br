@@ -1,5 +1,4 @@
 ## Visão geral dos modelos do Gerenciador de Recursos do Azure
-
 O modelo do Azure Resource Manager permite especificar de forma declarativa a infraestrutura IaaS do Azure na linguagem JSON definindo as dependências entre recursos. Para obter uma visão geral detalhada dos Modelos do Azure Resource Manager, consulte os artigos abaixo:
 
 [Visão geral do Grupo de Recursos](../articles/resource-group-overview.md)
@@ -30,7 +29,6 @@ Como você pode ver no exemplo acima, o modelo de extensão contém duas partes 
 2. Configuração da Extensão.
 
 ## Identificando o editor, o tipo e a typeHandlerVersion de qualquer extensão
-
 As extensões de VM do Azure são publicadas pela Microsoft e por editores terceiros confiáveis, e cada extensão é identificada exclusivamente por seu editor, tipo e typeHandlerVersion. Elas podem ser determinadas da seguinte maneira:
 
 <!-----------HONumber=AcomDC_0330_2016-->

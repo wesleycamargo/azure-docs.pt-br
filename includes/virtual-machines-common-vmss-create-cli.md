@@ -13,7 +13,6 @@ Contras:
 1. Não é possível anexar discos de dados para instâncias de VM em um conjunto de escala. Em vez disso, deve-se usar Armazenamento de Blobs, Arquivos do Azure, Tabelas do Azure ou outras soluções de armazenamento.
 
 ## Criação rápida usando a CLI do Azure
-
 Se você ainda não fez isso, você pode obter uma [avaliação gratuita de assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) e [CLI do Azure](../articles/xplat-cli-install.md) [conectado à sua conta do Azure](../articles/xplat-cli-connect.md). Depois que você fizer isso, você pode executar os seguintes comandos para criar rapidamente um conjunto de escala da VM:
 
 ```bash
@@ -71,7 +70,6 @@ ssh -p 50000 $FQDN
 ```
 
 ## Próximas etapas
-
 Para obter informações gerais, confira a [página de aterrissagem principal para conjuntos de escala VM](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
 Para obter documentação, confira a [página de documentação principal para conjuntos de escala VM](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).

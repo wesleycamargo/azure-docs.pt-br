@@ -1,22 +1,21 @@
-<properties
-    pageTitle="Grupos de computadores em pesquisas de log do Log Analytics | Microsoft Azure"
-    description="Os grupos de computadores no Log Analytics permitem analisar pesquisas de log para um conjunto específico de computadores.  Este artigo descreve os diferentes métodos que você pode usar para criar grupos de computadores e como usá-los em uma pesquisa de log."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bwren"
-    manager="jwhit"
-    editor=""/>
+---
+title: Grupos de computadores em pesquisas de log do Log Analytics | Microsoft Docs
+description: Os grupos de computadores no Log Analytics permitem analisar pesquisas de log para um conjunto específico de computadores.  Este artigo descreve os diferentes métodos que você pode usar para criar grupos de computadores e como usá-los em uma pesquisa de log.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="bwren"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: bwren
 
-
+---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de computadores em pesquisas de log do Log Analytics
 Os grupos de computadores no Log Analytics permitem analisar [pesquisas de log](log-analytics-log-searches.md) para um conjunto específico de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma pesquisa de log, os resultados são limitados aos registros que correspondem os computadores do grupo.
 
@@ -24,15 +23,13 @@ Os grupos de computadores no Log Analytics permitem analisar [pesquisas de log](
 Você pode criar um grupo de computadores no Log Analytics usando qualquer um dos métodos na tabela a seguir.  Detalhes sobre cada método são fornecidos nas seções a seguir. 
 
 | Método | Descrição |
-|:---|:---|
-| Pesquisa de log       | Crie uma pesquisa de log que retorna uma lista de computadores e salva os resultados como um grupo de computadores. |
-| API da Pesquisa de Log   | Use a API da Pesquisa de Log para criar um grupo de computadores programaticamente com base nos resultados de uma pesquisa de log. |
-| Active Directory | Verifique automaticamente a associação de grupo dos computadores de agente que são membros de um domínio do Active Directory e crie um grupo no Log Analytics para cada grupo de segurança.
-| WSUS              | Verifique servidores ou clientes de WSUS para direcionar grupos e criar um grupo no Log Analytics para cada um. |
-
+|:--- |:--- |
+| Pesquisa de log |Crie uma pesquisa de log que retorna uma lista de computadores e salva os resultados como um grupo de computadores. |
+| API da Pesquisa de Log |Use a API da Pesquisa de Log para criar um grupo de computadores programaticamente com base nos resultados de uma pesquisa de log. |
+| Active Directory |Verifique automaticamente a associação de grupo dos computadores de agente que são membros de um domínio do Active Directory e crie um grupo no Log Analytics para cada grupo de segurança. |
+| WSUS |Verifique servidores ou clientes de WSUS para direcionar grupos e criar um grupo no Log Analytics para cada um. |
 
 ### <a name="log-search"></a>Pesquisa de log
-
 Grupos de computadores criados por meio de uma Pesquisa de Log conterá todos os computadores retornados por uma consulta de pesquisa que você definir.  Essa consulta é executada sempre que o grupo de computadores é usado para que todas as alterações desde que o grupo foi criado sejam refletidas.
 
 Use o procedimento a seguir para criar um grupo de computadores de uma pesquisa de log.
@@ -48,13 +45,11 @@ A seguir, temos pesquisas de exemplo que você pode salvar como um grupo de comp
     Computer=*srv* | measure count() by Computer
 
 ### <a name="log-search-api"></a>API da Pesquisa de Log
-
 Grupos de computadores criados com a API da Pesquisa de Log são iguais a pesquisas criadas com uma Pesquisa de Log.
 
 Para obter detalhes sobre como criar um grupo de computadores usando a API da Pesquisa de Log, consulte [Grupos de computadores na API REST de pesquisa de log do Log Analytics](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
-
 Quando você configura o Log Analytics para importar associações de grupo do Active Directory, ele analisará a associação de grupo de todos os computadores associados ao domínio com o agente do OMS.  Um grupo de computadores é criado no Log Analytics para cada grupo de segurança no Active Directory, e cada computador é adicionado aos grupos de computadores que correspondem aos grupos de segurança de que são membros.  Essa associação é atualizada continuamente a cada 4 horas.  
 
 Configure o Log Analytics para importar grupos de segurança do Active Directory do menu **Grupos de Computadores** nas **Configurações** do Log Analytics.  Selecione **Automação** e **Importe as associações de grupo do Active Directory dos computadores**.  Não é necessária nenhuma configuração.
@@ -64,7 +59,6 @@ Configure o Log Analytics para importar grupos de segurança do Active Directory
 Quando os grupos forem importados, o menu listará o número de computadores com a associação de grupo detectada e o número de grupos importados.  Você pode clicar em qualquer um desses links para retornar os registros de **ComputerGroup** com essas informações.
 
 ### <a name="windows-server-update-service"></a>Serviços de Atualização do Windows Server
-
 Quando você configura o Log Analytics para importar associações de grupo do WSUS, ele analisará a associação de grupo de destino de todos os computadores com o agente do OMS.  Se você estiver usando o direcionamento do lado do cliente, qualquer computador que estiver conectado ao OMS e fizer parte de qualquer grupo de direcionamento do WSUS terá sua associação de grupo importada para o Log Analytics. Se você estiver usando o direcionamento do lado do servidor, o agente do OMS deverá ser instalado no servidor do WSUS para que as informações de associação do grupo sejam importadas ao OMS.  Essa associação é atualizada continuamente a cada 4 horas. 
 
 Configure o Log Analytics para importar grupos de segurança do Active Directory do menu **Grupos de Computadores** nas **Configurações** do Log Analytics.  Selecione **Active Directory** e **Importe as associações de grupo do Active Directory dos computadores**.  Não é necessária nenhuma configuração.
@@ -74,7 +68,6 @@ Configure o Log Analytics para importar grupos de segurança do Active Directory
 Quando os grupos forem importados, o menu listará o número de computadores com a associação de grupo detectada e o número de grupos importados.  Você pode clicar em qualquer um desses links para retornar os registros de **ComputerGroup** com essas informações.
 
 ## <a name="managing-computer-groups"></a>Gerenciando grupos de computadores
-
 Você pode exibir grupos de computadores que foram criados por meio de uma pesquisa de log ou da API da Pesquisa de Log do menu **Grupos de Computadores** nas **Configurações** do Log Analytics.  Clique no **x** na coluna **Remover** para excluir o grupo de computadores.  Clique no ícone **Exibir membros** para que um grupo execute a pesquisa de log do grupo que retorna seus membros. 
 
 ![Grupos de computadores salvados](media/log-analytics-computer-groups/configure-saved.png)
@@ -93,27 +86,22 @@ Grupos de computadores normalmente são usados com a cláusula **IN** na pesquis
     Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]
 
 ## <a name="computer-group-records"></a>Registros de grupo de computadores
-
 Um registro é criado no repositório do OMS para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Registros não são criados para grupos de computadores com base em pesquisas de log.
 
 | Propriedade | Descrição |
-|:--|:--|
-| Tipo                | *ComputerGroup* |
-| SourceSystem        | *SourceSystem*  |
-| Computador            | Nome do computador membro. |
-| Agrupar               | Nome do grupo. |
-| GroupFullName       | Caminho completo para o grupo, incluindo a fonte e o nome da fonte.
-| GroupSource         | Fonte da qual o grupo foi coletado. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName     | Nome da fonte da qual os grupos foram coletados.  Para o Active Directory, este é o nome de domínio. |
-| ManagementGroupName | Nome do grupo de gerenciamento de agentes do SCOM.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
-| TimeGenerated       | Data e hora em que o grupo de computadores foi criado ou atualizado. |
-
-
+|:--- |:--- |
+| Tipo |*ComputerGroup* |
+| SourceSystem |*SourceSystem* |
+| Computador |Nome do computador membro. |
+| Agrupar |Nome do grupo. |
+| GroupFullName |Caminho completo para o grupo, incluindo a fonte e o nome da fonte. |
+| GroupSource |Fonte da qual o grupo foi coletado. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
+| GroupSourceName |Nome da fonte da qual os grupos foram coletados.  Para o Active Directory, este é o nome de domínio. |
+| ManagementGroupName |Nome do grupo de gerenciamento de agentes do SCOM.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
+| TimeGenerated |Data e hora em que o grupo de computadores foi criado ou atualizado. |
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
-
+* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
 
 <!--HONumber=Oct16_HO2-->
 

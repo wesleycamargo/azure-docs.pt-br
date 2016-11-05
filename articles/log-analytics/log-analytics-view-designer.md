@@ -1,39 +1,37 @@
-<properties
-    pageTitle="Designer de modos de exibição do Log Analytics | Microsoft Azure"
-    description="O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bwren"
-    manager="jwhit"
-    editor=""/>
+---
+title: Designer de modos de exibição do Log Analytics | Microsoft Docs
+description: O Designer de modos de exibição do Log Analytics permite que você crie exibições personalizadas no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    ms.author="bwren"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: bwren
 
-
+---
 # <a name="log-analytics-view-designer"></a>Designer de modos de exibição do Log Analytics
 O Designer de modos de exibição do Log Analytics permite que você crie modos de exibição personalizados no console do OMS que contêm diferentes visualizações de dados no repositório do OMS. Este artigo contém uma visão geral do Designer de modos de exibição e dos procedimentos para criar e editar exibições personalizadas.
 
 Outros artigos disponíveis para o Designer de Modos de Exibição são:
 
-- [Referência de bloco](log-analytics-view-designer-tiles.md) – Referência das configurações de cada um dos blocos disponíveis para uso nas exibições personalizadas. 
-- [Referência de parte de visualização](log-analytics-view-designer-parts.md) – Referência das configurações para cada um dos blocos disponíveis para uso nas exibições personalizadas. 
-
+* [Referência de bloco](log-analytics-view-designer-tiles.md) – Referência das configurações de cada um dos blocos disponíveis para uso nas exibições personalizadas. 
+* [Referência de parte de visualização](log-analytics-view-designer-parts.md) – Referência das configurações para cada um dos blocos disponíveis para uso nas exibições personalizadas. 
 
 ## <a name="concepts"></a>Conceitos
 Exibições criadas com o Designer de modo de exibição contêm os elementos na tabela a seguir.
 
 | Parte | Descrição |
-|:--|:--|
-| Bloco | Exibido no painel de visão geral do Log Analytics.  Inclui um resumo visual das informações contidas no modo de exibição personalizado.  Diferentes tipos de bloco fornecem visualizações diferentes de registros no repositório do OMS.  Clique no bloco para abrir o modo de exibição personalizado. |
-| Exibição personalizada | Exibido quando o usuário clica no bloco.  Contém uma ou mais partes da visualização. |
-| Partes da visualização | Visualização de dados no repositório do OMS com base em uma ou mais [pesquisas de log](log-analytics-log-searches.md).  A maioria das partes incluirá um cabeçalho que fornece uma visualização de alto nível e uma lista dos principais resultados.  Diferentes tipos de partes fornecem visualizações diferentes de registros no repositório do OMS.  Clique em elementos na parte para realizar uma pesquisa de log fornecendo registros detalhados. |
+|:--- |:--- |
+| Bloco |Exibido no painel de visão geral do Log Analytics.  Inclui um resumo visual das informações contidas no modo de exibição personalizado.  Diferentes tipos de bloco fornecem visualizações diferentes de registros no repositório do OMS.  Clique no bloco para abrir o modo de exibição personalizado. |
+| Exibição personalizada |Exibido quando o usuário clica no bloco.  Contém uma ou mais partes da visualização. |
+| Partes da visualização |Visualização de dados no repositório do OMS com base em uma ou mais [pesquisas de log](log-analytics-log-searches.md).  A maioria das partes incluirá um cabeçalho que fornece uma visualização de alto nível e uma lista dos principais resultados.  Diferentes tipos de partes fornecem visualizações diferentes de registros no repositório do OMS.  Clique em elementos na parte para realizar uma pesquisa de log fornecendo registros detalhados. |
 
 ![Visão geral do Designer de modo de exibição](media/log-analytics-view-designer/overview.png)
 
@@ -43,7 +41,6 @@ Enquanto o Designer de modo de exibição está em visualização, você deve ad
 ![Habilitar visualização](media/log-analytics-view-designer/preview.png)
 
 ## <a name="creating-and-editing-views"></a>Criar e editar modos de exibição
-
 ### <a name="create-a-new-view"></a>Criar um novo modo de exibição
 Abra uma novo modo de exibição em **Designer de modo de exibição** clicando no bloco Designer de modo de exibição no painel principal do OMS.
 
@@ -91,13 +88,9 @@ Você pode remover uma parte da visualização do modo de exibição clicando no
 ### <a name="rearrange-visualization-parts"></a>Reorganizar partes de visualização
 Os modos de exibição têm apenas uma linha de partes da visualização.  Reorganize as partes existentes em um modo de exibição clicando e arrastando-as para um novo local.
 
-
 ## <a name="next-steps"></a>Próximas etapas
-
-- Adicione [Blocos](log-analytics-view-designer-tiles.md) ao modo de exibição personalizado.
-- Adicione [Partes da visualização](log-analytics-view-designer-parts.md) ao modo de exibição personalizado.
-
-
+* Adicione [Blocos](log-analytics-view-designer-tiles.md) ao modo de exibição personalizado.
+* Adicione [Partes da visualização](log-analytics-view-designer-parts.md) ao modo de exibição personalizado.
 
 <!--HONumber=Oct16_HO2-->
 

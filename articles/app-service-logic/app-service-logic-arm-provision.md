@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Criar um aplicativo lógico usando modelos do Gerenciador de Recursos do Azure no Serviço de Aplicativo do Azure | Microsoft Azure" 
-	description="Use um modelo do Gerenciador de Recursos do Azure para implantar um Aplicativo Lógico vazio para definir fluxos de trabalho." 
-	services="logic-apps" 
-	documentationCenter="" 
-	authors="MSFTMan" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Criar um aplicativo lógico usando modelos do Gerenciador de Recursos do Azure no Serviço de Aplicativo do Azure | Microsoft Docs
+description: Use um modelo do Gerenciador de Recursos do Azure para implantar um Aplicativo Lógico vazio para definir fluxos de trabalho.
+services: logic-apps
+documentationcenter: ''
+author: MSFTMan
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="deonhe"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/25/2016
+ms.author: deonhe
 
+---
 # Crie um Aplicativo Lógico usando um modelo
-
 Use um modelo do Gerenciador de Recursos do Azure para criar um aplicativo lógico vazio que possa ser usado para definir os fluxos de trabalho. Você pode definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
 Para obter mais detalhes sobre as propriedades do Aplicativo lógico, consulte [API de Gerenciamento de Fluxo de Trabalho de Aplicativo Lógico](https://msdn.microsoft.com/library/azure/mt643788.aspx).
@@ -29,7 +28,6 @@ Para obter mais informações sobre a criação de modelos, consulte [Criação 
 Para o modelo completo, consulte [Modelo de Aplicativo Lógico](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
 ## O que você implantará
-
 Neste modelo, você implanta um aplicativo lógico.
 
 Para executar a implantação automaticamente, selecione o seguinte botão:
@@ -37,20 +35,16 @@ Para executar a implantação automaticamente, selecione o seguinte botão:
 [![Implantar no Azure](media/app-service-logic-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 ## Parâmetros
-
-[AZURE.INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
+[!INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 
 ### testUri
-
      "testUri": {
         "type": "string",
         "defaultValue": "http://azure.microsoft.com/status/feed/"
       }
-    
+
 ## Recursos a implantar
-
 ### Aplicativo lógico
-
 Cria o aplicativo lógico.
 
 Os modelos usam um valor de parâmetro para o nome do aplicativo lógico. Ele define o local do aplicativo lógico para o mesmo local que o grupo de recursos.
@@ -102,18 +96,15 @@ Essa definição específica é executada uma vez por hora e executa ping do loc
 
 
 ## Comandos para executar a implantação
-
-[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
 ### CLI do Azure
-
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
- 
+
 
 <!---HONumber=AcomDC_0803_2016-->

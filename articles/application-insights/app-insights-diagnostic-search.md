@@ -1,33 +1,28 @@
-<properties 
-	pageTitle="Usando a Pesquisa de Diagnóstico | Microsoft Azure" 
-	description="Pesquisar e filtrar eventos, solicitações e rastreamentos de log individuais." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Usando a Pesquisa de Diagnóstico | Microsoft Docs
+description: Pesquisar e filtrar eventos, solicitações e rastreamentos de log individuais.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/09/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 06/09/2016
+ms.author: awills
+
+---
 # Uso de Pesquisa de diagnóstico no Application Insights
-
 A Pesquisa de Diagnóstico é um recurso do [Application Insights][start] que você usa para localizar e explorar itens individuais de telemetria, como visualizações de página, exceções ou solicitações da Web. Você também pode exibir rastreamentos de log e eventos que você tenha codificado.
 
 ## Onde você vê a Pesquisa de Diagnóstico?
-
-
 ### No portal do Azure
-
 Você pode abrir a Pesquisa de diagnóstico explicitamente:
 
 ![Abra a pesquisa de diagnóstico](./media/app-insights-diagnostic-search/01-open-Diagnostic.png)
-
 
 Ela também é aberta quando você clica em alguns gráficos e itens de grade. Nesse caso, os filtros dessa pesquisa são predefinidos para concentrar-se no tipo de item selecionado por você.
 
@@ -35,14 +30,11 @@ Por exemplo, se seu aplicativo for um serviço Web, a folha “Visão geral” m
 
 ![Abra a pesquisa de diagnóstico](./media/app-insights-diagnostic-search/07-open-from-filters.png)
 
-
 O corpo principal da Pesquisa de diagnóstico é uma lista de itens de telemetria - solicitações ao servidor, visualizações de página, eventos personalizados que você codificou e assim por diante. Na parte superior da lista, há um gráfico de resumo mostrando contagens de eventos ao longo do tempo.
 
 Normalmente, os eventos aparecem na pesquisa de diagnóstico antes de aparecerem no gerenciador de métricas. Embora a folha seja atualizada em intervalos, você pode clicar em Atualizar se estiver esperando um evento específico.
 
-
 ### No Visual Studio
-
 Abra a janela Pesquisar no Visual Studio:
 
 ![](./media/app-insights-diagnostic-search/32.png)
@@ -51,25 +43,19 @@ A janela Pesquisar tem os mesmos recursos que o portal da Web:
 
 ![](./media/app-insights-diagnostic-search/34.png)
 
-
 ## Amostragem
-
 Se o seu aplicativo gerar muita telemetria (e você estiver usando o SDK do ASP.NET versão 2.0.0-beta3 ou posterior), o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. No entanto, os eventos relacionados à mesma solicitação serão selecionadas ou desmarcadas como um grupo, para que você possa navegar entre os eventos relacionados.
 
 [Saiba mais sobre amostragem](app-insights-sampling.md).
 
-
 ## Inspecionar itens individuais
-
 Selecione qualquer item de telemetria para ver os campos-chave e itens relacionados. Se você quiser ver o conjunto completo de campos, clique em "...".
-
 
 ![Clique em Novo Item de Trabalho, edite os campos e, em seguida, clique em OK.](./media/app-insights-diagnostic-search/10-detail.png)
 
 Para localizar o conjunto completo de campos, use cadeias de caracteres simples (sem curingas). Os campos disponíveis dependem do tipo de telemetria.
 
 ## Criar um item de trabalho
-
 Você pode criar um bug no Visual Studio Team Services com os detalhes de qualquer item de telemetria.
 
 ![Clique em Novo Item de Trabalho, edite os campos e, em seguida, clique em OK.](./media/app-insights-diagnostic-search/42.png)
@@ -81,12 +67,9 @@ Na primeira vez que fizer isso, será solicitado que você configure um link par
 (Você também pode chegar à folha de configuração em Configurações > Itens de Trabalho.)
 
 ## Filtrar tipos de evento
-
 Abrir a folha de filtro e escolha os tipos de eventos que você deseja ver. (Se posteriormente, você desejar restaurar os filtros com os quais você abriu a folha, clique em Redefinir.)
 
-
 ![Escolha o filtro e selecione os tipos de telemetria](./media/app-insights-diagnostic-search/02-filter-req.png)
-
 
 Os tipos de evento são:
 
@@ -97,7 +80,6 @@ Os tipos de evento são:
 * **Exceção** - exceções não percebidas no servidor e aquelas que você registra usando TrackException().
 
 ## Filtrar pelos valores de propriedade
-
 Você pode filtrar eventos pelos valores de suas propriedades. As propriedades disponíveis dependem dos tipos de evento que você selecionou.
 
 Por exemplo, escolha solicitações com um código de resposta específicos.
@@ -106,9 +88,7 @@ Por exemplo, escolha solicitações com um código de resposta específicos.
 
 Não escolher nenhum valor para uma determinada propriedade tem o mesmo efeito que escolher todos os valores; ele desativará a filtragem para essa propriedade.
 
-
 ### Reduzir o escopo de sua pesquisa
-
 Observe que as contagens à direita dos valores de filtro mostram quantas ocorrências existem no atual conjunto filtrado.
 
 Neste exemplo, está claro que a solicitação `Reports/Employees` resulta na maioria dos 500 erros:
@@ -118,13 +98,11 @@ Neste exemplo, está claro que a solicitação `Reports/Employees` resulta na ma
 Além disso, se você quiser ver também quais outros eventos estavam acontecendo durante esse tempo, você pode verificar **Incluir eventos com propriedades indefinidas**.
 
 ## Remover o tráfego de testes da Web e de bot
-
 Use o filtro **Tráfego real ou sintético** e marque **Real**.
 
 Você também pode filtrar por **Origem do tráfego sintético**.
 
 ## Inspecionar ocorrências individuais
-
 Adicione esse nome de solicitação para o conjunto de filtros e, em seguida, você poderá inspecionar ocorrências individuais daquele evento.
 
 ![Selecione um valor](./media/app-insights-diagnostic-search/05-reqDetails.png)
@@ -136,21 +114,16 @@ Clique em uma exceção para ver seus detalhes, incluindo o rastreamento de pilh
 ![Clique em uma exceção](./media/app-insights-diagnostic-search/06-callStack.png)
 
 ## Encontrar eventos com a mesma propriedade
-
 Localize todos os itens com o mesmo valor da propriedade:
 
 ![Clique com o botão direito em uma propriedade](./media/app-insights-diagnostic-search/12-samevalue.png)
 
 ## Pesquisar por valor de métrica
-
 Obtenha todas o solicitações com tempo de resposta > 5 s. Tempos são representados em tiques: 10.000 tiques = 1 ms.
 
 !["Tempo de resposta":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
-
-
 ## Pesquisar os dados
-
 Você pode pesquisar termos em qualquer um dos valores de propriedade. Isso é especialmente útil se você tiver gravado [eventos personalizados][track] com valores de propriedade.
 
 Você talvez queira definir um tempo de intervalo, já que pesquisas em um intervalo mais curto são mais rápidas.
@@ -159,33 +132,29 @@ Você talvez queira definir um tempo de intervalo, já que pesquisas em um inter
 
 Observe que você pesquisa por termos e não subcadeias. Os termos são cadeias alfanuméricas que incluem alguns sinais de pontuação como “.” e “\_”. Por exemplo:
 
-Termo|*não* corresponde a|mas corresponde a
----|---|---
-ControladorInicial.Sobre|sobre<br/>inicial|i*sobre<br/>inicial*
-ÉLocal|local<br/>é<br/>*local|él*<br/>élocal<br/>é*l
-Novo Atraso|o a|novo<br/>atraso<br/>n* AND d*
-
+| Termo | *não* corresponde a | mas corresponde a |
+| --- | --- | --- |
+| ControladorInicial.Sobre |sobre<br/>inicial |i*sobre<br/>inicial* |
+| ÉLocal |local<br/>é<br/>*local |él*<br/>élocal<br/>é*l |
+| Novo Atraso |o a |novo<br/>atraso<br/>n* AND d* |
 
 Estas são algumas expressões de pesquisa que você pode usar:
 
-Exemplo de consulta | Efeito 
----|---
-lento|Encontra todos os eventos no intervalo de tempo cujos campos incluem o termo "lento"
-banco de dados|Corresponde ao banco de dados01, banco de dadosAB, ...<br/>? não é permitido no início de um termo de pesquisa.
-banco de dados* |Corresponde ao banco de dados, banco de dados01, banco de dadosNNNN<br/> * não é permitido no início de um termo de pesquisa
-maçã AND banana|Encontra eventos que contêm os dois termos. Use "AND” em letras maiúsculas, e não "and".
-maçã OR banana<br/>maçã|Encontra eventos que contêm um dos dois termos. Use "OR" não "or".</br/>Forma abreviada.
-maçã NOT banana<br/>maçã -banana|Encontre eventos que contêm um dos termos, mas não o outro.<br/>Forma abreviada.
-maç* AND banana -(uva pera)|Operadores lógicos e uso de colchetes.
-"Métrica": 0 TO 500<br/>"Métrica": 500 TO * | Encontre eventos que contêm a medição especificada dentro do intervalo de valores.
-
+| Exemplo de consulta | Efeito |
+| --- | --- |
+| lento |Encontra todos os eventos no intervalo de tempo cujos campos incluem o termo "lento" |
+| banco de dados |Corresponde ao banco de dados01, banco de dadosAB, ...<br/>? não é permitido no início de um termo de pesquisa. |
+| banco de dados* |Corresponde ao banco de dados, banco de dados01, banco de dadosNNNN<br/> * não é permitido no início de um termo de pesquisa |
+| maçã AND banana |Encontra eventos que contêm os dois termos. Use "AND” em letras maiúsculas, e não "and". |
+| maçã OR banana<br/>maçã |Encontra eventos que contêm um dos dois termos. Use "OR" não "or".</br/>Forma abreviada. |
+| maçã NOT banana<br/>maçã -banana |Encontre eventos que contêm um dos termos, mas não o outro.<br/>Forma abreviada. |
+| maç* AND banana -(uva pera) |Operadores lógicos e uso de colchetes. |
+| "Métrica": 0 TO 500<br/>"Métrica": 500 TO * |Encontre eventos que contêm a medição especificada dentro do intervalo de valores. |
 
 ## Salvar sua pesquisa
-
 Quando você definiu todos os filtros que deseja, você pode salvar a pesquisa como um favorito. Se você trabalha em uma conta organizacional, você pode optar por compartilhá-la com outros membros da equipe.
 
 ![Clique em Favorito, defina o nome e clique em Salvar](./media/app-insights-diagnostic-search/08-favorite-save.png)
-
 
 Para ver a pesquisa novamente, **vá até a folha de visão geral** e abra Favoritos:
 
@@ -193,9 +162,7 @@ Para ver a pesquisa novamente, **vá até a folha de visão geral** e abra Favor
 
 Se você os salvou com o intervalo de tempo Relativo, a folha reaberta contém os dados mais recentes. Se você os salvou com o intervalo de tempo Absoluto, consulte os mesmos dados, sempre.
 
-
 ## Enviar mais telemetria para o Application Insights
-
 Além de telemetria da caixa enviada pelo SDK do Application Insights, você pode:
 
 * Capturar rastreamentos de log da sua estrutura de registros favorita no [.NET][netlogs] ou [Java][javalogs]. Isso significa que você pode pesquisar os rastreamentos de log e correlacioná-los com outros eventos, exceções e visualizações de página. 
@@ -203,24 +170,17 @@ Além de telemetria da caixa enviada pelo SDK do Application Insights, você pod
 
 [Saiba como enviar logs e telemetria personalizada para o Application Insights][trace].
 
-
 ## <a name="questions"></a>Perguntas e respostas
-
 ### <a name="limits"></a>Que quantidade de dados é mantida?
-
 Até 500 eventos por segundo de cada aplicativo. Os eventos são retidos por sete dias.
 
 ### Como consultar dados de POSTAGEM nas minhas solicitações de servidor?
-
 Nós não registramos os dados de POSTAGEM automaticamente, mas você pode usar [chamadas de log ou TrackTrace][trace]. Coloque os dados de POSTAGEM no parâmetro de mensagem. Você não pode filtrar a mensagem assim como pode filtrar propriedades, mas o limite de tamanho é maior.
 
 ## <a name="add"></a>Próximas etapas
-
 * [Enviar logs e telemetria personalizada para o Application Insights][trace]
 * [Configurar testes de disponibilidade e capacidade de resposta][availability]
 * [Solucionar problemas][qna]
-
-
 
 <!--Link references-->
 
@@ -232,6 +192,6 @@ Nós não registramos os dados de POSTAGEM automaticamente, mas você pode usar 
 [trace]: app-insights-search-diagnostic-logs.md
 [track]: app-insights-api-custom-events-metrics.md
 
- 
+
 
 <!---HONumber=AcomDC_0615_2016-->

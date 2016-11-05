@@ -1,35 +1,32 @@
-<properties 
-	pageTitle="Logs de streaming e console" 
-	description="Logs de streaming e visão geral do console" 
-	authors="btardif" 
-	manager="wpickett" 
-	editor="" 
-	services="app-service\web" 
-	documentationCenter=""/>
+---
+title: Logs de streaming e console
+description: Logs de streaming e visão geral do console
+author: btardif
+manager: wpickett
+editor: ''
+services: app-service\web
+documentationcenter: ''
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/26/2016" 
-	ms.author="byvinyal"/>
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/26/2016
+ms.author: byvinyal
 
-#Logs de streaming e o console
-
-### Logs de streaming ###
-
+---
+# Logs de streaming e o console
+### Logs de streaming
 O Portal do Microsoft Azure fornece um visualizador de log de streaming integrado que permite que você exiba os eventos de rastreamento de seus aplicativos do Serviço de Aplicativo em tempo real.
 
 A configuração disso exige algumas etapas simples:
 
-- Escrever rastreamentos no código
-- Habilitar o Diagnóstico de Aplicativo no Portal do Azure
-- Clique na parte de logs de streaming na folha do aplicativo Web
+* Escrever rastreamentos no código
+* Habilitar o Diagnóstico de Aplicativo no Portal do Azure
+* Clique na parte de logs de streaming na folha do aplicativo Web
 
-### Como escrever rastreamentos no código ###
-
+### Como escrever rastreamentos no código
 É fácil escrever rastreamentos no código. No C#, é tão fácil quanto escrever o seguinte código:
 
 `````````````````````````
@@ -52,9 +49,9 @@ Em um aplicativo node. js, você pode escrever esse código para obter o mesmo r
 console.log("My trace statement").
 `````````````````````````
 
-### Como habilitar e exibir os logs de streaming ###
+### Como habilitar e exibir os logs de streaming
 ![][BrowseSitesScreenshot] Os diagnósticos são habilitados de acordo com cada aplicativo Web. De dentro do [portal](https://portal.azure.com), navegue até o site para o qual deseja habilitar este recurso.
-  
+
 ![][DiagnosticsLogs] Em seguida, clique em **(1) Configurações** > **(2) Logs de diagnóstico** e **(3)ative** o **Registro em log do aplicativo (Sistema de arquivos)** ou **Registro em log do aplicativo (blob)**. A opção **Nível** permite alterar o nível de gravidade de rastreamentos a serem capturados. Você deverá defini-lo como **Detalhado** se estiver tentando se familiarizar com o recurso porque isso garantirá que todas as instruções de rastreamento sejam registradas.
 
 Clique em **SALVAR** na parte superior da lâmina, e você está pronto para exibir logs.
@@ -63,7 +60,7 @@ Clique em **SALVAR** na parte superior da lâmina, e você está pronto para exi
 
 ![][StreamingLogsScreenshot] Para exibir os logs em fluxo de dentro do portal, clique em **(1) Ferramentas** > **(2) Fluxo de Log**. Se o aplicativo Web estiver gravando ativamente instruções de rastreamento, você deverá vê-las na **(3)** janela resultante quase em tempo real.
 
-## Console ##
+## Console
 O Portal do Azure dá ao console acesso ao ambiente do aplicativo Web. É possível explorar o sistema de arquivos do aplicativo Web e executar scripts do powershell/cmd. Você está vinculado às mesmas permissões definidas como o código do aplicativo Web em execução durante a execução dos comandos do console. Você não poderá acessar os diretórios protegidos ou executar scripts que exigem permissões elevadas.
 
 ![][ConsoleScreenshot] Para chegar ao console, procure um aplicativo Web conforme descrito na seção acima. Clique em **(1)Ferramentas**>**(2)Console** e o **(3)** console será aberto.

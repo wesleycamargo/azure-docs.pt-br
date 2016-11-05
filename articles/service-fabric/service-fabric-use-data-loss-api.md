@@ -1,49 +1,47 @@
-<properties
-   pageTitle="Como invocar a perda de dados nos serviços do Service Fabric | Microsoft Azure"
-   description="Descreve como usar a api de perda de dados"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="LMWF"
-   manager="rsinha"
-   editor=""/>
+---
+title: Como invocar a perda de dados nos serviços do Service Fabric | Microsoft Docs
+description: Descreve como usar a api de perda de dados
+services: service-fabric
+documentationcenter: .net
+author: LMWF
+manager: rsinha
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/19/2016"
-   ms.author="lemai"/>
-   
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/19/2016
+ms.author: lemai
+
+---
 # Como invocar a perda de dados nos serviços
-
->[AZURE.WARNING] Este documento descreve como fazer com que os dados em seus serviços se percam, devendo ser usado com cuidado.
+> [!WARNING]
+> Este documento descreve como fazer com que os dados em seus serviços se percam, devendo ser usado com cuidado.
+> 
+> 
 
 ## Introdução
 Você pode invocar a perda de dados em uma partição do serviço do Service Fabric chamando StartPartitionDataLossAsync(). Essa api usa o Serviço de Análise e Injeção de Falha para executar o trabalho que causa as condições de perda de dados.
 
 ## Usando o Serviço de Análise e Injeção de Falha
-
 Atualmente, o Serviço de Análise e Injeção de Falha é compatível com as APIs do quadro abaixo. À direita, temos o cmdlet do PowerShell correspondente. Consulte a documentação do msdn em cada API para obter mais informações sobre cada uma.
 
 | API do C# | Cmdlet do PowerShell |
-|-------------------------------------|-----------------------------------------------:|
-|[StartPartitionDataLossAsync][dl] |[Start-ServiceFabricPartitionDataLoss][psdl] |
-|[StartPartitionQuorumLossAsync][ql] |[Start-ServiceFabricPartitionQuorumLoss][psql] |
-|[StartPartitionRestartAsync][rp] |[Start-ServiceFabricPartitionRestart][psrp] |
+| --- | ---:|
+| [StartPartitionDataLossAsync][dl] |[Start-ServiceFabricPartitionDataLoss][psdl] |
+| [StartPartitionQuorumLossAsync][ql] |[Start-ServiceFabricPartitionQuorumLoss][psql] |
+| [StartPartitionRestartAsync][rp] |[Start-ServiceFabricPartitionRestart][psrp] |
 
 ## Visão geral conceitual de execução de um comando
-
 O Serviço Análise e Injeção de Falha usa um modelo assíncrono em que você inicia o comando com uma API, conhecida como a API "Start" neste documento, em seguida, verifica o progresso desse comando usando uma API "GetProgress" até que ela tenha atingido um estado terminal ou até que você a cancele. Para iniciar um comando, chame a API "Start" da API correspondente. Essa API retornará quando o Serviço de Análise e Injeção de Falha tiver aceitado a solicitação. No entanto, ela não indica o quanto um comando foi executado, nem mesmo se ele já foi iniciado. Para verificar o andamento de um comando, chame a API "GetProgress" que corresponde à API "Start" chamada anteriormente. A API "GetProgress" retornará um objeto que indica o status atual do comando dentro de sua propriedade State. Um comando é executado indefinidamente até:
 
-1.	Que seja concluído com êxito. Se você chamar "GetProgress" dentro dele nesse caso, o estado do objeto de progresso será concluído.
-2.	Que ele encontre um erro fatal. Se você chamar "GetProgress" dentro dele nesse caso, a State do objeto de progresso será Faulted
-3.	Você o cancela por meio da API [CancelTestCommandAsync][cancel] ou do cmdlet [Stop-ServiceFabricTestCommand][cancelps] do PowerShell. Se você chamar "GetProgress" dentro dele nesse caso, a State do objeto de progresso será Cancelled ou ForceCancelled, dependendo de um argumento para essa API. Confira a documentação de [CancelTestCommandAsync][cancel] para obter mais detalhes.
-
+1. Que seja concluído com êxito. Se você chamar "GetProgress" dentro dele nesse caso, o estado do objeto de progresso será concluído.
+2. Que ele encontre um erro fatal. Se você chamar "GetProgress" dentro dele nesse caso, a State do objeto de progresso será Faulted
+3. Você o cancela por meio da API [CancelTestCommandAsync][cancel] ou do cmdlet [Stop-ServiceFabricTestCommand][cancelps] do PowerShell. Se você chamar "GetProgress" dentro dele nesse caso, a State do objeto de progresso será Cancelled ou ForceCancelled, dependendo de um argumento para essa API. Confira a documentação de [CancelTestCommandAsync][cancel] para obter mais detalhes.
 
 ## Detalhes da execução de um comando
-
 Para iniciar um comando, chame a API Start com os argumentos esperados. Todas as APIs Start têm um argumento GUID chamado operationId. É preciso controlar o argumento operationId, uma vez que ele é usado para rastrear o progresso desse comando. Ele deve ser passado para a API "GetProgress" para rastrear o progresso do comando. A operationId deve ser exclusiva.
 
 Depois de chamar a API Start com êxito, a API GetProgress deverá ser chamada em um loop até que a propriedade State do objeto de progresso seja Completed. Todas as [FabricTransientException’s][fte] e OperationCanceledException’s devem ser recuperadas. Quando o comando tiver atingido um estado terminal (Completed, Faulted ou Cancelled), a propriedade Result do objeto de progresso retornado terá informações adicionais. Se o estado for Completed, Result.SelectedPartition.PartitionId conterá a id da partição que foi selecionada. Result.Exception será nulo. Se o estado for Faulted, Result.Exception apresentará o motivo pelo qual o comando do Serviço de Análise e Injeção de Falha falhou. Result.SelectedPartition.PartitionId terá a id da partição que foi selecionada. Em algumas situações, o comando pode não ser executado o suficiente para escolher uma partição. Nesse caso, PartitionId será 0. Se o estado for Cancelled, Result.Exception será nulo. Assim como no caso de Faulted, Result.SelectedPartition.PartitionId terá a id da partição que foi escolhida, mas se o comando não tiver prosseguido o suficiente para isso, será 0. Veja também o exemplo abaixo.
@@ -219,7 +217,6 @@ O exemplo abaixo mostra como usar PartitionSelector para escolher uma partição
 ```
 
 ## Histórico e truncamento
-
 Depois que um comando tiver atingido um estado terminal, seus metadados permanecerão no Serviço de Análise e Injeção de Falha por um tempo determinado, antes de ser removido para economia de espaço. Se "GetProgress" for chamado usando operationId de um comando depois que ele tiver sido removido, ele retornará uma FabricException com um ErrorCode de KeyNotFound.
 
 [dl]: https://msdn.microsoft.com/library/azure/mt693569.aspx

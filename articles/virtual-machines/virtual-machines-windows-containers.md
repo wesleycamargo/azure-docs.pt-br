@@ -1,29 +1,24 @@
-<properties
-	pageTitle="Máquinas Virtuais e Contêineres | Microsoft Azure"
-	description="Descreve as máquinas virtuais, os contêineres do Docker e Linux e seu uso em grupos de cada um deles no Azure, incluindo os benefícios de cada um e os cenários em que cada abordagem funciona muito bem."
-	services="virtual-machines-windows"
-	documentationCenter="virtual-machines"
-	authors="squillace"
-	manager="timlt"
-	tags="azure-resource-manager,azure-service-management"
-/>
+---
+title: Máquinas Virtuais e Contêineres | Microsoft Docs
+description: Descreve as máquinas virtuais, os contêineres do Docker e Linux e seu uso em grupos de cada um deles no Azure, incluindo os benefícios de cada um e os cenários em que cada abordagem funciona muito bem.
+services: virtual-machines-windows
+documentationcenter: virtual-machines
+author: squillace
+manager: timlt
+tags: azure-resource-manager,azure-service-management
 
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 08/23/2016
+ms.author: rasquill
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="infrastructure"
-	ms.date="08/23/2016"
-	ms.author="rasquill"
-/>
-
-
+---
 # Máquinas virtuais e contêineres no Azure
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
-[AZURE.INCLUDE [virtual-machines-common-and-containers](../../includes/virtual-machines-common-containers.md)]
+[!INCLUDE [virtual-machines-common-and-containers](../../includes/virtual-machines-common-containers.md)]
 
 <!---HONumber=AcomDC_0824_2016-->

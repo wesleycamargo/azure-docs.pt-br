@@ -1,37 +1,33 @@
-<properties
-    pageTitle="Otimize seu ambiente com a solução de Service Fabric no Log Analytics | Microsoft Azure"
-    description="Você pode usar a solução de Service Fabric para avaliar o risco e a integridade dos aplicativos, microsserviços, nós e clusters do seu Service Fabric."
-    services="log-analytics"
-    documentationCenter=""
-    authors="niniikhena"
-    manager="jochan"
-    editor=""/>
+---
+title: Otimize seu ambiente com a solução de Service Fabric no Log Analytics | Microsoft Docs
+description: Você pode usar a solução de Service Fabric para avaliar o risco e a integridade dos aplicativos, microsserviços, nós e clusters do seu Service Fabric.
+services: log-analytics
+documentationcenter: ''
+author: niniikhena
+manager: jochan
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/21/2016"
-    ms.author="nini"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/21/2016
+ms.author: nini
 
-
-
-
-
+---
 # <a name="service-fabric-solution-in-log-analytics"></a>Service Fabric Solution in Log Analytics (Solução do Service Fabric no Log Analytics)
-
-> [AZURE.SELECTOR]
-- [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
-- [PowerShell](log-analytics-service-fabric.md)
+> [!div class="op_single_selector"]
+> * [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
+> * [PowerShell](log-analytics-service-fabric.md)
+> 
+> 
 
 Este artigo descreve como usar a solução do Service Fabric no Log Analytics para ajuda-lo a identificar e solucionar problemas em seu cluster do Service Fabric obtendo visibilidade em como os nós do Service Fabric estão executando e como seus aplicativos e microsserviços estão sendo executados.
 
 A solução de Service Fabric usa dados de Diagnóstico do Azure das suas VMs do Service Fabric, coletando esses dados de suas tabelas do Azure WAD. O Log Analytics, em seguida, lê eventos da estrutura do Service Fabric, incluindo **Eventos de Serviço Confiável**, **Eventos de Ator**, **Eventos Operacionais** e **Eventos de ETW Personalizados**. O painel de solução do Service Fabric exibe problemas importantes e eventos relevantes no seu ambiente do Service Fabric.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
-
 Siga estas três etapas fáceis para instalar e configurar a solução:
 
 1. Certifique-se de que o espaço de trabalho do OMS que você usa esteja associado à mesma assinatura do Azure que você usou para criar todos os recursos de cluster, incluindo contas de armazenamento. Consulte [Introdução ao Log Analytics](log-analytics-get-started.md) para obter informações sobre como criar um espaço de trabalho do OMS.
@@ -41,17 +37,19 @@ Siga estas três etapas fáceis para instalar e configurar a solução:
 ## <a name="configure-oms-to-collect-and-view-service-fabric-logs"></a>Configurar o OMS para coletar e exibir logs do Service Fabric
 Nesta seção, você saberá como configurar o OMS para recuperar os logs do Service Fabric. Os logs permitem que você veja e solucione problemas no cluster ou nos aplicativos e serviços em execução nesse cluster usando o portal do OMS.
 
->[AZURE.NOTE] Isso significa que a extensão de Diagnóstico do Azure deve ser configurada para carregar os logs em tabelas de armazenamento que correspondam aos que o OMS vai procurar. Consulte [Como coletar logs com o Diagnóstico do Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md) para obter mais informações sobre como coletar logs. Os exemplos de definições de configuração neste artigo mostrarão quais devem ser os nomes das tabelas de armazenamento. Depois que o diagnóstico for configurado no cluster e estiver carregando os logs para uma conta de armazenamento, a próxima etapa será configurar o OMS para coletar esses logs.
+> [!NOTE]
+> Isso significa que a extensão de Diagnóstico do Azure deve ser configurada para carregar os logs em tabelas de armazenamento que correspondam aos que o OMS vai procurar. Consulte [Como coletar logs com o Diagnóstico do Azure](../service-fabric/service-fabric-diagnostics-how-to-setup-wad.md) para obter mais informações sobre como coletar logs. Os exemplos de definições de configuração neste artigo mostrarão quais devem ser os nomes das tabelas de armazenamento. Depois que o diagnóstico for configurado no cluster e estiver carregando os logs para uma conta de armazenamento, a próxima etapa será configurar o OMS para coletar esses logs.
+> 
+> 
 
 Certifique-se de que atualizou a seção **EtwEventSourceProviderConfiguration** no arquivo **template.json** para adicionar entradas no novo EventSources antes de aplicar a atualização de configuração executando **deploy.ps1**. A tabela de upload é igual a (ETWEventTable). No momento, o OMS só pode ler eventos de ETW de aplicativo dessa tabela. No entanto, o suporte para tabelas de ETW personalizadas está em desenvolvimento.
 
 Estas ferramentas são usadas para executar algumas das operações nesta seção:
 
--   Azure PowerShell
--   [Operations Management Suite](http://www.microsoft.com/oms)
+* Azure PowerShell
+* [Operations Management Suite](http://www.microsoft.com/oms)
 
 ### <a name="configure-an-oms-workspace-to-show-the-cluster-logs"></a>Configurar um espaço de trabalho do OMS para exibir os logs do cluster
-
 Depois de criar um espaço de trabalho do OMS conforme descrito acima, a próxima etapa é configurar o espaço de trabalho para extrair os logs das tabelas do armazenamento do Azure, em que eles estão sendo carregados do cluster pela extensão Diagnóstico. Para fazer isso, execute o seguinte script do PowerShell:
 
 ```
@@ -345,34 +343,32 @@ Depois que a solução estiver habilitada, o bloco do Service Fabric é adiciona
 ![Bloco do Service Fabric](./media/log-analytics-service-fabric/sf2.png)
 
 ### <a name="view-service-fabric-events"></a>Exibir eventos do Service Fabric
-
 Clique no bloco do **Service Fabric** para abrir o painel do Service Fabric. O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principais eventos por contagem que correspondem aos critérios da coluna para o intervalo especificado. É possível executar uma pesquisa de log que fornece a lista inteira clicando em **Ver todos** no canto inferior direito de cada coluna ou clicando no cabeçalho da coluna.
 
 | **Evento do Service Fabric** | **description** |
 | --- | --- |
-| Problemas importantes | Uma exibição de problemas como RunAsyncFailures RunAsynCancellations e nós com falha. |
-| Eventos operacionais | Eventos operacionais importantes, como atualização de aplicativos e implantações. |
-| Eventos de serviço confiável | Eventos importantes de serviços confiáveis, como Runasyncinvocations. |
-| Eventos de ator | Eventos de ator importantes gerados pelos seus microsserviços, como exceções lançadas por um método de ator, ativações e desativações de ator e assim por diante. |
-| Eventos de aplicativo | Todos os eventos de ETW personalizados gerados por seus aplicativos. |
+| Problemas importantes |Uma exibição de problemas como RunAsyncFailures RunAsynCancellations e nós com falha. |
+| Eventos operacionais |Eventos operacionais importantes, como atualização de aplicativos e implantações. |
+| Eventos de serviço confiável |Eventos importantes de serviços confiáveis, como Runasyncinvocations. |
+| Eventos de ator |Eventos de ator importantes gerados pelos seus microsserviços, como exceções lançadas por um método de ator, ativações e desativações de ator e assim por diante. |
+| Eventos de aplicativo |Todos os eventos de ETW personalizados gerados por seus aplicativos. |
 
 ![Painel do Service Fabric](./media/log-analytics-service-fabric/sf3.png)
 
 ![Painel do Service Fabric](./media/log-analytics-service-fabric/sf4.png)
 
-
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o Service Fabric.
 
 | plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
-|---|---|---|---|---|---|---|
-|Windows|![Não](./media/log-analytics-malware/oms-bullet-red.png)|![Não](./media/log-analytics-malware/oms-bullet-red.png)| ![Sim](./media/log-analytics-malware/oms-bullet-green.png)|            ![Não](./media/log-analytics-malware/oms-bullet-red.png)|![Não](./media/log-analytics-malware/oms-bullet-red.png)|10 minutos |
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Não](./media/log-analytics-malware/oms-bullet-red.png) |![Não](./media/log-analytics-malware/oms-bullet-red.png) |![Sim](./media/log-analytics-malware/oms-bullet-green.png) |![Não](./media/log-analytics-malware/oms-bullet-red.png) |![Não](./media/log-analytics-malware/oms-bullet-red.png) |10 minutos |
 
-
->[AZURE.NOTE] Você pode alterar o escopo desses eventos na solução de Service Fabric clicando em **Dados baseados nos últimos 7 dias** na parte superior do painel. Você também pode exibir eventos gerados dentro dos últimos 7 dias, 1 dia ou 6 horas. Ou você pode selecionar **Personalizado** e especificar um intervalo de datas personalizado.
-
+> [!NOTE]
+> Você pode alterar o escopo desses eventos na solução de Service Fabric clicando em **Dados baseados nos últimos 7 dias** na parte superior do painel. Você também pode exibir eventos gerados dentro dos últimos 7 dias, 1 dia ou 6 horas. Ou você pode selecionar **Personalizado** e especificar um intervalo de datas personalizado.
+> 
+> 
 
 ## <a name="troubleshoot-your-service-fabric-and-oms-configuration"></a>Solucionar problemas de configuração do Service Fabric e do OMS
-
 Se você precisar verificar a configuração do OMS porque você não pode exibir dados de evento no OMS, use o script a seguir. Ele lê sua configuração de diagnóstico do Service Fabric, verifica os dados que estão sendo gravados em tabelas e verifica se o OMS está configurado para ler das tabelas.
 
 ```
@@ -635,10 +631,7 @@ foreach($storageAccount in $storageAccountsToCheck)
 
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados dos eventos do Service Fabric.
-
-
+* Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados dos eventos do Service Fabric.
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,35 +1,32 @@
-<properties
-  pageTitle="Conectar um Serviço de Nuvem em um Controlador de Domínio personalizado | Microsoft Azure"
-  description="Saiba como conectar suas funções web/de trabalho a um domínio do AD personalizado usando o PowerShell e a extensão de domínio do AD"
-  services="cloud-services"
-  documentationCenter=""
-  authors="Thraka"
-  manager="timlt"
-  editor=""/>
+---
+title: Conectar um Serviço de Nuvem em um Controlador de Domínio personalizado | Microsoft Docs
+description: Saiba como conectar suas funções web/de trabalho a um domínio do AD personalizado usando o PowerShell e a extensão de domínio do AD
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
+editor: ''
 
-  <tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="adegeo"/>
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: adegeo
 
+---
 # Conectando funções dos Serviços de Nuvem do Azure a um controlador de domínio do AD personalizado hospedado no Azure
-
 Primeiro iremos definir a uma Rede Virtual (VNet) no Azure. Em seguida, adicionaremos um Controlador de Domínio do Active Directory (hospedado em uma Máquina Virtual do Azure) à VNet. Em seguida, adicionaremos funções de serviço de nuvem existentes à VNet pré-criada e as conectaremos posteriormente ao controlador de domínio.
 
 Antes de começar, algumas das coisas que você precisa ter em mente:
 
-1.	Este tutorial usa o PowerShell; portanto, certifique-se de que o Azure PowerShell esteja instalado e pronto. Para obter ajuda na configuração do Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
-
-2.	As instâncias do controlador de domínio do AD e a função web/de trabalho precisam estar na VNet.
+1. Este tutorial usa o PowerShell; portanto, certifique-se de que o Azure PowerShell esteja instalado e pronto. Para obter ajuda na configuração do Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+2. As instâncias do controlador de domínio do AD e a função web/de trabalho precisam estar na VNet.
 
 Siga este guia passo a passo e, se tiver algum problema, deixe um comentário abaixo. Alguém entrará em contato com você (sim, lemos comentários).
 
 ## Criar uma rede virtual
-
 Você pode criar uma Rede Virtual no Azure usando o portal clássico do Azure ou o PowerShell. Para este tutorial, usaremos o PowerShell. Para criar uma Rede virtual usando o portal clássico do Azure, confira [Criar uma rede virtual](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 ```powershell
@@ -60,7 +57,6 @@ Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath
 ```
 
 ## Criar uma Máquina Virtual
-
 Depois de ter concluído a configuração da rede virtual, você precisará criar um controlador de domínio do AD. Para este tutorial, vamos configurar um controlador de domínio do AD em uma máquina virtual do Azure.
 
 Para fazer isso, crie uma máquina virtual por meio do PowerShell usando os comandos abaixo:
@@ -94,7 +90,6 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
 Depois de fazer logon na VM, configure sua Máquina virtual como um Controlador de domínio do AD, seguindo o guia passo a passo [Como configurar o Controlador de domínio do AD do cliente](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## Adicionar seu Serviço de Nuvem à Rede Virtual
-
 Em seguida, você precisa adicionar a implantação do serviço de nuvem à VNet que acabou de criar. Para fazer isso, modifique seu cscfg do serviço de nuvem adicionando as seções relevantes ao seu cscfg usando o Visual Studio ou o editor de sua escolha.
 
 ```xml
@@ -128,7 +123,6 @@ Em seguida, você precisa adicionar a implantação do serviço de nuvem à VNet
 Em seguida, compile o projeto de serviços de nuvem e implante-o no Azure. Para obter ajuda com a implantação do pacote de serviços de nuvem no Azure, consulte [Como criar e implantar um Serviço de Nuvem](cloud-services-how-to-create-deploy.md#deploy)
 
 ## Conectar sua(s) função(ões) Web/de trabalho ao domínio
-
 Quando seu projeto de serviço de nuvem for implantado no Azure, conecte suas instâncias de função ao domínio do AD personalizado usando a extensão de domínio do AD. Para adicionar a Extensão de Domínio do AD à sua implantação de serviços de nuvem existente e ingressar no domínio personalizado, execute os seguintes comandos do PowerShell:
 
 ```powershell

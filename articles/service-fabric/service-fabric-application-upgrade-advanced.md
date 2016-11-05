@@ -1,32 +1,32 @@
-<properties
-   pageTitle="Atualização de aplicativos: tópicos avançados | Microsoft Azure"
-   description="Este artigo aborda alguns tópicos avançados relativos à atualização de um aplicativo do Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="mani-ramaswamy"
-   manager="timlt"
-   editor=""/>
+---
+title: 'Atualização de aplicativos: tópicos avançados | Microsoft Docs'
+description: Este artigo aborda alguns tópicos avançados relativos à atualização de um aplicativo do Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: mani-ramaswamy
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/14/2016"
-   ms.author="subramar"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/14/2016
+ms.author: subramar
 
+---
 # Atualização do aplicativo Service Fabric: tópicos avançados
-
 ## Adicionando ou removendo serviços durante uma atualização de aplicativo
-
 Se um novo serviço é adicionado a um aplicativo que já foi implantado e publicado como uma atualização, o novo serviço é adicionado ao aplicativo implantado. Essa atualização não afeta os serviços que já fazem parte do aplicativo. No entanto, uma instância do serviço que foi adicionado deve ser iniciada para que o novo serviço seja ativado (usando o cmdlet `New-ServiceFabricService`).
 
 Os serviços também podem ser removidos de um aplicativo como parte de uma atualização. No entanto, todas as instâncias do serviço a ser excluído devem ser interrompidas antes de prosseguir com a atualização (usando o cmdlet `Remove-ServiceFabricService`).
 
 ## Modo de atualização manual
-
-> [AZURE.NOTE]  O modo manual não monitorado só deverá ser considerado em caso de atualização com falha ou suspensa. O modo monitorado é o modo de atualização recomendado para aplicativos do Service Fabric.
+> [!NOTE]
+> O modo manual não monitorado só deverá ser considerado em caso de atualização com falha ou suspensa. O modo monitorado é o modo de atualização recomendado para aplicativos do Service Fabric.
+> 
+> 
 
 O Service Fabric do Azure fornece vários modos de atualização para dar suporte a clusters de desenvolvimento e de produção. As opções de implantação escolhidas podem ser diferentes para ambientes diferentes.
 
@@ -40,7 +40,6 @@ Finalmente, a atualização do aplicativo automatizada sem interrupção é úti
 **Manual**: para a atualização do aplicativo no UD atual e altera o modo de atualização para Manual Não Monitorado. O administrador precisa chamar manualmente **MoveNextApplicationUpgradeDomainAsync** para continuar com a atualização ou disparar uma reversão iniciando uma nova atualização. Depois que a atualização entra no modo manual, ela permanece no modo manual até que uma nova atualização seja iniciada. O comando **GetApplicationUpgradeProgressAsync** retorna FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING.
 
 ## Atualizar usando um pacote diff
-
 Um aplicativo Malha do Serviço pode ser atualizado pelo provisionamento com um pacote de aplicativo completo e independente. Também é possível atualizar um aplicativo usando um pacote diff que contém somente os arquivos de aplicativo atualizados, os arquivos de manifesto do serviço e os de manifesto do aplicativo atualizados.
 
 Um pacote de aplicativo completo contém todos os arquivos necessários para iniciar e executar um aplicativo da Malha do Serviço. Um pacote diff contém somente os arquivos alterados entre o último provisionamento e a atualização atual, além de arquivos completos de manifesto do aplicativo e do serviço. Qualquer referência no manifesto do aplicativo ou no manifesto do serviço que não pode ser localizada no layout de build será pesquisada no repositório de imagens.
@@ -50,7 +49,6 @@ São necessários pacotes de aplicativo completos para a primeira instalação d
 Hipóteses em que usar um pacote diff seria uma boa opção:
 
 * Será melhor usar um pacote diff quando você tiver um pacote de aplicativo grande que faça referência a vários arquivos de manifesto do serviço e/ou a vários pacotes de código, de configuração ou de dados.
-
 * Será melhor usar um pacote diff quando você tiver um sistema de implantação que gere o layout de compilação diretamente do seu processo de compilação do aplicativo. Nesse caso, embora o código não tenha mudado, assemblies recém-criados têm uma soma de verificação diferente. O uso de um pacote de aplicativo completo exige que você atualize a versão de todos os pacotes de código. Com o uso de um pacote diff, você fornece somente os arquivos alterados e os arquivos de manifesto em que a versão foi alterada.
 
 Quando um aplicativo é atualizado usando o Visual Studio, o pacote diff é publicado automaticamente. Para criar um pacote diff manualmente, o manifesto do aplicativo e os manifestos do serviço devem ser atualizados, mas apenas os pacotes alterados devem ser incluídos no pacote de aplicativos final.
@@ -58,25 +56,25 @@ Quando um aplicativo é atualizado usando o Visual Studio, o pacote diff é publ
 Por exemplo, vamos começar com o aplicativo a seguir (números de versão fornecidos para facilitar a compreensão):
 
 ```text
-app1       	1.0.0
-  service1 	1.0.0
-    code   	1.0.0
-    config 	1.0.0
-  service2 	1.0.0
-    code   	1.0.0
-    config 	1.0.0
+app1           1.0.0
+  service1     1.0.0
+    code       1.0.0
+    config     1.0.0
+  service2     1.0.0
+    code       1.0.0
+    config     1.0.0
 ```
 
 Agora, vamos supor que você quisesse atualizar apenas o pacote de códigos de service1 usando um pacote diff usando o PowerShell. Agora, seu aplicativo atualizado tem a seguinte estrutura de pastas:
 
 ```text
-app1       	2.0.0      <-- new version
-  service1 	2.0.0      <-- new version
-    code   	2.0.0      <-- new version
-    config 	1.0.0
-  service2 	1.0.0
-    code   	1.0.0
-    config 	1.0.0
+app1           2.0.0      <-- new version
+  service1     2.0.0      <-- new version
+    code       2.0.0      <-- new version
+    config     1.0.0
+  service2     1.0.0
+    code       1.0.0
+    config     1.0.0
 ```
 
 Nesse caso, você atualiza o manifesto do aplicativo para 2.0.0 e o manifesto do serviço para service1 para refletir a atualização do pacote de códigos. A pasta para o pacote de aplicativos teria a seguinte estrutura:
@@ -88,7 +86,6 @@ app1/
 ```
 
 ## Próximas etapas
-
 [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante a atualização de aplicativo usando o Visual Studio.
 
 [Atualização do aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você uma atualização de aplicativo usando o PowerShell.
@@ -98,6 +95,5 @@ Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização]
 Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [Serialização de Dados](service-fabric-application-upgrade-data-serialization.md).
 
 Corrija problemas comuns em atualizações de aplicativo consultando as etapas em [Solução de problemas de atualizações de aplicativo](service-fabric-application-upgrade-troubleshooting.md).
- 
 
 <!---HONumber=AcomDC_0921_2016-->

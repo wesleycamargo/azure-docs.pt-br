@@ -1,38 +1,35 @@
-<properties
-   pageTitle="Visão geral da configuração do Reliable Services do Service Fabric do Azure | Microsoft Azure"
-   description="Saiba como configurar o Reliable Services com estado no Service Fabric do Azure."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="timlt"
-   editor="vturecek"/>
+---
+title: Visão geral da configuração do Reliable Services do Service Fabric do Azure | Microsoft Docs
+description: Saiba como configurar o Reliable Services com estado no Service Fabric do Azure.
+services: Service-Fabric
+documentationcenter: .net
+author: sumukhs
+manager: timlt
+editor: vturecek
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/20/2016"
-   ms.author="sumukhs"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/20/2016
+ms.author: sumukhs
 
+---
 # Configurar Reliable Services com estado
-
 Há dois conjuntos de definições de configuração para Reliable Services. Um conjunto é global para todos os Reliable Services no cluster, enquanto o outro conjunto é específico para um determinado Reliable Service.
 
 ## Configuração Global
-
 A configuração do Reliable Service global é especificada no manifesto do cluster para o cluster na seção KtlLogger. Ela permite a configuração do local e do tamanho do log compartilhado, além dos limites de memória global usados pelo agente. O manifesto do cluster é um arquivo XML individual que contém definições e configurações que se aplicam a todos os nós e serviços no cluster. O arquivo normalmente é chamado de ClusterManifest.xml. Você pode ver o manifesto do cluster do seu cluster usando o comando Get-ServiceFabricClusterManifest powershell.
 
 ### Nomes da configuração
-
-|Nome|Unidade|Valor padrão|Comentários|
-|----|----|-------------|-------|
-|WriteBufferMemoryPoolMinimumInKB|Quilobytes|8388608|O número mínimo de KB a ser alocado no modo kernel para o pool de memória do buffer de gravação do agente. Esse pool de memória é usado para armazenar em cache informações de estado antes da gravação no disco.|
-|WriteBufferMemoryPoolMaximumInKB|Quilobytes|Sem limite|Tamanho máximo que o pool de memória do buffer de gravação do agente pode atingir.|
-|SharedLogId|GUID|""|Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado padrão usado por todos os serviços confiáveis em todos os nós no cluster que não especificam SharedLogId na configuração específica de seu serviço. Se SharedLogId for especificada, SharedLogPath também deverá ser especificada.|
-|SharedLogPath|Nome de caminho totalmente qualificado|""|Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado usado por todos os serviços confiáveis em todos os nós no cluster que não especificam o SharedLogPath na configuração específica de seu serviço. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado.|
-|SharedLogSizeInMB|Megabytes|8192|Especifica o número de MB do espaço em disco a ser alocado estatisticamente para o log compartilhado. O valor deve ser de 2048 ou superior.|
+| Nome | Unidade | Valor padrão | Comentários |
+| --- | --- | --- | --- |
+| WriteBufferMemoryPoolMinimumInKB |Quilobytes |8388608 |O número mínimo de KB a ser alocado no modo kernel para o pool de memória do buffer de gravação do agente. Esse pool de memória é usado para armazenar em cache informações de estado antes da gravação no disco. |
+| WriteBufferMemoryPoolMaximumInKB |Quilobytes |Sem limite |Tamanho máximo que o pool de memória do buffer de gravação do agente pode atingir. |
+| SharedLogId |GUID |"" |Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado padrão usado por todos os serviços confiáveis em todos os nós no cluster que não especificam SharedLogId na configuração específica de seu serviço. Se SharedLogId for especificada, SharedLogPath também deverá ser especificada. |
+| SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado usado por todos os serviços confiáveis em todos os nós no cluster que não especificam o SharedLogPath na configuração específica de seu serviço. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
+| SharedLogSizeInMB |Megabytes |8192 |Especifica o número de MB do espaço em disco a ser alocado estatisticamente para o log compartilhado. O valor deve ser de 2048 ou superior. |
 
 ### Seção do exemplo do manifesto do cluster
 ```xml
@@ -52,17 +49,18 @@ As configurações SharedLogId e SharedLogPath sempre são usadas juntas para de
 
 SharedLogSizeInMB especifica a quantidade de espaço em disco a ser pré-alocada para o log compartilhado padrão em todos os nós. SharedLogId e SharedLogPath não precisam ser especificadas para que SharedLogSizeInMB seja especificada.
 
-
 ## Configuração específica de serviço
 A Configuração padrão dos Reliable Services com estado pode ser modificada por meio do pacote de configuração (Config) ou da implementação do serviço (código).
 
-+ **Config** – a configuração por meio do pacote de configuração é feita alterando o arquivo "Settings.xml" gerado na raiz do pacote do Microsoft Visual Studio sob a pasta "Config" para cada serviço no aplicativo.
-+ **Código** - A configuração via código é feita com a criação de um ReliableStateManager usando um objeto ReliableStateManagerConfiguration com o conjunto de opções apropriadas.
+* **Config** – a configuração por meio do pacote de configuração é feita alterando o arquivo "Settings.xml" gerado na raiz do pacote do Microsoft Visual Studio sob a pasta "Config" para cada serviço no aplicativo.
+* **Código** - A configuração via código é feita com a criação de um ReliableStateManager usando um objeto ReliableStateManagerConfiguration com o conjunto de opções apropriadas.
 
 Por padrão, o tempo de execução do Service Fabric do Azure procura nomes de seção predefinidos no arquivo "Settings.xml" e consome os valores de configuração ao criar os componentes de tempo de execução subjacentes.
 
->[AZURE.NOTE] **Não** exclua os nomes de seção das configurações a seguir no arquivo Settings.xml gerado na solução do Visual Studio, a menos que pretenda configurar o serviço via código. Renomear os nomes de pacote ou a seção de configuração exigirá uma alteração de código ao configurar o ReliableStateManager.
-
+> [!NOTE]
+> **Não** exclua os nomes de seção das configurações a seguir no arquivo Settings.xml gerado na solução do Visual Studio, a menos que pretenda configurar o serviço via código. Renomear os nomes de pacote ou a seção de configuração exigirá uma alteração de código ao configurar o ReliableStateManager.
+> 
+> 
 
 ### Configuração de segurança do replicador
 As configurações de segurança do replicador servem para proteger o canal de comunicação que é usado durante a replicação. Isso significa que os serviços não poderão ver o tráfego de replicação uns dos outros, garantindo que os dados com alta disponibilidade também estejam seguros. Por padrão, uma seção de configuração de segurança vazia evita a segurança de replicação.
@@ -70,8 +68,10 @@ As configurações de segurança do replicador servem para proteger o canal de c
 ### Nome padrão da seção
 ReplicatorSecurityConfig
 
->[AZURE.NOTE] Para alterar o nome da seção, substitua o parâmetro replicatorSecuritySectionName pelo construtor ReliableStateManagerConfiguration ao criar ReliableStateManager para este serviço.
-
+> [!NOTE]
+> Para alterar o nome da seção, substitua o parâmetro replicatorSecuritySectionName pelo construtor ReliableStateManagerConfiguration ao criar ReliableStateManager para este serviço.
+> 
+> 
 
 ### Configuração do replicador
 As configurações do replicador configuram o replicador que é responsável por tornar o estado do Reliable Service com estado altamente confiável por meio da replicação e da persistência do estado localmente. A configuração padrão é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre configurações adicionais que estão disponíveis para ajustar o replicador.
@@ -79,21 +79,23 @@ As configurações do replicador configuram o replicador que é responsável por
 ### Nome padrão da seção
 ReplicatorConfig
 
->[AZURE.NOTE] Para alterar o nome da seção, substitua o parâmetro replicatorSettingsSectionName pelo construtor ReliableStateManagerConfiguration ao criar ReliableStateManager para este serviço.
-
+> [!NOTE]
+> Para alterar o nome da seção, substitua o parâmetro replicatorSettingsSectionName pelo construtor ReliableStateManagerConfiguration ao criar ReliableStateManager para este serviço.
+> 
+> 
 
 ### Nomes da configuração
-|Nome|Unidade|Valor padrão|Comentários|
-|----|----|-------------|-------|
-|BatchAcknowledgementInterval|Segundos|0,015|Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta.|
-|ReplicatorEndpoint|N/D|Nenhum parâmetro padrão obrigatório|Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Consulte [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para saber mais sobre como definir os recursos de ponto de extremidade em um manifesto de serviço. |
-|MaxPrimaryReplicationQueueSize|Número de operações|8192|Número máximo de operações na fila principal. Uma operação é liberada depois que o replicador primário recebe uma confirmação de todos os replicadores secundários. Esse valor deve ser maior que 64 e uma potência de 2.|
-|MaxSecondaryReplicationQueueSize|Número de operações|16384|Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2.|
-|CheckpointThresholdInMB|MB|50|Quantidade de espaço de arquivo de log depois que o estado é o ponto de verificação.|
-|MaxRecordSizeInKB|KB|1024|O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16.|
-|SharedLogId|GUID|""|Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado.|
-|SharedLogPath|Nome de caminho totalmente qualificado|""|Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado.|
-|SlowApiMonitoringDuration|Segundos|300|Define o intervalo de monitoramento para as chamadas da API gerenciadas. Exemplo: o usuário fez o backup da função de callback. Após o intervalo, um relatório de integridade de aviso será enviado para o Gerenciador de Integridade.|
+| Nome | Unidade | Valor padrão | Comentários |
+| --- | --- | --- | --- |
+| BatchAcknowledgementInterval |Segundos |0,015 |Período de tempo pelo qual o replicador no secundário espera após o recebimento de uma operação antes de enviar novamente uma confirmação ao primário. Todas as outras confirmações a serem enviadas para operações e processadas dentro deste intervalo são enviadas como uma única resposta. |
+| ReplicatorEndpoint |N/D |Nenhum parâmetro padrão obrigatório |Endereço IP e porta que o replicador primário/secundário usará para se comunicar com outros replicadores no conjunto de réplicas. Eles devem fazer referência a um ponto de extremidade do recurso de TCP no manifesto do serviço. Consulte [Recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para saber mais sobre como definir os recursos de ponto de extremidade em um manifesto de serviço. |
+| MaxPrimaryReplicationQueueSize |Número de operações |8192 |Número máximo de operações na fila principal. Uma operação é liberada depois que o replicador primário recebe uma confirmação de todos os replicadores secundários. Esse valor deve ser maior que 64 e uma potência de 2. |
+| MaxSecondaryReplicationQueueSize |Número de operações |16384 |Número máximo de operações na fila secundária. Uma operação é liberada depois de tornar seu estado de altamente disponível por meio de persistência. Esse valor deve ser maior que 64 e uma potência de 2. |
+| CheckpointThresholdInMB |MB |50 |Quantidade de espaço de arquivo de log depois que o estado é o ponto de verificação. |
+| MaxRecordSizeInKB |KB |1024 |O maior tamanho de registro que o replicador pode gravar no log. Esse valor deve ser um múltiplo de 4 e maior que 16. |
+| SharedLogId |GUID |"" |Especifica um GUID exclusivo a ser usado para identificar o arquivo de log compartilhado usado com esta réplica. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogId for especificado, SharedLogPath também deverá ser especificado. |
+| SharedLogPath |Nome de caminho totalmente qualificado |"" |Especifica o caminho totalmente qualificado onde o arquivo de log compartilhado para esta réplica será criado. Normalmente, os serviços não devem usar essa configuração. No entanto, se SharedLogPath for especificado, SharedLogId também deverá ser especificado. |
+| SlowApiMonitoringDuration |Segundos |300 |Define o intervalo de monitoramento para as chamadas da API gerenciadas. Exemplo: o usuário fez o backup da função de callback. Após o intervalo, um relatório de integridade de aviso será enviado para o Gerenciador de Integridade. |
 
 ### Amostra de configuração via código
 ```csharp
@@ -159,7 +161,7 @@ A configuração MaxRecordSizeInKB define o tamanho máximo de um registro que p
 As configurações de SharedLogId e SharedLogPath são sempre usadas juntas para fazer um serviço usar um log compartilhado separado do log compartilhado padrão para o nó. Para obter maior eficiência, devem ser especificados o máximo de serviços possível para o mesmo log compartilhado. Arquivos de log compartilhados devem ser colocados em discos que são usados exclusivamente para que o arquivo de log compartilhado, para reduzir a contenção de movimentação do cabeçote. A expectativa é de que esse valor precise ser alterado somente em casos raros.
 
 ## Próximas etapas
- - [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)
- - [Referência do desenvolvedor para Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
+* [Depurar seu aplicativo do Service Fabric usando o Visual Studio](service-fabric-debugging-your-application.md)
+* [Referência do desenvolvedor para Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
 <!---HONumber=AcomDC_0921_2016-->

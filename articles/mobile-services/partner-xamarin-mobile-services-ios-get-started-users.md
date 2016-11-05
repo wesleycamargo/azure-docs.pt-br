@@ -1,30 +1,31 @@
-<properties
-	pageTitle="Introdução à autenticação (Xamarin.iOS) - Serviços Móveis"
-	description="Aprenda a usar a autenticação em seu aplicativo de serviços móveis do Azure para iOS Xamarin."
-	documentationCenter="xamarin"
-	services="mobile-services"
-	manager="dwrede"
-	authors="lindydonna"
-	editor=""/>
+---
+title: Introdução à autenticação (Xamarin.iOS) - Serviços Móveis
+description: Aprenda a usar a autenticação em seu aplicativo de serviços móveis do Azure para iOS Xamarin.
+documentationcenter: xamarin
+services: mobile-services
+manager: dwrede
+author: lindydonna
+editor: ''
 
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-xamarin-ios
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: donnam
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="donnam"/>
-
+---
 # Adicionar autenticação ao aplicativo de Serviços Móveis
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+[!INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Para obter a versão equivalente dos Aplicativos Móveis deste tópico, veja [Adicionar autenticação ao aplicativo Xamarin.iOS](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
+> 
+> 
 
 Este tópico mostra como autenticar usuários nos Serviços Móveis do Azure em seu aplicativo. Neste tutorial, você pode adicionar autenticação ao projeto de início rápido usando um provedor de identidade suportado pelos Serviços Móveis. Após ser autenticado e autorizado com êxito pelos Serviços Móveis, o valor da ID do usuário é exibido.
 
@@ -38,34 +39,27 @@ Este tutorial baseia-se no quickstart dos Serviços Móveis. Você também deve 
 
 Para concluir este tutorial, é necessário ter o [Xamarin Studio], XCode 6.0 e iOS 7.0 ou versões posteriores.
 
-##<a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
+## <a name="register"></a>Registrar seu aplicativo para a autenticação e configurar os Serviços Móveis
+[!INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
+## <a name="permissions"></a>Restringir permissões a usuários autenticados
+[!INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-##<a name="permissions"></a>Restringir permissões a usuários autenticados
-
-
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
-
-
-3. No Xcode, abra o projeto criado quando você concluiu o tutorial [Introdução aos Serviços Móveis].
-
-4. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo no emulador do iPhone; verifique se uma exceção não tratada com código de status 401 (Não autorizado) é gerada depois que o aplicativo é iniciado.
-
-   	Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela _TodoItem_ agora exige autenticação.
+1. No Xcode, abra o projeto criado quando você concluiu o tutorial [Introdução aos Serviços Móveis].
+2. Pressione o botão **Executar** para compilar o projeto e iniciar o aplicativo no emulador do iPhone; verifique se uma exceção não tratada com código de status 401 (Não autorizado) é gerada depois que o aplicativo é iniciado.
+   
+       Isso acontece porque o aplicativo tenta acessar os Serviços Móveis como um usuário não autenticado, mas a tabela _TodoItem_ agora exige autenticação.
 
 Em seguida, você atualizará o aplicativo para autenticar os usuários antes de solicitar recursos do serviço móvel.
 
-##<a name="add-authentication"></a>Adicionar autenticação ao aplicativo
-
+## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
 1. Abra o arquivo de projeto **QSToDoService** e adicione as variáveis a seguir
-
-		// Mobile Service logged in user
-		private MobileServiceUser user;
-		public MobileServiceUser User { get { return user; } }
-
+   
+        // Mobile Service logged in user
+        private MobileServiceUser user;
+        public MobileServiceUser User { get { return user; } }
 2. Em seguida, adicione um novo método chamado **Authenticate** para **ToDoService** definido como:
-
+   
         private async Task Authenticate(MonoTouch.UIKit.UIViewController view)
         {
             try
@@ -77,56 +71,53 @@ Em seguida, você atualizará o aplicativo para autenticar os usuários antes de
                 Console.Error.WriteLine (@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
             }
         }
-
-	> [AZURE.NOTE] Se você estiver usando um provedor de identidade que não seja a Conta da Microsoft, altere o valor passado para **LoginAsync** acima para um dos seguintes: _Facebook_, _Twitter_, _Google_ ou _WindowsAzureActiveDirectory_.
-
+   
+   > [!NOTE]
+   > Se você estiver usando um provedor de identidade que não seja a Conta da Microsoft, altere o valor passado para **LoginAsync** acima para um dos seguintes: *Facebook*, *Twitter*, *Google* ou *WindowsAzureActiveDirectory*.
+   > 
+   > 
 3. Mova a solicitação da tabela **ToDoItem** do construtor **ToDoService** para um novo método chamado **CreateTable**:
-
+   
         private async Task CreateTable()
         {
             // Create an MSTable instance to allow us to work with the ToDoItem table
             todoTable = client.GetSyncTable<ToDoItem>();
         }
-
 4. Criar um novo método público assíncrono chamado **LoginAndGetData** definido como:
-
+   
         public async Task LoginAndGetData(MonoTouch.UIKit.UIViewController view)
         {
             await Authenticate(view);
             await CreateTable();
         }
-
 5. Em **TodoListViewController** substituir o método **ViewDidAppear** e definir como encontrado abaixo. Isso conectará o usuário caso o **ToDoService** ainda não tenha um identificador de usuário:
-
+   
         public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
-
+   
             if (QSTodoService.DefaultService.User == null)
             {
                 await QSTodoService.DefaultService.LoginAndGetData(this);
             }
-
+   
             if (QSTodoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
             }
 
-
             await RefreshAsync();
         }
-6. Remover a chamada original para **RefreshAsync** de **TodoListViewController.ViewDidLoad**.
-
-7. Pressione o botão **Executar** para compilar o projeto, iniciar o aplicativo no emulador do iPhone e fazer logon com o provedor de identidade escolhido.
-
-   	Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
+1. Remover a chamada original para **RefreshAsync** de **TodoListViewController.ViewDidLoad**.
+2. Pressione o botão **Executar** para compilar o projeto, iniciar o aplicativo no emulador do iPhone e fazer logon com o provedor de identidade escolhido.
+   
+       Ao entrar com êxito, o aplicativo deve ser executado sem erros, e você deve ser capaz de consultar os Serviços Móveis e fazer atualizações de dados.
 
 ## Obtenha o exemplo concluído
 Baixe o [o projeto de exemplo concluído]. Lembre-se de atualizar as variáveis **applicationURL** e **applicationKey** com suas próprias configurações do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
-
 No próximo tutorial, [Autorizar usuários com scripts], você irá obter o valor da ID de usuário fornecido pelos Serviços Móveis com base em um usuário autenticado e usar para filtrar os dados retornados pelos Serviços Móveis.
 
 <!-- Anchors. -->

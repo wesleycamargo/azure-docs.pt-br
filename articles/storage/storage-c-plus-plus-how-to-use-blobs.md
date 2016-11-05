@@ -1,38 +1,39 @@
-<properties
-    pageTitle="Como usar o armazenamento de blobs (armazenamento de objeto) do C++ | Microsoft Azure"
-    description="Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
-    services="storage"
-    documentationCenter=".net"
-    authors="dineshmurthy"
-    manager="jahogg"
-    editor="tysonn"/>
+---
+title: Como usar o armazenamento de blobs (armazenamento de objeto) do C++ | Microsoft Docs
+description: Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto).
+services: storage
+documentationcenter: .net
+author: dineshmurthy
+manager: jahogg
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="dineshm"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: dineshm
 
+---
+# <a name="how-to-use-blob-storage-from-c++"></a>Como usar o Armazenamento de Blob em C++
+[!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-# <a name="how-to-use-blob-storage-from-c++"></a>Como usar o Armazenamento de Blob em C++  
-
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Visão geral
-
 O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos/blobs. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto.
 
 Este guia demonstra como executar cenários comuns usando oServiço de armazenamento de blobs do Azure. Os exemplos são escritos em C++ e usam a [Biblioteca do Cliente de Armazenamento do Azure para C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários abrangidos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs.  
 
->[AZURE.NOTE] Este guia tem como alvo a Biblioteca do Cliente de Armazenamento do Azure para C++, versão 1.0.0 e superior. A versão recomendada é a Biblioteca de Clientes de Armazenamento 2.2.0, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+> [!NOTE]
+> Este guia tem como alvo a Biblioteca do Cliente de Armazenamento do Azure para C++, versão 1.0.0 e superior. A versão recomendada é a Biblioteca de Clientes de Armazenamento 2.2.0, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](https://github.com/Azure/azure-storage-cpp).
+> 
+> 
 
-[AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
+
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-c++-application"></a>Criar um aplicativo em C++
 Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo C++.  
@@ -41,12 +42,12 @@ Para isso, você precisará instalar a Biblioteca do Cliente de Armazenamento do
 
 Para instalar a Biblioteca do Cliente de Armazenamento do Azure para C++, você pode usar os seguintes métodos:
 
--   **Linux:** siga as instruções dadas na página README da [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
--   **Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.  
+* **Linux:** siga as instruções dadas na página README da [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .  
+* **Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.  
+  
+      Install-Package wastorage
 
-        Install-Package wastorage
-
-## <a name="configure-your-application-to-access-blob-storage"></a>Configurar seu aplicativo para acessar o Armazenamento de blobs  
+## <a name="configure-your-application-to-access-blob-storage"></a>Configurar seu aplicativo para acessar o Armazenamento de blobs
 Adicione as seguintes instruções include à parte superior do arquivo C++ no qual deseja usar as APIs de armazenamento do Azure para acessar os blobs:  
 
     #include "was/storage_account.h"
@@ -79,8 +80,7 @@ Em seguida, obtenha uma referência para uma classe **cloud_blob_client** que pe
     azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 
 ## <a name="how-to:-create-a-container"></a>Como criar um contêiner
-
-[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+[!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 Este exemplo mostra como criar um contêiner se ele ainda não existir:  
 
@@ -238,14 +238,12 @@ Para excluir um blob, primeiro obtenha uma referência do blob e, em seguida, ch
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos do armazenamento de blobs, siga estes links para saber mais sobre o armazenamento do Azure.  
 
--   [Como usar o Armazenamento de Filas do C++](storage-c-plus-plus-how-to-use-queues.md)
--   [Como usar o Armazenamento de Tabelas do C++](storage-c-plus-plus-how-to-use-tables.md)
--   [Listar recursos de Armazenamento do Azure em C++](storage-c-plus-plus-enumeration.md)
--   [Referência da Biblioteca de Cliente de Armazenamento para C++](http://azure.github.io/azure-storage-cpp)
--   [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
-- [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
-
-
+* [Como usar o Armazenamento de Filas do C++](storage-c-plus-plus-how-to-use-queues.md)
+* [Como usar o Armazenamento de Tabelas do C++](storage-c-plus-plus-how-to-use-tables.md)
+* [Listar recursos de Armazenamento do Azure em C++](storage-c-plus-plus-enumeration.md)
+* [Referência da Biblioteca de Cliente de Armazenamento para C++](http://azure.github.io/azure-storage-cpp)
+* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 
 <!--HONumber=Oct16_HO2-->
 

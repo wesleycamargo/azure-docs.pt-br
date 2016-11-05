@@ -1,31 +1,20 @@
 O gerenciamento de identidade é tão importante em ambiente de nuvem pública quanto local. Para ajudar nisso, o Azure oferece suporte a várias tecnologias de identidade de nuvem diferentes. Entre elas:
 
-- Você pode executar o Active Directory do Windows Server (normalmente chamado apenas de AD) na nuvem usando máquinas virtuais criadas com Máquinas Virtuais do Azure. Essa abordagem faz sentido quando você estiver usando o Azure para estender seu datacenter local para a nuvem.
-
-
-- Você pode usar o Azure Active Directory para fornecer aos usuários um logon único a aplicativos de [SaaS (Software como serviço)](https://azure.microsoft.com/overview/what-is-saas/). Por exemplo, o Office 365 da Microsoft utiliza essa tecnologia, e aplicativos executados no Azure ou outras plataformas na nuvem também podem usá-lo.
-
-
-- Aplicativos em execução na nuvem ou no local podem usar o Controle de Acesso no Active Directory do Azure para permitir que os usuários façam logon usando identidades do Facebook, da Google, da Microsoft e de outros provedores de identidade.
-
+* Você pode executar o Active Directory do Windows Server (normalmente chamado apenas de AD) na nuvem usando máquinas virtuais criadas com Máquinas Virtuais do Azure. Essa abordagem faz sentido quando você estiver usando o Azure para estender seu datacenter local para a nuvem.
+* Você pode usar o Azure Active Directory para fornecer aos usuários um logon único a aplicativos de [SaaS (Software como serviço)](https://azure.microsoft.com/overview/what-is-saas/). Por exemplo, o Office 365 da Microsoft utiliza essa tecnologia, e aplicativos executados no Azure ou outras plataformas na nuvem também podem usá-lo.
+* Aplicativos em execução na nuvem ou no local podem usar o Controle de Acesso no Active Directory do Azure para permitir que os usuários façam logon usando identidades do Facebook, da Google, da Microsoft e de outros provedores de identidade.
 
 Este artigo descreve todas essas três opções.
 
 ## Sumário
-
-- [Executando o Active Directory do Windows Server em máquinas virtuais](#adinvm)
-
-- [Usando o Active Directory do Azure](#ad)
-
-- [Usando o Controle de Acesso do Active Directory do Azure](#ac)
-
+* [Executando o Active Directory do Windows Server em máquinas virtuais](#adinvm)
+* [Usando o Active Directory do Azure](#ad)
+* [Usando o Controle de Acesso do Active Directory do Azure](#ac)
 
 ## <a name="adinvm"></a>Executando o Active Directory do Windows Server em máquinas virtuais
-
 Executar o AD do Windows Server em máquinas virtuais do Azure é muito semelhante a executá-lo localmente. A [Figura 1](#fig1) mostra um exemplo típico de como isso acontece.
 
 ![Active Directory do Azure na Máquina Virtual](./media/identity/identity_01_ADinVM.png)
-
 
 <a name="Fig1"></a>Figura 1: O Active Directory do Windows Server pode ser executado em máquinas virtuais do Azure conectadas ao datacenter local de uma organização usando a Rede Virtual do Azure.
 
@@ -33,34 +22,27 @@ No exemplo mostrado aqui, o AD do Windows Server está em execução em VMs cria
 
 Há várias opções para conectar os controladores de domínio na nuvem com aqueles que estão em execução no local:
 
-- Tornar todas elas parte de um único domínio do Active Directory.
-
-- Criar domínios separados do AD locais e na nuvem que fazem parte da mesma floresta.
-
-- Criar florestas do AD separadas na nuvem e no local e depois conectar as florestas usando relações de confiança entre florestas ou os Serviços de Federação do Active Directory (AD FS) do Windows Server, que também podem ser executados em máquinas virtuais no Azure.
+* Tornar todas elas parte de um único domínio do Active Directory.
+* Criar domínios separados do AD locais e na nuvem que fazem parte da mesma floresta.
+* Criar florestas do AD separadas na nuvem e no local e depois conectar as florestas usando relações de confiança entre florestas ou os Serviços de Federação do Active Directory (AD FS) do Windows Server, que também podem ser executados em máquinas virtuais no Azure.
 
 Seja qual for a opção feita, um administrador deve garantir que as solicitações de autenticação de usuários locais vão para controladores de domínio em nuvem somente quando necessário, uma vez que o link para a nuvem provavelmente será mais lento do que para redes locais. Outro fator a ser levado em conta ao conectar controladores de domínio locais e em nuvem é o tráfego gerado pela replicação. Normalmente, os controladores de domínio na nuvem estão em seu próprio site do AD, que permite a um administrador agendar a frequência com a qual a replicação é feita. O Azure cobra pelo tráfego enviado para fora de um datacenter do Azure, embora não seja por bytes enviados, o que pode afetar as opções de replicação do administrador. Também vale a pena salientar que, enquanto o Azure fornece seu próprio suporte do Sistema de Nomes de Domínios (DNS), nesse serviço faltam recursos exigidos pelo Active Directory (como suporte para registros de DNS dinâmico e SRV). Por isso, executar o AD do Windows Server no Azure exige a configuração dos seus próprios servidores DNS na nuvem.
 
 Executar o AD do Windows Server em VMs do Azure pode fazer sentido em várias situações diferentes. Estes são alguns exemplos:
 
-- Se estiver usando as Máquinas Virtuais do Azure como uma extensão do seu próprio datacenter, você pode executar aplicativos em nuvem que precisem de controladores de domínio locais para lidar com coisas como as solicitações de autenticação integrada do Windows ou consultas LDAP. O SharePoint, por exemplo, interage com frequência com o Active Directory, então, embora seja possível executar um farm do SharePoint no Azure usando um diretório local, configurar controladores de domínio na nuvem melhorará o desempenho de forma significativa. (No entanto, é importante perceber que isso não é necessariamente obrigatório. Vários aplicativos podem ser executados com êxito na nuvem usando apenas os controladores de domínio locais).
-
-- Suponha que uma filial longínqua não possua os recursos para executar seus próprios controladores de domínio. Hoje em dia, os usuários devem autenticar em controladores de domínio do outro lado do mundo - os logons são lentos. Executar o Active Directory no Azure em um datacenter Microsoft mais próximo pode acelerar isso sem a necessidade de mais servidores na filial da empresa.
-
-- Uma organização que usa o Azure para recuperação de desastres pode manter um pequeno conjunto de VMs ativas na nuvem, incluindo um controlador de domínio. Em seguida, ela pode ser preparada para expandir este site conforme necessário para assumir o controle de falhas em outro lugar.
+* Se estiver usando as Máquinas Virtuais do Azure como uma extensão do seu próprio datacenter, você pode executar aplicativos em nuvem que precisem de controladores de domínio locais para lidar com coisas como as solicitações de autenticação integrada do Windows ou consultas LDAP. O SharePoint, por exemplo, interage com frequência com o Active Directory, então, embora seja possível executar um farm do SharePoint no Azure usando um diretório local, configurar controladores de domínio na nuvem melhorará o desempenho de forma significativa. (No entanto, é importante perceber que isso não é necessariamente obrigatório. Vários aplicativos podem ser executados com êxito na nuvem usando apenas os controladores de domínio locais).
+* Suponha que uma filial longínqua não possua os recursos para executar seus próprios controladores de domínio. Hoje em dia, os usuários devem autenticar em controladores de domínio do outro lado do mundo - os logons são lentos. Executar o Active Directory no Azure em um datacenter Microsoft mais próximo pode acelerar isso sem a necessidade de mais servidores na filial da empresa.
+* Uma organização que usa o Azure para recuperação de desastres pode manter um pequeno conjunto de VMs ativas na nuvem, incluindo um controlador de domínio. Em seguida, ela pode ser preparada para expandir este site conforme necessário para assumir o controle de falhas em outro lugar.
 
 Existem também outras possibilidades. Por exemplo, não é necessário que você conecte o AD do Windows Server na nuvem a um datacenter local. Se desejar executar um farm do SharePoint que serviu um conjunto específico de usuários, por exemplo, todos os quais efetuariam logon exclusivamente com identidades baseadas na nuvem, você pode criar uma floresta autônoma no Azure. A maneira como você usa essa tecnologia depende de quais são suas metas. (Para obter orientações mais detalhadas sobre como usar o AD do Windows Server com o Azure, [clique aqui](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).)
 
 ## <a name="ad"></a>Usando o Active Directory do Azure
-
 Conforme os aplicativos SaaS tornam-se cada vez mais comuns, eles geram uma questão óbvia: que tipo de serviço de diretório esses aplicativos baseados em nuvem devem usar? A resposta da Microsoft para essa pergunta é: o Active Directory do Azure.
 
 Existem duas opções principais para usar esse serviço de diretório na nuvem:
 
-- Indivíduos e organizações que usam somente aplicativos SaaS podem depender do Active Directory do Azure como seu único serviço de diretório.
-
-- Organizações que executam o Active Directory do Windows Server podem conectar seu diretório local ao Active Directory do Azure e usá-lo para fornecer aos seus usuários um logon único para aplicativos SaaS.
-
+* Indivíduos e organizações que usam somente aplicativos SaaS podem depender do Active Directory do Azure como seu único serviço de diretório.
+* Organizações que executam o Active Directory do Windows Server podem conectar seu diretório local ao Active Directory do Azure e usá-lo para fornecer aos seus usuários um logon único para aplicativos SaaS.
 
 A [Figura 2](#fig2) ilustra a primeira dessas duas opções, na qual o Active Directory do Azure é tudo que é necessário.
 
@@ -91,7 +73,6 @@ Para usar o AD do Azure, o usuário primeiro faz logon no seu domínio local do 
 Hoje em dia, o AD do Azure AD não é uma substituição completa do AD do Windows Server local. Como já mencionado, o diretório de nuvem tem um esquema muito mais simples e também não possui itens como diretiva de grupo, a capacidade de armazenar informações sobre computadores e suporte a LDAP. (Na verdade, uma máquina Windows não pode ser configurada para permitir aos usuários fazer logon usando apenas o AD do Azure — este não é um cenário aceito.) Em vez disso, as metas iniciais do AD do Azure incluem permitir que usuários corporativos acessem aplicativos na nuvem sem manter um logon separado e liberar os administradores de diretório local da sincronização manual de seu diretório local com todos os aplicativos SaaS que sua organização usa. No entanto, ao longo do tempo, o esperado é que esse serviço de diretório de nuvem atenda a uma grande variedade de cenários.
 
 ## <a name="ac"></a>Usando o Controle de Acesso do Active Directory do Azure
-
 Tecnologias de identidade baseada em nuvem podem ser usadas para resolver uma variedade de problemas. O Active Directory do Azure pode fornecer aos usuários da organização um logon único para múltiplos aplicativos SaaS, por exemplo. Mas tecnologias de identidade na nuvem também podem ser usadas de outras maneiras.
 
 Suponha, por exemplo, que um aplicativo deseja permitir que seus usuários efetuem logon usando tokens emitidos por vários *provedores de identidade (IdPs)*. Existem diversos provedores de identidade diferentes atualmente, incluindo Facebook, Google, Microsoft e outros, e frequentemente os aplicativos permitem que os usuários entrem usando uma dessas identidades. Por que um aplicativo deve se preocupar em manter a sua própria lista de usuários e senhas quando, em vez disso, pode basear-se em identidades que já existem? Aceitar identidades existentes facilita a vida dos usuários, que possuem um nome de usuário e senha a menos para se lembrar, e das pessoas que criam o aplicativo, que não precisam mais manter suas próprias listas de nomes de usuário e senhas.
@@ -116,8 +97,7 @@ Vale a pena salientar que nada do Controle de Acesso está ligado ao Windows —
 
 Trabalhar com identidade é importante em praticamente todos os aplicativos. O objetivo do Controle de Acesso é tornar mais fácil aos desenvolvedores criar aplicativos que aceitem identidades de provedores de identidade diferentes. Ao colocar esse serviço na nuvem, a Microsoft disponibilizou-o a qualquer aplicativo executado em qualquer plataforma.
 
-##Sobre o autor
-
+## Sobre o autor
 David Chappell é diretor da Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) em São Francisco, Califórnia.
 
 <!---HONumber=AcomDC_0727_2016-->

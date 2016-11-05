@@ -1,31 +1,32 @@
-<properties
-   pageTitle="Usando o Ouvinte e o Conector HTTP em Aplicativos Lógicos | Serviço de Aplicativo do Microsoft Azure "
-   description="Como criar e configurar o ouvinte HTTP e o Conector de ação HTTP ou o aplicativo de API e usá-los em um aplicativo lógico no Serviço de Aplicativo do Azure"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="erikre"
-   editor=""/>
+---
+title: Usando o Ouvinte e o Conector HTTP em Aplicativos Lógicos | Microsoft Docs
+description: Como criar e configurar o ouvinte HTTP e o Conector de ação HTTP ou o aplicativo de API e usá-los em um aplicativo lógico no Serviço de Aplicativo do Azure
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: anuragdalmia
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/31/2016"
-   ms.author="prkumar"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 08/31/2016
+ms.author: prkumar
 
-
+---
 # Introdução ao ouvinte HTTP e à ação de HTTP e à adição deles ao seu Aplicativo Lógico
-
-> [AZURE.NOTE] Estamos encerrando o suporte para esse conector porque sua funcionalidade agora está incluída por padrão como o **gatilho manual** quando você cria novos Aplicativos Lógicos. É recomendável que você atualize todos os seus Aplicativos Lógicos que estão usando esse conector. Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+> [!NOTE]
+> Estamos encerrando o suporte para esse conector porque sua funcionalidade agora está incluída por padrão como o **gatilho manual** quando você cria novos Aplicativos Lógicos. É recomendável que você atualize todos os seus Aplicativos Lógicos que estão usando esse conector. Esta versão do artigo aplica-se à versão do esquema 2014-12-01-preview de aplicativos lógicos.
+> 
+> 
 
 Conecte-se diretamente a recursos HTTP para ouvir solicitações HTTP e para configurar solicitações da Web HTTP. Existem alguns cenários em que você pode precisar trabalhar com conexões HTTP diretas, incluindo:
 
-1.	Para desenvolver um aplicativo lógico que dá suporte a um front-end interativo de usuário móvel ou da Web.
-2.	Para obter e processar dados de um serviço Web que não tem um conector pré-configurado.
-3.	Para executar ações que já estão expostas como um serviço Web, mas não estão disponíveis como um aplicativo de API.
+1. Para desenvolver um aplicativo lógico que dá suporte a um front-end interativo de usuário móvel ou da Web.
+2. Para obter e processar dados de um serviço Web que não tem um conector pré-configurado.
+3. Para executar ações que já estão expostas como um serviço Web, mas não estão disponíveis como um aplicativo de API.
 
 Nestes cenários, há duas opções:
 
@@ -39,15 +40,12 @@ Um conector pode ser criado em um aplicativo lógico ou diretamente no Azure Mar
 
 1. No quadro inicial do Azure, selecione **Marketplace**.
 2. Procure "HTTP", selecione o ouvinte HTTP e selecione **Criar**.
-3.	Configure o ouvinte HTTP da seguinte maneira: ![][1]
-
-4.	Ao definir as configurações de pacote, você verá a seguinte opção sobre se o ouvinte deve responder automaticamente ou exigir que você envie uma resposta explícita. Defina isso como **Falso** para enviar sua própria resposta: ![][2]
-
-5.	Clique em **OK** para criar.
-6.	Depois de criar a instância do aplicativo de API, abra as configurações para configurar a segurança. O ouvinte HTTP atualmente dá suporte à Autenticação básica. Você pode configurar isso usando a opção de segurança quando abre o ouvinte HTTP: ![][3]
-  
-	**Problema conhecido** *As configurações de segurança mostram “Nenhum” como o valor padrão, mas isso é indefinido. Você deve alterar a configuração básica e voltar para Nenhum antes de salvá-la para garantir que o ouvinte HTTP esteja configurado corretamente.*
-
+3. Configure o ouvinte HTTP da seguinte maneira: ![][1]
+4. Ao definir as configurações de pacote, você verá a seguinte opção sobre se o ouvinte deve responder automaticamente ou exigir que você envie uma resposta explícita. Defina isso como **Falso** para enviar sua própria resposta: ![][2]
+5. Clique em **OK** para criar.
+6. Depois de criar a instância do aplicativo de API, abra as configurações para configurar a segurança. O ouvinte HTTP atualmente dá suporte à Autenticação básica. Você pode configurar isso usando a opção de segurança quando abre o ouvinte HTTP: ![][3]
+   
+   **Problema conhecido** *As configurações de segurança mostram “Nenhum” como o valor padrão, mas isso é indefinido. Você deve alterar a configuração básica e voltar para Nenhum antes de salvá-la para garantir que o ouvinte HTTP esteja configurado corretamente.*
 7. Por fim, defina as configurações de segurança do aplicativo de API como Público (Anônimo) para permitir que clientes externos acessem o ponto de extremidade. Essa configuração está disponível em "Todas as configurações > Configurações do Aplicativo" do Aplicativo de API do ouvinte HTTP:![][10]
 
 Depois disso, pode criar um aplicativo lógico para usar o ouvinte HTTP.
@@ -55,13 +53,12 @@ Depois disso, pode criar um aplicativo lógico para usar o ouvinte HTTP.
 ## Usando o ouvinte HTTP em seu aplicativo lógico
 Depois de criar o aplicativo de API, você pode usar o ouvinte HTTP como gatilho para o aplicativo lógico. Para fazer isso, você precisa:
 
-4.	Criar um novo Aplicativo lógico.
-5.	Abrir "Gatilhos e Ações" para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo. O Ouvinte HTTP está listado na galeria. Selecione-o.
-6.	Agora, você pode definir o Método HTTP e a URL relativa em que você precisa do ouvinte para disparar o fluxo: ![][4] ![][5]
-
-7.	Para obter o URI completo, clique duas vezes no ouvinte HTTP para exibir suas configurações e copie a URL para o "Host" de seu aplicativo de API: ![][6]
-8.	Agora você pode usar os dados recebidos na solicitação HTTP em outras ações no fluxo da seguinte maneira: ![][7] ![][8]
-9.	Por fim, para enviar uma resposta, adicione outro ouvinte HTTP e selecione a ação Enviar Resposta HTTP. Defina a ID da solicitação como a RequestID obtida do ouvinte HTTP e preencha o corpo da resposta e o status HTTP que você deseja retornar: ![][9]
+1. Criar um novo Aplicativo lógico.
+2. Abrir "Gatilhos e Ações" para abrir o Designer de Aplicativos Lógicos e configurar seu fluxo. O Ouvinte HTTP está listado na galeria. Selecione-o.
+3. Agora, você pode definir o Método HTTP e a URL relativa em que você precisa do ouvinte para disparar o fluxo: ![][4] ![][5]
+4. Para obter o URI completo, clique duas vezes no ouvinte HTTP para exibir suas configurações e copie a URL para o "Host" de seu aplicativo de API: ![][6]
+5. Agora você pode usar os dados recebidos na solicitação HTTP em outras ações no fluxo da seguinte maneira: ![][7] ![][8]
+6. Por fim, para enviar uma resposta, adicione outro ouvinte HTTP e selecione a ação Enviar Resposta HTTP. Defina a ID da solicitação como a RequestID obtida do ouvinte HTTP e preencha o corpo da resposta e o status HTTP que você deseja retornar: ![][9]
 
 ## Usando a ação HTTP
 A ação HTTP tem suporte nativo pelos aplicativos lógicos e não exige a criação de um aplicativo de API para ser usada. Você pode inserir uma ação HTTP a qualquer momento em seu aplicativo lógico e escolher o URI, os cabeçalhos e o corpo para a chamada. A ação HTTP dá suporte a várias opções para segurança do cliente. Consulte as [opções de segurança do lado do cliente](../scheduler/scheduler-outbound-authentication.md).
@@ -75,7 +72,10 @@ Exibir a referência da API REST de Swagger em [Conectores e referência de apli
 
 Você também pode examinar estatísticas de desempenho e controlar a segurança do conector. Consulte [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md).
 
-> [AZURE.NOTE] Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic) (Experimentar os Aplicativos Lógicos). Você pode criar instantaneamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> [!NOTE]
+> Se você quiser começar a usar os Aplicativos Lógicos do Azure antes de se inscrever em uma conta do Azure, acesse [Try Logic Apps](https://tryappservice.azure.com/?appservice=logic) (Experimentar os Aplicativos Lógicos). Você pode criar instantaneamente um aplicativo lógico de início e de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> 
+> 
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png

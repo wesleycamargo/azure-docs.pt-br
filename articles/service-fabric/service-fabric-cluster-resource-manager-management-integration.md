@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Gerenciador de Recursos de Cluster do Service Fabric - integração de gerenciamento | Microsoft Azure"
-   description="Uma visão geral dos pontos de integração entre o Gerenciador de Recursos de Cluster e o Gerenciamento do Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Gerenciador de Recursos de Cluster do Service Fabric - integração de gerenciamento | Microsoft Docs
+description: Uma visão geral dos pontos de integração entre o Gerenciador de Recursos de Cluster e o Gerenciamento do Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
-
+---
 # Integração do Gerenciador de Recursos de Cluster com o gerenciamento de cluster do Service Fabric
 O Service Fabric Cluster Resource Manager não é o principal componente do Service Fabric que lida com as operações de gerenciamento (como atualizações de aplicativo), mas está envolvido. A primeira maneira que o Cluster Resource Manager ajuda no gerenciamento está rastreando o estado desejado do cluster e os serviços dentro de uma perspectiva de obtenção de recursos e equilíbrio e enviar relatórios de integridade quando não é possível colocar o cluster na configuração desejada (e um exemplo disso é se há capacidade suficiente por exemplo, ou um conflito regras sobre em que um serviço deve ser colocado). Outra parte de integração tem a ver com como as atualizações funcionam: durante as atualizações do Resource Manager de Cluster altera seu comportamento. Falaremos sobre ambos mais abaixo.
 
@@ -69,29 +68,29 @@ HealthEvents          :
 
 Veja o que a mensagem de integridade está nos dizendo:
 
-1.	Todas as réplicas estão íntegras (essa é a prioridade do Service Fabric)
-2.	No momento, a restrição de distribuição do Domínio de Atualização está sendo violada (o que significa que um Domínio de Atualização específico tem mais réplicas para essa partição do que deveria)
-3.	O nó que contém a réplica que está causando a violação (o nó com a ID: 3d1a4a68b2592f55125328cd0f8ed477)
-4.	Quando tudo aconteceu (10/8/2015 19:13:02)
+1. Todas as réplicas estão íntegras (essa é a prioridade do Service Fabric)
+2. No momento, a restrição de distribuição do Domínio de Atualização está sendo violada (o que significa que um Domínio de Atualização específico tem mais réplicas para essa partição do que deveria)
+3. O nó que contém a réplica que está causando a violação (o nó com a ID: 3d1a4a68b2592f55125328cd0f8ed477)
+4. Quando tudo aconteceu (10/8/2015 19:13:02)
 
 Esses são dados excelentes para um alerta na produção que indique que houve um problema e que é melhor você averiguar. Nesse caso, por exemplo, queremos ver se conseguimos descobrir por que o Resource Manager não viu escolha além de empacotar as réplicas no Domínio de Atualização. Poderia ser porque todos os nós nos outros Domínios de Atualização estavam inativos e não havia domínios de reserva suficientes ou, se havia domínios, outro motivo que tenha invalidado os nós nesses outros Domínios de Atualização (por exemplo, uma política de colocação no serviço ou capacidade insuficiente).
 
 No entanto, digamos que você queira criar um serviço, ou que o Gerenciador de Recursos esteja tentando localizar um lugar para posicionar alguns serviços, mas não parece haver soluções que funcionem. Isso pode acontecer por vários motivos, mas normalmente é devido a uma das duas condições abaixo:
 
-1.	Alguma condição temporária impossibilitou o posicionamento correto dessa instância de serviço ou dessa réplica
-2.	Os requisitos do serviço estão configurados incorretamente, de maneira que seus requisitos são considerados insatisfatórios.
+1. Alguma condição temporária impossibilitou o posicionamento correto dessa instância de serviço ou dessa réplica
+2. Os requisitos do serviço estão configurados incorretamente, de maneira que seus requisitos são considerados insatisfatórios.
 
 Em cada uma dessas condições, você verá um relatório de integridade do Cluster Resource Manager que fornece informações para ajudá-lo a determinar o que está acontecendo e por que o serviço não pode ser posicionado. Chamamos esse processo de "sequência de eliminação de restrição". Durante o processo, o sistema percorre as restrições configuradas que afetam o serviço e os registros que eliminam. Dessa forma, quando os serviços não podem ser posicionados, você pode ver quais nós foram eliminados e por quê.
 
 ## Tipos de restrição
 Vamos falar sobre cada uma das restrições diferentes que você pode ver nesses relatórios de integridade e o que está sendo verificado. Observe que, na maioria das vezes, você não verá algumas dessas restrições eliminarem nós, já que as restrições estão, por padrão, no nível de atenuação ou de otimização (saiba mais sobre as prioridades de restrição mais adiante neste artigo). No entanto, você pode ver mensagens de integridade relacionadas a essas restrições se elas estiverem configuradas como restrições inflexíveis, ou em casos raros nos quais elas causam a eliminação dos nós, e, portanto, apresentamos aqui para integridade:
 
--	ReplicaExclusionStatic e ReplicaExclusionDynamic – Essa é uma restrição interna que indica que durante a pesquisa encontramos uma situação na qual duas réplicas com estado ou instâncias sem estado da mesma partição precisam ser colocadas no mesmo nó (o que não é permitido). ReplicaExclusionStatic e ReplicaExclusionDynamic são quase exatamente a mesma regra. A restrição ReplicaExclusionDynamic diz "não foi possível colocar essa réplica aqui porque a única solução proposta já posicionou uma réplica neste lugar". Isso é diferente da exclusão ReplicaExclusionStatic, que indica um conflito real, e não um proposto. Já existe uma réplica no nó. Isso parece confuso? Sim. Isso importa muito? Não. Basta saber que se você estiver vendo uma sequência de eliminação de restrição que contenha a restrição ReplicaExclusionStatic ou ReplicaExclusionDynamic, o Cluster Resource Manager considerará que não existem nós suficientes para posicionar todas as réplicas. As restrições adicionais normalmente podem indicar, acima de tudo, por que estamos ficando com poucos nós
--	PlacementConstraint: se você vir essa mensagem, significa que eliminamos alguns nós porque eles não correspondiam a restrições de posicionamento do serviço. Rastreamos as restrições de posicionamento configuradas atualmente como parte dessa mensagem. Normalmente, isso é comum se houver qualquer restrição de posicionamento. No entanto, se houver um bug na restrição de posicionamento que esteja causando a eliminação de muitos nós, é nesse local que você verá esse resultado.
--	NodeCapacity: se você vir essa restrição, isso significa que não posicionamos as réplicas nos nós indicados porque isso faria com que o nó ficasse acima da capacidade.
--	Affinity: essa restrição indica que não posicionamos a réplica em nós afetados, pois isso causaria uma violação da restrição de afinidade.
--	FaultDomain e UpgradeDomain: essa restrição elimina nós se o posicionamento da réplica nos nós indicados causar empacotamento em um domínio de atualização ou de falha específico. Há vários exemplos que discutem essa restrição no tópico sobre [restrições de domínio de falha e de atualização e o comportamento resultante](service-fabric-cluster-resource-manager-cluster-description.md)
--	PreferredLocation: normalmente, você não verá essa restrição removendo nós da solução, já que é uma otimização somente por padrão. Além disso, a restrição de local preferida geralmente só estará presente durante atualizações (quando ela é usada para mover réplicas de volta a onde estavam quando a atualização foi iniciado). No entanto, é possível.
+* ReplicaExclusionStatic e ReplicaExclusionDynamic – Essa é uma restrição interna que indica que durante a pesquisa encontramos uma situação na qual duas réplicas com estado ou instâncias sem estado da mesma partição precisam ser colocadas no mesmo nó (o que não é permitido). ReplicaExclusionStatic e ReplicaExclusionDynamic são quase exatamente a mesma regra. A restrição ReplicaExclusionDynamic diz "não foi possível colocar essa réplica aqui porque a única solução proposta já posicionou uma réplica neste lugar". Isso é diferente da exclusão ReplicaExclusionStatic, que indica um conflito real, e não um proposto. Já existe uma réplica no nó. Isso parece confuso? Sim. Isso importa muito? Não. Basta saber que se você estiver vendo uma sequência de eliminação de restrição que contenha a restrição ReplicaExclusionStatic ou ReplicaExclusionDynamic, o Cluster Resource Manager considerará que não existem nós suficientes para posicionar todas as réplicas. As restrições adicionais normalmente podem indicar, acima de tudo, por que estamos ficando com poucos nós
+* PlacementConstraint: se você vir essa mensagem, significa que eliminamos alguns nós porque eles não correspondiam a restrições de posicionamento do serviço. Rastreamos as restrições de posicionamento configuradas atualmente como parte dessa mensagem. Normalmente, isso é comum se houver qualquer restrição de posicionamento. No entanto, se houver um bug na restrição de posicionamento que esteja causando a eliminação de muitos nós, é nesse local que você verá esse resultado.
+* NodeCapacity: se você vir essa restrição, isso significa que não posicionamos as réplicas nos nós indicados porque isso faria com que o nó ficasse acima da capacidade.
+* Affinity: essa restrição indica que não posicionamos a réplica em nós afetados, pois isso causaria uma violação da restrição de afinidade.
+* FaultDomain e UpgradeDomain: essa restrição elimina nós se o posicionamento da réplica nos nós indicados causar empacotamento em um domínio de atualização ou de falha específico. Há vários exemplos que discutem essa restrição no tópico sobre [restrições de domínio de falha e de atualização e o comportamento resultante](service-fabric-cluster-resource-manager-cluster-description.md)
+* PreferredLocation: normalmente, você não verá essa restrição removendo nós da solução, já que é uma otimização somente por padrão. Além disso, a restrição de local preferida geralmente só estará presente durante atualizações (quando ela é usada para mover réplicas de volta a onde estavam quando a atualização foi iniciado). No entanto, é possível.
 
 ### Prioridades de restrição
 Em todas essas restrições, você pode ter pensado "Ei, acho que restrições de posicionamento são a coisa mais importante no meu sistema. Estou disposto a violar outras restrições, até mesmo coisas como afinidade e capacidade, se isso garantir que as restrições de posicionamento não sejam violadas".
@@ -135,6 +134,6 @@ Outra coisa que acontece durante as atualizações é que o Resource Manager de 
 Uma das questões que aparecem durante as atualizações é querer que a atualização seja concluída mesmo quando o cluster está, no geral, restrito ou cheio. Durante as atualizações é ainda mais importante poder gerenciar a capacidade do cluster, pois há geralmente uma redução entre cinco e 20% da capacidade à medida que a atualização percorre o cluster, e essa carga de trabalho geralmente precisa ir para algum lugar. É aí que entra a noção de [capacidades de buffer](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity), pois embora a capacidade de buffer seja respeitada durante o funcionamento normal (deixando certa sobrecarga), o Cluster Resource Manager encherá até a capacidade total (preenchendo o buffer) durante as atualizações.
 
 ## Próximas etapas
-- Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+* Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 
 <!---HONumber=AcomDC_0824_2016-->

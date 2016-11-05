@@ -1,29 +1,27 @@
-<properties
-   pageTitle="Modelos vinculados com o Resource Manager | Microsoft Azure"
-   description="Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Modelos vinculados com o Resource Manager | Microsoft Docs
+description: Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/02/2016"
-   ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/02/2016
+ms.author: tomfitz
 
+---
 # Usando modelos vinculados com o Gerenciador de Recursos do Azure
-
 Em um modelo do Azure Resource Manager, você pode vincular a outro modelo, o que permite decompor sua implantação em um conjunto de modelos orientados para fins específicos. Assim como com a decomposição de um aplicativo em várias classes de código, a decomposição oferece benefícios em termos de teste, reutilização e legibilidade.
 
 Você pode passar parâmetros de um modelo principal a um modelo vinculado e esses parâmetros podem corresponder diretamente aos parâmetros ou variáveis expostos pelo modelo de chamada. O modelo vinculado também pode passar uma variável de saída de volta para o modelo de origem, permitindo uma troca de dados bidirecional entre os modelos.
 
 ## Vinculando a um modelo
-
 Para criar um vínculo entre dois modelos, adicione um recurso de implantação no modelo principal que aponta para o modelo vinculado. Defina a propriedade **templateLink** como o URI do modelo vinculado. Você pode fornecer valores de parâmetro para o modelo vinculado especificando os valores diretamente em seu modelo ou vinculando a um arquivo de parâmetro. O exemplo a seguir usa a propriedade **parameters** para especificar um valor de parâmetro diretamente.
 
     "resources": [ 
@@ -76,7 +74,6 @@ O exemplo a seguir mostra um modelo pai vinculado a outro modelo. O modelo vincu
 Embora o token seja transmitido como uma cadeia de caracteres segura, o URI do modelo vinculado, incluindo o token SAS, é registrado nas operações de implantação para esse grupo de recursos. Para limitar a exposição, defina uma expiração para o token.
 
 ## Vinculando a um arquivo de parâmetro
-
 O exemplo a seguir usa a propriedade **parametersLink** para vincular a um arquivo de parâmetro.
 
     "resources": [ 
@@ -101,7 +98,6 @@ O exemplo a seguir usa a propriedade **parametersLink** para vincular a um arqui
 O valor do URI para o arquivo de parâmetro vinculado não pode ser um arquivo local e deve incluir **http** ou **https**. O arquivo de parâmetro também pode ter o acesso limitado por meio de um token SAS.
 
 ## Usando variáveis para vincular modelos
-
 Os exemplos anteriores mostraram valores codificados de URL para os vínculos de modelo. Essa abordagem pode funcionar para um modelo simples, mas não funciona bem quando ao trabalhar com um grande conjunto de modelos modulares. Em vez disso, você pode criar uma variável estática que armazena uma URL de base para o modelo principal e, em seguida, criar dinamicamente URLs para os modelos vinculados dessa URL de base. A vantagem dessa abordagem é mover ou bifurcar o modelo, pois você precisa alterar a variável estática no modelo principal. O modelo principal passa os URIs corretos em todo o modelo decomposto.
 
 O exemplo a seguir mostra como usar uma URL base para criar duas URLs para modelos vinculados (**sharedTemplateUrl** e **vmTemplate**).
@@ -132,7 +128,6 @@ Você também pode usar [deployment()](resource-group-template-functions.md#depl
     }
 
 ## Vinculação condicional a modelos
-
 Você pode vincular a modelos diferentes passando um valor de parâmetro usado para construir o URI do modelo vinculado. Essa abordagem funciona bem quando você precisa especificar qual modelo vinculado deve ser usado durante a implantação. Por exemplo, você pode especificar um modelo a ser usado para uma conta de armazenamento existente, e outro modelo a ser usado para uma nova conta de armazenamento.
 
 O exemplo a seguir mostra um parâmetro para um nome de conta de armazenamento, e um parâmetro para especificar se a conta de armazenamento é nova ou existente.
@@ -233,7 +228,6 @@ A próximo exemplo mostra o modelo **newStorageAccount.json**. Observe que, assi
     }
 
 ## Exemplo completo
-
 Os exemplos de modelos a seguir mostram uma disposição simplificada de modelos vinculados para ilustrar vários conceitos neste artigo. Ela pressupõe que os modelos tenham sido adicionados ao mesmo contêiner em uma conta de armazenamento com acesso público desativado. O modelo vinculado transmite um valor de volta para o modelo principal na seção **outputs**.
 
 O arquivo **parent.json** consiste em:
@@ -269,19 +263,19 @@ O arquivo **parent.json** consiste em:
 O arquivo **helloworld.json** consiste em:
 
     {
-	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {},
-	  "variables": {},
-	  "resources": [],
-	  "outputs": {
-		"result": {
-			"value": "Hello World",
-			"type" : "string"
-		}
-	  }
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {
+        "result": {
+            "value": "Hello World",
+            "type" : "string"
+        }
+      }
     }
-    
+
 No PowerShell, você obtém um token para o contêiner e implanta os modelos com:
 
     Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -297,7 +291,7 @@ Na CLI do Azure, você obtém um token para o contêiner e implanta os modelos c
 Você recebe uma solicitação para fornecer o token SAS como um parâmetro. Você precisa preceder o token com **?**.
 
 ## Próximas etapas
-- Para saber mais sobre como definir a ordem de implantação para seus recursos, confira [Definição de dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md)
-- Para saber como definir um recurso, mas criando várias instâncias dele, confira [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md)
+* Para saber mais sobre como definir a ordem de implantação para seus recursos, confira [Definição de dependências nos modelos do Azure Resource Manager](resource-group-define-dependencies.md)
+* Para saber como definir um recurso, mas criando várias instâncias dele, confira [Criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md)
 
 <!---HONumber=AcomDC_0907_2016-->

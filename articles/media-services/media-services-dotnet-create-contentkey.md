@@ -1,28 +1,27 @@
-<properties 
-    pageTitle="Criar ContentKeys com .NET" 
-    description="Saiba como criar chaves de conteúdo que fornecem acesso seguro aos ativos." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="erikre" 
-    editor=""/>
+---
+title: Criar ContentKeys com .NET
+description: Saiba como criar chaves de conteúdo que fornecem acesso seguro aos ativos.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016"
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-
-#<a name="create-contentkeys-with-.net"></a>Criar ContentKeys com .NET
-
-> [AZURE.SELECTOR]
-- [REST](media-services-rest-create-contentkey.md)
-- [.NET](media-services-dotnet-create-contentkey.md)
+---
+# <a name="create-contentkeys-with-.net"></a>Criar ContentKeys com .NET
+> [!div class="op_single_selector"]
+> * [REST](media-services-rest-create-contentkey.md)
+> * [.NET](media-services-dotnet-create-contentkey.md)
+> 
+> 
 
 Os serviços de mídia permitem que você crie ativos e forneça ativos criptografados. Uma **ContentKey** fornece acesso seguro aos seus **ativos**. 
 
@@ -32,10 +31,12 @@ Quando você fornece ativos para seus clientes, é possível [configurar para qu
 
 Os ativos criptografados precisam ser associados a **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
 
->[AZURE.NOTE] Ao criar um novo ativo **StorageEncrypted** usando o SDK do .NET dos Serviços de Mídia, a **ContentKey** é automaticamente criada e vinculada ao ativo.
+> [!NOTE]
+> Ao criar um novo ativo **StorageEncrypted** usando o SDK do .NET dos Serviços de Mídia, a **ContentKey** é automaticamente criada e vinculada ao ativo.
+> 
+> 
 
-##<a name="contentkeytype"></a>ContentKeyType
-
+## <a name="contentkeytype"></a>ContentKeyType
 Um dos valores que você deve definir ao criar um conteúdo da chave é o tipo de chave de conteúdo. Escolha um dos seguintes valores. 
 
     public enum ContentKeyType
@@ -62,8 +63,7 @@ Um dos valores que você deve definir ao criar um conteúdo da chave é o tipo d
         EnvelopeEncryption = 4
     }
 
-##<a name="<a-id="envelope_contentkey"></a>create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Criar um tipo de envelope de ContentKey
-
+## <a name="<a-id="envelope_contentkey"></a>create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Criar um tipo de envelope de ContentKey
 O trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia de envelope. Em seguida, associa a chave com o ativo especificado.
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -100,8 +100,7 @@ chamada
 
 
 
-##<a name="<a-id="common_contentkey"></a>create-common-type-contentkey"></a><a id="common_contentkey"></a>Criar um tipo comum de ContentKey    
-
+## <a name="<a-id="common_contentkey"></a>create-common-type-contentkey"></a><a id="common_contentkey"></a>Criar um tipo comum de ContentKey
 O trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia comum. Em seguida, associa a chave com o ativo especificado.
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
@@ -139,15 +138,11 @@ chamada
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
 
-##<a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
+## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Fornecer comentários
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
+## <a name="provide-feedback"></a>Fornecer comentários
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

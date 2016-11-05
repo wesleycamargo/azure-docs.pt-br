@@ -1,54 +1,49 @@
-<properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="Como compilar um aplicativo Web com gerenciamento de entrada, de inscrição e de perfis usando o Azure Active Directory B2C."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+---
+title: Azure Active Directory B2C | Microsoft Docs
+description: Como compilar um aplicativo Web com gerenciamento de entrada, de inscrição e de perfis usando o Azure Active Directory B2C.
+services: active-directory-b2c
+documentationcenter: .net
+author: dstrockis
+manager: msmbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/22/2016
+ms.author: dastrock
 
+---
 # Azure AD B2C: criar um aplicativo da área de trabalho do Windows
-
 Ao usar o Azure Active Directory B2C (Azure AD), você poderá adicionar recursos poderosos de gerenciamento de identidades de autoatendimento para seu aplicativo da área de trabalho em poucas etapas. Este artigo mostra como criar um aplicativo “lista de tarefas pendentes” do WPF (Windows Presentation Foundation) do .NET que inclui a inscrição, a entrada e o gerenciamento de perfil de usuário. O aplicativo inclui suporte para a inscrição e a entrada usando um nome de usuário ou um email. Ele também incluirá o suporte para a inscrição e a entrada usando contas sociais como o Facebook e o Google.
 
 ## Obter um diretório AD B2C do Azure
-
 Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos etc. Se você ainda não tiver um, [crie um diretório B2C](active-directory-b2c-get-started.md) antes de prosseguir neste guia.
 
 ## Criar um aplicativo
-
 Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornece ao AD do Azure as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
 
-- Inclua um **cliente nativo** no aplicativo.
-- Copie o **URI de Redirecionamento** `urn:ietf:wg:oauth:2.0:oob`. É a URL padrão deste exemplo de código.
-- Copie a **ID do Aplicativo** atribuída ao seu aplicativo. Você precisará dela mais tarde.
+* Inclua um **cliente nativo** no aplicativo.
+* Copie o **URI de Redirecionamento** `urn:ietf:wg:oauth:2.0:oob`. É a URL padrão deste exemplo de código.
+* Copie a **ID do Aplicativo** atribuída ao seu aplicativo. Você precisará dela mais tarde.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Criar suas políticas
-
 No Azure AD B2C, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: perfil de inscrição, entrada e edição. Você precisa criar uma política para cada tipo, como descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar as três políticas, não se esqueça de:
 
-- Escolher a **Inscrição de ID de usuário** ou a **Inscrição de email** na folha de provedores de identidade.
-- Escolher **Nome de exibição** e outros atributos de inscrição na política de inscrição.
-- Escolher as declarações **Nome de exibição** e **ID de objeto** como declarações de aplicativo em cada política. Você pode escolher outras declarações também.
-- Copie o **Nome** de cada política depois de criá-la. Ele deve ter o prefixo `b2c_1_`. Você precisará esses nomes de política mais tarde.
+* Escolher a **Inscrição de ID de usuário** ou a **Inscrição de email** na folha de provedores de identidade.
+* Escolher **Nome de exibição** e outros atributos de inscrição na política de inscrição.
+* Escolher as declarações **Nome de exibição** e **ID de objeto** como declarações de aplicativo em cada política. Você pode escolher outras declarações também.
+* Copie o **Nome** de cada política depois de criá-la. Ele deve ter o prefixo `b2c_1_`. Você precisará esses nomes de política mais tarde.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Depois de criar suas três políticas, você estará pronto para compilar o aplicativo.
 
 ## Baixar o código
-
 O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Para compilar o exemplo à medida que avançar, [baixe um projeto de esqueleto como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). Também é possível clonar o esqueleto:
 
 ```
@@ -90,8 +85,7 @@ public static class Globals
 }
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
-
+[!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### Criar o PublicClientApplication
 A classe primária da MSAL é `PublicClientApplication`. Essa classe representa o aplicativo no sistema Azure AD B2C. Quando o aplicativo é inicializado, cria uma instância de `PublicClientApplication` em `MainWindow.xaml.cs`. Isso pode ser usado em toda a janela.
@@ -107,7 +101,7 @@ protected async override void OnInitialized(EventArgs e)
         // we've extended the MSAL TokenCache and created a simple FileCache in this app.
         UserTokenCache = new FileCache(),
     };
-    
+
     ...
 ```
 
@@ -168,13 +162,13 @@ Você pode iniciar um fluxo de entrada da mesma maneira que inicia um fluxo de i
 ```C#
 private async void SignIn(object sender = null, RoutedEventArgs args = null)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+    AuthenticationResult result = null;
+    try
+    {
+        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.signInPolicy);
-		...
+        ...
 ```
 
 ### Iniciar um fluxo de edição de perfil
@@ -183,16 +177,15 @@ Novamente, você pode executar uma política de edição de perfil da mesma mane
 ```C#
 private async void EditProfile(object sender, RoutedEventArgs e)
 {
-	AuthenticationResult result = null;
-	try
-	{
-		result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
+    AuthenticationResult result = null;
+    try
+    {
+        result = await pca.AcquireTokenAsync(new string[] { Globals.clientId },
                     string.Empty, UiOptions.ForceLogin, null, null, Globals.authority,
                     Globals.editProfilePolicy);
 ```
 
 Em todos esses casos, MSAL retornará um token em `AuthenticationResult` ou gerará uma exceção. Sempre que obtiver um token do MSA, você poderá usar o `AuthenticationResult.User` objeto para atualizar os dados do usuário no aplicativo, como a interface do usuário. A ADAL também armazena o token em cache para uso em outras partes do aplicativo.
-
 
 ### Verificar se há tokens na inicialização do aplicativo
 Você também pode usar a MSAL para controlar o estado de entrada do usuário. Neste aplicativo, queremos que o usuário permaneça conectado mesmo depois que fechar o aplicativo e o abrir novamente. De volta à substituição `OnInitialized`, use o método `AcquireTokenSilent` da MSAL para verificar se há tokens em cache:
@@ -276,19 +269,19 @@ private async void GetTodoList()
 
         return;
     }
-	...
+    ...
 ```
 
 Quando a chamada para `AcquireTokenSilentAsync(...)` é bem-sucedida e um token é encontrado no cache, você pode adicionar o token ao cabeçalho `Authorization` da solicitação HTTP. A API Web da tarefa usará esse cabeçalho para autenticar a solicitação para ler a lista de tarefas pendentes do usuário:
 
 ```C#
-	...
-	// Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
+    ...
+    // Once the token has been returned by MSAL, add it to the http authorization header, before making the call to access the To Do list service.
     httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.Token);
 
     // Call the To Do list service.
     HttpResponseMessage response = await httpClient.GetAsync(Globals.taskServiceUrl + "/api/tasks");
-	...
+    ...
 ```
 
 ## Desconectar o usuário
@@ -314,19 +307,17 @@ private void SignOut(object sender, RoutedEventArgs e)
 ```
 
 ## Executar o aplicativo de exemplo
-
 Por fim, compile e execute o exemplo. Inscreva-se no aplicativo usando um endereço de email ou um nome de usuário. Saia e entre novamente como o mesmo usuário. Edite perfil do usuário. Saia e entre novamente como outro usuário.
 
 ## Adicionar IDPs sociais
-
 Atualmente, o aplicativo só dá suporte à inscrição e à entrada do usuário com **contas locais**. Essas são as contas armazenadas em seu diretório do B2C que usam um nome de usuário e senha. Com o Azure AD B2C, você pode adicionar suporte a outros provedores de identidade (IDPs), sem alterar qualquer código.
 
 Para adicionar IDPs sociais ao seu aplicativo, comece seguindo as instruções detalhadas nestes artigos. Para cada IDP ao qual deseja oferecer suporte, você precisa registrar um aplicativo no sistema e obter uma ID de cliente.
 
-- [Configurar o Facebook como um IDP](active-directory-b2c-setup-fb-app.md)
-- [Configurar o Google como um IDP](active-directory-b2c-setup-goog-app.md)
-- [Configurar o Amazon como um IDP](active-directory-b2c-setup-amzn-app.md)
-- [Configurar o LinkedIn como um IDP](active-directory-b2c-setup-li-app.md)
+* [Configurar o Facebook como um IDP](active-directory-b2c-setup-fb-app.md)
+* [Configurar o Google como um IDP](active-directory-b2c-setup-goog-app.md)
+* [Configurar o Amazon como um IDP](active-directory-b2c-setup-amzn-app.md)
+* [Configurar o LinkedIn como um IDP](active-directory-b2c-setup-li-app.md)
 
 Após a adição dos provedores de identidade ao seu diretório B2C, você precisará editar cada uma das suas três políticas para incluir os novos IDPs, como descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de salvar as políticas, execute o aplicativo novamente. Você deve ver os novos IDPs adicionados como opções de entrada e de inscrição em cada experiência de identidade.
 

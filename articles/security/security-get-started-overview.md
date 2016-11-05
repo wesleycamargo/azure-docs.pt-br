@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Visão geral de segurança do Azure | Microsoft Azure"
-   description="O site Informações de Segurança do Microsoft Azure em Azure.com é o lugar onde você obterá respostas técnicas para suas perguntas sobre segurança do Azure."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Visão geral de segurança do Azure | Microsoft Docs
+description: O site Informações de Segurança do Microsoft Azure em Azure.com é o lugar onde você obterá respostas técnicas para suas perguntas sobre segurança do Azure.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Visão Geral de segurança do Azure
-
 O site Informações de Segurança do Microsoft Azure em Azure.com é o lugar onde você obterá respostas técnicas para suas perguntas sobre segurança do Azure. Se você estiver interessado na conformidade do Azure e como ele protege sua própria infraestrutura, visite a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/TrustCenter/default.aspx).
 
 Sabemos que a segurança é o primeiro trabalho na nuvem e o quanto é importante que você encontre informações precisas e atualizadas sobre a segurança do Azure. Uma das melhores razões para usar o Azure para seus aplicativos e serviços é aproveitar a ampla variedade de ferramentas de segurança e recursos disponíveis. Essas ferramentas e recursos ajudam a tornar possível criar soluções seguras na plataforma segura do Azure.
@@ -31,18 +30,21 @@ Cada categoria tem um artigo de Visão Geral. A meta do artigo de Visão geral �
 
 Atualmente, o site de Informações de Segurança do Azure aborda as seguintes categorias:
 
-- Recursos
-- Segurança de rede
-- Segurança de armazenamento
-- Segurança de máquina virtual
-- Proteção do ponto de extremidade
-- Gerenciamento e monitoramento de segurança
-- Gerenciamento de identidades
-- Serviços PaaS
-- Específico do setor
-- Arquitetura
+* Recursos
+* Segurança de rede
+* Segurança de armazenamento
+* Segurança de máquina virtual
+* Proteção do ponto de extremidade
+* Gerenciamento e monitoramento de segurança
+* Gerenciamento de identidades
+* Serviços PaaS
+* Específico do setor
+* Arquitetura
 
-> [AZURE.NOTE] Todos os artigos do site de Informações de Segurança do Azure aparecem no painel de navegação no lado esquerdo da página. Se você quiser ver todos os artigos, clique ou toque em **Ver Mais** na parte inferior da lista de categorias.
+> [!NOTE]
+> Todos os artigos do site de Informações de Segurança do Azure aparecem no painel de navegação no lado esquerdo da página. Se você quiser ver todos os artigos, clique ou toque em **Ver Mais** na parte inferior da lista de categorias.
+> 
+> 
 
 Queremos sua opinião! Se houver outras categorias que você deseja que sejam adicionadas, fale conosco! Se houver artigos que você deseja adicionar a uma categoria existente, fale conosco sobre isso também! Você pode usar a seção Comentários abaixo ou escrever para [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) e nos incorporaremos suas recomendações a nossos planos.
 

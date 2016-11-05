@@ -1,31 +1,28 @@
-<properties
-	pageTitle="Configurar alertas de cobrança de suas assinaturas do Microsoft Azure | Microsoft Azure"
-	description="Descreve como você pode configurar alertas na sua conta do Azure para que possa evitar surpresas na cobrança."
-	services=""
-	documentationCenter=""
-	authors="vikdesai"
-	manager="msmbaldwin"
-	editor=""
-	tags="billing"
-	/>
+---
+title: Configurar alertas de cobrança de suas assinaturas do Microsoft Azure | Microsoft Docs
+description: Descreve como você pode configurar alertas na sua conta do Azure para que possa evitar surpresas na cobrança.
+services: ''
+documentationcenter: ''
+author: vikdesai
+manager: msmbaldwin
+editor: ''
+tags: billing
 
-<tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2016"
-	ms.author="vikdesai"/>
+ms.service: billing
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/18/2016
+ms.author: vikdesai
 
+---
 # Configurar alertas de cobrança de suas assinaturas do Microsoft Azure
-
 Você está preocupado com o quanto você está gastando todos os meses com a sua assinatura do Azure? Se você for o administrador da conta de uma assinatura do Azure, você pode usar o serviço de alerta de cobrança do Azure para criar um alerta personalizado de cobrança que o ajudará a monitorar e gerenciar as atividades de cobrança de suas contas do Azure.
 
 Este é um serviço de visualização, portanto, a primeira coisa que você precisa fazer é registrar-se. Visite [a página de Recursos de Visualização](https://account.windowsazure.com/PreviewFeatures) no portal de gerenciamento de contas do Azure para habilitar esse recurso.
 
 ## Definir os alertas de limite e destinatários de email
-
 Depois de receber o email de confirmação de que o serviço de cobrança foi ativado para a sua assinatura, visite [a página Assinaturas](https://account.windowsazure.com/Subscriptions) no portal da conta. Clique na assinatura que você deseja monitorar e, em seguida, clique em **Alertas**.
 
 ![][Image1]
@@ -41,7 +38,6 @@ Quando você adiciona um alerta, você informa um nome exclusivo, escolhe um lim
 O Azure é compatível com qualquer endereço de email, mas não verifica o funcionamento do endereço de email, por isso, verifique atentamente se digitou corretamente.
 
 ## Verificar os seus alertas
-
 Depois de configurar os alertas, o Centro de Contas lista e mostra quantos mais você pode configurar. Para cada alerta, você verá a data e a hora de envio, se é um alerta do Total de Cobrança ou de Crédito Monetário e o limite definido. O formato de data e hora é 24 horas - Hora Universal Coordenada (UTC) e a data usa o formato aaaa-mm-dd. Clique no sinal de adição de um alerta na lista para editá-lo ou clique na lixeira para excluí-lo.
 
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png

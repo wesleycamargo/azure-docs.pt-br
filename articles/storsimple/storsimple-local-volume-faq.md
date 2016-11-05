@@ -1,36 +1,34 @@
-<properties 
-   pageTitle="Perguntas frequentes sobre os volumes do StorSimple localmente afixados | Microsoft Azure"
-   description="Fornece respostas a perguntas frequentes sobre volumes localmente afixados do StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="manuaery"
-   manager="syadav"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/16/2016"
-   ms.author="manuaery" />
+---
+title: Perguntas frequentes sobre os volumes do StorSimple localmente afixados | Microsoft Docs
+description: Fornece respostas a perguntas frequentes sobre volumes localmente afixados do StorSimple.
+services: storsimple
+documentationcenter: NA
+author: manuaery
+manager: syadav
+editor: ''
 
+ms.service: storsimple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/16/2016
+ms.author: manuaery
+
+---
 # Volume localmente afixado do StorSimple: perguntas frequentes
-
 ## Visão geral
-
 Veja perguntas e respostas que podem ser úteis ao criar um volume localmente afixado do StorSimple, converter um volume em camadas em um volume localmente afixado (e vice-versa) ou fazer backup de um volume localmente afixado e restaurá-lo.
 
 As perguntas e respostas são organizadas nas seguintes categorias
 
-- Criação de um volume localmente afixado
-- Backup de um volume localmente afixado
-- Conversão de um volume em camadas em um volume localmente afixado
-- Restauração de um volume localmente afixado
-- Failover de um volume localmente afixado
+* Criação de um volume localmente afixado
+* Backup de um volume localmente afixado
+* Conversão de um volume em camadas em um volume localmente afixado
+* Restauração de um volume localmente afixado
+* Failover de um volume localmente afixado
 
 ## Perguntas sobre a criação de um volume localmente afixado
-
 **P.** Qual é o tamanho máximo de um volume localmente afixado que posso criar em dispositivos da série 8000?
 
 **R** Você pode provisionar volumes localmente afixados de até 8,5 TB ou volumes em camadas de até 200 TB no dispositivo 8100. No dispositivo 8600, que é maior, você pode provisionar volumes localmente afixados de até 22,5 TB ou volumes em camadas de até 500 TB.
@@ -41,16 +39,15 @@ As perguntas e respostas são organizadas nas seguintes categorias
 
 Como algum espaço no dispositivo local é usado para hospedar o conjunto de trabalho de volumes em camadas, o espaço disponível para a criação de um volume localmente afixado será reduzido se o dispositivo tiver volumes em camadas. Por outro lado, a criação de um volume localmente afixado reduz proporcionalmente o espaço disponível para volumes em camadas. A tabela a seguir resume a capacidade em camadas disponível nos dispositivos 8100 e 8600 quando volumes localmente afixados são criados.
 
-|Capacidade provisionada para volumes localmente afixados|Capacidade disponível para ser provisionada para volumes em camadas - 8100|Capacidade disponível para ser provisionada para volumes em camadas - 8600|
-|-----|------|------|
-|0 | 200 TB | 500 TB |
-|1 TB | 176,5 TB | 477,8 TB|
-|4 TB | 105,9 TB | 411,1 TB |
-|8,5 TB | 0 TB | 311,1 TB|
-|10 TB | ND | 277,8 TB |
-|15 TB | ND | 166,7 TB |
-|22,5 TB | ND | 0 TB |
-
+| Capacidade provisionada para volumes localmente afixados | Capacidade disponível para ser provisionada para volumes em camadas - 8100 | Capacidade disponível para ser provisionada para volumes em camadas - 8600 |
+| --- | --- | --- |
+| 0 |200 TB |500 TB |
+| 1 TB |176,5 TB |477,8 TB |
+| 4 TB |105,9 TB |411,1 TB |
+| 8,5 TB |0 TB |311,1 TB |
+| 10 TB |ND |277,8 TB |
+| 15 TB |ND |166,7 TB |
+| 22,5 TB |ND |0 TB |
 
 **P.** Por que a criação de um volume localmente afixado é uma operação demorada?
 
@@ -64,14 +61,11 @@ Como algum espaço no dispositivo local é usado para hospedar o conjunto de tra
 
 **A.** Os volumes localmente afixados são adequados para cargas de trabalho que exigem garantias locais de dados em todos os momentos e são sensíveis às latências da nuvem. Ao considerar o uso de volumes locais para qualquer uma de suas cargas de trabalho, lembre-se do seguinte:
 
-- Volumes localmente afixados são provisionados de forma densa e a criação de volumes locais tem impacto sobre o espaço disponível para volumes em camadas. Portanto, sugerimos que você comece com volumes menores e escale-os verticalmente à medida que sua necessidade de armazenamento aumentar.
+* Volumes localmente afixados são provisionados de forma densa e a criação de volumes locais tem impacto sobre o espaço disponível para volumes em camadas. Portanto, sugerimos que você comece com volumes menores e escale-os verticalmente à medida que sua necessidade de armazenamento aumentar.
+* O provisionamento de volumes locais é uma operação demorada que pode envolver o envio de dados existentes de volumes em camadas para a nuvem. Como resultado, pode ocorrer desempenho reduzido nesses volumes.
+* O provisionamento de volumes locais é uma operação demorada. O tempo real envolvidos depende de vários fatores: o tamanho do volume que está sendo provisionado, os dados no dispositivo e a largura de banda disponível. Se você não tiver feito backup dos volumes existentes para a nuvem, a criação do volume será mais lenta. Sugerimos que você crie instantâneos em nuvem dos volumes existentes antes de provisionar um volume local.
+* Você pode converter os volumes em camadas existentes em volumes localmente afixados. Essa conversão envolve o provisionamento de espaço no dispositivo para o volume localmente afixado resultante (além de obter dados em camadas [se houver] da nuvem). Novamente, essa é uma operação demorada que depende dos fatores discutidos anteriormente. Sugerimos que você faça o backup dos volumes existentes antes da conversão, pois o processo será ainda mais lento se não for feito o backup dos volumes existentes. O dispositivo também poderá ter desempenho reduzido durante esse processo.
 
-- O provisionamento de volumes locais é uma operação demorada que pode envolver o envio de dados existentes de volumes em camadas para a nuvem. Como resultado, pode ocorrer desempenho reduzido nesses volumes.
-
-- O provisionamento de volumes locais é uma operação demorada. O tempo real envolvidos depende de vários fatores: o tamanho do volume que está sendo provisionado, os dados no dispositivo e a largura de banda disponível. Se você não tiver feito backup dos volumes existentes para a nuvem, a criação do volume será mais lenta. Sugerimos que você crie instantâneos em nuvem dos volumes existentes antes de provisionar um volume local.
- 
-- Você pode converter os volumes em camadas existentes em volumes localmente afixados. Essa conversão envolve o provisionamento de espaço no dispositivo para o volume localmente afixado resultante (além de obter dados em camadas [se houver] da nuvem). Novamente, essa é uma operação demorada que depende dos fatores discutidos anteriormente. Sugerimos que você faça o backup dos volumes existentes antes da conversão, pois o processo será ainda mais lento se não for feito o backup dos volumes existentes. O dispositivo também poderá ter desempenho reduzido durante esse processo.
-	
 Mais informações sobre como [criar um volume localmente afixado](storsimple-manage-volumes-u2.md#add-a-volume)
 
 **P.** Posso criar vários volumes localmente afixados ao mesmo tempo?
@@ -97,7 +91,6 @@ Você pode exibir esses trabalhos na página **Trabalhos** do serviço StorSimpl
 **A.** Não, você não pode criar volumes localmente afixados por meio de cmdlets do Azure PowerShell (qualquer volume criado por meio do Azure PowerShell é em camadas). Também sugerimos que você não use os cmdlets do Azure PowerShell para modificar as propriedades de um volume localmente afixado, pois isso terá o efeito indesejado de modificar o tipo de volume para em camadas.
 
 ## Perguntas sobre o backup de um volume localmente afixado
-
 **P.** Há suporte a instantâneos locais de volumes localmente afixados?
 
 **A.** Sim, você pode criar instantâneos locais de volumes localmente afixados. No entanto, é altamente recomendável fazer o backup regular dos volumes localmente afixados com instantâneos de nuvem para garantir que os dados estejam protegidos na eventualidade de um desastre.
@@ -115,21 +108,18 @@ O aviso de alerta é para notificá-lo de que essa situação pode ocorrer e gar
 Se os instantâneos locais forem invalidados, você receberá um alerta de informação notificando-o de que os instantâneos locais da política de backup específica foram invalidados, juntamente com a lista de carimbos de data/hora dos instantâneos locais que foram invalidados. Esses instantâneos serão excluídos automaticamente e você já não poderá exibi-los na página **Catálogos de Backup** no portal clássico do Azure.
 
 ## Perguntas sobre como converter um volume em camadas em um volume localmente afixado
-
 **P.** Tenho observado uma certa lentidão no dispositivo durante a conversão de um volume em camadas em um volume localmente afixado. Por que isso está acontecendo?
 
 **A.** O processo de conversão envolve duas etapas:
 
-  1. Provisionamento de espaço no dispositivo para o volume localmente afixado que será convertido em breve.
-  2. Download de dados em camadas da nuvem para assegurar que haja garantias locais.
+1. Provisionamento de espaço no dispositivo para o volume localmente afixado que será convertido em breve.
+2. Download de dados em camadas da nuvem para assegurar que haja garantias locais.
 
 Essas duas etapas são operações de longa execução que dependem do tamanho do volume que está sendo convertido, dos dados no dispositivo e da largura de banda disponível. Como alguns dados dos volumes em camadas existentes podem ser colocados na nuvem como parte do processo de provisionamento, o dispositivo poderá ter o desempenho reduzido durante esse período. Além disso, o processo de conversão poderá ser mais lento se:
 
-- Se o backup na nuvem dos volumes existentes não tiver sido feito. Portanto, sugerimos que você faça backup dos volumes antes de iniciar uma conversão.
-
-- Políticas de limitação de largura de banda foram aplicadas, o que poderá restringir a largura de banda disponível para a nuvem. Portanto, recomendamos que você tenha uma ou mais conexões de 40 Mbps dedicadas para a nuvem.
-
-- O processo de conversão pode levar várias horas devido aos vários fatores explicados anteriormente. Portanto, sugerimos que você execute essa operação fora dos horários de pico ou no fim de semana para evitar o impacto sobre os consumidores finais.
+* Se o backup na nuvem dos volumes existentes não tiver sido feito. Portanto, sugerimos que você faça backup dos volumes antes de iniciar uma conversão.
+* Políticas de limitação de largura de banda foram aplicadas, o que poderá restringir a largura de banda disponível para a nuvem. Portanto, recomendamos que você tenha uma ou mais conexões de 40 Mbps dedicadas para a nuvem.
+* O processo de conversão pode levar várias horas devido aos vários fatores explicados anteriormente. Portanto, sugerimos que você execute essa operação fora dos horários de pico ou no fim de semana para evitar o impacto sobre os consumidores finais.
 
 Mais informações sobre como [converter um volume em camadas em um volume localmente afixado](storsimple-manage-volumes-u2.md#change-the-volume-type)
 
@@ -141,14 +131,11 @@ Mais informações sobre como [converter um volume em camadas em um volume local
 
 **A.** A conversão de volume pode falhar devido a problemas de conectividade de nuvem. O dispositivo pode eventualmente parar o processo de conversão após uma série de tentativas malsucedidas de obter dados em camadas da nuvem. Nesse cenário, o tipo de volume continuará a ser o tipo de volume de origem anterior à conversão e:
 
-- Será gerado um alerta crítico para notificá-lo da falha de conversão do volume. Mais informações sobre [alertas relacionados a volumes localmente afixados](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
-
-- Se você estiver convertendo um volume em camadas em um volume localmente afixado, o volume continuará a exibir propriedades de um volume em camadas, pois ainda pode haver dados residentes na nuvem. Sugerimos que você resolva os problemas de conectividade e repita a operação de conversão.
- 
-- Da mesma forma, quando a conversão de um volume localmente afixado em um volume em camadas falha, embora o volume seja marcado como um volume localmente afixado, ele funcionará como um volume em camadas (porque dados podem ter sido colocados na nuvem). No entanto, ele continuará a ocupar espaço nas camadas locais do dispositivo. Esse espaço não estará disponível para outros volumes localmente afixados. Sugerimos que você repita a operação para garantir que a conversão de volume seja concluída e que o espaço local no dispositivo possa ser recuperado.
+* Será gerado um alerta crítico para notificá-lo da falha de conversão do volume. Mais informações sobre [alertas relacionados a volumes localmente afixados](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
+* Se você estiver convertendo um volume em camadas em um volume localmente afixado, o volume continuará a exibir propriedades de um volume em camadas, pois ainda pode haver dados residentes na nuvem. Sugerimos que você resolva os problemas de conectividade e repita a operação de conversão.
+* Da mesma forma, quando a conversão de um volume localmente afixado em um volume em camadas falha, embora o volume seja marcado como um volume localmente afixado, ele funcionará como um volume em camadas (porque dados podem ter sido colocados na nuvem). No entanto, ele continuará a ocupar espaço nas camadas locais do dispositivo. Esse espaço não estará disponível para outros volumes localmente afixados. Sugerimos que você repita a operação para garantir que a conversão de volume seja concluída e que o espaço local no dispositivo possa ser recuperado.
 
 ## Perguntas sobre como restaurar um volume localmente afixado
-
 **P.** Os volumes localmente afixados são restaurados instantaneamente?
 
 **A.** Sim, os volumes localmente afixados são restaurados instantaneamente. Assim que as informações de metadados do volume são obtidas da nuvem como parte da operação de restauração, o volume é colocado online e pode ser acessado pelo host. No entanto, garantias locais para os dados do volume não estarão presentes até que todos os dados sejam baixado da nuvem. Pode ocorrer redução do desempenho nos volumes durante a restauração.
@@ -169,10 +156,9 @@ Mais informações sobre como [converter um volume em camadas em um volume local
 
 **R.**Não, você não pode alterar o tipo de volume durante a restauração.
 
-- Os volumes excluídos são restaurados como o tipo armazenado no instantâneo.
+* Os volumes excluídos são restaurados como o tipo armazenado no instantâneo.
+* Os volumes existentes são restaurados com base em seu tipo atual, independentemente do tipo armazenado no instantâneo (confira as duas perguntas anteriores).
 
-- Os volumes existentes são restaurados com base em seu tipo atual, independentemente do tipo armazenado no instantâneo (confira as duas perguntas anteriores).
- 
 **P.** Preciso restaurar um volume localmente afixado, mas escolhi um ponto incorreto no instantâneo de tempo. Posso cancelar a operação de restauração atual?
 
 **A.** Sim, você pode cancelar uma operação de restauração em andamento. O estado do volume será revertido para o estado do início da restauração. No entanto, as gravações feitas no volume enquanto a restauração estava em andamento serão perdidas.
@@ -186,14 +172,13 @@ Mais informações sobre como [converter um volume em camadas em um volume local
 **A.** Sim, pode. No entanto, o volume localmente afixado será clonado como um volume em camadas por padrão. Mais informações sobre como [clonar um volume fixo localmente](storsimple-clone-volume-u2.md)
 
 ## Perguntas sobre como fazer o failover de um volume localmente afixado
-
 **P.** Preciso fazer failover de um dispositivo para outro dispositivo físico. O failover será feito nos volumes localmente afixados como localmente afixados ou em camadas?
 
 **A.** Dependendo da versão de software do dispositivo de destino, o failover será feito nos volumes localmente afixados como:
 
-- Localmente afixados se o dispositivo de destino estiver executando o StorSimple 8000 series atualização 2
-- Em camadas se o dispositivo de destino estiver executando o StorSimple 8000 series atualização 1.x
-- Em camadas se o dispositivo de destino for o dispositivo de nuvem (atualização da versão do software 2 ou atualização 1.x)
+* Localmente afixados se o dispositivo de destino estiver executando o StorSimple 8000 series atualização 2
+* Em camadas se o dispositivo de destino estiver executando o StorSimple 8000 series atualização 1.x
+* Em camadas se o dispositivo de destino for o dispositivo de nuvem (atualização da versão do software 2 ou atualização 1.x)
 
 Mais informações sobre [o failover e a DR de volumes fixos localmente entre versões](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions)
 

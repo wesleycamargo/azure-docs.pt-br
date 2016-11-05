@@ -1,28 +1,25 @@
-<properties
-    pageTitle="Perguntas Frequentes do Log Analytics | Microsoft Azure"
-    description="Respostas para perguntas frequentes sobre o serviço Log Analytics."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Perguntas Frequentes do Log Analytics | Microsoft Docs
+description: Respostas para perguntas frequentes sobre o serviço Log Analytics.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="log-analytics-faq"></a>Perguntas frequentes do Log Analytics
-
 Essas Perguntas Frequentes da Microsoft são uma lista de perguntas frequentes sobre o Log Analytics no Microsoft Operations Management Suite (OMS). Se você tiver perguntas adicionais sobre o Log Analytics, vá para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Alguém da sua comunidade o ajudará a obter respostas. Se uma pergunta for frequente, ela será adicionada a este artigo para que possa ser encontrada com rapidez e facilidade.
 
 ## <a name="general"></a>Geral
-
 **P. Quais verificações são executadas pelo AD e soluções de Avaliação de SQL?**
 
 R. A consulta a seguir mostra uma descrição de todas as verificações executadas no momento:
@@ -58,7 +55,7 @@ Conforme as implantações de serviço são feitas, os endereços IP reais dos s
 
 **P. Eu uso a Rota Expressa para me conectar ao Azure. O meu tráfego do Log Analytics usará minha conexão ExpressRoute?**  
 
-R. Os diferentes tipos de tráfego de Rota Expressa estão descritos na [Documentação da Rota Expressa](./expressroute/expressroute-faqs.md#supported-services).
+R. Os diferentes tipos de tráfego de Rota Expressa estão descritos na [Documentação da Rota Expressa](../expressroute/expressroute-faqs.md#supported-services).
 
 O tráfego para o Log Analytics usa o circuito de Rota Expressa de emparelhamento público.
 
@@ -90,7 +87,6 @@ R: no SCOM, remova o computador da lista de gerenciados pelo OMS. Isso interromp
 Em **Azure Log Analytics (OMS)**, remova todos os espaços de trabalho listados.
 
 ## <a name="agent-data"></a>Dados do agente
-
 **P. Que quantidade de dados posso enviar por meio do agente para o Log Analytics? Há uma quantidade máxima de dados por cliente?**  
 R. R. O plano gratuito define um limite diário de 500 MB por espaço de trabalho. Os planos standard e premium não têm limite para a quantidade de dados carregados. Como um serviço de nuvem, o Log Analytics em OMS é projetado para escalar verticalmente, de modo automático, até o identificador de volume proveniente de um cliente, mesmo que seja terabytes por dia.
 
@@ -106,9 +102,9 @@ R. A largura de banda é uma função na quantidade de dados enviados. Dados sã
 
 R. Isso depende muito:
 
-- das soluções que você tiver habilitado
-- do número de logs e contadores de desempenho sendo coletados
-- do volume de dados nos logs
+* das soluções que você tiver habilitado
+* do número de logs e contadores de desempenho sendo coletados
+* do volume de dados nos logs
 
 O tipo de preço gratuito é uma boa maneira de integrar vários servidores e medir o volume de dados típico. O uso geral é mostrado na página **Uso** .
 Para computadores que são capazes de executar o agente WireData, você pode ver quantos dados estão sendo enviados usando a seguinte consulta:
@@ -120,10 +116,7 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- [Introdução ao Log Analytics](log-analytics-get-started.md) para saber mais sobre o Log Analytics e colocá-lo em funcionamento em minutos.
-
-
+* [Introdução ao Log Analytics](log-analytics-get-started.md) para saber mais sobre o Log Analytics e colocá-lo em funcionamento em minutos.
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Solução de Status de Replicação do Active Directory no Log Analytics | Microsoft Azure"
-    description="O pacote de solução de Status de Replicação do Active Directory monitora regularmente seu ambiente do Active Directory em busca de falhas de replicação e relata os resultados no seu painel do OMS."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Solução de Status de Replicação do Active Directory no Log Analytics | Microsoft Docs
+description: O pacote de solução de Status de Replicação do Active Directory monitora regularmente seu ambiente do Active Directory em busca de falhas de replicação e relata os resultados no seu painel do OMS.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="active-directory-replication-status-solution-in-log-analytics"></a>Solução de Status de Replicação do Active Directory no Log Analytics
-
 O Active Directory é um componente-chave de um ambiente de TI corporativo. Para garantir a alta disponibilidade e alto desempenho, cada controlador de domínio tem sua própria cópia do banco de dados do Active Directory. Controladores de domínio replicam entre si para propagar alterações em toda a empresa. Falhas nesse processo de replicação podem causar vários problemas em toda a empresa.
 
 O pacote de solução de Status de Replicação do AD monitora regularmente seu ambiente do Active Directory em busca de falhas de replicação e relata os resultados no seu painel do OMS.
@@ -26,31 +24,32 @@ O pacote de solução de Status de Replicação do AD monitora regularmente seu 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 Use as informações a seguir para instalar e configurar a solução.
 
-- É preciso que agentes sejam instalados em controladores de domínio membros do domínio a ser avaliado, ou então em servidores membros configurados para enviar dados de replicação do AD para o OMS. Para entender como conectar computadores Windows ao OMS, consulte [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agents.md). Se o controlador de domínio já fizer parte de um ambiente existente do System Center Operations Manager que você gostaria de conectar ao OMS, consulte [Conectar o Operations Manager ao Log Analytics](log-analytics-om-agents.md).
-- Adicione a solução de Status de Replicação do Active Directory ao espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
-
+* É preciso que agentes sejam instalados em controladores de domínio membros do domínio a ser avaliado, ou então em servidores membros configurados para enviar dados de replicação do AD para o OMS. Para entender como conectar computadores Windows ao OMS, consulte [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agents.md). Se o controlador de domínio já fizer parte de um ambiente existente do System Center Operations Manager que você gostaria de conectar ao OMS, consulte [Conectar o Operations Manager ao Log Analytics](log-analytics-om-agents.md).
+* Adicione a solução de Status de Replicação do Active Directory ao espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de coleta de dados do Status de Replicação do AD
-
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o Status de Replicação de AD.
 
 | plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
-|---|---|---|---|---|---|---|
-|Windows|![Sim](./media/log-analytics-ad-replication-status/oms-bullet-green.png)|![Sim](./media/log-analytics-ad-replication-status/oms-bullet-green.png)|![Não](./media/log-analytics-ad-replication-status/oms-bullet-red.png)|![Não](./media/log-analytics-ad-replication-status/oms-bullet-red.png)|![Sim](./media/log-analytics-ad-replication-status/oms-bullet-green.png)| a cada 5 dias|
-
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Sim](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![Sim](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![Não](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![Não](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![Sim](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |a cada 5 dias |
 
 ## <a name="optionally,-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Outra opção é habilitar um controlador que não seja de domínio para enviar dados do AD para o OMS
 Se não quiser conectar qualquer um dos seus controladores de domínio diretamente ao OMS, você poderá usar qualquer outro computador conectado ao OMS em seu domínio para coletar dados para o pacote de solução de Status de Replicação do AD e fazê-lo enviar os dados.
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Para habilitar um controlador que não seja de domínio para enviar dados do AD para o OMS
-1.  Verifique se o computador é um membro do domínio que você deseja monitorar usando a solução de Status de Replicação do AD.
-2.  [Conecte o computador Windows ao OMS](log-analytics-windows-agents.md) ou [conecte-o usando seu ambiente existente do Operations Manager para OMS](log-analytics-om-agents.md), se ele ainda não estiver conectado.
-3.  Nesse computador, defina a seguinte chave do Registro:
-    - Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
-    - Valor: **IsTarge**
-    - Dados do Valor: **true**
-
-    >[AZURE.NOTE]Essas alterações não entrarão em vigor até o serviço do Microsoft Monitoring Agent (HealthService.exe) ser reiniciado.
+1. Verifique se o computador é um membro do domínio que você deseja monitorar usando a solução de Status de Replicação do AD.
+2. [Conecte o computador Windows ao OMS](log-analytics-windows-agents.md) ou [conecte-o usando seu ambiente existente do Operations Manager para OMS](log-analytics-om-agents.md), se ele ainda não estiver conectado.
+3. Nesse computador, defina a seguinte chave do Registro:
+   
+   * Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
+   * Valor: **IsTarge**
+   * Dados do Valor: **true**
+   
+   > [!NOTE]
+   > Essas alterações não entrarão em vigor até o serviço do Microsoft Monitoring Agent (HealthService.exe) ser reiniciado.
+   > 
+   > 
 
 ## <a name="understanding-replication-errors"></a>Entendendo erros de replicação
 Depois de ter enviado os dados do status de replicação do AD para o OMS, você verá um bloco semelhante ao seguinte no painel do OMS indicando o número de erros de replicação que existem no momento.  
@@ -60,7 +59,6 @@ Depois de ter enviado os dados do status de replicação do AD para o OMS, você
 
 Ao clicar no bloco, você verá mais informações sobre os erros.
 ![Painel Status de Replicação do AD](./media/log-analytics-ad-replication-status/oms-ad-replication-dash.png)
-
 
 ### <a name="destination-server-status-and-source-server-status"></a>Status do Servidor de Destino e Status do Servidor de Origem
 Essas folhas mostram o status dos servidores de destino e servidores de origem que estão com erros de replicação. O número após cada nome de controlador de domínio indica o número de erros de replicação no controlador de domínio.
@@ -93,7 +91,10 @@ Esses são erros claramente remanescentes, não transitórios, e que provavelmen
 
 Conforme observado anteriormente, o bloco do painel para a solução de Status de Replicação do AD mostra o número de erros *críticos* de replicação em seu ambiente, que é definido como erros de mais de 75% de tempo de vida da marca de exclusão (incluindo erros que são mais 100% da TSL). Tente manter esse número em 0.
 
->[AZURE.NOTE] Todos os cálculos de percentual de tempo de vida de marca de exclusão baseiam-se em valores atuais sua floresta do Active Directory, portanto você pode confiar que essas porcentagens são precisas, mesmo se tiver um valor de tempo de vida de marca de exclusão personalizado definido.
+> [!NOTE]
+> Todos os cálculos de percentual de tempo de vida de marca de exclusão baseiam-se em valores atuais sua floresta do Active Directory, portanto você pode confiar que essas porcentagens são precisas, mesmo se tiver um valor de tempo de vida de marca de exclusão personalizado definido.
+> 
+> 
 
 ### <a name="ad-replication-status-details"></a>Detalhes do status de Replicação do AD
 Ao clicar em qualquer item de uma das listas, verá detalhes adicionais sobre ele usando a Pesquisa de Log. Os resultados são filtrados para mostrar somente os erros relacionados a esse item. Por exemplo, se você clicar no primeiro controlador de domínio listado em **Status do Servidor de Destino (ADDC02)**, verá os resultados da pesquisa filtrados para mostrar erros com esse controlador de domínio listado como o servidor de destino:
@@ -143,12 +144,8 @@ Se você precisar de assistência para conectar um dos seus controladores de dom
 
 Se você não quiser conectar nenhum controlador de domínio diretamente ao OMS ou SCOM, consulte [Para habilitar um controlador que não seja de domínio para enviar dados do AD para o OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-
 ## <a name="next-steps"></a>Próximas etapas
-
-- Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados de status de replicação do Active Directory.
-
-
+* Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados de status de replicação do Active Directory.
 
 <!--HONumber=Oct16_HO2-->
 

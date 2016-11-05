@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Otimizar o roteamento da Rota Expressa | Microsoft Azure"
-   description="Esta página fornece detalhes sobre como otimizar o roteamento quando um cliente tem mais de um circuito da Rota Expressa que conecta a Microsoft à rede corporativa do cliente."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+---
+title: Otimizar o roteamento da Rota Expressa | Microsoft Docs
+description: Esta página fornece detalhes sobre como otimizar o roteamento quando um cliente tem mais de um circuito da Rota Expressa que conecta a Microsoft à rede corporativa do cliente.
+documentationcenter: na
+services: expressroute
+author: charwen
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: charwen
 
+---
 # <a name="optimize-expressroute-routing"></a>Otimizar o roteamento da Rota Expressa
 Quando você tem vários circuitos de Rota Expressa, tem mais de um caminho para se conectar à Microsoft. Portanto, pode ocorrer um roteamento abaixo do ideal, ou seja, o tráfego pode levar um caminho mais longo para acessar a Microsoft e esta para acessar a sua rede. Quanto maior o caminho de rede, maior será a latência. A latência tem impacto direto na experiência de usuário e no desempenho do aplicativo. Este artigo ilustra esse problema e explica como otimizar o roteamento usando tecnologias de roteamento padrão.
 
@@ -39,13 +39,17 @@ Há duas soluções para o problema. A primeira é simplesmente anunciar o prefi
 
 A segunda solução é continuar a anunciar ambos os prefixos em ambos os circuitos da Rota Expressa e, além disso, fornecer uma dica de qual prefixo é mais próximo de qual escritório. Como damos suporte a precedência de caminho AS do BGP, você pode configurar do caminho AS para o prefixo a fim de influenciar o roteamento. Neste exemplo, você pode aumentar o caminho AS de 172.2.0.0/31 no Leste dos EUA para que passemos a preferir circuito da Rota Expressa no Oeste dos EUA para o tráfego destinado a esse prefixo (já que a nossa rede pensará que o caminho para esse prefixo é mais curto nesse lado). Da mesma forma, você pode aumentar o caminho AS de 172.2.0.2/31 no Oeste dos EUA para que vejamos o circuito da Rota Expressa no Leste dos EUA como preferencial. O roteamento é otimizado para ambos os escritórios. Com esse design, se um circuito da Rota Expressa for interrompido, o Exchange Online poderá ainda acessá-lo por meio de outro circuito da Rota Expressa e sua WAN. 
 
->[AZURE.IMPORTANT] Removemos números AS particulares no caminho AS para os prefixos recebidos no Microsoft Peering. Você precisa anexar números AS públicos como números no caminho AS para influenciar o roteamento para o Microsoft Peering.
+> [!IMPORTANT]
+> Removemos números AS particulares no caminho AS para os prefixos recebidos no Microsoft Peering. Você precisa anexar números AS públicos como números no caminho AS para influenciar o roteamento para o Microsoft Peering.
+> 
+> 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
->[AZURE.IMPORTANT] Embora os exemplos fornecidos aqui sejam para a Microsoft e os emparelhamentos Públicos, oferecemos suporte para os mesmos recursos do emparelhamento Privado. Além disso, o prefixo AS Path funciona em um único circuito do ExpressRoute para influenciar a seleção dos caminhos primário e secundário.
-
-
+> [!IMPORTANT]
+> Embora os exemplos fornecidos aqui sejam para a Microsoft e os emparelhamentos Públicos, oferecemos suporte para os mesmos recursos do emparelhamento Privado. Além disso, o prefixo AS Path funciona em um único circuito do ExpressRoute para influenciar a seleção dos caminhos primário e secundário.
+> 
+> 
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Usar os conjuntos de dados de exemplo no Studio de Aprendizado de Máquina | Microsoft Azure"
-	description="Descrições dos conjuntos de dados usados em modelos de exemplo incluídos no Estúdio AM. Você pode usar esses conjuntos de dados de exemplo para seus testes."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Usar os conjuntos de dados de exemplo no Studio de Aprendizado de Máquina | Microsoft Docs
+description: Descrições dos conjuntos de dados usados em modelos de exemplo incluídos no Estúdio AM. Você pode usar esses conjuntos de dados de exemplo para seus testes.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye
 
-
+---
 # Usar os conjuntos de dados de exemplo no Studio de Aprendizado de Máquina do Azure
-
 [top]: #machine-learning-sample-datasets
 
 Quando você cria um novo espaço de trabalho no Aprendizado de Máquina do Azure, um número de conjuntos de dados de exemplo e testes é incluído por padrão. Muitos desses conjuntos de dados de exemplo são usados pelos modelos de exemplo na [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/) e outros são incluídos como exemplos de vários tipos de dados usados no aprendizado de máquina.
@@ -27,15 +25,13 @@ Alguns desses conjuntos de dados estão disponíveis no armazenamento de Blob do
 
 O restante dos conjuntos de dados de exemplo está listado em **Conjuntos de Dados Salvos** na paleta de módulo à esquerda da tela do teste quando você abre ou cria um novo teste no Estúdio AM. Você pode usar qualquer um desses conjuntos de dados em seu próprio teste arrastando-o para a tela do teste.
 
-
 <!--
 For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
 [sample-experiments]: machine-learning-sample-experiments.md
 -->
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 <table>
 

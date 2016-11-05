@@ -1,33 +1,30 @@
-<properties
-   pageTitle="Painéis do portal do Azure | Microsoft Azure"
-   description="Este artigo explica como criar e editar painéis no portal do Azure."
-   services="azure-portal"
-   documentationCenter=""
-   authors="sewatson"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Painéis do portal do Azure | Microsoft Docs
+description: Este artigo explica como criar e editar painéis no portal do Azure.
+services: azure-portal
+documentationcenter: ''
+author: sewatson
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="multiple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="na"
-   ms.date="09/06/2016"
-   ms.author="sewatson"/>
+ms.service: multiple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 09/06/2016
+ms.author: sewatson
 
+---
 # Criar e compartilhar painéis no portal do Azure
-
 Você pode criar vários painéis e compartilhá-los com outras pessoas que tenham acesso às suas assinaturas do Azure. Esta postagem percorre as noções básicas da criação/edição, publicação e gerenciamento de acesso aos painéis.
 
 ## Personalizar painéis versus folhas
-
 Desde a inicialização de painéis, há alguns meses, houve um declínio constante em personalizações de folha e um rápido aumento em personalizações no painel. Essa forte tendência de uso mostra que você prefere personalizar painéis em vez de folhas. Para oferecer suporte a essa tendência, removeremos a capacidade de personalizar folhas e dedicar nossos esforços em aprimorar a funcionalidade do painel. Se você tiver personalizado uma folha, sua personalização será removida em breve. Para preservar essa personalização, fixe os blocos personalizados a um painel. Simplesmente clique com botão direito do mouse no bloco e selecione **Fixar no painel** conforme mostrado na imagem a seguir.
 
 ![salvar bloco personalizado](./media/azure-portal-dashboards/save-customization.png)
 
 ## Criar um painel
-
 Para criar um painel, selecione o botão **Novo painel** ao lado do nome do painel atual.
 
 ![criar painel](./media/azure-portal-dashboards/new-dashboard.png)
@@ -43,7 +40,6 @@ Há uma nova categoria chamada **Geral** para blocos que não estejam associados
 ![adicionar markdown](./media/azure-portal-dashboards/add-markdown.png)
 
 ## Editar um painel
-
 Depois de criar seu painel, você pode fixar blocos da galeria de blocos ou a representação de bloco de folhas. Vamos fixar a representação do nosso grupo de recursos. Você pode fixar ao procurar o item, ou da folha do grupo de recursos. As duas abordagens resultam na fixação da representação do bloco do grupo de recursos.
 
 ![fixar no painel](./media/azure-portal-dashboards/pin-to-dashboard.png)
@@ -57,7 +53,7 @@ Agora que temos um bloco Markdown e um grupo de recursos fixado ao painel, podem
 Ao passar o mouse e selecionar "…" ou clicar com o botão direito do mouse em um bloco, você poderá ver todos os comandos contextuais do bloco. Por padrão, há dois itens:
 
 1. **Desafixar do painel** – remove o bloco do painel
-2.	**Personalizar** – entra no modo de personalização
+2. **Personalizar** – entra no modo de personalização
 
 ![personalizar bloco](./media/azure-portal-dashboards/customize-tile.png)
 
@@ -76,7 +72,6 @@ Depois de redimensionar os blocos, exiba o painel.
 Quando tiver concluído a personalização de um painel, basta selecionar o **personalização concluída** para sair no modo de personalização ou pressione o botão direito do mouse e selecione **Personalização concluída** no menu de contexto.
 
 ## Publicar um painel e gerenciar o controle de acesso
-
 Quando você cria um painel, ele será privado por padrão, o que significa que você é a única pessoa que pode vê-lo. Para torná-lo visível para outras pessoas, use o botão **Compartilhar** exibido juntamente com os outros comandos do painel.
 
 ![compartilhar painel](./media/azure-portal-dashboards/share-dashboard.png)
@@ -98,8 +93,7 @@ Depois que o painel é publicado, o painel de controle **Compartilhamento + aces
 ![gerenciar o controle de acesso](./media/azure-portal-dashboards/manage-access.png)
 
 ## Próximas etapas
-
-- Para gerenciar recursos, veja [Gerenciar recursos do Azure pelo portal](resource-group-portal.md).
-- Para implantar recursos, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](../resource-group-template-deploy-portal.md).
+* Para gerenciar recursos, veja [Gerenciar recursos do Azure pelo portal](resource-group-portal.md).
+* Para implantar recursos, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](../resource-group-template-deploy-portal.md).
 
 <!---HONumber=AcomDC_0907_2016-->

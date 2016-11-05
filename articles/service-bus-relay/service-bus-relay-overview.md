@@ -1,25 +1,22 @@
-<properties
-    pageTitle="Visão geral da Retransmissão do Barramento de Serviço| Microsoft Azure"
-    description="Visão geral da retransmissão do Barramento de Serviço"
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+---
+title: Visão geral da Retransmissão do Barramento de Serviço| Microsoft Docs
+description: Visão geral da retransmissão do Barramento de Serviço
+services: service-bus
+documentationcenter: .net
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="multiple"
-    ms.topic="get-started-article"
-    ms.date="09/01/2016"
-    ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: get-started-article
+ms.date: 09/01/2016
+ms.author: sethm
 
-
-
+---
 # <a name="overview-of-service-bus-relay"></a>Visão geral da retransmissão do Barramento de Serviço
-
 Um componente importante do Barramento de Serviço é um serviço de *retransmissão* centralizado (mas com alto balanceamento de carga) que permite a compilação de aplicativos híbridos que executem tanto no datacenter do Azure quanto em seu próprio ambiente corporativo local.  A Retransmissão do Barramento de Serviço oferece suporte a vários protocolos de transporte e padrões de serviços Web. Isso inclui SOAP, WS-* e até REST. O serviço de retransmissão facilita seus aplicativos híbridos permitindo que você exiba com segurança os serviços da Windows Communication Foundation (WCF) que residem em uma rede corporativa para a nuvem pública, sem precisar abrir uma conexão de firewall ou exigir mudanças intrusivas em uma infraestrutura de rede corporativa. 
 
 ![Conceitos de retransmissão](./media/service-bus-relay-overview/sb-relay-01.png)
@@ -31,14 +28,10 @@ No padrão do sistema de mensagens de retransmissão, um serviço local conecta-
 Você inicia a conexão entre o serviço local e o serviço de retransmissão usando um conjunto de associações de "retransmissão" WCF. Nos bastidores, as associações de retransmissão são mapeadas para novos elementos de ligação de transporte projetados para criar componentes de canal WCF que são integrados ao Barramento de Serviço na nuvem. 
 
 ## <a name="next-steps"></a>Próximas etapas
-
 Para obter detalhes sobre a retransmissão do Barramento de Serviço, veja os tópicos a seguir.
 
-- [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
-- [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
-
- 
-
+* [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 
 <!--HONumber=Oct16_HO2-->
 

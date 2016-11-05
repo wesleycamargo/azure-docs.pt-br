@@ -1,44 +1,40 @@
-<properties
-	pageTitle="Azure Insights: práticas recomendadas para dimensionamento automático do Azure Insights. | Microsoft Azure"
-	description="Aprenda os princípios para usar efetivamente o dimensionamento automático no Azure Insights."
-	authors="kamathashwin"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: 'Azure Insights: práticas recomendadas para dimensionamento automático do Azure Insights. | Microsoft Docs'
+description: Aprenda os princípios para usar efetivamente o dimensionamento automático no Azure Insights.
+author: kamathashwin
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/15/2016"
-	ms.author="ashwink"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/15/2016
+ms.author: ashwink
 
+---
 # Práticas recomendadas para dimensionamento automático do Azure Insights
-
 As seções a seguir neste documento lhe ajudarão a entender as práticas recomendadas para Dimensionamento Automático no Azure Insights. Depois de revisar essas informações, você poderá usar mais efetivamente o Dimensionamento Automático na sua infraestrutura do Azure.
 
 ## Conceitos de dimensionamento automático
-
-- Um recurso pode ter apenas *uma* configuração de Dimensionamento Automático
-- Uma configuração de Dimensionamento Automático pode ter um ou mais perfis e cada perfil pode ter uma ou mais regras de dimensionamento automático.
-- Uma configuração de dimensionamento automático dimensiona instâncias horizontalmente, que é *escalar* ao aumentar as instâncias e *reduzir* ao diminuir o número de instâncias. Uma configuração de dimensionamento automático tem um valor máximo, mínimo e padrão de instâncias.
-- Um trabalho de dimensionamento automático sempre lê a métrica associada para expandir, verificando se ele ultrapassou o limite configurado para escalar ou reduzir horizontalmente. Você pode exibir uma lista de métricas que o dimensionamento automático pode dimensionar em [métricas comuns de dimensionamento automático do Azure Insights](insights-autoscale-common-metrics.md).
-- Todos os limites são calculados em um nível de instância. Por exemplo, "escalar horizontalmente por 1 instância quando a média da CPU > 80% quando a contagem de instâncias for 2" significa escalar horizontalmente quando a média da CPU em todas as instâncias for maior que 80%.
-- Você sempre receberá notificações de falha via email. Especificamente o proprietário, o colaborador e os leitores do recurso de destino receberão email. Você também receberá um email de *recuperação* quando o dimensionamento automático se recuperar de uma falha e iniciar o funcionamento normalmente.
-- Você pode optar por receber uma notificação de ação de escala com êxito por meio de email e ganchos.
+* Um recurso pode ter apenas *uma* configuração de Dimensionamento Automático
+* Uma configuração de Dimensionamento Automático pode ter um ou mais perfis e cada perfil pode ter uma ou mais regras de dimensionamento automático.
+* Uma configuração de dimensionamento automático dimensiona instâncias horizontalmente, que é *escalar* ao aumentar as instâncias e *reduzir* ao diminuir o número de instâncias. Uma configuração de dimensionamento automático tem um valor máximo, mínimo e padrão de instâncias.
+* Um trabalho de dimensionamento automático sempre lê a métrica associada para expandir, verificando se ele ultrapassou o limite configurado para escalar ou reduzir horizontalmente. Você pode exibir uma lista de métricas que o dimensionamento automático pode dimensionar em [métricas comuns de dimensionamento automático do Azure Insights](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md).
+* Todos os limites são calculados em um nível de instância. Por exemplo, "escalar horizontalmente por 1 instância quando a média da CPU > 80% quando a contagem de instâncias for 2" significa escalar horizontalmente quando a média da CPU em todas as instâncias for maior que 80%.
+* Você sempre receberá notificações de falha via email. Especificamente o proprietário, o colaborador e os leitores do recurso de destino receberão email. Você também receberá um email de *recuperação* quando o dimensionamento automático se recuperar de uma falha e iniciar o funcionamento normalmente.
+* Você pode optar por receber uma notificação de ação de escala com êxito por meio de email e ganchos.
 
 ## Práticas recomendadas de dimensionamento automático
-
 Use as seguintes práticas recomendadas ao usar o Dimensionamento Automático.
 
 ### Verifique se os valores mínimo e máximo são diferentes e têm uma margem suficiente entre eles
 Se você tiver uma configuração que tenha no máximo = 2, mínimo = 2 e atual contagem de instâncias for 2, nenhuma ação de escala poderá ocorrer. Uma configuração recomendada é manter uma margem suficiente entre as contagens de instância máxima e mínima. O dimensionamento automático sempre será dimensionado entre esses limites, que é inclusivo. No entanto, suponha que você queira dimensionar manualmente a contagem de instâncias (atualização) para um valor acima do máximo. Na próxima vez que um trabalho de dimensionamento automático é executado, ele verifica se a contagem de instância atual é maior que o máximo. Se sim, ele é dimensionado no máximo, independentemente do limite definido nas regras. Da mesma forma, se você manualmente chegar a uma instância contagem atual menor que o mínimo, na próxima vez que um trabalho de dimensionamento automático for executado, ele se expandirá para o número mínimo de instâncias.
 
 ### Sempre use uma combinação de regra de escala e redução horizontal que executa um aumento e uma redução
-
 Se você usar apenas uma parte da combinação, o dimensionamento automático reduzirá horizontalmente a única redução ou escala, até que o máximo ou o mínimo seja alcançado.
 
 ### Não alternar entre o portal do Azure e o portal clássico do Azure ao gerenciar o dimensionamento automático
@@ -52,9 +48,8 @@ Recomendamos escolher cuidadosamente limites diferentes para escalar e reduzir h
 
 *Não recomendamos* as configurações de dimensionamento automático como os exemplos abaixo com os valores de limite igual ou muito semelhante para condições de redução e escala:
 
-- Aumentar as instâncias por contagem de 1 quando a Contagem de Threads < = 600
-- Reduzir as instâncias por contagem de 1 quando a Contagem de Threads >= 600
-
+* Aumentar as instâncias por contagem de 1 quando a Contagem de Threads < = 600
+* Reduzir as instâncias por contagem de 1 quando a Contagem de Threads >= 600
 
 Vejamos um exemplo de como o que pode levar a um comportamento que possa parecer confuso. Suponha que há 2 instâncias para começar e, em seguida, o número médio de threads por instância aumenta para 625. O dimensionamento automático escala horizontalmente uma terceira instância. Em seguida, suponha que a contagem média de threads entre a instância seja de 575. Antes de reduzir verticalmente, o dimensionamento automático tenta estimar como será o estado final de ele for reduzido horizontalmente. Por exemplo, 575 x 3 (contagem de instância atual) = 1.725 / 2 (número final de instâncias quando reduzido verticalmente) = 862.5 threads. Isso significa que o Dimensionamento Automático terá que imediatamente escalar horizontalmente novamente mesmo depois de ter sido reduzido horizontalmente, se a contagem média de threads permanecer a mesma ou tiver apenas uma pequena quantidade reduzida. No entanto, se escalado verticalmente novamente, todo o processo se repetiria, resultando em um loop infinito. Para evitar essa situação *flappy*, o Dimensionamento Automático não reduz verticalmente. Em vez disso, ele ignora e reavalia a condição novamente na próxima vez em que executa trabalho do serviço. Isso poderia confundir muitas pessoas porque o Dimensionamento Automático não funcionaria quando a contagem média de threads fosse 575.
 
@@ -62,8 +57,8 @@ Esse comportamento de estimativa durante uma redução horizontal destina-se a e
 
 Recomendamos escolher uma margem suficiente entre os limites de redução e escala horizontal. Por exemplo, considere a seguinte combinação de melhor regra.
 
-- Aumentar as instâncias por contagem de 1 quando CPU% >= 80
-- Reduzir as instâncias por contagem de 1 quando CPU% <= 60
+* Aumentar as instâncias por contagem de 1 quando CPU% >= 80
+* Reduzir as instâncias por contagem de 1 quando CPU% <= 60
 
 Vamos examinar como esse exemplo funciona. Suponha que há 2 instâncias para começar. Se a porcentagem média de CPU entre instâncias for até 80, o dimensionamento automático escalará horizontalmente, adicionando uma terceira instância. Agora suponha que, ao longo do tempo, o percentual de CPU caia para 60. A regra de redução horizontal do dimensionamento automático estimaria o estado final se fosse necessário fazer a redução horizontal. Por exemplo, 60 x 3 (contagem de instância atual) = 180 / 2 (número final de instâncias quando reduzido verticalmente) = 90 threads. Portanto, o Dimensionamento Automático não reduz horizontalmente, pois ele teria que escalar horizontalmente novamente imediatamente. Em vez disso, ele ignora a redução vertical. Em seguida, suponha que a próxima vez que ele verificar, a CPU continua indo até 50 e, em seguida, estima novamente - instância de 50 x 3 = 150 / 2 instâncias = 75, que está abaixo do limite de escala horizontal de 80, portanto ele reduz horizontalmente para que ele é dimensionado em com êxito para 2 instâncias.
 
@@ -72,13 +67,12 @@ Vamos examinar como esse exemplo funciona. Suponha que há 2 instâncias para co
 
 Vamos ilustrá-lo com um exemplo para que entender o comportamento melhor.
 
-- Aumentar o número de instâncias por contagem de 1 quando a contagem de mensagem de Fila de Armazenamento > = 50
-- Reduzir o número de instâncias por contagem 1 de contagem de mensagem de Fila de Armazenamento > = 10
+* Aumentar o número de instâncias por contagem de 1 quando a contagem de mensagem de Fila de Armazenamento > = 50
+* Reduzir o número de instâncias por contagem 1 de contagem de mensagem de Fila de Armazenamento > = 10
 
 Suponha que há 2 instâncias para começar. Em seguida, suponha que as mensagens continuam chegando e ao examinar a fila de armazenamento, a contagem total de leituras de 50. Você pode pressupor que o dimensionamento automático deve iniciar uma ação de escala horizontal. No entanto, observe que ainda é 50/2 = 25 mensagens por instância. Portanto, a escala horizontal não ocorrerá. Para a primeira escala horizontal acontecer, a contagem total de mensagens na fila de armazenamento deve ser de 100. Em seguida, suponha que a contagem total de mensagens chegue a 100. Uma terceira instância é adicionada devido a uma ação de escala horizontal. A ação de escala horizontal a seguir não ocorrerá até que a contagem total de mensagens na fila atinja 150. Vamos examinar a ação de redução horizontal. Suponha que o número de instâncias seja 3. A primeira ação de escala horizontal acontece quando o total de mensagens na fila atingir 30, tornando-o 30/3 = 10 mensagens por instância, que é o limite de escala horizontal.
 
 ### Considerações sobre dimensionamento quando vários perfis são configurados em uma configuração de dimensionamento automático
-
 Em uma configuração de dimensionamento automático, você pode escolher um perfil padrão, que é sempre aplicado sem qualquer dependência de agenda ou hora, ou você pode escolher um perfil recorrente ou um perfil para um período fixo com um intervalo de data e hora.
 
 Quando o serviço de Dimensionamento Automático o processar, ele sempre verifica na seguinte ordem:
@@ -106,15 +100,15 @@ Em *escalar horizontalmente*, o dimensionamento automático será executado se n
 
 Para ilustrar, suponha que você tenha as seguintes 4 regras de dimensionamento automático:
 
-- Se CPU < 30%, reduza horizontalmente em 1
-- Se Memória < 50%, reduza horizontalmente em 1
-- Se CPU < 75%, escale horizontalmente em 1
-- Se Memória < 75, escale horizontalmente em 1
+* Se CPU < 30%, reduza horizontalmente em 1
+* Se Memória < 50%, reduza horizontalmente em 1
+* Se CPU < 75%, escale horizontalmente em 1
+* Se Memória < 75, escale horizontalmente em 1
 
 Em seguida, ocorrerá o seguinte:
 
-- Se a CPU for 76% e a Memória 50%, escalaremos horizontalmente.
-- Se a CPU for 50% e a Memória 76%, escalaremos horizontalmente.
+* Se a CPU for 76% e a Memória 50%, escalaremos horizontalmente.
+* Se a CPU for 50% e a Memória 76%, escalaremos horizontalmente.
 
 Por outro lado, se a CPU é 25% e a memória é 51%, dimensionamento automático **não** será reduzido horizontalmente. Para reduzir horizontalmente, a CPU deve ser 29% e memória 49%.
 
@@ -123,8 +117,9 @@ A contagem de instâncias padrão é importante porque ele é a contagem de inst
 
 ### Configurar notificações de dimensionamento automático
 O dimensionamento automático notificará os administradores e os colaboradores do recurso por email se ocorrer qualquer uma das seguintes condições:
-- O serviço de dimensionamento automático não pode executar uma ação.
-- As métricas não estão disponíveis para o serviço de dimensionamento automático tomar uma decisão de escala.
-- As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala. Além das condições acima, você pode configurar notificações por email ou webhook para obter notificações de ações de dimensionamento bem-sucedido.
+
+* O serviço de dimensionamento automático não pode executar uma ação.
+* As métricas não estão disponíveis para o serviço de dimensionamento automático tomar uma decisão de escala.
+* As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala. Além das condições acima, você pode configurar notificações por email ou webhook para obter notificações de ações de dimensionamento bem-sucedido.
 
 <!---HONumber=AcomDC_0914_2016-->

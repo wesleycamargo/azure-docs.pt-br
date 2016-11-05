@@ -1,25 +1,24 @@
-<properties 
-	pageTitle="Introdução ao Data Factory, um serviço de integração de dados | Microsoft Azure" 
-	description="Saiba o que é o Azure Data Factory: um serviço de integração de dados de nuvem que orquestra e automatiza a movimentação e a transformação dos dados." 
-	keywords="integração de dados, integração de dados de nuvem, o que é o azure data factory"
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+---
+title: Introdução ao Data Factory, um serviço de integração de dados | Microsoft Docs
+description: 'Saiba o que é o Azure Data Factory: um serviço de integração de dados de nuvem que orquestra e automatiza a movimentação e a transformação dos dados.'
+keywords: integração de dados, integração de dados de nuvem, o que é o azure data factory
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="09/22/2016" 
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/22/2016
+ms.author: spelluru
 
+---
 # Introdução ao serviço Azure Data Factory, um serviço de integração de dados na nuvem
-
-## O que é o Data Factory do Azure? 
+## O que é o Data Factory do Azure?
 O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a **movimentação** e a **transformação** dos dados. Você pode criar soluções de integração de dados usando o serviço Data Factory que podem receber dados de vários repositórios de dados, transformar/processar os dados e publicar os dados resultantes nos repositórios de dados.
 
 O serviço Data Factory permite criar pipelines de dados que movem e transformam dados e depois executar os pipelines em um agendamento especificado (por hora, diariamente, semanalmente, etc.). Ele também fornece visualizações avançadas para exibir a linhagem e as dependências entre os pipelines de dados e monitorar todos os seus pipelines de dados em uma única exibição unificada, a fim de identificar os problemas e configurar alertas de monitoramento facilmente.
@@ -30,14 +29,14 @@ O serviço Data Factory permite criar pipelines de dados que movem e transformam
 Em uma solução de Data Factory, você cria um ou mais **pipelines** de dados. Pipeline é um agrupamento lógico de atividades. Eles são usados para agrupar atividades em uma unidade que, em conjunto, executam uma tarefa.
 
 As **Atividades** definem as ações a serem realizadas em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um repositório de dados para outro. Da mesma forma, você pode usar uma atividade do Hive que executa uma consulta de Hive em um cluster do Azure HDInsight para transformar ou analisar seus dados. O Data Factory dá suporte a dois tipos de atividades: atividades de movimentação de dados e atividades de transformação de dados.
-  
-## Atividades de movimentação de dados 
-[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
+
+## Atividades de movimentação de dados
+[!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
 Confira [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter mais detalhes.
 
 ## Atividades de transformação de dados
-[AZURE.INCLUDE [data-factory-transformation-activities](../../includes/data-factory-transformation-activities.md)]
+[!INCLUDE [data-factory-transformation-activities](../../includes/data-factory-transformation-activities.md)]
 
 Confira o artigo [Atividades de transformação de dados](data-factory-data-transformation-activities.md) para obter mais detalhes.
 
@@ -46,10 +45,10 @@ Se você precisar mover dados de/para um repositório de dados a que a Atividade
 ## Serviços vinculados
 Serviços vinculados definem as informações necessárias para o Data Factory se conectar a recursos externos (Exemplos: Armazenamento do Azure, SQL Server local, Azure HDInsight). Serviços vinculados são usados para duas finalidades no Data Factory:
 
-- Para representar um **repositório de dados**, incluindo, mas não se limitando a um SQL Server local, banco de dados Oracle, compartilhamento de arquivos ou uma conta de Armazenamento de Blobs do Azure. Confira a seção [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter uma lista de repositórios de dados com suporte.
-- Para representar um **recurso de computação** que pode hospedar a execução de uma atividade. Por exemplo, a atividade HDInsightHive é executada em um cluster Hadoop do HDInsight. Confira a seção [Atividades de transformação de dados](data-factory-data-transformation-activities.md) para obter uma lista de ambientes de computação com suporte.
+* Para representar um **repositório de dados**, incluindo, mas não se limitando a um SQL Server local, banco de dados Oracle, compartilhamento de arquivos ou uma conta de Armazenamento de Blobs do Azure. Confira a seção [Atividades de movimentação de dados](data-factory-data-movement-activities.md) para obter uma lista de repositórios de dados com suporte.
+* Para representar um **recurso de computação** que pode hospedar a execução de uma atividade. Por exemplo, a atividade HDInsightHive é executada em um cluster Hadoop do HDInsight. Confira a seção [Atividades de transformação de dados](data-factory-data-transformation-activities.md) para obter uma lista de ambientes de computação com suporte.
 
-## Conjunto de dados 
+## Conjunto de dados
 Serviços vinculados vinculam armazenamentos de dados a um data factory do Azure. Conjuntos de dados representam estruturas de dados nos repositórios de dados. Por exemplo, um serviço vinculado do Armazenamento do Azure fornece informações de conexão para que o Data Factory se conecte a uma conta do Armazenamento do Azure. Um conjunto de dados de blob do Azure especifica o contêiner de blobs e a pasta no Armazenamento de Blobs do Azure, de onde o pipeline deve ler os dados. Da mesma forma, um serviço vinculado do Azure SQL fornece informações de conexão para um banco de dados SQL e um conjunto de dados do Azure SQL especifica a tabela que contém os dados.
 
 ## Relação entre entidades de Data Factory
@@ -69,14 +68,14 @@ Embora o Azure Data Factory só esteja disponível nas regiões **Oeste dos EUA*
 Por exemplo, digamos que seus ambientes de computação, como o cluster Azure HDInsight e o Azure Machine Learning, estejam ficando sem a região Europa Ocidental. Você pode criar e usar uma instância do Azure Data Factory na Europa Setentrional e usá-la para agendar trabalhos em seus ambientes de computação na Europa Ocidental. Leva alguns milissegundos para o Data Factory disparar o trabalho em seu ambiente de computação, mas o tempo de execução do trabalho em seu ambiente de computação não é alterado.
 
 No futuro, pretendemos ter o Azure Data Factory em todas as regiões com suporte do Azure.
-  
+
 ## Próximas etapas
 Para saber como criar data factories com pipeline de dados, siga as instruções passo a passo nos tutoriais a seguir.
 
-Tutorial | Descrição
--------- | -----------
-[Criar um pipeline de dados que processa dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md) | Neste tutorial, você cria seu primeiro data factory no Azure com um pipeline de dados que **processa os dados** executando o script do Hive em um cluster Azure HDInsight (Hadoop). |
-[Criar um pipeline de dados para mover dados entre dois armazenamentos de dados em nuvem](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | Neste tutorial, você cria um data factory com um pipeline que **move dados** do Armazenamento de Blobs para o banco de dados SQL.
-[Criar um pipeline de dados para mover dados entre um armazenamento de dados local e um armazenamento de dados em nuvem usando o Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) | Neste tutorial, você cria um data factory com um pipeline que **move dados** de um banco de dados SQL Server **local** para um blob do Azure. Como parte do passo a passo, você instala e configura o Gateway de Gerenciamento de Dados em seu computador. 
+| Tutorial | Descrição |
+| --- | --- |
+| [Criar um pipeline de dados que processa dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md) |Neste tutorial, você cria seu primeiro data factory no Azure com um pipeline de dados que **processa os dados** executando o script do Hive em um cluster Azure HDInsight (Hadoop). |
+| [Criar um pipeline de dados para mover dados entre dois armazenamentos de dados em nuvem](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Neste tutorial, você cria um data factory com um pipeline que **move dados** do Armazenamento de Blobs para o banco de dados SQL. |
+| [Criar um pipeline de dados para mover dados entre um armazenamento de dados local e um armazenamento de dados em nuvem usando o Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) |Neste tutorial, você cria um data factory com um pipeline que **move dados** de um banco de dados SQL Server **local** para um blob do Azure. Como parte do passo a passo, você instala e configura o Gateway de Gerenciamento de Dados em seu computador. |
 
 <!---HONumber=AcomDC_1005_2016-->

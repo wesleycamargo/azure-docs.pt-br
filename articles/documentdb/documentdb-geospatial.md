@@ -1,33 +1,31 @@
-<properties 
-    pageTitle="Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure | Microsoft Azure" 
-    description="Compreenda como criar, indexar e consultar objetos espaciais com o Banco de Dados de Documentos do Azure." 
-    services="documentdb" 
-    documentationCenter="" 
-    authors="arramac" 
-    manager="jhubbard" 
-    editor="monicar"/>
+---
+title: Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure | Microsoft Docs
+description: Compreenda como criar, indexar e consultar objetos espaciais com o Banco de Dados de Documentos do Azure.
+services: documentdb
+documentationcenter: ''
+author: arramac
+manager: jhubbard
+editor: monicar
 
-<tags 
-    ms.service="documentdb" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="data-services" 
-    ms.date="08/08/2016" 
-    ms.author="arramac"/>
-    
+ms.service: documentdb
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 08/08/2016
+ms.author: arramac
+
+---
 # Trabalhando com dados geoespaciais no Banco de Dados de Documentos do Azure
-
 Este artigo é uma introdução à funcionalidade geoespacial do [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/). Depois de ler este artigo, você poderá responder as seguintes perguntas:
 
-- Como armazeno dados espaciais no Banco de Dados de Documentos do Azure?
-- Como faço para consultar dados geoespaciais no Banco de Dados de Documentos do Azure no SQL e no LINQ?
-- Como eu habilito ou desabilito a indexação espacial no Banco de Dados de Documentos?
+* Como armazeno dados espaciais no Banco de Dados de Documentos do Azure?
+* Como faço para consultar dados geoespaciais no Banco de Dados de Documentos do Azure no SQL e no LINQ?
+* Como eu habilito ou desabilito a indexação espacial no Banco de Dados de Documentos?
 
 Consulte este [projeto Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) para obter exemplos de código.
 
 ## Introdução aos dados espaciais
-
 Os dados espaciais descrevem a posição e a forma dos objetos no espaço. Na maioria dos aplicativos, eles correspondem aos objetos na Terra, ou seja, dados geoespaciais. Os dados espaciais podem ser usados para representar a localização de uma pessoa, um lugar de interesse ou a divisa de uma cidade ou de um lago. Com frequência, os casos de uso comum envolvem consultas de proximidade, por exemplo, “encontre todas as cafeterias próximas ao local atual”.
 
 ### GeoJSON
@@ -43,9 +41,12 @@ Um **Ponto** denota uma única posição no espaço. Em dados geoespaciais, um p
        "coordinates":[ 31.9, -4.8 ]
     }
 
->[AZURE.NOTE] A especificação de GeoJSON mostra a longitude primeiro e a latitude depois. Assim como acontece em outros aplicativos de mapeamento, a longitude e a latitude são ângulos e são representados em graus. Os valores de longitude são medidos a partir do Meridiano Principal e estão entre -180,0 e 180,0 graus e os valores de latitude são medidos a partir do Equador e estão entre -90,0 e 90,0 graus.
->
+> [!NOTE]
+> A especificação de GeoJSON mostra a longitude primeiro e a latitude depois. Assim como acontece em outros aplicativos de mapeamento, a longitude e a latitude são ângulos e são representados em graus. Os valores de longitude são medidos a partir do Meridiano Principal e estão entre -180,0 e 180,0 graus e os valores de latitude são medidos a partir do Equador e estão entre -90,0 e 90,0 graus.
+> 
 > O Banco de Dados de Documentos interpreta coordenadas como representadas de acordo com o sistema de referência WGS-84. Consulte abaixo para obter mais detalhes sobre os sistemas de coordenadas de referência.
+> 
+> 
 
 Isso pode ser inserido em um documento do Banco de Dados de Documentos como mostrado neste exemplo de um perfil de usuário com dados de local:
 
@@ -77,14 +78,16 @@ Além dos pontos, o GeoJSON também dá suporte a LineStrings e a polígonos. **
        ]
     }
 
->[AZURE.NOTE] A especificação GeoJSON exige que, para polígonos válidos, o último par de coordenadas fornecido seja igual ao primeiro para criar uma forma fechada.
->
->Os pontos em um polígono devem ser especificados no sentido anti-horário. Um polígono especificado no sentido horário representa o inverso da região dentro dele.
+> [!NOTE]
+> A especificação GeoJSON exige que, para polígonos válidos, o último par de coordenadas fornecido seja igual ao primeiro para criar uma forma fechada.
+> 
+> Os pontos em um polígono devem ser especificados no sentido anti-horário. Um polígono especificado no sentido horário representa o inverso da região dentro dele.
+> 
+> 
 
 Além de Ponto, LineString e Polígono, o GeoJSON também especifica a representação de como agrupar vários locais geoespaciais, além de como associar propriedades arbitrárias a geolocalização como um **Recurso**. Como esses objetos são JSON válido, todos eles podem ser armazenados e processados no Banco de Dados de Documentos. No entanto, o Banco de Dados de Documentos dá suporte apenas à indexação automática de pontos.
 
 ### Sistemas de referência de coordenadas
-
 Como a forma da Terra é irregular, as coordenadas de dados geoespaciais são representadas em muitos sistemas de coordenadas de referência (CRS), cada um com seus próprios quadros de referência e unidades de medida. Por exemplo, o "National Grid of Britain" é um sistema de referência muito preciso para o Reino Unido, mas não para fora dele.
 
 O CRS mais popular em uso hoje é o Sistema Geodésico Mundial[WGS-84](http://earth-info.nga.mil/GandG/wgs84/). Os dispositivos GPS e vários serviços de mapeamento, incluindo as APIs do Google Maps e do Bing Mapas usam WGS-84. O Banco de Dados de Documentos dá suporte à indexação e à consulta de dados geoespaciais usando apenas o CRS WGS-84.
@@ -111,7 +114,7 @@ Se você estiver trabalhando com os SDKs do .NET (ou do Java), poderá usar as n
 **Criar documentos com dados geoespaciais no .NET**
 
     using Microsoft.Azure.Documents.Spatial;
-    
+
     public class UserProfile
     {
         [JsonProperty("name")]
@@ -119,10 +122,10 @@ Se você estiver trabalhando com os SDKs do .NET (ou do Java), poderá usar as n
 
         [JsonProperty("location")]
         public Point Location { get; set; }
-        
+
         // More properties
     }
-    
+
     await client.CreateDocumentAsync(
         UriFactory.CreateDocumentCollectionUri("db", "profiles"), 
         new UserProfile 
@@ -134,7 +137,6 @@ Se você estiver trabalhando com os SDKs do .NET (ou do Java), poderá usar as n
 Se você não tiver as informações de latitude e de longitude, mas se tiver os endereços físicos ou o nome do local, como a cidade ou o país, poderá procurar as coordenadas reais usando um serviço de geocodificação, como os Serviços REST do Bing Mapas. Saiba mais sobre a geocodificação do Bing Mapas [aqui](https://msdn.microsoft.com/library/ff701713.aspx).
 
 ## Consultando tipos espaciais
-
 Agora que já vimos como inserir dados geoespaciais, vamos dar uma olhada em como consultar esses dados usando o Banco de Dados de Documentos com SQL e LINQ.
 
 ### Funções internas espaciais do SQL
@@ -188,8 +190,8 @@ Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou
     SELECT * 
     FROM Families f 
     WHERE ST_WITHIN(f.location, {
-    	'type':'Polygon', 
-    	'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+        'type':'Polygon', 
+        'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 
 **Resultados**
@@ -197,8 +199,11 @@ Os argumentos do polígono no ST\_WITHIN podem conter apenas um único toque, ou
     [{
       "id": "WakefieldFamily",
     }]
-    
->[AZURE.NOTE] Da mesma forma como os tipos incompatíveis funcionam na consulta do Banco de Dados de Documentos, se o valor de local especificado em um dos argumentos for malformado ou inválido, então ele será avaliado como **indefinido** e o documento avaliado será ignorado nos resultados da consulta. Se sua consulta não retornar resultados, execute ST\_ISVALIDDETAILED para depurar o motivo pelo qual o tipo spatail é inválido.
+
+> [!NOTE]
+> Da mesma forma como os tipos incompatíveis funcionam na consulta do Banco de Dados de Documentos, se o valor de local especificado em um dos argumentos for malformado ou inválido, então ele será avaliado como **indefinido** e o documento avaliado será ignorado nos resultados da consulta. Se sua consulta não retornar resultados, execute ST\_ISVALIDDETAILED para depurar o motivo pelo qual o tipo spatail é inválido.
+> 
+> 
 
 ST\_ISVALID e ST\_ISVALIDDETAILED podem ser usados para verificar se um objeto espacial é válido. Por exemplo, a consulta a seguir verifica a validade de um ponto com um valor de latitude fora do intervalo (-132,8). ST\_ISVALID retorna um valor Booliano e ST\_ISVALIDDETAILED retorna o Booliano e uma cadeia de caracteres com o motivo pelo qual ele é considerado inválido.
 
@@ -217,20 +222,19 @@ Essas funções também podem ser usadas para validar polígonos. Por exemplo, S
 **Consulta**
 
     SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
-    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
-    	]]})
+        [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
+        ]]})
 
 **Resultados**
 
     [{
        "$1": { 
-      	  "valid": false, 
-      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
-      	}
+            "valid": false, 
+            "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
+          }
     }]
-    
-### Consultas LINQ no SDK do .NET
 
+### Consultas LINQ no SDK do .NET
 O SDK do .NET do Banco de Dados de Documentos também fornece métodos stub `Distance()` e `Within()` para uso em expressões LINQ. O provedor LINQ do Banco de Dados de Documentos traduz essas chamadas do método nas chamadas de função internas do SQL equivalentes (ST\_DISTANCE e ST\_WITHIN, respectivamente).
 
 Veja um exemplo de uma consulta LINQ que localiza todos os documentos da coleção do Banco de Dados de Documentos cujo valor de "local" está em um raio de 30 km do ponto especificado usando LINQ.
@@ -269,14 +273,16 @@ Da mesma forma, veja uma consulta para localizar todos os documentos cuja "local
 Agora que já vimos como consultar documentos usando LINQ e SQL, vamos dar uma olhada em como configurar o Banco de Dados de Documentos para indexação espacial.
 
 ## Indexação
-
 Como descrito no documento [Indexação independente de esquema com o Banco de Dados de Documentos do Azure](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), projetamos o mecanismo de banco de dados do Banco de Dados de Documentos para ser verdadeiramente independente de esquema e para fornecer suporte de primeira classe para JSON. O mecanismo de banco de dados otimizado para gravação do Banco de Dados de Documentos também compreende nativamente os dados espaciais representados no padrão GeoJSON.
 
 Em resumo, a geometria é projetada a partir de coordenadas geodésicas em um plano 2D e então dividida progressivamente em células usando um **quadtree**. Essas células são mapeadas para 1D com base na localização da célula em uma **curva de preenchimento de espaço de Hilbert**, que preserva a localidade de pontos. Além disso, quando dados de localização são indexados, eles passam por um processo conhecido como **mosaico**, ou seja, todas as células que interceptam uma localização são identificadas e armazenadas como chaves no índice do Banco de Dados de Documentos. No momento da consulta, argumentos como pontos e polígonos também são incluídos no mosaico para extrair os intervalos de IDs de célula relevantes e usados para recuperar dados do índice.
 
 Se você especificar uma política de indexação que inclua o índice espacial para /* (todos os caminhos), todos os pontos encontrados na coleção serão indexados para consultas espaciais eficientes (ST\_WITHIN e ST\_DISTANCE). Os índices espaciais não têm um valor de precisão e sempre usam um valor de precisão padrão.
 
->[AZURE.NOTE] O Banco de Dados de Documentos oferece suporte à indexação automática de Pontos, Polígonos (modo de visualização particular) e LineStrings (modo de visualização particular). Para acessar a visualização, envie um email askdocdb@microsoft.com ou entre em contato conosco por meio do Suporte do Azure.
+> [!NOTE]
+> O Banco de Dados de Documentos oferece suporte à indexação automática de Pontos, Polígonos (modo de visualização particular) e LineStrings (modo de visualização particular). Para acessar a visualização, envie um email askdocdb@microsoft.com ou entre em contato conosco por meio do Suporte do Azure.
+> 
+> 
 
 O trecho JSON a seguir mostra uma política de indexação com indexação espacial habilitada, ou seja, qualquer ponto GeoJSON encontrado em documentos para consultas espaciais do índice. Se você estiver modificando a política de indexação usando o Portal do Azure, poderá especificar o JSON a seguir para a política de indexação para habilitar a indexação espacial em sua coleção.
 
@@ -336,16 +342,19 @@ E veja como você pode modificar uma coleção existente para aproveitar a index
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
-> [AZURE.NOTE] Se o valor GeoJSON de localização no documento estiver malformado ou inválido, então ele não será indexado para consultas espaciais. Você pode validar valores de localização usando ST\_ISVALID e ST\_ISVALIDDETAILED.
->
+> [!NOTE]
+> Se o valor GeoJSON de localização no documento estiver malformado ou inválido, então ele não será indexado para consultas espaciais. Você pode validar valores de localização usando ST\_ISVALID e ST\_ISVALIDDETAILED.
+> 
 > Caso sua definição de coleção inclua uma chave de partição, o andamento da transformação de indexação não será relatado.
+> 
+> 
 
 ## Próximas etapas
 Agora que você já aprendeu como começar a usar o suporte geoespacial no Banco de Dados de Documentos, poderá:
 
-- Começar a codificar com os [exemplos de código geoespacial .NET no Github](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)
-- Pratique com as consultas geoespaciais no [Query Playground do Banco de Dados de Documentos](http://www.documentdb.com/sql/demo#geospatial)
-- Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
-- Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
+* Começar a codificar com os [exemplos de código geoespacial .NET no Github](https://github.com/Azure/azure-documentdb-dotnet/blob/e880a71bc03c9af249352cfa12997b51853f47e5/samples/code-samples/Geospatial/Program.cs)
+* Pratique com as consultas geoespaciais no [Query Playground do Banco de Dados de Documentos](http://www.documentdb.com/sql/demo#geospatial)
+* Saiba mais sobre [consultas do Banco de Dados de Documentos](documentdb-sql-query.md)
+* Saiba mais sobre [Políticas de indexação do Banco de Dados de Documentos](documentdb-indexing-policies.md)
 
 <!---HONumber=AcomDC_0824_2016-->

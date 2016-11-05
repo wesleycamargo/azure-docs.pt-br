@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Exportar dados do Log Analytics para o Power BI | Microsoft Azure"
-   description="O Power BI é um serviço de análise de negócios baseado em nuvem da Microsoft que fornece relatórios e visualizações avançadas para análise de diferentes conjuntos de dados.  O Log Analytics pode realizar exportação contínua de dados do repositório do OMS para o Power BI automaticamente para que você possa aproveitar suas visualizações e ferramentas de análise.  Este artigo descreve como configurar consultas no Log Analytics exportados automaticamente para o Power BI em intervalos regulares."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
-   ms.author="bwren" />
+---
+title: Exportar dados do Log Analytics para o Power BI | Microsoft Docs
+description: O Power BI é um serviço de análise de negócios baseado em nuvem da Microsoft que fornece relatórios e visualizações avançadas para análise de diferentes conjuntos de dados.  O Log Analytics pode realizar exportação contínua de dados do repositório do OMS para o Power BI automaticamente para que você possa aproveitar suas visualizações e ferramentas de análise.  Este artigo descreve como configurar consultas no Log Analytics exportados automaticamente para o Power BI em intervalos regulares.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+ms.author: bwren
 
+---
 # <a name="export-log-analytics-data-to-power-bi"></a>Exportar dados do Log Analytics para o Power BI
-
 O [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é um serviço de análise de negócios baseado em nuvem da Microsoft que fornece relatórios e visualizações avançadas para análise de diferentes conjuntos de dados.  O Log Analytics pode exportar dados do repositório do OMS para o Power BI automaticamente para que você possa aproveitar suas visualizações e ferramentas de análise.
 
 Ao configurar o Power BI com o Log Analytics, você poderá criar consultas de log que exportam seus resultados para conjuntos de dados correspondentes no Power BI.  A consulta e a exportação continuarão a ser executadas automaticamente em uma agenda definida por você para manter o conjunto de dados atualizado com os últimos dados coletados pelo Log Analytics.
@@ -25,15 +24,16 @@ Ao configurar o Power BI com o Log Analytics, você poderá criar consultas de l
 ![Log Analytics para Power BI](media/log-analytics-powerbi/overview.png)
 
 ## <a name="power-bi-schedules"></a>Agendas do Power BI
-
 Uma *Agenda do Power BI* inclui uma pesquisa de log que exporta um conjunto de dados do repositório do OMS para um conjunto de dados correspondente no Power BI e uma agenda que define a frequência com que essa pesquisa é executada para manter o conjunto de dados atualizado.
 
 Os campos no conjunto de dados corresponderão às propriedades dos registros retornados pela pesquisa de log.  Se a pesquisa retornar registros de diferentes tipos, o conjunto de dados incluirá todas as propriedades de cada um dos tipos de registro incluídos.  
 
-> [AZURE.NOTE] É uma melhor prática usar uma consulta de pesquisa de log que retorna dados brutos em vez de executar qualquer consolidação usando comandos como [Measure](log-analytics-search-reference.md#measure).  Você pode executar qualquer agregação e cálculo no Power BI por meio dos dados brutos.
+> [!NOTE]
+> É uma melhor prática usar uma consulta de pesquisa de log que retorna dados brutos em vez de executar qualquer consolidação usando comandos como [Measure](log-analytics-search-reference.md#measure).  Você pode executar qualquer agregação e cálculo no Power BI por meio dos dados brutos.
+> 
+> 
 
 ## <a name="connecting-oms-workspace-to-power-bi"></a>Conectar o espaço de trabalho do OMS ao Power BI
-
 Antes de exportar do Log Analytics para o Power BI, você deve conectar o seu espaço de trabalho do OMS à conta do Power BI usando o procedimento a seguir.  
 
 1. No console do OMS, clique no bloco **Configurações** .
@@ -42,7 +42,6 @@ Antes de exportar do Log Analytics para o Power BI, você deve conectar o seu es
 4. Insira as credenciais da sua conta do Power BI.
 
 ## <a name="create-a-power-bi-schedule"></a>Criar uma agenda do Power BI
-
 Crie uma agenda do Power BI para cada conjunto de dados usando o procedimento a seguir.
 
 1. No console do OMS, clique no bloco **Pesquisa de Log** .
@@ -51,14 +50,13 @@ Crie uma agenda do Power BI para cada conjunto de dados usando o procedimento a 
 4. Forneça as informações na tabela a seguir e clique em **Salvar**.
 
 | Propriedade | Descrição |
-|:--|:--|
-| Nome | Nome para identificar a agenda ao exibir a lista de agendamentos do Power BI. |
-| Pesquisa Salva | A pesquisa de log a ser executada.  Você pode selecionar a consulta atual ou uma pesquisa salva existente na lista suspensa. |
-| Agenda | A frequência de execução da pesquisa salva e exportação para o conjunto de dados do Power BI.  O valor deve ser entre 15 minutos e 24 horas. |
-| Nome do conjunto de dados | O nome do conjunto de dados no Power BI.  Ele será criado se ele não existir e atualizado se existir. |
+|:--- |:--- |
+| Nome |Nome para identificar a agenda ao exibir a lista de agendamentos do Power BI. |
+| Pesquisa Salva |A pesquisa de log a ser executada.  Você pode selecionar a consulta atual ou uma pesquisa salva existente na lista suspensa. |
+| Agenda |A frequência de execução da pesquisa salva e exportação para o conjunto de dados do Power BI.  O valor deve ser entre 15 minutos e 24 horas. |
+| Nome do conjunto de dados |O nome do conjunto de dados no Power BI.  Ele será criado se ele não existir e atualizado se existir. |
 
 ## <a name="viewing-and-removing-power-bi-schedules"></a>Exibir e remover agendas do Power BI
-
 Veja a lista de agendamentos do Power BI existentes com o procedimento a seguir.
 
 1. No console do OMS, clique no bloco **Configurações** .
@@ -113,11 +111,8 @@ Salvamos o relatório clicando no botão Salvar na parte superior da tela e vali
 ![Relatórios do Power BI](media/log-analytics-powerbi/walkthrough-report.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para criar consultas que podem ser exportadas para o Power BI.
-- Saiba mais sobre o [Power BI](http://powerbi.microsoft.com) para criar visualizações baseadas em exportações do Log Analytics.
-
-
+* Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para criar consultas que podem ser exportadas para o Power BI.
+* Saiba mais sobre o [Power BI](http://powerbi.microsoft.com) para criar visualizações baseadas em exportações do Log Analytics.
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,51 +1,44 @@
-<properties 
-	pageTitle="Como criar um banco de dados no Banco de Dados de Documentos | Microsoft Azure" 
-	description="Saiba como criar um banco de dados usando o portal de serviço online do Banco de Dados de Documentos do Azure, um banco de dados NoSQL extremamente rápido de escala global." 
-	keywords="como criar um banco de dados" 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
-	documentationCenter=""/>
+---
+title: Como criar um banco de dados no Banco de Dados de Documentos | Microsoft Docs
+description: Saiba como criar um banco de dados usando o portal de serviço online do Banco de Dados de Documentos do Azure, um banco de dados NoSQL extremamente rápido de escala global.
+keywords: como criar um banco de dados
+services: documentdb
+author: mimig1
+manager: jhubbard
+editor: monicar
+documentationcenter: ''
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="mimig"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: mimig
 
+---
 # Como criar um banco de dados para o Banco de Dados de Documentos usando o portal do Azure
-
 Para usar o Banco de Dados de Documentos do Microsoft Azure, você deve ter uma conta do [Banco de Dados de Documentos](documentdb-create-account.md), um banco de dados, uma coleção e documentos. Este tópico descreve como criar um banco de dados para o Banco de Dados de Documentos no Portal do Microsoft Azure. Para saber mais sobre como criar um banco de dados usando um dos SDKs, veja [Outras maneiras de criar um banco de dados do Banco de Dados de Documentos](#other-ways-to-create-a-documentdb-database).
 
-1.  No [portal do Azure](https://portal.azure.com/), na barra de atalhos, clique em **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** não estiver visível, clique em **Mais Serviços** e clique em **DocumentDB (NoSQL)**.
-
+1. No [portal do Azure](https://portal.azure.com/), na barra de atalhos, clique em **DocumentDB (NoSQL)**. Se **DocumentDB (NoSQL)** não estiver visível, clique em **Mais Serviços** e clique em **DocumentDB (NoSQL)**.
 
     ![Captura de tela que mostra como criar um banco de dados e realça Contas do Banco de Dados de Documentos na folha Procurar e uma conta do Banco de Dados de Documentos na folha Contas do Banco de Dados de Documentos](./media/documentdb-create-database/docdb-database-creation-1-2.png)
 
-2.  Na folha **DocumentDB (NoSQL)**, escolha a conta na qual adicionar um banco de dados NoSQL do DocumentDB. Se você não tiver contas listadas, você precisará [criar uma conta do Banco de Dados de Documentos](documentdb-create-account.md).
-
-3. Na folha **Conta do Banco de Dados de Documentos**, clique em **Adicionar Banco de Dados**.
-
+1. Na folha **DocumentDB (NoSQL)**, escolha a conta na qual adicionar um banco de dados NoSQL do DocumentDB. Se você não tiver contas listadas, você precisará [criar uma conta do Banco de Dados de Documentos](documentdb-create-account.md).
+2. Na folha **Conta do Banco de Dados de Documentos**, clique em **Adicionar Banco de Dados**.
+   
     ![Captura de tela que mostra como criar um banco de dados e realça o botão Adicionar Banco de Dados, a caixa ID e o botão OK](./media/documentdb-create-database/docdb-database-creation-3-5.png)
-
-4. Na folha **Adicionar banco de dados**, insira a ID do novo banco de dados. Quando o nome for validado, uma marca de seleção verde será exibida na caixa **ID**. Em seguida, clique em **OK**.
-
+3. Na folha **Adicionar banco de dados**, insira a ID do novo banco de dados. Quando o nome for validado, uma marca de seleção verde será exibida na caixa **ID**. Em seguida, clique em **OK**.
+   
     ![Captura de tela que mostra como criar um banco de dados e realça o botão Adicionar Banco de Dados, a caixa ID e o botão OK](./media/documentdb-create-database/docdb-database-creation-4.png)
-
-5. O novo banco de dados agora aparece na lente **Bancos de dados** na folha **Conta do Banco de Dados de Documentos**.
- 
-	![Captura de tela do novo banco de dados na folha Conta do Banco de Dados de Documentos](./media/documentdb-create-database/docdb-database-creation-6.png)
+4. O novo banco de dados agora aparece na lente **Bancos de dados** na folha **Conta do Banco de Dados de Documentos**.
+   
+    ![Captura de tela do novo banco de dados na folha Conta do Banco de Dados de Documentos](./media/documentdb-create-database/docdb-database-creation-6.png)
 
 ## Outra formas de criar um Banco de Dados de Documentos
-
 Os bancos de dados não precisam ser criados com o Portal; você também pode criá-los usando os [SDKs do Banco de Dados de Documentos](documentdb-sdk-dotnet.md) ou a [API REST](https://msdn.microsoft.com/library/mt489072.aspx). Para saber mais sobre o trabalho com bancos de dados usando o SDK do .NET, veja [Exemplos de banco de dados do .NET](documentdb-dotnet-samples.md#database-examples). Para saber mais sobre o trabalho com bancos de dados usando o SDK do Node.js, veja [Exemplos de banco de dados do Node.js](documentdb-nodejs-samples.md#database-examples).
 
 ## Próximas etapas
-
 Agora que você sabe como criar um banco de dados para o Banco de Dados de Documentos, a próxima etapa é [criar uma coleção](documentdb-create-collection.md).
 
 Depois de criar sua coleção, você pode [adicionar documentos JSON](documentdb-view-json-document-explorer.md) usando o Gerenciador de Documentos no Portal, [importar documentos](documentdb-import-data.md) na coleção usando a Ferramenta de Migração de Dados do Banco de Dados de Documentos ou usar um dos [SDKs do Banco de Dados de Documentos](documentdb-sdk-dotnet.md) para executar operações CRUD. O Banco de Dados de Documentos tem SDKs de API de JavaScript, .NET, Java, Python e Node.js. Para obter exemplos de código .NET que mostrem como criar, remover, atualizar e excluir documentos, veja [Exemplos de documentos do .NET](documentdb-dotnet-samples.md#document-examples). Para saber mais sobre o trabalho com documentos usando o SDK do Node.js, veja [Exemplos de documentos do Node.js.](documentdb-nodejs-samples.md#document-examples)

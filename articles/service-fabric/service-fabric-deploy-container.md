@@ -1,46 +1,49 @@
-<properties
-   pageTitle="Service Fabric e Implantação de Contêineres | Microsoft Azure"
-   description="Service Fabric e o uso de contêineres para implantar aplicativos de microsserviço. Este artigo apresenta os recursos que o Service Fabric fornece para contêineres e como implantar uma imagem de contêiner em um cluster"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager=""
-   editor=""/>
+---
+title: Service Fabric e Implantação de Contêineres | Microsoft Docs
+description: Service Fabric e o uso de contêineres para implantar aplicativos de microsserviço. Este artigo apresenta os recursos que o Service Fabric fornece para contêineres e como implantar uma imagem de contêiner em um cluster
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: ''
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/25/2016"
-   ms.author="msfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/25/2016
+ms.author: msfussell
 
-
+---
 # <a name="preview:-deploy-a-container-to-service-fabric"></a>Preview: implantar um contêiner no Service Fabric
-
->[AZURE.NOTE] Este recurso está em preview para o Linux e não está disponível no Windows Server no momento. Ele estará em preview para o Windows Server na próxima versão do Service Fabric após o lançamento do Windows Server 2016 GA e com suporte na versão subsequente depois disso.
+> [!NOTE]
+> Este recurso está em preview para o Linux e não está disponível no Windows Server no momento. Ele estará em preview para o Windows Server na próxima versão do Service Fabric após o lançamento do Windows Server 2016 GA e com suporte na versão subsequente depois disso.
+> 
+> 
 
 O Service Fabric tem vários recursos de contêiner que ajudam na compilação de aplicativos que são compostos por microsserviços que estão em contêineres. Eles são chamados de serviços em contêineres. Os recursos incluem;
 
-- Implantação e ativação de imagens de contêiner
-- Governança de recursos
-- Autenticação do repositório
-- Porta do contêiner para o mapeamento da porta de host
-- Descoberta e comunicação de contêiner para contêiner
-- Capacidade de configurar e definir as variáveis de ambiente
+* Implantação e ativação de imagens de contêiner
+* Governança de recursos
+* Autenticação do repositório
+* Porta do contêiner para o mapeamento da porta de host
+* Descoberta e comunicação de contêiner para contêiner
+* Capacidade de configurar e definir as variáveis de ambiente
 
 Vamos analisar cada um dos recursos sucessivamente durante o empacotamento de um serviço em contêiner a ser incluído em seu aplicativo.
 
 ## <a name="packaging-a-container"></a>Empacotamento de um contêiner
-
 Ao empacotar um contêiner, você pode optar por usar um modelo de projeto do Visual Studio ou por [criar o pacote de aplicativos manualmente](#manually). Usando o Visual Studio, a estrutura do pacote de aplicativos e os arquivos de manifesto são criados pelo assistente de novo projeto para você.
 
 ## <a name="using-visual-studio-to-package-an-existing-executable"></a>Uso do Visual Studio para empacotar um aplicativo executável
-
->[AZURE.NOTE] Em uma versão futura do SDK de ferramentas do Visual Studio, você poderá adicionar um contêiner em um aplicativo de uma forma parecida a como você adiciona um convidado executável atualmente. Confira o tópico [Implantar um executável convidado no Service Fabric](service-fabric-deploy-existing-app.md) . Atualmente, você precisa fazer o empacotamento manual, conforme descrito abaixo.
+> [!NOTE]
+> Em uma versão futura do SDK de ferramentas do Visual Studio, você poderá adicionar um contêiner em um aplicativo de uma forma parecida a como você adiciona um convidado executável atualmente. Confira o tópico [Implantar um executável convidado no Service Fabric](service-fabric-deploy-existing-app.md) . Atualmente, você precisa fazer o empacotamento manual, conforme descrito abaixo.
+> 
+> 
 
 <a id="manually"></a>
+
 ## <a name="manually-packaging-and-deploying-container"></a>Empacotamento e implantação manual de contêiner
 O processo de empacotamento manual de um serviço em contêiner se baseia nas seguintes etapas:
 
@@ -68,14 +71,16 @@ Você pode fornecer comandos de entrada na imagem de contêiner, especificando o
 ## <a name="resource-governance"></a>Governança de recursos
 A governança de recursos é uma funcionalidade do contêiner e restringe os recursos que o contêiner pode usar no host. O `ResourceGovernancePolicy`, especificado no manifesto do aplicativo, fornece a capacidade de declarar os limites de recurso para um pacote de códigos de serviço. Os limites de recurso podem ser definidos para;
 
-- Memória
-- MemorySwap
-- CpuShares (peso relativo da CPU)
-- MemoryReservationInMB  
-- BlkioWeight (peso relativo do BlockIO). 
+* Memória
+* MemorySwap
+* CpuShares (peso relativo da CPU)
+* MemoryReservationInMB  
+* BlkioWeight (peso relativo do BlockIO). 
 
->[AZURE.NOTE] Em uma versão futura, será possível oferecer suporte para especificar limites de E/S de um bloco específico, como IOPs, leitura/gravação de BPS e outros.
-
+> [!NOTE]
+> Em uma versão futura, será possível oferecer suporte para especificar limites de E/S de um bloco específico, como IOPs, leitura/gravação de BPS e outros.
+> 
+> 
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -89,7 +94,6 @@ A governança de recursos é uma funcionalidade do contêiner e restringe os rec
 ## <a name="repository-authentication"></a>Autenticação do repositório
 Para baixar um contêiner, você terá que fornecer as credenciais de logon para o repositório do contêiner. As credenciais de logon especificadas no manifesto do *aplicativo* são usadas para identificar as informações de logon, ou a chave de SSH, para baixar a imagem de contêiner do repositório de imagens.  O exemplo a seguir mostra uma conta chamada *TestUser* junto com a senha em texto não criptografado. Isso **não** é recomendado.
 
-
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -102,7 +106,6 @@ Para baixar um contêiner, você terá que fornecer as credenciais de logon para
 A senha pode e deve ser criptografada usando um certificado implantado no computador.
 
 O exemplo a seguir mostra uma conta chamada *TestUser* com a senha criptografada usando um certificado chamado *MyCert*. Você pode usar o comando `Invoke-ServiceFabricEncryptText` do Powershell para criar o texto cifrado secreto para a senha. Confira o artigo [Gerenciamento de segredos em aplicativos do Service Fabric](service-fabric-application-secret-management.md) para saber como. A chave privada do certificado para descriptografar a senha deve ser implantada no computador local em um método fora de banda (no Azure, isso ocorre por meio do Gerenciador de Recursos). Em seguida, quando o Service Fabric implantar o pacote de serviço no computador, ele será capaz de descriptografar o segredo e, juntamente com o nome da conta, autenticar com o repositório de contêiner usando essas credenciais.
-
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -118,7 +121,6 @@ O exemplo a seguir mostra uma conta chamada *TestUser* com a senha criptografada
 
 ## <a name="container-port-to-host-port-mapping"></a>Porta do contêiner para o mapeamento da porta de host
 Você pode configurar uma porta de host usada para se comunicar com o contêiner ao especificar um `PortBinding` no manifesto do aplicativo. A associação de porta mapeia a porta que o serviço está escutando dentro do contêiner para uma porta no host.
-
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -184,7 +186,6 @@ No exemplo acima, especificamos um valor explícito para a variável de ambiente
 
 ## <a name="complete-examples-for-application-and-service-manifest"></a>Exemplos completos de aplicativo e manifesto do serviço
 Veja a seguir um manifesto do aplicativo de exemplo que mostra os recursos do contêiner.
-
 
     <ApplicationManifest ApplicationTypeName="SimpleContainerApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description>A simple service container application</Description>

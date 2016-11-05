@@ -1,40 +1,37 @@
-<properties
-   pageTitle="Solucionar problemas de implantação do RM de VM Windows | Microsoft Azure"
-   description="Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Windows no Azure"
-   services="virtual-machines-windows, azure-resource-manager"
-   documentationCenter=""
-   authors="JiangChen79"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue, azure-resource-manager"/>
+---
+title: Solucionar problemas de implantação do RM de VM Windows | Microsoft Docs
+description: Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Windows no Azure
+services: virtual-machines-windows, azure-resource-manager
+documentationcenter: ''
+author: JiangChen79
+manager: felixwu
+editor: ''
+tags: top-support-issue, azure-resource-manager
 
-<tags
-  ms.service="virtual-machines-windows"
-  ms.workload="na"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="09/09/2016"
-  ms.author="cjiang"/>
+ms.service: virtual-machines-windows
+ms.workload: na
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 09/09/2016
+ms.author: cjiang
 
-
+---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Solucionar problemas de implantação do Resource Manager com a criação de uma nova máquina virtual Windows no Azure
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
-
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="collect-audit-logs"></a>Coletar logs de auditoria
-
 Para iniciar a solução de problemas, colete os logs de auditoria para identificar o erro associado ao problema. Os links a seguir contêm informações detalhadas sobre o processo a ser seguido.
 
 [Solucionar problemas de implantações de grupos de recursos com o Portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Operações de auditoria com o Gerenciador de Recursos](../resource-group-audit.md)
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
+[!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
 **Y:** se o sistema operacional for Windows generalizado e ele for carregado e/ou capturado com a configuração generalizada, não haverá erros. Da mesma forma, se o sistema operacional for Windows especializado e ele for carregado e/ou capturado com a configuração especializada, não haverá erros.
 
@@ -65,26 +62,24 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
 
 **Resolução 1:**
 
-- Repita a solicitação com um tamanho de VM menor.
-- Se o tamanho da VM solicitada não puder ser alterado:
-  - Pare todas as VMs no conjunto de disponibilidade.
-  Clique em **Grupos de recursos** > *seu grupo de recursos* > **Recursos** > *seu conjunto de disponibilidade* > **Máquinas Virtuais** > *sua máquina virtual* > **Parar**.
-  - Depois de parar todas as máquinas virtuais, crie a nova VM no tamanho desejado.
-  - Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
+* Repita a solicitação com um tamanho de VM menor.
+* Se o tamanho da VM solicitada não puder ser alterado:
+  * Pare todas as VMs no conjunto de disponibilidade.
+    Clique em **Grupos de recursos** > *seu grupo de recursos* > **Recursos** > *seu conjunto de disponibilidade* > **Máquinas Virtuais** > *sua máquina virtual* > **Parar**.
+  * Depois de parar todas as máquinas virtuais, crie a nova VM no tamanho desejado.
+  * Inicie a nova VM primeiro e, em seguida, selecione cada uma das VMs paradas e clique em **Iniciar**.
 
 **Causa 2:** o cluster não tem recursos livres.
 
 **Resolução 2:**
 
-- Repita a solicitação mais tarde.
-- Se a nova VM puder ser parte de um conjunto de disponibilidade diferente
-  - Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
-  - Adicione a nova VM à mesma rede virtual.
+* Repita a solicitação mais tarde.
+* Se a nova VM puder ser parte de um conjunto de disponibilidade diferente
+  * Crie uma nova VM em um conjunto de disponibilidade diferente (na mesma região).
+  * Adicione a nova VM à mesma rede virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Windows no Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

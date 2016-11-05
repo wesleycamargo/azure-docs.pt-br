@@ -1,31 +1,32 @@
-<properties
-   pageTitle="Esquemas definidos pelo usuário no SQL Data Warehouse | Microsoft Azure"
-   description="Dicas para usar esquemas de Transact-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Esquemas definidos pelo usuário no SQL Data Warehouse | Microsoft Docs
+description: Dicas para usar esquemas de Transact-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Esquemas definidos pelo usuário no SQL Data Warehouse
-
 Os data warehouses tradicionais normalmente usam bancos de dados separados para criar limites de aplicativo com base na carga de trabalho, domínio ou segurança. Por exemplo, um data warehouse tradicional do SQL Server pode incluir um banco de dados de preparo, um banco de dados do data warehouse e alguns bancos de dados do data mart. Nesta topologia, cada banco de dados funciona como uma carga de trabalho e limite de segurança na arquitetura.
 
 Por outro lado, o SQL Data Warehouse executa toda a carga de trabalho do data warehouse em um só banco de dados. Uniões cruzadas de banco de dados não são permitidas. Portanto, o SQL Data Warehouse espera que todas as tabelas usadas pelo warehouse sejam armazenadas em um só banco de dados.
 
-> [AZURE.NOTE] O SQL Data Warehouse não oferece suporte a consultas cruzadas de banco de dados de qualquer tipo. Consequentemente, implementações de data warehouse que utilizam esse padrão precisarão ser revisadas.
+> [!NOTE]
+> O SQL Data Warehouse não oferece suporte a consultas cruzadas de banco de dados de qualquer tipo. Consequentemente, implementações de data warehouse que utilizam esse padrão precisarão ser revisadas.
+> 
+> 
 
 ## Recomendações
-
 Estas são recomendações para consolidar limites funcionais, de carga de trabalho, segurança e domínio usando esquemas definidos pelo usuário
 
 1. Use um banco de dados do SQL Data Warehouse para executar toda a carga de trabalho do data warehouse
@@ -40,11 +41,12 @@ Se já tiverem sido usados esquemas, então você tem algumas opções:
 2. Manter os nomes de esquema herdados acrescentando o nome do esquema herdado ao nome da tabela
 3. Manter os nomes de esquema herdados implementando exibições sobre a tabela em um esquema extra para recriar a estrutura do esquema antigo.
 
-> [AZURE.NOTE] Na primeira inspeção, a opção 3 pode parecer a opção mais atraente. No entanto, o detalhe é traiçoeiro. Os modos de exibição são somente leitura no SQL Data Warehouse. Qualquer modificação nos dados ou na tabela precisariam ser executados em relação à tabela base. A opção 3 também apresenta uma camada de modos de exibição em seu sistema. Talvez você queira pensar um pouco sobre isso se já estiver usando modos de exibição em sua arquitetura.
-
+> [!NOTE]
+> Na primeira inspeção, a opção 3 pode parecer a opção mais atraente. No entanto, o detalhe é traiçoeiro. Os modos de exibição são somente leitura no SQL Data Warehouse. Qualquer modificação nos dados ou na tabela precisariam ser executados em relação à tabela base. A opção 3 também apresenta uma camada de modos de exibição em seu sistema. Talvez você queira pensar um pouco sobre isso se já estiver usando modos de exibição em sua arquitetura.
+> 
+> 
 
 ### Exemplos:
-
 Implementar esquemas definidos pelo usuário com base em nomes de banco de dados
 
 ```sql
@@ -91,12 +93,12 @@ GO
 CREATE SCHEMA [dim]; -- edw defines the legacy schema name boundary
 GO
 CREATE TABLE [stg].[customer] -- create the base staging tables in the staging boundary
-(       CustKey	BIGINT NOT NULL
+(       CustKey    BIGINT NOT NULL
 ,       ...
 )
 GO
 CREATE TABLE [edw].[customer] -- create the base data warehouse tables in the data warehouse boundary
-(       CustKey	BIGINT NOT NULL
+(       CustKey    BIGINT NOT NULL
 ,       ...
 )
 GO
@@ -104,14 +106,17 @@ CREATE VIEW [dim].[customer] -- create a view in the legacy schema name boundary
 AS
 SELECT  CustKey
 ,       ...
-FROM	[edw].customer
+FROM    [edw].customer
 ;
 ```
 
-> [AZURE.NOTE] Qualquer alteração na estratégia de esquema precisa de uma revisão do modelo de segurança para o banco de dados. Em muitos casos, você poderá simplificar o modelo de segurança ao atribuir permissões no nível do esquema. Se forem necessárias permissões mais granulares, então você poderá usar funções de banco de dados.
+> [!NOTE]
+> Qualquer alteração na estratégia de esquema precisa de uma revisão do modelo de segurança para o banco de dados. Em muitos casos, você poderá simplificar o modelo de segurança ao atribuir permissões no nível do esquema. Se forem necessárias permissões mais granulares, então você poderá usar funções de banco de dados.
+> 
+> 
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][Visão geral do desenvolvimento].
 
 <!--Image references-->
 

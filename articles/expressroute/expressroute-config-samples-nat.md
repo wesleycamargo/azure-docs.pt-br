@@ -1,56 +1,55 @@
-<properties
-   pageTitle="Exemplos de configuração de roteador de cliente Rota Expressa | Microsoft Azure"
-   description="Esta página fornece exemplos de configuração do roteador para os roteadores da série Cisco ASA e Juniper."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="cherylmc"/>
+---
+title: Exemplos de configuração de roteador de cliente Rota Expressa | Microsoft Docs
+description: Esta página fornece exemplos de configuração do roteador para os roteadores da série Cisco ASA e Juniper.
+documentationcenter: na
+services: expressroute
+author: cherylmc
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: cherylmc
 
+---
 # <a name="router-configuration-samples-to-setup-and-manage-nat"></a>Exemplos de configuração do roteador para configurar e gerenciar o NAT
-
 Esta página fornece exemplos de configuração do NAT para roteadores da série Cisco ASA e Juniper SRX. Devem ser exemplos para obter orientação apenas e não devem ser usados como estão. Você pode trabalhar com o fornecedor para exibir as configurações apropriadas para sua rede. 
 
->[AZURE.IMPORTANT] Exemplos nesta página devem ser exclusivamente para obter orientação. Trabalhe com a equipe de vendas / equipe técnica e sua equipe de rede para exibir as configurações adequadas para atendar às suas necessidades. A Microsoft não oferecerá suporte a problemas relacionados a configurações listadas nesta página. Você deve entrar em contato com o fornecedor do dispositivo para problemas de suporte.
+> [!IMPORTANT]
+> Exemplos nesta página devem ser exclusivamente para obter orientação. Trabalhe com a equipe de vendas / equipe técnica e sua equipe de rede para exibir as configurações adequadas para atendar às suas necessidades. A Microsoft não oferecerá suporte a problemas relacionados a configurações listadas nesta página. Você deve entrar em contato com o fornecedor do dispositivo para problemas de suporte.
+> 
+> 
 
 Os exemplos de configuração de roteador abaixo se aplicam a emparelhamentos do Azure Public e Microsoft. Você não deve configurar o NAT para emparelhamento privado do Azure. Examine [Emparelhamentos do ExpressRoute](expressroute-circuit-peerings.md) e [Requisitos de NAT do ExpressRoute](expressroute-nat.md) para obter mais detalhes.
 
 **Observação:** você DEVE usar pools de IP de NAT separados para conectividade à Internet e Rota Expressa. Usando o mesmo pool de IP de NAT através da Internet e Rota Expressa vai resultar em roteamento assimétrico e perda de conectividade.
 
 ## <a name="cisco-asa-firewalls"></a>Firewalls do Cisco ASA
-
 ### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Configuração de PAT para o tráfego de rede de cliente para a Microsoft
-
     object network MSFT-PAT
       range <SNAT-START-IP> <SNAT-END-IP>
-    
-    
+
+
     object-group network MSFT-Range
       network-object <IP> <Subnet_Mask>
-    
+
     object-group network on-prem-range-1
       network-object <IP> <Subnet-Mask>
-    
+
     object-group network on-prem-range-2
       network-object <IP> <Subnet-Mask>
-    
+
     object-group network on-prem
       network-object object on-prem-range-1
       network-object object on-prem-range-2
-    
+
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
 ### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Configuração PAT do tráfego da Microsoft para a rede do cliente
-
 #### <a name="interfaces-and-direction:"></a>Interfaces e Direção:
     Source Interface (where the traffic enters the ASA): inside
     Destination Interface (where the traffic exits the ASA): outside
@@ -70,7 +69,7 @@ Grupo de objetos para endereços IP do cliente
 
     object-group network MSFT-Network-1
         network-object <MSFT-IP> <Subnet-Mask>
-    
+
     object-group network MSFT-PAT-Networks
         network-object object MSFT-Network-1
 
@@ -79,10 +78,8 @@ Comandos de NAT
     nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
-## <a name="juniper-srx-series-routers"></a>Roteadores da série Juniper SRX 
-
+## <a name="juniper-srx-series-routers"></a>Roteadores da série Juniper SRX
 ### <a name="1.-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Criar interfaces de Ethernet redundantes para o cluster
-
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -115,17 +112,14 @@ Comandos de NAT
 
 
 ### <a name="2.-create-two-security-zones"></a>2. Criar duas zonas de segurança
-
- - A Zona de Confiança para a rede interna e Zona Não Confiável para rede externa de frente para os Roteadores de Extremidade
- - Atribuir as interfaces apropriadas para as zonas
- - Permitir os serviços nas interfaces
-
+* A Zona de Confiança para a rede interna e Zona Não Confiável para rede externa de frente para os Roteadores de Extremidade
+* Atribuir as interfaces apropriadas para as zonas
+* Permitir os serviços nas interfaces
 
     security {      zones {          security-zone Trust {              host-inbound-traffic {                  system-services {                      ping;                  }                  protocols {                      bgp;                  }              }              interfaces {                  reth0.100;              }          }          security-zone Untrust {              host-inbound-traffic {                  system-services {                      ping;                  }                  protocols {                      bgp;                  }              }              interfaces {                  reth1.100;              }          }      }  }
 
 
 ### <a name="3.-create-security-policies-between-zones"></a>3. Criar políticas de segurança entre zonas
- 
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -157,71 +151,68 @@ Comandos de NAT
 
 
 ### <a name="4.-configure-nat-policies"></a>4. Configurar políticas NAT
- - Criar dois pools NAT. Um será usado para a saída de tráfego NAT para a Microsoft e outro da Microsoft para o cliente.
- - Criar o respectivo tráfego de regras de NAT
-
-        security {
-            nat {
-                source {
-                    pool SNAT-To-ExpressRoute {
-                        routing-instance {
-                            External-ExpressRoute;
-                        }
-                        address {
-                            <NAT-IP-address/Subnet-mask>;
-                        }
-                    }
-                    pool SNAT-From-ExpressRoute {
-                        routing-instance {
-                            Internal;
-                        }
-                        address {
-                            <NAT-IP-address/Subnet-mask>;
-                        }
-                    }
-                    rule-set Outbound_NAT {
-                        from routing-instance Internal;
-                        to routing-instance External-ExpressRoute;
-                        rule SNAT-Out {
-                            match {
-                                source-address 0.0.0.0/0;
-                            }
-                            then {
-                                source-nat {
-                                    pool {
-                                        SNAT-To-ExpressRoute;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    rule-set Inbound-NAT {
-                        from routing-instance External-ExpressRoute;
-                        to routing-instance Internal;
-                        rule SNAT-In {
-                            match {
-                                source-address 0.0.0.0/0;
-                            }
-                            then {
-                                source-nat {
-                                    pool {
-                                        SNAT-From-ExpressRoute;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
+* Criar dois pools NAT. Um será usado para a saída de tráfego NAT para a Microsoft e outro da Microsoft para o cliente.
+* Criar o respectivo tráfego de regras de NAT
+  
+       security {
+           nat {
+               source {
+                   pool SNAT-To-ExpressRoute {
+                       routing-instance {
+                           External-ExpressRoute;
+                       }
+                       address {
+                           <NAT-IP-address/Subnet-mask>;
+                       }
+                   }
+                   pool SNAT-From-ExpressRoute {
+                       routing-instance {
+                           Internal;
+                       }
+                       address {
+                           <NAT-IP-address/Subnet-mask>;
+                       }
+                   }
+                   rule-set Outbound_NAT {
+                       from routing-instance Internal;
+                       to routing-instance External-ExpressRoute;
+                       rule SNAT-Out {
+                           match {
+                               source-address 0.0.0.0/0;
+                           }
+                           then {
+                               source-nat {
+                                   pool {
+                                       SNAT-To-ExpressRoute;
+                                   }
+                               }
+                           }
+                       }
+                   }
+                   rule-set Inbound-NAT {
+                       from routing-instance External-ExpressRoute;
+                       to routing-instance Internal;
+                       rule SNAT-In {
+                           match {
+                               source-address 0.0.0.0/0;
+                           }
+                           then {
+                               source-nat {
+                                   pool {
+                                       SNAT-From-ExpressRoute;
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       }
 
 ### <a name="5.-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configurar o BGP para anunciar prefixos seletivos em cada direção
-
 Veja os exemplos na página [Exemplos de configuração de roteamento ](expressroute-config-samples-routing.md) .
 
 ### <a name="6.-create-policies"></a>6. Criar políticas
-
     routing-options {
                   autonomous-system <Customer-ASN>;
     }
@@ -317,10 +308,7 @@ Veja os exemplos na página [Exemplos de configuração de roteamento ](expressr
     }
 
 ## <a name="next-steps"></a>Próximas etapas
-
 Consulte as [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md) para obter mais detalhes.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

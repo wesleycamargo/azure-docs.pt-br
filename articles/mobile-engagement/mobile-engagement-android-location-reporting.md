@@ -1,38 +1,36 @@
-<properties
-	pageTitle="Relatório de local para o SDK do Azure Mobile Engagement para Android"
-	description="Descreve como configurar relatórios de local para o SDK do Azure Mobile Engagement para Android"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="erikre"
-	editor="" />
+---
+title: Relatório de local para o SDK do Azure Mobile Engagement para Android
+description: Descreve como configurar relatórios de local para o SDK do Azure Mobile Engagement para Android
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/12/2016"
-	ms.author="piyushjo;ricksal" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: Java
+ms.topic: article
+ms.date: 08/12/2016
+ms.author: piyushjo;ricksal
 
+---
 # Relatório de local para o SDK do Azure Mobile Engagement para Android
-
-> [AZURE.SELECTOR]
-- [Android](mobile-engagement-android-integrate-engagement.md)
+> [!div class="op_single_selector"]
+> * [Android](mobile-engagement-android-integrate-engagement.md)
+> 
+> 
 
 Este tópico descreve como fazer relatórios de local para seu aplicativo Android.
 
 ## Pré-requisitos
-
-[AZURE.INCLUDE [Pré-requisitos](../../includes/mobile-engagement-android-prereqs.md)]
+[!INCLUDE [Pré-requisitos](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## Relatórios de local
-
 Se quiser que locais sejam informados, você precisa adicionar algumas linhas de configuração (entre as marcas `<application>` e `</application>`).
 
 ### Relatórios de local de área lenta
-
 O relatório de localização de área simples permite a indicação do país, da região e da localidade associados aos dispositivos. Esse tipo de relatório de local usa apenas os locais de rede (com base na ID da célula ou WIFI). A área de dispositivo é relatada no máximo uma vez por sessão. O GPS nunca é usado e, portanto, esse tipo de relatório de localização tem pouco impacto sobre a bateria.
 
 As áreas relatadas são usadas para computar as estatísticas geográficas sobre usuários, sessões, eventos e erros. Elas também podem ser usadas como critério nas campanhas do Reach.
@@ -46,12 +44,11 @@ Habilite o relatório de localização de área simples usando a configuração 
 
 Também é necessário especificar uma permissão de localização. Este código usa a permissão ``COARSE``:
 
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Se seu aplicativo exigir, você poderá usar ``ACCESS_FINE_LOCATION`` em vez disso.
 
 ### Relatórios de localização em tempo real
-
 O relatório de localização em tempo real permite a indicação da latitude e da longitude associadas aos dispositivos. Por padrão, esse tipo de relatório de local usa apenas os locais de rede, com base na ID da célula ou WIFI. O relatório fica ativo apenas quando o aplicativo é executado em primeiro plano (por exemplo, durante uma sessão).
 
 As localizações em tempo real *NÃO* são usadas para calcular estatísticas. Sua única finalidade é permitir o uso do critério de isolamento geográfico em tempo real <Reach-Audience-geofencing> em Campanhas de alcance.
@@ -63,14 +60,13 @@ Para habilitar o relatório de localização em tempo real, adicione uma linha d
     engagementConfiguration.setRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-		You also need to specify a location permission. This code uses ``COARSE`` permission:
+        You also need to specify a location permission. This code uses ``COARSE`` permission:
 
-			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
-		If your app requires it, you can use ``ACCESS_FINE_LOCATION`` instead.
+        If your app requires it, you can use ``ACCESS_FINE_LOCATION`` instead.
 
 #### Relatórios com base em GPS
-
 Por padrão, os relatórios de local em tempo real usam apenas locais com base em rede. Para habilitar o uso do GPS com base em locais (que são muito mais precisos), use o objeto de configuração:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -81,10 +77,9 @@ Por padrão, os relatórios de local em tempo real usam apenas locais com base e
 
 Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 #### Relatório de segundo plano
-
 Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o aplicativo é executado em primeiro plano (por exemplo, durante uma sessão). Para habilitar o relatório também em segundo plano, use este objeto de configuração:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -93,23 +88,25 @@ Por padrão, os relatórios de local em tempo real ficam ativos apenas quando o 
     engagementConfiguration.setBackgroundRealtimeLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-> [AZURE.NOTE] Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
+> [!NOTE]
+> Quando o aplicativo é executado em segundo plano, somente locais baseados em rede são relatados, mesmo se você tiver habilitado o GPS.
+> 
+> 
 
 Se o usuário reiniciar seu dispositivo, o relatório de localização do plano de fundo será interrompido. Para fazê-lo reiniciar automaticamente no momento da inicialização, adicione este código.
 
-	<receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
-		   android:exported="false">
-		<intent-filter>
-		    <action android:name="android.intent.action.BOOT_COMPLETED" />
-		</intent-filter>
-	</receiver>
+    <receiver android:name="com.microsoft.azure.engagement.EngagementLocationBootReceiver"
+           android:exported="false">
+        <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+        </intent-filter>
+    </receiver>
 
 Você também precisa adicionar a permissão a seguir, se estiver ausente:
 
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 ## Permissões do Android M
-
 A partir do Android M, algumas permissões são gerenciadas em tempo de execução e precisam de aprovação do usuário.
 
 Se você selecionar o nível 23 da API do Android, as permissões de tempo de execução serão desativadas por padrão para novas instalações de aplicativo. Caso contrário, elas serão ativadas por padrão.
@@ -118,8 +115,8 @@ Você pode habilitar/desabilitar essas permissões no menu de configurações do
 
 No contexto de relatório de localização do Mobile Engagement, as permissões que exigem aprovação em tempo de execução são:
 
-- `ACCESS_COARSE_LOCATION`
-- `ACCESS_FINE_LOCATION`
+* `ACCESS_COARSE_LOCATION`
+* `ACCESS_FINE_LOCATION`
 
 Solicite permissões do usuário usando uma caixa de diálogo padrão do sistema. Se o usuário aprovar, informe ``EngagementAgent`` para levar essa alteração em consideração em tempo real. Caso contrário, a alteração será processada na próxima vez que o usuário iniciar o aplicativo.
 

@@ -1,32 +1,28 @@
-<properties 
-	pageTitle="Diagnosticar falhas e exceções em aplicativos ASP.NET com o Application Insights" 
-	description="Capture exceções de aplicativos do ASP.NET junto com a telemetria de solicitação." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Diagnosticar falhas e exceções em aplicativos ASP.NET com o Application Insights
+description: Capture exceções de aplicativos do ASP.NET junto com a telemetria de solicitação.
+services: application-insights
+documentationcenter: .net
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/17/2015" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 11/17/2015
+ms.author: awills
 
-
+---
 # Configurar o Application Insights: Diagnosticar exceções
-
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
-
+[!INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
 Monitorando seu aplicativo com o [Visual Studio Application Insights][start], você pode correlacionar solicitações que falharam com exceções e outros eventos no cliente e no servidor, para que você possa diagnosticar rapidamente as causas.
 
 Para monitorar um aplicativo ASP.NET, você precisa [Adicionar Application Insights SDK][greenbrown] ao seu aplicativo, ou [instalar o Monitor de Status no servidor IIS][redfield], ou, se seu aplicativo for um aplicativo da Web do Azure, adicione o [Application Insights Extension](app-insights-azure-web-apps.md).
 
 ## Diagnosticar exceções usando o Visual Studio
-
 Abra a solução do aplicativo no Visual Studio para ajudar com a depuração.
 
 Execute o aplicativo, em seu servidor ou na máquina de desenvolvimento, usando F5.
@@ -46,7 +42,6 @@ Clique em um relatório de exceções para mostrar o rastreamento de pilha.
 Clique em uma referência de linha no rastreamento de pilha para abrir o arquivo relevante.
 
 ## Como diagnosticar falhas usando o Portal do Azure
-
 Na visão geral do Application Insights de seu aplicativo, o bloco Falhas mostra gráficos de exceções e solicitações HTTP, juntamente com uma lista da solicitação com falha URLs que causam as falhas mais frequentes.
 
 ![Escolha Configurações, Falhas.](./media/app-insights-asp-net-exceptions/012-start.png)
@@ -55,9 +50,7 @@ Clique em um dos tipos de solicitação com falha na lista para obter a ocorrên
 
 ![Selecione uma instância de uma solicitação com falha e, em detalhes da exceção, obtenha a instâncias da exceção.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-
 **Como alternativa**, você pode iniciar na lista de exceções que encontrará mais adiante na folha Falhas. Continue clicando até finalmente chegar às exceções individuais.
-
 
 ![Drill-through](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
 
@@ -65,15 +58,11 @@ Clique em um dos tipos de solicitação com falha na lista para obter a ocorrên
 
 A partir daí, você pode examinar o rastreamento de pilha e as propriedades detalhadas de cada exceção e localizar outros eventos ou rastreamento de log relacionados.
 
-
 ![Drill-through](./media/app-insights-asp-net-exceptions/050-exception-properties.png)
 
 [Saber mais sobre a Pesquisa de Diagnóstico][diagnostic].
 
-
-
 ## Falhas de dependência
-
 Uma *dependência* é um serviço que o aplicativo chama, normalmente por meio de uma conexão de banco de dados ou pela API REST. [O Application Insights Status Monitor][redfield] monitora automaticamente uma variedade de tipos de chamada de dependência, medindo a duração da chamada e o êxito ou a falha.
 
 Para obter dados de dependência, você precisa [instalar o Monitor de Status][redfield] no servidor IIS, ou se seu aplicativo for um aplicativo da Web do Azure, use o [Application Insights Extension](app-insights-azure-web-apps.md).
@@ -82,10 +71,7 @@ As falhas de chamadas para as dependências são listadas na folha de Falhas, po
 
 *Não há falhas de dependência? Isso é ótimo! Mas para verificar se você está obtendo os dados de dependência, abra a folha de desempenho e examine o gráfico de Duração da Dependência.*
 
- 
-
 ## Dados personalizados de rastreamento e log
-
 Para obter dados de diagnóstico específicos do aplicativo, você pode inserir código para enviar seus próprios dados de telemetria. Eles são exibidos na pesquisa de diagnóstico junto com a solicitação, exibição de página e outros dados coletados automaticamente.
 
 Você tem várias opções:
@@ -97,14 +83,14 @@ Você tem várias opções:
 
 Para ver esses eventos, abra [Pesquisar][diagnostic], abra Filtrar e escolha Evento Personalizado, Rastreamento ou Exceção.
 
-
 ![Drill-through](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
-
-> [AZURE.NOTE] Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+> [!NOTE]
+> Se o seu aplicativo gerar muita telemetria, o módulo de amostragem adaptável reduzirá automaticamente o volume enviado ao portal, enviando apenas uma fração representativa de eventos. Os eventos que fazem parte da mesma operação serão selecionados ou desmarcados como um grupo, para que você possa navegar entre os eventos relacionados. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+> 
+> 
 
 ### Como consultar dados POST de solicitação
-
 Os detalhes da solicitação não incluem os dados enviados ao seu aplicativo em uma chamada POST. Para que esses dados sejam relatados:
 
 * [Instale o SDK][greenbrown] no projeto do seu aplicativo.
@@ -113,9 +99,7 @@ Os detalhes da solicitação não incluem os dados enviados ao seu aplicativo em
 
 ![Drill-through](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-
 ## <a name="exceptions"></a> Capturando exceções e dados de diagnóstico relacionados
-
 No início você não verá no portal todas as exceções que causam falhas em seu aplicativo. Você verá quaisquer exceções do navegador (se você estiver usando o [SDK do JavaScript][client] nas páginas da web). Mas a maioria das exceções de servidor são capturados pelo IIS e é preciso escrever um pouco de código para vê-los.
 
 Você pode:
@@ -124,7 +108,6 @@ Você pode:
 * **Capturar exceções automaticamente** configurando sua estrutura do ASP.NET. As inclusões necessárias são diferentes para diferentes tipos de estrutura.
 
 ## Relatar exceções explicitamente
-
 A maneira mais simples é inserir uma chamada a TrackException() em um manipulador de exceção.
 
 JavaScript
@@ -172,7 +155,7 @@ VB
 
       Dim measurements = New Dictionary (Of String, Double)
       measurements.Add("Users", currentGame.Users.Count)
-  
+
       ' Send the exception telemetry:
       telemetry.TrackException(ex, properties, measurements)
     End Try
@@ -180,13 +163,11 @@ VB
 Os parâmetros de medidas e propriedades são opcionais, mas são úteis para [filtrar e adicionar][diagnostic] informações extras. Por exemplo, se você tiver um aplicativo que pode executar vários jogos, será possível localizar todos os relatórios de exceção relacionados a um jogo específico. Você pode adicionar quantos itens desejar a cada dicionário.
 
 ## Exceções de navegador
-
 A maioria das exceções de navegador são relatados.
 
 Se sua página da web inclui arquivos de script de redes de distribuição de conteúdo ou de outros domínios, certifique-se de sua marca de script com o atributo ```crossorigin="anonymous"``` e que o servidor envia [cabeçalhos CORS](http://enable-cors.org/). Isso permitirá que você obtenha um rastreamento de pilha e detalhes de exceções sem tratamento JavaScript desses recursos.
 
 ## Formulários da Web
-
 Para formulários da web, o módulo HTTP poderá coletar as exceções quando não houver nenhum redirecionamento configurado com CustomErrors.
 
 Mas se você tiver redirecionamentos ativos, adicione as seguintes linhas para a função Application\_Error em Global.asax.cs. (Adicionar um arquivo Global.asax se você ainda não tiver um).
@@ -205,7 +186,6 @@ Mas se você tiver redirecionamentos ativos, adicione as seguintes linhas para a
 
 
 ## MVC
-
 Se a configuração do [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) é `Off`, as exceções estarão disponíveis para o [módulo HTTP](https://msdn.microsoft.com/library/ms178468.aspx) coletar. No entanto, se for `RemoteOnly` (padrão), ou `On`, a exceção será desmarcada e não está disponível para o Application Insights coletar automaticamente. Você pode corrigir isso substituindo o [System.Web.Mvc.HandleErrorAttribute classe](http://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx), e aplicar a classe substituída conforme mostrado para as diferentes versões do MVC abaixo ([github fonte](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
     using System;
@@ -234,7 +214,6 @@ Se a configuração do [CustomErrors](https://msdn.microsoft.com/library/h0hfz6f
     }
 
 #### MVC 2
-
 Substitua o atributo HandleError pelo novo atributo em seus controladores.
 
     namespace MVC2App.Controllers
@@ -247,7 +226,6 @@ Substitua o atributo HandleError pelo novo atributo em seus controladores.
 [Amostra](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions)
 
 #### MVC 3
-
 Registrar `AiHandleErrorAttribute` como um filtro global em Global.asax.cs:
 
     public class MyMvcApplication : System.Web.HttpApplication
@@ -260,10 +238,7 @@ Registrar `AiHandleErrorAttribute` como um filtro global em Global.asax.cs:
 
 [Amostra](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
-
-
 #### MVC 4, MVC5
-
 Registre AiHandleErrorAttribute como um filtro global em FilterConfig.cs:
 
     public class FilterConfig
@@ -278,8 +253,6 @@ Registre AiHandleErrorAttribute como um filtro global em FilterConfig.cs:
 [Amostra](https://github.com/AppInsightsSamples/Mvc5UnhandledExceptionTelemetry)
 
 ## Web API 1.x
-
-
 Substitua System.Web.Http.Filters.ExceptionFilterAttribute:
 
     using System.Web.Http.Filters;
@@ -333,7 +306,6 @@ Há um número de casos que não podem lidar com os filtros de exceção. Por ex
 * Exceções geradas durante a serialização de conteúdo da resposta.
 
 ## Web API 2.x
-
 Adicione uma implementação de IExceptionLogger:
 
     using System.Web.Http.ExceptionHandling;
@@ -386,12 +358,10 @@ Adicione isso aos serviços no WebApiConfig:
 
 Como alternativas, você pode:
 
-2. Substituir o ExceptionHandler apenas por uma implementação personalizada de IExceptionHandler. Isso é chamado apenas quando a estrutura ainda é capaz de escolher a mensagem de resposta para enviar (não quando a conexão é anulada, por exemplo)
-3. Filtros de Exceção (como descrito na seção controladores acima da API Web 1.x) - não são chamados em todos os casos.
-
+1. Substituir o ExceptionHandler apenas por uma implementação personalizada de IExceptionHandler. Isso é chamado apenas quando a estrutura ainda é capaz de escolher a mensagem de resposta para enviar (não quando a conexão é anulada, por exemplo)
+2. Filtros de Exceção (como descrito na seção controladores acima da API Web 1.x) - não são chamados em todos os casos.
 
 ## WCF
-
 Adicione uma classe que estende o atributo e implementa IErrorHandler e IServiceBehavior.
 
     using System;
@@ -455,7 +425,6 @@ Adicione o atributo para as implementações de serviço:
 [Amostra](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
 ## Contadores de desempenho de exceção
-
 Se você tiver [instalado o Monitor de Status][redfield] no seu servidor, você poderá obter um gráfico da taxa de exceções, medida pelo .NET. Isso inclui exceções .NET tradas e sem tratamento.
 
 Abra uma folha do Metrics Explorer, adicione um novo gráfico e selecione **Taxa de exceção**, listada em Contadores de Desempenho.
@@ -474,6 +443,6 @@ Observe que ela será diferente da contagem 'Exceções' calculada pelo portal d
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
- 
+
 
 <!---HONumber=AcomDC_0914_2016-->

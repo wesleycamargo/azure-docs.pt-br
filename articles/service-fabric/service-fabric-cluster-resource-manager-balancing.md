@@ -1,29 +1,29 @@
-<properties
-   pageTitle="Balanceando o cluster com o Resource Manager de Cluster do Azure Service Fabric | Microsoft Azure"
-   description="Uma introdução ao balanceamento de cluster com o Gerenciador de Recursos de Cluster do Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Balanceando o cluster com o Resource Manager de Cluster do Azure Service Fabric | Microsoft Docs
+description: Uma introdução ao balanceamento de cluster com o Gerenciador de Recursos de Cluster do Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Balanceamento do cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric permite relatar a carga dinâmica, reagir a alterações no cluster, corrigir violações de restrição e fazer o rebalanceamento do cluster, se necessário. Mas com que frequência ele faz tudo isso e que o aciona? Há vários controles relacionados a isso.
 
 O primeiro conjunto de controles de balanceamento são um conjunto de temporizadores. Esses temporizadores determinam a frequência com que o Gerenciador de Recursos de Cluster examina o estado do cluster para encontrar o que precisa ser resolvido. Há três categorias diferentes de trabalho, cada uma com seu próprio temporizador correspondente. Eles são:
 
-1.	Posicionamento – esse estágio lida com o posicionamento de réplicas com estado ou de instâncias sem estado que estejam ausentes. Isso abrange os novos serviços e a manipulação de réplicas com estado ou de instâncias sem estado que falharam e precisam ser recriadas. A exclusão e o descarte de réplicas ou de instâncias também são tratados aqui.
-2.	Verificações de Restrição – esse estágio verifica e corrige violações das restrições (regras) de posicionamento no sistema. Os exemplos de regras são a garantia de que os nós não estão acima da capacidade e se as restrições de posicionamento do serviço (mais sobre isso posteriormente) estão sendo atendidas.
-3.	Balanceamento – esse estágio verifica se o rebalanceamento proativo é necessário com base no nível de equilíbrio configurado desejado entre métricas diferentes e, nesse caso, tenta encontrar uma organização no cluster que seja mais balanceada.
+1. Posicionamento – esse estágio lida com o posicionamento de réplicas com estado ou de instâncias sem estado que estejam ausentes. Isso abrange os novos serviços e a manipulação de réplicas com estado ou de instâncias sem estado que falharam e precisam ser recriadas. A exclusão e o descarte de réplicas ou de instâncias também são tratados aqui.
+2. Verificações de Restrição – esse estágio verifica e corrige violações das restrições (regras) de posicionamento no sistema. Os exemplos de regras são a garantia de que os nós não estão acima da capacidade e se as restrições de posicionamento do serviço (mais sobre isso posteriormente) estão sendo atendidas.
+3. Balanceamento – esse estágio verifica se o rebalanceamento proativo é necessário com base no nível de equilíbrio configurado desejado entre métricas diferentes e, nesse caso, tenta encontrar uma organização no cluster que seja mais balanceada.
 
 ## Configuração de etapas e temporizadores do Resource Manager do cluster
 Cada um desses tipos diferentes de correções que o Gerenciador de Recursos de Cluster pode fazer é controlado por um temporizador diferente que rege sua frequência. Por exemplo, se você deseja lidar com o posicionamento de novas cargas de trabalho de serviço no cluster a cada hora (para colocá-las em lotes), mas quer uma verificação de balanceamento regular de poucos em poucos segundos, você pode configurar esse comportamento. Quando cada temporizador é acionado, a tarefa é agendada. Por padrão, o Gerenciador de Recursos examina seu estado e aplica atualizações (enviando em lote todas as alterações que ocorreram desde a última verificação como, por exemplo, perceber que um nó está inativo) a cada décimo de segundo, define os sinalizadores de posicionamento e verificação de restrição a cada segundo e o balanceamento de sinalizador a cada cinco segundos.
@@ -104,10 +104,9 @@ O Gerenciador de Recursos de Cluster detecta automaticamente os serviços relaci
 ![Balanceamento dos Serviços em Conjunto][Image5]
 
 ## Próximas etapas
-- As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre eles e como configurá-los, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
-- O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, consulte [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
-- O Resource Manager do Cluster tem várias limitações que você pode configurar para diminuir a variação no cluster. Normalmente, eles não são necessários, mas você poderá aprender mais sobre eles [aqui](service-fabric-cluster-resource-manager-advanced-throttling.md) caso eles sejam necessários
-
+* As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre eles e como configurá-los, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
+* O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, consulte [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
+* O Resource Manager do Cluster tem várias limitações que você pode configurar para diminuir a variação no cluster. Normalmente, eles não são necessários, mas você poderá aprender mais sobre eles [aqui](service-fabric-cluster-resource-manager-advanced-throttling.md) caso eles sejam necessários
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

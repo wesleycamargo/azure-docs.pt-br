@@ -1,25 +1,26 @@
 
-<properties 
-    pageTitle="Uso de largura de banda de rede estimado do Azure RemoteApp | Microsoft Azure"
-	description="Saiba mais sobre os requisitos de largura de banda de rede para as coleções e aplicativos do Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+---
+title: Uso de largura de banda de rede estimado do Azure RemoteApp | Microsoft Docs
+description: Saiba mais sobre os requisitos de largura de banda de rede para as coleções e aplicativos do Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-# Estimar o uso de largura de banda de rede do Azure RemoteApp 
-
-> [AZURE.IMPORTANT]
-O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+---
+# Estimar o uso de largura de banda de rede do Azure RemoteApp
+> [!IMPORTANT]
+> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> 
+> 
 
 O Azure RemoteApp usa o RDP (protocolo RDP) para a comunicação entre aplicativos em execução na nuvem do Azure e seus usuários. Este artigo fornece algumas diretrizes básicas que você pode usar para calcular esse uso da rede e potencialmente avaliar o uso de largura de banda de rede por usuário do Azure RemoteApp.
 
@@ -29,13 +30,11 @@ Antes de nos aprofundarmos mais - Observe que podemos presumir que o RDP fornece
 
 Agora, confira os artigos a seguir para obter detalhes, incluindo fatores a considerar, recomendações de linha de base e o que não incluímos em nossas estimativas.
 
-- [Como a largura de banda de rede e a qualidade da experiência funcionam juntas?](remoteapp-bandwidthexperience.md)
-- [Testando o uso da largura de banda de sua rede com alguns cenários comuns](remoteapp-bandwidthtests.md)
-- [Diretrizes rápidas se você não tiver o tempo nem capacidade para teste](remoteapp-bandwidthguidelines.md)
-
+* [Como a largura de banda de rede e a qualidade da experiência funcionam juntas?](remoteapp-bandwidthexperience.md)
+* [Testando o uso da largura de banda de sua rede com alguns cenários comuns](remoteapp-bandwidthtests.md)
+* [Diretrizes rápidas se você não tiver o tempo nem capacidade para teste](remoteapp-bandwidthguidelines.md)
 
 ## O que não estamos incluindo?
-
 Ao examinar os testes propostos e nossas recomendações gerais (e reconhecidamente genéricas), lembre-se de que há vários fatores que nós não consideramos. Por exemplo, as complicações de experiência de usuário fornecidas pela natureza assimétrica da largura de banda de upload vs. download. A natureza assimétrica da maioria das redes Wi-Fi afetará, adicionalmente, o desempenho e a percepção da experiência do usuário. Para cenários interativos, o tráfego downstream pode ter uma prioridade menor do que o upstream, que pode aumentar o número de quadros de vídeos ou áudio perdidos e, portanto, afetar a percepção da experiência de streaming pelo usuário. Você pode executar seus próprios testes para ver o que é bom para sua rede e caso de uso específico.
 
 Embora, discutamos o redirecionamento de dispositivo, podemos não levar em consideração o impacto de largura de banda do tráfego de rede causado por dispositivos conectados, como armazenamento, impressoras, scanners, câmeras Web e outros dispositivos USB. O efeito desses dispositivos geralmente aumenta as necessidades de largura de banda em picos temporariamente e desaparece quando a tarefa for concluída. Mas se feito com frequência, essa demanda de largura de banda poderá ser bastante perceptível.

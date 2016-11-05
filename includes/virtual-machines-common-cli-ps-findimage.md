@@ -1,8 +1,10 @@
 
 
 ## CLI do Azure
-
-> [AZURE.NOTE] Este artigo descreve como navegar e selecionar imagens da máquina virtual usando uma instalação recente da CLI do Azure ou do Azure PowerShell. Como pré-requisito, você precisaria alterar para o modo do Gerenciador de Recursos. Com a CLI do Azure, insira esse modo digitando `azure config mode arm`.
+> [!NOTE]
+> Este artigo descreve como navegar e selecionar imagens da máquina virtual usando uma instalação recente da CLI do Azure ou do Azure PowerShell. Como pré-requisito, você precisaria alterar para o modo do Gerenciador de Recursos. Com a CLI do Azure, insira esse modo digitando `azure config mode arm`.
+> 
+> 
 
 A maneira mais fácil e rápida de localizar uma imagem para usar com `azure vm quick-create` ou para criar um arquivo de modelo de grupo de recursos é chamar o comando `azure vm image list` e informar o local, o nome do editor (não diferencia maiúsculas de minúsculas!) e uma oferta – se você souber a oferta. Por exemplo, a lista a seguir é apenas uma pequena amostra - várias listas são bastante longas - se você souber que "Canonical" é um editor para a oferta "UbuntuServer".
 
@@ -115,14 +117,16 @@ Com essas informações, agora você pode localizar exatamente a imagem que dese
 Agora você pode escolher exatamente a imagem que deseja usar. Para criar uma máquina virtual rapidamente usando as informações de URN que você acabou de encontrar, ou para usar um modelo com essas informações de URN, consulte [Usando a CLI do Azure para Mac, Linux e Windows no Gerenciador de Recursos do Azure](../articles/xplat-cli-azure-resource-manager.md).
 
 ## PowerShell
-
-> [AZURE.NOTE] Instalar e configurar o [ Azure PowerShell mais recente](../articles/powershell-install-configure.md). Se você estiver usando módulos do Azure PowerShell inferiores a 1.0, ainda usa os comandos a seguir, mas deve primeiro `Switch-AzureMode AzureResourceManager`.
+> [!NOTE]
+> Instalar e configurar o [ Azure PowerShell mais recente](../articles/powershell-install-configure.md). Se você estiver usando módulos do Azure PowerShell inferiores a 1.0, ainda usa os comandos a seguir, mas deve primeiro `Switch-AzureMode AzureResourceManager`.
+> 
+> 
 
 Ao criar uma nova máquina virtual com o Gerenciador de Recursos do Azure, em alguns casos é necessário especificar uma imagem com a combinação das propriedades de imagem a seguir:
 
-- Editor
-- Oferta
-- SKU
+* Editor
+* Oferta
+* SKU
 
 Por exemplo, esses valores são necessários para o cmdlet `Set-AzureRMVMSourceImage` do PowerShell ou com um arquivo de modelo de grupo de recursos no qual você deve especificar o tipo de máquina virtual a ser criado.
 
@@ -131,7 +135,6 @@ Se você precisar determinar esses valores, você pode navegar pelas imagens par
 1. Liste os editores de imagem.
 2. Para um determinado editor, liste suas ofertas.
 3. Para uma determinada oferta, liste seus SKUs.
-
 
 Primeiro, lista os editores com os seguintes comandos:
 
@@ -205,7 +208,6 @@ Windows-Server-Technical-Preview
 ```
 
 Nesta lista, copie o nome da SKU escolhida e você terá todas as informações do cmdlet `Set-AzureRMVMSourceImage` do PowerShell ou de um modelo de grupo de recursos.
-
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png

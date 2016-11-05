@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Exportação contínua de telemetria do Application Insights" 
-	description="Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Exportação contínua de telemetria do Application Insights
+description: Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: awills
+
+---
 # Exportar telemetria do Application Insights
-
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.
 
 A Exportação Contínua está disponível no período de avaliação gratuita nos [planos de preços Standard e Premium](https://azure.microsoft.com/pricing/details/application-insights/).
-
 
 Antes de configurar a exportação contínua, há algumas alternativas que você talvez queira considerar:
 
@@ -28,22 +26,17 @@ Antes de configurar a exportação contínua, há algumas alternativas que você
 * [Análise](app-insights-analytics.md) fornece uma linguagem de consulta eficiente para telemetria e também pode exportar os resultados.
 * Se desejar [explorar seus dados no Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), é possível fazer isso sem usar a Exportação Contínua.
 
-
 ## Criar uma conta de armazenamento
-
 Se você ainda não tiver uma conta de armazenamento "clássica", crie uma agora.
 
-
 1. Crie uma conta de armazenamento na sua assinatura do [Portal do Azure](https://portal.azure.com).
-
+   
     ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-export-telemetry/030.png)
-
 2. Criar um contêiner.
-
+   
     ![No novo armazenamento, selecione Contêineres, clique no bloco Contêineres e, em seguida, Adicionar](./media/app-insights-export-telemetry/040.png)
 
 ## <a name="setup"></a> Configurar a exportação contínua
-
 Na folha Visão geral do aplicativo no portal do Application Insights, abra Exportação contínua:
 
 ![Role para baixo e clique em Exportação contínua](./media/app-insights-export-telemetry/01-export.png)
@@ -55,7 +48,6 @@ Adicione uma exportação e escolha uma [conta de armazenamento do Azure](../sto
 Escolha os tipos de eventos que você deseja exportar:
 
 ![Clique em Escolher tipos de evento](./media/app-insights-export-telemetry/03-types.png)
-
 
 Depois de criar sua exportação, ela começa a ser realizada. (Você só obtém os dados que chegam após a criação da exportação.)
 
@@ -70,11 +62,9 @@ Para interromper o fluxo, clique em Desabilitar. Quando você clicar em Habilita
 Para interromper o fluxo permanentemente, exclua a exportação. Isso não exclui seus dados do armazenamento.
 
 #### Não consegue adicionar nem alterar uma exportação?
-
 * Para adicionar ou alterar exportações, você precisa de direitos de acesso de Proprietário, Colaborador ou Colaborador do Application Insights. [Saiba mais sobre as funções][roles].
 
 ## <a name="analyze"></a> Quais eventos você recebe?
-
 Os dados exportados são a telemetria bruta que recebemos de seu aplicativo, exceto que adicionamos dados de localização que calculamos por meio do endereço IP do cliente.
 
 Dados que foram descartados por [amostragem](app-insights-sampling.md) não são incluídos nos dados exportados.
@@ -83,10 +73,12 @@ Outras métricas calculadas não são incluídas. Por exemplo, nós não exporta
 
 Os dados também incluem os resultados de todos os [testes da Web de disponibilidade](app-insights-monitor-web-app-availability.md) que você configurou.
 
-> [AZURE.NOTE] **Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+> [!NOTE]
+> **Amostragem.** Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Application Insights para o ASP.NET versão 2.0.0-beta3 ou posterior, o recurso de amostragem adaptável poderá operar e enviar apenas uma porcentagem de sua telemetria. [Saiba mais sobre amostragem.](app-insights-sampling.md)
+> 
+> 
 
 ## <a name="get"></a> Inspecionar os dados
-
 Você pode inspecionar o armazenamento diretamente no portal. Clique em **Procurar**, selecione sua conta de armazenamento e abra **Contêineres**.
 
 Para inspecionar o armazenamento do Azure no Visual Studio, abra **Exibir** e **Cloud Explorer**. (Se você não tiver esse comando de menu, precisará instalar o SDK do Azure: abra o diálogo **Novo Projeto**, expanda Visual C#/Nuvem e escolha **Obter o SDK do Microsoft Azure para .NET**.)
@@ -99,18 +91,14 @@ A data e hora são em formato UTC, e referentes a quando a telemetria foi deposi
 
 Veja o formato do caminho:
 
-
     $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
-  
+
 Where
 
--	`blobCreationTimeUtc` é a hora em que o blob foi criado no armazenamento de preparo interno
--	`blobDeliveryTimeUtc` é a hora em que o blob foi copiado para o armazenamento de destino de exportação
-
-
+* `blobCreationTimeUtc` é a hora em que o blob foi criado no armazenamento de preparo interno
+* `blobDeliveryTimeUtc` é a hora em que o blob foi copiado para o armazenamento de destino de exportação
 
 ## <a name="format"></a> Formato dos dados
-
 * Cada blob é um arquivo de texto que contém várias linhas separadas por “ \\n”. Ele contém a telemetria processada durante um período de tempo de aproximadamente metade um minuto.
 * Cada linha representa um ponto de dados de telemetria como uma solicitação ou uma exibição de página.
 * Cada linha é um documento JSON não formatado. Se você quiser ficar olhando para ele, abra-o no Visual Studio e escolha Editar, Avançado, Arquivo de Formato:
@@ -119,14 +107,13 @@ Where
 
 As durações de tempo são em tiques, em que 10.000 tiques = 1 ms. Por exemplo, esses valores mostram um tempo de 1 ms para enviar uma solicitação do navegador, 3 ms recebê-la e 1,8 s para processar a página no navegador:
 
-	"sendRequest": {"value": 10000.0},
-	"receiveRequest": {"value": 30000.0},
-	"clientProcess": {"value": 17970000.0}
+    "sendRequest": {"value": 10000.0},
+    "receiveRequest": {"value": 30000.0},
+    "clientProcess": {"value": 17970000.0}
 
 [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 
 ## Processamento dos dados
-
 Em pequena escala, você pode escrever um código para extrair e separar seus dados, lê-los em uma planilha e assim por diante. Por exemplo:
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
@@ -148,13 +135,10 @@ Em pequena escala, você pode escrever um código para extrair e separar seus da
 
 Para obter um exemplo de código maior, consulte [usando uma função de trabalho][exportasa].
 
-
-
 ## <a name="delete"></a>Excluir dados antigos
 Observe que você é responsável por gerenciar a capacidade de armazenamento e excluir dados antigos, se necessário.
 
 ## Se você regenerar sua chave de armazenamento...
-
 Se você alterar a chave para seu armazenamento, a exportação contínua deixará de funcionar. Você verá uma notificação em sua conta do Azure.
 
 Abrir a folha Exportação Contínua e edite sua exportação. Edite o destino de exportação, mas mantenha o mesmo armazenamento selecionado. Clique em OK para confirmar.
@@ -164,61 +148,44 @@ Abrir a folha Exportação Contínua e edite sua exportação. Edite o destino d
 A exportação contínua será reiniciada.
 
 ## Exemplos de exportação
-
-
 * [Exportar para SQL usando uma função de trabalho][exportcode]
 * [Exportar para o SQL usando o Stream Analytics][exportasa]
 * [Exportar para o Power BI usando o Stream Analytics](app-insights-export-power-bi.md)
- * Lembre-se de que esse não é o modo padrão de usar o Power BI. Há [um adaptador](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) que não exige a Exportação Contínua.
-
+  * Lembre-se de que esse não é o modo padrão de usar o Power BI. Há [um adaptador](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) que não exige a Exportação Contínua.
 
 Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/services/hdinsight/) - clusters de Hadoop na nuvem. O HDInsight fornece uma variedade de tecnologias para gerenciar e analisar grandes volumes de dados.
 
-
-
 ## Perguntas e respostas
-
 * *Mas tudo o que eu quero é um download único de um gráfico.*
- 
+  
     Sim, você pode fazer isso. Na parte superior da folha, clique [Exportar dados](app-insights-metrics-explorer.md#export-to-excel).
-
 * *Eu configuro uma exportação, mas não há nenhum dado no meu repositório.*
-
+  
     O Application Insights recebeu qualquer telemetria do seu aplicativo desde que você configurou a exportação? Você receberá apenas novos dados.
-
 * *Eu tentei configurar uma exportação, mas o acesso foi negado*
-
+  
     Se a conta pertence à sua organização, você precisa ser membro do grupo de proprietários ou do grupo de colaboradores.
-
-
 * *Eu posso exportar diretamente para meu próprio repositório local?*
-
+  
     Não, infelizmente. Nosso mecanismo de exportação funciona apenas com o armazenamento do Azure no momento.
-
 * *Há qualquer limite para a quantidade de dados que você coloca em meu repositório?*
-
+  
     Não. Continuaremos a enviar dados por push até que você exclua a exportação. Interromperemos o envio se atingirmos os limites externos para o armazenamento de blob, mas são limites enormes. Cabe a você controlar a quantidade de armazenamento que usa.
-
 * *Quantos blobs devo ver no armazenamento?*
-
- * Para cada tipo de dados selecionado para exportação, um novo blob é criado a cada minuto (se os dados estiverem disponíveis).
- * Além disso, para aplicativos com tráfego intenso, são alocadas unidades de partição adicionais. Nesse caso, cada unidade cria um blob a cada minuto.
-
-
+  
+  * Para cada tipo de dados selecionado para exportação, um novo blob é criado a cada minuto (se os dados estiverem disponíveis).
+  * Além disso, para aplicativos com tráfego intenso, são alocadas unidades de partição adicionais. Nesse caso, cada unidade cria um blob a cada minuto.
 * *Eu regenerei a chave para o meu armazenamento ou alterei o nome do contêiner, e agora a exportação não funciona.*
-
+  
     Edite a exportação e abra a folha Destino de exportação. Deixe o mesmo armazenamento de antes selecionado e clique em OK para confirmar. A exportação será reiniciada. Se a alteração foi realizada nos últimos dias, você não perderá dados.
-
 * *Posso pausar a exportação?*
-
+  
     Sim. Clique em Desabilitar.
 
 ## Exemplos de código
-
 * [Transmitir Application Insights para o Power BI](app-insights-export-power-bi.md)
 * [Analisar o JSON exportado usando uma função de trabalho][exportcode]
 * [Exportar para o SQL usando o Stream Analytics][exportasa]
-
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 
 <!--Link references-->
@@ -227,6 +194,6 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
 [exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 
- 
+
 
 <!---HONumber=AcomDC_0727_2016-->

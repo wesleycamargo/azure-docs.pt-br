@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Engenharia e seleção de recursos no Aprendizado de Máquina do Azure | Microsoft Azure"
-	description="Explica a finalidade da seleção de recursos e da engenharia de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Engenharia e seleção de recursos no Aprendizado de Máquina do Azure | Microsoft Docs
+description: Explica a finalidade da seleção de recursos e da engenharia de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina.
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="zhangya;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: zhangya;bradsev
 
-
+---
 # Engenharia e seleção de recursos no Aprendizado de Máquina do Azure
-
 Este tópico explica a finalidade da engenharia e da seleção de recursos no processo de aprimoramento de dados de Machine Learning. Ele ilustra o que esses processos envolvem usando exemplos fornecidos pelo Estúdio de Aprendizado de Máquina do Azure.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Os dados de treinamento usados no aprendizado de máquina frequentemente podem ser aprimorados pela seleção ou extração de recursos dos dados brutos coletados. Um exemplo de recurso de engenharia no contexto de aprender a classificar imagens de caracteres manuscritos é um mapa de densidade de bits construído por meio dos dados brutos de distribuição de bits. Este mapa pode ajudar a localizar as bordas dos caracteres da forma mais eficiente que a distribuição bruta.
 
@@ -42,9 +40,7 @@ A engenharia e a seleção são a etapa de **aperfeiçoamento de dados** do apre
 
 Este tópico abrange os aspectos da engenharia de recursos e da seleção de recursos do processo de aperfeiçoamento de dados. Para saber mais sobre a etapa de pré-processamento de dados, consulte o vídeo [Pré-processamento de Dados no Estúdio AM do Azure](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
-
 ## Criando recursos por meio de seus dados - Engenharia de recursos
-
 Os dados de treinamento consistem de uma matriz composta de exemplos (registros ou observações armazenadas em linhas), cada um deles dos quais tem um conjunto de recursos (variáveis ou campos armazenados em colunas). Espera-se que os recursos especificados no design experimental caracterizem os padrões nos dados. Embora muitos dos campos de dados brutos possam ser incluídos diretamente no conjunto de recursos selecionado para treinar um modelo, frequentemente é necessário que recursos adicionais (engenharia) precisem ser construídos por meio dos recursos nos dados brutos para gerar um conjunto de dados de treinamento aperfeiçoado.
 
 Que tipos de recursos devem ser criados para aperfeiçoar o conjunto de dados ao treinar um modelo? Recursos de engenharia que aprimoram o treinamento fornecem informações que diferenciam melhor os padrões nos dados. Esperamos que os novos recursos forneçam informações adicionais que não são capturadas claramente ou que não ficam aparentes com facilidade no conjunto de recursos original ou existente. Mas esse processo tem algo de artístico. Decisões sensatas e produtivas frequentemente exigem alguma experiência de domínio.
@@ -54,8 +50,7 @@ Ao começar a usar o Aprendizado de Máquina do Azure, é mais fácil entender e
 * Um exemplo de regressão, [Previsão do número de locações de bicicletas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4), em um experimento supervisionado em que os valores de destino são conhecidos
 * Um exemplo de classificação de mineração de texto usando [Hash de recursos][feature-hashing]
 
-### Exemplo 1: adicionando recursos temporais para o modelo de regressão ###
-
+### Exemplo 1: adicionando recursos temporais para o modelo de regressão
 Vamos usar o experimento "Previsão de demanda de bicicletas" no Estúdio do Azure Machine Learning para demonstrar como fazer a engenharia de recursos em uma tarefa de regressão. O objetivo do experimento é prever a demanda de bicicletas, ou seja, o número de locações de bicicletas dentro de um mês/dia/hora específica. O “Conjunto de dados de UCI de locação de bicicletas” é usado como os dados brutos de entrada. Esse conjunto de dados baseia-se em dados reais da empresa Capital Bikeshare, que mantém uma rede de aluguel de bicicletas em Washington, D.C. nos Estados Unidos. O conjunto de dados representa o número de locações de bicicletas em uma hora específica de um dia de 2011 e 2012 e contém 17379 linhas e 17 colunas. O conjunto de recursos brutos contém condições climáticas (temperatura/umidade/velocidade do vento) e o tipo de dia (feriado/dia da semana). O campo a ser previsto é "cnt", uma contagem que representa os aluguéis de bicicleta em uma hora específica e que varia de 1 a 977.
 
 Com o objetivo de construir recursos efetivos nos dados de treinamento, quatro modelos de regressão são criados usando o mesmo algoritmo, mas com quatro conjuntos de dados de treinamento diferentes. Os quatro conjuntos de dados representam os mesmos dados de entrada brutos, mas com um número crescente de características definido. Os recursos são agrupados em quatro categorias:
@@ -75,8 +70,7 @@ A comparação dos resultados de desempenho dos quatro modelos é resumida na ta
 
 ![comparação de resultados](./media/machine-learning-feature-selection-and-engineering/result1.png)
 
-### <a name="example2"></a> Exemplo 2: Criando recursos com mineração de texto  
-
+### <a name="example2"></a> Exemplo 2: Criando recursos com mineração de texto
 A engenharia de recursos é amplamente aplicada a tarefas relacionadas à mineração de texto, como classificação de documentos e análise de sentimento. Por exemplo, quando queremos classificar documentos em várias categorias, um pressuposto típico é que as palavras/expressões incluídas em uma categoria de documentos têm menor probabilidade de ocorrer em outra categoria de documentos. Em outras palavras, a frequência da distribuição de palavras/expressões é capaz de caracterizar diferentes categorias de documentos. Para aplicações associadas à mineração de texto, como trechos individuais do conteúdo de texto normalmente funcionam como dados de entrada, o processo de engenharia de recurso é necessário para criar os recursos que envolvem frequências de palavra/expressão.
 
 Para realizar essa tarefa, uma técnica chamada **hash de recursos** é aplicada para transformar de maneira eficiente recursos de texto arbitrários em índices. Em vez de associar cada recurso de texto (palavras/expressões) a um índice em particular, este método funciona aplicando uma função de hash aos recursos e usando seus valores de hash como índices diretamente.
@@ -93,8 +87,7 @@ A figura a seguir mostra como ficariam esses novos recursos.
 
 ![Exemplo de "Hash de Recursos"](./media/machine-learning-feature-selection-and-engineering/feature-Hashing2.png)
 
-## Filtrando recursos de seus dados - Seleção de recursos  ##
-
+## Filtrando recursos de seus dados - Seleção de recursos
 A seleção de recursos é um processo que geralmente é aplicado à criação de conjuntos de dados de treinamento para tarefas de modelagem de previsão, como tarefas de classificação ou regressão. O objetivo é selecionar um subconjunto de recursos no conjunto de dados original, reduzindo suas dimensões usando um conjunto mínimo de recursos para representar a quantidade máxima de variação nos dados. Esse subconjunto de recursos contém os únicos recursos a serem incluídos para treinar o modelo. A seleção de recursos atende a duas finalidades principais.
 
 * Primeiro, a seleção de recursos frequentemente aumenta a precisão de classificação, eliminando recursos irrelevantes, redundantes ou altamente correlacionados.
@@ -107,7 +100,6 @@ Entre outros, uma categoria amplamente aplicada de métodos de seleção de recu
 No Estúdio do Aprendizado de Máquina do Azure, há módulos fornecidos para seleção de recursos. Conforme mostrado na figura a seguir, esses módulos incluem [Seleção de Recursos Baseada em Filtro][filter-based-feature-selection] e [Análise Discriminante Linear de Fisher][fisher-linear-discriminant-analysis].
 
 ![Exemplo de seleção de recursos](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
-
 
 Considere, por exemplo, o uso do módulo [Seleção de Recursos Baseada em Filtro][filter-based-feature-selection]. Para sua conveniência, continuamos a usar o exemplo de mineração de texto descrito anteriormente. Suponha que desejamos compilar um modelo de regressão após a criação de um conjunto de 256 recursos por meio do módulo [Hash de Recursos][feature-hashing], e que a variável de resposta é "Col1" e representa as resenhas de um livro que variam de 1 a 5. Ao definir o "Método de pontuação de recursos" como "Correlação de Pearson", a “Coluna de destino" como "Col1" e o "Número de recursos desejados" como 50. O módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection] produz um conjunto de dados que contém 50 recursos, em conjunto com o atributo de destino "Col1". A figura a seguir mostra o fluxo desse experimento e os parâmetros de entrada que acabamos de descrever.
 

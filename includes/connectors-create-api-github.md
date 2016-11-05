@@ -1,5 +1,5 @@
 ### Pré-requisitos
-- Uma conta do [GitHub](http://GitHub.com) 
+* Uma conta do [GitHub](http://GitHub.com) 
 
 Antes de usar sua conta do GitHub em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do GitHub. Felizmente, você pode fazer isso facilmente a partir de seu aplicativo lógico no Portal do Azure.
 
@@ -10,3 +10,4 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 3. Forneça seu nome de usuário do GitHub e a senha para autorizar seu aplicativo lógico: ![](./media/connectors-create-api-github/github-3.png)   
 4. Confirme suas intenções: ![](./media/connectors-create-api-github/github-4.png)   
 5. Observe que a conexão foi criada no portal. Agora você pode prosseguir com a criação de seu aplicativo lógico e usar o GitHub nele: ![](./media/connectors-create-api-github/github-5.png)   
+

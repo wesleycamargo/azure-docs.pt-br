@@ -1,26 +1,27 @@
-<properties
-   pageTitle="Configurar o Firewall do Aplicativo Web em um Gateway de Aplicativo novo ou existente | Microsoft Azure"
-   description="Este artigo oferece orientação sobre como começar a usar o firewall do aplicativo Web em um gateway de aplicativo novo ou existente."
-   documentationCenter="na"
-   services="application-gateway"
-   authors="georgewallace"
-   manager="carmonm"
-   editor="tysonn"/>
-<tags
-   ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/26/2016"
-   ms.author="gwallace"/>
+---
+title: Configurar o Firewall do Aplicativo Web em um Gateway de Aplicativo novo ou existente | Microsoft Docs
+description: Este artigo oferece orientação sobre como começar a usar o firewall do aplicativo Web em um gateway de aplicativo novo ou existente.
+documentationcenter: na
+services: application-gateway
+author: georgewallace
+manager: carmonm
+editor: tysonn
 
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/26/2016
+ms.author: gwallace
 
+---
 # <a name="configure-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configurar o Firewall do Aplicativo Web em um Gateway de Aplicativo novo ou existente
-
-> [AZURE.SELECTOR]
-- [Portal do Azure](application-gateway-web-application-firewall-portal.md)
-- [PowerShell do Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
+> [!div class="op_single_selector"]
+> * [Portal do Azure](application-gateway-web-application-firewall-portal.md)
+> * [PowerShell do Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
+> 
+> 
 
 O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O aplicativo fornece muitos recursos do Controlador de Entrega de Aplicativos (ADC), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de Secure Sockets Layer (SSL), as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para localizar uma lista completa dos recursos com suporte, visite Visão geral do Gateway de Aplicativo
 
@@ -31,7 +32,6 @@ O artigo a seguir mostra como [adicionar um firewall do aplicativo Web a um gate
 ![imagem de cenário][scenario]
 
 ## <a name="waf-configuration-differences"></a>Diferenças de configuração do WAF
-
 Se você tiver lido [Criar um Gateway de Aplicativo com o PowerShell](application-gateway-create-gateway-arm.md), compreende as configurações de SKU a serem definidas durante a criação de um gateway de aplicativo. O WAF fornece configurações adicionais para definir ao configurar a SKU em um gateway de aplicativo. Não há nenhuma alteração adicional feita no gateway de aplicativo em si.
 
 **SKU** - um gateway de aplicativo normal sem WAF dá suporte aos tamanhos **Standard\_Small**, **Standard\_Medium** e **Standard\_Large**. Com a introdução do WAF, há duas SKUs adicionais, **WAF\_Medium** e **WAF\_Large**. Não há suporte para WAF em gateways de aplicativo pequenos.
@@ -41,36 +41,30 @@ Se você tiver lido [Criar um Gateway de Aplicativo com o PowerShell](applicatio
 **Modo** - essa configuração é o modo de WAF. Os valores permitidos são **detecção** e **prevenção**. Quando WAF estiver configurado no modo de detecção, todas as ameaças são armazenadas em um arquivo de log. No modo de prevenção, os eventos ainda estão conectados, mas o invasor recebe uma resposta 403 não autorizado do gateway de aplicativo.
 
 ## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a>Adicionar o firewall do aplicativo Web a um gateway de aplicativo existente
-
 Use a versão mais recente do Azure PowerShell. Há mais informações disponíveis em [Como usar o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
 
 ### <a name="step-1"></a>Etapa 1
-
 Faça logon na sua Conta do Azure.
 
     Login-AzureRmAccount
 
 ### <a name="step-2"></a>Etapa 2
-
 Selecione a assinatura a ser usada nesse cenário.
 
     Select-AzureRmSubscription -SubscriptionName "<Subscription name>"
 
 ### <a name="step-3"></a>Etapa 3
-
 Recupere o gateway ao qual você está adicionando o Firewall do Aplicativo Web.
 
     $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
 
 
 ### <a name="step-4"></a>Etapa 4
-
 Configure a sku do firewall do aplicativo Web. Os tamanhos disponíveis são **WAF\_Large** e **WAF\_Medium**. Quando o aplicativo Web for usado, a camada deverá ser **WAF**.
 
     $gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF
 
 ### <a name="step-5"></a>Etapa 5
-
 Defina as configurações de WAF, conforme definido no exemplo a seguir:
 
 Para a configuração **WafMode** , os valores disponíveis são Prevenção e Detecção.
@@ -78,7 +72,6 @@ Para a configuração **WafMode** , os valores disponíveis são Prevenção e D
     $config = Add-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention" -ApplicationGateway $gw
 
 ### <a name="step-6"></a>Etapa 6
-
 Atualize o gateway de aplicativo com as configurações definidas na etapa anterior.
 
     Set-AzureRmApplicationGateway -ApplicationGateway $gw
@@ -86,13 +79,11 @@ Atualize o gateway de aplicativo com as configurações definidas na etapa anter
 Este comando atualiza o gateway de aplicativo com o Firewall do Aplicativo Web. É recomendável exibir os [Diagnósticos do Gateway de Aplicativo](application-gateway-diagnostics.md) para entender como exibir os logs do seu gateway de aplicativo. Devido à natureza de segurança do WAF, será necessário examinar regularmente os logs para compreender a postura de segurança de seus aplicativos Web.
 
 ## <a name="create-an-application-gateway-with-web-application-firewall"></a>Criar um Gateway de Aplicativo com o Firewall do Aplicativo Web
-
 As seguintes etapas guiarão você por todo o processo do início ao fim para criar um Gateway de Aplicativo com o Firewall do Aplicativo Web.
 
 Use a versão mais recente do Azure PowerShell. Há mais informações disponíveis em [Como usar o Windows PowerShell com o Gerenciador de Recursos](../powershell-azure-resource-manager.md).
 
 ### <a name="step-1"></a>Etapa 1
-
 Fazer logon no Azure
 
     Login-AzureRmAccount
@@ -100,19 +91,16 @@ Fazer logon no Azure
 Você deve se autenticar com suas credenciais.
 
 ### <a name="step-2"></a>Etapa 2
-
 Verificar as assinaturas da conta.
 
     Get-AzureRmSubscription
 
 ### <a name="step-3"></a>Etapa 3
-
 Escolha quais das suas assinaturas do Azure deseja usar.
 
     Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
 
 ### <a name="step-4"></a>Etapa 4
-
 Crie um grupo de recursos (ignore esta etapa se você estiver usando um grupo de recursos existente).
 
     New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
@@ -121,30 +109,32 @@ O Gerenciador de Recursos do Azure requer que todos os grupos de recursos especi
 
 No exemplo anterior, criamos um grupo de recursos denominado "appgw-RG" e o local "Oeste dos EUA".
 
->[AZURE.NOTE] Se você precisar configurar uma investigação personalizada para o gateway de aplicativo, veja [Criar um gateway de aplicativo com investigações personalizadas usando o PowerShell](application-gateway-create-probe-ps.md). Confira [investigações personalizadas e monitoramento de integridade](application-gateway-probe-overview.md) para saber mais.
+> [!NOTE]
+> Se você precisar configurar uma investigação personalizada para o gateway de aplicativo, veja [Criar um gateway de aplicativo com investigações personalizadas usando o PowerShell](application-gateway-create-probe-ps.md). Confira [investigações personalizadas e monitoramento de integridade](application-gateway-probe-overview.md) para saber mais.
+> 
+> 
 
 ### <a name="step-5"></a>Etapa 5
-
 Atribua um intervalo de endereços para que a sub-rede seja usada para o próprio Gateway de Aplicativo.
 
     $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
 
-> [AZURE.NOTE] Uma sub-rede para um aplicativo deve ter um mínimo de 28 bits de máscara. Esse valor deixa 10 endereços disponíveis na sub-rede para instâncias do Gateway de Aplicativo. Com uma sub-rede menor, talvez você não consiga adicionar mais instâncias do seu gateway de aplicativo no futuro.
+> [!NOTE]
+> Uma sub-rede para um aplicativo deve ter um mínimo de 28 bits de máscara. Esse valor deixa 10 endereços disponíveis na sub-rede para instâncias do Gateway de Aplicativo. Com uma sub-rede menor, talvez você não consiga adicionar mais instâncias do seu gateway de aplicativo no futuro.
+> 
+> 
 
 ### <a name="step-6"></a>Etapa 6
-
 Atribua um intervalo de endereços a ser usado para o pool de endereços do Back-end.
 
     $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
 
 ### <a name="step-7"></a>Etapa 7
-
 Crie uma rede virtual com as sub-redes anteriores no grupo de recursos criado na etapa: [Criar o grupo de recursos](#create-the-resource-group)
 
     $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
 
 ### <a name="step-8"></a>Etapa 8
-
 Recupere o recurso de rede virtual e os recursos de sub-rede a serem usados nestas etapas:
 
     $vnet = Get-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
@@ -152,15 +142,16 @@ Recupere o recurso de rede virtual e os recursos de sub-rede a serem usados nest
     $nicSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appsubnet' -VirtualNetwork $vnet
 
 ### <a name="step-9"></a>Etapa 9
-
 Crie um recurso IP público a ser usado para o gateway de aplicativo. Esse endereço IP público é usado em uma das seguintes etapas:
 
     $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
 
-> [AZURE.IMPORTANT] O Gateway de Aplicativo não dá suporte ao uso de um endereço IP público criado com um rótulo de domínio definido. Há suporte para apenas para um endereço IP público com um rótulo de domínio criado dinamicamente. Se você precisar de um nome amigável de dns para o gateway de aplicativo, é recomendável usar um registro cname como alias.
+> [!IMPORTANT]
+> O Gateway de Aplicativo não dá suporte ao uso de um endereço IP público criado com um rótulo de domínio definido. Há suporte para apenas para um endereço IP público com um rótulo de domínio criado dinamicamente. Se você precisar de um nome amigável de dns para o gateway de aplicativo, é recomendável usar um registro cname como alias.
+> 
+> 
 
 ### <a name="step-10"></a>Etapa 10
-
 Você deve configurar todos os itens de configuração antes de criar o gateway de aplicativo. As etapas a seguir criam os itens de configuração necessários para um recurso de gateway de aplicativo.
 
 Crie uma configuração de IP do gateway de aplicativo para configurar qual sub-rede será usada pelo Gateway de Aplicativo. Quando o Application Gateway é iniciado, ele escolhe um endereço IP na sub-rede configurada e encaminha o tráfego de rede para os endereços IP no pool de IPs de back-end. Tenha em mente que cada instância usa um endereço IP.
@@ -168,65 +159,57 @@ Crie uma configuração de IP do gateway de aplicativo para configurar qual sub-
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
 
 ### <a name="step-11"></a>Etapa 11
-
 Configure o pool de endereços IP do back-end com os endereços IP dos servidores Web de back-end. Esses endereços IP são os que receberão o tráfego de rede proveniente do ponto de extremidade do IP de front-end. Você substitui os endereços IP a seguir para adicionar seus próprios pontos de extremidade de endereço IP do aplicativo.
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
 
 ### <a name="step-12"></a>Etapa 12
-
 Defina as configurações de http de back-end do gateway de aplicativo. Atribua o certificado carregado na etapa anterior às configurações de http.
 
     $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
 
 ### <a name="step-13"></a>Etapa 13
-
 Configure a porta IP front-end para o ponto de extremidade IP público. Essa porta é a porta à qual os usuários finais se conectam.
 
     $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 
 ### <a name="step-14"></a>Etapa 14
-
 Crie uma configuração de IP de front-end para mapear um endereço ip público ou privado para o front-end do gateway de aplicativo. A etapa a seguir associa o endereço IP público da etapa anterior à configuração de IP do front-end.
 
     $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
 
 ### <a name="step-15"></a>Etapa 15
-
 Crie o ouvinte HTTP para o gateway de aplicativo. Atribua a configuração do ip, a porta e o certificado ssl do front-end a ser usado.
 
     $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 ### <a name="step-16"></a>Etapa 16
-
 Crie uma regra de roteamento do balanceador de carga que configure o comportamento do balanceador de carga. Neste exemplo, é criada uma regra básica de round robin.
 
     $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
-   
-### <a name="step-17"></a>Etapa 17
 
+### <a name="step-17"></a>Etapa 17
 Configure o tamanho da instância do gateway de aplicativo.
 
     $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 
->[AZURE.NOTE]  Você pode escolher entre **WAF\_Medium** e **WAF\_Large**, a camada ao usar WAF sempre será **WAF**. A capacidade é qualquer número entre 1 e 10.
+> [!NOTE]
+> Você pode escolher entre **WAF\_Medium** e **WAF\_Large**, a camada ao usar WAF sempre será **WAF**. A capacidade é qualquer número entre 1 e 10.
+> 
+> 
 
 ### <a name="step-18"></a>Etapa 18
-
 Configure o modo de WAF, os valores aceitáveis são **Prevenção** e **Detecção**.
 
     $config = New-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention"
 
 ### <a name="step-19"></a>Etapa 19
-
 Crie um gateway de aplicativo com todos os itens de configuração das etapas anteriores. Neste exemplo, o gateway de aplicativo é chamado de "appgwtest".
 
     $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -WafConfig $config
 
 ## <a name="next-steps"></a>Próximas etapas
-
 Saiba como configurar o log de diagnóstico para registrar os eventos detectados ou impedidos pelo Firewall do Aplicativo Web ao visitar o [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md)
-
 
 [cenário]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
 

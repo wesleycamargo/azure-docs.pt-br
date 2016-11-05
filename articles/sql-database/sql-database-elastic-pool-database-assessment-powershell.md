@@ -1,46 +1,45 @@
-<properties
-    pageTitle="Script do PowerShell para identificar bancos de dados individuais adequados para um pool | Microsoft Azure"
-    description="Um pool de bancos de dados elástico é um conjunto de recursos disponíveis compartilhados por um grupo de bancos de dados elásticos. Este documento fornece um script do PowerShell para ajudar a avaliar a adequação do uso de um pool de banco de dados elástico para um grupo de bancos de dados."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+---
+title: Script do PowerShell para identificar bancos de dados individuais adequados para um pool | Microsoft Docs
+description: Um pool de bancos de dados elástico é um conjunto de recursos disponíveis compartilhados por um grupo de bancos de dados elásticos. Este documento fornece um script do PowerShell para ajudar a avaliar a adequação do uso de um pool de banco de dados elástico para um grupo de bancos de dados.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="09/28/2016"
-    ms.author="sstein"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.date: 09/28/2016
+ms.author: sstein
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
 
-
+---
 # <a name="powershell-script-for-identifying-databases-suitable-for-an-elastic-database-pool"></a>Script do PowerShell para identificar os bancos de dados adequados para um pool de banco de dados elástico
-
 O exemplo de script do PowerShell neste artigo estima os valores agregados de eDTU para bancos de dados do usuário em um servidor de Banco de Dados SQL. O script coleta de dados enquanto é executado e para uma carga de trabalho de produção típica, você deve executar o script por pelo menos um dia. Em condições ideais, você desejaria executar o script pelo período que representar sua carga de trabalho típica dos bancos de dados. Execute o script pelo tempo suficiente para capturar dados que representem a utilização normal e de pico para os bancos de dados. Executar o script por uma semana ou mais provavelmente fornecerá uma estimativa mais precisa.
 
 Esse script é útil para avaliar os bancos de dados em servidores v11 para a migração para servidores v12, em que os pools são suportados. Em servidores v12, o Banco de Dados SQL tem inteligência interna que analisa a telemetria de histórico de uso e recomenda um pool quando ele for mais econômico. Para obter informações, consulte [Monitorar, gerenciar e dimensionar um pool de banco de dados elástico](sql-database-elastic-pool-manage-portal.md)
 
-> [AZURE.IMPORTANT] Mantenha a janela do PowerShell aberta durante a execução do script. Não feche a janela do PowerShell até ter executado o script pelo tempo necessário. 
+> [!IMPORTANT]
+> Mantenha a janela do PowerShell aberta durante a execução do script. Não feche a janela do PowerShell até ter executado o script pelo tempo necessário. 
+> 
+> 
 
-## <a name="prerequisites"></a>Pré-requisitos 
-
+## <a name="prerequisites"></a>Pré-requisitos
 Instale o seguinte antes de executar o script:
 
-- O Azure PowerShell mais recente. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
-- O [Feature Pack do SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
+* O Azure PowerShell mais recente. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+* O [Feature Pack do SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ## <a name="script-details"></a>Detalhes do script
-
 Você pode executar o script do seu computador local ou uma VM na nuvem. Ao executá-lo em seu computador local, você pode incorrer em encargos de saída de dados, pois o script precisa baixar dados de seus bancos de dados de destino. Encontra-se abaixo a estimativa de volume de dados com base no número de bancos de dados de destino e a duração da execução do script. Para ver os custos de transferência de dados do Azure, consulte [Detalhes de preços de transferência de dados](https://azure.microsoft.com/pricing/details/data-transfers/).
-       
- -     Um banco de dados por hora = 38 KB
- -     Um banco de dados por dia = 900 KB
- -     Um banco de dados por semana = 6 MB
- -     100 bancos de dados por dia = 90 MB
- -     500 bancos de dados por semana = 3 GB
+
+* Um banco de dados por hora = 38 KB
+* Um banco de dados por dia = 900 KB
+* Um banco de dados por semana = 6 MB
+* 100 bancos de dados por dia = 90 MB
+* 500 bancos de dados por semana = 3 GB
 
 O script não compila informações para os seguintes bancos de dados:
 
@@ -54,16 +53,14 @@ O script precisa de um banco de dados de saída para armazenar os dados intermed
 O script precisa que você forneça as credenciais para conectar ao servidor de destino (o candidato ao pool de banco de dados elástico) com o nome completo do servidor, <*dbname*>**.database.windows.net**. O script não dá suporte à análise de mais de um servidor simultaneamente.
 
 Depois de enviar os valores para o conjunto inicial de parâmetros, você precisará fazer logon na sua conta do Azure. Isso é usado para fazer logon no servidor de destino, não no servidor de banco de dados de saída.
-    
+
 Se você encontrar os avisos a seguir ao executar o script, poderá ignorá-los:
 
-- AVISO: O cmdlet Switch-AzureMode foi preterido.
-- AVISO: Não foi possível obter informações do serviço do SQL Server. Falha ao tentar conectar ao WMI em “Microsoft.Azure.Commands.Sql.dll” com o seguinte erro. O servidor RPC está indisponível.
+* AVISO: O cmdlet Switch-AzureMode foi preterido.
+* AVISO: Não foi possível obter informações do serviço do SQL Server. Falha ao tentar conectar ao WMI em “Microsoft.Azure.Commands.Sql.dll” com o seguinte erro. O servidor RPC está indisponível.
 
 Quando o script for concluído, ele produzirá o número estimado de eDTUs necessário para um pool para conter todos os bancos de dados candidatos no servidor de destino. O eDTU estimado pode ser usado para criar e configurar o pool. Depois que o pool for criado e os bancos de dados forem movido para o pool, monitore-o atentamente por alguns dias e faça os ajustes necessários na configuração de eDTU do pool. Consulte [Monitorar, gerenciar e dimensionar um pool de banco de dados elástico](sql-database-elastic-pool-manage-portal.md).
 
-
-    
 ```
 param (
 [Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/
@@ -270,7 +267,7 @@ $data = Invoke-Sqlcmd -ServerInstance $outputServerName -Database $outputdatabas
 $data | %{'{0}' -f $_[0]}
 }
 ```
-        
+
 
 
 

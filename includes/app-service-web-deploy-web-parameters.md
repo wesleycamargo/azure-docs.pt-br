@@ -5,7 +5,6 @@ Ao definir parâmetros, use o campo **allowedValues** para especificar quais val
 Descreveremos cada parâmetro no modelo.
 
 ### siteName
-
 O nome do aplicativo Web que você deseja criar.
 
     "siteName":{
@@ -13,15 +12,13 @@ O nome do aplicativo Web que você deseja criar.
     }
 
 ### hostingPlanName
-
 O nome do plano do Serviço de Aplicativo a usar para hospedar o aplicativo Web.
-    
+
     "hostingPlanName":{
       "type":"string"
     }
 
 ### sku
-
 A camada de preços do plano de hospedagem.
 
     "sku": {
@@ -49,7 +46,6 @@ A camada de preços do plano de hospedagem.
 O modelo define os valores permitidos para esse parâmetro e atribui um valor padrão (S1) se nenhum valor é especificado.
 
 ### workerSize
-
 O tamanho da instância do plano de hospedagem (pequeno, médio ou grande).
 
     "workerSize":{
@@ -61,6 +57,6 @@ O tamanho da instância do plano de hospedagem (pequeno, médio ou grande).
       ],
       "defaultValue":"0"
     }
-    
+
 O modelo define os valores que são permitidos para esse parâmetro (0, 1 ou 2) e atribui um valor padrão (0) se nenhum valor é especificado. Os valores correspondem a pequeno, médio e grande.
 

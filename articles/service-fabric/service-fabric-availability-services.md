@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Disponibilidade de serviços do Service Fabric | Microsoft Azure"
-   description="Descreve a detecção de falhas, failover e recuperação para serviços"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: Disponibilidade de serviços do Service Fabric | Microsoft Docs
+description: Descreve a detecção de falhas, failover e recuperação para serviços
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # Disponibilidade dos serviços de malha do serviço
 Os serviços do Service Fabric do Azure podem ser com ou sem estado. Este artigo fornece uma visão geral de como a malha do serviço mantém a disponibilidade de um serviço no caso de falhas.
 
@@ -38,16 +38,16 @@ Esse conceito de réplica como primária ou secundária ativa é conhecido como 
 ### Funções de réplica
 A função de uma réplica é usada para gerenciar o ciclo de vida do estado que está sendo gerenciado por essa réplica. Uma réplica cuja função é primária atende a solicitações de leitura. Ela também atende a solicitações de gravação atualizando seu estado e replicando as alterações para as secundárias ativas em seu conjunto de réplicas. Uma réplica secundária ativa é responsável por receber alterações de estado que a réplica primária replicou e por atualizar sua exibição do estado.
 
->[AZURE.NOTE] Modelos de programação de alto nível, como a [Estrutura de reliable actors](service-fabric-reliable-actors-introduction.md) abstrai o conceito de função da réplica do desenvolvedor.
+> [!NOTE]
+> Modelos de programação de alto nível, como a [Estrutura de reliable actors](service-fabric-reliable-actors-introduction.md) abstrai o conceito de função da réplica do desenvolvedor.
+> 
+> 
 
 ## Próximas etapas
-
 Para obter informações sobre os conceitos do Service Fabric, consulte o seguinte:
 
-- [Escalabilidade de serviços da Malha do Serviço](service-fabric-concepts-scalability.md)
-
-- [Particionando serviços da Malha do Serviço](service-fabric-concepts-partitioning.md)
-
-- [Definindo e gerenciando o estado](service-fabric-concepts-state.md)
+* [Escalabilidade de serviços da Malha do Serviço](service-fabric-concepts-scalability.md)
+* [Particionando serviços da Malha do Serviço](service-fabric-concepts-partitioning.md)
+* [Definindo e gerenciando o estado](service-fabric-concepts-state.md)
 
 <!---HONumber=AcomDC_0810_2016-->

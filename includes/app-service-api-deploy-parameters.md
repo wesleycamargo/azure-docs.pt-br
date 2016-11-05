@@ -3,7 +3,6 @@ Com o Gerenciador de Recursos do Azure, você define parâmetros para os valores
 Descreveremos cada parâmetro no modelo.
 
 ### gatewayName
-
 O nome do gateway. O aplicativo de API é registrado para este gateway.
 
     "gatewayName": {
@@ -11,15 +10,13 @@ O nome do gateway. O aplicativo de API é registrado para este gateway.
     }
 
 ### apiAppName
-
 O nome do aplicativo de API a criar. O nome deve conter entre 8 caracteres e 50 caracteres.
-    
+
     "apiAppName": {
       "type": "string"
     }
 
 ### apiAppSecret
-
 O segredo para o aplicativo de API. Esse valor deve ser uma cadeia de caracteres codificada em base64. Ele deve ser uma cadeia aleatória com 64 caracteres e consistir apenas em números inteiros e caracteres minúsculos.
 
     "apiAppSecret": {
@@ -27,7 +24,6 @@ O segredo para o aplicativo de API. Esse valor deve ser uma cadeia de caracteres
     }
 
 ### location
-
 O local para o novo aplicativo de API. Você pode obter os locais válidos executando o comando `Get-AzureLocation` do PowerShell ou o comando `azure location list` da CLI do Azure.
 
     "location": {

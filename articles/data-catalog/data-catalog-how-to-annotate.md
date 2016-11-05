@@ -1,24 +1,23 @@
-<properties
-   pageTitle="Como anotar fontes de dados | Microsoft Azure"
-   description="Artigo de instruções que destaca como anotar ativos de dados no Catálogo de Dados do Azure, incluindo nomes amigáveis, marcas, descrições e especialistas."
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="09/21/2016"
-   ms.author="maroche"/>
+---
+title: Como anotar fontes de dados | Microsoft Docs
+description: Artigo de instruções que destaca como anotar ativos de dados no Catálogo de Dados do Azure, incluindo nomes amigáveis, marcas, descrições e especialistas.
+services: data-catalog
+documentationcenter: ''
+author: steelanddata
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 09/21/2016
+ms.author: maroche
 
+---
 # Como anotar fontes de dados
-
 ## Introdução
 O**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o Catálogo de Dados ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de seus dados existentes. Quando uma fonte de dados é registrada no Catálogo de Dados, seus metadados são copiados e indexados pelo serviço, mas a história não para por aí. O Catálogo de Dados permite que os usuários forneçam seus próprios metadados descritivos – como descrições e marcas – para complementar os metadados extraídos da fonte de dados e fazer com que a fonte de dados fique mais compreensível para mais pessoas.
 
@@ -37,20 +36,22 @@ Cada uma dessas perspectivas é valiosa, e o Catálogo de Dados usa uma abordage
 O Catálogo de Dados dá suporte aos seguintes tipos de anotações:
 
 | Anotação | Observações |
-|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nome amigável | Os nomes amigáveis podem ser fornecidos no nível do ativo de dado, para facilitar a compreensão dos ativos de dados. Os nomes amigáveis serão mais úteis quando o nome do objeto subjacente for confuso, abreviado ou não significativa para os usuários. |
-| Descrição | As descrições podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna. As descrições são anotações de texto curto de forma livre que descrevem a perspectiva do usuário sobre o ativo de dados ou seu uso. |
-| Marcas (marcas de usuário) | As marcas podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna As marcas de usuário são rótulos definidos pelo usuário que podem ser usados para categorizar os ativos de dados ou os atributos. |
-| Marcas (marcas de glossário) | As marcas podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna Marcas de glossário são termos de glossário definidos centralmente que podem ser usados para categorizar os ativos de dados ou atributos usando uma taxonomia comum de negócios. Para saber mais, confira [Como configurar o glossário de negócios para Marcação Governada](data-catalog-how-to-business-glossary.md) |
-| Especialistas | Os especialistas podem ser fornecidos no nível do ativo de dados. Os especialistas identificam usuários ou grupos com perspectivas de especialista sobre os dados e podem servir como pontos de contato para usuários que descobrirem as fontes de dados registradas e que tenham dúvidas não respondidas pelas anotações existentes. |
-| Solicitar acesso | As informações sobre a solicitação de acesso podem ser fornecidas no nível do ativo de dados. Essas informações destinam-se aos usuários que descobrirem uma fonte de dados que ainda não tenham permissões para acessar. Os usuários podem inserir o endereço de email do usuário ou grupo que concede acesso, a URL do processo ou a ferramenta que os usuários precisam acessar, ou podem inserir o próprio processo como texto. |
-| Documentação | Fornecemos documentação no nível do ativo de dados. A documentação de ativos é informação em rich text que pode incluir links e imagens e fornecer todas as informações que não são transmitidas por meio de marcações e descrições. |
-
+| --- | --- |
+| Nome amigável |Os nomes amigáveis podem ser fornecidos no nível do ativo de dado, para facilitar a compreensão dos ativos de dados. Os nomes amigáveis serão mais úteis quando o nome do objeto subjacente for confuso, abreviado ou não significativa para os usuários. |
+| Descrição |As descrições podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna. As descrições são anotações de texto curto de forma livre que descrevem a perspectiva do usuário sobre o ativo de dados ou seu uso. |
+| Marcas (marcas de usuário) |As marcas podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna As marcas de usuário são rótulos definidos pelo usuário que podem ser usados para categorizar os ativos de dados ou os atributos. |
+| Marcas (marcas de glossário) |As marcas podem ser fornecidas nos níveis do atributo e do ativo de dados/coluna Marcas de glossário são termos de glossário definidos centralmente que podem ser usados para categorizar os ativos de dados ou atributos usando uma taxonomia comum de negócios. Para saber mais, confira [Como configurar o glossário de negócios para Marcação Governada](data-catalog-how-to-business-glossary.md) |
+| Especialistas |Os especialistas podem ser fornecidos no nível do ativo de dados. Os especialistas identificam usuários ou grupos com perspectivas de especialista sobre os dados e podem servir como pontos de contato para usuários que descobrirem as fontes de dados registradas e que tenham dúvidas não respondidas pelas anotações existentes. |
+| Solicitar acesso |As informações sobre a solicitação de acesso podem ser fornecidas no nível do ativo de dados. Essas informações destinam-se aos usuários que descobrirem uma fonte de dados que ainda não tenham permissões para acessar. Os usuários podem inserir o endereço de email do usuário ou grupo que concede acesso, a URL do processo ou a ferramenta que os usuários precisam acessar, ou podem inserir o próprio processo como texto. |
+| Documentação |Fornecemos documentação no nível do ativo de dados. A documentação de ativos é informação em rich text que pode incluir links e imagens e fornecer todas as informações que não são transmitidas por meio de marcações e descrições. |
 
 ## Anotando vários ativos
 Ao selecionarem vários ativos de dados no portal do Catálogo de Dados, os usuários poderão anotar todos os ativos em uma única operação. As anotações serão aplicadas a todos os recursos selecionados, facilitando a seleção e o fornecimento de uma descrição consistente e conjuntos de marcas e de especialistas para ativos de dados relacionados.
 
-> [AZURE.NOTE] Marcas e especialistas também podem ser fornecidos durante o registro de ativos de dados por meio da ferramenta de registro de fontes de dados do Catálogo de Dados.
+> [!NOTE]
+> Marcas e especialistas também podem ser fornecidos durante o registro de ativos de dados por meio da ferramenta de registro de fontes de dados do Catálogo de Dados.
+> 
+> 
 
 Quando várias tabelas e exibições forem selecionadas, somente as colunas que todos os ativos de dados selecionados tiverem em comum serão exibidas no portal do Catálogo de Dados. Isso permite que os usuários forneçam marcas e descrições de todas as colunas com o mesmo nome para todos os ativos selecionados.
 
@@ -61,6 +62,6 @@ Assim como os metadados extraídos da fonte de dados durante o registro são adi
 O registro de uma fonte de dados no Catálogo de Dados torna os dados descobríveis ao copiar metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Depois que uma fonte de dados tiver sido registrada, os usuários poderão fornecer anotações para facilitar a descoberta e a compreensão de dentro do portal do Catálogo de Dados.
 
 ## Confira também
-- o tutorial [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como anotar fontes de dados.
+* o tutorial [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como anotar fontes de dados.
 
 <!---HONumber=AcomDC_0921_2016-->

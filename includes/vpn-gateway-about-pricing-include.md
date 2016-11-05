@@ -4,8 +4,8 @@ Você paga por duas coisas: os custos de computação por hora para o gateway de
 
 **Custos de transferência de dados**<br>Os custos de transferência de dados são calculados com base no tráfego de saída do gateway de rede virtual de origem.
 
-- Se você estiver enviando o tráfego para o seu dispositivo VPN local, ele será cobrado com a taxa de transferência de dados de saída da Internet.
-- Se você estiver enviando o tráfego entre redes virtuais em regiões diferentes, os preços terão base na região.
-- Se você estiver enviando o tráfego somente entre redes virtuais que estão na mesma região, não haverá custo de dados. O tráfego entre VNets na mesma região é gratuito.
+* Se você estiver enviando o tráfego para o seu dispositivo VPN local, ele será cobrado com a taxa de transferência de dados de saída da Internet.
+* Se você estiver enviando o tráfego entre redes virtuais em regiões diferentes, os preços terão base na região.
+* Se você estiver enviando o tráfego somente entre redes virtuais que estão na mesma região, não haverá custo de dados. O tráfego entre VNets na mesma região é gratuito.
 
 <!---HONumber=AcomDC_0921_2016-->

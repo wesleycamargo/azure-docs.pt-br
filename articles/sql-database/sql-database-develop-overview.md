@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Visão geral do desenvolvimento do Banco de Dados SQL | Microsoft Azure"
-	description="Saiba mais sobre bibliotecas de conectividade disponíveis e práticas recomendadas para aplicativos que se conectam ao Banco de Dados SQL."
-	services="sql-database"
-	documentationCenter=""
-	authors="annemill"
-	manager="jhubbard"
-	editor="genemi"/>
+---
+title: Visão geral do desenvolvimento do Banco de Dados SQL | Microsoft Docs
+description: Saiba mais sobre bibliotecas de conectividade disponíveis e práticas recomendadas para aplicativos que se conectam ao Banco de Dados SQL.
+services: sql-database
+documentationcenter: ''
+author: annemill
+manager: jhubbard
+editor: genemi
 
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: annemill
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="annemill"/>
-
+---
 # Visão geral do desenvolvimento de Banco de Dados SQL
 Este artigo apresenta as considerações básicas sobre as quais um desenvolvedor deve estar ciente ao escrever código para se conectar ao Banco de Dados SQL do Azure.
 
@@ -64,7 +63,6 @@ A escala elástica simplifica o processo de escalar horizontalmente (e de reduzi
 * [Introdução à visualização da Escala Elástica do Banco de Dados SQL do Azure](sql-database-elastic-scale-get-started.md)
 
 ## Próximas etapas
-
 Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/).
 
 <!---HONumber=AcomDC_0817_2016-->

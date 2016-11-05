@@ -1,31 +1,28 @@
-<properties
-   pageTitle="Modelo de aplicativo do Service Fabric | Microsoft Azure"
-   description="Como modelar e descrever aplicativos e serviços no Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor="mani-ramaswamy"/>
+---
+title: Modelo de aplicativo do Service Fabric | Microsoft Docs
+description: Como modelar e descrever aplicativos e serviços no Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: mani-ramaswamy
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"   
-   ms.author="seanmck"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: seanmck
 
+---
 # Modelar um aplicativo no Malha do Serviço
-
 Este artigo fornece uma visão geral do modelo de aplicativo do Service Fabric do Azure. Ele também descreve como definir um aplicativo e um serviço por meio de arquivos de manifesto e ter os aplicativos empacotados e prontos para implantação.
 
 ## Entenda o modelo de aplicativo
-
 Um aplicativo é uma coleção de serviços membros que executam determinadas funções. Um serviço executa uma função autônoma completa (que pode iniciar e ser executada independentemente de outros serviços) e é composto de código, configuração e dados. Para cada serviço, o código consiste em binários executáveis, a configuração consiste em configurações do serviço que podem ser carregadas no tempo de execução e os dados consistem em dados estáticos arbitrários a serem consumidos pelo serviço. Cada componente nesse modelo hierárquico de aplicativo pode ser atualizado e transformado em outra versão independentemente.
 
 ![O modelo de aplicativo Service Fabric][appmodel-diagram]
-
 
 Um tipo de aplicativo é uma categorização de um aplicativo e consiste em um pacote de tipos de serviço. Um tipo de serviço é uma categorização de um serviço. A categorização pode ter diferentes definições e configurações, mas a funcionalidade núcleo permanece a mesma. As instâncias de um serviço são as diferentes variações de configuração de serviço de um mesmo tipo de serviço.
 
@@ -43,11 +40,12 @@ O diagrama a seguir mostra a relação entre aplicativos e instâncias de servi�
 
 ![Partições e réplicas dentro de um serviço][cluster-application-instances]
 
-
->[AZURE.TIP] Você pode exibir o layout de aplicativos em um cluster usando a ferramenta do Service Fabric Explorer disponível em http://&lt;yourclusteraddress&gt;:19080/Explorer. Para obter mais detalhes, veja [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> [!TIP]
+> Você pode exibir o layout de aplicativos em um cluster usando a ferramenta do Service Fabric Explorer disponível em http://&lt;yourclusteraddress&gt;:19080/Explorer. Para obter mais detalhes, veja [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+> 
+> 
 
 ## Descrever um serviço
-
 O manifesto do serviço declarativamente define o tipo de serviço e a versão. Ele especifica os metadados de serviço, como o tipo de serviço, propriedades de integridade, métricas de balanceamento de carga, binários de serviço e arquivos de configuração. Trocando em miúdos, ele descreve os pacotes de código, de configuração e de dados que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Aqui está um manifesto do serviço de exemplo simples:
 
 ~~~
@@ -93,7 +91,10 @@ Os atributos **Version** são cadeias de caracteres não estruturadas e não ana
 </Settings>
 ~~~
 
-> [AZURE.NOTE] Um manifesto do serviço pode conter vários pacotes de código, de configuração e de dados. Cada um deles pode ser transformado em versão independentemente.
+> [!NOTE]
+> Um manifesto do serviço pode conter vários pacotes de código, de configuração e de dados. Cada um deles pode ser transformado em versão independentemente.
+> 
+> 
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -106,8 +107,6 @@ For more information about other features supported by service manifests, refer 
 -->
 
 ## Descrever um aplicativo
-
-
 O manifesto do aplicativo declarativamente descreve o tipo de aplicativo e a versão. Ele especifica os metadados de composição de serviço, como nomes estáveis, esquema de particionamento, fator de replicação/contagem de instância, política de segurança/isolamento, restrições de posicionamento, substituições de configuração e tipos de serviço membro. Também são descritos os domínios de balanceamento de carga no qual o aplicativo é colocado.
 
 Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicativo e faz referência a um ou mais manifestos do serviço para compor um tipo de aplicativo. Aqui está um manifesto de aplicativo de exemplo simples:
@@ -139,7 +138,10 @@ Manifestos de serviço, como atributos **Versão**, são cadeias de caracteres n
 
 **DefaultServices** declara as instâncias de serviço que são criadas automaticamente sempre que um aplicativo é instanciado em relação a esse tipo de aplicativo. Serviços padrão são apenas uma conveniência e se comportam como serviços normais em todos os aspectos após terem sido criados. Eles são atualizados com qualquer outro serviço na instância do aplicativo e também podem ser removidos.
 
-> [AZURE.NOTE] Um manifesto de aplicativo pode conter várias importações de manifesto do serviço e serviços padrão. Cada importação de manifesto do serviço pode ser transformada em versão independentemente.
+> [!NOTE]
+> Um manifesto de aplicativo pode conter várias importações de manifesto do serviço e serviços padrão. Cada importação de manifesto do serviço pode ser transformada em versão independentemente.
+> 
+> 
 
 Para saber como manter aplicativos diferentes e parâmetros de serviço para ambientes individuais, consulte [Gerenciar parâmetros de aplicativo para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md).
 
@@ -152,9 +154,7 @@ For more information about other features supported by application manifests, re
 -->
 
 ## Preparar um aplicativo
-
 ### Layout do pacote
-
 O manifesto do aplicativo, os manifestos do serviço e outros arquivos de pacote necessários devem ser organizados em um layout específico para a implantação em um cluster Malha do Serviço. Os manifestos de exemplo neste artigo precisariam estar organizados na seguinte estrutura de diretórios:
 
 ~~~
@@ -179,15 +179,12 @@ D:\TEMP\MYAPPLICATIONTYPE
 As pastas são nomeadas para corresponder a atributos **Name** de cada elemento correspondente. Por exemplo, se o manifesto do serviço contiver dois pacotes de código com os nomes **MyCodeA** e **MyCodeB**, então, duas pastas com os mesmos nomes conteriam os binários necessários para cada pacote de códigos.
 
 ### Use o SetupEntryPoint
-
 Cenários típicos de uso do **SetupEntryPoint** quando você precisa executar um executável antes do início do serviço ou você precisa executar uma operação com privilégios elevados. Por exemplo:
 
-- Configurar e inicializar as variáveis de ambiente que o serviço executável precisa. Isso não é limitado a apenas executáveis gravados usando os modelos de programação do Service Fabric. Por exemplo, npm.exe precisa de algumas variáveis de ambiente configurados para implantar um aplicativo node.js.
-
-- Configurando o controle de acesso, instalando certificados de segurança.
+* Configurar e inicializar as variáveis de ambiente que o serviço executável precisa. Isso não é limitado a apenas executáveis gravados usando os modelos de programação do Service Fabric. Por exemplo, npm.exe precisa de algumas variáveis de ambiente configurados para implantar um aplicativo node.js.
+* Configurando o controle de acesso, instalando certificados de segurança.
 
 ### Compilar um pacote usando o Visual Studio
-
 Se você usar o Visual Studio 2015 para criar o seu aplicativo, pode usar o comando Package para criar automaticamente um pacote que corresponda ao layout descrito acima.
 
 Para criar um pacote, clique com o botão direito do mouse no projeto de aplicativo no Gerenciador de Soluções e escolha o comando de Pacote, conforme mostrado abaixo:
@@ -197,7 +194,6 @@ Para criar um pacote, clique com o botão direito do mouse no projeto de aplicat
 Quando o empacotamento estiver concluído, você encontrará o local do pacote na janela **Saída**. Observe que a etapa de empacotamento ocorre automaticamente quando você implanta ou depura seu aplicativo no Visual Studio.
 
 ### Teste o pacote
-
 Você pode verificar a estrutura do pacote localmente por meio do PowerShell usando o comando **Test-ServiceFabricApplicationPackage**. Esse comando verificará se há problemas de análise de manifesto e também todas as referências. Observe que esse comando só verifica a correção estrutural de diretórios e arquivos no pacote. Ele não verificará qualquer código ou dados de conteúdo do pacote além de verificar se todos os arquivos necessários estão presentes.
 
 ~~~
@@ -236,7 +232,6 @@ PS D:\temp>
 Depois que o aplicativo é empacotado corretamente e passa pela verificação, ele está pronto para implantação.
 
 ## Próximas etapas
-
 [Implantar e remover aplicativos][10]
 
 [Gerenciando parâmetros do aplicativo para vários ambientes][11]

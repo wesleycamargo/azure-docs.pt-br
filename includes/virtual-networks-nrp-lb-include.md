@@ -4,79 +4,79 @@ Um balanceador de carga é usado quando você deseja dimensionar seus aplicativo
 ![NICs em uma única VM](./media/resource-groups-networking/figure8.png)
 
 | Propriedade | Descrição |
-|---|---|
-| *frontendIPConfigurations* | um balanceador de carga pode incluir um ou mais endereços IP front-end, também conhecidos como VIPs (IPs virtuais). Esses endereços de IP servem como entrada para o tráfego e podem ser IP público ou IP privado |
-|*backendAddressPools* | estes são os endereços IP associados a NICs de VM aos quais a carga será distribuída. |
-|*loadBalancingRules* | uma propriedade de regra mapeia determinada combinação de porta e IP front-end para um conjunto de endereços IP back-end e combinação de portas. Com uma única definição de um recurso de balanceador de carga, você pode definir várias regras de balanceamento de carga, cada regra refletindo uma combinação de um IP de front-end e porta e outra combinação de IP de back-end e porta, ambas associadas às máquinas virtuais. A regra é uma porta no pool de front-end para várias máquinas virtuais no pool de back-end |  
-| *Investigações* | as investigações permitem que você controle a integridade das instâncias VM. Se um teste de integridade falhar, a instância de máquina virtual será retirada automaticamente do rodízio. |
-| *inboundNatRules* | regras NAT definem o tráfego de entrada que flui pelo IP front-end e é distribuído para o IP back-end para a instância de uma máquina virtual específica. A regra NUT é uma porta no pool de front-end para uma máquina virtual no pool de back-end | 
+| --- | --- |
+| *frontendIPConfigurations* |um balanceador de carga pode incluir um ou mais endereços IP front-end, também conhecidos como VIPs (IPs virtuais). Esses endereços de IP servem como entrada para o tráfego e podem ser IP público ou IP privado |
+| *backendAddressPools* |estes são os endereços IP associados a NICs de VM aos quais a carga será distribuída. |
+| *loadBalancingRules* |uma propriedade de regra mapeia determinada combinação de porta e IP front-end para um conjunto de endereços IP back-end e combinação de portas. Com uma única definição de um recurso de balanceador de carga, você pode definir várias regras de balanceamento de carga, cada regra refletindo uma combinação de um IP de front-end e porta e outra combinação de IP de back-end e porta, ambas associadas às máquinas virtuais. A regra é uma porta no pool de front-end para várias máquinas virtuais no pool de back-end |
+| *Investigações* |as investigações permitem que você controle a integridade das instâncias VM. Se um teste de integridade falhar, a instância de máquina virtual será retirada automaticamente do rodízio. |
+| *inboundNatRules* |regras NAT definem o tráfego de entrada que flui pelo IP front-end e é distribuído para o IP back-end para a instância de uma máquina virtual específica. A regra NUT é uma porta no pool de front-end para uma máquina virtual no pool de back-end |
 
 Exemplo de modelo de Balanceador de carga no formato Json:
 
-	{
-	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "dnsNameforLBIP": {
-	      "type": "string",
-	      "metadata": {
-	        "description": "Unique DNS name"
-	      }
-	    },
-	    "location": {
-	      "type": "string",
-	      "allowedValues": [
-	        "East US",
-	        "West US",
-	        "West Europe",
-	        "East Asia",
-	        "Southeast Asia"
-	      ],
-	      "metadata": {
-	        "description": "Location to deploy"
-	      }
-	    },
-	    "addressPrefix": {
-	      "type": "string",
-	      "defaultValue": "10.0.0.0/16",
-	      "metadata": {
-	        "description": "Address Prefix"
-	      }
-	    },
-	    "subnetPrefix": {
-	      "type": "string",
-	      "defaultValue": "10.0.0.0/24",
-	      "metadata": {
-	        "description": "Subnet Prefix"
-	      }
-	    },
-	    "publicIPAddressType": {
-	      "type": "string",
-	      "defaultValue": "Dynamic",
-	      "allowedValues": [
-	        "Dynamic",
-	        "Static"
-	      ],
-	      "metadata": {
-	        "description": "Public IP type"
-	      }
-	    }
-	  },
-	  "variables": {
-	    "virtualNetworkName": "virtualNetwork1",
-	    "publicIPAddressName": "publicIp1",
-	    "subnetName": "subnet1",
-	    "loadBalancerName": "loadBalancer1",
-	    "nicName": "networkInterface1",
-	    "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-	    "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-	    "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
-	    "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
-	    "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
-	    "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
-	    "backEndIPConfigID": "[concat(variables('nicId'),'/ipConfigurations/ipconfig1')]"
-	  },
-	  "resources": [
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "dnsNameforLBIP": {
+          "type": "string",
+          "metadata": {
+            "description": "Unique DNS name"
+          }
+        },
+        "location": {
+          "type": "string",
+          "allowedValues": [
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia"
+          ],
+          "metadata": {
+            "description": "Location to deploy"
+          }
+        },
+        "addressPrefix": {
+          "type": "string",
+          "defaultValue": "10.0.0.0/16",
+          "metadata": {
+            "description": "Address Prefix"
+          }
+        },
+        "subnetPrefix": {
+          "type": "string",
+          "defaultValue": "10.0.0.0/24",
+          "metadata": {
+            "description": "Subnet Prefix"
+          }
+        },
+        "publicIPAddressType": {
+          "type": "string",
+          "defaultValue": "Dynamic",
+          "allowedValues": [
+            "Dynamic",
+            "Static"
+          ],
+          "metadata": {
+            "description": "Public IP type"
+          }
+        }
+      },
+      "variables": {
+        "virtualNetworkName": "virtualNetwork1",
+        "publicIPAddressName": "publicIp1",
+        "subnetName": "subnet1",
+        "loadBalancerName": "loadBalancer1",
+        "nicName": "networkInterface1",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
+        "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]",
+        "lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
+        "nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]",
+        "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
+        "backEndIPConfigID": "[concat(variables('nicId'),'/ipConfigurations/ipconfig1')]"
+      },
+      "resources": [
     {
       "apiVersion": "2015-05-01-preview",
       "type": "Microsoft.Network/publicIPAddresses",
@@ -183,11 +183,10 @@ Exemplo de modelo de Balanceador de carga no formato Json:
         ]
       }
     }
-	  ]
-	}
+      ]
+    }
 
 ### Recursos adicionais
-
 Para obter mais informações, leia [API REST do balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx).
 
 <!---HONumber=AcomDC_1223_2015-->

@@ -1,31 +1,28 @@
-<properties 
-	pageTitle="Implementação do Azure Mobile Engagement para Aplicativo de Jogo"
-	description="Cenário de aplicativo de jogo para implementação do Azure Mobile Engagement" 
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+---
+title: Implementação do Azure Mobile Engagement para Aplicativo de Jogo
+description: Cenário de aplicativo de jogo para implementação do Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-engagement"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.workload="mobile" 
-	ms.date="08/19/2016"
-	ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
-#Implementar o Mobile Engagement com o Aplicativo de Jogos
-
+---
+# Implementar o Mobile Engagement com o Aplicativo de Jogos
 ## Visão geral
-
 Uma empresa de jogos em fase inicial lançou um novo aplicativo de jogo de pescar baseado em role-play/estratégia. O jogo está em execução por 6 meses. Este jogo é um enorme sucesso e tem milhões de downloads e a retenção é muito alta em comparação com outros aplicativos de jogos de empresas em fase inicial. Na reunião de análise trimestral, os participantes concordam que precisam aumentar a receita média por usuário (ARPU). Pacotes de jogo premium estão disponíveis como ofertas especiais. Esses pacotes de jogos permitem aos usuários atualizar a aparência e o desempenho de suas linhas e iscas ou equipamentos de pesca no jogo. No entanto, as vendas dos pacotes são muito baixas. Então, eles decidem primeiro analisar a experiência do cliente com uma ferramenta de análise e desenvolver um programa de envolvimento para aumentar as vendas usando segmentação avançada.
 
 Com base no [Azure Mobile Engagement - Guia de Introdução com Práticas Recomendadas](mobile-engagement-getting-started-best-practices.md) eles compilam uma estratégia de envolvimento.
 
-##Objetivos e KPIs
-
+## Objetivos e KPIs
 Principais participantes dos jogos. Todos concordam em um objetivo principal - aumentar as vendas de pacotes premium em 15%. Eles criam Indicadores Chave de Desempenho (KPIs) de Negócios para medir e impulsionar esse objetivo
 
 * Em que nível do jogo esses pacotes são comprados?
@@ -51,7 +48,6 @@ Com base nas recomendações da equipe de TI, os seguintes KPIs técnicos foram 
 Para cada KPI, a Gerente de Produtos Móveis especifica os dados necessários e onde eles estão localizados em seu guia estratégico.
 
 ## Integração e programa de envolvimento
-
 Antes de criar um programa de envolvimento avançado, o Diretor de Projetos Móveis responsável pelo projeto deve ter uma compreensão profunda de como e quando os produtos são consumidos pelos usuários.
 
 Depois de três meses, o Diretor de Projetos Móveis coletou dados suficientes para aprimorar suas vendas de notificação por push no aplicativo. Ele descobre que:

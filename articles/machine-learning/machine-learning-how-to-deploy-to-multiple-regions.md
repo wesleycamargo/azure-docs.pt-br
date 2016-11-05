@@ -1,30 +1,27 @@
-<properties
-    pageTitle="Como implantar um serviço Web em várias regiões | Microsoft Azure"
-    description="Etapas para implantar (copiar) um novo serviço Web para outras regiões."
-    services="machine-learning"
-    documentationCenter=""
-    authors="vDonGlover"
-    manager="raymondl"
-    editor="cgronlun"/>
+---
+title: Como implantar um serviço Web em várias regiões | Microsoft Docs
+description: Etapas para implantar (copiar) um novo serviço Web para outras regiões.
+services: machine-learning
+documentationcenter: ''
+author: vDonGlover
+manager: raymondl
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/05/2016"
-    ms.author="v-donglo"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/05/2016
+ms.author: v-donglo
 
-
+---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Como implantar um serviço Web em várias regiões
-
 Os novos serviços Web do Azure permitem que você facilmente implante um serviço Web em várias regiões, sem a necessidade de várias assinaturas ou espaços de trabalho. 
 
 O preço é específico de cada região; portanto, você deverá definir um plano de faturamento para cada região na qual implantará o serviço Web.
 
 ## <a name="to-create-a-plan-in-another-region"></a>Para criar um plano em outra região
-
 1. Entre nos [serviços Web de Aprendizado de Máquina do Microsoft Azure](https://services.azureml.net/).
 2. Clique na opção de menu **Planos** .
 3. Na página de visão geral de Planos, clique em **Novo**.
@@ -35,9 +32,7 @@ O preço é específico de cada região; portanto, você deverá definir um plan
 8. Em **Opções do Plano**, clique no nível de cobrança para o novo plano.
 9. Clique em **Criar**.
 
-
 ## <a name="deploying-the-web-service-to-another-region"></a>Implantando o serviço Web em outra região
-
 1. Clique na opção de menu **Serviços Web** .
 2. Selecione o serviço Web que você está implantando em uma nova região.
 3. Clique em **Copiar**.
@@ -49,9 +44,6 @@ O preço é específico de cada região; portanto, você deverá definir um plan
 9. No menu suspenso **Conta de armazenamento** , selecione uma conta de armazenamento na qual armazenar o serviço Web.
 10. Na lista suspensa **Plano de preços** , selecione um plano na região que você selecionou na etapa 8.
 11. Clique em **Copiar**.
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

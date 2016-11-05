@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Arquitetura do Service Fabric | Microsoft Azure"
-   description="A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem. Este artigo mostra a arquitetura da malha de serviço."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rishirsinha"
-   manager="timlt"
-   editor="rishirsinha"/>
+---
+title: Arquitetura do Service Fabric | Microsoft Docs
+description: A Malha do Serviço é uma plataforma de sistemas distribuídos usada para criar aplicativos escalonáveis, confiáveis e facilmente gerenciados para a nuvem. Este artigo mostra a arquitetura da malha de serviço.
+services: service-fabric
+documentationcenter: .net
+author: rishirsinha
+manager: timlt
+editor: rishirsinha
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="06/09/2016"
-   ms.author="rsinha"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 06/09/2016
+ms.author: rsinha
 
+---
 # Arquitetura do Service Fabric
-
 O Service Fabric é criado com subsistemas em camadas. Esses subsistemas permitem escrever aplicativos:
 
 * Altamente disponível
@@ -38,7 +37,7 @@ O subsistema de transporte implementa um canal de comunicação de datagrama pon
 Para justificar um conjunto de nós em um sistema distribuído, você precisa ter uma visão consistente do sistema. O subsistema de federação usa os primitivos da comunicação fornecidos pelo subsistema de transporte e junta vários nós em um único cluster unificado que ele pode justificar. Ele fornece os primitivos de sistemas distribuídos necessários para outros subsistemas - detecção de falhas, eleição de líder e roteamento consistente. O subsistema de federação é criado sobre tabelas de hash distribuídas com um espaço de token de 128 bits. O subsistema cria uma topologia de anel sobre os nós, com cada nó no anel sendo alocado a um subconjunto do espaço de token para a propriedade. Para detecção de falha, a camada usa um mecanismo de concessão baseado em heartbeat e arbitragem. O subsistema de federação também garante através de uma junção complexa e protocolos de saída que somente um único proprietário de um token exista a qualquer momento. Isso oferece garantias de eleição de líder e de roteamento consistente.
 
 ## Subsistema de confiabilidade
-O subsistema de confiabilidade fornece o mecanismo para manter o estado de um serviço do Service Fabric altamente disponível por meio do uso do _Replicator_, do _Gerenciador de Failover_ e do _Balanceador de Recurso_.
+O subsistema de confiabilidade fornece o mecanismo para manter o estado de um serviço do Service Fabric altamente disponível por meio do uso do *Replicator*, do *Gerenciador de Failover* e do *Balanceador de Recurso*.
 
 * O Replicador garante que as alterações de estado da réplica principal serviço automaticamente serão replicadas para réplicas secundárias, mantendo a consistência entre as réplicas primárias e secundárias em um conjunto de réplicas do serviço. O replicador é responsável pelo gerenciamento de quorum entre as réplicas no conjunto de réplicas. Ele interage com a unidade de failover para obter a lista de operações a replicar, e o agente de reconfiguração fornece-a com a configuração do conjunto de réplicas. Essa configuração indica em quais réplicas as operações devem ser replicadas. O Service Fabric fornece um replicador padrão chamado Fabric Replicator, que pode ser usado pela API de modelo de programação para tornar o estado do serviço altamente disponível e confiável.
 * O Gerenciador de Failover garante que quando os nós forem adicionados ou removidos do cluster, a carga será automaticamente redistribuída entre os nós disponíveis. Se um nó do cluster falhar, o cluster automaticamente reconfigurará as réplicas de serviço para manter a disponibilidade.
@@ -50,7 +49,6 @@ O subsistema de gerenciamento oferece serviços de ponta a ponta e gerenciamento
 * **Gerenciador de Cluster**: esse é o principal serviço que interage com o Gerenciador de Failover de confiabilidade para posicionar os aplicativos nos nós com base nas restrições de posicionamento de serviço. O Gerenciador de Recursos no subsistema de failover faz com que as restrições nunca sejam desfeitas. O gerenciador de cluster gerencia o ciclo de vida dos aplicativos de provisionamento para desprovisionamento. Ele se integra ao gerenciador de integridade para garantir que a disponibilidade de aplicativos não seja perdida de uma perspectiva de semântica de integridade durante as atualizações.
 * **Gerenciador de Integridade**: esse serviço permite o monitoramento de integridade de aplicativos, serviços e entidades de cluster. As entidades de cluster (como os nós, as partições de serviço e as réplicas) podem relatar informações de integridade, que são então agregadas a um repositório centralizado de integridade. Essas informações de integridade fornecem um instantâneo da integridade geral de um ponto no tempo dos serviços e nós distribuídas em vários nós no cluster, permitindo que você tome as ações corretivas necessárias. As APIs de consulta de integridade permitem consultar os eventos de integridade relatados ao subsistema de integridade. As APIs de consulta de integridade retornam os dados brutos de integridade armazenados no repositório de integridade ou os dados de integridade agregados e interpretados de uma entidade de cluster específica.
 * **Repositório de Imagens**: esse serviço permite o armazenamento e a distribuição dos binários do aplicativo. O serviço fornece armazenamento de arquivos distribuídos simples, onde os aplicativos são carregados e de onde são baixados.
-
 
 ## Subsistema de hospedagem
 O gerenciador de cluster informa o subsistema de hospedagem (em execução em cada nó), os serviços que precisa para gerenciar um nó específico. O subsistema de hospedagem, em seguida, gerencia o ciclo de vida do aplicativo nesse nó. Ele interage com os componentes de confiabilidade e integridade para garantir que as réplicas estão posicionadas corretamente e estão íntegras.

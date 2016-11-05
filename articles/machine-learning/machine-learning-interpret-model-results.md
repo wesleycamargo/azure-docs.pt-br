@@ -1,27 +1,25 @@
-<properties 
-	pageTitle="Como interpretar resultados de modelo no Aprendizado de Máquina | Microsoft Azure" 
-	description="Como escolher o parâmetro ideal definido para um algoritmo usando e visualizando saídas do modelo de pontuação." 
-	services="machine-learning"
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: Como interpretar resultados de modelo no Aprendizado de Máquina | Microsoft Docs
+description: Como escolher o parâmetro ideal definido para um algoritmo usando e visualizando saídas do modelo de pontuação.
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/12/2016" 
-	ms.author="bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: bradsev
 
-
-# Como interpretar os resultados do modelo no Aprendizado de Máquina do Azure 
- 
+---
+# Como interpretar os resultados do modelo no Aprendizado de Máquina do Azure
 **Compreendendo e Visualizando a saída do ‘Modelo de pontuação’** Este tópico explica como visualizar e interpretar os resultados de previsão no Estúdio do Azure Machine Learning. Depois de ter treinado um modelo e feito previsões sobre ele ("pontuado o modelo"), você precisa compreender e interpretar o resultado da previsão que obteve.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Há quatro tipos principais de modelos de aprendizado de máquina no Aprendizado de Máquina do Azure:
 
@@ -35,14 +33,14 @@ Os módulos usados fazem previsão desses módulos, chamados de "pontuação", c
 * O módulo [Modelo de pontuação][score-model] para classificação e regressão,
 * O módulo [Atribuir aos Clusters][assign-to-clusters] para clustering
 * [Recomendação da Caixa da Pontuação][score-matchbox-recommender] para sistemas de recomendação
- 
+
 Este documento explica como interpretar os resultados de previsão para cada um desses módulos. Para obter uma visão geral desses tipos de modelos, consulte [Como escolher parâmetros para otimizar seus algoritmos no Aprendizado de Máquina do Azure](machine-learning-algorithm-parameters-optimize.md).
 
 Este tópico aborda a interpretação de previsão, mas não a avaliação do modelo. Para obter mais informações sobre como avaliar o seu modelo, confira [Como avaliar o desempenho do modelo no Azure Machine Learning](machine-learning-evaluate-model-performance.md).
 
 Se você for novo no Aprendizado de Máquina do Azure e precisar de ajuda sobre como criar um teste simples para começar, consulte [Criar um experimento simples no Estúdio de Aprendizado de Máquina do Azure](machine-learning-create-experiment.md) no Estúdio de Aprendizado de Máquina do Azure.
 
-##Classificação
+## Classificação
 Há duas subcategorias de problemas de classificação:
 
 * problemas com apenas duas classes (classificação de duas classes ou binária)
@@ -50,7 +48,7 @@ Há duas subcategorias de problemas de classificação:
 
 O Aprendizado de Máquina do Azure tem diferentes módulos para lidar com cada um desses tipos de classificação. Mas, as maneiras de interpretar os resultados de previsão são semelhantes. Falaremos primeiro sobre os problemas de classificação de duas classes e, então, solucionaremos os problemas de classificação multiclasse.
 
-###Classificação de duas classes
+### Classificação de duas classes
 **Teste de exemplo**
 
 Um exemplo de problema de classificação de duas classes é a classificação de flores íris: a tarefa é classificar as flores íris com base em seus recursos. O conjunto de dados Íris fornecido no Azure Machine Learning é um subconjunto do popular [conjunto de dados Íris](http://en.wikipedia.org/wiki/Iris_flower_data_set), que contém instâncias de apenas duas espécies de flores (classes 0 e 1). Há quatro recursos para cada flor (comprimento da sépala, largura da sépala, comprimento da pétala e largura da pétala).
@@ -80,32 +78,32 @@ Depois de os resultados da previsão serem compreendidos e parecem julgados, a e
 Figura 3 Experimento de pontuação de problema de classificação de duas classes da íris
 
 Agora, precisamos definir a entrada e a saída para o serviço Web. Obviamente, a entrada é a porta de entrada certa do [Modelo de pontuação][score-model], que é a entrada de recursos de flor de íris. A escolha da saída depende se estamos interessados na classe prevista (Rótulo pontuado), na probabilidade pontuada ou em ambas. Aqui, supõe-se que estamos interessados em ambas. Para selecionar as colunas de saída desejadas, precisamos usar um módulo [Selecionar Colunas no Conjunto de Dados][select-columns]. Clicamos no módulo [Selecionar Colunas no Conjunto de Dados][select-columns], depois no **Seletor de Colunas de Inicialização** no painel direito e selecionamos **Rótulos Pontuados** e **Probabilidades Pontuadas**. Depois de configurarmos a porta de saída do módulo [Selecionar Colunas no Conjunto de Dados][select-columns] e a executarmos novamente, devemos estar prontos para publicar o teste de pontuação como um serviço Web, clicando no botão **PUBLICAR SERVIÇO WEB** na parte inferior. O teste final se parece com a Figura 4.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/4.png)
 
 Figura 4 Teste de pontuação final do problema de classificação de duas classes da íris
 
 Depois de executar o serviço Web e inserir alguns valores de recursos de uma instância de teste, o resultado retorna dois números. O primeiro número é o rótulo pontuado, o segundo é a probabilidade pontuada. Com uma probabilidade de 0,9655, essa flor é prevista como classe 1.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/4_1.png)
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/5.png)
 
 Figura 5 Resultado do Serviço Web da classificação de duas classes de íris
 
-###Classificação multiclasse
+### Classificação multiclasse
 **Teste de exemplo**
 
 Nesse experimento, executamos uma tarefa de reconhecimento de letra como um exemplo de classificação multiclasse. O classificador tenta prever uma determinada letra (classe), dados alguns valores de atributo manuscritos extraídos das imagens manuscritas. Nos dados de treinamento, há 16 recursos extraídos de imagens de letra manuscrita. As 26 letras formam as nossas 26 classes. Um teste foi configurado para treinar um modelo de classificação multiclasse para o reconhecimento de letra e para prever o mesmo recurso definido em um conjunto de dados de teste, conforme mostrado na Figura 6.
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/5_1.png)
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/6.png)
 
 Figura 6 Teste do problema de classificação multiclasse de reconhecimento de letra
 
 Visualize os resultados do módulo [Modelo de pontuação][score-model] clicando à direita/esquerda na porta de saída do módulo [Modelo de pontuação][score-model] e, em seguida, clicando em **Visualizar**. Você deverá ver uma janela como na Figura 7.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/7.png)
 
 Figura 7 Visualizar o resultado do modelo de pontuação na classificação multiclasses
@@ -117,37 +115,36 @@ As 16 colunas à esquerda representam os valores do recurso do conjunto de teste
 **Publicação de serviço Web**
 
 Desta vez, em vez de usar [Selecionar Colunas no Conjunto de Dados][select-columns] para selecionar algumas colunas como a saída do nosso serviço Web, gostaríamos de obter o rótulo pontuado para cada entrada e a probabilidade do rótulo pontuado. A lógica básica é encontrar a maior probabilidade dentre todas as probabilidades pontuadas. Para fazer isso, precisamos usar o módulo [Executar Script R][execute-r-script]. O código R é mostrado na Figura 8 e o teste é semelhante à Figura 9.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/8.png)
 
 Figura 8 Código R para extrair Rótulos Pontuados e as probabilidades associadas dos rótulos
-  
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/9.png)
 
 Figura 9 Teste de classificação final do Problema de Classificação Multiclasse de Reconhecimento de Letra
 
 Após a publicação e a execução do serviço Web e inserindo alguns valores de recurso de entrada, o resultado é semelhante à Figura 10. Essa letra manuscrita, com seus 16 recursos extraídos, é prevista para ser um "T" com probabilidade de 0,9715.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/9_1.png)
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/10.png)
 
 Figura 10 Resultado do Serviço Web da classificação de duas classes de íris
 
-##Regressão
-
+## Regressão
 Os problemas de regressão são diferentes dos problemas de classificação. Em um problema de classificação, estamos tentando prever classes distintas, como a qual classe uma flor de íris pertence. Mas, em um problema de regressão, estamos tentando prever uma variável contínua, como o preço de um carro, como você pode ver no exemplo a seguir.
 
 **Teste de exemplo**
 
 Usamos a previsão dos preços de automóveis como nosso exemplo de regressão. Estamos tentando prever o preço de um carro com base em seus recursos, incluindo marca, tipo de combustível, tipo de carroceria, tração, etc. O teste é mostrado na Figura 11.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/11.png)
 
 Figura 11 Teste de problema de regressão de preço de automóveis
 
 Visualizando o módulo [Modelo de Pontuação][score-model], o resultado é semelhante à Figura 12.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/12.png)
 
 Figura 12 Visualizar resultados de pontuação para o problema de previsão do preço de automóveis
@@ -159,25 +156,24 @@ Nesse resultado de pontuação, os Rótulos Pontuados são a coluna de resultado
 **Publicação de serviço Web**
 
 Podemos publicar o teste de regressão em um serviço Web e chamá-lo para a previsão do preço dos automóveis da mesma maneira como no caso de uso de classificação de duas classes.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/13.png)
 
 Figura 13 Teste de pontuação do problema de regressão do preço de automóveis
 
 Executando o serviço Web, o resultado é semelhante à Figura 14. O preço previsto para esse carro é 15.085,52.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/13_1.png)
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/14.png)
 
 Figura 14 Resultado do serviço Web do problema de regressão do preço de automóveis
 
-##Clustering
-
+## Clustering
 **Teste de exemplo**
 
 Vamos usar o conjunto de dados íris novamente para criar um teste de clustering. Aqui, vamos filtrar os rótulos de classe do conjunto de dados para que ele tenha somente recursos e possa ser usado para clustering. Neste caso de uso de Íris, vamos especificar o número de clusters como dois durante o processo de treinamento, o que significa que gostaríamos de armazenar em cluster as flores em duas classes. O teste é mostrado na Figura 15.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/15.png)
 
 Figura 15 Teste do problema de clustering da íris
@@ -185,13 +181,13 @@ Figura 15 Teste do problema de clustering da íris
 O clustering difere da classificação no conjunto de dados de treinamento que não tem rótulos de zero verdadeiro por si só. Em vez disso, estamos interessados em como agrupar as instâncias do conjunto de dados de treinamento em clusters distintos. Durante o processo de treinamento, o modelo rotula as entradas aprendendo as diferenças entre os seus recursos. Depois disso, o modelo treinado pode ser ainda mais usado para classificar entradas futuras. Há duas partes do resultado nas quais estamos interessados dentro de um problema de clustering. A primeira parte é como rotular o conjunto de dados de treinamento, a segunda parte é como classificar um novo conjunto de dados com o modelo treinado.
 
 A primeira parte do resultado pode ser visualizada clicando na porta de saída à esquerda do módulo [Modelo de cluster de treino][train-clustering-model] e depois em **Visualizar**. A janela de visualização é mostrada na Figura 16.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/16.png)
 
 Figura 16 Visualizar resultados de clustering para o conjunto de dados de treinamento
 
 O resultado da segunda parte, fazendo o clustering de novas entradas com o modelo de clustering treinado, é mostrado na Figura 17.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/17.png)
 
 Figura 17 Visualizar os resultados de clustering no novo conjunto de dados
@@ -203,20 +199,20 @@ Embora os resultados de duas partes provenham de diferentes estágios do teste, 
 **Publicação de serviço Web**
 
 Podemos publicar o teste de clustering em um serviço Web e chamá-lo para a previsão do clustering da mesma maneira como no caso de uso de classificação de duas classes.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/18.png)
 
 Figura 18 Teste de pontuação do problema de clustering da íris
 
 Após executar o serviço Web, o resultado é semelhante à Figura 19. É previsto que essa flor esteja no cluster 0.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/18_1.png)
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/19.png)
 
 Figura 19: Resultado do serviço Web da classificação de duas classes de íris
 
-##Sistema de recomendação
+## Sistema de recomendação
 **Teste de exemplo**
 
 Para sistemas de recomendação, usamos o problema de recomendação de restaurante como um exemplo: recomendar restaurantes para clientes com base em seu histórico de classificação. Os dados de entrada consistem em três partes:
@@ -227,13 +223,13 @@ Para sistemas de recomendação, usamos o problema de recomendação de restaura
 
 Há várias coisas que podemos fazer com o módulo integrado [Recomendação de caixa de treino][train-matchbox-recommender] do Aprendizado de Máquina do Azure:
 
-- Prever as classificações de um determinado usuário e item
-- Itens recomendados a um determinado usuário
-- Localizar usuários relacionados a um determinado usuário
-- Localizar itens relacionados a um determinado item
+* Prever as classificações de um determinado usuário e item
+* Itens recomendados a um determinado usuário
+* Localizar usuários relacionados a um determinado usuário
+* Localizar itens relacionados a um determinado item
 
 Podemos escolher o que queremos fazer selecionando dentre quatro opções no menu **Tipo de previsão de recomendação** no painel à direita. Aqui, percorremos todos os quatro cenários. Um teste típico de Aprendizado de Máquina do Azure para o Sistema de recomendação é semelhante à Figura 20. Para obter detalhes sobre como usar esses módulos de sistema de recomendações, confira as páginas de Ajuda [Train Matchbox Recommender][train-matchbox-recommender] \(Recomendação da caixa de treino) e [Score Matchbox Recommender][score-matchbox-recommender] \(Recomendação da caixa de pontuação).
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/19_1.png)
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/20.png)
@@ -245,7 +241,7 @@ Figura 20 Teste do sistema de recomendação
 *Prever as classificações de um determinado usuário e item*
 
 Selecionando a Previsão de Classificação no menu **Tipo de previsão de recomendação**, podemos pedir que o sistema de recomendação preveja a classificação de um determinado usuário e o item. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 21.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/21.png)
 
 Figura 21 Visualizar os resultados da pontuação do sistema de recomendação - Previsão de classificação
@@ -255,7 +251,7 @@ Há três colunas. As duas primeiras colunas são pares de item de usuário forn
 *Itens recomendados a um determinado usuário*
 
 Selecionando **Recomendação de item** no menu **Tipo de previsão de recomendação**, podemos pedir que o sistema de recomendação recomende itens a um determinado usuário. Há um parâmetro a mais que precisamos escolher nesse cenário: a Seleção de item recomendado. A opção **De itens de classificação (para a avaliação de modelo)** é usada principalmente para a avaliação do modelo durante o processo de treinamento. Escolhemos **De Todos os Itens** para este estágio da previsão. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 22.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/22.png)
 
 Figura 22 Visualizar os resultados da pontuação do sistema de recomendação - Recomendação de item
@@ -265,7 +261,7 @@ Há seis colunas. A primeira coluna representa as IDs de usuário fornecidas par
 *Localizar usuários relacionados a um determinado usuário*
 
 Selecionando Usuários relacionados no menu “Tipo de previsão de recomendação”, podemos pedir que o sistema de recomendação encontre usuários relacionados a um determinado usuário. Os usuários relacionados são os usuários que têm preferências semelhantes. Há um parâmetro a mais que precisamos escolher nesse cenário: a Seleção de usuário relacionado. A opção “De usuários que classificaram itens (para a avaliação de modelo)” é usada principalmente para a avaliação do modelo durante o processo de treinamento. Escolhemos "De todos os usuários" para este estágio da previsão. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 23.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/23.png)
 
 Figura 23 Visualizar os resultados da pontuação do sistema de recomendação - Usuários relacionados
@@ -275,7 +271,7 @@ Há seis colunas. Na primeira coluna são fornecidas as IDs de usuário para loc
 **Localizar itens relacionados a um determinado item**
 
 Selecionando **Itens relacionados** no menu **Tipo de previsão de recomendação**, podemos pedir que o sistema de recomendação encontre usuários relacionados a um determinado usuário. Itens relacionados são os itens com maior probabilidade de interessarem ao mesmo usuário. Há um parâmetro a mais que precisamos escolher nesse cenário: a Seleção de item relacionado. A opção **De itens de classificação (para a avaliação de modelo)** é usada principalmente para a avaliação do modelo durante o processo de treinamento. Escolhemos **De todos os itens** para este estágio da previsão. A visualização da saída [Recomendação da caixa de pontuação][score-matchbox-recommender] é semelhante à Figura 24.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/24.png)
 
 Figura 24 Visualizar os resultados da pontuação do sistema de recomendação - Itens relacionados
@@ -287,17 +283,16 @@ O processo de publicação desses testes como serviços Web para obter previsõe
 Salvando o sistema de recomendação treinado como um modelo treinado, filtrando os dados de entrada para uma coluna de ID de usuário único, conforme solicitado, podemos ligar o teste como na Figura 25 e publicá-lo como um serviço Web.
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/25.png)
- 
+
 Figura 25 Experimento de pontuação do problema de recomendação de restaurante
 
 Executando o serviço Web, o resultado é semelhante à Figura 14. Os cinco restaurantes recomendados para o usuário U1048 são 134986, 135018, 134975, 135021 e 132862.
- 
+
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/25_1.png)
 
 ![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/26.png)
 
 Figura 26 Resultado do serviço Web de Problema de recomendação do restaurante
-
 
 <!-- Module References -->
 [assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
@@ -307,6 +302,6 @@ Figura 26 Resultado do serviço Web de Problema de recomendação do restaurante
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
- 
+
 
 <!---HONumber=AcomDC_0914_2016-->

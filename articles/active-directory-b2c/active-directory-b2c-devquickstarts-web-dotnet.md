@@ -1,60 +1,58 @@
-<properties
-	pageTitle="Azure Active Directory B2C | Microsoft Azure"
-	description="Como compilar um aplicativo Web com gerenciamento de entrada, inscrição e perfil usando o Active Directory B2C do Azure."
-	services="active-directory-b2c"
-	documentationCenter=".net"
-	authors="dstrockis"
-	manager="msmbaldwin"
-	editor=""/>
+---
+title: Azure Active Directory B2C | Microsoft Docs
+description: Como compilar um aplicativo Web com gerenciamento de entrada, inscrição e perfil usando o Active Directory B2C do Azure.
+services: active-directory-b2c
+documentationcenter: .net
+author: dstrockis
+manager: msmbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/22/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/22/2016
+ms.author: dastrock
 
+---
 # Azure AD B2C: criar um aplicativo Web do .NET
-
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Ao usar o Active Directory B2C do Azure (AD do Azure), você poderá adicionar recursos poderosos de gerenciamento de identidades de autoatendimento para seu aplicativo Web em poucas etapas. Este artigo discute como criar um aplicativo Web de MVC (Controlador de exibição de modelo) do .NET que inclui inscrição, entrada e gerenciamento de perfil de usuário. O aplicativo incluirá suporte para inscrição e entrada usando um nome de usuário ou email e usando contas sociais, como Facebook e Google.
 
 ## Obter um diretório AD B2C do Azure
-
 Antes de usar AD B2C do Azure, você deve criar um diretório ou locatário. Um diretório é um contêiner para todos os seus usuários, aplicativos, grupos etc. Se você ainda não tiver um, [crie um diretório B2C](active-directory-b2c-get-started.md) antes de prosseguir neste guia.
 
 ## Criar um aplicativo
-
 Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornece ao AD do Azure as informações de que ele precisa para se comunicar de forma segura com seu aplicativo. Para criar um aplicativo, [siga estas instruções](active-directory-b2c-app-registration.md). É necessário que você:
 
-- Inclua um **aplicativo Web/API Web** no aplicativo.
-- Insira `https://localhost:44316/` como um **URI de Redirecionamento**. É a URL padrão deste exemplo de código.
-- Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você precisará dela mais tarde.
+* Inclua um **aplicativo Web/API Web** no aplicativo.
+* Insira `https://localhost:44316/` como um **URI de Redirecionamento**. É a URL padrão deste exemplo de código.
+* Copiar a **ID do Aplicativo** atribuída ao aplicativo. Você precisará dela mais tarde.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Criar suas políticas
-
 No Azure AD B2C, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade: perfil de inscrição, entrada e edição. Você precisa criar uma política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).
 
->[AZURE.NOTE] O Azure AD B2C também dá suporte a uma política de inscrição e de entrada que não será mostrada neste tutorial. A política de inscrição ou de entrada é mostrada [neste tutorial equivalente](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+> [!NOTE]
+> O Azure AD B2C também dá suporte a uma política de inscrição e de entrada que não será mostrada neste tutorial. A política de inscrição ou de entrada é mostrada [neste tutorial equivalente](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
+> 
+> 
 
 Ao criar as três políticas, não se esqueça de:
 
-- Escolher **Inscrição de ID de usuário** ou **Inscrição de email** na folha de provedores de identidade.
-- Escolher o **Nome de exibição** e outros atributos de inscrição em sua política de inscrição.
-- Escolher a declaração de **Nome de exibição** como uma declaração de aplicativo em cada política. Você pode escolher outras declarações também.
-- Copie o **Nome** de cada política após criá-la. Mais tarde você precisará desses nomes de política.
+* Escolher **Inscrição de ID de usuário** ou **Inscrição de email** na folha de provedores de identidade.
+* Escolher o **Nome de exibição** e outros atributos de inscrição em sua política de inscrição.
+* Escolher a declaração de **Nome de exibição** como uma declaração de aplicativo em cada política. Você pode escolher outras declarações também.
+* Copie o **Nome** de cada política após criá-la. Mais tarde você precisará desses nomes de política.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Depois de criar as três políticas, você estará pronto para compilar o aplicativo.
 
 ## Baixar o código e configurar a autenticação
-
 O código deste exemplo [é mantido no GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet). Para compilar o exemplo à medida que avança, [baixe um projeto de esqueleto como um arquivo .zip](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip). Também é possível clonar o esqueleto:
 
 ```
@@ -95,7 +93,7 @@ Em seguida, abra o `web.config` de arquivos na raiz do projeto e insira os valor
 ...
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+[!INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Agora, adicione uma classe de inicialização OWIN ao projeto chamada `Startup.cs`. Clique com o botão direito do mouse no projeto, selecione **Adicionar** e **Novo Item** e pesquise "OWIN". **Altere a declaração de classe para `public partial class Startup`**. Implementamos parte dessa classe para você em outro arquivo. O middleware OWIN invocará o método `Configuration(...)` quando seu aplicativo for iniciado. Nesse método, faça uma chamada para `ConfigureAuth(...)`, em que você configurou a autenticação para seu aplicativo.
 
@@ -266,8 +264,8 @@ Abra o arquivo `Controllers\HomeController.cs`. Você pode acessar as declaraç�
 [Authorize]
 public ActionResult Claims()
 {
-	Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
-	ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
+    Claim displayName = ClaimsPrincipal.Current.FindFirst(ClaimsPrincipal.Current.Identities.First().NameClaimType);
+    ViewBag.DisplayName = displayName != null ? displayName.Value : string.Empty;
     return View();
 }
 ```
@@ -275,19 +273,17 @@ public ActionResult Claims()
 Você pode acessar qualquer declaração de que seu aplicativo recebe da mesma maneira. Confira na página **Declarações** uma lista de todas as declarações recebidas pelo aplicativo.
 
 ## Executar o aplicativo de exemplo
-
 Por fim, compile e execute seu aplicativo. Inscreva-se no aplicativo usando um endereço de email ou um nome de usuário. Saia e entre novamente como o mesmo usuário. Edite perfil do usuário. Saia e inscreva-se como outro usuário. Observe que as informações exibidas na guia **Declarações** correspondem às informações configuradas em suas políticas.
 
 ## Adicionar IDPs sociais
-
 Atualmente, o aplicativo dá suporte apenas à inscrição e à entrada do usuário com **contas locais**. Essas são as contas armazenadas em seu diretório do B2C que usam um nome de usuário e senha. Com o Azure AD B2C, você pode adicionar suporte a outros **provedores de identidade** (IDPs), sem alterar qualquer código.
 
 Para adicionar IDPs sociais ao seu aplicativo, comece seguindo as instruções detalhadas nestes artigos. Para cada IDP ao qual deseja oferecer suporte, você precisa registrar um aplicativo no sistema e obter uma ID de cliente.
 
-- [Configurar o Facebook como um IDP](active-directory-b2c-setup-fb-app.md)
-- [Configurar o Google como um IDP](active-directory-b2c-setup-goog-app.md)
-- [Configurar o Amazon como um IDP](active-directory-b2c-setup-amzn-app.md)
-- [Configurar o LinkedIn como um IDP](active-directory-b2c-setup-li-app.md)
+* [Configurar o Facebook como um IDP](active-directory-b2c-setup-fb-app.md)
+* [Configurar o Google como um IDP](active-directory-b2c-setup-goog-app.md)
+* [Configurar o Amazon como um IDP](active-directory-b2c-setup-amzn-app.md)
+* [Configurar o LinkedIn como um IDP](active-directory-b2c-setup-li-app.md)
 
 Após a adição dos provedores de identidade ao seu diretório B2C, você precisará editar cada uma das suas três políticas para incluir os novos IDPs, como descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md). Depois de salvar as políticas, execute o aplicativo novamente. Você deve ver os novos IDPs adicionados como opções de entrada e de inscrição em cada experiência de identidade.
 

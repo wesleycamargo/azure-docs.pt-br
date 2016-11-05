@@ -1,34 +1,36 @@
-<properties
-	pageTitle="Configuração de armazenamento para VMs do SQL Server | Microsoft Azure"
-	description="Este tópico descreve como o Azure configura o armazenamento para VMs do SQL Server durante o provisionamento (modelo de implantação do Resource Manager). Também explica como você pode configurar o armazenamento para suas VMs existentes do SQL Server."
-	services="virtual-machines-windows"
-	documentationCenter="na"
-	authors="ninarn"
-	manager="jhubbard"    
-	tags="azure-resource-manager"/>
-<tags
-	ms.service="virtual-machines-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="08/04/2016"
-	ms.author="ninarn" />
+---
+title: Configuração de armazenamento para VMs do SQL Server | Microsoft Docs
+description: Este tópico descreve como o Azure configura o armazenamento para VMs do SQL Server durante o provisionamento (modelo de implantação do Resource Manager). Também explica como você pode configurar o armazenamento para suas VMs existentes do SQL Server.
+services: virtual-machines-windows
+documentationcenter: na
+author: ninarn
+manager: jhubbard
+tags: azure-resource-manager
 
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows-sql-server
+ms.workload: infrastructure-services
+ms.date: 08/04/2016
+ms.author: ninarn
+
+---
 # Configuração de armazenamento para VMs do SQL Server
-
 Quando você configurar uma imagem de máquina virtual do SQL Server no Azure, o Portal ajuda você a automatizar a configuração de armazenamento. Isso inclui a anexação de armazenamento para a VM, tornando o armazenamento acessível para o SQL Server e configurando-o para otimizar seus requisitos específicos de desempenho.
 
 Este tópico explica como o Azure configura o armazenamento para suas VMs do SQL Server durante o provisionamento e para VMs existentes. Essa configuração tem base nas [práticas recomendadas de desempenho](virtual-machines-windows-sql-performance.md) para VMs do Azure executando o SQL Server.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implantação clássica.
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
+
+modelo de implantação clássica.
 
 ## Pré-requisitos
 Para usar as definições automatizadas de configuração de armazenamento, sua máquina virtual exige as seguintes características:
 
-- Deve ser provisionada com uma [imagem da galeria do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-deploy-a-sql-vm-per-minute-licensing).
-- Deve usar o [Modelo de implantação do Resource Manager](../resource-manager-deployment-model.md).
-- Deve usar o [Armazenamento Premium](../storage/storage-premium-storage.md).
+* Deve ser provisionada com uma [imagem da galeria do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-deploy-a-sql-vm-per-minute-licensing).
+* Deve usar o [Modelo de implantação do Resource Manager](../resource-manager-deployment-model.md).
+* Deve usar o [Armazenamento Premium](../storage/storage-premium-storage.md).
 
 ## Novas VMs
 As seções a seguir descrevem como configurar o armazenamento para novas máquinas virtuais do SQL Server.
@@ -40,28 +42,28 @@ Ao provisionar uma VM do Azure usando uma imagem da galeria do SQL Server, você
 
 Com base em suas opções, o Azure realiza as seguintes tarefas de configuração de armazenamento depois de criar a VM:
 
-- Cria e anexa os discos de dados de armazenamento premium à máquina virtual.
-- Configura os discos de dados para serem acessíveis ao SQL Server.
-- Configura os discos de dados em um pool de armazenamento com base nos requisitos de tamanho e desempenho (IOPS e taxa de transferência) especificados.
-- Associa o pool de armazenamento a uma nova unidade na máquina virtual.
-- Otimiza essa nova unidade com base em seu tipo de carga de trabalho especificado (Data warehouse, Processamento transacional ou Geral).
+* Cria e anexa os discos de dados de armazenamento premium à máquina virtual.
+* Configura os discos de dados para serem acessíveis ao SQL Server.
+* Configura os discos de dados em um pool de armazenamento com base nos requisitos de tamanho e desempenho (IOPS e taxa de transferência) especificados.
+* Associa o pool de armazenamento a uma nova unidade na máquina virtual.
+* Otimiza essa nova unidade com base em seu tipo de carga de trabalho especificado (Data warehouse, Processamento transacional ou Geral).
 
 Para obter mais detalhes sobre como o Azure define as configurações de armazenamento, confira a [Seção de configuração de armazenamento](#storage-configuration). Para obter uma explicação completa de como criar uma VM do SQL Server no Portal do Azure, veja [o tutorial provisionamento](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### Modelos do Resource Manager
 Se você usar os modelos do Resource Manager a seguir, dois discos de dados premium são conectados por padrão, sem nenhuma configuração de pool de armazenamento. No entanto, você pode personalizar esses modelos para alterar o número de discos de dados premium anexados à máquina virtual.
 
-- [Criar VM com backup automatizado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
-- [Criar VM com aplicação de patch automatizada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
-- [Criar a VM com a integração de AKV](https://github.com\Azure\azure-quickstart-templates\tree\master\201-vm-sql-full-keyvault)
+* [Criar VM com backup automatizado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
+* [Criar VM com aplicação de patch automatizada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
+* [Criar a VM com a integração de AKV](https://github.com\\Azure\\azure-quickstart-templates\\tree\\master\\201-vm-sql-full-keyvault)
 
 ## VMs existentes
 Para VMs do SQL Server existente, você pode modificar algumas configurações de armazenamento no Portal do Azure. Selecione sua VM, vá até a área de Configurações e, em seguida, selecione Configuração do SQL Server. A folha Configuração do SQL Server mostra o uso do armazenamento atual da VM. Todas as unidades que existem na sua VM são exibidas neste gráfico. Para cada unidade, o espaço de armazenamento é exibido em quatro seções:
 
-- Dados SQL
-- Log do SQL
-- Outros (armazenamento não SQL)
-- Disponível
+* Dados SQL
+* Log do SQL
+* Outros (armazenamento não SQL)
+* Disponível
 
 ![Configurar o armazenamento para a VM do SQL Server existente](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
@@ -76,10 +78,10 @@ Se esta for a primeira vez que você usa esse recurso, especifique os limites de
 
 O Azure cria uma nova unidade com base em suas especificações. Nesse cenário, o Azure realiza as seguintes tarefas de configuração de armazenamento:
 
-- Cria e anexa os discos de dados de armazenamento premium à máquina virtual.
-- Configura os discos de dados para serem acessíveis ao SQL Server.
-- Configura os discos de dados em um pool de armazenamento com base nos requisitos de tamanho e desempenho (IOPS e taxa de transferência) especificados.
-- Associa o pool de armazenamento a uma nova unidade na máquina virtual.
+* Cria e anexa os discos de dados de armazenamento premium à máquina virtual.
+* Configura os discos de dados para serem acessíveis ao SQL Server.
+* Configura os discos de dados em um pool de armazenamento com base nos requisitos de tamanho e desempenho (IOPS e taxa de transferência) especificados.
+* Associa o pool de armazenamento a uma nova unidade na máquina virtual.
 
 Para obter mais detalhes sobre como o Azure define as configurações de armazenamento, confira a [Seção de configuração de armazenamento](#storage-configuration).
 
@@ -98,9 +100,9 @@ A outra opção para expandir o armazenamento é estender a unidade existente. E
 ## Configuração de armazenamento
 Esta seção fornece uma referência para as alterações de configuração de armazenamento realizadas automaticamente pelo Azure durante a configuração ou provisionamento de VM do SQL no Portal do Azure.
 
-- Se você tiver selecionado menos de dois TBs de armazenamento para sua VM, o Azure não criará um pool de armazenamento.
-- Se você tiver selecionado pelo menos de dois TBs de armazenamento para sua VM, o Azure configurará um pool de armazenamento. A próxima seção deste tópico fornece os detalhes sobre a configuração do pool de armazenamento.
-- A configuração de armazenamento automática sempre usa discos de dados P30 do [armazenamento premium](../storage/storage-premium-storage.md). Consequentemente, há um mapeamento 1:1 entre o número selecionado de Terabytes e o número de discos de dados anexados à sua VM.
+* Se você tiver selecionado menos de dois TBs de armazenamento para sua VM, o Azure não criará um pool de armazenamento.
+* Se você tiver selecionado pelo menos de dois TBs de armazenamento para sua VM, o Azure configurará um pool de armazenamento. A próxima seção deste tópico fornece os detalhes sobre a configuração do pool de armazenamento.
+* A configuração de armazenamento automática sempre usa discos de dados P30 do [armazenamento premium](../storage/storage-premium-storage.md). Consequentemente, há um mapeamento 1:1 entre o número selecionado de Terabytes e o número de discos de dados anexados à sua VM.
 
 Para saber mais sobre preços, consulte a página [Preços de armazenamento](https://azure.microsoft.com/pricing/details/storage) na guia **Armazenamento em disco**.
 
@@ -108,16 +110,16 @@ Para saber mais sobre preços, consulte a página [Preços de armazenamento](htt
 O Azure usa as configurações a seguir para criar o pool de armazenamento em VMs do SQL Server.
 
 | Configuração | Valor |
-|-----|-----|
-| Tamanho da distribuição | 256 KB (Data warehouse); 64 KB (Transacional) |
-| Tamanhos do disco | 1 TB cada |
-| Cache | Ler |
-| Tamanho da alocação | Tamanho da unidade de alocação de NTFS de 64 KB |
-| Inicialização de arquivo instantânea | Habilitado |
-| Bloquear páginas na memória | Habilitado |
-| Recuperação | Recuperação simples (sem resiliência) |
-| Número de colunas | Número de discos de dados<sup>1</sup> |
-| Local do TempDB | Armazenados em discos de dados<sup>2</sup> |
+| --- | --- |
+| Tamanho da distribuição |256 KB (Data warehouse); 64 KB (Transacional) |
+| Tamanhos do disco |1 TB cada |
+| Cache |Ler |
+| Tamanho da alocação |Tamanho da unidade de alocação de NTFS de 64 KB |
+| Inicialização de arquivo instantânea |Habilitado |
+| Bloquear páginas na memória |Habilitado |
+| Recuperação |Recuperação simples (sem resiliência) |
+| Número de colunas |Número de discos de dados<sup>1</sup> |
+| Local do TempDB |Armazenados em discos de dados<sup>2</sup> |
 
 <sup>1</sup>Após a criação do pool de armazenamento, você não pode alterar o número de colunas no pool de armazenamento.
 
@@ -127,12 +129,15 @@ O Azure usa as configurações a seguir para criar o pool de armazenamento em VM
 A tabela a seguir descreve as três opções de tipo de carga de trabalho disponíveis e suas otimizações correspondentes:
 
 | Tipo de carga de trabalho | Descrição | Otimizações |
-|-----|-----|-----|
-| **Geral** | Configuração padrão que oferece suporte à maioria das cargas de trabalho | Nenhum |
-| **Processamento transacional** | Otimiza o armazenamento para cargas de trabalho OLTP tradicionais do banco de dados | Sinalizador de Rastreamento 1117<br/>Sinalizador de Rastreamento 1118 |
-| **Data warehouse** | Otimiza o armazenamento para as cargas de trabalho de análise e emissão de relatórios | Sinalizador de Rastreamento 610<br/>Sinalizador de Rastreamento 1117 |
+| --- | --- | --- |
+| **Geral** |Configuração padrão que oferece suporte à maioria das cargas de trabalho |Nenhum |
+| **Processamento transacional** |Otimiza o armazenamento para cargas de trabalho OLTP tradicionais do banco de dados |Sinalizador de Rastreamento 1117<br/>Sinalizador de Rastreamento 1118 |
+| **Data warehouse** |Otimiza o armazenamento para as cargas de trabalho de análise e emissão de relatórios |Sinalizador de Rastreamento 610<br/>Sinalizador de Rastreamento 1117 |
 
->[AZURE.NOTE] Você só pode especificar o tipo de carga de trabalho quando provisiona uma máquina virtual do SQL, selecionando-o na etapa de configuração de armazenamento.
+> [!NOTE]
+> Você só pode especificar o tipo de carga de trabalho quando provisiona uma máquina virtual do SQL, selecionando-o na etapa de configuração de armazenamento.
+> 
+> 
 
 ## Próximas etapas
 Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, consulte [SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).

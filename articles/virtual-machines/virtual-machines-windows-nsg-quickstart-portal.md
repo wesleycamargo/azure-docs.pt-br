@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Abrir portas para uma VM usando o Portal do Azure | Microsoft Azure"
-   description="Saiba como abrir uma porta/criar um ponto de extremidade para sua VM do Windows usando o modelo de implantação do Resource Manager no Portal do Azure"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Abrir portas para uma VM usando o Portal do Azure | Microsoft Docs
+description: Saiba como abrir uma porta/criar um ponto de extremidade para sua VM do Windows usando o modelo de implantação do Resource Manager no Portal do Azure
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 08/08/2016
+ms.author: iainfou
 
+---
 # Abrir portas para uma VM no Azure usando o Portal do Azure
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+[!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Comandos rápidos
 Você também pode [executar essas etapas usando o Azure PowerShell](virtual-machines-windows-nsg-quickstart-powershell.md).
@@ -48,7 +48,6 @@ Selecione sua rede virtual e, então, selecione a sub-rede apropriada:
 
 Você criou um Grupo de Segurança de Rede, uma regra de entrada que permite o tráfego na porta 80 e o associou a uma sub-rede. Todas as VMs que você conectar a essa sub-rede estarão acessíveis na porta 80.
 
-
 ## Mais informações sobre os Grupos de Segurança de Rede
 Os comandos rápidos aqui permitem que você coloque tudo em funcionamento com o tráfego que flui para sua VM. Os Grupos de Segurança de Rede fornecem muitos recursos excelentes e granularidade para controlar o acesso aos recursos. Você pode ler mais sobre a [criação de um Grupo de Segurança de Rede e as regras ACL aqui](../virtual-network/virtual-networks-create-nsg-arm-ps.md).
 
@@ -59,8 +58,8 @@ Se precisar usar o encaminhamento de porta para mapear uma porta externa exclusi
 ## Próximas etapas
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
-- [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
-- [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
-- [Visão Geral do Azure Resource Manager para Balanceadores de Carga](../load-balancer/load-balancer-arm.md)
+* [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
+* [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
+* [Visão Geral do Azure Resource Manager para Balanceadores de Carga](../load-balancer/load-balancer-arm.md)
 
 <!---HONumber=AcomDC_0907_2016-->

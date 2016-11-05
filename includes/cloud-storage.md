@@ -1,23 +1,20 @@
-#Gerenciamento de dados e análise empresarial
-
+# Gerenciamento de dados e análise empresarial
 O gerenciamento e a análise de dados na nuvem são tão importantes quanto em qualquer outro lugar. Para que seja possível fazer isso, o Azure fornece uma gama de tecnologias para trabalhar com dados relacionais e não relacionais. Este artigo apresenta cada uma das opções.
 
-##Sumário      
-
-- [Armazenamento de Blob](#blob)
-- [Executando um DBMS em uma máquina virtual](#dbinvm)
-- [Banco de Dados SQL](#sqldb)
-	- [Sincronização de Dados do SQL](#datasync)
-	- [Relatórios de dados do SQL usando máquinas virtuais](#datarpt)
-- [Armazenamento de tabela](#tblstor)
-- [Hadoop](#hadoop)
+## Sumário
+* [Armazenamento de Blob](#blob)
+* [Executando um DBMS em uma máquina virtual](#dbinvm)
+* [Banco de Dados SQL](#sqldb)
+  * [Sincronização de Dados do SQL](#datasync)
+  * [Relatórios de dados do SQL usando máquinas virtuais](#datarpt)
+* [Armazenamento de tabela](#tblstor)
+* [Hadoop](#hadoop)
 
 ## <a name="blob"></a>Armazenamento de Blob
-
 A palavra "blob" é a abreviação de "objeto binário grande" e descreve exatamente o que é um blob: uma coleção de informações binárias. No entanto, embora sejam simples, os blobs são bastante úteis. A [Figura 1](#Fig1) ilustra as noções básicas do armazenamento de blob do Azure.
 
 <a name="Fig1"></a>![Diagrama de Blobs][blobs]
- 
+
 **Figura 1: armazenamento de blob do Azure armazena dados binários - blobs - em contêineres.**
 
 Para usar blobs, primeiro você deve criar uma *conta de armazenamento* do Azure. Para isso, especifique o datacenter do Azure que armazenará os objetos criados ao usar essa conta. Independentemente de onde estiverem, cada blob que você criar pertencerá a um contêiner na sua conta de armazenamento. Para acessar um blob, um aplicativo fornece uma URL com o formato:
@@ -28,15 +25,14 @@ http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*B
 
 O Azure fornece dois tipos diferentes de blobs. As opções são:
 
-- Blobs de *bloco*, cada um dos quais pode conter até 200 gigabytes de dados. Como o nome sugere, um blob de bloco é subdividido em certo número de blocos. Se ocorrer uma falha durante a transferência de um blob de bloco, a retransmissão poderá continuar com o bloco mais recente em vez de enviar o blob inteiro novamente. Blobs de bloco são uma abordagem bastante geral para armazenamento, e são do tipo de blob mais usado hoje em dia.
-
-- Blobs de *página*, os quais podem chegar a um terabyte cada. Os blobs de página foram criados para acesso aleatório e, portanto, cada um é dividido em certo número de páginas. Um aplicativo é gratuito para leitura e gravação de páginas individuais aleatoriamente no blob. Nas Máquinas Virtuais do Azure, por exemplo, as VMs que você criar usam blobs de página como armazenamento persistente para discos de sistema operacional e discos de dados.
+* Blobs de *bloco*, cada um dos quais pode conter até 200 gigabytes de dados. Como o nome sugere, um blob de bloco é subdividido em certo número de blocos. Se ocorrer uma falha durante a transferência de um blob de bloco, a retransmissão poderá continuar com o bloco mais recente em vez de enviar o blob inteiro novamente. Blobs de bloco são uma abordagem bastante geral para armazenamento, e são do tipo de blob mais usado hoje em dia.
+* Blobs de *página*, os quais podem chegar a um terabyte cada. Os blobs de página foram criados para acesso aleatório e, portanto, cada um é dividido em certo número de páginas. Um aplicativo é gratuito para leitura e gravação de páginas individuais aleatoriamente no blob. Nas Máquinas Virtuais do Azure, por exemplo, as VMs que você criar usam blobs de página como armazenamento persistente para discos de sistema operacional e discos de dados.
 
 Se você escolher blobs de bloco ou blobs de página, os aplicativos podem acessar dados do blob de diversas maneiras. As opções incluem o seguinte:
 
-- Diretamente por meio de um protocolo RESTful (por exemplo, com base em HTTP). Aplicativos do Azure e os aplicativos externos, incluindo aplicativos que são executados no local, podem usar essa opção.
-- Usando a biblioteca do cliente de armazenamento do Azure, que fornece uma interface mais amigável para o desenvolvedor sobre o protocolo RESTful de acesso do blob bruto. Mais uma vez, aplicativos do Azure e os aplicativos externos podem acessar blobs usando essa biblioteca.
-- Usando unidades do Azure, uma opção que permite ao aplicativo do Azure tratar um blob de página como uma unidade local com um sistema de arquivos NTFS. Para o aplicativo, o blob de página se parece com um sistema de arquivos comum do Windows acessado por meio de E/S padrão de arquivo. Na verdade, leituras e gravações são enviadas para o blob de página subjacente que implementa a unidade do Azure. 
+* Diretamente por meio de um protocolo RESTful (por exemplo, com base em HTTP). Aplicativos do Azure e os aplicativos externos, incluindo aplicativos que são executados no local, podem usar essa opção.
+* Usando a biblioteca do cliente de armazenamento do Azure, que fornece uma interface mais amigável para o desenvolvedor sobre o protocolo RESTful de acesso do blob bruto. Mais uma vez, aplicativos do Azure e os aplicativos externos podem acessar blobs usando essa biblioteca.
+* Usando unidades do Azure, uma opção que permite ao aplicativo do Azure tratar um blob de página como uma unidade local com um sistema de arquivos NTFS. Para o aplicativo, o blob de página se parece com um sistema de arquivos comum do Windows acessado por meio de E/S padrão de arquivo. Na verdade, leituras e gravações são enviadas para o blob de página subjacente que implementa a unidade do Azure. 
 
 Para proteger contra falhas de hardware e aumentar a disponibilidade, cada blob é replicado através de três computadores em um datacenter do Azure. A gravação em um blob atualiza todas as três cópias, assim as leituras posteriores não verão resultados inconsistentes. Você também pode especificar que os dados do blob devem ser copiados para outro datacenter do Azure no mesmo local, mas a pelo menos 500 milhas de distância. Essa cópia, chamada *replicação geográfica*, ocorre dentro de poucos minutos após uma atualização para o blob, e é útil para recuperação de desastres.
 
@@ -44,13 +40,11 @@ Os dados nos blobs também podem estar disponíveis por meio da *CDN (Rede de Fo
 
 Simples assim, os blobs são a escolha certa em muitas situações. O armazenamento e o streaming de áudio e vídeo são exemplos óbvios, por serem como backups e outros tipos de arquivamento de dados. Os desenvolvedores também podem usar blobs para manter qualquer tipo de dados não estruturados que desejarem. Ter uma maneira direta de armazenar e acessar dados binários pode ser surpreendentemente útil.
 
-
 ## <a name="dbinvm"></a>Executando um DBMS em uma máquina virtual
-
 Atualmente, muitos aplicativos dependem de algum tipo de sistema de gerenciamento de bancos de dados (DBMS). Os sistemas relacionais, como o SQL Server são as opções mais usadas, mas as abordagens não relacionais, normalmente conhecidas como tecnologias *NoSQL*, se tornam mais populares a cada dia. Para permitir que aplicativos em nuvem usem essas opções de gerenciamento de dados, as Máquinas Virtuais do Azure permitem que você execute um DBMS (relacional ou NoSQL) em uma VM. A [Figura 2](#Fig2) mostra isso com o SQL Server.
 
 <a name="Fig2"></a>![Diagrama do SQL Server em uma máquina virtual][SQLSvr-vm]
- 
+
 **Figura 2: máquinas virtuais do Azure permitem executar um DBMS em uma VM com persistência fornecida pelos blobs.**
 
 Para desenvolvedores e administradores de bancos de dados, esse cenário é muito parecido com a execução do mesmo software em seu próprio datacenter. No exemplo mostrado aqui, por exemplo, quase todos os recursos do SQL Server podem ser usados, e você tem acesso administrativo total ao sistema. Você também tem a responsabilidade de gerenciar o servidor de banco de dados, é claro, como se fosse executado localmente.
@@ -59,13 +53,11 @@ Como a [Figura 2](#Fig2) mostra, seus bancos de dados parecem estar armazenados 
 
 Outra maneira de usar o SQL Server em uma VM é criar um aplicativo híbrido, onde os dados se localizam no Azure enquanto a lógica do aplicativo é executada no local. Por exemplo, isso pode fazer sentido quando aplicativos que são executados em vários locais ou em vários dispositivos móveis devem compartilhar os mesmos dados. Para tornar a comunicação mais simples entre o banco de dados na nuvem e a lógica local, uma organização pode usar a Rede Virtual do Azure para criar uma conexão VPN (rede virtual privada) entre um datacenter do Azure e seu próprio datacenter local.
 
-
 ## <a name="sqldb"></a>Banco de Dados SQL
-
 Para muitas pessoas, executar um DBMS em uma VM é a primeira opção que vem à mente para o gerenciamento de dados estruturados na nuvem. No entanto, não é a única opção, e nem sempre é a melhor escolha. Em alguns casos, o gerenciamento de dados usando uma plataforma como uma abordagem de Serviço (PaaS) faz mais sentido. O Azure oferece uma tecnologia PaaS chamada de Banco de dados SQL que permite fazer isso para dados relacionais. A [Figura 3](#Fig3) ilustra essa opção.
 
 <a name="Fig3"></a>![Diagrama de Banco de dados SQL][SQL-db]
- 
+
 **Figura 3: o Banco de Dados SQL fornece um serviço de armazenamento relacional PaaS compartilhado.**
 
 O Banco de dados SQL não dá a cada cliente sua própria instância física do SQL Server. Em vez disso, ele fornece um serviço multilocatário, com um servidor de Banco de dados SQL lógico para cada cliente. Todos os clientes compartilham a capacidade de computação e de armazenamento que o serviço oferece. E como acontece com o Armazenamento de Blob, todos os dados no Banco de dados SQL são armazenados em três computadores separados em um datacenter do Azure, dando uma alta disponibilidade (HA) integrada aos seus bancos de dados.
@@ -86,26 +78,22 @@ Uma maneira simples de pensar sobre isso é exibir o Banco de dados SQL como sen
 
 Por fim, é importante destacar que o Banco de dados SQL não é o único serviço de dados PaaS disponível no Azure. Os parceiros da Microsoft também oferecem outras opções. Por exemplo, o ClearDB oferece uma oferta de PaaS de MySQL PaaS, enquanto a Cloudant vende uma opção NoSQL. Os serviços de dados PaaS são a solução certa em muitas situações e, portanto, essa abordagem de gerenciamento de dados é uma parte importante do Azure.
 
-
 ### <a name="datasync"></a>Sincronização de Dados do SQL
-
 Enquanto o Banco de dados SQL mantém três cópias de cada banco de dados em um único datacenter do Azure, ele automaticamente não replica dados entre os datacenters do Azure. Em vez disso, ele fornece a Sincronização de dados do SQL, um serviço que você pode usar para fazer isso. A [Figura 4](#Fig4) mostra isso.
 
 <a name="Fig4"></a>![Diagrama da Sincronização de Dados do SQL][SQL-datasync]
- 
+
 **Figura 4: a sincronização de dados do SQL sincroniza os dados no Banco de Dados SQL com dados em outros datacenters locais e do Azure.**
 
 Como mostra o diagrama, a Sincronização de dados do SQL pode sincronizar dados em diferentes locais. Suponha que você está executando um aplicativo em vários datacenters do Azure, por exemplo, com dados armazenados no Banco de dados SQL. Você pode usar a Sincronização de dados do SQL para manter esses dados sincronizados. A Sincronização de dados do SQL também pode sincronizar dados entre um datacenter do Azure e uma instância do SQL Server em execução em um datacenter local. Isso pode ser útil para manter uma cópia local dos dados usados por aplicativos locais e uma cópia em nuvem usada por aplicativos em execução no Azure. E, embora não seja mostrado na figura, a Sincronização de dados do SQL também pode ser usada para sincronizar dados entre o Banco de dados do SQL e o SQL Server em execução em uma VM no Azure ou em outro lugar.
 
 A sincronização pode ser bidirecional e você determina exatamente quais dados serão sincronizados e com que frequência será feita. (A sincronização entre bancos de dados não é atômica, porém, sempre há pelo menos algum atraso). E, apesar de ser usada, a configuração da sincronização com a Sincronização de dados do SQL é inteiramente controlada pela configuração; não há nenhum código a ser gravado.
 
-
 ### <a name="datarpt"></a>Relatórios de dados do SQL usando máquinas virtuais
-
 Depois que um banco de dados contiver dados, alguém provavelmente desejará criar relatórios usando esses dados. O Azure pode executar os SQL Server Reporting Services (SSRS) nas máquinas virtuais do Azure, o que é funcionalmente equivalente à execução local do SQL Server Reporting Services. Em seguida, você pode usar os SSRS para executar relatórios dos dados armazenados em um Banco de dados SQL do Azure. A [Figura 5](#Fig5) mostra como o processo funciona.
 
 <a name="Fig5"></a>![Diagrama de relatórios SQL][SQL-report]
- 
+
 **Figura 5: SQL Server Reporting Services em execução nas máquinas virtuais do Azure fornecem serviços de relatório de dados no Banco de Dados SQL.**
 
 Antes que um usuário possa ver um relatório, alguém define a aparência desse relatório (etapa 1). Com SSRS em uma VM, isso pode ser feito usando uma das duas ferramentas: ferramentas de dados do SQL Server, parte do SQL Server 2012, ou seu predecessor, ou o Business Intelligence (BI) Development Studio. Assim como ocorre com SSRS, essas definições de relatório são expressas em linguagem RDL. Após os arquivos RDL de um relatório terem sido criados, eles serão carregados para uma VM na nuvem (etapa 2). A definição de relatório agora está pronta para uso.
@@ -116,16 +104,13 @@ O cenário mostrado aqui, a incorporação de um relatório em um aplicativo, n�
 
 SSRS em uma VM do Azure oferecem funcionalidade completa como solução de relatório na nuvem. Os relatórios podem usar qualquer fonte de dados com o suporte do SSRS. Aplicativos e relatórios podem incluir código incorporado ou assemblies para oferecer suporte a comportamentos personalizados. O processamento e a execução do relatório são rápidos porque o mecanismo e o conteúdo do servidor de relatório são executados juntos no mesmo servidor virtual.
 
-
-
 ## <a name="tblstor"></a>Armazenamento de tabela
-
 Os dados relacionais são úteis em muitas situações, mas nem sempre é a escolha certa. Por exemplo, se o seu aplicativo precisar de acesso rápido e simples a grandes quantidades de dados estruturados de modo irregular, um banco de dados relacional poderá não funcionar bem. Uma tecnologia NoSQL será provavelmente a melhor opção.
 
 O Armazenamento de tabela do Azure é um exemplo desse tipo de abordagem do NoSQL. Apesar do nome, o Armazenamento de tabela não oferece suporte a tabelas relacionais padrão. Em vez disso, ele fornece o que é conhecido como um *repositório de chave/valor*, associando um conjunto de dados com uma chave particular e, em seguida, permite que um aplicativo acesse esses dados, fornecendo a chave. A [Figura 6](#Fig6) ilustra os princípios básicos.
 
 <a name="Fig6"></a>![Diagrama de armazenamento de tabela][SQL-tblstor]
- 
+
 **Figura 6: o armazenamento de tabela do Azure é um armazenamento de chave/valor que fornece acesso rápido e simples a grandes quantidades de dados.**
 
 Assim como os blobs, cada tabela é associada a uma conta de armazenamento do Azure. As tabelas também são nomeadas como os blobs, com uma URL do formato
@@ -142,9 +127,7 @@ Essa estrutura permite que as tabelas sejam grandes - uma única tabela pode con
 
 O armazenamento de tabela do Azure é uma boa opção para aplicativos que precisam de acesso rápido e barato a grandes quantidades de dados estruturados de modo irregular. Por exemplo, um aplicativo da Internet que armazena informações de perfil para muitos usuários pode usar tabelas. O acesso rápido é importante nessa situação, e o aplicativo provavelmente não precisa da capacidade total do SQL. Desistir dessa funcionalidade para ganhar velocidade e tamanho, às vezes, pode fazer sentido, e por isso o armazenamento de tabela é apenas uma solução adequada para alguns problemas.
 
-
 ## <a name="hadoop"></a>Hadoop
-
 As organizações têm criado data warehouses durante décadas. Essas coleções de informações, mais frequentemente armazenadas em tabelas relacionais, permitem que as pessoas trabalhem com e aprendam a partir de dados de várias maneiras diferentes. Por exemplo, com o SQL Server é comum usar ferramentas, como o SQL Server Analysis Services para fazer isso.
 
 Mas, suponha que você deseja fazer análise de dados não relacionais. Os dados podem assumir várias formas: informações de sensores ou etiquetas RFID, arquivos de log em farms de servidores, dados de sequência de cliques produzidos por aplicativos da Web, imagens de equipamentos médicos de diagnóstico e muito mais. Esses dados também podem ser realmente grandes; muito grandes para serem usados com eficiência com um data warehouse tradicional. Problemas de dados grandes como esse, raros há poucos anos, agora têm se tornado muito comum.

@@ -1,61 +1,58 @@
-<properties
-	pageTitle="Mover dados de e para o Armazenamento de Blobs do Azure usando Python | Microsoft Azure"
-	description="Mover dados de e para o Armazenamento de Blobs do Azure usando Python"
-	services="machine-learning,storage"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun" />
+---
+title: Mover dados de e para o Armazenamento de Blobs do Azure usando Python | Microsoft Docs
+description: Mover dados de e para o Armazenamento de Blobs do Azure usando Python
+services: machine-learning,storage
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/14/2016"
-	ms.author="bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/14/2016
+ms.author: bradsev
 
+---
 # Mover dados de e para o Armazenamento de Blobs do Azure usando Python
-
 Este tópico descreve como listar, carregar e baixar blobs usando a API Python. Com a API do Python fornecida no SDK do Azure, você pode:
 
-- Criar um contêiner
-- Carregar um blob em um contêiner
-- Baixar blobs
-- Listar os blobs em um contêiner
-- Excluir um blob
+* Criar um contêiner
+* Carregar um blob em um contêiner
+* Baixar blobs
+* Listar os blobs em um contêiner
+* Excluir um blob
 
 Para obter mais informações sobre como usar a API Python, consulte [Como usar o serviço de armazenamento de blob do Python](../storage/storage-python-how-to-use-blob-storage.md).
 
 Orientações sobre as tecnologias usadas para mover dados para e/ou do armazenamento de blobs do Azure estão vinculadas aqui:
 
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+[!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-
-> [AZURE.NOTE] Se você estiver usando a VM que foi configurada com os scripts fornecidos pelas [Máquinas virtuais de ciência de dados no Azure](machine-learning-data-science-virtual-machines.md), o AzCopy já estará instalado na VM.
-
-> [AZURE.NOTE] Para obter uma introdução completa ao Armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
-
+> [!NOTE]
+> Se você estiver usando a VM que foi configurada com os scripts fornecidos pelas [Máquinas virtuais de ciência de dados no Azure](machine-learning-data-science-virtual-machines.md), o AzCopy já estará instalado na VM.
+> 
+> [!NOTE]
+> Para obter uma introdução completa ao Armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> 
+> 
 
 ## Pré-requisitos
-
 Este documento pressupõe que você tenha uma assinatura, uma conta de armazenamento do Azure e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
 
-- Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
-
-- Para obter instruções sobre como criar uma conta de armazenamento e obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/storage-create-storage-account.md).
-
+* Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Para obter instruções sobre como criar uma conta de armazenamento e obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/storage-create-storage-account.md).
 
 ## Carregar dados para Blob
-
 Adicione o trecho de código a seguir à parte superior de qualquer código Python no qual você deseja acessar programaticamente o Armazenamento do Azure:
 
-	from azure.storage.blob import BlobService
+    from azure.storage.blob import BlobService
 
 O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. O código a seguir cria um objeto BlobService usando o nome da conta de armazenamento e a chave da conta. Substitua o nome e a chave de conta pela sua conta e chave reais.
 
-	blob_service = BlobService(account_name="<your_account_name>", account_key="<your_account_key>")
+    blob_service = BlobService(account_name="<your_account_name>", account_key="<your_account_key>")
 
 Use os seguintes métodos para carregar dados para um blob:
 
@@ -66,37 +63,37 @@ Use os seguintes métodos para carregar dados para um blob:
 
 O código de exemplo a seguir carrega um arquivo local para um contêiner:
 
-	blob_service.put_block_blob_from_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
+    blob_service.put_block_blob_from_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
 O código de exemplo a seguir carrega todos os arquivos (exceto diretórios) em um diretório local para o armazenamento de blob:
 
-	from azure.storage.blob import BlobService
-	from os import listdir
-	from os.path import isfile, join
+    from azure.storage.blob import BlobService
+    from os import listdir
+    from os.path import isfile, join
 
-	# Set parameters here
-	ACCOUNT_NAME = "<your_account_name>"
-	ACCOUNT_KEY = "<your_account_key>"
-	CONTAINER_NAME = "<your_container_name>"
-	LOCAL_DIRECT = "<your_local_directory>"		
+    # Set parameters here
+    ACCOUNT_NAME = "<your_account_name>"
+    ACCOUNT_KEY = "<your_account_key>"
+    CONTAINER_NAME = "<your_container_name>"
+    LOCAL_DIRECT = "<your_local_directory>"        
 
-	blob_service = BlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
-	# find all files in the LOCAL_DIRECT (excluding directory)
-	local_file_list = [f for f in listdir(LOCAL_DIRECT) if isfile(join(LOCAL_DIRECT, f))]
+    blob_service = BlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
+    # find all files in the LOCAL_DIRECT (excluding directory)
+    local_file_list = [f for f in listdir(LOCAL_DIRECT) if isfile(join(LOCAL_DIRECT, f))]
 
-	file_num = len(local_file_list)
-	for i in range(file_num):
-	    local_file = join(LOCAL_DIRECT, local_file_list[i])
-	    blob_name = local_file_list[i]
-	    try:
-	        blob_service.put_block_blob_from_path(CONTAINER_NAME, blob_name, local_file)
-	    except:
-	        print "something wrong happened when uploading the data %s"%blob_name
+    file_num = len(local_file_list)
+    for i in range(file_num):
+        local_file = join(LOCAL_DIRECT, local_file_list[i])
+        blob_name = local_file_list[i]
+        try:
+            blob_service.put_block_blob_from_path(CONTAINER_NAME, blob_name, local_file)
+        except:
+            print "something wrong happened when uploading the data %s"%blob_name
 
 
 ## Baixar Dados de Blob
-
 Use os métodos a seguir para baixar dados de um blob:
+
 1. get\_blob\_to\_path
 2. get\_blob\_to\_file
 3. get\_blob\_to\_bytes
@@ -106,28 +103,28 @@ Esses métodos realizam a divisão necessária quando o tamanho dos dados excede
 
 O código de exemplo a seguir baixa o conteúdo de um blob em um contêiner para um arquivo local:
 
-	blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
+    blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
 O código de exemplo a seguir baixa todos os blobs de um contêiner. Ele usa list\_blobs para obter a lista de blobs disponíveis no contêiner e baixá-los para um diretório local.
 
-	from azure.storage.blob import BlobService
-	from os.path import join
+    from azure.storage.blob import BlobService
+    from os.path import join
 
-	# Set parameters here
-	ACCOUNT_NAME = "<your_account_name>"
-	ACCOUNT_KEY = "<your_account_key>"
-	CONTAINER_NAME = "<your_container_name>"
-	LOCAL_DIRECT = "<your_local_directory>"		
+    # Set parameters here
+    ACCOUNT_NAME = "<your_account_name>"
+    ACCOUNT_KEY = "<your_account_key>"
+    CONTAINER_NAME = "<your_container_name>"
+    LOCAL_DIRECT = "<your_local_directory>"        
 
-	blob_service = BlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
+    blob_service = BlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
 
-	# List all blobs and download them one by one
-	blobs = blob_service.list_blobs(CONTAINER_NAME)
-	for blob in blobs:
-	    local_file = join(LOCAL_DIRECT, blob.name)
-	    try:
-	        blob_service.get_blob_to_path(CONTAINER_NAME, blob.name, local_file)
-	    except:
-	        print "something wrong happened when downloading the data %s"%blob.name
+    # List all blobs and download them one by one
+    blobs = blob_service.list_blobs(CONTAINER_NAME)
+    for blob in blobs:
+        local_file = join(LOCAL_DIRECT, blob.name)
+        try:
+            blob_service.get_blob_to_path(CONTAINER_NAME, blob.name, local_file)
+        except:
+            print "something wrong happened when downloading the data %s"%blob.name
 
 <!---HONumber=AcomDC_0921_2016-->

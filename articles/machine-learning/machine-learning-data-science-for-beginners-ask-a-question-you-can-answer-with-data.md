@@ -1,44 +1,42 @@
-<properties
-   pageTitle="Faça uma pergunta que você possa responder com dados – formule perguntas | Microsoft Azure"
-   description="Saiba como formular uma pergunta da ciência de dados no Vídeo Ciência de Dados para Iniciantes 3. Inclui uma comparação das perguntas de classificação e regressão."
-   keywords="escolher uma pergunta, perguntas da ciência de dados, formular a pergunta, formular perguntas, perguntas de regressão, perguntas de classificação, pergunta inteligente"
-   services="machine-learning"
-   documentationCenter="na"
-   authors="brohrer-ms"
-   manager="jhubbard"
-   editor="cjgronlund"/>
+---
+title: Faça uma pergunta que você possa responder com dados – formule perguntas | Microsoft Docs
+description: Saiba como formular uma pergunta da ciência de dados no Vídeo Ciência de Dados para Iniciantes 3. Inclui uma comparação das perguntas de classificação e regressão.
+keywords: escolher uma pergunta, perguntas da ciência de dados, formular a pergunta, formular perguntas, perguntas de regressão, perguntas de classificação, pergunta inteligente
+services: machine-learning
+documentationcenter: na
+author: brohrer-ms
+manager: jhubbard
+editor: cjgronlund
 
-<tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/15/2016
+ms.author: cgronlun;brohrer;garye
 
+---
 # Fazer uma pergunta que você possa responder com dados
-
 ## Vídeo 3: Série de ciência de dados para iniciantes
-
 Saiba como formular uma pergunta da ciência de dados no Vídeo Ciência de Dados para Iniciantes 3. Esse vídeo inclui uma comparação de perguntas para os algoritmos de classificação e regressão.
 
 Para aproveitar ao máximo a série, assista aos vídeos na ordem. [Acesse a lista de vídeos](#other-videos-in-this-series)
 
-> [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
+> 
+> 
 
 ## Outros vídeos nesta série
-
 *Ciência de dados para iniciantes* é uma breve introdução à ciência de dados em cinco vídeos curtos.
 
-  * Vídeo 1: [As cinco perguntas que a ciência de dados responde](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 s)*
-  * Vídeo 2: [Seus dados estão prontos para a ciência de dados?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
-  * Video 3: Faça uma pergunta que você possa responder com dados
-  * Vídeo 4: [Preveja uma resposta com um modelo simples](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
-  * Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
+* Vídeo 1: [As cinco perguntas que a ciência de dados responde](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min e 14 s)*
+* Vídeo 2: [Seus dados estão prontos para a ciência de dados?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 s)*
+* Video 3: Faça uma pergunta que você possa responder com dados
+* Vídeo 4: [Preveja uma resposta com um modelo simples](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
+* Vídeo 5: [Copie o trabalho de outras pessoas para fazer a ciência de dados](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 s)*
 
 ## Transcrição: Faça uma pergunta que você possa responder com dados
-
 Bem-vindo ao terceiro vídeo da série "Ciência de dados para iniciantes".
 
 Nele, você obterá algumas dicas para formular uma pergunta que possa responder com dados.
@@ -46,7 +44,6 @@ Nele, você obterá algumas dicas para formular uma pergunta que possa responder
 Você pode obter mais desse vídeo se primeiro observar dois vídeos anteriores na série: "As cinco perguntas que a ciência de dados pode responder" e "Seus dados estão prontos para a ciência de dados?"
 
 ## Faça uma pergunta inteligente
-
 Falamos sobre como a ciência de dados é o processo de usar nomes (também chamados de categorias ou rótulos) e números para prever uma resposta para uma pergunta. Mas não pode ser uma pergunta qualquer; deve ser uma *pergunta inteligente.*
 
 Uma pergunta vaga não precisa ser respondida com um nome ou um número. Uma pergunta inteligente sim.
@@ -58,7 +55,6 @@ Se você fizesse uma pergunta vaga, como: "O que acontecerá com minhas ações?
 Mas se fizesse uma pergunta direta, como: "Qual será o preço de venda de minhas ações na próxima semana?", o gênio não poderia fazer nada, exceto dar uma resposta específica e prever um preço de venda.
 
 ## Exemplos de resposta: dados de destino
-
 Depois de formular sua pergunta, verifique para saber se você tem exemplos de resposta em seus dados.
 
 Se nossa pergunta for: "Qual será o preço de venda de minhas ações na próxima semana?", então, teremos que assegurar que nossos dados incluam o histórico dos preços das ações.
@@ -72,7 +68,6 @@ Esses exemplos de respostas são chamados de destino. Um destino é o que estamo
 Se você não tiver nenhum dado de destino, precisará obter algum. Você não conseguirá responder à sua pergunta sem ele.
 
 ## Reformular sua pergunta
-
 Às vezes, você pode reformular sua pergunta para obter uma resposta mais útil.
 
 A pergunta: "É o ponto de dados A ou B?" prevê a categoria (nome ou rótulo) de algo. Para respondê-la, usamos um *algoritmo de classificação*.
@@ -95,10 +90,8 @@ Falamos sobre alguns princípios básicos para fazer uma pergunta que você pode
 
 Confira outros vídeos da série "Ciência de dados para iniciantes" no Aprendizado de Máquina do Microsoft Azure.
 
-
 ## Próximas etapas
-
-  * [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
-  * [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Tenha sua primeira experiência da ciência de dados com o Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
+* [Obtenha uma introdução ao Aprendizado de Máquina no Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
 <!---HONumber=AcomDC_0914_2016-->

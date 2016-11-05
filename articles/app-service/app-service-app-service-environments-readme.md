@@ -1,30 +1,29 @@
-<properties 
-	pageTitle="Ambiente do Serviço de Aplicativo | Microsoft Azure" 
-	description="O que é um Ambiente do Serviço de Aplicativo do Azure? Uma introdução ao Ambiente do Serviço de Aplicativo." 
-	keywords="ambiente do serviço de aplicativo do azure, rede virtual, rede segura"
-	services="app-service" 
-	documentationCenter="" 
-	authors="yochay" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Ambiente do Serviço de Aplicativo | Microsoft Docs
+description: O que é um Ambiente do Serviço de Aplicativo do Azure? Uma introdução ao Ambiente do Serviço de Aplicativo.
+keywords: ambiente do serviço de aplicativo do azure, rede virtual, rede segura
+services: app-service
+documentationcenter: ''
+author: yochay
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/15/2016" 
-	ms.author="stefsch"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/15/2016
+ms.author: stefsch
 
+---
 # Documentação do Ambiente de Serviço de Aplicativo
-
 Um Ambiente de Serviço de Aplicativo é uma opção de plano de serviço [Premium][PremiumTier] do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado para executar com segurança todos os seus aplicativos do Serviço de Aplicativo do Azure em alta escala, incluindo [Aplicativos Web][WebApps], [Aplicativos Móveis][MobileApps] e [Aplicativos de API][APIApps].
 
 Os Ambientes de Serviço de Aplicativo são ideais para cargas de trabalho de aplicativos que exigem:
 
-- Escala muito alta
-- Isolamento e acesso seguro à rede
+* Escala muito alta
+* Isolamento e acesso seguro à rede
 
 Os clientes podem criar vários Ambientes de Serviço de Aplicativo dentro de uma única região do Azure, bem como entre várias regiões do Azure. Isso faz dos Ambientes de Serviço de Aplicativo ideais para dimensionar horizontalmente camadas de aplicativo sem estado para dar suporte a cargas de trabalho RPS altas.
 
@@ -41,14 +40,14 @@ Os aplicativos muitas vezes precisam acessar recursos corporativos, como bancos 
 * [Arquitetura e Segurança de Rede](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
 ## Instruções
-
-[AZURE.INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
-
+[!INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
 ## Vídeos
-[AZURE.VIDEO azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps]
+[!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
 
-[AZURE.VIDEO microsoft-ignite-2015-running-enterprise-web-and-mobile-apps-on-azure-app-service]
+
+[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3715/player]
+
 
 
 <!-- LINKS -->

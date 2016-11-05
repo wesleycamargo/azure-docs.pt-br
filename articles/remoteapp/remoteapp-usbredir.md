@@ -1,26 +1,25 @@
-<properties 
-    pageTitle="Como redirecionar dispositivos USB no Azure RemoteApp? | Microsoft Azure" 
-    description="Saiba como usar o redirecionamento para dispositivos USB no Azure RemoteApp." 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+---
+title: Como redirecionar dispositivos USB no Azure RemoteApp? | Microsoft Docs
+description: Saiba como usar o redirecionamento para dispositivos USB no Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Como redirecionar dispositivos USB no Azure RemoteApp?
-
-> [AZURE.IMPORTANT]
-O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> [!IMPORTANT]
+> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> 
+> 
 
 O redirecionamento de dispositivo permite que os usuários usem os dispositivos USB conectados ao seu computador ou tablet com os aplicativos no Azure RemoteApp. Por exemplo, se você compartilhou o Skype por meio do Azure RemoteApp, os usuários terão de conseguir usar as câmeras de seus dispositivos.
 
@@ -32,11 +31,11 @@ Embora este artigo fale sobre o redirecionamento da webcam, você pode usar uma 
 O Azure RemoteApp usa mecanismos muito semelhantes para redirecionar dispositivos USB como os que estão disponíveis para os Serviços de Área de Trabalho Remota. A tecnologia subjacente permite que você escolha o método de redirecionamento correto para um determinado dispositivo, para obter o melhor do redirecionamento de dispositivo USB de alto nível e RemoteFX usando o comando **usbdevicestoredirect:s:**. Há quatro elementos neste comando:
 
 | Ordem de processamento | Parâmetro | Descrição |
-|------------------|---------------------|----------------------------------------------------------------------------------------------------------------------------|
-| 1 | * | Seleciona todos os dispositivos que não são captados pelo redirecionamento de alto nível. Observação: por design, o * não funciona para webcams USB. |
-| | {GUID de classe do dispositivo} | Seleciona todos os dispositivos que correspondem à classe de instalação do dispositivo especificado. |
-| | USB\\InstanceID | Seleciona um dispositivo USB especificado para a ID de instância indicada. |
-| 2 | -USB\\Instance ID | Remove as configurações de redirecionamento para o dispositivo especificado. |
+| --- | --- | --- |
+| 1 |* |Seleciona todos os dispositivos que não são captados pelo redirecionamento de alto nível. Observação: por design, o * não funciona para webcams USB. |
+| {GUID de classe do dispositivo} |Seleciona todos os dispositivos que correspondem à classe de instalação do dispositivo especificado. | |
+| USB\\InstanceID |Seleciona um dispositivo USB especificado para a ID de instância indicada. | |
+| 2 |-USB\\Instance ID |Remove as configurações de redirecionamento para o dispositivo especificado. |
 
 ## Redirecionando um dispositivo USB usando o GUID de classe do dispositivo
 Há duas maneiras para encontrar o GUID de classe do dispositivo que pode ser usado no redirecionamento.
@@ -51,16 +50,15 @@ Uma maneira melhor, ou a segunda opção, é seguir estas etapas para encontrar 
 
 Por exemplo:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
+        Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
 
 É possível combinar vários redirecionamentos de dispositivo no mesmo cmdlet. Por exemplo: para redirecionar o armazenamento local e uma webcam USB, o cmdlet tem esta aparência:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
+        Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
 
 Ao definir o redirecionamento de dispositivo pelo GUID de classe, todos os dispositivos que correspondem ao GUID de classe na coleção especificada são redirecionados. Por exemplo, se houver vários computadores na rede local que tenham as mesmas webcams USB, você poderá executar um único cmdlet para redirecionar todas as webcams.
 
 ## Redirecionando um dispositivo USB usando a ID de instância do dispositivo
-
 Se desejar um controle mais refinado e controlar o redirecionamento por dispositivo, você poderá usar o parâmetro de redirecionamento **USB\\InstanceID**.
 
 A parte mais difícil deste método é encontrar a ID de instância do dispositivo USB. Você precisará ter acesso ao computador e ao dispositivo USB específico. Depois, siga estas etapas:
@@ -73,11 +71,11 @@ A parte mais difícil deste método é encontrar a ID de instância do dispositi
 
 Agora, use a ID de instância no seguinte cmdlet:
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
+    Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
 
 
 
-### Ajude-nos a ajudar você 
+### Ajude-nos a ajudar você
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
 
 <!---HONumber=AcomDC_0817_2016-->

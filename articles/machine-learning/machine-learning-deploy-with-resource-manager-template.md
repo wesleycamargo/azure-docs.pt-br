@@ -1,22 +1,22 @@
-<properties
-	pageTitle="Implantar Espaço de Trabalho do Machine Learning usando o modelo do Azure Resource Manager | Microsoft Azure"
-	description="Como implantar um espaço de trabalho para o Aprendizado de Máquina do Azure usando o modelo do Azure Resource Manager"
-	services="machine-learning"
-	documentationCenter=""
-	authors="ahgyger"
-	manager="haining"
-	editor="garye"/>
+---
+title: Implantar Espaço de Trabalho do Machine Learning usando o modelo do Azure Resource Manager | Microsoft Docs
+description: Como implantar um espaço de trabalho para o Aprendizado de Máquina do Azure usando o modelo do Azure Resource Manager
+services: machine-learning
+documentationcenter: ''
+author: ahgyger
+manager: haining
+editor: garye
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2016"
-	ms.author="ahgyger"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/23/2016
+ms.author: ahgyger
+
+---
 # Implantar Espaço de Trabalho do Machine Learning usando o Azure Resource Manager
-
 ## Introdução
 Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar Espaço de Trabalho do Azure Machine Learning, por exemplo, você precisa configurar uma conta de armazenamento do Azure e implantar seu espaço de trabalho. Imagine fazer isso manualmente para centenas de espaços de trabalho. Uma alternativa mais fácil é usar um modelo do Azure Resource Manager para implantar um Espaço de Trabalho do Azure Machine Learning e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md).
 
@@ -132,11 +132,11 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 ```
 Depois que o espaço de trabalho estiver provisionado, você também poderá automatizar muitas tarefas do Estúdio de Aprendizado de Máquina do Azure usando o [Módulo do PowerShell para Aprendizado de Máquina do Azure](http://aka.ms/amlps).
 
-## Próximas etapas 
+## Próximas etapas
 * Saiba mais sobre [como criar modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
 * Examine o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 * Assista a este vídeo sobre o [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
- 
+
 <!--Image references-->
 [1]: ../media/machine-learning-deploy-with-resource-manager-template/azuresubscription.png
 [2]: ../media/machine-learning-deploy-with-resource-manager-template/resourcegroupprovisioning.png

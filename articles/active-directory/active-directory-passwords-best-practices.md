@@ -1,24 +1,26 @@
-<properties
-	pageTitle="Práticas recomendadas: Gerenciamento de Senhas do AD do Azure | Microsoft Azure"
-	description="Práticas recomendadas de implantação e uso, documentação do usuário final de exemplo e guias de treinamento para o Gerenciamento de Senhas no Active Directory do Azure."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="femila"
-	editor="curtand"/>
+---
+title: 'Práticas recomendadas: Gerenciamento de Senhas do AD do Azure | Microsoft Docs'
+description: Práticas recomendadas de implantação e uso, documentação do usuário final de exemplo e guias de treinamento para o Gerenciamento de Senhas no Active Directory do Azure.
+services: active-directory
+documentationcenter: ''
+author: asteen
+manager: femila
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/12/2016"
-	ms.author="asteen"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/12/2016
+ms.author: asteen
 
+---
 # Implantando o gerenciamento de senhas e treinando os usuários para usá-lo
-
-> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+> [!IMPORTANT]
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+> 
+> 
 
 Após habilitar a redefinição de senha, a próxima etapa que você precisa tomar é fazer com que os usuários usem o serviço em sua organização. Para fazer isso, você precisará verificar se os usuários estão configurados para usar o serviço adequadamente e também se os usuários têm o treinamento necessário para ter êxito no gerenciamento de suas próprias senhas. Este artigo o guiará pelos seguintes conceitos:
 
@@ -38,23 +40,23 @@ Esta seção descreve vários métodos pelos quais você pode garantir que todos
 ### O que torna uma conta configurada
 Para que um usuário possa usar a redefinição de senha, **todas** as seguintes condições devem ser atendidas:
 
-1.	A redefinição de senha deve ser habilitada no diretório. Saiba como habilitar a redefinição de senha lendo [Habilitar os usuários para redefinir suas senhas do AD do Azure](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) ou [Habilitar os usuários para redefinir ou alterar suas senhas do AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
-2.	O usuário deve ser licenciado.
- - Para usuários de nuvem, o usuário deve ter **alguma licença paga do Office 365** ou uma **licença do AAD básica** ou uma **licença do AAD Premium** atribuída.
- - Para usuários locais (federados ou com sincronização de hash), o usuário **deve ter uma licença de AAD Premium atribuída**.
-3.	O usuário deve ter o **conjunto mínimo de dados de autenticação definidos** de acordo com a política de redefinição de senha atual.
- - Os dados de autenticação serão considerados definidos se o campo correspondente no diretório contiver dados válidos.
- - Um conjunto mínimo de dados de autenticação estará definido em **pelo menos uma** das opções de autenticação habilitadas se uma política de uma porta estiver configurada ou se **pelo menos duas** das opções de autenticação habilitadas se uma política de duas portas estiver configurada.
-4.	Se o usuário estiver usando uma conta local, o [Write-back de Senha](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) deverá ser habilitado e ativado
+1. A redefinição de senha deve ser habilitada no diretório. Saiba como habilitar a redefinição de senha lendo [Habilitar os usuários para redefinir suas senhas do AD do Azure](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) ou [Habilitar os usuários para redefinir ou alterar suas senhas do AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+2. O usuário deve ser licenciado.
+   * Para usuários de nuvem, o usuário deve ter **alguma licença paga do Office 365** ou uma **licença do AAD básica** ou uma **licença do AAD Premium** atribuída.
+   * Para usuários locais (federados ou com sincronização de hash), o usuário **deve ter uma licença de AAD Premium atribuída**.
+3. O usuário deve ter o **conjunto mínimo de dados de autenticação definidos** de acordo com a política de redefinição de senha atual.
+   * Os dados de autenticação serão considerados definidos se o campo correspondente no diretório contiver dados válidos.
+   * Um conjunto mínimo de dados de autenticação estará definido em **pelo menos uma** das opções de autenticação habilitadas se uma política de uma porta estiver configurada ou se **pelo menos duas** das opções de autenticação habilitadas se uma política de duas portas estiver configurada.
+4. Se o usuário estiver usando uma conta local, o [Write-back de Senha](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) deverá ser habilitado e ativado
 
 ### Maneiras de popular os dados de autenticação
 Você tem várias opções para especificar o modo como dados de usuários na sua organização são usados para redefinição de senha.
 
-- Editar usuários no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) ou no [Portal de Administração do Office 365](https://portal.microsoftonline.com)
-- Usar a Sincronização do AD do Azure para sincronizar as propriedades do usuário no AD do Azure em um domínio local do Active Directory
-- Use o Windows PowerShell para editar as propriedades do usuário [seguindo as etapas descritas aqui](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
-- Permitir que os usuários registrem seus próprios dados guiando-os para o portal de registro em [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
-- Exija que os usuários se registrem para a redefinição de senha ao entrarem em suas contas do AD do Azure definindo a opção de configuração [**Exigir que os usuários se registrem ao entrarem?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) como **Sim**.
+* Editar usuários no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) ou no [Portal de Administração do Office 365](https://portal.microsoftonline.com)
+* Usar a Sincronização do AD do Azure para sincronizar as propriedades do usuário no AD do Azure em um domínio local do Active Directory
+* Use o Windows PowerShell para editar as propriedades do usuário [seguindo as etapas descritas aqui](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
+* Permitir que os usuários registrem seus próprios dados guiando-os para o portal de registro em [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* Exija que os usuários se registrem para a redefinição de senha ao entrarem em suas contas do AD do Azure definindo a opção de configuração [**Exigir que os usuários se registrem ao entrarem?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) como **Sim**.
 
 Os usuários não precisam se registrar para a redefinição de senha para que o sistema funcione. Por exemplo, se você tiver números de telefone existentes em seu diretório local, você poderá sincronizá-los no AD do Azure e nós os usaremos para a redefinição de senha automaticamente.
 
@@ -63,12 +65,12 @@ Você também pode ler mais sobre [como os dados são usados pela redefinição 
 ## Qual é a melhor maneira de distribuir a redefinição de senha para os usuários?
 A seguir estão as etapas de distribuição geral para a redefinição de senha:
 
-1.	Habilite a redefinição de senha em seu diretório indo para a guia **Configurar** de [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) e selecionando **Sim** para a opção **Usuários Habilitados para Redefinição de Senha**.
-2.	Atribua as licenças apropriadas para cada usuário a quem você deseja oferecer a redefinição de senha indo para a guia **Licenças** do [Portal de Gerenciamento](https://manage.windowsazure.com).
-3.	Restrinja opcionalmente a redefinição de senha para um grupo de usuários para distribuir o recurso lentamente ao longo do tempo, definindo a opção **Restringir o Acesso para Redefinição de Senha** como **Sim** e selecionando um grupo de segurança para habilitar a redefinição de senha (observe que todos esses usuários devem ter licenças atribuídas a eles).
-4.	Instrua os usuários a usar a redefinição de senha enviando a eles um email instruindo-os a se registrar, habilitando o registro imposto no painel de acesso ou carregando os dados de autenticação apropriados para os usuários por conta própria por meio de DirSync, do PowerShell ou do [Portal de Gerenciamento](https://manage.windowsazure.com). Mais detalhes são fornecidos abaixo.
-5.	Ao longo do tempo, examine o registro dos usuários navegando até a guia Relatórios e exibindo o relatório [**Atividade de Registro de Redefinição de Senha**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity).
-6.	Depois que um bom número de usuários se registrarem, assista a eles ao usarem a redefinição de senha navegando até a guia Relatórios e exibindo o relatório [**Atividade de Redefinição de Senha**](active-directory-passwords-get-insights.md#view-password-reset-activity).
+1. Habilite a redefinição de senha em seu diretório indo para a guia **Configurar** de [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) e selecionando **Sim** para a opção **Usuários Habilitados para Redefinição de Senha**.
+2. Atribua as licenças apropriadas para cada usuário a quem você deseja oferecer a redefinição de senha indo para a guia **Licenças** do [Portal de Gerenciamento](https://manage.windowsazure.com).
+3. Restrinja opcionalmente a redefinição de senha para um grupo de usuários para distribuir o recurso lentamente ao longo do tempo, definindo a opção **Restringir o Acesso para Redefinição de Senha** como **Sim** e selecionando um grupo de segurança para habilitar a redefinição de senha (observe que todos esses usuários devem ter licenças atribuídas a eles).
+4. Instrua os usuários a usar a redefinição de senha enviando a eles um email instruindo-os a se registrar, habilitando o registro imposto no painel de acesso ou carregando os dados de autenticação apropriados para os usuários por conta própria por meio de DirSync, do PowerShell ou do [Portal de Gerenciamento](https://manage.windowsazure.com). Mais detalhes são fornecidos abaixo.
+5. Ao longo do tempo, examine o registro dos usuários navegando até a guia Relatórios e exibindo o relatório [**Atividade de Registro de Redefinição de Senha**](active-directory-passwords-get-insights.md#view-password-reset-registration-activity).
+6. Depois que um bom número de usuários se registrarem, assista a eles ao usarem a redefinição de senha navegando até a guia Relatórios e exibindo o relatório [**Atividade de Redefinição de Senha**](active-directory-passwords-get-insights.md#view-password-reset-activity).
 
 Há várias maneiras de informar os usuários que podem se registrar e usar a redefinição de senha em sua organização. Elas são detalhadas abaixo.
 
@@ -112,17 +114,16 @@ Para saber quais propriedades podem ser definidas por meio do AAD Connect ou do 
 
 Você pode carregar os dados de autenticação por meio do [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) seguindo as etapas abaixo:
 
-1.	Navegue até sei diretório na **Extensão do Active Directory** no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
-2.	Clique na guia **Usuários**.
-3.	Selecione na lista o usuário em que você está interessado.
-4.	Na primeira guia, você encontrará **Email Alternativo**, que pode ser usado como uma propriedade para habilitar a redefinição de senha.
-
-    ![][005]
-
-5.	Clique na guia **Informações de Trabalho**.
-6.	Nessa página, você encontrará **Telefone Comercial**, **Celular**, **Telefone de Autenticação** e **Email de Autenticação**. Essas propriedades também podem ser definidas para permitir que um usuário redefina sua senha.
-
-    ![][006]
+1. Navegue até sei diretório na **Extensão do Active Directory** no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
+2. Clique na guia **Usuários**.
+3. Selecione na lista o usuário em que você está interessado.
+4. Na primeira guia, você encontrará **Email Alternativo**, que pode ser usado como uma propriedade para habilitar a redefinição de senha.
+   
+   ![][005]
+5. Clique na guia **Informações de Trabalho**.
+6. Nessa página, você encontrará **Telefone Comercial**, **Celular**, **Telefone de Autenticação** e **Email de Autenticação**. Essas propriedades também podem ser definidas para permitir que um usuário redefina sua senha.
+   
+   ![][006]
 
 Consulte [Quais dados são usados pela redefinição de senha](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) para ver como cada uma dessas propriedades pode ser usada.
 
@@ -130,7 +131,6 @@ Veja [Como acessar os dados da redefinição de senha dos usuários por meio do 
 
 ## Materiais de treinamento de exemplo
 Estamos trabalhando no material de treinamento de exemplo que você pode usar para que sua organização de TI e seus usuários aprendam rapidamente sobre implantar e usar a redefinição de senha. Fique atento!
-
 
 <br/> <br/> <br/>
 
@@ -145,8 +145,6 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 * [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
 * [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - aprenda a solucionar rapidamente os problemas com o serviço
 * [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
-
-
 
 [001]: ./media/active-directory-passwords-best-practices/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-best-practices/002.jpg "Image_002.jpg"

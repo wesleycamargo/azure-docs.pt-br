@@ -1,32 +1,29 @@
-<properties 
-pageTitle="Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure | Microsoft Azure" 
-description="Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure" 
-services="virtual-machines-windows" 
-documentationCenter="" 
-authors="hermanndms" 
-manager="timlt" 
-editor="" 
-tags="azure-resource-manager" 
-keywords=""/>
-<tags  
-ms.service="virtual-machines-windows" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.tgt_pltfrm="vm-windows" 
-ms.workload="infrastructure-services" 
-ms.date="09/16/2016" 
-ms.author="hermannd"/>
+---
+title: Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure | Microsoft Docs
+description: Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure
+services: virtual-machines-windows
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 09/16/2016
+ms.author: hermannd
 
-# Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure 
-
+---
+# Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure
 Este artigo descreve como implantar o SAP IDES em execução com o SQL Server e o Windows OS no Microsoft Azure via SAP Cloud Appliance Library 3.0. As capturas de tela mostram o processo passo a passo. A implantação de outras soluções na lista funciona da mesma maneira de uma perspectiva de processo. Basta selecionar uma solução diferente.
 
 Para iniciar com a SAP Cloud Appliance Library (SAP CAL), acesse [aqui](https://cal.sap.com/). Há um blog do SAP sobre a nova [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
-
 As seguintes capturas de tela mostram passo a passo como implantar o SAP IDES no Microsoft Azure. O processo funciona da mesma forma para as outras soluções.
-
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
 

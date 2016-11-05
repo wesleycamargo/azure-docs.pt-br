@@ -1,22 +1,22 @@
-<properties
-    pageTitle="Adoção do Catálogo de Dados do Azure | Microsoft Azure"
-    description="Este artigo apresenta uma abordagem e o processo para as organizações que consideram a adoção do Catálogo de Dados do Azure, inclusive a definição de uma visão, a identificação dos casos de uso comerciais importantes e a escolha um projeto piloto."
-    services="data-catalog"
-    documentationCenter=""
-    authors="steelanddata"
-    manager="NA"
-    editor=""
-    tags=""/>
-<tags
-    ms.service="data-catalog"
-    ms.devlang="NA"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-catalog"
-    ms.date="10/11/2016"
-    ms.author="maroche"/>
+---
+title: Adoção do Catálogo de Dados do Azure | Microsoft Docs
+description: Este artigo apresenta uma abordagem e o processo para as organizações que consideram a adoção do Catálogo de Dados do Azure, inclusive a definição de uma visão, a identificação dos casos de uso comerciais importantes e a escolha um projeto piloto.
+services: data-catalog
+documentationcenter: ''
+author: steelanddata
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 10/11/2016
+ms.author: maroche
 
+---
 # <a name="adopting-azure-data-catalog"></a>Adoção do Catálogo de Dados do Azure
 Este artigo o ajuda a começar a adotar o **Catálogo de Dados do Azure** em sua organização. Para adotar com êxito o **Catálogo de Dados do Azure**, convém concentrar-se em três itens principais: definir sua visão, identificar casos de uso de negócios em sua organização e escolher um projeto-piloto.
 
@@ -35,10 +35,10 @@ Um plano de adoção eficaz envolve as pessoas com êxito no que é possível co
 
 Um plano de adoção o ajuda a comunicar o que é crucial para que as pessoas tenham êxito e atinjam suas metas. Um plano típico explica como o Catálogo de Dados facilitará as vidas dos usuários e inclui as seguintes partes:
 
--   **Declaração de visão** - isso o ajudará a discutir de forma concisa o plano de adoção com os usuários e os participantes. É o argumento de reforço.
--   **Equipe-piloto e influenciadores** - aprender com uma equipe-piloto e com os influenciadores o ajudará a refinar a maneira de apresentar o Catálogo de Dados às equipes e aos usuários. Os influenciadores podem treinar outros usuários. Isso também o ajuda a identificar bloqueadores e impulsionadores para a adoção.
--   **Plano de comunicações e repercussão** - isso ajuda os usuários a entender como o Catálogo de Dados pode ajudá-los, pode promover a adoção orgânica em equipes e, em última análise, na organização inteira.
--   **Plano de treinamento** - o treinamento abrangente geralmente leva ao sucesso da adoção e a resultados favoráveis.
+* **Declaração de visão** - isso o ajudará a discutir de forma concisa o plano de adoção com os usuários e os participantes. É o argumento de reforço.
+* **Equipe-piloto e influenciadores** - aprender com uma equipe-piloto e com os influenciadores o ajudará a refinar a maneira de apresentar o Catálogo de Dados às equipes e aos usuários. Os influenciadores podem treinar outros usuários. Isso também o ajuda a identificar bloqueadores e impulsionadores para a adoção.
+* **Plano de comunicações e repercussão** - isso ajuda os usuários a entender como o Catálogo de Dados pode ajudá-los, pode promover a adoção orgânica em equipes e, em última análise, na organização inteira.
+* **Plano de treinamento** - o treinamento abrangente geralmente leva ao sucesso da adoção e a resultados favoráveis.
 
 Aqui estão algumas dicas para definir um plano de adoção do **Catálogo de Dados do Azure** .
 
@@ -47,13 +47,10 @@ A primeira etapa para definir um plano de adoção do **Catálogo de Dados do Az
 
 Aqui estão algumas dicas para ajudá-lo a definir sua visão:
 
--   **Identifique o principal impulsionador de implantação** - pense nas necessidades de gerenciamento de fonte de dados específicas da empresa que podem ser abordadas com o Catálogo de Dados. Isso também ajuda a definir as principais vantagens de usar o Catálogo de Dados. Por exemplo, pode haver fontes de dados comuns que todos os novos funcionários precisam aprender e usar ou fontes de dados importantes e complexas que apenas algumas pessoas-chave entendem profundamente. **Catálogo de Dados do Azure** pode ajudar a tornar essas fontes de dados fáceis de descobrir e entender, para que esses pontos problemáticos conhecidos possam ser abordados de forma direta e antecipada na adoção do serviço.
-
--   **Seja nítido e claro** - uma clara compreensão da visão colocará todos em sincronia sobre o valor que o Catálogo de Dados proporciona à organização e como a visão dá suporte a metas organizacionais.
-
--   **Inspire as pessoas a usar o Catálogo de Dados** - sua visão e o plano de comunicação devem inspirar as pessoas a reconhecer que o Catálogo de Dados pode beneficiá-las para localizar e se conectar a fontes de dados e fazer mais com os dados.
-
--   **Indique as metas específicas e a linha do tempo** - isso garantirá que seu plano de adoção tenha resultados específicos que possam ser obtidos. Uma linha do tempo mantém todos concentrados e possibilita pontos de verificação para medir o sucesso.
+* **Identifique o principal impulsionador de implantação** - pense nas necessidades de gerenciamento de fonte de dados específicas da empresa que podem ser abordadas com o Catálogo de Dados. Isso também ajuda a definir as principais vantagens de usar o Catálogo de Dados. Por exemplo, pode haver fontes de dados comuns que todos os novos funcionários precisam aprender e usar ou fontes de dados importantes e complexas que apenas algumas pessoas-chave entendem profundamente. **Catálogo de Dados do Azure** pode ajudar a tornar essas fontes de dados fáceis de descobrir e entender, para que esses pontos problemáticos conhecidos possam ser abordados de forma direta e antecipada na adoção do serviço.
+* **Seja nítido e claro** - uma clara compreensão da visão colocará todos em sincronia sobre o valor que o Catálogo de Dados proporciona à organização e como a visão dá suporte a metas organizacionais.
+* **Inspire as pessoas a usar o Catálogo de Dados** - sua visão e o plano de comunicação devem inspirar as pessoas a reconhecer que o Catálogo de Dados pode beneficiá-las para localizar e se conectar a fontes de dados e fazer mais com os dados.
+* **Indique as metas específicas e a linha do tempo** - isso garantirá que seu plano de adoção tenha resultados específicos que possam ser obtidos. Uma linha do tempo mantém todos concentrados e possibilita pontos de verificação para medir o sucesso.
 
 Aqui está uma declaração de visão de exemplo para um plano de adoção do Catálogo de Dados para a empresa fictícia chamada Adventure Works:
 
@@ -68,23 +65,17 @@ Para identificar casos de uso que são relevantes para o Catálogo de Dados, ent
 
 Aqui estão algumas dicas para identificar casos de uso:
 
--   **Defina as metas da equipe** - como a equipe atinge suas metas? Não se concentre ainda no Catálogo de Dados, pois você deseja ser objetivo nessa etapa. Lembre-se: o foco são os resultados de negócios, não a tecnologia.
-
--   **Defina o problema de negócios** - quais são os problemas enfrentados pela equipe ao localizar e aprender sobre os ativos de dados? Por exemplo, informações sobre fontes de dados importantes podem ser localizadas em pastas de trabalho do Excel em uma pasta de rede, e a equipe pode gastar muito tempo localizando as pastas de trabalho.
-
--   **Entenda a cultura da equipe relacionada às alterações** - muitos desafios de adoção estão relacionados com a resistência às alterações, em vez da implementação de uma nova ferramenta. A maneira como uma equipe reage às alterações é importante ao identificar os casos de uso, pois o processo existente pode estar em vigor porque "é assim que sempre fizemos" ou "se não está quebrado, para que consertar?". A adoção de qualquer nova ferramenta ou processo sempre é mais fácil quando as pessoas afetadas entendem o valor a ser obtido com a alteração e apreciam a importância dos problemas a serem resolvidos.
-
--   **Mantenha o foco relacionado a ativos de dados** - ao abordar os problemas de negócios enfrentados por uma equipe, você precisa "eliminar o supérfluo" e se concentrar no que é relevante para aproveitar os ativos de dados corporativos de forma mais eficiente.
+* **Defina as metas da equipe** - como a equipe atinge suas metas? Não se concentre ainda no Catálogo de Dados, pois você deseja ser objetivo nessa etapa. Lembre-se: o foco são os resultados de negócios, não a tecnologia.
+* **Defina o problema de negócios** - quais são os problemas enfrentados pela equipe ao localizar e aprender sobre os ativos de dados? Por exemplo, informações sobre fontes de dados importantes podem ser localizadas em pastas de trabalho do Excel em uma pasta de rede, e a equipe pode gastar muito tempo localizando as pastas de trabalho.
+* **Entenda a cultura da equipe relacionada às alterações** - muitos desafios de adoção estão relacionados com a resistência às alterações, em vez da implementação de uma nova ferramenta. A maneira como uma equipe reage às alterações é importante ao identificar os casos de uso, pois o processo existente pode estar em vigor porque "é assim que sempre fizemos" ou "se não está quebrado, para que consertar?". A adoção de qualquer nova ferramenta ou processo sempre é mais fácil quando as pessoas afetadas entendem o valor a ser obtido com a alteração e apreciam a importância dos problemas a serem resolvidos.
+* **Mantenha o foco relacionado a ativos de dados** - ao abordar os problemas de negócios enfrentados por uma equipe, você precisa "eliminar o supérfluo" e se concentrar no que é relevante para aproveitar os ativos de dados corporativos de forma mais eficiente.
 
 Aqui estão alguns casos de uso de exemplo relacionados ao Catálogo de Dados:
 
 ### <a name="example-use-cases"></a>Casos de uso de exemplo
-
--   **Registrar fontes de dados de alto valor central** - a TI gerencia as fontes de dados usadas em toda a organização. A TI pode começar a usar o Catálogo de Dados registrando e anotando as fontes de dados corporativas comuns.
-
--   **Registrar fontes de dados baseadas em equipe** - equipes diferentes têm fontes de dados úteis de linha de negócios. Comece a usar o **Catálogo de Dados do Azure** identificando e registrando as principais fontes de dados usadas por muitas equipes diferentes e capture o conhecimento global da equipe em anotações no **Catálogo de Dados do Azure**.
-
--   **Business intelligence de autoatendimento** - as equipes gastam muito tempo para combinar dados de várias fontes. Registre e anote as fontes de dados em um local central para eliminar um processo manual de descoberta de fontes de dados.
+* **Registrar fontes de dados de alto valor central** - a TI gerencia as fontes de dados usadas em toda a organização. A TI pode começar a usar o Catálogo de Dados registrando e anotando as fontes de dados corporativas comuns.
+* **Registrar fontes de dados baseadas em equipe** - equipes diferentes têm fontes de dados úteis de linha de negócios. Comece a usar o **Catálogo de Dados do Azure** identificando e registrando as principais fontes de dados usadas por muitas equipes diferentes e capture o conhecimento global da equipe em anotações no **Catálogo de Dados do Azure**.
+* **Business intelligence de autoatendimento** - as equipes gastam muito tempo para combinar dados de várias fontes. Registre e anote as fontes de dados em um local central para eliminar um processo manual de descoberta de fontes de dados.
 
 Esses são apenas alguns casos de uso do **Catálogo de Dados do Azure**. Para saber mais sobre cenários do Catálogo de Dados, confira [Cenários comuns do Catálogo de Dados do Azure](data-catalog-common-scenarios.md).
 
@@ -107,9 +98,8 @@ Seu primeiro projeto-piloto deve ter alguns indivíduos que produzem e consomem 
 
 Um dos problemas de negócios que o **Catálogo de Dados do Azure** aborda é conectar os **Produtores de dados** aos **Consumidores de dados**. Ele faz isso atuando como um repositório central de informações sobre fontes de dados da empresa. Usando o Catálogo de Dados, Pedro registra as fontes de dados da Adventure Works e do SQL Server. Usando crowdsourcing, qualquer usuário que descobre essa fonte de dados pode compartilhar suas opiniões sobre os dados, além de usar os dados descobertos. Por exemplo, Clara descobre as fontes de dados pesquisando o catálogo e compartilha seu conhecimento especializado sobre os dados.  Agora, outras pessoas na organização se beneficiam do conhecimento compartilhado simplesmente pesquisando o catálogo de dados.
 
--   Para saber mais sobre como registrar fontes de dados, confira [Registrar fontes de dados](data-catalog-get-started.md#exercise-2-registering-data-sources).
-
--   Para saber mais sobre a descoberta de fontes de dados, consulte [Pesquisar fontes de dados](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* Para saber mais sobre como registrar fontes de dados, confira [Registrar fontes de dados](data-catalog-get-started.md#exercise-2-registering-data-sources).
+* Para saber mais sobre a descoberta de fontes de dados, consulte [Pesquisar fontes de dados](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
 
 ### <a name="start-small-and-focused"></a>Comece aos poucos e mantenha o foco
 Na maioria dos projetos-piloto da empresa, você deve propagar o catálogo com fontes de dados de alto valor para que os usuários de negócios possam ver rapidamente o valor do Catálogo de Dados. A TI é um bom lugar para começar a identificar fontes de dados comuns que seriam interessantes para sua equipe-piloto. Para fontes de dados com suporte, como o SQL Server, é recomendável usar a ferramenta de registro de fontes de dados do **Catálogo de Dados do Azure** . Com a ferramenta de registro de fontes de dados, você pode registrar uma ampla variedade de fontes de dados, incluindo bancos de dados do SQL Server e Oracle e relatórios do SQL Server Reporting Services. Para obter uma lista completa de fontes de dados atuais, confira [Fontes de dados com suporte do Catálogo de Dados do Azure](data-catalog-dsr.md).
@@ -127,7 +117,10 @@ Para saber mais sobre a ferramenta de registro de fonte de dados, confira [Intro
 
 Como parte do projeto-piloto, a equipe de Clara também usa fontes de dados que são descritas em uma pasta de trabalho do Excel que Pedro e seus colegas mantêm. Como outras equipes da empresa também usam pastas de trabalho do Excel para descrever fontes de dados, a equipe de TI decide criar uma ferramenta para migrar a pasta de trabalho do Excel para o Catálogo de Dados. Usando a API REST do Catálogo de Dados para importar anotações existentes, a equipe de projeto-piloto pode ter um catálogo de dados completo que consiste em metadados extraídos de fontes de dados usando a ferramenta de registro de fonte de dados, com informações documentadas anteriormente por produtores e consumidores de dados, sem a necessidade de reinserção manual. À medida que o catálogo de dados corporativo cresce, a organização pode usar a ferramenta de registro de fonte de dados para fontes de dados comuns, e a API do Catálogo de Dados para fontes personalizadas e cenários incomuns.
 
-> [AZURE.NOTE] Criamos uma ferramenta de exemplo que usa a API do **Catálogo de Dados do Azure** para migrar uma pasta de trabalho do Excel para o Catálogo de Dados. Para saber mais sobre a API do Catálogo de Dados e a ferramenta de exemplo, você pode [Baixar o exemplo de código da pasta de trabalho Ad Hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) e conferir a documentação da [API REST de Catálogo de Dados do Azure](https://msdn.microsoft.com/library/azure/mt267593.aspx).
+> [!NOTE]
+> Criamos uma ferramenta de exemplo que usa a API do **Catálogo de Dados do Azure** para migrar uma pasta de trabalho do Excel para o Catálogo de Dados. Para saber mais sobre a API do Catálogo de Dados e a ferramenta de exemplo, você pode [Baixar o exemplo de código da pasta de trabalho Ad Hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) e conferir a documentação da [API REST de Catálogo de Dados do Azure](https://msdn.microsoft.com/library/azure/mt267593.aspx).
+> 
+> 
 
 Depois que o projeto-piloto estiver em vigor, será a hora de executar o plano de adoção do Catálogo de Dados.
 
@@ -136,15 +129,11 @@ Nesse ponto, você identificou casos de uso para o Catálogo de Dados e identifi
 
 Aqui estão algumas dicas para começar:
 
--   **Crie expectativa** - os usuários de negócios ficarão empolgados se acreditarem que o **Catálogo de Dados do Azure** facilitará suas vidas. Tente guiar a conversa para a solução e seus benefícios, não a tecnologia.
-
--   **Possibilite a alteração** - comece aos poucos e comunique o plano aos usuários de negócios. Para ter êxito, é crucial envolver os usuários desde o início para que eles influenciem o resultado e desenvolvam um senso de propriedade sobre a solução.
-
--   **Treine os pioneiros** - os pioneiros são usuários de negócios que são apaixonados pelo que fazem e estão empolgados em apregoar os benefícios do **Catálogo de Dados do Azure** para seus colegas.
-
--   **Direcione o treinamento** - os usuários de negócios não precisam saber tudo sobre o Catálogo de Dados. Portanto, direcione o treinamento para abordar metas específicas da equipe. Concentre-se no que os usuários farão e como algumas de suas tarefas podem ser alteradas, para incorporar o **Catálogo de Dados do Azure** à sua rotina diária.
-
--   **Esteja disposto a falhar** - se o piloto não estiver obtendo os resultados desejados, reavalie e identifique áreas a serem alteradas. Corrija os problemas do piloto antes de passar para um escopo mais amplo.
+* **Crie expectativa** - os usuários de negócios ficarão empolgados se acreditarem que o **Catálogo de Dados do Azure** facilitará suas vidas. Tente guiar a conversa para a solução e seus benefícios, não a tecnologia.
+* **Possibilite a alteração** - comece aos poucos e comunique o plano aos usuários de negócios. Para ter êxito, é crucial envolver os usuários desde o início para que eles influenciem o resultado e desenvolvam um senso de propriedade sobre a solução.
+* **Treine os pioneiros** - os pioneiros são usuários de negócios que são apaixonados pelo que fazem e estão empolgados em apregoar os benefícios do **Catálogo de Dados do Azure** para seus colegas.
+* **Direcione o treinamento** - os usuários de negócios não precisam saber tudo sobre o Catálogo de Dados. Portanto, direcione o treinamento para abordar metas específicas da equipe. Concentre-se no que os usuários farão e como algumas de suas tarefas podem ser alteradas, para incorporar o **Catálogo de Dados do Azure** à sua rotina diária.
+* **Esteja disposto a falhar** - se o piloto não estiver obtendo os resultados desejados, reavalie e identifique áreas a serem alteradas. Corrija os problemas do piloto antes de passar para um escopo mais amplo.
 
 Antes que a equipe-piloto comece a usar o Catálogo de Dados, agende uma reunião inicial para discutir as expectativas para o projeto-piloto e fornecer treinamento inicial.
 
@@ -166,15 +155,13 @@ Os pioneiros que participaram do piloto podem ser muito úteis para apregoar os 
 Este artigo foi uma introdução ao **Catálogo de Dados do Azure** em sua organização. Esperamos que você tenha conseguido iniciar um projeto-piloto do Catálogo de Dados e expandir o Catálogo de Dados por toda a organização.
 
 ## <a name="more-information-about-azure-data-catalog"></a>Mais informações sobre o Catálogo de Dados do Azure
--   [Página de produto do Catálogo de Dados do Azure](https://azure.microsoft.com/services/data-catalog/)
--   [Documentação do Catálogo de Dados do Azure](https://azure.microsoft.com/documentation/services/data-catalog/)
--   [Cenários comuns de Catálogo de Dados do Azure](data-catalog-common-scenarios.md)
--   [Registrar fontes de dados](data-catalog-get-started.md#exercise-2-registering-data-sources)
--   [Pesquisar fontes de dados](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
--   [Anotar fontes de dados](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-- [Crowdsourcing de metadados](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
-
-
+* [Página de produto do Catálogo de Dados do Azure](https://azure.microsoft.com/services/data-catalog/)
+* [Documentação do Catálogo de Dados do Azure](https://azure.microsoft.com/documentation/services/data-catalog/)
+* [Cenários comuns de Catálogo de Dados do Azure](data-catalog-common-scenarios.md)
+* [Registrar fontes de dados](data-catalog-get-started.md#exercise-2-registering-data-sources)
+* [Pesquisar fontes de dados](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
+* [Anotar fontes de dados](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
+* [Crowdsourcing de metadados](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
 
 <!--HONumber=Oct16_HO2-->
 

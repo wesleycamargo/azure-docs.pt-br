@@ -1,49 +1,47 @@
-<properties
-	pageTitle="Associações HTTP e de webhook do Azure Functions | Microsoft Azure"
-	description="Entenda como usar gatilhos e associações HTTP e de webhook no Azure Functions."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"/>
+---
+title: Associações HTTP e de webhook do Azure Functions | Microsoft Docs
+description: Entenda como usar gatilhos e associações HTTP e de webhook no Azure Functions.
+services: functions
+documentationcenter: na
+author: christopheranderson
+manager: erikre
+editor: ''
+tags: ''
+keywords: funções do azure, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
 
-<tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande"/>
+ms.service: functions
+ms.devlang: multiple
+ms.topic: reference
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 08/22/2016
+ms.author: chrande
 
+---
 # Associações HTTP e de webhook do Azure Functions
-
-[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artigo explica como configurar e codificar gatilhos e associações HTTP e de webhook no Azure Functions.
 
-[AZURE.INCLUDE [introdução](../../includes/functions-bindings-intro.md)]
+[!INCLUDE [introdução](../../includes/functions-bindings-intro.md)]
 
 ## function.json para associações HTTP e de webhook
-
 O arquivo *function.json* fornece as propriedades pertinentes à solicitação e à resposta.
 
 Propriedades da solicitação HTTP:
 
-- `name`: nome da variável usada no código de função para o objeto da solicitação (ou o corpo da solicitação no caso de funções do Node.js).
-- `type`: deve ser definido como *httpTrigger*.
-- `direction`: deve ser definido como *in*.
-- `webHookType`: para gatilhos WebHook, os valores válidos são *github*, *slack* e *genericJson*. Para um gatilho HTTP que não seja um WebHook, defina essa propriedade como uma cadeia de caracteres vazia. Para saber mais sobre WebHooks, veja a seção [Gatilhos WebHook](#webhook-triggers) a seguir.
-- `authLevel`: não se aplica a gatilhos WebHook. Defina como "função" para solicitar a chave de API, como "anônimo" para remover o requisito de chave de API ou como "admin" para exigir a chave mestra de API. Veja [Chaves de API](#apikeys) abaixo para saber mais.
+* `name`: nome da variável usada no código de função para o objeto da solicitação (ou o corpo da solicitação no caso de funções do Node.js).
+* `type`: deve ser definido como *httpTrigger*.
+* `direction`: deve ser definido como *in*.
+* `webHookType`: para gatilhos WebHook, os valores válidos são *github*, *slack* e *genericJson*. Para um gatilho HTTP que não seja um WebHook, defina essa propriedade como uma cadeia de caracteres vazia. Para saber mais sobre WebHooks, veja a seção [Gatilhos WebHook](#webhook-triggers) a seguir.
+* `authLevel`: não se aplica a gatilhos WebHook. Defina como "função" para solicitar a chave de API, como "anônimo" para remover o requisito de chave de API ou como "admin" para exigir a chave mestra de API. Veja [Chaves de API](#apikeys) abaixo para saber mais.
 
 Propriedades da resposta HTTP:
 
-- `name`: nome da variável usada no código de função para o objeto de resposta.
-- `type`: deve ser definido como *http*.
-- `direction`: deve ser definido como *out*.
- 
+* `name`: nome da variável usada no código de função para o objeto de resposta.
+* `type`: deve ser definido como *http*.
+* `direction`: deve ser definido como *out*.
+
 *function.json* de exemplo:
 
 ```json
@@ -67,7 +65,6 @@ Propriedades da resposta HTTP:
 ```
 
 ## Gatilhos WebHook
-
 Um gatilho WebHook é um gatilho HTTP que tem os seguintes recursos projetados para WebHooks:
 
 * Para provedores específicos do WebHook (no momento, o GitHub e o Slack têm suporte), o tempo de execução do Functions valida a assinatura do provedor.
@@ -77,7 +74,6 @@ Um gatilho WebHook é um gatilho HTTP que tem os seguintes recursos projetados p
 Para saber mais sobre como configurar um WebHook do GitHub, veja [GitHub Developer - criando WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409).
 
 ## URL para disparar a função
-
 Para disparar uma função, você pode enviar para uma URL uma solicitação HTTP que seja uma combinação da URL do aplicativo de funções e do nome da função:
 
 ```
@@ -85,7 +81,6 @@ Para disparar uma função, você pode enviar para uma URL uma solicitação HTT
 ```
 
 ## Chaves de API
-
 Por padrão, uma chave de API deve ser incluída com uma solicitação HTTP para disparar uma função HTTP ou WebHook. A chave pode ser incluída em uma variável de cadeia de caracteres de consulta chamada `code`, ou pode ser incluída em um cabeçalho HTTP `x-functions-key`. Para as funções não WebHook, você pode indicar que uma chave de API não é necessária, definindo a propriedade `authLevel` como "anonymous" no arquivo *function.json*.
 
 Você pode encontrar os valores de chave de API na pasta *D:\\home\\data\\Functions\\secrets* no sistema de arquivos do aplicativo de função. A chave mestra e a chave de função são definidas no arquivo *host.json*, como mostra este exemplo.
@@ -107,10 +102,12 @@ Se a pasta *secrets* contiver um arquivo JSON com o mesmo nome da função, a pr
 }
 ```
 
-> [AZURE.NOTE] Quando você estiver configurando um gatilho WebHook, não compartilhe a chave mestra com o provedor WebHook. Use uma chave que só funcione com a função que processa o WebHook. A chave mestra pode ser usada para disparar qualquer função, até mesmo as funções desabilitadas.
+> [!NOTE]
+> Quando você estiver configurando um gatilho WebHook, não compartilhe a chave mestra com o provedor WebHook. Use uma chave que só funcione com a função que processa o WebHook. A chave mestra pode ser usada para disparar qualquer função, até mesmo as funções desabilitadas.
+> 
+> 
 
-## Código C# de exemplo para uma função de gatilho HTTP 
-
+## Código C# de exemplo para uma função de gatilho HTTP
 O código de exemplo procura um parâmetro `name` na cadeia de consulta ou no corpo da solicitação HTTP.
 
 ```csharp
@@ -139,7 +136,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ## Código F# de exemplo para uma função de gatilho HTTP
-
 O código de exemplo procura um parâmetro `name` na cadeia de consulta ou no corpo da solicitação HTTP.
 
 ```fsharp
@@ -181,8 +177,7 @@ Você precisará de um arquivo `project.json` que usa o NuGet para fazer referê
 
 Isso usará o NuGet para buscar suas dependências e fará referência a elas em seu script.
 
-## Código Node.js de exemplo para uma função de gatilho HTTP 
-
+## Código Node.js de exemplo para uma função de gatilho HTTP
 Este código de exemplo procura um parâmetro `name` na cadeia de consulta ou no corpo da solicitação HTTP.
 
 ```javascript
@@ -205,8 +200,7 @@ module.exports = function(context, req) {
 };
 ```
 
-## Código C# de exemplo para uma função WebHook do GitHub 
-
+## Código C# de exemplo para uma função WebHook do GitHub
 Este código de exemplo registra em log comentários sobre problemas do GitHub.
 
 ```csharp
@@ -231,7 +225,6 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 ```
 
 ## Código F# de exemplo para uma função WebHook do GitHub
-
 Este código de exemplo registra em log comentários sobre problemas do GitHub.
 
 ```fsharp
@@ -255,8 +248,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     } |> Async.StartAsTask
 ```
 
-## Código Node.js de exemplo para uma função WebHook do GitHub 
-
+## Código Node.js de exemplo para uma função WebHook do GitHub
 Este código de exemplo registra em log comentários sobre problemas do GitHub.
 
 ```javascript
@@ -268,7 +260,6 @@ module.exports = function (context, data) {
 ```
 
 ## Próximas etapas
-
-[AZURE.INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
+[!INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
 
 <!---HONumber=AcomDC_0921_2016-->

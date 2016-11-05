@@ -1,40 +1,39 @@
 
-<properties
-   pageTitle="Emparelhamento de rede virtual do Azure | Microsoft Azure"
-   description="Saiba mais sobre o emparelhamento VNet no Azure."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="NarayanAnnamalai"
-   manager="jefco"
-   editor="tysonn" />
-<tags
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
-   ms.author="narayan" />
+---
+title: Emparelhamento de rede virtual do Azure | Microsoft Docs
+description: Saiba mais sobre o emparelhamento VNet no Azure.
+services: virtual-network
+documentationcenter: na
+author: NarayanAnnamalai
+manager: jefco
+editor: tysonn
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/28/2016
+ms.author: narayan
+
+---
 # Emparelhamento VNet
-
 O emparelhamento VNet é um mecanismo que conecta duas redes virtuais na mesma região por meio da rede principal do Azure. Uma vez emparelhadas, as duas redes virtuais aparecerão como uma para todos os fins de conectividade. Elas ainda são gerenciadas como recursos separados, mas as máquinas virtuais nessas redes virtuais podem se comunicar diretamente usando o endereço IP privado.
 
 O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas será roteado por meio da infraestrutura do Azure, assim como o tráfego é roteado entre as VMs na mesma rede virtual. Entre os benefícios de usar o emparelhamento VNet estão:
 
-- Baixa latência, conexão com largura de banda alta entre os recursos em redes virtuais diferentes.
-- A capacidade de usar recursos, como dispositivos de rede e gateways de VPN como pontos de trânsito na VNet emparelhada.
-- A capacidade de conectar uma rede virtual que usa o modelo do Azure Resource Manager a uma rede virtual que usa o modelo de implantação clássico, e permite a conectividade total entre recursos nestas redes virtuais.
+* Baixa latência, conexão com largura de banda alta entre os recursos em redes virtuais diferentes.
+* A capacidade de usar recursos, como dispositivos de rede e gateways de VPN como pontos de trânsito na VNet emparelhada.
+* A capacidade de conectar uma rede virtual que usa o modelo do Azure Resource Manager a uma rede virtual que usa o modelo de implantação clássico, e permite a conectividade total entre recursos nestas redes virtuais.
 
 Requisitos e principais aspectos do emparelhamento VNet:
 
-- As duas redes virtuais emparelhadas devem estar na mesma região do Azure.
-- As redes virtuais emparelhadas não devem ter espaços de endereço IP sobrepostos.
-- O emparelhamento VNet ocorre entre duas redes virtuais, e não há nenhuma relação transitiva derivada. Por exemplo, se a rede virtual A estiver emparelhada com a rede virtual B, e se a rede virtual B estiver emparelhada com a rede virtual C, isso não significa que a rede virtual A estará emparelhada com a rede virtual C.
-- O emparelhamento pode ser estabelecido as entre redes virtuais em duas assinaturas diferentes desde que um usuário privilegiado das duas assinaturas autorize o emparelhamento e as assinaturas estejam associadas ao mesmo locatário do Active Directory.
-- Uma rede virtual que usa o modelo de implantação do Resource Manager pode ser emparelhada com outra rede virtual que usa esse modelo, ou com uma rede virtual que usa o modelo de implantação clássico. No entanto, as redes virtuais que usam o modelo de implantação clássico não podem ser emparelhadas entre si.
-- Embora a comunicação entre as máquinas virtuais nas redes virtuais emparelhadas não tenha nenhuma restrição de largura de banda extra, o limite da largura de banda com base no tamanho da VM ainda se aplica.
-
+* As duas redes virtuais emparelhadas devem estar na mesma região do Azure.
+* As redes virtuais emparelhadas não devem ter espaços de endereço IP sobrepostos.
+* O emparelhamento VNet ocorre entre duas redes virtuais, e não há nenhuma relação transitiva derivada. Por exemplo, se a rede virtual A estiver emparelhada com a rede virtual B, e se a rede virtual B estiver emparelhada com a rede virtual C, isso não significa que a rede virtual A estará emparelhada com a rede virtual C.
+* O emparelhamento pode ser estabelecido as entre redes virtuais em duas assinaturas diferentes desde que um usuário privilegiado das duas assinaturas autorize o emparelhamento e as assinaturas estejam associadas ao mesmo locatário do Active Directory.
+* Uma rede virtual que usa o modelo de implantação do Resource Manager pode ser emparelhada com outra rede virtual que usa esse modelo, ou com uma rede virtual que usa o modelo de implantação clássico. No entanto, as redes virtuais que usam o modelo de implantação clássico não podem ser emparelhadas entre si.
+* Embora a comunicação entre as máquinas virtuais nas redes virtuais emparelhadas não tenha nenhuma restrição de largura de banda extra, o limite da largura de banda com base no tamanho da VM ainda se aplica.
 
 ![Emparelhamento VNet básico](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -82,10 +81,9 @@ Há limites no número de emparelhamentos permitidos para uma única rede virtua
 ## Preços
 O Emparelhamento VNet será gratuito durante o período de análise. Após a liberação, haverá um custo nominal no tráfego de entrada e saída que utiliza o emparelhamento. Para saber mais, consulte a [página de preço](https://azure.microsoft.com/pricing/details/virtual-network).
 
-
 ## Próximas etapas
-- [Configuração do emparelhamento entre redes virtuais](virtual-networks-create-vnetpeering-arm-portal.md).
-- Saiba mais sobre [NSGs](virtual-networks-nsg.md).
-- Saiba mais sobre [encaminhamento IP e rotas definidas pelo usuário](virtual-networks-udr-overview.md).
+* [Configuração do emparelhamento entre redes virtuais](virtual-networks-create-vnetpeering-arm-portal.md).
+* Saiba mais sobre [NSGs](virtual-networks-nsg.md).
+* Saiba mais sobre [encaminhamento IP e rotas definidas pelo usuário](virtual-networks-udr-overview.md).
 
 <!---HONumber=AcomDC_0928_2016-->

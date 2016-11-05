@@ -1,74 +1,70 @@
-<properties
-    pageTitle="Usar o PowerShell para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Azure"
-    description="O Log Analytics usa dados de servidores em sua infraestrutura local ou na nuvem. Você pode coletar dados da máquina do armazenamento do Azure quando gerados pelo diagnóstico do Azure."
-    services="log-analytics"
-    documentationCenter=""
-    authors="richrundmsft"
-    manager="jochan"
-    editor=""/>
+---
+title: Usar o PowerShell para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
+description: O Log Analytics usa dados de servidores em sua infraestrutura local ou na nuvem. Você pode coletar dados da máquina do armazenamento do Azure quando gerados pelo diagnóstico do Azure.
+services: log-analytics
+documentationcenter: ''
+author: richrundmsft
+manager: jochan
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="powershell"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="richrund"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: powershell
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: richrund
 
-
+---
 # <a name="manage-log-analytics-using-powershell"></a>Gerenciar o Log Analytics usando o PowerShell
-
 Você pode usar os [cmdlets do PowerShell do Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) para executar várias funções no Log Analytics de uma linha de comando ou como parte de um script.  Os exemplos das tarefas que você pode executar com o PowerShell incluem:
 
-+ Criar um espaço de trabalho
-+ Adicionar ou remover uma solução
-+ Importar e exportar pesquisas salvas
-+ Criar um grupo de computadores
-+ Habilitar coleta de logs do IIS de computadores com o agente do Windows instalado
-+ Coletar contadores de desempenho de computadores Linux e Windows
-+ Coletar eventos de syslog em computadores Linux 
-+ Coletar eventos dos logs de eventos do Windows
-+ Coletar logs de eventos personalizados
-+ Adicionar o agente de análise de log a uma máquina virtual do Azure
-+ Configurar a análise de log para indexar os dados coletados usando o diagnóstico do Azure
-
+* Criar um espaço de trabalho
+* Adicionar ou remover uma solução
+* Importar e exportar pesquisas salvas
+* Criar um grupo de computadores
+* Habilitar coleta de logs do IIS de computadores com o agente do Windows instalado
+* Coletar contadores de desempenho de computadores Linux e Windows
+* Coletar eventos de syslog em computadores Linux 
+* Coletar eventos dos logs de eventos do Windows
+* Coletar logs de eventos personalizados
+* Adicionar o agente de análise de log a uma máquina virtual do Azure
+* Configurar a análise de log para indexar os dados coletados usando o diagnóstico do Azure
 
 Este artigo fornece dois exemplos de código que ilustram algumas das funções que podem ser executadas do PowerShell.  Você pode consultar a [referência do cmdlet do PowerShell do Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) para outras funções.
 
-> [AZURE.NOTE] O Log Analytics chamava-se Operational Insights, e é por isso que esse é o nome usado nos cmdlets.
+> [!NOTE]
+> O Log Analytics chamava-se Operational Insights, e é por isso que esse é o nome usado nos cmdlets.
+> 
+> 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
 Para usar o PowerShell com seu espaço do Log Analytics, você deverá ter:
 
-+ Uma assinatura do Azure e 
-+ Seu espaço de trabalho do Log Analytics vinculado à sua assinatura do Azure.
+* Uma assinatura do Azure e 
+* Seu espaço de trabalho do Log Analytics vinculado à sua assinatura do Azure.
 
 Se você tiver criado um espaço de trabalho do OMS, mas ele ainda está vinculado a uma assinatura do Azure, você pode criar o link:
 
-+ No portal do Azure
-+ No portal do OMS ou 
-+ Usando os cmdlets Get-AzureRmOperationalInsightsLinkTargets e New-AzureRmOperationalInsightsWorkspace.
-
+* No portal do Azure
+* No portal do OMS ou 
+* Usando os cmdlets Get-AzureRmOperationalInsightsLinkTargets e New-AzureRmOperationalInsightsWorkspace.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um espaço de trabalho do Log Analytics
-
 O exemplo de script a seguir ilustra como:
 
-1.  Criar um espaço de trabalho
-2.  Listar as soluções disponíveis
-3.  Adicionar soluções ao espaço de trabalho
-4.  Importar pesquisas salvas
-5.  Exportar pesquisas salvas
-6.  Criar um grupo de computadores
-7.  Habilitar coleta de logs do IIS de computadores com o agente do Windows instalado
-8.  Coletar contadores de desempenho de disco lógico de computadores Linux (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
-9.  Coletar eventos de syslog em computadores Linux
+1. Criar um espaço de trabalho
+2. Listar as soluções disponíveis
+3. Adicionar soluções ao espaço de trabalho
+4. Importar pesquisas salvas
+5. Exportar pesquisas salvas
+6. Criar um grupo de computadores
+7. Habilitar coleta de logs do IIS de computadores com o agente do Windows instalado
+8. Coletar contadores de desempenho de disco lógico de computadores Linux (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
+9. Coletar eventos de syslog em computadores Linux
 10. Coletar eventos de Erro e Aviso no Log de Eventos do Aplicativo dos computadores Windows
 11. Coletar o contador de desempenho de Mbytes Disponíveis de Memória de computadores Windows
 12. Coletar um log personalizado 
-
 
 ```
 
@@ -190,24 +186,23 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 ```
 
-## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configuração do Log Analytics para indexar os diagnósticos do Azure 
-
+## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configuração do Log Analytics para indexar os diagnósticos do Azure
 Para o monitoramento de recursos do Azure realizado sem o uso de agente, os recursos precisam ter o diagnóstico do Azure habilitado e configurado para gravar em uma conta de armazenamento. O Log Analytics poderá, então, ser configurado para coletar os logs da conta de armazenamento. Os recursos de que você precisa para fazer a configuração anterior incluem:
 
-+ Serviços de nuvem clássicos (funções de web e de trabalho)
-+ Clusters do Service Fabric
-+ Grupos de segurança de rede
-+ Cofres de Chaves e 
-+ Application gateways
+* Serviços de nuvem clássicos (funções de web e de trabalho)
+* Clusters do Service Fabric
+* Grupos de segurança de rede
+* Cofres de Chaves e 
+* Application gateways
 
 Você também pode usar o PowerShell para configurar um espaço de trabalho do Log Analytics em uma assinatura do Azure para coletar logs de assinaturas do Azure diferentes.
 
 O exemplo a seguir mostra como:
 
-1.  Listar as contas de armazenamento existentes e os locais de onde o Log Analytics indexará os dados
-2.  Criar uma configuração para ler de uma conta de armazenamento
-3.  Atualizar a configuração criada recentemente para indexar dados de locais adicionais
-4.  Excluir a configuração recém-criada
+1. Listar as contas de armazenamento existentes e os locais de onde o Log Analytics indexará os dados
+2. Criar uma configuração para ler de uma conta de armazenamento
+3. Atualizar a configuração criada recentemente para indexar dados de locais adicionais
+4. Excluir a configuração recém-criada
 
 ```
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
@@ -232,11 +227,7 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- [Examinar cmdlets do PowerShell do Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) para obter informações adicionais sobre como usar o PowerShell para a configuração do Log Analytics.
-
-
-
+* [Examinar cmdlets do PowerShell do Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) para obter informações adicionais sobre como usar o PowerShell para a configuração do Log Analytics.
 
 <!--HONumber=Oct16_HO2-->
 

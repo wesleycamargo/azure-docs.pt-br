@@ -1,25 +1,23 @@
-<properties
-    pageTitle="Comandos da CLI do Azure no modo do Gerenciador de Recursos | Microsoft Azure"
-    description="Comandos da CLI (interface de linha de comando) do Azure para gerenciar recursos no modelo de implantação do Gerenciador de Recursos"
-    services="virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services"
-    documentationCenter=""
-    authors="dlepow"
-    manager="timlt"
-    editor=""
-    tags="azure-resource-manager"/>
+---
+title: Comandos da CLI do Azure no modo do Gerenciador de Recursos | Microsoft Docs
+description: Comandos da CLI (interface de linha de comando) do Azure para gerenciar recursos no modelo de implantação do Gerenciador de Recursos
+services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
+documentationcenter: ''
+author: dlepow
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-    ms.service="multiple"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="command-line-interface"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/05/2016"
-    ms.author="danlep"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: command-line-interface
+ms.devlang: na
+ms.topic: article
+ms.date: 08/05/2016
+ms.author: danlep
 
-
+---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos da CLI do Azure no modo do Gerenciador de Recursos
-
 Este artigo fornece a sintaxe e as opções de comandos da CLI (interface de linha de comando) do Azure que normalmente seriam usadas para criar e gerenciar recursos do Azure no modelo de implantação do Azure Resource Manager. É possível acessar esses comandos executando a CLI no modo ARM (Resource Manager). Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes. Para obter uma visão geral dos recursos e dos grupos de recursos do Azure, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md).  
 
 Para começar, primeiramente [instale a CLI do Azure](../xplat-cli-install.md) e [conecte-se à sua assinatura do Azure](../xplat-cli-connect.md) usando uma conta corporativa ou de estudante, ou uma identidade de conta da Microsoft.
@@ -31,13 +29,14 @@ Parâmetros opcionais são mostrados entre colchetes (por exemplo, `[parameter]`
 Além dos parâmetros opcionais específicos aos comandos documentados aqui, há três parâmetros opcionais que podem ser usados para exibir saída detalhada, como opções de solicitação e códigos de status. O parâmetro `-v` fornece uma saída detalhada e o parâmetro `-vv` fornece uma saída mais detalhada ainda. A opção `--json` produzi o resultado no formato JSON bruto.
 
 ## <a name="setting-the-resource-manager-mode"></a>Definindo o modo do Gerenciador de Recursos
-
 Use o comando a seguir para habilitar os comandos do modo de Gerenciador de Recursos da CLI do Azure.
 
     azure config mode arm
 
->[AZURE.NOTE] O modo do Gerenciador de Recursos do Azure da CLI e o modo do Gerenciamento de Serviços do Azure são mutuamente exclusivos. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
-
+> [!NOTE]
+> O modo do Gerenciador de Recursos do Azure da CLI e o modo do Gerenciamento de Serviços do Azure são mutuamente exclusivos. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
+> 
+> 
 
 ## <a name="azure-account:-manage-your-account-information"></a>conta do Azure: gerenciar as informações da sua conta
 As informações da assinatura do Azure são utilizadas pela ferramenta para se conectar à sua conta.
@@ -67,7 +66,6 @@ As informações da assinatura do Azure são utilizadas pela ferramenta para se 
     account env delete [options] [environment]
 
 ## <a name="azure-ad:-commands-to-display-active-directory-objects"></a>azure ad: Comandos para exibir objetos do Active Directory
-
 **Comandos para exibir aplicativos do active directory**
 
     ad app create [options]
@@ -95,7 +93,6 @@ As informações da assinatura do Azure são utilizadas pela ferramenta para se 
     ad user show [options]
 
 ## <a name="azure-availset:-commands-to-manage-your-availability-sets"></a>azure availset: comandos para gerenciar seus conjuntos de disponibilidade
-
 **Cria um conjunto de disponibilidade dentro de um grupo de recursos**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -113,7 +110,6 @@ As informações da assinatura do Azure são utilizadas pela ferramenta para se 
     availset delete [options] <resource-group> <name>
 
 ## <a name="azure-config:-commands-to-manage-your-local-settings"></a>azure config: comandos para gerenciar suas configurações locais
-
 **Lista definições de configuração de CLI do Azure**
 
     config list [options]
@@ -132,7 +128,6 @@ As informações da assinatura do Azure são utilizadas pela ferramenta para se 
 
 
 ## <a name="azure-feature:-commands-to-manage-account-features"></a>azure feature: comandos para gerenciar recursos da conta
-
 **Lista todos os recursos disponíveis para sua assinatura**
 
     feature list [options]
@@ -146,7 +141,6 @@ As informações da assinatura do Azure são utilizadas pela ferramenta para se 
     feature register [options] <providerName> <featureName>
 
 ## <a name="azure-group:-commands-to-manage-your-resource-groups"></a>azure group: Comandos para gerenciar os grupos de recursos
-
 **Crie um grupos de recursos**
 
     group create [options] <name> <location>
@@ -186,7 +180,6 @@ As informações da assinatura do Azure são utilizadas pela ferramenta para se 
     group template validate [options] <resource-group>
 
 ## <a name="azure-hdinsight:-commands-to-manage-your-hdinsight-clusters"></a>azure hdinsight: comandos para gerenciar seus clusters HDInsight
-
 **Comandos para criar ou adicionar a um arquivo de configuração de cluster**
 
     hdinsight config create [options] <configFilePath> <overwrite>
@@ -305,24 +298,20 @@ Opções de parâmetro:
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
 ## <a name="azure-insights:-commands-related-to-monitoring-insights-(events,-alert-rules,-autoscale-settings,-metrics)"></a>azure insights: comandos relacionados ao monitoramento Insights (eventos, regras de alerta, configurações de dimensionamento automático, métricas)
-
 **Recupera os logs de operação para uma assinatura, uma correlationId, um grupo de recursos, o recurso ou o provedor de recursos**
 
     insights logs list [options]
 
 ## <a name="azure-location:-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location: comandos para obter os locais disponíveis para todos os tipos de recurso
-
 **Lista os locais disponíveis**
 
     location list [options]
 
 ## <a name="azure-network:-commands-to-manage-network-resources"></a>azure network: comandos para gerenciar recursos de rede
-
 **Comandos para gerenciar redes virtuais**
 
     network vnet create [options] <resource-group> <name> <location>
 Cria uma rede virtual. No exemplo a seguir, criamos uma rede virtual denominada newvnet para o grupo de recursos myresourcegroup na região Oeste dos EUA.
-
 
     azure network vnet create myresourcegroup newvnet "west us"
     info:    Executing command network vnet create
@@ -415,7 +404,6 @@ Opções de parâmetro:
 
 O comando lista todas as redes virtuais em um grupo de recursos.
 
-
     C:\>azure network vnet list myresourcegroup
 
     info:    Executing command network vnet list
@@ -429,7 +417,6 @@ O comando lista todas as redes virtuais em um grupo de recursos.
     info:    network vnet list command OK
 
 Opções de parâmetro:
-
 
       -h, --help                             output usage information
       -v, --verbose                          use verbose output
@@ -520,7 +507,6 @@ Opções de parâmetro:
     network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
 Define uma sub-rede de rede virtual específica dentro de um grupo de recursos.
-
 
     C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
@@ -1206,7 +1192,6 @@ Cria uma regra de NAT de entrada para o balanceador de carga.
 
 No exemplo a seguir, criamos uma regra NAT de IP de front-end (que foi anteriormente definida usando o comando "azure network frontend-ip") com uma porta de escuta de entrada e a porta de saída que o balanceador de carga usa para enviar o tráfego de rede.
 
-
     azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
 
     info:    Executing command network lb inbound-nat-rule create
@@ -1590,7 +1575,6 @@ Opções de parâmetro:
     network gateway list [options] <resource-group>
 
 ## <a name="azure-provider:-commands-to-manage-resource-provider-registrations"></a>azure provider: Comandos para gerenciar os registros de provedor de recursos
-
 **Liste os provedores registrados atualmente no Resource Manager**
 
     provider list [options]
@@ -1608,7 +1592,6 @@ Opções de parâmetro:
     provider unregister [options] <namespace>
 
 ## <a name="azure-resource:-commands-to-manage-your-resources"></a>azure resource: Comandos para gerenciar os seus recursos
-
 **Cria um recurso em um grupo de recursos**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1630,7 +1613,6 @@ Opções de parâmetro:
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
 ## <a name="azure-role:-commands-to-manage-your-azure-roles"></a>azure role: Comandos para gerenciar as funções do Azure
-
 **Obtenha todas as definições de função disponíveis**
 
     role list [options]
@@ -1646,7 +1628,6 @@ Opções de parâmetro:
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
 ## <a name="azure-storage:-commands-to-manage-your-storage-objects"></a>azure storage: Comandos para gerenciar seus objetos de Armazenamento
-
 **Comandos para gerenciar suas contas de Armazenamento**
 
     storage account list [options]
@@ -1770,7 +1751,6 @@ Opções de parâmetro:
     storage table policy delete [options] [table] [name]
 
 ## <a name="azure-tag:-commands-to-manage-your-resource-manager-tag"></a>azure tag: Comandos para gerenciar sua marca do gerenciador de recursos
-
 **Adicione uma marca**
 
     tag create [options] <name> <value>
@@ -1788,7 +1768,6 @@ Opções de parâmetro:
     tag show [options] [name]
 
 ## <a name="azure-vm:-commands-to-manage-your-azure-virtual-machines"></a>azure vm: Comandos para gerenciar as máquinas virtuais do Azure
-
 **Cria uma máquina virtual**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1796,8 +1775,11 @@ Opções de parâmetro:
 **Cria uma máquina virtual com recursos padrões**
 
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
-    
->[AZURE.TIP]Começando na versão 0.10 da CLI, você pode fornecer um alias curto, como "UbuntuLTS" ou "Win2012R2Datacenter", como o `image-urn` para algumas imagens populares do Marketplace. Execute `azure help vm quick-create` para opções. Além disso, a partir da versão 0.10, `azure vm quick-create` usará o armazenamento premium por padrão, se ele estiver disponível na região selecionada.
+
+> [!TIP]
+> Começando na versão 0.10 da CLI, você pode fornecer um alias curto, como "UbuntuLTS" ou "Win2012R2Datacenter", como o `image-urn` para algumas imagens populares do Marketplace. Execute `azure help vm quick-create` para opções. Além disso, a partir da versão 0.10, `azure vm quick-create` usará o armazenamento premium por padrão, se ele estiver disponível na região selecionada.
+> 
+> 
 
 **Listar as máquinas virtuais dentro de uma conta**
 

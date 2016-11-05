@@ -1,25 +1,22 @@
-<properties
-   pageTitle="Interagindo com clusters do Service Fabric usando a CLI | Microsoft Azure"
-   description="Como usar a CLI do Azure para interagir com um cluster do Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="mani-ramaswamy"
-   manager="timlt"
-   editor=""/>
+---
+title: Interagindo com clusters do Service Fabric usando a CLI | Microsoft Docs
+description: Como usar a CLI do Azure para interagir com um cluster do Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: mani-ramaswamy
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotNet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/24/2016"
-   ms.author="subramar"/>
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/24/2016
+ms.author: subramar
 
-
-
+---
 # <a name="using-the-azure-cli-to-interact-with-a-service-fabric-cluster"></a>Usando a CLI do Azure para interagir com um Cluster do Service Fabric
-
 Você pode interagir com o cluster do Service Fabric por meio de computadores Linux usando a CLI do Azure no Linux.
 
 A primeira etapa é obter a versão mais recente da CLI do representante de git e configurá-la em seu caminho usando os seguintes comandos:
@@ -82,39 +79,35 @@ Você pode usar o PowerShell ou a CLI para interagir com o Cluster do Service Fa
 
 **Cuidado:** esses agrupamentos não são seguros, portanto, você pode abrir a caixa um ao adicionar o endereço IP público no manifesto do cluster.
 
-
-
 ## <a name="using-the-azure-cli-to-connect-to-a-service-fabric-cluster"></a>Usando a CLI do Azure para se conectar a um Cluster do Service Fabric
-
 Os seguintes comandos da CLI do Azure descrevem como se conectar a um cluster seguro. Os detalhes do certificado devem corresponder a um certificado em nós do cluster.
 
 ```
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert
 ```
- 
+
 Se o certificado tiver ACs (autoridades de certificação), você precisará adicionar o parâmetro --ca-cert-path, como no seguinte exemplo: 
 
 ```
  azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
 ```
 Se você tiver várias ACs, use uma vírgula como o delimitador.
- 
+
 Se o Nome Comum no certificado não coincidir com o ponto de extremidade de conexão, você poderá usar o parâmetro `--strict-ssl` para ignorar a verificação, conforme mostrado no seguinte comando: 
 
 ```
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
 ```
- 
+
 Se você quiser ignorar a verificação de AC, poderá adicionar o parâmetro --reject-unauthorized, conforme mostrado no seguinte comando: 
 
 ```
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized false 
 ```
- 
+
 Depois de se conectar, você poderá executar outros comandos da CLI para interagir com o cluster. 
 
 ## <a name="deploying-your-service-fabric-application"></a>Implantando o aplicativo da Malha do Serviço
-
 Execute os seguintes comandos para copiar, registrar e iniciar o aplicativo Service Fabric:
 
 ```
@@ -125,7 +118,6 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
 
 
 ## <a name="upgrading-your-application"></a>Atualizando seu aplicativo
-
 O processo é semelhante ao [processo no Windows](service-fabric-application-upgrade-tutorial-powershell.md)).
 
 Crie, copie, registre e crie seu aplicativo por meio de um diretório raiz do projeto. Se a instância do aplicativo for denominada fabric:/MySFApp e o tipo for MySFApp, os comandos serão da seguinte maneira:
@@ -154,9 +146,7 @@ Agora, você pode iniciar a atualização de aplicativo com o seguinte comando:
 Agora você pode monitorar a atualização de aplicativo usando SFX. Em alguns minutos, o aplicativo seria atualizado.  Você também pode experimentar um aplicativo atualizado com um erro e verificar a funcionalidade de reversão automática no Service Fabric.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
-
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>A cópia do pacote de aplicativos não é bem-sucedida
-
 Verifique se `openssh` está instalado. Por padrão, a área de trabalho do Ubuntu não está instalada. Instale-o usando o comando a seguir:
 
 ```
@@ -182,12 +172,8 @@ Se o problema persistir, tente aumentar o número de sessões ssh executando os 
 ```
 O uso de chaves para autenticação ssh (em vez de senhas) ainda não tem suporte (porque a plataforma usa ssh para copiar os pacotes), portanto use a autenticação de senha.
 
-
 ## <a name="next-steps"></a>Próximas etapas
-
 Configurar o ambiente de desenvolvimento e implantar um aplicativo do Service Fabric em um cluster do Linux.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

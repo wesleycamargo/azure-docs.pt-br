@@ -1,26 +1,25 @@
-<properties
- pageTitle="Autenticação de Saída do Agendador"
- description="Autenticação de Saída do Agendador"
- services="scheduler"
- documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="article"
- ms.date="08/15/2016"
- ms.author="krisragh"/>
+---
+title: Autenticação de Saída do Agendador
+description: Autenticação de Saída do Agendador
+services: scheduler
+documentationcenter: .NET
+author: krisragh
+manager: dwrede
+editor: ''
 
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: krisragh
+
+---
 # Autenticação de Saída do Agendador
-
 Os trabalhos do Agendador podem precisar chamar serviços que requerem autenticação. Dessa forma, um serviço chamado pode determinar se o trabalho do Agendador poderá acessar seus recursos. Alguns desses serviços incluem outros serviços do Azure, Salesforce.com, Facebook e sites seguros personalizados.
 
 ## Adição e Remoção de Autenticação
-
 Adicionar a autenticação para um trabalho do Agendador é simples: adicione um elemento filho JSON `authentication` para o elemento `request` ao criar ou atualizar um trabalho. Os segredos passados para o serviço do Agendador em uma solicitação PUT, PATCH ou POST, como parte do objeto `authentication`, nunca são retornados em respostas. Nas respostas, as informações secretas são definidas como nulo ou podem ter um token público que representa a entidade autenticada.
 
 Para remover a autenticação, faça PUT ou PATCH do trabalho explicitamente, configurando o objeto `authentication` como nulo. Você não verá quaisquer propriedades de autenticação na resposta.
@@ -28,31 +27,27 @@ Para remover a autenticação, faça PUT ou PATCH do trabalho explicitamente, co
 Atualmente, os únicos tipos de autenticação com suporte são o modelo `ClientCertificate` (para uso dos certificados de cliente SSL/TLS), o modelo `Basic` (para autenticação básica) e o modelo `ActiveDirectoryOAuth` (para autenticação OAuth do Active Directory.)
 
 ## Corpo da solicitação de autenticação ClientCertificate
-
 Ao adicionar a autenticação usando o modelo `ClientCertificate`, especifique os seguintes elementos adicionais no corpo da solicitação.
 
-|Elemento|Descrição|
-|:---|:---|
-|_autenticação (elemento pai)_|Objeto de autenticação para usar um certificado de cliente SSL.|
-|_tipo_|Obrigatório. Tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`.|
-|_pfx_|Obrigatório. Conteúdo codificado na Base64 do arquivo PFX.|
-|_senha_|Obrigatório. Senha para acessar o arquivo PFX.|
-
+| Elemento | Descrição |
+|:--- |:--- |
+| *autenticação (elemento pai)* |Objeto de autenticação para usar um certificado de cliente SSL. |
+| *tipo* |Obrigatório. Tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. |
+| *pfx* |Obrigatório. Conteúdo codificado na Base64 do arquivo PFX. |
+| *senha* |Obrigatório. Senha para acessar o arquivo PFX. |
 
 ## Corpo da resposta para autenticação ClientCertificate
-
 Quando uma solicitação é enviada com as informações de autenticação, a resposta contém os seguintes elementos de autenticação.
 
-|Elemento |Descrição |
-|:--|:--|
-|_autenticação (elemento pai)_ |Objeto de autenticação para usar um certificado de cliente SSL.|
-|_tipo_ |Tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`.|
-|_certificateThumbprint_ |A impressão digital do certificado.|
-|_certificateSubjectName_ |O nome distinto da entidade do certificado.|
-|_certificateExpiration_ |A data de validade do certificado.|
+| Elemento | Descrição |
+|:--- |:--- |
+| *autenticação (elemento pai)* |Objeto de autenticação para usar um certificado de cliente SSL. |
+| *tipo* |Tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
+| *certificateThumbprint* |A impressão digital do certificado. |
+| *certificateSubjectName* |O nome distinto da entidade do certificado. |
+| *certificateExpiration* |A data de validade do certificado. |
 
 ## Exemplo de solicitação REST para autenticação ClientCertificate
-
 ```
 PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
@@ -67,10 +62,10 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-		"headers": {
+        "headers": {
           "x-ms-version": "2013-03-01"
         },
-		"authentication": {
+        "authentication": {
           "type": "clientcertificate",
           "password": "password",
           "pfx": "pfx key"
@@ -89,7 +84,6 @@ Content-Type: application/json; charset=utf-8
 ```
 
 ## Exemplo de resposta REST para autenticação ClientCertificate
-
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -146,28 +140,25 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 ```
 
 ## Corpo da solicitação de autenticação básica
-
 Ao adicionar a autenticação usando o modelo `Basic`, especifique os seguintes elementos adicionais no corpo da solicitação.
 
-|Elemento|Descrição|
-|:--|:--|
-|_autenticação (elemento pai)_ |Objeto de autenticação para usar a autenticação básica.|
-|_tipo_ |Obrigatório. Tipo de autenticação. Para a autenticação básica, o valor deve ser `Basic`.|
-|_nome de usuário_ |Obrigatório. Nome de usuário para autenticação.|
-|_senha_ |Obrigatório. Senha para autenticação.|
+| Elemento | Descrição |
+|:--- |:--- |
+| *autenticação (elemento pai)* |Objeto de autenticação para usar a autenticação básica. |
+| *tipo* |Obrigatório. Tipo de autenticação. Para a autenticação básica, o valor deve ser `Basic`. |
+| *nome de usuário* |Obrigatório. Nome de usuário para autenticação. |
+| *senha* |Obrigatório. Senha para autenticação. |
 
 ## Corpo da resposta de autenticação básica
-
 Quando uma solicitação é enviada com as informações de autenticação, a resposta contém os seguintes elementos de autenticação.
 
-|Elemento|Descrição|
-|:--|:--|
-|_autenticação (elemento pai)_ |Objeto de autenticação para usar a autenticação básica.|
-|_tipo_ |Tipo de autenticação. Para a autenticação básica, o valor é `Basic`.|
-|_nome de usuário_ |O nome de usuário autenticado.|
+| Elemento | Descrição |
+|:--- |:--- |
+| *autenticação (elemento pai)* |Objeto de autenticação para usar a autenticação básica. |
+| *tipo* |Tipo de autenticação. Para a autenticação básica, o valor é `Basic`. |
+| *nome de usuário* |O nome de usuário autenticado. |
 
 ## Exemplo de solicitação REST para autenticação Básica
-
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
@@ -183,12 +174,12 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-		"headers": {
+        "headers": {
           "x-ms-version": "2013-03-01"
         },
-		"authentication": {
+        "authentication": {
           "type": "basic",
-		  "username": "user",
+          "username": "user",
           "password": "password"
         }
       },
@@ -205,7 +196,6 @@ Content-Type: application/json; charset=utf-8
 ```
 
 ## Exemplo de resposta REST para autenticação Básica
-
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -260,36 +250,32 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 ```
 
 ## Corpo da solicitação de autenticação ActiveDirectoryOAuth
-
 Ao adicionar a autenticação usando o modelo `ActiveDirectoryOAuth`, especifique os seguintes elementos adicionais no corpo da solicitação.
 
-|Elemento |Descrição |
-|:--|:--|
-|_autenticação (elemento pai)_ |Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth.|
-|_tipo_ |Obrigatório. Tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor deve ser `ActiveDirectoryOAuth`.|
-|_locatário_ |Obrigatório. O identificador do locatário para o locatário do Azure AD.|
-|_audiência_ |Obrigatório. Isso é definido como https://management.core.windows.net/.|
-|_clientId_ |Obrigatório. Forneça o identificador de cliente para o aplicativo do AD do Azure.|
-|_segredo_ |Obrigatório. Segredo do cliente que está solicitando o token.|
+| Elemento | Descrição |
+|:--- |:--- |
+| *autenticação (elemento pai)* |Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth. |
+| *tipo* |Obrigatório. Tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor deve ser `ActiveDirectoryOAuth`. |
+| *locatário* |Obrigatório. O identificador do locatário para o locatário do Azure AD. |
+| *audiência* |Obrigatório. Isso é definido como https://management.core.windows.net/. |
+| *clientId* |Obrigatório. Forneça o identificador de cliente para o aplicativo do AD do Azure. |
+| *segredo* |Obrigatório. Segredo do cliente que está solicitando o token. |
 
 ### Determinando o identificador do locatário
-
 Você pode encontrar o identificador do locatário para o locatário do Azure AD executando `Get-AzureAccount` no Azure PowerShell.
 
 ## Corpo da resposta de autenticação ActiveDirectoryOAuth
-
 Quando uma solicitação é enviada com as informações de autenticação, a resposta contém os seguintes elementos de autenticação.
 
-|Elemento |Descrição |
-|:--|:--|
-|_autenticação (elemento pai)_ |Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth.|
-|_tipo_ |Tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`.|
-|_locatário_ |O identificador do locatário para o locatário do Azure AD. |
-|_audiência_ |Isso é definido como https://management.core.windows.net/.|
-|_clientId_ |O identificador de cliente para o aplicativo do AD do Azure.|
+| Elemento | Descrição |
+|:--- |:--- |
+| *autenticação (elemento pai)* |Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth. |
+| *tipo* |Tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. |
+| *locatário* |O identificador do locatário para o locatário do Azure AD. |
+| *audiência* |Isso é definido como https://management.core.windows.net/. |
+| *clientId* |O identificador de cliente para o aplicativo do AD do Azure. |
 
 ## Exemplo de solicitação REST para autenticação ActiveDirectoryOAuth
-
 ```
 PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
@@ -305,10 +291,10 @@ Content-Type: application/json; charset=utf-8
       "request": {
         "uri": "https://mywebserviceendpoint.com",
         "method": "GET",
-		"headers": {
+        "headers": {
           "x-ms-version": "2013-03-01"
         },
-		"authentication": {
+        "authentication": {
           "tenant":"microsoft.onmicrosoft.com",
           "audience":"https://management.core.windows.net/",
           "clientId":"dc23e764-9be6-4a33-9b9a-c46e36f0c137",
@@ -329,7 +315,6 @@ Content-Type: application/json; charset=utf-8
 ```
 
 ## Exemplo de resposta REST para autenticação ActiveDirectoryOAuth
-
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
@@ -387,8 +372,6 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 ```
 
 ## Consulte também
-
-
  [O que é o Agendador?](scheduler-intro.md)
 
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)

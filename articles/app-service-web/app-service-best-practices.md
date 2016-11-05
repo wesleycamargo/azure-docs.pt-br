@@ -1,30 +1,29 @@
-<properties
-	pageTitle="Práticas Recomendadas para o Serviço de Aplicativo do Azure"
-	description="Aprenda as práticas recomendadas e solução de problemas do Serviço de Aplicativo do Azure."
-	services="app-service"
-	documentationCenter=""
-	authors="dariagrigoriu"
-	manager="wpickett"
-	editor="mollybos"/>
+---
+title: Práticas Recomendadas para o Serviço de Aplicativo do Azure
+description: Aprenda as práticas recomendadas e solução de problemas do Serviço de Aplicativo do Azure.
+services: app-service
+documentationcenter: ''
+author: dariagrigoriu
+manager: wpickett
+editor: mollybos
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2016"
-	ms.author="dariagrigoriu"/>
-    
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/30/2016
+ms.author: dariagrigoriu
+
+---
 # Práticas Recomendadas para o Serviço de Aplicativo do Azure
-
 Este artigo resume as práticas recomendadas para usar o [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 ## <a name="colocation"></a>Colocação
 Quando recursos do Azure compondo uma solução, como um aplicativo Web e um banco de dados de recursos estão localizados em regiões diferentes, os efeitos podem incluir o seguinte:
 
-*  Maior latência na comunicação entre recursos
-*  Encargos monetários para transferência de dados de saída entre regiões, como observado na [página de preços do Azure](https://azure.microsoft.com/pricing/details/data-transfers)
+* Maior latência na comunicação entre recursos
+* Encargos monetários para transferência de dados de saída entre regiões, como observado na [página de preços do Azure](https://azure.microsoft.com/pricing/details/data-transfers)
 
 A colocação na mesma região é melhor para que os recursos do Azure que compõem uma solução como um aplicativo Web e um banco de dados ou uma conta de armazenamento usada para armazenar conteúdo ou dados. Durante a criação de recursos, você deve verificar se eles estão na mesma região do Azure, a menos que você tenha motivos de design ou de negócios específicos para que eles não estejam. Você pode mover um aplicativo do Serviço de Aplicativo para a mesma região do banco de dados utilizando o [recurso de clonagem de Serviço de Aplicativo](app-service-web-app-cloning-portal.md) atualmente disponível para aplicativos do Plano do Serviço de Aplicativo Premium.
 

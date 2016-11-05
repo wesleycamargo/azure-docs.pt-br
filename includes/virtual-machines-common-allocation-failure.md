@@ -3,20 +3,17 @@ Se o problema do Azure não for resolvido neste artigo, visite os [Fóruns do Az
 
 ## Etapas gerais de solução de problemas
 ### Solução de problemas de falhas de alocação comuns no modelo de implantação clássico
-
 Essas etapas podem ajudar a resolver diversas falhas de alocação em máquinas virtuais:
 
-- Redimensione a VM para um tamanho de VM diferente.<br> Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Configurações** > **Tamanho**. Para obter as etapas detalhadas, consulte [Redimensionar a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
-
-- Exclua todas as VMs do serviço de nuvem e recrie-as.<br> Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Excluir**. Em seguida, clique em **Novo** > **Computação** > [imagem de máquina virtual].
+* Redimensione a VM para um tamanho de VM diferente.<br> Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Configurações** > **Tamanho**. Para obter as etapas detalhadas, consulte [Redimensionar a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+* Exclua todas as VMs do serviço de nuvem e recrie-as.<br> Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > sua máquina virtual > **Excluir**. Em seguida, clique em **Novo** > **Computação** > [imagem de máquina virtual].
 
 ### Solução de problemas de falhas de alocação comuns no modelo de implantação do Gerenciador de Recursos do Azure
-
 Essas etapas podem ajudar a resolver diversas falhas de alocação em máquinas virtuais:
 
-- Pare (desaloque) todas as VMs no mesmo conjunto de disponibilidade e reinicie cada uma delas.<br> Para parar: clique em **Grupos de recursos** > seu grupo de recursos > **Recursos** > seu conjunto de disponibilidade > **Máquinas Virtuais** > sua máquina virtual > **Parar**.
-
-	Depois de parar todas as VMs, selecione a primeira VM e clique em **Iniciar**.
+* Pare (desaloque) todas as VMs no mesmo conjunto de disponibilidade e reinicie cada uma delas.<br> Para parar: clique em **Grupos de recursos** > seu grupo de recursos > **Recursos** > seu conjunto de disponibilidade > **Máquinas Virtuais** > sua máquina virtual > **Parar**.
+  
+    Depois de parar todas as VMs, selecione a primeira VM e clique em **Iniciar**.
 
 ## Informações básicas
 ### Como funciona a alocação
@@ -30,12 +27,12 @@ Quando a solicitação de alocação é fixada a um cluster, é mais provável q
 ## As etapas de solução de problemas detalhadas de cenários de falha de alocação específica no modelo de implantação clássico
 Veja os cenários comuns de alocação que causam a fixação de uma solicitação de alocação. Vamos nos aprofundar em cada cenário posteriormente neste artigo.
 
-- Redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço de nuvem existente
-- Reiniciar VMs parcialmente paradas (desalocadas)
-- Reiniciar VMs totalmente paradas (desalocadas)
-- Implantações de preparo/produção (apenas plataforma como serviço)
-- Grupo de afinidades (proximidade de serviço/VM)
-- Rede virtual com base em grupo de afinidade
+* Redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço de nuvem existente
+* Reiniciar VMs parcialmente paradas (desalocadas)
+* Reiniciar VMs totalmente paradas (desalocadas)
+* Implantações de preparo/produção (apenas plataforma como serviço)
+* Grupo de afinidades (proximidade de serviço/VM)
+* Rede virtual com base em grupo de afinidade
 
 Caso receba um erro de alocação, verifique se os cenários descritos se aplicam ao seu erro. Use o erro de alocação retornado pela plataforma do Azure para identificar o cenário correspondente. Caso a solicitação seja fixada, remova algumas das restrições de fixação para abrir a solicitação para outros clusters e aumentar a probabilidade de êxito da alocação.
 
@@ -45,7 +42,10 @@ Dois cenários de falhas comuns estão relacionados aos grupos de afinidades. An
 
 O diagrama 5 a seguir apresenta a taxonomia dos cenários de alocação (afixados). ![Taxonomia de alocação fixada](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] Descrevemos o erro de forma reduzida em cada cenário de alocação. Veja [Pesquisa de cadeia de caracteres de erro](#Error string lookup) para obter cadeias de caracteres de erro detalhadas.
+> [!NOTE]
+> Descrevemos o erro de forma reduzida em cada cenário de alocação. Veja [Pesquisa de cadeia de caracteres de erro](#Error string lookup) para obter cadeias de caracteres de erro detalhadas.
+> 
+> 
 
 ## Cenário de alocação: redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço de nuvem existente
 **Erro**
@@ -63,7 +63,6 @@ Se o erro for Upgrade\_VMSizeNotSupported*, tente usar um tamanho de VM diferent
 Se o erro for GeneralError*, é provável que o cluster tenha suporte para o tipo de recurso (como um determinado tamanho de VM), embora não tenha recursos livres no momento. Semelhante ao cenário acima, adicione o recurso de computação desejado criando um novo serviço de nuvem (observe que o novo serviço de nuvem deve usar um VIP diferente) e use a rede virtual regional para conectar seus serviços de nuvem.
 
 ## Cenário de alocação: reiniciar VMs parcialmente paradas (desalocadas)
-
 **Erro**
 
 GeneralError*
@@ -75,8 +74,9 @@ A desalocação parcial significa que você parou (desalocou) uma ou mais, mas n
 **Solução alternativa**
 
 Se for aceitável usar um VIP diferente, exclua as VMs paradas (desalocadas) (mas mantenha os discos associados) e adicione-as novamente através de um serviço de nuvem diferente. Use a rede virtual regional para se conectar aos serviços de nuvem:
-- Caso o serviço de nuvem existente use uma rede virtual regional, basta adicionar o novo serviço de nuvem à mesma rede virtual.
-- Caso o serviço de nuvem existente não use a rede virtual regional, crie uma nova rede virtual para o novo serviço de nuvem e [conecte sua rede virtual existente à nova rede virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Saiba mais sobre as [redes virtuais regionais](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+
+* Caso o serviço de nuvem existente use uma rede virtual regional, basta adicionar o novo serviço de nuvem à mesma rede virtual.
+* Caso o serviço de nuvem existente não use a rede virtual regional, crie uma nova rede virtual para o novo serviço de nuvem e [conecte sua rede virtual existente à nova rede virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Saiba mais sobre as [redes virtuais regionais](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ## Cenário de alocação: reiniciar VMs totalmente paradas (desalocadas)
 **Erro**
@@ -135,9 +135,9 @@ Como alternativa, é possível [migrar a rede virtual baseada em grupo de afinid
 ## As etapas de solução de problemas detalhados em cenários específicos de falha na alocação no modelo de implantação do Azure Resource Manager
 Veja os cenários comuns de alocação que causam a fixação de uma solicitação de alocação. Vamos nos aprofundar em cada cenário posteriormente neste artigo.
 
-- Redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço de nuvem existente
-- Reiniciar VMs parcialmente paradas (desalocadas)
-- Reiniciar VMs totalmente paradas (desalocadas)
+* Redimensionar uma VM ou adicionar VMs ou instâncias de função a um serviço de nuvem existente
+* Reiniciar VMs parcialmente paradas (desalocadas)
+* Reiniciar VMs totalmente paradas (desalocadas)
 
 Caso receba um erro de alocação, verifique se os cenários descritos se aplicam ao seu erro. Use o erro de alocação retornado pela plataforma do Azure para identificar o cenário correspondente. Caso a solicitação seja fixada em um cluster existente, remova algumas das restrições de fixação para abrir a solicitação para outros clusters e aumentar a probabilidade de êxito da alocação.
 
@@ -200,3 +200,4 @@ Selecione um novo tamanho de VM para alocar. Se isso não funcionar, tente novam
 **GeneralError***
 
 "O servidor encontrou um erro interno. Repita a solicitação." Ou "Falha na produção de uma alocação para o serviço."
+

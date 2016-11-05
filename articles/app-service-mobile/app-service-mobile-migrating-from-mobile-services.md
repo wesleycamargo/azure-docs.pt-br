@@ -1,64 +1,58 @@
-<properties
-	pageTitle="Migrar dos Serviços Móveis para o Aplicativo Móvel do Serviço de Aplicativo"
-	description="Saiba como migrar facilmente seu aplicativo de Serviços Móveis para um Aplicativo Móvel do Serviço de Aplicativo"
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="adrianhall"
-	manager="dwrede"
-	editor=""/>
+---
+title: Migrar dos Serviços Móveis para o Aplicativo Móvel do Serviço de Aplicativo
+description: Saiba como migrar facilmente seu aplicativo de Serviços Móveis para um Aplicativo Móvel do Serviço de Aplicativo
+services: app-service\mobile
+documentationcenter: ''
+author: adrianhall
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/26/2016"
-	ms.author="adrianhall"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile
+ms.devlang: na
+ms.topic: article
+ms.date: 04/26/2016
+ms.author: adrianhall
 
+---
 # <a name="article-top"></a>Migrar seu Serviço Móvel do Azure existente para o Serviço de Aplicativo do Azure
-
 Com a [disponibilidade geral do Serviço de Aplicativo do Azure], sites de Serviços Móveis do Azure podem ser migrados facilmente no local para aproveitar todos os recursos do Serviço de Aplicativo do Azure. Este documento explica o que esperar ao migrar seu site dos Serviços Móveis do Azure para o Serviço de Aplicativo do Azure.
 
 ## <a name="what-does-migration-do"></a>O que a migração faz ao seu site
-
 A migração do Serviço Móvel do Azure tornará seu serviço móvel um aplicativo do [Serviço de Aplicativo do Azure] sem afetar o código de forma alguma. Os hubs de notificação, a conexão de dados do SQL, as configurações de autenticação, os trabalhos agendados e nome de domínio permanecerão inalterados. Os clientes móveis que estejam usando o serviço móvel do Azure continuarão funcionando normalmente. A migração reiniciará o serviço depois que ele for transferido para o Serviço de Aplicativo do Azure.
 
-[AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
+[!INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
 ## <a name="why-migrate"></a>Por que você deve migrar seu site
-
 A Microsoft está recomendando que você migre o serviço móvel do Azure para aproveitar os recursos do Serviço de Aplicativo do Azure, incluindo:
 
-  *  Novos recursos de host, incluindo [WebJobs] e [nomes de domínio personalizados].
-  *  Conectividade para seus recursos locais usando [VNet], além de [Conexões híbridas].
-  *  Monitorando e solucionando problemas com o New Relic ou o [Application Insights].
-  *  Ferramentas do DevOps internas, incluindo [slots de preparo], reversão e testes em produção.
-  *  [Dimensionamento automático], balanceamento de carga e [monitoramento de desempenho].
+* Novos recursos de host, incluindo [WebJobs] e [nomes de domínio personalizados].
+* Conectividade para seus recursos locais usando [VNet], além de [Conexões híbridas].
+* Monitorando e solucionando problemas com o New Relic ou o [Application Insights].
+* Ferramentas do DevOps internas, incluindo [slots de preparo], reversão e testes em produção.
+* [Dimensionamento automático], balanceamento de carga e [monitoramento de desempenho].
 
 Para obter mais informações sobre os benefícios do Serviço de Aplicativo do Azure, consulte o [Serviços Móveis vs. Serviço de Aplicativo].
 
 ## <a name="before-you-begin"></a>Antes de começar
-
 Antes de começar qualquer trabalho importante no seu site, você deve [fazer backup dos scripts do serviço móvel] e do Banco de Dados SQL.
 
 Se você quiser testar o processo de migração antes de migrar seu site de produção, duplique seu serviço móvel do Azure de produção dentro de uma nova [região do Azure] \(completo com uma cópia da fonte de dados) e teste a migração em relação à nova URL. Você também precisará de uma implementação de cliente de teste que aponte para o site de teste para testar adequadamente o site migrado.
 
 ## <a name="migrating-site"></a>Migrando seus sites
-
 O processo de migração migrará todos os sites em uma única região do Azure.
 
 Para migrar seu site:
 
-  1.  Faça logon no [Portal clássico do Azure].
-  2.  Selecione um serviço móvel na região que você deseja migrar.
-  3.  Clique no botão **Migrar para o Serviço de Aplicativo**.
-
-    ![O botão Migração][0]
-
-  4.  Leia o diálogo Migrar para o Serviço de Aplicativo.
-  5.  Insira o nome do serviço móvel na caixa fornecida. Por exemplo, se seu nome de domínio for contoso.azure-mobile.net, digite _contoso_ na caixa fornecida.
-  6.  Clique no botão de escala.
+1. Faça logon no [Portal clássico do Azure].
+2. Selecione um serviço móvel na região que você deseja migrar.
+3. Clique no botão **Migrar para o Serviço de Aplicativo**.
+   
+   ![O botão Migração][0]
+4. Leia o diálogo Migrar para o Serviço de Aplicativo.
+5. Insira o nome do serviço móvel na caixa fornecida. Por exemplo, se seu nome de domínio for contoso.azure-mobile.net, digite *contoso* na caixa fornecida.
+6. Clique no botão de escala.
 
 Você pode monitorar o status da migração no monitor de atividade e seu site será listado como *migrando* no Portal clássico do Azure.
 
@@ -67,273 +61,270 @@ Você pode monitorar o status da migração no monitor de atividade e seu site s
 Cada migração pode levar de 3 a 15 minutos por serviço móvel que está sendo migrado. Seu site permanecerá disponível durante a migração, mas será reinicializado no final do processo de migração. O site estará disponível durante o processo de reinicialização, o que pode durar alguns segundos.
 
 ## <a name="finalizing-migration"></a>Finalizando a migração
-
 Você deve planejar testar seu site de um cliente móvel ao final do processo de migração. Certifique-se de poder executar todas as ações comuns do cliente sem alterações ao cliente móvel. Além disso, você deve garantir que as alterações feitas para realizar a migração (como alterar o tipo de preço) sejam revertidas, se necessário.
 
 ### <a name="update-app-service-tier"></a>Selecione um tipo de preço de Serviço de Aplicativo apropriado
-
 Você tem mais flexibilidade nos preços depois de migrar para o Serviço de Aplicativo do Azure.
 
-  1.  Faça logon no [Portal do Azure].
-  2.  Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
-  3.  A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
-  4.  Clique em **Plano de Serviço de Aplicativo** no menu Configurações.
-  5.  Clique no bloco **Tipo de Preço**.
-  6.  Clique no bloco apropriado aos seus requisitos, então clique em **Selecione**. Talvez seja necessário clicar em **Exibir tudo** para ver os tipos de preços disponíveis.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
+3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
+4. Clique em **Plano de Serviço de Aplicativo** no menu Configurações.
+5. Clique no bloco **Tipo de Preço**.
+6. Clique no bloco apropriado aos seus requisitos, então clique em **Selecione**. Talvez seja necessário clicar em **Exibir tudo** para ver os tipos de preços disponíveis.
 
 Como ponto de partida, recomendamos o seguinte:
 
 | Tipo de Preço do Serviço Móvel | Tipo de Preço do Serviço de Aplicativo |
-| :-------------------------- | :----------------------- |
-| Grátis | F1 Gratuito |
-| Basic | B1 Básico |
-| Standard | S1 Standard |
+|:--- |:--- |
+| Grátis |F1 Gratuito |
+| Basic |B1 Básico |
+| Standard |S1 Standard |
 
 Observe que há uma considerável flexibilidade na escolha do tipo de preço certo para o seu aplicativo. Consulte [Preços do Serviço de Aplicativo] para obter detalhes completos sobre os preços de seu novo Serviço de Aplicativo.
 
-> [AZURE.TIP] O tipo Standard do Serviço de Aplicativo contém acesso a vários recursos que você talvez queira usar, incluindo [slots de preparo], backups automáticos e dimensionamento automático. Confira os novos recursos lá!
+> [!TIP]
+> O tipo Standard do Serviço de Aplicativo contém acesso a vários recursos que você talvez queira usar, incluindo [slots de preparo], backups automáticos e dimensionamento automático. Confira os novos recursos lá!
+> 
+> 
 
 ### <a name="review-migration-scheduler-jobs"></a>Examine os trabalhos do agendador migrados
-
 Os trabalhos do agendador não estarão visíveis até cerca de 30 minutos após a migração. Os trabalhos agendados continuarão sendo executados em segundo plano. Para exibir os trabalhos agendados:
 
-  1.  Faça logon no [Portal do Azure].
-  2.  Selecione **Procurar>**, digite **Agenda** na caixa _Filtro_ e, em seguida, selecione **Coleções do Agendador**.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Procurar>**, digite **Agenda** na caixa *Filtro* e, em seguida, selecione **Coleções do Agendador**.
 
 Há um número limitado de trabalhos do agendador gratuito disponíveis após a migração. Você deve examinar seu uso e os [Planos do Agendador do Azure].
 
 ### <a name="configure-cors"></a>Configure o CORS, se necessário
-
 Compartilhamento de recursos entre origens é uma técnica para permitir que um site acesse uma API da Web em um domínio diferente. Se você estiver usando os Serviços Móveis do Azure com um site associado, precisará configurar CORS como parte da migração. Se você estivesse acessando os Serviços Móveis do Azure exclusivamente a partir de dispositivos móveis, não é necessário configurar o CORS, exceto em casos raros.
 
 As configurações de CORS migradas estão disponíveis como a configuração do aplicativo **MS\_CrossDomainWhitelist**. Para migrar o site para o recurso CORS do Serviço de Aplicativo:
 
-  1.  Faça logon no [Portal do Azure].
-  2.  Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
-  3.  A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
-  4.  Clique em **CORS** no menu de API.
-  5.  Insira qualquer origem permitida na caixa fornecida, pressionando Enter depois de cada uma.
-  6.  Quando sua lista de origens permitidas estiver correta, clique no botão Salvar.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
+3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
+4. Clique em **CORS** no menu de API.
+5. Insira qualquer origem permitida na caixa fornecida, pressionando Enter depois de cada uma.
+6. Quando sua lista de origens permitidas estiver correta, clique no botão Salvar.
 
 Essa é uma tarefa opcional, mas fornece uma melhor experiência de gerenciamento para o futuro.
 
-> [AZURE.TIP]  Uma das vantagens de usar um Serviço de Aplicativo do Azure é que você pode executar seu site da web e serviço móvel no mesmo site. Consulte o [Traffic Manager tutorial](#next-steps) (Tutorial do Gerenciador de Tráfego) para obter mais informações.
+> [!TIP]
+> Uma das vantagens de usar um Serviço de Aplicativo do Azure é que você pode executar seu site da web e serviço móvel no mesmo site. Consulte o [Traffic Manager tutorial](#next-steps) (Tutorial do Gerenciador de Tráfego) para obter mais informações.
+> 
+> 
 
 ### <a name="download-publish-profile"></a>Baixar um novo perfil de publicação
-
 O perfil de publicação do seu site é alterado durante a migração para o Serviço de Aplicativo do Azure. Você precisará de um novo perfil de publicação se pretende publicar o site de dentro do Visual Studio. Para baixar um novo perfil de publicação:
 
-  1.  Faça logon no [Portal do Azure].
-  2.  Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
-  3.  Clique em **Obter perfil de publicação**.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
+3. Clique em **Obter perfil de publicação**.
 
-O arquivo PublishSettings será baixado para o seu computador. Ele normalmente será chamado _sitename_.PublishSettings. Você pode importar as configurações de publicação para o seu projeto existente:
+O arquivo PublishSettings será baixado para o seu computador. Ele normalmente será chamado *sitename*.PublishSettings. Você pode importar as configurações de publicação para o seu projeto existente:
 
-  1.  Abra o Visual Studio e o seu projeto de Serviço móvel do Azure.
-  2.  No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Publicar...**
-  3.  Clique em **Importar**
-  4.  Clique em **Procurar** e selecione seu arquivo de configurações de publicação baixado. Clique em **OK**
-  5.  Clique em **Validar Conexão** para garantir que as configurações de publicação funcionem.
-  6.  Clique em **Publicar** para publicar seu site.
-
+1. Abra o Visual Studio e o seu projeto de Serviço móvel do Azure.
+2. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Publicar...**
+3. Clique em **Importar**
+4. Clique em **Procurar** e selecione seu arquivo de configurações de publicação baixado. Clique em **OK**
+5. Clique em **Validar Conexão** para garantir que as configurações de publicação funcionem.
+6. Clique em **Publicar** para publicar seu site.
 
 ## <a name="working-with-your-site"></a>Trabalhando com seu site após a migração
-
 Você começará a trabalhar com o novo Serviço de Aplicativo no [Portal do Azure] após a migração. A seguir estão algumas observações sobre operações específicas que você usou para executar o [Portal Clássico do Azure], juntamente com seus equivalentes do Serviço de Aplicativo.
 
 ### <a name="publishing-your-site"></a>Baixar e publicar seu site migrado
-
 O site está disponível via git ou ftp e pode ser publicado novamente com um número de mecanismos diferentes, incluindo WebDeploy, TFS, Mercurial, GitHub e FTP. As credenciais de implantação são migradas com o restante do site. Se você não definir suas credenciais de implantação ou não se lembrar delas, poderá redefini-las:
 
-  1. Faça logon no [Portal do Azure].
-  2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
-  3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
-  4. Clique em **Credenciais de implantação** no menu PUBLICAÇÃO.
-  5. Insira as novas credenciais de implantação nas caixas fornecidas e clique no botão Salvar.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
+3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
+4. Clique em **Credenciais de implantação** no menu PUBLICAÇÃO.
+5. Insira as novas credenciais de implantação nas caixas fornecidas e clique no botão Salvar.
 
 Você pode usar essas credenciais para clonar o site com o git ou configurar implantações automatizadas do GitHub, do TFS ou do Mercurial. Para obter mais informações, consulte a [Documentação de implantação do Serviço de Aplicativo do Azure].
 
 ### <a name="appsettings"></a>Configurações do aplicativo
-
 A maioria das configurações para um serviço móvel migrado está disponível por meio de Configurações do Aplicativo. Você pode obter uma lista de configurações do aplicativo no [Portal do Azure]. Para exibir ou alterar as configurações do aplicativo:
 
-  1. Faça logon no [Portal do Azure].
-  2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
-  3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
-  4. Clique em **Configurações do aplicativo** no menu GERAL.
-  5. Role até a seção Configurações do Aplicativo e localize sua configuração de aplicativo.
-  6. Clique no valor da configuração do aplicativo para editar o valor. Clique em **Salvar** para salvar o valor.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
+3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
+4. Clique em **Configurações do aplicativo** no menu GERAL.
+5. Role até a seção Configurações do Aplicativo e localize sua configuração de aplicativo.
+6. Clique no valor da configuração do aplicativo para editar o valor. Clique em **Salvar** para salvar o valor.
 
 Você pode atualizar várias configurações de aplicativo ao mesmo tempo.
 
-> [AZURE.TIP]  Você observará que existem duas Configurações de Aplicativo com o mesmo valor. Por exemplo, você pode ver _ApplicationKey_ e _MS\_ApplicationKey_. Você só precisa alterar a configuração de aplicativo prefixada com **MS \_**. No entanto, é uma boa ideia atualizar ambas as configurações do aplicativo ao mesmo tempo.
+> [!TIP]
+> Você observará que existem duas Configurações de Aplicativo com o mesmo valor. Por exemplo, você pode ver *ApplicationKey* e *MS\_ApplicationKey*. Você só precisa alterar a configuração de aplicativo prefixada com **MS \_**. No entanto, é uma boa ideia atualizar ambas as configurações do aplicativo ao mesmo tempo.
+> 
+> 
 
 ### <a name="authentication"></a>Autenticação
-
 Todas as configurações de autenticação estão disponíveis como configurações de aplicativo no site migrado. Para atualizar as configurações de autenticação, é preciso alterar as configurações do aplicativo apropriadas. A tabela a seguir mostra as configurações do aplicativo apropriadas para o seu provedor de autenticação:
 
 | Provedor | ID do cliente | Segredo do cliente | Outras configurações |
-| :---------------- | :------------------------ | :--------------------------- | :------------------------- |
-| Conta da Microsoft | **MS\_MicrosoftClientID** | **MS\_MicrosoftClientSecret** | **MS\_MicrosoftPackageSID** |
-| Facebook | **MS\_FacebookAppID** | **MS\_FacebookAppSecret** | |
-| Twitter | **MS\_TwitterConsumerKey** | **MS\_TwitterConsumerSecret** | |
-| Google | **MS\_GoogleClientID** | **MS\_GoogleClientSecret** | |
-| AD do Azure | **MS\_AadClientID** | | **MS\_AadTenants** |
+|:--- |:--- |:--- |:--- |
+| Conta da Microsoft |**MS\_MicrosoftClientID** |**MS\_MicrosoftClientSecret** |**MS\_MicrosoftPackageSID** |
+| Facebook |**MS\_FacebookAppID** |**MS\_FacebookAppSecret** | |
+| Twitter |**MS\_TwitterConsumerKey** |**MS\_TwitterConsumerSecret** | |
+| Google |**MS\_GoogleClientID** |**MS\_GoogleClientSecret** | |
+| AD do Azure |**MS\_AadClientID** | |**MS\_AadTenants** |
 
 Observação: **MS\_AadTenants** é armazenado como uma lista separada por vírgulas dos domínios de locatário (os campos "Locatários Permitidos" no portal de Serviços Móveis).
 
-> [AZURE.WARNING] **Não use os mecanismos de autenticação no menu Configurações**
->
-> O Serviço de aplicativo do Azure fornece um sistema de autenticação e autorização "sem código" separado no menu de Configurações _Autenticação/Autorização_ e a opção (preterida) _Autenticação Móvel_ no menu Configurações. Essas opções são incompatíveis com um Serviço Móvel do Azure migrado. Você pode [atualizar seu site](app-service-mobile-net-upgrading-from-mobile-services.md) para aproveitar a autenticação do Serviço de Aplicativo do Azure.
+> [!WARNING]
+> **Não use os mecanismos de autenticação no menu Configurações**
+> 
+> O Serviço de aplicativo do Azure fornece um sistema de autenticação e autorização "sem código" separado no menu de Configurações *Autenticação/Autorização* e a opção (preterida) *Autenticação Móvel* no menu Configurações. Essas opções são incompatíveis com um Serviço Móvel do Azure migrado. Você pode [atualizar seu site](app-service-mobile-net-upgrading-from-mobile-services.md) para aproveitar a autenticação do Serviço de Aplicativo do Azure.
+> 
+> 
 
 ### <a name="easytables"></a>Dados
+A guia *Dados* nos Serviços Móveis foi substituída pelas *Tabelas Fáceis* no Portal do Azure. Para acessar tabelas fáceis:
 
-A guia _Dados_ nos Serviços Móveis foi substituída pelas _Tabelas Fáceis_ no Portal do Azure. Para acessar tabelas fáceis:
-
-  1. Faça logon no [Portal do Azure].
-  2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
-  3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
-  4. Clique em **Tabelas fáceis** no menu MÓVEL.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
+3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
+4. Clique em **Tabelas fáceis** no menu MÓVEL.
 
 Você pode adicionar uma nova tabela clicando no botão **Adicionar** ou acessar suas tabelas existentes clicando em um nome de tabela. Há uma variedade de operações que você realizar a partir dessa folha, incluindo:
 
-  * Alterando as permissões de tabela
-  * Editando os scripts operacionais
-  * Gerenciando o esquema da tabela
-  * Excluindo a tabela
-  * Limpando o conteúdo da tabela
-  * Excluindo linhas específicas da tabela
+* Alterando as permissões de tabela
+* Editando os scripts operacionais
+* Gerenciando o esquema da tabela
+* Excluindo a tabela
+* Limpando o conteúdo da tabela
+* Excluindo linhas específicas da tabela
 
 ### <a name="easyapis"></a>API
+A guia *API* nos Serviços Móveis foi substituída pelas *APIs Fáceis* no Portal do Azure. Para acessar APIs fáceis:
 
-A guia _API_ nos Serviços Móveis foi substituída pelas _APIs Fáceis_ no Portal do Azure. Para acessar APIs fáceis:
-
-  1. Faça logon no [Portal do Azure].
-  2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
-  3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
-  4. Clique em **APIs fáceis** no menu MÓVEL.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
+3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
+4. Clique em **APIs fáceis** no menu MÓVEL.
 
 Suas APIs migradas já estarão listadas na folha. Você também pode adicionar uma nova API a partir dessa folha. Para gerenciar uma API específica, clique na API. Na nova folha, você pode ajustar as permissões e editar os scripts para a API.
 
 ### <a name="on-demand-jobs"></a>Trabalhos do Agendador
-
 Todos os trabalhos do Agendador estão disponíveis por meio da seção de Coleções de trabalhos do Agendador. Para acessar seus trabalhos do Agendador:
 
-  1. Faça logon no [Portal do Azure].
-  2. Selecione **Procurar>**, digite **Agenda** na caixa _Filtro_ e, em seguida, selecione **Coleções do Agendador**.
-  3. Selecione a Coleção de trabalhos para seu site. Ela será nomeada _sitename_-Jobs.
-  4. Clique em **Configurações**.
-  5. Clique em **Trabalhos do Agendador** em GERENCIAR.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Procurar>**, digite **Agenda** na caixa *Filtro* e, em seguida, selecione **Coleções do Agendador**.
+3. Selecione a Coleção de trabalhos para seu site. Ela será nomeada *sitename*-Jobs.
+4. Clique em **Configurações**.
+5. Clique em **Trabalhos do Agendador** em GERENCIAR.
 
 Trabalhos agendados serão listados com a frequência especificada antes da migração. Trabalhos sob demanda serão desabilitados. Para executar um trabalho sob demanda:
 
-  1. Selecione o trabalho que você deseja executar.
-  2. Se necessário, clique em **Habilitar** para habilitar o trabalho.
-  3. Clique em **Configurações** e em **Agenda**.
-  4. Selecione uma Recorrência de **Uma vez** e clique em **Salvar**
+1. Selecione o trabalho que você deseja executar.
+2. Se necessário, clique em **Habilitar** para habilitar o trabalho.
+3. Clique em **Configurações** e em **Agenda**.
+4. Selecione uma Recorrência de **Uma vez** e clique em **Salvar**
 
 Os trabalhos sob demanda estão localizados em `App_Data/config/scripts/scheduler post-migration`. É recomendável converter todos os trabalhos sob demanda para [WebJobs]. Você deve escrever novos trabalhos do agendador como [WebJobs].
 
 ### <a name="notification-hubs"></a>Hubs de Notificação
-
 Os Serviços Móveis usam os Hubs de Notificação para notificações por push. As seguintes configurações de aplicativo são usadas para vincular o Hub de Notificação ao Serviço Móvel após a migração:
 
 | Configuração de aplicativo | Descrição |
-| :------------------------------------- | :--------------------------------------- |
-| **MS\_PushEntityNamespace** | O namespace do Hub de notificação |
-| **MS\_NotificationHubName** | O nome do hub de notificação |
-| **MS\_NotificationHubConnectionString** | A cadeia de conexão do hub de notificação |
-| **MS\_NamespaceName** | Um alias para MS\_PushEntityNamespace |
+|:--- |:--- |
+| **MS\_PushEntityNamespace** |O namespace do Hub de notificação |
+| **MS\_NotificationHubName** |O nome do hub de notificação |
+| **MS\_NotificationHubConnectionString** |A cadeia de conexão do hub de notificação |
+| **MS\_NamespaceName** |Um alias para MS\_PushEntityNamespace |
 
 O Hub de notificação será gerenciado por meio de [Portal do Azure]. Observe o nome do hub de notificação (você pode descobri-lo usando as Configurações do Aplicativo):
 
-  1. Faça logon no [Portal do Azure].
-  2. Selecione **Procurar**> e depois selecione **Hubs de Notificação**
-  3. Clique no nome do hub de notificação associado ao serviço móvel.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Procurar**> e depois selecione **Hubs de Notificação**
+3. Clique no nome do hub de notificação associado ao serviço móvel.
 
-> [AZURE.NOTE] O hub de notificação não estará visível se ele tiver um tipo “Misto”. Hubs de notificação do tipo "misto” utilizam Hubs de notificação e recursos do barramento de serviço herdados. Você precisará [Converter seus namespaces mistos]. Quando a conversão for concluída, o hub de notificação será exibido no [Portal do Azure].
+> [!NOTE]
+> O hub de notificação não estará visível se ele tiver um tipo “Misto”. Hubs de notificação do tipo "misto” utilizam Hubs de notificação e recursos do barramento de serviço herdados. Você precisará [Converter seus namespaces mistos]. Quando a conversão for concluída, o hub de notificação será exibido no [Portal do Azure].
+> 
+> 
 
 Para obter mais informações, consulte a documentação [Hubs de Notificação].
 
-> [AZURE.TIP] Recursos de gerenciamento de Hubs de notificação no [Portal do Azure] ainda estão em visualização. O [Portal Clássico do Azure] permanece disponível para gerenciar os hubs de notificação.
+> [!TIP]
+> Recursos de gerenciamento de Hubs de notificação no [Portal do Azure] ainda estão em visualização. O [Portal Clássico do Azure] permanece disponível para gerenciar os hubs de notificação.
+> 
+> 
 
 ### <a name="legacy-push"></a>Configurações de envio por push herdado
-
-Se você configurou o envio por push no seu serviço móvel antes da introdução em Hubs de Notificação, está usando o _envio por push herdado_. Caso você esteja usando o envio por push e não vir um Hub de Notificação listado em sua configuração, é provável que você esteja usando o _envio por push herdado_. Este recurso será migrado com todos os outros recursos e ainda estará disponível. No entanto, recomendamos que você atualize para Hubs de Notificação logo após a migração ser concluída.
+Se você configurou o envio por push no seu serviço móvel antes da introdução em Hubs de Notificação, está usando o *envio por push herdado*. Caso você esteja usando o envio por push e não vir um Hub de Notificação listado em sua configuração, é provável que você esteja usando o *envio por push herdado*. Este recurso será migrado com todos os outros recursos e ainda estará disponível. No entanto, recomendamos que você atualize para Hubs de Notificação logo após a migração ser concluída.
 
 Enquanto isso, todas as configurações de envio por push herdado (com a exceção notável do certificado APNS) estão disponíveis nas Configurações de Aplicativo. O certificado APNS pode ser substituído substituindo o arquivo apropriado no site. Isso pode ser feito por meio de qualquer uma das opções de implantação disponíveis para o Serviço de Aplicativo do Azure.
 
 ### <a name="app-settings"></a>Outras configurações de aplicativo
-
 As seguintes configurações de aplicativo adicionais são migradas do seu serviço móvel e estão disponíveis em *Configurações* > *Configurações do Aplicativo*:
 
 | Configuração de aplicativo | Descrição |
-| :------------------------------- | :-------------------------------------- |
-| **MS\_MobileServiceName** | O nome do seu aplicativo |
-| **MS\_MobileServiceDomainSuffix** | O prefixo do domínio, ou seja, azure-mobile.net |
-| **MS\_ApplicationKey** | A chave do seu aplicativo |
-| **MS\_MasterKey** | A chave mestre do aplicativo |
+|:--- |:--- |
+| **MS\_MobileServiceName** |O nome do seu aplicativo |
+| **MS\_MobileServiceDomainSuffix** |O prefixo do domínio, ou seja, azure-mobile.net |
+| **MS\_ApplicationKey** |A chave do seu aplicativo |
+| **MS\_MasterKey** |A chave mestre do aplicativo |
 
 A chave do aplicativo e a chave mestra devem ser idênticas às chaves de aplicativo do serviço móvel original. Em particular, a chave de aplicativo é enviada por clientes móveis para validar o uso da API móvel.
 
 ### <a name="cliequivalents"></a>Equivalentes de linha de comando
+Você não poderá utilizar o comando *azure mobile* para gerenciar o site de Serviços Móveis do Azure. Em vez disso, muitas funções foram substituídas pelo comando *azure site*. Use a tabela a seguir para localizar equivalentes para comandos comuns:
 
-Você não poderá utilizar o comando _azure mobile_ para gerenciar o site de Serviços Móveis do Azure. Em vez disso, muitas funções foram substituídas pelo comando _azure site_. Use a tabela a seguir para localizar equivalentes para comandos comuns:
-
-| Comando _Azure Mobile_ | Comando _Site do Azure_ equivalente |
-| :----------------------------------------- | :----------------------------------------- |
-| locais móveis | lista do local do site |
-| lista móvel | lista de sites |
-| _nome_ de exibição móvel | _nome_ de exibição do site |
-| _nome_ de reinicialização móvel | _nome_ de reinicialização do site |
-| _nome_ de reimplantação móvel | site deployment redeploy _commitId_ _name_ |
-| mobile key set _name_ _type_ _value_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
-| mobile config list _name_ | site appsetting list _name_ |
-| mobile config get _name_ _key_ | site appsetting show _key_ _name_ |
-| mobile config set _name_ _key_ | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
-| mobile domain list _name_ | site domain list _name_ |
-| mobile domain add _name_ _domain_ | site domain add _domain_ _name_ |
-| mobile domain delete _name_ | site domain delete _domain_ _name_ |
-| mobile scale show _name_ | _nome_ de exibição do site |
-| mobile scale change _name_ | site scale mode _mode_ _name_ <br /> site scale instances _instances_ _name_ |
-| mobile appsetting list _name_ | site appsetting list _name_ |
-| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=_value_ _name_ |
-| mobile appsetting delete _name_ _key_ | site appsetting delete _key_ _name_ |
-| mobile appsetting show _name_ _key_ | site appsetting delete _key_ _name_ |
+| Comando *Azure Mobile* | Comando *Site do Azure* equivalente |
+|:--- |:--- |
+| locais móveis |lista do local do site |
+| lista móvel |lista de sites |
+| *nome* de exibição móvel |*nome* de exibição do site |
+| *nome* de reinicialização móvel |*nome* de reinicialização do site |
+| *nome* de reimplantação móvel |site deployment redeploy *commitId* *name* |
+| mobile key set *name* *type* *value* |site appsetting delete *key* *name* <br/> site appsetting add *key*=*value* *name* |
+| mobile config list *name* |site appsetting list *name* |
+| mobile config get *name* *key* |site appsetting show *key* *name* |
+| mobile config set *name* *key* |site appsetting delete *key* *name* <br/> site appsetting add *key*=*value* *name* |
+| mobile domain list *name* |site domain list *name* |
+| mobile domain add *name* *domain* |site domain add *domain* *name* |
+| mobile domain delete *name* |site domain delete *domain* *name* |
+| mobile scale show *name* |*nome* de exibição do site |
+| mobile scale change *name* |site scale mode *mode* *name* <br /> site scale instances *instances* *name* |
+| mobile appsetting list *name* |site appsetting list *name* |
+| mobile appsetting add *name* *key* *value* |site appsetting add *key*=*value* *name* |
+| mobile appsetting delete *name* *key* |site appsetting delete *key* *name* |
+| mobile appsetting show *name* *key* |site appsetting delete *key* *name* |
 
 Atualize configurações de notificação por push ou de autenticação atualizando a configuração apropriada do aplicativo. Edite arquivos e publique seu site via ftp ou git.
 
 ### <a name="diagnostics"></a>Diagnóstico e registro em log
-
 Normalmente, o registro em log de diagnóstico está desabilitado em um Serviço de Aplicativo do Azure. Para habilitar registro em log de diagnóstico:
 
-  1. Faça logon no [Portal do Azure].
-  2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
-  3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
-  4. Selecione **Logs de diagnóstico** no menu RECURSOS.
-  5. Clique em **LIGAR** para os seguintes logs: **Registro em log de aplicativo (sistema de arquivos)**, **Mensagens de erro detalhadas** e **Rastreamento de solicitação com falha**
-  6. Clique em **sistema de arquivos** para registro em log do servidor Web
-  7. Clique em **Salvar**.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
+3. A folha Configurações será aberta por padrão; se não abrir, clique em **Configurações**.
+4. Selecione **Logs de diagnóstico** no menu RECURSOS.
+5. Clique em **LIGAR** para os seguintes logs: **Registro em log de aplicativo (sistema de arquivos)**, **Mensagens de erro detalhadas** e **Rastreamento de solicitação com falha**
+6. Clique em **sistema de arquivos** para registro em log do servidor Web
+7. Clique em **Salvar**.
 
 Para exibir os logs:
 
-  1. Faça logon no [Portal do Azure].
-  2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
-  3. Clique no botão **Ferramentas**
-  4. Selecione **Transmissão de Log** no menu OBSERVE.
+1. Faça logon no [Portal do Azure].
+2. Selecione **Todos os recursos** ou **Serviços de Aplicativos** e clique no nome do Serviço Móvel migrado.
+3. Clique no botão **Ferramentas**
+4. Selecione **Transmissão de Log** no menu OBSERVE.
 
 Os logs serão transmitidos para a janela fornecida como eles são gerados. Você também pode baixar os logs para análise posterior usando suas credenciais de implantação. Consulte a documentação de [Registro em log] para obter mais informações.
 
 ## <a name="known-issues"></a>Problemas conhecidos
-
 ### Excluir o clone de um aplicativo móvel migrado causa interrupção do site
-
 Se você clonar seu serviço móvel migrado usando o Azure PowerShell e excluir o clone, a entrada DNS do seu serviço de produção será removida. Como resultado, o site deixará de ficar acessível pela Internet.
 
 Solução: estamos trabalhando para corrigir esse problema. Se quiser clonar seu site, faça isso por meio do portal.
 
 ### A alteração do web.config não funciona
-
 Se você tiver um site do ASP.NET, as alterações no arquivo `Web.config` não funcionarão. O Serviço de Aplicativo do Azure cria um arquivo `Web.config` adequado durante a inicialização compatível com o tempo de execução dos Serviços Móveis. Você pode substituir determinadas configurações (como cabeçalhos personalizados) usando um arquivo de transformação XML. Crie um arquivo chamado `applicationHost.xdt` – esse arquivo deve terminar no diretório `D:\home\site` no Serviço do Azure. Faça isso por meio de um script de implantação personalizada ou usando o Kudu. Veja abaixo um documento de exemplo:
 
 ```
@@ -357,24 +348,20 @@ Para obter mais informações, consulte a documentação [XDT Transform Samples]
 (Exemplos de Transformação XDT) no GitHub.
 
 ### Os Serviços Móveis migrados não podem ser adicionados ao Gerenciador de Tráfego
-
 Quando você cria um perfil do Gerenciador de Tráfego, não pode escolher diretamente um serviço móvel migrado para o perfil. Você precisa usar um "ponto de extremidade externo". O ponto de extremidade externo só pode ser adicionado por meio do PowerShell. Consulte o [Traffic Manager tutorial](https://azure.microsoft.com/blog/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) (Tutorial do Gerenciador de Tráfego) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
-
 Note que seu aplicativo é migrado para o serviço de aplicativo, há ainda mais recursos você pode aproveitar:
 
-  * [Slots de preparo] de implantação permitem testar alterações ao seu site e executar um teste A/B.
-  * [WebJobs] fornecem uma substituição para trabalhos agendados sob demanda.
-  * Você pode [implantar continuamente] seu site vinculando seu site a GitHub, TFS ou Mercurial.
-  * Você pode usar o [Application Insights] para monitorar seu site.
-  * Atenda a um site e a uma API móvel com o mesmo código.
+* [Slots de preparo] de implantação permitem testar alterações ao seu site e executar um teste A/B.
+* [WebJobs] fornecem uma substituição para trabalhos agendados sob demanda.
+* Você pode [implantar continuamente] seu site vinculando seu site a GitHub, TFS ou Mercurial.
+* Você pode usar o [Application Insights] para monitorar seu site.
+* Atenda a um site e a uma API móvel com o mesmo código.
 
 ### <a name="upgrading-your-site"></a>Atualizar o site de serviços móveis para o SDK de aplicativos móveis do Azure
-
-  * Para projetos de servidor baseados em Node.js, o novo [SDK do Node.js de Aplicativos Móveis] oferece vários recursos novos. Por exemplo, você pode agora fazer desenvolvimento local e a depuração, usar qualquer versão do Node. js acima de 0,10 e personalizar com qualquer middleware Express. js.
-
-  * Para projetos de servidor baseados em .NET, os novos [pacotes NuGet de SDK de aplicativos móveis](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) têm mais flexibilidade em dependências do NuGet, dão suporte a novos recursos de autenticação do serviço de aplicativo e compõem com qualquer projeto ASP.NET, inclusive o MVC. Para saber mais sobre a atualização, consulte [Atualizar o serviço de celular do .NET existente para o Serviço de Aplicativo](app-service-mobile-net-upgrading-from-mobile-services.md).
+* Para projetos de servidor baseados em Node.js, o novo [SDK do Node.js de Aplicativos Móveis] oferece vários recursos novos. Por exemplo, você pode agora fazer desenvolvimento local e a depuração, usar qualquer versão do Node. js acima de 0,10 e personalizar com qualquer middleware Express. js.
+* Para projetos de servidor baseados em .NET, os novos [pacotes NuGet de SDK de aplicativos móveis](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) têm mais flexibilidade em dependências do NuGet, dão suporte a novos recursos de autenticação do serviço de aplicativo e compõem com qualquer projeto ASP.NET, inclusive o MVC. Para saber mais sobre a atualização, consulte [Atualizar o serviço de celular do .NET existente para o Serviço de Aplicativo](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-migrating-from-mobile-services/migrate-to-app-service-button.PNG

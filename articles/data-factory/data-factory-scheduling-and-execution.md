@@ -1,34 +1,32 @@
-<properties
-    pageTitle="Agendamento e execução com o Data Factory | Microsoft Azure"
-    description="Aprenda sobre os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory."
-    services="data-factory"
-    documentationCenter=""
-    authors="spelluru"
-    manager="jhubbard"
-    editor="monicar"/>
+---
+title: Agendamento e execução com o Data Factory | Microsoft Docs
+description: Aprenda sobre os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-    ms.service="data-factory"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/22/2016
+ms.author: spelluru
 
-
+---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução com o Data Factory
 Este artigo explica os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo presume que você compreenda as noções básicas sobre conceitos de modelo de aplicativo do data factory, incluindo atividade, pipelines, serviços vinculados e conjuntos de dados. Para obter conceitos básicos do Azure Data Factory, consulte os seguintes artigos:
 
-- [Introdução ao Data Factory](data-factory-introduction.md)
-- [Pipelines](data-factory-create-pipelines.md)
-- [Conjunto de dados](data-factory-create-datasets.md) 
+* [Introdução ao Data Factory](data-factory-introduction.md)
+* [Pipelines](data-factory-create-pipelines.md)
+* [Conjunto de dados](data-factory-create-datasets.md) 
 
 ## <a name="schedule-an-activity"></a>Agendar uma atividade
-
 Na seção agendador da atividade JSON, você pode especificar um agendamento recorrente para uma atividade. Por exemplo, você pode agendar uma atividade a cada hora, da seguinte maneira:
 
     "scheduler": {
@@ -47,7 +45,6 @@ A propriedade **agendador** dá suporte às mesmas subpropriedades que a proprie
 Você pode especificar propriedades **scheduler para uma** atividade, mas isso é **opcional**. Se você especificar uma propriedade, ela deverá corresponder à cadência que você especificar na definição do conjunto de dados de saída. Atualmente, o conjunto de dados de saída é o que aciona a agenda, então você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada.
 
 ## <a name="time-series-datasets-and-data-slices"></a>Conjuntos de dados de série temporal e fatias de dados
-
 Dados de série temporal são uma sequência contínua de pontos de dados normalmente consistindo em sucessivas medidas feitas durante um intervalo de tempo. Exemplos comuns de dados de série temporal incluem dados de sensor e dados de telemetria de aplicativo.
 
 Com o Data Factory, é possível processar dados de série temporal de maneira em lote com execuções da atividade. Normalmente, há uma cadência recorrentes na qual os dados de entrada chegam e os dados de saída devem ser produzidos. Essa cadência é modelada especificando a **availability** no conjunto de dados da seguinte maneira:
@@ -70,7 +67,6 @@ Atualmente, o Data Factory exige que a agenda especificada na atividade correspo
 Para saber mais sobre propriedades diferentes disponíveis para a seção disponibilidade, confira [Criando conjuntos de dados](data-factory-create-datasets.md).
 
 ## <a name="move-data-from-sql-database-to-blob-storage"></a>Mover dados do Banco de Dados SQL para o Armazenamento de Blobs
-
 Vamos colocar tudo em ação criando um pipeline que copia dados de uma tabela do banco de dados SQL do Azure para o armazenamento de Blobs do Azure a cada hora.
 
 **Entrada: conjunto de dados do banco de dados SQL do Azure**
@@ -154,8 +150,6 @@ A **frequência** é definida como **Hora** e o **intervalo** é definido como *
 
 A **frequência** é definida como **Hora** e o **intervalo** é definido como **1** na seção disponibilidade.
 
-
-
 **Atividade: atividade de cópia**
 
     {
@@ -208,23 +202,24 @@ Quando três das fatias entre 8– 11h forem executadas e os dados no banco de d
 
 Após o pipeline ser implantado, o blob do Azure é populado da seguinte maneira:
 
--   Arquivo mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt com dados
-
-            10002345,334,2,2015-01-01 08:24:00.3130000
-            10002345,347,15,2015-01-01 08:24:00.6570000
-            10991568,2,7,2015-01-01 08:56:34.5300000
-
-    > [AZURE.NOTE] &lt;Guid&gt;; é substituído por um guid real. Exemplo de nome de arquivo: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
--   Arquivo mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt com dados:
-
-            10002345,334,1,2015-01-01 09:13:00.3900000
-            24379245,569,23,2015-01-01 09:25:00.3130000
-            16777799,21,115,2015-01-01 09:47:34.3130000
--   Arquivo mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt sem dados.
-
+* Arquivo mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt com dados
+  
+          10002345,334,2,2015-01-01 08:24:00.3130000
+          10002345,347,15,2015-01-01 08:24:00.6570000
+          10991568,2,7,2015-01-01 08:56:34.5300000
+  
+  > [!NOTE]
+  > &lt;Guid&gt;; é substituído por um guid real. Exemplo de nome de arquivo: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
+  > 
+  > 
+* Arquivo mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt com dados:
+  
+          10002345,334,1,2015-01-01 09:13:00.3900000
+          24379245,569,23,2015-01-01 09:25:00.3130000
+          16777799,21,115,2015-01-01 09:47:34.3130000
+* Arquivo mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt sem dados.
 
 ## <a name="active-period-for-pipeline"></a>Período ativo do pipeline
-
 [Criando pipelines](data-factory-create-pipelines.md) introduziu o conceito de período ativo para um pipeline especificado definindo as propriedades **start** e **end**.
 
 Você pode definir a data de início para o período ativo do pipeline no passado. O Data Factory calcula automaticamente (faz preenchimento de fundo) todas as fatias de dados no passado e começa a processá-las.
@@ -232,7 +227,7 @@ Você pode definir a data de início para o período ativo do pipeline no passad
 ## <a name="parallel-processing-of-data-slices"></a>Processamento paralelo de fatias de dados
 Você pode configurar as fatias de dados preenchidas para serem executadas em paralelo, definindo a propriedade **concurrency** na seção de política da atividade JSON. Para saber mais sobre essa propriedade, confira [Criando pipelines](data-factory-create-pipelines.md).
 
-## <a name="rerun-a-failed-data-slice"></a>Executar novamente uma fatia de dados com falha 
+## <a name="rerun-a-failed-data-slice"></a>Executar novamente uma fatia de dados com falha
 Você pode monitorar a execução de fatias em um formato visualmente sofisticado. Confira [Monitorar e gerenciar pipelines usando folhas do portal do Azure](data-factory-monitor-manage-pipelines.md) ou [aplicativo de monitoramento e gerenciamento](data-factory-monitor-manage-app.md) para obter detalhes.
 
 Considere o exemplo a seguir, que mostra duas atividades. A Atividade1 produz um conjunto de dados de série temporal com fatias como saída, que é consumida como entrada pela Atividade2 para produzir o conjunto de dados de série temporal final de saída.
@@ -252,8 +247,8 @@ Após você executar novamente a fatia de 9-10h para o **Dataset2**, o Data Fact
 
 Por exemplo, considere o seguinte caso:
 
-1.  O pipeline P1 contém a Atividade A1, que exige o conjunto de dados de entrada externa D1 e produz o conjunto de dados de saída D2.
-2.  O pipeline P2 contém a Atividade A2, que exige a entrada do conjunto de dados D2, e produz o conjunto de dados de saída D3.
+1. O pipeline P1 contém a Atividade A1, que exige o conjunto de dados de entrada externa D1 e produz o conjunto de dados de saída D2.
+2. O pipeline P2 contém a Atividade A2, que exige a entrada do conjunto de dados D2, e produz o conjunto de dados de saída D3.
 
 Nesse cenário, as atividades A1 e A2 estão em diferentes pipelines. A atividade A1 é executada quando os dados externos estão disponíveis e a frequência de disponibilidade agendada é alcançada. A atividade A2 é executada quando as fatias agendadas de D2 ficam disponíveis e a frequência de disponibilidade agendada é alcançada. Se houver um erro em uma das fatias no conjunto de dados D2, A2 não será executada para essa fatia até que fique disponível.
 
@@ -452,17 +447,13 @@ Entradas: Dataset3, Dataset2. Saída: Dataset4.
 
 Observe que no exemplo, dois conjuntos de dados de entrada são especificados para a segunda atividade de cópia. Quando várias entradas forem especificadas, somente o primeiro conjunto de dados de entrada será usado para copiar dados, mas outros conjuntos de dados serão usados como dependências. CopyActivity2 começaria apenas quando as seguintes condições fossem atendidas:
 
-- CopyActivity1 foi concluído com êxito e Dataset2 está disponível. Esse conjunto de dados não é usado ao copiar dados para Dataset4. Ele atua apenas como uma dependência de agendamento de CopyActivity2.   
-- Dataset3 está disponível. Esse conjunto de dados representa os dados que são copiados para o destino.  
-
-
+* CopyActivity1 foi concluído com êxito e Dataset2 está disponível. Esse conjunto de dados não é usado ao copiar dados para Dataset4. Ele atua apenas como uma dependência de agendamento de CopyActivity2.   
+* Dataset3 está disponível. Esse conjunto de dados representa os dados que são copiados para o destino.  
 
 ## <a name="model-datasets-with-different-frequencies"></a>Modelar conjuntos de dados com frequências diferentes
-
 Nos exemplos, as frequências de conjuntos de dados de entrada e saída e a janela de agendamento de atividade foram iguais. Alguns cenários exigem a capacidade de produzir saída em uma frequência diferente de frequências de uma ou mais entradas. O Data Factory dá suporte à modelagem desses cenários.
 
 ### <a name="sample-1:-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Exemplo 1: gerar um relatório diário de saída para dados de entrada que estão disponíveis de hora em hora
-
 Considere um cenário em que temos dados de medição de entrada de sensores disponíveis a cada hora no armazenamento de Blobs do Azure. Você deseja produzir um relatório diário de agregação com estatísticas, como média, máximo e mínimo para o dia com a [Atividade hive do Data Factory](data-factory-hive-activity.md).
 
 Veja como você pode modelar esse cenário com o Data Factory:
@@ -498,7 +489,6 @@ Os arquivos de entrada por hora são instalados na pasta para o dia determinado.
 **Conjunto de dados de saída**
 
 Um arquivo de saída é criado diariamente na pasta do dia. A disponibilidade de saída é definida em **Dia** (frequência: Dia e intervalo: 1).
-
 
     {
       "name": "AzureBlobOutput",
@@ -578,9 +568,7 @@ O diagrama a seguir mostra o cenário de um ponto de vista de dependência de da
 
 A fatia de saída para cada dia depende de 24 fatias horárias do conjunto de dados de entrada. O Data Factory calcula essas dependências automaticamente descobrindo as fatias de dados de entrada que equivalem ao mesmo período de tempo utilizado para a produção da fatia de saída. Se qualquer uma das 24 fatias de entrada não estiver disponível, o Data Factory aguardará até que a fatia de entrada esteja pronta antes de iniciar a execução da atividade diária.
 
-
 ### <a name="sample-2:-specify-dependency-with-expressions-and-data-factory-functions"></a>Exemplo 2: especificar dependência com expressões e funções do Data Factory
-
 Vamos considerar outro cenário. Suponha que você tenha uma atividade de hive que processa dois conjuntos de dados de entrada. Um deles tem novos dados diariamente, mas o outro obtém novos dados toda semana. Suponha que você queira fazer uma associação entre as duas entradas e produzir uma saída diariamente.
 
 A abordagem simples, na qual o Data Factory detecta automaticamente as fatias de entrada certas a serem processadas alinhando-se ao período de tempo da fatia de dados de saída, não funciona.
@@ -725,12 +713,10 @@ A atividade de hive usa as duas entradas e produz uma fatia de saída todos os d
     }
 
 
-## <a name="data-factory-functions-and-system-variables"></a>Funções do Data Factory e variáveis do sistema   
-
+## <a name="data-factory-functions-and-system-variables"></a>Funções do Data Factory e variáveis do sistema
 Veja [Funções e variáveis do sistema do Data Factory](data-factory-functions-variables.md) para obter uma lista das funções e variáveis às quais o Azure Data Factory dá suporte.
 
 ## <a name="data-dependency-deep-dive"></a>Grande aprofundamento em dependência de dados
-
 Para gerar uma fatia do conjunto de dados por uma execução de atividade, o Data Factory usa o *modelo de dependência* a seguir para determinar as relações entre conjuntos de dados consumidos e produzidos por uma atividade.
 
 O intervalo de tempo dos conjuntos de dados de entrada necessários para gerar a fatia do conjunto de dados de saída é chamado de *período de dependência*.
@@ -751,7 +737,6 @@ Por exemplo: no exemplo de agregação, em que a saída é produzida diariamente
 Você também pode fornecer seu próprio mapeamento para o período de dependência, como mostrado no exemplo em que uma das entradas é semanal e o intervalo de saída é gerado diariamente.
 
 ## <a name="data-dependency-and-validation"></a>Validação e dependência de dados
-
 Um conjunto de dados pode ter uma política de validação definida que especifica como os dados gerados pela execução de uma fatia podem ser validados antes de estarem prontos para consumo. Veja [Criando conjuntos de dados](data-factory-create-datasets.md) para obter detalhes.
 
 Nesses casos, quando a execução da fatia tiver terminado, o status da fatia de saída será alterado para **Aguardando** com um substatus de **Validação**. Depois que as fatias são validadas, o status de fatia é alterado para **Pronto**.
@@ -761,7 +746,6 @@ Se uma fatia de dados foi produzida mas não passou na validação, as execuçõ
 [Monitorar e gerenciar pipelines](data-factory-monitor-manage-pipelines.md) .
 
 ## <a name="external-data"></a>Dados externos
-
 Um conjunto de dados pode ser marcado como externo (como mostrado no trecho de JSON a seguir), indicando que não foi gerado com o Data Factory. Nesse caso, a política de conjunto de dados pode ter um conjunto de parâmetros que descrevem uma política de validação e repetição de tentativas para o conjunto de dados. Veja [Criando pipelines](data-factory-create-pipelines.md) para obter uma descrição de todas as propriedades.
 
 Semelhante a conjuntos de dados que são produzidos pelo Data Factory, as fatias de dados para dados externos precisam estar prontas para que fatias dependentes possam ser processadas.
@@ -834,12 +818,10 @@ Você pode criar e agendar um pipeline para ser executado periodicamente (por ex
 
 Observe o seguinte:
 
-- As horas de **início** e **término** para o pipeline não são especificadas.
-- A **disponibilidade** de conjuntos de dados de entrada e saída é especificada (**frequência** e **intervalo**), mesmo que os valores não sejam usados pelo Data Factory.  
-- A exibição de diagrama não mostra pipelines únicos. Este comportamento ocorre por design.
-- Pipelines avulsos não podem ser atualizados. É possível clonar um pipeline único, renomeá-lo, atualizar suas propriedades e implantá-lo para criar outro.
-
-
+* As horas de **início** e **término** para o pipeline não são especificadas.
+* A **disponibilidade** de conjuntos de dados de entrada e saída é especificada (**frequência** e **intervalo**), mesmo que os valores não sejam usados pelo Data Factory.  
+* A exibição de diagrama não mostra pipelines únicos. Este comportamento ocorre por design.
+* Pipelines avulsos não podem ser atualizados. É possível clonar um pipeline único, renomeá-lo, atualizar suas propriedades e implantá-lo para criar outro.
 
 <!--HONumber=Oct16_HO2-->
 

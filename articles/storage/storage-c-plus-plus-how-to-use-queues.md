@@ -1,47 +1,49 @@
-<properties
-    pageTitle="Como usar o armazenamento de filas (C++) | Microsoft Azure"
-    description="Saiba como usar o serviço de armazenamento de filas no Azure. As amostras são escritas em C++."
-    services="storage"
-    documentationCenter=".net"
-    authors="dineshmurthy"
-    manager="jahogg"
-    editor="tysonn"/>
+---
+title: Como usar o armazenamento de filas (C++) | Microsoft Docs
+description: Saiba como usar o serviço de armazenamento de filas no Azure. As amostras são escritas em C++.
+services: storage
+documentationcenter: .net
+author: dineshmurthy
+manager: jahogg
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="dineshm"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: dineshm
 
+---
+# <a name="how-to-use-queue-storage-from-c++"></a>Como usar o armazenamento de filas do C++
+[!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
-# <a name="how-to-use-queue-storage-from-c++"></a>Como usar o armazenamento de filas do C++  
-
-[AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
+[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Visão geral
 Este guia irá lhe mostrar como executar cenários comuns usando o armazenamento de fila do Azure. Os exemplos são escritos em C++ e usam a [Biblioteca do Cliente de Armazenamento do Azure para C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**.
 
->[AZURE.NOTE] Este guia tem como alvo a Biblioteca do Cliente de Armazenamento do Azure para C++, versão 1.0.0 e superior. A versão recomendada é a Biblioteca de Clientes de Armazenamento 2.2.0, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](http://github.com/Azure/azure-storage-cpp/).
+> [!NOTE]
+> Este guia tem como alvo a Biblioteca do Cliente de Armazenamento do Azure para C++, versão 1.0.0 e superior. A versão recomendada é a Biblioteca de Clientes de Armazenamento 2.2.0, que está disponível via [NuGet](http://www.nuget.org/packages/wastorage) ou [GitHub](http://github.com/Azure/azure-storage-cpp/).
+> 
+> 
 
-[AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
-## <a name="create-a-c++-application"></a>Criar um aplicativo em C++  
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+
+## <a name="create-a-c++-application"></a>Criar um aplicativo em C++
 Neste guia, você usará os recursos de armazenamento que podem ser executados em um aplicativo C++.
 
 Para isso, você precisará instalar a Biblioteca do Cliente de Armazenamento do Azure para C++ e criar uma conta de armazenamento do Azure em sua assinatura do Azure.
 
 Para instalar a Biblioteca do Cliente de Armazenamento do Azure para C++, você pode usar os seguintes métodos:
 
--   **Linux:** siga as instruções dadas na página README da [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
--   **Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.
-
-        Install-Package wastorage
+* **Linux:** siga as instruções dadas na página README da [Biblioteca do Cliente de Armazenamento do Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
+* **Windows:** no Visual Studio, clique em **Ferramentas > Gerenciador de Pacotes do NuGet > Console do Gerenciador de Pacotes**. Digite o seguinte comando no console do [Gerenciador de Pacotes do NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e pressione **ENTER**.
+  
+      Install-Package wastorage
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configurar seu aplicativo para acessar o Armazenamento de Filas
 Adicione as seguintes instruções include à parte superior do arquivo C++ no qual deseja usar as APIs de armazenamento do Azure para acessar as filas:  
@@ -50,7 +52,6 @@ Adicione as seguintes instruções include à parte superior do arquivo C++ no q
     #include "was/queue.h"
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de conexão de armazenamento do Azure
-
 Um cliente de armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao ser executado em um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de acesso de armazenamento da conta de armazenamento listada no [Portal do Azure](https://portal.azure.com) para os valores *AccountName* e *AccountKey*. Para obter informações sobre as contas de armazenamento e as chaves de acesso, consulte [Sobre as Contas de Armazenamento do Azure](storage-create-storage-account.md). Este exemplo mostra como você pode declarar um campo estático para armazenar a cadeia de conexão:  
 
     // Define the connection-string with your values.
@@ -231,17 +232,13 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **dele
     queue.delete_queue_if_exists();  
 
 ## <a name="next-steps"></a>Próximas etapas
-
 Agora que você aprendeu os conceitos básicos do armazenamento de filas, siga estes links para saber mais sobre o armazenamento do Azure.
 
--   [Como usar o Armazenamento de Blobs do C++](storage-c-plus-plus-how-to-use-blobs.md)
--   [Como usar o Armazenamento de Tabelas do C++](storage-c-plus-plus-how-to-use-tables.md)
--   [Listar recursos de Armazenamento do Azure em C++](storage-c-plus-plus-enumeration.md)
--   [Referência da Biblioteca de Cliente de Armazenamento para C++](http://azure.github.io/azure-storage-cpp)
--   [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
-
-
-
+* [Como usar o Armazenamento de Blobs do C++](storage-c-plus-plus-how-to-use-blobs.md)
+* [Como usar o Armazenamento de Tabelas do C++](storage-c-plus-plus-how-to-use-tables.md)
+* [Listar recursos de Armazenamento do Azure em C++](storage-c-plus-plus-enumeration.md)
+* [Referência da Biblioteca de Cliente de Armazenamento para C++](http://azure.github.io/azure-storage-cpp)
+* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
 
 <!--HONumber=Oct16_HO2-->
 

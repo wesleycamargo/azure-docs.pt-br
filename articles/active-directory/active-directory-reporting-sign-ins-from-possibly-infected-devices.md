@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Entradas de dispositivos possivelmente infectados"
-	description="Um relatório que inclui tentativas de entrada que foram realizadas de dispositivos nos quais algum malware (software mal-intencionado) pode estar em execução."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: Entradas de dispositivos possivelmente infectados
+description: Um relatório que inclui tentativas de entrada que foram realizadas de dispositivos nos quais algum malware (software mal-intencionado) pode estar em execução.
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
-
+---
 # Entradas de dispositivos possivelmente infectados
 Este relatório tenta identificar os dispositivos de seus usuários que foram infectados e que agora fazem parte de um botnet. Correlacionamos endereços IP de entradas de usuários com endereços IP que sabemos que estão em contato com servidores botnet.
 

@@ -9,7 +9,6 @@ Você pode criar filas de armazenamento do Azure usando o **Gerenciador de Servi
 
 Por padrão, o novo contêiner é privado e você deve especificar sua chave de acesso do armazenamento para baixar blobs desse contêiner. Se você quiser tornar públicos os arquivos no contêiner, selecione o contêiner no **Gerenciador de Servidores** e pressione `F4` para exibir a janela **Propriedades**. Defina o **Acesso de Leitura Público** como **Blob**. Qualquer pessoa na Internet pode ver blobs em um contêiner público, mas você só pode modificar ou excluí-los se tiver a chave de acesso apropriada.
 
-
 [Image1]: ./media/vs-create-blob-container-in-server-explorer/vs-storage-create-blob-containers-in-Server-Explorer.png
 
 <!---HONumber=Oct15_HO3-->

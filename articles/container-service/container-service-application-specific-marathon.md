@@ -1,25 +1,24 @@
-<properties
-   pageTitle="Aplicativo ou serviço do Marathon específico do usuário | Microsoft Azure"
-   description="Criar um aplicativo ou serviço do Marathon específico do usuário"
-   services="container-service"
-   documentationCenter=""
-   authors="rgardler"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Contêineres, Marathon, microsserviços, DC/OS, Azure"/>
+---
+title: Aplicativo ou serviço do Marathon específico do usuário | Microsoft Docs
+description: Criar um aplicativo ou serviço do Marathon específico do usuário
+services: container-service
+documentationcenter: ''
+author: rgardler
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Contêineres, Marathon, microsserviços, DC/OS, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="04/12/2016"
-   ms.author="rogardle"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 04/12/2016
+ms.author: rogardle
 
+---
 # Criar um aplicativo ou serviço do Marathon específico do usuário
-
 O Serviço de Contêiner do Azure fornece um conjunto de servidores mestres no qual podemos pré-configurar o Apache Mesos e o Marathon. Eles podem ser usados para orquestrar seus aplicativos no cluster, mas é melhor não usar os servidores mestres para essa finalidade. Por exemplo, para fazer o ajuste da configuração do Marathon é necessário fazer o logon nos próprios servidores mestres e então fazer as alterações; isso incentiva a existência de servidores mestres exclusivos que sejam um pouco diferentes do padrão e que precisam ser cuidados e gerenciados de forma independente. Além disso, a configuração exigida por uma equipe pode não ser a configuração ideal para outra equipe.
 
 Neste artigo, explicaremos como adicionar um aplicativo ou serviço do Marathon específico do usuário.
@@ -27,13 +26,11 @@ Neste artigo, explicaremos como adicionar um aplicativo ou serviço do Marathon 
 Como esse serviço pertencerá a um único usuário ou a uma única equipe, poderá ser configurado de qualquer forma desejada. Além disso, o Serviço de Contêiner do Azure fará com que o serviço continue a ser executado. Se o serviço falhar, o Serviço de Contêiner do Azure reiniciará para você. Na maioria das vezes, você nem mesmo perceberá o tempo de inatividade.
 
 ## Pré-requisitos
-
 [Implantar uma instância do Serviço de Contêiner do Azure](container-service-deployment.md) com o tipo de orquestrador DCOS e [garantir que o cliente possa se conectar ao cluster](container-service-connect.md). Execute as etapas a seguir.
 
-[AZURE.INCLUDE [instalar a CLI do DC/OS](../../includes/container-service-install-dcos-cli-include.md)]
+[!INCLUDE [instalar a CLI do DC/OS](../../includes/container-service-install-dcos-cli-include.md)]
 
 ## Criar um aplicativo ou serviço do Marathon específico do usuário
-
 Comece pela criação de um arquivo de configuração JSON que defina o nome do serviço de aplicativo que você deseja criar. Aqui usamos `marathon-alice` como o nome da estrutura. Salve o arquivo com um nome como `marathon-alice.json`:
 
 ```json
@@ -49,7 +46,6 @@ dcos package install --options=marathon-alice.json marathon
 Agora você deverá ver seu serviço `marathon-alice` em execução na guia Serviços da interface do usuário do DC/OS. A interface do usuário estará `http://<hostname>/service/marathon-alice/` caso você queira acessá-la diretamente.
 
 ## Configurar a CLI do DC/OS para acessar o serviço
-
 Opcionalmente, você pode configurar a CLI do DC/OS para acessar esse novo serviço, definindo a propriedade `marathon.url` para apontar para a instância `marathon-alice` da seguinte maneira:
 
 ```bash

@@ -1,55 +1,50 @@
-<properties
-	pageTitle="Serializar dados com a Biblioteca do Microsoft Avro | Microsoft Azure"
-	description="Saiba como o Azure HDInsight usa o Avro para serializar big data."
-	services="hdinsight"
-	documentationCenter=""
-	tags="azure-portal"
-	authors="mumian" 
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Serializar dados com a Biblioteca do Microsoft Avro | Microsoft Docs
+description: Saiba como o Azure HDInsight usa o Avro para serializar big data.
+services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: mumian
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/14/2016"
-	ms.author="jgao"/>
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/14/2016
+ms.author: jgao
 
-
+---
 # Serializar dados no Hadoop com a Biblioteca do Microsoft Avro
-
 Este tópico mostra como usar a <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Biblioteca do Microsoft Avro</a> para serializar objetos e outras estruturas de dados nos fluxos de forma a conservá-los na memória, em um banco de dados ou em um arquivo. Também mostra como desserializá-los para recuperar os objetos originais.
 
-[AZURE.INCLUDE [somente Windows](../../includes/hdinsight-windows-only.md)]
+[!INCLUDE [somente Windows](../../includes/hdinsight-windows-only.md)]
 
-##Apache Avro
+## Apache Avro
 A <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Biblioteca do Microsoft Avro</a> implementa o sistema de serialização de dados Apache Avro para o ambiente Microsoft.NET. O Apache Avro fornece um formato de intercâmbio de dados binários compactos para serialização. Ele usa o <a href="http://www.json.org" target="_blank">JSON</a> para definir um esquema com neutralidade de linguagem que subscreve a interoperabilidade da linguagem. Os dados serializados em uma linguagem podem ser lidos em outra diferente. Atualmente, há suporte para C, C++, C#, Java, PHP, Python e Ruby. Você encontra informações detalhadas sobre o formato na <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Especificação do Apache Avro</a>. Observe que a versão atual da Biblioteca do Microsoft Avro não dá suporte à parte sobre RPCs (chamadas de procedimento remoto) dessa especificação.
 
 A representação serializada de um objeto no sistema Avro tem duas partes: o esquema e o valor real. O esquema do Avro descreve o modelo de dados independente de linguagem dos dados serializados com JSON. Ele está presente lado a lado com uma representação binária de dados. Colocar o esquema separado da representação binária permite que cada objeto seja programado sem sobrecargas por valor, tornando a serialização rápida e a representação pequena.
 
-##O cenário do Hadoop
+## O cenário do Hadoop
 O formato de serialização do Apache Avro é amplamente utilizado no Azure HDInsight e em outros ambientes Apache Hadoop. O Avro fornece um meio conveniente de representar estruturas de dados complexas em um trabalho MapReduce do Hadoop. O formato dos arquivos do Avro (arquivos contêiner de objetos do Avro) foi projetado para dar suporte ao modelo de programação distribuído do MapReduce. O recurso principal que habilita a distribuição é o fato de os arquivos serem divisíveis, no sentido de que uma pessoa pode buscar qualquer ponto em um arquivo e iniciar a leitura por meio de um bloco em específico.
 
-##Serialização na biblioteca de Avro
+## Serialização na biblioteca de Avro
 A Biblioteca do Microsoft .NET para Avro suporta dois modos de serialização de objetos:
 
-- **reflexão**: o esquema JSON dos tipos é criado automaticamente com base nos atributos do contrato de dados dos tipos .NET a serem serializados.
-- **registro genérico**: um esquema JSON A é especificado explicitamente em um registro representado pela classe [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) quando nenhum tipo .NET estiver presente para descrever o esquema dos dados a serem serializados.
+* **reflexão**: o esquema JSON dos tipos é criado automaticamente com base nos atributos do contrato de dados dos tipos .NET a serem serializados.
+* **registro genérico**: um esquema JSON A é especificado explicitamente em um registro representado pela classe [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) quando nenhum tipo .NET estiver presente para descrever o esquema dos dados a serem serializados.
 
 Quando o esquema de dados é conhecido tanto pelo gravador quanto pelo leitor do fluxo, os dados podem ser enviados sem o seu esquema. Caso um arquivo contêiner de objetos do Avro seja usado, o esquema será armazenado no arquivo. Você pode especificar outros parâmetros, como o codec usado para a compactação dos dados. Esses cenários são descritos com mais detalhes e ilustrados nos exemplos de código abaixo.
 
-
 ## Instalar a Biblioteca do Avro
-
 Os itens a seguir são necessários antes de instalar a biblioteca:
 
-- <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
-- <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 ou posterior)
+* <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
+* <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 ou posterior)
 
 Observe que a dependência Newtonsoft.Json.dll também é baixada automaticamente com a instalação da Biblioteca do Microsoft Avro. A próxima seção mostra esse procedimento.
-
 
 A Biblioteca do Microsoft Avro é distribuída como um pacote NuGet, que pode ser instalado pelo Visual Studio usando este procedimento:
 
@@ -61,27 +56,21 @@ Observe que a dependência Newtonsoft.Json.dll (>=6.0.4) também é baixada auto
 
 Convém visitar a <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">home page da Biblioteca do Microsoft Avro</a> para ler as notas de versão atuais.
 
-
 O código-fonte da Biblioteca do Microsoft Avro está disponível na <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">home page da Biblioteca do Microsoft Avro</a>.
 
-##Compilar esquemas usando a Biblioteca do Avro
-
+## Compilar esquemas usando a Biblioteca do Avro
 A Biblioteca do Microsoft Avro contém um utilitário de geração de código que permite criar tipos C# de maneira automática, com base no esquema JSON definido anteriormente. O utilitário de geração de código não é distribuído como um executável binário, mas pode ser facilmente compilado com este procedimento:
 
 1. Baixe o arquivo .zip com a versão mais recente do código-fonte do SDK do HDInsight em <a href="http://hadoopsdk.codeplex.com/SourceControl/latest#" target="_blank">SDK do Microsoft .NET para Hadoop</a>. (Clique no ícone **Baixar**, não na guia **Downloads**.)
-
 2. Extraia o SDK do HDInsight para um diretório do computador com o .NET Framework 4 instalado e conectado à Internet para baixar os pacotes NuGet de dependência necessários. No exemplo a seguir, vamos supor que o código-fonte seja extraído para C:\\SDK.
-
 3. Vá para a pasta C:\\SDK\\src\\Microsoft.Hadoop.Avro.Tools e execute build.bat. (O arquivo chamará o MSBuild da distribuição de 32 bits do .NET Framework. Se quiser usar a versão de 64 bits, edite o build.bat seguindo os comentários dentro do arquivo.) Confira se a compilação foi bem-sucedida. (Em alguns sistemas, o MSBuild pode gerar avisos. Esses avisos não afetam o utilitário, desde que não haja erros de compilação.)
-
 4. O utilitário compilado está localizado em C:\\SDK\\Bin\\Unsigned\\Release\\Microsoft.Hadoop.Avro.Tools.
-
 
 Para se familiarizar com o a sintaxe de linha de comando, execute este comando na pasta em que se encontra o utilitário de geração de código:`Microsoft.Hadoop.Avro.Tools help /c:codegen`
 
 Para testar o utilitário, você pode gerar classes C# por meio do arquivo de esquema JSON de exemplo fornecido com o código-fonte. Execute o seguinte comando:
 
-	Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
+    Microsoft.Hadoop.Avro.Tools codegen /i:C:\SDK\src\Microsoft.Hadoop.Avro.Tools\SampleJSON\SampleJSONSchema.avsc /o:
 
 Isso deve produzir dois arquivos C# no diretório atual: SensorData.cs e Location.cs.
 
@@ -106,15 +95,14 @@ O sexto exemplo mostra como usar a serialização do Avro para carregar dados no
 
 Aqui estão os links aos seis exemplos abordados neste tópico:
 
- * <a href="#Scenario1">**Serialização com reflexão**</a>: o esquema JSON dos tipos a serem serializados é criado automaticamente, com base nos atributos do contrato de dados.
- * <a href="#Scenario2">**Seriação com registro genérico**</a>: o esquema JSON é especificado explicitamente em um registro quando não há nenhum tipo .NET disponível para reflexão.
- * <a href="#Scenario3">**Serialização usando arquivos contêiner de objetos com reflexão**</a>: o esquema JSON é compilado automaticamente e compartilhado junto com os dados serializados por meio de um arquivo contêiner de objetos do Avro.
- * <a href="#Scenario4">**Serialização usando arquivos contêiner de objetos com reflexão**</a>: o esquema JSON é compilado automaticamente antes da serialização e compartilhado junto com os dados por meio de um arquivo contêiner de objetos do Avro.
- * <a href="#Scenario5">**Serialização usando arquivos contêiner de objetos com um codec de compactação personalizado**</a>: o exemplo mostra como criar um arquivo contêiner de objetos do Avro com uma implementação .NET personalizada do codec de compactação dos dados Deflate.
- * <a href="#Scenario6">**Usando o Avro para carregar dados para o serviço do Microsoft Azure HDInsight**</a>: o exemplo ilustra como a serialização do Avro interage com o serviço do HDInsight. Você precisa de uma assinatura ativa do Azure e acesso a um cluster Azure HDInsight para executar este exemplo.
+* <a href="#Scenario1">**Serialização com reflexão**</a>: o esquema JSON dos tipos a serem serializados é criado automaticamente, com base nos atributos do contrato de dados.
+* <a href="#Scenario2">**Seriação com registro genérico**</a>: o esquema JSON é especificado explicitamente em um registro quando não há nenhum tipo .NET disponível para reflexão.
+* <a href="#Scenario3">**Serialização usando arquivos contêiner de objetos com reflexão**</a>: o esquema JSON é compilado automaticamente e compartilhado junto com os dados serializados por meio de um arquivo contêiner de objetos do Avro.
+* <a href="#Scenario4">**Serialização usando arquivos contêiner de objetos com reflexão**</a>: o esquema JSON é compilado automaticamente antes da serialização e compartilhado junto com os dados por meio de um arquivo contêiner de objetos do Avro.
+* <a href="#Scenario5">**Serialização usando arquivos contêiner de objetos com um codec de compactação personalizado**</a>: o exemplo mostra como criar um arquivo contêiner de objetos do Avro com uma implementação .NET personalizada do codec de compactação dos dados Deflate.
+* <a href="#Scenario6">**Usando o Avro para carregar dados para o serviço do Microsoft Azure HDInsight**</a>: o exemplo ilustra como a serialização do Avro interage com o serviço do HDInsight. Você precisa de uma assinatura ativa do Azure e acesso a um cluster Azure HDInsight para executar este exemplo.
 
-###<a name="Scenario1"></a>Exemplo 1: Serialização com reflexão
-
+### <a name="Scenario1"></a>Exemplo 1: Serialização com reflexão
 O esquema JSON dos tipos pode ser compilado automaticamente pela Biblioteca do Microsoft Avro por reflexão, com base nos atributos do contrato de dados dos objetos C# a serem serializados. A Biblioteca do Microsoft Avro cria um [**IAvroSeralizer<T>**](http://msdn.microsoft.com/library/dn627341.aspx) para identificar os campos a serem serializados.
 
 Neste exemplo, os objetos (uma classe **SensorData** com um struct membro **Location**) são serializados para um fluxo de memória que, por sua vez, é desserializado. O resultado é, então, comparado à instância inicial para confirmar que o objeto **SensorData** recuperado é idêntico ao original.
@@ -129,7 +117,7 @@ Presume-se que o esquema neste exemplo é compartilhado entre os leitores e grav
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         //Sample class used in serialization samples
         [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
@@ -239,17 +227,15 @@ Presume-se que o esquema neste exemplo é compartilhado entre os leitores e grav
     // Press any key to exit.
 
 
-###Exemplo 2: serialização com um registro genérico
-
+### Exemplo 2: serialização com um registro genérico
 Um esquema JSON pode ser especificado explicitamente em um registro genérico quando não é possível usar reflexão porque os dados não podem ser representados por classes .NET com um contrato de dados. Este método é geralmente mais lento do que usar reflexão. Nesses casos, o esquema dos dados também pode ser dinâmico, ou seja, pode não ser conhecido no tempo de compilação. Um exemplo desse tipo de cenário dinâmico são dados representados como arquivos CSV (valores separados por vírgulas) com esquema desconhecido até serem transformados no formato Avro em tempo de execução.
 
 Este exemplo mostra como criar e usar um [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) para especificar explicitamente um esquema JSON e como preenchê-lo com dados para, depois, serializá-lo e desserializá-lo. O resultado é, então, comparado à instância inicial para confirmar que o registro recuperado é idêntico ao original.
 
 Presume-se que o esquema neste exemplo é compartilhado entre os leitores e gravadores, portanto, o formato do contêiner de objetos do Avro não é exigido. Para ver um exemplo de como serializar e desserializar dados em buffers de memória usando um registro genérico com o formato de contêiner de objetos quando o esquema deve ser incluído com os dados serializados, consulte o exemplo <a href="#Scenario4">Serialização usando arquivos contêiner de objetos com registro genérico</a>.
 
-
-	namespace Microsoft.Hadoop.Avro.Sample
-	{
+    namespace Microsoft.Hadoop.Avro.Sample
+    {
     using System;
     using System.Collections.Generic;
     using System.IO;
@@ -257,7 +243,7 @@ Presume-se que o esquema neste exemplo é compartilhado entre os leitores e grav
     using System.Runtime.Serialization;
     using Microsoft.Hadoop.Avro.Container;
     using Microsoft.Hadoop.Avro.Schema;
-	using Microsoft.Hadoop.Avro;
+    using Microsoft.Hadoop.Avro;
 
     //This class contains all methods demonstrating
     //the usage of Microsoft Avro Library
@@ -351,7 +337,7 @@ Presume-se que o esquema neste exemplo é compartilhado entre os leitores e grav
             Console.Read();
         }
     }
-	}
+    }
     // The example is expected to display the following output:
     // SERIALIZATION USING GENERIC RECORD
     //
@@ -364,8 +350,7 @@ Presume-se que o esquema neste exemplo é compartilhado entre os leitores e grav
     // Press any key to exit.
 
 
-###Exemplo 3: serialização usando arquivos do contêiner de objetos e serialização com reflexão
-
+### Exemplo 3: serialização usando arquivos do contêiner de objetos e serialização com reflexão
 Este exemplo é semelhante ao cenário do <a href="#Scenario1"> primeiro exemplo</a>, cujo esquema é especificado implicitamente com reflexão. A diferença é que, aqui, não presumimos que o esquema seja conhecido do leitor que o desserializa. Os objetos **SensorData** a serem serializados e seu esquema especificado implicitamente são armazenados em um arquivo contêiner de objetos Avro representado pela classe [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx).
 
 Os dados são serializados neste exemplo com [**SequentialWriter <SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx) e desserializados com [**SequentialReader <SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx). O resultado é, então, comparado com as instâncias iniciais para garantir a identidade.
@@ -380,7 +365,7 @@ Os dados no arquivo contêiner de objetos são compactados pelo codec de compact
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         //Sample class used in serialization samples
         [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
@@ -605,14 +590,12 @@ Os dados no arquivo contêiner de objetos são compactados pelo codec de compact
     // Press any key to exit.
 
 
-###Exemplo 4: serialização usando arquivos do contêiner de objetos e serialização com registro genérico
-
+### Exemplo 4: serialização usando arquivos do contêiner de objetos e serialização com registro genérico
 Este exemplo é semelhante ao cenário do <a href="#Scenario2"> segundo exemplo</a>, cujo esquema é especificado explicitamente com JSON. A diferença é que, aqui, não presumimos que o esquema seja conhecido do leitor que o desserializa.
 
 O conjunto de dados para teste é coletado em uma lista de objetos [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) por meio de um esquema JSON definido explicitamente e, depois, armazenado em um arquivo contêiner de objetos representado pela classe [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx). Esse arquivo contêiner cria um gravador usado para serializar os dados descompactados em um fluxo de memória que é salvo em um arquivo. O parâmetro [**Codec.Null**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.codec.null.aspx) usado para criar o leitor especifica que esses dados não serão compactados.
 
 Em seguida, os dados são lidos a partir do arquivo e desserializados em uma coleção de objetos. Essa coleção é comparada à lista inicial de registros do Avro para confirmar que são idênticos.
-
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -623,7 +606,7 @@ Em seguida, os dados são lidos a partir do arquivo e desserializados em uma col
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
         using Microsoft.Hadoop.Avro.Schema;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         //This class contains all methods demonstrating
         //the usage of Microsoft Avro Library
@@ -869,12 +852,10 @@ Em seguida, os dados são lidos a partir do arquivo e desserializados em uma col
 
 
 
-###Exemplo 5: serialização usando arquivos do contêiner de objetos com um codec de compactação personalizado
-
+### Exemplo 5: serialização usando arquivos do contêiner de objetos com um codec de compactação personalizado
 O quinto exemplo mostra como usar um codec de compactação personalizado para arquivos contêiner de objetos do Avro. Uma amostra contendo o código para esse exemplo pode ser baixada no site [Exemplos de código do Azure](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111).
 
 A [Especificação do Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) permite o uso de um codec de compactação opcional (além dos padrões **Null** e **Deflate**). Este exemplo não implementa um codec totalmente novo como o Snappy (mencionado como codec opcional compatível na [Especificação do Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Ele mostra como usar a implementação do .NET Framework 4.5 do codec [**Deflate**][deflate-110], que oferece um algoritmo de compactação baseado na biblioteca de compactação [zlib](http://zlib.net/) melhor do que a versão padrão do .NET Framework 4.
-
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -892,7 +873,7 @@ A [Especificação do Avro](http://avro.apache.org/docs/current/spec.html#Requir
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
-		using Microsoft.Hadoop.Avro;
+        using Microsoft.Hadoop.Avro;
 
         #region Defining objects for serialization
         //Sample class used in serialization samples
@@ -1367,8 +1348,7 @@ A [Especificação do Avro](http://avro.apache.org/docs/current/spec.html#Requir
     // ----------------------------------------
     // Press any key to exit.
 
-###Exemplo 6: usando o Avro para carregar dados para o serviço do Microsoft Azure HDInsight
-
+### Exemplo 6: usando o Avro para carregar dados para o serviço do Microsoft Azure HDInsight
 O sexto exemplo ilustra algumas técnicas de programação relacionadas à interação com o serviço do Microsoft Azure HDInsight. Uma amostra contendo o código para esse exemplo pode ser baixada no site [Exemplos de código do Azure](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3).
 
 O exemplo a seguir faz o seguinte:

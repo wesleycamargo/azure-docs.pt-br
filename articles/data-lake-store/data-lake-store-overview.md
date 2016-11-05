@@ -1,71 +1,63 @@
-<properties
-   pageTitle="Visão geral do Repositório Azure Data Lake | Azure"
-   description="Entenda o que é o Repositório Azure Data Lake e o valor que ele fornece com relação a outros armazenamentos de dados"
-   services="data-lake-store"
-   documentationCenter=""
-   authors="nitinme"
-   manager="jhubbard"
-   editor="cgronlun"/>
+---
+title: Visão geral do Repositório Azure Data Lake | Microsoft Docs
+description: Entenda o que é o Repositório Azure Data Lake e o valor que ele fornece com relação a outros armazenamentos de dados
+services: data-lake-store
+documentationcenter: ''
+author: nitinme
+manager: jhubbard
+editor: cgronlun
 
-<tags
-   ms.service="data-lake-store"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/02/2016"
-   ms.author="nitinme"/>
+ms.service: data-lake-store
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 08/02/2016
+ms.author: nitinme
 
+---
 # Visão geral do Repositório Azure Data Lake
-
 O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Azure Data Lake permite que você capture dados de qualquer tamanho, tipo e velocidade de ingestão em um único lugar para análises operacionais e exploratórias.
 
-> [AZURE.TIP] Use o [Roteiro de aprendizagem do Repositório do Data Lake](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/) para começar a explorar o serviço Repositório do Azure Data Lake.
+> [!TIP]
+> Use o [Roteiro de aprendizagem do Repositório do Data Lake](https://azure.microsoft.com/documentation/learning-paths/data-lake-store-self-guided-training/) para começar a explorar o serviço Repositório do Azure Data Lake.
+> 
+> 
 
 O Repositório Azure Data Lake pode ser acessado no Hadoop (disponível com o cluster HDInsight) usando as APIs REST compatíveis com WebHDFS. Ele foi especificamente desenvolvido para permitir a análise dos dados armazenados e está ajustado para trabalhar em cenários de análise de dados. Ele já inclui todos os recursos corporativos — segurança, capacidade de gerenciamento, escalabilidade, confiabilidade e disponibilidade — essenciais para casos de uso reais.
-
 
 ![Azure Data Lake](./media/data-lake-store-overview/data-lake-store-concept.png)
 
 Veja alguns dos principais recursos do Azure Data Lake a seguir.
 
 ### Desenvolvido para Hadoop
-
 O Repositório Azure Data Lake é um sistema de arquivos Apache Hadoop compatível com HDFS (Sistema de Arquivos Distribuídos Hadoop) que funciona no ecossistema Hadoop. Seus aplicativos ou serviços atuais do HDInsight que usam a API WebHDFS podem ser facilmente integrados ao Repositório Data Lake. O Repositório Data Lake também expõe uma interface REST compatível com WebHDFS para os aplicativos
 
 Os dados armazenados no Repositório Data Lake podem ser facilmente analisados usando estruturas de análise Hadoop, como o MapReduce ou o Hive. Os clusters do Microsoft Azure HDInsight podem ser provisionados e configurados para acessar diretamente os dados armazenados no Repositório Data Lake.
 
 ### Armazenamento ilimitado, arquivos em petabytes
-
 O Repositório Azure Data Lake fornece armazenamento ilimitado e é adequado para armazenar vários dados para análise. Ele não impõe qualquer limite de tamanho de conta, de tamanho de arquivo ou de quantidade de dados que podem ser armazenados em um Data Lake. Os arquivos individuais podem variar de quilobytes a petabytes, tornando-os uma ótima opção para armazenar qualquer tipo de dados. Os dados são armazenados permanentemente por meio de várias cópias, e não há limite de tempo de armazenamento dos dados no Data Lake.
 
 ### Desempenho ajustado para a análise de big data
-
 O Repositório Azure Data Lake foi criado para executar grandes sistemas de análise que exijam uma alta taxa de transferência de consulta e de análise de grandes quantidades de dados. O Data Lake espalha partes de um arquivo por vários servidores de armazenamento individuais. Isso melhora a produtividade da leitura do arquivo em paralelo para a realização de análises de dados.
 
-
 ### Pronto para a empresa: altamente disponível e seguro
-
 O Repositório Azure Data Lake fornece confiabilidade e disponibilidade padrão do setor. Seus ativos de dados são armazenados permanentemente por meio de cópias redundantes, a fim de se proteger contra quaisquer falhas inesperadas. As empresas podem usar o Azure Data Lake em suas soluções como uma parte importante de suas plataformas de dados atuais.
 
 O Repositório Data Lake também fornece segurança de classe empresarial para os dados armazenados. Para saber mais, consulte [Protegendo dados no Repositório Azure Data Lake](#DataLakeStoreSecurity).
 
-
 ### Todos os dados
-
 O Repositório Azure Data Lake pode armazenar quaisquer dados em formato nativo, como estão, sem exigir transformações prévias. O Repositório Data Lake não exige a definição de um esquema antes do carregamento dos dados, deixando por conta da estrutura de análise individual interpretar os dados e definir um esquema no momento da análise. Ser capaz de armazenar arquivos de formatos e tamanhos arbitrários possibilita ao Repositório Data Lake lidar com dados estruturados, semiestruturados e não estruturados.
 
 Os contêineres para dados do Repositório Azure Data Lake são basicamente pastas e arquivos. Você opera nos dados armazenados usando SDKs, o Portal do Azure e o Azure PowerShell. Desde que você coloque os dados no repositório usando essas interfaces e os contêineres apropriados, é possível armazenar qualquer tipo de dados. O Repositório Data Lake não realiza qualquer manipulação especial de dados com base no tipo de dados que armazena.
 
-
 ## <a name="DataLakeStoreSecurity"></a>Protegendo os dados no Repositório Azure Data Lake
-
 O Repositório Azure Data Lake usa o Active Directory do Azure para autenticação e listas de controle de acesso (ACLs) para gerenciar o acesso aos dados.
 
 | Recurso | Descrição |
-|-----------------------------------------|------------------------------------------|
-| Autenticação | O Repositório Azure Data Lake integra-se ao Active Directory do Azure (AAD) para gerenciamento de identidades e de acesso a todos os dados armazenados no Repositório Azure Data Lake. Como resultado dessa integração, o Azure Data Lake se beneficia de todos os recursos do AAD, incluindo a autenticação multifator, acesso condicional, controle de acesso baseado em função, monitoramento de uso do aplicativo, monitoramento de segurança e alertas etc. O Repositório Azure Data Lake oferece suporte ao protocolo OAuth 2.0 para autenticação na interface REST. |
-| Controle de acesso | O Repositório Azure Data Lake fornece controle de acesso por meio do suporte a permissões no estilo POSIX expostas pelo protocolo WebHDFS. Na versão atual, as ACLs podem ser habilitadas na pasta raiz, nas subpastas, bem como em arquivos individuais. As ACLs que se aplicam à pasta raiz também se aplicarão a todos os arquivos/pastas filhos também.|
+| --- | --- |
+| Autenticação |O Repositório Azure Data Lake integra-se ao Active Directory do Azure (AAD) para gerenciamento de identidades e de acesso a todos os dados armazenados no Repositório Azure Data Lake. Como resultado dessa integração, o Azure Data Lake se beneficia de todos os recursos do AAD, incluindo a autenticação multifator, acesso condicional, controle de acesso baseado em função, monitoramento de uso do aplicativo, monitoramento de segurança e alertas etc. O Repositório Azure Data Lake oferece suporte ao protocolo OAuth 2.0 para autenticação na interface REST. |
+| Controle de acesso |O Repositório Azure Data Lake fornece controle de acesso por meio do suporte a permissões no estilo POSIX expostas pelo protocolo WebHDFS. Na versão atual, as ACLs podem ser habilitadas na pasta raiz, nas subpastas, bem como em arquivos individuais. As ACLs que se aplicam à pasta raiz também se aplicarão a todos os arquivos/pastas filhos também. |
 
 Quer saber mais sobre a proteção de dados no Repositório Data Lake? Siga os links abaixo.
 
@@ -73,7 +65,6 @@ Quer saber mais sobre a proteção de dados no Repositório Data Lake? Siga os l
 * Prefere vídeos? [Assista a este vídeo](https://mix.office.com/watch/1q2mgzh9nn5lx) sobre como proteger os dados armazenados no Repositório Data Lake.
 
 ## Aplicativos compatíveis com o Repositório Azure Data Lake
-
 O Repositório Azure Data Lake é compatível com a maioria dos componentes de software livre no ecossistema do Hadoop. Ele também se integra perfeitamente com outros serviços do Azure. Isso torna o Repositório Data Lake uma opção perfeita para suas necessidades de armazenamento de dados. Siga os links abaixo para saber mais sobre como Repositório Data Lake pode ser usado com componentes de software livre e com outros serviços do Azure.
 
 * Confira [Aplicativos e serviços compatíveis com o Repositório Azure Data Lake](data-lake-store-compatible-oss-other-applications.md) para obter uma lista de aplicativos de software livre interoperáveis com o Repositório Data Lake.
@@ -81,22 +72,18 @@ O Repositório Azure Data Lake é compatível com a maioria dos componentes de s
 * Confira [Cenários de uso do Repositório Data Lake](data-lake-store-data-scenarios.md) para aprender a usar o Repositório Data Lake em cenários como ingestão de dados, processamento de dados, download de dados e visualização de dados.
 
 ## O que é o sistema de arquivos do Azure Data Lake Store (adl://)?
-
 O Data Lake Store pode ser acessado por meio do novo sistema de arquivos, o AzureDataLakeFilesystem (adl://), em ambientes Hadoop (disponíveis no cluster HDInsight). Os aplicativos e os serviços que usam adl:// podem aproveitar a otimização adicional de desempenho que não está disponível no momento no WebHDFS. Como resultado, o Repositório Data Lake oferece a flexibilidade de avaliar o melhor desempenho com a recomendação de uso da opção adl:// ou de manter o código existente caso você continue a usar a API do WebHDFS de forma direta. O Azure HDInsight aproveita o AzureDataLakeFilesystem por completo para fornecer o melhor desempenho no Repositório Data Lake.
 
 Você pode acessar seus dados no Repositório Data Lake usando `adl://<data_lake_store_name>.azuredatalakestore.net`. Para saber mais sobre como acessar os dados no Repositório Data Lake, consulte [Exibir as propriedades dos dados armazenados](data-lake-store-get-started-portal.md#properties)
 
 ## Como posso começar a usar o Repositório Azure Data Lake?
-
 Veja [Introdução ao Repositório do Data Lake usando o Portal do Azure](data-lake-store-get-started-portal.md), para obter informações sobre como provisionar um Repositório do Data Lake usando o Portal do Azure. Depois de provisionar o Azure Data Lake, você aprenderá a usar ofertas de big data, como a Análise do Azure Data Lake ou o Azure HDInsight com o Repositório Data Lake. Você também pode criar um aplicativo .NET a fim de criar uma conta do Repositório Azure Data Lake e executar operações como carregar dados, baixar dados etc.
 
-- [Introdução à Análise Data Lake do Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-- [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Introdução ao Repositório Azure Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
-
+* [Introdução à Análise Data Lake do Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Introdução ao Repositório Azure Data Lake usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 
 ## Vídeos do Repositório Data Lake
-
 Se você prefere aprender assistindo a vídeos, o Repositório Data Lake tem vídeos sobre uma variedade de recursos.
 
 * [Criar uma conta do Repositório Azure Data Lake](https://mix.office.com/watch/1k1cycy4l4gen)

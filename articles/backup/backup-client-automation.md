@@ -1,33 +1,32 @@
-<properties
-	pageTitle="Implantar e gerenciar o backup para o Windows Server/Client usando o PowerShell | Microsoft Azure"
-	description="Saiba como implantar e gerenciar o Backup do Azure usando o PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="saurabhsensharma"
-	manager="shivamg"
-	editor=""/>
+---
+title: Implantar e gerenciar o backup para o Windows Server/Client usando o PowerShell | Microsoft Docs
+description: Saiba como implantar e gerenciar o Backup do Azure usando o PowerShell
+services: backup
+documentationcenter: ''
+author: saurabhsensharma
+manager: shivamg
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: saurabhsensharma;markgal;jimpark;nkolli;trinadhk
 
-
+---
 # Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
-
-> [AZURE.SELECTOR]
-- [ARM](backup-client-automation.md)
-- [Clássico](backup-client-automation-classic.md)
+> [!div class="op_single_selector"]
+> * [ARM](backup-client-automation.md)
+> * [Clássico](backup-client-automation-classic.md)
+> 
+> 
 
 Este artigo mostra como usar o PowerShell para configurar o Backup do Azure no Windows Server ou no cliente Windows, e como gerenciar backups e recuperações.
 
 ## Instale o Azure PowerShell
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Este artigo se concentra nos cmdlets do PowerShell do Azure Resource Manager (ARM) que permitem que você use um cofre dos Serviços de Recuperação em um grupo de recursos.
 
@@ -37,35 +36,33 @@ Se você quiser usar seus scripts escritos para o ambiente da versão 0.9.8 no a
 
 [Baixe a última versão do PowerShell](https://github.com/Azure/azure-powershell/releases) (a versão mínima necessária é: 1.0.0)
 
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Criar um cofre dos Serviços de Recuperação
-
 As etapas a seguir orientarão você durante a criação de um cofre dos Serviços de Recuperação. Um cofre dos Serviços de Recuperação é diferente de um cofre de Backup.
 
 1. Se você estiver usando um Backup do Azure pela primeira vez, deverá usar o cmdlet **Register-AzureRMResourceProvider** para registrar o provedor do Serviço de Recuperação do Azure com sua assinatura.
-
+   
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 2. O cofre dos Serviços de Recuperação é um recurso do ARM e, portanto, você precisará colocá-lo em um Grupo de Recursos. Você pode usar um grupo de recursos existente ou criar um novo. Ao criar um novo grupo de recursos, especifique o nome e o local para o grupo de recursos.
-
+   
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-
 3. Use o cmdlet **New-AzureRmRecoveryServicesVault** para criar o novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
-
+   
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-
 4. Especifique o tipo de redundância de armazenamento a ser usado, o [LRS (Armazenamento com Redundância Local)](../storage/storage-redundancy.md#locally-redundant-storage) ou o [GRS (Armazenamento com Redundância Geográfica)](../storage/storage-redundancy.md#geo-redundant-storage). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testVault está definida como GeoRedundant.
-
-    > [AZURE.TIP] Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável.
-
+   
+   > [!TIP]
+   > Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável.
+   > 
+   > 
+   
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -104,7 +101,6 @@ Para ver a lista de programas instalados, vá para **Painel de controle** > **Pr
 ![Agente instalado](./media/backup-client-automation/installed-agent-listing.png)
 
 ### Opções de instalação
-
 Para ver todas as opções disponíveis por meio da linha de comando, use o seguinte comando:
 
 ```
@@ -114,21 +110,19 @@ PS C:\> MARSAgentInstaller.exe /?
 As opções disponíveis incluem:
 
 | Opção | Detalhes | Padrão |
-| ---- | ----- | ----- |
-| /q | Instalação silenciosa | - | 
-| /p:"local" | Caminho para a pasta de instalação do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | 
-| /s:"local" | Caminho para a pasta de cache do agente de Backup do Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | 
-| /m | Inscreva no Microsoft Update | - | 
-| /nu | Não verificar se há atualizações após a conclusão da instalação | - | 
-| /d | Desinstala o agente de Serviços de Recuperação do Microsoft Azure | - | 
-| /Ph | Endereço de Host do Proxy | - | 
-| /po | Número da porta do Host do Proxy | - | 
-| /pu | Nome de usuário do Host do Host | - | 
-| /pw | Senha do Proxy | - |
-
+| --- | --- | --- |
+| /q |Instalação silenciosa |- |
+| /p:"local" |Caminho para a pasta de instalação do agente de Backup do Azure. |C:\\Program Files\\Microsoft Azure Recovery Services Agent |
+| /s:"local" |Caminho para a pasta de cache do agente de Backup do Azure. |C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
+| /m |Inscreva no Microsoft Update |- |
+| /nu |Não verificar se há atualizações após a conclusão da instalação |- |
+| /d |Desinstala o agente de Serviços de Recuperação do Microsoft Azure |- |
+| /Ph |Endereço de Host do Proxy |- |
+| /po |Número da porta do Host do Proxy |- |
+| /pu |Nome de usuário do Host do Host |- |
+| /pw |Senha do Proxy |- |
 
 ## Registro do Windows Server ou do computador cliente do Windows em um Cofre dos Serviços de Recuperação
-
 Depois de criar o cofre dos Serviços de Recuperação, baixe o agente mais recente e as credenciais do cofre e armazene-os em um local conveniente como C:\\Downloads.
 
 ```
@@ -149,7 +143,10 @@ Region              :West US
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT] Não use caminhos relativos para especificar o arquivo de credenciais do cofre. Você deve fornecer um caminho absoluto como entrada para o cmdlet.
+> [!IMPORTANT]
+> Não use caminhos relativos para especificar o arquivo de credenciais do cofre. Você deve fornecer um caminho absoluto como entrada para o cmdlet.
+> 
+> 
 
 ## Configurações de rede
 Quando a conectividade do computador Windows com a internet for através de um servidor proxy, as configurações de proxy também podem ser fornecidas para o agente. Neste exemplo, não há nenhum servidor proxy, por isso estamos explicitamente omitindo todas as informações relacionadas a proxy.
@@ -174,7 +171,10 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT] Mantenha as informações de senha seguras e protegidas depois de defini-las. Você não poderá restaurar os dados do Azure sem essa senha.
+> [!IMPORTANT]
+> Mantenha as informações de senha seguras e protegidas depois de defini-las. Você não poderá restaurar os dados do Azure sem essa senha.
+> 
+> 
 
 ## Fazer backup de arquivos e pastas
 Todos os backups de Windows Servers e de clientes para o Backup do Azure são controlados por uma política. A política consiste em três partes:
@@ -194,8 +194,8 @@ Neste momento, a política está vazia e outros cmdlets são necessários para d
 ### Configurando o agendamento de backup
 A primeira das três partes de uma política é o agendamento de backup, que é criado usando o cmdlet [New-OBSchedule](https://technet.microsoft.com/library/hh770401). O agendamento de backup define quando os backups precisam ser executados. Ao criar um agendamento, você precisa especificar dois parâmetros de entrada:
 
-- Os **dias da semana** nos quais o backup deve ser executado. Você pode executar o trabalho de backup em apenas um dia ou em todos os dias da semana, ou qualquer combinação entre essas opções.
-- Os **horários do dia** quando o backup deve ser executado. Você pode definir até três horários do dia diferentes quando o backup será disparado.
+* Os **dias da semana** nos quais o backup deve ser executado. Você pode executar o trabalho de backup em apenas um dia ou em todos os dias da semana, ou qualquer combinação entre essas opções.
+* Os **horários do dia** quando o backup deve ser executado. Você pode definir até três horários do dia diferentes quando o backup será disparado.
 
 Por exemplo, você poderia configurar uma política de backup que é executada às 16h todo sábado e domingo.
 
@@ -243,9 +243,9 @@ PolicyState     : Valid
 ### Incluindo e excluindo arquivos destinados a backup
 Um objeto ```OBFileSpec``` define os arquivos a serem incluídos e excluídos em um backup. Este é um conjunto de regras que definem o escopo dos arquivos e pastas protegidos em um computador. Você pode ter muitas regras de inclusão ou exclusão de arquivos conforme necessário e associá-las a uma política. Ao criar um novo objeto OBFileSpec, você pode:
 
-- Especificar os arquivos e pastas a serem incluídos
-- Especificar os arquivos e pastas a serem excluídos
-- Especificar o backup recursivo de dados em uma pasta ou o backup apenas dos arquivos de nível superior na pasta especificada.
+* Especificar os arquivos e pastas a serem incluídos
+* Especificar os arquivos e pastas a serem excluídos
+* Especificar o backup recursivo de dados em uma pasta ou o backup apenas dos arquivos de nível superior na pasta especificada.
 
 A última opção é obtida usando o sinalizador -NonRecursive no comando New-OBFileSpec.
 
@@ -379,7 +379,7 @@ DsList : {DataSource
          FileSpec:D:\
          IsExclude:False
          IsRecursive:True
-	}
+    }
 PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac
 RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
@@ -579,9 +579,9 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 
 Antes de desinstalar os binários do agente do computador, é necessário considerar algumas consequências:
 
-- A desinstalação remove o filtro de arquivo do computador e interrompe o acompanhamento de alterações.
-- Todas as informações de política são removidas do computador, mas as informações de política continuam sendo armazenadas no serviço.
-- Todos os agendamentos de backup são removidos e nenhum backup posterior é realizado.
+* A desinstalação remove o filtro de arquivo do computador e interrompe o acompanhamento de alterações.
+* Todas as informações de política são removidas do computador, mas as informações de política continuam sendo armazenadas no serviço.
+* Todos os agendamentos de backup são removidos e nenhum backup posterior é realizado.
 
 No entanto, os dados armazenados no Azure permanecem e são mantidos de acordo com a política de retenção configurada por você. Os pontos mais antigos são desatualizados automaticamente.
 
@@ -624,7 +624,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Próximas etapas
 Para obter mais informações sobre o Backup do Azure para Windows Server/Client, consulte
 
-- [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
-- [Fazer backup de servidores Windows](backup-configure-vault.md)
+* [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
+* [Fazer backup de servidores Windows](backup-configure-vault.md)
 
 <!---HONumber=AcomDC_0907_2016-->

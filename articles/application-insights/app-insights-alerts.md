@@ -1,37 +1,38 @@
-<properties 
-	pageTitle="Definir alertas no Application Insights" 
-	description="Receba emails sobre falhas, exceções e alterações de métricas." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Definir alertas no Application Insights
+description: Receba emails sobre falhas, exceções e alterações de métricas.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/20/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 06/20/2016
+ms.author: awills
+
+---
 # Definir alertas no Application Insights
-
 O [Application Insights do Visual Studio][start] pode alertá-lo de alterações em métricas de desempenho ou de uso em seu aplicativo.
 
 O Application Insights monitora seu aplicativo ativo em um [ampla variedade de plataformas][platforms] para ajudá-lo a diagnosticar problemas de desempenho e compreender padrões de uso.
 
 Há dois tipos de alertas:
- 
+
 * **Testes da Web** informam quando seu site está indisponível na Internet ou está respondendo lentamente. [Saiba mais][availability].
 * **Alertas de métrica** informam quando qualquer métrica ultrapassa um valor limite durante determinado período, como contagens de falhas, memória ou exibições de páginas. 
 
 Há um [página separada sobre testes na Web][availability]; portanto, vamos nos concentrar nos alertas de métricas aqui.
 
-> [AZURE.NOTE] Além disso, você pode obter os emails com a [Detecção proativa](app-insights-proactive-detection.md), que avisa você sobre padrões incomuns no desempenho do aplicativo. Ao contrário dos alertas, essas notificações são executadas sem a necessidade de configuração. Elas visam ajustar o desempenho de seu aplicativo, em vez de disparar o alarme sobre problemas imediatos.
+> [!NOTE]
+> Além disso, você pode obter os emails com a [Detecção proativa](app-insights-proactive-detection.md), que avisa você sobre padrões incomuns no desempenho do aplicativo. Ao contrário dos alertas, essas notificações são executadas sem a necessidade de configuração. Elas visam ajustar o desempenho de seu aplicativo, em vez de disparar o alarme sobre problemas imediatos.
+> 
+> 
 
 ## Alertas de métricas
-
 Se você ainda não configurou o Application Insights para seu aplicativo, [faça isso primeiro][start].
 
 Para receber um email quando uma métrica ultrapassar um limite, inicie no Metrics Explorer ou no bloco de Regras de alerta na folha de visão geral.
@@ -43,15 +44,17 @@ Para receber um email quando uma métrica ultrapassar um limite, inicie no Metri
 * O nome dado ao alerta deve ser exclusivo dentro do grupo de recursos (não apenas no seu aplicativo).
 * Se você marcar a caixa “Proprietários de email...”, os alertas serão enviados por email para qualquer pessoa que tenha acesso a esse grupo de recursos. Para expandir esse grupo de pessoas, adicione-as à [assinatura ou grupo de recursos](app-insights-resources-roles-access-control.md) (não o recurso).
 * Se você especificar “Emails adicionais”, os alertas serão enviados aos indivíduos ou grupos (sem levar em conta se a caixa “proprietários de email...” foi marcada ou não). 
-* Defina um [endereço de webhook](../azure-portal/insights-webhooks-alerts.md) se tiver configurado um aplicativo Web que responderá aos alertas. Ele será chamado quando o alerta for Ativado (isto é, disparado) e quando ele for Resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
+* Defina um [endereço de webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) se tiver configurado um aplicativo Web que responderá aos alertas. Ele será chamado quando o alerta for Ativado (isto é, disparado) e quando ele for Resolvido. (Mas observe que, no momento, os parâmetros de consulta não são passados como propriedades de webhook)
 * É possível Desabilitar ou Habilitar o alerta: veja os botões na parte superior da folha.
 
 *Não vejo o botão Adicionar Alerta.* Você está usando uma conta organizacional? Você poderá definir alertas se tiver acesso de proprietário ou colaborador a esse recurso de aplicativo. Consulte Configurações -> Usuários. [Saiba mais sobre o controle de acesso][roles].
 
-> [AZURE.NOTE] Na folha de alertas, você verá que já existe uma configuração de alerta: [Diagnóstico proativo NRT](app-insights-nrt-proactive-diagnostics.md). Este é um alerta automático que monitora uma métrica específica, taxa de falha de solicitação. Portanto, a menos que você opte por desabilitá-lo, não precisa definir seu próprio alerta na taxa de falha de solicitação.
+> [!NOTE]
+> Na folha de alertas, você verá que já existe uma configuração de alerta: [Diagnóstico proativo NRT](app-insights-nrt-proactive-diagnostics.md). Este é um alerta automático que monitora uma métrica específica, taxa de falha de solicitação. Portanto, a menos que você opte por desabilitá-lo, não precisa definir seu próprio alerta na taxa de falha de solicitação.
+> 
+> 
 
 ## Ver seus alertas
-
 Você recebe um email quando o estado de um alerta é mudado de inativo para ativo.
 
 O estado atual de cada alerta é mostrado na folha de regras de Alerta.
@@ -64,36 +67,22 @@ O histórico das alterações de estado está no Log de Auditoria:
 
 ![Na folha Visão geral, clique em Configurações, Logs de Auditoria](./media/app-insights-alerts/09-alerts.png)
 
-
-
 ## Como funcionam os alertas
-
 * Um alerta tem três estados: “Nunca ativado”, “Ativado” e “Resolvido”. Ativado significa que a condição especificada era true, quando ela foi avaliada pela última vez.
-
 * Uma notificação é gerada quando um alerta muda de estado. (Se a condição do alerta já era true quando o alerta foi criado, talvez você não receba uma notificação até que a condição mude para false.)
-
 * Cada notificação gerará um email caso tenha marcado a caixa de emails ou fornecido endereços de email. Também é possível examinar a lista suspensa Notificações.
-
 * Um alerta é avaliado toda vez que uma métrica chega, mas não o contrário.
-
 * A avaliação agrega a métrica ao longo do período anterior e a compara com o limite para determinar o novo estado.
-
 * O período que você escolhe especifica o intervalo durante o qual as métricas são agregadas. Ele não afeta a frequência com que o alerta é avaliado: isto depende da frequência da chegada das métricas.
-
 * Se nenhum dado chegar para uma determinada métrica por algum tempo, a lacuna tem efeitos diferentes sobre a avaliação do alerta e sobre os gráficos no Metrics Explorer. No Metrics Explorer, se nenhum dado for visto por mais tempo que o intervalo de amostragem do gráfico, o gráfico mostrará um valor de 0. Mas um alerta com base na mesma métrica não será avaliado novamente e o estado do alerta permanecerá inalterado.
-
+  
     Quando os dados chegam, o gráfico volta para um valor diferente de zero. O alerta será avaliado com base nos dados disponíveis para o período especificado. Se o novo ponto de dados for o único disponível no período, a agregação será baseada apenas nisso.
-
 * Um alerta pode piscar frequentemente entre os estados de alerta e íntegro, mesmo que você defina um longo período. Isso pode acontecer se o valor da métrica estiver em torno do limite. Não há nenhuma histerese no limite: a transição para o alerta acontece com o mesmo valor que a transição para o estado íntegro.
 
-
-
 ## Alertas de disponibilidade
-
 Você pode configurar testes na Web que testam qualquer site de pontos em todo o mundo. [Saiba mais][availability].
 
 ## Quais são alguns alertas que é recomendável definir?
-
 Depende de seu aplicativo. Para começar, é melhor não definir um número excessivo de métricas. Passe algum tempo examinando seus gráficos de métricas enquanto seu aplicativo está em execução para ter uma noção de como ele se comporta normalmente. Isso o ajudará a encontrar maneiras de melhorar seu desempenho. Em seguida, configure alertas para informá-lo quando as métricas estiverem fora da zona normal.
 
 Alguns alertas populares são:
@@ -104,17 +93,13 @@ Alguns alertas populares são:
 * **Exceções de servidor** - para vê-las, você precisa fazer algumas [configurações adicionais](app-insights-asp-net-exceptions.md).
 
 ## Automação
-
 * [Usar o PowerShell para automatizar a configuração de alertas](app-insights-powershell-alerts.md)
-* [Usar webhooks para automatizar a resposta a alertas](../azure-portal/insights-webhooks-alerts.md)
+* [Usar webhooks para automatizar a resposta a alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## Consulte também
-
 * [Testes de disponibilidade na Web](app-insights-monitor-web-app-availability.md)
 * [Automatizar a configuração de alertas](app-insights-powershell-alerts.md)
 * [Detecção proativa](app-insights-proactive-detection.md) 
-
-
 
 <!--Link references-->
 
@@ -124,6 +109,6 @@ Alguns alertas populares são:
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
- 
+
 
 <!---HONumber=AcomDC_0622_2016-->

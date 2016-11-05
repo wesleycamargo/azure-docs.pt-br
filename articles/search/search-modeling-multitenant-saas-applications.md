@@ -1,81 +1,78 @@
-<properties
-	pageTitle="Modelagem de multilocação no Azure Search | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
-	description="Saiba mais sobre padrões de design comuns para aplicativos SaaS multilocatários ao usar o Azure Search."
-	services="search"
-	authors="ashmaka"
-	documentationCenter=""/>
+---
+title: Modelagem de multilocação no Azure Search | Microsoft Docs
+description: Saiba mais sobre padrões de design comuns para aplicativos SaaS multilocatários ao usar o Azure Search.
+services: search
+author: ashmaka
+documentationcenter: ''
 
-<tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.date="09/20/2016"
-	ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: NA
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 09/20/2016
+ms.author: ashmaka
 
+---
 # Padrões de design para aplicativos SaaS multilocatários e Azure Search
-
 Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcionalidades para qualquer número de locatários que não conseguem ver nem compartilhar os dados de qualquer outro locatário. Este documento discute estratégias de isolamento de locatário para aplicativos multilocatários criados com o Azure Search.
 
 ## Conceitos do Azure Search
 Como uma solução de pesquisa como serviço, o Azure Search permite aos desenvolvedores adicionar experiências de pesquisa avançada para aplicativos sem nenhuma infraestrutura de gerenciamento ou se tornar um especialista em pesquisa. Os dados são carregados para o serviço e, em seguida, são armazenados na nuvem. Usando solicitações simples para a API do Azure Search, os dados podem então ser modificados e pesquisados. Uma visão geral do serviço pode ser encontrada em [neste artigo](http://aka.ms/whatisazsearch). Antes de discutir os padrões de design, é importante compreender alguns conceitos do Azure Search.
 
 ### Serviços de pesquisa, índices, campos e documentos
-Ao usar o Azure Search, alguém assina um _serviço de pesquisa_. Como os dados são carregados no Azure Search, eles são armazenados em um _índice_ dentro do serviço de pesquisa. Pode haver um número de índices em um único serviço. Para usar os conceitos familiares de bancos de dados, o serviço de pesquisa pode ser comparado a um banco de dados, enquanto os índices dentro de um serviço podem ser comparados a tabelas em um banco de dados.
+Ao usar o Azure Search, alguém assina um *serviço de pesquisa*. Como os dados são carregados no Azure Search, eles são armazenados em um *índice* dentro do serviço de pesquisa. Pode haver um número de índices em um único serviço. Para usar os conceitos familiares de bancos de dados, o serviço de pesquisa pode ser comparado a um banco de dados, enquanto os índices dentro de um serviço podem ser comparados a tabelas em um banco de dados.
 
-Cada índice dentro de um serviço de pesquisa tem seu próprio esquema, que é definido por um número de _campos_ personalizáveis. Os dados são adicionados a um índice do Azure Search na forma de _documentos_ individuais. Cada documento deve ser carregado em um índice específico e deve se ajustar o esquema do índice. Ao pesquisar dados usando o Azure Search, as consultas de pesquisa de texto completo são emitidas em relação a um índice específico. Para comparar esses conceitos àqueles de um banco de dados, os campos podem ser comparados a colunas em uma tabela e os documentos podem ser comparados a linhas.
+Cada índice dentro de um serviço de pesquisa tem seu próprio esquema, que é definido por um número de *campos* personalizáveis. Os dados são adicionados a um índice do Azure Search na forma de *documentos* individuais. Cada documento deve ser carregado em um índice específico e deve se ajustar o esquema do índice. Ao pesquisar dados usando o Azure Search, as consultas de pesquisa de texto completo são emitidas em relação a um índice específico. Para comparar esses conceitos àqueles de um banco de dados, os campos podem ser comparados a colunas em uma tabela e os documentos podem ser comparados a linhas.
 
 ### Escalabilidade
 Qualquer serviço do Azure Search no [tipo de preço](https://azure.microsoft.com/pricing/details/search/) Standard pode ser dimensionado em duas dimensões: armazenamento e disponibilidade.
-* _Partições_ podem ser adicionadas para aumentar o armazenamento de um serviço de pesquisa.
-* _Réplicas_ podem ser adicionados a um serviço para aumentar a taxa de solicitações que pode lidar com um serviço de pesquisa.
+
+* *Partições* podem ser adicionadas para aumentar o armazenamento de um serviço de pesquisa.
+* *Réplicas* podem ser adicionados a um serviço para aumentar a taxa de solicitações que pode lidar com um serviço de pesquisa.
 
 Adicionar e remover partições e réplicas permitirá que a capacidade do serviço de pesquisa cresça de acordo com a quantidade de dados e tráfego que o aplicativo exige. Para que um serviço de pesquisa obtenha um [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/) de leitura, ele requer duas réplicas. Para que um serviço de pesquisa obtenha um [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/) de leitura/gravação, ele requer três réplicas.
-
 
 ### Limites de serviço e índice no Azure Search
 Há alguns [tipos de preço](https://azure.microsoft.com/pricing/details/search/) diferentes no Azure Search, cada um dos tipos tem [limites e cotas](search-limits-quotas-capacity.md) diferentes. Alguns desses limites estão no nível de serviço, alguns estão no nível do índice e alguns estão no nível da partição.
 
-
-| | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
-|----------------------------------|-----------|-------------|-------------|-------------|---------------|
-| Máximo de réplicas por serviço | 3 | 12 | 12 | 12 | 12 |
-| Máximo de partições por serviço | 1 | 12 | 12 | 12 | 1 |
-| Máximo de unidades de pesquisa (réplicas * partições) por serviço | 3 | 36 | 36 | 36 | 12 |
-| Máximo de documentos por serviço | 1 milhão | 180 milhões | 720 milhões | 1\.4 bilhão | 200 milhões |
-| Armazenamento máximo por serviço | 2 GB | 300 GB | 1,2 TB | 2,4 TB | 200 GB |
-| Máximo de documentos por partição | 1 milhão | 15 milhões | 60 milhões | 120 milhões | 200 milhões |
-| Armazenamento máximo por partição | 2 GB | 25 GB | 100 GB | 200 GB | 200 GB |
-| Índices máximos por serviço | 5 | 50 | 200 | 200 | 1000 |
-
+|  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
+| --- | --- | --- | --- | --- | --- |
+| Máximo de réplicas por serviço |3 |12 |12 |12 |12 |
+| Máximo de partições por serviço |1 |12 |12 |12 |1 |
+| Máximo de unidades de pesquisa (réplicas * partições) por serviço |3 |36 |36 |36 |12 |
+| Máximo de documentos por serviço |1 milhão |180 milhões |720 milhões |1\.4 bilhão |200 milhões |
+| Armazenamento máximo por serviço |2 GB |300 GB |1,2 TB |2,4 TB |200 GB |
+| Máximo de documentos por partição |1 milhão |15 milhões |60 milhões |120 milhões |200 milhões |
+| Armazenamento máximo por partição |2 GB |25 GB |100 GB |200 GB |200 GB |
+| Índices máximos por serviço |5 |50 |200 |200 |1000 |
 
 #### Alta densidade S3
 No tipo de preço S3 do Azure Search, há uma opção para o modo HD (alta densidade) desenvolvido especificamente para cenários de multilocatários. No modo de alta densidade, a SKU S3 tem alguns limites diferentes da configuração S3 padrão:
+
 * Pode haver até 1000 índices por serviço, em vez de 200
 * Pode haver até 200 GB de dados por serviço, em vez de 2,4 TB
 * Pode haver apenas uma 1 partição por serviço, em vez de 12
 
 A camada de HD S3 é ideal para aplicativos SaaS habilitados que implementam o modelo de índice por locatário descrito abaixo.
 
-
 ## Considerações para aplicativos multilocatários
 Aplicativos multilocatários devem distribuir efetivamente recursos entre locatários preservando algum nível de privacidade entre os vários locatários. Há algumas considerações ao criar a arquitetura para esse aplicativo:
 
-* _Isolamento de locatários:_ os desenvolvedores de aplicativos precisam tomar as medidas apropriadas para garantir que nenhum locatário tenha acesso não autorizado ou indesejado aos dados de outros locatários. Além da perspectiva de privacidade de dados, estratégias de isolamento de locatários requerem um gerenciamento eficiente de recursos compartilhados e a proteção de vizinhos com ruídos.
-* _Custo de recursos de nuvem:_ como com qualquer outro aplicativo, as soluções de software devem permanecer competitivas em termos de custo como um componente de um aplicativo multilocatário.
-* _Facilidade de operações:_ ao desenvolver uma arquitetura de multilocatários, o impacto sobre as operações e a complexidade do aplicativo é uma consideração importante. O Azure Search tem um [SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* _Superfície global:_ aplicativos multilocatários talvez precisem atender efetivamente locatários distribuídos em todo o mundo.
-* _Escalabilidade:_ os desenvolvedores de aplicativos precisam considerar como eles reconciliam entre manter um nível suficientemente baixo de complexidade do aplicativo e criar o aplicativo para dimensionar com número de locatários e o tamanho dos dados e a carga de trabalho de locatários.
+* *Isolamento de locatários:* os desenvolvedores de aplicativos precisam tomar as medidas apropriadas para garantir que nenhum locatário tenha acesso não autorizado ou indesejado aos dados de outros locatários. Além da perspectiva de privacidade de dados, estratégias de isolamento de locatários requerem um gerenciamento eficiente de recursos compartilhados e a proteção de vizinhos com ruídos.
+* *Custo de recursos de nuvem:* como com qualquer outro aplicativo, as soluções de software devem permanecer competitivas em termos de custo como um componente de um aplicativo multilocatário.
+* *Facilidade de operações:* ao desenvolver uma arquitetura de multilocatários, o impacto sobre as operações e a complexidade do aplicativo é uma consideração importante. O Azure Search tem um [SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+* *Superfície global:* aplicativos multilocatários talvez precisem atender efetivamente locatários distribuídos em todo o mundo.
+* *Escalabilidade:* os desenvolvedores de aplicativos precisam considerar como eles reconciliam entre manter um nível suficientemente baixo de complexidade do aplicativo e criar o aplicativo para dimensionar com número de locatários e o tamanho dos dados e a carga de trabalho de locatários.
 
 O Azure Search oferece alguns limites que podem ser usados para isolar dados e carga de trabalho de locatários.
 
 ## Modelagem de multilocação com o Azure Search
 No caso de um cenário de multilocatário, o desenvolvedor do aplicativo consome um ou mais serviços de pesquisa e divide seus locatários entre serviços, índices ou ambos. O Azure Search tem alguns padrões comuns ao modelar um cenário de multilocatário:
 
-1. _Índice por locatário:_ cada locatário tem seu próprio índice dentro de um serviço de pesquisa que é compartilhado com outros locatários.
-1. _Serviço por locatário:_ cada locatário tem seu próprio serviço do Azure Search dedicado, oferecendo o nível mais alto de separação de dados e a carga de trabalho.
-1. _Mistura de ambos:_ locatários maiores e mais ativos são atribuídos a serviços dedicados enquanto locatários menores são atribuídos a índices individuais dentro de serviços compartilhados.
+1. *Índice por locatário:* cada locatário tem seu próprio índice dentro de um serviço de pesquisa que é compartilhado com outros locatários.
+2. *Serviço por locatário:* cada locatário tem seu próprio serviço do Azure Search dedicado, oferecendo o nível mais alto de separação de dados e a carga de trabalho.
+3. *Mistura de ambos:* locatários maiores e mais ativos são atribuídos a serviços dedicados enquanto locatários menores são atribuídos a índices individuais dentro de serviços compartilhados.
 
 ## 1\. Indexar por locatário
 ![Uma descrição do modelo de índice por locatário](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
@@ -93,7 +90,6 @@ Para aplicativos com uma superfície global, o modelo de índice por locatário 
 O Azure Search permite a escala de índices individuais e do número total de índices para crescer. Se um tipo de preço apropriado for escolhido, partições e réplicas poderão ser adicionadas ao serviço de pesquisa inteiro quando um índice individual dentro do serviço se tornar muito extenso em termos de armazenamento ou tráfego.
 
 Se o número total de índices aumenta muito para um único serviço, outro serviço deve ser configurado para acomodar novos locatários. Se os índices precisam ser movidos entre os serviços de pesquisa à medida que novos serviços são adicionados, os dados do índice devem ser copiados manualmente de um índice para o outro, já que o Azure Search não permite que um índice seja movido.
-
 
 ## 2\. Serviço por locatário
 ![Uma descrição do modelo de serviço por locatário](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)

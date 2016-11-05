@@ -1,28 +1,30 @@
-<properties
-   pageTitle="Monitoramento de integridade do Service Fabric | Microsoft Azure"
-   description="Uma introdução ao modelo de Monitoramento de integridade do Service Fabric do Azure, que fornece monitoramento do cluster e seus aplicativos e serviços."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="oanapl"
-   manager="timlt"
-   editor=""/>
+---
+title: Monitoramento de integridade do Service Fabric | Microsoft Docs
+description: Uma introdução ao modelo de Monitoramento de integridade do Service Fabric do Azure, que fornece monitoramento do cluster e seus aplicativos e serviços.
+services: service-fabric
+documentationcenter: .net
+author: oanapl
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/28/2016"
-   ms.author="oanapl"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/28/2016
+ms.author: oanapl
 
-
+---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
 
 Os componentes do Service Fabric usam esse modelo de integridade avançado para reportar o respectivo estado atual. É possível usar o mesmo mecanismo para reportar a integridade de seus aplicativos. Se investir em relatórios de integridade de alta qualidade que capturam suas condições personalizadas, você poderá detectar e corrigir problemas do seu aplicativo em execução com muito mais facilidade.
 
-> [AZURE.NOTE] Iniciamos o subsistema de integridade para atender à necessidade de atualizações monitoradas. O Service Fabric fornece aplicativos monitorados e atualizações de cluster que garantem a disponibilidade completa, sem tempo de inatividade e mínima ou nenhuma intervenção do usuário. Para atingir essas metas, a atualização verifica a integridade com base em políticas de atualização configuradas e só prossegue quando a integridade respeita os limites desejados. Caso contrário, a atualização é automaticamente revertida ou pausada para dar aos administradores a oportunidade de corrigir os problemas. Para saber mais sobre atualizações de aplicativo, consulte [este artigo](service-fabric-application-upgrade.md).
+> [!NOTE]
+> Iniciamos o subsistema de integridade para atender à necessidade de atualizações monitoradas. O Service Fabric fornece aplicativos monitorados e atualizações de cluster que garantem a disponibilidade completa, sem tempo de inatividade e mínima ou nenhuma intervenção do usuário. Para atingir essas metas, a atualização verifica a integridade com base em políticas de atualização configuradas e só prossegue quando a integridade respeita os limites desejados. Caso contrário, a atualização é automaticamente revertida ou pausada para dar aos administradores a oportunidade de corrigir os problemas. Para saber mais sobre atualizações de aplicativo, consulte [este artigo](service-fabric-application-upgrade.md).
+> 
+> 
 
 ## <a name="health-store"></a>Repositório de Integridade
 O Repositório de Integridade mantém informações relacionadas à integridade sobre entidades no cluster para facilidade de recuperação e avaliação. Ele é implementado como um serviço com estado persistente da Malha do Serviço, garantindo alta disponibilidade e escalabilidade. O Repositório de Integridade faz parte do aplicativo **fabric:/System** e é disponibilizado quando o cluster é ativado e está em execução.
@@ -41,21 +43,14 @@ As entidades de integridade e a hierarquia proporcionam relatório, depuração 
 
 As entidades de integridade são:
 
-- **Cluster**. Representa a integridade de um cluster da Malha do Serviço. Os relatórios de integridade do cluster descrevem as condições que afetam o cluster inteiro e não podem ser limitados a um ou mais filhos não íntegros. O exemplo inclui a personalidade do cluster sendo dividida devido ao particionamento da rede ou problemas de comunicação.
-
-- **Nó**. Representa a integridade de um nó da Malha do Serviço. Os relatórios de integridade do nó descrevem condições que afetam toda a funcionalidade do nó. Normalmente, elas afetam todas as entidades implantadas em execução. Os exemplos incluem quando um nó não tem espaço em disco (ou outra propriedade em todo o computador, como memória, conexões) ou quando o nó está desativado. A entidade de nó é identificada pelo nome do nó (cadeia de caracteres).
-
-- **Aplicativo**. Representa a integridade de uma instância do aplicativo em execução no cluster. Os relatórios de integridade do aplicativo descrevem condições que afetam a integridade geral do aplicativo. Elas não podem ser limitadas a filhos individuais (serviços ou aplicativos implantados). Os exemplos incluem a interação de ponta a ponta entre diferentes serviços no aplicativo. A entidade de aplicativo é identificada pelo nome do aplicativo (URI).
-
-- **Serviço**. Representa a integridade de um serviço em execução no cluster. Os relatórios de integridade do serviço descrevem condições que afetam a integridade geral do serviço e as mesmas não podem ser limitadas a uma partição ou réplica. Os exemplos incluem uma configuração de serviço (como compartilhamento de arquivos externos ou porta) que está causando problemas em todas as partições. A entidade de serviço é identificada pelo nome do serviço (URI).
-
-- **Partição**. Representa a integridade de uma partição de serviço. Os relatórios de integridade da partição descrevem condições que afetam todo o conjunto de réplicas. Os exemplos incluem quando o número de réplicas está abaixo da contagem de destino e quando a partição está na perda do quórum. A entidade de partição é identificada pela ID da partição (GUID).
-
-- **Réplica**. Representa a integridade de uma réplica de serviço com estado ou uma instância de serviço sem estado. A menor unidade que os watchdogs e os componentes do sistema podem reportar para um aplicativo. Para serviços com estado, os exemplos incluem um relatório de réplica primária quando a mesma não puder replicar operações em locais secundários e quando a replicação não está seguindo no ritmo esperado. Além disso, uma instância sem estado pode relatar quando estiver em execução sem recursos ou tiver problemas de conectividade. A entidade de réplica é identificada pela ID da partição (GUID) e pela ID de réplica ou instância (longo).
-
-- **DeployedApplication**. Representa a integridade de um *aplicativo que é executado em um nó*. Os relatórios de integridade do aplicativo implantado descrevem condições específicas ao aplicativo no nó que não podem ser limitados aos pacotes de serviço implantados no mesmo nó. Os exemplos incluem quando o pacote de aplicativos não pode ser baixado nesse nó e quando há um problema na configuração das entidades de segurança do aplicativo no nó. O aplicativo implantado é identificado pelo nome do aplicativo (URI) e pelo nome do nó (cadeia de caracteres).
-
-- **DeployedServicePackage**. Representa a integridade de um pacote de serviço em execução em um nó no cluster. Descreve as condições específicas a um pacote de serviço que não afetam os outros pacotes de serviço no mesmo nó para o mesmo aplicativo. Os exemplos incluem um pacote de códigos no pacote de serviço que não pode ser iniciado e um pacote de configuração que não pode ser lido. O pacote de serviço implantado é identificado pelo nome do aplicativo (URI), o nome do nó (cadeia de caracteres) e o nome do manifesto do serviço (cadeia de caracteres).
+* **Cluster**. Representa a integridade de um cluster da Malha do Serviço. Os relatórios de integridade do cluster descrevem as condições que afetam o cluster inteiro e não podem ser limitados a um ou mais filhos não íntegros. O exemplo inclui a personalidade do cluster sendo dividida devido ao particionamento da rede ou problemas de comunicação.
+* **Nó**. Representa a integridade de um nó da Malha do Serviço. Os relatórios de integridade do nó descrevem condições que afetam toda a funcionalidade do nó. Normalmente, elas afetam todas as entidades implantadas em execução. Os exemplos incluem quando um nó não tem espaço em disco (ou outra propriedade em todo o computador, como memória, conexões) ou quando o nó está desativado. A entidade de nó é identificada pelo nome do nó (cadeia de caracteres).
+* **Aplicativo**. Representa a integridade de uma instância do aplicativo em execução no cluster. Os relatórios de integridade do aplicativo descrevem condições que afetam a integridade geral do aplicativo. Elas não podem ser limitadas a filhos individuais (serviços ou aplicativos implantados). Os exemplos incluem a interação de ponta a ponta entre diferentes serviços no aplicativo. A entidade de aplicativo é identificada pelo nome do aplicativo (URI).
+* **Serviço**. Representa a integridade de um serviço em execução no cluster. Os relatórios de integridade do serviço descrevem condições que afetam a integridade geral do serviço e as mesmas não podem ser limitadas a uma partição ou réplica. Os exemplos incluem uma configuração de serviço (como compartilhamento de arquivos externos ou porta) que está causando problemas em todas as partições. A entidade de serviço é identificada pelo nome do serviço (URI).
+* **Partição**. Representa a integridade de uma partição de serviço. Os relatórios de integridade da partição descrevem condições que afetam todo o conjunto de réplicas. Os exemplos incluem quando o número de réplicas está abaixo da contagem de destino e quando a partição está na perda do quórum. A entidade de partição é identificada pela ID da partição (GUID).
+* **Réplica**. Representa a integridade de uma réplica de serviço com estado ou uma instância de serviço sem estado. A menor unidade que os watchdogs e os componentes do sistema podem reportar para um aplicativo. Para serviços com estado, os exemplos incluem um relatório de réplica primária quando a mesma não puder replicar operações em locais secundários e quando a replicação não está seguindo no ritmo esperado. Além disso, uma instância sem estado pode relatar quando estiver em execução sem recursos ou tiver problemas de conectividade. A entidade de réplica é identificada pela ID da partição (GUID) e pela ID de réplica ou instância (longo).
+* **DeployedApplication**. Representa a integridade de um *aplicativo que é executado em um nó*. Os relatórios de integridade do aplicativo implantado descrevem condições específicas ao aplicativo no nó que não podem ser limitados aos pacotes de serviço implantados no mesmo nó. Os exemplos incluem quando o pacote de aplicativos não pode ser baixado nesse nó e quando há um problema na configuração das entidades de segurança do aplicativo no nó. O aplicativo implantado é identificado pelo nome do aplicativo (URI) e pelo nome do nó (cadeia de caracteres).
+* **DeployedServicePackage**. Representa a integridade de um pacote de serviço em execução em um nó no cluster. Descreve as condições específicas a um pacote de serviço que não afetam os outros pacotes de serviço no mesmo nó para o mesmo aplicativo. Os exemplos incluem um pacote de códigos no pacote de serviço que não pode ser iniciado e um pacote de configuração que não pode ser lido. O pacote de serviço implantado é identificado pelo nome do aplicativo (URI), o nome do nó (cadeia de caracteres) e o nome do manifesto do serviço (cadeia de caracteres).
 
 A granularidade do modelo de integridade facilita a detecção e correção dos problemas. Por exemplo, se um serviço não estiver respondendo, é possível relatar que a instância do aplicativo não está íntegra. No entanto, a emissão de relatórios neste nível não é ideal porque o problema talvez não esteja afetando todos os serviços no aplicativo. O relatório deve ser aplicado no serviço não íntegro ou partição filha específica, se mais informações apontarem para essa partição. Os dados emergem automaticamente pela hierarquia e uma partição não íntegra fica visível nos níveis de serviço e aplicativo. Essa agregação ajuda a identificar e resolver a causa raiz do problema mais rapidamente.
 
@@ -71,18 +66,18 @@ O Service Fabric usa três estados de integridade para descrever se uma entidade
 
 Os [estados de integridade](https://msdn.microsoft.com/library/azure/system.fabric.health.healthstate) possíveis são:
 
-- **OK**. A entidade está íntegra. Não há nenhum problema conhecido reportado em seus filhos (quando aplicável).
-
-- **Aviso**. A entidade apresenta alguns problemas, mas ainda não está íntegra (por exemplo, há atrasos, mas eles ainda não causam problemas funcionais). Em alguns casos, a condição de aviso pode se corrigir sem nenhuma intervenção especial, e é útil para proporcionar visibilidade do que está acontecendo. Em outros casos, a condição de Aviso pode se transformar em um problema grave sem intervenção do usuário.
-
-- **Erro**. A entidade não está íntegra. Uma medida deve ser tomada para corrigir o estado da entidade, pois ela não funciona corretamente.
-
-- **Desconhecido**. A entidade não existe no repositório de integridade. Esse resultado pode ser obtido em consultas distribuídas que mesclam resultados de vários componentes. Por exemplo, a consulta para obter a lista de nós vai para **FailoverManager** e **HealthManager** e a consulta para obter a lista de aplicativos vai para **ClusterManager** e **HealthManager**. Essas consultas mesclam os resultados de vários componentes do sistema. Se outro componente do sistema retornar uma entidade que não alcançou ou foi eliminada do Repositório de Integridade, o resultado mesclado terá um estado de integridade desconhecido.
+* **OK**. A entidade está íntegra. Não há nenhum problema conhecido reportado em seus filhos (quando aplicável).
+* **Aviso**. A entidade apresenta alguns problemas, mas ainda não está íntegra (por exemplo, há atrasos, mas eles ainda não causam problemas funcionais). Em alguns casos, a condição de aviso pode se corrigir sem nenhuma intervenção especial, e é útil para proporcionar visibilidade do que está acontecendo. Em outros casos, a condição de Aviso pode se transformar em um problema grave sem intervenção do usuário.
+* **Erro**. A entidade não está íntegra. Uma medida deve ser tomada para corrigir o estado da entidade, pois ela não funciona corretamente.
+* **Desconhecido**. A entidade não existe no repositório de integridade. Esse resultado pode ser obtido em consultas distribuídas que mesclam resultados de vários componentes. Por exemplo, a consulta para obter a lista de nós vai para **FailoverManager** e **HealthManager** e a consulta para obter a lista de aplicativos vai para **ClusterManager** e **HealthManager**. Essas consultas mesclam os resultados de vários componentes do sistema. Se outro componente do sistema retornar uma entidade que não alcançou ou foi eliminada do Repositório de Integridade, o resultado mesclado terá um estado de integridade desconhecido.
 
 ## <a name="health-policies"></a>Políticas de integridade
 O Repositório de Integridade aplica políticas de integridade para determinar se uma entidade está íntegra com base em seus relatórios e filhos.
 
-> [AZURE.NOTE] As políticas de integridade podem ser especificadas no manifesto do cluster (para avaliação de integridade do cluster e do nó) ou no manifesto do aplicativo (para avaliação de aplicativo e qualquer um de seus filhos). As solicitações de avaliação de integridade também podem passar pelas políticas de avaliação de integridade personalizadas, que são usadas apenas para avaliação.
+> [!NOTE]
+> As políticas de integridade podem ser especificadas no manifesto do cluster (para avaliação de integridade do cluster e do nó) ou no manifesto do aplicativo (para avaliação de aplicativo e qualquer um de seus filhos). As solicitações de avaliação de integridade também podem passar pelas políticas de avaliação de integridade personalizadas, que são usadas apenas para avaliação.
+> 
+> 
 
 Por padrão, o Service Fabric aplica regras rígidas (tudo deve estar íntegro) para a relação hierárquica pai-filho. Se mesmo um dos filhos tem um evento não íntegro, o pai será considerado não íntegro.
 
@@ -90,14 +85,11 @@ Por padrão, o Service Fabric aplica regras rígidas (tudo deve estar íntegro) 
 A [política de integridade do cluster](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.aspx) é usada para avaliar o estado de integridade do cluster e os estados de integridade do nó. A política pode ser definida no manifesto do cluster. Se não estiver presente, a política padrão (zero falhas toleradas) é usada.
 A política de integridade do cluster contém:
 
-- [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.considerwarningaserror.aspx). Especifica se os relatórios de integridade Aviso devem ser tratados como erros durante a avaliação de integridade. Padrão: falso.
-
-- [MaxPercentUnhealthyApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications.aspx). Especifica a porcentagem máxima tolerada de aplicativos que podem estar não íntegros antes de o cluster ser considerado com erro.
-
-- [MaxPercentUnhealthyNodes](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes.aspx). Especifica a porcentagem máxima tolerada de nós que podem estar não íntegros antes de o cluster ser considerado com erro. Em clusters grandes, sempre há nós desativados ou ausentes para reparo, de modo que esse percentual deve ser configurado para tolerá-los.
-
-- [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). O mapa da política de integridade do tipo de aplicativo pode ser usado durante a avaliação da integridade do cluster para descrever tipos especiais de aplicativo. Por padrão, todos os aplicativos são colocados em um pool e avaliados com MaxPercentUnhealthyApplications. Se alguns tipos de aplicativos tiverem que ser tratados de forma diferente, eles poderão ser criados fora do pool global. Em vez disso, eles são avaliados em relação às porcentagens associadas com seu nome de tipo de aplicativo no mapa. Por exemplo, em um cluster, há milhares de aplicativos de diferentes tipos e algumas instâncias de aplicativo de controle de um tipo especial de aplicativo. Os aplicativos de controle nunca deve apresentar erro. Você pode especificar MaxPercentUnhealthyApplications global como 20% para tolerar algumas falhas, mas para o tipo de aplicativo "ControlApplicationType", defina MaxPercentUnhealthyApplications como 0. Dessa forma, se alguns dos muitos aplicativos estiverem em estado não íntegro, mas abaixo da porcentagem de não integridade global, o estado do cluster será Aviso. Um estado de integridade de aviso não afeta a atualização do cluster nem outros recursos de monitoramento disparados pelo estado de integridade Erro. Mas, até mesmo um controle de aplicativo em erro poderia tornar o cluster não íntegro, que dispara a reversão ou pausa a atualização de cluster, dependendo da configuração de atualização.
-Para os tipos de aplicativo definidos no mapa, todas as instâncias do aplicativo são retiradas do pool global de aplicativos. Eles são avaliados com base no número total de aplicativos do tipo de aplicativo, usando MaxPercentUnhealthyApplications específico do mapa. O restante dos aplicativos permanece no pool global e é avaliado com MaxPercentUnhealthyApplications.
+* [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.considerwarningaserror.aspx). Especifica se os relatórios de integridade Aviso devem ser tratados como erros durante a avaliação de integridade. Padrão: falso.
+* [MaxPercentUnhealthyApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications.aspx). Especifica a porcentagem máxima tolerada de aplicativos que podem estar não íntegros antes de o cluster ser considerado com erro.
+* [MaxPercentUnhealthyNodes](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes.aspx). Especifica a porcentagem máxima tolerada de nós que podem estar não íntegros antes de o cluster ser considerado com erro. Em clusters grandes, sempre há nós desativados ou ausentes para reparo, de modo que esse percentual deve ser configurado para tolerá-los.
+* [ApplicationTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap.aspx). O mapa da política de integridade do tipo de aplicativo pode ser usado durante a avaliação da integridade do cluster para descrever tipos especiais de aplicativo. Por padrão, todos os aplicativos são colocados em um pool e avaliados com MaxPercentUnhealthyApplications. Se alguns tipos de aplicativos tiverem que ser tratados de forma diferente, eles poderão ser criados fora do pool global. Em vez disso, eles são avaliados em relação às porcentagens associadas com seu nome de tipo de aplicativo no mapa. Por exemplo, em um cluster, há milhares de aplicativos de diferentes tipos e algumas instâncias de aplicativo de controle de um tipo especial de aplicativo. Os aplicativos de controle nunca deve apresentar erro. Você pode especificar MaxPercentUnhealthyApplications global como 20% para tolerar algumas falhas, mas para o tipo de aplicativo "ControlApplicationType", defina MaxPercentUnhealthyApplications como 0. Dessa forma, se alguns dos muitos aplicativos estiverem em estado não íntegro, mas abaixo da porcentagem de não integridade global, o estado do cluster será Aviso. Um estado de integridade de aviso não afeta a atualização do cluster nem outros recursos de monitoramento disparados pelo estado de integridade Erro. Mas, até mesmo um controle de aplicativo em erro poderia tornar o cluster não íntegro, que dispara a reversão ou pausa a atualização de cluster, dependendo da configuração de atualização.
+  Para os tipos de aplicativo definidos no mapa, todas as instâncias do aplicativo são retiradas do pool global de aplicativos. Eles são avaliados com base no número total de aplicativos do tipo de aplicativo, usando MaxPercentUnhealthyApplications específico do mapa. O restante dos aplicativos permanece no pool global e é avaliado com MaxPercentUnhealthyApplications.
 
 O exemplo a seguir é um trecho de um manifesto do cluster. Para definir as entradas no mapa do tipo de aplicativo, prefixe o nome do parâmetro com “ApplicationTypeMaxPercentUnhealthyApplications-”, seguido do nome do tipo de aplicativo.
 
@@ -116,22 +108,17 @@ O exemplo a seguir é um trecho de um manifesto do cluster. Para definir as entr
 A [política de integridade do aplicativo](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.aspx) descreve como a avaliação da agregação dos estados de eventos e filhos é feita para aplicativos e seus filhos. Ela pode ser definida no manifesto do aplicativo, **ApplicationManifest.xml**, no pacote de aplicativos. Se nenhuma política for especificada, o Service Fabric suporá que a entidade não está íntegra se ela tiver um relatório de integridade ou um filho no estado de integridade com erro ou aviso.
 As políticas configuráveis são:
 
-- [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Especifica se os relatórios de integridade Aviso devem ser tratados como erros durante a avaliação de integridade. Padrão: falso.
-
-- [MaxPercentUnhealthyDeployedApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications.aspx). Especifica a porcentagem máxima tolerada de aplicativos implantados que podem estar não íntegros antes de o aplicativo ser considerado com erro. Este percentual é calculado pela divisão do número de aplicativos implantados não íntegros pelo número de nós em que os aplicativos estão atualmente implantados no cluster. O cálculo é arredondado para cima para tolerar uma falha em um número pequeno de nós. Porcentagem padrão: zero.
-
-- [DefaultServiceTypeHealthPolicy](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy.aspx). Especifica a política de integridade do tipo de serviço padrão, que substitui a política de integridade padrão para todos os tipos de serviço no aplicativo.
-
-- [ServiceTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap.aspx). Fornece um mapa de políticas de integridade do serviço por tipo de serviço. Estas políticas substituem as políticas de integridade do tipo de serviço padrão para cada tipo de serviço especificado. Por exemplo, se um aplicativo tiver um tipo de serviço de gateway sem estado e um tipo de serviço de mecanismo com estado, você poderá configurar as políticas de integridade da avaliação de maneira diferente. Ao especificar a política por tipo de serviço você permite um controle mais granular da integridade do serviço.
+* [ConsiderWarningAsError](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). Especifica se os relatórios de integridade Aviso devem ser tratados como erros durante a avaliação de integridade. Padrão: falso.
+* [MaxPercentUnhealthyDeployedApplications](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications.aspx). Especifica a porcentagem máxima tolerada de aplicativos implantados que podem estar não íntegros antes de o aplicativo ser considerado com erro. Este percentual é calculado pela divisão do número de aplicativos implantados não íntegros pelo número de nós em que os aplicativos estão atualmente implantados no cluster. O cálculo é arredondado para cima para tolerar uma falha em um número pequeno de nós. Porcentagem padrão: zero.
+* [DefaultServiceTypeHealthPolicy](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy.aspx). Especifica a política de integridade do tipo de serviço padrão, que substitui a política de integridade padrão para todos os tipos de serviço no aplicativo.
+* [ServiceTypeHealthPolicyMap](https://msdn.microsoft.com/library/azure/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap.aspx). Fornece um mapa de políticas de integridade do serviço por tipo de serviço. Estas políticas substituem as políticas de integridade do tipo de serviço padrão para cada tipo de serviço especificado. Por exemplo, se um aplicativo tiver um tipo de serviço de gateway sem estado e um tipo de serviço de mecanismo com estado, você poderá configurar as políticas de integridade da avaliação de maneira diferente. Ao especificar a política por tipo de serviço você permite um controle mais granular da integridade do serviço.
 
 ### <a name="service-type-health-policy"></a>Políticas de integridade do tipo de serviço
 A [política de integridade do tipo de serviço](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.aspx) especifica como avaliar e agregar os serviços e os filhos dos serviços. A política contém:
 
-- [MaxPercentUnhealthyPartitionsPerService](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice.aspx). Especifica a porcentagem máxima tolerada de partições não íntegras antes de um serviço ser considerado não íntegro. Porcentagem padrão: zero.
-
-- [MaxPercentUnhealthyReplicasPerPartition](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition.aspx). Especifica a porcentagem máxima tolerada de réplicas não íntegras antes de uma partição ser considerada não íntegro. Porcentagem padrão: zero.
-
-- [MaxPercentUnhealthyServices](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices.aspx). Especifica a porcentagem máxima tolerada de serviços não íntegros antes de um aplicativo ser considerado não íntegro. Porcentagem padrão: zero.
+* [MaxPercentUnhealthyPartitionsPerService](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice.aspx). Especifica a porcentagem máxima tolerada de partições não íntegras antes de um serviço ser considerado não íntegro. Porcentagem padrão: zero.
+* [MaxPercentUnhealthyReplicasPerPartition](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition.aspx). Especifica a porcentagem máxima tolerada de réplicas não íntegras antes de uma partição ser considerada não íntegro. Porcentagem padrão: zero.
+* [MaxPercentUnhealthyServices](https://msdn.microsoft.com/library/azure/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices.aspx). Especifica a porcentagem máxima tolerada de serviços não íntegros antes de um aplicativo ser considerado não íntegro. Porcentagem padrão: zero.
 
 O exemplo a seguir é um trecho de um manifesto do aplicativo:
 
@@ -188,13 +175,10 @@ Agregação de filhos com base nas políticas de integridade.
 
 Depois que o Repositório de Integridade tiver avaliado todos os filhos, ele agregará seus estados de integridade com base no percentual máximo configurado de filhos não íntegros. Este percentual é obtido da política com base no tipo de entidade e filho.
 
-- Se todos os filhos tiverem estados OK, o estado de integridade agregada dos filhos será OK.
-
-- Se todos os filhos tiverem estados OK e aviso, o estado de integridade agregada dos filhos é um aviso.
-
-- Se houver filhos com estados de erro que não respeitarem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade agregada é um erro.
-
-- Se os filhos com estados de erro respeitarem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade agregada é um aviso.
+* Se todos os filhos tiverem estados OK, o estado de integridade agregada dos filhos será OK.
+* Se todos os filhos tiverem estados OK e aviso, o estado de integridade agregada dos filhos é um aviso.
+* Se houver filhos com estados de erro que não respeitarem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade agregada é um erro.
+* Se os filhos com estados de erro respeitarem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade agregada é um aviso.
 
 ## <a name="health-reporting"></a>Relatório de integridade
 Os componentes do sistema, os aplicativos do System Fabric e os watchdogs internos/externos podem ser relatados em relação às entidades do Service Fabric. Os relatores fazem uma determinação *local* da integridade da entidades monitoradas com base em algumas condições que estão monitorando. Eles não precisam observar nenhum estado global ou dados agregados. O comportamento desejado é ter relatores simples e organismos não complexos que precisariam observar muitas circunstâncias para inferir quais informações enviar.
@@ -204,37 +188,23 @@ Para enviar dados de integridade ao repositório de integridade, o relator preci
 ### <a name="health-reports"></a>Relatórios de integridade
 Os [relatórios de integridade](https://msdn.microsoft.com/library/azure/system.fabric.health.healthreport.aspx) de cada uma das entidades no cluster contêm as seguintes informações:
 
-- **SourceId**. Uma cadeia de caracteres que identifica exclusivamente o relator do evento de integridade.
-
-- **Identificador de entidade**. Identifica a entidade na qual o relatório é aplicado. Varia de acordo com o [tipo de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy):
-
-  - Cluster. Nenhuma.
-
-  - Nó. Nome do nó (cadeia de caracteres).
-
-  - Console. Nome do aplicativo (URI). Representa o nome da instância do aplicativo implantado no cluster.
-
-  - Serviço. Nome do serviço (URI). Representa o nome da instância do serviço implantado no cluster.
-
-  - Partição. ID da partição (GUID). Representa o identificador exclusivo da partição.
-
-  - Réplica. A ID de réplica do serviço com estado ou a ID da instância do serviço sem estado (INT64).
-
-  - DeployedApplication. Nome do aplicativo (URI) e o nome do nó (cadeia de caracteres).
-
-  - DeployedServicePackage. Nome do aplicativo (URI), nome do nó (cadeia de caracteres) e nome do manifesto do serviço (cadeia de caracteres).
-
-- **Property**. Um *cadeia de caracteres* (não uma enumeração fixa) que permite ao relator classificar o evento de integridade para uma propriedade específica da entidade. Por exemplo, o relator A pode relatar a integridade da propriedade “storage” de Node01 e o relator B pode relatar a integridade na propriedade “connectivity” de Node01. No Repositório de Integridade, esses relatórios são tratados como eventos de integridade distintos para a entidade Node01.
-
-- **Description**. Uma cadeia de caracteres que permite ao relator fornecer informações detalhadas sobre o evento de integridade. **SourceId**, **Property** e **HealthState** devem descrever o relatório por completo. A descrição adiciona informações legíveis sobre o relatório. O texto facilita para que os administradores e os usuários entendam o relatório de integridade.
-
-- **HealthState**. Uma [enumeração](service-fabric-health-introduction.md#health-states) que descreve o estado de integridade do relatório. Os valores aceitáveis são OK, Aviso e Erro.
-
-- **TimeToLive**. Um período de tempo que indica por quanto tempo o relatório de integridade é válido. Em conjunto com **RemoveWhenExpired**, permite que o repositório de integridade saiba como avaliar eventos expirados. Por padrão, o valor é infinito e o relatório é válido indefinidamente.
-
-- **RemoveWhenExpired**. Um valor booleano. Se definido como verdadeiro, o relatório de integridade expirado será removido automaticamente do Repositório de Integridade e o relatório não afetará a avaliação da integridade da entidade. Usado quando o relatório for válido apenas por um período especificado de tempo e o relator não precisar removê-lo explicitamente. Ele também é usado para excluir relatórios do repositório de integridade (por exemplo, um watchdog é alterado e interrompe o envio de relatórios com propriedade e origem anteriores). Portanto, ele pode enviar um relatório com TimeToLive curto e RemoveWhenExpired para eliminar qualquer estado anterior do Repositório de Integridade. Se o valor for definido como false, o relatório expirado será tratado como erro na avaliação de integridade. O valor false indica ao repositório de integridade que a origem deve relatar periodicamente essa propriedade. Caso contrário, deve haver algo errado com o watchdog. A integridade do watchdog é capturada ao considerar o evento como um erro.
-
-- **SequenceNumber**. Um inteiro positivo que sempre precisa ser aumentado, pois ele representa a ordem dos relatórios. Ele é usado pelo Repositório de Integridade para detectar relatórios obsoletos que são recebidos em atraso devido a atrasos na rede ou outros problemas. Um relatório é rejeitado se o número da sequência for menor ou igual ao aplicado mais recentemente para a mesma entidade, origem e propriedade. Se não for especificado, o número de sequência é gerado automaticamente. É necessário colocar o número de sequência apenas ao relatar transições de estado. Nessa situação, a origem precisa lembrar quais relatórios enviou e manter as informações de recuperação no failover.
+* **SourceId**. Uma cadeia de caracteres que identifica exclusivamente o relator do evento de integridade.
+* **Identificador de entidade**. Identifica a entidade na qual o relatório é aplicado. Varia de acordo com o [tipo de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy):
+  
+  * Cluster. Nenhuma.
+  * Nó. Nome do nó (cadeia de caracteres).
+  * Console. Nome do aplicativo (URI). Representa o nome da instância do aplicativo implantado no cluster.
+  * Serviço. Nome do serviço (URI). Representa o nome da instância do serviço implantado no cluster.
+  * Partição. ID da partição (GUID). Representa o identificador exclusivo da partição.
+  * Réplica. A ID de réplica do serviço com estado ou a ID da instância do serviço sem estado (INT64).
+  * DeployedApplication. Nome do aplicativo (URI) e o nome do nó (cadeia de caracteres).
+  * DeployedServicePackage. Nome do aplicativo (URI), nome do nó (cadeia de caracteres) e nome do manifesto do serviço (cadeia de caracteres).
+* **Property**. Um *cadeia de caracteres* (não uma enumeração fixa) que permite ao relator classificar o evento de integridade para uma propriedade específica da entidade. Por exemplo, o relator A pode relatar a integridade da propriedade “storage” de Node01 e o relator B pode relatar a integridade na propriedade “connectivity” de Node01. No Repositório de Integridade, esses relatórios são tratados como eventos de integridade distintos para a entidade Node01.
+* **Description**. Uma cadeia de caracteres que permite ao relator fornecer informações detalhadas sobre o evento de integridade. **SourceId**, **Property** e **HealthState** devem descrever o relatório por completo. A descrição adiciona informações legíveis sobre o relatório. O texto facilita para que os administradores e os usuários entendam o relatório de integridade.
+* **HealthState**. Uma [enumeração](service-fabric-health-introduction.md#health-states) que descreve o estado de integridade do relatório. Os valores aceitáveis são OK, Aviso e Erro.
+* **TimeToLive**. Um período de tempo que indica por quanto tempo o relatório de integridade é válido. Em conjunto com **RemoveWhenExpired**, permite que o repositório de integridade saiba como avaliar eventos expirados. Por padrão, o valor é infinito e o relatório é válido indefinidamente.
+* **RemoveWhenExpired**. Um valor booleano. Se definido como verdadeiro, o relatório de integridade expirado será removido automaticamente do Repositório de Integridade e o relatório não afetará a avaliação da integridade da entidade. Usado quando o relatório for válido apenas por um período especificado de tempo e o relator não precisar removê-lo explicitamente. Ele também é usado para excluir relatórios do repositório de integridade (por exemplo, um watchdog é alterado e interrompe o envio de relatórios com propriedade e origem anteriores). Portanto, ele pode enviar um relatório com TimeToLive curto e RemoveWhenExpired para eliminar qualquer estado anterior do Repositório de Integridade. Se o valor for definido como false, o relatório expirado será tratado como erro na avaliação de integridade. O valor false indica ao repositório de integridade que a origem deve relatar periodicamente essa propriedade. Caso contrário, deve haver algo errado com o watchdog. A integridade do watchdog é capturada ao considerar o evento como um erro.
+* **SequenceNumber**. Um inteiro positivo que sempre precisa ser aumentado, pois ele representa a ordem dos relatórios. Ele é usado pelo Repositório de Integridade para detectar relatórios obsoletos que são recebidos em atraso devido a atrasos na rede ou outros problemas. Um relatório é rejeitado se o número da sequência for menor ou igual ao aplicado mais recentemente para a mesma entidade, origem e propriedade. Se não for especificado, o número de sequência é gerado automaticamente. É necessário colocar o número de sequência apenas ao relatar transições de estado. Nessa situação, a origem precisa lembrar quais relatórios enviou e manter as informações de recuperação no failover.
 
 Essas quatro informações: SourceId, identificador da entidade, Propriedade e HealthState são obrigatórios para cada relatório de integridade. A cadeia de caracteres SourceId não pode iniciar com o prefixo "**System.**", que é reservado para relatórios do sistema. Para a mesma entidade, há apenas um relatório para a mesma origem e propriedade. Vários relatórios para a mesma fonte e propriedade substituirão uns aos outros, seja no lado do cliente de integridade (se estiverem divididos em lotes), seja no lado do Repositório de Integridade. A substituição é baseada nos números da sequência: relatórios mais recentes (com número de sequência mais alto) substituem os relatórios mais antigos.
 
@@ -243,21 +213,16 @@ Internamente, o Repositório de Integridade mantém os [eventos de integridade](
 
 Os metadados adicionados contêm:
 
-- **SourceUtcTimestamp**. A hora que o relatório foi fornecido ao cliente de integridade (Coordinated Universal Time)
-
-- **LastModifiedUtcTimestamp**. A hora em que o relatório foi modificado pela última vez no lado do servidor (Coordinated Universal Time).
-
-- **IsExpired**. Um sinalizador para indicar se o relatório estava expirado no momento que a consulta foi executada pelo Repositório de Integridade. Um evento pode ter expirado somente se RemoveWhenExpired for false. Caso contrário, o evento não é retornado pela consulta e é removido do armazenamento.
-
-- **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. A última hora para transições OK/aviso/erro. Esses campos fornecem o histórico das transições de estado de integridade para o evento.
+* **SourceUtcTimestamp**. A hora que o relatório foi fornecido ao cliente de integridade (Coordinated Universal Time)
+* **LastModifiedUtcTimestamp**. A hora em que o relatório foi modificado pela última vez no lado do servidor (Coordinated Universal Time).
+* **IsExpired**. Um sinalizador para indicar se o relatório estava expirado no momento que a consulta foi executada pelo Repositório de Integridade. Um evento pode ter expirado somente se RemoveWhenExpired for false. Caso contrário, o evento não é retornado pela consulta e é removido do armazenamento.
+* **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. A última hora para transições OK/aviso/erro. Esses campos fornecem o histórico das transições de estado de integridade para o evento.
 
 Os campos de transição de estado podem ser usados para gerar alertas mais inteligentes ou informações “históricas” de evento de integridade. Eles permitem cenários como:
 
-- Alertar quando uma propriedade estiver no estado aviso/erro por mais de X minutos. A verificação da condição para um período de tempo evita alertas em condições temporárias. Por exemplo, um alerta se o estado da integridade estiver em aviso por mais de 5 minutos pode ser traduzido em (HealthState == Aviso e Agora - LastWarningTransitionTime > 5 minutos).
-
-- Alertar apenas em condições que mudaram nos últimos X minutos. Se um relatório estiver em estado de erro desde antes da hora especificada, ele poderá ser ignorado pois já tinha sido sinalizado anteriormente.
-
-- Se uma propriedade estiver alternando entre aviso e erro, determine por quanto tempo ele esteve não íntegro (isto é, não OK). Por exemplo, um alerta se a propriedade não esteve íntegra por mais de 5 minutos pode ser traduzido em: (HealthState != Ok e Agora - LastOkTransitionTime > 5 minutos).
+* Alertar quando uma propriedade estiver no estado aviso/erro por mais de X minutos. A verificação da condição para um período de tempo evita alertas em condições temporárias. Por exemplo, um alerta se o estado da integridade estiver em aviso por mais de 5 minutos pode ser traduzido em (HealthState == Aviso e Agora - LastWarningTransitionTime > 5 minutos).
+* Alertar apenas em condições que mudaram nos últimos X minutos. Se um relatório estiver em estado de erro desde antes da hora especificada, ele poderá ser ignorado pois já tinha sido sinalizado anteriormente.
+* Se uma propriedade estiver alternando entre aviso e erro, determine por quanto tempo ele esteve não íntegro (isto é, não OK). Por exemplo, um alerta se a propriedade não esteve íntegra por mais de 5 minutos pode ser traduzido em: (HealthState != Ok e Agora - LastOkTransitionTime > 5 minutos).
 
 ## <a name="example:-report-and-evaluate-application-health"></a>Exemplo: relatar e avaliar integridade do aplicativo
 O exemplo a seguir envia um relatório de integridade por meio PowerShell no aplicativo **fabric:/WordCount** da origem **MyWatchdog**. O relatório de integridade contém informações sobre a propriedade de integridade "availability" em um estado de integridade de erro, com TimeToLive infinito. Em seguida, ele consulta a integridade do aplicativo, que retornará erro do estado de integridade agregada e o evento de integridade relatado como parte da lista de eventos de integridade.
@@ -345,8 +310,6 @@ O modelo de integridade é muito usado para monitoramento e diagnóstico, para a
 [Monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

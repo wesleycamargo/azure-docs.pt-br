@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Solucionar problemas de Serviços de Nuvem usando o Application Insights | Microsoft Azure"
-   description="Saiba como solucionar problemas do serviço de nuvem usando o Application Insights para processar dados do Diagnóstico do Azure."
-   services="cloud-services"
-   documentationCenter=".net"
-   authors="sbtron"
-   manager="timlt"
-   editor="tysonn" />
-<tags
-   ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/15/2015"
-   ms.author="saurabh" />
+---
+title: Solucionar problemas de Serviços de Nuvem usando o Application Insights | Microsoft Docs
+description: Saiba como solucionar problemas do serviço de nuvem usando o Application Insights para processar dados do Diagnóstico do Azure.
+services: cloud-services
+documentationcenter: .net
+author: sbtron
+manager: timlt
+editor: tysonn
 
+ms.service: cloud-services
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 12/15/2015
+ms.author: saurabh
 
+---
 # Solucionar problemas de Serviços de Nuvem usando o Application Insights
-
 Com o [Azure SDK 2.8](https://azure.microsoft.com/downloads/) e a extensão do Diagnóstico do Azure 1.5, você pode enviar seus dados do Diagnóstico do Azure de seu serviço de nuvem diretamente para o Application Insights. Os vários tipos de logs coletados pelo Diagnóstico do Azure, incluindo logs de aplicativo, logs de eventos do Windows, logs ETW e contadores de desempenho, podem ser enviados ao Application Insights e visualizados na interface do usuário do portal do Application Insights. Quando usado com o SDK do Application Insights, você pode obter informações sobre métricas e logs provenientes de seu aplicativo, bem como dados de sistema e de nível de infraestrutura provenientes do Diagnóstico do Azure.
 
 ## Configurar o Diagnóstico do Azure para enviar dados para o Application Insights
-
 Siga estas etapas para configurar seu projeto de serviço de nuvem e enviar os dados do Diagnóstico do Azure para o Application Insights.
 
 1) No Gerenciador de Soluções do Visual Studio, clique em uma função e selecione **propriedades** para abrir o Designer de função
@@ -51,24 +49,22 @@ A telemetria de diagnóstico do Azure aparecerá no recurso do Application Insig
 
 Abaixo mostramos como os vários tipos de log de diagnóstico do Azure mapeiam para conceitos do Application Insights:
 
--  Contadores de desempenho são exibidos como métricas personalizadas no Application Insights
--  Os logs de eventos do Windows são mostrados como Rastreamentos e Eventos Personalizados no Application Insights
--  Logs de aplicativo, Logs de ETW e logs de infraestrutura de diagnóstico são mostrados como rastreamentos no Application Insights.
+* Contadores de desempenho são exibidos como métricas personalizadas no Application Insights
+* Os logs de eventos do Windows são mostrados como Rastreamentos e Eventos Personalizados no Application Insights
+* Logs de aplicativo, Logs de ETW e logs de infraestrutura de diagnóstico são mostrados como rastreamentos no Application Insights.
 
 Para exibir dados do Diagnóstico do Azure no Application Insights:
 
-- Use o [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md) para visualizar contadores de desempenho personalizados ou contagens de diferentes tipos de eventos do log de eventos do Windows.
+* Use o [Metrics Explorer](../application-insights/app-insights-metrics-explorer.md) para visualizar contadores de desempenho personalizados ou contagens de diferentes tipos de eventos do log de eventos do Windows.
 
 ![Métricas personalizadas no Metrics Explorer][5]
 
-- Use [Pesquisa](../application-insights/app-insights-diagnostic-search.md) para pesquisar os vários logs de rastreamento enviados pelo Diagnóstico do Azure. Por exemplo, se você tivesse uma exceção sem tratamento em uma Função que fizesse essa Função parar de funcionar e reciclar, essas informações seriam mostradas no canal *Aplicativo* do *Log de Eventos do Windows*. Você pode usar a funcionalidade Pesquisar para ver o erro do log de eventos do Windows e obter o rastreamento de pilha completo da exceção, permitindo que você encontre a causa principal do problema.
+* Use [Pesquisa](../application-insights/app-insights-diagnostic-search.md) para pesquisar os vários logs de rastreamento enviados pelo Diagnóstico do Azure. Por exemplo, se você tivesse uma exceção sem tratamento em uma Função que fizesse essa Função parar de funcionar e reciclar, essas informações seriam mostradas no canal *Aplicativo* do *Log de Eventos do Windows*. Você pode usar a funcionalidade Pesquisar para ver o erro do log de eventos do Windows e obter o rastreamento de pilha completo da exceção, permitindo que você encontre a causa principal do problema.
 
 ![Pesquisar rastreamentos][6]
 
 ## Próximas etapas
-
-- [Adicionar o SDK do Application Insights ao seu serviço de nuvem](../application-insights/app-insights-cloudservices.md) para enviar dados sobre solicitações, exceções, dependências e telemetria personalizada do seu aplicativo. Combinado com os dados do Diagnóstico do Azure, você pode obter uma visão completa do seu aplicativo e do sistema no mesmo recurso do Application Insights.  
-
+* [Adicionar o SDK do Application Insights ao seu serviço de nuvem](../application-insights/app-insights-cloudservices.md) para enviar dados sobre solicitações, exceções, dependências e telemetria personalizada do seu aplicativo. Combinado com os dados do Diagnóstico do Azure, você pode obter uma visão completa do seu aplicativo e do sistema no mesmo recurso do Application Insights.  
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/solution-explorer-properties.png

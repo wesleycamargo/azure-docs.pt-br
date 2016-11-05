@@ -1,37 +1,35 @@
-<properties
-	pageTitle="Automatizar o gerenciamento de aplicativos do Service Fabric usando o PowerShell | Microsoft Azure"
-	description="Implantar, atualizar, testar e remover aplicativos do Service Fabric usando o PowerShell."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="rwike77"
-	manager="timlt"
-	editor=""/>
+---
+title: Automatizar o gerenciamento de aplicativos do Service Fabric usando o PowerShell | Microsoft Docs
+description: Implantar, atualizar, testar e remover aplicativos do Service Fabric usando o PowerShell.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-	ms.service="service-fabric"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/25/2016"
-	ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # Automatizar o ciclo de vida do aplicativo usando o PowerShell
-
 Muitos aspectos do [ciclo de vida de um aplicativo do Service Fabric](service-fabric-application-lifecycle.md) podem ser automatizados. Este artigo mostra como usar o PowerShell para automatizar tarefas comuns de implantação, atualização, remoção e teste de aplicativos do Service Fabric. APIs gerenciadas e HTTP para gerenciamento de aplicativos também estão disponíveis. Consulte [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md) para obter mais informações.
 
 ## Pré-requisitos
 Antes de passar para as tarefas deste artigo, não deixe de:
 
-+ Familiarizar-se com os conceitos do Service Fabric descritos em [Visão geral técnica do Service Fabric](service-fabric-technical-overview.md).
-+ [Instalar as ferramentas, o SDK e o tempo de execução](service-fabric-get-started.md), o que também instala o módulo **ServiceFabric** do PowerShell.
-+ [Habilitar a execução de script do PowerShell](service-fabric-get-started.md#enable-powershell-script-execution).
-+ Iniciar um cluster local. Inicie uma nova janela do PowerShell como administrador e execute o script de instalação de cluster na pasta do SDK: `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
-+ Antes de executar qualquer comando do PowerShell neste artigo, primeiro conecte-se ao cluster local do Service Fabric usando [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx): `Connect-ServiceFabricCluster localhost:19000`
-+ As tarefas a seguir exigem um pacote de aplicativos v1 para implantar e um pacote de aplicativos v2 para atualizar. Baixe o [aplicativo de exemplo **WordCount**](http://aka.ms/servicefabricsamples) (localizado nas amostras da Introdução). Crie e empacote o aplicativo no Visual Studio (clique com o botão direito do mouse em **WordCount** no Gerenciador de Soluções e selecione **Pacote**). Copie o pacote v1 em `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug` para `C:\Temp\WordCount`. Copie `C:\Temp\WordCount` para `C:\Temp\WordCountV2`, criando o pacote de aplicativos v2 para a atualização. Abra `C:\Temp\WordCountV2\ApplicationManifest.xml` em um editor de texto. No elemento **ApplicationManifest**, altere o atributo **ApplicationTypeVersion** de "1.0.0" para “2.0.0” para atualizar o número de versão do aplicativo. Salve o arquivo ApplicationManifest.xml alterado.
+* Familiarizar-se com os conceitos do Service Fabric descritos em [Visão geral técnica do Service Fabric](service-fabric-technical-overview.md).
+* [Instalar as ferramentas, o SDK e o tempo de execução](service-fabric-get-started.md), o que também instala o módulo **ServiceFabric** do PowerShell.
+* [Habilitar a execução de script do PowerShell](service-fabric-get-started.md#enable-powershell-script-execution).
+* Iniciar um cluster local. Inicie uma nova janela do PowerShell como administrador e execute o script de instalação de cluster na pasta do SDK: `& "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"`
+* Antes de executar qualquer comando do PowerShell neste artigo, primeiro conecte-se ao cluster local do Service Fabric usando [**Connect-ServiceFabricCluster**](https://msdn.microsoft.com/library/azure/mt125938.aspx): `Connect-ServiceFabricCluster localhost:19000`
+* As tarefas a seguir exigem um pacote de aplicativos v1 para implantar e um pacote de aplicativos v2 para atualizar. Baixe o [aplicativo de exemplo **WordCount**](http://aka.ms/servicefabricsamples) (localizado nas amostras da Introdução). Crie e empacote o aplicativo no Visual Studio (clique com o botão direito do mouse em **WordCount** no Gerenciador de Soluções e selecione **Pacote**). Copie o pacote v1 em `C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug` para `C:\Temp\WordCount`. Copie `C:\Temp\WordCount` para `C:\Temp\WordCountV2`, criando o pacote de aplicativos v2 para a atualização. Abra `C:\Temp\WordCountV2\ApplicationManifest.xml` em um editor de texto. No elemento **ApplicationManifest**, altere o atributo **ApplicationTypeVersion** de "1.0.0" para “2.0.0” para atualizar o número de versão do aplicativo. Salve o arquivo ApplicationManifest.xml alterado.
 
 ## Tarefa: Implantar um aplicativo do Service Fabric
-
 Depois de compilar e empacotar o aplicativo (ou baixar o pacote de aplicativos), você poderá implantar o aplicativo em um cluster local do Service Fabric. A implantação envolve o carregamento do pacote de aplicativos, o registro do tipo de aplicativo e a criação da instância do aplicativo. Use as instruções desta seção para implantar um novo aplicativo em um cluster.
 
 ### Etapa 1: Carregar o pacote do aplicativo
@@ -90,7 +88,7 @@ Register-ServiceFabricApplicationType WordCountV2
 ```
 
 ### Etapa 3: Iniciar a atualização
-É possível aplicar vários parâmetros de atualização, tempo limite e critérios de integridade para atualizações de aplicativo. Leia os documentos [parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md) e [processo de atualização](service-fabric-application-upgrade.md) para saber mais. Todos os serviços e instâncias deverão estar _íntegros_ após a atualização. Defina **HealthCheckStableDuration** como 60 segundos (de modo que os serviços fiquem íntegros por pelo menos 20 segundos antes que a atualização prossiga para o domínio de atualização seguinte). Defina também **UpgradeDomainTimeout** como 1200 segundos e **UpgradeTimeout** como 3000 segundos. Por fim, defina **UpgradeFailureAction** para **reversão**, o que solicita ao Service Fabric a reversão do aplicativo para a versão anterior, caso ocorram falhas durante a atualização.
+É possível aplicar vários parâmetros de atualização, tempo limite e critérios de integridade para atualizações de aplicativo. Leia os documentos [parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md) e [processo de atualização](service-fabric-application-upgrade.md) para saber mais. Todos os serviços e instâncias deverão estar *íntegros* após a atualização. Defina **HealthCheckStableDuration** como 60 segundos (de modo que os serviços fiquem íntegros por pelo menos 20 segundos antes que a atualização prossiga para o domínio de atualização seguinte). Defina também **UpgradeDomainTimeout** como 1200 segundos e **UpgradeTimeout** como 3000 segundos. Por fim, defina **UpgradeFailureAction** para **reversão**, o que solicita ao Service Fabric a reversão do aplicativo para a versão anterior, caso ocorram falhas durante a atualização.
 
 Agora você pode iniciar a atualização do aplicativo usando o cmdlet [**Start-ServiceFabricApplicationUpgrade**](https://msdn.microsoft.com/library/azure/mt125975.aspx):
 
@@ -110,7 +108,6 @@ Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 Em alguns minutos, o cmdlet [Get-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/azure/mt125988.aspx) mostra que todos os domínios de atualização foram atualizados (concluídos).
 
 ## Tarefa: testar um aplicativo do Service Fabric
-
 Para escrever serviços de alta qualidade, os desenvolvedores precisam ser capazes de induzir falhas de infraestrutura não confiável a fim de testar a estabilidade de seus serviços. O Service Fabric fornece aos desenvolvedores a capacidade de induzir ações de falha e testar os serviços na presença de falhas usando cenários de teste de caos e de failover. Leia [Visão geral da possibilidade de teste](service-fabric-testability-overview.md) para obter informações adicionais.
 
 ### Etapa 1: Executar o cenário de teste de caos

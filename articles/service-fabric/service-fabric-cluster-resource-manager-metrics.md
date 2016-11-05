@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Gerenciando métricas com o Gerenciador de Recursos de Cluster do Azure Service Fabric | Microsoft Azure"
-   description="Saiba mais sobre como configurar e usar métricas no Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Gerenciando métricas com o Gerenciador de Recursos de Cluster do Azure Service Fabric | Microsoft Docs
+description: Saiba mais sobre como configurar e usar métricas no Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Gerenciando o consumo e a carga de recursos no Service Fabric com métricas
 As métricas são o termo genérico do Service Fabric para os recursos que são importantes para seus serviços e que são fornecidas pelo nós no cluster. Em geral, uma métrica é tudo o que você deseja gerenciar para lidar com o desempenho de seus serviços.
 
@@ -24,21 +24,22 @@ Coisas como memória, disco, o uso da CPU, todos esses são exemplos de métrica
 ## Métricas padrão
 Vamos supor que você queira apenas começar e não saiba quais recursos pretende consumir ou até mesmo quais seriam importantes. Portanto, você vai implementar e criar seus serviços sem especificar as métricas. Sem problemas! Vamos escolher algumas métricas para você. As métricas padrão que usaremos para você no momento se você não especificar os seus próprios são chamadas PrimaryCount, ReplicaCount e (um pouco vagamente, sabemos) Count. A tabela abaixo mostra o quanto de carga para cada uma dessas métricas associadas com cada objeto de serviço:
 
-| Métrica | Carga de Instância Sem Estado |	Carga Secundária com Estado |	Carga Primária com Estado |
-|--------|--------------------------|-------------------------|-----------------------|
-| PrimaryCount | 0 |	0 |	1 |
-| ReplicaCount | 0 | 1 | 1 |
-| Contagem |	1 |	1 |	1 |
+| Métrica | Carga de Instância Sem Estado | Carga Secundária com Estado | Carga Primária com Estado |
+| --- | --- | --- | --- |
+| PrimaryCount |0 |0 |1 |
+| ReplicaCount |0 |1 |1 |
+| Contagem |1 |1 |1 |
 
 OK. Com essas métricas padrão, o que você obtém? Bem, para cargas de trabalho básicas, você obtém uma boa distribuição de trabalho. No exemplo a seguir, vamos ver o que acontece quando criamos um serviço com estado com três partições e um tamanho de conjunto de réplicas de destino de três, além de um único serviço sem estado com uma contagem de três instâncias. Você obterá algo assim.
 
 ![Layout de cluster com métricas padrão][Image1]
 
 Neste exemplo, vemos que
--	As réplicas primárias para o serviço com estado não ficam empilhadas em um único nó
--	As réplicas da mesma partição não estão no mesmo nó
--	O número total de primários e de secundários está bem distribuído no cluster
--	O número total de objetos de serviço (com e sem estado) é alocado uniformemente em cada nó
+
+* As réplicas primárias para o serviço com estado não ficam empilhadas em um único nó
+* As réplicas da mesma partição não estão no mesmo nó
+* O número total de primários e de secundários está bem distribuído no cluster
+* O número total de objetos de serviço (com e sem estado) é alocado uniformemente em cada nó
 
 Muito bom!
 
@@ -101,13 +102,13 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 
 Agora que mostramos a você como definir suas próprias métricas, vamos falar sobre as diferentes propriedades que as métricas podem ter. Já as mostramos a você, mas está na hora de falar sobre o que elas realmente significam! Há quatro propriedades diferentes que uma métrica pode ter hoje:
 
--	MetricName: esse é o nome da métrica. É um identificador exclusivo para a métrica do cluster da perspectiva do Gerenciador de Recursos.
-- Default Load: A carga padrão é representada de maneira diferente dependendo se o serviço está com ou sem estado.
-  - Para serviços sem estado cada métrica tem apenas uma propriedade única chamada Deafult Load
-  - Para serviços com estado você define
-    -	PrimaryDefaultLoad: o valor padrão de carga que esse serviço vai exercer para a métrica como Primário
-    -	SecondaryDefaultLoad: o valor padrão de carga que o serviço vai exercer para a métrica como uma réplica Secundária
--	Weight: é quão importante a métrica é em relação a outras métricas configuradas para esse serviço.
+* MetricName: esse é o nome da métrica. É um identificador exclusivo para a métrica do cluster da perspectiva do Gerenciador de Recursos.
+* Default Load: A carga padrão é representada de maneira diferente dependendo se o serviço está com ou sem estado.
+  * Para serviços sem estado cada métrica tem apenas uma propriedade única chamada Deafult Load
+  * Para serviços com estado você define
+    * PrimaryDefaultLoad: o valor padrão de carga que esse serviço vai exercer para a métrica como Primário
+    * SecondaryDefaultLoad: o valor padrão de carga que o serviço vai exercer para a métrica como uma réplica Secundária
+* Weight: é quão importante a métrica é em relação a outras métricas configuradas para esse serviço.
 
 ## Carregar
 A carga é a noção geral de quanto uma determinada métrica é consumida por uma instância de serviço ou por uma réplica em um determinado nó.
@@ -151,15 +152,15 @@ Vamos ver qual poderia ser a aparência de um layout de cluster:
 
 Algumas coisas que vale a pena observar:
 
--	Como as réplicas ou instâncias usam a carga padrão do serviço até relatar suas próprias cargas, sabemos que as réplicas dentro da partição 1 do serviço com estado ainda não relatou carga por conta própria
--	As réplicas secundárias dentro de uma partição podem ter sua própria carga
--	Em geral, as métricas parecem muito boas, com a diferença entre as cargas mínima e máxima em um nó (para memória, a métrica personalizada que seria a mais importante para nós) de 1,75 (o nó com o máximo de carga para a memória é N3, mínimo é N2 e 28/16 = 1,75): bem equilibrada!
+* Como as réplicas ou instâncias usam a carga padrão do serviço até relatar suas próprias cargas, sabemos que as réplicas dentro da partição 1 do serviço com estado ainda não relatou carga por conta própria
+* As réplicas secundárias dentro de uma partição podem ter sua própria carga
+* Em geral, as métricas parecem muito boas, com a diferença entre as cargas mínima e máxima em um nó (para memória, a métrica personalizada que seria a mais importante para nós) de 1,75 (o nó com o máximo de carga para a memória é N3, mínimo é N2 e 28/16 = 1,75): bem equilibrada!
 
 Há algumas coisas que precisamos explicar
 
--	O que determinou se uma taxa de 1,75 é razoável ou não? Como sabemos que é bom o suficiente ou se há mais a melhorar?
--	Quando o balanceamento acontece?
--	O que significa que a memória foi ponderada como "Alta"?
+* O que determinou se uma taxa de 1,75 é razoável ou não? Como sabemos que é bom o suficiente ou se há mais a melhorar?
+* Quando o balanceamento acontece?
+* O que significa que a memória foi ponderada como "Alta"?
 
 ## Pesos de métrica
 Pesos de métrica são o que permite que dois serviços diferentes relatem a mesma métrica, mas exibam a importância diferente de balancear tal métrica. Por exemplo, considere um mecanismo analítico na memória e um banco de dados persistente: ambos provavelmente se importam com a métrica "Memory", mas o serviço na memória interna provavelmente não se preocupa muito com a métrica "Disk"; ela pode consumir um pouco dessa, mas não é essencial para o desempenho do serviço, então provavelmente a mesma não seria relatada. A capacidade de controlar as mesmas métricas entre diferentes serviços é ótima, pois isso é o que permite que o Gerenciador de Recursos de Cluster controle o consumo real no cluster, garanta que os nós não fiquem sobrecarregados, etc.
@@ -190,11 +191,11 @@ No exemplo inferior, distribuímos as réplicas com base no balanceamento global
 Considerando os pesos de métrica, o balanceamento global é calculado com base na média dos pesos de métrica configurados para cada um dos serviços. Podemos balancear um serviço em relação a seus próprios pesos de métrica definidos.
 
 ## Próximas etapas
-- Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis do Gerenciador de Recursos de Cluster em [Saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
-- Definir as Métricas de Desfragmentação é uma forma de consolidar a carga em nós, em vez de distribuí-la. Para saber como configurar a desfragmentação, leia [este artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
-- Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-- O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, consulte [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
+* Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis do Gerenciador de Recursos de Cluster em [Saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
+* Definir as Métricas de Desfragmentação é uma forma de consolidar a carga em nós, em vez de distribuí-la. Para saber como configurar a desfragmentação, leia [este artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+* Para descobrir como o Gerenciador de Recursos de Cluster gerencia e balanceia carga no cluster, confira o artigo sobre [como balancear carga](service-fabric-cluster-resource-manager-balancing.md)
+* Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
+* O Custo de Movimento é uma forma de sinalizar para o Gerenciador de Recursos de Cluster que a movimentação de determinados serviços é mais cara do que para outros. Para saber mais sobre o custo de movimento, consulte [este artigo](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png

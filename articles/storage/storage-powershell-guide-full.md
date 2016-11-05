@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Usando o PowerShell do Azure com o Armazenamento do Azure | Microsoft Azure"
-	description="Aprenda a usar os cmdlets do PowerShell do Azure para Armazenamento do Azure, para criar e gerenciar contas de armazenamento; trabalhar com tabelas, blobs, filas e arquivos; configurar e consultar a análise de armazenamento e criar assinaturas de acesso compartilhado."
-	services="storage"
-	documentationCenter="na"
-	authors="robinsh"
-	manager="carmonm"/>
+---
+title: Usando o PowerShell do Azure com o Armazenamento do Azure | Microsoft Docs
+description: Aprenda a usar os cmdlets do PowerShell do Azure para Armazenamento do Azure, para criar e gerenciar contas de armazenamento; trabalhar com tabelas, blobs, filas e arquivos; configurar e consultar a análise de armazenamento e criar assinaturas de acesso compartilhado.
+services: storage
+documentationcenter: na
+author: robinsh
+manager: carmonm
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/03/2016"
-	ms.author="micurd;robinsh"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/03/2016
+ms.author: micurd;robinsh
 
+---
 # Usando o PowerShell do Azure com o Armazenamento do Azure
-
 ## Visão geral
-
 O PowerShell no Azure é um módulo que fornece cmdlets para gerenciar o Azure por meio do Windows PowerShell. Ele é um shell de linha de comando baseado em tarefa e linguagem de script criado especialmente para administração do sistema. Com o PowerShell, você pode facilmente controlar e automatizar a administração dos seus aplicativos e serviços do Azure. Na maioria dos casos, é possível usar os cmdlets para executar as mesmas tarefas que você pode executar por meio do [Portal do Azure](https://portal.azure.com).
 
 Neste guia, exploraremos como usar os [Cmdlets de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt269418.aspx) para executar uma variedade de tarefas de desenvolvimento e administração com o Armazenamento do Azure.
@@ -27,9 +25,7 @@ Este guia pressupõe que você tenha experiência anterior usando o [Armazenamen
 
 A primeira seção deste guia fornece uma visão rápida no Armazenamento do Azure e do PowerShell. Para obter informações e instruções detalhadas, comece com os [Pré-requisitos para usar o Azure PowerShell com o armazenamento do Azure](#prerequisites-for-using-azure-powershell-with-azure-storage).
 
-
 ## Introdução ao Armazenamento do Azure e ao PowerShell em 5 minutos
-
 Esta seção mostra como acessar o Armazenamento do Azure por meio do PowerShell em 5 minutos.
 
 **Novo no Azure:** obtenha uma assinatura do Microsoft Azure e uma conta da Microsoft associada a essa assinatura. Para obter informações sobre opções de compra do Azure, confira [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/), [Opções de compra](https://azure.microsoft.com/pricing/purchase-options/) e [Ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) (para membros do MSDN, Microsoft Partner Network e BizSpark, entre outros programas da Microsoft).
@@ -38,100 +34,95 @@ Consulte [Atribuindo funções de administrador no Azure AD (Azure Active Direct
 
 **Depois de criar uma assinatura e conta do Microsoft Azure:**
 
-1.	Baixe e instale o [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
-2.	Inicie o Ambiente de Script Integrado (ISE) do Windows PowerShell: No seu computador local, vá até o menu **Iniciar**. Digite **Ferramentas Administrativas** e clique para executá-las. Na janela **Ferramentas Administrativas**, clique com botão direito em **ISE do Windows PowerShell** e clique em **Executar como administrador**.
-3.	No **ISE do Windows PowerShell**, clique em **Arquivo** > **Novo** para criar um novo arquivo de script.
-4.	Agora, você terá um script simples que mostra os comandos básicos do PowerShell para acessar o armazenamento do Azure. O script primeiro solicitará suas credenciais da conta do Azure para adicioná-la ao ambiente local do PowerShell. Depois, o script definirá a assinatura padrão do Azure e criará uma nova conta de armazenamento no Azure. Em seguida, o script criará um novo contêiner nessa nova conta de armazenamento e carregará um arquivo de imagem existente (blob) para esse contêiner. Depois que o script listar todos os blobs nesse contêiner, ele criará um novo diretório de destino no computador local e baixará o arquivo de imagem.
-5.	Na seção de código a seguir, selecione o script entre os comentários **#begin** e **#end**. Pressione CTRL + C para copiá-lo para a área de transferência.
-
-    	#begin
-    	# Update with the name of your subscription.
-    	$SubscriptionName = "YourSubscriptionName"
-
-    	# Give a name to your new storage account. It must be lowercase!
-    	$StorageAccountName = "yourstorageaccountname"
-
-    	# Choose "West US" as an example.
-    	$Location = "West US"
-
-    	# Give a name to your new container.
-    	$ContainerName = "imagecontainer"
-
-    	# Have an image file and a source directory in your local computer.
-    	$ImageToUpload = "C:\Images\HelloWorld.png"
-
-    	# A destination directory in your local computer.
-    	$DestinationFolder = "C:\DownloadImages"
-
-    	# Add your Azure account to the local PowerShell environment.
-    	Add-AzureAccount
-
-    	# Set a default Azure subscription.
-    	Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
-
-    	# Create a new storage account.
-    	New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $Location
-
-    	# Set a default storage account.
-    	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-
-    	# Create a new container.
-    	New-AzureStorageContainer -Name $ContainerName -Permission Off
-
-    	# Upload a blob into a container.
-    	Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload
-
-    	# List all blobs in a container.
-    	Get-AzureStorageBlob -Container $ContainerName
-
-    	# Download blobs from the container:
-    	# Get a reference to a list of all blobs in a container.
-    	$blobs = Get-AzureStorageBlob -Container $ContainerName
-
-    	# Create the destination directory.
-    	New-Item -Path $DestinationFolder -ItemType Directory -Force  
-
-    	# Download blobs into the local destination directory.
-    	$blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
-    	#end
-
-5.	Em **ISE do Windows PowerShell**, pressione CTRL + V para copiar o script. Clique em **Arquivo** > **Salvar**. Na janela de diálogo **Salvar Como**, digite o nome do arquivo de script, como "mystoragescript". Clique em **Salvar**.
-
-6.	Agora, você precisa atualizar as variáveis de script com base nas suas configurações. Você deve atualizar a variável **$SubscriptionName** com sua própria assinatura. Você pode manter as outras variáveis conforme especificado no script ou atualizá-las como desejar.
-
-	- **$SubscriptionName:** você deve atualizar essa variável com o nome de sua própria assinatura. Execute uma das três maneiras a seguir para localizar o nome de sua assinatura:
-
-		a. No **ISE do Windows PowerShell**, clique em **Arquivo** > **Novo** para criar um novo arquivo de script. Copie o script a seguir para o novo arquivo de script e clique em **Depurar** > **Executar**. O script a seguir primeiro solicitará suas credenciais de conta do Azure para adicioná-la ao ambiente do PowerShell local e, em seguida, mostrará todas as assinaturas que estão conectadas à sessão do PowerShell local. Anote o nome da assinatura que você deseja usar e siga este tutorial:
-
-			Add-AzureAccount
-				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-
-		b. Para localizar e copiar o nome da sua assinatura no [Portal do Azure](https://portal.azure.com), no menu de Hub à esquerda, clique em **Assinaturas**. Copie o nome da assinatura que você deseja usar ao executar os scripts fornecidos neste guia.
-
-		![Portal do Azure][Image2]
-
-		c. Para localizar e copiar o nome da sua assinatura no [Portal clássico do Azure](https://manage.windowsazure.com/), role para baixo e clique em **Configurações** no lado esquerdo do portal. Clique em **Assinaturas** para ver uma lista das suas assinaturas. Copie o nome da assinatura que você deseja usar ao executar os scripts fornecidos neste guia.
-
-		![Portal Clássico do Azure][Image1]
-
-	- **$StorageAccountName:** Use o nome fornecido no script ou insira um novo nome para a conta de armazenamento. **Importante:** o nome da conta de armazenamento deve ser exclusivo no Azure. Ele também deve ter somente letras minúsculas!
-
-	- **$Location:** use o "Oeste dos EUA" fornecido no script ou escolha outros locais do Azure, como Leste dos EUA, Norte da Europa e assim por diante.
-
-	- **$ContainerName:** use o nome fornecido no script ou insira um novo nome para seu contêiner.
-
-	- **$ImageToUpload:** insira um caminho para uma imagem em seu computador local, como: "C:\\Images\\HelloWorld.png".
-
-	- **$DestinationFolder:** insira um caminho para um diretório local para armazenar os arquivos baixados do armazenamento do Azure, como: "C:\\DownloadImages".
-
-7.	Depois de atualizar as variáveis de script no arquivo "mystoragescript.ps1", clique em **Arquivo** > **Salvar**. Em seguida, clique em **Depurar** > **Executar** ou pressione **F5** para executar o script.
+1. Baixe e instale o [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
+2. Inicie o Ambiente de Script Integrado (ISE) do Windows PowerShell: No seu computador local, vá até o menu **Iniciar**. Digite **Ferramentas Administrativas** e clique para executá-las. Na janela **Ferramentas Administrativas**, clique com botão direito em **ISE do Windows PowerShell** e clique em **Executar como administrador**.
+3. No **ISE do Windows PowerShell**, clique em **Arquivo** > **Novo** para criar um novo arquivo de script.
+4. Agora, você terá um script simples que mostra os comandos básicos do PowerShell para acessar o armazenamento do Azure. O script primeiro solicitará suas credenciais da conta do Azure para adicioná-la ao ambiente local do PowerShell. Depois, o script definirá a assinatura padrão do Azure e criará uma nova conta de armazenamento no Azure. Em seguida, o script criará um novo contêiner nessa nova conta de armazenamento e carregará um arquivo de imagem existente (blob) para esse contêiner. Depois que o script listar todos os blobs nesse contêiner, ele criará um novo diretório de destino no computador local e baixará o arquivo de imagem.
+5. Na seção de código a seguir, selecione o script entre os comentários **#begin** e **#end**. Pressione CTRL + C para copiá-lo para a área de transferência.
+   
+   # begin
+   # Update with the name of your subscription.
+     $SubscriptionName = "YourSubscriptionName"
+   
+   # Give a name to your new storage account. It must be lowercase!
+     $StorageAccountName = "yourstorageaccountname"
+   
+   # Choose "West US" as an example.
+     $Location = "West US"
+   
+   # Give a name to your new container.
+     $ContainerName = "imagecontainer"
+   
+   # Have an image file and a source directory in your local computer.
+     $ImageToUpload = "C:\Images\HelloWorld.png"
+   
+   # A destination directory in your local computer.
+     $DestinationFolder = "C:\DownloadImages"
+   
+   # Add your Azure account to the local PowerShell environment.
+     Add-AzureAccount
+   
+   # Set a default Azure subscription.
+     Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
+   
+   # Create a new storage account.
+     New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $Location
+   
+   # Set a default storage account.
+     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+   
+   # Create a new container.
+     New-AzureStorageContainer -Name $ContainerName -Permission Off
+   
+   # Upload a blob into a container.
+     Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload
+   
+   # List all blobs in a container.
+     Get-AzureStorageBlob -Container $ContainerName
+   
+   # Download blobs from the container:
+   # Get a reference to a list of all blobs in a container.
+     $blobs = Get-AzureStorageBlob -Container $ContainerName
+   
+   # Create the destination directory.
+     New-Item -Path $DestinationFolder -ItemType Directory -Force  
+   
+   # Download blobs into the local destination directory.
+     $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
+   
+   # end
+6. Em **ISE do Windows PowerShell**, pressione CTRL + V para copiar o script. Clique em **Arquivo** > **Salvar**. Na janela de diálogo **Salvar Como**, digite o nome do arquivo de script, como "mystoragescript". Clique em **Salvar**.
+7. Agora, você precisa atualizar as variáveis de script com base nas suas configurações. Você deve atualizar a variável **$SubscriptionName** com sua própria assinatura. Você pode manter as outras variáveis conforme especificado no script ou atualizá-las como desejar.
+   
+   * **$SubscriptionName:** você deve atualizar essa variável com o nome de sua própria assinatura. Execute uma das três maneiras a seguir para localizar o nome de sua assinatura:
+     
+     a. No **ISE do Windows PowerShell**, clique em **Arquivo** > **Novo** para criar um novo arquivo de script. Copie o script a seguir para o novo arquivo de script e clique em **Depurar** > **Executar**. O script a seguir primeiro solicitará suas credenciais de conta do Azure para adicioná-la ao ambiente do PowerShell local e, em seguida, mostrará todas as assinaturas que estão conectadas à sessão do PowerShell local. Anote o nome da assinatura que você deseja usar e siga este tutorial:
+     
+         Add-AzureAccount
+             Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
+     
+     b. Para localizar e copiar o nome da sua assinatura no [Portal do Azure](https://portal.azure.com), no menu de Hub à esquerda, clique em **Assinaturas**. Copie o nome da assinatura que você deseja usar ao executar os scripts fornecidos neste guia.
+     
+     ![Portal do Azure][Image2]
+     
+     c. Para localizar e copiar o nome da sua assinatura no [Portal clássico do Azure](https://manage.windowsazure.com/), role para baixo e clique em **Configurações** no lado esquerdo do portal. Clique em **Assinaturas** para ver uma lista das suas assinaturas. Copie o nome da assinatura que você deseja usar ao executar os scripts fornecidos neste guia.
+     
+     ![Portal Clássico do Azure][Image1]
+   * **$StorageAccountName:** Use o nome fornecido no script ou insira um novo nome para a conta de armazenamento. **Importante:** o nome da conta de armazenamento deve ser exclusivo no Azure. Ele também deve ter somente letras minúsculas!
+   * **$Location:** use o "Oeste dos EUA" fornecido no script ou escolha outros locais do Azure, como Leste dos EUA, Norte da Europa e assim por diante.
+   * **$ContainerName:** use o nome fornecido no script ou insira um novo nome para seu contêiner.
+   * **$ImageToUpload:** insira um caminho para uma imagem em seu computador local, como: "C:\\Images\\HelloWorld.png".
+   * **$DestinationFolder:** insira um caminho para um diretório local para armazenar os arquivos baixados do armazenamento do Azure, como: "C:\\DownloadImages".
+8. Depois de atualizar as variáveis de script no arquivo "mystoragescript.ps1", clique em **Arquivo** > **Salvar**. Em seguida, clique em **Depurar** > **Executar** ou pressione **F5** para executar o script.
 
 Depois que o script é executado, você deve ter uma pasta de destino que inclui o arquivo de imagem baixada. A captura de tela a seguir mostra um exemplo de saída:
 
 ![Baixar blobs][Image3]
 
-
-> [AZURE.NOTE] A seção "Introdução ao armazenamento do Azure e ao PowerShell em 5 minutos" forneceu uma rápida introdução sobre como usar o PowerShell do Azure com o Armazenamento do Azure. Para obter informações e instruções detalhadas, recomendamos que você leia as seções a seguir.
+> [!NOTE]
+> A seção "Introdução ao armazenamento do Azure e ao PowerShell em 5 minutos" forneceu uma rápida introdução sobre como usar o PowerShell do Azure com o Armazenamento do Azure. Para obter informações e instruções detalhadas, recomendamos que você leia as seções a seguir.
+> 
+> 
 
 ## Pré-requisitos para usar o PowerShell do Azure com o armazenamento do Azure
 Você precisa de uma assinatura e conta do Azure para executar os cmdlets do PowerShell fornecidos neste guia, conforme descrito acima.
@@ -141,64 +132,58 @@ O PowerShell no Azure é um módulo que fornece cmdlets para gerenciar o Azure p
 Você pode executar os cmdlets no console do Windows PowerShell padrão ou no ISE (Integrated Scripting Environment) do Windows PowerShell. Por exemplo, para abrir o **ISE do Windows PowerShell**, vá para o menu Iniciar, digite Ferramentas administrativas e clique para executá-las. Na janela Ferramentas Administrativas, clique com botão direito em ISE do Windows PowerShell e clique em Executar como administrador.
 
 ## Como gerenciar contas de armazenamento no Azure
-
 ### Como definir uma assinatura padrão do Azure
 Para gerenciar o armazenamento do Azure usando o Azure PowerShell, você precisa autenticar seu ambiente de cliente com o Azure por meio de autenticação do Azure Active Directory ou autenticação baseada em certificado. Para obter informações detalhadas, confira o tutorial [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). Este guia usa a autenticação do Active Directory do Azure.
 
-1.	No ISE do Windows PowerShell, digite o seguinte comando para adicionar a conta do Azure ao ambiente do PowerShell local:
-
-    `Add-AzureAccount`
-
-2.	Na janela "Entrar no Microsoft Azure", digite o endereço de email e a senha associados à sua conta. O Azure autentica e salva as informações de credenciais e, em seguida, fecha a janela.
-
-3.	Em seguida, execute o seguinte comando para exibir as contas do Azure no seu ambiente do PowerShell local e verifique se sua conta está listada:
-
-	`Get-AzureAccount`
-
-4.	Em seguida, execute o seguinte cmdlet para exibir todas as assinaturas que estão conectadas à sessão do PowerShell local e verifique se sua assinatura está listada:
-
-	`Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
-
-5.	Para definir uma assinatura padrão do Azure, execute o cmdlet Select-AzureSubscription:
-
-	    $SubscriptionName = 'Your subscription Name'
-    	Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
-
-6.	Verifique o nome da assinatura padrão executando o cmdlet Get-AzureSubscription:
-
-	`Get-AzureSubscription -Default`
-
-7.	Para ver todos os cmdlets do PowerShell disponíveis para o Armazenamento do Azure, execute:
-
-	`Get-Command -Module Azure -Noun *Storage*`
+1. No ISE do Windows PowerShell, digite o seguinte comando para adicionar a conta do Azure ao ambiente do PowerShell local:
+   
+   `Add-AzureAccount`
+2. Na janela "Entrar no Microsoft Azure", digite o endereço de email e a senha associados à sua conta. O Azure autentica e salva as informações de credenciais e, em seguida, fecha a janela.
+3. Em seguida, execute o seguinte comando para exibir as contas do Azure no seu ambiente do PowerShell local e verifique se sua conta está listada:
+   
+   `Get-AzureAccount`
+4. Em seguida, execute o seguinte cmdlet para exibir todas as assinaturas que estão conectadas à sessão do PowerShell local e verifique se sua assinatura está listada:
+   
+   `Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
+5. Para definir uma assinatura padrão do Azure, execute o cmdlet Select-AzureSubscription:
+   
+     $SubscriptionName = 'Your subscription Name'
+     Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
+6. Verifique o nome da assinatura padrão executando o cmdlet Get-AzureSubscription:
+   
+   `Get-AzureSubscription -Default`
+7. Para ver todos os cmdlets do PowerShell disponíveis para o Armazenamento do Azure, execute:
+   
+   `Get-Command -Module Azure -Noun *Storage*`
 
 ### Como criar uma nova conta de armazenamento do Azure
 Você precisa de uma conta de armazenamento para usar o Armazenamento do Azure. Depois de configurar seu computador para se conectar à sua assinatura, você pode criar uma nova conta de Armazenamento do Azure.
 
-1.	Execute o cmdlet Get-AzureLocation para localizar todos os locais de datacenters disponíveis:
+1. Execute o cmdlet Get-AzureLocation para localizar todos os locais de datacenters disponíveis:
+   
+   `Get-AzureLocation | Format-Table -Property Name, AvailableServices, StorageAccountTypes`
+2. Em seguida, execute o cmdlet New-AzureStorageAccount para criar uma nova conta de armazenamento. O exemplo a seguir cria uma nova conta de armazenamento no data center "Oeste dos Estados Unidos".
+   
+     $location = "West US"
+     $StorageAccountName = "yourstorageaccount"
+     New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $location
 
-    `Get-AzureLocation | Format-Table -Property Name, AvailableServices, StorageAccountTypes`
-
-2.	Em seguida, execute o cmdlet New-AzureStorageAccount para criar uma nova conta de armazenamento. O exemplo a seguir cria uma nova conta de armazenamento no data center "Oeste dos Estados Unidos".
-
-    	$location = "West US"
-	    $StorageAccountName = "yourstorageaccount"
-	    New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $location
-
-> [AZURE.IMPORTANT] O nome da conta de armazenamento deve ser exclusivo dentro do Azure e deve estar em minúsculas. Para ver as convenções e restrições de nomenclatura, consulte [Sobre contas de Armazenamento do Azure](storage-create-storage-account.md) e [Nomeando e referenciando contêineres, blobs e metadados](http://msdn.microsoft.com/library/azure/dd135715.aspx).
+> [!IMPORTANT]
+> O nome da conta de armazenamento deve ser exclusivo dentro do Azure e deve estar em minúsculas. Para ver as convenções e restrições de nomenclatura, consulte [Sobre contas de Armazenamento do Azure](storage-create-storage-account.md) e [Nomeando e referenciando contêineres, blobs e metadados](http://msdn.microsoft.com/library/azure/dd135715.aspx).
+> 
+> 
 
 ### Como configurar uma conta padrão de armazenamento do Azure
 Você pode ter várias contas de armazenamento na sua assinatura. Você pode escolher uma delas e defini-la como a conta de armazenamento padrão para todos os comandos de armazenamento na mesma sessão do PowerShell. Isso permite que você execute os comandos de armazenamento do Azure PowerShell sem especificar explicitamente o contexto de armazenamento.
 
-1.	Para definir uma conta de armazenamento padrão para a sua assinatura, você pode executar o cmdlet Set-AzureSubscription.
-
-		$SubscriptionName = "Your subscription name"
-     	$StorageAccountName = "yourstorageaccount"  
-    	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-
-2.	Em seguida, execute o cmdlet Get-AzureSubscription para verificar se a conta de armazenamento está associada à sua conta de assinatura padrão. Esse comando retorna as propriedades de assinatura da assinatura atual, incluindo sua conta de armazenamento atual.
-
-	    Get-AzureSubscription –Current
+1. Para definir uma conta de armazenamento padrão para a sua assinatura, você pode executar o cmdlet Set-AzureSubscription.
+   
+     $SubscriptionName = "Your subscription name"
+      $StorageAccountName = "yourstorageaccount"  
+     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+2. Em seguida, execute o cmdlet Get-AzureSubscription para verificar se a conta de armazenamento está associada à sua conta de assinatura padrão. Esse comando retorna as propriedades de assinatura da assinatura atual, incluindo sua conta de armazenamento atual.
+   
+     Get-AzureSubscription –Current
 
 ### Como listar todas as contas de armazenamento do Azure em uma assinatura
 Cada assinatura do Azure pode ter até 100 contas de armazenamento. Para obter as informações mais atualizadas sobre os limites, consulte [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
@@ -212,46 +197,42 @@ O contexto de Armazenamento do Azure é um objeto no PowerShell para encapsular 
 
 Use um dos três procedimentos a seguir para criar um contexto de armazenamento:
 
-- Execute o cmdlet [Get-AzureStorageKey](http://msdn.microsoft.com/library/azure/dn495235.aspx) para descobrir a chave de acesso de armazenamento principal para sua conta de armazenamento do Azure. Em seguida, chame o cmdlet [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) para criar um contexto de armazenamento:
-
-    	$StorageAccountName = "yourstorageaccount"
-    	$StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-    	$Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
-
-
-- Gere um token de assinatura de acesso compartilhado para um contêiner de armazenamento do Azure e use-o para criar um contexto de armazenamento:
-
-    	$sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
-    	$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
-
-	Para saber mais, veja [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) e [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md).
-
-- Em alguns casos, você talvez queira especificar os pontos de extremidade de serviço ao criar um novo contexto de armazenamento. Isso pode ser necessário quando você registrou um nome de domínio personalizado para sua conta de armazenamento com o serviço Blob ou se desejar usar uma assinatura de acesso compartilhado para acessar recursos de armazenamento. Defina os pontos de extremidade do serviço em uma cadeia de conexão e use-a para criar um novo contexto de armazenamento, conforme mostrado abaixo:
-
-    	$ConnectionString = "DefaultEndpointsProtocol=http;BlobEndpoint=<blobEndpoint>;QueueEndpoint=<QueueEndpoint>;TableEndpoint=<TableEndpoint>;AccountName=<AccountName>;AccountKey=<AccountKey>"
-    	$Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
+* Execute o cmdlet [Get-AzureStorageKey](http://msdn.microsoft.com/library/azure/dn495235.aspx) para descobrir a chave de acesso de armazenamento principal para sua conta de armazenamento do Azure. Em seguida, chame o cmdlet [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) para criar um contexto de armazenamento:
+  
+        $StorageAccountName = "yourstorageaccount"
+        $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+        $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
+* Gere um token de assinatura de acesso compartilhado para um contêiner de armazenamento do Azure e use-o para criar um contexto de armazenamento:
+  
+        $sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
+        $Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
+  
+    Para saber mais, veja [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) e [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md).
+* Em alguns casos, você talvez queira especificar os pontos de extremidade de serviço ao criar um novo contexto de armazenamento. Isso pode ser necessário quando você registrou um nome de domínio personalizado para sua conta de armazenamento com o serviço Blob ou se desejar usar uma assinatura de acesso compartilhado para acessar recursos de armazenamento. Defina os pontos de extremidade do serviço em uma cadeia de conexão e use-a para criar um novo contexto de armazenamento, conforme mostrado abaixo:
+  
+        $ConnectionString = "DefaultEndpointsProtocol=http;BlobEndpoint=<blobEndpoint>;QueueEndpoint=<QueueEndpoint>;TableEndpoint=<TableEndpoint>;AccountName=<AccountName>;AccountKey=<AccountKey>"
+        $Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
 
 Para obter mais informações sobre como configurar uma cadeia de conexão, consulte [Configurando cadeias de conexão](storage-configure-connection-string.md).
 
 Agora que você configurou o computador e sabe como gerenciar assinaturas e contas de armazenamento usando o Azure PowerShell, vá para a próxima seção para aprender a gerenciar blobs do Azure e instantâneos de blob.
 
 ### Como recuperar e regenerar chaves de armazenamento do Azure
-
 Uma conta de armazenamento do Azure é fornecida com duas chaves de conta. É possível usar o cmdlet a seguir para recuperar suas chaves.
 
-	Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
+    Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
 
 Use o seguinte cmdlet para recuperar uma chave específica. Os valores válidos são Primary e Secondary.
 
-	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
+    (Get-AzureStorageKey -StorageAccountName $StorageAccountName).Primary
 
-	(Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
+    (Get-AzureStorageKey -StorageAccountName $StorageAccountName).Secondary
 
 Se você desejar regerar suas chaves, use o seguinte cmdlet. Os valores válidos para -KeyType são "Primary" e "Secundary"
 
-	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
+    New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Primary”
 
-	New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
+    New-AzureStorageKey -StorageAccountName $StorageAccountName -KeyType “Secondary”
 
 ## Como gerenciar blobs do Azure
 O Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Esta seção pressupõe que você já esteja familiarizado com os conceitos do serviço de Armazenamento de Blobs do Azure. Para obter informações detalhadas, confira [Introdução ao armazenamento de Blobs usando o .NET](storage-dotnet-how-to-use-blobs.md) e os [Conceitos do Serviço Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
@@ -262,7 +243,10 @@ Todos os blobs no armazenamento do Azure devem residir em um contêiner. Você p
     $StorageContainerName = "yourcontainername"
     New-AzureStorageContainer -Name $StorageContainerName -Permission Off
 
-> [AZURE.NOTE] Há três níveis de acesso de leitura anônimo: **Desativado**, **Blob** e **Contêiner**. Para evitar o acesso anônimo a blobs, defina o parâmetro de permissão como **Desativado**. Por padrão, o novo contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público anônimo a recursos de blob, mas não aos metadados do contêiner ou à lista de blobs no contêiner, defina o parâmetro de permissão como **Blob**. Para permitir acesso de leitura público completo a recursos, metadados do contêiner e à lista de blobs no contêiner, defina o parâmetro de permissão como **Contêiner**. Para obter mais informações, confira [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md).
+> [!NOTE]
+> Há três níveis de acesso de leitura anônimo: **Desativado**, **Blob** e **Contêiner**. Para evitar o acesso anônimo a blobs, defina o parâmetro de permissão como **Desativado**. Por padrão, o novo contêiner é privado e pode ser acessado apenas pelo proprietário da conta. Para permitir acesso de leitura público anônimo a recursos de blob, mas não aos metadados do contêiner ou à lista de blobs no contêiner, defina o parâmetro de permissão como **Blob**. Para permitir acesso de leitura público completo a recursos, metadados do contêiner e à lista de blobs no contêiner, defina o parâmetro de permissão como **Contêiner**. Para obter mais informações, confira [Gerenciar acesso anônimo de leitura aos contêineres e blobs](storage-manage-access-to-resources.md).
+> 
+> 
 
 ### Como carregar um blob para um contêiner
 O Armazenamento de Blob do Azure oferece suporte a blobs de blocos e a blobs de páginas. Para obter mais informações, confira [Compreendendo Blobs de blocos, Blobs de apêndice e Blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
@@ -429,8 +413,8 @@ Atualmente, o PowerShell do Azure não fornece cmdlets para gerenciar entidades 
 #### Como adicionar entidades de tabela
 Para adicionar uma entidade a uma tabela, primeiro crie um objeto que defina as propriedades da entidade. Uma entidade pode ter até 255 propriedades, incluindo três propriedades do sistema: **PartitionKey**, **RowKey** e **Timestamp**. Você é responsável por inserir e atualizar os valores de **PartitionKey** e **RowKey**. O servidor gerencia o valor de **Timestamp**, que não pode ser modificado. Juntas, **PartitionKey** e **RowKey** identificam exclusivamente cada entidade dentro de uma tabela.
 
--	**PartitionKey**: determina a partição em que a entidade está armazenada.
--	**RowKey**: identifica exclusivamente a entidade dentro da partição.
+* **PartitionKey**: determina a partição em que a entidade está armazenada.
+* **RowKey**: identifica exclusivamente a entidade dentro da partição.
 
 Você pode definir até 252 propriedades personalizadas para uma entidade. Para obter informações, consulte [Noções básicas sobre o modelo de dados do serviço Tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
@@ -623,14 +607,14 @@ Para saber como habilitar e recuperar dados de log de armazenamento usando o Pow
 ## Como gerenciar a Assinatura de Acesso Compartilhado (SAS) e a Política de Acesso Armazenada
 Assinaturas de acesso compartilhado são uma parte importante do modelo de segurança para qualquer aplicativo que utilize o Armazenamento do Azure. Elas são úteis para fornecer permissões limitadas para a sua conta de armazenamento aos clientes que não devem ter a chave de conta. Por padrão, somente o proprietário da conta de armazenamento pode acessar blobs, tabelas e filas nessa conta. Se seu serviço ou aplicativo precisar tornar esses recursos disponíveis para outros clientes sem compartilhar sua chave de acesso, você tem três opções:
 
-- Definir permissões do contêiner para permitir o acesso anônimo de leitura para o contêiner e seus blobs. Isso não é permitido para tabelas ou filas.
-- Usar uma assinatura de acesso compartilhado que concede direitos de acesso restrito para contêineres, blobs, filas e tabelas por um intervalo de tempo específico.
-- Usar uma política de acesso armazenado para obter um nível adicional de controle sobre assinaturas de acesso compartilhado para um contêiner ou seus blobs, uma fila ou uma tabela. A política de acesso armazenado permite que você altere a hora de início, a hora de término ou as permissões para uma assinatura ou revogue-a depois que ela tiver sido emitida.
+* Definir permissões do contêiner para permitir o acesso anônimo de leitura para o contêiner e seus blobs. Isso não é permitido para tabelas ou filas.
+* Usar uma assinatura de acesso compartilhado que concede direitos de acesso restrito para contêineres, blobs, filas e tabelas por um intervalo de tempo específico.
+* Usar uma política de acesso armazenado para obter um nível adicional de controle sobre assinaturas de acesso compartilhado para um contêiner ou seus blobs, uma fila ou uma tabela. A política de acesso armazenado permite que você altere a hora de início, a hora de término ou as permissões para uma assinatura ou revogue-a depois que ela tiver sido emitida.
 
 Uma assinatura de acesso compartilhado pode estar em uma das duas formas:
 
-- **SAS ad hoc**: quando você cria uma SAS ad hoc, a hora de início, a hora de término e as permissões para a SAS são especificadas no URI SAS. Esse tipo de SAS pode ser criado em um contêiner, blob, tabela ou fila e é não pode ser revogado.
-- **SAS com política de acesso armazenada:** uma política de acesso armazenada é definida em um contêiner de recurso - um contêiner de blob, uma tabela ou uma fila - e pode ser usada para gerenciar as restrições de uma ou mais assinaturas de acesso compartilhado. Quando você associa uma SAS a uma política de acesso armazenada, a SAS herda as restrições - a hora de início, a hora de expiração e as permissões - definidas para a política de acesso armazenada. Esse tipo de SAS pode ser revogado.
+* **SAS ad hoc**: quando você cria uma SAS ad hoc, a hora de início, a hora de término e as permissões para a SAS são especificadas no URI SAS. Esse tipo de SAS pode ser criado em um contêiner, blob, tabela ou fila e é não pode ser revogado.
+* **SAS com política de acesso armazenada:** uma política de acesso armazenada é definida em um contêiner de recurso - um contêiner de blob, uma tabela ou uma fila - e pode ser usada para gerenciar as restrições de uma ou mais assinaturas de acesso compartilhado. Quando você associa uma SAS a uma política de acesso armazenada, a SAS herda as restrições - a hora de início, a hora de expiração e as permissões - definidas para a política de acesso armazenada. Esse tipo de SAS pode ser revogado.
 
 Para saber mais, veja [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md) e [Gerenciar acesso anônimo de leitura a contêineres e blobs](storage-manage-access-to-resources.md).
 
@@ -670,43 +654,39 @@ Um ambiente do Azure é uma implantação independente do Microsoft Azure, como 
 
 Para usar o Armazenamento do Azure com AzureChinaCloud, você precisa criar um contexto de armazenamento associado à AzureChinaCloud. Siga estas etapas para começar:
 
-1.	Execute o cmdlet [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) para ver os ambientes do Azure disponíveis:
-
-    `Get-AzureEnvironment`
-
-2.	Adicionar uma conta do Azure China ao Windows PowerShell:
-
-    `Add-AzureAccount –Environment AzureChinaCloud`
-
-3.	Crie um contexto de armazenamento para uma conta de AzureChinaCloud:
-
-    	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
+1. Execute o cmdlet [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) para ver os ambientes do Azure disponíveis:
+   
+   `Get-AzureEnvironment`
+2. Adicionar uma conta do Azure China ao Windows PowerShell:
+   
+   `Add-AzureAccount –Environment AzureChinaCloud`
+3. Crie um contexto de armazenamento para uma conta de AzureChinaCloud:
+   
+     $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
 
 Para usar o armazenamento do Azure com [Azure Government. dos EUA](https://azure.microsoft.com/features/gov/), você deve definir um novo ambiente e, em seguida, criar um novo contexto de armazenamento com esse ambiente:
 
-1.	Execute o cmdlet [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) para ver os ambientes do Azure disponíveis:
-
-    `Get-AzureEnvironment`
-
-2.	Adicionar uma conta do Azure US Government ao Windows PowerShell:
-
-    `Add-AzureAccount –Environment AzureUSGovernment`
-
-3.	Crie um contexto de armazenamento para uma conta do AzureUSGovernment:
-
-    	$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
+1. Execute o cmdlet [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) para ver os ambientes do Azure disponíveis:
+   
+   `Get-AzureEnvironment`
+2. Adicionar uma conta do Azure US Government ao Windows PowerShell:
+   
+   `Add-AzureAccount –Environment AzureUSGovernment`
+3. Crie um contexto de armazenamento para uma conta do AzureUSGovernment:
+   
+     $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
 
 Para obter mais informações, consulte:
 
-- [Guia do Desenvolvedor do Microsoft Azure Government](../azure-government-developer-guide.md).
-- [Visão geral das diferenças ao criar um aplicativo no serviço na China](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+* [Guia do Desenvolvedor do Microsoft Azure Government](../azure-government-developer-guide.md).
+* [Visão geral das diferenças ao criar um aplicativo no serviço na China](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## Próximas etapas
 Neste guia, você aprendeu como gerenciar o armazenamento do Azure com o PowerShell do Azure. Estes são alguns artigos e recursos relacionados para saber mais sobre eles.
 
-- [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
-- [Cmdlets do PowerShell do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx)
-- [Referência do Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
+* [Documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Cmdlets do PowerShell do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+* [Referência do Windows PowerShell](https://msdn.microsoft.com/library/ms714469.aspx)
 
 [Image1]: ./media/storage-powershell-guide-full/Subscription_currentportal.png
 [Image2]: ./media/storage-powershell-guide-full/Subscription_Previewportal.png

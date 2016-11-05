@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Gerenciador de Recursos de Cluster do Service Fabric – Afinidade | Microsoft Azure"
-   description="Visão geral da configuração de afinidade para os Serviços do Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Gerenciador de Recursos de Cluster do Service Fabric – Afinidade | Microsoft Docs
+description: Visão geral da configuração de afinidade para os Serviços do Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Configurando e usando a afinidade de serviço no Service Fabric
-
 A afinidade é um controle fornecido principalmente para ajudar a facilitar a transição de aplicativos monolíticos maiores para a nuvem e o mundo de microsserviços. Isso posto, ele também pode ser usado em certos casos como uma otimização legítima para melhorar o desempenho de serviços, embora isso possa ter seus efeitos colaterais.
 
 Vamos supor que você esteja levando um aplicativo maior, ou que simplesmente não tenha sido desenvolvido pensando nos microsserviços, para o Service Fabric. Na verdade, essa transição é comum, e vários clientes (internos e externos) já estiveram nessa situação. Comece levando todo o aplicativo para o ambiente, empacotando-o e colocando-o em execução. Em seguida, comece a dividi-lo em serviços menores diferentes que se comunicam entre si.
@@ -25,8 +24,8 @@ Vamos supor que você esteja levando um aplicativo maior, ou que simplesmente n�
 Em seguida, há um "Ops...". O "Ops" geralmente se encaixa em uma destas categorias:
 
 1. Algum componente X no aplicativo monolítico tinha uma dependência não documentada no componente Y, e nós acabamos de transformá-los em serviços distintos. Uma vez que agora eles estão sendo executados em diferentes nós no cluster, eles estão desvinculados.
-2.	Essas coisas se comunicam por meio de (pipes locais nomeados| memória compartilhada | arquivos em disco), mas eu preciso ser capaz de atualizá-las de forma independente para agilizar um pouco as coisas. Vou remover a dependência rígida posteriormente.
-3.	Tudo está bem, mas acontece que esses dois componentes são muito verborrágicos/dependentes do desempenho. Quando eles são movidos para serviços separados, o desempenho do aplicativo geral despenca ou a latência aumenta. Consequentemente, o aplicativo, de modo geral, não está atendendo às expectativas.
+2. Essas coisas se comunicam por meio de (pipes locais nomeados| memória compartilhada | arquivos em disco), mas eu preciso ser capaz de atualizá-las de forma independente para agilizar um pouco as coisas. Vou remover a dependência rígida posteriormente.
+3. Tudo está bem, mas acontece que esses dois componentes são muito verborrágicos/dependentes do desempenho. Quando eles são movidos para serviços separados, o desempenho do aplicativo geral despenca ou a latência aumenta. Consequentemente, o aplicativo, de modo geral, não está atendendo às expectativas.
 
 Nesses casos, não queremos perder nosso trabalho de refatoração e não queremos voltar ao monólito, mas precisamos mesmo de algum senso de localidade. Isso se manterá, ou até que possamos recriar os componentes para trabalhar naturalmente como serviços, ou até que consigamos resolver as expectativas de desempenho de alguma outra maneira, se possível.
 
@@ -62,8 +61,8 @@ Outra coisa a ser observada sobre as relações atuais de afinidade é que elas 
 A observação final sobre a afinidade é que as relações de afinidade não têm suporte quando o pai é particionado. Isso é algo ao qual poderemos oferecer suporte eventualmente, mas não é permitido no momento.
 
 ## Próximas etapas
-- Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis do Gerenciador de Recursos de Cluster em [Saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
-- Muitos motivos pelos quais as pessoas usam a afinidade, como para limitar serviços a um pequeno conjunto de computadores e para tentar agregar a carga de um conjunto de serviços, têm um suporte melhor por meio de Grupos de Aplicativos. Confira [Grupos de Aplicativos](service-fabric-cluster-resource-manager-application-groups.md)
+* Para saber mais sobre outras opções disponíveis para a configuração de serviços, confira o tópico sobre outras configurações disponíveis do Gerenciador de Recursos de Cluster em [Saiba mais sobre a configuração de serviços](service-fabric-cluster-resource-manager-configure-services.md)
+* Muitos motivos pelos quais as pessoas usam a afinidade, como para limitar serviços a um pequeno conjunto de computadores e para tentar agregar a carga de um conjunto de serviços, têm um suporte melhor por meio de Grupos de Aplicativos. Confira [Grupos de Aplicativos](service-fabric-cluster-resource-manager-application-groups.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png

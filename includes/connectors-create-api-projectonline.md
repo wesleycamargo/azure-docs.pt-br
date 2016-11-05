@@ -1,5 +1,5 @@
 ### Pré-requisitos
-- Uma conta do [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) 
+* Uma conta do [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) 
 
 Antes de usar sua conta do ProjectOnline em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do ProjectOnline. Felizmente, você pode fazer isso facilmente a partir de seu aplicativo lógico no Portal do Azure.
 
@@ -9,3 +9,4 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 2. Se você não tiver criado quaisquer conexões ProjectOnline antes, será solicitado a fornecer suas credenciais do ProjectOnline. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do ProjectOnline e usá-los: ![Etapa 2 ProjectOnline](./media/connectors-create-api-projectonline/projectonline-2.png)
 3. Forneça seu nome de usuário do ProjectOnline e a senha para autorizar seu aplicativo lógico: ![Etapa 3 ProjectOnline](./media/connectors-create-api-projectonline/projectonline-3.png)   
 4. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: ![Etapa 4 ProjectOnline](./media/connectors-create-api-projectonline/projectonline-4.png)   
+

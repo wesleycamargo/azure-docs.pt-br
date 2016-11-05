@@ -1,25 +1,24 @@
-<properties 
-   pageTitle="Interface de usuário do Mobile Engagement do Azure - Minha conta" 
-   description="Como gerenciar os dispositivos de teste e o perfil de conta usando o Mobile Engagement do Azure" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Interface de usuário do Mobile Engagement do Azure - Minha conta
+description: Como gerenciar os dispositivos de teste e o perfil de conta usando o Mobile Engagement do Azure
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Como gerenciar os dispositivos de teste e o perfil de conta
- 
 Este artigo descreve a **Home** page do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis.
- 
+
 Para ir para a página **Minha conta**, clique em sua conta na parte superior da página.
 
 A seção Minha conta da interface do usuário é onde você pode visualizar e alterar as configurações associadas a sua conta, incluindo as configurações de perfil e testar as IDs de dispositivo. Essas configurações contêm itens que também podem ser acessados por meio da API do dispositivo.
@@ -33,24 +32,23 @@ Você pode exibir ou alterar qualquer uma de suas configurações de conta mostr
 
 ## Dispositivos:
 Você pode exibir, adicionar ou remover IDs de Dispositivo dos dispositivos de teste que você pode usar para testar suas campanhas de **alcance** ou de **envio por push**. Instruções contextuais sobre como localizar a ID de dispositivo dos dispositivos para cada plataforma (iOS, Android, Windows Phone, etc.) são exibidas quando você clicar em “Novo dispositivo”.
- 
+
 ![MyAccount3][9]
- 
+
 Para usar a API de envio ou a API do dispositivo, você precisa saber o identificador de dispositivo exclusivo de seus usuários (o parâmetro deviceid). Há várias maneiras para recuperá-lo:
- 
+
 1. No back-end, você pode usar o recurso “Get” da API do dispositivo para obter a lista completa de identificadores de dispositivos.
 2. Em seu aplicativo, você pode usar o SDK para obtê-lo. (No Android, chame a função de getDeviceID() da classe agente e no iOS, leia a propriedade deviceid da classe agente).
 3. De um aviso Reach, se a URL da ação associada ao comunicado contém o padrão {deviceid}, ele será substituído automaticamente pelo identificador do dispositivo disparando a ação. http://<exemplo>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata será substituído por: http://<exemplo>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata
 4. De um aviso Reach, se o código HTML do anúncio contém o padrão {deviceid}, ele será substituído automaticamente pelo identificador do dispositivo exibindo o anúncio da web. Este é o identificador do dispositivo: {deviceid} será substituído por: Este é o identificador do dispositivo: XXXXXXXXXXXXXXXX
-5.  Abra o aplicativo no dispositivo e execute um evento em seu aplicativo que tenha sido marcado. A partir de “Interface do usuário - seu aplicativo - Monitoramento - Eventos -Detalhes”, encontre o Evento executado na lista. Clique para esse evento no Monitor. Você deve encontrar a ID do dispositivo na lista de dispositivos que executaram este evento. Em seguida, você pode copiar essa ID de dispositivo e registrá-la em “Interface do usuário - Minha conta - Novo dispositivo - Selecionar sua plataforma de dispositivo”.
->(Lembre-se de que quando a IDFA está desabilitada para iOS, a ID do dispositivo pode alterar ao longo do tempo se você desinstalar e reinstalar o aplicativo.)
+5. Abra o aplicativo no dispositivo e execute um evento em seu aplicativo que tenha sido marcado. A partir de “Interface do usuário - seu aplicativo - Monitoramento - Eventos -Detalhes”, encontre o Evento executado na lista. Clique para esse evento no Monitor. Você deve encontrar a ID do dispositivo na lista de dispositivos que executaram este evento. Em seguida, você pode copiar essa ID de dispositivo e registrá-la em “Interface do usuário - Minha conta - Novo dispositivo - Selecionar sua plataforma de dispositivo”.
+   >(Lembre-se de que quando a IDFA está desabilitada para iOS, a ID do dispositivo pode alterar ao longo do tempo se você desinstalar e reinstalar o aplicativo.)
 
-##Guia de solução de problemas
--  [Guia solução de problemas - Serviço][Link 24]
+## Guia de solução de problemas
+* [Guia solução de problemas - Serviço][Link 24]
 
 ## Confira também
--  [Documentação da interface do usuário - Página inicial][Link 13]
-
+* [Documentação da interface do usuário - Página inicial][Link 13]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -148,7 +146,7 @@ Para usar a API de envio ou a API do dispositivo, você precisa saber o identifi
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
 
- 
- 
+
+
 
 <!---HONumber=AcomDC_0824_2016-->

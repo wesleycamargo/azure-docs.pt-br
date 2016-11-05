@@ -1,34 +1,33 @@
 
-<properties
-   pageTitle="Criar um ambiente Linux completo usando a CLI do Azure | Microsoft Azure"
-   description="Crie um armazenamento, uma VM Linux, uma rede virtual e uma sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo do zero usando a CLI do Azure."
-   services="virtual-machines-linux"
-   documentationCenter="virtual-machines"
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Criar um ambiente Linux completo usando a CLI do Azure | Microsoft Docs
+description: Crie um armazenamento, uma VM Linux, uma rede virtual e uma sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo do zero usando a CLI do Azure.
+services: virtual-machines-linux
+documentationcenter: virtual-machines
+author: iainfoulds
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="08/23/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 08/23/2016
+ms.author: iainfou
 
+---
 # Criar um ambiente Linux completo usando a CLI do Azure
-
 Neste artigo, vamos criar uma rede simples com um balanceador de carga e com um par de VMs úteis para desenvolvimento e computação simples. Percorreremos o processo, comando por comando, até que você tenha duas VMs do Linux funcionais e seguras às quais possa se conectar de qualquer lugar na Internet. Em seguida, você poderá passar para redes e ambientes mais complexos.
 
 Durante o processo, você entenderá sobre a hierarquia de dependência que o modelo de implantação do Gerenciador de Recursos lhe oferece e todos os recursos que proporciona. Após ver como o sistema é criado, você poderá recriá-lo muito mais rapidamente usando [modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Além disso, após aprender como as partes de seu ambiente se encaixam, fica mais fácil criar modelos para automatizá-las.
 
 O ambiente contém:
 
-- Duas VMs dentro de um conjunto de disponibilidade.
-- Um balanceador de carga com uma regra de balanceamento de carga na porta 80.
-- Regras de NSG (grupo de segurança de rede) para proteger sua VM contra tráfego indesejado.
+* Duas VMs dentro de um conjunto de disponibilidade.
+* Um balanceador de carga com uma regra de balanceamento de carga na porta 80.
+* Regras de NSG (grupo de segurança de rede) para proteger sua VM contra tráfego indesejado.
 
 ![Visão geral do ambiente básico](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
@@ -74,7 +73,6 @@ azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.
 ```
 
 Verificar a rede virtual e a sub-rede usando o analisador JSON:
-
 
 ```bash
 azure network vnet show TestRG TestVNet --json | jq '.'
@@ -240,7 +238,6 @@ azure resource export TestRG
 As etapas detalhadas a seguir explicam o que cada comando faz enquanto você cria seu ambiente. Esses conceitos são úteis durante a criação de seus próprios ambientes personalizados para desenvolvimento ou produção.
 
 ## Criar grupos de recursos e escolher locais de implantação
-
 Os grupos de recursos do Azure são entidades de implantação lógica que contêm metadados e informações de configuração para habilitar o gerenciamento lógico de implantações de recursos.
 
 ```bash
@@ -264,7 +261,6 @@ info:    group create command OK
 ```
 
 ## Criar uma conta de armazenamento
-
 Você precisa de contas de armazenamento para seus discos de VM e quaisquer discos de dados adicionais que deseje adicionar. Você cria contas de armazenamento quase que imediatamente depois de criar grupos de recursos.
 
 Aqui, usamos o comando `azure storage account create`, passando a localização da conta, o grupo de recursos que a controla e o tipo de suporte de armazenamento que você deseja.
@@ -370,7 +366,6 @@ info:    storage container list command OK
 ```
 
 ## Criar a rede virtual e a sub-rede
-
 Em seguida, você precisará criar uma rede virtual em execução no Azure e uma sub-rede na qual possa instalar suas VMs.
 
 ```bash
@@ -499,7 +494,6 @@ Saída:
 ```
 
 ## Criar um PIP (endereço IP público)
-
 Agora, vamos criar o PIP (endereço IP público) que atribuiremos ao seu balanceador de carga. Ele permite que você conecte suas VMs da Internet usando o comando `azure network public-ip create`. Como o endereço padrão é dinâmico, criaremos uma entrada DNS nomeada no domínio **cloudapp.azure.com** usando a opção `-d testsubdomain`.
 
 ```bash
@@ -784,7 +778,6 @@ info:    network lb rule create command OK
 ```
 
 ## Criar uma investigação de integridade do balanceador de carga
-
 Uma investigação de integridade verifica periodicamente as máquinas virtuais que estão por trás de nosso balanceador de carga para garantir que elas estejam em operação e estejam respondendo às solicitações da forma definida. Se não estiverem, elas serão removidas da operação para garantir que os usuários não sejam direcionados a elas. Você pode definir verificações personalizadas para a investigação de integridade, bem como valores de tempo limite e intervalos. Para obter mais informações sobre investigações de integridade, consulte [Investigações do Balanceador de Carga](../load-balancer/load-balancer-custom-probe-overview.md).
 
 ```bash
@@ -941,7 +934,6 @@ Saída:
 ```
 
 ## Criar uma NIC para usar com a VM Linux
-
  As NICs estão disponíveis por meio de programação porque você pode aplicar regras ao seu uso. Você também pode ter mais de uma. No comando `azure network nic create` a seguir, você vincula nossa NIC ao pool de IPs de back-end de carga e a associa a nossa regra de NAT para permitir o tráfego SSH. Para fazer isso, você precisa especificar a ID da sua assinatura do Azure no lugar de `<GUID>`:
 
 ```bash
@@ -1034,7 +1026,6 @@ azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name T
 ```
 
 ## Criar um grupo de segurança de rede e suas regras
-
 Agora, criamos seu NSG e as regras de entrada que regulam o acesso à NIC.
 
 ```bash
@@ -1053,10 +1044,12 @@ azure network nsg rule create --protocol tcp --direction inbound --priority 1001
     --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
 ```
 
-> [AZURE.NOTE] A regra de entrada é um filtro para conexões de rede de entrada. Neste exemplo, associaremos o NSG à NIC virtual das VMs, o que significa que qualquer solicitação para a porta 22 será passada para a NIC na nossa VM. Essa regra de entrada é sobre uma conexão de rede e não sobre um ponto de extremidade, que seria o caso em implantações clássicas. Para abrir uma porta, você deve deixar `--source-port-range` definido como “*” (o valor padrão) para aceitar solicitações de entrada de **qualquer** porta de solicitação. Normalmente, as portas são dinâmicas.
+> [!NOTE]
+> A regra de entrada é um filtro para conexões de rede de entrada. Neste exemplo, associaremos o NSG à NIC virtual das VMs, o que significa que qualquer solicitação para a porta 22 será passada para a NIC na nossa VM. Essa regra de entrada é sobre uma conexão de rede e não sobre um ponto de extremidade, que seria o caso em implantações clássicas. Para abrir uma porta, você deve deixar `--source-port-range` definido como “*” (o valor padrão) para aceitar solicitações de entrada de **qualquer** porta de solicitação. Normalmente, as portas são dinâmicas.
+> 
+> 
 
 ## Associar à NIC
-
 Associe o NSG às NICs:
 
 ```bash
@@ -1078,18 +1071,17 @@ Os domínios de falha definem um agrupamento de máquinas virtuais que compartil
 
 Domínios de atualização indicam grupos de máquinas virtuais e o hardware físico subjacente que podem ser reinicializados ao mesmo tempo. A ordem de reinicialização dos domínios de atualização pode não ser sequencial durante a manutenção planejada, mas apenas uma atualização será reinicializada por vez. Mais uma vez, o Azure distribui automaticamente as VMs entre os domínios de atualização ao colocá-las em um site de disponibilidade.
 
-Leia mais sobre como [gerenciar a disponibilidade de VMs](./virtual-machines-linux-manage-availability.md).
+Leia mais sobre como [gerenciar a disponibilidade de VMs](virtual-machines-linux-manage-availability.md).
 
 ## Criar as VMs Linux
-
 Você criou os recursos de armazenamento e rede para dar suporte a VMs que podem ser acessadas pela Internet. Agora, vamos criar essas VMs e protegê-las com uma chave SSH que não tem senha. Nesse caso, vamos criar uma VM do Ubuntu com base no LTS mais recente. Localizaremos as informações dessa imagem usando `azure vm image list`, conforme descrito em [localização de imagens de VM do Azure](virtual-machines-linux-cli-ps-findimage.md).
 
 Selecionamos uma imagem usando o comando `azure vm image list westeurope canonical | grep LTS`. Neste caso, usamos `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Para o último campo, vamos passar `latest` para que no futuro sempre tenhamos o build mais recente. (A cadeia de caracteres usada é `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
 
 A próxima etapa é familiar para qualquer pessoa que já tenha criado um par de chaves privada e pública rsa ssh no Linux ou Mac usando **ssh-keygen -t rsa -b 2048**. Se não tiver pares de chave de certificado no seu diretório `~/.ssh`, você poderá criá-los:
 
-- Automaticamente, usando a opção `azure vm create --generate-ssh-keys`.
-- Manualmente, usando [as instruções para criá-las você mesmo](virtual-machines-linux-mac-create-ssh-keys.md).
+* Automaticamente, usando a opção `azure vm create --generate-ssh-keys`.
+* Manualmente, usando [as instruções para criá-las você mesmo](virtual-machines-linux-mac-create-ssh-keys.md).
 
 Como alternativa, você pode usar o método --admin--password para autenticar suas conexões SSH após a criação da VM. Esse método normalmente é menos seguro.
 
@@ -1269,7 +1261,6 @@ azure group deployment create -f TestRG.json -g NewRGFromTemplate
 Pode ser útil ler [mais detalhes sobre a implantações de modelos](../resource-group-template-deploy-cli.md). Saiba como atualizar ambientes gradativamente, usar o arquivo de parâmetros e acessar os modelos de uma única localização de armazenamento.
 
 ## Próximas etapas
-
 Agora, você está pronto para começar a trabalhar com vários componentes de rede e VMs. Você pode usar esse ambiente de exemplo para criar seu aplicativo usando os principais componentes introduzidos aqui.
 
 <!---HONumber=AcomDC_0914_2016-->

@@ -1,26 +1,27 @@
-<properties
-   pageTitle="Implantação de aplicativos da Malha do Serviço | Microsoft Azure"
-   description="Como implantar e remover aplicativos na Malha do Serviço"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: Implantação de aplicativos da Malha do Serviço | Microsoft Docs
+description: Como implantar e remover aplicativos na Malha do Serviço
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # Implantar e remover aplicativos usando o PowerShell
-
-> [AZURE.SELECTOR]
-- [PowerShell](service-fabric-deploy-remove-applications.md)
-- [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> [!div class="op_single_selector"]
+> * [PowerShell](service-fabric-deploy-remove-applications.md)
+> * [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+> 
+> 
 
 <br/>
 
@@ -30,10 +31,12 @@ Assim que um [tipo de aplicativo é empacotado][10], ele está pronto para impla
 2. Registrar o tipo de aplicativo
 3. Criar a instância do aplicativo
 
->[AZURE.NOTE] Se você usar o Visual Studio para implantar e depurar aplicativos no cluster de desenvolvimento local, todas as etapas a seguir serão tratadas automaticamente por meio de um script do PowerShell encontrado na pasta Scripts do projeto de aplicativo. Este artigo fornece informações sobre o que esses scripts fazem para que você possa executar as mesmas operações fora do Visual Studio.
+> [!NOTE]
+> Se você usar o Visual Studio para implantar e depurar aplicativos no cluster de desenvolvimento local, todas as etapas a seguir serão tratadas automaticamente por meio de um script do PowerShell encontrado na pasta Scripts do projeto de aplicativo. Este artigo fornece informações sobre o que esses scripts fazem para que você possa executar as mesmas operações fora do Visual Studio.
+> 
+> 
 
 ## Carregar o pacote de aplicativo
-
 O carregamento do pacote de aplicativos coloca-o em um local acessível por componentes internos do Service Fabric. Você pode usar o PowerShell para executar o carregamento. Antes de executar qualquer comando do PowerShell neste artigo, sempre usando [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) para se conectar ao cluster da Malha do Serviço.
 
 Suponhamos que você tenha uma pasta chamada *MyApplicationType* que contém o manifesto de aplicativo necessário, os manifestos de serviço e os pacotes de código/configuração/dados. O comando [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125905.aspx) carrega o pacote no Repositório de Imagens do cluster. O cmdlet **Get-ImageStoreConnectionStringFromClusterManifest**, que faz parte do módulo do PowerShell do SDK do Service Fabric, é usado para obter a cadeia de conexão do repositório de imagens. Para importar o módulo do SDK, execute:
@@ -92,7 +95,6 @@ PS D:\temp>
 ~~~
 
 ## Registrar o pacote de aplicativo
-
 O registro do pacote de aplicativos disponibiliza para uso o tipo de aplicativo e a versão declarada no manifesto do aplicativo. O sistema lê o pacote carregado na etapa anterior, verifica o pacote (equivalente a executar [Test-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/mt125950.aspx) localmente), processa o conteúdo do pacote e copia o pacote processado em uma localização interna do sistema.
 
 ~~~
@@ -113,7 +115,6 @@ O comando [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/lib
 O comando [Get-ServiceFabricApplicationType](https://msdn.microsoft.com/library/mt125871.aspx) lista todas as versões do tipo de aplicativo registrado com êxito.
 
 ## Criar o aplicativo
-
 Um aplicativo pode ser instanciado usando qualquer versão do tipo de aplicativo que foi registrado com êxito por meio do comando [New-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125913.aspx). O nome de cada aplicativo deve começar com o esquema *fabric:* e ser exclusivo para cada instância do aplicativo. Quaisquer serviços padrão definidos no manifesto do aplicativo do tipo de aplicativo de destino são criados nesse momento.
 
 ~~~
@@ -153,7 +154,6 @@ O comando [Get-ServiceFabricService](https://msdn.microsoft.com/library/mt125889
 Várias instâncias do aplicativo podem ser criadas para qualquer determinada versão de um tipo de aplicativo registrado. Cada instância do aplicativo é executada isoladamente, com seu próprio processo e diretório de trabalho.
 
 ## Remover um aplicativo
-
 Quando uma instância do aplicativo não é mais necessária, você pode removê-la permanentemente usando o comando [Remove-ServiceFabricApplication](https://msdn.microsoft.com/library/mt125914.aspx). Esse comando também remove automaticamente todos os serviços que pertencem ao aplicativo, removendo permanentemente todos os estados de serviço. Essa operação não pode ser revertida e o estado do aplicativo não pode ser recuperado.
 
 ~~~
@@ -202,9 +202,7 @@ PS D:\temp>
 ~~~
 
 ## Solucionar problemas
-
 ### Copy-ServiceFabricApplicationPackage solicita um ImageStoreConnectionString
-
 O ambiente do SDK da Malha do Serviço já deve ter os padrões corretos configurados. Mas, se necessário, o ImageStoreConnectionString para todos os comandos deve corresponder ao valor que o cluster de Malha do Serviço está usando. Você pode encontrá-lo no manifesto do cluster recuperado por meio do comando [Get-ServiceFabricClusterManifest](https://msdn.microsoft.com/library/mt126024.aspx):
 
 ~~~
@@ -232,7 +230,6 @@ PS D:\temp>
 ~~~
 
 ## Próximas etapas
-
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
 [Introdução à integridade da Malha do Serviço](service-fabric-health-introduction.md)

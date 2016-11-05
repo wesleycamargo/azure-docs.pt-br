@@ -1,50 +1,49 @@
-<properties 
-	pageTitle="Monitorando uso e desempenho de aplicativos de área de trabalho do Windows" 
-	description="Analise o uso e o desempenho do seu aplicativo da área de trabalho do Windows usando o HockeyApp e o Application Insights." 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Monitorando uso e desempenho de aplicativos de área de trabalho do Windows
+description: Analise o uso e o desempenho do seu aplicativo da área de trabalho do Windows usando o HockeyApp e o Application Insights.
+services: application-insights
+documentationcenter: windows
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/26/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 08/26/2016
+ms.author: awills
 
+---
 # Monitorando uso e desempenho de aplicativos de área de trabalho do Windows
-
 *O Application Insights está em modo de visualização.*
 
 O [Application Insights do Visual Studio](app-insights-overview.md) e o [HockeyApp](https://hockeyapp.net) permite que você monitore seu aplicativo implantado quanto a uso e desempenho.
 
-> [AZURE.IMPORTANT] Recomendamos o [HockeyApp](https://hockeyapp.net) para distribuir e monitorar aplicativos de área de trabalho e dispositivo. Com o HockeyApp, você pode gerenciar a distribuição, testes ao vivo e comentários do usuário, bem como monitorar relatórios de uso e falhas. Você também pode [exportar e consultar a telemetria com o Analytics](app-insights-hockeyapp-bridge-app.md).
-
+> [!IMPORTANT]
+> Recomendamos o [HockeyApp](https://hockeyapp.net) para distribuir e monitorar aplicativos de área de trabalho e dispositivo. Com o HockeyApp, você pode gerenciar a distribuição, testes ao vivo e comentários do usuário, bem como monitorar relatórios de uso e falhas. Você também pode [exportar e consultar a telemetria com o Analytics](app-insights-hockeyapp-bridge-app.md).
+> 
 > Embora a telemetria possa ser enviada para o Application Insights de um aplicativo de área de trabalho, isso é principalmente útil para fins experimentais e de depuração.
-
+> 
+> 
 
 ## Para enviar telemetria ao Application Insights de um aplicativo do Windows
-
 1. No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](app-insights-create-new-resource.md). Para o tipo de aplicativo, escolha o aplicativo ASP.NET.
 2. Faça uma cópia da chave de instrumentação. Localize a chave no menu suspenso Essentials do novo recurso que você acabou de criar.
 3. No Visual Studio, edite os pacotes NuGet do seu projeto de aplicativo e adicione Microsoft.ApplicationInsights.WindowsServer. (Ou escolha Microsoft.ApplicationInsights se você quiser apenas a API básica, sem os módulos de coleta da telemetria padrão.)
 4. Defina a chave de instrumentação no seu código:
-
+   
     `TelemetryConfiguration.Active.InstrumentationKey = "` *sua chave* `";`
-
+   
     ou em ApplicationInsights.config (se tiver instalado um dos pacotes de telemetria padrão):
- 
+   
     `<InstrumentationKey>`*sua chave*`</InstrumentationKey>`
-
+   
     Se você usar ApplicationInsights.config, verifique se suas propriedades no Gerenciador de Soluções estão definidas como **Ação de Compilação = Conteúdo, Copiar para Diretório de Saída = Copiar**.
 5. [Use a API](app-insights-api-custom-events-metrics.md) para enviar telemetria.
 6. Execute o aplicativo e veja a telemetria no recurso criado no Portal do Azure.
 
 ## <a name="telemetry"></a>Código de exemplo
-
 ```C#
 
     public partial class Form1 : Form
@@ -82,11 +81,9 @@ O [Application Insights do Visual Studio](app-insights-overview.md) e o [HockeyA
 ```
 
 ## Próximas etapas
-
 * [Criar um painel](app-insights-dashboards.md)
 * [Pesquisa de Diagnóstico](app-insights-diagnostic-search.md)
 * [Explorar métricas](app-insights-metrics-explorer.md)
 * [Escrever consultas do Analytics](app-insights-analytics.md)
- 
 
 <!---HONumber=AcomDC_0907_2016-->

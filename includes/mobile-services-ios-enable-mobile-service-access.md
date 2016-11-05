@@ -28,8 +28,6 @@ Substitua este comentário com a seguinte linha dentro da declaração `@interfa
 
 
 * No [Portal clássico do Azure](https://manage.windowsazure.com/), clique em **Serviços Móveis** e, em seguida, clique no serviço móvel. Clique na guia **Painel** e anote a **URL do Site**. Em seguida, clique em **Gerenciar Chaves** e anote a **Chave do Aplicativo**. Você precisará desses valores ao acessar o serviço móvel com o código de seu aplicativo.
-
-
 * Em **Todoservice**, localize a seguinte linha:
 
 ```

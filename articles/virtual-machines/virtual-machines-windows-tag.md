@@ -1,32 +1,29 @@
-<properties
-   pageTitle="Como Marcar uma VM | Microsoft Azure"
-   description="Aprenda a marcar uma máquina virtual do Windows criada no Azure usando o modelo de implantação do Gerenciador de Recursos"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="mmccrory"
-   manager="timlt"
-   editor="tysonn"
-   tags="azure-resource-manager"/>
+---
+title: Como Marcar uma VM | Microsoft Docs
+description: Aprenda a marcar uma máquina virtual do Windows criada no Azure usando o modelo de implantação do Gerenciador de Recursos
+services: virtual-machines-windows
+documentationcenter: ''
+author: mmccrory
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="07/05/2016"
-   ms.author="memccror"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 07/05/2016
+ms.author: memccror
 
+---
 # Como marcar uma máquina virtual do Windows no Azure
-
-
 Este artigo descreve as diferentes maneiras de marcar uma máquina virtual do Windows no Azure por meio do modelo de implantação do Resource Manager. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure oferece suporte a até 15 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas tem suporte apenas para recursos criados por meio do modelo de implantação do Resource Manager. Se quiser marcar uma máquina virtual Linux, consulte [Como marcar uma máquina virtual Linux no Azure](virtual-machines-linux-tag.md).
 
-[AZURE.INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
+[!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## Marcação com o PowerShell
-
-Para criar, adicionar e excluir marcas pelo PowerShell, primeiramente, você precisa configurar o [ambiente do PowerShell com o Gerenciador de Recursos do Azure][]. Depois de concluir a instalação, você pode colocar marcas em recursos de Computação, Rede e Armazenamento na criação ou depois que o recurso for criado via PowerShell. Este artigo se concentra na exibição/edição de marcas colocadas nas Máquinas Virtuais.
+Para criar, adicionar e excluir marcas pelo PowerShell, primeiramente, você precisa configurar o [ambiente do PowerShell com o Gerenciador de Recursos do Azure][ambiente do PowerShell com o Gerenciador de Recursos do Azure]. Depois de concluir a instalação, você pode colocar marcas em recursos de Computação, Rede e Armazenamento na criação ou depois que o recurso for criado via PowerShell. Este artigo se concentra na exibição/edição de marcas colocadas nas Máquinas Virtuais.
 
 Primeiramente, navegue para uma Máquina Virtual usando o cmdlet `Get-AzureRmVM`.
 
@@ -51,16 +48,16 @@ O segundo comando exibe as marcas para a variável fornecida.
 
         PS C:\> $tags
 
-        Name		Value
+        Name        Value
         ----                           -----
-        Value		MyDepartment
-        Name		Department
-        Value		MyApp1
-        Name		Application
-        Value		MyName
-        Name		Created By
-        Value		Production
-        Name		Environment
+        Value        MyDepartment
+        Name        Department
+        Value        MyApp1
+        Name        Application
+        Value        MyName
+        Name        Created By
+        Value        Production
+        Name        Environment
 
 O terceiro comando adiciona uma marcação extra à variável *$tags*. Observe o uso de **+=** para acrescentar o novo par de chave/valor à lista *$tags*.
 
@@ -74,27 +71,26 @@ O quinto comando exibe todas as marcas no recurso. Como você pode ver, *Locatio
 
         PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-        Name		Value
+        Name        Value
         ----                           -----
-        Value		MyDepartment
-        Name		Department
-        Value		MyApp1
-        Name		Application
-        Value		MyName
-        Name		Created By
-        Value		Production
-        Name		Environment
-        Value		MyLocation
-        Name		Location
+        Value        MyDepartment
+        Name        Department
+        Value        MyApp1
+        Name        Application
+        Value        MyName
+        Name        Created By
+        Value        Production
+        Name        Environment
+        Value        MyLocation
+        Name        Location
 
-Para saber mais sobre marcação usando o PowerShell, confira [Cmdlets de recursos do Azure][].
+Para saber mais sobre marcação usando o PowerShell, confira [Cmdlets de recursos do Azure][Cmdlets de recursos do Azure].
 
-[AZURE.INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
+[!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## Próximas etapas
-
-* Para saber mais sobre como marcar seus recursos do Azure, consulte [Visão geral do Azure Resource Manager][] e [Usando marcas para organizar os Recursos do Azure][].
-* Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [Noções básicas de sua fatura do Azure][] e [Obtenha informações sobre o consumo de recursos do Microsoft Azure][].
+* Para saber mais sobre como marcar seus recursos do Azure, consulte [Visão geral do Azure Resource Manager][Visão geral do Azure Resource Manager] e [Usando marcas para organizar os Recursos do Azure][Usando marcas para organizar os Recursos do Azure].
+* Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [Noções básicas de sua fatura do Azure][Noções básicas de sua fatura do Azure] e [Obtenha informações sobre o consumo de recursos do Microsoft Azure][Obtenha informações sobre o consumo de recursos do Microsoft Azure].
 
 [ambiente do PowerShell com o Gerenciador de Recursos do Azure]: ../powershell-azure-resource-manager.md
 [Cmdlets de recursos do Azure]: https://msdn.microsoft.com/library/azure/dn757692.aspx

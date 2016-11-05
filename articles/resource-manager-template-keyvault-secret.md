@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Modelo do Gerenciador de Recursos para um segredo em um cofre da chave | Microsoft Azure"
-   description="Mostra o esquema do Gerenciador de Recursos para a implantação de segredos de cofre da chave por meio de um modelo."
-   services="azure-resource-manager,key-vault"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="timlt"
-   editor=""/>
+---
+title: Modelo do Gerenciador de Recursos para um segredo em um cofre da chave | Microsoft Docs
+description: Mostra o esquema do Gerenciador de Recursos para a implantação de segredos de cofre da chave por meio de um modelo.
+services: azure-resource-manager,key-vault
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="06/23/2016"
-   ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 06/23/2016
+ms.author: tomfitz
 
+---
 # Esquema de modelo do segredo do cofre da chave
-
 Cria um segredo que é armazenado em um cofre da chave. Esse tipo de recurso é implantado com frequência como um recurso filho do [cofre da chave](resource-manager-template-keyvault.md).
 
 ## Formato de esquema
-
 Para criar um segredo do cofre da chave, adicione o seguinte esquema ao modelo. O segredo pode ser definido como um recurso filho de um cofre da chave ou como um recurso de nível superior. Você pode defini-lo como um recurso filho quando o cofre de chaves é implantado no mesmo modelo. Você precisará definir o segredo como um recurso de nível superior quando a chave do cofre não estiver implantada no mesmo modelo, ou quando você precisar criar vários segredos fazendo um loop no tipo de recurso.
 
     {
@@ -35,27 +33,24 @@ Para criar um segredo do cofre da chave, adicione o seguinte esquema ao modelo. 
     }
 
 ## Valores
-
 As tabelas a seguir descrevem os valores necessários para definir no esquema.
 
 | Nome | Valor |
-| ---- | ---- | 
-| type | Enum<br />Obrigatório<br />**secrets** (quando implantado como um recurso filho do cofre da chave) ou<br /> **Microsoft.KeyVault/vaults/secrets** (quando implantado como um recurso de nível superior)<br /><br />O tipo de recurso a ser criado. |
-| apiVersion | Enum<br />Obrigatório<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />A versão da API a ser usada para criar o recurso. | 
-| name | String<br />Obrigatório<br />Uma única palavra quando implantado como um recurso filho de um cofre da chave ou no formato **{nome-do-cofre-da-chave}/{nome-do-segredo}** quando implantado como um recurso de nível superior a ser adicionado a uma chave existente.<br /><br />O nome do segredo a ser criado. |
-| propriedades | Object<br />Obrigatório<br />[properties object](#properties)<br /><br />Um objeto que especifica o valor do segredo a ser criado. |
-| dependsOn | Array<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou os identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que esse link depende. Se a chave do cofre do segredo for implantada no mesmo modelo, inclua o nome do cofre da chave neste elemento para garantir que ele é implantado primeiro. |
+| --- | --- |
+| type |Enum<br />Obrigatório<br />**secrets** (quando implantado como um recurso filho do cofre da chave) ou<br /> **Microsoft.KeyVault/vaults/secrets** (quando implantado como um recurso de nível superior)<br /><br />O tipo de recurso a ser criado. |
+| apiVersion |Enum<br />Obrigatório<br />**2015-06-01** ou **2014-12-19-preview**<br /><br />A versão da API a ser usada para criar o recurso. |
+| name |String<br />Obrigatório<br />Uma única palavra quando implantado como um recurso filho de um cofre da chave ou no formato **{nome-do-cofre-da-chave}/{nome-do-segredo}** quando implantado como um recurso de nível superior a ser adicionado a uma chave existente.<br /><br />O nome do segredo a ser criado. |
+| propriedades |Object<br />Obrigatório<br />[properties object](#properties)<br /><br />Um objeto que especifica o valor do segredo a ser criado. |
+| dependsOn |Array<br />Opcional<br />Uma lista separada por vírgulas com os nomes ou os identificadores exclusivos de um recurso.<br /><br />A coleção de recursos de que esse link depende. Se a chave do cofre do segredo for implantada no mesmo modelo, inclua o nome do cofre da chave neste elemento para garantir que ele é implantado primeiro. |
 
 <a id="properties" />
+
 ### properties object
-
 | Nome | Valor |
-| ---- | ---- | 
-| value | String<br />Obrigatório<br /><br />O valor do segredo a ser armazenado no cofre da chave. Ao transmitir um valor para essa propriedade, use um parâmetro do tipo **securestring**. |
+| --- | --- |
+| value |String<br />Obrigatório<br /><br />O valor do segredo a ser armazenado no cofre da chave. Ao transmitir um valor para essa propriedade, use um parâmetro do tipo **securestring**. |
 
-	
 ## Exemplos
-
 O primeiro exemplo implanta um segredo como um recurso filho de um cofre da chave.
 
     {
@@ -223,8 +218,7 @@ O segundo exemplo implanta o segredo como um recurso de nível superior que é a
 
 
 ## Próximas etapas
-
-- Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](./key-vault/key-vault-get-started.md).
-- Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
+* Para obter informações gerais sobre cofres de chave, veja [Introdução ao Cofre da Chave do Azure](key-vault/key-vault-get-started.md).
+* Para obter um exemplo de como fazer referência a um segredo do cofre da chave durante a implantação de modelos, veja [Transmitir valores seguros durante a implantação](resource-manager-keyvault-parameter.md).
 
 <!---HONumber=AcomDC_0629_2016-->

@@ -1,29 +1,29 @@
-<properties
-   pageTitle="Agrupar por opções no SQL Data Warehouse | Microsoft Azure"
-   description="Dicas para implementar o agrupamento por opções no SQL Data Warehouse do Azure para desenvolver soluções."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Agrupar por opções no SQL Data Warehouse | Microsoft Docs
+description: Dicas para implementar o agrupamento por opções no SQL Data Warehouse do Azure para desenvolver soluções.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Agrupar por opções de SQL Data Warehouse
-
-A cláusula [GROUP BY][] é usada para agregar dados a um conjunto de linhas de resumo. Ela também tem algumas opções que ampliam sua funcionalidade que precisam ser solucionadas pois não tem suporte diretamente pelo SQL Data Warehouse do Azure.
+A cláusula [GROUP BY][GROUP BY] é usada para agregar dados a um conjunto de linhas de resumo. Ela também tem algumas opções que ampliam sua funcionalidade que precisam ser solucionadas pois não tem suporte diretamente pelo SQL Data Warehouse do Azure.
 
 Essas opções são
-- GROUP BY com ROLLUP
-- GROUPING SETS
-- GROUP BY com CUBE
+
+* GROUP BY com ROLLUP
+* GROUPING SETS
+* GROUP BY com CUBE
 
 ## O rollup e o agrupamento definem opções
 A opção mais simples é usar `UNION ALL` ao invés de executar o rollup do que contar com a sintaxe explícita. O resultado é exatamente o mesmo
@@ -44,9 +44,10 @@ GROUP BY ROLLUP (
 ```
 
 Ao usar ROLLUP, solicitamos as seguintes agregações:
-- país e região
-- País
-- Grande Total
+
+* país e região
+* País
+* Grande Total
 
 Para substituir isso, você precisará usar `UNION ALL`; especificar as agregações explicitamente necessárias para retornar os mesmos resultados:
 
@@ -175,9 +176,8 @@ ORDER BY 1,2,3
 
 Dividir o código em seções e gerar uma construção de loop, torna o código mais gerenciável e sustentável.
 
-
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][Visão geral do desenvolvimento].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png

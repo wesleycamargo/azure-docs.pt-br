@@ -1,31 +1,32 @@
-<properties 
-	pageTitle="Configurar e usar a API de recomendações de Aprendizado de Máquina | Microsoft Azure" 
-	description="API de RECOMENDAÇÕES da Microsoft criada com as perguntas Frequentes do aprendizado de máquina do Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: Configurar e usar a API de recomendações de Aprendizado de Máquina | Microsoft Docs
+description: API de RECOMENDAÇÕES da Microsoft criada com as perguntas Frequentes do aprendizado de máquina do Azure
+services: machine-learning
+documentationcenter: ''
+author: LuisCabrer
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2016" 
-	ms.author="luisca"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: luisca
 
-#Perguntas frequentes sobre configuração e uso da API de Recomendações do Aprendizado de Máquina
-
-
+---
+# Perguntas frequentes sobre configuração e uso da API de Recomendações do Aprendizado de Máquina
 **O que são as RECOMENDAÇÕES?**
 
->[AZURE.NOTE] Você deve começar a usar o Serviço Cognitivo da API de Recomendações em vez desta versão. O Serviço Cognitivo de Recomendações substituirá esse serviço, e todos os recursos novos serão desenvolvidos lá. Ele possui novos recursos como suporte ao processamento em lotes, um Gerenciador de API aprimorado, uma superfície de API mais limpa, uma experiência de inscrição/cobrança mais consistente etc. Saiba mais sobre [Como migrar para o novo Serviço Cognitivo](http://aka.ms/recomigrate)
+> [!NOTE]
+> Você deve começar a usar o Serviço Cognitivo da API de Recomendações em vez desta versão. O Serviço Cognitivo de Recomendações substituirá esse serviço, e todos os recursos novos serão desenvolvidos lá. Ele possui novos recursos como suporte ao processamento em lotes, um Gerenciador de API aprimorado, uma superfície de API mais limpa, uma experiência de inscrição/cobrança mais consistente etc. Saiba mais sobre [Como migrar para o novo Serviço Cognitivo](http://aka.ms/recomigrate)
+> 
+> 
 
 Para organizações e empresas que utilizam recomendações para venda cruzada e venda de produtos e serviços aos clientes, as RECOMENDAÇÕES no Aprendizado de Máquina do Azure fornecem um mecanismo de recomendações de autoatendimento. É uma implementação de filtragem colaborativa que usa a fatoração de matriz como seu algoritmo central. Os desenvolvedores de aplicativos podem acessar RECOMENDAÇÕES usando APIs REST.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **O que posso fazer com as RECOMENDAÇÕES?**
 
@@ -34,15 +35,14 @@ RECOMENDAÇÕES utiliza como entrada um item ou um conjunto de itens e retorna u
 **Há limitações de uso?**
 
 As Recomendações apresentam as seguintes limitações de uso:
+
 * Número máximo de modelos por assinatura: 10
 * Número máximo de itens que um catálogo pode conter: 100.000
 * O número máximo de pontos de uso mantidos é cerca de 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados.
 * O volume máximo de dados que podem ser enviados no email (por exemplo, importar dados de catálogo e importar dados de uso) é de 200 MB.
 * O número de TPS (transações por segundo) para um build de modelo da Recomendação que não está ativo é de cerca de 2 TPS. Uma compilação de modelo de Recomendação ativa pode conter até 20 TPS.
 
-##Compra e cobrança 
-
-
+## Compra e cobrança
 **Qual é o custo de Recomendações durante o período de lançamento?**
 
 As Recomendações são um serviço por assinatura. A cobrança é feita com base no volume de transações por mês. Você pode consultar a [página de ofertas](https://datamarket.azure.com/dataset/amla/recommendations) no Microsoft Azure Marketplace para obter informações sobre preços.
@@ -93,8 +93,7 @@ Para cancelar sua assinatura, use as etapas a seguir. Se sua assinatura atual fo
 
 Se quiser cancelar sua assinatura imediatamente para poder comprar uma nova assinatura, crie um tíquete no [Suporte da Microsoft](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
-##Introdução às Recomendações
-
+## Introdução às Recomendações
 **As Recomendações são para mim?**
 
 As Recomendações no Aprendizado de Máquina são para organizações e empresas que utilizam recomendações para venda cruzada e venda de produtos ou serviços a seus clientes. Se você tiver um site voltado para o cliente, uma equipe de vendas, uma equipe de vendas interna ou um call center e se oferecer um catálogo de mais de algumas dezenas de produtos ou serviços, seu resultado final poderá se beneficiar do uso de Recomendações.
@@ -119,8 +118,7 @@ A documentação da API é [Recomendações do Aprendizado de Máquina do Azure 
 
 Você tem duas opções para carregar os dados do catálogo e de uso: pode exportar os dados do seu sistema CRM ou outros logs e carregá-los nas Recomendações ou pode adicionar marcas a seu site para controlar as atividades do usuário. Se você usar o segundo método, os dados serão armazenados no Azure.
 
-##Manutenção e suporte
-
+## Manutenção e suporte
 **Que tamanho meu conjunto de dados pode ter?**
 
 Cada conjunto de dados pode conter até 100.000 itens de catálogo e até 2048 MB de dados de uso. Além disso, uma assinatura pode conter até 10 conjuntos de dados (modelos).
@@ -132,9 +130,5 @@ O suporte técnico está disponível no site de [Suporte do Microsoft Azure](htt
 **Onde posso encontrar os termos de uso?**
 
 [Termos de Serviço da API de Recomendações do Aprendizado de Máquina do Microsoft Azure](https://datamarket.azure.com/dataset/amla/recommendations#terms).
-
-
-
- 
 
 <!---HONumber=AcomDC_0914_2016-->

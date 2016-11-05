@@ -1,31 +1,28 @@
-<properties
- pageTitle="Modelos de Aplicativo Lógico | Microsoft Azure"
- description="Saiba como usar modelos de Aplicativo lógico pré-criados a fim de obter ajuda para começar"
- authors="kevinlam1"
- manager="dwrede"
- editor=""
- services="app-service\logic"
- documentationCenter=""/>
+---
+title: Modelos de Aplicativo Lógico | Microsoft Docs
+description: Saiba como usar modelos de Aplicativo lógico pré-criados a fim de obter ajuda para começar
+author: kevinlam1
+manager: dwrede
+editor: ''
+services: app-service\logic
+documentationcenter: ''
 
-<tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="klam"/>
+ms.service: app-service-logic
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/24/2016
+ms.author: klam
 
+---
 # Modelos de Aplicativo Lógico
-
 ## O que são modelos de aplicativo lógico
-
 Um modelo de aplicativo lógico é um aplicativo lógico predefinido que você pode usar para começar a criar rapidamente seu próprio fluxo de trabalho.
 
 Esses modelos são uma boa maneira de descobrir vários padrões que podem ser criados usando aplicativos lógicos. Você pode usá-los como estão ou modificá-los para ajustá-los a seu cenário.
 
 ## Visão geral dos modelos disponíveis
-
 Existem vários modelos disponíveis atualmente publicados na plataforma de aplicativos lógicos. Algumas categorias de exemplo, bem como os tipos de conectores usados por elas, são listadas abaixo.
 
 ### Modelos de nuvem empresarial
@@ -43,8 +40,7 @@ Os padrões para ajudar a melhorar a produtividade pessoal incluem modelos que d
 ### Modelos de nuvem do consumidor
 Os modelos simples que se integram com os serviços de mídia social, como o Twitter, o Slack e o email, basicamente capaz de reforçar as iniciativas de marketing de mídia social. Eles também incluem modelos como a cópia em nuvem, que podem ajudar a aumentar a produtividade, economizando o tempo gasto em tarefas tradicionalmente repetitivas.
 
-## Como criar um aplicativo lógico usando um modelo 
-
+## Como criar um aplicativo lógico usando um modelo
 Para começar a usar um modelo de aplicativo lógico, vá para o designer de aplicativos lógicos. Se você estiver inserindo o designer ao abrir um aplicativo lógico existente, o aplicativo lógico será carregado automaticamente no modo de exibição de designer. Porém, se você estiver criando um novo aplicativo lógico, verá a tela abaixo. ![](../../includes/media/app-service-logic-templates/template7.png)
 
 Nesta tela, você pode optar por começar com um aplicativo lógico em branco ou com um modelo criado previamente. Se você selecionar um dos modelos, serão fornecidas informações adicionais. Neste exemplo, usamos o modelo *Quando um novo arquivo for criado no Dropbox, copie-o para o OneDrive*. ![](../../includes/media/app-service-logic-templates/template2.png)
@@ -58,7 +54,6 @@ No exemplo acima, como é o caso com muitos modelos, alguns dos campos de propri
 Se você quiser voltar ao visualizador de modelos, selecione o botão *Modelos* na barra de navegação superior. Alternando para o visualizador do modelo, você perderá qualquer progresso não salvo. Antes de alternar novamente para o visualizador de modelos, você verá uma mensagem de aviso informando isso. ![](../../includes/media/app-service-logic-templates/template5.png)
 
 ## Como implantar um aplicativo lógico criado de um modelo
-
 Depois de carregar o modelo e de fazer as alterações desejadas, selecione o botão salvar no canto superior esquerdo. Isso salva e publica seu aplicativo lógico. ![](../../includes/media/app-service-logic-templates/template6.png)
 
 Se você quiser mais informações sobre como adicionar mais etapas a um modelo de aplicativo lógico existente ou fazer edições em geral, leia mais em [Criar um aplicativo lógico](app-service-logic-create-a-logic-app.md).

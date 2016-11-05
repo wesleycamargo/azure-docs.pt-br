@@ -1,5 +1,5 @@
 ### Pré-requisitos
-- Uma conta do [Facebook](https://www.facebook.com/) 
+* Uma conta do [Facebook](https://www.facebook.com/) 
 
 Antes de usar sua conta do Facebook em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do Facebook. Felizmente, você pode fazer isso facilmente a partir de seu aplicativo lógico no Portal do Azure.
 
@@ -9,3 +9,4 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 2. Se você não tiver criado quaisquer conexões Facebook antes, será solicitado a fornecer suas credenciais do Facebook. Essas credenciais serão usadas para autorizar seu aplicativo lógico a se conectar aos dados da sua conta do Facebook e usá-los: ![Etapa 2 do Facebook](./media/connectors-create-api-facebook/facebook-2.png)
 3. Forneça seu nome de usuário do Facebook e a senha para autorizar seu aplicativo lógico: ![Etapa 3 do Facebook](./media/connectors-create-api-facebook/facebook-3.png)   
 4. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: ![Etapa 4 do Facebook](./media/connectors-create-api-facebook/facebook-4.png)   
+

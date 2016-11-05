@@ -1,23 +1,21 @@
-<properties
-    pageTitle="Sincronização do Azure AD Connect: noções básicas sobre provisionamento declarativo | Microsoft Azure"
-    description="Explica o modelo de configuração de provisionamento declarativo no Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+---
+title: 'Sincronização do Azure AD Connect: noções básicas sobre provisionamento declarativo | Microsoft Docs'
+description: Explica o modelo de configuração de provisionamento declarativo no Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/29/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/29/2016
+ms.author: billmath
 
-
-
+---
 # <a name="azure-ad-connect-sync:-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é chamado de Provisionamento Declarativo e permite que você altere uma configuração com facilidade. Muitos itens descritos neste tópico são avançados e não são necessários para a maioria dos cenários do cliente.
 
@@ -30,12 +28,12 @@ O pipeline tem vários módulos diferentes. Cada um é responsável por um conce
 
 ![Pipeline de sincronização](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)  
 
-- Origem, objeto de origem
-- [Escopo](#scope)localiza todas as regras de sincronização que estão no escopo
-- [Ingressar](#join)determina a relação entre o metaverso e o espaço do conector
-- [Transformar](#transform)calcula como os atributos devem ser transformados e fluir
-- [Precedência](#precedence)resolve conflitos de contribuições de atributo
-- Destino, objeto de destino
+* Origem, objeto de origem
+* [Escopo](#scope)localiza todas as regras de sincronização que estão no escopo
+* [Ingressar](#join)determina a relação entre o metaverso e o espaço do conector
+* [Transformar](#transform)calcula como os atributos devem ser transformados e fluir
+* [Precedência](#precedence)resolve conflitos de contribuições de atributo
+* Destino, objeto de destino
 
 ## <a name="scope"></a>Escopo
 O módulo de escopo está avaliando um objeto e determina as regras que estão no escopo e devem ser incluídas no processamento. Dependendo dos valores de atributos no objeto, regras de sincronização diferentes são avaliadas como estando no escopo. Por exemplo, um usuário desabilitado sem uma caixa de correio do Exchange tem regras diferentes das de um usuário habilitado com uma caixa de correio.  
@@ -48,18 +46,18 @@ O escopo é definido como grupos e cláusulas. As cláusulas estão dentro de um
 
 O módulo de escopo dá suporte às operações a seguir.
 
-Operação | Descrição
---- | ---
-EQUAL, NOTEQUAL | Uma comparação de cadeia de caracteres que avalia se o valor é igual ao valor do atributo. Para atributos com valores múltiplos, confira ISIN e ISNOTIN.
-LESSTHAN, LESSTHAN_OR_EQUAL | Uma comparação de cadeia de caracteres que avalia se o valor é menor do que o valor do atributo.
-CONTAINS, NOTCONTAINS | Comparação de cadeia de caracteres que avalia se o valor pode ser encontrado em algum lugar no valor do atributo.
-STARTSWITH, NOTSTARTSWITH | Comparação de cadeia de caracteres que avalia se o valor está no início do valor do atributo.
-ENDSWITH, NOTENDSWITH | Comparação de cadeia de caracteres que avalia se o valor está no fim do valor do atributo.
-GREATERTHAN, GREATERTHAN_OR_EQUAL | Comparação de cadeia de caracteres que avalia se o valor é maior do que o valor do atributo.
-ISNULL, ISNOTNULL | Avalia se o atributo está ausente do objeto. Se o atributo não estiver presente e, portanto, for nulo, a regra está no escopo.
-ISIN, ISNOTIN | Avalia se o valor está presente no atributo definido. Essa operação é a variação de valores múltiplos de EQUAL e NOTEQUAL. O atributo deve para ser um atributo com valores múltiplos e, se o valor puder ser encontrado em qualquer um dos valores de atributo, a regra está no escopo.
-ISBITSET, ISNOTBITSET | Avalia se um bit específico está definido. Por exemplo, pode ser usado para avaliar os bits em userAccountControl para ver se um usuário está habilitado ou desabilitado.
-ISMEMBEROF, ISNOTMEMBEROF | O valor deve conter um DN para um grupo no espaço do conector. Se o objeto for membro do grupo especificado, a regra está no escopo.
+| Operação | Descrição |
+| --- | --- |
+| EQUAL, NOTEQUAL |Uma comparação de cadeia de caracteres que avalia se o valor é igual ao valor do atributo. Para atributos com valores múltiplos, confira ISIN e ISNOTIN. |
+| LESSTHAN, LESSTHAN_OR_EQUAL |Uma comparação de cadeia de caracteres que avalia se o valor é menor do que o valor do atributo. |
+| CONTAINS, NOTCONTAINS |Comparação de cadeia de caracteres que avalia se o valor pode ser encontrado em algum lugar no valor do atributo. |
+| STARTSWITH, NOTSTARTSWITH |Comparação de cadeia de caracteres que avalia se o valor está no início do valor do atributo. |
+| ENDSWITH, NOTENDSWITH |Comparação de cadeia de caracteres que avalia se o valor está no fim do valor do atributo. |
+| GREATERTHAN, GREATERTHAN_OR_EQUAL |Comparação de cadeia de caracteres que avalia se o valor é maior do que o valor do atributo. |
+| ISNULL, ISNOTNULL |Avalia se o atributo está ausente do objeto. Se o atributo não estiver presente e, portanto, for nulo, a regra está no escopo. |
+| ISIN, ISNOTIN |Avalia se o valor está presente no atributo definido. Essa operação é a variação de valores múltiplos de EQUAL e NOTEQUAL. O atributo deve para ser um atributo com valores múltiplos e, se o valor puder ser encontrado em qualquer um dos valores de atributo, a regra está no escopo. |
+| ISBITSET, ISNOTBITSET |Avalia se um bit específico está definido. Por exemplo, pode ser usado para avaliar os bits em userAccountControl para ver se um usuário está habilitado ou desabilitado. |
+| ISMEMBEROF, ISNOTMEMBEROF |O valor deve conter um DN para um grupo no espaço do conector. Se o objeto for membro do grupo especificado, a regra está no escopo. |
 
 ## <a name="join"></a>Ingressar
 O módulo de junção no pipeline de sincronização é responsável por localizar a relação entre o objeto de origem e um objeto de destino. Em uma regra de entrada, essa relação seria um objeto em um espaço de conector que localiza uma relação com um objeto no metaverso.  
@@ -147,22 +145,19 @@ Para esse cenário, você precisa alterar o escopo das regras de sincronização
 ![Vários objetos unidos ao mesmo objeto mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Leia mais sobre a linguagem de expressão em [Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
-- Veja como o provisionamento declarativo está pronto para uso em [Noções básicas sobre a configuração padrão](active-directory-aadconnectsync-understanding-default-configuration.md).
-- Veja como fazer uma alteração prática usando o provisionamento declarativo em [Como fazer uma alteração na configuração padrão](active-directory-aadconnectsync-change-the-configuration.md).
-- Continue a ler sobre como usuários e contatos funcionam juntos em [Noções básicas sobre usuários e contatos](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+* Leia mais sobre a linguagem de expressão em [Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+* Veja como o provisionamento declarativo está pronto para uso em [Noções básicas sobre a configuração padrão](active-directory-aadconnectsync-understanding-default-configuration.md).
+* Veja como fazer uma alteração prática usando o provisionamento declarativo em [Como fazer uma alteração na configuração padrão](active-directory-aadconnectsync-change-the-configuration.md).
+* Continue a ler sobre como usuários e contatos funcionam juntos em [Noções básicas sobre usuários e contatos](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 
 **Tópicos de visão geral**
 
-- [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
-- [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
 **Tópicos de referência**
 
-- [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
-
-
+* [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
 
 <!--HONumber=Oct16_HO2-->
 

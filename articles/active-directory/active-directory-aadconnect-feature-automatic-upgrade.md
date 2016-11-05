@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Azure AD Connect: atualização automática | Microsoft Azure"
-   description="Este tópico descreve o recurso interno de atualização automática na sincronização do Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Azure AD Connect: atualização automática | Microsoft Docs'
+description: Este tópico descreve o recurso interno de atualização automática na sincronização do Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/24/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/24/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect:-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
 
@@ -25,18 +24,18 @@ Verificar se a instalação do Azure AD Connect está sempre atualizada nunca fo
 
 A atualização automática é habilitada por padrão para o seguinte:
 
-- Instalação das configurações expressas e atualizações de DirSync.
-- Usar o SQL Express LocalDB, que é o que as configurações Expressas sempre usam. O DirSync com o SQL Express também usa o LocalDB.
-- A conta do AD é a conta MSOL_ padrão criada pelas configurações Expressas e DirSync.
-- Ter menos de 100 mil objetos no metaverso.
+* Instalação das configurações expressas e atualizações de DirSync.
+* Usar o SQL Express LocalDB, que é o que as configurações Expressas sempre usam. O DirSync com o SQL Express também usa o LocalDB.
+* A conta do AD é a conta MSOL_ padrão criada pelas configurações Expressas e DirSync.
+* Ter menos de 100 mil objetos no metaverso.
 
 O estado atual da atualização automática pode ser exibido com o cmdlet `Get-ADSyncAutoUpgrade`do PowerShell. Ele contém os seguintes estados:
 
-Estado | Comentário
----- | ----
-Habilitado | A atualização automática está habilitada.
-Suspenso | Somente definido pelo sistema. O sistema não está mais qualificado para receber atualizações automáticas.
-Desabilitado | A atualização automática está desabilitada.
+| Estado | Comentário |
+| --- | --- |
+| Habilitado |A atualização automática está habilitada. |
+| Suspenso |Somente definido pelo sistema. O sistema não está mais qualificado para receber atualizações automáticas. |
+| Desabilitado |A atualização automática está desabilitada. |
 
 Você pode alterar entre **Habilitado** e **Desabilitado** com o `Set-ADSyncAutoUpgrade`. Somente o sistema deve definir o estado como **Suspenso**.
 
@@ -61,43 +60,41 @@ Agora, você pode ver os logs de eventos associados ao status da atualização a
 
 O código de resultado tem um prefixo com uma visão geral do estado.
 
-Prefixo do código de resultado | Descrição
---- | ---
-Sucesso | A instalação foi atualizada com êxito.
-UpgradeAborted | Uma condição temporária interrompeu a atualização. Ela será tentada novamente e a expectativa é de que tenha êxito posteriormente.
-UpgradeNotSupported | O sistema tem uma configuração que está impedindo que o sistema seja atualizado automaticamente. A atualização será tentada novamente para ver se o estado está mudando, mas a expectativa é de que o sistema precise ser atualizado manualmente.
+| Prefixo do código de resultado | Descrição |
+| --- | --- |
+| Sucesso |A instalação foi atualizada com êxito. |
+| UpgradeAborted |Uma condição temporária interrompeu a atualização. Ela será tentada novamente e a expectativa é de que tenha êxito posteriormente. |
+| UpgradeNotSupported |O sistema tem uma configuração que está impedindo que o sistema seja atualizado automaticamente. A atualização será tentada novamente para ver se o estado está mudando, mas a expectativa é de que o sistema precise ser atualizado manualmente. |
 
 Esta é uma lista das mensagens mais comuns que você encontrará. Ela não lista todas as mensagens, mas a mensagem de resultado deve ser clara quanto a qual é o problema.
 
-Mensagem de resultado | Descrição
---- | ---
-**UpgradeAborted** |
-UpgradeAbortedCouldNotSetUpgradeMarker | Não foi possível escrever no registro.
-UpgradeAbortedInsufficientDatabasePermissions | O grupo de administradores interno não tem permissões para o banco de dados. Atualize manualmente para a versão mais recente do Azure AD Connect para resolver esse problema.
-UpgradeAbortedInsufficientDiskSpace | Não há espaço em disco suficiente para dar suporte a uma atualização.
-UpgradeAbortedSecurityGroupsNotPresent | Não foi possível encontrar e resolver todos os grupos de segurança usados pelo mecanismo de sincronização.
-UpgradeAbortedServiceCanNotBeStarted | O serviço NT **Microsoft Azure AD Sync** falhou ao iniciar.
-UpgradeAbortedServiceCanNotBeStarted | O serviço NT **Microsoft Azure AD Sync** falhou ao parar.
-UpgradeAbortedServiceIsNotRunning | O serviço NT **Microsoft Azure AD Sync** não está executando.
-UpgradeAbortedSyncCycleDisabled | A opção SyncCycle no [agendador](active-directory-aadconnectsync-feature-scheduler.md) foi desabilitada.
-UpgradeAbortedSyncExeInUse | A [interface do usuário do Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) está aberta no servidor.
-UpgradeAbortedSyncOrConfigurationInProgress | O assistente de instalação está em execução ou uma sincronização foi agendada fora do agendador.
-**UpgradeNotSupported** |
-UpgradeNotSupportedCustomizedSyncRules | Você adicionou suas próprias regras personalizadas à configuração.
-UpgradeNotSupportedDeviceWritebackEnabled | Você habilitou o recurso [write-back de dispositivo](active-directory-aadconnect-feature-device-writeback.md) .
-UpgradeNotSupportedGroupWritebackEnabled | Você habilitou o recurso [write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback) .
-UpgradeNotSupportedInvalidPersistedState | A instalação não é uma configuração Express ou uma atualização de DirSync.
-UpgradeNotSupportedMetaverseSizeExceeeded | Você tem mais de 100 mil objetos no metaverso.
-UpgradeNotSupportedMultiForestSetup | Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta.
-UpgradeNotSupportedNonLocalDbInstall | Você não está usando um banco de dados SQL Server Express LocalDB.
-UpgradeNotSupportedNonMsolAccount | A [conta do Conector AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) não é mais a conta MSOL_ padrão.
-UpgradeNotSupportedStagingModeEnabled | O servidor está definido como em [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode).
-UpgradeNotSupportedUserWritebackEnabled | Você habilitou o recurso [write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback) .
+| Mensagem de resultado | Descrição |
+| --- | --- |
+| **UpgradeAborted** | |
+| UpgradeAbortedCouldNotSetUpgradeMarker |Não foi possível escrever no registro. |
+| UpgradeAbortedInsufficientDatabasePermissions |O grupo de administradores interno não tem permissões para o banco de dados. Atualize manualmente para a versão mais recente do Azure AD Connect para resolver esse problema. |
+| UpgradeAbortedInsufficientDiskSpace |Não há espaço em disco suficiente para dar suporte a uma atualização. |
+| UpgradeAbortedSecurityGroupsNotPresent |Não foi possível encontrar e resolver todos os grupos de segurança usados pelo mecanismo de sincronização. |
+| UpgradeAbortedServiceCanNotBeStarted |O serviço NT **Microsoft Azure AD Sync** falhou ao iniciar. |
+| UpgradeAbortedServiceCanNotBeStarted |O serviço NT **Microsoft Azure AD Sync** falhou ao parar. |
+| UpgradeAbortedServiceIsNotRunning |O serviço NT **Microsoft Azure AD Sync** não está executando. |
+| UpgradeAbortedSyncCycleDisabled |A opção SyncCycle no [agendador](active-directory-aadconnectsync-feature-scheduler.md) foi desabilitada. |
+| UpgradeAbortedSyncExeInUse |A [interface do usuário do Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) está aberta no servidor. |
+| UpgradeAbortedSyncOrConfigurationInProgress |O assistente de instalação está em execução ou uma sincronização foi agendada fora do agendador. |
+| **UpgradeNotSupported** | |
+| UpgradeNotSupportedCustomizedSyncRules |Você adicionou suas próprias regras personalizadas à configuração. |
+| UpgradeNotSupportedDeviceWritebackEnabled |Você habilitou o recurso [write-back de dispositivo](active-directory-aadconnect-feature-device-writeback.md) . |
+| UpgradeNotSupportedGroupWritebackEnabled |Você habilitou o recurso [write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback) . |
+| UpgradeNotSupportedInvalidPersistedState |A instalação não é uma configuração Express ou uma atualização de DirSync. |
+| UpgradeNotSupportedMetaverseSizeExceeeded |Você tem mais de 100 mil objetos no metaverso. |
+| UpgradeNotSupportedMultiForestSetup |Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta. |
+| UpgradeNotSupportedNonLocalDbInstall |Você não está usando um banco de dados SQL Server Express LocalDB. |
+| UpgradeNotSupportedNonMsolAccount |A [conta do Conector AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) não é mais a conta MSOL_ padrão. |
+| UpgradeNotSupportedStagingModeEnabled |O servidor está definido como em [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode). |
+| UpgradeNotSupportedUserWritebackEnabled |Você habilitou o recurso [write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

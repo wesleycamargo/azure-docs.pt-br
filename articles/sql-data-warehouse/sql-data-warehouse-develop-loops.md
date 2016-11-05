@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Execução de loops no SQL Data Warehouse | Microsoft Azure"
-   description="Dicas para execução de loops do Transact_SQL e substituição de cursores no SQL Data Warehouse Azure para desenvolver soluções."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Execução de loops no SQL Data Warehouse | Microsoft Docs
+description: Dicas para execução de loops do Transact_SQL e substituição de cursores no SQL Data Warehouse Azure para desenvolver soluções.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Executar loops no SQL Data Warehouse
-O SQL Data Warehouse oferece suporte a loop [WHILE][] para executar repetidamente blocos de instrução. Isso continuará enquanto as condições especificadas forem verdadeiras ou até que o código especificamente encerre o loop usando a palavra-chave `BREAK`. A execução de loops é particularmente útil para a substituição de cursores definidos no código SQL. Felizmente, quase todos os cursores que são escritos em código SQL são do tipo somente leitura de avanço rápido. Portanto, a execução de loops [WHILE] é uma ótima alternativa se você precisar substituir um.
+O SQL Data Warehouse oferece suporte a loop [WHILE][WHILE] para executar repetidamente blocos de instrução. Isso continuará enquanto as condições especificadas forem verdadeiras ou até que o código especificamente encerre o loop usando a palavra-chave `BREAK`. A execução de loops é particularmente útil para a substituição de cursores definidos no código SQL. Felizmente, quase todos os cursores que são escritos em código SQL são do tipo somente leitura de avanço rápido. Portanto, a execução de loops [WHILE] é uma ótima alternativa se você precisar substituir um.
 
 ## Aproveitando a execução de loops e substituindo cursores no SQL Data Warehouse
 No entanto, antes de mergulhar na memória, primeiro você deve fazer a seguinte pergunta: “Esse cursor poderia ser reescrito para usar operações baseadas em conjunto?”. Em muitos casos, a resposta será “Sim” e geralmente esta será a melhor abordagem. Uma operação baseada em conjunto geralmente terá um desempenho consideravelmente mais rápido do que uma abordagem iterativa de linha por linha.
@@ -68,7 +68,7 @@ DROP TABLE #tbl;
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][Visão geral do desenvolvimento].
 
 <!--Image references-->
 

@@ -1,45 +1,45 @@
-<properties
-    pageTitle="Personalizar: Gerenciamento de senha do AD do Azure | Microsoft Azure"
-    description="Como personalizar a aparência, o comportamento e as notificações do gerenciamento de senhas no Azure AD para atender às suas necessidades."
-    services="active-directory"
-    documentationCenter=""
-    authors="asteen"
-    manager="femila"
-    editor="curtand"/>
+---
+title: 'Personalizar: Gerenciamento de senha do AD do Azure | Microsoft Docs'
+description: Como personalizar a aparência, o comportamento e as notificações do gerenciamento de senhas no Azure AD para atender às suas necessidades.
+services: active-directory
+documentationcenter: ''
+author: asteen
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/03/2016"
-    ms.author="asteen"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/03/2016
+ms.author: asteen
 
-
+---
 # <a name="customizing-password-management-to-fit-your-organization's-needs"></a>Personalização do gerenciamento de senhas para atender às necessidades da sua organização
-
-> [AZURE.IMPORTANT] **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+> [!IMPORTANT]
+> **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
+> 
+> 
 
 Para dar aos usuários a melhor experiência possível, recomendamos que você explore e brinque com todas as opções de configuração de gerenciamento de senhas disponíveis para você. Na verdade, você pode começar a explorar isso imediatamente acessando a guia de configuração da **extensão do Active Directory** no [Portal clássico do Azure](https://manage.windowsazure.com). Este tópico orienta você por todas as personalizações de Gerenciamento de Senhas diferentes que é possível fazer como administrador na guia **Configurar** de seu diretório no [Portal clássico do Azure](https://manage.windowsazure.com), incluindo:
 
 | Tópico |  |
-| --------- | --------- |
-| Como habilitar ou desabilitar a redefinição de senha? | [Configuração: usuários habilitados para a redefinição de senha](#users-enabled-for-password-reset) |
-| Como faço o escopo da redefinição de senha para um conjunto específico de usuários? | [Restringir a redefinição de senha a usuários específicos](#restrict-access-to-password-reset) |
-| Como posso alterar os métodos de autenticação com suporte? | [Configuração: métodos de autenticação disponíveis para os usuários](#authentication-methods-available-to-users) |
-| Como posso alterar a quantidade necessária de métodos de autenticação? | [Configuração: quantidade necessária de métodos de autenticação](#number-of-authentication-methods-required) |
-| Como faço para definir as perguntas de segurança personalizadas? | [Configuração: perguntas de segurança personalizadas](#custom-security-questions) |
-| Como posso definir as perguntas de segurança localizadas pré-configuradas? | [Configuração: perguntas de segurança baseadas em conhecimento](#knowledge-based-security-questions) |
-| Como posso alterar quantas perguntas de segurança são necessárias? | [Configuração: número de perguntas de segurança para registro ou redefinição](#number-of-questions-required-to-register) |
-| Como posso forçar meus usuários a fazer o registro durante a conexão? | [Imposição de distribuição baseada em registro de redefinição de senha](#require-users-to-register-when-signing-in) |
-| Como posso forçar meus usuários a reconfirmar seus registros periodicamente? | [Configuração: número de dias antes que os usuários tenham que reconfirmar seus dados de autenticação](#number-of-days-before-users-must-confirm-their-contact-data) |
-| Como posso personalizar como um usuário entra em contato com um administrador? | [Configuração: personalizar o link “entre em contato com o seu administrador”](#customize-the-contact-your-administrator-link) |
-| Como posso permitir aos usuários desbloquear contas do AD sem redefinir a senha? | [Configuração: permitir que os usuários desbloqueiem suas contas do AD sem redefinir a senha](#allow-users-to-unlock-accounts-without-resetting-their-password) |
-| Como habilitar notificações de redefinição de senha para os usuários? | [Configuração: notificar os usuários quando suas senhas forem redefinidas](#notify-users-and-admins-when-their-own-password-has-been-reset) |
-| Como habilitar notificações de redefinição de senha para administradores? | [Configuração: notificar outros administradores quando um administrador redefinir suas senhas](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| Como posso personalizar a aparência da redefinição de senha? | [Configuração: nome, identidade visual e logotipo da empresa ](#password-management-look-and-feel) |
-
+| --- | --- |
+| Como habilitar ou desabilitar a redefinição de senha? |[Configuração: usuários habilitados para a redefinição de senha](#users-enabled-for-password-reset) |
+| Como faço o escopo da redefinição de senha para um conjunto específico de usuários? |[Restringir a redefinição de senha a usuários específicos](#restrict-access-to-password-reset) |
+| Como posso alterar os métodos de autenticação com suporte? |[Configuração: métodos de autenticação disponíveis para os usuários](#authentication-methods-available-to-users) |
+| Como posso alterar a quantidade necessária de métodos de autenticação? |[Configuração: quantidade necessária de métodos de autenticação](#number-of-authentication-methods-required) |
+| Como faço para definir as perguntas de segurança personalizadas? |[Configuração: perguntas de segurança personalizadas](#custom-security-questions) |
+| Como posso definir as perguntas de segurança localizadas pré-configuradas? |[Configuração: perguntas de segurança baseadas em conhecimento](#knowledge-based-security-questions) |
+| Como posso alterar quantas perguntas de segurança são necessárias? |[Configuração: número de perguntas de segurança para registro ou redefinição](#number-of-questions-required-to-register) |
+| Como posso forçar meus usuários a fazer o registro durante a conexão? |[Imposição de distribuição baseada em registro de redefinição de senha](#require-users-to-register-when-signing-in) |
+| Como posso forçar meus usuários a reconfirmar seus registros periodicamente? |[Configuração: número de dias antes que os usuários tenham que reconfirmar seus dados de autenticação](#number-of-days-before-users-must-confirm-their-contact-data) |
+| Como posso personalizar como um usuário entra em contato com um administrador? |[Configuração: personalizar o link “entre em contato com o seu administrador”](#customize-the-contact-your-administrator-link) |
+| Como posso permitir aos usuários desbloquear contas do AD sem redefinir a senha? |[Configuração: permitir que os usuários desbloqueiem suas contas do AD sem redefinir a senha](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| Como habilitar notificações de redefinição de senha para os usuários? |[Configuração: notificar os usuários quando suas senhas forem redefinidas](#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| Como habilitar notificações de redefinição de senha para administradores? |[Configuração: notificar outros administradores quando um administrador redefinir suas senhas](#notify-admins-when-other-admins-reset-their-own-passwords) |
+| Como posso personalizar a aparência da redefinição de senha? |[Configuração: nome, identidade visual e logotipo da empresa ](#password-management-look-and-feel) |
 
 ## <a name="password-management-look-and-feel"></a>Aparência do gerenciamento de senha
 A tabela a seguir descreve como cada controle afeta a experiência dos usuários que se registram para a redefinição de senha e que redefinem as suas senhas.  Você pode configurar essas opções na seção **Propriedades do Diretório** da guia **Configurar** do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
@@ -134,7 +134,10 @@ Determinam se o seu logotipo é exibido ou não na parte inferior dos emails env
 ## <a name="password-management-behavior"></a>Comportamento de gerenciamento de senha
 A tabela a seguir descreve como cada controle afeta a experiência dos usuários que se registram para a redefinição de senha e que redefinem as suas senhas.  Você pode configurar essas opções na seção **Política de redefinição de senha do usuário** da guia **Configurar** do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 
-> [AZURE.NOTE] A conta de administrador que você está usando deve ter uma licença AAD Premium atribuída para que seja possível ver esses controles de política.<br><br>Eles se aplicam somente aos usuários finais que estão redefinindo as suas senhas, não aos administradores.  **Os administradores têm uma política padrão de email alternativo e/ou telefone celular que é definida para eles pela Microsoft e não pode ser alterada.**
+> [!NOTE]
+> A conta de administrador que você está usando deve ter uma licença AAD Premium atribuída para que seja possível ver esses controles de política.<br><br>Eles se aplicam somente aos usuários finais que estão redefinindo as suas senhas, não aos administradores.  **Os administradores têm uma política padrão de email alternativo e/ou telefone celular que é definida para eles pela Microsoft e não pode ser alterada.**
+> 
+> 
 
 <table>
             <tbody><tr>
@@ -868,7 +871,6 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 * [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
 * [**Solução de problemas**](active-directory-passwords-troubleshoot.md) – aprenda a solucionar rapidamente os problemas com o serviço
 * [**Saiba mais**](active-directory-passwords-learn-more.md) – aprofunde-se nos detalhes técnicos do funcionamento do serviço
-
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 

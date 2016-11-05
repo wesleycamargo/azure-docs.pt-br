@@ -7,7 +7,6 @@ Você pode criar filas do Azure usando o **Gerenciador de Servidores** do Visual
 3. Selecione o nó **Filas** e escolha **Criar Fila** no menu de contexto.
 4. Digite um nome para a fila e escolha **OK**.   
 
-
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png
 
 <!---HONumber=Oct15_HO3-->

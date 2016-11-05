@@ -1,29 +1,25 @@
-<properties
-    pageTitle="Replicação do Hyper-V com o Azure Site Recovery | Microsoft Azure"
-    description="Use este artigo para entender os conceitos técnicos que ajudam você a instalar, configurar e gerenciar com êxito o Azure Site Recovery."
-    services="site-recovery"
-    documentationCenter=""
-    authors="Rajani-Janaki-Ram"
-    manager="mkjain"
-    editor=""/>
+---
+title: Replicação do Hyper-V com o Azure Site Recovery | Microsoft Docs
+description: Use este artigo para entender os conceitos técnicos que ajudam você a instalar, configurar e gerenciar com êxito o Azure Site Recovery.
+services: site-recovery
+documentationcenter: ''
+author: Rajani-Janaki-Ram
+manager: mkjain
+editor: ''
 
-<tags
-    ms.service="site-recovery"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="storage-backup-recovery"
-    ms.date="09/12/2016"
-    ms.author="rajanaki"/>  
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 09/12/2016
+ms.author: rajanaki
 
-
-
+---
 # <a name="hyper-v-replication-with-azure-site-recovery"></a>Replicação do Hyper-V com o Azure Site Recovery
-
 Este artigo descreve os conceitos técnicos que ajudam você a configurar e gerenciar com êxito um site do Hyper-V ou um site do SCVMM (System Center Virtual Machine Manager) para a proteção do Azure usando o Azure Site Recovery.
 
 ## <a name="setting-up-the-source-environment-for-replication-between-on-premises-and-azure"></a>Configurando o ambiente de origem para replicação entre o local e o Azure
-
 Como parte da configuração de recuperação de desastre entre o local e o Azure, certifique-se de baixar e instalar o Provedor do Azure Site Recovery no servidor do VMM. Instale o Agente de Serviços de Recuperação do Azure em cada host Hyper-V.
 
 ![Implantação de site do VMM para replicação entre o local e o Azure](media/site-recovery-understanding-site-to-azure-protection/image00.png)
@@ -31,7 +27,6 @@ Como parte da configuração de recuperação de desastre entre o local e o Azur
 Configuração do ambiente de origem em uma infraestrutura gerenciada do Hyper-V é semelhante à configuração do ambiente de origem em uma infraestrutura gerenciada do VMM. A única diferença é que o provedor e o agente estão instalados no host Hyper-V propriamente dito. No ambiente do VMM, o provedor é instalado no servidor VMM e o agente é instalado nos hosts Hyper-V (em caso de replicação para o Azure).
 
 ## <a name="workflows"></a>Fluxos de trabalho
-
 ### <a name="enable-protection"></a>Habilitar proteção
 Depois que você proteger uma máquina virtual local ou do portal do Azure, um trabalho do Site Recovery chamado **Habilitar proteção** é iniciado. Você pode monitorá-lo na guia **Trabalhos** .
 
@@ -48,8 +43,8 @@ Um [instantâneo da VM do Hyper-V](https://technet.microsoft.com/library/dd56063
 
 Após a conclusão da replicação inicial, o trabalho **Finalizar proteção na máquina virtual** define as configurações de rede e de pós-replicação. Enquanto a replicação inicial está em andamento:
 
-- Todas as alterações feitas aos discos são rastreadas. 
-- O armazenamento em disco adicional é consumido pelos arquivos de instantâneos e de HRL (log de réplica do Hyper-V).
+* Todas as alterações feitas aos discos são rastreadas. 
+* O armazenamento em disco adicional é consumido pelos arquivos de instantâneos e de HRL (log de réplica do Hyper-V).
 
 Após a conclusão da replicação inicial, o instantâneo de VM do Hyper-V é excluído. Essa exclusão resulta na mesclagem de alterações de dados após a replicação inicial para o disco pai.
 
@@ -60,7 +55,7 @@ O Rastreador de Replicação de Réplica do Hyper-V, que faz parte do Mecanismo 
 
 Cada disco configurado para a replicação tem um arquivo HRL associado. Esses logs são enviados para a conta de armazenamento do cliente após a conclusão da replicação inicial. Quando um log está em trânsito para o Azure, as alterações no arquivo principal são rastreadas em outro arquivo de log no mesmo diretório.
 
-Durante a replicação inicial ou a replicação delta, a integridade da replicação de VM pode ser monitorada no modo de exibição de VM, conforme mencionado em [Monitorar a integridade da replicação de máquina virtual](./site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machine).  
+Durante a replicação inicial ou a replicação delta, a integridade da replicação de VM pode ser monitorada no modo de exibição de VM, conforme mencionado em [Monitorar a integridade da replicação de máquina virtual](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machine).  
 
 ### <a name="resynchronization"></a>Ressincronização
 Uma máquina virtual é marcada para ressincronização quando há uma falha na replicação delta e a replicação inicial completa consome muita largura de banda de rede e muito tempo. Por exemplo, quando o tamanho do arquivo HRL chega a 50% do tamanho total do disco, a máquina virtual é marcada para ressincronização. A ressincronização minimiza a quantidade de dados enviados pela rede, com o cálculo de somas de verificação dos discos da máquina virtual de origem e de destino e com o envio apenas do diferencial.
@@ -76,22 +71,18 @@ A ressincronização usa um algoritmo de agrupamento de bloco fixo em que os arq
 ### <a name="retry-logic"></a>Lógica de repetição
 Há uma lógica de repetição interna para erros de replicação. Ela pode ser classificada em duas categorias:
 
-| Categoria                  | Cenários                                    |
-|---------------------------|----------------------------------------------|
-| Erro não recuperável     | Nenhuma nova tentativa é feita. O status de replicação da máquina virtual é **Crítico**e há necessidade de intervenção do administrador. Alguns exemplos incluem:  <ul><li>Cadeia VHD quebrada</li><li>Estado inválido para a máquina virtual de réplica</li><li>Erro de autenticação de rede</li><li>Erro de autorização</li><li>Máquina virtual que não é encontrada, no caso de um servidor autônomo Hyper-V</li></ul>|
-| Erro recuperável         | Novas tentativas ocorrem a cada intervalo da replicação usando de modo exponencial a retirada, o que aumenta o intervalo de repetição desde o início da primeira tentativa (1, 2, 4, 8 e 10 minutos). Se o erro persistir, repita a operação a cada 30 minutos. Alguns exemplos incluem:  <ul><li>Erro de rede</li><li>Pouco espaço em disco</li><li>Condição de memória insuficiente</li></ul>|
+| Categoria | Cenários |
+| --- | --- |
+| Erro não recuperável |Nenhuma nova tentativa é feita. O status de replicação da máquina virtual é **Crítico**e há necessidade de intervenção do administrador. Alguns exemplos incluem:  <ul><li>Cadeia VHD quebrada</li><li>Estado inválido para a máquina virtual de réplica</li><li>Erro de autenticação de rede</li><li>Erro de autorização</li><li>Máquina virtual que não é encontrada, no caso de um servidor autônomo Hyper-V</li></ul> |
+| Erro recuperável |Novas tentativas ocorrem a cada intervalo da replicação usando de modo exponencial a retirada, o que aumenta o intervalo de repetição desde o início da primeira tentativa (1, 2, 4, 8 e 10 minutos). Se o erro persistir, repita a operação a cada 30 minutos. Alguns exemplos incluem:  <ul><li>Erro de rede</li><li>Pouco espaço em disco</li><li>Condição de memória insuficiente</li></ul> |
 
 ## <a name="hyper-v-virtual-machine-protection-and-recovery-life-cycle"></a>Ciclo de vida de recuperação e de proteção da máquina virtual do Hyper-V
-
 ![Ciclo de vida de recuperação e de proteção da máquina virtual do Hyper-V](media/site-recovery-understanding-site-to-azure-protection/image05.png)
 
 ## <a name="other-references"></a>Outras referências
-
-- [Monitorar e solucionar problemas de proteção para VMware, VMM, Hyper-V e sites físicos](./site-recovery-monitoring-and-troubleshooting.md)
-- [Contatando o Suporte da Microsoft](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
-- [Erros comuns do Azure Site Recovery e suas resoluções](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
-
-
+* [Monitorar e solucionar problemas de proteção para VMware, VMM, Hyper-V e sites físicos](site-recovery-monitoring-and-troubleshooting.md)
+* [Contatando o Suporte da Microsoft](site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
+* [Erros comuns do Azure Site Recovery e suas resoluções](site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
 <!--HONumber=Oct16_HO2-->
 

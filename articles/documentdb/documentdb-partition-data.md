@@ -1,34 +1,33 @@
-<properties 
-	pageTitle="Particionamento e dimensionamento no Banco de Dados de Documentos do Azure | Microsoft Azure"      
-	description="Saiba mais sobre como o particionamento funciona no Banco de Dados de Documentos do Azure, como configurar o particionamento e chaves de partição e como escolher a chave de partição correta para seu aplicativo."         
-	services="documentdb" 
-	authors="arramac" 
-	manager="jhubbard" 
-	editor="monicar" 
-	documentationCenter=""/>
+---
+title: Particionamento e dimensionamento no Banco de Dados de Documentos do Azure | Microsoft Docs
+description: Saiba mais sobre como o particionamento funciona no Banco de Dados de Documentos do Azure, como configurar o particionamento e chaves de partição e como escolher a chave de partição correta para seu aplicativo.
+services: documentdb
+author: arramac
+manager: jhubbard
+editor: monicar
+documentationcenter: ''
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/20/2016" 
-	ms.author="arramac"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/20/2016
+ms.author: arramac
 
+---
 # Particionamento e dimensionamento no Banco de Dados de Documentos do Azure
 O [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) foi criado para ajudá-lo a obter um desempenho rápido e previsível e para escalar continuamente com seu aplicativo conforme ele cresce. Este artigo fornece uma visão geral de como o particionamento funciona no Banco de Dados de Documentos e descreve como você pode configurar as coleções do Banco de Dados de Documentos para escalar seus aplicativos com eficiência.
 
 Depois de ler este artigo, você poderá responder as seguintes perguntas:
 
-- Como funciona o particionamento no Banco de Dados de Documentos do Azure?
-- Como configurar o particionamento no Banco de Dados de Documentos
-- O que são chaves de partição e como escolher a chave de partição correta para meu aplicativo?
+* Como funciona o particionamento no Banco de Dados de Documentos do Azure?
+* Como configurar o particionamento no Banco de Dados de Documentos
+* O que são chaves de partição e como escolher a chave de partição correta para meu aplicativo?
 
 Para começar com o código, baixe o projeto do [Exemplo de driver de teste de desempenho do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/a2d61ddb53f8ab2a23d3ce323c77afcf5a608f52/samples/documentdb-benchmark).
 
 ## Particionamento no Banco de Dados de Documentos
-
 No Banco de Dados de Documentos, você pode armazenar e consultar documentos JSON sem esquema com tempos de resposta da ordem de milissegundo em qualquer escala. O Banco de Dados de Documentos fornece contêineres para o armazenamento de dados chamados **coleções**. Coleções são recursos lógicos e podem abranger um ou mais servidores ou partições físicas. O número de partições é determinado pelo Banco de Dados de Documentos com base no tamanho do armazenamento e a produtividade provisionada da coleção. Cada partição no Banco de Dados de Documentos tem uma quantidade fixa de armazenamento com suporte de SSD associado a ela e é replicada para alta disponibilidade. O gerenciamento de partição é totalmente gerenciado pelo Banco de Dados de Documentos do Azure e você não precisa escrever um código complexo ou gerenciar suas partições. As coleções do Banco de Dados de Documentos são **praticamente ilimitadas** em termos de armazenamento e produtividade.
 
 O particionamento é completamente transparente para seu aplicativo. O Banco de Dados de Documentos dá suporte a leituras e gravações rápidas, consultas SQL e LINQ, lógica transacional baseada em JavaScript, níveis de consistência e controle de acesso refinado por meio de chamadas à API REST para um recurso de coleção única. O serviço lida com a distribuição de dados em partições e com o roteamento de solicitações de consulta para a partição correta.
@@ -67,7 +66,10 @@ A tabela a seguir mostra exemplos de definições de chave de partição e os va
     </tbody>
 </table>
 
-> [AZURE.NOTE] A sintaxe de caminho de chave de partição é semelhante à especificação de caminho para caminhos de política de indexação, com a principal diferença de que o caminho corresponde à propriedade em vez do valor, ou seja, não há nenhum caractere curinga no final. Por exemplo, você especificaria /department/? para indexar os valores de departamento, mas especificaria /department como a definição de chave de partição. O caminho da chave de partição é indexado explicitamente e não pode ser excluído da indexação usando substituições de política de indexação.
+> [!NOTE]
+> A sintaxe de caminho de chave de partição é semelhante à especificação de caminho para caminhos de política de indexação, com a principal diferença de que o caminho corresponde à propriedade em vez do valor, ou seja, não há nenhum caractere curinga no final. Por exemplo, você especificaria /department/? para indexar os valores de departamento, mas especificaria /department como a definição de chave de partição. O caminho da chave de partição é indexado explicitamente e não pode ser excluído da indexação usando substituições de política de indexação.
+> 
+> 
 
 Vamos analisar como a opção da chave de partição afeta o desempenho do seu aplicativo.
 
@@ -76,13 +78,16 @@ O Banco de Dados de Documentos foi projetado para um desempenho previsível. Ao 
 
 Quando o Banco de Dados de Documentos armazena documentos, ele os distribui uniformemente entre partições com base no valor da chave de partição. A produtividade também é distribuída uniformemente entre as partições disponíveis, isto é, a produtividade por partição = (produtividade total por coleção) / (número de partições).
 
->[AZURE.NOTE] Para obter a produtividade total da coleção, você deve escolher uma chave de partição que permita distribuir uniformemente as solicitações entre vários valores de chave de partição distintos.
+> [!NOTE]
+> Para obter a produtividade total da coleção, você deve escolher uma chave de partição que permita distribuir uniformemente as solicitações entre vários valores de chave de partição distintos.
+> 
+> 
 
 ## Partição única e coleções particionadas
 O Banco de Dados de Documentos dá suporte à criação de coleções de partição única e particionadas.
 
-- **Coleções particionadas** podem abranger várias partições e dar suporte a quantidades muito grandes de armazenamento e produtividade. Você deve especificar uma chave de partição para a coleção.
-- **Coleções de partição única** têm opções de preço mais baixo e a capacidade de consultar e realizar transações em todos os dados de coleção. Elas têm os limites de escalabilidade e armazenamento de uma partição única. Você não precisa especificar uma chave de partição para essas coleções.
+* **Coleções particionadas** podem abranger várias partições e dar suporte a quantidades muito grandes de armazenamento e produtividade. Você deve especificar uma chave de partição para a coleção.
+* **Coleções de partição única** têm opções de preço mais baixo e a capacidade de consultar e realizar transações em todos os dados de coleção. Elas têm os limites de escalabilidade e armazenamento de uma partição única. Você não precisa especificar uma chave de partição para essas coleções.
 
 ![Coleções particionadas no Banco de Dados de Documentos][2]
 
@@ -138,11 +143,9 @@ A tabela a seguir lista as diferenças entre trabalhar com coleções de partiç
 </table>
 
 ## Trabalhando com os SDKs
-
 O Banco de Dados de Documentos do Azure adicionou suporte para particionamento automático com a [API REST versão 2015-12-16](https://msdn.microsoft.com/library/azure/dn781481.aspx). Para criar coleções particionadas, você deve baixar versões do SDK 1.6.0 ou mais recentes em uma das plataformas do SDK com suporte (.NET, Node.js, Java, Python).
 
 ### Criando coleções particionadas
-
 O exemplo a seguir mostra um trecho de código .NET para criar uma coleção para armazenar dados de telemetria do dispositivo de 20.000 unidades de solicitação por segundo de produtividade. O SDK define o valor de OfferThroughput (que por sua vez define o cabeçalho de solicitação `x-ms-offer-throughput` na API REST). Aqui, definimos `/deviceId` como a chave de partição. A opção de chave de partição é salva com o restante dos metadados de coleção, como o nome e a política de indexação.
 
 Para este exemplo, escolhemos `deviceId`, pois sabemos que (a) uma vez que há um grande número de dispositivos, as gravações podem ser distribuídas uniformemente nas partições e nos permite dimensionar o banco de dados para incluir grandes volumes de dados e (b) muitas solicitações como buscar a última leitura para um dispositivo limitam-se a um único deviceId e podem ser recuperadas de uma única partição.
@@ -161,14 +164,16 @@ Para este exemplo, escolhemos `deviceId`, pois sabemos que (a) uma vez que há u
         UriFactory.CreateDatabaseUri("db"),
         myCollection,
         new RequestOptions { OfferThroughput = 20000 });
-        
 
-> [AZURE.NOTE] Para criar coleções particionadas, você deve especificar um valor de produtividade de > 10.000 unidades de solicitação por segundo. Como a produtividade é em múltiplos de 100, esse valor deve ser 10.100 ou superior.
+
+> [!NOTE]
+> Para criar coleções particionadas, você deve especificar um valor de produtividade de > 10.000 unidades de solicitação por segundo. Como a produtividade é em múltiplos de 100, esse valor deve ser 10.100 ou superior.
+> 
+> 
 
 Esse método faz uma chamada à API REST ao Banco de Dados de Documentos e o serviço provisionará várias partições com base na produtividade solicitada. Você pode alterar a produtividade de uma coleção conforme suas necessidades de desempenho aumentarem. Consulte [Níveis de Desempenho](documentdb-performance-levels.md) para obter mais detalhes.
 
 ### Ler e gravar documentos
-
 Agora, vamos inserir dados no Banco de Dados de Documentos. Aqui está uma classe de exemplo que contém uma leitura de dispositivo e uma chamada para CreateDocumentAsync para inserir uma nova leitura de dispositivo em uma coleção.
 
     public class DeviceReading
@@ -232,12 +237,11 @@ Vamos ler o documento pela chave da partição e ID, atualizá-lo e, então, com
 
 
 ### Consultando coleções particionadas
-
 Quando você consulta dados em coleções particionadas, o Banco de Dados de Documentos roteia automaticamente a consulta para as partições que correspondem aos valores de chave de partição especificados no filtro (caso haja algum). Por exemplo, esta consulta é roteada para apenas a partição que contém a chave de partição "XMS-0001".
 
     // Query using partition key
     IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
-    	UriFactory.CreateDocumentCollectionUri("db", "coll"))
+        UriFactory.CreateDocumentCollectionUri("db", "coll"))
         .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 
 A consulta a seguir não tem um filtro na chave de partição (DeviceId) e é distribuída para todas as partições em que ela é executada no índice da partição. Observe que você precisa especificar o EnableCrossPartitionQuery (`x-ms-documentdb-query-enablecrosspartition` na API REST) para fazer com que o SDK execute uma consulta em partições.
@@ -249,7 +253,6 @@ A consulta a seguir não tem um filtro na chave de partição (DeviceId) e é di
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 
 ### Execução de consulta paralela
-
 Os SDKs do Banco de Dados de Documentos 1.9.0 e superiores são compatíveis com execução de consulta paralela, que permite realizar consultas de baixa latência em coleções particionadas, mesmo quando elas precisam tocar um grande número de partições. Por exemplo, a consulta a seguir é configurada para ser executada paralelamente entre partições.
 
     // Cross-partition Order By Queries
@@ -261,13 +264,12 @@ Os SDKs do Banco de Dados de Documentos 1.9.0 e superiores são compatíveis com
 
 Você pode gerenciar a execução de consulta paralela ajustando os seguintes parâmetros:
 
-- Ao definir `MaxDegreeOfParallelism`, é possível controlar o grau de paralelismo, isto é, o número máximo de conexões de rede simultâneas com as partições da coleção. Se você definir esse valor como -1, o grau de paralelismo será gerenciado pelo SDK. Se o `MaxDegreeOfParallelism` não for especificado nem definido para 0, que é o valor padrão, haverá uma única conexão de rede para as partições da coleção.
-- Ao definir `MaxBufferedItemCount`, é possível compensar a latência da consulta e a utilização da memória no lado do cliente. Se você omitir esse parâmetro ou defini-lo como -1, o número de itens armazenados em buffer durante a execução da consulta paralela será gerenciado pelo SDK.
+* Ao definir `MaxDegreeOfParallelism`, é possível controlar o grau de paralelismo, isto é, o número máximo de conexões de rede simultâneas com as partições da coleção. Se você definir esse valor como -1, o grau de paralelismo será gerenciado pelo SDK. Se o `MaxDegreeOfParallelism` não for especificado nem definido para 0, que é o valor padrão, haverá uma única conexão de rede para as partições da coleção.
+* Ao definir `MaxBufferedItemCount`, é possível compensar a latência da consulta e a utilização da memória no lado do cliente. Se você omitir esse parâmetro ou defini-lo como -1, o número de itens armazenados em buffer durante a execução da consulta paralela será gerenciado pelo SDK.
 
 Dado o mesmo estado da coleção, uma consulta paralela retornará resultados na mesma ordem da execução serial. Ao executar uma consulta entre partições que inclui classificação (ORDER BY e/ou TOP), o SDK do Banco de Dados de Documentos emite a consulta paralelamente entre partições e mescla os resultados parcialmente classificados no lado do cliente para produzir resultados ordenados globalmente.
 
 ### Executando procedimentos armazenados
-
 Você também poderá executar transações atômicas em documentos com a mesma ID de dispositivo, por exemplo, se você estiver mantendo agregações ou o estado mais recente de um dispositivo em um único documento.
 
     await client.ExecuteStoredProcedureAsync<DeviceReading>(
@@ -278,6 +280,7 @@ Você também poderá executar transações atômicas em documentos com a mesma 
 Na próxima seção, examinaremos como é possível passar de coleções de partição única para coleções particionadas.
 
 <a name="migrating-from-single-partition"></a>
+
 ### Migração de coleções de partição única para coleções particionadas
 Quando um aplicativo usando uma coleção de partição única precisar de maior produtividade (>10.000 RU/s) ou maior armazenamento de dados (>10 GB), você poderá usar a [Ferramenta de Migração de Dados do DocumentDB](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) para migrar os dados da coleção de partição única para uma coleção particionada.
 
@@ -288,7 +291,10 @@ Para migrar de uma coleção de partição única para uma coleção particionad
 
 ![Migrando Dados para uma Coleção particionada no Banco de Dados de Documentos][3]
 
->[AZURE.TIP] Para tempos de importação mais rápidos, considere aumentar o Número de Solicitações Paralelas para 100 ou mais para aproveitar a produtividade mais alta disponível para coleções particionadas.
+> [!TIP]
+> Para tempos de importação mais rápidos, considere aumentar o Número de Solicitações Paralelas para 100 ou mais para aproveitar a produtividade mais alta disponível para coleções particionadas.
+> 
+> 
 
 Agora que concluímos as noções básicas, vejamos algumas considerações de design importantes ao trabalhar com chaves de partição no Banco de Dados de Documentos.
 
@@ -298,7 +304,7 @@ A escolha da chave de partição é uma decisão importante que você precisará
 ### Chave de partição como o limite de transação
 Sua escolha de chave de partição deve equilibrar a necessidade de habilitar o uso de transações em relação à necessidade de distribuir suas entidades por várias chaves de partição para garantir uma solução escalonável. Por um lado, você pode definir a mesma chave de partição para todos os seus documentos, mas isso pode limitar a escalabilidade da solução. Por outro lado, você pode atribuir uma chave de partição exclusiva para cada documento, o que seria altamente escalonável, mas impediria o uso de transações entre documentos por meio de procedimentos e gatilhos armazenados. Uma chave de partição ideal é aquela que permite o uso de consultas eficientes, e que tenha cardinalidade suficiente para garantir que sua solução seja escalonável.
 
-### Evitando gargalos de armazenamento e desempenho 
+### Evitando gargalos de armazenamento e desempenho
 Também é importante escolher uma propriedade que permita que as gravações sejam distribuídas entre vários de valores distintos. Solicitações para a mesma chave de partição não podem exceder a produtividade de uma única partição e serão limitadas. Portanto, é importante escolher uma chave de partição que não resulte em **"pontos de acesso"** dentro de seu aplicativo. O tamanho total de armazenamento de documentos com a mesma chave de partição também não pode exceder 10 GB de armazenamento.
 
 ### Exemplos de boas chaves de partição
@@ -314,9 +320,9 @@ Observe que em alguns casos de uso (como os perfis de usuário e IoT descritos a
 ### Dados de particionamento e registro em log/da série temporal
 Um dos casos de uso mais comuns do Banco de Dados de Documentos é para registro em log e telemetria. É importante escolher uma boa chave de partição, já que você pode precisar ler/gravar enormes volumes de dados. A escolha dependerá das suas taxas de leitura e gravação e dos tipos de consultas que você pretende executar. Aqui estão algumas dicas sobre como escolher uma boa chave de partição.
 
-- Se o seu caso de uso envolve uma pequena taxa de gravações se acumulando por um longo período de tempo e necessidade de consulta por intervalos de carimbos de data/hora e outros filtros, usar um rollup do carimbo de data/hora, por exemplo, data como uma chave de partição, é uma boa abordagem. Isso permite que você consulte todos os dados para uma data de uma única partição.
-- Se sua carga de trabalho for pesada quanto à gravação, o que é geralmente mais comum, você deverá usar uma chave de partição que não esteja baseada em carimbo de data/hora para que o Banco de Dados de Documentos possa distribuir gravações uniformemente por várias partições. Aqui, um nome do host, ID do processo, ID da atividade ou outra propriedade com alta cardinalidade é uma boa opção.
-- Uma terceira abordagem é híbrida, em que você tem várias coleções, um para cada dia/mês e a chave de partição é uma propriedade granular, como nome do host. Isso tem o benefício de permitir que você defina diferentes níveis de desempenho com base na janela de tempo, por exemplo, a coleção para o mês atual é provisionada com uma produtividade maior porque ela só atua para operações de leitura e gravação, enquanto aquelas para os meses anteriores são provisionadas com produtividade menor por atuarem apenas para operações de leitura.
+* Se o seu caso de uso envolve uma pequena taxa de gravações se acumulando por um longo período de tempo e necessidade de consulta por intervalos de carimbos de data/hora e outros filtros, usar um rollup do carimbo de data/hora, por exemplo, data como uma chave de partição, é uma boa abordagem. Isso permite que você consulte todos os dados para uma data de uma única partição.
+* Se sua carga de trabalho for pesada quanto à gravação, o que é geralmente mais comum, você deverá usar uma chave de partição que não esteja baseada em carimbo de data/hora para que o Banco de Dados de Documentos possa distribuir gravações uniformemente por várias partições. Aqui, um nome do host, ID do processo, ID da atividade ou outra propriedade com alta cardinalidade é uma boa opção.
+* Uma terceira abordagem é híbrida, em que você tem várias coleções, um para cada dia/mês e a chave de partição é uma propriedade granular, como nome do host. Isso tem o benefício de permitir que você defina diferentes níveis de desempenho com base na janela de tempo, por exemplo, a coleção para o mês atual é provisionada com uma produtividade maior porque ela só atua para operações de leitura e gravação, enquanto aquelas para os meses anteriores são provisionadas com produtividade menor por atuarem apenas para operações de leitura.
 
 ### Particionamento e multilocação
 Se você estiver implementando um aplicativo multilocatário usando o Banco de Dados de Documentos, haverá dois padrões principais para a implementação de locação com o Banco de Dados de Documentos: uma chave de partição por locatário e uma coleção por locatário. Aqui estão os prós e contras de cada um:
@@ -329,15 +335,15 @@ Você também pode usar uma abordagem de combinação/em camadas que coloca os l
 ## Próximas etapas
 Neste artigo, descrevemos como o particionamento funciona no Banco de Dados de Documentos do Azure, como você pode criar coleções particionadas e como pode escolher uma chave de partição boa para seu aplicativo.
 
--   Execute testes de desempenho e escalabilidade com o Banco de Dados de Documentos. Consulte [Teste de Desempenho e Escada com o DocumentDB do Azure](documentdb-performance-testing.md) para obter um exemplo.
--   Introdução à codificação com os [SDKs](documentdb-sdk-dotnet.md) ou a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
--   Saiba mais sobre a [produtividade provisionada no DocumentDB](documentdb-performance-levels.md)
--   Se você desejar personalizar como o aplicativo executa o particionamento, poderá conectar sua própria implementação de particionamento do lado do cliente. Consulte [Suporte ao particionamento no lado do cliente](documentdb-sharding.md).
+* Execute testes de desempenho e escalabilidade com o Banco de Dados de Documentos. Consulte [Teste de Desempenho e Escada com o DocumentDB do Azure](documentdb-performance-testing.md) para obter um exemplo.
+* Introdução à codificação com os [SDKs](documentdb-sdk-dotnet.md) ou a [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx)
+* Saiba mais sobre a [produtividade provisionada no DocumentDB](documentdb-performance-levels.md)
+* Se você desejar personalizar como o aplicativo executa o particionamento, poderá conectar sua própria implementação de particionamento do lado do cliente. Consulte [Suporte ao particionamento no lado do cliente](documentdb-sharding.md).
 
 [1]: ./media/documentdb-partition-data/partitioning.png
 [2]: ./media/documentdb-partition-data/single-and-partitioned.png
 [3]: ./media/documentdb-partition-data/documentdb-migration-partitioned-collection.png
 
- 
+
 
 <!---HONumber=AcomDC_0921_2016-->

@@ -7,18 +7,16 @@ Para obter informações adicionais sobre a instalação do Azure PowerShell, co
 **Para instalar os módulos da Galeria do PowerShell**
 
 1. Para instalar o módulo do gerenciador de recursos diretamente da Galeria, abra o Windows PowerShell como administrador e digite o seguinte:
-
-		Install-Module AzureRM
-		Install-AzureRM
-
+   
+        Install-Module AzureRM
+        Install-AzureRM
 2. Depois de instalar os módulos, você precisará importá-los para usá-los:
-
-		Import-AzureRM
+   
+        Import-AzureRM
 
 **Para instalar os módulos usando o Web Platform Installer**
 
-- Você pode instalar os módulos usando o [Web Platform Installer](http://aka.ms/webpi-azps). Quando você clicar no link, isso iniciará o instalador.
-
-- Se você obtiver erros ao usar o Web Platform Installer, talvez já tenha instalado uma versão anterior dos cmdlets usando a Galeria. Confira esta [Postagem de blog](https://azure.microsoft.com/blog/azps-1-0/) que pode ajudá-lo a remover versões anteriores dos módulos e a voltar a trabalhar. Normalmente, os erros acontecerão quando você tiver usado o Web Platform Installer e está mudando para a Galeria, ou o caminho inverso. A remoção dos módulos instalados anteriormente acaba com esse problema e você poderá, então, instalar do novo local.
+* Você pode instalar os módulos usando o [Web Platform Installer](http://aka.ms/webpi-azps). Quando você clicar no link, isso iniciará o instalador.
+* Se você obtiver erros ao usar o Web Platform Installer, talvez já tenha instalado uma versão anterior dos cmdlets usando a Galeria. Confira esta [Postagem de blog](https://azure.microsoft.com/blog/azps-1-0/) que pode ajudá-lo a remover versões anteriores dos módulos e a voltar a trabalhar. Normalmente, os erros acontecerão quando você tiver usado o Web Platform Installer e está mudando para a Galeria, ou o caminho inverso. A remoção dos módulos instalados anteriormente acaba com esse problema e você poderá, então, instalar do novo local.
 
 <!----HONumber=AcomDC_0218_2016-->

@@ -1,30 +1,30 @@
-<properties
-   pageTitle="Sincronização do Azure AD Connect: considerações e tarefas operacionais | Microsoft Azure"
-   description="Este tópico descreve as tarefas operacionais para a sincronização do Azure Connect AD e como preparar para operar esse componente."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Sincronização do Azure AD Connect: considerações e tarefas operacionais | Microsoft Docs'
+description: Este tópico descreve as tarefas operacionais para a sincronização do Azure Connect AD e como preparar para operar esse componente.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/01/2016"
-   ms.author="andkjell"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/01/2016
+ms.author: andkjell
 
+---
 # Sincronização do Azure AD Connect: considerações e tarefas operacionais
 O objetivo deste tópico é descrever as tarefas operacionais da sincronização do Azure AD Connect.
 
 ## Modo de preparo
 O modo de teste pode ser usado para vários cenários, incluindo:
 
--	Alta disponibilidade.
--	Teste e implantação de novas alterações de configuração.
--	Introdução de um novo servidor e encerramento do antigo.
+* Alta disponibilidade.
+* Teste e implantação de novas alterações de configuração.
+* Introdução de um novo servidor e encerramento do antigo.
 
 Com um servidor no modo de preparo, você pode fazer alterações na configuração e visualizar as alterações antes de tornar o servidor ativo. Ele também permite executar sincronização e importação totais para verificar se todas as alterações são esperadas antes de você fazê-las em seu ambiente de produção.
 
@@ -45,12 +45,10 @@ Para aplicar esse método, siga estas etapas:
 4. [Servidor ativo do comutador](#switch-active-server)
 
 #### Preparar
-
 1. Instale o Azure AD Connect, selecione **modo de preparo** e desmarque **Iniciar sincronização** na última página do assistente de instalação. Esse modo permite que você execute o mecanismo de sincronização manualmente. ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
 2. Saia e entre e, no menu Iniciar, selecione **Serviço de Sincronização**.
 
 #### Importar e sincronizar
-
 1. Selecione **Conectores** e selecione o primeiro conector com o tipo **Serviços de Domínio do Active Directory**. Clique em **Executar**, selecione **Importação completa** e **OK**. Siga estas etapas para todos os Conectores desse tipo.
 2. Selecione o Conector com o tipo **Active Directory do Azure (Microsoft)**. Clique em **Executar**, selecione **Importação completa** e **OK**.
 3. Verifique se a guia Conectores ainda está selecionada. Para cada Conector com tipo **Serviços de Domínio do Active Directory**, clique em **Executar**, selecione **Sincronização Delta** e **OK**.
@@ -59,7 +57,6 @@ Para aplicar esse método, siga estas etapas:
 Você agora preparou a exportação das alterações para o Azure AD e AD local (se estiver usando implantação híbrida do Exchange). As próximas etapas permitem que você inspecione o que está prestes a ser alterado antes de realmente começar a exportação para os diretórios.
 
 #### Verificar
-
 1. Inicie um prompt de comando e vá para `%ProgramFiles%\Microsoft Azure AD Sync\bin`
 2. Execute: `csexport "Name of Connector" %temp%\export.xml /f:x` o nome do Conector pode ser encontrado no Serviço de Sincronização. Ele tem um nome semelhante a "contoso.com – AAD" para o Azure AD.
 3. Execute: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
@@ -70,28 +67,27 @@ Você agora preparou a exportação das alterações para o Azure AD e AD local 
 
 A maior parte do arquivo é autoexplicativa. Algumas siglas para entender o conteúdo:
 
-- OMODT – Object Modification Type. Indica se a operação em nível de objeto é um Add, Update ou Delete.
-- AMODT – Attribute Modification Type. Indica se a operação em um nível de atributo é um Add, Update ou Delete.
+* OMODT – Object Modification Type. Indica se a operação em nível de objeto é um Add, Update ou Delete.
+* AMODT – Attribute Modification Type. Indica se a operação em um nível de atributo é um Add, Update ou Delete.
 
 Se o valor do atributo tiver valores múltiplos, nem todas as alterações serão exibidas. Somente o número de valores adicionados e removidos é visível.
 
 #### Servidor ativo do comutador
-
 1. No servidor atualmente ativo, desligue o servidor (FIM/DirSync/Azure AD Sync) para que ele não exporte para o Azure AD ou defina-o no modo de preparação (Azure AD Connect).
 2. Execute o assistente de instalação no servidor no **modo de preparo** e desabilite o **modo de preparo**. ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/additionaltasks.png)
 
 ## Recuperação de desastre
 Parte do design de implementação é planejar o que fazer em caso de desastre, quando você pode perder o servidor de sincronização. Há modelos diferentes para uso e qual deles usar depende de vários fatores, incluindo:
 
--	Quão tolerável é para você não poder fazer alterações em objetos no Azure AD durante o tempo de inatividade?
--	Se você usar a sincronização de senha, os usuários aceitarão que devem usar a senha antiga no Azure AD se a alterarem no local?
--	Você tem uma dependência em operações em tempo real, como write-back de senha?
+* Quão tolerável é para você não poder fazer alterações em objetos no Azure AD durante o tempo de inatividade?
+* Se você usar a sincronização de senha, os usuários aceitarão que devem usar a senha antiga no Azure AD se a alterarem no local?
+* Você tem uma dependência em operações em tempo real, como write-back de senha?
 
 Dependendo das respostas a essas perguntas e da política da sua organização, uma das estratégias abaixo pode ser implementada:
 
--	Recriar quando necessário.
--	Ter um servidor em espera reserva, conhecido como **modo de preparo**.
--	Usar máquinas virtuais.
+* Recriar quando necessário.
+* Ter um servidor em espera reserva, conhecido como **modo de preparo**.
+* Usar máquinas virtuais.
 
 Se não usar o banco de dados interno do SQL Express, você também deverá examinar a seção [Alta disponibilidade do SQL](#sql-high-availability).
 
@@ -112,10 +108,9 @@ Um método comum e com suporte é a execução do mecanismo de sincronização e
 Se você não estiver usando o SQL Server Express que vem com o Azure AD Connect, a alta disponibilidade do SQL Server também deverá ser considerada. A única solução de alta disponibilidade com suporte é o SQL clustering. Soluções sem suporte incluem espelhamento e Sempre ativo.
 
 ## Próximas etapas
-
 **Tópicos de visão geral**
 
-- [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
-- [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
 <!---HONumber=AcomDC_0907_2016-->

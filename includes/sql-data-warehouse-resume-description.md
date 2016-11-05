@@ -12,9 +12,9 @@ articles/sql-data-warehouse/sql-data-warehouse-manage-scale-out-tasks-rest-api.m
 -->
 Quando você retoma um banco de dados:
 
-- O SQL Data Warehouse adquire recursos de computação e de memória para sua configuração de DWU.
-- A computação cobra pela retomada de DWUs.
-- Os dados estarão disponíveis.
-- Você precisará reiniciar suas consultas de carga de trabalho.
+* O SQL Data Warehouse adquire recursos de computação e de memória para sua configuração de DWU.
+* A computação cobra pela retomada de DWUs.
+* Os dados estarão disponíveis.
+* Você precisará reiniciar suas consultas de carga de trabalho.
 
 <!---HONumber=AcomDC_0427_2016-->

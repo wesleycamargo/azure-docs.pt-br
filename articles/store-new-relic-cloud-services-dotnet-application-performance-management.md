@@ -1,28 +1,25 @@
-<properties 
-	pageTitle="Usando o New Relic com o Azure | Microsoft Azure" 
-	description="Saiba como usar o serviço New Relic para gerenciar e monitorar seu aplicativo do Azure." 
-	services="" 
-	documentationCenter=".net" 
-	authors="nickfloyd" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Usando o New Relic com o Azure | Microsoft Docs
+description: Saiba como usar o serviço New Relic para gerenciar e monitorar seu aplicativo do Azure.
+services: ''
+documentationcenter: .net
+author: nickfloyd
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/23/2016" 
-	ms.author="nickfloyd@newrelic.com"/>
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 08/23/2016
+ms.author: nickfloyd@newrelic.com
 
-
+---
 # Gerenciamento de desempenho do aplicativo New Relic no Azure
-
 Você pode adicionar o monitoramento de desempenho de classe mundial do New Relic aos seus aplicativos hospedados no Microsoft Azure. Juntamente com recursos abrangentes de monitoramento, solução de problemas e ajuste dos aplicativos do Azure, você também está qualificado para um preço com desconto para produtos do New Relic usando o Azure.
 
 ## O que há de novo Relíquia?
-
 Com os [produtos do New Relic](https://newrelic.com/products), é possível resolver erros do aplicativo, antecipar possíveis problemas e entender o desempenho de todo o seu ambiente. Ele foi projetado para economizar tempo ao identificar e diagnosticar problemas de desempenho, e ele coloca as informações necessárias para solucionar esses problemas em suas mãos.
 
 O New Relic controla o tempo de carregamento e taxa de transferência da sua transação da web, tanto do servidor quanto dos navegadores dos seus usuários. Ele mostra quanto tempo você gasta no banco de dados, analisa consultas lentas e solicitações da web, fornece monitoramento de tempo de atividade e alertas, faixas exceções de aplicativos e muito mais.
@@ -35,16 +32,14 @@ Os clientes do Azure recebem uma assinatura de avaliação de duas semanas do Ne
 ## Inscreva-se no novo Relíquia usando o armazenamento do Azure
 Relíquia nova integra-se perfeitamente com funções de funções do Azure da Web e de trabalho. Você pode se inscrever rapidamente e com facilidade no New Relic diretamente da Azure Store. Para obter instruções, consulte as [instruções de inscrição de armazenamento do Azure](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-cloud-services#signup) do New Relic.
 
-##Ver seus dados
-
+## Ver seus dados
 Depois de se inscrever, você pode tirar proveito do incrível monitoramento de aplicativo e análise orientado a dados do New Relic. Para verificar o desempenho do aplicativo no New Relic:
 
 1. No Portal do Azure, selecione Gerenciar.
 2. Entrar com seu e-mail do Relíquia nova conta e senha.
 3. Selecione seu aplicativo do índice do Aplicativo para exibir todos os dados de seu aplicativo na [página de visão geral do APM](https://docs.newrelic.com/docs/apm/applications-menu/monitoring/apm-overview-page).
 
-##Como usar o New Relic com o Azure
-
+## Como usar o New Relic com o Azure
 Para saber mais sobre como usar o New Relic e o Azure, consulte [site de documentação do New Relic](https://docs.newrelic.com/docs/agents/net-agent/azure-installation), incluindo:
 
 * [New Relic para .NET](https://docs.newrelic.com/docs/agents/net-agent/getting-started/new-relic-net)

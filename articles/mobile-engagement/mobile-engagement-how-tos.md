@@ -1,108 +1,105 @@
-<properties 
-   pageTitle="Interface do usuário do Mobile Engagement do Azure - Passo a passo do Reach"
-   description="Visão geral da Interface de usuário para o Mobile Engagement do Azure" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Interface do usuário do Mobile Engagement do Azure - Passo a passo do Reach
+description: Visão geral da Interface de usuário para o Mobile Engagement do Azure
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Como começar a usar e gerenciar pushes para chegar aos seus usuários finais
-
 Depois que o SDK é totalmente integrado ao seu aplicativo, você pode começar a usar a seção Reach da interface do usuário para enviar notificações por Push aos usuários do seu aplicativo.
 
 ## Faça sua primeira campanha de notificação por push
--    Confirme que o seu Reach está integrado ao seu aplicativo com o SDK.
--    Selecione seu aplicativo
- 
+* Confirme que o seu Reach está integrado ao seu aplicativo com o SDK.
+* Selecione seu aplicativo
+
 ![First1][1]
 
--    Vá para a seção "Reach" e clique em "Novo comunicado"
- 
+* Vá para a seção "Reach" e clique em "Novo comunicado"
+
 ![First2][2]
 
--    Criar uma nova campanha e nomeie-a
- 
- ![First3][3]
+* Criar uma nova campanha e nomeie-a
+  
+  ![First3][3]
+* Selecione como a notificação deve ser entregue, como no aplicativo somente
 
--    Selecione como a notificação deve ser entregue, como no aplicativo somente
- 
 ![First4][4]
 
--    Criar a mensagem que deseja enviar por push
- 
+* Criar a mensagem que deseja enviar por push
+
 ![First5][5]
 
--    Você pode escrever um título nas notificações (opcional).
--    Gravar o conteúdo da mensagem por push.
--    Você pode carregar uma imagem. Lembre-se de que o tamanho do arquivo não pode exceder 32.768 bytes.
--    Você também tem a capacidade de selecionar mais opções, mas para manter o foco deste tutorial, veremos isso mais tarde.
+* Você pode escrever um título nas notificações (opcional).
+* Gravar o conteúdo da mensagem por push.
+* Você pode carregar uma imagem. Lembre-se de que o tamanho do arquivo não pode exceder 32.768 bytes.
+* Você também tem a capacidade de selecionar mais opções, mas para manter o foco deste tutorial, veremos isso mais tarde.
+* Selecione o tipo de conteúdo como Notificação apenas
 
--    Selecione o tipo de conteúdo como Notificação apenas
- 
 ![First6][6]
 
--    Crie sua campanha de envio e ele aparecerá na lista de campanha.
- 
+* Crie sua campanha de envio e ele aparecerá na lista de campanha.
+
 ![First7][7]
 
 ## Testar sua campanha de notificação por push
 ![Test1][8]
 
--    Registre seu dispositivo.
--    Clique na caixa de seleção do dispositivo que deseja enviar por push.
--    Clique no botão "Testar" para enviar o envio por push para o dispositivo.
- 
+* Registre seu dispositivo.
+* Clique na caixa de seleção do dispositivo que deseja enviar por push.
+* Clique no botão "Testar" para enviar o envio por push para o dispositivo.
+
 ![Test2][9]
 
--    Ativar a campanha
- 
+* Ativar a campanha
+
 ![Test3][10]
 
--    Agora que você criou sua campanha basta ativá-la para a notificação ser enviada para os usuários.
- 
+* Agora que você criou sua campanha basta ativá-la para a notificação ser enviada para os usuários.
+
 ## Enviar pressionamentos personalizados
--    Este exemplo cria um esforço em que um código de desconto personalizado é inserido em uma notificação por push.
- 
+* Este exemplo cria um esforço em que um código de desconto personalizado é inserido em uma notificação por push.
+
 ![Personalize1][11]
 
 A personalização funciona substituindo um marcador por uma marca de informações do aplicativo, então, você precisará certificar-se de que o usuário tem as informações do aplicativo apropriado e definido primeiro. Neste exemplo, os usuários de destino terão uma marca definida de informações de aplicativo chamada rebate\_code. Como você pode ver acima, o conteúdo da notificação por push inclui o ${rebate\_code} de marcador que indicará que ela deve ser substituída pelo conteúdo real da marca de informações do aplicativo.
 
 > Aviso: se a marca de informações de aplicativo não estiver definida para o usuário, o usuário não receberá o envio por push.
+> 
+> 
 
--    Result
- 
+* Result
+
 ![Personalize2][12]
 
 ### Você pode personalizar ainda mais o texto da notificação
 ![Personalize3][13]
 
--    Incluindo o título da notificação,
--    E o conteúdo da mensagem.
--    Escolha o tipo de comunicado (exibição de texto ou da Web)
- 
+* Incluindo o título da notificação,
+* E o conteúdo da mensagem.
+* Escolha o tipo de comunicado (exibição de texto ou da Web)
+
 ![Personalize4][14]
 
 ### O corpo de um comunicado também pode ser personalizado com:
--    A URL da ação, caso você deseje personalizar a página de aterrissagem
--    O título
--    O corpo da mensagem.
- 
- 
+* A URL da ação, caso você deseje personalizar a página de aterrissagem
+* O título
+* O corpo da mensagem.
+
 ## Diferenciar a sua notificação por push (estando ou não no aplicativo)
--    Escolha o tipo de notificação você enviará por push, selecione seu aplicativo, vá para a seção "Reach", selecione ou crie uma campanha de envio por push e vá para a seção "Notificação".
- 
--    Clique no "modo de entrega" desejado.
--    Clique na caixa de seleção "Restringir atividades" quando desejar que a notificação ocorra em atividades específicas (telas).
+* Escolha o tipo de notificação você enviará por push, selecione seu aplicativo, vá para a seção "Reach", selecione ou crie uma campanha de envio por push e vá para a seção "Notificação".
+* Clique no "modo de entrega" desejado.
+* Clique na caixa de seleção "Restringir atividades" quando desejar que a notificação ocorra em atividades específicas (telas).
 
 ![Differentiate1][15]
 
@@ -112,7 +109,7 @@ A personalização funciona substituindo um marcador por uma marca de informaç�
 O modo de entrega "Somente fora do aplicativo" fornece notificação por push quando o aplicativo é fechado. Esta é a notificação por push padrão. Ao selecionar "Somente fora do aplicativo", você deve ter fornecido os certificados da plataforma que o seu aplicativo está compilando (APNS ou GCM).
 
 ### Confira também
--  [Serviço de Notificação por Push da Apple – Certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificado] \(http://developer.android.com/google/gcm/index.html)
+* [Serviço de Notificação por Push da Apple – Certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificado] \(http://developer.android.com/google/gcm/index.html)
 
 ### Modo de entrega "Apenas no aplicativo"
 ![Differentiate3][17]
@@ -121,28 +118,32 @@ O modo de entrega "Apenas no aplicativo" fornece notificação por push quando o
 
 ### Modo de entrega a "Qualquer hora"
 Você pode escolher um modo de entrega a "Qualquer hora", e isso garante alcançar o seu usuário final se o aplicativo estiver em execução ou não. Ao selecionar a "Qualquer hora", você já deve ter fornecido os certificados da plataforma em que o seu aplicativo está complementando (APNS ou GCM).
- 
+
 ## Agendar uma campanha de envio por push
 ### Plano para iniciar uma campanha
 ![Shedule1][18]
 
 É 21 de março e você tem um comunicado para fazer e ele está planejado para o dia 22 de março à meia-noite. Você não precisa estar na frente da interface para realizar um envio por push! Você pode planejar com antecedência o exato minuto em que as notificações serão enviadas.
--    Desmarque a caixa de seleção "Nenhum" e selecione uma hora de início
--    Escolha a data e a hora em que você deseja iniciar a campanha de envio por push.
+
+* Desmarque a caixa de seleção "Nenhum" e selecione uma hora de início
+* Escolha a data e a hora em que você deseja iniciar a campanha de envio por push.
 
 ### Plano para terminar uma campanha
 ![Shedule2][19]
 
 Você deseja que a sua campanha seja encerrada no dia 25 de março às 15h, mas sabe que não estará disponível para fazê-lo. Você não precisa estar na frente da interface para realizar um envio por push! Você pode planejar com antecedência o exato minuto que sua campanha será interrompida.
--    Clique na caixa de seleção "Nenhum" ou selecione uma hora de término
--    Escolha a data e a hora em que você deseja terminar a campanha de envio por push.
+
+* Clique na caixa de seleção "Nenhum" ou selecione uma hora de término
+* Escolha a data e a hora em que você deseja terminar a campanha de envio por push.
 
 ### Terminar uma campanha manualmente
 ![Shedule3][20]
 
 Por padrão, as caixas de seleção "Nenhum" estão marcadas. Isso significa que a campanha começará assim que você ativá-la na seção de Reach e terminará quando você a terminar na seção de Reach.
- 
+
 > Observação: as campanhas criadas sem uma data de término armazenam o envio por push localmente no dispositivo e mostram-no na próxima vez em que o aplicativo é aberto, mesmo que a campanha seja encerrada manualmente.
+> 
+> 
 
 ## Aprimorar uma notificação por Push com uma Exibição de texto
 ### O que é uma Exibição de texto?
@@ -151,40 +152,41 @@ Por padrão, as caixas de seleção "Nenhum" estão marcadas. Isso significa que
 Uma exibição de texto é um pop-up com conteúdo de texto. Essa janela pop-up aparece depois que o usuário final tiver clicado em uma notificação por push. Uma exibição de texto permite apresentar mais conteúdo ao usuário final. Essa também é a oportunidade de apresentar um plano de ação, como saltar para uma página do seu aplicativo, redirecionando para um Repositório, abrindo uma página da Web, enviando um email, iniciando uma pesquisa localizada geograficamente, etc...
 
 ### Exemplo: Exibição de texto
--    Crie a sua campanha de notificação por Push na seção "Reach" e atribua um nome à sua campanha
- 
+* Crie a sua campanha de notificação por Push na seção "Reach" e atribua um nome à sua campanha
+
 ![TextView2][22]
 
--    Escreva a mensagem que será exibida na notificação.
--    Selecione o tipo de conteúdo do comunicado de "texto"
- 
+* Escreva a mensagem que será exibida na notificação.
+* Selecione o tipo de conteúdo do comunicado de "texto"
+
 ![TextView3][23]
 
 > Observação: quando você envia por push uma exibição de texto, ela sempre vem com uma notificação pela primeira vez.
+> 
+> 
 
-- Definir o texto (depois de ter selecionado o conteúdo do comunicado de texto, a subseção será exibida, permitindo que você defina o texto a ser exibido.)
- 
+* Definir o texto (depois de ter selecionado o conteúdo do comunicado de texto, a subseção será exibida, permitindo que você defina o texto a ser exibido.)
+
 ![TextView4][24]
 
--    Escreva o título que aparece na parte superior da mensagem.
--    Escreva o conteúdo principal da exibição de texto.
--    Escreva o conteúdo que será exibido no botão de ação (um botão de ação habilita o aplicativo a fazer uma ação específica, como abrir uma página do aplicativo, redirecionar para um repositório de aplicativos ou qualquer tipo de fonte que você possa fornecer).
--    Escreva o conteúdo que será exibido no botão Sair (clicando no botão Sair, o modo de texto desaparecerá).
- 
--    Crie sua campanha de notificação por push e ela aparecerá na lista de campanha.
- 
+* Escreva o título que aparece na parte superior da mensagem.
+* Escreva o conteúdo principal da exibição de texto.
+* Escreva o conteúdo que será exibido no botão de ação (um botão de ação habilita o aplicativo a fazer uma ação específica, como abrir uma página do aplicativo, redirecionar para um repositório de aplicativos ou qualquer tipo de fonte que você possa fornecer).
+* Escreva o conteúdo que será exibido no botão Sair (clicando no botão Sair, o modo de texto desaparecerá).
+* Crie sua campanha de notificação por push e ela aparecerá na lista de campanha.
+
 ![TextView5][25]
 
--    Ative sua campanha de notificação por push para enviar a exibição de texto para seus usuários.
- 
+* Ative sua campanha de notificação por push para enviar a exibição de texto para seus usuários.
+
 ![TextView6][26]
 
--    Resultado
- 
+* Resultado
+
 ![TextView7][27]
 
--    O usuário recebe a notificação e clica nela.
--    A exibição de texto aparece como um pop-up permitindo que o usuário interaja com ele.
+* O usuário recebe a notificação e clica nela.
+* A exibição de texto aparece como um pop-up permitindo que o usuário interaja com ele.
 
 ## Aprimorar uma notificação por push com uma exibição da web
 ### O que é uma exibição da Web?
@@ -193,39 +195,39 @@ Uma exibição de texto é um pop-up com conteúdo de texto. Essa janela pop-up 
 Uma exibição da web é um pop-up com conteúdo da web. Essa janela pop-up aparece quando o usuário final tiver clicado em uma notificação por push. Uma exibição da web permite que você tenha mais interação com o usuário final. Essa também é a oportunidade de apresentar um plano de ação, como redirecionamento para a Loja de Aplicativos, abrir uma página da Web, enviar um email, iniciar uma pesquisa localizada geograficamente, etc...
 
 ### Exemplo: Exibição da Web
--    Crie a sua campanha de envio por push na seção “Reach" e atribua um nome à sua campanha.
- 
+* Crie a sua campanha de envio por push na seção “Reach" e atribua um nome à sua campanha.
+
 ![WebView2][29]
 
--    Escreva a mensagem que será exibida na notificação.
--    Selecione o tipo de conteúdo do comunicado como "web"
- 
+* Escreva a mensagem que será exibida na notificação.
+* Selecione o tipo de conteúdo do comunicado como "web"
+
 ![WebView3][30]
 
 ### Sobre os tipos de comunicado:
-- Somente notificação: é uma notificação simples padrão. Isso significa que se um usuário clicar nela, nenhum modo de exibição adicional será exibido, mas apenas a ação associada a ela ocorrerá.
-- Anúncio de texto: é uma notificação que leva o usuário a dar uma olhada em uma exibição de texto.
-- Anúncio pela: é uma notificação que leva o usuário a dar uma olhada em uma exibição da Web. Selecione o conteúdo de "Comunicado da Web".
+* Somente notificação: é uma notificação simples padrão. Isso significa que se um usuário clicar nela, nenhum modo de exibição adicional será exibido, mas apenas a ação associada a ela ocorrerá.
+* Anúncio de texto: é uma notificação que leva o usuário a dar uma olhada em uma exibição de texto.
+* Anúncio pela: é uma notificação que leva o usuário a dar uma olhada em uma exibição da Web. Selecione o conteúdo de "Comunicado da Web".
 
 > Observação: quando você envia por push uma exibição da web, ela sempre vem com uma notificação pela primeira vez.
+> 
+> 
 
-- Defina o conteúdo da web (depois de ter selecionado o conteúdo de comunicado da web, será exibida a subseção, permitindo que você defina o conteúdo da exibição da web a ser exibido.)
+* Defina o conteúdo da web (depois de ter selecionado o conteúdo de comunicado da web, será exibida a subseção, permitindo que você defina o conteúdo da exibição da web a ser exibido.)
 
- 
 ![WebView4][31]
 
--    Escreva o título que aparecerá na parte superior da mensagem (opcional).
--    Escreva o código HTML aqui.
--    Clique no botão de modo da fonte de edição para alternar a edição e ver como ele parece.
--    Escreva o conteúdo que será exibido no botão de ação (um botão de ação habilita o aplicativo a fazer uma ação específica, como abrir uma página do aplicativo, redirecionar para um Repositório ou qualquer tipo de fonte que você possa fornecer).
--    Escreva o conteúdo que será exibido no botão Sair (clicando no botão Sair, a exibição da web desaparecerá).
- 
--    Result
- 
+* Escreva o título que aparecerá na parte superior da mensagem (opcional).
+* Escreva o código HTML aqui.
+* Clique no botão de modo da fonte de edição para alternar a edição e ver como ele parece.
+* Escreva o conteúdo que será exibido no botão de ação (um botão de ação habilita o aplicativo a fazer uma ação específica, como abrir uma página do aplicativo, redirecionar para um Repositório ou qualquer tipo de fonte que você possa fornecer).
+* Escreva o conteúdo que será exibido no botão Sair (clicando no botão Sair, a exibição da web desaparecerá).
+* Result
+
 ![WebView5][32]
 
--    O usuário recebe a notificação e clica nela.
--    A exibição de texto aparece como um pop-up permitindo que o usuário interaja com ele.
+* O usuário recebe a notificação e clica nela.
+* A exibição de texto aparece como um pop-up permitindo que o usuário interaja com ele.
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-how-tos/First1.png
@@ -295,6 +297,6 @@ Uma exibição da web é um pop-up com conteúdo da web. Essa janela pop-up apar
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

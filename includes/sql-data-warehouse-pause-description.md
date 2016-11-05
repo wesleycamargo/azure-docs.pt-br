@@ -14,9 +14,9 @@ Para economizar custos, é possível pausar e retomar os recursos de computaçã
 
 Quando você pausa um banco de dados:
 
-- Recursos de computação e memória são retornados ao pool de recursos disponíveis no data center
-- Os custos de DWU são zero durante a pausa.
-- O armazenamento de dados não é afetado e seus dados permanecem intactos. 
-- O SQL Data Warehouse cancela todas as operações em execução ou em fila.
+* Recursos de computação e memória são retornados ao pool de recursos disponíveis no data center
+* Os custos de DWU são zero durante a pausa.
+* O armazenamento de dados não é afetado e seus dados permanecem intactos. 
+* O SQL Data Warehouse cancela todas as operações em execução ou em fila.
 
 <!---HONumber=AcomDC_0427_2016-->

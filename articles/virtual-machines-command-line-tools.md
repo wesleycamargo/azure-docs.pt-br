@@ -1,26 +1,26 @@
-<properties
-    pageTitle="Comandos da CLI do Azure no modo de Gerenciamento de Serviços | Microsoft Azure"
-    description="Comandos da CLI (interface de linha de comando) do Azure no modo de Gerenciamento de Serviços para gerenciar implantações no modelo de implantação clássica"
-    services="virtual-machines-linux,virtual-machines-windows,mobile-services, cloud-services"
-    documentationCenter=""
-    authors="dlepow"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-service-management"/>
+---
+title: Comandos da CLI do Azure no modo de Gerenciamento de Serviços | Microsoft Docs
+description: Comandos da CLI (interface de linha de comando) do Azure no modo de Gerenciamento de Serviços para gerenciar implantações no modelo de implantação clássica
+services: virtual-machines-linux,virtual-machines-windows,mobile-services, cloud-services
+documentationcenter: ''
+author: dlepow
+manager: timlt
+editor: tysonn
+tags: azure-service-management
 
-<tags
-    ms.service="multiple"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="vm-multiple"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/22/2016"
-    ms.author="danlep"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: vm-multiple
+ms.devlang: na
+ms.topic: article
+ms.date: 09/22/2016
+ms.author: danlep
 
-
+---
 # <a name="azure-cli-commands-in-azure-service-management-(asm)-mode"></a>Comandos da CLI do Azure no modo ASM (Gerenciamento de Serviços do Azure)
+[!INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)] Você também pode [ler sobre todos os comandos de modelo do Resource Manager](virtual-machines/azure-cli-arm-commands.md) e usar a CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) do clássico para o modelo do Resource Manager.
+Você também pode [ler sobre todos os comandos de modelo do Resource Manager](virtual-machines/azure-cli-arm-commands.md) e usar a CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) do clássico para o modelo do Resource Manager.
 
 Este artigo fornece a sintaxe e as opções de comandos da CLI do Azure que, normalmente, seriam usadas para criar e gerenciar recursos do Azure no modelo de implantação clássica. É possível acessar esses comandos executando a CLI no modo ASM (Gerenciamento de Serviços). Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes. 
 
@@ -33,12 +33,14 @@ Parâmetros opcionais são mostrados entre colchetes (por exemplo, `[parameter]`
 Além dos parâmetros opcionais específicos aos comandos documentados aqui, há três parâmetros opcionais que podem ser usados para exibir saída detalhada, como opções de solicitação e códigos de status. O parâmetro `-v` fornece uma saída detalhada e o parâmetro `-vv` fornece uma saída mais detalhada ainda. A opção `--json` produzi o resultado no formato JSON bruto.
 
 ## <a name="setting-asm-mode"></a>Configurando o modo asm
-
 Use o comando a seguir para habilitar os comandos de modo de Gerenciamento de Serviços de CLI do Azure.
 
     azure config mode asm
 
->[AZURE.NOTE] O modo do Azure Resource Manager da CLI e o modo do Gerenciamento de Serviços do Azure são mutuamente exclusivos. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
+> [!NOTE]
+> O modo do Azure Resource Manager da CLI e o modo do Gerenciamento de Serviços do Azure são mutuamente exclusivos. Ou seja, recursos criados em um modo não podem ser gerenciados no outro modo.
+> 
+> 
 
 ## <a name="manage-your-account-information-and-publish-settings"></a>Gerenciar suas informações de conta e configurações de publicação
 Uma maneira que a CLI pode se conectar à sua conta é usando as informações da assinatura do Azure. (Veja [Conectar-se a uma assinatura do Azure por meio da CLI do Azure](xplat-cli-connect.md) para obter outras opções.) Essas informações podem ser obtidas no portal clássico do Azure em um arquivo de configurações de publicação conforme descrito aqui. É possível importar o arquivo de configurações de publicação como uma definição de configuração local persistente usada pela CLI para operações posteriores. Você precisa importar as configurações de publicação apenas uma vez.
@@ -56,7 +58,6 @@ Esse comando inicia um navegador para baixar o arquivo .publishsettings do porta
 
 **account import [opções] &lt;arquivo>**
 
-
 Esse comando importa um arquivo publishsettings ou certificado para que possa ser usado pela ferramenta em sessões futuras.
 
     ~$ azure account import publishsettings.publishsettings
@@ -68,8 +69,11 @@ Esse comando importa um arquivo publishsettings ou certificado para que possa se
     warn:   Remember to delete it now that it has been imported.
     info:   Account publish settings imported successfully
 
-> [AZURE.NOTE] O arquivo publishsettings pode conter detalhes (ou seja, o nome e a ID da assinatura) sobre mais de uma assinatura. Quando você importa o arquivo publishsettings, a primeira assinatura é usada como descrição padrão. Para usar uma assinatura diferente, execute o comando a seguir:
-<code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
+> [!NOTE]
+> O arquivo publishsettings pode conter detalhes (ou seja, o nome e a ID da assinatura) sobre mais de uma assinatura. Quando você importa o arquivo publishsettings, a primeira assinatura é usada como descrição padrão. Para usar uma assinatura diferente, execute o comando a seguir:
+> <code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
+> 
+> 
 
 **account clear [opções]**
 
@@ -97,8 +101,7 @@ Lista as assinaturas importadas
 
 Define a assinatura atual
 
-###<a name="commands-to-manage-your-affinity-groups"></a>Comandos para gerenciar os grupos de afinidade
-
+### <a name="commands-to-manage-your-affinity-groups"></a>Comandos para gerenciar os grupos de afinidade
 **account affinity-group list [opções]**
 
 Esse comando lista os grupos de afinidade do Azure.
@@ -150,8 +153,7 @@ Esse comando exclui o grupo de afinidade especificado
     + Deleting affinity group
     info:    account affinity-group delete command OK
 
-###<a name="commands-to-manage-your-account-environment"></a>Comandos para gerenciar seu ambiente de conta
-
+### <a name="commands-to-manage-your-account-environment"></a>Comandos para gerenciar seu ambiente de conta
 **account env list [opções]**
 
 Lista dos ambientes de conta
@@ -347,7 +349,7 @@ Esse comando exporta uma imagem da máquina virtual do Azure para um arquivo.
     + Exporting the VM
     info:   vm export command OK
 
-##  <a name="commands-to-manage-your-azure-virtual-machine-endpoints"></a>Comandos para gerenciar seus pontos de extremidade de máquinas virtuais do Azure
+## <a name="commands-to-manage-your-azure-virtual-machine-endpoints"></a>Comandos para gerenciar seus pontos de extremidade de máquinas virtuais do Azure
 O diagrama a seguir mostra a arquitetura de uma implantação típica de várias instâncias de uma máquina virtual clássica. Neste exemplo, a porta 3389 é aberta em cada máquina virtual (para acesso ao RDP). Também há um endereço IP interno (por exemplo, 168.55.11.1) em cada máquina virtual que é usada pelo balanceador de carga para rotear o tráfego para a máquina virtual. Esse endereço IP interno também pode ser usado para comunicação entre máquinas virtuais.
 
 ![azurenetworkdiagram](./media/virtual-machines-command-line-tools/networkdiagram.jpg)
@@ -427,7 +429,6 @@ Esse comando mostra os detalhes dos pontos de extremidade em uma vm
     info:    vm endpoint show command OK
 
 ## <a name="commands-to-manage-your-azure-virtual-machine-images"></a>Comandos para gerenciar suas imagens de máquinas virtuais do Azure
-
 Imagens de máquinas virtuais são capturas de máquinas virtuais já configuradas que podem ser replicadas conforme necessário.
 
 **vm image list [opções]**
@@ -482,7 +483,10 @@ Esse comando exclui uma imagem de máquina virtual.
 
 Esse comando cria uma imagem de máquina virtual. Os arquivos .vhd personalizados são carregados no armazenamento de blob e, em seguida, a imagem de máquina virtual é criada nela. Em seguida, você pode usar essa imagem de máquina virtual para criar uma máquina virtual. Os parâmetros Location e OS são obrigatórios.
 
->[AZURE.NOTE]No momento, este comando dá suporte apenas para o carregamento de arquivos .vhd fixos. Para carregar um arquivo .vhd dinâmico, use os [utilitários do VHD do Azure para prosseguir](https://github.com/Microsoft/azure-vhd-utils-for-go).
+> [!NOTE]
+> No momento, este comando dá suporte apenas para o carregamento de arquivos .vhd fixos. Para carregar um arquivo .vhd dinâmico, use os [utilitários do VHD do Azure para prosseguir](https://github.com/Microsoft/azure-vhd-utils-for-go).
+> 
+> 
 
 Alguns sistemas impõem limites de descritor de arquivo por processo. Se esse limite for excedido, a ferramenta exibirá um erro de limite de descritor de arquivo. Você pode executar o comando novamente usando o parâmetro -p &lt;número> para reduzir o número máximo de carregamentos paralelos. O número máximo padrão de carregamentos paralelos é 96.
 
@@ -496,14 +500,16 @@ Alguns sistemas impõem limites de descritor de arquivo por processo. Se esse li
     info:   vm image create command OK
 
 ## <a name="commands-to-manage-your-azure-virtual-machine-data-disks"></a>Comandos para gerenciar seus discos de dados de máquinas virtuais do Azure
-
 Os discos de dados são arquivos .vhd no armazenamento de blob que podem ser utilizados por uma máquina virtual. Para obter mais informações sobre como os discos de dados são implantados no armazenamento de blob, consulte o diagrama técnico do Azure mostrado anteriormente.
 
 Os comandos para anexar discos de dados (azure vm disk attach e azure vm disk attach-new) atribuem um LUN (número de unidade lógica) ao disco de dados anexado, conforme exigido pelo protocolo SCSI. Ao primeiro disco de dados anexado a uma máquina virtual é atribuído o LUN 0, ao próximo é atribuído o LUN 1 e assim por diante.
 
 Ao desanexar um disco de dados com o comando azure vm detach, use o parâmetro &lt;lun&gt; para indicar qual disco desanexar.
 
->[AZURE.NOTE] Você deve sempre desanexar discos de dados na ordem inversa, começando com o LUN de número mais alto que foi atribuído. A camada SCSI do Linux não oferece suporte à desanexação de um LUN de número inferior enquanto um LUN de número superior ainda estiver anexado. Por exemplo, você não deve desanexar o LUN 0, se o LUN 1 ainda estiver anexado.
+> [!NOTE]
+> Você deve sempre desanexar discos de dados na ordem inversa, começando com o LUN de número mais alto que foi atribuído. A camada SCSI do Linux não oferece suporte à desanexação de um LUN de número inferior enquanto um LUN de número superior ainda estiver anexado. Por exemplo, você não deve desanexar o LUN 0, se o LUN 1 ainda estiver anexado.
+> 
+> 
 
 **vm disk show [opções] &lt;nome>**
 
@@ -601,7 +607,6 @@ Esse comando desanexa um disco de dados conectado a uma máquina virtual do Azur
     info:   vm disk detach command OK
 
 ## <a name="commands-to-manage-your-azure-cloud-services"></a>Comandos para gerenciar seus serviços de nuvem do Azure
-
 Os serviços de nuvem do Azure são aplicativos e serviços hospedados em funções web e de trabalho. Os comandos a seguir podem ser usados para gerenciar os serviços de nuvem do Azure.
 
 **service create [opções] &lt;serviceName>**
@@ -661,9 +666,7 @@ Esse comando exclui um Serviço de Nuvem do Azure.
 
 Para forçar a exclusão, use o parâmetro `-q`.
 
-
 ## <a name="commands-to-manage-your-azure-certificates"></a>Comandos para gerenciar seus certificados do Azure
-
 Os certificados de serviço do Azure são certificados SSL conectados à sua conta do Azure. Para obter mais informações sobre certificados do Azure, consulte [Gerenciando Certificados](http://msdn.microsoft.com/library/azure/gg981929.aspx).
 
 **service cert list [opções]**
@@ -700,7 +703,6 @@ Esse comando exclui um certificado.
     info:   service cert delete command OK
 
 ## <a name="commands-to-manage-your-web-apps"></a>Comandos para gerenciar seus aplicativos da Web
-
 Um aplicativo Web do Azure é uma configuração da Web acessível pelo URI. Os aplicativos Web são hospedados em máquinas virtuais, mas você não precisa se preocupar com os detalhes de criação e implantação da máquina virtual. Esses detalhes são tratados para você pelo Azure.
 
 **site list [opções]**
@@ -750,7 +752,10 @@ Esse comando cria um aplicativo Web e o diretório local.
     info:   Repository initialized
     info:   site create command OK
 
-> [AZURE.NOTE] O nome do site deve ser exclusivo. Você não pode criar um site com o mesmo nome DNS de um site existente.
+> [!NOTE]
+> O nome do site deve ser exclusivo. Você não pode criar um site com o mesmo nome DNS de um site existente.
+> 
+> 
 
 **site browse [opções] [nome]**
 
@@ -809,7 +814,6 @@ Esse comando oferece suporte à seguinte opção adicional:
 
 **-q ou **--quiet**: não solicitar confirmação. Use esta opção em scripts automatizados.
 
-
 **site start [opções] [nome]**
 
 Esse comando inicia um aplicativo Web.
@@ -838,7 +842,6 @@ Esse comando oferece suporte à seguinte opção adicional:
 
 **--slot** &lt;slot>: o nome do slot a reiniciar.
 
-
 **site location list [opções]**
 
 Esse comando lista os locais de seus aplicativos Web.
@@ -856,8 +859,7 @@ Esse comando lista os locais de seus aplicativos Web.
     data:    East US
     info:    site location list command OK
 
-###<a name="commands-to-manage-your-web-app-application-settings"></a>Comandos para gerenciar as configurações do aplicativo Web
-
+### <a name="commands-to-manage-your-web-app-application-settings"></a>Comandos para gerenciar as configurações do aplicativo Web
 **site appsetting list[opções] [nome]**
 
 Esse comando lista a configuração do aplicativo adicionada ao aplicativo Web.
@@ -909,8 +911,7 @@ Esse comando exibe os detalhes da configuração do aplicativo especificado
     data:    Value:  value
     info:    site appsetting show command OK
 
-###<a name="commands-to-manage-your-web-app-certificates"></a>Comandos para gerenciar os certificados de aplicativo Web
-
+### <a name="commands-to-manage-your-web-app-certificates"></a>Comandos para gerenciar os certificados de aplicativo Web
 **site cert list [opções] [nome]**
 
 Esse comando exibe uma lista dos certificados do aplicativo Web.
@@ -949,8 +950,7 @@ Esse comando mostra os detalhes do certificado
     data:    Certificate thumbprint CE1CD65852B38DC32001C2E0E8F7A526A29B541F
     info:    site cert show command OK
 
-###<a name="commands-to-manage-your-web-app-connection-strings"></a>Comandos para gerenciar as cadeias de conexão do aplicativo Web
-
+### <a name="commands-to-manage-your-web-app-connection-strings"></a>Comandos para gerenciar as cadeias de conexão do aplicativo Web
 **site connectionstring list [opções] [nome]**
 
 **site connectionstring add [opções] &lt;nome-da-conexão> &lt;valor> &lt;tipo> [nome]**
@@ -959,16 +959,14 @@ Esse comando mostra os detalhes do certificado
 
 **site connectionstring show [opções] &lt;nome-da-conexão> [nome]**
 
-###<a name="commands-to-manage-your-web-app-default-documents"></a>Comandos para gerenciar os documentos padrão do aplicativo Web
-
+### <a name="commands-to-manage-your-web-app-default-documents"></a>Comandos para gerenciar os documentos padrão do aplicativo Web
 **site defaultdocument list [opções] [nome]**
 
 **site defaultdocument add [opções] &lt;documento> [nome]**
 
 **site defaultdocument delete [opções] &lt;documento> [nome]**
 
-###<a name="commands-to-manage-your-web-app-deployments"></a>Comandos para gerenciar as implantações de seu aplicativo Web
-
+### <a name="commands-to-manage-your-web-app-deployments"></a>Comandos para gerenciar as implantações de seu aplicativo Web
 **site deployment list [opções] [nome]**
 
 **site deployment show [opções] &lt;commitId> [nome]**
@@ -979,32 +977,29 @@ Esse comando mostra os detalhes do certificado
 
 **site deployment user set [opções] [nome-de-usuário] [senha]**
 
-###<a name="commands-to-manage-your-web-app-domains"></a>Comandos para gerenciar os domínios de seu aplicativo Web
-
+### <a name="commands-to-manage-your-web-app-domains"></a>Comandos para gerenciar os domínios de seu aplicativo Web
 **site domain list [opções] [nome]**
 
 **site domain add [opções] &lt;dn> [nome]**
 
 **site domain delete [opções] &lt;dn> [nome]**
 
-###<a name="commands-to-manage-your-web-app-handler-mappings"></a>Comandos para gerenciar os mapeamentos de manipulador do aplicativo Web
-
+### <a name="commands-to-manage-your-web-app-handler-mappings"></a>Comandos para gerenciar os mapeamentos de manipulador do aplicativo Web
 **site handler list [opções] [nome]**
 
 **site handler add [opções] &lt;extensão> &lt;processador> [nome]**
 
 **site handler delete [opções] &lt;extensão> [nome]**
 
-###<a name="commands-to-manage-your-web-jobs"></a>Comandos para gerenciar seus trabalhos Web
-
+### <a name="commands-to-manage-your-web-jobs"></a>Comandos para gerenciar seus trabalhos Web
 **site job list [opções] [nome]**
 
 Este comando lista todos os trabalhos web em um aplicativo Web.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-type** &lt;tipo-de-trabalho>: opcional. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”. Por padrão, retorna trabalhos Web de todos os tipos.
-+ **--slot** &lt;slot>: o nome do slot a reiniciar.
+* **--job-type** &lt;tipo-de-trabalho>: opcional. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”. Por padrão, retorna trabalhos Web de todos os tipos.
+* **--slot** &lt;slot>: o nome do slot a reiniciar.
 
 **site job show [opções] &lt;nome-do-trabalho> &lt;tipo-do-trabalho> [nome]**
 
@@ -1012,9 +1007,9 @@ Esse comando mostra os detalhes de um trabalho web específico.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
-+ **--job-type** &lt;tipo-do-trabalho>: necessário. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”.
-+ **--slot** &lt;slot>: o nome do slot a reiniciar.
+* **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
+* **--job-type** &lt;tipo-do-trabalho>: necessário. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”.
+* **--slot** &lt;slot>: o nome do slot a reiniciar.
 
 **site job delete [opções] &lt;jobName> &lt;jobType> [nome]**
 
@@ -1022,10 +1017,10 @@ Esse comando exclui o trabalho web específico.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;nome-do-trabalho>    necessário. O nome do trabalho web.
-+ **--job-type** &lt;tipo-do-trabalho>    necessário. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”.
-+ **-q** ou **--quiet**: não solicitar confirmação. Use esta opção em scripts automatizados.
-+ **--slot** &lt;slot>: o nome do slot a reiniciar.
+* **--job-name** &lt;nome-do-trabalho>    necessário. O nome do trabalho web.
+* **--job-type** &lt;tipo-do-trabalho>    necessário. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”.
+* **-q** ou **--quiet**: não solicitar confirmação. Use esta opção em scripts automatizados.
+* **--slot** &lt;slot>: o nome do slot a reiniciar.
 
 **site job upload [opções] &lt;nome-do-trabalho> &lt;tipo-do-trabalho> <jobFile> [nome]**
 
@@ -1033,10 +1028,10 @@ Esse comando exclui o trabalho web específico.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
-+ **--job-type** &lt;tipo-do-trabalho>: necessário. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”.
-+ **--job-file** &lt;arquivo-do-trabalho>: necessário. O arquivo do trabalho.
-+ **--slot** &lt;slot>: o nome do slot a reiniciar.
+* **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
+* **--job-type** &lt;tipo-do-trabalho>: necessário. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”.
+* **--job-file** &lt;arquivo-do-trabalho>: necessário. O arquivo do trabalho.
+* **--slot** &lt;slot>: o nome do slot a reiniciar.
 
 **site job start [opções] &lt;jnome-do-trabalho> &lt;tipo-do-trabalho> [nome]**
 
@@ -1044,9 +1039,9 @@ Esse comando inicia o trabalho web específico.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
-+ **--job-type** &lt;tipo-do-trabalho>: necessário. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”.
-+ **--slot** &lt;slot>: o nome do slot a reiniciar.
+* **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
+* **--job-type** &lt;tipo-do-trabalho>: necessário. O tipo de trabalho web. O valor válido é “acionado” ou “contínuo”.
+* **--slot** &lt;slot>: o nome do slot a reiniciar.
 
 **site job stop [opções] &lt;jobName> &lt;jobType> [nome]**
 
@@ -1054,19 +1049,18 @@ Esse comando para o trabalho web especificado. Apenas trabalhos contínuos podem
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
-+ **--slot** &lt;slot>: o nome do slot a reiniciar.
+* **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
+* **--slot** &lt;slot>: o nome do slot a reiniciar.
 
-###<a name="commands-to-manage-your-web-jobs-history"></a>Comandos para gerenciar o Histórico dos Trabalhos Web
-
+### <a name="commands-to-manage-your-web-jobs-history"></a>Comandos para gerenciar o Histórico dos Trabalhos Web
 **site job history list [opções] [nome do trabalho] [nome]**
 
 Esse comando exibe um histórico das execuções do trabalho web específico.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
-+ **--slot** &lt;slot>: o nome do slot a reiniciar.
+* **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
+* **--slot** &lt;slot>: o nome do slot a reiniciar.
 
 **site job history show [opções] [nome do trabalho] [ID de execução] [nome]**
 
@@ -1074,12 +1068,11 @@ Esse comando mostra os detalhes de uma execução do trabalho para o trabalho we
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
-+ **--run-id** &lt;ID-de-execução>: opcional. O ID do histórico de execução. Se não especificado, mostrar a última execução.
-+ **--slot** &lt;slot>: o nome do slot a reiniciar.
+* **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
+* **--run-id** &lt;ID-de-execução>: opcional. O ID do histórico de execução. Se não especificado, mostrar a última execução.
+* **--slot** &lt;slot>: o nome do slot a reiniciar.
 
-###<a name="commands-to-manage-your-web-app-diagnostics"></a>Comandos para gerenciar o diagnóstico de seu aplicativo Web
-
+### <a name="commands-to-manage-your-web-app-diagnostics"></a>Comandos para gerenciar o diagnóstico de seu aplicativo Web
 **site log download [opções] [nome]**
 
 Baixar um arquivo .zip que contém os diagnósticos do aplicativo Web.
@@ -1122,41 +1115,36 @@ Esse comando configura as opções de diagnóstico para seu aplicativo Web.
     + Updating diagnostic settings
     info:    site log set command OK
 
-###<a name="commands-to-manage-your-web-app-repositories"></a>Comandos para gerenciar os repositórios de seu aplicativo Web
-
+### <a name="commands-to-manage-your-web-app-repositories"></a>Comandos para gerenciar os repositórios de seu aplicativo Web
 **site repository branch [opções] &lt;ramificação> [nome]**
 
 **site repository delete [opções] [nome]**
 
 **site repository sync [opções] [nome]**
 
-###<a name="commands-to-manage-your-web-app-scaling"></a>Comandos para gerenciar o dimensionamento de seu aplicativo Web
-
+### <a name="commands-to-manage-your-web-app-scaling"></a>Comandos para gerenciar o dimensionamento de seu aplicativo Web
 **site scale mode [opções] &lt;modo> [nome]**
 
 **site scale instances [opções] &lt;instâncias> [nome]**
 
-
 ## <a name="commands-to-manage-azure-mobile-services"></a>Comandos para gerenciar os Serviços Móveis do Azure
-
 Os Serviços Móveis do Azure reúnem um conjunto de serviços do Azure que habilitam recursos de back-end para seus aplicativos. Os comandos de Serviços Móveis estão divididos nas seguintes categorias:
 
-+ [Comandos para gerenciar instância dos Serviços Móveis](#Mobile_Services)
-+ [Comandos para gerenciar a configuração do serviço móvel](#Mobile_Configuration)
-+ [Comandos para gerenciar tabelas do serviço móvel](#Mobile_Tables)
-+ [Comandos para gerenciar scripts do serviço móvel](#Mobile_Scripts)
-+ [Comandos para gerenciar trabalhos agendados](#Mobile_Jobs)
-+ [Comandos para dimensionar um serviço móvel](#Mobile_Scale)
+* [Comandos para gerenciar instância dos Serviços Móveis](#Mobile_Services)
+* [Comandos para gerenciar a configuração do serviço móvel](#Mobile_Configuration)
+* [Comandos para gerenciar tabelas do serviço móvel](#Mobile_Tables)
+* [Comandos para gerenciar scripts do serviço móvel](#Mobile_Scripts)
+* [Comandos para gerenciar trabalhos agendados](#Mobile_Jobs)
+* [Comandos para dimensionar um serviço móvel](#Mobile_Scale)
 
 As opções a seguir se aplicam à maioria dos comandos de Serviços Móveis:
 
-+ **-h** ou **--help**: exibir informações sobre o uso da saída.
-+ **-s `<id>`** ou **--subscription `<id>`**: usar uma assinatura específica, especificada como `<id>`.
-+ **-v** ou **--verbose**: gravar saída detalhada.
-+ **--json**: gravar uma saída JSON.
+* **-h** ou **--help**: exibir informações sobre o uso da saída.
+* **-s `<id>`** ou **--subscription `<id>`**: usar uma assinatura específica, especificada como `<id>`.
+* **-v** ou **--verbose**: gravar saída detalhada.
+* **--json**: gravar uma saída JSON.
 
 ### <a name="<a-name="mobile_services"></a>commands-to-manage-mobile-service-instances"></a><a name="Mobile_Services"></a>Comandos para gerenciar instância dos Serviços Móveis
-
 **mobile locations [opções]**
 
 Esse comando lista os locais geográficos suportados pelos Serviços Móveis.
@@ -1182,10 +1170,10 @@ Esse comando cria um serviço móvel juntamente com um Banco de Dados e servidor
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-r `<sqlServer>`**  ou **--sqlServer `<sqlServer>`**: utilizar um servidor de banco de dados SQL existente, especificado como `<sqlServer>`.
-+ **-d `<sqlDb>`** ou **--sqlDb `<sqlDb>`**: usar banco de dados SQL existente, especificado como `<sqlDb>`.
-+ **-l `<location>`** ou **--location `<location>`**: criar o serviço em um local específico, especificado como `<location>`. Executar azure mobile locations para obter os locais disponíveis.
-+ **--sqlLocation `<location>`**: criar o SQL Server em um `<location>` específico; o padrão é o local do serviço móvel.
+* **-r `<sqlServer>`**  ou **--sqlServer `<sqlServer>`**: utilizar um servidor de banco de dados SQL existente, especificado como `<sqlServer>`.
+* **-d `<sqlDb>`** ou **--sqlDb `<sqlDb>`**: usar banco de dados SQL existente, especificado como `<sqlDb>`.
+* **-l `<location>`** ou **--location `<location>`**: criar o serviço em um local específico, especificado como `<location>`. Executar azure mobile locations para obter os locais disponíveis.
+* **--sqlLocation `<location>`**: criar o SQL Server em um `<location>` específico; o padrão é o local do serviço móvel.
 
 **mobile delete [opções] [nome do serviço]**
 
@@ -1206,9 +1194,9 @@ Esse comando exclui um serviço móvel juntamente com seu Banco de Dados e servi
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-d** ou **--deleteData**: excluir todos os dados desse serviço móvel do banco de dados.
-+ **-a** ou **--deleteAll**: excluir o banco de dados SQL e o servidor.
-+ **-q** ou **--quiet**: não solicitar confirmação. Use esta opção em scripts automatizados.
+* **-d** ou **--deleteData**: excluir todos os dados desse serviço móvel do banco de dados.
+* **-a** ou **--deleteAll**: excluir o banco de dados SQL e o servidor.
+* **-q** ou **--quiet**: não solicitar confirmação. Use esta opção em scripts automatizados.
 
 **mobile list [opções]**
 
@@ -1274,12 +1262,15 @@ Esse comando retorna logs do serviço móvel, filtrando todos os tipos de log, m
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-r `<query>`** ou **--query `<query>`**: executa a consulta de log especificada.
-+ **-t `<type>`** ou **--type `<type>`**: filtrar os logs retornados pela entrada `<type>`, que pode ser `information`, `warning` ou `error`.
-+ **-k `<skip>`** ou **--skip `<skip>`**: ignora o número de linhas especificadas por `<skip>`.
-+ **-p `<top>`** ou **--top `<top>`**: retorna um número de linhas especificado por `<top>`.
+* **-r `<query>`** ou **--query `<query>`**: executa a consulta de log especificada.
+* **-t `<type>`** ou **--type `<type>`**: filtrar os logs retornados pela entrada `<type>`, que pode ser `information`, `warning` ou `error`.
+* **-k `<skip>`** ou **--skip `<skip>`**: ignora o número de linhas especificadas por `<skip>`.
+* **-p `<top>`** ou **--top `<top>`**: retorna um número de linhas especificado por `<top>`.
 
-> [AZURE.NOTE] O parâmetro **--query** tem precedência sobre **--type**, **--skip** e **--top**.
+> [!NOTE]
+> O parâmetro **--query** tem precedência sobre **--type**, **--skip** e **--top**.
+> 
+> 
 
 **mobile recover [opções] [nome do serviço não íntegro] [nome do serviço íntegro]**
 
@@ -1300,15 +1291,16 @@ Esse comando regenera a chave do aplicativo do serviço móvel.
 
 Os tipos de chave são`master` e `application`.
 
-> [AZURE.NOTE] Quando você regenera chaves, os clientes que usam a chave antiga talvez não possam acessar o serviço móvel. Quando regenera a chave do aplicativo, você deve atualizar seu aplicativo com o novo valor da chave.
+> [!NOTE]
+> Quando você regenera chaves, os clientes que usam a chave antiga talvez não possam acessar o serviço móvel. Quando regenera a chave do aplicativo, você deve atualizar seu aplicativo com o novo valor da chave.
+> 
+> 
 
 **mobile key set [opções] [nome-do-serviço] [tipo] [valor]**
 
 Este comando define a chave do serviço móvel para um valor específico.
 
-
 ### <a name="<a-name="mobile_configuration"></a>commands-to-manage-mobile-service-configuration"></a><a name="Mobile_Configuration"></a>Comandos para gerenciar a configuração do serviço móvel
-
 **mobile config list [opções] [nome-do-serviço]**
 
 Esse comando lista as opções de configuração de um serviço móvel.
@@ -1350,7 +1342,6 @@ Esse comando define uma opção de configuração específica para um serviço m
 
 
 ### <a name="<a-name="mobile_tables"></a>commands-to-manage-mobile-service-tables"></a><a name="Mobile_Tables"></a>Comandos para gerenciar tabelas do serviço móvel
-
 **mobile table list [opções] [nome-do-serviço]**
 
 Esse comando lista todas as tabelas em seu serviço móvel.
@@ -1398,7 +1389,7 @@ Esse comando cria uma tabela.
 
 Esse comando oferece suporte à seguinte opção adicional:
 
-+ **-p `&lt;permissions>`** ou **--permissions `&lt;permissions>`**: lista delimitada por vírgulas de pares de `<operation>`=`<permission>`, em que `<operation>` é `insert`, `read`, `update` ou `delete` e `&lt;permissions>` é `public`, `application` (padrão), `user` ou `admin`.
+* **-p `&lt;permissions>`** ou **--permissions `&lt;permissions>`**: lista delimitada por vírgulas de pares de `<operation>`=`<permission>`, em que `<operation>` é `insert`, `read`, `update` ou `delete` e `&lt;permissions>` é `public`, `application` (padrão), `user` ou `admin`.
 
 **mobile data read [opções] [nome-do-serviço] [nome-da-tabela] [consulta]**
 
@@ -1416,9 +1407,9 @@ Esse comando lê dados de uma tabela.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-k `<skip>`** ou **--skip `<skip>`**: ignora o número de linhas especificadas por `<skip>`.
-+ **-t `<top>`** ou **--top `<top>`**: retorna um número específico de linhas, especificado por `<top>`.
-+ **-l** ou **--list**: retorna dados em um formato de lista.
+* **-k `<skip>`** ou **--skip `<skip>`**: ignora o número de linhas especificadas por `<skip>`.
+* **-t `<top>`** ou **--top `<top>`**: retorna um número específico de linhas, especificado por `<top>`.
+* **-l** ou **--list**: retorna dados em um formato de lista.
 
 **mobile table update [opções] [nome-do-serviço] [nome-da-tabela]**
 
@@ -1432,11 +1423,11 @@ Esse comando altera as permissões de exclusão em uma tabela somente para admin
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-p `&lt;permissions>`** ou **--permissions `&lt;permissions>`**: lista delimitada por vírgulas de pares de `<operation>`=`<permission>`, em que `<operation>` é `insert`, `read`, `update` ou `delete` e `&lt;permissions>` é `public`, `application` (padrão), `user` ou `admin`.
-+ **--deleteColumn `<columns>`**: lista de colunas delimitada por vírgulas a serem excluídas, como `<columns>`.
-+ **-q** ou **--quiet**: exclui as colunas sem solicitar confirmação.
-+ **--addIndex `<columns>`**: lista de colunas delimitada por vírgulas a serem incluídas no índice.
-+ **--deleteIndex `<columns>`**: lista de colunas delimitada por vírgulas a serem excluídas do índice.
+* **-p `&lt;permissions>`** ou **--permissions `&lt;permissions>`**: lista delimitada por vírgulas de pares de `<operation>`=`<permission>`, em que `<operation>` é `insert`, `read`, `update` ou `delete` e `&lt;permissions>` é `public`, `application` (padrão), `user` ou `admin`.
+* **--deleteColumn `<columns>`**: lista de colunas delimitada por vírgulas a serem excluídas, como `<columns>`.
+* **-q** ou **--quiet**: exclui as colunas sem solicitar confirmação.
+* **--addIndex `<columns>`**: lista de colunas delimitada por vírgulas a serem incluídas no índice.
+* **--deleteIndex `<columns>`**: lista de colunas delimitada por vírgulas a serem excluídas do índice.
 
 **mobile table delete [opções] [nome do serviço] [nome da tabela]**
 
@@ -1463,7 +1454,6 @@ Esse comando remove todas as linhas de dados da tabela.
 
 
 ### <a name="<a-name="mobile_scripts"></a>commands-to-manage-scripts"></a><a name="Mobile_Scripts"></a>Comandos para gerenciar scripts
-
 Os comandos desta seção são utilizados para gerenciar os scripts de servidor que pertencem a um serviço móvel. Para obter mais informações, consulte [Trabalhar com scripts de servidor em Serviços Móveis](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [opções] [nome-do-serviço]**
@@ -1497,10 +1487,10 @@ Esse comando baixa o script de inserção da tabela TodoItem em um arquivo chama
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-p `<path>`** ou **--path `<path>`**: o local no arquivo no qual salvar o script, em que o diretório de trabalho atual é o padrão.
-+ **-f `<file>`** ou **--file `<file>`**: o nome do arquivo no qual salvar o script.
-+ **-o** ou **--override**: substituir um arquivo existente.
-+ **-c** ou **--console**: gravar o script no console, em vez de em um arquivo.
+* **-p `<path>`** ou **--path `<path>`**: o local no arquivo no qual salvar o script, em que o diretório de trabalho atual é o padrão.
+* **-f `<file>`** ou **--file `<file>`**: o nome do arquivo no qual salvar o script.
+* **-o** ou **--override**: substituir um arquivo existente.
+* **-c** ou **--console**: gravar o script no console, em vez de em um arquivo.
 
 **mobile script upload [opções] [nome-do-serviço] [nome-do-script]**
 
@@ -1512,7 +1502,6 @@ Esse comando carrega um novo script chamado `todoitem.insert.js` do subdiretóri
 
 O nome do arquivo deve ser composto dos nomes da tabela e da operação. Ele deve estar localizado na subpasta tabela relativa ao local onde o comando é executado. Você também pode usar o parâmetro **-f `<file>`** ou **--file `<file>`** para especificar um nome de arquivo e caminho diferente que contém o script a ser registrado.
 
-
 **mobile script delete [opções] [nome do serviço] [nome do script]**
 
 Esse comando remove o script de inserção existente da tabela TodoItem.
@@ -1522,7 +1511,6 @@ Esse comando remove o script de inserção existente da tabela TodoItem.
     info:    mobile script delete command OK
 
 ### <a name="<a-name="mobile_jobs"></a>commands-to-manage-scheduled-jobs"></a><a name="Mobile_Jobs"></a>Comandos para gerenciar trabalhos agendados
-
 Os comandos desta seção são utilizados para gerenciar trabalhos agendados que pertencem a um serviço móvel. Para obter mais informações, veja [Agendar trabalhos](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
 **mobile job list [opções] [nome-do-serviço]**
@@ -1550,16 +1538,19 @@ Esse comando cria um trabalho chamado `getUpdates` que está agendado para ser e
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-i `<number>`** ou **--interval `<number>`**: o intervalo do trabalho como um número inteiro. O valor padrão é `15`.
-+ **-u `<unit>`** ou **--intervalUnit `<unit>`**: a unidade de _interval_, que pode ser um dos seguintes valores:
-    + **minuto** (padrão)
-    + **hora**
-    + **dia**
-    + **mês**
-    + **nenhum** (trabalhos sob demanda)
-+ **-t `<time>`** **--startTime `<time>`** A hora de início da primeira execução do script, no formato ISO. O valor padrão é `now`.
+* **-i `<number>`** ou **--interval `<number>`**: o intervalo do trabalho como um número inteiro. O valor padrão é `15`.
+* **-u `<unit>`** ou **--intervalUnit `<unit>`**: a unidade de *interval*, que pode ser um dos seguintes valores:
+  * **minuto** (padrão)
+  * **hora**
+  * **dia**
+  * **mês**
+  * **nenhum** (trabalhos sob demanda)
+* **-t `<time>`** **--startTime `<time>`** A hora de início da primeira execução do script, no formato ISO. O valor padrão é `now`.
 
-> [AZURE.NOTE] Novos trabalhos são criados no estado desabilitado porque um script ainda deve ser carregado. Use o comando **mobile script upload** para carregar um script e o comando **mobile job update** para habilitar o trabalho.
+> [!NOTE]
+> Novos trabalhos são criados no estado desabilitado porque um script ainda deve ser carregado. Use o comando **mobile script upload** para carregar um script e o comando **mobile job update** para habilitar o trabalho.
+> 
+> 
 
 **mobile job update [opções] [nome-do-serviço] [nome-do-trabalho]**
 
@@ -1571,15 +1562,15 @@ O comando a seguir habilita o trabalho desabilitado `getUpdates`.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-i `<number>`** ou **--interval `<number>`**: o intervalo do trabalho como um número inteiro. O valor padrão é `15`.
-+ **-u `<unit>`** ou **--intervalUnit `<unit>`**: a unidade de _interval_, que pode ser um dos seguintes valores:
-    + **minuto** (padrão)
-    + **hora**
-    + **dia**
-    + **mês**
-    + **nenhum** (trabalhos sob demanda)
-+ **-t `<time>`** **--startTime `<time>`** A hora de início da primeira execução do script, no formato ISO. O valor padrão é `now`.
-+ **-a `<status>`** ou **--status `<status>`**: o status do trabalho, que pode ser `enabled` ou `disabled`.
+* **-i `<number>`** ou **--interval `<number>`**: o intervalo do trabalho como um número inteiro. O valor padrão é `15`.
+* **-u `<unit>`** ou **--intervalUnit `<unit>`**: a unidade de *interval*, que pode ser um dos seguintes valores:
+  * **minuto** (padrão)
+  * **hora**
+  * **dia**
+  * **mês**
+  * **nenhum** (trabalhos sob demanda)
+* **-t `<time>`** **--startTime `<time>`** A hora de início da primeira execução do script, no formato ISO. O valor padrão é `now`.
+* **-a `<status>`** ou **--status `<status>`**: o status do trabalho, que pode ser `enabled` ou `disabled`.
 
 **mobile job delete [opções] [nome do serviço] [nome do trabalho]**
 
@@ -1589,10 +1580,12 @@ Esse comando remove o trabalho agendado getUpdates do servidor TodoList.
     info:    Executing command mobile job delete
     info:    mobile job delete command OK
 
-> [AZURE.NOTE] A exclusão de um trabalho também exclui o script carregado.
+> [!NOTE]
+> A exclusão de um trabalho também exclui o script carregado.
+> 
+> 
 
 ### <a name="<a-name="mobile_scale"></a>commands-to-scale-a-mobile-service"></a><a name="Mobile_Scale"></a>Comandos para dimensionar um serviço móvel
-
 Os comandos desta seção são usados para dimensionar um serviço móvel. Para obter mais informações, consulte [Dimensionando um serviço móvel](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [opções] [nome-do-serviço]**
@@ -1617,14 +1610,15 @@ Esse comando altera a escala do serviço móvel de gratuito para modo premium.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-c `<mode>`** ou **--computeMode `<mode>`**: o modo de computação deve ser `Free` ou `Reserved`.
-+ **-i `<count>`** ou **--numberOfInstances `<count>`**: o número de instâncias usadas durante a execução em modo reservado.
+* **-c `<mode>`** ou **--computeMode `<mode>`**: o modo de computação deve ser `Free` ou `Reserved`.
+* **-i `<count>`** ou **--numberOfInstances `<count>`**: o número de instâncias usadas durante a execução em modo reservado.
 
-> [AZURE.NOTE] Ao definir o modo de computação como `Reserved`, todos os serviços móveis da mesma região são executados em modo premium.
+> [!NOTE]
+> Ao definir o modo de computação como `Reserved`, todos os serviços móveis da mesma região são executados em modo premium.
+> 
+> 
 
-
-###<a name="commands-to-enable-preview-features-for-your-mobile-service"></a>Comandos para habilitar recursos de visualização para seu Serviço Móvel
-
+### <a name="commands-to-enable-preview-features-for-your-mobile-service"></a>Comandos para habilitar recursos de visualização para seu Serviço Móvel
 **mobile preview list [opções] [nome-do-serviço]**
 
 Este comando exibe os recursos de visualização disponíveis no serviço específico se eles foram habilitados.
@@ -1643,8 +1637,7 @@ Este comando exibe os recursos de visualização disponíveis no serviço espec�
 
 Esse comando habilita o recurso de visualização específico para um serviço móvel. Uma vez habilitados, os recursos de visualização não podem ser desabilitados para um serviço móvel.
 
-###<a name="commands-to-manage-your-mobile-service-apis"></a>Comandos para gerenciar seus APIs de serviço móvel
-
+### <a name="commands-to-manage-your-mobile-service-apis"></a>Comandos para gerenciar seus APIs de serviço móvel
 **mobile api list [opções] [nome-do-serviço]**
 
 Este comando exibe uma lista de APIs personalizada do serviço móvel que você criou para seu serviço móvel.
@@ -1681,8 +1674,8 @@ Esse comando oferece suporte à seguinte opção adicional:
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-p** ou **--permissions** &lt;permissões>: uma lista de pares &lt;método>=&lt;permissão> delimitada por vírgulas.
-+ **-f** ou **--force**: substitui quaisquer alterações personalizadas para o arquivo de metadados de permissões.
+* **-p** ou **--permissions** &lt;permissões>: uma lista de pares &lt;método>=&lt;permissão> delimitada por vírgulas.
+* **-f** ou **--force**: substitui quaisquer alterações personalizadas para o arquivo de metadados de permissões.
 
 **mobile api delete [opções] [nome do serviço] [nome da api]**
 
@@ -1693,8 +1686,7 @@ Esse comando oferece suporte às seguintes opções adicionais:
 
 Este comando exclui a API personalizada do serviço móvel específico.
 
-###<a name="commands-to-manage-your-mobile-application-app-settings"></a>Comandos para gerenciar suas configurações do aplicativo móvel
-
+### <a name="commands-to-manage-your-mobile-application-app-settings"></a>Comandos para gerenciar suas configurações do aplicativo móvel
 **mobile appsetting list [opções] [nome-do-serviço]**
 
 Este comando evibe as configurações do aplicativo móvel para o serviço específico.
@@ -1738,7 +1730,6 @@ Este comando remove a configuração do aplicativo específico para seu serviço
     info:    mobile appsetting show command OK
 
 ## <a name="manage-tool-local-settings"></a>Gerenciar as configurações locais da ferramenta
-
 As configurações locais são a ID de sua assinatura e o Nome da Conta de Armazenamento Padrão.
 
 **config list [opções]**
@@ -1761,7 +1752,6 @@ Esse comando altera uma definição da configuração.
     info:   Changes saved.
 
 ## <a name="commands-to-manage-service-bus"></a>Comandos para gerenciar o Service Bus
-
 Utilize estes comandos para gerenciar sua conta do Service Bus
 
 **sb namespace check [opções] &lt;nome>**
@@ -1862,9 +1852,7 @@ Exibir detalhes sobre um namespace específico.
 Verificar se o namespace está disponível.
 
 ## <a name="commands-to-manage-your-storage-objects"></a>Comandos para gerenciar seus objetos de armazenamento
-
-###<a name="commands-to-manage-your-storage-accounts"></a>Comandos para gerenciar suas contas de Armazenamento
-
+### <a name="commands-to-manage-your-storage-accounts"></a>Comandos para gerenciar suas contas de Armazenamento
 **storage account list [opções]**
 
 Este comando exibe as contas de armazenamento em sua assinatura.
@@ -1892,11 +1880,11 @@ Este comando cria uma conta de armazenamento com base nas opções fornecidas.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-e** ou **--label** &lt;rótulo>: o rótulo para a conta de armazenamento.
-+ **-d** ou **--description** &lt;descrição>: A descrição da conta de armazenamento.
-+ **-l** ou **--location** &lt;name>: a região geográfica na qual criar a conta de armazenamento.
-+ **-a** ou **--affinity-group** &lt;nome>: o grupo de afinidades ao qual associar a conta de armazenamento. 
-+ **--type** indica o tipo de conta a criar: Armazenamento Standard com a opção de redundância (LRS/ZRS/GRS/RAGRS) ou Armazenamento Premium (PLRS).
+* **-e** ou **--label** &lt;rótulo>: o rótulo para a conta de armazenamento.
+* **-d** ou **--description** &lt;descrição>: A descrição da conta de armazenamento.
+* **-l** ou **--location** &lt;name>: a região geográfica na qual criar a conta de armazenamento.
+* **-a** ou **--affinity-group** &lt;nome>: o grupo de afinidades ao qual associar a conta de armazenamento. 
+* **--type** indica o tipo de conta a criar: Armazenamento Standard com a opção de redundância (LRS/ZRS/GRS/RAGRS) ou Armazenamento Premium (PLRS).
 
 **storage account set [opções] <name>**
 
@@ -1909,10 +1897,10 @@ Este comando atualiza a conta de armazenamento específica.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-e** ou **--label** &lt;rótulo>: o rótulo para a conta de armazenamento.
-+ **-d** ou **--description** &lt;descrição>: A descrição da conta de armazenamento.
-+ **-l** ou **--location** &lt;name>: a região geográfica na qual criar a conta de armazenamento.
-+ **--type** indica o novo tipo de conta: Armazenamento Standard com a opção de redundância (LRS/ZRS/GRS/RAGRS) ou Armazenamento Premium (PLRS).
+* **-e** ou **--label** &lt;rótulo>: o rótulo para a conta de armazenamento.
+* **-d** ou **--description** &lt;descrição>: A descrição da conta de armazenamento.
+* **-l** ou **--location** &lt;name>: a região geográfica na qual criar a conta de armazenamento.
+* **--type** indica o novo tipo de conta: Armazenamento Standard com a opção de redundância (LRS/ZRS/GRS/RAGRS) ou Armazenamento Premium (PLRS).
 
 **storage account delete [opções] <name>**
 
@@ -1922,27 +1910,25 @@ Esse comando oferece suporte à seguinte opção adicional:
 
 **-q** ou **--quiet**: não solicitar confirmação. Use esta opção em scripts automatizados.
 
-###<a name="commands-to-manage-your-storage-account-keys"></a>Comandos para gerenciar suas chaves de contas de Armazenamento
-
+### <a name="commands-to-manage-your-storage-account-keys"></a>Comandos para gerenciar suas chaves de contas de Armazenamento
 **storage account keys list [opções] <name>**
 
 Este comando lista as chaves primárias e secundárias para a conta de armazenamento específica.
 
 **storage account keys renew [opções] <name>**
 
-###<a name="commands-to-manage-your-storage-container"></a>Comandos para gerenciar seu contêiner de armazenamento
-
+### <a name="commands-to-manage-your-storage-container"></a>Comandos para gerenciar seu contêiner de armazenamento
 **storage container list [opções] [prefixo]**
 
 Este comando exibe a lista de contêiner de armazenamento para uma conta de armazenamento específico. A conta de armazenamento é específica pela cadeia de conexão ou o nome da conta de armazenamento e a chave da conta.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
-+ **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
-+ **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
-+ **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
-+ **--debug**: executa o comando de armazenamento no modo de depuração.
+* **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
+* **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
+* **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
+* **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
+* **--debug**: executa o comando de armazenamento no modo de depuração.
 
 **storage container show [opções] [contêiner]**
 **storage container create [opções] [contêiner]**
@@ -1951,12 +1937,12 @@ Esse comando cria um contêiner de armazenamento para a conta de armazenamento e
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
-+ **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
-+ **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento
-+ **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento
-+ **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento
-+ **--debug**: executa o comando de armazenamento no modo de depuração.
+* **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
+* **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
+* **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento
+* **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento
+* **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento
+* **--debug**: executa o comando de armazenamento no modo de depuração.
 
 **storage container delete [opções] [contêiner]**
 
@@ -1964,12 +1950,12 @@ Esse comando exclui o contêiner de armazenamento específico. A conta de armaze
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
-+ **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
-+ **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
-+ **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
-+ **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
-+ **--debug**: executa o comando de armazenamento no modo de depuração.
+* **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
+* **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
+* **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
+* **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
+* **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
+* **--debug**: executa o comando de armazenamento no modo de depuração.
 
 **storage container set [opções] [contêiner]**
 
@@ -1977,27 +1963,26 @@ Esse comando define a lista de controle de acesso para o contêiner de armazenam
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
-+ **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
-+ **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
-+ **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
-+ **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
-+ **--debug**: executa o comando de armazenamento no modo de depuração.
+* **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
+* **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
+* **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
+* **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
+* **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
+* **--debug**: executa o comando de armazenamento no modo de depuração.
 
-###<a name="commands-to-manage-your-storage-blob"></a>Comandos para gerenciar seu blob de armazenamento
-
+### <a name="commands-to-manage-your-storage-blob"></a>Comandos para gerenciar seu blob de armazenamento
 **storage blob list [opções] [contêiner] [prefixo]**
 
 Este comando retorna uma lista de blobs de armazenamento no contêiner de armazenamento específico.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
-+ **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
-+ **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
-+ **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
-+ **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
-+ **--debug**: executa o comando de armazenamento no modo de depuração.
+* **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
+* **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
+* **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
+* **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
+* **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
+* **--debug**: executa o comando de armazenamento no modo de depuração.
 
 **storage blob show [opções] [contêiner] [blob]**
 
@@ -2005,24 +1990,24 @@ Esse comando exibe os detalhes do blob de armazenamento especificado.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
-+ **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
-+ **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
-+ **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
-+ **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
-+ **--debug**: executa o comando de armazenamento no modo de depuração.
+* **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
+* **-p** ou **-prefix** &lt;prefixo>: o prefixo de nome do contêiner de armazenamento.
+* **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
+* **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
+* **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
+* **--debug**: executa o comando de armazenamento no modo de depuração.
 
 **storage blob delete [opções] [contêiner] [blob]**
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
-+ **-b** ou **--blob** &lt;nome-do-blob>: o nome do blob de armazenamento a ser excluído.
-+ **-q** ou **--quiet**: remova o blob de armazenamento específico sem confirmação.
-+ **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
-+ **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
-+ **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
-+ **--debug**: executa o comando de armazenamento no modo de depuração.
+* **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
+* **-b** ou **--blob** &lt;nome-do-blob>: o nome do blob de armazenamento a ser excluído.
+* **-q** ou **--quiet**: remova o blob de armazenamento específico sem confirmação.
+* **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
+* **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
+* **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
+* **--debug**: executa o comando de armazenamento no modo de depuração.
 
 **storage blob upload [opções] [arquivo] [contêiner] [blob]**
 
@@ -2030,17 +2015,17 @@ Este comando carrega o arquivo específico para o blob de armazenamento espefici
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
-+ **-b** ou **--blob** &lt;nome-do-blob>: o nome do blob de armazenamento a ser carregado.
-+ **-t** ou **--blobtype** &lt;tipo-de-blob>: o tipo de blob de armazenamento: Página ou Bloco.
-+ **-p** ou **--properties** &lt;propriedades>: as propriedades do blob de armazenamento para o arquivo carregado. As propriedades são pares chave=valor e separados com ponto e vírgula (;). As propriedades disponíveis são contentType, contentEncoding, contentLanguage e cacheControl.
-+ **-m** ou **--metadata** &lt;metadados>: os metadados do blob de armazenamento para o arquivo carregado. Os metadados são pares chave=valor e separados com ponto e vírgula (;).
-+ **--concurrenttaskcount** &lt;contagem-de-tarefas-simultâneas> O número máximo de solicitações de upload simultâneas.
-+ **-q** ou **--quiet**: substituir o blob de armazenamento específico sem confirmação.
-+ **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
-+ **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
-+ **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
-+ **--debug**: executa o comando de armazenamento no modo de depuração.
+* **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
+* **-b** ou **--blob** &lt;nome-do-blob>: o nome do blob de armazenamento a ser carregado.
+* **-t** ou **--blobtype** &lt;tipo-de-blob>: o tipo de blob de armazenamento: Página ou Bloco.
+* **-p** ou **--properties** &lt;propriedades>: as propriedades do blob de armazenamento para o arquivo carregado. As propriedades são pares chave=valor e separados com ponto e vírgula (;). As propriedades disponíveis são contentType, contentEncoding, contentLanguage e cacheControl.
+* **-m** ou **--metadata** &lt;metadados>: os metadados do blob de armazenamento para o arquivo carregado. Os metadados são pares chave=valor e separados com ponto e vírgula (;).
+* **--concurrenttaskcount** &lt;contagem-de-tarefas-simultâneas> O número máximo de solicitações de upload simultâneas.
+* **-q** ou **--quiet**: substituir o blob de armazenamento específico sem confirmação.
+* **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
+* **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
+* **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
+* **--debug**: executa o comando de armazenamento no modo de depuração.
 
 **storage blob download [opções] [contêiner] [blob] [destino]**
 
@@ -2048,23 +2033,21 @@ Este comando baixa o blob de armazenamento específico.
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-+ **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
-+ **-b** ou **--blob** &lt;nome-do-blob>: o nome do blob de armazenamento.
-+ **-d** ou **--destination** [destino]: o caminho do arquivo ou diretório de destino do download.
-+ **-m** ou **--checkmd5**: a marca md5sum para o arquivo baixado.
-+ **--concurrenttaskcount** &lt;contagem-de-tarefas-simultâneas> O número máximo de solicitações de upload simultâneas
-+ **-q** ou **--quiet**: substitui o arquivo de destino sem confirmação.
-+ **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
-+ **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
-+ **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
-+ **--debug**: executa o comando de armazenamento no modo de depuração.
+* **--container** &lt;contêiner>: o nome do contêiner de armazenamento a ser criado.
+* **-b** ou **--blob** &lt;nome-do-blob>: o nome do blob de armazenamento.
+* **-d** ou **--destination** [destino]: o caminho do arquivo ou diretório de destino do download.
+* **-m** ou **--checkmd5**: a marca md5sum para o arquivo baixado.
+* **--concurrenttaskcount** &lt;contagem-de-tarefas-simultâneas> O número máximo de solicitações de upload simultâneas
+* **-q** ou **--quiet**: substitui o arquivo de destino sem confirmação.
+* **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
+* **-k** ou **--account-key** &lt;chave-de-conta>: a chave de conta de armazenamento.
+* **-c** ou **--connection-string** &lt;cadeia-de-conexão>: a cadeia de conexão do armazenamento.
+* **--debug**: executa o comando de armazenamento no modo de depuração.
 
 ## <a name="commands-to-manage-sql-databases"></a>Comandos para gerenciar bancos de dados SQL
-
 Use estes comandos para gerenciar seus bancos de dados SQL do Azure
 
-###<a name="commands-to-manage-sql-servers."></a>Comandos para gerenciar servidores SQL.
-
+### <a name="commands-to-manage-sql-servers."></a>Comandos para gerenciar servidores SQL.
 Use estes comandos para gerenciar seus servidores SQL
 
 **sql server create &lt;login-do-administrador> &lt;senha-do-administrador> &lt;localização>**
@@ -2112,8 +2095,7 @@ Exclui um servidor
     + Removing SQL Server
     info:    sql server delete command OK
 
-###<a name="commands-to-manage-sql-databases"></a>Comandos para gerenciar bancos de dados SQL
-
+### <a name="commands-to-manage-sql-databases"></a>Comandos para gerenciar bancos de dados SQL
 Use estes comandos para gerenciar seus bancos de dados SQL.
 
 **sql db create [opções] &lt;nome-do-servidor> &lt;nome-do-banco-de-dados> &lt;senha-do-administrador>**
@@ -2204,8 +2186,7 @@ Exclui um banco de dados.
     + Removing database
     info:    sql db delete command OK
 
-###<a name="commands-to-manage-your-sql-server-firewall-rules"></a>Comandos para gerenciar suas regras de firewall do SQL Server
-
+### <a name="commands-to-manage-your-sql-server-firewall-rules"></a>Comandos para gerenciar suas regras de firewall do SQL Server
 Use estes comandos para gerenciar suas regras de firewall do SQL Server
 
 **sql firewallrule create [opções] &lt;nome-do-servidor> &lt;nome-da-regra> &lt;endereço-IP-inicial> &lt;endereço-IP-final>**
@@ -2258,7 +2239,6 @@ Esse comando exclui uma regra de firewall.
     info:    sql firewallrule delete command OK
 
 ## <a name="commands-to-manage-your-virtual-networks"></a>Comandos para gerenciar suas Redes Virtuais
-
 Use estes comandos para gerenciar suas Redes Virtuais
 
 **network vnet create [opções] &lt;localização>**

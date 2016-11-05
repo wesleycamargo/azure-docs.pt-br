@@ -1,32 +1,30 @@
-<properties
-	pageTitle="Azure Active Directory B2C: estrutura de política extensível | Microsoft Azure"
-	description="Um tópico sobre a estrutura de política extensível do Active Directory B2C do Azure e como criar vários tipos de política"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+---
+title: 'Azure Active Directory B2C: estrutura de política extensível | Microsoft Docs'
+description: Um tópico sobre a estrutura de política extensível do Active Directory B2C do Azure e como criar vários tipos de política
+services: active-directory-b2c
+documentationcenter: ''
+author: swkrish
+manager: msmbaldwin
+editor: bryanla
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/24/2016
+ms.author: swkrish
 
+---
 # Azure Active Directory B2C: estrutura de política extensível
-
 ## Noções básicas
-
 A estrutura de política extensível do Azure AD (Azure Active Directory) B2C é o principal ponto forte do serviço. As políticas descrevem totalmente as experiências de identidade do consumidor, como inscrição, credenciais ou edição de perfil. Por exemplo, uma política de inscrição permite controlar comportamentos definindo as seguintes configurações:
 
-- Tipos de conta (contas sociais, como o Facebook, ou contas locais como um endereço de email) que os consumidores podem usar para se inscrever no aplicativo.
-- Atributos (como nome, CEP e tamanho do calçado, por exemplo) que serão coletados junto ao consumidor durante a inscrição.
-- Uso da Multi-Factor Authentication.
-- A aparência e funcionalidade de todas as páginas de inscrição.
-- Informações (que se manifestam como declarações em um token) que o aplicativo recebe quando a execução da política é concluída.
+* Tipos de conta (contas sociais, como o Facebook, ou contas locais como um endereço de email) que os consumidores podem usar para se inscrever no aplicativo.
+* Atributos (como nome, CEP e tamanho do calçado, por exemplo) que serão coletados junto ao consumidor durante a inscrição.
+* Uso da Multi-Factor Authentication.
+* A aparência e funcionalidade de todas as páginas de inscrição.
+* Informações (que se manifestam como declarações em um token) que o aplicativo recebe quando a execução da política é concluída.
 
 Você pode criar várias políticas de tipos diferentes em seu locatário e usá-las em seus aplicativos, conforme necessário. As políticas podem ser reutilizadas entre os aplicativos. Isso permite aos desenvolvedores definir e modificar experiências de identidade do consumidor com pouca ou nenhuma alteração no código.
 
@@ -63,7 +61,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 Para obter mais detalhes sobre a estrutura de políticas, confira esta [postagem do blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## Criar uma política de inscrição
-
 Para habilitar a inscrição no seu aplicativo, você precisará criar uma política de inscrição. Essa política descreve as experiências pelas quais os consumidores passarão durante a inscrição e o conteúdo dos tokens que o aplicativo receberá de inscrições bem-sucedidas.
 
 1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
@@ -77,12 +74,13 @@ Para habilitar a inscrição no seu aplicativo, você precisará criar uma polí
 9. Abra a política clicando em "**B2C\_1\_SiUp**".
 10. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
 11. Clique em **Executar agora**. Uma nova guia do navegador se abre e você poderá percorrer a experiência do consumidor de inscrição no aplicativo.
-
-    > [AZURE.NOTE]
-    Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    
+    > [!NOTE]
+    > Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    > 
+    > 
 
 ## Usar uma política de entrada
-
 Para habilitar a entrada no aplicativo, você precisará criar uma política de entrada. Essa política descreve as experiências pelas quais os consumidores passarão durante a entrada e o conteúdo de tokens que o aplicativo receberá de entradas bem-sucedidas.
 
 1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
@@ -95,12 +93,13 @@ Para habilitar a entrada no aplicativo, você precisará criar uma política de 
 8. Abra a política clicando em "**B2C\_1\_SiIn**".
 9. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
 10. Clique em **Executar agora**. Uma nova guia do navegador se abre e você poderá percorrer a experiência do consumidor de entrada no aplicativo.
-
-    > [AZURE.NOTE]
-    Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    
+    > [!NOTE]
+    > Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    > 
+    > 
 
 ## Criar uma política de inscrição ou credenciais
-
 Esta política controla as duas experiências de inscrição e credenciais do consumidor com uma única configuração. Os consumidores são conduzidos para o caminho certo (inscrição ou credenciais), dependendo do contexto. Ele também descreve o conteúdo de tokens que o aplicativo receberá mediante inscrições ou entradas bem-sucedidas. Há um exemplo de código para a política de inscrição ou de entrada [disponível aqui](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
 1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
@@ -114,12 +113,13 @@ Esta política controla as duas experiências de inscrição e credenciais do co
 9. Abra a política clicando em "**B2C\_1\_SiUpIn**".
 10. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
 11. Clique em **Executar agora**. Uma nova guia do navegador se abre e você poderá percorrer a experiência do consumidor de inscrição ou credenciais, conforme configurado.
-
-    > [AZURE.NOTE]
-    Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    
+    > [!NOTE]
+    > Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    > 
+    > 
 
 ## Criar uma política de edição de perfil
-
 Para habilitar a edição de perfil no aplicativo, você precisará criar uma política de edição de perfil. Essa política descreve as experiências pelas quais os consumidores passarão durante a edição do perfil e o conteúdo de tokens que o aplicativo receberá na conclusão bem-sucedida.
 
 1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
@@ -133,12 +133,13 @@ Para habilitar a edição de perfil no aplicativo, você precisará criar uma po
 9. Abra a política clicando em "**B2C\_1\_SiPe**".
 10. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
 11. Clique em **Executar agora**. Uma nova guia do navegador se abre e você pode percorrer a experiência do consumidor de edição de perfil no aplicativo.
-
-    > [AZURE.NOTE]
-    Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
     
-## Criar uma política de redefinição de senha
+    > [!NOTE]
+    > Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    > 
+    > 
 
+## Criar uma política de redefinição de senha
 Para habilitar a redefinição de senha refinada, você precisará criar uma política de redefinição de senha. Observe que a opção de redefinição de senha para todo o locatário especificada [aqui](active-directory-b2c-reference-sspr.md) também é aplicável para as políticas de credenciais. Essa política descreve as experiências pelas quais os consumidores passarão durante a redefinição da senha e o conteúdo de tokens que o aplicativo receberá na conclusão bem-sucedida.
 
 1. Siga estas etapas para [navegar até a folha de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) no portal do Azure.
@@ -151,12 +152,13 @@ Para habilitar a redefinição de senha refinada, você precisará criar uma pol
 8. Abra a política clicando em "**B2C\_1\_SSPR**".
 9. Selecione "aplicativo Contoso B2C” na lista suspensa **Aplicativos** e `https://localhost:44321/` na lista suspensa **URL de Resposta/URI de redirecionamento**.
 10. Clique em **Executar agora**. Uma nova guia do navegador se abre e você pode percorrer a experiência do consumidor de redefinição de senha no aplicativo.
-
-    > [AZURE.NOTE]
-    Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    
+    > [!NOTE]
+    > Leva até um minuto para a criação de políticas e as atualizações entrem em vigor.
+    > 
+    > 
 
 ## Recursos adicionais
-
-- [Token, sessão e configuração de logon único](active-directory-b2c-token-session-sso.md).
+* [Token, sessão e configuração de logon único](active-directory-b2c-token-session-sso.md).
 
 <!---HONumber=AcomDC_0727_2016-->

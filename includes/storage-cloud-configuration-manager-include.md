@@ -2,13 +2,13 @@ A [Biblioteca do Gerenciador de Configuração do Microsoft Azure para .NET](htt
 
 Para fazer referência ao pacote CloudConfigurationManager, adicione a seguinte instrução `using` à sua classe:
 
-	using Microsoft.Azure;	//Namespace for CloudConfigurationManager
+    using Microsoft.Azure;    //Namespace for CloudConfigurationManager
 
 Aqui está um exemplo que mostra como recuperar uma cadeia de conexão de um arquivo de configuração:
 
     // Parse the connection string and return a reference to the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
 O uso do Gerenciador de Configurações do Azure é opcional. Você também pode usar uma API como a [classe ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) do .NET Framework.
 

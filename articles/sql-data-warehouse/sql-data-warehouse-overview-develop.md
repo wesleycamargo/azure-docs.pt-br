@@ -1,52 +1,51 @@
-<properties
-   pageTitle="Decisões de design e técnicas de codificação para o desenvolvimento do SQL Data Warehouse | Microsoft Azure"
-   description="Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Decisões de design e técnicas de codificação para o desenvolvimento do SQL Data Warehouse | Microsoft Docs
+description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/16/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 08/16/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Decisões de design e técnicas de codificação para o SQL Data Warehouse
-
 Dê uma olhada nesses artigos sobre desenvolvimento para entender melhor as principais decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
 
 ## Principais decisões de design
 Os artigos a seguir destacam alguns dos principais conceitos e as decisões de design que você precisará entender para desenvolver seu data warehouse distribuído usando o SQL Data Warehouse:
 
-- [conexões][]
-- [simultaneidade][]
-- [transações][]
-- [esquemas definidos pelo usuário][]
-- [distribuição da tabela][]
-- [índices da tabela][]
-- [partições de tabela][]
-- [CTAS][]
-- [estatísticas][]
+* [conexões][conexões]
+* [simultaneidade][simultaneidade]
+* [transações][transações]
+* [esquemas definidos pelo usuário][esquemas definidos pelo usuário]
+* [distribuição da tabela][distribuição da tabela]
+* [índices da tabela][índices da tabela]
+* [partições de tabela][partições de tabela]
+* [CTAS][CTAS]
+* [estatísticas][estatísticas]
 
 ## Recomendações para o desenvolvimento e técnicas de codificação
 Esses artigos realçam as técnicas de codificação específicas, dicas e recomendações para o desenvolvimento de seu SQL Data Warehouse:
 
-- [procedimentos armazenados][]
-- [rótulos][]
-- [modos de exibição][]
-- [tabelas temporárias][]
-- [SQL dinâmico][]
-- [looping][]
-- [agrupar por opções][]
-- [atribuição de variável][]
+* [procedimentos armazenados][procedimentos armazenados]
+* [rótulos][rótulos]
+* [modos de exibição][modos de exibição]
+* [tabelas temporárias][tabelas temporárias]
+* [SQL dinâmico][SQL dinâmico]
+* [looping][looping]
+* [agrupar por opções][agrupar por opções]
+* [atribuição de variável][atribuição de variável]
 
 ## Próximas etapas
-Após a leitura dos artigos de desenvolvimento, confira a página [Referência a Transact-SQL][] para obter mais detalhes sobre a sintaxe com suporte para o SQL Data Warehouse.
+Após a leitura dos artigos de desenvolvimento, confira a página [Referência a Transact-SQL][Referência a Transact-SQL] para obter mais detalhes sobre a sintaxe com suporte para o SQL Data Warehouse.
 
 <!--Image references-->
 

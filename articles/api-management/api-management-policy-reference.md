@@ -1,79 +1,78 @@
-<properties 
-	pageTitle="Referência de políticas do Gerenciamento de API do Azure" 
-	description="Saiba mais sobre as políticas disponíveis para configurar o Gerenciamento de API." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="vladvino" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Referência de políticas do Gerenciamento de API do Azure
+description: Saiba mais sobre as políticas disponíveis para configurar o Gerenciamento de API.
+services: api-management
+documentationcenter: ''
+author: vladvino
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/29/2016" 
-	ms.author="apimpm"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/29/2016
+ms.author: apimpm
 
+---
 # Referência de políticas do Gerenciamento de API do Azure
+Esta seção fornece um índice para as políticas de [referência de política de Gerenciamento de API][referência de política de Gerenciamento de API]. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API][Políticas de Gerenciamento de API].
 
-Esta seção fornece um índice para as políticas de [referência de política de Gerenciamento de API][]. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API][].
-
-Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][] e [Definir variável][] se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas][] e [Expressões de política][].
+Expressões de política podem ser usadas como valores de atributo ou texto em qualquer uma das políticas de Gerenciamento de API, a menos que a política especifique o contrário. Algumas políticas, como [Controlar fluxo][Controlar fluxo] e [Definir variável][Definir variável] se baseiam em expressões de políticas. Para obter mais informações, confira [Políticas avançadas][Políticas avançadas] e [Expressões de política][Expressões de política].
 
 ## Índice de referência de política
-
--	[Políticas de restrição de acesso][]
-	-	[Verificar cabeçalho HTTP][] - Impõe a existência e/ou valor de um cabeçalho HTTP.
-	-	[Limitar a taxa de chamada por assinatura][] - Previne picos de uso da API limitando a taxa de chamada, baseado em assinatura.
-	-	[Limitar a taxa de chamada por chave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) - Previne picos de uso da API limitando a taxa de chamada, baseado em chave.
-	-	[Restringir IP do autor da chamada][] - Filtra (permite/recusa) chamadas de endereços IP específicos e/ou intervalos de endereços.
-	-	[Definir a cota de uso por assinatura][] - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em assinatura.
-	-	[Definir a cota de uso por chave](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em chave.
-	-	[Validar JWT][] - Impõe a existência e a validade de JWT extraída de um cabeçalho HTTP especificado ou um parâmetro de consulta especificado.
--	[Políticas avançadas][]
-	-	[Controlar fluxo][] - Aplica-se condicionalmente a instruções de políticas com base nos resultados da avaliação do booliano [expressions][].
-	-	[Encaminhar solicitação][] -Encaminha a solicitação ao serviço de back-end.
-	-	[Registrar em log no Hub de Eventos][] - Envia mensagens no formato especificado para um destino de mensagem definido por uma entidade [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
-	-	[Repetir](https://msdn.microsoft.com/pt-BR/library/dn894085.aspx#Retry) - repete a execução das instruções de política, se e até que a condição seja atendida. A execução será repetida em intervalos de tempo especificados até e a contagem de repetições especificada.
-	-	[Retornar resposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - Anula a execução de pipeline e retorna a resposta especificada diretamente para o autor da chamada.
-	-	[Enviar solicitação unidirecional](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - Envia uma solicitação para a URL especificada sem aguardar uma resposta.
-	-	[Enviar solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - Envia uma solicitação para a URL especificada.
-	-	[Definir método de solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - Permite alterar o método HTTP de uma solicitação.
-	-	[Definir status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Altera o código de status de HTTP para o valor especificado.
-	-	[Definir variável][] - Mantém um valor em uma variável [contexto][] para acesso posterior.
-	-	[Rastreamento](https://msdn.microsoft.com/pt-BR/library/dn894085.aspx#Trace) - adiciona uma cadeia de caracteres para a saída do [Inspetor de API](../api-management/api-management-howto-api-inspector.md).
-	-	[Aguardar](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) - Aguarda a conclusão da solicitação de Envio embutida, Obtenção do valor do cache ou Controle de políticas de fluxo antes de continuar.
--	[Políticas de autenticação][]
-	-	[Autenticar com o Basic][] - Autenticar com um serviço de back-end usando a autenticação Básica.
-	-	[Autenticar com o certificado de cliente][] - Autenticar com um serviço de back-end usando certificados de cliente.
--	[Políticas de cache][]
-	-	[Obter do cache][] - Executa a pesquisa em cache e retorna uma resposta válida armazenada em cache quando uma estiver disponível.
-	-	[Armazenar em cache][] - Armazena a resposta em cache de acordo com a configuração de controle de cache especificada.
-	-	[Obter valor do cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - Recupere um item em cache por chave.
-	-	[Armazenar valor em cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) -Armazene um item no cache por chave.
-	-	[Remover o valor do cache](https://msdn.microsoft.com/pt-BR/library/dn894086.aspx#RemoveCacheByKey) - remove um item no cache por chave.
--	[Políticas entre domínios][]
-	-	[Permitir chamadas entre domínios][] - Torna a API acessível por meio de clientes Adobe Flash e Microsoft Silverlight baseados em navegadores.
-	-	[CORS][] - Adicionar suporte de compartilhamento de recursos entre origens (CORS) a uma operação ou a uma API para permitir chamadas entre domínios de clientes baseados em navegadores.
-	-	[JSONP][] - Adiciona suporte JSON com preenchimento (JSONP) a uma operação ou a uma API para permitir chamadas entre domínios de clientes JavaScript baseados em navegadores.
--	[Políticas de transformação][]
-	-	[Converter JSON para XML][] - Converte o corpo da solicitação ou da resposta de JSON para XML.
-	-	[Converter XML para JSON][] - Converte o corpo da solicitação ou da resposta de XML para JSON.
-	-	[Localizar e substituir cadeia no corpo][] - Encontra uma subcadeia de uma solicitação ou resposta e a substitui por outra subcadeia.
-	-	[Mascarar URLs no conteúdo][] – Reescreve (mascara) os links no corpo da resposta, para que eles apontem para o link equivalente por meio do gateway.
-	-	[Definir o serviço de back-end][] - Altera o serviço de back-end para uma solicitação de entrada.
-	-	[Definir corpo][] - Define o corpo da mensagem para solicitações de entrada e saída.
-	-	[Definir cabeçalho HTTP][] - Atribui um valor a uma resposta e/ou cabeçalho de resposta existente ou adiciona uma nova resposta e/ou cabeçalho de resposta.
-	-	[Definir parâmetro de cadeia de consulta][] - Adiciona, substitui o valor ou exclui parâmetros de cadeias de consulta de solicitação.
-	-	[Reescrever URL][] - Converte a URL de uma solicitação de sua forma pública em sua forma esperada pelo serviço Web.
+* [Políticas de restrição de acesso][Políticas de restrição de acesso]
+  * [Verificar cabeçalho HTTP][Verificar cabeçalho HTTP] - Impõe a existência e/ou valor de um cabeçalho HTTP.
+  * [Limitar a taxa de chamada por assinatura][Limitar a taxa de chamada por assinatura] - Previne picos de uso da API limitando a taxa de chamada, baseado em assinatura.
+  * [Limitar a taxa de chamada por chave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) - Previne picos de uso da API limitando a taxa de chamada, baseado em chave.
+  * [Restringir IP do autor da chamada][Restringir IP do autor da chamada] - Filtra (permite/recusa) chamadas de endereços IP específicos e/ou intervalos de endereços.
+  * [Definir a cota de uso por assinatura][Definir a cota de uso por assinatura] - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em assinatura.
+  * [Definir a cota de uso por chave](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em chave.
+  * [Validar JWT][Validar JWT] - Impõe a existência e a validade de JWT extraída de um cabeçalho HTTP especificado ou um parâmetro de consulta especificado.
+* [Políticas avançadas][Políticas avançadas]
+  * [Controlar fluxo][Controlar fluxo] - Aplica-se condicionalmente a instruções de políticas com base nos resultados da avaliação do booliano [expressions][expressions].
+  * [Encaminhar solicitação][Encaminhar solicitação] -Encaminha a solicitação ao serviço de back-end.
+  * [Registrar em log no Hub de Eventos][Registrar em log no Hub de Eventos] - Envia mensagens no formato especificado para um destino de mensagem definido por uma entidade [Agente](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
+  * [Repetir](https://msdn.microsoft.com/pt-BR/library/dn894085.aspx#Retry) - repete a execução das instruções de política, se e até que a condição seja atendida. A execução será repetida em intervalos de tempo especificados até e a contagem de repetições especificada.
+  * [Retornar resposta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - Anula a execução de pipeline e retorna a resposta especificada diretamente para o autor da chamada.
+  * [Enviar solicitação unidirecional](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - Envia uma solicitação para a URL especificada sem aguardar uma resposta.
+  * [Enviar solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - Envia uma solicitação para a URL especificada.
+  * [Definir método de solicitação](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - Permite alterar o método HTTP de uma solicitação.
+  * [Definir status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Altera o código de status de HTTP para o valor especificado.
+  * [Definir variável][Definir variável] - Mantém um valor em uma variável [contexto][contexto] para acesso posterior.
+  * [Rastreamento](https://msdn.microsoft.com/pt-BR/library/dn894085.aspx#Trace) - adiciona uma cadeia de caracteres para a saída do [Inspetor de API](api-management-howto-api-inspector.md).
+  * [Aguardar](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) - Aguarda a conclusão da solicitação de Envio embutida, Obtenção do valor do cache ou Controle de políticas de fluxo antes de continuar.
+* [Políticas de autenticação][Políticas de autenticação]
+  * [Autenticar com o Basic][Autenticar com o Basic] - Autenticar com um serviço de back-end usando a autenticação Básica.
+  * [Autenticar com o certificado de cliente][Autenticar com o certificado de cliente] - Autenticar com um serviço de back-end usando certificados de cliente.
+* [Políticas de cache][Políticas de cache]
+  * [Obter do cache][Obter do cache] - Executa a pesquisa em cache e retorna uma resposta válida armazenada em cache quando uma estiver disponível.
+  * [Armazenar em cache][Armazenar em cache] - Armazena a resposta em cache de acordo com a configuração de controle de cache especificada.
+  * [Obter valor do cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - Recupere um item em cache por chave.
+  * [Armazenar valor em cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) -Armazene um item no cache por chave.
+  * [Remover o valor do cache](https://msdn.microsoft.com/pt-BR/library/dn894086.aspx#RemoveCacheByKey) - remove um item no cache por chave.
+* [Políticas entre domínios][Políticas entre domínios]
+  * [Permitir chamadas entre domínios][Permitir chamadas entre domínios] - Torna a API acessível por meio de clientes Adobe Flash e Microsoft Silverlight baseados em navegadores.
+  * [CORS][CORS] - Adicionar suporte de compartilhamento de recursos entre origens (CORS) a uma operação ou a uma API para permitir chamadas entre domínios de clientes baseados em navegadores.
+  * [JSONP][JSONP] - Adiciona suporte JSON com preenchimento (JSONP) a uma operação ou a uma API para permitir chamadas entre domínios de clientes JavaScript baseados em navegadores.
+* [Políticas de transformação][Políticas de transformação]
+  * [Converter JSON para XML][Converter JSON para XML] - Converte o corpo da solicitação ou da resposta de JSON para XML.
+  * [Converter XML para JSON][Converter XML para JSON] - Converte o corpo da solicitação ou da resposta de XML para JSON.
+  * [Localizar e substituir cadeia no corpo][Localizar e substituir cadeia no corpo] - Encontra uma subcadeia de uma solicitação ou resposta e a substitui por outra subcadeia.
+  * [Mascarar URLs no conteúdo][Mascarar URLs no conteúdo] – Reescreve (mascara) os links no corpo da resposta, para que eles apontem para o link equivalente por meio do gateway.
+  * [Definir o serviço de back-end][Definir o serviço de back-end] - Altera o serviço de back-end para uma solicitação de entrada.
+  * [Definir corpo][Definir corpo] - Define o corpo da mensagem para solicitações de entrada e saída.
+  * [Definir cabeçalho HTTP][Definir cabeçalho HTTP] - Atribui um valor a uma resposta e/ou cabeçalho de resposta existente ou adiciona uma nova resposta e/ou cabeçalho de resposta.
+  * [Definir parâmetro de cadeia de consulta][Definir parâmetro de cadeia de consulta] - Adiciona, substitui o valor ou exclui parâmetros de cadeias de consulta de solicitação.
+  * [Reescrever URL][Reescrever URL] - Converte a URL de uma solicitação de sua forma pública em sua forma esperada pelo serviço Web.
 
 ## Próximas etapas
-
 Para obter mais informações sobre expressões de política, consulte o vídeo a seguir.
 
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
+> 
+> 
 
 [Políticas de restrição de acesso]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [Verificar cabeçalho HTTP]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
@@ -120,6 +119,6 @@ Para obter mais informações sobre expressões de política, consulte o vídeo 
 
 [Expressões de política]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
- 
+
 
 <!---HONumber=AcomDC_0831_2016-->

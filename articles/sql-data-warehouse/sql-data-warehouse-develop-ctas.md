@@ -1,26 +1,25 @@
-<properties
-   pageTitle="Create table as select (CTAS) no SQL Data Warehouse | Microsoft Azure"
-   description="Dicas para codificação com a instrução create table as select (CTAS) no SQL Data Warehouse do Azure para desenvolvimento de soluções."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Create table as select (CTAS) no SQL Data Warehouse | Microsoft Docs
+description: Dicas para codificação com a instrução create table as select (CTAS) no SQL Data Warehouse do Azure para desenvolvimento de soluções.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Instrução Create Table As Select (CTAS) no SQL Data Warehouse
 Create table as select ou `CTAS` é um dos recursos do T-SQL mais importantes disponíveis. É uma operação totalmente em paralelo que cria uma nova tabela com base na saída de uma instrução SELECT. `CTAS` é a maneira mais rápida e simples de criar uma cópia de uma tabela. Você pode considerá-la uma versão turbinada de `SELECT..INTO`, se desejar. Este documento fornece exemplos e melhores práticas para o `CTAS`.
 
 ## Usando o CTAS para copiar uma tabela
-
 Talvez um dos usos mais comuns do `CTAS` seja criar uma cópia de uma tabela para que você possa alterar a DDL. Caso, por exemplo, você tenha criado sua tabela originalmente como `ROUND_ROBIN` e agora deseje alterá-la para uma tabela distribuída em uma coluna, `CTAS` é como você alteraria a coluna de distribuição. `CTAS` também pode ser usado para alterar os tipos de particionamento, indexação ou coluna.
 
 Digamos que você tenha criado esta tabela usando o tipo de distribuição padrão do `ROUND_ROBIN`, já que nenhuma coluna de distribuição foi especificada em `CREATE TABLE`.
@@ -28,29 +27,29 @@ Digamos que você tenha criado esta tabela usando o tipo de distribuição padr�
 ```sql
 CREATE TABLE FactInternetSales
 (
-	ProductKey int NOT NULL,
-	OrderDateKey int NOT NULL,
-	DueDateKey int NOT NULL,
-	ShipDateKey int NOT NULL,
-	CustomerKey int NOT NULL,
-	PromotionKey int NOT NULL,
-	CurrencyKey int NOT NULL,
-	SalesTerritoryKey int NOT NULL,
-	SalesOrderNumber nvarchar(20) NOT NULL,
-	SalesOrderLineNumber tinyint NOT NULL,
-	RevisionNumber tinyint NOT NULL,
-	OrderQuantity smallint NOT NULL,
-	UnitPrice money NOT NULL,
-	ExtendedAmount money NOT NULL,
-	UnitPriceDiscountPct float NOT NULL,
-	DiscountAmount float NOT NULL,
-	ProductStandardCost money NOT NULL,
-	TotalProductCost money NOT NULL,
-	SalesAmount money NOT NULL,
-	TaxAmt money NOT NULL,
-	Freight money NOT NULL,
-	CarrierTrackingNumber nvarchar(25),
-	CustomerPONumber nvarchar(25)
+    ProductKey int NOT NULL,
+    OrderDateKey int NOT NULL,
+    DueDateKey int NOT NULL,
+    ShipDateKey int NOT NULL,
+    CustomerKey int NOT NULL,
+    PromotionKey int NOT NULL,
+    CurrencyKey int NOT NULL,
+    SalesTerritoryKey int NOT NULL,
+    SalesOrderNumber nvarchar(20) NOT NULL,
+    SalesOrderLineNumber tinyint NOT NULL,
+    RevisionNumber tinyint NOT NULL,
+    OrderQuantity smallint NOT NULL,
+    UnitPrice money NOT NULL,
+    ExtendedAmount money NOT NULL,
+    UnitPriceDiscountPct float NOT NULL,
+    DiscountAmount float NOT NULL,
+    ProductStandardCost money NOT NULL,
+    TotalProductCost money NOT NULL,
+    SalesAmount money NOT NULL,
+    TaxAmt money NOT NULL,
+    Freight money NOT NULL,
+    CarrierTrackingNumber nvarchar(25),
+    CustomerPONumber nvarchar(25)
 );
 ```
 
@@ -84,19 +83,23 @@ RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 DROP TABLE FactInternetSales_old;
 ```
 
-> [AZURE.NOTE] O SQL Data Warehouse do Azure ainda não dá suporte às estatísticas de criação ou atualização automática. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados. Para obter uma explicação detalhada das estatísticas, consulte o tópico [Estatísticas][] no Grupo de desenvolvimento de tópicos.
+> [!NOTE]
+> O SQL Data Warehouse do Azure ainda não dá suporte às estatísticas de criação ou atualização automática. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento ou após uma alteração significativa nos dados. Para obter uma explicação detalhada das estatísticas, consulte o tópico [Estatísticas][Estatísticas] no Grupo de desenvolvimento de tópicos.
+> 
+> 
 
 ## Usando o CTAS para resolver os recursos sem suporte
-
 O `CTAS` também pode ser usado para solucionar os diversos recursos sem suporte listados abaixo. Isso pode ser geralmente uma situação de ganho mútuo pois não apenas o seu código estará compatível, mas ele será executado muitas vezes mais rapidamente no SQL Data Warehouse. Isso é devido ao seu design totalmente em paralelo. Os cenários que podem ser solucionados com CTAS incluem:
 
-- SELECT..INTO
-- ANSI JOINS em instruções UPDATE
-- ANSI JOINs em instruções DELETE
-- Instrução MERGE
+* SELECT..INTO
+* ANSI JOINS em instruções UPDATE
+* ANSI JOINs em instruções DELETE
+* Instrução MERGE
 
-> [AZURE.NOTE] Tente imaginar “CTAS primeiro”. Caso você ache que pode resolver um problema usando `CTAS`, que geralmente é a melhor maneira de abordá-lo, mesmo se você está escrevendo mais dados como um resultado.
->
+> [!NOTE]
+> Tente imaginar “CTAS primeiro”. Caso você ache que pode resolver um problema usando `CTAS`, que geralmente é a melhor maneira de abordá-lo, mesmo se você está escrevendo mais dados como um resultado.
+> 
+> 
 
 ## SELECT..INTO
 Você pode ver que `SELECT..INTO` aparece em vários lugares na sua solução.
@@ -123,23 +126,25 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-> [AZURE.NOTE] O CTAS atualmente requer que uma coluna de distribuição seja especificada. Se você não estiver tentando alterar intencionalmente a coluna de distribuição, o `CTAS` será executado mais rapidamente se você selecionar uma coluna de distribuição igual à tabela subjacente, já que essa estratégia evita a movimentação dos dados. Se você estiver criando uma pequena tabela na qual o desempenho não é um problema, poderá especificar `ROUND_ROBIN` para evitar ter de decidir sobre uma coluna de distribuição.
+> [!NOTE]
+> O CTAS atualmente requer que uma coluna de distribuição seja especificada. Se você não estiver tentando alterar intencionalmente a coluna de distribuição, o `CTAS` será executado mais rapidamente se você selecionar uma coluna de distribuição igual à tabela subjacente, já que essa estratégia evita a movimentação dos dados. Se você estiver criando uma pequena tabela na qual o desempenho não é um problema, poderá especificar `ROUND_ROBIN` para evitar ter de decidir sobre uma coluna de distribuição.
+> 
+> 
 
 ## Substituição da junção ANSI para atualizar instruções
-
 Você pode descobrir uma atualização complexa que une mais de duas tabelas usando a sintaxe da junção ANSI para executar a UPDATE ou DELETE.
 
 Imagine que você precisava atualizar esta tabela:
 
 ```sql
 CREATE TABLE [dbo].[AnnualCategorySales]
-(	[EnglishProductCategoryName]	NVARCHAR(50)	NOT NULL
-,	[CalendarYear]					SMALLINT		NOT NULL
-,	[TotalSalesAmount]				MONEY			NOT NULL
+(    [EnglishProductCategoryName]    NVARCHAR(50)    NOT NULL
+,    [CalendarYear]                    SMALLINT        NOT NULL
+,    [TotalSalesAmount]                MONEY            NOT NULL
 )
 WITH
 (
-	DISTRIBUTION = ROUND_ROBIN
+    DISTRIBUTION = ROUND_ROBIN
 )
 ;
 ```
@@ -147,25 +152,25 @@ WITH
 A consulta original pode se parecer com isso:
 
 ```sql
-UPDATE	acs
-SET		[TotalSalesAmount] = [fis].[TotalSalesAmount]
-FROM	[dbo].[AnnualCategorySales] 	AS acs
-JOIN	(
-		SELECT	[EnglishProductCategoryName]
-		,		[CalendarYear]
-		,		SUM([SalesAmount])				AS [TotalSalesAmount]
-		FROM	[dbo].[FactInternetSales]		AS s
-		JOIN	[dbo].[DimDate]					AS d	ON s.[OrderDateKey]				= d.[DateKey]
-		JOIN	[dbo].[DimProduct]				AS p	ON s.[ProductKey]				= p.[ProductKey]
-		JOIN	[dbo].[DimProductSubCategory]	AS u	ON p.[ProductSubcategoryKey]	= u.[ProductSubcategoryKey]
-		JOIN	[dbo].[DimProductCategory]		AS c	ON u.[ProductCategoryKey]		= c.[ProductCategoryKey]
-		WHERE 	[CalendarYear] = 2004
-		GROUP BY
-				[EnglishProductCategoryName]
-		,		[CalendarYear]
-		) AS fis
-ON	[acs].[EnglishProductCategoryName]	= [fis].[EnglishProductCategoryName]
-AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
+UPDATE    acs
+SET        [TotalSalesAmount] = [fis].[TotalSalesAmount]
+FROM    [dbo].[AnnualCategorySales]     AS acs
+JOIN    (
+        SELECT    [EnglishProductCategoryName]
+        ,        [CalendarYear]
+        ,        SUM([SalesAmount])                AS [TotalSalesAmount]
+        FROM    [dbo].[FactInternetSales]        AS s
+        JOIN    [dbo].[DimDate]                    AS d    ON s.[OrderDateKey]                = d.[DateKey]
+        JOIN    [dbo].[DimProduct]                AS p    ON s.[ProductKey]                = p.[ProductKey]
+        JOIN    [dbo].[DimProductSubCategory]    AS u    ON p.[ProductSubcategoryKey]    = u.[ProductSubcategoryKey]
+        JOIN    [dbo].[DimProductCategory]        AS c    ON u.[ProductCategoryKey]        = c.[ProductCategoryKey]
+        WHERE     [CalendarYear] = 2004
+        GROUP BY
+                [EnglishProductCategoryName]
+        ,        [CalendarYear]
+        ) AS fis
+ON    [acs].[EnglishProductCategoryName]    = [fis].[EnglishProductCategoryName]
+AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
 ;
 ```
 
@@ -178,18 +183,18 @@ Você pode usar uma combinação de um `CTAS` e uma junção implícita para sub
 CREATE TABLE CTAS_acs
 WITH (DISTRIBUTION = ROUND_ROBIN)
 AS
-SELECT	ISNULL(CAST([EnglishProductCategoryName] AS NVARCHAR(50)),0)	AS [EnglishProductCategoryName]
-,		ISNULL(CAST([CalendarYear] AS SMALLINT),0) 						AS [CalendarYear]
-,		ISNULL(CAST(SUM([SalesAmount]) AS MONEY),0)						AS [TotalSalesAmount]
-FROM	[dbo].[FactInternetSales]		AS s
-JOIN	[dbo].[DimDate]					AS d	ON s.[OrderDateKey]				= d.[DateKey]
-JOIN	[dbo].[DimProduct]				AS p	ON s.[ProductKey]				= p.[ProductKey]
-JOIN	[dbo].[DimProductSubCategory]	AS u	ON p.[ProductSubcategoryKey]	= u.[ProductSubcategoryKey]
-JOIN	[dbo].[DimProductCategory]		AS c	ON u.[ProductCategoryKey]		= c.[ProductCategoryKey]
-WHERE 	[CalendarYear] = 2004
+SELECT    ISNULL(CAST([EnglishProductCategoryName] AS NVARCHAR(50)),0)    AS [EnglishProductCategoryName]
+,        ISNULL(CAST([CalendarYear] AS SMALLINT),0)                         AS [CalendarYear]
+,        ISNULL(CAST(SUM([SalesAmount]) AS MONEY),0)                        AS [TotalSalesAmount]
+FROM    [dbo].[FactInternetSales]        AS s
+JOIN    [dbo].[DimDate]                    AS d    ON s.[OrderDateKey]                = d.[DateKey]
+JOIN    [dbo].[DimProduct]                AS p    ON s.[ProductKey]                = p.[ProductKey]
+JOIN    [dbo].[DimProductSubCategory]    AS u    ON p.[ProductSubcategoryKey]    = u.[ProductSubcategoryKey]
+JOIN    [dbo].[DimProductCategory]        AS c    ON u.[ProductCategoryKey]        = c.[ProductCategoryKey]
+WHERE     [CalendarYear] = 2004
 GROUP BY
-		[EnglishProductCategoryName]
-,		[CalendarYear]
+        [EnglishProductCategoryName]
+,        [CalendarYear]
 ;
 
 -- Use an implicit join to perform the update
@@ -265,7 +270,6 @@ RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
 ```
 
 ## Recomendação de CTAS: declarar explicitamente o tipo de dados e a nulidade da saída
-
 Ao migrar o código, você pode achar executar por esse tipo de padrão de codificação:
 
 ```sql
@@ -335,12 +339,16 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
 Observe o seguinte:
-- CAST ou CONVERT poderia ter sido usado
-- ISNULL é usado para forçar NULLability não COALESCE
-- ISNULL é a função mais externa
-- A segunda parte do ISNULL é uma constante, ou seja, 0
 
-> [AZURE.NOTE] Para a nulidade ser corretamente definida, é vital usar `ISNULL`, e não `COALESCE`. `COALESCE` não é uma função determinística, assim, o resultado da expressão sempre será anulável. `ISNULL` é diferente. É determinístico. Portanto, quando a segunda parte da função `ISNULL` é uma constante ou um literal, o valor resultante será NOT NULL.
+* CAST ou CONVERT poderia ter sido usado
+* ISNULL é usado para forçar NULLability não COALESCE
+* ISNULL é a função mais externa
+* A segunda parte do ISNULL é uma constante, ou seja, 0
+
+> [!NOTE]
+> Para a nulidade ser corretamente definida, é vital usar `ISNULL`, e não `COALESCE`. `COALESCE` não é uma função determinística, assim, o resultado da expressão sempre será anulável. `ISNULL` é diferente. É determinístico. Portanto, quando a segunda parte da função `ISNULL` é uma constante ou um literal, o valor resultante será NOT NULL.
+> 
+> 
 
 Esta dica não é apenas útil para assegurar a integridade de seus cálculos. Também é importante para a alternância de partição de tabela. Imagine que você tenha essa tabela definida como o caso:
 
@@ -416,10 +424,10 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 Você pode ver, portanto, que a consistência de tipo e manutenção das propriedades de nulidade em um CTAS é uma boa prática recomendada de desenvolvimento. Ela ajuda a manter a integridade de seus cálculos e também garante que a alternância de partição é possível.
 
-Consulte o MSDN para obter mais informações sobre como usar o [CTAS][]. Ela é uma das instruções mais importantes no SQL Data Warehouse do Azure. Certifique-se compreendê-la totalmente.
+Consulte o MSDN para obter mais informações sobre como usar o [CTAS][CTAS]. Ela é uma das instruções mais importantes no SQL Data Warehouse do Azure. Certifique-se compreendê-la totalmente.
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][Visão geral do desenvolvimento].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-ctas/ctas-results.png

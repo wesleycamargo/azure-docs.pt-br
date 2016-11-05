@@ -1,38 +1,35 @@
-<properties
-	pageTitle="Serviço de Aplicativo do Azure e seu impacto sobre os serviços existentes do Azure"
-	description="Explica como o novo Serviço de Aplicativo do Azure e seus recursos afetam os serviços existentes no Azure."
-	services="app-service"
-    documentationCenter=""
-	authors="yochay"
-	manager="nirma"
-	editor=""/>
+---
+title: Serviço de Aplicativo do Azure e seu impacto sobre os serviços existentes do Azure
+description: Explica como o novo Serviço de Aplicativo do Azure e seus recursos afetam os serviços existentes no Azure.
+services: app-service
+documentationcenter: ''
+author: yochay
+manager: nirma
+editor: ''
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/12/2016"
-	ms.author="yochayk"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/12/2016
+ms.author: yochayk
 
-
+---
 # Serviço de Aplicativo do Azure e serviços existentes do Azure
-
 Este artigo descreve as alterações nos serviços existentes do Azure como parte da alteração para reunir vários serviços do Azure no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/), uma nova oferta integrada.
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Visão geral
-
 O [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) é um serviço de nuvem novo e exclusivo que habilita os desenvolvedores a criar aplicativos Web e móveis para qualquer plataforma e qualquer dispositivo. O Serviço de Aplicativo é uma solução integrada criada para simplificar funções de codificação repetidas, integrar-se a sistemas corporativos e de SaaS e automatizar processos de negócios, além de atender às suas necessidades de segurança, confiabilidade e escalabilidade.
 
 O Serviço de Aplicativo reúne os seguintes serviços existentes do Azure - [Sites](https://azure.microsoft.com/services/websites/), [Serviços Móveis](https://azure.microsoft.com/services/mobile-services/), e [Serviços Biztalk](https://azure.microsoft.com/services/biztalk-services/) em um único serviço combinado, enquanto acrescenta novas capacidades avançadas. O Serviço de Aplicativo permite hospedar os seguintes tipos de aplicativo:
 
--   Aplicativos Web
--   Aplicativos Móveis
--   Aplicativos de API
--   Aplicativos Lógicos
+* Aplicativos Web
+* Aplicativos Móveis
+* Aplicativos de API
+* Aplicativos Lógicos
 
 A tabela a seguir explica como os serviços existentes do Azure são mapeados para o Serviço de Aplicativo e os tipos de aplicativos disponíveis nele.
 

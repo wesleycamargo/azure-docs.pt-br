@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Sincronização do Azure AD Connect: Agendador | Microsoft Azure"
-   description="Este tópico descreve o recurso Agendador interno na sincronização do Azure AD Connect."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Sincronização do Azure AD Connect: Agendador | Microsoft Docs'
+description: Este tópico descreve o recurso Agendador interno na sincronização do Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/04/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/04/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect-sync:-scheduler"></a>Sincronização do Azure AD Connect: agendador
 Este tópico descreve o agendador interno na sincronização do Azure AD Connect (também conhecido como mecanismo de sincronização).
 
@@ -29,8 +28,8 @@ Em versões anteriores, o agendador de objetos e atributos ficava fora do mecani
 
 O agendador é responsável por duas tarefas:
 
-- **Ciclo de sincronização**. O processo de importação, sincronização e exportação das alterações.
-- **Tarefas de manutenção**. Renove as chaves e certificados para a redefinição de Senha e o DRS (Serviço de Registro de Dispositivo). Limpe as entradas antigas no log de operações.
+* **Ciclo de sincronização**. O processo de importação, sincronização e exportação das alterações.
+* **Tarefas de manutenção**. Renove as chaves e certificados para a redefinição de Senha e o DRS (Serviço de Registro de Dispositivo). Limpe as entradas antigas no log de operações.
 
 O agendador em si está sempre em execução, mas ele pode ser configurado para executar apenas uma ou nenhuma dessas tarefas. Por exemplo, se você precisar ter seu próprio processo de ciclo de sincronização, poderá desabilitar essa tarefa no agendador, mas ainda executar a tarefa de manutenção.
 
@@ -41,23 +40,23 @@ Para ver as configurações atuais, acesse o PowerShell e execute `Get-ADSyncSch
 
 Se você vir **O comando de sincronização ou o cmdlet não está disponível** quando executar esse cmdlet, o módulo do PowerShell não estará carregado. Isso poderá ocorrer se você executar o Azure AD Connect em um controlador de domínio ou em um servidor com níveis mais altos de restrição do PowerShell do que as configurações padrão. Se você vir esse erro, execute `Import-Module ADSync` para disponibilizar o cmdlet.
 
-- **AllowedSyncCycleInterval**. O AD do Azure com maior frequência permitirá a realização das sincronizações. Você não pode sincronizar com maior frequência do que isso e ainda ter suporte.
-- **CurrentlyEffectiveSyncCycleInterval**. O agendamento atualmente em vigor. Ele terá o mesmo valor de CustomizedSyncInterval (se definido) se não for mais frequente do que AllowedSyncInterval. Se você alterar CustomizedSyncCycleInterval, isso entrará em vigor após o próximo ciclo de sincronização.
-- **CustomizedSyncCycleInterval**. Se você quiser que o agendador seja executado em intervalos diferentes do padrão de 30 minutos, terá que definir nessa configuração. Na figura acima, o agendador foi definido para ser executado a cada hora. Se você definir isso como um valor menor do que AllowedSyncInterval, a última opção será usada.
-- **NextSyncCyclePolicyType**. Delta ou Inicial. Define se a próxima execução deve processar somente alterações delta ou se deve fazer uma importação e uma sincronização completas, o que também reprocessaria as regras novas ou alteradas.
-- **NextSyncCycleStartTimeInUTC**. Da próxima vez, o agendador iniciará o próximo ciclo de sincronização.
-- **PurgeRunHistoryInterval**. Os logs de operação de tempo devem ser mantidos. Eles podem ser analisados no gerenciador do serviço de sincronização. O padrão é mantê-los por sete dias.
-- **SyncCycleEnabled**. Indica se o agendador está executando os processos de exportação, importação e sincronização como parte de sua operação.
-- **MaintenanceEnabled**. Mostra se o processo de manutenção está habilitado. Ele atualizará os certificados/chaves e limpará o log de operações.
-- **IsStagingModeEnabled**. Mostra se o [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode) está habilitado.
+* **AllowedSyncCycleInterval**. O AD do Azure com maior frequência permitirá a realização das sincronizações. Você não pode sincronizar com maior frequência do que isso e ainda ter suporte.
+* **CurrentlyEffectiveSyncCycleInterval**. O agendamento atualmente em vigor. Ele terá o mesmo valor de CustomizedSyncInterval (se definido) se não for mais frequente do que AllowedSyncInterval. Se você alterar CustomizedSyncCycleInterval, isso entrará em vigor após o próximo ciclo de sincronização.
+* **CustomizedSyncCycleInterval**. Se você quiser que o agendador seja executado em intervalos diferentes do padrão de 30 minutos, terá que definir nessa configuração. Na figura acima, o agendador foi definido para ser executado a cada hora. Se você definir isso como um valor menor do que AllowedSyncInterval, a última opção será usada.
+* **NextSyncCyclePolicyType**. Delta ou Inicial. Define se a próxima execução deve processar somente alterações delta ou se deve fazer uma importação e uma sincronização completas, o que também reprocessaria as regras novas ou alteradas.
+* **NextSyncCycleStartTimeInUTC**. Da próxima vez, o agendador iniciará o próximo ciclo de sincronização.
+* **PurgeRunHistoryInterval**. Os logs de operação de tempo devem ser mantidos. Eles podem ser analisados no gerenciador do serviço de sincronização. O padrão é mantê-los por sete dias.
+* **SyncCycleEnabled**. Indica se o agendador está executando os processos de exportação, importação e sincronização como parte de sua operação.
+* **MaintenanceEnabled**. Mostra se o processo de manutenção está habilitado. Ele atualizará os certificados/chaves e limpará o log de operações.
+* **IsStagingModeEnabled**. Mostra se o [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode) está habilitado.
 
 Você pode alterar algumas dessas configurações com `Set-ADSyncScheduler`. Os parâmetros a seguir podem ser modificados:
 
-- CustomizedSyncCycleInterval
-- NextSyncCyclePolicyType
-- PurgeRunHistoryInterval
-- SyncCycleEnabled
-- MaintenanceEnabled
+* CustomizedSyncCycleInterval
+* NextSyncCyclePolicyType
+* PurgeRunHistoryInterval
+* SyncCycleEnabled
+* MaintenanceEnabled
 
 A configuração do agendador é armazenada no Azure AD. Se tiver um servidor de preparo, qualquer alteração no servidor primário também afetará o servidor de preparo (com exceção de IsStagingModeEnabled).
 
@@ -77,24 +76,24 @@ Por padrão, o agendador será executado a cada 30 minutos. Em alguns casos, é 
 **Ciclo de sincronização delta**  
  Um ciclo de sincronização delta inclui as seguintes etapas:
 
-- Importação delta em todos os conectores
-- Sincronização delta em todos os conectores
-- Exportação em todos os conectores
+* Importação delta em todos os conectores
+* Sincronização delta em todos os conectores
+* Exportação em todos os conectores
 
 É possível que você tenha uma alteração urgente que deva ser sincronizada imediatamente e precise executar um ciclo manualmente. Se precisar executar um ciclo manualmente, execute `Start-ADSyncSyncCycle -PolicyType Delta`no PowerShell.
 
 **Ciclo de sincronização completo**  
 Caso tenha feito uma das alterações de configuração a seguir, será necessário executar um ciclo de sincronização completo (também conhecido como Inicial):
 
-- Adicionou mais objetos ou atributos para serem importados de um diretório de origem
-- Realizou alterações nas regras de sincronização
-- Alterou a [filtragem](active-directory-aadconnectsync-configure-filtering.md) para incluir um número diferente de objetos
+* Adicionou mais objetos ou atributos para serem importados de um diretório de origem
+* Realizou alterações nas regras de sincronização
+* Alterou a [filtragem](active-directory-aadconnectsync-configure-filtering.md) para incluir um número diferente de objetos
 
 Se você tiver realizado uma dessas alterações, precisará executar um ciclo de sincronização completa para que o mecanismo de sincronização possa reconsolidar os espaços conectores. Um ciclo de sincronização completa inclui as seguintes etapas:
 
-- Importação completa de todos os conectores
-- Sincronização completa de todos os conectores
-- Exportação em todos os conectores
+* Importação completa de todos os conectores
+* Sincronização completa de todos os conectores
+* Exportação em todos os conectores
 
 Para iniciar um ciclo de sincronização completo, execute `Start-ADSyncSyncCycle -PolicyType Initial` em um prompt do PowerShell. Isso iniciará um ciclo completo de sincronização.
 
@@ -107,7 +106,7 @@ Se um ciclo de sincronização estiver em execução, você não poderá alterar
 
 1. Comece informando o agendador para interromper o ciclo atual com o cmdlet `Stop-ADSyncSyncCycle`do PowerShell.
 2. Parar o agendador não interromperá a tarefa atual do conector atual. Para forçar a interrupção do Conector, execute as seguintes ações: ![StopAConnector](./media/active-directory-aadconnectsync-feature-scheduler/stopaconnector.png)
-    - Inicie o **Serviço de Sincronização** no menu Iniciar. Vá para **Conectores**, realce o Conector com o estado **Executando** e selecione **Parar** em Ações.
+   * Inicie o **Serviço de Sincronização** no menu Iniciar. Vá para **Conectores**, realce o Conector com o estado **Executando** e selecione **Parar** em Ações.
 
 O agendador ainda está ativo e será iniciado novamente na próxima oportunidade.
 
@@ -157,8 +156,6 @@ Se você iniciar o assistente de instalação, o agendador será temporariamente
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

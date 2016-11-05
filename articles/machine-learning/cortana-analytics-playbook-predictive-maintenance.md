@@ -1,34 +1,34 @@
-<properties
-    pageTitle="Guia Estratégico do Modelo de Solução do Cortana Intelligence para a manutenção preditiva no setor aeroespacial e em outros setores | Microsoft Azure"
-    description="Modelo de Solução com o Microsoft Cortana Intelligence para a manutenção preditiva no setor aeroespacial, de serviços públicos e de transporte."
-    services="cortana-analytics"
-    documentationCenter=""
-    authors="fboylu"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: Guia Estratégico do Modelo de Solução do Cortana Intelligence para a manutenção preditiva no setor aeroespacial e em outros setores | Microsoft Docs
+description: Modelo de Solução com o Microsoft Cortana Intelligence para a manutenção preditiva no setor aeroespacial, de serviços públicos e de transporte.
+services: cortana-analytics
+documentationcenter: ''
+author: fboylu
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="cortana-analytics"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="fboylu" />
+ms.service: cortana-analytics
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: fboylu
 
-
+---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia Estratégico do Modelo de Solução do Cortana Intelligence para a manutenção preditiva no setor aeroespacial e outras indústrias.
-
-## <a name="executive-summary"></a>Resumo executivo  
+## <a name="executive-summary"></a>Resumo executivo
 A manutenção preditiva é um dos usos mais exigidos de análise preditiva, com vantagens indiscutíveis, além de uma grande economia de custos. Este manual tem como objetivo fornecer uma referência para soluções de manutenção preditiva com ênfase em casos de uso importantes.
 Ele está preparado para fornecer ao leitor um entendimento dos cenários mais comuns de manutenção preditiva, dos desafios de qualificar os problemas de negócios para essas soluções, dos dados necessários para resolver esses problemas de negócios, das técnicas de modelagem preditiva para criar soluções que usam esses dados e práticas recomendadas com arquiteturas de solução de exemplo.
 Ele também descreve as especificidades dos modelos preditivos desenvolvidos, como engenharia de recursos, desenvolvimento de modelo e avaliação de desempenho. Basicamente, esse manual reúne as diretrizes de negócios e analíticas necessárias para o desenvolvimento e a implantação bem-sucedidos de soluções de manutenção preditiva. Essas diretrizes são preparadas para ajudar o público a criar uma solução inicial usando o Cortana Intelligence e, especificamente, o Aprendizado de Máquina do Azure como um ponto de partida em sua estratégia de manutenção preditiva de longo prazo. A documentação sobre o Cortana Intelligence Suite e o Azure Machine Learning pode ser encontrada nas páginas [Cortana Analytics](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overview.aspx) e [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
->[AZURE.TIP]
-Para obter um guia técnico para implementar esse Modelo de Solução, confira o [Guia técnico para o Modelo de Solução do Cortana Intelligence para manutenção preditiva](cortana-analytics-technical-guide-predictive-maintenance.md).
-Para baixar um diagrama que fornece uma visão geral da arquitetura desse modelo, confira a [Arquitetura do Modelo de Solução do Cortana Intelligence para manutenção preditiva](cortana-analytics-architecture-predictive-maintenance.md).
+> [!TIP]
+> Para obter um guia técnico para implementar esse Modelo de Solução, confira o [Guia técnico para o Modelo de Solução do Cortana Intelligence para manutenção preditiva](cortana-analytics-technical-guide-predictive-maintenance.md).
+> Para baixar um diagrama que fornece uma visão geral da arquitetura desse modelo, confira a [Arquitetura do Modelo de Solução do Cortana Intelligence para manutenção preditiva](cortana-analytics-architecture-predictive-maintenance.md).
+> 
+> 
 
-## <a name="playbook-overview-and-target-audience"></a>Visão geral do guia estratégico e público-alvo  
+## <a name="playbook-overview-and-target-audience"></a>Visão geral do guia estratégico e público-alvo
 Este manual é organizado para auxiliar tanto o público-alvo técnico quanto o não técnico, com diferentes graus de experiência e interesse em manutenção preditiva. O manual aborda os aspectos de alto níveis de diferentes tipos de soluções de manutenção preditiva e detalhes sobre como implementá-las. O conteúdo é balanceado para atender tanto ao público que só está interessado em entender a solução e o tipo de aplicativo quanto aqueles que estão buscando implementar essas soluções e interessados nos detalhes técnicos.
 
 A maior parte do conteúdo deste manual não pressupõe conhecimento de ciência de dados anterior ou experiência. No entanto, algumas partes do playbook exigirão um pouco de familiaridade com conceitos de ciência de dados para ser capaz de acompanhar os detalhes da implantação. São necessárias habilidades de ciência de dados em nível introdutório para o aproveitamento total do material nestas seções.
@@ -37,7 +37,6 @@ A primeira metade do playbook trata da introdução a aplicativos de manutençã
 
 Na segunda parte do playbook, tratamos dos tipos de técnicas de modelagem preditiva para manutenção preditiva e de como implantar esses modelos com exemplos dos casos de uso mencionados na primeira parte. Isso é ilustrado por meio de etapas de pré-processamento de dados, como rotulamento de dados e engenharia de recursos, seleção de modelo, treinamento/teste e melhores práticas de avaliação de desempenho. Essas seções são adequadas para um público-alvo técnico.
 
-
 ## <a name="predictive-maintenance-in-iot"></a>Manutenção preditiva no IoT
 O impacto do tempo de inatividade não agendado de um equipamento pode ser extremamente nocivo para os negócios. É essencial manter os equipamentos de campo em execução para maximizar o uso e o desempenho e minimizar o tempo de inatividade não agendado e dispendioso. Aguardar a falha ocorrer simplesmente não é viável no panorama atual de operações de negócios. Para permanecerem competitivas, as empresas buscam novas formas de maximizar o desempenho de ativos usando dados coletados de vários canais. Uma maneira relevante de analisar essas informações é utilizar técnicas de análise preditivas que usam padrões históricos para prever resultados futuros. Uma das soluções mais populares entre essas é chamada de manutenção preditiva, que geralmente pode ser definida, dentre outras, como a possibilidade de falha de um ativo em um futuro próximo para que os ativos possam ser monitorados, identifiquem falhas de forma proativa e tomem providências antes que ocorram falhas. Essas soluções detectam padrões de falha para determinar os ativos que correm mais risco de falhar. Essa identificação antecipada de problemas ajuda a implantar recursos de manutenção limitados de maneira mais econômica e a melhorar a qualidade e os processos da cadeia de fornecimento.
 
@@ -45,17 +44,17 @@ Com o aumento dos aplicativos da Internet das coisas (IoT), a manutenção predi
 
 Os problemas de negócios no domínio da manutenção preditiva variam entre riscos operacionais altos devido a falhas inesperadas e percepção limitada da causa dos problemas em ambientes de negócios complexos. A maioria desses problemas pode ser categorizada nas seguintes perguntas de negócios:
 
--   Qual é a probabilidade de um equipamento falhar em um futuro próximo?
--   Qual é a vida útil restante do equipamento?
--   Quais são as causas de falhas e quais ações de manutenção devem ser executadas para corrigir esses problemas?
+* Qual é a probabilidade de um equipamento falhar em um futuro próximo?
+* Qual é a vida útil restante do equipamento?
+* Quais são as causas de falhas e quais ações de manutenção devem ser executadas para corrigir esses problemas?
 
 Utilizando a manutenção preditiva para responder a essas perguntas, as empresas podem:
 
--   Reduzir o risco operacional e aumentar a taxa de retorno de ativos, identificando as falhas antes que elas ocorram
--   Reduzir operações de manutenção desnecessárias baseadas em tempo e controlar o custo de manutenção
--   Melhorar a imagem geral da marca, eliminar a publicidade negativa e a perda de vendas resultante de desgaste dos clientes.
--   Diminuir custos de inventário, reduzindo os níveis de estoque com a previsão do ponto de novo pedido
--   Descobrir padrões conectados a vários problemas de manutenção
+* Reduzir o risco operacional e aumentar a taxa de retorno de ativos, identificando as falhas antes que elas ocorram
+* Reduzir operações de manutenção desnecessárias baseadas em tempo e controlar o custo de manutenção
+* Melhorar a imagem geral da marca, eliminar a publicidade negativa e a perda de vendas resultante de desgaste dos clientes.
+* Diminuir custos de inventário, reduzindo os níveis de estoque com a previsão do ponto de novo pedido
+* Descobrir padrões conectados a vários problemas de manutenção
 
 As soluções de manutenção preditiva podem permitir que as empresas tenham indicadores-chave de desempenho, como pontuações de integridade para monitorar a condição de um ativo em tempo real, estimativa do tempo de vida restante dos ativos, recomendação para atividades de manutenção proativa e datas estimadas de pedido de substituição de peças.
 
@@ -68,9 +67,9 @@ Por exemplo, se o destino é prever falhas nas rodas dos vagões, os dados de tr
 
 Buscamos três fontes de dados essenciais para definir se um problema de negócios se qualifica para uma solução de manutenção preditiva:
 
-1.  Histórico de falha: normalmente, em usos de manutenção preditiva, os eventos de falha são muito raros. No entanto, ao criar modelos preditivos que vão prever falhas, o algoritmo precisa aprender o padrão de operação normal e o padrão de falha durante o processo de treinamento. Portanto, é essencial que os dados de treinamento contenham um número suficiente de exemplos em ambas as categorias para aprender esses dois padrões diferentes. Por esse motivo, é necessário que os dados tenham um número suficiente de eventos de falha. Os eventos de falha podem ser encontrados nos registros de manutenção, e o histórico de substituição de peças ou anomalias nos dados de treinamento também podem ser usados como falhas conforme identificado pelos especialistas do domínio.
-2.  Histórico de manutenção/reparo: uma fonte de dados essencial para soluções de manutenção preditiva é o histórico detalhado de manutenção do ativo que contém informações sobre os componentes substituídos, as manutenções preventivas realizadas, etc. É extremamente importante capturar esses eventos, já que eles afetam os padrões de degradação, e a ausência de informações levará a resultados incorretos.
-3.  Condições do computador: para prever quantos dias a mais (horas, milhas, transações etc.) uma máquina durará antes de falhar, supomos que o status de integridade do computador irá piorar com o tempo durante sua operação. Portanto, esperamos que os dados contenham recursos com variação de tempo que capturem esse padrão de vencimento e anomalias que levam à degradação. No uso de IoT, os dados de telemetria dos diferentes sensores representam um bom exemplo. Para prever se um computador irá falhar em um período de tempo, os dados deveriam capturar tendência de degradação durante esse período de tempo antes do evento de falha real.
+1. Histórico de falha: normalmente, em usos de manutenção preditiva, os eventos de falha são muito raros. No entanto, ao criar modelos preditivos que vão prever falhas, o algoritmo precisa aprender o padrão de operação normal e o padrão de falha durante o processo de treinamento. Portanto, é essencial que os dados de treinamento contenham um número suficiente de exemplos em ambas as categorias para aprender esses dois padrões diferentes. Por esse motivo, é necessário que os dados tenham um número suficiente de eventos de falha. Os eventos de falha podem ser encontrados nos registros de manutenção, e o histórico de substituição de peças ou anomalias nos dados de treinamento também podem ser usados como falhas conforme identificado pelos especialistas do domínio.
+2. Histórico de manutenção/reparo: uma fonte de dados essencial para soluções de manutenção preditiva é o histórico detalhado de manutenção do ativo que contém informações sobre os componentes substituídos, as manutenções preventivas realizadas, etc. É extremamente importante capturar esses eventos, já que eles afetam os padrões de degradação, e a ausência de informações levará a resultados incorretos.
+3. Condições do computador: para prever quantos dias a mais (horas, milhas, transações etc.) uma máquina durará antes de falhar, supomos que o status de integridade do computador irá piorar com o tempo durante sua operação. Portanto, esperamos que os dados contenham recursos com variação de tempo que capturem esse padrão de vencimento e anomalias que levam à degradação. No uso de IoT, os dados de telemetria dos diferentes sensores representam um bom exemplo. Para prever se um computador irá falhar em um período de tempo, os dados deveriam capturar tendência de degradação durante esse período de tempo antes do evento de falha real.
 
 Além disso, exigimos dados que estejam diretamente relacionados às condições operacionais do ativo que é o alvo de previsão. A decisão do alvo baseia-se tanto na disponibilidade de dados quanto nas necessidades de negócios. Usando a previsão de falha da roda do vagão como exemplo, podemos prever "se a roda terá uma falha" ou "se o vagão inteiro terá uma falha". A primeira enfoca mais um componente específico, ao passo que a segunda enfoca a falha no vagão. A segunda é uma pergunta mais geral que exige muito mais elementos de dados dispersos que a primeira, tornando mais difícil a criação de um modelo. Por outro lado, tentar prever falhas de roda apenas observando os dados de alto nível sobre a condição do vagão pode não ser viável, já que não contém informações no nível do componente. Em geral, é mais adequado prever eventos de falha específicos do que os gerais.
 
@@ -139,12 +138,11 @@ Ela também pode reduzir a quantidade de manutenção preventiva desnecessária.
 Um dos principais motivos de atrasos e problemas nas operações de metrô é a falha nas portas dos vagões. Prever se um vagão pode ter falha nas portas, ou ser capaz de prever a quantidade de dias até a próxima falha nas portas, é uma antecipação importante. Isso dá a oportunidade de otimizar a manutenção das portas dos vagões e de reduzir o tempo de inatividade da composição.
 
 #### <a name="data-sources"></a>Fontes de dados
-
 São três fontes de dados neste caso de uso 
 
-- **dados de evento de treinamento**, que são os registros históricos de eventos de treinamento, 
-- **dados de manutenção** , como tipos de manutenção, tipos de ordem de trabalho e códigos de prioridade,  
-- **registros de falhas**.
+* **dados de evento de treinamento**, que são os registros históricos de eventos de treinamento, 
+* **dados de manutenção** , como tipos de manutenção, tipos de ordem de trabalho e códigos de prioridade,  
+* **registros de falhas**.
 
 ##### <a name="*business-value-of-the-predictive-model*"></a>*Valor comercial do modelo preditivo*
 Dois modelos foram criados para prever a probabilidade de falha no dia seguinte usando classificação binária, e os dias até a falha usando regressão Semelhante aos casos anteriores, os modelos criam uma enorme oportunidade de melhorar a qualidade do serviço e aumentar a satisfação do cliente complementando os regimes de manutenção regular.
@@ -153,11 +151,11 @@ Dois modelos foram criados para prever a probabilidade de falha no dia seguinte 
 ### <a name="data-sources"></a>Fontes de dados
 Os elementos de dados comuns para problemas de manutenção preditiva podem ser resumidos da seguinte forma:
 
--   Histórico de falhas: o histórico de falhas de uma máquina ou de um componente dentro da máquina.
--   Histórico de manutenção: o histórico de reparo de uma máquina; por exemplo, códigos de erro, atividades de manutenção anteriores ou substituições de componentes.
--   Condições e uso da máquina: as condições operacionais de uma máquina; por exemplo, dados coletados dos sensores.
--   Recursos da máquina: os recursos de uma máquina, por exemplo, tamanho do motor, marca e modelo, local.
--   Recursos do operador: os recursos do operador; por exemplo, sexo, experiência anterior.
+* Histórico de falhas: o histórico de falhas de uma máquina ou de um componente dentro da máquina.
+* Histórico de manutenção: o histórico de reparo de uma máquina; por exemplo, códigos de erro, atividades de manutenção anteriores ou substituições de componentes.
+* Condições e uso da máquina: as condições operacionais de uma máquina; por exemplo, dados coletados dos sensores.
+* Recursos da máquina: os recursos de uma máquina, por exemplo, tamanho do motor, marca e modelo, local.
+* Recursos do operador: os recursos do operador; por exemplo, sexo, experiência anterior.
 
 É possível e normalmente é fato que o histórico de falha está contido no histórico de manutenção, na forma de códigos de erro especiais ou datas de pedido de peças de reposição. Nesses casos, as falhas podem ser extraídas dos dados de manutenção. Além disso, os domínios de negócios diferentes podem ter uma variedade de outras fontes de dados que influenciam os padrões de falha que não estão listados aqui exaustivamente. Eles devem ser identificados consultando-se os especialistas de domínio ao criar modelos preditivos.
 
@@ -175,7 +173,6 @@ Considerando as fontes de dados acima, os dois tipos de dados principais que obs
 Histórico de falha, condições da máquina, histórico de reparos e histórico de uso quase sempre são fornecidos com carimbos de data/hora que indicam a hora da coleta de cada dado. As propriedades da máquina e do operador em geral são estáticos, pois geralmente descrevem as especificações técnicas de máquinas ou propriedades do operador. É possível que essas propriedades mudem ao longo do tempo e, se for o caso, elas devem ser tratadas como fontes de dados com carimbo de data/hora.
 
 ### <a name="merging-data-sources"></a>Mesclagem das fontes de dados
-
 Antes de entrar em qualquer tipo de processo de engenharia de recursos ou de rotulação, precisamos primeiro preparar os dados no formato necessário para criar recursos. O objetivo final é gerar um registro para cada unidade de tempo para cada ativo, e as propriedades e rótulos devem ser fornecidos ao algoritmo do aprendizado de máquina. Para preparar o conjunto final de dados limpo, algumas etapas de pré-processamento devem ser realizadas. A primeira etapa é dividir a duração da coleta de dados em unidades de tempo, em que cada registro pertence a uma unidade de tempo para um ativo. A coleta de dados também pode ser dividida em outras unidades, como ações; no entanto, para simplificar, usaremos unidade de tempo no resto das explicações.
 
 A unidade de medida de tempo pode ser segundos, minutos, horas, dias, meses, ciclos, milhas ou transações, dependendo da eficiência da preparação de dados e das alterações observadas nas condições do ativo de uma unidade de tempo para outra ou outros fatores específicos do domínio. Em outras palavras, a unidade de tempo não precisa ser a mesma da frequência da coleta de dados, já que em muitos casos os dados podem não mostrar diferença de uma unidade para outra. Por exemplo, se os valores de temperatura tiverem sido sendo coletados a cada 10 segundos, a escolha de uma unidade de tempo de 10 segundos para toda a análise irá aumentar o número de exemplos sem fornecer informações adicionais. Uma melhor estratégia seria usar a média de uma hora como um exemplo.
@@ -229,14 +226,14 @@ Durante a geração de recurso, algumas etapas importantes, como a manipulação
 
 A tabela final de recursos após as etapas de engenharia de recursos discutidas na seção anterior deve se parecer com o esquema de dados de exemplo abaixo, quando a unidade de tempo é um dia:
 
-|ID do ativo|Hora|Colunas de recurso|Rótulo|
-|---|---|---|---|
-|1|Dia 1|||
-|1|Dia 2|||
-|...|...|||
-|2|Dia 1|||
-|2|Dia 2|||
-|...|...|||
+| ID do ativo | Hora | Colunas de recurso | Rótulo |
+| --- | --- | --- | --- |
+| 1 |Dia 1 | | |
+| 1 |Dia 2 | | |
+| ... |... | | |
+| 2 |Dia 1 | | |
+| 2 |Dia 2 | | |
+| ... |... | | |
 
 ## <a name="modeling-techniques"></a>Técnicas de modelagem
 A manutenção preditiva é um domínio muito avançado, geralmente empregando questões comerciais que podem ser abordadas em diferentes ângulos da perspectiva de modelagem preditiva. Nas próximas seções, apresentaremos as principais técnicas usadas para modelar questões de negócios diferentes que podem ser respondidas com soluções de manutenção preditiva. Embora existam semelhanças, cada modelo tem sua própria maneira de construir rótulos, o que será descrito em detalhes. Como um recurso que acompanha este artigo, você pode consultar o modelo de manutenção preditiva incluído nas experiências de exemplo fornecidas no Aprendizado de Máquina do Azure. Os links para o material online do modelo são fornecidos na seção de recursos. Você pode ver como algumas das técnicas de engenharia de recurso discutidas acima e a técnica de modelagem que será descrita nas seções a seguir são aplicadas para prever falhas no motor de uma aeronave usando o Aprendizado de Máquina do Azure.
@@ -367,8 +364,6 @@ Os mesmos data warehouses podem ser usados para a pontuação por lote dos exemp
 Figura 8. Arquitetura de solução de exemplo para manutenção preditiva
 
 Para saber mais sobre cada um dos componentes da arquitetura, consulte a documentação do [Azure](https://azure.microsoft.com/) .
-
-
 
 <!--HONumber=Oct16_HO2-->
 

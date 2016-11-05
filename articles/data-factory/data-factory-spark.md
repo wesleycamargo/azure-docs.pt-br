@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Invocar programas Spark do Azure Data Factory" 
-	description="Aprenda a invocar programas Spark de uma Azure Data Factory usando a atividade MapReduce." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+---
+title: Invocar programas Spark do Azure Data Factory
+description: Aprenda a invocar programas Spark de uma Azure Data Factory usando a atividade MapReduce.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: spelluru
 
+---
 # Invocar Programas Spark pelo Data Factory
 ## Introdução
 Você pode usar a Atividade MapReduce em um pipeline do Data Factory para executar programas Spark em seu cluster Spark HDInsight. Confira o artigo [Atividade MapReduce](data-factory-map-reduce.md) para obter informações detalhadas sobre como usar a atividade antes de ler esse artigo.
@@ -34,17 +34,18 @@ Você encontra pipelines de exemplo na pasta **ADFJsons/Pipeline**. Examine um p
 
 A atividade MapReduce está configurada para invocar **com.adf.sparklauncher.jar** no contêiner **adflibs** no seu armazenamento do Azure (especificado no StorageLinkedService.json). O código-fonte para este programa está na pasta Spark-ADF/src/main/java/com/adf/ e chama spark-enviar e executar trabalhos Spark.
 
-> [AZURE.IMPORTANT] 
-Leia [LEIAME.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt) para obter as informações adicionais e mais recentes antes de usar o exemplo.
->  
+> [!IMPORTANT]
+> Leia [LEIAME.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt) para obter as informações adicionais e mais recentes antes de usar o exemplo.
+> 
 > Use seu próprio cluster Spark HDInsight com essa abordagem para invocar programas Spark usando a atividade MapReduce. Não há suporte para o uso de um clister HDInsight sob demanda.
-
+> 
+> 
 
 ## Consulte também
-- [Atividade de Hive](data-factory-hive-activity.md)
-- [Atividade Pig](data-factory-pig-activity.md)
-- [Atividade MapReduce](data-factory-map-reduce.md)
-- [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
-- [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+* [Atividade de Hive](data-factory-hive-activity.md)
+* [Atividade Pig](data-factory-pig-activity.md)
+* [Atividade MapReduce](data-factory-map-reduce.md)
+* [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)
+* [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
 <!---HONumber=AcomDC_0831_2016-->

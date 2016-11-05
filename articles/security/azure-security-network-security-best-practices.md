@@ -1,54 +1,51 @@
-<properties
-   pageTitle="Práticas recomendadas de segurança de rede do Azure | Microsoft Azure"
-   description="Este artigo fornece um conjunto de práticas recomendadas de segurança de rede usando recursos internos do Azure."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="swadhwa"
-   editor="TomShinder"/>
+---
+title: Práticas recomendadas de segurança de rede do Azure | Microsoft Docs
+description: Este artigo fornece um conjunto de práticas recomendadas de segurança de rede usando recursos internos do Azure.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: swadhwa
+editor: TomShinder
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/25/2016"
-   ms.author="TomSh"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/25/2016
+ms.author: TomSh
 
+---
 # Práticas recomendadas de rede do Azure
-
 O Microsoft Azure permite que você conecte dispositivos e máquinas virtuais a outros dispositivos de rede, colocando-os em redes virtuais do Azure. Uma Rede Virtual do Azure é uma construção de rede virtual que permite que você conecte placas de interface de rede virtual a uma rede virtual para permitir a comunicação baseada em TCP/IP entre os dispositivos habilitados para rede. As Máquinas Virtuais do Azure conectadas a uma Rede Virtual do Azure são capazes de se conectar a dispositivos na mesma Rede Virtual do Azure, em Redes Virtuais do Azure diferentes, na Internet ou até mesmo em suas próprias redes locais.
 
 Neste artigo, veremos uma coleção de práticas recomendadas de segurança de rede do Azure. Essas práticas recomendadas derivam da nossa experiência de rede do Azure e da experiência de clientes como você.
 
 Para cada prática recomendada, vamos explicar:
 
-- O que é a prática recomendada
-- Por que é ideal habilitar essa prática recomendada
-- O que poderá acontecer se você não habilitar a prática recomendada
-- Possíveis alternativas à prática recomendada
-- Como você pode aprender a habilitar a prática recomendada
+* O que é a prática recomendada
+* Por que é ideal habilitar essa prática recomendada
+* O que poderá acontecer se você não habilitar a prática recomendada
+* Possíveis alternativas à prática recomendada
+* Como você pode aprender a habilitar a prática recomendada
 
 Este artigo Práticas recomendadas de segurança de rede do Azure baseia-se em um consenso e nos recursos da plataforma Azure e em conjuntos de recursos tal como existiam no momento em que o artigo foi escrito. As opiniões e as tecnologias mudam ao longo do tempo e este artigo será atualizado regularmente para refletir essas alterações.
 
 As práticas recomendadas de segurança de rede do Azure discutidas neste artigo incluem:
 
-- Segmentar logicamente as sub-redes
-- Controlar o comportamento de roteamento
-- Habilitar o túnel forçado
-- Usar dispositivos de rede virtual
-- Implantar DMZs para zoneamento de segurança
-- Evitar a exposição à Internet por meio de links WAN dedicados
-- Otimizar o desempenho e o tempo de atividade
-- Usar o balanceamento de carga global
-- Desabilitar o acesso RDP para máquinas virtuais do Azure
-- Habilitar a Central de Segurança do Azure
-- Estender seu datacenter para o Azure
-
+* Segmentar logicamente as sub-redes
+* Controlar o comportamento de roteamento
+* Habilitar o túnel forçado
+* Usar dispositivos de rede virtual
+* Implantar DMZs para zoneamento de segurança
+* Evitar a exposição à Internet por meio de links WAN dedicados
+* Otimizar o desempenho e o tempo de atividade
+* Usar o balanceamento de carga global
+* Desabilitar o acesso RDP para máquinas virtuais do Azure
+* Habilitar a Central de Segurança do Azure
+* Estender seu datacenter para o Azure
 
 ## Segmentar logicamente as sub-redes
-
 As [Redes Virtuais do azure](https://azure.microsoft.com/documentation/services/virtual-network/) são semelhantes a uma LAN em sua rede local. A ideia por trás de uma Rede Virtual do Azure é que você cria uma única rede baseada em espaço de endereço IP na qual pode colocar suas [Máquinas Virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/). Os espaços de endereço IP privados disponíveis estão nos intervalos de Classe A (10.0.0.0/8), de Classe B (172.16.0.0/12) e de Classe C (192.168.0.0/16).
 
 Semelhante ao que você faria no local, convém segmentar o espaço de endereços maior em sub-redes. Você pode usar os princípios de sub-redes baseados em [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) para criar suas sub-redes.
@@ -59,26 +56,27 @@ Uma das coisas que você pode usar para realizar essa tarefa é um NSG ([Grupo d
 
 O uso de NSGs para controle de acesso à rede entre sub-redes permite que você coloque recursos que pertençam à mesma zona ou função de segurança em suas próprias sub-redes. Pense, por exemplo, em um aplicativo de camada 3 simples que tenha uma camada da Web, uma camada lógica de aplicativo e uma camada de banco de dados. Você coloca máquinas virtuais que pertençam a cada uma dessas camadas em suas próprias sub-redes. Em seguida, usa os NSGs para controlar o tráfego entre as sub-redes:
 
-- As máquinas virtuais da camada Web só podem iniciar conexões para as máquinas de lógica do aplicativo e só podem aceitar conexões da Internet
-- As máquinas virtuais de lógica do aplicativo só podem iniciar conexões com a camada de banco de dados e só podem aceitar conexões da camada da Web
-- As máquinas virtuais da camada de banco de dados não podem iniciar conexões com nada que esteja fora de sua própria sub-rede e só podem aceitar conexões da camada de lógica do aplicativo
+* As máquinas virtuais da camada Web só podem iniciar conexões para as máquinas de lógica do aplicativo e só podem aceitar conexões da Internet
+* As máquinas virtuais de lógica do aplicativo só podem iniciar conexões com a camada de banco de dados e só podem aceitar conexões da camada da Web
+* As máquinas virtuais da camada de banco de dados não podem iniciar conexões com nada que esteja fora de sua própria sub-rede e só podem aceitar conexões da camada de lógica do aplicativo
 
 Para saber mais sobre os Grupos de Segurança de Rede e sobre como você pode usá-los para segmentar logicamente suas Redes Virtuais do Azure, leia o artigo [O que é um Grupo de Segurança de Rede](../virtual-network/virtual-networks-nsg.md) (NSG).
 
 ## Controlar o comportamento de roteamento
-
 Quando você colocar uma máquina virtual em uma Rede Virtual do Azure, perceberá que a máquina virtual pode se conectar a outra máquina virtual na mesma Rede Virtual do Azure, mesmo se as outras máquinas virtuais estiverem em sub-redes diferentes. A razão pela qual isso possível é que há uma coleção de rotas do sistema que são habilitadas por padrão e que permitem esse tipo de comunicação. Essas rotas padrão permitem que as máquinas virtuais na mesma Rede Virtual do Azure iniciem conexões entre si e com a Internet (somente para comunicações de saída para a Internet).
 
 Embora as rotas padrão do sistema sejam úteis para muitos cenários de implantação, há ocasiões em que você deseja personalizar a configuração de roteamento para suas implantações. Essas personalizações permitirão que você configure o endereço do próximo salto para atingir destinos específicos.
 
 É recomendável que você configure Rotas Definidas pelo Usuário ao implantar um dispositivo de segurança de rede virtual, sobre o qual falaremos em uma prática recomendada posterior.
 
-> [AZURE.NOTE] As Rotas Definidas pelo Usuário não são obrigatórias e as rotas de sistema padrão funcionarão na maioria dos casos.
+> [!NOTE]
+> As Rotas Definidas pelo Usuário não são obrigatórias e as rotas de sistema padrão funcionarão na maioria dos casos.
+> 
+> 
 
 Você pode aprender mais sobre as Rotas Definidas pelo Usuário e sobre como configurá-las ao ler o artigo [O que são as Rotas Definidas pelo Usuário e o Encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
 
 ## Habilitar o túnel forçado
-
 Para entender melhor o túnel forçado, convém compreender o que é "um túnel dividido". O exemplo mais comum de túnel dividido é visto com conexões VPN. Imagine que você estabeleça uma conexão VPN do seu quarto de hotel para sua rede corporativa. Essa conexão permite que você se conecte a recursos em sua rede corporativa e acesse todas as comunicações de recursos em sua rede corporativa por meio do túnel VPN.
 
 O que acontece quando você deseja se conectar aos recursos na Internet? Quando o túnel dividido é habilitado, as conexões são estabelecidas diretamente com a Internet e não por meio do túnel VPN. Alguns especialistas em segurança consideram isso um risco em potencial e, portanto, recomendam que o túnel dividido seja desabilitado e que todas as conexões, as destinadas à Internet e as destinadas a recursos corporativos, passem pelo túnel VPN. A vantagem disso é que as conexões com Internet são forçadas por meio de dispositivos de segurança da rede corporativa, o que não seria o caso se o cliente VPN conectado à Internet estivesse fora do túnel VPN.
@@ -90,25 +88,24 @@ Se você não tiver uma conexão entre locais, aproveite os Grupos de Segurança
 Para saber mais sobre túneis forçados e sobre como habilitá-los, leia o artigo [Configurar o túnel forçado usando o PowerShell e o Azure Resource Manager](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md).
 
 ## Usar dispositivos de rede virtual
-
 Embora os Grupos de Segurança de Rede e o Roteamento Definido pelo Usuário possam fornecer uma determinada medida de segurança de rede nas camadas de rede e de transporte do [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), haverá situações em que você vai desejar ou precisar habilitar a segurança em níveis mais altos da pilha. Em tais situações, é recomendável que você implante dispositivos de segurança de rede virtual fornecidos por parceiros do Azure.
 
 Os dispositivos de segurança de rede do Azure podem oferecer níveis consideravelmente aprimorados de segurança em relação ao que é fornecido pelos controles de nível de rede. Alguns dos recursos de segurança de rede fornecidos por dispositivos de segurança de rede virtual incluem:
 
-- Firewall
-- Detecção de intrusão/prevenção contra intrusões
-- Gerenciamento de vulnerabilidades
-- Controle de aplicativo
-- Detecção de anomalias baseada em rede
-- Filtragem da Web
-- Antivírus
-- Proteção botnet
+* Firewall
+* Detecção de intrusão/prevenção contra intrusões
+* Gerenciamento de vulnerabilidades
+* Controle de aplicativo
+* Detecção de anomalias baseada em rede
+* Filtragem da Web
+* Antivírus
+* Proteção botnet
 
 Se você precisar de um nível mais alto de segurança de rede que pode obter com controles de acesso no nível de rede, é recomendável que você investigue e implante os dispositivos de segurança de rede virtual do Azure.
 
 Para saber mais sobre quais dispositivos de segurança de rede virtual do Azure estão disponíveis e sobre seus recursos, visite o [Azure Marketplace](https://azure.microsoft.com/marketplace/) e procure "security" e "segurança de rede".
 
-##Implantar DMZs para zoneamento de segurança
+## Implantar DMZs para zoneamento de segurança
 Uma DMZ, ou “rede de perímetro”, é um segmento de rede lógico ou físico projetado para fornecer uma camada adicional de segurança entre seus ativos e a Internet. A intenção da DMZ é colocar dispositivos de controle de acesso à rede especializados na borda da rede DMZ de modo que apenas o tráfego desejado possa passar do dispositivo de segurança de rede e para sua Rede Virtual do Azure.
 
 As DMZs são úteis porque você pode concentrar o gerenciamento de controle de acesso à rede, o monitoramento, a geração de logs e os relatórios nos dispositivos na borda da sua Rede Virtual do Azure. Aqui, você normalmente habilitaria a prevenção de DDoS, os sistemas de Detecção de Intrusão/Prevenção contra Intrusão (IDS/IPS), as regras e políticas de firewall, a filtragem da Web, a rede antimalware e muito mais. Os dispositivos de segurança de rede ficam entre a Internet e sua Rede Virtual do Azure e tem uma interface em ambas as redes.
@@ -124,8 +121,8 @@ Muitas organizações escolheram a rota de TI Híbrida. Na TI híbrida, alguns d
 
 No cenário de TI híbrida, geralmente há algum tipo de conectividade entre locais. Essa conectividade entre locais entre locais permite que a empresa conecte suas redes locais a Redes Virtuais do Azure. Há duas soluções de conectividade entre locais disponíveis:
 
-- VPN site a site
-- Rota Expressa
+* VPN site a site
+* Rota Expressa
 
 A [VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md) representa uma conexão privada virtual entre sua rede local e uma Rede Virtual do Azure. Essa conexão ocorre pela Internet e permite que você envie suas informações por um "túnel" dentro de um link criptografado entre sua rede e o Azure. A VPN site a site é uma tecnologia segura e madura implantada por empresas de todos os portes há décadas. A criptografia de túnel é realizada usando o [modo de túnel IPsec](https://technet.microsoft.com/library/cc786385.aspx).
 
@@ -144,18 +141,18 @@ Essa distribuição de tráfego aumenta a disponibilidade porque se um dos servi
 
 É recomendável implantar o balanceamento de carga sempre que possível e conforme apropriado para seus serviços. Vamos abordar a adequação nas seções a seguir. No nível da Rede Virtual do Azure, o Azure fornece três opções principais de balanceamento de carga:
 
-- Balanceamento de carga baseado em HTTP
-- Balanceamento de carga externo
-- Balanceamento de carga interno
+* Balanceamento de carga baseado em HTTP
+* Balanceamento de carga externo
+* Balanceamento de carga interno
 
 ## Balanceamento de carga baseado em HTTP
 O balanceamento de carga baseado em HTTP baseia as decisões sobre para qual servidor serão enviadas conexões usando características do protocolo HTTP. O Azure tem um balanceador de carga de HTTP que passa pelo nome do Application Gateway.
 
 É recomendável que você use o Application Gateway do Azure quando:
 
-- Os aplicativos que exijam solicitações da mesma sessão de usuário/cliente para acessar a mesma máquina virtual de back-end. Exemplos disso são os aplicativos de carrinho de compras e servidores de email na Web.
-- Os aplicativos que desejam liberar os farms de servidores Web da sobrecarga da terminação SSL ao tirar proveito do recurso [descarregamento SSL](https://f5.com/glossary/ssl-offloading) do Application Gateway.
-- Aplicativos, como uma rede de distribuição de conteúdo, que exigem que várias solicitações HTTP na mesma conexão TCP de execução longa sejam roteadas ou balanceadas por carga para diferentes servidores back-end.
+* Os aplicativos que exijam solicitações da mesma sessão de usuário/cliente para acessar a mesma máquina virtual de back-end. Exemplos disso são os aplicativos de carrinho de compras e servidores de email na Web.
+* Os aplicativos que desejam liberar os farms de servidores Web da sobrecarga da terminação SSL ao tirar proveito do recurso [descarregamento SSL](https://f5.com/glossary/ssl-offloading) do Application Gateway.
+* Aplicativos, como uma rede de distribuição de conteúdo, que exigem que várias solicitações HTTP na mesma conexão TCP de execução longa sejam roteadas ou balanceadas por carga para diferentes servidores back-end.
 
 Para saber mais sobre como funciona o Application Gateway do Azure e como usá-lo em suas implantações, leia o artigo [Visão geral do Application Gateway](../application-gateway/application-gateway-introduction.md).
 
@@ -197,9 +194,9 @@ O potencial problema de segurança com o uso desses protocolos pela Internet é 
 
 Por isso, recomendamos que você desabilite o acesso direito RDP e SSH para Máquinas Virtuais do Azure da Internet. Depois que o acesso direito RDP e SSH da Internet estiver desabilitado, você terá outras opções que poderá usar para acessar essas máquinas virtuais para gerenciamento remoto:
 
-- VPN ponto a site
-- VPN site a site
-- Rota Expressa
+* VPN ponto a site
+* VPN site a site
+* Rota Expressa
 
 A [VPN ponto a site](../vpn-gateway/vpn-gateway-point-to-site-create.md) é outro termo para uma conexão de cliente/servidor de VPN de acesso remoto. Uma VPN ponto a site permite que um único usuário se conecte a uma Rede Virtual do Azure pela Internet. Depois que a conexão ponto a site for estabelecida, o usuário será capaz de usar o RDP ou o SSH para se conectar a máquinas virtuais localizadas na Rede Virtual do Azure às quais o usuário se conectou via VPN ponto a site. Isso pressupõe que o usuário esteja autorizado a acessar essas máquinas virtuais.
 
@@ -214,9 +211,9 @@ A Central de Segurança do Azure ajuda você a impedir, detectar e responder a a
 
 A Central de Segurança do Azure ajuda a otimizar e a monitorar a segurança da rede:
 
-- Fornecendo recomendações de segurança de rede
-- Monitorando o estado de configuração de segurança da rede
-- Alertando você contra ameaças baseadas em rede, nos níveis do ponto de extremidade e de rede
+* Fornecendo recomendações de segurança de rede
+* Monitorando o estado de configuração de segurança da rede
+* Alertando você contra ameaças baseadas em rede, nos níveis do ponto de extremidade e de rede
 
 É altamente recomendável que você habilite a Central de Segurança do Azure para todas as implantações do Azure.
 

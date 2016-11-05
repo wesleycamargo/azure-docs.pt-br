@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Sincronização do Azure AD Connect: executar o assistente de instalação pela segunda vez | Microsoft Azure"
-	description="Explica como o assistente de instalação funciona na segunda vez que é executado."
-	keywords="O assistente de instalação do Azure AD Connect permite configurar as configurações de manutenção da segunda vez que é executado"
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Sincronização do Azure AD Connect: executar o assistente de instalação pela segunda vez | Microsoft Docs'
+description: Explica como o assistente de instalação funciona na segunda vez que é executado.
+keywords: O assistente de instalação do Azure AD Connect permite configurar as configurações de manutenção da segunda vez que é executado
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/31/2016
+ms.author: andkjell
 
-
+---
 # Sincronização do Azure AD Connect: executar o assistente de instalação pela segunda vez
 Na primeira vez que você executa o assistente de instalação do Azure AD Connect, ele explica como configurar a instalação. Se você executar o assistente de instalação novamente, ele oferecerá opções para manutenção.
 
@@ -33,7 +32,10 @@ Se tiver instalado o ADFS com o Azure AD Connect, você terá ainda mais opçõe
 
 Selecione uma das tarefas e clique em **Avançar** para continuar.
 
-> [AZURE.IMPORTANT] Enquanto o assistente de instalação estiver aberto, todas as operações no mecanismo de sincronização serão suspensas. Lembre-se de fechar o assistente de instalação assim que concluir as alterações de configuração.
+> [!IMPORTANT]
+> Enquanto o assistente de instalação estiver aberto, todas as operações no mecanismo de sincronização serão suspensas. Lembre-se de fechar o assistente de instalação assim que concluir as alterações de configuração.
+> 
+> 
 
 ## Exibir a configuração atual
 Essa opção fornece uma visão rápida das opções configuradas no momento.
@@ -45,16 +47,16 @@ Clique em **Voltar** para voltar. Se você selecionar **Sair**, o assistente de 
 ## Personalizar opções de sincronização
 Esta opção é usada para fazer alterações na configuração de sincronização. Você vê um subconjunto das opções do caminho de instalação de configuração personalizada. Você vê essa opção mesmo que tenha usado a instalação expressa inicialmente.
 
-- [Adicionar mais diretórios](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Para remover um diretório, consulte [Excluir um Conector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
-- [Alterar a filtragem de domínio e de unidade organizacional](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
-- Remova a filtragem de grupo.
-- [Alterar recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features).
+* [Adicionar mais diretórios](active-directory-aadconnect-get-started-custom.md#connect-your-directories). Para remover um diretório, consulte [Excluir um Conector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
+* [Alterar a filtragem de domínio e de unidade organizacional](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
+* Remova a filtragem de grupo.
+* [Alterar recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features).
 
 As outras opções de instalação inicial não podem ser alteradas e não estão disponíveis. Essas opções são:
 
-- Altere o atributo a ser usado para userPrincipalName e sourceAnchor.
-- Altere o método de ingresso para objetos de uma floresta diferente.
-- Habilite a filtragem baseada em grupo.
+* Altere o atributo a ser usado para userPrincipalName e sourceAnchor.
+* Altere o método de ingresso para objetos de uma floresta diferente.
+* Habilite a filtragem baseada em grupo.
 
 ## Atualizar esquema de diretório
 Essa opção é usada se você alterou o esquema em uma das suas florestas do AD DS locais. Por exemplo você pode ter instalado o Exchange ou atualizado para um esquema do Windows Server 2012 com objetos de dispositivo. Nesse caso, você precisa instruir o Azure AD Connect para ler o esquema novamente do AD DS e atualizar seu cache. Essa ação também regenera as Regras de Sincronização. Se você adicionar o esquema do Exchange, por exemplo, as Regras de Sincronização para o Exchange serão adicionadas à configuração.
@@ -76,12 +78,11 @@ Esta opção permite mudar da sincronização de senha para federação ou o opo
 Para obter mais informações sobre essa opção, consulte [entrada do usuário](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
 
 ## Próximas etapas
-
-- Saiba mais sobre o modelo de configuração usado pela sincronização do Azure AD Connect em [Noções básicas do provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* Saiba mais sobre o modelo de configuração usado pela sincronização do Azure AD Connect em [Noções básicas do provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 **Tópicos de visão geral**
 
-- [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
-- [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
+* [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
 <!---HONumber=AcomDC_0907_2016-->

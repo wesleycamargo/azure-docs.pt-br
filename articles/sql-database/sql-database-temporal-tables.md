@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Introdução às Tabelas Temporais no Banco de Dados SQL do Azure | Microsoft Azure"
-   description="Saiba como começar a usar as Tabelas Temporais no Banco de Dados SQL do Azure."
-   services="sql-database"
-   documentationCenter=""
-   authors="CarlRabeler"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Introdução às Tabelas Temporais no Banco de Dados SQL do Azure | Microsoft Docs
+description: Saiba como começar a usar as Tabelas Temporais no Banco de Dados SQL do Azure.
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="sql-database"
-   ms.date="08/29/2016"
-   ms.author="carlrab"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: sql-database
+ms.date: 08/29/2016
+ms.author: carlrab
 
-#Introdução às Tabelas Temporais no Banco de Dados SQL do Azure
-
+---
+# Introdução às Tabelas Temporais no Banco de Dados SQL do Azure
 As Tabelas Temporais são um novo recurso de programação do Banco de Dados SQL do Azure que permite controlar e analisar o histórico completo de alterações em seus dados, sem a necessidade de codificação personalizada. As Tabelas Temporais mantêm os dados relacionados ao contexto de tempo, de forma que os fatos armazenados possam ser interpretados como válidos apenas no período específico. Essa propriedade das Tabelas Temporais permite uma análise eficiente baseada em tempo e a obtenção de informações da evolução dos dados.
 
-##Cenário Temporal
-
+## Cenário Temporal
 Este artigo ilustra as etapas para utilizar as Tabelas Temporais em um cenário de aplicativo. Suponha que você queira acompanhar a atividade de usuário em um novo site que está sendo desenvolvido do zero ou em um site existente que você deseja estender com análises de atividade do usuário. Neste exemplo simplificado, estamos supondo que o número de páginas da Web visitadas durante um período é um indicador do que precisa ser capturado e monitorado no banco de dados do site hospedado no Banco de Dados SQL do Azure. O objetivo da análise do histórico da atividade de usuário é obter entradas para reprojetar o site e fornecer uma experiência melhor para os visitantes.
 
 O modelo de banco de dados para esse cenário é muito simples: a métrica de atividade de usuário é representada por um único campo inteiro, **PageVisited**, e é capturada juntamente com informações básicas no perfil do usuário. Além disso, para a análise baseada em tempo, você manteria uma série de linhas para cada usuário, onde cada linha representa o número de páginas visitadas por um usuário específico em um período específico.
@@ -30,16 +28,15 @@ O modelo de banco de dados para esse cenário é muito simples: a métrica de at
 
 Felizmente, você não precisa fazer qualquer esforço em seu aplicativo para manter essas informações de atividade. Com as Tabelas Temporais, esse processo é automatizado - oferecendo flexibilidade total durante o design do site e mais tempo para se concentrar na análise de dados. A única coisa que você precisa fazer é garantir que a tabela **WebSiteInfo** seja configurada como [temporal versionada pelo sistema](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). As etapas exatas para utilizar as Tabelas Temporais neste cenário são descritas abaixo.
 
-##Etapa 1: configurar tabelas como temporais
-
+## Etapa 1: configurar tabelas como temporais
 Dependendo se você estiver iniciando um novo desenvolvimento ou atualizando um aplicativo existente, você criará tabelas temporais ou modificará as existentes ao adicionar atributos temporais. Em geral, seu cenário pode ser uma combinação dessas duas opções. Execute estas ações usando o [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS), o [SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) ou qualquer outra ferramenta de desenvolvimento do Transact-SQL.
 
+> [!IMPORTANT]
+> Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> 
+> 
 
-> [AZURE.IMPORTANT] Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-
-
-###Criar nova tabela
-
+### Criar nova tabela
 Use o item de menu de contexto "Nova Tabela Versionada pelo Sistema” no Pesquisador de Objetos do SSMS para abrir o editor de consulta com um script modelo de tabela temporal e então use “Especificar Valores para Parâmetros de Modelo” (Ctrl+Shift+M) para preencher o modelo:
 
 ![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
@@ -81,8 +78,7 @@ As Tabelas Temporais são representadas no Pesquisador de Objetos com o ícone e
 
 ![AlterTable](./media/sql-database-temporal-tables/AzureTemporal4.png)
 
-###Alterar uma tabela existente para temporal
-
+### Alterar uma tabela existente para temporal
 Vamos abordar o cenário alternativo no qual a tabela WebsiteUserInfo já existe, mas que não foi projetada para manter um histórico de alterações. Nesse caso, você pode simplesmente estender a tabela existente para se tornar temporal, conforme mostrado no exemplo a seguir:
 
 ````
@@ -103,8 +99,7 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ````
 
-##Etapa 2: executar sua carga de trabalho regularmente
-
+## Etapa 2: executar sua carga de trabalho regularmente
 A principal vantagem das Tabelas Temporais é que você não precisa alterar ou ajustar seu site de alguma maneira para executar o controle de alterações. Depois de criadas, as Tabelas Temporais fazem as versões de linha persistirem de forma transparente sempre que você executa modificações em seus dados.
 
 Para aproveitar o controle de alterações automático deste cenário em particular, iremos atualizar apenas a coluna **PagesVisited** sempre que um usuário finalizar sua sessão no site:
@@ -118,8 +113,7 @@ WHERE [UserID] = 1;
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
-##Etapa 3: executar a análise de dados históricos
-
+## Etapa 3: executar a análise de dados históricos
 Agora, quando o versionamento pelo sistema temporal estiver habilitado, a análise dos dados históricos estará a apenas uma consulta de distância de você. Neste artigo, mostraremos alguns exemplos que tratam dos cenários comuns da análise. Para obter todos os detalhes, explore as diversas opções introduzidas com a cláusula [FOR SYSTEM\_TIME](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3).
 
 Para ver os 10 principais usuários ordenados pelo número de páginas da Web visitadas na última hora, execute esta consulta:
@@ -160,8 +154,7 @@ A visualização gráfica é especialmente conveniente para consultas temporais 
 
 ![TemporalGraph](./media/sql-database-temporal-tables/AzureTemporal6.png)
 
-##Aprimoramento do esquema de tabela
-
+## Aprimoramento do esquema de tabela
 Normalmente, você precisará alterar o esquema de tabela temporal enquanto estiver fazendo o desenvolvimento de aplicativos. Para isso, bastará executar as instruções ALTER TABLE normais e o Banco de Dados SQL do Azure propagará adequadamente as alterações na tabela de histórico. O script a seguir mostra como você pode adicionar outros atributos ao controle:
 
 ````
@@ -185,18 +178,16 @@ Por fim, você pode remover uma coluna que já não precisa.
 ALTER TABLE dbo.WebsiteUserInfo 
     DROP COLUMN TemporaryColumn; 
 ````
-    
+
 Como alternativa, use o [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) mais recente para alterar o esquema de tabela temporal enquanto estiver conectado ao banco de dados (modo online) ou como parte do projeto do banco de dados (modo offline).
 
-##Controle de retenção de dados históricos
-
+## Controle de retenção de dados históricos
 Com as tabelas temporais versionadas pelo sistema, a tabela de histórico pode aumentar o tamanho do banco de dados mais do que as tabelas normais. Uma tabela de histórico grande e sempre crescente pode se tornar um problema devido aos custos puros de armazenamento, além de impor um imposto de desempenho sobre as consultas temporais. Portanto, o desenvolvimento de uma política de retenção de dados para o gerenciamento de dados na tabela de histórico é um aspecto importante do planejamento e do gerenciamento do ciclo de vida de cada tabela temporal. Com o Banco de Dados SQL do Azure, você tem as seguintes abordagens para o gerenciamento dos dados históricos na tabela temporal:
 
-- [Particionamento de tabela](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
-- [Script de Limpeza Personalizado](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
+* [Particionamento de tabela](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
+* [Script de Limpeza Personalizado](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
-##Próximas etapas
-
+## Próximas etapas
 Para obter informações detalhadas sobre as Tabelas Temporais, confira a [documentação do MSDN](https://msdn.microsoft.com/library/dn935015.aspx). Visite o Channel 9 para ouvir uma [história de sucesso real de implementação temporal do cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e assista uma [demonstração temporal dinâmica](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
 <!---HONumber=AcomDC_0831_2016-->

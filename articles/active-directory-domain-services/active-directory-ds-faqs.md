@@ -1,32 +1,28 @@
-<properties
-    pageTitle="Perguntas frequentes — Azure Active Directory Domain Services | Microsoft Azure"
-    description="Perguntas frequentes sobre os Serviços de Domínio do Active Directory do Azure"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+---
+title: Perguntas frequentes — Azure Active Directory Domain Services | Microsoft Docs
+description: Perguntas frequentes sobre os Serviços de Domínio do Active Directory do Azure
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/07/2016"
-    ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/07/2016
+ms.author: maheshu
 
-
+---
 # <a name="azure-active-directory-domain-services:-frequently-asked-questions-(faqs)"></a>Azure Active Directory Domain Services: perguntas frequentes
-
 Esta página responde a perguntas frequentes sobre o Azure Active Directory Domain Services. Continue verificando as atualizações.
 
 ### <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 Consulte nosso [Guia de solução de problemas](active-directory-ds-troubleshooting.md) a fim de obter soluções para os problemas comuns encontrados ao configurar ou administrar os Serviços de Domínio do AD do Azure.
 
-
 ### <a name="configuration"></a>Configuração
-
 #### <a name="can-i-create-multiple-domains-for-a-single-azure-ad-directory?"></a>Posso criar vários domínios para um único diretório do AD do Azure?
 Não. Você só pode criar um único domínio atendido pelos Serviços de Domínio do AD do Azure para um único diretório do AD do Azure.  
 
@@ -43,7 +39,6 @@ Não. Os Serviços de Domínio do Azure AD podem ser configurados somente no [Po
 Não. O domínio fornecido pelo Azure AD Domain Services é um domínio gerenciado. Você não precisa provisionar, configurar ou gerenciar de outra forma os controladores de domínio para este domínio. Essas atividades de gerenciamento são fornecidas como um serviço pela Microsoft. Portanto, você não pode adicionar outros controladores de domínio (leitura-gravação ou somente leitura) ao domínio gerenciado.
 
 ### <a name="administration-and-operations"></a>Administração e operações
-
 #### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop?"></a>Posso conectar ao controlador de domínio para meu domínio gerenciado usando a Área de Trabalho Remota?
 Não. Você não tem permissões para se conectar aos controladores de domínio do domínio gerenciado usando a Área de Trabalho Remota. Os membros do grupo “AAD DC Administrators” podem administrar o domínio gerenciado usando ferramentas de administração do AD como o ADAC (Active Directory Administration Center) ou o AD PowerShell. Essas ferramentas são instaladas usando o recurso “Ferramentas de Administração de Servidor Remoto” em um servidor Windows ingressado no domínio gerenciado.
 
@@ -63,7 +58,6 @@ Não. O esquema é administrado pela Microsoft para o domínio gerenciado. As ex
 Sim. Usuários que pertencem ao grupo "Administradores de DC do AAD" recebem privilégios de "Administrador de DNS" para modificar os registros de DNS no domínio gerenciado. Esses usuários podem usar o console do Gerenciador de DNS em um computador que executa o Windows Server ingressado no domínio gerenciado para gerenciar o DNS. Para usar o console do Gerenciador DNS, instale as "Ferramentas de Servidor DNS", que fazem parte do recurso opcional de "Ferramentas de Administração de Servidor Remoto" no servidor. Mais informações sobre os [utilitários para administrar, monitorar e solucionar problemas de DNS](https://technet.microsoft.com/library/cc753579.aspx) estão disponíveis no TechNet.
 
 ### <a name="billing-and-availability"></a>Disponibilidade e cobrança
-
 #### <a name="is-azure-ad-domain-services-a-paid-service?"></a>Os Azure AD Domain Services são um serviço pago?
 Sim. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
@@ -75,8 +69,6 @@ Não, os Serviços de Domínio do AD do Azure é um serviço pré-pago do Azure 
 
 #### <a name="what-azure-regions-is-the-service-available-in?"></a>Em quais regiões do Azure o serviço está disponível?
 Veja nossa [página de regiões](active-directory-ds-regions.md) para ver uma lista das regiões do Azure onde os Azure AD Domain Services estão disponíveis.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

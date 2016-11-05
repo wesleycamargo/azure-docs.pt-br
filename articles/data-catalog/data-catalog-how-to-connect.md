@@ -1,24 +1,23 @@
-<properties
-   pageTitle="Como conectar as fontes de dados | Microsoft Azure"
-   description="Artigo de instruções que destaca como se conectar a fontes de dados descobertas com o Catálogo de Dados do Azure."
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="09/15/2016"
-   ms.author="maroche"/>
+---
+title: Como conectar as fontes de dados | Microsoft Docs
+description: Artigo de instruções que destaca como se conectar a fontes de dados descobertas com o Catálogo de Dados do Azure.
+services: data-catalog
+documentationcenter: ''
+author: steelanddata
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 09/15/2016
+ms.author: maroche
 
+---
 # Como se conectar a fontes de dados
-
 ## Introdução
 O**Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em fontes de dados da empresa. Em outras palavras, o **Catálogo de Dados do Azure** ajuda as pessoas a descobrir, entender e usar fontes de dados, ajudando as empresas a obter mais valor de seus dados existentes. Um aspecto fundamental deste cenário está usando os dados – quando um usuário descobrir uma fonte de dados e compreender sua finalidade, a próxima etapa será se conectar à fonte de dados para colocar seus dados em uso.
 
@@ -39,12 +38,12 @@ Ao usar o menu "Abrir em..." para as fontes de dados no portal do Catálogo de D
 
 | Abrir no aplicativo | Extensão de arquivo / protocolo | Versões do aplicativo com suporte |
 | --- | --- | --- |
-| Excel | .odc | Excel 2010 ou posterior |
-| Excel (Top 1000) | .odc | Excel 2010 ou posterior |
-| Power Query | .xlsx | Excel 2016, Excel 2010 ou Excel 2013 com o Power Query para o suplemento do Excel instalado
-| Power BI Desktop | .pbix | Power BI Desktop de julho de 2016 ou posterior |
-| Ferramentas de dados do SQL Server | vsweb:// | Visual Studio 2013 Atualização 4 ou posterior com ferramentas do SQL Server instaladas |
-| Gerenciador de Relatórios | http:// | Consulte [requisitos do navegador para os Serviços de Relatório do SQL Server](https://technet.microsoft.com/pt-BR/library/ms156511.aspx) |
+| Excel |.odc |Excel 2010 ou posterior |
+| Excel (Top 1000) |.odc |Excel 2010 ou posterior |
+| Power Query |.xlsx |Excel 2016, Excel 2010 ou Excel 2013 com o Power Query para o suplemento do Excel instalado |
+| Power BI Desktop |.pbix |Power BI Desktop de julho de 2016 ou posterior |
+| Ferramentas de dados do SQL Server |vsweb:// |Visual Studio 2013 Atualização 4 ou posterior com ferramentas do SQL Server instaladas |
+| Gerenciador de Relatórios |http:// |Consulte [requisitos do navegador para os Serviços de Relatório do SQL Server](https://technet.microsoft.com/pt-BR/library/ms156511.aspx) |
 
 ## Seus dados, suas ferramentas
 As opções disponíveis no menu dependerão do tipo de ativo de dados selecionado no momento. Obviamente, nem todas as ferramentas possíveis serão incluídas no menu "Abrir no...", mas ainda será fácil se conectar à fonte de dados usando qualquer ferramenta de cliente. Quando um ativo de dados for selecionado no portal do **Catálogo de Dados do Azure**, o local completo será exibido no painel de propriedades.
@@ -60,10 +59,10 @@ Para facilitar a descoberta de uma fonte de dados para usuários que não tenham
 
  ![Informações de conexão com as instruções de acesso de solicitação fornecidas](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
-##Resumo
+## Resumo
 O registro de uma fonte de dados no **Catálogo de Dados do Azure** torna os dados descobríveis ao copiar metadados estruturais e descritivos da fonte de dados para o serviço Catálogo. Depois que uma fonte de dados tiver sido registrada e descoberta, os usuários poderão se conectar à fonte de dados do menu “Abrir no...” do portal **Catálogo de Dados do Azure** ou usando as ferramentas de dados escolhidas por eles.
 
 ## Confira também
-- o tutorial [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como conectar as fontes de dados.
+* o tutorial [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como conectar as fontes de dados.
 
 <!---HONumber=AcomDC_0921_2016-->

@@ -1,28 +1,30 @@
-<properties
-   pageTitle="Rota Expressa do Azure para Provedores de Soluções na Nuvem | Microsoft Azure"
-   description="Este artigo fornece informações para Provedor de Soluções na Nuvem que desejam incorporar serviços do Azure e a Rota Expressa a suas ofertas."
-   documentationCenter="na"
-   services="expressroute"
-   authors="richcar"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="richcar"/>
+---
+title: Rota Expressa do Azure para Provedores de Soluções na Nuvem | Microsoft Docs
+description: Este artigo fornece informações para Provedor de Soluções na Nuvem que desejam incorporar serviços do Azure e a Rota Expressa a suas ofertas.
+documentationcenter: na
+services: expressroute
+author: richcar
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: richcar
 
+---
 # <a name="expressroute-for-cloud-solution-providers-(csp)"></a>Rota Expressa para Provedores de Soluções na Nuvem (CSP)
-
 A Microsoft fornece serviços de Hyper-escala para revendedores e distribuidores tradicionais (CSP) poderem provisionar rapidamente novos serviços e soluções para seus clientes sem a necessidade de investir no desenvolvimento desses novos serviços. Para permitir que o Provedor de Soluções na Nuvem (CSP) tenha a capacidade de gerenciar esses novos serviços diretamente, a Microsoft oferece programas e APIs que permitem que o CSP gerencie recursos do Microsoft Azure em nome de seus clientes. Um desses recursos é a Rota Expressa. A Rota Expressa permite que o CSP conecte os recursos do cliente aos serviços do Azure. A Rota Expressa é um link de comunicações privado de alta velocidade para serviços do Azure. 
 
 A Rota Expressa é composta de um par de circuitos para alta disponibilidade conectados a uma única assinatura de cliente e não pode ser compartilhada por vários clientes. Cada circuito deve ser encerrado em um roteador diferente para manter a alta disponibilidade.
 
->[AZURE.NOTE] Existem limites de largura de banda e de conexão na Rota Expressa, o que significa que as implementações grandes/complexas exigirão vários circuitos de Rota Expressa para um único cliente.
+> [!NOTE]
+> Existem limites de largura de banda e de conexão na Rota Expressa, o que significa que as implementações grandes/complexas exigirão vários circuitos de Rota Expressa para um único cliente.
+> 
+> 
 
 O Microsoft Azure fornece um número crescente de serviços que você pode oferecer aos seus clientes.  Para tirar melhor proveito desses serviços exigirão o uso de conexões de Rota Expressa para acesso de baixa latência e de alta velocidade ao ambiente do Microsoft Azure.
 
@@ -33,7 +35,6 @@ A Microsoft fornece CSPs com APIs para gerenciar as assinaturas de cliente do Az
 Dependendo do contrato que você tenha com o cliente, isso determinará como a assinatura será gerenciada. O CSP pode gerenciar diretamente a criação e a manutenção de recursos ou o cliente pode manter o controle da assinatura do Microsoft Azure e criar recursos necessário do Azure. Se o cliente gerenciar a criação de recursos na sua assinatura do Microsoft Azure, ele usará um destes dois modelos: o modelo “Connect-Through” ou o modelo “Direct-To”. Esses modelos serão descritos em detalhes nas seções a seguir.  
 
 ### <a name="connect-through-model"></a>Modelo Connect-Through
-
 ![texto alt](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 No modelo Connect-Through, o CSP cria uma conexão direta entre seu datacenter e a assinatura do Azure do seu cliente. A conexão direta é feita usando a Rota Expressa, conectando a sua rede ao Azure. Em seguida, seu cliente se conecta à sua rede. Esse cenário requer que o cliente passe pela rede CSP para acessar os serviços do Azure. 
@@ -45,27 +46,32 @@ Para que o CSP gerencie serviços do Azure, supõe-se que o CSP tenha um armazen
 ![texto alt](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Modelo Connect-To
-
 ![texto alt](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 No modelo Connect-To, o provedor de serviço cria uma conexão direta entre o datacenter do cliente e a assinatura do Azure provisionada pelo CSP usando a Rota Expressa na rede do cliente.
 
->[AZURE.NOTE] Para a Rota Expressa, o cliente precisaria criar e manter o circuito da Rota Expressa.  
+> [!NOTE]
+> Para a Rota Expressa, o cliente precisaria criar e manter o circuito da Rota Expressa.  
+> 
+> 
 
 Esse cenário de conectividade requer que o cliente se conecte diretamente por meio de uma rede de cliente para acessar a assinatura do Azure gerenciada pelo CSP usando uma conexão de rede direta criada, pertencente e gerenciada no todo ou em parte pelo cliente. Presume-se que atualmente o provedor não tenha um armazenamento de identidades de cliente estabelecida para esses clientes, e que o provedor auxiliaria o cliente na replicação do armazenamento de identidades atual para o Azure Active Directory para o gerenciamento da assinatura por meio de AOBO. Os fatores determinantes para este cenário incluem o local onde um determinado parceiro ou provedor de serviços tem um relacionamento estabelecido com o cliente, se o cliente está consumindo serviços de provedor no momento ou se o parceiro tem um desejo fornecer serviços baseados somente em soluções hospedadas no Azure sem a necessidade de um datacenter ou de infraestrutura do provedor existente.
 
 ![texto alt](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 A escolha entre essas duas opções se baseia nas necessidades do cliente e em sua necessidade atual para fornecer os serviços do Azure. Os detalhes desses modelos e dos padrões de design do controle de acesso baseado em função, de rede e de identidade serão abordados em detalhes nos links a seguir:
--   **RBAC (Controle de Acesso Baseado em Função)** – o RBAC baseia-se no Azure Active Directory.  Para saber mais sobre o RBAC do Azure, entre [aqui](../active-directory/role-based-access-control-configure.md).
--   **Rede** – aborda vários tópicos da rede no Microsoft Azure.
--   **AAD (Azure Active Directory)** – o AAD fornece gerenciamento de identidades para o Microsoft Azure e para aplicativos SaaS de terceiros. Para saber mais sobre o AD do Azure, entre [aqui](https://azure.microsoft.com/documentation/services/active-directory/).  
 
+* **RBAC (Controle de Acesso Baseado em Função)** – o RBAC baseia-se no Azure Active Directory.  Para saber mais sobre o RBAC do Azure, entre [aqui](../active-directory/role-based-access-control-configure.md).
+* **Rede** – aborda vários tópicos da rede no Microsoft Azure.
+* **AAD (Azure Active Directory)** – o AAD fornece gerenciamento de identidades para o Microsoft Azure e para aplicativos SaaS de terceiros. Para saber mais sobre o AD do Azure, entre [aqui](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Velocidades de rede
 A Rota Expressa dá suporte a velocidades de rede de 50 Mb/s a 10Gb/s. Isso permite que os clientes comprem a quantidade de largura de banda de rede necessária para seu ambiente exclusivo.
 
->[AZURE.NOTE] A largura de banda de rede pode ser aumentada, conforme necessário, sem a interrupção das comunicações, mas para reduzir a velocidade da rede, é necessária a divisão do circuito e sua recriação na velocidade de rede menor.  
+> [!NOTE]
+> A largura de banda de rede pode ser aumentada, conforme necessário, sem a interrupção das comunicações, mas para reduzir a velocidade da rede, é necessária a divisão do circuito e sua recriação na velocidade de rede menor.  
+> 
+> 
 
 A Rota Expressa oferece suporte à conexão de várias Redes Virtuais a um único circuito de Rota Expressa para a melhor utilização das conexões de alta velocidade. Um único circuito de Rota Expressa pode ser compartilhado entre várias assinaturas do Azure pertencentes ao mesmo cliente.
 
@@ -73,7 +79,7 @@ A Rota Expressa oferece suporte à conexão de várias Redes Virtuais a um únic
 A Rota Expressa pode ser configurada para oferecer suporte a três tipos de tráfego ([domínios de roteamento](#ExpressRoute-routing-domains)) em um único circuito de Rota Expressa. Esse tráfego é dividido em emparelhamento da Microsoft, emparelhamento público e emparelhamento privado do Azure. Você pode escolher o envio de um ou de todos os tipos de tráfego em um único circuito de Rota Expressa ou usar vários circuitos de Rota Expressa, dependendo do tamanho do circuito de Rota Expressa e do isolamento exigidos pelo cliente. A postura de segurança do cliente pode não permitir o tráfego público e o tráfego privado no mesmo circuito.
 
 ### <a name="connect-through-model"></a>Modelo Connect-Through
-Em uma configuração Connect-Through, você será responsável por todas as bases de rede conectadas a seus recursos de datacenter de clientes para as assinaturas hospedadas no Azure. Cada um dos seus clientes que quiser usar recursos do Azure terá sua própria conexão de Rota Expressa, que será gerenciada por você. Você usará os mesmos métodos que o cliente usaria para adquirir o circuito de Rota Expressa. Em seguida, você seguirá as mesmas etapas descritas no artigo [Fluxos de trabalho da Rota Expressa](./expressroute-workflows.md) para o provisionamento de circuitos e os estados de circuito. Em seguida, você irá configurar as rotas BGP (Border Gateway Protocol) para controlar o tráfego que flui entre a rede local e a Rede Virtual do Azure.
+Em uma configuração Connect-Through, você será responsável por todas as bases de rede conectadas a seus recursos de datacenter de clientes para as assinaturas hospedadas no Azure. Cada um dos seus clientes que quiser usar recursos do Azure terá sua própria conexão de Rota Expressa, que será gerenciada por você. Você usará os mesmos métodos que o cliente usaria para adquirir o circuito de Rota Expressa. Em seguida, você seguirá as mesmas etapas descritas no artigo [Fluxos de trabalho da Rota Expressa](expressroute-workflows.md) para o provisionamento de circuitos e os estados de circuito. Em seguida, você irá configurar as rotas BGP (Border Gateway Protocol) para controlar o tráfego que flui entre a rede local e a Rede Virtual do Azure.
 
 ### <a name="connect-to-model"></a>Modelo Connect-To
 Em uma configuração Connect-To, ou seu cliente já tem uma conexão existente com o Azure ou iniciará uma conexão com o provedor de serviços de Internet ao vincular a Rota Expressa do próprio datacenter do seu cliente diretamente ao Azure, em vez de ao seu datacenter. Para iniciar o processo de provisionamento, o cliente seguirá as etapas como descrito no modelo Connect-Through, acima. Depois que o circuito tiver sido estabelecido, seu cliente precisará configurar os roteadores locais para que eles possam acessar sua rede e as Redes Virtuais do Azure.
@@ -81,11 +87,14 @@ Em uma configuração Connect-To, ou seu cliente já tem uma conexão existente 
 Você pode auxiliar na configuração da conexão e na configuração das rotas para permitir que os recursos do seu datacenter também se comuniquem com os recursos do cliente em seu datacenter, ou com os recursos hospedados no Azure.
 
 ## <a name="expressroute-routing-domains"></a>Domínios de roteamento da Rota Expressa
-A Rota Expressa oferece três domínios de roteamento: público, privado e emparelhamento da Microsoft. Cada um dos domínios de roteamento é configurado com roteadores idênticos na configuração ativo-ativo para obtenção de alta disponibilidade. Para obter mais detalhes sobre os domínios de roteamento da Rota Expressa, entre [aqui](./expressroute-circuit-peerings.md).
+A Rota Expressa oferece três domínios de roteamento: público, privado e emparelhamento da Microsoft. Cada um dos domínios de roteamento é configurado com roteadores idênticos na configuração ativo-ativo para obtenção de alta disponibilidade. Para obter mais detalhes sobre os domínios de roteamento da Rota Expressa, entre [aqui](expressroute-circuit-peerings.md).
 
-Você pode definir filtros de rotas personalizados para permitir apenas as rotas necessárias. Para saber mais ou para ver como fazer essas alterações, confira o artigo: [Criar e modificar o roteamento de um circuito de Rota Expressa usando o PowerShell](./expressroute-howto-routing-classic.md) para obter mais detalhes sobre os filtros de roteamento.
+Você pode definir filtros de rotas personalizados para permitir apenas as rotas necessárias. Para saber mais ou para ver como fazer essas alterações, confira o artigo: [Criar e modificar o roteamento de um circuito de Rota Expressa usando o PowerShell](expressroute-howto-routing-classic.md) para obter mais detalhes sobre os filtros de roteamento.
 
->[AZURE.NOTE] Para o emparelhamento da Microsoft e público, a conectividade deve passar por um endereço IP público de propriedade do cliente ou do CSP e deve aderir a todas as regras definidas. Para saber mais, veja a página [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md) .  
+> [!NOTE]
+> Para o emparelhamento da Microsoft e público, a conectividade deve passar por um endereço IP público de propriedade do cliente ou do CSP e deve aderir a todas as regras definidas. Para saber mais, veja a página [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md) .  
+> 
+> 
 
 ## <a name="routing"></a>Roteamento
 A Rota Expressa se conecta às redes do Azure por meio do Gateway de Rede Virtual do Azure. Os gateways de rede fornecem roteamento para as redes virtuais do Azure.
@@ -95,11 +104,11 @@ A criação de redes virtuais do Azure também cria uma tabela de roteamento pad
 ### <a name="default-routing"></a>Roteamento padrão
 A tabela de rotas padrão inclui as seguintes rotas:
 
-- Roteamento em uma sub-rede
-- Sub-rede para sub-rede na rede virtual
-- Para a Internet
-- Rede virtual para rede virtual usando o gateway de VPN
-- Rede virtual para rede local usando um gateway de VPN ou de Rota Expressa
+* Roteamento em uma sub-rede
+* Sub-rede para sub-rede na rede virtual
+* Para a Internet
+* Rede virtual para rede virtual usando o gateway de VPN
+* Rede virtual para rede local usando um gateway de VPN ou de Rota Expressa
 
 ![texto alt](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
@@ -109,12 +118,10 @@ As rotas definidas pelo usuário permitem o controle do tráfego de saída da su
 ## <a name="security"></a>Segurança
 Dependendo do modelo em uso, Connect-To ou Connect-Through, seu cliente definirá as políticas de segurança na Rede Virtual ou fornecer os requisitos da política de segurança ao CSP para que ele defina nas Redes Virtuais. Os critérios de segurança a seguir podem ser definidos:
 
-1.  **Isolamento do cliente** — a plataforma do Azure fornece isolamento de cliente ao armazenar a ID do Cliente e as informações da Rede Virtual em um banco de dados seguro, que é usado para encapsular o tráfego de cada cliente em um túnel GRE.
-2.  **NSG (Grupo de Segurança de Rede)** definem o tráfego de entrada e de saída permitido para as sub-redes em Redes Virtuais no Azure. Por padrão, o NSG contém regras de Bloqueio para bloquear o tráfego da Internet para a Rede Virtual e as regras de Permissão para o tráfego em uma Rede Virtual. Para saber mais sobre os Grupos de Segurança de Rede, entre [aqui](https://azure.microsoft.com/blog/network-security-groups/).
-3.  **Criação de túneis à força** — essa é uma opção para redirecionar o tráfego limitado à Internet originado no Azure na conexão de Rota Expressa para o datacenter local. Para saber mais sobre a criação de túneis à força, entre [aqui](./expressroute-routing.md#advertising-default-routes).  
-
-4.  **Criptografia** — mesmo se os circuitos de Rota Expressa estiverem dedicados a um cliente específico, há a possibilidade de que o provedor de rede possa ser violado, permitindo que um invasor examine o tráfego de pacotes. Para reduzir essa possibilidade, um cliente ou um CSP pode criptografar o tráfego pela conexão ao definir políticas de modo de túnel IPSec para todo o tráfego que fluir entre os recursos locais e os recursos do Azure (consulte o modo de túnel IPSec opcional para o Cliente 1 na Figura 5: Segurança da Rota Expressa, acima). A segunda opção seria usar um dispositivo de firewall em cada ponto de extremidade do circuito da Rota Expressa. Isso exigirá a instalação de VMs/dispositivos de firewall de terceiros adicionais em ambas as extremidades para criptografar o tráfego no circuito de Rota Expressa.
-
+1. **Isolamento do cliente** — a plataforma do Azure fornece isolamento de cliente ao armazenar a ID do Cliente e as informações da Rede Virtual em um banco de dados seguro, que é usado para encapsular o tráfego de cada cliente em um túnel GRE.
+2. **NSG (Grupo de Segurança de Rede)** definem o tráfego de entrada e de saída permitido para as sub-redes em Redes Virtuais no Azure. Por padrão, o NSG contém regras de Bloqueio para bloquear o tráfego da Internet para a Rede Virtual e as regras de Permissão para o tráfego em uma Rede Virtual. Para saber mais sobre os Grupos de Segurança de Rede, entre [aqui](https://azure.microsoft.com/blog/network-security-groups/).
+3. **Criação de túneis à força** — essa é uma opção para redirecionar o tráfego limitado à Internet originado no Azure na conexão de Rota Expressa para o datacenter local. Para saber mais sobre a criação de túneis à força, entre [aqui](expressroute-routing.md#advertising-default-routes).  
+4. **Criptografia** — mesmo se os circuitos de Rota Expressa estiverem dedicados a um cliente específico, há a possibilidade de que o provedor de rede possa ser violado, permitindo que um invasor examine o tráfego de pacotes. Para reduzir essa possibilidade, um cliente ou um CSP pode criptografar o tráfego pela conexão ao definir políticas de modo de túnel IPSec para todo o tráfego que fluir entre os recursos locais e os recursos do Azure (consulte o modo de túnel IPSec opcional para o Cliente 1 na Figura 5: Segurança da Rota Expressa, acima). A segunda opção seria usar um dispositivo de firewall em cada ponto de extremidade do circuito da Rota Expressa. Isso exigirá a instalação de VMs/dispositivos de firewall de terceiros adicionais em ambas as extremidades para criptografar o tráfego no circuito de Rota Expressa.
 
 ![texto alt](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 
@@ -126,8 +133,6 @@ Encontre mais informações nestes links:
 [Programa Provedor de Soluções na Nuvem da Microsoft](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview).  
 [Prepare-se para a transação como um Provedor de Soluções da Nuvem](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Recursos do Provedor de Soluções da Nuvem da Microsoft](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

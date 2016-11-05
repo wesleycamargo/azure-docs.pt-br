@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Como certificar o AppSource para o Azure Active Directory| Microsoft Azure"
-   description="Detalhes sobre como certificar o AppSource do seu aplicativo para o Azure Active Directory."
-   services="active-directory"
-   documentationCenter=""
-   authors="skwan"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Como certificar o AppSource para o Azure Active Directory| Microsoft Docs
+description: Detalhes sobre como certificar o AppSource do seu aplicativo para o Azure Active Directory.
+services: active-directory
+documentationcenter: ''
+author: skwan
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/22/2016"
-   ms.author="skwan;bryanla"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/22/2016
+ms.author: skwan;bryanla
 
-
-#<a name="how-to-get-appsource-certified-for-azure-active-directory-(ad)"></a>Como certificar o AppSource para o Azure AD (Active Directory) 
-
+---
+# <a name="how-to-get-appsource-certified-for-azure-active-directory-(ad)"></a>Como certificar o AppSource para o Azure AD (Active Directory)
 Para receber a certificação do AppSource para o Azure AD, seu aplicativo deve implementar padrão de entrada multilocatário com o Azure AD usando os protocolos OpenID Connect, OAuth 2.0 ou SAML 2.0. 
 
 Se você não estiver familiarizado com o desenvolvimento de aplicativos multilocatário ou de entrada no Azure AD:

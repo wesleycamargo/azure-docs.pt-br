@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Vídeos de segurança do Azure no Channel 9 | Microsoft Azure"
-   description="O artigo fornece uma lista estruturada de apresentações de segurança do Azure no Channel 9. O Channel 9 é uma comunidade que conecta as pessoas que usam nossos produtos com as pessoas responsáveis pelo desenvolvimento desses produtos."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Vídeos de segurança do Azure no Channel 9 | Microsoft Docs
+description: O artigo fornece uma lista estruturada de apresentações de segurança do Azure no Channel 9. O Channel 9 é uma comunidade que conecta as pessoas que usam nossos produtos com as pessoas responsáveis pelo desenvolvimento desses produtos.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Vídeos de segurança do Azure no Channel 9
-
 [Channel 9](https://channel9.msdn.com/) é uma comunidade que apresenta as pessoas por trás de nossos produtos e conecta-as aos clientes.
 
 Elas acreditam que há um grande futuro para o software e estão animadas com isso. O Channel 9 é uma comunidade que se destina à oferecer aos usuários a participação da conversa em andamento.
@@ -46,9 +45,9 @@ Jack Richins ensina [Scott](https://channel9.msdn.com/Niners/Glucose) como cript
 
 Áreas abordadas neste vídeo:
 
-- Noções básicas sobre criptografia e o SQL Server
-- Noções básicas sobre a API de Proteção de Dados, chaves mestras e certificados
-- Usando comandos SQL para criar a chave mestra e os certificados e criptografar o banco de dados
+* Noções básicas sobre criptografia e o SQL Server
+* Noções básicas sobre a API de Proteção de Dados, chaves mestras e certificados
+* Usando comandos SQL para criar a chave mestra e os certificados e criptografar o banco de dados
 
 [How to set security in DevTest Labs](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab) (Como definir a segurança no DevTest Labs)
 
@@ -66,11 +65,11 @@ Narayan Annamalai, Gerente de Programas Sênior ensina Scott a usar os Grupos de
 
 Privileged Identity Management do Azure Active Directory (AD) é uma funcionalidade premium que permite descobrir, restringir e monitorar as identidades com privilégios e o acesso aos recursos. Também impõe um acesso administrativo sob demanda no momento certo, quando necessário. Saiba mais sobre:
 
-- Gerenciando a proteção para as funções administrativas específicas da carga de trabalho do Office 365
-- Configurando o Azure Multi-Factor Authentication (MFA) para as ativações das funções com privilégios
-- Medindo e melhorando sua postura de segurança do locatário
-- Monitorando e corrigindo as descobertas de segurança
-- Revisando o que deve permanecer nas funções com privilégios para os fluxos de trabalho de nova certificação periódica
+* Gerenciando a proteção para as funções administrativas específicas da carga de trabalho do Office 365
+* Configurando o Azure Multi-Factor Authentication (MFA) para as ativações das funções com privilégios
+* Medindo e melhorando sua postura de segurança do locatário
+* Monitorando e corrigindo as descobertas de segurança
+* Revisando o que deve permanecer nas funções com privilégios para os fluxos de trabalho de nova certificação periódica
 
 [Azure Key Vault with Amit Bapat (Cofre de Chaves do Azure com Amit Bapat)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 

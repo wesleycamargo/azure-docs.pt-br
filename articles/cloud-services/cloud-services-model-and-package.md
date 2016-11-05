@@ -1,37 +1,38 @@
-<properties
-    pageTitle="O que é um modelo de serviço de nuvem e pacote | Microsoft Azure"
-    description="Descreve o modelo de serviço de nuvem (.csdef, .cscfg) e o pacote (.cspkg) no Azure"
-    services="cloud-services"
-    documentationCenter=""
-    authors="Thraka"
-    manager="timlt"
-    editor=""/>
-<tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="adegeo"/>
+---
+title: O que é um modelo de serviço de nuvem e pacote | Microsoft Docs
+description: Descreve o modelo de serviço de nuvem (.csdef, .cscfg) e o pacote (.cspkg) no Azure
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
+editor: ''
 
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: adegeo
+
+---
 # Qual é o modelo de serviço de nuvem e como empacotá-lo?
-Um serviço de nuvem é criado por meio de três componentes, a definição de serviço _(.csdef)_, a configuração de serviço _(.cscfg)_ e um pacote de serviço _(.cspkg)_. Os arquivos **ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados em XML e descrevem a estrutura do serviço de nuvem e como ela é configurada; coletivamente chamados de modelo. O **ServicePackage.cspkg** é um arquivo zip que é gerado por meio de **ServiceDefinition.csdef** e entre outras coisas, contém todas as dependências necessárias com base em binário. O Azure cria um serviço de nuvem para ambos os **ServicePackage.cspkg** e **ServiceConfig.cscfg**.
+Um serviço de nuvem é criado por meio de três componentes, a definição de serviço *(.csdef)*, a configuração de serviço *(.cscfg)* e um pacote de serviço *(.cspkg)*. Os arquivos **ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados em XML e descrevem a estrutura do serviço de nuvem e como ela é configurada; coletivamente chamados de modelo. O **ServicePackage.cspkg** é um arquivo zip que é gerado por meio de **ServiceDefinition.csdef** e entre outras coisas, contém todas as dependências necessárias com base em binário. O Azure cria um serviço de nuvem para ambos os **ServicePackage.cspkg** e **ServiceConfig.cscfg**.
 
 Quando o serviço de nuvem estiver em execução no Azure, você poderá reconfigurá-lo por meio do arquivo **ServiceConfig.cscfg**, mas você não pode alterar a definição.
 
 ## O que você deseja saber mais?
-
 * Quero saber mais sobre os arquivos [ServiceDefinition.csdef](#csdef) e [ServiceConfig.cscfg](#cscfg).
 * Já sei sobre isso, dê-me [alguns exemplos](#next-steps) sobre o que posso configurar.
 * Quero criar o [ServicePackage.cspkg](#cspkg).
 * Estou usando o Visual Studio e desejo...
-    * [Crie um novo serviço de nuvem][vs_create]
-    * [Reconfigurar um serviço de nuvem existente][vs_reconfigure]
-    * [Implantar um projeto de serviço de nuvem][vs_deploy]
-    * [Área de trabalho remota em uma instância de serviço de nuvem][remotedesktop]
+  * [Crie um novo serviço de nuvem][vs_create]
+  * [Reconfigurar um serviço de nuvem existente][vs_reconfigure]
+  * [Implantar um projeto de serviço de nuvem][vs_deploy]
+  * [Área de trabalho remota em uma instância de serviço de nuvem][remotedesktop]
 
 <a name="csdef"></a>
+
 ## ServiceDefinition.csdef
 O arquivo **ServiceDefinition.csdef** especifica as configurações que são usadas pelo Azure para configurar um serviço de nuvem. O [esquema de definição de serviço do Azure (arquivo .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx) fornece o formato permitido para um arquivo de definição de serviço. O exemplo a seguir mostra as configurações que podem ser definidas para as funções da Web e de trabalho:
 
@@ -102,9 +103,8 @@ Você pode consultar o [esquema de definição de serviço][] para uma melhor co
 
 **Inicialização** contém tarefas que são executadas quando a função é iniciada. As tarefas são definidas em um arquivo executável ou o .cmd.
 
-
-
 <a name="cscfg"></a>
+
 ## ServiceConfiguration.cscfg
 A definição das configurações do serviço de nuvem é determinada pelos valores do arquivo **ServiceConfiguration.cscfg**. Especifique o número de instâncias que você deseja implantar para cada função nesse arquivo. Os valores para os parâmetros de configuração que você definiu no arquivo de definição de serviço são adicionados ao arquivo de configuração de serviço. As impressões digitais para qualquer certificado de gerenciamento que estão associadas ao serviço de nuvem também são adicionadas ao arquivo. O [esquema de configuração de serviço do Azure (arquivo .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx) fornece o formato permitido para um arquivo de configuração de serviço.
 
@@ -138,9 +138,10 @@ Você pode consultar o [esquema de configuração de serviço](https://msdn.micr
 
 <p/>
 
- >[AZURE.NOTE] A impressão digital do certificado pode ser adicionada ao arquivo de configuração usando um editor de texto, ou o valor pode ser adicionado na guia **Certificados** da página **Propriedades** da função no Visual Studio.
-
-
+> [!NOTE]
+> A impressão digital do certificado pode ser adicionada ao arquivo de configuração usando um editor de texto, ou o valor pode ser adicionado na guia **Certificados** da página **Propriedades** da função no Visual Studio.
+> 
+> 
 
 ## Definindo as portas para instâncias de função
 O Azure permite apenas um ponto de entrada para uma função web. Isso significa que todo o tráfego ocorre por meio de um endereço IP. Você pode configurar seus sites para compartilhar uma porta ao configurar o cabeçalho do host para direcionar a solicitação para o local correto. Você também pode configurar seus aplicativos para escutar portas conhecidas no endereço IP.
@@ -183,21 +184,23 @@ O exemplo a seguir mostra a configuração de uma função web com um site e o a
 ## Alterar a configuração de uma função
 Você pode atualizar a configuração do seu serviço de nuvem enquanto ele é executado no Azure, sem que o serviço fique offline. Para alterar informações de configuração, você pode carregar um novo arquivo de configuração, ou editar o arquivo de configuração no local e aplicá-lo ao seu serviço em execução. As seguintes alterações podem ser feitas na configuração de um serviço:
 
-- **Alterando os valores das configurações** Quando uma configuração é alterada, uma instância de função pode optar por aplicar a alteração enquanto a instância está online ou reciclar a instância normalmente e aplicar a alteração enquanto a instância está offline.
-
-- **Alterando a topologia de serviço de instâncias de função** Alterações de topologia não afetam instâncias em execução, exceto quando uma instância está sendo removida. Todas as instâncias restantes geralmente não precisam ser recicladas. No entanto, você pode optar por reciclar instâncias de função em resposta a uma alteração de topologia.
-
-- **Alterando a impressão digital do certificado** Somente é possível atualizar um certificado quando uma instância de função está offline. Se um certificado é adicionado, excluído ou alterado enquanto uma instância de função estiver online, o Azure deixará a instância offline normalmente para atualizar o certificado e a deixará online novamente após a alteração ser concluída.
+* **Alterando os valores das configurações** Quando uma configuração é alterada, uma instância de função pode optar por aplicar a alteração enquanto a instância está online ou reciclar a instância normalmente e aplicar a alteração enquanto a instância está offline.
+* **Alterando a topologia de serviço de instâncias de função** Alterações de topologia não afetam instâncias em execução, exceto quando uma instância está sendo removida. Todas as instâncias restantes geralmente não precisam ser recicladas. No entanto, você pode optar por reciclar instâncias de função em resposta a uma alteração de topologia.
+* **Alterando a impressão digital do certificado** Somente é possível atualizar um certificado quando uma instância de função está offline. Se um certificado é adicionado, excluído ou alterado enquanto uma instância de função estiver online, o Azure deixará a instância offline normalmente para atualizar o certificado e a deixará online novamente após a alteração ser concluída.
 
 ### Tratando alterações de configuração com eventos de tempo de execução do serviço
 A [biblioteca de tempo de execução do Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) inclui o namespace [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), que fornece classes para interagir com o ambiente do Azure do código em execução em uma instância de uma função. A classe [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) define os seguintes eventos que são disparados antes e depois de uma alteração de configuração:
 
-- **[Alteração do ](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)evento** Isso ocorre antes que a alteração de configuração seja aplicada a uma instância específica de uma função, fornecendo a oportunidade de desativar as instâncias de função, se necessário.
-- **[Evento](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) alterado** Ocorre depois que a alteração de configuração é aplicada a uma instância específica de uma função.
+* **[Alteração do ](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)evento** Isso ocorre antes que a alteração de configuração seja aplicada a uma instância específica de uma função, fornecendo a oportunidade de desativar as instâncias de função, se necessário.
+* **[Evento](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) alterado** Ocorre depois que a alteração de configuração é aplicada a uma instância específica de uma função.
 
-> [AZURE.NOTE] Como as alterações de certificado sempre tornam as instâncias de uma função offline, elas não geram os eventos RoleEnvironment.Changing ou RoleEnvironment.Changed.
+> [!NOTE]
+> Como as alterações de certificado sempre tornam as instâncias de uma função offline, elas não geram os eventos RoleEnvironment.Changing ou RoleEnvironment.Changed.
+> 
+> 
 
 <a name="cspkg"></a>
+
 ## ServicePackage.cspkg
 Para implantar um aplicativo como um serviço de nuvem no Azure, primeiro você deve empacotar o aplicativo no formato apropriado. Você pode usar a ferramenta de linha de comando **CSPack** (instalada com o [SDK do Azure](https://azure.microsoft.com/downloads/)) para criar o arquivo de pacote como uma alternativa para o Visual Studio.
 
@@ -205,15 +208,19 @@ O **CSPack** usa o conteúdo do arquivo de definição de serviço e arquivo de 
 
 O **CSPack** geralmente está localizado em `C:\Program Files\Microsoft SDKs\Azure\.NET SDK[sdk-version]\bin`.
 
->[AZURE.NOTE]
-O CSPack.exe (no Windows) está disponível executando o atalho do **prompt de comando do Microsoft Azure** que é instalado com o SDK.
->  
->Execute o programa CSPack.exe por ele mesmo para ver a documentação sobre todos os comandos e opções possíveis.
+> [!NOTE]
+> O CSPack.exe (no Windows) está disponível executando o atalho do **prompt de comando do Microsoft Azure** que é instalado com o SDK.
+> 
+> Execute o programa CSPack.exe por ele mesmo para ver a documentação sobre todos os comandos e opções possíveis.
+> 
+> 
 
 <p />
 
->[AZURE.TIP]
-Execute seu serviço de nuvem localmente no **Emulador de computação do Microsoft Azure**, use a opção **/copyonly**. Essa opção copia os arquivos binários do aplicativo para um layout de diretório do qual eles podem ser executados no emulador de computação.
+> [!TIP]
+> Execute seu serviço de nuvem localmente no **Emulador de computação do Microsoft Azure**, use a opção **/copyonly**. Essa opção copia os arquivos binários do aplicativo para um layout de diretório do qual eles podem ser executados no emulador de computação.
+> 
+> 
 
 ### Exemplo de comando para empacotar um serviço de nuvem
 O exemplo a seguir cria um pacote de aplicativos que contém as informações para uma função web. O comando especifica o arquivo de definição de serviço para usar, o diretório onde os arquivos binários podem ser encontrados e o nome do arquivo do pacote.
@@ -234,19 +241,17 @@ Se o aplicativo contém uma função web e uma função de trabalho, o comando a
 Onde as variáveis são definidas da seguinte maneira:
 
 | Variável | Valor |
-| ------------------------- | ----- |
-| [DirectoryName] | O subdiretório no diretório do projeto raiz que contém o arquivo .csdef do projeto do Azure.|
-| [ServiceDefinition] | O nome do arquivo de definição de serviço. Por padrão, esse arquivo é chamado de ServiceDefinition.csdef. |
-| [OutputFileName] | O nome do arquivo de pacote gerado. Normalmente, isso é definido como o nome do aplicativo. Se nenhum nome de arquivo for especificado, o pacote de aplicativos é criado como [ApplicationName].cspkg.|
-| [RoleName] | O nome da função, conforme definido no arquivo de definição de serviço.|
-| [RoleBinariesDirectory] | O local dos arquivos binários da função.|
-| [VirtualPath] | Os diretórios físicos para cada caminho virtual definido na seção Sites da definição de serviço.|
-| [PhysicalPath] | Os diretórios físicos do conteúdo de cada caminho virtual definido no nó de site da definição de serviço.|
-| [RoleAssemblyName] | O nome do arquivo binário para a função.| 
-
+| --- | --- |
+| [DirectoryName] |O subdiretório no diretório do projeto raiz que contém o arquivo .csdef do projeto do Azure. |
+| [ServiceDefinition] |O nome do arquivo de definição de serviço. Por padrão, esse arquivo é chamado de ServiceDefinition.csdef. |
+| [OutputFileName] |O nome do arquivo de pacote gerado. Normalmente, isso é definido como o nome do aplicativo. Se nenhum nome de arquivo for especificado, o pacote de aplicativos é criado como [ApplicationName].cspkg. |
+| [RoleName] |O nome da função, conforme definido no arquivo de definição de serviço. |
+| [RoleBinariesDirectory] |O local dos arquivos binários da função. |
+| [VirtualPath] |Os diretórios físicos para cada caminho virtual definido na seção Sites da definição de serviço. |
+| [PhysicalPath] |Os diretórios físicos do conteúdo de cada caminho virtual definido no nó de site da definição de serviço. |
+| [RoleAssemblyName] |O nome do arquivo binário para a função. |
 
 ## Próximas etapas
-
 Estou criando um pacote de serviço de nuvem e desejo...
 
 * [Configurar área de trabalho remota para uma instância de serviço de nuvem][remotedesktop]

@@ -1,25 +1,22 @@
-<properties
-	pageTitle="Dimensionamento automático e Ambiente do Serviço de Aplicativo | Microsoft Azure"
-	description="Dimensionamento automático e Ambiente de Serviço de Aplicativo"
-	services="app-service"
-	documentationCenter=""
-	authors="btardif"
-	manager="wpickett"
-	editor=""
-/>
+---
+title: Dimensionamento automático e Ambiente do Serviço de Aplicativo | Microsoft Docs
+description: Dimensionamento automático e Ambiente de Serviço de Aplicativo
+services: app-service
+documentationcenter: ''
+author: btardif
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="app-service"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/07/2016"
-	ms.author="byvinyal"
-/>
+ms.service: app-service
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/07/2016
+ms.author: byvinyal
 
+---
 # Dimensionamento automático e Ambiente de Serviço de Aplicativo
-
 Os ambientes de Serviço de Aplicativo do Azure dão suporte ao *dimensionamento automático*. Você pode dimensionar automaticamente pools de trabalho individuais com base em métricas ou na agenda.
 
 ![Opções de dimensionamento automático para um pool de trabalho.][intro]
@@ -27,7 +24,6 @@ Os ambientes de Serviço de Aplicativo do Azure dão suporte ao *dimensionamento
 O dimensionamento automático otimiza a utilização de recursos, escalar e reduzir verticalmente um ambiente de Serviço de Aplicativo de forma automática para ajustar seu orçamento e/ou perfil de carregamento.
 
 ## Configurar o dimensionamento automático de pool de trabalho
-
 Você pode acessar a funcionalidade de dimensionamento automático na guia **Configurações** do pool de trabalho.
 
 ![Guia de configurações do pool de trabalho.][settings-scale]
@@ -51,13 +47,11 @@ Depois de definir um perfil, você pode adicionar regras de dimensionamento auto
  Qualquer métrica de pool de trabalho ou de front-end pode ser usada para definir regras de dimensionamento automático. Essas são as mesmas métricas que você pode monitorar nos gráficos de folha de recursos e para as quais pode definir alertas.
 
 ## Exemplo de dimensionamento automático
-
 O dimensionamento automático de um ambiente de Serviço de Aplicativo pode ser melhor ilustrado examinando um cenário.
 
 Este artigo explica todas as considerações necessárias quando você configura o dimensionamento automático e todas as interações que entram em jogo quando você fatora em ambientes de Serviço de Aplicativo de dimensionamento automático hospedados no Ambiente de Serviço de Aplicativo.
 
 ### Introdução ao cenário
-
 Matheus é um SysAdmin de uma empresa que migrou uma parte das cargas de trabalho que ele gerencia para um ambiente de Serviço de Aplicativo.
 
 O ambiente do Serviço de Aplicativo está configurado para a escala manual da seguinte maneira:
@@ -75,37 +69,36 @@ Matheus está familiarizado com o aplicativo. Ele sabe que as horas de pico de c
 
 ![Configurações específicas para o aplicativo LOB.][asp-scale]
 
-|	**Perfil de dimensionamento automático – Dias da semana – plano do Serviço de Aplicativo** |	**Perfil de dimensionamento automático – Finais de semana – plano do Serviço de Aplicativo** |
-|	----------------------------------------------------	|	----------------------------------------------------	|
-|	**Nome:** Perfil de dia da semana |	**Nome:** Perfil de final de semana |
-|	**Dimensionar por:** Regras de agendamento e desempenho |	**Dimensionar por:** Regras de agendamento e desempenho |
-|	**Perfil:** Dias da semana |	**Perfil:** Final de semana |
-|	**Tipo:** Recorrência |	**Tipo:** Recorrência |
-|	**Intervalo de destino:** 5 a 20 instâncias |	**Intervalo de destino:** 3 a 10 instâncias |
-|	**Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |	**Dias:** sábado e domingo |
-|	**Hora de início:** 9:00 |	**Hora de início:** 9:00 |
-|	**Fuso horário:** UTC-08 |	**Fuso horário:** UTC-08 |
-| | |
-|	**Regra de dimensionamento automático (Escalar Verticalmente)** |	**Regra de dimensionamento automático (Escalar Verticalmente)** |
-|	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |
-|	**Métrica:** % da CPU |	**Métrica:** % da CPU |
-|	**Operação:** Mais de 60% |	**Operação:** Mais de 80% |
-|	**Duração:** 5 minutos |	**Duração:** 10 minutos |
-|	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
-|	**Ação:** Aumentar a contagem em 2 |	**Ação:** Aumentar a contagem em 1 |
-|	**Tempo de resfriamento (minutos):** 15 |	**Tempo de resfriamento (minutos):** 20 |
-| | |
- |	**Regra de dimensionamento automático (Reduzir Verticalmente)** |	**Regra de dimensionamento automático (Reduzir Verticalmente)** |
-|	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |	**Recurso:** Produção (ambiente de Serviço de Aplicativo) |
-|	**Métrica:** % da CPU |	**Métrica:** % da CPU |
-|	**Operação:** Menos de 30% |	**Operação:** Menos de 20% |
-|	**Duração:** 10 minutos |	**Duração:** 15 minutos |
-|	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
-|	**Ação:** Reduzir a contagem em 1 |	**Ação:** Reduzir a contagem em 1 |
-|	**Tempo de resfriamento (minutos):** 20 |	**Tempo de resfriamento (minutos):** 10 |
+| **Perfil de dimensionamento automático – Dias da semana – plano do Serviço de Aplicativo** | **Perfil de dimensionamento automático – Finais de semana – plano do Serviço de Aplicativo** |
+| --- | --- |
+| **Nome:** Perfil de dia da semana |**Nome:** Perfil de final de semana |
+| **Dimensionar por:** Regras de agendamento e desempenho |**Dimensionar por:** Regras de agendamento e desempenho |
+| **Perfil:** Dias da semana |**Perfil:** Final de semana |
+| **Tipo:** Recorrência |**Tipo:** Recorrência |
+| **Intervalo de destino:** 5 a 20 instâncias |**Intervalo de destino:** 3 a 10 instâncias |
+| **Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |**Dias:** sábado e domingo |
+| **Hora de início:** 9:00 |**Hora de início:** 9:00 |
+| **Fuso horário:** UTC-08 |**Fuso horário:** UTC-08 |
+|  | |
+| **Regra de dimensionamento automático (Escalar Verticalmente)** |**Regra de dimensionamento automático (Escalar Verticalmente)** |
+| **Recurso:** Produção (ambiente de Serviço de Aplicativo) |**Recurso:** Produção (ambiente de Serviço de Aplicativo) |
+| **Métrica:** % da CPU |**Métrica:** % da CPU |
+| **Operação:** Mais de 60% |**Operação:** Mais de 80% |
+| **Duração:** 5 minutos |**Duração:** 10 minutos |
+| **Agregação de tempo:** Média |**Agregação de tempo:** Média |
+| **Ação:** Aumentar a contagem em 2 |**Ação:** Aumentar a contagem em 1 |
+| **Tempo de resfriamento (minutos):** 15 |**Tempo de resfriamento (minutos):** 20 |
+|  | |
+| **Regra de dimensionamento automático (Reduzir Verticalmente)** |**Regra de dimensionamento automático (Reduzir Verticalmente)** |
+| **Recurso:** Produção (ambiente de Serviço de Aplicativo) |**Recurso:** Produção (ambiente de Serviço de Aplicativo) |
+| **Métrica:** % da CPU |**Métrica:** % da CPU |
+| **Operação:** Menos de 30% |**Operação:** Menos de 20% |
+| **Duração:** 10 minutos |**Duração:** 15 minutos |
+| **Agregação de tempo:** Média |**Agregação de tempo:** Média |
+| **Ação:** Reduzir a contagem em 1 |**Ação:** Reduzir a contagem em 1 |
+| **Tempo de resfriamento (minutos):** 20 |**Tempo de resfriamento (minutos):** 10 |
 
 ### Taxa de inflação do plano do Serviço de Aplicativo
-
 Os planos do Serviço de Aplicativo configurados para dimensionamento automático escalam ou reduzem a uma taxa máxima por hora. Essa taxa pode ser calculada com base nos valores fornecidos na regra de dimensionamento automático.
 
 Compreender e calcular a *taxa de inflação do plano do Serviço de Aplicativo* é importante para o dimensionamento automático do ambiente de Serviço de Aplicativo, já que as alterações de escala em um pool de trabalho não são instantâneas.
@@ -139,7 +132,6 @@ Se vários planos do Serviço de Aplicativo estiverem sendo hospedados em um poo
 ![Cálculo da taxa total de inflação para vários planos do Serviço de Aplicativo hospedados em um pool de trabalho.][ASP-Total-Inflation]
 
 ### Usar a taxa de inflação do plano do Serviço de Aplicativo para definir regras de dimensionamento automático do pool de trabalho
-
 Os pools de trabalho que hospedam planos do Serviço de Aplicativo configurados para o dimensionamento automático precisarão receber um buffer de capacidade. O buffer permite que as operações de dimensionamento automático aumentem ou reduzam o plano do Serviço de Aplicativo, conforme necessário. O buffer mínimo seria a Taxa de Inflação Total do Plano do Serviço de Aplicativo calculada.
 
 Como as operações de dimensionamento do ambiente de Serviço de Aplicativo demoram algum tempo para serem aplicadas, qualquer alteração deve levar em consideração outras alterações sob demanda que poderiam acontecer enquanto uma operação de escala está em andamento. Para acomodar essa latência, recomendamos que você use a Taxa de Inflação do Plano do Serviço de Aplicativo Total como o número mínimo de instâncias adicionadas para cada operação de dimensionamento automático.
@@ -148,34 +140,34 @@ Com essas informações, Matheus pode definir o seguinte perfil e regras de dime
 
 ![Regras de perfil de dimensionamento automático para o exemplo LOB.][Worker-Pool-Scale]
 
-|	**Perfil de dimensionamento automático – Dias da semana** |	**Perfil de dimensionamento automático – Finais de semana** |
-|	----------------------------------------------------	|	--------------------------------------------	|
-|	**Nome:** Perfil de dia da semana |	**Nome:** Perfil de final de semana |
-|	**Dimensionar por:** Regras de agendamento e desempenho |	**Dimensionar por:** Regras de agendamento e desempenho |
-|	**Perfil:** Dias da semana |	**Perfil:** Final de semana |
-|	**Tipo:** Recorrência |	**Tipo:** Recorrência |
-|	**Intervalo de destino:** 13 a 25 instâncias |	**Intervalo de destino:** 6 a 15 instâncias |
-|	**Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |	**Dias:** sábado e domingo |
-|	**Hora de início:** 7:00 |	**Hora de início:** 9:00 |
-|	**Fuso horário:** UTC-08 |	**Fuso horário:** UTC-08 |
-| | |
-|	**Regra de dimensionamento automático (Escalar Verticalmente)** |	**Regra de dimensionamento automático (Escalar Verticalmente)** |
-|	**Recurso:** Pool de trabalho 1 |	**Recurso:** Pool de trabalho 1 |
-|	**Métrica:** WorkersAvailable |	**Métrica:** WorkersAvailable |
-|	**Operação:** menos de 8 |	**Operação:** menos de 3 |
-|	**Duração:** 20 minutos |	**Duração:** 30 minutos |
-|	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
-|	**Ação:** Aumentar a contagem em 8 |	**Ação:** Aumentar a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 180 |	**Tempo de resfriamento (minutos):** 180 |
-| | |
-|	**Regra de dimensionamento automático (Reduzir Verticalmente)** |	**Regra de dimensionamento automático (Reduzir Verticalmente)** |
-|	**Recurso:** Pool de trabalho 1 |	**Recurso:** Pool de trabalho 1 |
-|	**Métrica:** WorkersAvailable |	**Métrica:** WorkersAvailable |
-|	**Operação:** maior que 8 |	**Operação:** maior que 3 |
-|	**Duração:** 20 minutos |	**Duração:** 15 minutos |
-|	**Agregação de tempo:** Média |	**Agregação de tempo:** Média |
-|	**Ação:** Diminuir a contagem em 2 |	**Ação:** Diminuir a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 120 |	**Tempo de resfriamento (minutos):** 120 |
+| **Perfil de dimensionamento automático – Dias da semana** | **Perfil de dimensionamento automático – Finais de semana** |
+| --- | --- |
+| **Nome:** Perfil de dia da semana |**Nome:** Perfil de final de semana |
+| **Dimensionar por:** Regras de agendamento e desempenho |**Dimensionar por:** Regras de agendamento e desempenho |
+| **Perfil:** Dias da semana |**Perfil:** Final de semana |
+| **Tipo:** Recorrência |**Tipo:** Recorrência |
+| **Intervalo de destino:** 13 a 25 instâncias |**Intervalo de destino:** 6 a 15 instâncias |
+| **Dias:** segunda-feira, terça-feira, quarta-feira, quinta-feira, sexta-feira |**Dias:** sábado e domingo |
+| **Hora de início:** 7:00 |**Hora de início:** 9:00 |
+| **Fuso horário:** UTC-08 |**Fuso horário:** UTC-08 |
+|  | |
+| **Regra de dimensionamento automático (Escalar Verticalmente)** |**Regra de dimensionamento automático (Escalar Verticalmente)** |
+| **Recurso:** Pool de trabalho 1 |**Recurso:** Pool de trabalho 1 |
+| **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
+| **Operação:** menos de 8 |**Operação:** menos de 3 |
+| **Duração:** 20 minutos |**Duração:** 30 minutos |
+| **Agregação de tempo:** Média |**Agregação de tempo:** Média |
+| **Ação:** Aumentar a contagem em 8 |**Ação:** Aumentar a contagem em 3 |
+| **Tempo de resfriamento (minutos):** 180 |**Tempo de resfriamento (minutos):** 180 |
+|  | |
+| **Regra de dimensionamento automático (Reduzir Verticalmente)** |**Regra de dimensionamento automático (Reduzir Verticalmente)** |
+| **Recurso:** Pool de trabalho 1 |**Recurso:** Pool de trabalho 1 |
+| **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
+| **Operação:** maior que 8 |**Operação:** maior que 3 |
+| **Duração:** 20 minutos |**Duração:** 15 minutos |
+| **Agregação de tempo:** Média |**Agregação de tempo:** Média |
+| **Ação:** Diminuir a contagem em 2 |**Ação:** Diminuir a contagem em 3 |
+| **Tempo de resfriamento (minutos):** 120 |**Tempo de resfriamento (minutos):** 120 |
 
 O intervalo de Destino definido no perfil é calculado pelas instâncias do mínimas definidas no perfil para o plano do Serviço de Aplicativo + buffer.
 
@@ -186,41 +178,40 @@ A contagem de Aumento das regras de escala vertical deve ser definida como, pelo
 A contagem de redução pode ser ajustada para algo entre 1/2x ou 1x a taxa de inflação do plano do Serviço de Aplicativo para reduzir verticalmente.
 
 ### Dimensionamento automático para o pool de front-end
-
 As regras de dimensionamento automático de front-end são mais simples para pools de trabalho. Basicamente, verifique se a duração da medição e se os temporizadores de resfriamento considerem que as operações de escala em um plano do Serviço de Aplicativo não sejam instantâneas.
 
 Para este cenário, Matheus sabe que a taxa de erro aumenta depois que os front-ends atingem 80% de utilização da CPU. Para evitar isso, ele define a regra de dimensionamento automático para aumentar o número de instâncias da seguinte maneira:
 
 ![Configurações de dimensionamento automático para o pool de front-end.][Front-End-Scale]
 
-|	**Perfil de dimensionamento automático – Front-ends** |
-|	--------------------------------------------	|
-|	**Nome:** Dimensionamento automático – Front-ends |
-|	**Dimensionar por:** Regras de agendamento e desempenho |
-|	**Perfil:** Todos os dias |
-|	**Tipo:** Recorrência |
-|	**Intervalo de destino:** 3 a 10 instâncias |
-|	**Dias:** Todos os dias |
-|	**Hora de início:** 9:00 |
-|	**Fuso horário:** UTC-08 |
-| |
-|	**Regra de dimensionamento automático (Escalar Verticalmente)** |
-|	**Recurso:** Pool de front-end |
-|	**Métrica:** % da CPU |
-|	**Operação:** Mais de 60% |
-|	**Duração:** 20 minutos |
-|	**Agregação de tempo:** Média |
-|	**Ação:** Aumentar a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 120 |
-| |
-|	**Regra de dimensionamento automático (Reduzir Verticalmente)** |
-|	**Recurso:** Pool de trabalho 1 |
-|	**Métrica:** % da CPU |
-|	**Operação:** Menos de 30% |
-|	**Duração:** 20 minutos |
-|	**Agregação de tempo:** Média |
-|	**Ação:** Diminuir a contagem em 3 |
-|	**Tempo de resfriamento (minutos):** 120 |
+| **Perfil de dimensionamento automático – Front-ends** |
+| --- |
+| **Nome:** Dimensionamento automático – Front-ends |
+| **Dimensionar por:** Regras de agendamento e desempenho |
+| **Perfil:** Todos os dias |
+| **Tipo:** Recorrência |
+| **Intervalo de destino:** 3 a 10 instâncias |
+| **Dias:** Todos os dias |
+| **Hora de início:** 9:00 |
+| **Fuso horário:** UTC-08 |
+|  |
+| **Regra de dimensionamento automático (Escalar Verticalmente)** |
+| **Recurso:** Pool de front-end |
+| **Métrica:** % da CPU |
+| **Operação:** Mais de 60% |
+| **Duração:** 20 minutos |
+| **Agregação de tempo:** Média |
+| **Ação:** Aumentar a contagem em 3 |
+| **Tempo de resfriamento (minutos):** 120 |
+|  |
+| **Regra de dimensionamento automático (Reduzir Verticalmente)** |
+| **Recurso:** Pool de trabalho 1 |
+| **Métrica:** % da CPU |
+| **Operação:** Menos de 30% |
+| **Duração:** 20 minutos |
+| **Agregação de tempo:** Média |
+| **Ação:** Diminuir a contagem em 3 |
+| **Tempo de resfriamento (minutos):** 120 |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png

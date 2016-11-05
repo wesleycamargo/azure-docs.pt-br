@@ -1,34 +1,33 @@
-<properties
-	pageTitle="Assistente de Cópia do Data Factory | Microsoft Azure"
-	description="Saiba mais sobre como usar o Assistente de Cópia do Data Factory para copiar dados de fontes de dados com suporte para coletores."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+---
+title: Assistente de Cópia do Data Factory | Microsoft Docs
+description: Saiba mais sobre como usar o Assistente de Cópia do Data Factory para copiar dados de fontes de dados com suporte para coletores.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2016"
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/27/2016
+ms.author: spelluru
 
+---
 # Assistente de Cópia do Data Factory
 O Assistente de Cópia do Azure Data Factory permite que você crie um pipeline para copiar dados de fontes compatíveis para destinos sem gravar as definições de JSON para serviços vinculados, conjuntos de dados e pipelines. Para iniciar o Assistente de Cópia, clique no bloco **Copiar dados** na home page da sua fábrica de dados.
 
 ![Assistente de Cópia](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
 ## Recursos
-
 ### Um assistente intuitivo e simples para copiar dados
 Este assistente permite mover dados facilmente de uma origem para um destino em minutos com estas etapas simples:
 
-1.	Selecione a origem.
-2.	Selecione o destino.
-3.	Defina as configurações.
+1. Selecione a origem.
+2. Selecione o destino.
+3. Defina as configurações.
 
 ![Selecione uma fonte de dados](./media/data-factory-copy-wizard/select-data-source-page.png)
 
@@ -63,10 +62,10 @@ Você pode usar variáveis no caminho da pasta para copiar dados de uma pasta qu
 
 Suponha que você tenha pastas de entrada no seguinte formato:
 
-	2016/03/01/01
-	2016/03/01/02
-	2016/03/01/03
-	...
+    2016/03/01/01
+    2016/03/01/02
+    2016/03/01/03
+    ...
 
 Clique no botão **Procurar** para **Arquivo ou pasta**, navegue até uma dessas pastas (por exemplo, 2016 -> 03 -> 01 -> 02) e clique em **Escolher**. Você verá **2016/03/01/02** na caixa de texto. Agora, substitua **2016** por **{ano}**, **03** por **{mês}**, **01** por **{dia}**, **02** por **{hora}** e pressione Tab. Você deverá ver listas suspensas para escolher o formato dessas quatro variáveis:
 

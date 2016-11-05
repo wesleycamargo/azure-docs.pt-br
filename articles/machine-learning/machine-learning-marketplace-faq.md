@@ -1,34 +1,30 @@
-<properties 
-	pageTitle="Perguntas Frequentes: Publicar e usar aplicativos de Aprendizado de Máquina no Azure Marketplace | Microsoft Azure" 
-	description="Perguntas frequentes" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bharaths" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: 'Perguntas Frequentes: Publicar e usar aplicativos de Aprendizado de Máquina no Azure Marketplace | Microsoft Docs'
+description: Perguntas frequentes
+services: machine-learning
+documentationcenter: ''
+author: bharaths
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/11/2016" 
-	ms.author="bharaths"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/11/2016
+ms.author: bharaths
 
-#Publicação e utilização de aplicativos de Aprendizado de Máquina no Azure Marketplace: Perguntas Frequentes
-
-##Perguntas sobre o consumo do Marketplace
-
-
+---
+# Publicação e utilização de aplicativos de Aprendizado de Máquina no Azure Marketplace: Perguntas Frequentes
+## Perguntas sobre o consumo do Marketplace
 **1. Por que recebo a seguinte mensagem de erro depois que insiro a entrada para o serviço Web:**
 
 **A solicitação resultou em um erro de back-end ou em tempo limite de back-end. A equipe está investigando o problema. Lamentamos pelo inconveniente. (500)**
 
 Seus parâmetros de entrada podem não estar de acordo com o formato necessário para o serviço Web específico. Consulte o link de documentação correspondente para localizar o formato correto para parâmetros de entrada e as limitações do serviço Web.
 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **2. Se eu copiar o link da API para o serviço Web que vejo na página "Explorar esse conjunto de dados" e colá-lo em outra janela do navegador, quais credenciais devo usar para acessar os resultados e como vê-los?**
 
@@ -44,9 +40,7 @@ Um ou mais parâmetros de entrada do serviço Web podem ter excedido o limite de
 
 Esse é um problema conhecido no Marketplace do Portal Clássico do Azure. A equipe está trabalhando para resolver esse problema.
 
-
-##Perguntas sobre a publicação de Aprendizado de Máquina do Azure no Marketplace
-
+## Perguntas sobre a publicação de Aprendizado de Máquina do Azure no Marketplace
 **1. Por que as minhas transações de logotipos ou imagens não são atualizadas para o meu serviço Web?**
 
 Os logotipos e imagens são armazenados em cache no portal de publicação, e pode levar até 10 dias para o novo logotipo ou imagem ser atualizado no portal.
@@ -69,12 +63,6 @@ No momento, não há suporte para o modo de entrada de lote em serviços Web do 
 
 **6. Quem devo contatar para obter ajuda se tiver dúvidas sobre como me tornar um editor de dados ou se tiver problemas durante a publicação?**
 
-Entre em contato com a equipe do Azure Marketplace em <datamarketbd@microsoft.com> para obter mais informações.
-
-
-
-
-
- 
+Entre em contato com a equipe do Azure Marketplace em <mailto:datamarketbd@microsoft.com> para obter mais informações.
 
 <!---HONumber=AcomDC_0914_2016-->

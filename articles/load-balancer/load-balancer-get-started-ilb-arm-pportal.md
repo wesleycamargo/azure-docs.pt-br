@@ -1,35 +1,34 @@
-<properties
-   pageTitle="Introdução à criação de um balanceador de carga interno no Resource Manager usando o portal do Azure | Microsoft Azure"
-   description="Saiba como criar um balanceador de carga interno no Resource Manager usando o portal do Azure"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor=""
-   tags="azure-service-management"
-/>
-<tags
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
-   ms.author="sewhee" />
+---
+title: Introdução à criação de um balanceador de carga interno no Resource Manager usando o portal do Azure | Microsoft Docs
+description: Saiba como criar um balanceador de carga interno no Resource Manager usando o portal do Azure
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
+tags: azure-service-management
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/31/2016
+ms.author: sewhee
+
+---
 # Introdução à criação de um balanceador de carga interno no portal do Azure
+[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+[!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+[classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
-
+[!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## Introdução à criação de um balanceador de carga interno usando o portal do Azure
-
 Para criar um balanceador de carga interno no portal do Azure, siga as etapas abaixo.
 
 1. Em um navegador, acesse o [Portal do Azure](http://portal.azure.com) e, se necessário, entre com sua conta do Azure.
@@ -37,23 +36,25 @@ Para criar um balanceador de carga interno no portal do Azure, siga as etapas ab
 3. Na folha **Criar balanceador de carga**, digite um **Nome** para o balanceador de carga.
 4. Em **Esquema**, clique em **Interno**.
 5. Clique em **Rede virtual** e selecione a rede virtual na qual você deseja criar o balanceador de carga.
-
-    >[AZURE.NOTE] Caso você não veja a rede virtual que deseja usar, verifique o **Local** que você está usando para o balanceador de carga e altere-o adequadamente.
-
+   
+   > [!NOTE]
+   > Caso você não veja a rede virtual que deseja usar, verifique o **Local** que você está usando para o balanceador de carga e altere-o adequadamente.
+   > 
+   > 
 6. Clique em **Sub-rede** e selecione a sub-rede onde você quer criar o balanceador de carga.
 7. Em **Atribuição de endereço IP**, clique em **Dinâmico** ou em **Estático**, dependendo se você quer que o endereço IP do balanceador de carga seja fixo (estático) ou não.
-
-    >[AZURE.NOTE] Se você optar por usar um endereço IP estático, será necessário fornecer um endereço para o balanceador de carga.
-
+   
+   > [!NOTE]
+   > Se você optar por usar um endereço IP estático, será necessário fornecer um endereço para o balanceador de carga.
+   > 
+   > 
 8. Em **Grupo de recursos** especifique o nome de um novo grupo de recursos para o balanceador de carga ou clique em **selecionar existente** e selecione um grupo de recursos existente.
 9. Clique em **Criar**.
 
 ## Configuração de regras de balanceamento de carga
-
 Após a criação do balanceador de carga, navegue até o recurso do balanceador de carga para configurá-lo. Primeiro, você precisa configurar um pool de endereços back-end e uma investigação antes de configurar uma regra de balanceamento de carga.
 
 ### Etapa 1
-
 Configurar um pool de back-end:
 
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e clique no balanceador de carga que você criou acima.
@@ -62,7 +63,6 @@ Configurar um pool de back-end:
 4. Na folha **Adicionar pool de back-end**, digite um **Nome** para o pool de back-end e clique em **OK**.
 
 ### Etapa 2
-
 Configurar uma investigação:
 
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e clique no balanceador de carga que você criou acima.
@@ -77,7 +77,6 @@ Configurar uma investigação:
 10. Clique em **OK** para criar a investigação.
 
 ### Etapa 3
-
 Configurar as regras de balanceamento de carga:
 
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e clique no balanceador de carga que você criou acima.
@@ -94,7 +93,6 @@ Configurar as regras de balanceamento de carga:
 12. Clique em **OK**.
 
 ## Próximas etapas
-
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)

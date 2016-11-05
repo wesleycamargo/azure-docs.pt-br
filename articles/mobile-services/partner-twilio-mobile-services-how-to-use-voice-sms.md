@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Usar a Twilio para obter recursos de voz e SMS | Microsoft Azure"
-	description="Saiba como executar tarefas comuns usando a API do Twilio com serviços móveis do Azure."
-	services="mobile-services"
-	documentationCenter=""
-	authors="devinrader"
-	manager="dwrede"
-	editor=""/>
+---
+title: Usar a Twilio para obter recursos de voz e SMS | Microsoft Docs
+description: Saiba como executar tarefas comuns usando a API do Twilio com serviços móveis do Azure.
+services: mobile-services
+documentationcenter: ''
+author: devinrader
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
-
+---
 # Como usar a Twilio para funcionalidades de voz e SMS dos Serviços Móveis
-
 Este tópico mostra como executar tarefas comuns usando a API da Twilio com os Serviços Móveis do Azure. Neste tutorial, você aprenderá como criar scripts de API personalizados que usam a API da Twilio para iniciar uma chamada telefônica e enviar uma mensagem SMS.
 
 ## <a id="WhatIs"></a>O que é Twilio?
@@ -80,36 +78,36 @@ A Twilio fornece uma biblioteca do Node.js que encapsula vários aspectos da Twi
 Para usar a biblioteca do node.js da Twilio em seu Serviço Móvel, você precisa utilizar o suporte ao módulo npm dos Serviços Móveis, o que pode ser feito armazenando seus scripts no controle de código-fonte.
 
 1. Concluir o tutorial [Scripts de armazenamento no controle do código-fonte](mobile-services-store-scripts-source-control.md). Isso o leva através da configuração do controle do código-fonte para seus serviços móveis e armazena os scripts de servidor em um repositório Git.
-
 2. Depois de configurar o controle do código-fonte para o seu Serviço Móvel, abra o repositório no computador local, navegue até a subpasta `\services`, abra o arquivo package.json em um editor de texto e adicione o seguinte campo ao objeto **dependências**:
-
-		"twilio": "~1.7.0"
-
+   
+        "twilio": "~1.7.0"
 3. Depois de adicionar a referência do pacote Twilio ao objeto **dependências**, o arquivo package.json deve ter a seguinte aparência:
-
-		{
-		  "name": "todolist",
-		  "version": "1.0.0",
-		  "description": "todolist - hosted on Azure Mobile Services",
-		  "main": "server.js",
-		  "engines": {
-		    "node": ">= 0.8.19"
-		  },
-		  "dependencies": {
-			"twilio": "~1.7.0"
-		  },
-		  "devDependencies": {},
-		  "scripts": {},
-		  "author": "unknown",
-		  "licenses": [],
-		  "keywords":[]
-		}
-
-	>[AZURE.NOTE]A dependência para a Twilio deve ser adicionada `"twilio": "~1.7.0"`, com um (~). Não há suporte para uma referência com um acento circunflexo (^).
-
+   
+        {
+          "name": "todolist",
+          "version": "1.0.0",
+          "description": "todolist - hosted on Azure Mobile Services",
+          "main": "server.js",
+          "engines": {
+            "node": ">= 0.8.19"
+          },
+          "dependencies": {
+            "twilio": "~1.7.0"
+          },
+          "devDependencies": {},
+          "scripts": {},
+          "author": "unknown",
+          "licenses": [],
+          "keywords":[]
+        }
+   
+   > [!NOTE]
+   > A dependência para a Twilio deve ser adicionada `"twilio": "~1.7.0"`, com um (~). Não há suporte para uma referência com um acento circunflexo (^).
+   > 
+   > 
 4. Confirme essa atualização de arquivo e envie a atualização de volta por push para o serviço móvel.
-
-	Essa atualização para o arquivo package.json reiniciará o serviço móvel.
+   
+    Essa atualização para o arquivo package.json reiniciará o serviço móvel.
 
 O serviço móvel agora instala e carrega o pacote da Twilio, então você pode referenciar e usar a biblioteca da Twilio em sua API personalizada e scripts de tabela.
 
@@ -167,10 +165,12 @@ O código a seguir mostra como enviar uma mensagem SMS usando a função **sendS
 
 
 ## <a id="howto_provide_twiml_responses"></a>Como fornecer respostas TwiML de seu próprio site
-
 Quando o aplicativo inicia uma chamada para a API da Twilio por exemplo, por meio do método client.InitiateOutboundCall - a Twilio envia a solicitação para uma URL que deve retornar uma resposta TwiML. O exemplo em Como fazer uma chamada externa usa a URL http://twimlets.com/message fornecida pela Twilio para retornar a resposta.
 
-> [AZURE.NOTE] Enquanto TwiML destina-se ao uso pelos serviços Web, é possível exibir o TwiML no seu navegador. Por exemplo, clique em [twimlet\_message\_url](http://twimlets.com/message) para ver um elemento &lt;Response&gt; vazio; como outro exemplo, clique em [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) para ver um elemento &lt;Response&gt; que contém um elemento &lt;Say&gt;.
+> [!NOTE]
+> Enquanto TwiML destina-se ao uso pelos serviços Web, é possível exibir o TwiML no seu navegador. Por exemplo, clique em [twimlet\_message\_url](http://twimlets.com/message) para ver um elemento &lt;Response&gt; vazio; como outro exemplo, clique em [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) para ver um elemento &lt;Response&gt; que contém um elemento &lt;Say&gt;.
+> 
+> 
 
 Em vez de confiar na URL fornecida pela Twilio, você pode criar seu próprio site na URL que retorna respostas HTTP. Você pode criar o site em qualquer linguagem que retorna respostas HTTP. Este tópico pressupõe que você irá hospedando a URL de um manipulador genérico do ASP.NET.
 
@@ -207,8 +207,7 @@ Depois de ter configurado uma maneira de fornecer respostas TwiML, você pode pa
         });
     };
 
-[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
-
+[!INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
 

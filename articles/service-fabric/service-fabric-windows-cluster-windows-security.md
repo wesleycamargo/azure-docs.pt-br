@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Proteger um cluster em execução no Windows usando a Segurança do Windows | Microsoft Azure"
-   description="Saiba como configurar a segurança de nó para nó e de cliente para nó em um cluster autônomo em execução no Windows usando a Segurança do Windows."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: Proteger um cluster em execução no Windows usando a Segurança do Windows | Microsoft Docs
+description: Saiba como configurar a segurança de nó para nó e de cliente para nó em um cluster autônomo em execução no Windows usando a Segurança do Windows.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/25/2016
+ms.author: ryanwi
 
-
+---
 # Proteger um cluster autônomo no Windows usando a segurança
-
 Para impedir o acesso não autorizado ao cluster do Service Fabric, você deverá protegê-lo, especialmente quando ele tiver cargas de trabalho de produção em execução. Este artigo descreve como configurar a segurança de nó para nó e de cliente para nó usando a segurança do Windows no arquivo *ClusterConfig.JSON* e corresponde à etapa de configuração de segurança de [Criar um cluster autônomo em execução no Windows](service-fabric-cluster-creation-for-windows-server.md). Para saber mais sobre como o Service Fabric usa a Segurança do Windows, veja [Cenários de segurança de cluster](service-fabric-cluster-security.md).
 
->[AZURE.NOTE]
-Você deve considerar sua seleção de segurança para a segurança de nó para nó com cuidado, já que não há nenhuma atualização de cluster de uma opção de segurança para outra. A alteração da seleção de segurança exigiria uma recompilação completa do cluster.
+> [!NOTE]
+> Você deve considerar sua seleção de segurança para a segurança de nó para nó com cuidado, já que não há nenhuma atualização de cluster de uma opção de segurança para outra. A alteração da seleção de segurança exigiria uma recompilação completa do cluster.
+> 
+> 
 
 ## Configurar a segurança do Windows
 O arquivo de configuração de exemplo *ClusterConfig.Windows.JSON* baixado com o pacote de clusters autônomos [Microsoft.Azure.ServiceFabric.WindowsServer.<versão>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) contém um modelo para configuração da segurança do Windows. A segurança do Windows é configurada na seção **Propriedades**:
@@ -32,7 +32,7 @@ O arquivo de configuração de exemplo *ClusterConfig.Windows.JSON* baixado com 
             "ClusterCredentialType": "Windows",
             "ServerCredentialType": "Windows",
             "WindowsIdentities": {
-		"ClusterIdentity" : "[domain\machinegroup]",
+        "ClusterIdentity" : "[domain\machinegroup]",
                 "ClientIdentities": [{
                     "Identity": "[domain\username]",
                     "IsAdmin": true
@@ -41,15 +41,15 @@ O arquivo de configuração de exemplo *ClusterConfig.Windows.JSON* baixado com 
         }
 ```
 
-|**Parâmetro de configuração**|**Descrição**|
-|-----------------------|--------------------------|
-|ClusterCredentialType|A Segurança do Windows é habilitada definindo o parâmetro **ClusterCredentialType** como *Windows*.|
-|ServerCredentialType|A Segurança do Windows para clientes é habilitada definindo o parâmetro **ServerCredentialType** como *Windows*. Isso indica que os clientes do cluster, e o próprio cluster, estão sendo executados em um Domínio do Active Directory.|
-|WindowsIdentities|Contém as identidades do cluster e do cliente.|
-|ClusterIdentity|Configura a segurança de nó para nó. Uma lista separada por vírgulas de contas de serviço gerenciadas por grupo ou nomes de computador.|
-|ClientIdentities|Configura a segurança de cliente para nó. Uma matriz de contas de usuário do cliente.|
-|Identidade|A identidade do cliente, um usuário de domínio.|
-|IsAdmin|True especifica que o usuário de domínio tem acesso de cliente de administrador, false para acesso de cliente de usuário.|
+| **Parâmetro de configuração** | **Descrição** |
+| --- | --- |
+| ClusterCredentialType |A Segurança do Windows é habilitada definindo o parâmetro **ClusterCredentialType** como *Windows*. |
+| ServerCredentialType |A Segurança do Windows para clientes é habilitada definindo o parâmetro **ServerCredentialType** como *Windows*. Isso indica que os clientes do cluster, e o próprio cluster, estão sendo executados em um Domínio do Active Directory. |
+| WindowsIdentities |Contém as identidades do cluster e do cliente. |
+| ClusterIdentity |Configura a segurança de nó para nó. Uma lista separada por vírgulas de contas de serviço gerenciadas por grupo ou nomes de computador. |
+| ClientIdentities |Configura a segurança de cliente para nó. Uma matriz de contas de usuário do cliente. |
+| Identidade |A identidade do cliente, um usuário de domínio. |
+| IsAdmin |True especifica que o usuário de domínio tem acesso de cliente de administrador, false para acesso de cliente de usuário. |
 
 A [Segurança de nó para nó](service-fabric-cluster-security.md#node-to-node-security) é configurada definindo **ClusterIdentity**. Para criar as relações de confiança entre os nós, eles deverão estar cientes uns dos outros. Isso pode ser feito de duas maneiras diferentes: especifique a conta de serviço gerenciada por grupo que inclui todos os nós no cluster ou especifique as identidades de nó de domínio de todos os nós no cluster. É altamente recomendável usar a abordagem de [gMSA (Conta de Serviço Gerenciado de Grupo)](https://technet.microsoft.com/library/hh831782.aspx), especialmente para clusters maiores (com mais de 10 nós) ou para clusters com probabilidade de aumentar ou reduzir. Essa abordagem permite que os nós sejam adicionados ou removidos da gMSA, sem exigir alterações no manifesto do cluster. Essa abordagem não exige a criação de um grupo de domínios para o qual os administradores de cluster receberam direitos de acesso para adicionar e remover membros. Para obter mais informações, confira [Introdução a contas de serviços gerenciados de grupo](http://technet.microsoft.com/library/jj128431.aspx).
 
@@ -62,7 +62,7 @@ A seção **security** de exemplo a seguir configura a segurança do Windows e e
     "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
     "WindowsIdentities": {
-		"ClusterIdentity" : "ServiceFabric/clusterA.contoso.com",
+        "ClusterIdentity" : "ServiceFabric/clusterA.contoso.com",
         "ClientIdentities": [{
             "Identity": "CONTOSO\\usera",
         "IsAdmin": true
@@ -72,7 +72,6 @@ A seção **security** de exemplo a seguir configura a segurança do Windows e e
 ```
 
 ## Próximas etapas
-
 Depois de configurar a segurança do Windows no arquivo *ClusterConfig.JSON*, retome o processo de criação de cluster em [Criar um cluster autônomo em execução no Windows](service-fabric-cluster-creation-for-windows-server.md).
 
 Para saber mais sobre a segurança de nó para nó, a segurança de cliente para nó e o controle de acesso baseado em função, consulte [Cenários de segurança de cluster](service-fabric-cluster-security.md).

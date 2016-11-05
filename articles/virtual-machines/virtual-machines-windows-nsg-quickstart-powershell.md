@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Abrir portas para uma VM usando o PowerShell | Microsoft Azure"
-   description="Saiba como abrir uma porta/criar um ponto de extremidade para sua VM do Windows usando o modelo de implantação do Azure Resource Manager e o Azure PowerShell"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Abrir portas para uma VM usando o PowerShell | Microsoft Docs
+description: Saiba como abrir uma porta/criar um ponto de extremidade para sua VM do Windows usando o modelo de implantação do Azure Resource Manager e o Azure PowerShell
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 08/08/2016
+ms.author: iainfou
 
+---
 # Abrir portas para uma VM no Azure usando PowerShell
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+[!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Comandos rápidos
 Para criar um Grupo de Segurança de Rede e as regras de ACL, você precisa [ter a versão mais recente do Azure PowerShell instalada](../powershell-install-configure.md). Você também pode [executar essas etapas usando o Portal do Azure](virtual-machines-windows-nsg-quickstart-portal.md).
@@ -68,8 +68,8 @@ Se precisar usar o encaminhamento de porta para mapear uma porta externa exclusi
 ## Próximas etapas
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
-- [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
-- [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
-- [Visão Geral do Azure Resource Manager para Balanceadores de Carga](../load-balancer/load-balancer-arm.md)
+* [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
+* [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
+* [Visão Geral do Azure Resource Manager para Balanceadores de Carga](../load-balancer/load-balancer-arm.md)
 
 <!---HONumber=AcomDC_0907_2016-->

@@ -1,35 +1,32 @@
-<properties 
-	pageTitle="Como usar as propriedades nas políticas de Gerenciamento de API do Azure" 
-	description="Saiba como usar as propriedades nas políticas de Gerenciamento de API do Azure." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Como usar as propriedades nas políticas de Gerenciamento de API do Azure
+description: Saiba como usar as propriedades nas políticas de Gerenciamento de API do Azure.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: sdanie
 
-
+---
 # Como usar as propriedades nas políticas de Gerenciamento de API do Azure
-
 As políticas de Gerenciamento de API representam um recurso poderoso do sistema e permitem ao editor alterar o comportamento da API por meio de configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. É possível construir declarações de política usando valores de texto literais, expressões de política e propriedades.
 
 Cada instância de serviço do Gerenciamento de API tem uma coleção de propriedades de pares de chave/valor que são globais à instância do serviço. Essas propriedades podem ser usadas para gerenciar valores de cadeia de caracteres constantes em todas as configurações e as políticas de API. Cada propriedade tem os atributos a seguir.
 
-
 | Atributo | Tipo | Descrição |
-|-----------|-----------------|---------------------------------------------------------------------------------------------------------|
-| Name | string | O nome da propriedade. Ele pode conter apenas letras, dígitos, ponto, traço e caracteres de sublinhado. |
-| Valor | string | O valor da propriedade. Ele não pode ficar vazio ou conter apenas espaços em branco. |
-| Segredo | Booliano | Determina se o valor é um segredo e se deve ser criptografado ou não. |
-| Marcas | matriz de cadeias de caracteres | Marcas opcionais que, quando fornecidas, podem ser usadas para filtrar a lista de propriedades. |
+| --- | --- | --- |
+| Name |string |O nome da propriedade. Ele pode conter apenas letras, dígitos, ponto, traço e caracteres de sublinhado. |
+| Valor |string |O valor da propriedade. Ele não pode ficar vazio ou conter apenas espaços em branco. |
+| Segredo |Booliano |Determina se o valor é um segredo e se deve ser criptografado ou não. |
+| Marcas |matriz de cadeias de caracteres |Marcas opcionais que, quando fornecidas, podem ser usadas para filtrar a lista de propriedades. |
 
 As propriedades são configuradas no portal do editor na guia **Propriedades**. No exemplo a seguir, três propriedades são configuradas.
 
@@ -38,16 +35,15 @@ As propriedades são configuradas no portal do editor na guia **Propriedades**. 
 Os valores de propriedade podem conter cadeias de caracteres literais e [expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx). A tabela a seguir mostra as propriedades dos três exemplos anteriores e seus atributos. O valor de `ExpressionProperty` é uma expressão de política que retorna uma cadeia de caracteres com a data e a hora atuais. A propriedade `ContosoHeaderValue` é marcada como um segredo e, portanto, seu valor não é exibido.
 
 | Name | Valor | Segredo | Marcas |
-|--------------------|----------------------------|--------|---------|
-| ContosoHeader | TrackingId | Falso | Contoso |
-| ContosoHeaderValue | •••••••••••••••••••••• | Verdadeiro | Contoso |
-| ExpressionProperty | @(DateTime.Now.ToString()) | Falso | |
+| --- | --- | --- | --- |
+| ContosoHeader |TrackingId |Falso |Contoso |
+| ContosoHeaderValue |•••••••••••••••••••••• |Verdadeiro |Contoso |
+| ExpressionProperty |@(DateTime.Now.ToString()) |Falso | |
 
 ## Para usar uma propriedade
-
 Para usar uma propriedade em uma política, coloque o nome da propriedade entre dois pares de chaves, como em `{{ContosoHeader}}`, de acordo com o exemplo a seguir.
 
-	<set-header name="{{ContosoHeader}}" exists-action="override">
+    <set-header name="{{ContosoHeader}}" exists-action="override">
       <value>{{ContosoHeaderValue}}</value>
     </set-header>
 
@@ -57,9 +53,9 @@ As propriedades podem ser usadas como valores de atributo ou de elemento, como m
 
 As propriedades também podem conter expressões de política. No exemplo a seguir, o `ExpressionProperty` é usado.
 
-	<set-header name="CustomHeader" exists-action="override">
-		<value>{{ExpressionProperty}}</value>
-	</set-header>
+    <set-header name="CustomHeader" exists-action="override">
+        <value>{{ExpressionProperty}}</value>
+    </set-header>
 
 Quando essa política é avaliada, `{{ExpressionProperty}}` é substituído por seu valor: `@(DateTime.Now.ToString())`. Como o valor é uma expressão de política, a expressão é avaliada e a política prossegue com a execução.
 
@@ -74,7 +70,6 @@ Se você analisar o [rastreamento do Inspetor de API](api-management-howto-api-i
 Observe que, embora os valores de propriedade possam conter expressões de política, os valores de propriedade não podem conter outras propriedades. Se um texto contendo uma referência de propriedade for usado para um valor de propriedade, por exemplo, `Property value text {{MyProperty}}`, essa referência de propriedade não será substituída e será incluída como parte do valor da propriedade.
 
 ## Para criar uma propriedade
-
 Para criar uma propriedade, clique em **Adicionar propriedade** na guia **Propriedades**.
 
 ![Adicionar propriedade][api-management-properties-add-property-menu]
@@ -90,7 +85,6 @@ Quando uma nova propriedade for salva, a caixa de texto **Propriedade de pesquis
 Para saber mais sobre como criar uma propriedade usando a API REST, confira [Criar uma propriedade usando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
 
 ## Para editar uma propriedade
-
 Para editar uma propriedade, clique em **Editar** ao lado da propriedade que você quer editar.
 
 ![Editar propriedade][api-management-properties-edit]
@@ -102,7 +96,6 @@ Faça as alterações desejadas e clique em **Salvar**. Se você alterar o nome 
 Para saber mais sobre como editar uma propriedade usando a API REST, confira [Editar uma propriedade usando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
 
 ## Para excluir uma propriedade
-
 Para excluir uma propriedade, clique em **Excluir** ao lado da propriedade que você quer excluir.
 
 ![Excluir propriedade][api-management-properties-delete]
@@ -111,12 +104,14 @@ Clique em **Sim, excluir** para confirmar.
 
 ![Confirmar exclusão][api-management-delete-confirm]
 
->[AZURE.IMPORTANT] Se a propriedade for consultada por quaisquer políticas, não será possível excluí-la até que você remova a propriedade de todas as políticas que a utilizam.
+> [!IMPORTANT]
+> Se a propriedade for consultada por quaisquer políticas, não será possível excluí-la até que você remova a propriedade de todas as políticas que a utilizam.
+> 
+> 
 
 Para saber mais sobre como excluir uma propriedade usando a API REST, confira [Excluir uma propriedade usando a API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
 
 ## Para pesquisar e filtrar propriedades
-
 A guia **Propriedades** inclui recursos de pesquisa e filtragem para ajudar você a gerenciar suas propriedades. Para filtrar a lista de propriedades pelo nome da propriedade, insira um termo de pesquisa na caixa de texto **Propriedade de pesquisa**. Para exibir todas as propriedades, desmarque a caixa de texto **Propriedade de pesquisa** e pressione enter.
 
 ![Pesquisar][api-management-properties-search]
@@ -126,15 +121,15 @@ Para filtrar a lista de propriedades por valores de marca, insira uma ou mais ma
 ![Filtro][api-management-properties-filter]
 
 ## Próximas etapas
-
--	Saiba mais sobre como trabalhar com políticas
-	-	[Políticas no Gerenciamento de API](api-management-howto-policies.md)
-	-	[Referência de política](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-	-	[Expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+* Saiba mais sobre como trabalhar com políticas
+  * [Políticas no Gerenciamento de API](api-management-howto-policies.md)
+  * [Referência de política](https://msdn.microsoft.com/library/azure/dn894081.aspx)
+  * [Expressões de política](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
 ## Assista a uma visão geral em vídeo
-
-> [AZURE.VIDEO use-properties-in-policies]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Use-Properties-in-Policies/player]
+> 
+> 
 
 [api-management-properties]: ./media/api-management-howto-properties/api-management-properties.png
 [api-management-properties-add-property]: ./media/api-management-howto-properties/api-management-properties-add-property.png

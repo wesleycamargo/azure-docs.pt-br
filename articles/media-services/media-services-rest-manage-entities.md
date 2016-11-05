@@ -1,46 +1,47 @@
 
-<properties 
-    pageTitle="Gerenciando as Entidades dos Serviços de Mídia com a API REST | Microsoft Azure" 
-    description="Saiba como gerenciar entidades de serviços de mídia com API REST." 
-    authors="juliako" 
-    manager="dwrede" 
-    editor="" 
-    services="media-services" 
-    documentationCenter=""/>
+---
+title: Gerenciando as Entidades dos Serviços de Mídia com a API REST | Microsoft Docs
+description: Saiba como gerenciar entidades de serviços de mídia com API REST.
+author: juliako
+manager: dwrede
+editor: ''
+services: media-services
+documentationcenter: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016" 
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-#<a name="managing-media-services-entities-with-rest-api"></a>Gerenciamento de entidades de serviços de mídia com API REST
-
-> [AZURE.SELECTOR]
-- [REST](media-services-rest-manage-entities.md)
-- [.NET](media-services-dotnet-manage-entities.md)
+---
+# <a name="managing-media-services-entities-with-rest-api"></a>Gerenciamento de entidades de serviços de mídia com API REST
+> [!div class="op_single_selector"]
+> * [REST](media-services-rest-manage-entities.md)
+> * [.NET](media-services-dotnet-manage-entities.md)
+> 
+> 
 
 O Serviço de mídia do Microsoft Azure é um serviço baseado em REST integrado ao OData v3. Por isso, você pode adicionar, consultar, atualizar e excluir entidades exatamente como faria com qualquer outro serviço OData. As exceções serão indicadas, quando necessário. Para obter mais informações sobre OData, consulte [Documentação do protocolo Open Data](http://www.odata.org/documentation/).
 
-- Adicionando entidades 
-- Consultando entidades 
-- Enumerar através de grandes coleções de entidades
-- Atualizando entidades 
-- Excluindo entidades 
+* Adicionando entidades 
+* Consultando entidades 
+* Enumerar através de grandes coleções de entidades
+* Atualizando entidades 
+* Excluindo entidades 
 
->[AZURE.NOTE] Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
->
->Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+> [!NOTE]
+> Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
+> 
+> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+> 
+> Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md). 
+> 
+> 
 
->Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md). 
-
-
-##<a name="adding-entities"></a>Adicionando entidades
-
+## <a name="adding-entities"></a>Adicionando entidades
 Cada entidade no Media Services é adicionada a um conjunto de entidades, como Ativos, por meio de uma solicitação do HTTP POST.
 
 O exemplo a seguir mostra como criar um AccessPolicy:
@@ -55,12 +56,11 @@ O exemplo a seguir mostra como criar um AccessPolicy:
     Host: media.windows.net
     Content-Length: 74
     Expect: 100-continue
-    
+
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
- 
-##<a name="querying-entities"></a>Consultando entidades
 
+## <a name="querying-entities"></a>Consultando entidades
 Consultar e listar entidades é simples e envolve apenas uma solicitação HTTP GET e operações OData opcionais.
 O exemplo a seguir recupera uma lista de todas as entidades MediaProcessor.
 
@@ -115,10 +115,12 @@ O exemplo a seguir retorna todos os JobTemplates com o nome "SampleTemplate".
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
->[AZURE.NOTE]A operação $expand não tem suporte no Media Services, bem como os métodos LINQ descritos em considerações sobre o LINQ (WCF Data Services).
+> [!NOTE]
+> A operação $expand não tem suporte no Media Services, bem como os métodos LINQ descritos em considerações sobre o LINQ (WCF Data Services).
+> 
+> 
 
-##<a name="enumerating-through-large-collections-of-entities"></a>Enumerar através de grandes coleções de entidades
-
+## <a name="enumerating-through-large-collections-of-entities"></a>Enumerar através de grandes coleções de entidades
 Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Use as opções **Ignorar** e **Superior** para enumerar a grande coleção de entidades. 
 
 O exemplo a seguir mostra como usar as opções **Ignorar** e **Superior** para ignorar os primeiros 2000 trabalhos e os 1000 trabalhos seguintes.  
@@ -132,8 +134,7 @@ O exemplo a seguir mostra como usar as opções **Ignorar** e **Superior** para 
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
-##<a name="updating-entities"></a>Atualizando entidades
-
+## <a name="updating-entities"></a>Atualizando entidades
 Dependendo do tipo de entidade e do estado em que está, você pode atualizar as propriedades nesta entidade por meio de um PATCH, PUT ou  solicitações HTTP MERGE. Para obter mais informações sobre essas operações, consulte [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
 
 O exemplo de código a seguir mostra como atualizar a propriedade Name de uma entidade de ativo.
@@ -148,11 +149,10 @@ O exemplo de código a seguir mostra como atualizar a propriedade Name de uma en
     Host: media.windows.net
     Content-Length: 21
     Expect: 100-continue
-    
+
     {"Name" : "NewName" }
 
-##<a name="deleting-entities"></a>Excluindo entidades
-
+## <a name="deleting-entities"></a>Excluindo entidades
 As  entidades podem ser excluídas do Media Services usando uma solicitação HTTP DELETE. Dependendo da entidade, a ordem de exclusão das entidades pode ser importante. Por exemplo, a entidade de ativos requer que você revogue (ou exclua) todos os localizadores que fazem referência a este ativo em particular antes de excluir o ativo.
 
 O exemplo a seguir mostra como excluir um localizador que foi usado para carregar um arquivo no armazenamento de blob.
@@ -169,15 +169,11 @@ O exemplo a seguir mostra como excluir um localizador que foi usado para carrega
 
 
 
-##<a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
+## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Fornecer comentários
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
+## <a name="provide-feedback"></a>Fornecer comentários
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

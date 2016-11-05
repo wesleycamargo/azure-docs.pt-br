@@ -1,30 +1,30 @@
-<properties 
-pageTitle="Executar Tarefas de Inicialização nos Serviços de Nuvem do Azure | Microsoft Azure" 
-description="As tarefas de inicialização ajudam a preparar o ambiente de serviço de nuvem para seu aplicativo. Isso mostra o funcionamento das tarefas de inicialização e como criá-las" 
-services="cloud-services" 
-documentationCenter="" 
-authors="Thraka" 
-manager="timlt" 
-editor=""/>
-<tags 
-ms.service="cloud-services" 
-ms.workload="tbd" 
-ms.tgt_pltfrm="na" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.date="09/06/2016" 
-ms.author="adegeo"/>
+---
+title: Executar Tarefas de Inicialização nos Serviços de Nuvem do Azure | Microsoft Docs
+description: As tarefas de inicialização ajudam a preparar o ambiente de serviço de nuvem para seu aplicativo. Isso mostra o funcionamento das tarefas de inicialização e como criá-las
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
+editor: ''
 
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: adegeo
 
-
+---
 # Como configurar e executar tarefas de inicialização para um serviço de nuvem
-
 Você pode usar as tarefas de inicialização para executar operações antes do início de uma função. As operações que talvez você queira executar incluem a instalação de um componente, o registro de componentes COM, a configuração de chaves do Registro ou o início de um processo de longa duração.
 
->[AZURE.NOTE] As tarefas de inicialização não são aplicáveis às Máquinas Virtuais, apenas às funções Web e de Trabalho do Serviço de Nuvem.
+> [!NOTE]
+> As tarefas de inicialização não são aplicáveis às Máquinas Virtuais, apenas às funções Web e de Trabalho do Serviço de Nuvem.
+> 
+> 
 
 ## Como funcionam as tarefas de inicialização
-
 As tarefas de inicialização são ações executadas antes do início de suas funções e são definidas no arquivo [ServiceDefinition.csdef] usando o elemento [Task] dentro do elemento [Startup]. Com frequência, as tarefas de inicialização são arquivos em lotes, mas elas também podem ser aplicativos de console ou arquivos em lotes que iniciam scripts do PowerShell.
 
 As variáveis de ambiente passam informações para uma tarefa de inicialização e o armazenamento local pode ser usado para transmitir informações para fora de uma tarefa de inicialização. Por exemplo, uma variável de ambiente pode especificar o caminho para um programa que você deseja instalar e arquivos podem ser gravados no armazenamento local que poderá então ser lido posteriormente por suas funções.
@@ -35,30 +35,25 @@ As tarefas de inicialização também podem ser executadas várias vezes entre a
 
 As tarefas de inicialização devem terminar com um **errorlevel** (ou código de saída) zero para que o processo de inicialização seja concluído. Se uma tarefa de inicialização terminar com um **errorlevel** diferente de zero, a função não será iniciada.
 
-
 ## Ordem de inicialização de função
-
 A seguir, o procedimento de inicialização da função no Azure:
 
 1. A instância está marcada como **Iniciando** e não recebe o tráfego.
-
 2. Todas as tarefas de inicialização são executadas de acordo com o atributo **taskType**.
-    - As tarefas **simples** são executadas de forma síncrona, uma de cada vez.
-    - As tarefas em **segundo plano** e em **primeiro plano** são iniciadas de forma assíncrona, em paralelo à tarefa de inicialização.
-       
-    > [AZURE.WARNING] O IIS pode não estar totalmente configurado durante a fase de tarefas de inicialização no processo de inicialização e, portanto, os dados específicos da função podem não estar disponíveis. As tarefas de inicialização que exigem dados específicos da função devem usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
-
+   
+   * As tarefas **simples** são executadas de forma síncrona, uma de cada vez.
+   * As tarefas em **segundo plano** e em **primeiro plano** são iniciadas de forma assíncrona, em paralelo à tarefa de inicialização.
+     
+     > [!WARNING]
+     > O IIS pode não estar totalmente configurado durante a fase de tarefas de inicialização no processo de inicialização e, portanto, os dados específicos da função podem não estar disponíveis. As tarefas de inicialização que exigem dados específicos da função devem usar [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+     > 
+     > 
 3. O processo de host da função é iniciado e o site é criado no IIS.
-
 4. O método [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) é chamado.
-
 5. A instância é marcada como **Pronta** e o tráfego é roteado para a instância.
-
 6. O método [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) é chamado.
 
-
 ## Exemplo de uma tarefa de inicialização
-
 As tarefas de inicialização são definidas no arquivo [ServiceDefinition.csdef], no elemento **Tarefa**. O atributo **commandLine** especifica o nome e os parâmetros do arquivo em lotes ou o comando de console de inicialização, o atributo **executionContext** especifica o nível de privilégio da tarefa de inicialização e o atributo **taskType** especifica como a tarefa será executada.
 
 Neste exemplo, uma variável de ambiente, **MyVersionNumber**, é criada para a tarefa de inicialização e definida como o valor "**1.0.0.0**".
@@ -82,41 +77,45 @@ ECHO The current version is %MyVersionNumber% >> "%TEMP%\StartupLog.txt" 2>&1
 EXIT /B 0
 ```
 
-> [AZURE.NOTE] No Visual Studio, a propriedade **Copiar para Diretório de Saída** do seu arquivo em lotes de inicialização deve ser definida como **Sempre Copiar** para garantir que seu arquivo em lotes de inicialização seja adequadamente implantada em seu projeto no Azure (**approot\\bin** para funções Web e **approot** para funções de trabalho).
+> [!NOTE]
+> No Visual Studio, a propriedade **Copiar para Diretório de Saída** do seu arquivo em lotes de inicialização deve ser definida como **Sempre Copiar** para garantir que seu arquivo em lotes de inicialização seja adequadamente implantada em seu projeto no Azure (**approot\\bin** para funções Web e **approot** para funções de trabalho).
+> 
+> 
 
 ## Descrição dos atributos da tarefa
-
 A seguir, a descrição dos atributos do elemento **Task** do arquivo [ServiceDefinition.csdef]\:
 
 **commandLine** - especifica a linha de comando para a tarefa de inicialização:
 
-- O comando, com parâmetros de linha de comando opcionais, que inicia a tarefa de inicialização.
-- Geralmente, esse é o nome do arquivo de um arquivo em lotes .cmd ou .bat.
-- A tarefa é relativa à pasta AppRoot\\Bin para a implantação. As variáveis de ambiente não são expandidas para a determinação do caminho e do arquivo da tarefa. Se a expansão de ambiente for necessária, você poderá criar um script .cmd pequeno que chame sua tarefa de inicialização.
-- Pode ser um aplicativo de console ou um arquivo em lotes que inicie um [script do PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task).
+* O comando, com parâmetros de linha de comando opcionais, que inicia a tarefa de inicialização.
+* Geralmente, esse é o nome do arquivo de um arquivo em lotes .cmd ou .bat.
+* A tarefa é relativa à pasta AppRoot\\Bin para a implantação. As variáveis de ambiente não são expandidas para a determinação do caminho e do arquivo da tarefa. Se a expansão de ambiente for necessária, você poderá criar um script .cmd pequeno que chame sua tarefa de inicialização.
+* Pode ser um aplicativo de console ou um arquivo em lotes que inicie um [script do PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task).
 
 **executionContext** - especifica o nível de privilégio para a tarefa de inicialização. O nível de privilégio pode ser limitado ou elevado:
 
-- **limitado** A tarefa de inicialização é executada com os mesmos privilégios da função. Quando o atributo **executionContext** do elemento [Runtime] também for **limitado**, os privilégios de usuário serão usados.
+* **limitado** A tarefa de inicialização é executada com os mesmos privilégios da função. Quando o atributo **executionContext** do elemento [Runtime] também for **limitado**, os privilégios de usuário serão usados.
+* **elevado** A tarefa de inicialização é executada com privilégios de administrador. Isso permite que as tarefas de inicialização instalem programas, façam alterações de configuração no IIS, executem alterações no Registro e outras tarefas no nível de administrador sem aumentar o nível de privilégio da própria função.
 
-- **elevado** A tarefa de inicialização é executada com privilégios de administrador. Isso permite que as tarefas de inicialização instalem programas, façam alterações de configuração no IIS, executem alterações no Registro e outras tarefas no nível de administrador sem aumentar o nível de privilégio da própria função.
-
-> [AZURE.NOTE] O nível de privilégio de uma tarefa de inicialização não precisa ser igual ao da própria função.
+> [!NOTE]
+> O nível de privilégio de uma tarefa de inicialização não precisa ser igual ao da própria função.
+> 
+> 
 
 **taskType** - especifica a maneira como uma tarefa de inicialização é executada.
 
-- **simples** As tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada no arquivo [ServiceDefinition.csdef]. Quando uma tarefa de inicialização **simples** terminar com um **errorlevel** zero, a próxima tarefa de inicialização **simples** será executada. Se não houver nenhum mais tarefas de inicialização **simples** a serem executadas, então a função será iniciada.
-
-    > [AZURE.NOTE] Se a tarefa **simples** terminar com um **errorlevel** diferente de zero, a instância será bloqueada. As tarefas de inicialização **simples** subsequentes , e a própria função, não serão iniciadas.
-
+* **simples** As tarefas são executadas de forma síncrona, uma de cada vez, na ordem especificada no arquivo [ServiceDefinition.csdef]. Quando uma tarefa de inicialização **simples** terminar com um **errorlevel** zero, a próxima tarefa de inicialização **simples** será executada. Se não houver nenhum mais tarefas de inicialização **simples** a serem executadas, então a função será iniciada.
+  
+  > [!NOTE]
+  > Se a tarefa **simples** terminar com um **errorlevel** diferente de zero, a instância será bloqueada. As tarefas de inicialização **simples** subsequentes , e a própria função, não serão iniciadas.
+  > 
+  > 
+  
     Para garantir que o arquivo em lotes termine com um **errorlevel** zero, execute o comando `EXIT /B 0` no final do processo do seu arquivo em lotes.
-
-- **segundo plano** As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função.
-
-- **primeiro plano** As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função. A principal diferença entre uma tarefa em **primeiro plano** e uma em **segundo plano** é que uma tarefa em **primeiro plano** impede que a função seja reciclada ou desligada até que seja encerrada. As tarefas em **segundo plano** não têm essa restrição.
+* **segundo plano** As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função.
+* **primeiro plano** As tarefas são executadas de forma assíncrona, em paralelo com a inicialização da função. A principal diferença entre uma tarefa em **primeiro plano** e uma em **segundo plano** é que uma tarefa em **primeiro plano** impede que a função seja reciclada ou desligada até que seja encerrada. As tarefas em **segundo plano** não têm essa restrição.
 
 ## Variáveis de ambiente
-
 As variáveis de ambiente são uma maneira de passar informações para uma tarefa de inicialização. Por exemplo, você pode colocar o caminho para um blob que contenha um programa a ser instalado, ou números de porta que sua função usará, ou configurações para controlar recursos de sua tarefa de inicialização.
 
 Há dois tipos de variáveis de ambiente para tarefas de inicialização; variáveis de ambiente estáticas e variáveis de ambiente baseadas nos membros da classe [RoleEnvironment]. Ambas estão na seção [Environment] do arquivo [ServiceDefinition.csdef] e ambas usam o elemento [Variable] e o atributo **name**.
@@ -125,24 +124,22 @@ As variáveis de ambiente estáticas usam o atributo **value** do elemento [Vari
 
 As variáveis de ambiente baseadas nos membros da classe RoleEnvironment não usam o atributo **value** do elemento [Variable]. Em vez disso, o elemento filho [RoleInstanceValue], com o valor do atributo **XPath** adequado, é usado para criar uma variável de ambiente baseada em um membro específico da classe [RoleEnvironment]. Os valores do atributo **XPath** para acessar diversos valores de [RoleEnvironment] podem ser encontrados [aqui](cloud-services-role-config-xpath.md).
 
-
-
 Por exemplo, para criar uma variável de ambiente que seja "**true**" quando a instância estiver em execução no emulador de computação e "**false**" quando em execução na nuvem, use os seguintes elementos [Variable] e [RoleInstanceValue]\:
 
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple">
         <Environment>
-    
+
             <!-- Create the environment variable that informs the startup task whether it is running
                 in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
                 running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
                 in the cloud. -->
-    
+
             <Variable name="ComputeEmulatorRunning">
                 <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
             </Variable>
-    
+
         </Environment>
     </Task>
 </Startup>
@@ -152,7 +149,6 @@ Por exemplo, para criar uma variável de ambiente que seja "**true**" quando a i
 Saiba como executar algumas [tarefas de inicialização comuns](cloud-services-startup-tasks-common.md) com seu Serviço de Nuvem.
 
 [Empacote](cloud-services-model-and-package.md) seu Serviço de Nuvem.
-
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task

@@ -4,15 +4,15 @@ O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mai
 
 Este tópico descreve:
 
-+ [Contêineres Docker e Linux]
-+ [Como usar a Extensão de VM do Docker com o Azure]
-+ [Extensões de máquina virtual para Linux e Windows]
+* [Contêineres Docker e Linux]
+* [Como usar a Extensão de VM do Docker com o Azure]
+* [Extensões de máquina virtual para Linux e Windows]
 
 Para criar máquinas virtuais habilitadas para Docker agora mesmo, confira:
 
-+ [Como usar a extensão de VM do Docker a partir da interface de linha de comando do Azure (CLI do Azure)]
-+ [Como usar a extensão de VM do Docker com o portal clássico do Azure]
-+ [Como começar rapidamente com o Docker no Marketplace do Azure]
+* [Como usar a extensão de VM do Docker a partir da interface de linha de comando do Azure (CLI do Azure)]
+* [Como usar a extensão de VM do Docker com o portal clássico do Azure]
+* [Como começar rapidamente com o Docker no Marketplace do Azure]
 
 Para saber mais sobre a extensão e como ela funciona, consulte o [Guia do usuário de extensão do Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md).
 
@@ -26,30 +26,28 @@ O Docker e outras abordagens de *contêiner* diminuíram radicalmente o tempo de
 A tabela a seguir descreve detalhadamente as diferenças dos recursos dos hipervisores e dos contêineres Linux. Alguns recursos podem ser mais ou menos úteis, dependendo das necessidades dos aplicativos.
 
 | Recurso | Hipervisores | Contêineres |
-| :------------- |-------------| ----------- |
-| Isolamento do processo | Parcial | Se a raiz for obtida, o contêiner será comprometido |
-| Requisição de memória em disco | SO completo, mais aplicativos | Somente os requisitos dos aplicativos |
-| Tempo necessário para iniciar | Muito mais longo: inicialização do sistema operacional e carregamento do aplicativo | Muito mais curto: somente os aplicativos precisam ser iniciados porque o kernel já está em execução |
-| Automação do contêiner | Varia muito de acordo com o SO e os aplicativos | [Galeria de imagens do Docker](https://registry.hub.docker.com/); outros
+|:--- | --- | --- |
+| Isolamento do processo |Parcial |Se a raiz for obtida, o contêiner será comprometido |
+| Requisição de memória em disco |SO completo, mais aplicativos |Somente os requisitos dos aplicativos |
+| Tempo necessário para iniciar |Muito mais longo: inicialização do sistema operacional e carregamento do aplicativo |Muito mais curto: somente os aplicativos precisam ser iniciados porque o kernel já está em execução |
+| Automação do contêiner |Varia muito de acordo com o SO e os aplicativos |[Galeria de imagens do Docker](https://registry.hub.docker.com/); outros |
 
 Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
 Para obter mais informações sobre o Docker e seu funcionamento, confira [O que é o Docker?](https://www.docker.com/whatisdocker/)
 
 #### Práticas recomendadas para a segurança do contêiner do Linux e do Docker
-
 Como os contêineres compartilham o acesso ao kernel do computador hóspede, se códigos mal-intencionados conseguirem acessar a raiz, eles poderão também acessar não só o computador hóspede, mas todos os outros contêineres. Para ir além da segurança proporcionada ao sistema de contêineres pela configuração padrão, a [Docker recomenda](https://docs.docker.com/articles/security/) o uso de uma política de grupo para adição ou [segurança baseada em funções](http://en.wikipedia.org/wiki/Role-based_access_control), como [SELinux](http://selinuxproject.org/page/Main_Page) ou [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), por exemplo, além de recomendar a redução ao máximo das funcionalidades do kernel concedidas aos contêineres. Além disso, há muitos outros documentos na Internet que descrevem abordagens de segurança ao usar contêineres como o Docker.
 
 ## Como usar a Extensão de VM Docker com o Azure
-
 A extensão de máquina virtual Docker é um componente que, quando instalado na instância VM que você criou, instala o mecanismo Docker e gerencia a comunicação remota com a máquina virtual. Há duas maneiras de instalar a extensão de VM: você pode criar sua VM usando o portal de gerenciamento ou você pode criá-la a partir da interface de linha de comando do Azure (CLI do Azure).
 
 Você pode usar o portal para adicionar a extensão de máquina virtual Docker a qualquer máquina virtual Linux compatível (no momento, somente as imagens Ubuntu 14.04 LTS posteriores a julho têm suporte). No entanto, ao usar a linha de comando CLI do Azure, você pode instalar a extensão de VM do Docker e criar e fazer upload de seus certificados de comunicação Docker enquanto cria a instância VM.
 
 Para criar máquinas virtuais habilitadas para Docker agora mesmo, confira:
 
-+ [Como usar a extensão de VM do Docker a partir da interface de linha de comando do Azure (CLI do Azure)]
-+ [Como usar a extensão de VM do Docker com o portal clássico do Azure]
+* [Como usar a extensão de VM do Docker a partir da interface de linha de comando do Azure (CLI do Azure)]
+* [Como usar a extensão de VM do Docker com o portal clássico do Azure]
 
 ## Extensões de máquina virtual para Linux e Windows
 A [extensão de VM do Docker para Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) é apenas uma das diversas extensões que oferecem comportamentos especiais, e outras estão sendo desenvolvidas. Por exemplo, diversos recursos da [extensão do Agente de VM Linux](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) permitem que você modifique e gerencie a máquina virtual, incluindo recursos de segurança, recursos de kernel e rede e assim por diante. A extensão VMAccess, por exemplo, permite redefinir a senha de administrador ou a chave SSH.

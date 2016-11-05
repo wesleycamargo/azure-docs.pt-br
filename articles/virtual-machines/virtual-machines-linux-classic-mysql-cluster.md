@@ -1,26 +1,24 @@
-<properties
-	pageTitle="Clusterizar MySQL com conjuntos com balanceamento de carga | Microsoft Azure"
-	description="Configurar um cluster MySQL do Linux com alta disponibilidade e balanceamento de carga criado com o modelo clássico de implantação no Azure"
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="bureado"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+---
+title: Clusterizar MySQL com conjuntos com balanceamento de carga | Microsoft Docs
+description: Configurar um cluster MySQL do Linux com alta disponibilidade e balanceamento de carga criado com o modelo clássico de implantação no Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: bureado
+manager: timlt
+editor: ''
+tags: azure-service-management
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/14/2015"
-	ms.author="jparrel"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 04/14/2015
+ms.author: jparrel
 
+---
 # Usando conjuntos de carga balanceada para clusterizar MySQL em Linux
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 A finalidade deste artigo é explorar e ilustrar as diferentes abordagens disponíveis para implantar serviços com base em Linux, altamente disponíveis no Microsoft Azure, explorando a alta disponibilidade do MySQL Server como elemento principal. Há um vídeo ilustrando essa abordagem disponível no [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
@@ -33,26 +31,21 @@ Existem outras arquiteturas possíveis para MySQL, inclusive NBD Cluster, Percon
 Obviamente, essas arquiteturas de clustering podem ser estendidas até outro produtos como PostgreSQL e OpenLDAP de maneira semelhante. Por exemplo, esse procedimento de balanceamento de carga sem compartilhar nada foi testado com êxito com o OpenLDAP multimestres, e é possível ver isso em nosso blog Channel 9.
 
 ## Preparando-se
-
 Você precisará de uma conta do Microsoft Azure com uma assinatura válida para criar pelo menos duas (2) VMs (XS foi usado neste exemplo), uma rede e uma sub-rede, além de um grupo de afinidade e um conjunto de disponibilidade, bem como da possibilidade de criar novos VHDs na mesma região do serviço de nuvem e de anexá-los às VMs do Linux.
 
 ### Ambiente testado
-
-- Ubuntu 13.10
-  - DRBD
-  - MySQL Server
-  - Corosync e Pacemaker
+* Ubuntu 13.10
+  * DRBD
+  * MySQL Server
+  * Corosync e Pacemaker
 
 ### Grupo de afinidade
-
 É criado um grupo de afinidade para a solução de registro em log para o portal clássico do Azure rolando para baixo até configurações e criando um novo grupo de afinidades. Os recursos alocados criados posteriormente serão atribuídos a esse grupo de afinidade.
 
 ### Redes
-
 Uma nova rede é criada, e uma sub-rede é criada dentro da rede. Escolhemos uma rede 10.10.10.0/24 com apenas uma sub-rede /24 dentro.
 
 ### Máquinas virtuais
-
 A primeira VM do Ubuntu 13.10 é criada usando-se uma imagem da Endorsed Ubuntu Gallery e chamada `hadb01`. Um novo serviço de nuvem é criado no processo, chamado hadb. Demos esse nome para ilustrar a natureza compartilhada, de balanceamento de carga, que o serviço terá quando adicionarmos mais recursos. A criação de `hadb01` é tranquila e concluída usando o portal. Um ponto de extremidade para SSH é criado automaticamente e a nossa rede criada é selecionada. Também optamos por criar um novo conjunto de disponibilidade para as VMs.
 
 Assim que a primeira VM é criada (tecnicamente, quando o serviço de nuvem é criado), passamos à criação da segunda VM, `hadb02`. Para a segunda VM, também usaremos a VM do Ubuntu 13.10 na Gallery usando o portal, mas podemos optar por usar um serviço de nuvem existente, `hadb.cloudapp.net`, em vez de criar um novo. A rede e o conjunto de disponibilidade devem ser selecionadas automaticamente para nós. Também será criado um ponto de extremidade SSH.
@@ -60,13 +53,11 @@ Assim que a primeira VM é criada (tecnicamente, quando o serviço de nuvem é c
 Depois que ambas as VMs forem criadas, anotaremos a porta SSH de `hadb01` (TCP 22) e de `hadb02` (atribuída automaticamente pelo Azure)
 
 ### Armazenamento anexado
-
 Anexamos um novo disco a ambas as VMs e criamos novos discos de 5 GB no processo. Os discos serão hospedados no contêiner VHD em uso para os discos do nosso sistema operacional principal. Depois que os discos são criados e anexados não há necessidade de reiniciarmos o Linux, porque o kernel verá o novo dispositivo (normalmente, `/dev/sdc`; é possível verificar `dmesg` para ver a saída)
 
 Em cada VM, passamos à criação de uma nova partição usando `cfdisk` (principalmente a partição do Linux) e gravamos a nova tabela de partição. **Não crie um sistema de arquivos nessa partição** .
 
 ## Configurando o cluster
-
 Em ambas as VMs Ubuntu, precisamos usar o APT para instalar Corosync, Pacemaker e DRBD. Usando `apt-get`:
 
     sudo apt-get install corosync pacemaker drbd8-utils.
@@ -76,7 +67,6 @@ Em ambas as VMs Ubuntu, precisamos usar o APT para instalar Corosync, Pacemaker 
 A esta altura, também devemos verificar (usando `/sbin/ifconfig`) se ambas as VMs estão usando endereços na sub-rede 10.10.10.0/24 e se podem executar ping uma na outra, pelo nome. Se quiser, você também pode usar `ssh-keygen` e `ssh-copy-id` para verificar se ambas as VMs conseguem se comunicar via SSH sem exigir uma senha.
 
 ### Configurando DRBD
-
 Criaremos um recurso DRBD que usa a partição subjacente `/dev/sdc1` para produzir um recurso `/dev/drbd1` capaz de ser formatado usando ext3 e usado em nós primários e secundários. Para isso, abra `/etc/drbd.d/r0.res` e copie a definição de recurso a seguir. Faça isso em ambas as VMs:
 
     resource r0 {
@@ -110,14 +100,12 @@ Assim que o disco for sincronizado, será possível criar o sistema de arquivos 
     mkfs.ext3 /dev/drbd1
 
 ### Montando o recurso DRBD
-
 No `hadb01`, agora estamos prontos para montar os recursos DRBD. Debian e derivativos usam `/var/lib/mysql` como diretório de dados do MySQL. Como não instalamos o MySQL, iremos criar o diretório e montar o recurso DRBD. No `hadb01`:
 
     sudo mkdir /var/lib/mysql
     sudo mount /dev/drbd1 /var/lib/mysql
 
 ## Configurando o MySQL
-
 Agora você está pronto para instalar o MySQL em `hadb01`:
 
     sudo apt-get install mysql-server
@@ -152,7 +140,6 @@ Se não pretende usar failover no DRBD agora, a primeira opção é mais fácil,
 Você também precisa habilitar a rede para MySQL caso queira fazer consultas externas às VMs, que é a finalidade deste guia. Em ambas as VMs, abra `/etc/mysql/my.cnf` e navegue até `bind-address`; altere-as de 127.0.0.1 para 0.0.0.0. Depois de salvar o arquivo, emita uma `sudo service mysql restart` no primário atual.
 
 ### Criando o conjunto de balanceamento de carga do MySQL
-
 Voltamos ao portal e navegamos até o `hadb01` VM e, em seguida, até pontos de extremidade. Iremos criar um novo ponto de extremidade, escolher MySQL (TCP 3306) no menu suspenso e marcar na caixa *Criar novo conjunto de balanceamento de carga*. Chamaremos nosso ponto de extremidade de balanceamento de carga `lb-mysql`. Deixaremos a maioria das opções sozinha, exceto o tempo, que reduziremos para 5 (segundos, o mínimo)
 
 Depois que o ponto de extremidade for criado, vamos até `hadb02`, Pontos de extremidade, e criaremos um novo ponto de extremidade, mas escolheremos `lb-mysql` e selecionaremos MySQL no menu suspenso. Também é possível usar a CLI do Azure nesta etapa.
@@ -160,13 +147,11 @@ Depois que o ponto de extremidade for criado, vamos até `hadb02`, Pontos de ext
 No momento, temos tudo o que precisamos para uma operação manual do cluster.
 
 ### Testando o conjunto de balanceamento de carga
-
 Os testes podem ser realizados em uma máquina externa usando qualquer cliente do MySQL, bem como aplicativos (ex.: phpMyAdmin em execução como um Site do Azure). Nesse caso, usamos a ferramenta de linha de comando do MySQL em outra caixa do Linux:
 
     mysql azureha –u root –h hadb.cloudapp.net –e "select * from things;"
 
 ### Executando failover manualmente
-
 Agora você pode simular failovers desativando o MySQL, alternando o primário do DRBD e reiniciando o MySQL.
 
 Em hadb01:
@@ -180,7 +165,6 @@ Em seguida, em hadb02:
 Depois de executar failover manualmente, você poderá repetir a consulta remota e ela tem que estar funcionando perfeitamente.
 
 ## Configurando o Corosync
-
 Corosync é a infraestrutura de cluster subjacente necessária ao funcionamento do Pacemaker. Para usuários do Heartbeat v1 e v2 (e outras metodologias como Ultramonkey), Corosync é uma divisão das funcionalidades de CRM, enquanto o Pacemaker continua mais semelhante ao Heartbeat em funcionalidade.
 
 A restrição principal do Corosync no Azure é que o Corosync prefere comunicação multicast via broadcast via unicast, mas a rede do Microsoft Azure só é compatível com unicast.
@@ -246,7 +230,6 @@ Deve se seguir uma saída semelhante à da imagem abaixo:
 ![corosync-quorumtool -l sample output](media/virtual-machines-linux-classic-mysql-cluster/image001.png)
 
 ## Configurando o Pacemaker
-
 O Pacemaker usa o cluster para monitorar recursos, definir quando os primários são desativados e alternar esses recursos para os secundários. Os recursos podem ser definidos com base em um conjunto de scripts disponíveis ou de scripts LSB (init-like), entre outras opções.
 
 Queremos que o Pacemaker seja o “proprietário” do recurso DRBD, do ponto de montagem e do serviço MySQL. Se o Pacemaker puder ativar e desativar o DRBD, monte/desmonte-o e inicie/pare o MySQL na ordem certa quando algo ruim acontecer com o primário, então nossa instalação está concluída.
@@ -310,13 +293,11 @@ E essa captura de tela mostra ambos os nós, com um mestre e um subordinado:
 ![crm\_mon operational master/slave](media/virtual-machines-linux-classic-mysql-cluster/image003.png)
 
 ## Testando
-
 Estamos prontos para uma simulação de failover automático. Existem duas maneiras de fazer isso: a fácil e a difícil. A maneira fácil é usar a função de desligamento do cluster: ``crm_standby -U `uname -n` -v on``. Usando isso no mestre, o subordinado assumirá. Não se esqueça de desativá-lo (ou crm\_mon informará que um nó está em espera)
 
 A maneira difícil é desligando a VM primária (hadb01) por meio do portal ou alterando o nível de execução na VM (ou seja, parada, desligada) e, em seguida, estaremos ajudando o Corosync e o Pacemaker por meio da sinalização da desativação do mestre. Podemos testar isso (útil para janelas de manutenção), mas também podemos forçar o cenário apenas congelando a VM.
 
 ## STONITH
-
 Deve ser possível emitir um desligamento da VM por meio da CLI do Azure, em vez de um script STONITH que controle um dispositivo físico. É possível usar `/usr/lib/stonith/plugins/external/ssh` como base e habilitar STONITH na configuração do cluster. A CLI do Azure deve estar instalada globalmente e as configurações/perfil de publicação devem ser carregadas para o usuário do cluster.
 
 Código de exemplo para o recurso disponível em [GitHub](https://github.com/bureado/aztonith). Você precisa alterar a configuração do cluster adicionando o seguinte a `sudo crm configure`:
@@ -330,14 +311,13 @@ Código de exemplo para o recurso disponível em [GitHub](https://github.com/bur
 **Observação:** o script não realiza verificações para cima/para baixo. O recurso SSH original apresentava 15 verificações de ping, mas o tempo de recuperação de uma VM do Azure pode ser mais variável.
 
 ## Limitações
-
 As seguintes limitações se aplicam:
 
-- O script do recurso DRBD linbit que gerencia DRBD como um recurso no Pacemaker usa `drbdadm down` durante a desativação de um nó, mesmo que o nó esteja apenas em modo de espera. Isso não é o ideal, pois o subordinado não sincronizará o recurso DRBD enquanto o mestre receber gravações. Se o mestre não falhar, o escravo poderá assumir um estado do sistema de arquivos mais antigo. Existem duas maneiras em potencial de resolver isso:
-  - Impondo um `drbdadm up r0` a todos os nós de cluster por meio de um watchdog local (não clusterizado) ou
-  - Editando o script DRBD linbit, verificando se `down` não é chamado, em `/usr/lib/ocf/resource.d/linbit/drbd`.
-- Como o balanceador de carga precisa de pelo menos 5 segundos para responder, os aplicativos devem reconhecer o cluster e ser mais tolerantes ao tempo limite. Outras características também podem ajudar, por exemplo, filas em aplicativo, middleware de consulta, etc.
-- O ajuste do MySQL é necessário para garantir que a gravação seja feita em um ritmo confortável e os caches sejam liberados para o disco com a maior frequência possível para minimizar a perda de memória
-- O desempenho da gravação dependerá da interconexão da VM no comutador virtual porque esse é o mecanismo usado pelo DRBD para replicar o dispositivo
+* O script do recurso DRBD linbit que gerencia DRBD como um recurso no Pacemaker usa `drbdadm down` durante a desativação de um nó, mesmo que o nó esteja apenas em modo de espera. Isso não é o ideal, pois o subordinado não sincronizará o recurso DRBD enquanto o mestre receber gravações. Se o mestre não falhar, o escravo poderá assumir um estado do sistema de arquivos mais antigo. Existem duas maneiras em potencial de resolver isso:
+  * Impondo um `drbdadm up r0` a todos os nós de cluster por meio de um watchdog local (não clusterizado) ou
+  * Editando o script DRBD linbit, verificando se `down` não é chamado, em `/usr/lib/ocf/resource.d/linbit/drbd`.
+* Como o balanceador de carga precisa de pelo menos 5 segundos para responder, os aplicativos devem reconhecer o cluster e ser mais tolerantes ao tempo limite. Outras características também podem ajudar, por exemplo, filas em aplicativo, middleware de consulta, etc.
+* O ajuste do MySQL é necessário para garantir que a gravação seja feita em um ritmo confortável e os caches sejam liberados para o disco com a maior frequência possível para minimizar a perda de memória
+* O desempenho da gravação dependerá da interconexão da VM no comutador virtual porque esse é o mecanismo usado pelo DRBD para replicar o dispositivo
 
 <!---HONumber=AcomDC_0629_2016-->

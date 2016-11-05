@@ -1,32 +1,30 @@
-<properties
-   pageTitle="Visão geral do Azure Resource Health | Microsoft Azure"
-   description="Visão geral do Azure Resource Health"
-   services="Resource health"
-   documentationCenter="dev-center-name"
-   authors="BernardoAMunoz"
-   manager=""
-   editor=""/>
+---
+title: Visão geral do Azure Resource Health | Microsoft Docs
+description: Visão geral do Azure Resource Health
+services: Resource health
+documentationcenter: dev-center-name
+author: BernardoAMunoz
+manager: ''
+editor: ''
 
-<tags
-   ms.service="resource-health"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="Supportability"
-   ms.date="06/01/2016"
-   ms.author="BernardoAMunoz"/>
+ms.service: resource-health
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: Supportability
+ms.date: 06/01/2016
+ms.author: BernardoAMunoz
 
+---
 # Visão geral do Azure Resource Health
-
 O Azure Resource Health é um serviço que expõe a integridade de recursos individuais do Azure e fornece diretrizes acionáveis para solucionar problemas. Em um ambiente de nuvem em que não é possível acessar diretamente os servidores ou elementos da infraestrutura, a meta do Resource Health é reduzir o tempo que os clientes gastam na solução de problemas, reduzindo especialmente o tempo gasto para determinar se a raiz do problema reside no aplicativo ou se o problema foi causado por algum evento na plataforma do Azure.
 
-## O que é considerado um recurso e como o Resource Health decide se o recurso está íntegro ou não? 
+## O que é considerado um recurso e como o Resource Health decide se o recurso está íntegro ou não?
 Um recurso é uma instância criada pelo usuário de um tipo de recurso fornecido por um serviço; por exemplo: uma máquina virtual, um aplicativo Web ou um banco de dados SQL.
 
 O Resource Health se baseia em sinais emitidos pelo recurso e/ou pelo serviço para determinar se um recurso está íntegro ou não. É importante observar que, no momento, o Resource Health só indica a integridade de um tipo específico de recurso e não leva em consideração outros elementos que podem contribuir para a integridade geral. Por exemplo, ao relatar o status de uma máquina virtual, somente a parte de computação da infraestrutura é considerada, ou seja, problemas na rede não são mostrados no Resource Health, a menos que haja uma interrupção de serviço declarada. Nesse caso, ela será mostrada por meio da faixa na parte superior da folha. Mais informações sobre a interrupção de serviço são fornecidas mais adiante neste artigo.
 
 ## Como o Resource Health é diferente do Painel de Integridade de Serviço?
-
 As informações fornecidas pelo Resource Health são mais granulares do que aquelas fornecidas pelo Painel de Integridade de Serviço. Embora o SHD comunique eventos que afetam a disponibilidade de um serviço em uma região, o Resource Health expõe informações relevantes a um recurso específico. Por exemplo, ela expõe eventos que afetam a disponibilidade de uma máquina virtual, um aplicativo Web ou um banco de dados SQL. Por exemplo, se um nó for reiniciado inesperadamente, os clientes cujas máquinas virtuais estavam em execução nesse nó poderão obter a razão pela qual suas VMs não estiveram disponíveis por um período de tempo.
 
 ## Como acessar o Resource Health
@@ -40,7 +38,7 @@ A folha Integridade de recursos no Portal do Azure fornece informações detalha
 
 Após fazer logon no Portal do Azure, há duas maneiras de acessar a folha Integridade de recursos:
 
-###Abrir a folha Recursos
+### Abrir a folha Recursos
 Abra a folha Recursos de um recurso específico. Na folha Configurações aberta ao lado da folha Recursos, clique em Integridade de Recursos para abrir a folha Integridade de recursos.
 
 ![Folha Integridade de recursos](./media/resource-health-overview/resourceBladeAndResourceHealth.png)
@@ -67,12 +65,11 @@ O serviço não detectou problemas na plataforma que possam afetar a disponibili
 ![O recurso está disponível](./media/resource-health-overview/Available.png)
 
 ### Indisponível
-
 Nesse caso, o serviço detectou um problema contínuo na plataforma que está afetando a disponibilidade deste recurso; por exemplo, o nó em que a VM está em execução foi reiniciado inesperadamente. Isso é indicado por um ícone de aviso vermelho. Informações adicionais sobre o problema são fornecidas na seção no meio da folha, incluindo:
 
-1.	As ações que a Microsoft está executando para recuperar o recurso
-2.	Uma linha do tempo detalhada do problema, incluindo o tempo de resolução esperado
-3.	Uma lista de ações recomendadas para usuários
+1. As ações que a Microsoft está executando para recuperar o recurso
+2. Uma linha do tempo detalhada do problema, incluindo o tempo de resolução esperado
+3. Uma lista de ações recomendadas para usuários
 
 ![O recurso não está disponível](./media/resource-health-overview/Unavailable.png)
 
@@ -97,11 +94,10 @@ Se o recurso puder ser afetado por um Evento que Afeta o Serviço em andamento, 
 ![A integridade de recursos pode ser afetada por um SIE](./media/resource-health-overview/serviceImpactingEvent.png)
 
 ## O que mais preciso saber sobre o Resource Health?
-
 ### Latência de sinal
 Os sinais que são usados pelo Resource Health podem ter um atraso de até 15 minutos, o que pode causar discrepâncias entre o status de integridade atual do recurso e sua disponibilidade real. É importante ter isso em mente, pois ajudará a eliminar o tempo desnecessário gasto na investigação de possíveis problemas.
 
-### Caso especial para o SQL 
+### Caso especial para o SQL
 O Resource Health relata o status do banco de dados SQL, não do SQL Server. Embora essa opção forneça uma imagem mais realista da integridade, requer que vários componentes e serviços sejam levados em consideração para determinar a integridade do banco de dados. O sinal atual se baseia em logons no banco de dados, o que significa que, para bancos de dados que recebem logons regulares (o que inclui, entre outras coisas, receber solicitações de execução de consulta), o status de integridade será exibido regularmente. Se o banco de dados não tiver sido acessado por um período de 10 minutos ou mais, será movido para o estado desconhecido. Isso não significa que o banco de dados esteja indisponível, apenas que nenhum sinal foi emitido porque nenhum logon foi executado. Conectar-se ao banco de dados e executar uma consulta emitirá os sinais necessários para determinar e atualizar o status de integridade do banco de dados.
 
 ## Comentários

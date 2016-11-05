@@ -1,26 +1,23 @@
-<properties 
-    pageTitle="O que são aplicativos de API do BizTalk e conectores" 
-    description="Saiba mais sobre Aplicativos de API, Conectores e Aplicativos de API do BizTalk" 
-    services="logic-apps" 
-    documentationCenter="" 
-    authors="MandiOhlinger" 
-    manager="erikre" 
-    editor=""/>
+---
+title: O que são aplicativos de API do BizTalk e conectores
+description: Saiba mais sobre Aplicativos de API, Conectores e Aplicativos de API do BizTalk
+services: logic-apps
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="logic-apps" 
-    ms.workload="integration" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="09/01/2016" 
-    ms.author="mandia"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/01/2016
+ms.author: mandia
 
-
+---
 # <a name="what-are-connectors-and-biztalk-api-apps"></a>O que são aplicativos de API do BizTalk e conectores
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
-
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Um *Conector* é um tipo de Aplicativo de API que se concentra na conectividade. Conectores, como qualquer outro Aplicativo de API, são utilizados de aplicativos Web, aplicativos móveis e aplicativos lógicos. Os conectores tornam fácil conectar-se a serviços existentes e ajudam a gerenciar a autenticação, fornecem monitoramento, análise e muito mais.
 
@@ -34,8 +31,7 @@ Há diferentes "Camadas" de serviço disponíveis. Todos os níveis incluem todo
 
 [Preços de Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) descreve esses níveis de serviços e também lista o que está incluído nesses níveis. As seções a seguir descrevem as diversas categorias de aplicativos de API do BizTalk e conectores.
 
-
-## <a name="hybrid-connectors"></a>Conectores híbridos 
+## <a name="hybrid-connectors"></a>Conectores híbridos
 Os conectores híbridos estendem ainda mais o alcance na empresa com a conectividade para [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) e WebSphere MQ. 
 
 Recursos adicionais: [Conectores entre empresas e Aplicativos de API](app-service-logic-b2b-connectors.md)  
@@ -43,15 +39,11 @@ Recursos adicionais: [Conectores entre empresas e Aplicativos de API](app-servic
 [Criar um acordo entre parceiros comerciais](app-service-logic-create-a-trading-partner-agreement.md)  
 [Controlar suas mensagens B2B](app-service-logic-track-b2b-messages.md)  
 
-
 ## <a name="rules"></a>Regras
 As regras de negócios encapsulam as políticas e as decisões que controlam processos de negócios. Normalmente, as regras são dinâmicas e mudam com o tempo por diferentes motivos, incluindo planos de negócios, regulamentos entre muitos outros. [Regras do BizTalk](app-service-logic-use-biztalk-rules.md) permite desassociar essas políticas do código de aplicativo e simplificar e agilizar o processo de alteração.
 
 ## <a name="connector-and-api-app-list"></a>Lista de conectores e aplicativos de API
 Consulte [Conectores e lista de aplicativos da API](app-service-logic-connectors-list.md) para obter uma lista completa dos conectores e API aplicativos presentes em cada categoria, incluindo conectores padrão, BizTalk EAI, conectores Premium etc.
- 
-
-
 
 <!--HONumber=Oct16_HO2-->
 

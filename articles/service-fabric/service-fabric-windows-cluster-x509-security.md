@@ -1,30 +1,27 @@
-<properties
-   pageTitle="Conectar-se a um cluster privado seguro | Microsoft Azure"
-   description="Este artigo descreve como proteger a comunicação no cluster autônomo ou privado, bem como entre clientes e o cluster."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="dsk-2015"
-   manager="timlt"
-   editor=""/>
+---
+title: Conectar-se a um cluster privado seguro | Microsoft Docs
+description: Este artigo descreve como proteger a comunicação no cluster autônomo ou privado, bem como entre clientes e o cluster.
+services: service-fabric
+documentationcenter: .net
+author: dsk-2015
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/08/2016"
-   ms.author="dkshir"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/08/2016
+ms.author: dkshir
 
-
+---
 # <a name="secure-a-standalone-cluster-on-windows-using-x.509-certificates"></a>Proteger um cluster autônomo no Windows usando os certificados X.509
-
 Este artigo descreve como proteger a comunicação entre os diversos nós do seu cluster do Windows autônomo, bem como autenticar os clientes que estejam se conectando a esse cluster, usando os certificados X.509. Isso garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados e executar tarefas de gerenciamento.  A segurança do certificado deve ser habilitada no cluster quando o cluster é criado.  
 
 Para obter mais informações sobre segurança de cluster, como nós de segurança, segurança de nó de cliente e controle de acesso baseado em função, confira [Cenários de segurança de cluster](service-fabric-cluster-security.md).
 
 ## <a name="which-certificates-will-you-need?"></a>De quais certificados você precisará?
-
 Para começar, [baixe o pacote de clusters autônomos](service-fabric-cluster-creation-for-windows-server.md#downloadpackage) para um dos nós no cluster. No pacote baixado, você encontrará um arquivo **ClusterConfig.X509.MultiMachine.json** . Abra o arquivo e revise a seção **Segurança** na seção **Propriedades**:
 
     "security": {
@@ -63,17 +60,20 @@ Para começar, [baixe o pacote de clusters autônomos](service-fabric-cluster-cr
 
 Esta seção descreve os certificados necessários para proteger o cluster do Windows autônomo. Para habilitar a segurança baseada em certificado, defina os valores de **ClusterCredentialType** e **ServerCredentialType** para *X509*.
 
->[AZURE.NOTE] Uma [impressão digital](https://en.wikipedia.org/wiki/Public_key_fingerprint) é a principal identidade de um certificado. Leia [How to retrieve thumbprint of a certificate (Como recuperar a impressão digital de um certificado)](https://msdn.microsoft.com/library/ms734695.aspx) para descobrir a impressão digital do certificados que você cria.
+> [!NOTE]
+> Uma [impressão digital](https://en.wikipedia.org/wiki/Public_key_fingerprint) é a principal identidade de um certificado. Leia [How to retrieve thumbprint of a certificate (Como recuperar a impressão digital de um certificado)](https://msdn.microsoft.com/library/ms734695.aspx) para descobrir a impressão digital do certificados que você cria.
+> 
+> 
 
 A tabela a seguir lista os certificados que serão necessárias na configuração do seu cluster:
 
-|**Configuração de CertificateInformation**|**Descrição**|
-|-----------------------|--------------------------|
-|ClusterCertificate|Esse certificado é necessário para proteger a comunicação entre os nós em um cluster. Você pode usar dois certificados diferentes, um principal e um secundário para atualização. Defina a impressão digital do certificado principal na seção **Impressão Digital** e a do secundário nas variáveis **ThumbprintSecondary**.|
-|ServerCertificate|Esse certificado é apresentado ao cliente quando ele tenta se conectar a esse cluster. Para sua conveniência, você pode optar por usar o mesmo certificado para *ClusterCertificate* e *ServerCertificate*. Você pode usar dois certificados de servidor diferentes, um principal e um secundário, para atualização. Defina a impressão digital do certificado principal na seção **Impressão Digital** e a do secundário nas variáveis **ThumbprintSecondary**. |
-|ClientCertificateThumbprints|Esse é um conjunto de certificados que você deseja instalar nos clientes autenticados. Você pode ter alguns certificados de cliente diferentes instalados nos computadores para os quais você deseja permitir o acesso ao cluster. Defina a impressão digital de cada certificado na variável **CertificateThumbprint** . Se você definir **IsAdmin** para *true*, o cliente com o certificado instalado poderá realizar atividades de gerenciamento de administrador no cluster. Se **IsAdmin** for *false*, o cliente com esse certificado só poderá executar as ações permitidas para direitos de acesso do usuário, normalmente, somente leitura. Para obter mais informações sobre funções, leia [RBAC (controle de acesso baseado em função)](service-fabric-cluster-security.md/#role-based-access-control-rbac)  |
-|ClientCertificateCommonNames|Defina o nome comum do primeiro certificado do cliente para **CertificateCommonName**. A **CertificateIssuerThumbprint** é a impressão digital para o emissor deste certificado. Leia [Working with certificates (Trabalhando com certificados)](https://msdn.microsoft.com/library/ms731899.aspx) para saber mais sobre os nomes comuns e o emissor.|
-|HttpApplicationGatewayCertificate|Este é um certificado opcional que pode ser especificado se você deseja proteger seu Gateway de Aplicativo Http. Verifique se reverseProxyEndpointPort está definido em nodeTypes caso você esteja usando esse certificado.|
+| **Configuração de CertificateInformation** | **Descrição** |
+| --- | --- |
+| ClusterCertificate |Esse certificado é necessário para proteger a comunicação entre os nós em um cluster. Você pode usar dois certificados diferentes, um principal e um secundário para atualização. Defina a impressão digital do certificado principal na seção **Impressão Digital** e a do secundário nas variáveis **ThumbprintSecondary**. |
+| ServerCertificate |Esse certificado é apresentado ao cliente quando ele tenta se conectar a esse cluster. Para sua conveniência, você pode optar por usar o mesmo certificado para *ClusterCertificate* e *ServerCertificate*. Você pode usar dois certificados de servidor diferentes, um principal e um secundário, para atualização. Defina a impressão digital do certificado principal na seção **Impressão Digital** e a do secundário nas variáveis **ThumbprintSecondary**. |
+| ClientCertificateThumbprints |Esse é um conjunto de certificados que você deseja instalar nos clientes autenticados. Você pode ter alguns certificados de cliente diferentes instalados nos computadores para os quais você deseja permitir o acesso ao cluster. Defina a impressão digital de cada certificado na variável **CertificateThumbprint** . Se você definir **IsAdmin** para *true*, o cliente com o certificado instalado poderá realizar atividades de gerenciamento de administrador no cluster. Se **IsAdmin** for *false*, o cliente com esse certificado só poderá executar as ações permitidas para direitos de acesso do usuário, normalmente, somente leitura. Para obter mais informações sobre funções, leia [RBAC (controle de acesso baseado em função)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
+| ClientCertificateCommonNames |Defina o nome comum do primeiro certificado do cliente para **CertificateCommonName**. A **CertificateIssuerThumbprint** é a impressão digital para o emissor deste certificado. Leia [Working with certificates (Trabalhando com certificados)](https://msdn.microsoft.com/library/ms731899.aspx) para saber mais sobre os nomes comuns e o emissor. |
+| HttpApplicationGatewayCertificate |Este é um certificado opcional que pode ser especificado se você deseja proteger seu Gateway de Aplicativo Http. Verifique se reverseProxyEndpointPort está definido em nodeTypes caso você esteja usando esse certificado. |
 
 Aqui está um exemplo de configuração de cluster em que os certificados de Cluster, Servidor e Cliente foram fornecidos.
 
@@ -196,51 +196,49 @@ Quando tiver o(s) certificado(s), você poderá instalá-lo(s) nos nós de clust
 
 1. Copie o(s) arquivo(s) .pfx para o nó.
 2. Abra uma janela do PowerShell como administrador e insira os comandos a seguir. Substitua *$pswd* pela senha que você usou para criar esse certificado. Substitua *$PfxFilePath* pelo caminho completo do .pfx copiado para esse nó.
-
+   
     ```
     $pswd = "1234"
     $PfcFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-
 3. Em seguida, você precisa definir o controle de acesso nesse certificado para que o processo do Service Fabric, que é executado sob a conta de Serviço de Rede, possa usá-lo, executando o script a seguir. Forneça a impressão digital do certificado e "NETWORK SERVICE" para a conta de serviço. Você pode verificar se as ACLs no certificado estão corretas usando a ferramenta certmgr.exe e examinando Gerenciar Chaves Particulares no certificado.
-
+   
     ```
     param
     (
         [Parameter(Position=1, Mandatory=$true)]
         [ValidateNotNullOrEmpty()]
         [string]$pfxThumbPrint,
-
+   
         [Parameter(Position=2, Mandatory=$true)]
         [ValidateNotNullOrEmpty()]
         [string]$serviceAccount
         )
-
+   
         $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; };
-
+   
         # Specify the user, the permissions and the permission type
         $permission = "$($serviceAccount)","FullControl","Allow"
         $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission;
-
+   
         # Location of the machine related keys
         $keyPath = $env:ProgramData + "\Microsoft\Crypto\RSA\MachineKeys\";
         $keyName = $cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName;
         $keyFullPath = $keyPath + $keyName;
-
+   
         # Get the current acl of the private key
         $acl = (Get-Item $keyFullPath).GetAccessControl('Access')
-
+   
         # Add the new ace to the acl of the private key
         $acl.SetAccessRule($accessRule);
-
+   
         # Write back the new acl
         Set-Acl -Path $keyFullPath -AclObject $acl -ErrorAction Stop
-
+   
         #Observe the access rights currently assigned to this certificate.
         get-acl $keyFullPath| fl
         ```
-
 4. Repeat the steps above for each server certificate. You can also use these steps to install the client certificates on the machines that you want to allow access to the cluster.
 
 ## Create the secure cluster

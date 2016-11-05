@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Perguntas Frequentes sobre Rota Expressa"
-   description="As Perguntas Frequentes Sobre Rota Expressa contêm informações sobre Serviços do Azure com Suporte, Custo, Dados e Conexões, SLA, Provedores e Locais, Largura de banda e Detalhes Técnicos adicionais."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="cherylmc"/>
+---
+title: Perguntas Frequentes sobre Rota Expressa
+description: As Perguntas Frequentes Sobre Rota Expressa contêm informações sobre Serviços do Azure com Suporte, Custo, Dados e Conexões, SLA, Provedores e Locais, Largura de banda e Detalhes Técnicos adicionais.
+documentationcenter: na
+services: expressroute
+author: cherylmc
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: cherylmc
 
+---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre Rota Expressa
-
-
 ## <a name="what-is-expressroute?"></a>O que é Rota Expressa?
 Rota Expressa é um serviço do Azure que permite a criação de conexões privadas entre os datacenters da Microsoft e a infraestrutura no seu local ou em uma instalação de colocalização. As conexões da Rota Expressa não passam pela Internet pública e oferecem mais segurança, confiabilidade e velocidades maiores com latências menores do que conexões típicas pela Internet.
 
@@ -52,21 +50,20 @@ Consulte a [página SLA de Rota Expressa](https://azure.microsoft.com/support/le
 ## <a name="supported-services"></a>Serviços com suporte
 A maioria dos serviços do Azure tem suporte na Rota Expressa.
 
-- A conectividade com máquinas virtuais e serviços de nuvem implantados em redes virtuais tem suporte pelo caminho privado de emparelhamento.
-- Os sites do Azure têm suporte pelo caminho público de emparelhamento.
-- O Hub IoT tem suporte pelo caminho público de emparelhamento.
-- Há suporte para o Office 365 no caminho de emparelhamento da Microsoft.
-- Todos os outros serviços são acessíveis pelo caminho público de emparelhamento. As exceções são as descritas a seguir
-
+* A conectividade com máquinas virtuais e serviços de nuvem implantados em redes virtuais tem suporte pelo caminho privado de emparelhamento.
+* Os sites do Azure têm suporte pelo caminho público de emparelhamento.
+* O Hub IoT tem suporte pelo caminho público de emparelhamento.
+* Há suporte para o Office 365 no caminho de emparelhamento da Microsoft.
+* Todos os outros serviços são acessíveis pelo caminho público de emparelhamento. As exceções são as descritas a seguir
+  
     **Não há suporte para os seguintes serviços:**
-
-    - CDN
-    - Teste de carga do Visual Studio Team Services
-    - Multi-factor Authentication
-    - Gerenciador de Tráfego
+  
+  * CDN
+  * Teste de carga do Visual Studio Team Services
+  * Multi-factor Authentication
+  * Gerenciador de Tráfego
 
 ## <a name="data-and-connections"></a>Dados e conexões
-
 ### <a name="are-there-limits-on-the-amount-of-data-that-i-can-transfer-using-expressroute?"></a>Há limites para a quantidade de dados que posso transferir usando Rota Expressa?
 Não podemos definir um limite para a quantidade de transferência de dados. Consulte os [detalhes de preços](https://azure.microsoft.com/pricing/details/expressroute/) para obter informações sobre as taxas de largura de banda.
 
@@ -79,7 +76,6 @@ Ofertas de largura de banda com suporte:
 Consulte [Locais e Parceiros da Rota Expressa](expressroute-locations.md) para a lista de locais e provedores de serviços.
 
 ## <a name="technical-details"></a>Detalhes técnicos
-
 ### <a name="what-are-the-technical-requirements-for-connecting-my-on-premises-location-to-azure?"></a>Quais são os requisitos técnicos para conectar meu espaço local ao Azure?
 Consulte a [Página de pré-requisitos para Rota Expressa](expressroute-prerequisites.md) para requisitos.
 
@@ -89,11 +85,10 @@ Sim. Cada circuito da Rota Expressa tem um par redundante de conexões cruzadas 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail?"></a>Eu perderei a conectividade se um dos meus links de Rota Expressa falhar?
 Você não perderá conectividade se uma das conexões cruzadas falhar. Uma conexão redundante estará disponível para dar suporte à carga de sua rede. Além disso, você pode criar vários circuitos em um local de emparelhamento diferente para obter resiliência a falhas.
 
-### <a name="<a-name="onep2plink"></a>if-i'm-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection,-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft?"></a><a name="onep2plink"></a>Se eu não estiver colocalizado em uma troca de nuvem e meu provedor de serviços oferecer conexão ponto a ponto, preciso solicitar duas conexões físicas entre minha rede local e a Microsoft? 
+### <a name="<a-name="onep2plink"></a>if-i'm-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection,-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft?"></a><a name="onep2plink"></a>Se eu não estiver colocalizado em uma troca de nuvem e meu provedor de serviços oferecer conexão ponto a ponto, preciso solicitar duas conexões físicas entre minha rede local e a Microsoft?
 Não, você só precisará de uma conexão física se seu provedor de serviços puder estabelecer dois circuitos virtuais de Ethernet por meio da conexão física. A conexão física (por exemplo, uma fibra óptica) será encerrada em um dispositivo de camada 1 (L1) (confira a imagem abaixo). Os dois circuitos virtuais de Ethernet estão marcados com IDs de VLAN diferentes, uma para o circuito primário e outra para o secundário. As IDs de VLAN estão no cabeçalho de Ethernet 802.1Q exterior. O cabeçalho de Ethernet 802.1Q interior (não mostrado) é mapeado para um [domínio de roteamento de Rota Expressa](expressroute-circuit-peerings.md)específico. 
 
 ![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
-
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute?"></a>Posso estender uma das minhas VLANs ao Azure usando a Rota Expressa?
 Não. Não há suporte para extensões de conectividade de camada 2 ao Azure.
@@ -107,9 +102,9 @@ Sim. Você pode ter circuitos de Rota Expressa de muitos provedores de serviços
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como conectar minhas redes virtuais a um circuito da Rota Expressa
 As etapas básicas são descritas a seguir.
 
-- Você deve estabelecer um circuito de Rota Expressa e fazer com que o provedor de serviços o habilite.
-- Você ou o provedor deve configurar os emparelhamentos BGP.
-- É necessário vincular uma Rede Virtual ao circuito de Rota Expressa.
+* Você deve estabelecer um circuito de Rota Expressa e fazer com que o provedor de serviços o habilite.
+* Você ou o provedor deve configurar os emparelhamentos BGP.
+* É necessário vincular uma Rede Virtual ao circuito de Rota Expressa.
 
 Consulte [Fluxos de trabalho da Rota Expressa para provisionamento e estados do circuito](expressroute-workflows.md) para saber mais.
 
@@ -166,8 +161,8 @@ As etapas a seguir ajudarão o Azure a reconhecer a solicitação de ativação:
 1. Estabeleça o emparelhamento público para seu circuito de Rota Expressa.
 2. Execute uma pesquisa DNS e localize o endereço IP de **kms.core.windows.net**
 3. Então, execute um dos dois itens a seguir para que o Serviço de Gerenciamento de Chaves reconheça que a solicitação de ativação é proveniente do Azure e atenda a solicitação.
-    - Em sua rede local, faça o roteamento do tráfego destinado ao endereço IP (obtido na etapa 2) de volta para o Azure por meio de emparelhamento público.
-    - Faça com que seu provedor NSP envie o tráfego por loop “hairpin” de volta ao Azure, via emparelhamento público.
+   * Em sua rede local, faça o roteamento do tráfego destinado ao endereço IP (obtido na etapa 2) de volta para o Azure por meio de emparelhamento público.
+   * Faça com que seu provedor NSP envie o tráfego por loop “hairpin” de volta ao Azure, via emparelhamento público.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit?"></a>Posso alterar a largura de banda de um circuito de Rota Expressa?
 Sim. Você pode aumentar a largura de banda de um circuito de Rota Expressa sem precisar subdividi-lo. Você terá de fazer o acompanhamento junto ao seu provedor de conectividade para garantir que eles atualizem os gargalos em suas redes, para dar suporte ao aumento de largura de banda. Você não poderá, todavia, reduzir a largura de banda de um circuito de Rota Expressa. Precisar reduzir a largura de banda significa uma desmontagem e recriação de um circuito de Rota Expressa.
@@ -176,21 +171,18 @@ Sim. Você pode aumentar a largura de banda de um circuito de Rota Expressa sem 
 Você pode atualizar a largura de banda do circuito de Rota Expressa usando o cmdlet do PowerShell e API de circuito dedicado de atualização.
 
 ## <a name="expressroute-premium"></a>Rota Expressa Premium
-
 ### <a name="what-is-expressroute-premium?"></a>O que é a Rota Expressa Premium?
 Rota Expressa premium é uma coleção de recursos listados abaixo.
 
- - Limite maior na tabela de roteamento, de 4000 rotas para 10.000 rotas, para emparelhamento privado.
- - Maior número de VNets que podem ser conectadas ao circuito de Rota Expressa (o padrão é 10). Consulte a tabela seguir para obter mais detalhes.
- - Conectividade global através da rede de núcleo da Microsoft. Agora, você poderá conectar uma VNet em uma região geopolítica a um circuito de Rota Expressa em outra região. **Exemplo:** é possível conectar uma VNet criada na Europa Ocidental a um circuito de Rota Expressa criado no Vale do Silício.
- - Conectividade com serviços do Office 365 e CRM Online.
+* Limite maior na tabela de roteamento, de 4000 rotas para 10.000 rotas, para emparelhamento privado.
+* Maior número de VNets que podem ser conectadas ao circuito de Rota Expressa (o padrão é 10). Consulte a tabela seguir para obter mais detalhes.
+* Conectividade global através da rede de núcleo da Microsoft. Agora, você poderá conectar uma VNet em uma região geopolítica a um circuito de Rota Expressa em outra região. **Exemplo:** é possível conectar uma VNet criada na Europa Ocidental a um circuito de Rota Expressa criado no Vale do Silício.
+* Conectividade com serviços do Office 365 e CRM Online.
 
 ### <a name="how-many-vnets-can-i-link-to-an-expressroute-circuit-if-i-enabled-expressroute-premium?"></a>Quantas VNets posso vincular a um circuito de Rota Expressa se eu habilitei a Rota Expressa premium?
 As tabelas a seguir mostram os limites da Rota Expressa e o número de redes virtuais por circuito de Rota Expressa.
 
-
-[AZURE.INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
-
+[!INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 ### <a name="how-do-i-enable-expressroute-premium?"></a>Como habilito a Rota Expressa premium?
 Os recursos da Rota Expressa premium podem ser ativados quando o recurso está habilitado, e podem ser desativados atualizando o estado do circuito. Você pode habilitar a Rota Expressa premium no momento da criação de circuito ou pode chamar o cmdlet do PowerShell/API do circuito dedicado de atualização para habilitar a Rota Expressa premium.
@@ -208,17 +200,18 @@ Consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/expre
 Sim. Os encargos da Rota Expressa premium somam-se aos encargos de circuito de Rota Expressa e aos encargos demandados pelo provedor de conectividade.
 
 ## <a name="expressroute-and-office-365-services-and-crm-online"></a>Rota Expressa e serviços do Office 365 e CRM Online
-
-[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+[!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-crm-online?"></a>Como criar um circuito de Rota Expressa para conectar aos serviços do Office 365 e CRM Online?
-
 1. Examine a [página de pré-requisitos do ExpressRoute](expressroute-prerequisites.md) para se certificar de que você atende aos requisitos.
 2. Examine a lista de provedores de serviços e locais em [Locais e parceiros da Rota Expressa](expressroute-locations.md) para garantir que suas necessidades de conectividade são atendidas.
 3. Planeje seus requisitos de capacidade, revisando [Planejamento de rede e ajuste de desempenho para o Office 365](http://aka.ms/tune/)
 4. Siga as etapas relacionadas nos fluxos de trabalho abaixo para configurar a conectividade [Fluxos de trabalho de Rota Expressa para provisionamento do circuito e estados do circuito](expressroute-workflows.md).
 
->[AZURE.IMPORTANT] Certifique-se de ter habilitado o complemento premium da Rota Expressa ao configurar a conectividade com os serviços do Office 365 e CRM Online.
+> [!IMPORTANT]
+> Certifique-se de ter habilitado o complemento premium da Rota Expressa ao configurar a conectividade com os serviços do Office 365 e CRM Online.
+> 
+> 
 
 ### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-crm-online?"></a>Eu preciso habilitar o emparelhamento público do Azure para me conectar aos serviços do Office 365 e CRM Online?
 Não, você precisa habilitar somente o Emparelhamento da Microsoft. O tráfego de autenticação no Azure AD será enviado pelo emparelhamento da Microsoft. 
@@ -227,7 +220,6 @@ Não, você precisa habilitar somente o Emparelhamento da Microsoft. O tráfego 
 Sim. Seus circuitos da Rota Expressa existentes podem ser configurados para dar suporte a conectividade com os serviços do Office 365. Verifique se você tem capacidade suficiente para se conectar aos serviços do Office 365 e certifique-se de que você habilitou o complemento premium. [Planejamento da rede e ajuste de desempenho para o Office 365](http://aka.ms/tune/) ajudarão você a planejar suas necessidades de conectividade. Veja também [Criar e modificar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md).
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection?"></a>Quais serviços do Office 365 podem ser acessados por uma conexão de Rota Expressa?
-
 Confira a página [Intervalos de endereço IP e URLs do Office 365](http://aka.ms/o365endpoints) para obter uma lista atualizada dos serviços com suporte na Rota Expressa.
 
 ### <a name="how-much-does-expressroute-for-office-365-services-and-crm-online-cost?"></a>Qual é o custo da Rota Expressa para serviços do Office 365 e CRM Online?
@@ -241,8 +233,6 @@ Sim. Pontos de extremidade do serviço do Office 365 estão acessíveis pela Int
 
 ### <a name="can-dynamics-ax-online-be-accessed-over-an-expressroute-connection?"></a>O Dynamics AX Online pode ser acessado por uma conexão de Rota Expressa?
 Não há suporte para isso.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

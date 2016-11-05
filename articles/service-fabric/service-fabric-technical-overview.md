@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Visão geral da terminologia do Service Fabric | Microsoft Azure"
-   description="Uma visão geral da terminologia do Service Fabric. Aborda os principais conceitos de terminologia e os termos usados no restante da documentação."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor="chackdan;subramar"/>
+---
+title: Visão geral da terminologia do Service Fabric | Microsoft Docs
+description: Uma visão geral da terminologia do Service Fabric. Aborda os principais conceitos de terminologia e os termos usados no restante da documentação.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: chackdan;subramar
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # Visão geral da terminologia do Service Fabric
-
 Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis. Este tópico fornece detalhes da terminologia usada no Service Fabric para entender os termos usados na documentação.
 
 ## Conceitos de infraestrutura
@@ -40,9 +39,8 @@ Leia o artigo [Modelo de aplicativo](service-fabric-application-model.md) para s
 
 Há dois tipos de serviço:
 
-- **Sem estado:** use um serviço sem estado quando o estado persistente do serviço for armazenado em um serviço de armazenamento externo, como o Armazenamento do Azure, Banco de Dados SQL do Azure ou Banco de Dados de Documentos do Azure. Use um serviço sem estado quando o serviço não tiver nenhum armazenamento persistente. Por exemplo, um serviço de calculadora no qual os valores são passados para o serviço, um cálculo é realizado usando esses valores e um resultado é retornado.
-
-- **Com estado:** use um serviço com estado quando quiser que o Service Fabric gerencie o estado de seu serviço por meio de seus modelos de programação Reliable Collections ou Reliable Actors. Especifique quantas partições você deseja distribuir pelo seu estado (para fins de escalabilidade) ao criar um serviço nomeado. Especifique também quantas vezes deve replicar o estado entre os nós (para fins de confiabilidade). Cada serviço nomeado tem uma única réplica primária e várias réplicas secundárias. Modifique o estado do serviço nomeado escrevendo para a réplica primária. O Service Fabric replica então esse estado para todas as réplicas secundárias, mantendo seu estado em sincronia. O Service Fabric detecta automaticamente quando uma réplica primaria falha e promove uma réplica secundária existente a réplica primária. O Service Fabric cria então uma nova réplica secundária.
+* **Sem estado:** use um serviço sem estado quando o estado persistente do serviço for armazenado em um serviço de armazenamento externo, como o Armazenamento do Azure, Banco de Dados SQL do Azure ou Banco de Dados de Documentos do Azure. Use um serviço sem estado quando o serviço não tiver nenhum armazenamento persistente. Por exemplo, um serviço de calculadora no qual os valores são passados para o serviço, um cálculo é realizado usando esses valores e um resultado é retornado.
+* **Com estado:** use um serviço com estado quando quiser que o Service Fabric gerencie o estado de seu serviço por meio de seus modelos de programação Reliable Collections ou Reliable Actors. Especifique quantas partições você deseja distribuir pelo seu estado (para fins de escalabilidade) ao criar um serviço nomeado. Especifique também quantas vezes deve replicar o estado entre os nós (para fins de confiabilidade). Cada serviço nomeado tem uma única réplica primária e várias réplicas secundárias. Modifique o estado do serviço nomeado escrevendo para a réplica primária. O Service Fabric replica então esse estado para todas as réplicas secundárias, mantendo seu estado em sincronia. O Service Fabric detecta automaticamente quando uma réplica primaria falha e promove uma réplica secundária existente a réplica primária. O Service Fabric cria então uma nova réplica secundária.
 
 **Pacote de Serviços**: um diretório de disco contendo o arquivo `ServiceManifest.xml` do tipo de serviço. Este arquivo faz referência ao código, aos dados estáticos e a pacotes de configuração para o tipo de serviço. Os arquivos no diretório do pacote de serviços são referenciados pelo arquivo `ApplicationManifest.xml` do tipo de aplicativo. Por exemplo, um pacote de serviços pode fazer referência ao código, aos dados estáticos e aos pacotes de configuração que compõem um serviço de banco de dados.
 
@@ -50,9 +48,8 @@ Há dois tipos de serviço:
 
 **Pacote de Códigos**: um diretório de disco contendo arquivos executáveis do tipo de serviço (normalmente, arquivos EXE/DLL). Os arquivos no diretório do pacote de códigos são referenciados pelo arquivo `ServiceManifest.xml` do tipo de serviço. Quando um serviço nomeado é criado, o pacote de códigos é copiado para um ou mais nós selecionados para executar o serviço nomeado. Em seguida, o código começa a ser executado. Há dois tipos de arquivos executáveis de pacote de códigos:
 
-- **Executáveis convidados**: executáveis que são executados “como são” no sistema operacional host (Windows ou Linux). Ou seja, esses executáveis não criam um vínculo com, ou fazem referência a, arquivos de tempo de execução do Service Fabric e, portanto, não usam qualquer um dos modelos de programação do Service Fabric. Esses executáveis não conseguem usar alguns recursos do Service Fabric, como o serviço de nomenclatura para descoberta de ponto de extremidade. Executáveis de convidado não podem relatar métricas de carga específicas para cada instância de serviço.
-
-- **Executáveis do Host de Serviço**: são executáveis que usam modelos de programação do Service Fabric criando vínculos com arquivos de tempo de execução do Service Fabric, habilitando os recursos deste. Por exemplo, uma instância de serviço nomeada pode registrar pontos de extremidade com o Serviço de Nomenclatura do Service Fabric, e também pode relatar métricas de carga.
+* **Executáveis convidados**: executáveis que são executados “como são” no sistema operacional host (Windows ou Linux). Ou seja, esses executáveis não criam um vínculo com, ou fazem referência a, arquivos de tempo de execução do Service Fabric e, portanto, não usam qualquer um dos modelos de programação do Service Fabric. Esses executáveis não conseguem usar alguns recursos do Service Fabric, como o serviço de nomenclatura para descoberta de ponto de extremidade. Executáveis de convidado não podem relatar métricas de carga específicas para cada instância de serviço.
+* **Executáveis do Host de Serviço**: são executáveis que usam modelos de programação do Service Fabric criando vínculos com arquivos de tempo de execução do Service Fabric, habilitando os recursos deste. Por exemplo, uma instância de serviço nomeada pode registrar pontos de extremidade com o Serviço de Nomenclatura do Service Fabric, e também pode relatar métricas de carga.
 
 **Pacote de Dados**: um diretório de disco contendo os arquivos de dados estáticos e somente leitura do tipo de serviço (normalmente arquivos de foto, som e vídeo). Os arquivos no diretório do pacote de dados são referenciados pelo arquivo `ServiceManifest.xml` do tipo de serviço. Quando um serviço nomeado é criado, o pacote de dados é copiado para um ou mais nós selecionados para executar o serviço nomeado. O código começa a ser executado e agora pode acessar os arquivos de dados.
 
@@ -86,8 +83,8 @@ Leia o artigo [Escolher um modelo de programação para o serviço](service-fabr
 ## Próximas etapas
 Para saber mais sobre o Service Fabric:
 
-- [Visão geral da Malha do Serviço](service-fabric-overview.md)
-- [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
-- [Cenários de aplicativos](service-fabric-application-scenarios.md)
+* [Visão geral da Malha do Serviço](service-fabric-overview.md)
+* [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
+* [Cenários de aplicativos](service-fabric-application-scenarios.md)
 
 <!---HONumber=AcomDC_0831_2016-->

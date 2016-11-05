@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Exemplo de ciclo de vida de aplicativo baseado em REST | Microsoft Azure"
-   description="Um exemplo do Service Fabric do Microsoft Azure que mostra o ciclo de vida do aplicativo usando a interface REST do Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: Exemplo de ciclo de vida de aplicativo baseado em REST | Microsoft Docs
+description: Um exemplo do Service Fabric do Microsoft Azure que mostra o ciclo de vida do aplicativo usando a interface REST do Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: rest-api
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/25/2016
+ms.author: ryanwi
 
+---
 # Exemplo do ciclo de vida de aplicativo baseado em REST
-
 Este exemplo demonstra o ciclo de vida do aplicativo da Malha de Serviço por meio de chamadas à API REST. Para obter mais informações sobre o ciclo de vida do aplicativo da Malha de Serviço, consulte [Ciclo de vida do aplicativo do Service Fabric](service-fabric-application-lifecycle.md).
 
 Este exemplo realiza as seguintes tarefas:
@@ -37,15 +36,13 @@ Este exemplo realiza as seguintes tarefas:
 * Desprovisiona a versão 1.0.0 do exemplo do WordCount.
 * Exibe a lista de tipos de aplicativo, que não inclui mais o WordCount.
 
-
 ## Pré-requisitos
-
 Este exemplo usa o [exemplo do WordCount](http://aka.ms/servicefabricsamples) (encontrado nos exemplos da **Introdução**). O exemplo do WordCount deve ser criado primeiro e, em seguida, dois pacotes de aplicativos devem ser copiados no repositório de imagens.
 
-|Pasta|Descrição|
-|------|-----------|
-|WordCount|O aplicativo de exemplo do WordCount. O **ApplicationManifest.xml** contém **ApplicationTypeVersion="1.0.0"**.|
-|WordCountUpgrade|O aplicativo de exemplo do WordCount. O arquivo ApplicationManifest.xml deve ser alterado para **ApplicationTypeVersion="1.1.0"** para permitir que a atualização do aplicativo ocorra.|
+| Pasta | Descrição |
+| --- | --- |
+| WordCount |O aplicativo de exemplo do WordCount. O **ApplicationManifest.xml** contém **ApplicationTypeVersion="1.0.0"**. |
+| WordCountUpgrade |O aplicativo de exemplo do WordCount. O arquivo ApplicationManifest.xml deve ser alterado para **ApplicationTypeVersion="1.1.0"** para permitir que a atualização do aplicativo ocorra. |
 
 Para criar os pacotes de aplicativos e copiá-los no repositório de imagens, execute as seguintes etapas:
 
@@ -74,7 +71,6 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpg
 Depois que o script do PowerShell for concluído, esse aplicativo estará pronto para ser executado.
 
 ## Exemplo
-
 O exemplo a seguir demonstra o ciclo de vida do aplicativo da Malha de Serviço.
 
 ```csharp
@@ -706,7 +702,6 @@ namespace ServiceFabricRestCaller
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Próximas etapas
-
 [Ciclo de vida do aplicativo do Service Fabric](service-fabric-application-lifecycle.md)
 
 <!---HONumber=AcomDC_0831_2016-->

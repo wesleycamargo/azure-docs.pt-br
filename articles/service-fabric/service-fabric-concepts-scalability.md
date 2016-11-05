@@ -1,28 +1,27 @@
-<properties
-   pageTitle="Escalabilidade de serviços do Service Fabric | Microsoft Azure"
-   description="Descreve como dimensionar os serviços de malha do serviço"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: Escalabilidade de serviços do Service Fabric | Microsoft Docs
+description: Descreve como dimensionar os serviços de malha do serviço
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # Colocando em escala aplicativos do Service Fabric
 O Service Fabric do Azure facilita a compilação de aplicativos escalonáveis balanceando a carga dos serviços, partições e réplicas em todos os nós em um cluster. Isso permite a utilização máxima dos recursos.
 
 Uma alta escala para aplicativos do Service Fabric pode ser obtida de duas maneiras:
 
 1. Dimensionamento no nível da partição
-
 2. Dimensionamento no nível do nome do serviço
 
 ## Dimensionamento no nível da partição
@@ -46,18 +45,14 @@ Um possível cenário seria usar informações de data como parte do nome do ser
 
 No entanto, essa abordagem baseia-se em clientes usando informações de nomenclatura específicas do aplicativo que estão fora do escopo do conhecimento do Service Fabric.
 
-- *Usando uma convenção de nomenclatura*: em 2013, quando seu aplicativo é ativado, você cria um serviço chamado fabric:/app/service2013. Perto do segundo trimestre de 2013, você cria outro serviço chamado fabric:/app/service2014. Ambos os serviços são do mesmo tipo de serviço. Nessa abordagem, o cliente precisará fazer uso de lógica sobre como construir o nome de serviço apropriado com base no ano.
-
-- *Usando um serviço de pesquisa*: Outro padrão é fornecer um serviço de pesquisa secundário, que pode fornecer o nome do serviço para uma chave desejada. Em seguida, novas instâncias de serviço podem ser criadas pelo serviço de pesquisa. O próprio serviço de pesquisa não retém nenhum dados do aplicativo, somente os dados sobre os nomes de serviço que ele cria. Assim, para o exemplo baseado no ano acima, o cliente primeiro entraria em contato com o serviço de pesquisa para descobrir o nome do serviço de gerenciamento de dados para um determinado ano e, em seguida, usaria esse nome de serviço para executar a operação em si. O resultado da primeira pesquisa pode ser armazenado em cache.
+* *Usando uma convenção de nomenclatura*: em 2013, quando seu aplicativo é ativado, você cria um serviço chamado fabric:/app/service2013. Perto do segundo trimestre de 2013, você cria outro serviço chamado fabric:/app/service2014. Ambos os serviços são do mesmo tipo de serviço. Nessa abordagem, o cliente precisará fazer uso de lógica sobre como construir o nome de serviço apropriado com base no ano.
+* *Usando um serviço de pesquisa*: Outro padrão é fornecer um serviço de pesquisa secundário, que pode fornecer o nome do serviço para uma chave desejada. Em seguida, novas instâncias de serviço podem ser criadas pelo serviço de pesquisa. O próprio serviço de pesquisa não retém nenhum dados do aplicativo, somente os dados sobre os nomes de serviço que ele cria. Assim, para o exemplo baseado no ano acima, o cliente primeiro entraria em contato com o serviço de pesquisa para descobrir o nome do serviço de gerenciamento de dados para um determinado ano e, em seguida, usaria esse nome de serviço para executar a operação em si. O resultado da primeira pesquisa pode ser armazenado em cache.
 
 ## Próximas etapas
-
 Para obter informações sobre os conceitos do Service Fabric, consulte o seguinte:
 
-- [Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)
-
-- [Particionando serviços da Malha do Serviço](service-fabric-concepts-partitioning.md)
-
-- [Definindo e gerenciando o estado](service-fabric-concepts-state.md)
+* [Disponibilidade dos serviços de malha do serviço](service-fabric-availability-services.md)
+* [Particionando serviços da Malha do Serviço](service-fabric-concepts-partitioning.md)
+* [Definindo e gerenciando o estado](service-fabric-concepts-state.md)
 
 <!---HONumber=AcomDC_0810_2016-->

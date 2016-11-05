@@ -1,5 +1,4 @@
 ## Arquivo de parâmetro.
-
 Se você usar um arquivo de parâmetro para passar os valores de parâmetro durante a implantação, será necessário criar um arquivo JSON com um formato semelhante ao exemplo a seguir.
 
     {

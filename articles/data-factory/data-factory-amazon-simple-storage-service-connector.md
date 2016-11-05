@@ -1,24 +1,22 @@
-<properties 
-    pageTitle="Mover dados do Amazon Simple Storage Service usando o Data Factory | Microsoft Azure" 
-    description="Saiba mais sobre como mover dados do Amazon S3 (Simple Storage Service) usando o Azure Data Factory." 
-    services="data-factory" 
-    documentationCenter="" 
-    authors="linda33wj" 
-    manager="jhubbard" 
-    editor="monicar"/>
+---
+title: Mover dados do Amazon Simple Storage Service usando o Data Factory | Microsoft Docs
+description: Saiba mais sobre como mover dados do Amazon S3 (Simple Storage Service) usando o Azure Data Factory.
+services: data-factory
+documentationcenter: ''
+author: linda33wj
+manager: jhubbard
+editor: monicar
 
-<tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/25/2016" 
-    ms.author="jingwang"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: jingwang
 
-
+---
 # <a name="move-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Mover dados do Amazon Simple Storage Service usando o Azure Data Factory
-
 Este artigo descreve como você pode usar a atividade de cópia em uma Azure Data Factory para mover dados do Amazon S3 (Simple Storage Service) para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral de movimentação de dados e uma lista de armazenamentos de dados de origem/coletor com suporte com a atividade de cópia.  
 
 Atualmente, a data factory dá suporte apenas para a movimentação de dados do Amazon S3 para outros armazenamentos de dados, mas não para a movimentação de dados de outros armazenamentos de dados para o Amazon S3.
@@ -30,14 +28,14 @@ O exemplo a seguir fornece as definições de JSON de exemplo que você pode usa
 
 ## <a name="sample:-copy-data-from-amazon-s3-to-azure-blob"></a>Exemplo: copiar dados do Amazon S3 para o Blob do Azure
 Este exemplo mostra como copiar dados de um Amazon S3 para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.  
- 
+
 O exemplo tem as seguintes entidades de data factory:
 
-- Um serviço vinculado do tipo [AwsAccessKey](#linked-service-properties).
-- Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
-- Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AmazonS3](#dataset-type-properties).
-- Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-- Um [pipeline](data-factory-create-pipelines.md) com a Atividade de Cópia que usa [FileSystemSource](#copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+* Um serviço vinculado do tipo [AwsAccessKey](#linked-service-properties).
+* Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+* Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AmazonS3](#dataset-type-properties).
+* Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+* Um [pipeline](data-factory-create-pipelines.md) com a Atividade de Cópia que usa [FileSystemSource](#copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 O exemplo copia dados de um Amazon S3 para um blob do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos. 
 
@@ -155,7 +153,7 @@ Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo
 **Pipeline com Atividade de cópia**
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **FileSystemSource** e o tipo **sink** está definido como **BlobSink**. 
-    
+
     {
         "name": "CopyAmazonS3ToBlob",
         "properties": {
@@ -203,34 +201,33 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
-
 A tabela a seguir fornece a descrição para elementos JSON específicas para o serviço vinculado do Amazon S3 (**AwsAccessKey**).
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
-| -------- | ----------- | -------- | ------- |  
-| accessKeyID | ID da chave de acesso secreta. | string | Sim |
-| secretAccessKey | A chave de acesso do secreta em si. | Cadeia de caracteres secreta criptografada | Sim | 
-
+| --- | --- | --- | --- |
+| accessKeyID |ID da chave de acesso secreta. |string |Sim |
+| secretAccessKey |A chave de acesso do secreta em si. |Cadeia de caracteres secreta criptografada |Sim |
 
 ## <a name="dataset-type-properties"></a>Propriedades do tipo de conjunto de dados
-
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **AmazonS3** (que inclui o conjunto de dados do Amazon S3) tem as propriedades a seguir
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
-| -------- | ----------- | -------- | ------ | 
-| bucketName | O nome do bucket S3. | string | Sim |
-| chave | A chave do objeto S3. | string | Não | 
-| prefixo | Prefixo da chave do objeto S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se apenas quando a chave está vazia. | string | Não | 
-| version | A versão do objeto S3 se o controle de versão do S3 está habilitado. | string | Não |  
-| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Confira as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat), [Especificando JsonFormat](#specifying-jsonformat), [Especificando OrcFormat](#specifying-orcformat) e [Especificando ParquetFormat](#specifying-parquetformat) para obter detalhes. Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.| Não
-| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate** e **BZip2** e os níveis permitidos são: **Melhor** e **Mais rápido**. Atualmente, as configurações de compactação não são compatíveis para dados em **AvroFormat** ou **OrcFormat**. Para saber mais, confira a seção [Suporte à compactação](#compression-support) .  | Não |
+| --- | --- | --- | --- |
+| bucketName |O nome do bucket S3. |string |Sim |
+| chave |A chave do objeto S3. |string |Não |
+| prefixo |Prefixo da chave do objeto S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se apenas quando a chave está vazia. |string |Não |
+| version |A versão do objeto S3 se o controle de versão do S3 está habilitado. |string |Não |
+| formato |Há suporte para os seguintes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Confira as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat), [Especificando JsonFormat](#specifying-jsonformat), [Especificando OrcFormat](#specifying-orcformat) e [Especificando ParquetFormat](#specifying-parquetformat) para obter detalhes. Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não | |
+| compactação |Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate** e **BZip2** e os níveis permitidos são: **Melhor** e **Mais rápido**. Atualmente, as configurações de compactação não são compatíveis para dados em **AvroFormat** ou **OrcFormat**. Para saber mais, confira a seção [Suporte à compactação](#compression-support) . |Não | |
 
-> [AZURE.NOTE] bucketName + chave especifica a localização do objeto S3 em que bucket é o contêiner raiz para objetos S3 e a chave é o caminho completo para o objeto S3.
+> [!NOTE]
+> bucketName + chave especifica a localização do objeto S3 em que bucket é o contêiner raiz para objetos S3 e a chave é o caminho completo para o objeto S3.
+> 
+> 
 
 ### <a name="sample-dataset-with-prefix"></a>Conjunto de dados de exemplo com o prefixo
-
     {
         "name": "dataset-s3",
         "properties": {
@@ -252,7 +249,6 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
     }
 
 ### <a name="sample-data-set-(with-version)"></a>Conjunto de dados de exemplo (com a versão)
-
     {
         "name": "dataset-s3",
         "properties": {
@@ -276,7 +272,6 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 
 
 ### <a name="dynamic-paths-for-s3"></a>Caminhos dinâmicos para S3
-
 No exemplo, usamos valores fixos para as propriedades de chave e bucketName no conjunto de dados do Amazon S3. 
 
     "key": "testFolder/test.orc",
@@ -289,13 +284,11 @@ Você pode fazer com que o Data Factory calcule a chave e bucketName dinamicamen
 
 Você pode fazer o mesmo para a propriedade de prefixo de um conjunto de dados do Amazon S3. Veja [Funções e variáveis do sistema do Data Factory](data-factory-functions-variables.md) para obter uma lista das funções e variáveis com suporte. 
 
+[!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
 
-[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
-[AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
-
+[!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## <a name="copy-activity-type-properties"></a>Propriedades do tipo da atividade de cópia
-
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e políticas, estão disponíveis para todos os tipos de atividade. 
 
 As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
@@ -303,22 +296,22 @@ As propriedades disponíveis na seção **typeProperties** da atividade, por out
 Quando a origem da atividade de cópia é do tipo **FileSystemSource** (que inclui o Amazon S3), as seguintes propriedades estão disponíveis na seção typeProperties:
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
-| -------- | ----------- | -------------- | -------- | 
-| recursive | Especifica se devemos listar recursivamente objetos S3 no diretório. | true/false | Não | 
+| --- | --- | --- | --- |
+| recursive |Especifica se devemos listar recursivamente objetos S3 no diretório. |true/false |Não |
 
-[AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+[!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-[AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+[!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-[AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
+[!INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-## <a name="performance-and-tuning"></a>Desempenho e Ajuste  
+## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira os seguintes artigos: 
-- [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criação de um pipeline com uma Atividade de cópia. 
 
+* [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criação de um pipeline com uma Atividade de cópia. 
 
 <!--HONumber=Oct16_HO2-->
 

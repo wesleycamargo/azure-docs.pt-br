@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Como usar perfis de pontuação na Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado" 
-	description="Ajuste a classificação da pesquisa por meio de perfis de pontuação na Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+---
+title: Como usar perfis de pontuação na Pesquisa do Azure | Microsoft Docs
+description: Ajuste a classificação da pesquisa por meio de perfis de pontuação na Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure.
+services: search
+documentationcenter: ''
+author: HeidiSteen
+manager: mblythe
+editor: ''
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="08/04/2016" 
-	ms.author="heidist"/>
+ms.service: search
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 08/04/2016
+ms.author: heidist
 
+---
 # Como usar os perfis de pontuação na Pesquisa do Azure
-
 Perfis de pontuação são um recurso da Pesquisa do Microsoft Azure que personalizam o cálculo de pontuações de pesquisa, influenciando como os itens são classificados na lista de resultados da pesquisa. Você pode pensar em perfis de pontuação como uma forma de modelar relevância, amplificando itens que atendem a critérios predefinidos. Por exemplo, suponha que seu aplicativo seja um site de reservas de hotel online. Amplificando o campo `location`, as pesquisas que incluem um termo como Seattle resultarão em pontuações mais altas para itens que têm Seattle no campo `location`. Observe que você pode ter mais de um perfil de pontuação, ou nenhum, se a pontuação padrão for suficiente para seu aplicativo.
 
 Para ajudá-lo a experimentar perfis de pontuação, você pode baixar um aplicativo de exemplo que use perfis de pontuação para alterar a ordem de classificação dos resultados da pesquisa. O exemplo é um aplicativo de console – talvez não seja muito realista para desenvolvimento de aplicativos do mundo real – mas é útil como uma ferramenta de aprendizado.
@@ -25,17 +24,17 @@ Para ajudá-lo a experimentar perfis de pontuação, você pode baixar um aplica
 O aplicativo de exemplo demonstra comportamentos de pontuação usando dados fictícios, chamados de `musicstoreindex`. A simplicidade do aplicativo de exemplo torna fácil modificar perfis de pontuação e consultas, e então ver os efeitos de imediatos na ordem de classificação quando o programa for executado.
 
 <a id="sub-1"></a>
-## Pré-requisitos
 
+## Pré-requisitos
 O aplicativo de exemplo é escrito em C# usando o Visual Studio 2013. Experimente gratuitamente o [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) se você ainda não tiver uma cópia do Visual Studio.
 
 Você precisará de uma assinatura do Azure e um serviço Azure Search para concluir o tutorial. Consulte [Criar um serviço de Pesquisa no portal](search-create-service-portal.md) para obter ajuda com o serviço de configuração.
 
-[AZURE.INCLUDE [Você precisa de uma conta do Azure para concluir este tutorial:](../../includes/free-trial-note.md)]
+[!INCLUDE [Você precisa de uma conta do Azure para concluir este tutorial:](../../includes/free-trial-note.md)]
 
 <a id="sub-2"></a>
-## Baixar o aplicativo de exemplo
 
+## Baixar o aplicativo de exemplo
 Acesse a [Demonstração de perfis de pontuação da Pesquisa do Azure](https://azuresearchscoringprofiles.codeplex.com/) em codeplex para baixar o aplicativo de exemplo descrito neste tutorial.
 
 Na guia Código-fonte, clique em **Baixar** para obter um arquivo zip da solução.
@@ -43,23 +42,22 @@ Na guia Código-fonte, clique em **Baixar** para obter um arquivo zip da soluç�
  ![][12]
 
 <a id="sub-3"></a>
-## Editar app.config
 
+## Editar app.config
 1. Após extrair os arquivos, abra a solução no Visual Studio para editar o arquivo de configuração.
-1. No Gerenciador de Soluções, clique duas vezes em **app.config**. Esse arquivo especifica o ponto de extremidade de serviço e uma `api-key` usada para autenticar a solicitação. Você pode obter esses valores do Portal clássico.
-1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Vá para o painel do serviço da Pesquisa do Azure.
-1. Clique no bloco **Propriedades** para copiar a URL do serviço
-1. Clique no bloco **Chaves** para copiar a `api-key`.
+2. No Gerenciador de Soluções, clique duas vezes em **app.config**. Esse arquivo especifica o ponto de extremidade de serviço e uma `api-key` usada para autenticar a solicitação. Você pode obter esses valores do Portal clássico.
+3. Entre no [Portal do Azure](https://portal.azure.com).
+4. Vá para o painel do serviço da Pesquisa do Azure.
+5. Clique no bloco **Propriedades** para copiar a URL do serviço
+6. Clique no bloco **Chaves** para copiar a `api-key`.
 
 Quando tiver terminado de adicionar o URL e a `api-key` para app.config, as configurações de aplicativo devem ter esta aparência:
 
    ![][11]
 
-
 <a id="sub-4"></a>
-## Explorar o aplicativo
 
+## Explorar o aplicativo
 Você está quase pronto para compilar e executar o aplicativo, mas antes examine os arquivos JSON usados para criar e preencher o índice.
 
 **Schema.json** define o índice, incluindo os perfis de pontuação que são enfatizados nesta demonstração. Observe que o esquema define todos os campos usados no índice, incluindo campos não pesquisáveis, como `margin`, que podem ser usados em um perfil de pontuação. A sintaxe do perfil de pontuação é documentada em [Adicionar um perfil de pontuação para um índice da Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx).
@@ -68,21 +66,16 @@ Você está quase pronto para compilar e executar o aplicativo, mas antes examin
 
 **Program.cs** realiza as seguintes operações:
 
-- Abre uma janela do console.
-
-- Conecta-se a Pesquisa do Azure usando a URL do serviço e `api-key`.
-
-- Exclui o `musicstoreindex` se ele existir.
-
-- Cria um novo `musicstoreindex` usando o arquivo schema.json.
-
-- Preenche o índice usando os arquivos de dados.
-
-- Consulta o índice usando quatro consultas. Observe que os perfis de pontuação são especificados como um parâmetro de consulta. Todas as consultas pesquisam o mesmo termo, 'melhor'. A primeira consulta demonstra o padrão de pontuação. As demais três consultas usam um perfil de pontuação.
+* Abre uma janela do console.
+* Conecta-se a Pesquisa do Azure usando a URL do serviço e `api-key`.
+* Exclui o `musicstoreindex` se ele existir.
+* Cria um novo `musicstoreindex` usando o arquivo schema.json.
+* Preenche o índice usando os arquivos de dados.
+* Consulta o índice usando quatro consultas. Observe que os perfis de pontuação são especificados como um parâmetro de consulta. Todas as consultas pesquisam o mesmo termo, 'melhor'. A primeira consulta demonstra o padrão de pontuação. As demais três consultas usam um perfil de pontuação.
 
 <a id="sub-5"></a>
-## Compile e execute o aplicativo
 
+## Compile e execute o aplicativo
 Para descartar problemas de conectividade ou assembly, compile e execute o aplicativo para garantir que não existam problemas ao trabalhar primeiro. Você deve ver um aplicativo de console aberto no segundo plano. Todas as quatro consultas são executadas em sequência, sem pausar. Em muitos sistemas, todo o programa executa em menos de 15 segundos. Se o aplicativo de console incluir uma mensagem informando "Concluído. Pressione Enter para continuar", o programa foi concluído com sucesso.
 
 Para comparar execuções de consulta, você pode marcar-copiar-colar os resultados do console e colá-los em um arquivo do Excel.
@@ -104,8 +97,8 @@ A ilustração seguinte mostra a quarta e última consulta, impulsionada por 'ma
 Agora que você experimentou os perfis de pontuação, tente alterar o programa para usar sintaxe de consulta diferentes, perfis de pontuação ou dados avançados diferentes. Links na próxima seção fornecem mais informações.
 
 <a id="next-steps"></a>
-## Próximas etapas
 
+## Próximas etapas
 Saiba mais sobre perfis de pontuação. Consulte [Adicionar um perfil de pontuação no índice de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx) para obter detalhes.
 
 Saiba mais sobre os parâmetros de sintaxe e consulta de pesquisa. Consulte [Pesquisar documentos (API REST da Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obter detalhes.

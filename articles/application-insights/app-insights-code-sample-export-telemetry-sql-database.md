@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="Exemplo de código: analisar dados exportados do Application Insights" 
-	description="Codifique sua própria análise de telemetria no Application Insights usando o recurso de exportação contínua. Salve dados no SQL." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="mazharmicrosoft" 
-	manager="douge"/>
+---
+title: 'Exemplo de código: analisar dados exportados do Application Insights'
+description: Codifique sua própria análise de telemetria no Application Insights usando o recurso de exportação contínua. Salve dados no SQL.
+services: application-insights
+documentationcenter: ''
+author: mazharmicrosoft
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/05/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 01/05/2016
+ms.author: awills
+
+---
 # Exemplo de código: analisar dados exportados do Application Insights
-
 Este artigo mostra como processar dados JSON exportados do Application Insights. Como um exemplo, escreveremos um código para mover seus dados de telemetria do [Visual Studio Application Insights][start] em um banco de dados SQL do Azure usando a [Exportação Contínua][export]. (Você também pode fazer isso [usando o Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), mas nosso objetivo aqui é mostrar alguns códigos.)
 
 A exportação contínua move a telemetria no armazenamento do Azure no formato JSON, por isso vamos escrever um código para analisar objetos JSON e criar linhas em uma tabela de banco de dados.
@@ -26,146 +25,119 @@ Normalmente, a Exportação Contínua é a maneira de fazer sua própria anális
 Vamos começar supondo que você já tenha o aplicativo que você deseja monitorar.
 
 ## Adicionar o SDK do Application Insights
-
 Para monitorar seu aplicativo, [Adicione um SDK do Application Insights][start] a ele. Há diferentes SDKs e ferramentas de auxílio para diferentes plataformas, IDEs e linguagens. Você pode monitorar as páginas da Web, Java ou servidores Web ASP.NET, bem como dispositivos móveis de vários tipos. Todos os SDKs enviam telemetria para o [Portal do Application Insights][portal], no qual você pode usar nossas potentes ferramentas de análise e diagnóstico para exportar os dados para o armazenamento.
 
 Introdução:
 
 1. Obtenha uma [conta no Microsoft Azure](https://azure.microsoft.com/pricing/).
 2. No [Portal do Azure][portal], adicione um novo recurso do Application Insights ao seu aplicativo:
-
+   
     ![Escolha Novo, Serviços de Desenvolvedor, Application Insights e escolha o tipo de aplicativo](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
 
-
     (Seu tipo de aplicativo e de assinatura podem ser diferentes.)
-3. Abra o Início Rápido para saber como configurar o SDK para seu tipo de aplicativo.
-
+1. Abra o Início Rápido para saber como configurar o SDK para seu tipo de aplicativo.
+   
     ![Escolha Início Rápido e siga as instruções](./media/app-insights-code-sample-export-telemetry-sql-database/020-quick.png)
-
+   
     Se o tipo de aplicativo não estiver listado, dê uma olhada na página [Introdução][start].
-
-4. Neste exemplo, estamos monitorando um aplicativo Web, por isso é possível usar as ferramentas do Azure no Visual Studio para instalar o SDK. Dizemos a ele o nome do nosso recurso do Application Insights:
-
+2. Neste exemplo, estamos monitorando um aplicativo Web, por isso é possível usar as ferramentas do Azure no Visual Studio para instalar o SDK. Dizemos a ele o nome do nosso recurso do Application Insights:
+   
     ![No Visual Studio, na caixa de diálogo Novo Projeto, marque Adicionar Application Insights e, em Enviar telemetria para, opte por criar um novo aplicativo ou usar um já existente.](./media/app-insights-code-sample-export-telemetry-sql-database/030-new-project.png)
 
-
 ## Criar armazenamento no Azure
-
 Dados do Application Insights sempre são exportados para uma conta do Armazenamento do Azure no formato JSON. É desse armazenamento que seu código lerá os dados.
 
 1. Crie uma conta de armazenamento “clássica” na sua assinatura do [Portal do Azure][portal].
-
+   
     ![No portal do Azure, escolha Novo, Dados e Armazenamento](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
-
 2. Criar um contêiner
-
+   
     ![No novo armazenamento, selecione Contêineres, clique no bloco Contêineres e, em seguida, Adicionar](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
-
 ## Iniciar exportação contínua no armazenamento do Azure
-
 1. No portal do Azure, navegue até o recurso do Application Insights que você criou para seu aplicativo.
-
+   
     ![Selecione Navegar, Application Insights e o nome do seu projeto.](./media/app-insights-code-sample-export-telemetry-sql-database/060-browse.png)
-
 2. Crie uma exportação contínua.
-
+   
     ![Escolha as Configurações, Exportação Contínua e Adicionar](./media/app-insights-code-sample-export-telemetry-sql-database/070-export.png)
-
 
     Selecione a conta de armazenamento criada anteriormente:
 
     ![Definir o destino de exportação](./media/app-insights-code-sample-export-telemetry-sql-database/080-add.png)
-    
+
     Defina os tipos de eventos que você deseja ver:
 
     ![Escolher os tipos de evento](./media/app-insights-code-sample-export-telemetry-sql-database/085-types.png)
 
-3. Deixe que alguns dados sejam acumulados. Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas](app-insights-metrics-explorer.md) e eventos individuais na [pesquisa de diagnóstico](app-insights-diagnostic-search.md).
-
+1. Deixe que alguns dados sejam acumulados. Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas](app-insights-metrics-explorer.md) e eventos individuais na [pesquisa de diagnóstico](app-insights-diagnostic-search.md).
+   
     E, além disso, os dados serão exportados para seu armazenamento.
-
-4. Inspecione os dados exportados. No Visual Studio, escolha **Exibir/Cloud Explorer** e abra Azure/Armazenamento. (Se você não tiver essa opção de menu, precisará instalar o Azure SDK: abra o diálogo Novo Projeto e abra Visual C#/Nuvem/Obter Microsoft Azure SDK para .NET.)
-
+2. Inspecione os dados exportados. No Visual Studio, escolha **Exibir/Cloud Explorer** e abra Azure/Armazenamento. (Se você não tiver essa opção de menu, precisará instalar o Azure SDK: abra o diálogo Novo Projeto e abra Visual C#/Nuvem/Obter Microsoft Azure SDK para .NET.)
+   
     ![No Visual Studio, abra o Navegador do Servidor, Azure e Armazenamento](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
-
+   
     Anote a parte comum do nome do caminho, que deriva do nome do aplicativo e da chave de instrumentação.
 
 Os eventos são gravados em arquivos blob formato JSON. Cada arquivo pode conter um ou mais eventos. Portanto, gostaríamos de escrever um código para ler os dados de evento e filtrar os campos desejados. Podemos fazer todo tipo de coisas com os dados, mas nosso plano para hoje é escrever um código para mover os dados para um banco de dados SQL. Isso nos permitirá executar diversas consultas interessantes.
 
 ## Criar um Banco de Dados SQL do Azure
-
 Para este exemplo, vamos escrever um código para enviar os dados por push para um banco de dados.
 
 Mais uma vez, começando com a sua assinatura no [Portal do Azure][portal], crie o banco de dados (e um novo servidor, a menos que você já tenha um) para o qual você vai gravar os dados.
 
 ![Novo, Dados, SQL](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
 
-
 Verifique se o servidor de banco de dados permite o acesso aos serviços do Azure:
-
 
 ![Navegar, Servidores, seu servidor, Configurações, Firewall, Permitir Acesso ao Azure](./media/app-insights-code-sample-export-telemetry-sql-database/100-sqlaccess.png)
 
-
-## Criar uma função de trabalho 
-
+## Criar uma função de trabalho
 Agora, por fim, podemos escrever [código](https://sesitai.codeplex.com/) para analisar o JSON em blobs exportados e criar registros no banco de dados. Como o repositório de exportação e o banco de dados estão no Azure, vamos executar o código em uma função de trabalho do Azure.
 
 Esse código extrai automaticamente quaisquer propriedades que estejam presentes no JSON. Para obter descrições das propriedades, confira [Modelo de dados de exportação](app-insights-export-data-model.md).
 
-
 #### Criar projeto de função de trabalho
-
 No Visual Studio, crie um novo projeto da função de trabalho:
 
 ![Novo Projeto, Visual C#, Nuvem, Serviço de Nuvem do Azure](./media/app-insights-code-sample-export-telemetry-sql-database/110-cloud.png)
 
 ![Na caixa de diálogo do novo serviço de nuvem, escolha Visual C#, Função de Trabalho](./media/app-insights-code-sample-export-telemetry-sql-database/120-worker.png)
 
-
 #### Conecte-se à conta de armazenamento
-
 No Azure, obtenha a cadeia de conexão da sua conta de armazenamento:
 
 ![Na Conta de Armazenamento, selecione as Chaves e copie a Cadeia de Conexão Primária](./media/app-insights-code-sample-export-telemetry-sql-database/055-get-connection.png)
 
 No Visual Studio, defina as configurações de função de trabalho com a cadeia de conexão da conta de armazenamento:
 
-
 ![No Gerenciador de Soluções, no projeto do Serviço de Nuvem, expanda Funções e abra sua função de trabalho. Abra a guia Configurações, escolha Adicionar configuração e defina name=StorageConnectionString, type= cadeia de conexão e clique para definir o valor. Defina-o manualmente e cole a cadeia de conexão.](./media/app-insights-code-sample-export-telemetry-sql-database/130-connection-string.png)
 
-
 #### Pacotes
-
 No Gerenciador de Soluções, clique com o botão direito do mouse em seu projeto de Função de Trabalho e escolha Gerenciar Pacotes NuGet. Pesquise e instale esses pacotes:
 
- * EntityFramework 6.1.2 ou posterior - Usaremos isso para gerar o esquema da tabela de banco de dados rapidamente, com base no conteúdo do JSON no blob.
- * JsonFx - Usaremos isso para mesclar o JSON com propriedades de classe de C#.
+* EntityFramework 6.1.2 ou posterior - Usaremos isso para gerar o esquema da tabela de banco de dados rapidamente, com base no conteúdo do JSON no blob.
+* JsonFx - Usaremos isso para mesclar o JSON com propriedades de classe de C#.
 
 Use essa ferramenta para gerar a classe c# do nosso único documento JSON. Ele requer algumas pequenas alterações como o nivelamento de matrizes JSON em uma única propriedade de C# na coluna única da tabela do banco de dados (ex. urlData\_port)
 
- * [Gerador de classe C# JSON](http://jsonclassgenerator.codeplex.com/)
+* [Gerador de classe C# JSON](http://jsonclassgenerator.codeplex.com/)
 
-## Código 
-
+## Código
 Você pode colocar esse código em `WorkerRole.cs`.
 
 #### Importações
-
     using Microsoft.WindowsAzure.Storage;
 
     using Microsoft.WindowsAzure.Storage.Blob;
 
 #### Recuperar a cadeia de conexão de armazenamento
-
     private static string GetConnectionString()
     {
       return Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnectionString");
     }
 
 #### Executar o trabalho em intervalos regulares
-
 Substitua o método de execução existente e escolha o intervalo de sua preferência. Ele deve ser pelo menos uma hora porque o recurso de exportação conclui um objeto JSON em uma hora.
 
     public override void Run()
@@ -177,7 +149,7 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
         Trace.WriteLine("Sleeping", "Information");
 
         Thread.Sleep(86400000); //86400000=24 hours //1 hour=3600000
-                
+
         Trace.WriteLine("Awake", "Information");
 
         ImportBlobtoDB();
@@ -185,8 +157,6 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
     }
 
 #### Insira cada objeto JSON como uma linha da tabela
-
-
     public void ImportBlobtoDB()
     {
       try
@@ -199,7 +169,7 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
         foreach (CloudBlobDirectory directory in container.ListBlobs())//Parent directory
         {
           foreach (CloudBlobDirectory subDirectory in directory.ListBlobs())//PageViewPerformance
-       	  {
+             {
             foreach (CloudBlobDirectory dir in subDirectory.ListBlobs())//2015-01-31
             {
               foreach (CloudBlobDirectory subdir in dir.ListBlobs())//22
@@ -217,48 +187,47 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
       }
       catch (Exception ex)
       {
-		//handle exception
+        //handle exception
       }
     }
 
 #### Analisar cada blob
-
     private void ParseEachBlob(CloudBlobContainer container, IListBlobItem item)
     {
       try
       {
         var blob = container.GetBlockBlobReference(item.Parent.Prefix + item.Uri.Segments.Last());
-    
+
         string json;
-    
+
         using (var memoryStream = new MemoryStream())
         {
           blob.DownloadToStream(memoryStream);
           json = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
-    
+
           IEnumerable<string> entities = json.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
-    
+
           recCount = entities.Count();
           failureCount = 0; //resetting failure count
-    
+
           foreach (var entity in entities)
           {
             var reader = new JsonFx.Json.JsonReader();
             dynamic output = reader.Read(entity);
-    
+
             Dictionary<string, object> dict = new Dictionary<string, object>();
-    
+
             GenerateDictionary((System.Dynamic.ExpandoObject)output, dict, "");
-    
+
             switch (FilterType)
             {
               case "PageViewPerformance":
-    
+
               if (dict.ContainsKey("clientPerformance"))
                 {
                   GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["clientPerformance"])[0], dict, "");
-    	        }
-    
+                }
+
               if (dict.ContainsKey("context_custom_dimensions"))
               {
                 if (dict["context_custom_dimensions"].GetType() == typeof(System.Dynamic.ExpandoObject[]))
@@ -266,9 +235,9 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
                   GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["context_custom_dimensions"])[0], dict, "");
                 }
               }
-    
+
             PageViewPerformance objPageViewPerformance = (PageViewPerformance)GetObject(dict);
-    
+
             try
             {
               using (var db = new TelemetryContext())
@@ -282,7 +251,7 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
               failureCount++;
             }
             break;
-    
+
             default:
             break;
           }
@@ -296,8 +265,6 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
     }
 
 #### Preparar um dicionário para cada documento JSON
-
-
     private void GenerateDictionary(System.Dynamic.ExpandoObject output, Dictionary<string, object> dict, string parent)
         {
             try
@@ -322,12 +289,11 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
             }
             catch (Exception ex)
             {
-      		//handle exception 
-    	    }
+              //handle exception 
+            }
         }
 
-#### Converter o documento JSON em propriedades do objeto de telemetria de classe C#
-
+#### Converter o documento JSON em propriedades do objeto de telemetria de classe C
      public object GetObject(IDictionary<string, object> d)
         {
             PropertyInfo[] props = null;
@@ -357,19 +323,16 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
             }
             catch (Exception ex)
             {
-      		//handle exception 
-    	    }
+              //handle exception 
+            }
 
             return res;
         }
 
 #### Arquivo de classe PageViewPerformance gerado fora do documento JSON
-
-
-
     public class PageViewPerformance
     {
-    	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         public string url { get; set; }
@@ -451,8 +414,7 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
 
 
 #### DBcontext para interação de SQL por Entity Framework
-
-	public class TelemetryContext : DbContext
+    public class TelemetryContext : DbContext
     {
         public DbSet<PageViewPerformance> PageViewPerformanceContext { get; set; }
         public TelemetryContext()
@@ -464,52 +426,54 @@ Substitua o método de execução existente e escolha o intervalo de sua prefer�
 Adicionar a cadeia de conexão do banco de dados com o nome `TelemetryContext` em `app.config`.
 
 ## Esquema (somente informações)
-
 Este é o esquema para a tabela que será gerada para a PageView.
 
-> [AZURE.NOTE] Você não precisa executar este script. Os atributos em JSON determinam as colunas na tabela.
+> [!NOTE]
+> Você não precisa executar este script. Os atributos em JSON determinam as colunas na tabela.
+> 
+> 
 
     CREATE TABLE [dbo].[PageViewPerformances](
-	[Id] [uniqueidentifier] NOT NULL,
-	[url] [nvarchar](max) NULL,
-	[urlData_port] [int] NOT NULL,
-	[urlData_protocol] [nvarchar](max) NULL,
-	[urlData_host] [nvarchar](max) NULL,
-	[urlData_base] [nvarchar](max) NULL,
-	[urlData_hashTag] [nvarchar](max) NULL,
-	[total_value] [float] NOT NULL,
-	[networkConnection_value] [float] NOT NULL,
-	[sendRequest_value] [float] NOT NULL,
-	[receiveRequest_value] [float] NOT NULL,
-	[clientProcess_value] [float] NOT NULL,
-	[name] [nvarchar](max) NULL,
-	[User] [nvarchar](max) NULL,
-	[internal_data_id] [nvarchar](max) NULL,
-	[internal_data_documentVersion] [nvarchar](max) NULL,
-	[context_data_eventTime] [datetime] NULL,
-	[context_device_id] [nvarchar](max) NULL,
-	[context_device_type] [nvarchar](max) NULL,
-	[context_device_os] [nvarchar](max) NULL,
-	[context_device_osVersion] [nvarchar](max) NULL,
-	[context_device_locale] [nvarchar](max) NULL,
-	[context_device_userAgent] [nvarchar](max) NULL,
-	[context_device_browser] [nvarchar](max) NULL,
-	[context_device_browserVersion] [nvarchar](max) NULL,
-	[context_device_screenResolution_value] [nvarchar](max) NULL,
-	[context_user_anonId] [nvarchar](max) NULL,
-	[context_user_anonAcquisitionDate] [nvarchar](max) NULL,
-	[context_user_authAcquisitionDate] [nvarchar](max) NULL,
-	[context_user_accountAcquisitionDate] [nvarchar](max) NULL,
-	[context_session_id] [nvarchar](max) NULL,
-	[context_session_isFirst] [bit] NOT NULL,
-	[context_operation_id] [nvarchar](max) NULL,
-	[context_location_point_lat] [float] NOT NULL,
-	[context_location_point_lon] [float] NOT NULL,
-	[context_location_clientip] [nvarchar](max) NULL,
-	[context_location_continent] [nvarchar](max) NULL,
-	[context_location_country] [nvarchar](max) NULL,
-	[context_location_province] [nvarchar](max) NULL,
-	[context_location_city] [nvarchar](max) NULL,
+    [Id] [uniqueidentifier] NOT NULL,
+    [url] [nvarchar](max) NULL,
+    [urlData_port] [int] NOT NULL,
+    [urlData_protocol] [nvarchar](max) NULL,
+    [urlData_host] [nvarchar](max) NULL,
+    [urlData_base] [nvarchar](max) NULL,
+    [urlData_hashTag] [nvarchar](max) NULL,
+    [total_value] [float] NOT NULL,
+    [networkConnection_value] [float] NOT NULL,
+    [sendRequest_value] [float] NOT NULL,
+    [receiveRequest_value] [float] NOT NULL,
+    [clientProcess_value] [float] NOT NULL,
+    [name] [nvarchar](max) NULL,
+    [User] [nvarchar](max) NULL,
+    [internal_data_id] [nvarchar](max) NULL,
+    [internal_data_documentVersion] [nvarchar](max) NULL,
+    [context_data_eventTime] [datetime] NULL,
+    [context_device_id] [nvarchar](max) NULL,
+    [context_device_type] [nvarchar](max) NULL,
+    [context_device_os] [nvarchar](max) NULL,
+    [context_device_osVersion] [nvarchar](max) NULL,
+    [context_device_locale] [nvarchar](max) NULL,
+    [context_device_userAgent] [nvarchar](max) NULL,
+    [context_device_browser] [nvarchar](max) NULL,
+    [context_device_browserVersion] [nvarchar](max) NULL,
+    [context_device_screenResolution_value] [nvarchar](max) NULL,
+    [context_user_anonId] [nvarchar](max) NULL,
+    [context_user_anonAcquisitionDate] [nvarchar](max) NULL,
+    [context_user_authAcquisitionDate] [nvarchar](max) NULL,
+    [context_user_accountAcquisitionDate] [nvarchar](max) NULL,
+    [context_session_id] [nvarchar](max) NULL,
+    [context_session_isFirst] [bit] NOT NULL,
+    [context_operation_id] [nvarchar](max) NULL,
+    [context_location_point_lat] [float] NOT NULL,
+    [context_location_point_lon] [float] NOT NULL,
+    [context_location_clientip] [nvarchar](max) NULL,
+    [context_location_continent] [nvarchar](max) NULL,
+    [context_location_country] [nvarchar](max) NULL,
+    [context_location_province] [nvarchar](max) NULL,
+    [context_location_city] [nvarchar](max) NULL,
     CONSTRAINT [PK_dbo.PageViewPerformances] PRIMARY KEY CLUSTERED 
     (
      [Id] ASC
@@ -524,9 +488,7 @@ Este é o esquema para a tabela que será gerada para a PageView.
 
 Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o código de trabalho completo, altere as configurações `app.config` e publique a função de trabalho no Azure.
 
-
 ## Artigos relacionados
-
 * [Exportar para SQL usando uma função de trabalho](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportação Contínua no Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -541,6 +503,6 @@ Para ver esse exemplo em ação, [baixe](https://sesitai.codeplex.com/) o códig
 [portal]: http://portal.azure.com/
 [start]: app-insights-overview.md
 
- 
+
 
 <!---HONumber=AcomDC_0128_2016-->

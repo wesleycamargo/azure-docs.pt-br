@@ -1,5 +1,5 @@
 ### Pré-requisitos
-- Uma conta do [Dropbox](https://www.Dropbox.com/) 
+* Uma conta do [Dropbox](https://www.Dropbox.com/) 
 
 Antes de usar sua conta do Dropbox em um aplicativo lógico, você deve autorizar o aplicativo lógico a se conectar à sua conta do Dropbox. Felizmente, você pode fazer isso facilmente a partir de seu aplicativo lógico no Portal do Azure.
 
@@ -10,3 +10,4 @@ Aqui estão as etapas para autorizar seu aplicativo lógico a se conectar à sua
 3. Forneça seu nome de usuário do Dropbox e a senha para autorizar seu aplicativo lógico: ![Etapa 3 do Dropbox](./media/connectors-create-api-dropbox/dropbox-3.png)   
 4. Autorize o aplicativo lógico a usar sua conta do Dropbox: ![Etapa 4 do Dropbox](./media/connectors-create-api-dropbox/dropbox-4.png)
 5. Observe que a conexão foi criada e agora você pode continuar com as outras etapas no seu aplicativo lógico: ![Etapa 5 do Dropbox](./media/connectors-create-api-dropbox/dropbox-5.png)   
+

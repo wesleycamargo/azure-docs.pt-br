@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Abrir portas para uma VM Linux | Microsoft Azure"
-   description="Saiba como abrir uma porta/criar um ponto de extremidade à sua VM Linux usando o modelo de implantação do Azure Resource Manager e a CLI do Azure"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Abrir portas para uma VM Linux | Microsoft Docs
+description: Saiba como abrir uma porta/criar um ponto de extremidade à sua VM Linux usando o modelo de implantação do Azure Resource Manager e a CLI do Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 08/08/2016
+ms.author: iainfou
 
+---
 # Como abrir portas para uma VM Linux no Azure
 No Azure, você abre uma porta, ou cria um ponto de extremidade, para uma VM (máquina virtual) criando um filtro de rede ou uma sub-rede ou interface de rede de VM. Coloque os filtros, que controlam o tráfego de entrada e saída, em um Grupo de Segurança de Rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80.
 
@@ -57,8 +57,8 @@ Se precisar usar o encaminhamento de porta para mapear uma porta externa exclusi
 ## Próximas etapas
 Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Você pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 
-- [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
-- [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
-- [Visão geral do Azure Resource Manager para balanceadores de carga](../load-balancer2 /load-balancer-arm.md)
+* [Visão geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
+* [O que é um NSG (grupo de segurança de rede)?](../virtual-network/virtual-networks-nsg.md)
+* [Visão geral do Azure Resource Manager para balanceadores de carga](../load-balancer/load-balancer-arm.md)
 
 <!---HONumber=AcomDC_0907_2016-->

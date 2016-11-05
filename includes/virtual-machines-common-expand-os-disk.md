@@ -1,54 +1,55 @@
 ## Visão geral
 Quando você cria uma nova VM (máquina virtual) em um Grupo de Recursos implantando uma imagem do [Azure Marketplace](https://azure.microsoft.com/marketplace/), a unidade do sistema operacional padrão é de 127 GB. Embora seja possível adicionar discos de dados à VM (a quantidade depende do SKU escolhido) e além de ser recomendável instalar aplicativos e cargas de trabalho que consomem bastante CPU nesses discos adicionados, muitas vezes, os clientes precisam expandir a unidade do sistema operacional para oferecer suporte a determinados cenários como estes:
 
-1.  Suporte a aplicativos herdados que instalam componentes na unidade do sistema operacional.
-2.  Migração de um PC físico ou máquina virtual local com uma unidade do sistema operacional maior.
+1. Suporte a aplicativos herdados que instalam componentes na unidade do sistema operacional.
+2. Migração de um PC físico ou máquina virtual local com uma unidade do sistema operacional maior.
 
->[AZURE.IMPORTANT]O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: Resource Manager e Clássico. Este artigo aborda o uso do modelo de implantação Resource Manager. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> [!IMPORTANT]
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: Resource Manager e Clássico. Este artigo aborda o uso do modelo de implantação Resource Manager. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> 
+> 
 
 ## Redimensionar a unidade do sistema operacional
 Neste artigo, vamos executar a tarefa de redimensionar a unidade do sistema operacional usando módulos do Resource Manager do [Azure PowerShell](../articles/powershell-install-configure.md). Abra o ISE do PowerShell ou a janela do PowerShell no modo administrativo e siga as etapas abaixo:
 
-1.  Entre em sua conta do Microsoft Azure no modo de gerenciamento de recursos e escolha a sua assinatura como se segue:
-
-    ```Powershell
-    Login-AzureRmAccount
-    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
-    ```
-
-2.  Defina o nome do grupo de recursos e o nome da VM como se segue:
-
-    ```Powershell
-    $rgName = 'my-resource-group-name'
-    $vmName = 'my-vm-name'
-    ```
-
-3.  Obtenha uma referência para sua VM da seguinte maneira:
-
-    ```Powershell
-    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    ```
-
+1. Entre em sua conta do Microsoft Azure no modo de gerenciamento de recursos e escolha a sua assinatura como se segue:
+   
+   ```Powershell
+   Login-AzureRmAccount
+   Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
+   ```
+2. Defina o nome do grupo de recursos e o nome da VM como se segue:
+   
+   ```Powershell
+   $rgName = 'my-resource-group-name'
+   $vmName = 'my-vm-name'
+   ```
+3. Obtenha uma referência para sua VM da seguinte maneira:
+   
+   ```Powershell
+   $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   ```
 4. Interrompa a VM antes de redimensionar o disco da seguinte maneira:
-
+   
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-
-5.  E chega o momento pelo qual estávamos esperando! Defina o tamanho do disco do sistema operacional para o valor desejado e atualize a VM da seguinte maneira:
-
-    ```Powershell
-    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
-    Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
-    ```
-
-    >[AZURE.WARNING]O novo tamanho deve ser maior que o tamanho do disco existente. O máximo permitido é 1023 GB.
-
-6.  A atualização da VM pode demorar um pouco. Depois que o comando concluir a execução, reinicie a VM como se segue:
-
-    ```Powershell
-    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-    ```
+5. E chega o momento pelo qual estávamos esperando! Defina o tamanho do disco do sistema operacional para o valor desejado e atualize a VM da seguinte maneira:
+   
+   ```Powershell
+   $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
+   Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
+   ```
+   
+   > [!WARNING]
+   > O novo tamanho deve ser maior que o tamanho do disco existente. O máximo permitido é 1023 GB.
+   > 
+   > 
+6. A atualização da VM pode demorar um pouco. Depois que o comando concluir a execução, reinicie a VM como se segue:
+   
+   ```Powershell
+   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+   ```
 
 É isso. Agora, com o RDP na VM, abra Gerenciamento do Computador (ou Gerenciamento de Disco) e expanda a unidade usando o espaço recentemente alocado.
 

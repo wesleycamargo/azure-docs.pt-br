@@ -1,6 +1,5 @@
 
 ### cacheSKUName
-
 A camada de preços do novo Cache Redis do Azure.
 
     "cacheSKUName": {
@@ -18,7 +17,6 @@ A camada de preços do novo Cache Redis do Azure.
 O modelo define os valores que são permitidos para esse parâmetro (Basic ou Standard) e atribui um valor padrão (Basic) se nenhum valor for especificado. Basic fornece um único nó com vários tamanhos disponíveis, até 53 GB. Standard fornece Principal/Réplica de dois nós com vários tamanhos disponíveis, até 53 GB e SLA de 99,9%.
 
 ### cacheSKUFamily
-
 A família do SKU.
 
     "cacheSKUFamily": {
@@ -34,7 +32,6 @@ A família do SKU.
 
 
 ### cacheSKUCapacity
-
 O tamanho da nova instância do Cache Redis do Azure.
 
     "cacheSKUCapacity": {

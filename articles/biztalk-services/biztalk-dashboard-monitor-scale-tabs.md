@@ -1,26 +1,22 @@
-<properties 
-	pageTitle="Painel, Monitor, Escala, Configurar e Conexões Híbridas nos Serviços BizTalk | Microsoft Azure" 
-	description="Saiba mais sobre os controles e monitore o desempenho nas guias do portal clássico para os Serviços BizTalk: Painel, Monitor, Escala, Configurar e Conexões Híbridas MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Painel, Monitor, Escala, Configurar e Conexões Híbridas nos Serviços BizTalk | Microsoft Docs
+description: 'Saiba mais sobre os controles e monitore o desempenho nas guias do portal clássico para os Serviços BizTalk: Painel, Monitor, Escala, Configurar e Conexões Híbridas MABS, WABS'
+services: biztalk-services
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/23/2016" 
-	ms.author="mandia"/>
+ms.service: biztalk-services
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/23/2016
+ms.author: mandia
 
-
-
-
+---
 # Examine as guias Painel, Monitor, Escala, Configurar e Conexão Híbrid
-
 Depois de criar o Serviço BizTalk e implantar seu aplicativo, você pode alterar algumas configurações do Serviço BizTalk e monitorar o desempenho do aplicativo.
 
 Ao abrir o portal clássico do Azure, você será levado automaticamente para a guia **TODOS OS ITENS**. Para exibir seu Serviço do BizTalk, selecione o Serviço do BizTalk na guia **TODOS OS ITENS** ou selecione a guia **SERVIÇOS BIZTALK** e, em seguida, selecione o nome do seu Serviço do BizTalk.
@@ -29,12 +25,13 @@ Isso abre uma nova janela com as seguintes guias: Este tópico descreve essas gu
 
 ## Início Rápido (![Início rápido][QuickStart])
 Dependendo da Edição dos Serviços do BizTalk, é possível que não todas as opções listadas estejam disponíveis.
+
 <table border="1">
     <tr>
         <td><strong>Obter as ferramentas</strong></td>
         <td>Baixe o SDK dos Serviços BizTalk para instalar os modelos do projeto do Visual Studio em seu computador de desenvolvimento local. Esses modelos criam os projetos do Visual Studio <strong>Serviços BizTalk</strong> (ponte) e <strong>Artefatos do Serviço do BizTalk</strong> (Transformação), que são implantados em seu Serviço BizTalk.
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> Como faço para começar a usar o SDK dos Serviços BizTalk do Azure </a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Instalando o SDK dos Serviços BizTalk do Azure</a> listam as etapas para começar.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> Como faço para começar a usar o SDK dos Serviços BizTalk do Azure </a> e <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Instalando o SDK dos Serviços BizTalk do Azure</a> listam as etapas para começar.
         </td>
     </tr>
     <tr>
@@ -108,9 +105,7 @@ Essas métricas fornecem valores em tempo real relacionados à integridade do Se
 
 Para obter uma descrição dessas métricas de desempenho, acesse [Métricas disponíveis](#Metrics) neste tópico.
 
-
 ##### Visão Rápida: lista as propriedades do Serviço BizTalk
-
 <table border="1">
 
 <tr>
@@ -177,9 +172,7 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 
 [Serviços BizTalk: provisionamento usando o portal clássico do Azure ](http://go.microsoft.com/fwlink/p/?LinkID=302280) lista as etapas para criar um Serviço BizTalk.
 
-
 ##### Gerenciar, Informação de Conexão, Chaves de sincronização, e Excluir na barra de tarefas:
-
 <table border="1">
 
 <tr>
@@ -234,17 +227,16 @@ Você também pode especificar os valores **Relativo** ou **Absoluto** e o **Int
 ##### Para remover ou exibir métricas no gráfico:
 1. Selecione a guia **Processo**.
 2. Selecione **Adicionar Métricas** na barra de tarefas:  
-![Selecione Adicionar Métricas][AddMetrics]
+   ![Selecione Adicionar Métricas][AddMetrics]
 3. Verifique as métricas de desempenho que você deseja mostrar.
 4. Selecione a marca de seleção para retornar à guia **Monitoramento**.
 5. Selecione o círculo ao lado de métrica para exibir o valor dela no gráfico.
-
-	Por exemplo, a métrica **Uso de CPU** fica esmaecida; sua saída não é exibida no gráfico:  
-![A métrica Uso de CPU fica esmaecida][GrayedMetric]  
-
-	Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e exibir sua saída no gráfico:  
-![A métrica Uso de CPU está habilitada][EnabledMetric]
-
+   
+    Por exemplo, a métrica **Uso de CPU** fica esmaecida; sua saída não é exibida no gráfico:  
+   ![A métrica Uso de CPU fica esmaecida][GrayedMetric]  
+   
+    Clique no círculo esmaecido para habilitar a métrica **Uso de CPU** e exibir sua saída no gráfico:  
+   ![A métrica Uso de CPU está habilitada][EnabledMetric]
 6. Para remover uma métrica do gráfico de exibição e da lista, selecione **Excluir Métricas** na barra de tarefas. Para adicionar a métrica à lista novamente, selecione **Adicionar Métricas** na barra de tarefas, selecione a métrica e clique na marca de seleção para retornar para a guia **Monitorar**. Selecione o círculo esmaecido para habilitar a métrica.
 
 ## <a name="Metrics"></a>Métricas disponíveis
@@ -322,14 +314,12 @@ Aumentar o número de unidades pode afetar os preços. Se você aumentar as unid
 
 [Serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md) define uma “Unidade”.
 
-
 ## Configurar
 Não é aplicado para Conexões Híbridas.
 
 Define o Status de Backup para Nenhum ou Automático. Quando estiver definido para Nenhum, nenhum backup será criado automaticamente. Quando estiver definido para Automático, você configura o local do backup, a frequência do backup, e por quanto tempo manter os arquivos de backup.
 
 [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md) fornece os detalhes.
-
 
 ## <a name="HybridConnections"></a>Conexões Híbridas
 As Conexões Híbridas se conectam um aplicativo do Azure, como Sites ou Serviços Móveis, a um recurso local que utilize uma porta TCP estática, como SQL Server, MySQL, APIs da web HTTP, e os serviços Web mais personalizados. As Conexões Híbridas são gerenciadas nos Serviços BizTalk, no portal clássico do Azure.
@@ -340,26 +330,24 @@ Para usar Conexões Híbridas nos Serviços Móveis do Azure, consulte [Serviço
 
 Para criar ou gerenciar as Conexões Híbridas nos Serviços do BizTalk do Azure, consulte [Conexões Híbridas](integration-hybrid-connection-overview.md).
 
-
-
 ## Avançar
 Agora que está familiarizado com as diferentes guias, você pode obter mais informações sobre os recursos dos Serviços BizTalk do Azure:
 
-- [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)
-- [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)
-- [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md)
+* [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)
+* [Serviços BizTalk: nome e chave do emissor](biztalk-issuer-name-issuer-key.md)
+* [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md)
 
 ## Consulte também
-- [Conexões Híbridas](integration-hybrid-connection-overview.md)
-- [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)
-- [Serviços BizTalk: provisionamento usando o portal clássico do Azure](biztalk-provision-services.md)
-- [Serviços BizTalk: gráfico de estado do Serviço do BizTalk (a página pode estar em inglês)](biztalk-service-state-chart.md)
-- [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Conexões Híbridas](integration-hybrid-connection-overview.md)
+* [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)
+* [Serviços BizTalk: provisionamento usando o portal clássico do Azure](biztalk-provision-services.md)
+* [Serviços BizTalk: gráfico de estado do Serviço do BizTalk (a página pode estar em inglês)](biztalk-service-state-chart.md)
+* [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
 [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
 [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

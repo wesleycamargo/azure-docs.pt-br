@@ -2,7 +2,9 @@ O ExpressRoute fornece conectividade de rede privada para os Serviços de Nuvem 
 
 Ofertas de software como um serviço, como o Office 365 e o Dynamics 365, foram criadas para serem acessadas pela Internet de forma segura e confiável. Portanto, somente recomendamos o ExpressRoute para esses aplicativos em cenários específicos.
 
-> [AZURE.IMPORTANT]
-O uso do ExpressRoute para acessar o Azure é **recomendado** para todas as empresas. Para obter orientação sobre o uso do ExpressRoute a fim de acessar o Office 365, visite [http://aka.ms/ExpressRouteOffice365](http://aka.ms/ExpressRouteOffice365).
+> [!IMPORTANT]
+> O uso do ExpressRoute para acessar o Azure é **recomendado** para todas as empresas. Para obter orientação sobre o uso do ExpressRoute a fim de acessar o Office 365, visite [http://aka.ms/ExpressRouteOffice365](http://aka.ms/ExpressRouteOffice365).
+> 
+> 
 
 <!---HONumber=AcomDC_0928_2016-->

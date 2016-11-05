@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Arquitetura do Gerenciador de Recursos | Microsoft Azure"
-   description="Uma visão geral da arquitetura do Gerenciador de Recursos de Cluster do Service Fabric."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Arquitetura do Gerenciador de Recursos | Microsoft Docs
+description: Uma visão geral da arquitetura do Gerenciador de Recursos de Cluster do Service Fabric.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Visão geral da arquitetura do Gerenciador de Recursos de Cluster
 A fim de gerenciar os recursos no cluster, o Gerenciador de Recursos de Cluster do Service Fabric deve ter vários tipos de informações. Ele precisa saber quais serviços existem no momento e a quantidade de recursos atual (ou padrão) que esses serviços estão consumindo. Ele precisa saber a capacidade real dos nós no cluster e, portanto, a quantidade de recursos disponíveis no cluster como um todo e restantes em um nó específico. O consumo de recursos de um determinado serviço pode mudar com o tempo, bem como com o fato de que os serviços, na realidade, normalmente envolvem mais de um recurso. Em vários serviços diferentes pode haver dois recursos físicos reais que estão sendo medidos e reportados como métricas, como consumo de memória e disco, bem como (e, na realidade, mais frequentemente) métricas lógicas – coisas como "WorkQueueDepth" ou "TotalRequests". As métricas lógicas e físicas podem ser usadas em muitos tipos diferentes de serviço ou podem ser específicas a apenas alguns serviços.
 
@@ -34,7 +34,7 @@ Vamos observar o próximo diagrama e ver o que acontece em seguida. Digamos que 
 ![Arquitetura do Balanceador de Recursos][Image2]
 
 ## Próximas etapas
-- O Gerenciador de Recursos de Cluster tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+* O Gerenciador de Recursos de Cluster tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png

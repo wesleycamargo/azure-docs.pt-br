@@ -1,47 +1,43 @@
-<properties
-    pageTitle="Visão geral das Assinaturas de Acesso Compartilhado | Microsoft Azure"
-    description="O que são Assinaturas de acesso compartilhado, como elas funcionam e como usá-las por meio do nó, PHP e C#."
-    services="service-bus,event-hubs"
-    documentationCenter="na"
-    authors="djrosanova"
-    manager="timlt"
-    editor=""/>
+---
+title: Visão geral das Assinaturas de Acesso Compartilhado | Microsoft Docs
+description: O que são Assinaturas de acesso compartilhado, como elas funcionam e como usá-las por meio do nó, PHP e C#.
+services: service-bus,event-hubs
+documentationcenter: na
+author: djrosanova
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="06/22/2016"
-    ms.author="darosa;sethm"/>
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 06/22/2016
+ms.author: darosa;sethm
 
+---
 # As Assinaturas de Acesso Compartilhado
-
 SAS (*Assinaturas de Acesso Compartilhado*) são o mecanismo de segurança principal para o Barramento de Serviço, incluindo Hubs de Eventos, sistema de mensagens agenciado (filas e tópicos) e sistema de mensagens de retransmissão. Este artigo discute as Assinaturas de acesso compartilhado, como elas funcionam e como usá-las de maneira independente da plataforma.
 
 ## Visão geral das SAS
-
 Assinaturas de acesso compartilhado são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. As SAS são um mecanismo extremamente poderoso usado por todos os serviços do Barramento de Serviço. Na utilização real, as SAS têm dois componentes: uma *Política de acesso Compartilhado* e uma *Assinatura de Acesso Compartilhado* (normalmente chamada de *token*).
 
 Você pode encontrar informações mais detalhadas sobre as Assinaturas de Acesso Compartilhado com o Barramento de Serviço em [Autenticação de Assinatura de Acesso Compartilhado com o Barramento de Serviço](service-bus-shared-access-signature-authentication.md).
 
 ## Política de acesso compartilhado
-
 Uma coisa importante para entender sobre as SAS é que tudo começa com uma política. Para cada política, você toma decisões quanto a três informações: **nome**, **escopo** e **permissões**. O **nome** é apenas isso, um nome exclusivo dentro do escopo. O escopo é bastante simples: é o URI do recurso em questão. Para um namespace do Barramento de Serviço, o escopo é o nome de domínio totalmente qualificado (FQDN), como **`https://<yournamespace>.servicebus.windows.net/`**.
 
 As permissões disponíveis para uma política são bastante autoexplicativas:
 
-  + Enviar
-  + Escutar
-  + Gerenciar
+* Enviar
+* Escutar
+* Gerenciar
 
-Depois de você criar a política, ela recebe uma *Chave primária* e uma *Chave secundária*. Essas chaves são criptograficamente fortes. Não as perca ou divulgue - elas sempre estarão disponíveis no [portal clássico do Azure][]. Você pode usar qualquer uma das chaves geradas e pode gerá-las novamente a qualquer momento. No entanto, se você gera novamente ou altera a chave primária da política, quaisquer Assinaturas de acesso compartilhado criadas por meio dela serão invalidadas.
+Depois de você criar a política, ela recebe uma *Chave primária* e uma *Chave secundária*. Essas chaves são criptograficamente fortes. Não as perca ou divulgue - elas sempre estarão disponíveis no [portal clássico do Azure][portal clássico do Azure]. Você pode usar qualquer uma das chaves geradas e pode gerá-las novamente a qualquer momento. No entanto, se você gera novamente ou altera a chave primária da política, quaisquer Assinaturas de acesso compartilhado criadas por meio dela serão invalidadas.
 
 Quando você cria um namespace do Barramento de Serviço, é criada automaticamente uma política para todo o namespace chamada **RootManageSharedAccessKey**, e essa política tem todas as permissões. Você não faz logon como **raiz**. Portanto, não use esta política a menos que haja um motivo muito bom. Você pode criar políticas adicionais na guia **Configurar** para o namespace no Portal. É importante observar que um único nível de árvore no Barramento de Serviço (namespace, fila, Hub de eventos etc.) só pode ter até 12 políticas anexadas a ele.
 
 ## Assinatura de Acesso Compartilhado (token)
-
 A política em si não é o token de acesso para o Barramento de Serviço. Ela é o objeto por meio do qual o token de acesso é gerado - usando a chave primária ou secundária. O token é gerado ao criar cuidadosamente uma cadeia de caracteres no seguinte formato:
 
 ```
@@ -59,11 +55,9 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 Os valores não hash estão na cadeia de caracteres **SharedAccessSignature** para que o destinatário possa calcular o hash com os mesmos parâmetros para garantir que o mesmo resultado seja retornado. O URI especifica o escopo e o nome da chave identifica a política a ser usada para computar o hash. Isso é importante de um ponto de vista de segurança. Se a assinatura não coincidir com aquela que o destinatário (Barramento de Serviço) calcula, o acesso é negado. Nesse ponto, você pode ter certeza de que o remetente tinha acesso à chave e de que deve ter os direitos especificados na política.
 
 ## Gerando uma assinatura por meio de uma política
-
 Como realmente fazer isso no código? Vamos dar uma olhada em alguns deles.
 
 ### NodeJS
-
 ```
 function createSharedAccessToken(uri, saName, saKey) { 
     if (!uri || !saName || !saKey) { 
@@ -82,7 +76,6 @@ function createSharedAccessToken(uri, saName, saKey) {
 ``` 
 
 ### Java
-
 ```
 private static String GetSASToken(String resourceUri, String keyName, String key)
   {
@@ -131,26 +124,24 @@ public static String getHMAC256(String key, String input) {
 ```
 
 ### PHP
-
 ```
 function generateSasToken($uri, $sasKeyName, $sasKeyValue) 
 { 
 $targetUri = strtolower(rawurlencode(strtolower($uri))); 
-$expires = time(); 	
+$expires = time();     
 $expiresInMins = 60; 
 $week = 60*60*24*7;
 $expires = $expires + $week; 
 $toSign = $targetUri . "\n" . $expires; 
-$signature = rawurlencode(base64_encode(hash_hmac('sha256', 			
+$signature = rawurlencode(base64_encode(hash_hmac('sha256',             
  $toSign, $sasKeyValue, TRUE))); 
 
-$token = "SharedAccessSignature sr=" . $targetUri . "&sig=" . $signature . "&se=" . $expires . 		"&skn=" . $sasKeyName; 
+$token = "SharedAccessSignature sr=" . $targetUri . "&sig=" . $signature . "&se=" . $expires .         "&skn=" . $sasKeyName; 
 return $token; 
 }
 ```
- 
-### C&#35;
 
+### C&#35;
 ```
 private static string createToken(string resourceUri, string keyName, string key)
 {
@@ -166,7 +157,6 @@ private static string createToken(string resourceUri, string keyName, string key
 ```
 
 ## Usando a Assinatura de Acesso Compartilhado (no nível do HTTP)
- 
 Agora que sabe como criar Assinaturas de acesso compartilhado para qualquer entidade no Barramento de Serviço, você está pronto para executar um HTTP POST:
 
 ```
@@ -175,13 +165,12 @@ Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
-	
+
 Lembre-se de que isso funciona para tudo. Você pode criar uma SAS para uma fila, tópico, assinatura, Hub de eventos ou retransmissão. Se você usar identidades por editor para Hubs de eventos, basta acrescentar `/publishers/< publisherid>`.
 
 Se você fornecer a um remetente ou um cliente um token SAS, eles não têm a chave diretamente e não podem reverter o hash para obtê-la. Dessa forma, você tem controle sobre o que eles podem acessar e por quanto tempo. É importante se lembrar de que se você alterar a chave primária da política, quaisquer Assinaturas de acesso compartilhado criadas por meio dela serão invalidadas.
 
 ## Usando a Assinatura de Acesso Compartilhado (no nível do AMQP)
-
 Na seção anterior, você viu como usar o token SAS com uma solicitação HTTP POST para envio dos dados ao Barramento de Serviço. Como você sabe, é possível acessar o Barramento de Serviço usando o protocolo AMQP (Advanced Message Queuing Protocol), que é o protocolo preferencial por motivos de desempenho em muitos cenários. O uso de tokens SAS com AMQP é descrito no documento [AMQP Claim-Based Security Version 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc), em estado de rascunho funcional desde 2013, mas que conta com amplo suporte do Azure no momento.
 
 Antes de começar a enviar dados ao Barramento de Serviço, o editor precisa enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido chamado **"$cbs"** (veja-o como uma fila "especial" usada pelo serviço para adquirir e validar todos os tokens SAS). O editor deve especificar o campo **"ReplyTo"** dentro da mensagem AMQP; esse é o nó em que o serviço responde ao editor com o resultado da validação do token (um padrão simples de solicitação/resposta entre o editor e o serviço). Esse nó de resposta é criado "dinamicamente", falando sobre "criação dinâmica de nó remoto", como descrito pela especificação do AMQP 1.0. Depois de verificar a validade do token SAS, o editor poderá começar a enviar dados ao serviço.
@@ -189,7 +178,6 @@ Antes de começar a enviar dados ao Barramento de Serviço, o editor precisa env
 As etapas a seguir mostram como enviar o token SAS com o protocolo AMQP usando a biblioteca [AMQP.Net Lite](https://github.com/Azure/amqpnetlite). Isso será útil se você não puder usar o SDK oficial do Barramento de Serviço (por exemplo, no WinRT, no .Net Compact Framework, no .Net Micro Framework e no Mono) ao desenvolver em C&#35;. Obviamente, essa biblioteca é útil para entender como funciona a segurança baseada em declarações no nível do AMQP, como você viu que funciona no nível HTTP (com uma solicitação HTTP POST e o token SAS enviados dentro do cabeçalho "Authorization"). Se não precisar desse conhecimento avançado sobre AMQP, você poderá usar o SDK oficial do Barramento de Serviço com aplicativos do .Net Framework, que farão exatamente isso para você.
 
 ### C&#35;
-
 ```
 /// <summary>
 /// Send claim-based security (CBS) token
@@ -241,7 +229,10 @@ private bool PutCbsToken(Connection connection, string sasToken)
 
 O método `PutCbsToken()` acima recebe a *conexão* (instância da classe de conexão AMQP, conforme fornecida pela [biblioteca AMQP .Net Lite](https://github.com/Azure/amqpnetlite)), que representa a conexão TCP com o serviço, e o parâmetro *sasToken*, que é o token SAS a ser enviado.
 
-> [AZURE.NOTE] É importante que a conexão seja criada com o **mecanismo de autenticação SASL definido como EXTERNAL** (e não o padrão PLAIN com nome de usuário e senha usados quando você não precisa enviar o token SAS).
+> [!NOTE]
+> É importante que a conexão seja criada com o **mecanismo de autenticação SASL definido como EXTERNAL** (e não o padrão PLAIN com nome de usuário e senha usados quando você não precisa enviar o token SAS).
+> 
+> 
 
 Em seguida, o editor cria dois links AMQP para enviar o token SAS e receber a resposta (resultado da validação do token) do serviço.
 
@@ -250,7 +241,6 @@ A mensagem AMQP contém um conjunto de propriedades e mais informações do que 
 Depois de enviar o token SAS pelo link do remetente, o editor deverá ler a resposta no link receptor. A resposta é uma mensagem AMQP simples com uma propriedade de aplicativo chamada **"código de status"**, que pode conter os mesmos valores que um código de status HTTP.
 
 ## Próximas etapas
-
 Consulte a [Referência da API REST do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh780717.aspx) para saber mais sobre o que você pode fazer com esses tokens SAS.
 
 Para saber mais sobre a autenticação do Barramento de Serviço, confira [Autenticação e autorização do Barramento de Serviço](service-bus-authentication-and-authorization.md).

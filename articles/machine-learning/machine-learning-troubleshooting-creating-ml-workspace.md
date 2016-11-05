@@ -1,30 +1,27 @@
-<properties
-	pageTitle="Solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina | Microsoft Azure"
-	description="Soluções para problemas comuns na criação e conexão a um espaço de trabalho de aprendizado de máquina do Azure"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: 'Solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina | Microsoft Docs'
+description: Soluções para problemas comuns na criação e conexão a um espaço de trabalho de aprendizado de máquina do Azure
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2016"
-	ms.author="garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/09/2016
+ms.author: garye
 
-
+---
 # Guia de solução de problemas: criar e conectar-se a um espaço de trabalho do Aprendizado de Máquina
-
 Este guia fornece soluções para alguns desafios encontrados com frequência quando você configura espaços de trabalho do Aprendizado de Máquina do Azure.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Proprietário do espaço de trabalho
-
 Quando você cria um novo espaço de trabalho do Aprendizado de Máquina, a ID que você insere no campo PROPRIETÁRIO DO ESPAÇO DE TRABALHO deve ser uma conta da Microsoft válida (anteriormente conhecida como Windows Live ID), por exemplo, john-contoso@live.com ou john-contoso@hotmail.com. Não pode ser uma conta que não seja da Microsoft, como seu e-mail corporativo. Para criar uma conta gratuita da Microsoft, acesse [www.live.com](http://www.live.com).
 
 Observe que a conta usada para entrar no portal do Azure para criar o espaço de trabalho não tem automaticamente permissão para *abrir* esse espaço de trabalho, a menos que você especifique essa conta como proprietária. Para abrir um espaço de trabalho no Estúdio de Aprendizado de Máquina, você deve estar conectado à Conta da Microsoft que foi definida como proprietária do espaço de trabalho ou precisa receber um convite do proprietário para ingressar no espaço de trabalho. No entanto, no Portal Clássico do Azure, você pode *gerenciar* o espaço de trabalho, o que inclui a capacidade de alterar o proprietário e configurar o acesso.
@@ -34,7 +31,6 @@ Para obter mais informações sobre como gerenciar um espaço de trabalho, consu
 [Gerenciar um espaço de trabalho do Aprendizado de Máquina do Azure]: machine-learning-manage-workspace.md
 
 ## Regiões permitidas
-
 No momento, o Aprendizado de Máquina está disponível em um número limitado de regiões. Se sua assinatura não incluir uma dessas regiões, talvez você receba a mensagem de erro "Você não tem assinaturas nas regiões permitidas".
 
 Para solicitar a adição de uma região à sua assinatura, selecione **Entre em contato com o Suporte da Microsoft** no Portal Clássico do Azure, escolha **Cobrança** como o tipo de problema e siga os prompts para enviar sua solicitação.
@@ -42,7 +38,6 @@ Para solicitar a adição de uma região à sua assinatura, selecione **Entre em
 ![Contatar Suporte da Microsoft][screen1]
 
 ## Conta de armazenamento
-
 O serviço de Aprendizado de Máquina precisa de uma conta de armazenamento para armazenar dados. Você pode usar uma conta de armazenamento existente, ou pode criar uma nova conta de armazenamento ao criar o novo espaço de trabalho de Aprendizado de Máquina (se você tiver cota para criar uma nova conta de armazenamento).
 
 <!-- These instructions no longer work, but I'm not sure what to replace them with

@@ -1,57 +1,50 @@
-<properties
-    pageTitle="API do coletor de dados HTTP do Log Analytics | Microsoft Azure"
-    description="Você pode usar a API do coletor de dados HTTP do Log Analytics para adicionar dados JSON de POST ao repositório do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como usar a API e tem exemplos de como publicar dados usando diferentes linguagens de programação."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bwren"
-    manager="jwhit"
-    editor=""/>
+---
+title: API do coletor de dados HTTP do Log Analytics | Microsoft Docs
+description: Você pode usar a API do coletor de dados HTTP do Log Analytics para adicionar dados JSON de POST ao repositório do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como usar a API e tem exemplos de como publicar dados usando diferentes linguagens de programação.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/11/2016"
-    ms.author="bwren"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/11/2016
+ms.author: bwren
 
-
-
+---
 # <a name="log-analytics-http-data-collector-api"></a>API do coletor de dados HTTP do Log Analytics
-
 Quando você usa a API do coletor de dados HTTP do Azure Log Analytics, pode adicionar dados do JSON (JavaScript Object Notation) de POST ao repositório do Log Analytics de qualquer cliente que possa chamar a API REST. Usando esse método, você pode enviar dados de aplicativos de terceiros ou de scripts, como de um runbook na Automação do Azure.  
 
 ## <a name="create-a-request"></a>Criar uma solicitação
-
 As próximas duas tabelas listam os atributos que são necessários para cada solicitação para a API do coletor de dados HTTP do Log Analytics. Descrevemos cada atributo em mais detalhes posteriormente neste artigo.
 
 ### <a name="request-uri"></a>URI da solicitação
-
 | Atributo | Propriedade |
-|:--|:--|
-| Método | POST |
-| URI | https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
-| Tipo de conteúdo | aplicativo/json |
+|:--- |:--- |
+| Método |POST |
+| URI |https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| Tipo de conteúdo |aplicativo/json |
 
 ### <a name="request-uri-parameters"></a>Solicitar parâmetros de URI (Uniform Resource Identifier)
 | Parâmetro | Descrição |
-|:--|:--|
-| CustomerID  | O identificador exclusivo para o espaço de trabalho do Microsoft Operations Management Suite. |
-| Recurso    | O nome do recurso de API: /api/logs. |
-| Versão da API | A versão da API a ser usada com esta solicitação. Atualmente, ela é 2016-04-01. |
+|:--- |:--- |
+| CustomerID |O identificador exclusivo para o espaço de trabalho do Microsoft Operations Management Suite. |
+| Recurso |O nome do recurso de API: /api/logs. |
+| Versão da API |A versão da API a ser usada com esta solicitação. Atualmente, ela é 2016-04-01. |
 
 ### <a name="request-headers"></a>Cabeçalhos da solicitação
 | Cabeçalho | Descrição |
-|:--|:--|
-| Autorização | A assinatura de autorização. Posteriormente neste artigo, você pode ler sobre como criar um cabeçalho HMAC-SHA256. |
-| Log-Type | Especifique o tipo de registro dos dados que estão sendo enviados. Atualmente, o tipo de log dá suporte apenas a caracteres alfa. Ele não dá suporte a caracteres alfanuméricos ou caracteres especiais. |
-| x-ms-date | A data em que a solicitação foi processada, no formato RFC 1123. |
-| time-generated-field | O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para **TimeGenerated** será a hora em que a mensagem é incluída. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
-
+|:--- |:--- |
+| Autorização |A assinatura de autorização. Posteriormente neste artigo, você pode ler sobre como criar um cabeçalho HMAC-SHA256. |
+| Log-Type |Especifique o tipo de registro dos dados que estão sendo enviados. Atualmente, o tipo de log dá suporte apenas a caracteres alfa. Ele não dá suporte a caracteres alfanuméricos ou caracteres especiais. |
+| x-ms-date |A data em que a solicitação foi processada, no formato RFC 1123. |
+| time-generated-field |O nome de um campo nos dados que contém o carimbo de data/hora do item de dados. Se você especificar um campo, seu conteúdo será usado para **TimeGenerated**. Se esse campo não for especificado, o padrão para **TimeGenerated** será a hora em que a mensagem é incluída. O conteúdo do campo de mensagem deve seguir o formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorização
-
 Todas as solicitações para a API do coletor de dados HTTP do Log Analytics devem incluir um cabeçalho de autorização. Para autenticar uma solicitação, você deve assinar a solicitação com a chave primária ou secundária para o espaço de trabalho que está fazendo a solicitação. Em seguida, passe essa assinatura como parte da solicitação.   
 
 Aqui está o formato do cabeçalho de autorização:
@@ -87,7 +80,6 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 Os exemplos nas seções a seguir têm o código de exemplo para ajudá-lo a criar um cabeçalho de autorização.
 
 ## <a name="request-body"></a>Corpo da solicitação
-
 O corpo da mensagem deve ser em JSON. Ele deve incluir um ou mais registros com os pares de nome e valor de propriedade neste formato:
 
 ```
@@ -117,7 +109,6 @@ Você pode criar lotes de vários registros em uma única solicitação usando o
 ```
 
 ## <a name="record-type-and-properties"></a>Propriedades e o tipo de registro
-
 Você define um tipo de registro personalizado ao enviar dados por meio da API do coletor de dados HTTP do Log Analytics. No momento, você não pode gravar dados em tipos de registro existentes que foram criados por outras soluções e tipos de dados. O Log Analytics lê os dados de entrada e, em seguida, cria propriedades que correspondem aos tipos de dados dos valores que você inseriu.
 
 Cada solicitação para a API do Log Analytics deve incluir um cabeçalho **Log-Type** com o nome do tipo de registro. O sufixo **_CL** é acrescentado automaticamente ao nome inserido para distingui-lo de outros tipos de log como um log personalizado. Por exemplo, se você inserir o nome **MyNewRecordType**, o Log Analytics criará um registro com o tipo **MyNewRecordType_CL**. Isso ajuda a garantir que não haja nenhum conflito entre os nomes de tipo criados pelo usuário e aqueles fornecidos nas soluções atuais ou futuras da Microsoft.
@@ -125,18 +116,17 @@ Cada solicitação para a API do Log Analytics deve incluir um cabeçalho **Log-
 Para identificar o tipo de dados de uma propriedade, o Log Analytics adiciona um sufixo ao nome da propriedade. Se uma propriedade contiver um valor nulo, ela não será incluída no registro. Esta tabela lista o tipo de dados de propriedade e o sufixo correspondente:
 
 | Tipo de dados de propriedade | Suffix |
-|:--|:--|
-| Cadeia de caracteres    | _s |
-| Booliano   | _b |
-| Duplo    | _d |
-| Data/hora | _t |
-| GUID      | _g |
-
+|:--- |:--- |
+| Cadeia de caracteres |_s |
+| Booliano |_b |
+| Duplo |_d |
+| Data/hora |_t |
+| GUID |_g |
 
 O tipo de dados que o Log Analytics usa para cada propriedade depende de se o tipo de registro do novo registro já existe.
 
-- Se o tipo de registro não existir, o Log Analytics criará um novo. O Log Analytics usa a inferência de tipos JSON para determinar o tipo de dados de cada propriedade para o novo registro.
-- Se o tipo de registro existir, o Log Analytics tentará criar um novo registro com base nas propriedades existentes. Se o tipo de dados de uma propriedade no novo registro não corresponder e não puder ser convertida para o tipo existente, ou se o registro incluir uma propriedade que não existe, o Log Analytics criará uma nova propriedade que tenha o sufixo relevante.
+* Se o tipo de registro não existir, o Log Analytics criará um novo. O Log Analytics usa a inferência de tipos JSON para determinar o tipo de dados de cada propriedade para o novo registro.
+* Se o tipo de registro existir, o Log Analytics tentará criar um novo registro com base nas propriedades existentes. Se o tipo de dados de uma propriedade no novo registro não corresponder e não puder ser convertida para o tipo existente, ou se o registro incluir uma propriedade que não existe, o Log Analytics criará uma nova propriedade que tenha o sufixo relevante.
 
 Por exemplo, esta entrada de envio criaria um registro com três propriedades, **number_d**, **boolean_b** e **string_s**:
 
@@ -155,34 +145,30 @@ Se você enviasse a entrada a seguir, antes de o tipo de registro ter sido criad
 ![Registro de exemplo 4](media/log-analytics-data-collector-api/record-04.png)
 
 ## <a name="return-codes"></a>Códigos de retorno
-
 O código de status HTTP 202 significa que a solicitação foi aceita para processamento, mas o processamento ainda não foi concluído. Isso indica que a operação foi concluída com êxito.
 
 Esta tabela lista o conjunto completo de códigos de status que o serviço pode retornar:
 
 | Código | Status | Código do erro | Descrição |
-|:--|:--|:--|:--|
-| 202 | Aceita |  | A solicitação foi aceita com êxito. |
-| 400 | Solicitação incorreta | InactiveCustomer | O espaço de trabalho foi fechado. |
-| 400 | Solicitação incorreta | InvalidApiVersion | A versão da API que você especificou não foi reconhecida pelo serviço. |
-| 400 | Solicitação incorreta | InvalidCustomerId | A ID do espaço de trabalho especificada é inválida. |
-| 400 | Solicitação incorreta | InvalidDataFormat | JSON inválido foi enviado. O corpo da resposta pode conter mais informações sobre como resolver o erro. |
-| 400 | Solicitação incorreta | InvalidLogType | O tipo de log especificado continha caracteres especiais ou numéricos. |
-| 400 | Solicitação incorreta | MissingApiVersion | A versão da API não foi especificada. |
-| 400 | Solicitação incorreta | MissingContentType | O tipo de conteúdo não foi especificado. |
-| 400 | Solicitação incorreta | MissingLogType | O tipo de log de valor necessário não foi especificado. |
-| 400 | Solicitação incorreta | UnsupportedContentType | O tipo de conteúdo não foi definido como **application/json**. |
-| 403 | Proibido | InvalidAuthorization | O serviço falhou ao autenticar a solicitação. Verifique se a chave de conexão e a ID do espaço de trabalho são válidos. |
-| 500 | Erro interno do servidor | UnspecifiedError | O serviço encontrou um erro interno. Tente novamente a solicitação. |
-| 503 | Serviço indisponível | ServiceUnavailable | No momento, o serviço está indisponível para receber solicitações. Tente novamente a sua solicitação. |
+|:--- |:--- |:--- |:--- |
+| 202 |Aceita | |A solicitação foi aceita com êxito. |
+| 400 |Solicitação incorreta |InactiveCustomer |O espaço de trabalho foi fechado. |
+| 400 |Solicitação incorreta |InvalidApiVersion |A versão da API que você especificou não foi reconhecida pelo serviço. |
+| 400 |Solicitação incorreta |InvalidCustomerId |A ID do espaço de trabalho especificada é inválida. |
+| 400 |Solicitação incorreta |InvalidDataFormat |JSON inválido foi enviado. O corpo da resposta pode conter mais informações sobre como resolver o erro. |
+| 400 |Solicitação incorreta |InvalidLogType |O tipo de log especificado continha caracteres especiais ou numéricos. |
+| 400 |Solicitação incorreta |MissingApiVersion |A versão da API não foi especificada. |
+| 400 |Solicitação incorreta |MissingContentType |O tipo de conteúdo não foi especificado. |
+| 400 |Solicitação incorreta |MissingLogType |O tipo de log de valor necessário não foi especificado. |
+| 400 |Solicitação incorreta |UnsupportedContentType |O tipo de conteúdo não foi definido como **application/json**. |
+| 403 |Proibido |InvalidAuthorization |O serviço falhou ao autenticar a solicitação. Verifique se a chave de conexão e a ID do espaço de trabalho são válidos. |
+| 500 |Erro interno do servidor |UnspecifiedError |O serviço encontrou um erro interno. Tente novamente a solicitação. |
+| 503 |Serviço indisponível |ServiceUnavailable |No momento, o serviço está indisponível para receber solicitações. Tente novamente a sua solicitação. |
 
 ## <a name="query-data"></a>Consultar dados
-
 Para consultar os dados enviados pela API do coletor de dados HTTP do Log Analytics, procure registros com **Tipo** que é igual ao valor **LogType** valor que você especificou, acrescido com **_CL**. Por exemplo, se você usou **MyCustomLog**, você pode retornar todos os registros com **Type=MyCustomLog_CL**.
 
-
 ## <a name="sample-requests"></a>Solicitações de exemplo
-
 Nas seções a seguir, você encontrará exemplos de como enviar dados para a AAPI do coletor de dados HTTP do Log Analytics usando diferentes linguagens de programação.
 
 Para cada exemplo, realize essas etapas para definir as variáveis para o cabeçalho de autorização:
@@ -194,7 +180,6 @@ Para cada exemplo, realize essas etapas para definir as variáveis para o cabeç
 Como alternativa, você pode alterar as variáveis para o tipo de log e dados JSON.
 
 ### <a name="powershell-sample"></a>Exemplo do PowerShell
-
 ```
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
@@ -278,8 +263,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
-### <a name="c#-sample"></a>Exemplo de C#
-
+### <a name="c#-sample"></a>Exemplo de C
 ```
 using System;
 using System.Net;
@@ -347,7 +331,6 @@ namespace OIAPIExample
 ```
 
 ### <a name="python-sample"></a>Exemplo de Python
-
 ```
 import json
 import requests
@@ -431,10 +414,7 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Use o [Designer de modos de exibição](log-analytics-view-designer.md) para criar exibições personalizadas nos dados que você envia.
-
-
+* Use o [Designer de modos de exibição](log-analytics-view-designer.md) para criar exibições personalizadas nos dados que você envia.
 
 <!--HONumber=Oct16_HO2-->
 

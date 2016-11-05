@@ -2,10 +2,10 @@ Você pode criar vários serviços dentro de uma assinatura, cada um provisionad
 
 Os limites de serviço máximos podem ser aumentados mediante solicitação. Se você precisar de mais serviços na mesma assinatura, entre em contato com o Suporte do Azure.
 
-Recurso|Grátis|Basic|S1|S2|S3 <br/>(Visualização) <sup>1</sup>  |S3 HD <br/>(Visualização) <sup>1</sup> 
----|---|---|---|----|---|----
-Quantidade máxima de serviços |1 |12 |12  |6 |6 |6 
-SU de redução horizontal máxima <sup>2</sup>|N/D <sup>3</sup>|3 SU <sup>4</sup> |36 SU|36 SU|36 SU|12 SU <sup>5</sup>
+| Recurso | Grátis | Basic | S1 | S2 | S3 <br/>(Visualização) <sup>1</sup> | S3 HD <br/>(Visualização) <sup>1</sup> |
+| --- | --- | --- | --- | --- | --- | --- |
+| Quantidade máxima de serviços |1 |12 |12 |6 |6 |6 |
+| SU de redução horizontal máxima <sup>2</sup> |N/D <sup>3</sup> |3 SU <sup>4</sup> |36 SU |36 SU |36 SU |12 SU <sup>5</sup> |
 
 <sup>1</sup> Camadas de visualização são cobradas a uma taxa introdutória de 50% e passam a ter o preço total quando a camada muda para GA (disponibilidade geral). Durante a Preview, não há nenhum SLA (Contrato de Nível de Serviço). Para obter mais informações sobre as camadas, confira [Escolher uma camada ou SKU para o Azure Search](../articles/search/search-sku-tier.md).
 
@@ -16,11 +16,6 @@ SU de redução horizontal máxima <sup>2</sup>|N/D <sup>3</sup>|3 SU <sup>4</su
 <sup>4</sup> Básica tem uma partição fixa. Nesse nível, SUs adicionais são usadas para alocar mais réplicas para cargas de trabalho de consulta maior.
 
 <sup>5</sup> S3 HD é baseado no mesmo hardware de S3, mas em uma configuração que é otimizada para um grande número de índices menores. Semelhante a Básica, tem uma partição grande com unidades de pesquisa adicionais que podem ser usadas para réplicas.
-
-
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

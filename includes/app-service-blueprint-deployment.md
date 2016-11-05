@@ -4,7 +4,6 @@
 * [Publicando e RBAC (Controle de Acesso Baseado em Função)](https://azure.microsoft.com/blog/rbac-and-azure-websites-publishing/)
 
 ## Vídeos
-
 * [Automatizar o fluxo de trabalho de implantação para gerenciamento de versão](/documentation/videos/azurecon-2015-manage-code-changes-to-web-apps-using-the-devops-features-of-azure-app-service-and-visual-studio-release-management/)
 
 <!---HONumber=AcomDC_0803_2016-->

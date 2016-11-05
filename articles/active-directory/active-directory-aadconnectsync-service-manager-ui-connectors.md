@@ -1,46 +1,44 @@
-<properties
-	pageTitle="Sincronização do Azure AD Connect: Interface do usuário do Synchronization Service Manager | Microsoft Azure"
-	description="Entenda como usar a guia Conectores no Synchronization Service Manager para o Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Sincronização do Azure AD Connect: Interface do usuário do Synchronization Service Manager | Microsoft Docs'
+description: Entenda como usar a guia Conectores no Synchronization Service Manager para o Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/07/2016
+ms.author: andkjell
 
-
+---
 # Sincronização do Azure AD Connect: Synchronization Service Manager
-
-[Operações](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Designer do Metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Pesquisa do Metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
---- | --- | --- | ---
+| [Operações](Active-Directory-aadconnectsync-Service-Manager-UI-Operations.MD) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Designer do Metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Pesquisa do Metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
+| --- | --- | --- | --- |
+|  | | | |
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
 A guia Conectores é usada para gerenciar todos os sistemas aos quais o mecanismo de sincronização está conectado.
 
 ## Ações do Conector
-
-Ação | Comentário
---- | ---
-Criação | Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação.
-Propriedades | Usado para filtragem de domínio e de UO.
-[Excluir](#delete) | Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta.
-[Configurar perfis de execução](#configure-run-profiles) | Com exceção do domínio de filtragem, não há nada a ser configurado aqui. Você pode usar essa ação para ver os perfis de execução já configurados.
-Executar | Usado para iniciar uma execução única de um perfil.
-Parar | Interrompe um Conector que, atualmente, executa um perfil.
-Exportar Conector | Não use.
-Importar Conector | Não use.
-Atualizar Conector | Não use.
-Atualizar Esquema | Atualiza o esquema em cache. É preferível usar a opção no assistente de instalação, já que ela também atualiza as regras de sincronização.
-[Pesquisar Espaço do Conector](#search-connector-space) | Usado para encontrar objetos e [Seguir um objeto e seus dados por meio do sistema](#follow-an-object-and-its-data-through-the-system).
+| Ação | Comentário |
+| --- | --- |
+| Criação |Não use. Para se conectar a florestas adicionais do AD, use o assistente de instalação. |
+| Propriedades |Usado para filtragem de domínio e de UO. |
+| [Excluir](#delete) |Usado para excluir os dados no espaço do conector ou para excluir a conexão a uma floresta. |
+| [Configurar perfis de execução](#configure-run-profiles) |Com exceção do domínio de filtragem, não há nada a ser configurado aqui. Você pode usar essa ação para ver os perfis de execução já configurados. |
+| Executar |Usado para iniciar uma execução única de um perfil. |
+| Parar |Interrompe um Conector que, atualmente, executa um perfil. |
+| Exportar Conector |Não use. |
+| Importar Conector |Não use. |
+| Atualizar Conector |Não use. |
+| Atualizar Esquema |Atualiza o esquema em cache. É preferível usar a opção no assistente de instalação, já que ela também atualiza as regras de sincronização. |
+| [Pesquisar Espaço do Conector](#search-connector-space) |Usado para encontrar objetos e [Seguir um objeto e seus dados por meio do sistema](#follow-an-object-and-its-data-through-the-system). |
 
 ### Exclusão
 A ação de exclusão é usada com duas finalidades diferentes. ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)

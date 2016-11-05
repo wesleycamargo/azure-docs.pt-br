@@ -1,25 +1,25 @@
-<properties
-    pageTitle="Licenciamento do RemoteApp do Azure | Microsoft Azure"
-    description="Saiba como funciona o licenciamento no RemoteApp do Azure."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Licenciamento do RemoteApp do Azure | Microsoft Docs
+description: Saiba como funciona o licenciamento no RemoteApp do Azure.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # Como o licenciamento funciona no RemoteApp do Azure?
-
-> [AZURE.IMPORTANT]
-O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> [!IMPORTANT]
+> O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> 
+> 
 
 Você configurou seu serviço de RemoteApp do Azure, criou seus modelos e está pronto para publicar aplicativos para seus usuários. Mas ainda há uma última coisa a descobrir: licenciamento. Como funciona o licenciamento para o RemoteApp e os aplicativos que você compartilha por meio do RemoteApp?
 

@@ -1,33 +1,34 @@
-<properties
-	pageTitle="Kit de Ferramentas do Azure para Eclipse | Microsoft Azure"
-	description="Conheça o Kit de Ferramentas do Azure para Eclipse."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+---
+title: Kit de Ferramentas do Azure para Eclipse | Microsoft Docs
+description: Conheça o Kit de Ferramentas do Azure para Eclipse.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 09/20/2016
+ms.author: robmcm;asirveda
 
+---
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 
 # Kit de ferramentas do Azure para Eclipse
-
 O Kit de Ferramentas do Azure para Eclipse fornece modelos e funcionalidade que permitem criar, desenvolver, testar e implantar com facilidade aplicativos Azure usando o ambiente de desenvolvimento do Eclipse. Ele é um projeto de código-fonte aberto, cujo código-fonte está disponível de acordo com a licença do MIT no site do projeto em:
 
 * <https://github.com/microsoft/azure-tools-for-java>
 
-> [AZURE.NOTE] Há também um kit de ferramentas do Azure para o IDE do IntelliJ. Para obter mais informações, confira [Kit de Ferramentas do Azure para IntelliJ].
+> [!NOTE]
+> Há também um kit de ferramentas do Azure para o IDE do IntelliJ. Para obter mais informações, confira [Kit de Ferramentas do Azure para IntelliJ].
+> 
+> 
 
 ## Introdução ao Kit de ferramentas do Azure para Eclipse
-
 Os artigos a seguir o ajudarão a começar a usar o Kit de Ferramentas do Azure para Eclipse:
 
 * [Novidades no Kit de Ferramentas do Azure para o Eclipse]
@@ -36,7 +37,6 @@ Os artigos a seguir o ajudarão a começar a usar o Kit de Ferramentas do Azure 
 * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
 
 ## Definindo as configurações do projeto do Azure
-
 Os artigos a seguir mostram como usar o Kit de ferramentas do Azure para Eclipse a fim de definir configurações para seus projetos do Azure:
 
 * [Propriedades do Projeto do Azure]
@@ -47,7 +47,6 @@ Os artigos a seguir mostram como usar o Kit de ferramentas do Azure para Eclipse
 * [Habilitando o Acesso Remoto para implantações do Azure no Eclipse]
 
 ## Usando o Kit de Ferramentas do Azure para Eclipse
-
 Os artigos a seguir demonstram o uso do Kit de ferramentas do Azure para Eclipse para adicionar a funcionalidade do Azure a seus projetos Java:
 
 * [Exibindo o Conteúdo do Javadoc no Eclipse para o Pacote de Bibliotecas do Azure para Java]
@@ -57,17 +56,16 @@ Os artigos a seguir demonstram o uso do Kit de ferramentas do Azure para Eclipse
 * [Usar o plug-in de Ferramentas do HDInsight para Eclipse para criar aplicativos Spark para um cluster do HDInsight Spark Linux][HDInsight Tools Plugin for Eclipse]
 
 ## Consulte também
-
 Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
 
-- *Kit de ferramentas do Azure para o Eclipse (Este artigo)*
-  - [Instalação do Kit de Ferramentas do Azure para o Eclipse]
-  - [Criar um aplicativo Web Hello World para o Azure no Eclipse]
-  - [Novidades no Kit de Ferramentas do Azure para o Eclipse]
-- [Kit de Ferramentas do Azure para IntelliJ]
-  - [Instalação do Kit de Ferramentas do Azure para IntelliJ]
-  - [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
-  - [Novidades no Kit de Ferramentas do Azure para IntelliJ]
+* *Kit de ferramentas do Azure para o Eclipse (Este artigo)*
+  * [Instalação do Kit de Ferramentas do Azure para o Eclipse]
+  * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
+  * [Novidades no Kit de Ferramentas do Azure para o Eclipse]
+* [Kit de Ferramentas do Azure para IntelliJ]
+  * [Instalação do Kit de Ferramentas do Azure para IntelliJ]
+  * [Criar um aplicativo Web Hello World para o Azure no IntelliJ]
+  * [Novidades no Kit de Ferramentas do Azure para IntelliJ]
 
 Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
 

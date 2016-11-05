@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Alterações do ponto de extremidade v2.0 do Azure AD | Microsoft Azure"
-	description="Uma descrição das alterações que estão sendo feitas nos protocolos de visualização pública do modelo de aplicativo v 2.0."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Alterações do ponto de extremidade v2.0 do Azure AD | Microsoft Docs
+description: Uma descrição das alterações que estão sendo feitas nos protocolos de visualização pública do modelo de aplicativo v 2.0.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
+---
 # Atualizações Importantes para os Protocolos de Autenticação v 2.0
 Atenção, desenvolvedores! Nas próximas duas semanas, realizaremos algumas atualizações em nossos protocolos de autenticação v 2.0 que podem significar alterações de interrupção em qualquer aplicativo que você tenha gravado durante o período de visualização.
 
@@ -47,10 +47,10 @@ O ponto de extremidade v 2.0 usa muito os tokens JWT que contêm uma seção de 
 
 ```
 { 
-	"type": "JWT",
-	"alg": "RS256",
-	"x5t": "MnC_VZcATfM5pOYiJHMba9goEKY",
-	"kid": "MnC_VZcATfM5pOYiJHMba9goEKY"
+    "type": "JWT",
+    "alg": "RS256",
+    "x5t": "MnC_VZcATfM5pOYiJHMba9goEKY",
+    "kid": "MnC_VZcATfM5pOYiJHMba9goEKY"
 }
 ```
 
@@ -58,7 +58,10 @@ Onde as propriedades "x5t" e "kid" identificam a chave pública que deve ser usa
 
 A alteração que estamos fazendo aqui é remover a propriedade "x5t". Você pode continuar a usar os mesmos mecanismos para validar os tokens, mas deve contar somente com a propriedade "kid" para recuperar a chave pública correta, conforme especificado no protocolo OpenID Connect.
 
-> [AZURE.IMPORTANT] **Seu trabalho: Verifique se seu aplicativo não depende da existência do valor x5t.**
+> [!IMPORTANT]
+> **Seu trabalho: Verifique se seu aplicativo não depende da existência do valor x5t.**
+> 
+> 
 
 ### Remover profile\_info
 Anteriormente, o ponto de extremidade v 2.0 retornava um objeto JSON codificado na base64 nas respostas do token chamadas `profile_info`. Ao solicitar um token de acesso no ponto de extremidade v 2.0 enviando uma solicitação para:
@@ -68,14 +71,15 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 
 A resposta pareceria com o seguinte objeto JSON:
+
 ```
 { 
-	"token_type": "Bearer",
-	"expires_in": 3599,
-	"scope": "https://outlook.office.com/mail.read",
-	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
-	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
-	"profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "token_type": "Bearer",
+    "expires_in": 3599,
+    "scope": "https://outlook.office.com/mail.read",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
+    "profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 }
 ```
 
@@ -85,12 +89,12 @@ Agora, estamos removendo o valor `profile_info`, mas não se preocupe, ainda for
 
 ```
 { 
-	"token_type": "Bearer",
-	"expires_in": 3599,
-	"scope": "https://outlook.office.com/mail.read",
-	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
-	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
-	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "token_type": "Bearer",
+    "expires_in": 3599,
+    "scope": "https://outlook.office.com/mail.read",
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 }
 ```
 
@@ -98,7 +102,10 @@ Você pode decodificar e analisar o id\_token para recuperar as mesmas informaç
 
 Nas próximas duas semanas, você deverá codificar seu aplicativo para recuperar as informações do usuário em `id_token` ou `profile_info`, o que estiver presente. Dessa forma, quando a alteração for feita, seu aplicativo poderá lidar com a transição de `profile_info` para `id_token` sem interrupção.
 
-> [AZURE.IMPORTANT] **Seu trabalho: Verifique se seu aplicativo não depende da existência do valor `profile_info`.**
+> [!IMPORTANT]
+> **Seu trabalho: Verifique se seu aplicativo não depende da existência do valor `profile_info`.**
+> 
+> 
 
 ### Remover id\_token\_expires\_in
 Semelhante ao ocorrido com `profile_info`, também estamos removendo o parâmetro `id_token_expires_in` das respostas. Anteriormente, o ponto de extremidade v 2.0 retornaria um valor `id_token_expires_in` junto com cada resposta id\_token, por exemplo, em uma resposta de autorização:
@@ -111,19 +118,21 @@ Ou em uma resposta do token:
 
 ```
 { 
-	"token_type": "Bearer",
-	"id_token_expires_in": 3599,
-	"scope": "openid",
-	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
-	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
-	"profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "token_type": "Bearer",
+    "id_token_expires_in": 3599,
+    "scope": "openid",
+    "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+    "refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
+    "profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
 }
 ```
 
 O valor `id_token_expires_in` indicaria o número de segundos que o id\_token permaneceria válido. Agora, estamos removendo o valor `id_token_expires_in` em sua totalidade. Em vez disso, você pode usar as declarações `nbf` e `exp` padrão do OpenID Connect para examinar a validade de um id\_token. Confira a [referência do token v 2.0](active-directory-v2-tokens.md) para obter mais informações sobre essas declarações.
 
-> [AZURE.IMPORTANT] **Seu trabalho: Verifique se seu aplicativo não depende da existência do valor `id_token_expires_in`.**
-
+> [!IMPORTANT]
+> **Seu trabalho: Verifique se seu aplicativo não depende da existência do valor `id_token_expires_in`.**
+> 
+> 
 
 ### Alterar as declarações retornadas por scope=openid
 Essa alteração será a mais importante. Na verdade, isso afetará quase todos os aplicativos que usam o ponto de extremidade v 2.0. Muitos aplicativos enviam solicitações para o ponto de extremidade v 2.0 usando o escopo de `openid`, como:
@@ -143,22 +152,22 @@ Nesta atualização, estamos alterando as informações às quais o escopo de `o
 
 ```
 { 
-	"aud": "580e250c-8f26-49d0-bee8-1c078add1609",
-	"iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0 ",
-	"iat": 1449520283,
-	"nbf": 1449520283,
-	"exp": 1449524183,
-	"nonce": "12345",
-	"sub": "MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q",
-	"tid": "b9410318-09af-49c2-b0c3-653adc1f376e",
-	"ver": "2.0",
+    "aud": "580e250c-8f26-49d0-bee8-1c078add1609",
+    "iss": "https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0 ",
+    "iat": 1449520283,
+    "nbf": 1449520283,
+    "exp": 1449524183,
+    "nonce": "12345",
+    "sub": "MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q",
+    "tid": "b9410318-09af-49c2-b0c3-653adc1f376e",
+    "ver": "2.0",
 }
 ```
 
 Se você quiser obter informações de identificação pessoal (PII) sobre o usuário em seu aplicativo, seu aplicativo precisará solicitar permissões adicionais do usuário. Estamos introduzindo o suporte para dois novos escopos da especificação OpenID Connect, os escopos `email` e `profile`, que permitem que você faça isso.
 
-- O escopo `email` é muito simples — permite que seu aplicativo acesse o endereço de email principal do usuário por meio da declaração `email` no id\_token. Observe que a declaração `email` nem sempre estará presente nos id\_tokens. Ela só será incluída se estiver disponível no perfil do usuário.
-- O escopo `profile` permite que seu aplicativo acesse todas as outras informações básicas sobre o usuário – seu nome, nome de usuário preferido, ID do objeto etc.
+* O escopo `email` é muito simples — permite que seu aplicativo acesse o endereço de email principal do usuário por meio da declaração `email` no id\_token. Observe que a declaração `email` nem sempre estará presente nos id\_tokens. Ela só será incluída se estiver disponível no perfil do usuário.
+* O escopo `profile` permite que seu aplicativo acesse todas as outras informações básicas sobre o usuário – seu nome, nome de usuário preferido, ID do objeto etc.
 
 Isso permite que você codifique seu aplicativo com uma divulgação mínima – você pode solicitar ao usuário apenas o conjunto de informações que seu aplicativo precisa para fazer seu trabalho. Se você quiser continuar a obter o conjunto completo de informações do usuário que seu aplicativo recebe atualmente, deverá incluir todos os três escopos em suas solicitações de autorização:
 
@@ -173,7 +182,10 @@ client_id=...
 
 Seu aplicativo pode começar a enviar imediatamente os escopos de `email` e `profile` e o ponto de extremidade v 2.0 aceitará esses dois escopos e começará a solicitar as permissões dos usuários conforme necessário. No entanto, a alteração na interpretação do escopo de `openid` não entrará em vigor por algumas semanas.
 
-> [AZURE.IMPORTANT] **Seu trabalho: adicione os escopos de `profile` e `email` se seu aplicativo exigir informações sobre o usuário.** Observe que o ADAL incluirá essas duas permissões nas solicitações por padrão.
+> [!IMPORTANT]
+> **Seu trabalho: adicione os escopos de `profile` e `email` se seu aplicativo exigir informações sobre o usuário.** Observe que o ADAL incluirá essas duas permissões nas solicitações por padrão.
+> 
+> 
 
 ### Remover o emissor da barra à direita.
 Anteriormente, o valor do emissor que aparece nos tokens do ponto de extremidade v 2.0 assumiu a forma
@@ -190,7 +202,10 @@ https://login.microsoftonline.com/{some-guid}/v2.0
 
 em ambos os tokens e no documento de descoberta do OpenID Connect.
 
-> [AZURE.IMPORTANT] **Seu trabalho: Verifique se seu aplicativo aceita o valor do emissor com e sem uma barra à direita durante a validação do emissor.**
+> [!IMPORTANT]
+> **Seu trabalho: Verifique se seu aplicativo aceita o valor do emissor com e sem uma barra à direita durante a validação do emissor.**
+> 
+> 
 
 ## Por que alterar?
 A principal motivação para introduzir essas alterações é para que seja compatível com a especificação padrão do OpenID Connect. Ao ser compatível com o OpenID Connect, esperamos minimizar as diferenças entre a integração com serviços de identidade do Microsoft e outros serviços de identidade do setor. Queremos permitir que os desenvolvedores usem suas bibliotecas de autenticação de fonte aberta favoritas sem ter que alterar as bibliotecas para aceitarem as diferenças da Microsoft.
@@ -198,11 +213,11 @@ A principal motivação para introduzir essas alterações é para que seja comp
 ## O que você pode fazer?
 A partir de hoje, você pode começar a fazer todas as alterações descritas acima. Você deve imediatamente:
 
-1.	**Remover qualquer dependência no parâmetro de cabeçalho`x5t`.**
-2.	**Lidar com a transição de `profile_info` para `id_token` nas respostas dos tokens.**
-3.  **Remover qualquer dependência no parâmetro de resposta`id_token_expires_in`.**
-3.	**Adicionar os escopos de `profile` e `email` ao aplicativo, se ele precisar das informações básicas de usuário.**
-4.	**Aceite os valores do emissor nos tokens com e sem uma barra à direita.**
+1. **Remover qualquer dependência no parâmetro de cabeçalho`x5t`.**
+2. **Lidar com a transição de `profile_info` para `id_token` nas respostas dos tokens.**
+3. **Remover qualquer dependência no parâmetro de resposta`id_token_expires_in`.**
+4. **Adicionar os escopos de `profile` e `email` ao aplicativo, se ele precisar das informações básicas de usuário.**
+5. **Aceite os valores do emissor nos tokens com e sem uma barra à direita.**
 
 Nossa [documentação do protocolo v 2.0](active-directory-v2-protocols.md) já foi atualizada para refletir essas alterações, portanto, você pode usá-la como referência ao ajudar a atualizar seu código.
 

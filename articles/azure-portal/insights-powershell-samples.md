@@ -1,35 +1,31 @@
-<properties
-	pageTitle="Azure Insights: exemplos de início rápido do Azure Insights PowerShell. | Microsoft Azure"
-	description="Os comandos do PowerShell do início rápido do Azure Insights podem ajudá-lo a acessar rapidamente os recursos de monitoramento do Azure Insights."
-	authors="kamathashwin"
-	manager=""
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: 'Azure Insights: exemplos de início rápido do Azure Insights PowerShell. | Microsoft Docs'
+description: Os comandos do PowerShell do início rápido do Azure Insights podem ajudá-lo a acessar rapidamente os recursos de monitoramento do Azure Insights.
+author: kamathashwin
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2016"
-	ms.author="ashwink"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: ashwink
 
+---
 # Exemplos de início rápido do PowerShell do Azure Insights
-
 Este artigo mostra exemplos de comandos do PowerShell para ajudá-lo a acessar rapidamente os recursos de monitoramento do Azure Insights. O Azure Insights permite que você dimensione automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web e envie notificações de alerta ou chame URLs da Web com base em valores de dados de telemetria configurados.
 
 ## Configurar o PowerShell
 Se ainda não tiver feito isso, configure o PowerShell para ser executado no seu computador. Para saber mais, consulte [Como instalar e configurar o PowerShell](../powershell-install-configure.md).
 
 ## Exemplos neste artigo
-
 Os exemplos neste artigo ilustram como você pode usar os cmdlets do Azure Insights. Você também pode ver a lista completa de cmdlets de PowerShell (monitoramento) do Azure Insights em [Cmdlets do Azure Insights](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
 
-
 ## Conectar-se e usar assinaturas
-
 Primeiro, faça logon na sua assinatura do Azure.
 
 ```
@@ -90,7 +86,10 @@ Get-AzureRmLog -MaxEvents 1000
 
 `Get-AzureRmLog` dá suporte a muitos outros parâmetros. Para saber mais, consulte a referência `Get-AzureRmLog`.
 
->[AZURE.NOTE] `Get-AzureRmLog` fornece apenas 15 dias de histórico. Usar o parâmetro **-MaxEvents** permite consultar os últimos N eventos, além de 15 dias. Para eventos de acesso que ocorreram há mais 15 dias, use a API REST ou o SDK (exemplo em C# usando o SDK). Se você não incluir **StartTime**, o valor padrão será **EndTime** menos uma hora. Se você não incluir **EndTime**, o valor padrão será a hora atual. Todas as horas estão no padrão UTC.
+> [!NOTE]
+> `Get-AzureRmLog` fornece apenas 15 dias de histórico. Usar o parâmetro **-MaxEvents** permite consultar os últimos N eventos, além de 15 dias. Para eventos de acesso que ocorreram há mais 15 dias, use a API REST ou o SDK (exemplo em C# usando o SDK). Se você não incluir **StartTime**, o valor padrão será **EndTime** menos uma hora. Se você não incluir **EndTime**, o valor padrão será a hora atual. Todas as horas estão no padrão UTC.
+> 
+> 
 
 ## Recuperar o histórico de alertas
 Para ver todos os eventos de alerta, você pode consultar os logs do ARM (Azure Resource Manager) usando os exemplos a seguir.
@@ -106,7 +105,6 @@ Get-AzureRmAlertHistory -ResourceId /subscriptions/s1/resourceGroups/rg1/provide
 ```
 
 O cmdlet `Get-AzureRmAlertHistory` dá suporte a vários parâmetros. Para saber mais, consulte [Get-AlertHistory](https://msdn.microsoft.com/library/mt282453.aspx).
-
 
 ## Recuperar informações sobre regras de alerta
 Todos os comandos a seguir atuam em um grupo de recursos denominado "montest".
@@ -141,20 +139,19 @@ A próxima seção contém um exemplo que mostra como criar uma regra de alerta 
 ### Regra de alerta com uma métrica
 A tabela a seguir descreve os parâmetros e valores usados para criar um alerta usando uma métrica.
 
-
-|parâmetro|value|
-|---|---|
-|Nome|	simpletestdiskwrite|
-|Local desta regra de alerta|	Leste dos EUA|
-|ResourceGroup|	montest|
-|TargetResourceId|	/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig|
-|MetricName do alerta que é criado|	\\PhysicalDisk(\_Total)\\Gravações de Disco/s. Consulte o cmdlet `Get-MetricDefinitions` abaixo sobre como recuperar os nomes de métrica exatos|
-|operator|	GreaterThan|
-|Valor de limite (contagem/s para esta métrica)|	1|
-|WindowSize (formato hh:mm:ss)|	00:05:00|
-|agregador (estatística da métrica, que usa a contagem Média, nesse caso)|	Média|
-|emails personalizados (matriz de cadeia de caracteres)|'foo@example.com','bar@example.com'|
-|enviar email a proprietários, colaboradores e leitores|	-SendToServiceOwners|
+| parâmetro | value |
+| --- | --- |
+| Nome |simpletestdiskwrite |
+| Local desta regra de alerta |Leste dos EUA |
+| ResourceGroup |montest |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
+| MetricName do alerta que é criado |\\PhysicalDisk(\_Total)\\Gravações de Disco/s. Consulte o cmdlet `Get-MetricDefinitions` abaixo sobre como recuperar os nomes de métrica exatos |
+| operator |GreaterThan |
+| Valor de limite (contagem/s para esta métrica) |1 |
+| WindowSize (formato hh:mm:ss) |00:05:00 |
+| agregador (estatística da métrica, que usa a contagem Média, nesse caso) |Média |
+| emails personalizados (matriz de cadeia de caracteres) |'foo@example.com','bar@example.com' |
+| enviar email a proprietários, colaboradores e leitores |-SendToServiceOwners |
 
 Ação Criar um email
 
@@ -183,8 +180,10 @@ Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 O cmdlet de alerta Add também atualizará a regra se já existir uma regra de alerta para as propriedades determinadas. Para desabilitar uma regra de alerta, inclua o parâmetro **- DisableRule**.
 
 ### Alerta de evento de log de auditoria
-
->[AZURE.NOTE] Este recurso ainda está em Preview.
+> [!NOTE]
+> Este recurso ainda está em Preview.
+> 
+> 
 
 Nesse cenário, você vai enviar um email quando um site for iniciado com êxito em minha assinatura no grupo de recursos *abhingrgtest123*.
 
@@ -229,7 +228,6 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Uma lista completa das opções disponíveis para `Get-AzureRmMetricDefinition` está disponível em [Get-MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx).
 
-
 ## Criar e gerenciar configurações de Autoescala
 Um recurso, como um aplicativo Web, VM, serviço de nuvem ou conjunto de escalas de VM pode ter apenas uma configuração de autoescala definida. No entanto, cada configuração de autoescala pode ter vários perfis. Por exemplo, um para um perfil de escala baseada em desempenho e outro para um perfil baseado em agendamento. Cada perfil pode ter várias regras configuradas nele. Para obter mais informações sobre Dimensionamento Automático, confira [Como fazer o dimensionamento automático de um aplicativo](../cloud-services/cloud-services-how-to-scale.md).
 
@@ -246,7 +244,7 @@ Primeiro, crie uma regra para expansão, com um aumento de contagem de instânci
 
 ```
 $rule1 = New-AzureRmAutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId /subscriptions/s1/resourceGroups/big2/providers/Microsoft.Compute/virtualMachineScaleSets/big2 -Operator GreaterThan -MetricStatistic Average -Threshold 0.01 -TimeGrain 00:01:00 -TimeWindow 00:10:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue 1
-```		
+```        
 
 Em seguida, crie uma regra para expansão, com uma redução da contagem de instâncias.
 
@@ -318,26 +316,22 @@ Remove-AzureRmAutoscalesetting -ResourceGroup myrg1 -Name MyScaleVMSSSetting
 ```
 
 ## Gerenciar perfis de log para logs de auditoria
-
 Você pode criar um *perfil de log* e exportar dados de logs de auditoria para uma conta de armazenamento e pode configurar retenção de dados para ele. Você também pode transmitir os dados para seu Hub de eventos. Observe que no momento esse recurso está em Preview e você só pode criar um perfil de log por assinatura. Você pode usar os cmdlets a seguir com sua assinatura atual para criar e gerenciar perfis de log. Você também pode escolher uma assinatura específica. Embora o PowerShell selecione a assinatura atual por padrão, você pode alterar isso usando `Set-AzureRmContext`. Você pode configurar logs de auditoria para encaminhar dados para qualquer conta de armazenamento ou Hub de eventos dentro dessa assinatura. Os dados são gravados como arquivos de blob no formato JSON.
 
 ### Obter um perfil de log
 Para buscar os perfis de log existentes, use o cmdlet `Get-AzureRmLogProfile`.
 
 ### Adicionar um perfil de log sem retenção de dados
-
 ```
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
 ### Remover um perfil de log
-
 ```
 Remove-AzureRmLogProfile -name my_log_profile_s1
 ```
 
 ### Adicionar um perfil de log com retenção de dados
-
 Você pode especificar a propriedade **-RetentionInDays** com o número de dias, como um inteiro positivo, em que os dados são mantidos.
 
 ```
@@ -355,7 +349,6 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 Muitos serviços do Azure fornecem logs e telemetria adicionais, incluindo Grupos de Segurança de Rede do Azure, Balanceadores de Carga de Software, o Cofre de Chaves, os Serviços de Pesquisa do Azure e os Aplicativos Lógicos, e eles podem ser configurados para salvar os dados em sua conta de armazenamento do Azure. Essa operação só pode ser executada no nível dos recursos e a conta de armazenamento deve estar na mesma região que o recurso de destino em que a configuração de diagnóstico está definida.
 
 ### Obter configuração de diagnóstico
-
 ```
 Get-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Logic/workflows/andy0315logicapp
 ```

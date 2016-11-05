@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Modos de exibição no SQL Data Warehouse | Microsoft Azure"
-   description="Dicas para usar exibições Transact-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Modos de exibição no SQL Data Warehouse | Microsoft Docs
+description: Dicas para usar exibições Transact-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="07/01/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 07/01/2016
+ms.author: jrj;barbkess;sonyama
 
-
+---
 # Modos de exibição no SQL Data Warehouse
-
 Os modos de exibição são particularmente úteis no SQL Data Warehouse. Eles podem ser usados em diversas maneiras diferentes de melhorar a qualidade de sua solução. Este artigo destaca alguns exemplos de como aprimorar sua solução com exibições, bem como as limitações que precisam ser consideradas.
 
-> [AZURE.NOTE] A sintaxe para `CREATE VIEW` não é abordada neste artigo. Consulte o artigo [CREATE VIEW][] no MSDN para obter essas informações de referência.
+> [!NOTE]
+> A sintaxe para `CREATE VIEW` não é abordada neste artigo. Consulte o artigo [CREATE VIEW][CREATE VIEW] no MSDN para obter essas informações de referência.
+> 
+> 
 
 ## Abstração de arquitetura
 Um padrão de aplicativo muito comum é recriar tabelas usando CREATE TABLE AS SELECT (CTAS) seguido por um objeto de renomeação do padrão durante o carregamento dos dados.
@@ -54,15 +55,14 @@ As exibições também podem ser utilizadas para impor junções de desempenho o
 ## Limitações
 Os modos de exibição no SQL Data Warehouse são somente metadados. Consequentemente, as opções a seguir não estão disponíveis:
 
-- 	Não há opção de associação de esquema
-- 	Tabelas base não podem ser atualizadas por meio da exibição
-- 	Exibições não podem ser criadas em tabelas temporárias
-- 	Não há suporte para as dicas EXPAND / NOEXPAND
-- 	não há exibições indexadas no SQL Data Warehouse
-
+* Não há opção de associação de esquema
+* Tabelas base não podem ser atualizadas por meio da exibição
+* Exibições não podem ser criadas em tabelas temporárias
+* Não há suporte para as dicas EXPAND / NOEXPAND
+* não há exibições indexadas no SQL Data Warehouse
 
 ## Próximas etapas
-Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse][]. Para ver a sintaxe `CREATE VIEW`, consulte [CREATE VIEW][].
+Para obter mais dicas de desenvolvimento, confira [Visão geral sobre o desenvolvimento no SQL Data Warehouse][Visão geral sobre o desenvolvimento no SQL Data Warehouse]. Para ver a sintaxe `CREATE VIEW`, consulte [CREATE VIEW][CREATE VIEW].
 
 <!--Image references-->
 

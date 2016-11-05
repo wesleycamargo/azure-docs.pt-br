@@ -1,37 +1,36 @@
-<properties
-	pageTitle="Trabalhando com conectores de Proxy de Aplicativo do Azure AD | Microsoft Azure"
-	description="Aborda como criar e gerenciar grupos de conectores no Proxy de Aplicativo do Azure AD."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+---
+title: Trabalhando com conectores de Proxy de Aplicativo do Azure AD | Microsoft Docs
+description: Aborda como criar e gerenciar grupos de conectores no Proxy de Aplicativo do Azure AD.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/09/2016"
-	ms.author="kgremban"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/09/2016
+ms.author: kgremban
 
-
+---
 # Publicar aplicativos em redes e locais separados usando grupos de conectores
-
-> [AZURE.SELECTOR]
-- [Portal do Azure](active-directory-application-proxy-connectors-azure-portal.md)
-- [Portal clássico do Azure](active-directory-application-proxy-connectors.md)
-
+> [!div class="op_single_selector"]
+> * [Portal do Azure](active-directory-application-proxy-connectors-azure-portal.md)
+> * [Portal clássico do Azure](active-directory-application-proxy-connectors.md)
+> 
+> 
 
 Os grupos de conectores são úteis para diversos cenários, incluindo:
 
-- Sites com vários datacenters interconectados. Nesses casos, você deseja manter o tráfego dentro do datacenter o máximo possível, porque links entre datacenters normalmente são caros e lentos. Você pode implantar conectores em cada datacenter para servir apenas os aplicativos que residem dentro do datacenter. Essa abordagem minimiza os links entre datacenters e fornece uma experiência totalmente transparente para os usuários.
-- Gerenciar aplicativos instalados em redes isoladas que não fazem parte da rede corporativa principal. Você pode usar grupos de conectores para instalar conectores dedicados em redes isoladas para isolar também os aplicativos para a rede.
-- Para aplicativos instalados no IaaS para acesso à nuvem, os grupos de conector fornecem um serviço comum para proteger o acesso a todos os aplicativos. Os grupos de conectores não criam dependência adicional em sua rede corporativa nem fragmentam a experiência de aplicativo. Conectores podem ser instalados em cada datacenter na nuvem e servir apenas os aplicativos que residem nessa rede. Você pode instalar vários conectores para obter alta disponibilidade.
-- Suporte para ambientes de várias florestas em que conectores específicos podem ser implantados por floresta e definidos para servir aplicativos específicos.
-- Grupos de Conectores podem ser usados em sites de Recuperação de desastres para detectar failover ou como backup do site principal.
-- Grupos de Conectores também podem ser usados para atender a várias empresas de um único locatário.
+* Sites com vários datacenters interconectados. Nesses casos, você deseja manter o tráfego dentro do datacenter o máximo possível, porque links entre datacenters normalmente são caros e lentos. Você pode implantar conectores em cada datacenter para servir apenas os aplicativos que residem dentro do datacenter. Essa abordagem minimiza os links entre datacenters e fornece uma experiência totalmente transparente para os usuários.
+* Gerenciar aplicativos instalados em redes isoladas que não fazem parte da rede corporativa principal. Você pode usar grupos de conectores para instalar conectores dedicados em redes isoladas para isolar também os aplicativos para a rede.
+* Para aplicativos instalados no IaaS para acesso à nuvem, os grupos de conector fornecem um serviço comum para proteger o acesso a todos os aplicativos. Os grupos de conectores não criam dependência adicional em sua rede corporativa nem fragmentam a experiência de aplicativo. Conectores podem ser instalados em cada datacenter na nuvem e servir apenas os aplicativos que residem nessa rede. Você pode instalar vários conectores para obter alta disponibilidade.
+* Suporte para ambientes de várias florestas em que conectores específicos podem ser implantados por floresta e definidos para servir aplicativos específicos.
+* Grupos de Conectores podem ser usados em sites de Recuperação de desastres para detectar failover ou como backup do site principal.
+* Grupos de Conectores também podem ser usados para atender a várias empresas de um único locatário.
 
 ## Pré-requisito: criar seus conectores
 Para agrupar seus conectores, você precisa assegurar-se de ter [instalado vários conectores](active-directory-application-proxy-enable.md) e de tê-los nomeado e agrupado. Por fim, você precisa atribuí-los a aplicativos específicos.
@@ -40,7 +39,6 @@ Para agrupar seus conectores, você precisa assegurar-se de ter [instalado vári
 Você pode criar quantos grupos de conectores desejar. A criação de grupo de Conectores é feita no portal clássico do Azure.
 
 1. Escolha o diretório e clique em **Configurar**. ![Captura de tela de configuração do proxy de aplicativo - clique em gerenciar grupos de conectores](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png)
-
 2. Em Proxy de Aplicativo, clique em **Gerenciar Grupos de Conectores** e crie um novo grupo de conectores fornecendo um nome ao grupo. ![Captura de tela de grupos de conectores de proxy de aplicativo - nomeie o novo grupo](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
 
 ## Etapa 2: Atribuir conectores aos seus grupos
@@ -55,13 +53,11 @@ A última etapa é atribuir cada aplicativo ao grupo de conectores que vai servi
 1. No Portal Clássico do Azure, no seu diretório, escolha o Aplicativo que você deseja atribuir ao grupo e clique em **Configurar**.
 2. Em **Grupo de conectores**, selecione o grupo que deseja usar. A alteração é aplicada imediatamente. ![Captura de tela de grupo de conectores de proxy de aplicativo - selecione o grupo do menu suspenso](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)
 
-
 ## Confira também
-
-- [Habilitar Proxy de aplicativo](active-directory-application-proxy-enable.md)
-- [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
-- [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
-- [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
+* [Habilitar Proxy de aplicativo](active-directory-application-proxy-enable.md)
+* [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
+* [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
+* [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
 
 Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
 

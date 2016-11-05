@@ -1,59 +1,54 @@
 
 
-<properties
-    pageTitle="Usar os modelos do Azure Resource Manager para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Azure"
-    description="Você pode usar os modelos do Azure Resource Manager para criar e configurar espaços de trabalho do Log Analytics."
-    services="log-analytics"
-    documentationCenter=""
-    authors="richrundmsft"
-    manager="jochan"
-    editor=""/>
+---
+title: Usar os modelos do Azure Resource Manager para criar e configurar um espaço de trabalho do Log Analytics | Microsoft Docs
+description: Você pode usar os modelos do Azure Resource Manager para criar e configurar espaços de trabalho do Log Analytics.
+services: log-analytics
+documentationcenter: ''
+author: richrundmsft
+manager: jochan
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="json"
-    ms.topic="article"
-    ms.date="08/25/2016"
-    ms.author="richrund"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: json
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: richrund
 
-
+---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics usando modelos do Azure Resource Manager
+Você pode usar [Azure Resource Manager templates](../resource-group-authoring-templates.md) para criar e configurar espaços de trabalho do Log Analytics. Os exemplos das tarefas que você pode executar com os modelos incluem:
 
-Você pode usar [Azure Resource Manager templates] (../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar espaços de trabalho do Log Analytics. Os exemplos das tarefas que você pode executar com os modelos incluem:
-
-+ Criar um espaço de trabalho
-+ Adicionar uma solução
-+ Criar pesquisas salvas
-+ Criar um grupo de computadores
-+ Habilitar coleta de logs do IIS de computadores com o agente do Windows instalado
-+ Coletar contadores de desempenho de computadores Linux e Windows
-+ Coletar eventos de syslog em computadores Linux 
-+ Coletar eventos dos logs de eventos do Windows
-+ Coletar logs de eventos personalizados
-+ Adicionar o agente de análise de log a uma máquina virtual do Azure
-+ Configurar a análise de log para indexar os dados coletados usando o diagnóstico do Azure
-
+* Criar um espaço de trabalho
+* Adicionar uma solução
+* Criar pesquisas salvas
+* Criar um grupo de computadores
+* Habilitar coleta de logs do IIS de computadores com o agente do Windows instalado
+* Coletar contadores de desempenho de computadores Linux e Windows
+* Coletar eventos de syslog em computadores Linux 
+* Coletar eventos dos logs de eventos do Windows
+* Coletar logs de eventos personalizados
+* Adicionar o agente de análise de log a uma máquina virtual do Azure
+* Configurar a análise de log para indexar os dados coletados usando o diagnóstico do Azure
 
 Este artigo fornece exemplos de código que ilustram algumas das configurações que podem ser executadas com os modelos.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um espaço de trabalho de Log Analytics
-
 O exemplo de modelo a seguir ilustra como:
 
-1.  Criar um espaço de trabalho
-2.  Adicionar soluções ao espaço de trabalho
-3.  Criar pesquisas salvas
-4.  Criar um grupo de computadores
-5.  Habilitar coleta de logs do IIS de computadores com o agente do Windows instalado
-6.  Coletar contadores de desempenho de disco lógico de computadores Linux (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
-7.  Coletar eventos de syslog em computadores Linux
-8.  Coletar eventos de Erro e Aviso no Log de Eventos do Aplicativo dos computadores Windows
-9.  Coletar o contador de desempenho de Mbytes Disponíveis de Memória de computadores Windows
+1. Criar um espaço de trabalho
+2. Adicionar soluções ao espaço de trabalho
+3. Criar pesquisas salvas
+4. Criar um grupo de computadores
+5. Habilitar coleta de logs do IIS de computadores com o agente do Windows instalado
+6. Coletar contadores de desempenho de disco lógico de computadores Linux (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
+7. Coletar eventos de syslog em computadores Linux
+8. Coletar eventos de Erro e Aviso no Log de Eventos do Aplicativo dos computadores Windows
+9. Coletar o contador de desempenho de Mbytes Disponíveis de Memória de computadores Windows
 10. Coletar um log personalizado 
 11. Coletar logs do IIS e logs de Eventos do Windows gravados pelo diagnóstico do Azure para uma conta de armazenamento
-
 
 ```
 {
@@ -420,7 +415,6 @@ O exemplo de modelo a seguir ilustra como:
 
 ```
 ### <a name="deploying-the-sample-template"></a>Implantar o modelo de exemplo
-
 Para implantar o modelo de exemplo:
 
 1. Salve o exemplo anexado em um arquivo, por exemplo `azuredeploy.json` 
@@ -428,11 +422,9 @@ Para implantar o modelo de exemplo:
 3. Use o PowerShell ou a linha de comando para implantar o modelo
 
 #### <a name="powershell"></a>PowerShell
-
 `New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
 
 #### <a name="command-line"></a>Linha de comando
-
 ```
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
@@ -440,26 +432,18 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 
 
 ## <a name="example-resource-manager-templates"></a>Exemplo de modelos do Resource Manager
-
 A Galeria de modelos de início rápido do Azure inclui vários modelos para Log Analytics, incluindo:
 
-+ [Implantar uma máquina virtual executando o Windows com a extensão de VM do Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-+ [Implantar uma máquina virtual executando o Linux com a extensão de VM do Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
-+ [Monitorar o Azure Site Recovery usando um espaço de trabalho do Log Analytics](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
-+ [Monitorar o Azure Web Apps usando um espaço de trabalho do Log Analytics](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-+ [Monitorar o SQL Azure usando um espaço de trabalho do Log Analytics](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-+ [Implantar um cluster de Service Fabric e monitorá-lo com um espaço de trabalho do Log Analytics](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-+ [Implantar um cluster do Service Fabric e criar um espaço de trabalho do Log Analytics para monitorá-lo](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
-
+* [Implantar uma máquina virtual executando o Windows com a extensão de VM do Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Implantar uma máquina virtual executando o Linux com a extensão de VM do Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Monitorar o Azure Site Recovery usando um espaço de trabalho do Log Analytics](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
+* [Monitorar o Azure Web Apps usando um espaço de trabalho do Log Analytics](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
+* [Monitorar o SQL Azure usando um espaço de trabalho do Log Analytics](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
+* [Implantar um cluster de Service Fabric e monitorá-lo com um espaço de trabalho do Log Analytics](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
+* [Implantar um cluster do Service Fabric e criar um espaço de trabalho do Log Analytics para monitorá-lo](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
 ## <a name="next-steps"></a>Próximas etapas
-
-+ [Implantar agentes em VMs do Azure usando modelos do Gerenciador de Recursos](log-analytics-azure-vm-extension.md)
-
-
-
-
-
+* [Implantar agentes em VMs do Azure usando modelos do Gerenciador de Recursos](log-analytics-azure-vm-extension.md)
 
 <!--HONumber=Oct16_HO2-->
 

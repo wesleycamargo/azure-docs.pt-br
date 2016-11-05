@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Eventos de Reliable Actors | Microsoft Azure"
-   description="Introdução a eventos para Service Fabric Reliable Actors."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor=""/>
+---
+title: Eventos de Reliable Actors | Microsoft Docs
+description: Introdução a eventos para Service Fabric Reliable Actors.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/30/2016"
-   ms.author="amanbha"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/30/2016
+ms.author: amanbha
 
-
+---
 # Eventos de ator
 Os eventos de ator são uma forma de enviar notificações de melhor esforço do ator para os clientes. Os eventos de ator foram desenvolvidos para comunicação entre ator e cliente e não devem ser usados para comunicação entre ator e ator.
 
@@ -73,9 +72,9 @@ ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
 ## Próximas etapas
- - [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
- - [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
- - [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Exemplo de código](https://github.com/Azure/servicefabric-samples)
+* [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
+* [Diagnóstico e monitoramento de desempenho do ator](service-fabric-reliable-actors-diagnostics.md)
+* [Documentação de referência da API do Ator](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Exemplo de código](https://github.com/Azure/servicefabric-samples)
 
 <!---HONumber=AcomDC_0907_2016-->

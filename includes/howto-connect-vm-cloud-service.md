@@ -10,31 +10,29 @@ Ao colocar as máquinas virtuais em uma rede virtual, você pode decidir quantos
 
 ![Máquinas virtuais em uma rede virtual](./media/howto-connect-vm-cloud-service/VirtualNetworkExample.png)
 
-As redes virtuais são a maneira recomendada para conectar máquinas virtuais no Azure. A prática recomendada é configurar cada camada do aplicativo em um serviço de nuvem separado. No entanto, talvez seja necessário combinar algumas máquinas virtuais de diferentes níveis de aplicativos no mesmo serviço de nuvem para permanecer dentro do máximo de 200 serviços de nuvem por assinatura. Para verificar isso e outros limites, consulte [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
+As redes virtuais são a maneira recomendada para conectar máquinas virtuais no Azure. A prática recomendada é configurar cada camada do aplicativo em um serviço de nuvem separado. No entanto, talvez seja necessário combinar algumas máquinas virtuais de diferentes níveis de aplicativos no mesmo serviço de nuvem para permanecer dentro do máximo de 200 serviços de nuvem por assinatura. Para verificar isso e outros limites, consulte [Assinatura do Azure e limites de serviços, cotas e restrições](../articles/azure-subscription-service-limits.md).
 
 ## Conectar VMs em uma rede virtual
-
 Para conectar máquinas virtuais em uma rede virtual:
 
-1.	Crie a rede virtual no [Portal do Azure](http://manage.windowsazure.com). Para obter mais informações, consulte [Tarefas de configuração de rede virtual](../documentation/services/virtual-machines/).
-2.	Crie o conjunto de serviços de nuvem para sua implantação de modo a refletir seu design para conjuntos de disponibilidade e balanceamento de carga. No portal, clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada** para cada serviço de nuvem.
-3.	Para criar cada máquina virtual nova, clique em **Novo > Computação > Máquina Virtual > Da Galeria**. Escolha o serviço de nuvem e a rede virtual corretos para a VM. Se o serviço de nuvem já fizer parte de uma rede virtual, seu nome já estará selecionado para você.
+1. Crie a rede virtual no [Portal do Azure](http://manage.windowsazure.com). Para obter mais informações, consulte [Tarefas de configuração de rede virtual](../documentation/services/virtual-machines.md).
+2. Crie o conjunto de serviços de nuvem para sua implantação de modo a refletir seu design para conjuntos de disponibilidade e balanceamento de carga. No portal, clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada** para cada serviço de nuvem.
+3. Para criar cada máquina virtual nova, clique em **Novo > Computação > Máquina Virtual > Da Galeria**. Escolha o serviço de nuvem e a rede virtual corretos para a VM. Se o serviço de nuvem já fizer parte de uma rede virtual, seu nome já estará selecionado para você.
 
 ![Selecionar um serviço de nuvem para uma máquina virtual](./media/howto-connect-vm-cloud-service/VMConfig1.png)
 
 ## Conectar VMs em um serviço de nuvem autônomo
-
 Para conectar máquinas virtuais em um serviço de nuvem autônomo:
 
-1.	Crie o serviço de nuvem no [Portal do Azure](http://manage.windowsazure.com). Clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada**. Ou você pode criar o serviço de nuvem para sua implantação ao criar sua primeira máquina virtual.
-2.	Ao criar as máquinas virtuais, escolha o nome do serviço de nuvem criado na etapa anterior.![Adicionar uma máquina virtual a um serviço de nuvem existente](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
+1. Crie o serviço de nuvem no [Portal do Azure](http://manage.windowsazure.com). Clique em **Novo > Computação > Serviço de Nuvem > Criação Personalizada**. Ou você pode criar o serviço de nuvem para sua implantação ao criar sua primeira máquina virtual.
+2. Ao criar as máquinas virtuais, escolha o nome do serviço de nuvem criado na etapa anterior.![Adicionar uma máquina virtual a um serviço de nuvem existente](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
-##Recursos
+## Recursos
 [Máquinas virtuais de balanceamento de carga](../articles/load-balance-virtual-machines.md)
 
 [Gerencie a disponibilidade de máquinas virtuais](../articles/manage-availability-virtual-machines.md)
 
-[Tarefas de configuração da rede virtual](../documentation/services/virtual-machines/)
+[Tarefas de configuração da rede virtual](../documentation/services/virtual-machines.md)
 
 Após criar uma máquina virtual, é uma boa ideia adicionar um disco de dados para que seus serviços e cargas de trabalho tenham um local para armazenar dados. Veja uma das opções a seguir:
 

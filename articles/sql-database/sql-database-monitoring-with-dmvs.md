@@ -1,36 +1,34 @@
-<properties
-   pageTitle="Monitoramento de Banco de Dados SQL do Azure usando exibições de gerenciamento dinâmico | Microsoft Azure"
-   description="Saiba como detectar e diagnosticar problemas de desempenho comuns usando exibições de gerenciamento dinâmico para monitorar o Banco de Dados SQL do Microsoft Azure."
-   services="sql-database"
-   documentationCenter=""
-   authors="CarlRabeler"
-   manager="jhubbard"
-   editor=""
-   tags=""/>
+---
+title: Monitoramento de Banco de Dados SQL do Azure usando exibições de gerenciamento dinâmico | Microsoft Docs
+description: Saiba como detectar e diagnosticar problemas de desempenho comuns usando exibições de gerenciamento dinâmico para monitorar o Banco de Dados SQL do Microsoft Azure.
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: jhubbard
+editor: ''
+tags: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="09/20/2016"
-   ms.author="carlrab"/>
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 09/20/2016
+ms.author: carlrab
 
+---
 # Monitoramento de Banco de Dados SQL usando exibições de gerenciamento dinâmico
-
 O Banco de Dados SQL do Microsoft Azure permite um subconjunto de modos de exibição de gerenciamento dinâmico para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou demoradas, afunilamentos de recursos, planos de consulta ruins e assim por diante. Este tópico fornece informações sobre como detectar problemas de desempenho comuns usando exibições de gerenciamento dinâmico.
 
 O Banco de Dados SQL oferece suporte parcial para três categorias de exibições de gerenciamento dinâmico:
 
-- Exibições de gerenciamento dinâmico relacionadas ao banco de dados.
-- Exibições de gerenciamento dinâmico relacionadas à execução.
-- Exibições de gerenciamento dinâmico relacionadas à transação.
+* Exibições de gerenciamento dinâmico relacionadas ao banco de dados.
+* Exibições de gerenciamento dinâmico relacionadas à execução.
+* Exibições de gerenciamento dinâmico relacionadas à transação.
 
 Para obter informações detalhadas sobre exibições de gerenciamento dinâmico, consulte [Funções e exibições (Transact-SQL) de gerenciamento dinâmico](https://msdn.microsoft.com/library/ms188754.aspx) nos Manuais Online do SQL Server.
 
 ## Permissões
-
 No Banco de Dados SQL, consultar uma visualização de gerenciamento dinâmico requer permissões **VIEW DATABASE STATE**. A permissão **VIEW DATABASE STATE** retorna informações sobre todos os objetos no banco de dados atual. Para conceder a permissão **VIEW DATABASE STATE** a um usuário específico do banco de dados, execute a seguinte consulta:
 
 ```GRANT VIEW DATABASE STATE TO database_user;```
@@ -38,7 +36,6 @@ No Banco de Dados SQL, consultar uma visualização de gerenciamento dinâmico r
 Em uma instância do SQL Server local, as exibições de gerenciamento dinâmico retornam informações de estado do servidor. Em um Banco de Dados SQL, elas retornam informações relacionadas apenas ao seu banco de dados lógico atual.
 
 ## Calculando o tamanho do banco de dados
-
 A seguinte consulta retorna o tamanho do seu banco de dados (em megabytes):
 
 ```
@@ -60,7 +57,6 @@ GO
 ```
 
 ## Monitoramento de conexões
-
 É possível usar a exibição [sys.dm\_exec\_connections](https://msdn.microsoft.com/library/ms181509.aspx) para recuperar informações sobre as conexões estabelecidas com um servidor do Banco de dados SQL do Azure específico e os detalhes de cada conexão. Além disso, a exibição [sys.dm\_exec\_sessions](https://msdn.microsoft.com/library/ms176013.aspx) é útil ao recuperar informações sobre todas as conexões de usuário e tarefas internas ativas. A consulta a seguir recupera as informações sobre a conexão atual:
 
 ```
@@ -76,14 +72,15 @@ JOIN sys.dm_exec_sessions AS s
 WHERE c.session_id = @@SPID;
 ```
 
-> [AZURE.NOTE] Ao executar as exibições **sys.dm\_exec\_requests** e **sys.dm\_exec\_sessions**, se você tiver a permissão **EXIBIR ESTADO DO BANCO DE DADOS** no banco de dados, verá todas as sessões em execução no banco de dados; caso contrário, verá apenas a sessão atual.
+> [!NOTE]
+> Ao executar as exibições **sys.dm\_exec\_requests** e **sys.dm\_exec\_sessions**, se você tiver a permissão **EXIBIR ESTADO DO BANCO DE DADOS** no banco de dados, verá todas as sessões em execução no banco de dados; caso contrário, verá apenas a sessão atual.
+> 
+> 
 
 ## Monitoramento de desempenho da consulta
-
 Consultas de execução lenta ou longa podem consumir recursos significativos do sistema. Esta seção demonstra como usar exibições de gerenciamento dinâmico para detectar alguns problemas comuns de desempenho de consulta. Uma referência mais antiga, mas ainda útil para solução de problemas, é o artigo [Solucionando problemas de desempenho no SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) no Microsoft TechNet.
 
 ### Localizando as principais consultas N
-
 O exemplo a seguir retorna informações sobre as cinco principais consultas classificadas pelo tempo médio de CPU. Este exemplo agrega as consultas de acordo com sua hash de consulta, para que as consultas logicamente equivalentes sejam agrupadas em função de seu consumo de recursos cumulativos.
 
 ```
@@ -104,11 +101,9 @@ ORDER BY 2 DESC;
 ```
 
 ### Monitoramento de consultas bloqueadas
-
 Consultas lentas ou demoradas podem contribuir para consumo excessivo de recursos e ser a consequência de consultas bloqueadas. A causa do bloqueio pode ser projeto inadequado de aplicativos, planos de consulta incorretos, a falta de índices úteis e assim por diante. Você pode usar o modo de exibição sys.dm\_tran\_locks para obter informações sobre a atividade de bloqueio atual em seu Banco de dados SQL do Azure. Para ver um exemplo de código, veja [sys.dm\_tran\_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) nos Manuais Online do SQL Server.
 
 ### Monitoramento de planos de consulta
-
 Um plano de consulta ineficiente também pode aumentar o consumo de CPU. O exemplo a seguir usa a exibição [sys.dm\_exec\_query\_stats](https://msdn.microsoft.com/library/ms189741.aspx) para determinar qual consulta usa a CPU mais cumulativa.
 
 ```
@@ -132,7 +127,6 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
 ## Confira também
-
 [Introdução ao Banco de Dados SQL](sql-database-technical-overview.md)
 
 <!----HONumber=AcomDC_0921_2016-->

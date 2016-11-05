@@ -6,8 +6,8 @@ Ao adicionar uma conexão de VNet para VNet, verifique se ambas as redes virtuai
 4. Para **Tipo de Conexão**, selecione **VNet para VNet**
 5. Para **Gateway de Rede Virtual**, o valor é fixo porque você está se conectando por esse gateway.
 6. Para **Segundo Gateway de Rede Virtual**, selecione o gateway para o qual deseja criar uma conexão desse gateway.
-8. O restante dos valores para **Assinatura**, **Grupo de Recursos** e **Local** são fixos.
-9. Clique em **OK** para criar sua conexão. Você verá *Criar Conexão* piscar na tela.
-10. Quando a conexão for concluída, você a verá na folha **Conexões** do seu Gateway.
+7. O restante dos valores para **Assinatura**, **Grupo de Recursos** e **Local** são fixos.
+8. Clique em **OK** para criar sua conexão. Você verá *Criar Conexão* piscar na tela.
+9. Quando a conexão for concluída, você a verá na folha **Conexões** do seu Gateway.
 
 <!---HONumber=AcomDC_0107_2016-->

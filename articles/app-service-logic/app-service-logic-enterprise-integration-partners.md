@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Saiba mais sobre parceiros e o Enterprise Integration Pack | Serviço de Aplicativo do Microsoft Azure | Microsoft Azure" 
-	description="Saiba como usar parceiros com o Enterprise Integration Pack e aplicativos Lógicos" 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+---
+title: Saiba mais sobre parceiros e o Enterprise Integration Pack | Microsoft Docs
+description: Saiba como usar parceiros com o Enterprise Integration Pack e aplicativos Lógicos
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: msftman
+manager: erikre
+editor: cgronlun
 
-<tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2016" 
-	ms.author="deonhe"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/08/2016
+ms.author: deonhe
 
+---
 # Saiba mais sobre parceiros e o Enterprise Integration Pack
-
 ## Visão geral
 Antes de criar um parceiro, você e a organização com a qual você pretende fazer negócios devem compartilhar informações que ajudarão vocês a identificar e a validar as mensagens trocadas. Após essas discussões, e quando você estiver pronto para começar sua relação corporativa, crie um *parceiro* em sua conta de integração.
 
@@ -35,19 +34,20 @@ As configurações de Recebimento e Envio são orientadas do ponto de vista do P
 
 ## Como criar um parceiro?
 No Portal do Azure:
+
 1. Selecione **Procurar**![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)
 2. Insira **integração** na caixa de pesquisa do filtro e selecione **Contas de Integração** na lista de resultados ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 3. Selecione a **conta integração** à qual você adicionará os parceiros ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)
-4.  Escolha o bloco **Parceiros** ![](./media/app-service-logic-enterprise-integration-partners/partner-1.png)
+4. Escolha o bloco **Parceiros** ![](./media/app-service-logic-enterprise-integration-partners/partner-1.png)
 5. Selecione o botão **Adicionar** na folha Parceiros que se abre. ![](./media/app-service-logic-enterprise-integration-partners/partner-2.png)
 6. Insira um **Nome** para seu parceiro e escolha o **Qualificador **, finalmente, insira um **Valor**. O valor é usado para ajudar a identificar documentos que entram em seus aplicativos. ![](./media/app-service-logic-enterprise-integration-partners/partner-3.png)
 7. Escolha o ícone de notificação de *sino* para ver o progresso do processo de criação de parceiro. ![](./media/app-service-logic-enterprise-integration-partners/partner-4.png)
 8. Escolha o bloco **Parceiros**. Isso atualiza o bloco e você poderá ver o número de parceiros aumentar, refletindo que o novo parceiro foi adicionado com êxito. ![](./media/app-service-logic-enterprise-integration-partners/partner-5.png)
-10. Depois de selecionar o bloco Parceiros, você também verá o parceiro recém-adicionado exibido na folha Parceiros. ![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)
+9. Depois de selecionar o bloco Parceiros, você também verá o parceiro recém-adicionado exibido na folha Parceiros. ![](./media/app-service-logic-enterprise-integration-partners/partner-6.png)
 
 ## Como editar um parceiro
-
 Execute estas etapas para editar um parceiro que já existe em sua conta de integração:
+
 1. Escolha o bloco **Parceiros**
 2. Selecione o parceiro que você deseja editar quando a folha Parceiros for aberta
 3. No bloco **Atualizar Parceiro**, faça as alterações necessárias
@@ -59,6 +59,6 @@ Execute estas etapas para editar um parceiro que já existe em sua conta de inte
 3. Selecione o link **Excluir** ![](./media/app-service-logic-enterprise-integration-partners/delete-1.png)
 
 ## Próximas etapas
-- [Saiba mais sobre contratos](./app-service-logic-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração corporativa")
+* [Saiba mais sobre contratos](app-service-logic-enterprise-integration-agreements.md "Saiba mais sobre contratos de integração corporativa")
 
 <!---HONumber=AcomDC_0803_2016-->

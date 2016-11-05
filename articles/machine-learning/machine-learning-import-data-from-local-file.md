@@ -1,33 +1,28 @@
-<properties
-	pageTitle="Importar dados no Estúdio de Aprendizado de Máquina de um arquivo local | Microsoft Azure"
-	description="Como importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de um arquivo local."
-	keywords="importar dados, formato de dados, tipos de dados, fontes de dados, dados de treinamento"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Importar dados no Estúdio de Aprendizado de Máquina de um arquivo local | Microsoft Docs
+description: Como importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de um arquivo local.
+keywords: importar dados, formato de dados, tipos de dados, fontes de dados, dados de treinamento
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye;bradsev
 
-
+---
 # Importe os seus dados de treinamento no Estúdio de Aprendizado de Máquina do Azure de um arquivo local
-
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Para usar seus próprios dados no Estúdio de Aprendizado de Máquina, você pode antes carregar antecipadamente um arquivo de dados do disco rígido local para criar um módulo de conjunto de dados em seu espaço de trabalho.
 
-
 ## Importar dados de um arquivo local
-
 Você pode importar dados de um disco rígido local fazendo o seguinte:
 
 1. clique em **+NOVO** na parte inferior da janela do Estúdio de Aprendizado de Máquina.

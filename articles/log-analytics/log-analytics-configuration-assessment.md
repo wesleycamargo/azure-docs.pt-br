@@ -1,97 +1,99 @@
-<properties
-    pageTitle="Solução de Avaliação de Configuração no Log Analytics | Microsoft Azure"
-    description="A solução de Avaliação de Configuração no Log Analytics fornece informações detalhadas sobre o estado atual da sua infraestrutura de servidor do System Center Operations Manager ao usar agentes ou um grupo de gerenciamento do Operations Manager."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Solução de Avaliação de Configuração no Log Analytics | Microsoft Docs
+description: A solução de Avaliação de Configuração no Log Analytics fornece informações detalhadas sobre o estado atual da sua infraestrutura de servidor do System Center Operations Manager ao usar agentes ou um grupo de gerenciamento do Operations Manager.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="configuration-assessment-solution-in-log-analytics"></a>Solução de Avaliação de Configuração no Log Analytics
-
 A solução de Avaliação de Configuração no Log Analytics ajuda você a localizar possíveis problemas de configuração de servidor por meio de alertas e recomendações de conhecimento.
 
 Essa solução requer o System Center Operations Manager. A Avaliação de Configuração não estará disponível se você usar apenas agentes conectados diretamente.
 
 Exibir algumas informações na solução de Avaliação de Configuração requer o plug-in do Silverlight para o navegador.
 
->[AZURE.NOTE] A partir de 5 de julho de 2016, a solução Avaliação de Configuração não poderá ser adicionada aos espaços de trabalho do Log Analytics, e essa solução não estará disponível para os usuários existentes depois de 1 de agosto de 2016. Para os clientes que usam essa solução para SQL Server ou do Active Directory, é recomendável usar as soluções [Avaliação do SQL Server](log-analytics-sql-assessment.md), [Avaliação do Active Directory](log-analytics-ad-assessment.md) e [Status da Replicação do Active Directory](log-analytics-ad-replication-status.md). Para os clientes que usam a avaliação de configuração para Windows, Hyper-V e System Center Virtual Machine Manager, é recomendável usar os recursos de coleta de eventos e controle de alterações para obter uma visão holística de quaisquer problemas em seus ambientes.
+> [!NOTE]
+> A partir de 5 de julho de 2016, a solução Avaliação de Configuração não poderá ser adicionada aos espaços de trabalho do Log Analytics, e essa solução não estará disponível para os usuários existentes depois de 1 de agosto de 2016. Para os clientes que usam essa solução para SQL Server ou do Active Directory, é recomendável usar as soluções [Avaliação do SQL Server](log-analytics-sql-assessment.md), [Avaliação do Active Directory](log-analytics-ad-assessment.md) e [Status da Replicação do Active Directory](log-analytics-ad-replication-status.md). Para os clientes que usam a avaliação de configuração para Windows, Hyper-V e System Center Virtual Machine Manager, é recomendável usar os recursos de coleta de eventos e controle de alterações para obter uma visão holística de quaisquer problemas em seus ambientes.
+> 
+> 
 
 ![Bloco da Avaliação de Configuração](./media/log-analytics-configuration-assessment/oms-config-assess-tile.png)
 
 Dados de configuração são coletados de servidores monitorados e, em seguida, enviados para o serviço do OMS na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados. Dados processados para os servidores são mostrados para as seguintes áreas:
 
-- **Alertas:** mostra os alertas proativos relacionados à configuração gerados para os servidores monitorados. Eles são produzidos por regras criadas pela organização Microsoft Customer and Support (CSS) com as práticas recomendadas do campo.
-- **Recomendações de Conhecimento:** mostra os artigos da Base de Dados de Conhecimento Microsoft recomendados para as cargas de trabalho encontradas em sua infraestrutura. Eles são sugeridos automaticamente com base na sua configuração por meio do uso de aprendizado de máquina.
-- **Servidores e Cargas de Trabalho Analisados:** mostra os servidores e as cargas de trabalho monitorados pelo OMS.
+* **Alertas:** mostra os alertas proativos relacionados à configuração gerados para os servidores monitorados. Eles são produzidos por regras criadas pela organização Microsoft Customer and Support (CSS) com as práticas recomendadas do campo.
+* **Recomendações de Conhecimento:** mostra os artigos da Base de Dados de Conhecimento Microsoft recomendados para as cargas de trabalho encontradas em sua infraestrutura. Eles são sugeridos automaticamente com base na sua configuração por meio do uso de aprendizado de máquina.
+* **Servidores e Cargas de Trabalho Analisados:** mostra os servidores e as cargas de trabalho monitorados pelo OMS.
 
 ![Painel da Avaliação de Configuração](./media/log-analytics-configuration-assessment/oms-config-assess-dash01.png)
 
 ### <a name="technologies-you-can-analyze-with-configuration-assessment"></a>Tecnologias que podem ser analisadas com a Avaliação de Configuração
-
 A Avaliação de Configuração do OMS analisa as cargas de trabalho a seguir:
 
-- Windows Server 2012 e Microsoft Hyper-V Server 2012
-- Windows Server 2008 e Windows Server 2008 R2, inclusive:
-    - Active Directory
-    - Host Hyper-V
-    - Sistema operacional geral
-- SQL Server 2008 e posterior
-    - Mecanismo do Banco de Dados do SQL Server
-- Microsoft SharePoint 2010
-- Microsoft Exchange Server 2010 e Microsoft Exchange Server 2013
-- Microsoft Lync Server 2013 e Lync Server 2010
-- System Center 2012 SP1 – Virtual Machine Manager
+* Windows Server 2012 e Microsoft Hyper-V Server 2012
+* Windows Server 2008 e Windows Server 2008 R2, inclusive:
+  * Active Directory
+  * Host Hyper-V
+  * Sistema operacional geral
+* SQL Server 2008 e posterior
+  * Mecanismo do Banco de Dados do SQL Server
+* Microsoft SharePoint 2010
+* Microsoft Exchange Server 2010 e Microsoft Exchange Server 2013
+* Microsoft Lync Server 2013 e Lync Server 2010
+* System Center 2012 SP1 – Virtual Machine Manager
 
 Para o SQL Server, as seguintes edições de 32 e 64 bits têm suporte para a análise:
 
-- SQL Server 2016 - todas as edições
-- SQL Server 2014 - todas as edições
-- SQL Server 2008 e 2008 R2 - todas as edições
+* SQL Server 2016 - todas as edições
+* SQL Server 2014 - todas as edições
+* SQL Server 2008 e 2008 R2 - todas as edições
 
 O Mecanismo de Banco de Dados do SQL Server é analisado em todas as edições com suporte. Além disso, a edição de 32 bits do SQL Server tem suporte ao ser executada na implementação do WOW64.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 Use as informações a seguir para instalar e configurar a solução.
 
-- O Operations Manager é necessário para a solução de Avaliação de Configuração.
-- Você deve ter um agente do Operations Manager em cada computador em que deseja avaliar a configuração.
-- Adicione a solução de Avaliação de Configuração ao seu espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
+* O Operations Manager é necessário para a solução de Avaliação de Configuração.
+* Você deve ter um agente do Operations Manager em cada computador em que deseja avaliar a configuração.
+* Adicione a solução de Avaliação de Configuração ao seu espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
 
 ## <a name="configuration-assessment-data-collection-details"></a>Detalhes da coleta de dados da Avaliação de Configuração
-
 A Avaliação de Configuração coletará dados de configuração, metadados e dados de estado usando os agentes que você tiver habilitado.
 
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para a Avaliação de Configuração.
 
 | plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
-|---|---|---|---|---|---|---|
-|Windows|![Não](./media/log-analytics-configuration-assessment/oms-bullet-red.png)|![Sim](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![Não](./media/log-analytics-configuration-assessment/oms-bullet-red.png)|            ![Sim](./media/log-analytics-configuration-assessment/oms-bullet-green.png)|![Sim](./media/log-analytics-configuration-assessment/oms-bullet-green.png)| duas vezes por dia|
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Não](./media/log-analytics-configuration-assessment/oms-bullet-red.png) |![Sim](./media/log-analytics-configuration-assessment/oms-bullet-green.png) |![Não](./media/log-analytics-configuration-assessment/oms-bullet-red.png) |![Sim](./media/log-analytics-configuration-assessment/oms-bullet-green.png) |![Sim](./media/log-analytics-configuration-assessment/oms-bullet-green.png) |duas vezes por dia |
 
 A tabela a seguir mostra exemplos de tipos de dados coletados pela Avaliação de Configuração:
 
-|**Tipo de dados**|**Campos**|
-|---|---|
-|Configuração|CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate|
-|Metadados|BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime|
-|Estado|StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified|
+| **Tipo de dados** | **Campos** |
+| --- | --- |
+| Configuração |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
+| Metadados |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
+| Estado |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="configuration-assessment-alerts"></a>Alertas da Avaliação de Configuração
 Você pode exibir e gerenciar alertas da Avaliação de Configuração com a página de Alertas. Alertas informam o problema que foi detectado, sua causa e como resolvê-lo. Eles também fornecem informações sobre definições de configuração em seu ambiente que podem causar problemas de desempenho.
 
 ![exibição de alertas](./media/log-analytics-configuration-assessment/oms-config-assess-alerts01.png)
 
->[AZURE.NOTE] Os alertas da Avaliação de Configuração são diferentes dos outros alertas no Log Analytics. Exibir alertas requer um plug-in do Silverlight para o navegador.
+> [!NOTE]
+> Os alertas da Avaliação de Configuração são diferentes dos outros alertas no Log Analytics. Exibir alertas requer um plug-in do Silverlight para o navegador.
+> 
+> 
 
 Ao selecionar um item ou uma categoria de itens na página Alertas, você verá uma lista de servidores ou cargas de trabalho com alertas aplicáveis a cada item.
 
@@ -99,7 +101,10 @@ Ao selecionar um item ou uma categoria de itens na página Alertas, você verá 
 
 Cada alerta inclui um link para um artigo da Base de Dados de Conhecimento Microsoft. Esses artigos fornecem mais informações sobre o alerta.
 
->[AZURE.TIP] Por padrão, o número máximo de alertas exibidos é 2.000. Para exibir mais alertas, clique na barra de notificação acima da lista de alertas.
+> [!TIP]
+> Por padrão, o número máximo de alertas exibidos é 2.000. Para exibir mais alertas, clique na barra de notificação acima da lista de alertas.
+> 
+> 
 
 Você pode clicar em qualquer item na lista para exibir o artigo da base de dados que pode ajudar a resolver a causa do problema que gerou o alerta.
 
@@ -120,10 +125,7 @@ Ao exibir recomendações de conhecimento, você receberá resultados da pesquis
 ![Servidores e cargas de trabalho](./media/log-analytics-configuration-assessment/oms-config-assess-servers-workloads.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-
-- Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados da avaliação de configuração.
-
-
+* Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados da avaliação de configuração.
 
 <!--HONumber=Oct16_HO2-->
 

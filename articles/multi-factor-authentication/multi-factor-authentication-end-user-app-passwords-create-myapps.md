@@ -1,30 +1,28 @@
-<properties
-	pageTitle="Criar senhas de aplicativo no portal do Myapps para o Azure Multi-Factor Authentication"
-	description="Estas página mostra aos usuários como eles podem criar senhas de aplicativo adicionais no portal do Myapps."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Criar senhas de aplicativo no portal do Myapps para o Azure Multi-Factor Authentication
+description: Estas página mostra aos usuários como eles podem criar senhas de aplicativo adicionais no portal do Myapps.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Criar senhas de aplicativo no portal do myapps 365 para o Azure Multi-Factor Authentication
-
-
-
 Se você não usar autenticação multifator com o Office 365 que tenha uma assinatura do Azure, convém criar senhas de aplicativo por meio do portal do myapps.
 
 ## Para criar senhas de aplicativo se você não tiver uma assinatura do Office 365 ou Azure
---------------------------------------------------------------------------------
+- - -
 <ol>
+
 <li>Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)</li>
 <li>Na parte superior, selecione Perfil.</li>
 

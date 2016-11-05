@@ -1,25 +1,28 @@
-<properties
-   pageTitle="Configurar várias NICs em uma VM Linux | Microsoft Azure"
-   description="Saiba como criar uma VM com várias NICs anexadas usando a CLI do Azure ou modelos do Gerenciador de Recursos."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Configurar várias NICs em uma VM Linux | Microsoft Docs
+description: Saiba como criar uma VM com várias NICs anexadas usando a CLI do Azure ou modelos do Gerenciador de Recursos.
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="08/02/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 08/02/2016
+ms.author: iainfou
 
+---
 # Criando uma VM com diversas NICs
 Você pode criar uma VM (máquina virtual) no Azure que tenha várias NICs (interfaces de rede virtual) anexadas a ela. Um cenário comum seria ter sub-redes diferentes para conectividade de front-end e de back-end ou uma rede dedicada a uma solução de monitoramento ou de backup. Este artigo fornece comandos rápidos para criar uma VM com várias NICs anexadas a ela. Para obter informações detalhadas, incluindo como criar várias NICs dentro de seus próprios scripts Bash, leia mais sobre a [implantação de VMs com várias NICs](../virtual-network/virtual-network-deploy-multinic-arm-cli.md). Diferentes [tamanhos de VM](virtual-machines-linux-sizes.md) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente.
 
->[AZURE.WARNING] Você deverá anexar várias NICs quando criar a VM – não é possível adicionar NICs a uma VM existente. Você pode [criar uma nova VM com base nos discos virtuais originais](virtual-machines-linux-copy-vm.md) e criar várias NICs conforme implantar a VM.
+> [!WARNING]
+> Você deverá anexar várias NICs quando criar a VM – não é possível adicionar NICs a uma VM existente. Você pode [criar uma nova VM com base nos discos virtuais originais](virtual-machines-linux-copy-vm.md) e criar várias NICs conforme implantar a VM.
+> 
+> 
 
 ## Comandos rápidos
 Verifique se você tem a [CLI do Azure](../xplat-cli-install.md) conectada e está usando o modo do Gerenciador de Recursos (`azure config mode arm`).
