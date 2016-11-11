@@ -1,47 +1,47 @@
-# [Overview](functions-overview.md)
+# [Visão geral](functions-overview.md)
 
-# Get Started
-## [Create your first function](functions-create-first-azure-function.md)
-## [Create a webhook function](functions-create-a-web-hook-or-api-function.md)
-## [Create an Azure connected function](functions-create-an-azure-connected-function.md)
-## [Create an event processing function](functions-create-an-event-processing-function.md)
-# How To
-## Plan and design
-### [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Choose between Consumption and App Service Plan](functions-scale.md)
+# Introdução
+## [Criar sua primeira função](functions-create-first-azure-function.md)
+## [Criar uma função do webhook](functions-create-a-web-hook-or-api-function.md)
+## [Criar uma função conectada do Azure](functions-create-an-azure-connected-function.md)
+## [Criar uma função de processamento de evento](functions-create-an-event-processing-function.md)
+# Como:
+## Planejar e projetar
+### [Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
+### [Escolha entre o Consumo e o Plano do Serviço de Aplicativo](functions-scale.md)
 
-## Develop
-### [Develop function apps](functions-reference.md)
+## Desenvolver
+### [Desenvolver aplicativos de função](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
 #### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
-### [Work with triggers and bindings](functions-triggers-bindings.md)
-#### [Event Hub bindings](functions-bindings-event-hubs.md)
-#### [HTTP and webhook bindings](functions-bindings-http-webhook.md)
-#### [Mobile Apps bindings](functions-bindings-mobile-apps.md)
-#### [Notification Hub output binding](functions-bindings-notification-hubs.md)
-#### [Service Bus triggers and bindings for queues and topics](functions-bindings-service-bus.md)
-#### Storage
-##### [Blob bindings](functions-bindings-storage-blob.md)
-##### [Queue bindings](functions-bindings-storage-queue.md)
-##### [Table bindings](functions-bindings-storage-table.md)
-#### [Timer trigger](functions-bindings-timer.md)
-#### [Twilio output binding](functions-bindings-twilio.md)
-### [Create a function from the Azure portal](functions-create-first-azure-function-azure-portal.md)
-### [Testing Azure Functions](functions-test-a-function.md)
-### [Develop and debug locally](functions-run-local.md)
-### [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
+### [Trabalhar com gatilhos e associações](functions-triggers-bindings.md)
+#### [Associações do Hub de Eventos](functions-bindings-event-hubs.md)
+#### [Associações HTTP e webhook](functions-bindings-http-webhook.md)
+#### [Associações de Aplicativos Móveis](functions-bindings-mobile-apps.md)
+#### [Associação de saída do Hub de Notificação](functions-bindings-notification-hubs.md)
+#### [Gatilhos e associações do Barramento de Serviço para filas e tópicos](functions-bindings-service-bus.md)
+#### Armazenamento
+##### [Associações de blob](functions-bindings-storage-blob.md)
+##### [Associações de fila](functions-bindings-storage-queue.md)
+##### [Associações de tabela](functions-bindings-storage-table.md)
+#### [Gatilho de temporizador](functions-bindings-timer.md)
+#### [Associação de saída do Twilio](functions-bindings-twilio.md)
+### [Criar uma função no portal do Azure](functions-create-first-azure-function-azure-portal.md)
+### [Testando o Azure Functions](functions-test-a-function.md)
+### [Desenvolver e depurar localmente](functions-run-local.md)
+### [Usar o Azure Functions para executar uma tarefa de limpeza agendada](functions-scenario-database-table-cleanup.md)
 
-## Manage
-### [Configure settings for a function app](functions-how-to-use-azure-function-app-settings.md)
+## Gerenciar
+### [Definir configurações para um aplicativo de funções](functions-how-to-use-azure-function-app-settings.md)
 
-## Deploy
-### [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
+## Implantar
+### [Implantação contínua para Azure Functions](functions-continuous-deployment.md)
 
 
-# Resources
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+# Recursos
+## [Atualizações de serviço](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
 
 
 <!--HONumber=Nov16_HO2-->

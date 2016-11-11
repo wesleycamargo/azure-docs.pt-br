@@ -1,78 +1,78 @@
-# Overview
-## [What is Azure Stack?](azure-stack-poc.md)
-## [What's new?](azure-stack-whats-new.md)
-## [Key features and concepts](azure-stack-key-features.md)
-## [POC architecture](azure-stack-architecture.md)
-# Deploy Azure Stack POC
-## [Deployment prerequisites](azure-stack-deploy.md)
-## [Deploy](azure-stack-run-powershell-script.md)
-## [Connect to Azure Stack POC](azure-stack-connect-azure-stack.md)
-## [Redeploy Azure Stack](azure-stack-redeploy.md)
-# Get started
-## [First tasks](azure-stack-first-scenarios.md)
-## [Provision a virtual machine](azure-stack-provision-vm.md)
-## [Create a storage account](azure-stack-provision-storage-account.md)
-## [Connect with CLI](azure-stack-connect-cli.md)
-## [Connect with PowerShell](azure-stack-connect-powershell.md)
-# Offer services to tenants
-## [Set quotas](azure-stack-setting-quotas.md)
-## [Create a plan](azure-stack-create-plan.md)
-## [Create an offer](azure-stack-create-offer.md)
-## [Subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md)
-## [Delegating offers in Azure Stack](azure-stack-delegated-provider.md)
-# Using templates
-## [Template overview](azure-stack-arm-templates.md)
-## [Deploy templates with the portal](azure-stack-deploy-template-portal.md)
-## [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
-## [Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)
-## [Deploy templates with the command line](azure-stack-deploy-template-command-line.md)
-# Storage
-## [Overview](azure-stack-storage-overview.md)
-## [Manage storage accounts](azure-stack-manage-storage-accounts.md)
-## [Differences and considerations](azure-stack-acs-differences-tp2.md)
-# Networking
-## [iDNS for Azure Stack](azure-stack-understanding-dns-in-tp2.md)
-## [Understanding site-to-site VPN connections](azure-stack-create-vpn-connection-one-node-tp2.md)
-## [View public IP address consumption](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
-# Add your content to Azure Stack
-## [Marketplace overview](azure-stack-marketplace.md)
-## [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
-## [Add a custom virtual machine image](azure-stack-add-vm-image.md)
-# Tools
-## [Tools](azure-stack-tools-paas-services.md)
-## [Updates management in Azure Stack](azure-stack-updates.md)
-# Key Vault
-## [Introduction](azure-stack-kv-intro.md)
-## [Getting started](azure-stack-kv-getting-started.md)
-## [Deploy a virtual machine with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
-## [Create virtual machine with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
-## [Key Vault sample app](azure-stack-kv-sample-app.md)
-# Billing and chargeback
-## [Billing and chargeback overview](azure-stack-billing-and-chargeback.md)
-## [Provider resource usage API](azure-stack-provider-resource-api.md)
-## [Tenant resource usage API](azure-stack-tenant-resource-usage-api.md)
-## [Usage FAQ](azure-stack-usage-related-faq.md)
-# Other scenarios
-## [Manage user permissions](azure-stack-manage-permissions.md)
-## [Add an Azure Stack tenant](azure-stack-add-new-user-aad.md)
-## [Deploy Linux virtual machines](azure-stack-linux.md)
-## [Use MySQL databases as PaaS on Azure Stack](azure-stack-mysql-rp-deploy-short.md)
-## [Deploy the SQL Server Resource Provider Adapter on Azure Stack](azure-stack-sql-rp-deploy-long.md)
-## [Use SQL databases on Azure Stack](azure-stack-sql-rp-deploy-short.md)
+# Visão geral
+## [O que é o Azure Stack?](azure-stack-poc.md)
+## [O que há de novo?](azure-stack-whats-new.md)
+## [Principais recursos e conceitos](azure-stack-key-features.md)
+## [Arquitetura do POC](azure-stack-architecture.md)
+# Implantar o Azure Stack POC
+## [Pré-requisitos de implantação](azure-stack-deploy.md)
+## [Implantar](azure-stack-run-powershell-script.md)
+## [Conectar-se ao Azure Stack POC](azure-stack-connect-azure-stack.md)
+## [Reimplantar o Azure Stack](azure-stack-redeploy.md)
+# Introdução
+## [Primeiras tarefas](azure-stack-first-scenarios.md)
+## [Provisionar uma máquina virtual](azure-stack-provision-vm.md)
+## [Criar uma conta de armazenamento](azure-stack-provision-storage-account.md)
+## [Conectar-se com a CLI](azure-stack-connect-cli.md)
+## [Conectar-se com o PowerShell](azure-stack-connect-powershell.md)
+# Oferecer serviços a locatários
+## [Definir cotas](azure-stack-setting-quotas.md)
+## [Criar um plano](azure-stack-create-plan.md)
+## [Criar uma oferta](azure-stack-create-offer.md)
+## [Assinar uma oferta](azure-stack-subscribe-plan-provision-vm.md)
+## [Delegando ofertas no Azure Stack](azure-stack-delegated-provider.md)
+# Como usar modelos
+## [Visão geral de modelo](azure-stack-arm-templates.md)
+## [Implantar modelos com o portal](azure-stack-deploy-template-portal.md)
+## [Implantar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)
+## [Implantar modelos com o Visual Studio](azure-stack-deploy-template-visual-studio.md)
+## [Implantar modelos com a linha de comando](azure-stack-deploy-template-command-line.md)
+# Armazenamento
+## [Visão geral](azure-stack-storage-overview.md)
+## [Gerenciar contas de armazenamento](azure-stack-manage-storage-accounts.md)
+## [Diferenças e considerações](azure-stack-acs-differences-tp2.md)
+# Rede
+## [iDNS para o Azure Stack](azure-stack-understanding-dns-in-tp2.md)
+## [Noções básicas sobre conexões VPN site a site](azure-stack-create-vpn-connection-one-node-tp2.md)
+## [Exibir consumo de endereço IP público](azure-stack-viewing-public-ip-address-consumption-in-tp2.md)
+# Adicionar seu conteúdo ao Azure Stack
+## [Visão geral do Marketplace](azure-stack-marketplace.md)
+## [Criar e publicar um item do Marketplace](azure-stack-create-and-publish-marketplace-item.md)
+## [Adicionar uma imagem de máquina virtual personalizada](azure-stack-add-vm-image.md)
+# Ferramentas
+## [Ferramentas](azure-stack-tools-paas-services.md)
+## [Gerenciamento de atualizações no Azure Stack](azure-stack-updates.md)
+# Cofre da Chave
+## [Introdução](azure-stack-kv-intro.md)
+## [Guia de Introdução](azure-stack-kv-getting-started.md)
+## [Implantar uma máquina virtual com uma senha do Cofre de Chaves](azure-stack-kv-deploy-vm-with-secret.md)
+## [Criar máquina virtual com um certificado do Cofre de Chaves](azure-stack-kv-push-secret-into-vm.md)
+## [Aplicativo de exemplo do Cofre de Chaves](azure-stack-kv-sample-app.md)
+# Cobrança e estorno
+## [Visão geral sobre cobrança e estorno](azure-stack-billing-and-chargeback.md)
+## [API de uso de recurso de provedor](azure-stack-provider-resource-api.md)
+## [API de uso de recurso de locatário](azure-stack-tenant-resource-usage-api.md)
+## [Perguntas frequentes sobre o uso](azure-stack-usage-related-faq.md)
+# Outros cenários
+## [Gerenciar permissões de usuário](azure-stack-manage-permissions.md)
+## [Adicionar um locatário do Azure Stack](azure-stack-add-new-user-aad.md)
+## [Implantar máquinas virtuais do Linux](azure-stack-linux.md)
+## [Usar bancos de dados MySQL como PaaS no Azure Stack](azure-stack-mysql-rp-deploy-short.md)
+## [Implantar o Adaptador de provedor de recursos do SQL Server no Azure Stack](azure-stack-sql-rp-deploy-long.md)
+## [Usar bancos de dados SQL no Azure Stack](azure-stack-sql-rp-deploy-short.md)
 
-## Web Apps
-### [Azure Stack Web Apps Overview](azure-stack-webapps-overview.md)
-### [Before you get started with Azure Stack Web Apps](azure-stack-webapps-before-you-get-started.md)
-### [Deploy the MySQL Resource Provider on Azure Stack to use with WebApps](azure-stack-mysql-rp-deploy-long.md)
-### [Web Apps: Adding more web worker roles](azure-stack-webapps-add-worker-roles.md)
-### [Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
+## Aplicativos Web
+### [Visão geral dos aplicativos Web do Azure Stack](azure-stack-webapps-overview.md)
+### [Antes de começar com os aplicativos Web do Azure Stack](azure-stack-webapps-before-you-get-started.md)
+### [Implantar o Provedor de recursos MySQL no Azure Stack para usar com o WebApps](azure-stack-mysql-rp-deploy-long.md)
+### [Aplicativos Web: adicionando mais funções de trabalho da Web](azure-stack-webapps-add-worker-roles.md)
+### [Adicionar um provedor de recursos de aplicativos Web ao Azure Stack](azure-stack-webapps-deploy.md)
 
 
-# Troubleshooting
-## [Troubleshooting](azure-stack-troubleshooting.md)
-## [Frequently asked questions](azure-stack-faq.md)
-## [Rerun a deployment from a failed step](azure-stack-rerun-deploy.md)
-## [Web Apps Resource Provider - Known Issues and Troubleshooting](azure-stack-webapps-troubleshoot-known-issues.md)
+# Solucionar problemas
+## [Solução de problemas](azure-stack-troubleshooting.md)
+## [Perguntas frequentes](azure-stack-faq.md)
+## [Executar novamente uma implantação de uma etapa com falha](azure-stack-rerun-deploy.md)
+## [Provedor de recursos de aplicativos Web – Problemas conhecidos e Solução de problemas](azure-stack-webapps-troubleshoot-known-issues.md)
 
 
 

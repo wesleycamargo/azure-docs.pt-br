@@ -1,33 +1,33 @@
-# Overview
-## [ACS introduction](container-service-intro.md)
-# Get Started
+# Visão geral
+## [Introdução ao ACS](container-service-intro.md)
+# Introdução
 
-## [Deploy an ACS cluster](container-service-deployment.md)
-## [Connect with an ACS cluster](container-service-connect.md)
-## [Scale an ACS cluster](container-service-scale.md)
+## [Implantar um cluster do ACS](container-service-deployment.md)
+## [Conectar-se com um cluster do ACS](container-service-connect.md)
+## [Dimensionar um cluster do ACS](container-service-scale.md)
 
-# How To
+# Como:
 
-## Manage with DC/OS
-### [Container management - DC/OS web UI](container-service-mesos-marathon-ui.md)
-### [Container management - DC/OS REST API](container-service-mesos-marathon-rest.md)
-### [DC/OS Agent pools](container-service-dcos-agents.md)
-### [Enable DC/OS public access](container-service-enable-public-access.md)
-### [Load balance containers in DC/OS](container-service-load-balancing.md)
-### [App/User Specific Orchestrator in DC/OS](container-service-application-specific-marathon.md)
-### [Monitor with Datadog (DC/OS)](container-service-monitoring.md)
-### [Monitor with Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-## Manage with Docker Swarm
-### [Docker Swarm Overview](container-service-docker-swarm.md)
+## Gerenciar com o DC/SO
+### [Gerenciamento de contêiner – interface do usuário da Web do DC/SO](container-service-mesos-marathon-ui.md)
+### [Gerenciamento de contêiner – API REST do DC/SO](container-service-mesos-marathon-rest.md)
+### [Pools de agente do DC/SO](container-service-dcos-agents.md)
+### [Habilitar acesso público ao DC/SO](container-service-enable-public-access.md)
+### [Contêineres de balanceamento de carga no DC/SO](container-service-load-balancing.md)
+### [Orquestrador específico do Aplicativo/Usuário no DC/SO](container-service-application-specific-marathon.md)
+### [Monitorar com Datadog (DC/SO)](container-service-monitoring.md)
+### [Monitorar com Sysdig (DC/SO)](container-service-monitoring-sysdig.md)
+## Gerenciar com o Docker Swarm
+### [Visão geral do Docker Swarm](container-service-docker-swarm.md)
 
-# Reference
+# Referência
 
-## [REST API](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [API REST](https://go.microsoft.com/fwlink/p/?linkid=833499)
 
-# Resources
+# Recursos
 
-## [Region availability](https://azure.microsoft.com/regions/services/)
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [Disponibilidade na região](https://azure.microsoft.com/regions/services/)
+## [Atualizações de serviço](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
 <!--HONumber=Nov16_HO2-->
