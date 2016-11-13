@@ -1,0 +1,70 @@
+# Visão geral
+## [O que é a Central de Segurança do Azure?](security-center-intro.md)
+## [Visão geral do serviço](https://azure.microsoft.com/services/security-center/)
+## [Preços](security-center-pricing.md)
+## [Perguntas frequentes](security-center-faq.md)
+## [Obtenha insights com o Power BI](security-center-powerbi.md)
+## [Segurança de dados](security-center-data-security.md)
+## Cenários comuns
+### [Resposta a incidentes](security-center-incident-response.md)
+
+# Introdução
+## [Início rápido](security-center-get-started.md)
+## [Planejamento e operações](security-center-planning-and-operations-guide.md)
+## [Central de Segurança e banco de dados SQL](security-center-sql-database.md)
+
+# Como
+
+## Evitar
+### [Definir políticas de segurança](security-center-policies.md)
+### [Implementar recomendações de segurança](security-center-recommendations.md)
+### [Recomendações do aplicativo](security-center-application-recommendations.md)
+### [Recomendações de rede](security-center-network-recommendations.md)
+### [Recomendações do serviço SQL](security-center-sql-service-recommendations.md)
+### [Recomendações de máquina virtual](security-center-virtual-machine-recommendations.md)
+### [Monitorar integridade da segurança](security-center-monitoring.md)
+### [Monitorar soluções de parceiros](security-center-partner-solutions.md)
+
+## Detectar e Responder
+### [Capacidades de detecção](security-center-detection-capabilities.md)
+### [Gerenciar alertas de segurança](security-center-managing-and-responding-alerts.md)
+### [Gerenciar incidentes de segurança](security-center-incident.md)
+### [Integração de log do Azure](security-center-integrating-alerts-with-log-integration.md)
+### [Avaliação de vulnerabilidade](security-center-vulnerability-assessment-recommendations.md)
+### [Tipos de alertas de segurança](security-center-alerts-type.md)
+### [Relatório de inteligência de ameaças](security-center-threat-report.md)
+
+### Gerenciar alertas de segurança
+#### [Adicionar um firewall de próxima geração](security-center-add-next-generation-firewall.md)
+#### [Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md)
+#### [Aplicar a criptografia de disco](security-center-apply-disk-encryption.md)
+#### [Aplicar atualizações do sistema](security-center-apply-system-updates.md)
+#### [Habilitar auditoria em bancos de dados SQL](security-center-enable-auditing-on-sql-databases.md)
+#### [Habilitar auditoria em servidores SQL](security-center-enable-auditing-on-sql-servers.md)
+#### [Habilitar coleta de dados](security-center-enable-data-collection.md)
+#### [Habilitar Grupos de segurança de rede](security-center-enable-network-security-groups.md)
+#### [Habilitar Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
+#### [Habilitar o Agente de VM](security-center-enable-vm-agent.md)
+#### [Instalar proteção do ponto de extremidade](security-center-install-endpoint-protection.md)
+#### [Fornecer detalhes de contato de segurança](security-center-provide-security-contact-details.md)
+#### [Corrigir as vulnerabilidades do sistema operacional](security-center-remediate-os-vulnerabilities.md)
+#### [Resolver alertas de integridade de proteção do ponto de extremidade](security-center-resolve-endpoint-protection-health-alerts.md)
+#### [Restringir o acesso por meio de pontos de extremidade para a Internet](security-center-restrict-access-through-internet-facing-endpoints.md)
+#### [Atualizar a versão do sistema operacional](security-center-update-os-version.md)
+
+## Solucionar problemas
+### [Guia de Solução de problemas](security-center-troubleshooting-guide.md)
+
+# Referência
+## [API REST](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
+
+# Relacionados
+## [Informações de segurança do Azure](../security/azure-security-getting-started.md)
+
+# Recursos
+## [Blog Segurança, Privacidade e Conformidade do Azure](http://blogs.msdn.com/b/azuresecurity/)
+
+
+<!--HONumber=Nov16_HO2-->
+
+
