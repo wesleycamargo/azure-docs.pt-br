@@ -1,42 +1,42 @@
-# Overview
-## [Hybrid Connections overview](integration-hybrid-connection-overview.md)
+# Visão geral
+## [Visão geral de Conexões Híbridas](integration-hybrid-connection-overview.md)
 
-# Get Started
-## [Create BizTalk Services using the Azure portal](biztalk-provision-services.md)
-# How To
+# Introdução
+## [Criar Serviços BizTalk usando o Portal do Azure](biztalk-provision-services.md)
+# Como:
 
-## Plan and design
-### [Editions chart](biztalk-editions-feature-chart.md)
-### [Administration and developer task list](biztalk-services-administration-and-development-task-list.md)
+## Planejar e projetar
+### [Tabela de edições](biztalk-editions-feature-chart.md)
+### [Lista de tarefas de administração e do desenvolvedor](biztalk-services-administration-and-development-task-list.md)
 
 ## Backup
-### [Backup and restore](biztalk-backup-restore.md)
+### [Backup e restauração](biztalk-backup-restore.md)
 
-## Configure
-### [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)
-### [Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](biztalk-dashboard-monitor-scale-tabs.md)
+## Configurar
+### [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)
+### [Examine as guias Painel, Monitor, Escala, Configurar e Conexão Híbrida](biztalk-dashboard-monitor-scale-tabs.md)
 
-## Integrate
-### [Create and Manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
+## Integração
+### [Criar e gerenciar Conexões Híbridas](integration-hybrid-connection-create-manage.md)
 
-## Migrate
-### [Migrating BizTalk Server EDI Solutions to BizTalk Services](biztalk-migrating-to-edi-guide.md)
+## Migrar
+### [Migrar Soluções de EDI do BizTalk Server para Serviços BizTalk](biztalk-migrating-to-edi-guide.md)
 
-## Monitor
-### [BizTalk Services: Service state chart](biztalk-service-state-chart.md)
+## Monitoramento
+### [Serviços BizTalk: gráfico de estado do serviço](biztalk-service-state-chart.md)
 
-## Secure
-### [Issuer name and issuer key](biztalk-issuer-name-issuer-key.md)
+## Segurança
+### [Nome e chave do emissor](biztalk-issuer-name-issuer-key.md)
 
-## Troubleshoot
-### [Troubleshoot using operation logs](biztalk-troubleshoot-using-ops-logs.md)
+## Solucionar problemas
+### [Solução de problemas usando os logs de operação](biztalk-troubleshoot-using-ops-logs.md)
 
-# Reference
+# Referência
 
-# Related
+# Relacionados
 
-# Resources
-## [Release Notes](biztalk-release-notes.md)
+# Recursos
+## [Notas de versão](biztalk-release-notes.md)
 
 
 <!--HONumber=Nov16_HO2-->

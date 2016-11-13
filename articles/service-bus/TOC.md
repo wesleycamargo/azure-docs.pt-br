@@ -1,10 +1,10 @@
-# Overview
-## [Messaging](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
-## [Relay](../service-bus-relay/service-bus-relay-overview.md)
-# Resources
+# Visão geral
+## [Mensagens](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
+## [Retransmissão](../service-bus-relay/service-bus-relay-overview.md)
+# Recursos
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
-## [MSDN forums](https://social.msdn.microsoft.com/forums/en-US/home?forum=servbus)
+## [Fóruns do MSDN](https://social.msdn.microsoft.com/forums/en-US/home?forum=servbus)
 
 
 <!--HONumber=Nov16_HO2-->
