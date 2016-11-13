@@ -1,56 +1,56 @@
-# Overview
-## [What is Stream Analytics?](stream-analytics-introduction.md)
-## [Stream Analytics Learning Path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
+# Visão geral
+## [O que é o Stream Analytics?](stream-analytics-introduction.md)
+## [Roteiro de Aprendizagem do Stream Analytics](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 
-# Get started
-## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
+# Introdução
+## [Processar dados de streaming de IoT](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
+## [Detecção de fraude em tempo real](stream-analytics-real-time-fraud-detection.md)
 
-# How to
+# Como
 
-## Streaming solutions
-### [Build an IoT solution](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
-### [Social media analysis](stream-analytics-twitter-sentiment-analysis-trends.md)
-### [Analyze sensor data with Power BI]https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
-### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
-### [Reference architecture: Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+## Soluções de streaming
+### [Compilar uma solução IoT](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
+### [Análise de mídia social](stream-analytics-twitter-sentiment-analysis-trends.md)
+### [Analisar dados do sensor com o Power BI]https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
+### [Pontuação em tempo real com o Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
+### [Arquitetura de referência: processamento de eventos em tempo real](stream-analytics-real-time-event-processing-reference-architecture.md)
 
-## Develop
-### [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
-### [Create inputs](stream-analytics-define-inputs.md)
-### [Create outputs](stream-analytics-define-outputs.md)
-### [Use reference data](stream-analytics-use-reference-data.md)
-### [Output to Azure Redis Cache](stream-analytics-functions-redis.md)
-### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
-### [Output to DocumentDB](stream-analytics-documentdb-output.md)
-### [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md)
-### [REST API & Machine Learning integration](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-### [Use the Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
-### [Window functions](stream-analytics-window-functions.md)
+## Desenvolver
+### [Padrões de consulta comuns](stream-analytics-stream-analytics-query-patterns.md)
+### [Criar entradas](stream-analytics-define-inputs.md)
+### [Criar saídas](stream-analytics-define-outputs.md)
+### [Usar dados de referência](stream-analytics-use-reference-data.md)
+### [Saída para o Cache Redis do Azure](stream-analytics-functions-redis.md)
+### [Saída para o Data Lake Store](stream-analytics-data-lake-output.md)
+### [Saída para o DocumentDB](stream-analytics-documentdb-output.md)
+### [Analisar dados com o Power BI](stream-analytics-power-bi-dashboard.md)
+### [Integração de API REST e Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
+### [Usar o SDK do .NET de Gerenciamento](stream-analytics-dotnet-management-sdk.md)
+### [Funções da janela](stream-analytics-window-functions.md)
 
-## Manage
-### [Monitor jobs](stream-analytics-monitoring.md)
-### [Monitor jobs programmatically](stream-analytics-monitor-jobs.md)
-### [Monitor jobs with PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Scale to increase throughput](stream-analytics-scale-jobs.md)
-### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md)
-### [Rotate input & output credentials](stream-analytics-login-credentials-inputs-outputs.md)
+## Gerenciar
+### [Monitorar trabalhos](stream-analytics-monitoring.md)
+### [Monitorar trabalhos de maneira programática](stream-analytics-monitor-jobs.md)
+### [Monitorar trabalhos com o PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
+### [Escalar para aumentar a taxa de transferência](stream-analytics-scale-jobs.md)
+### [Escalar para funções de Machine Learning](stream-analytics-scale-with-machine-learning-functions.md)
+### [Girar credenciais de entrada/saída](stream-analytics-login-credentials-inputs-outputs.md)
 
-## Automate
-### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
+## Automatizar
+### [PowerShell com um clique](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
-# Reference
-## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST API](https://msdn.microsoft.com/library/azure/dn835031)
+# Referência
+## [Linguagem da consulta](https://msdn.microsoft.com/library/azure/dn834998)
+## [API REST](https://msdn.microsoft.com/library/azure/dn835031)
 ## [PowerShell](https://msdn.microsoft.com/library/azure/mt270341)
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt416896)
-## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
-## [Release notes](stream-analytics-release-notes.md)
-# Resources
-## [MSDN blog](http://blogs.msdn.com/b/streamanalytics/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## [SDK .NET](https://msdn.microsoft.com/library/azure/mt416896)
+## [Comparar o Storm e o Stream Analytics](stream-analytics-comparison-storm.md)
+## [Notas de versão](stream-analytics-release-notes.md)
+# Recursos
+## [Blog do MSDN](http://blogs.msdn.com/b/streamanalytics/)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
-## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics)
+## [Fórum de comentários](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 
 
 <!--HONumber=Nov16_HO2-->

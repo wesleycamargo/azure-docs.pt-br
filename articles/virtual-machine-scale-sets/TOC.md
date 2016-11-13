@@ -1,34 +1,36 @@
-# Overview
-## [About scale sets](virtual-machine-scale-sets-overview.md)
-## [Design considerations for scale sets](virtual-machine-scale-sets-design-overview.md)
+# Visão geral
+## [Sobre conjuntos de dimensionamento](virtual-machine-scale-sets-overview.md)
+## [Considerações de design para conjuntos de dimensionamento](virtual-machine-scale-sets-design-overview.md)
 
+# Introdução
+## [Criar um conjunto de dimensionamento do Windows](virtual-machine-scale-sets-windows-create.md)
+## [Criar um conjunto de dimensionamento do Linux](virtual-machine-scale-sets-linux-create-cli.md)
 
-# Get Started
-## [Create a Windows scale set](virtual-machine-scale-sets-windows-create.md)
-## [Create a Linux scale set](virtual-machine-scale-sets-linux-create-cli.md)
+# Como:
+## Implantar
+### [Conjunto de dimensionamento usando o portal](virtual-machine-scale-sets-portal-create.md)
+### [Conjunto de dimensionamento usando o Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Conjunto de dimensionamento Linux com dimensionamento automático](virtual-machine-scale-sets-linux-autoscale.md)
+### [Conjunto de dimensionamento do Windows com dimensionamento automático](virtual-machine-scale-sets-windows-autoscale.md)
+### [Aplicativos em conjunto de dimensionamento](virtual-machine-scale-sets-deploy-app.md)
 
-# How To
-## Deploy
-### [Scale set using the portal](virtual-machine-scale-sets-portal-create.md)
-### [Scale set using Visual Studio](virtual-machine-scale-sets-vs-create.md)
-### [Linux scale set with autoscale](virtual-machine-scale-sets-linux-autoscale.md)
-### [Windows scale set with autoscale](virtual-machine-scale-sets-windows-autoscale.md)
-### [Applications on scale sets](virtual-machine-scale-sets-deploy-app.md)
-## Manage
-### [Windows scale set using PowerShell](virtual-machine-scale-sets-windows-manage.md)
-### [Autoscale and scale sets](virtual-machine-scale-sets-autoscale-overview.md)
-### [Vertical scaling in a scale set](virtual-machine-scale-sets-vertical-scale-reprovision.md)
-### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Advanced autoscale](virtual-machine-scale-sets-advanced-autoscale.md)
-### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
-## Troubleshoot
-### [Troubleshoot autoscale](virtual-machine-scale-sets-troubleshoot.md)
+## Gerenciar
+### [Conjunto de dimensionamento do Windows usando PowerShell](virtual-machine-scale-sets-windows-manage.md)
+### [Dimensionamento automático e conjuntos de dimensionamento](virtual-machine-scale-sets-autoscale-overview.md)
+### [Colocação em escala vertical em um conjunto de dimensionamento](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+### [Atualizações para conjuntos de dimensionamento](virtual-machine-scale-sets-upgrade-scale-set.md)
+### [Dimensionamento automático avançado](virtual-machine-scale-sets-advanced-autoscale.md)
+### [Usar DSC e conjuntos de dimensionamento](virtual-machine-scale-sets-dsc.md)
 
-# Reference
-## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [REST APIs](https://msdn.microsoft.com/library/azure/mt163647)
-## [Azure Powershell](https://msdn.microsoft.com/library/azure/dn708514)
-## [Azure templates](https://azure.microsoft.com/documentation/templates/)
+## Solucionar problemas
+### [Solucionar problemas de dimensionamento automático](virtual-machine-scale-sets-troubleshoot.md)
+
+# Referência
+## [CLI do Azure](../virtual-machines/azure-cli-arm-commands.md)
+## [API REST do conjunto de dimensionamento](/rest/api/compute/virtualmachinescalesets)
+## [API REST das VMs do conjunto de dimensionamento](/rest/api/compute/virtualmachinescalesetvms)
+## [Powershell do Azure](/powershell/resourcemanager/)
+## [Modelos do Azure](https://azure.microsoft.com/documentation/templates/?term=vmss)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,33 +1,33 @@
-# Overview
-## [What is Traffic Manager?](traffic-manager-overview.md)
-## [How Traffic Manager works](traffic-manager-how-traffic-manager-works.md)
-## [Traffic Manager endpoints](traffic-manager-endpoint-types.md)
-## [Traffic Manager endpoint monitoring and failover](traffic-manager-monitoring.md)
-## [Traffic routing methods](traffic-manager-routing-methods.md)
-## [Nested profiles](traffic-manager-nested-profiles.md)
-## [Performance considerations for Traffic Manager](traffic-manager-performance-considerations.md)
-## [Azure Resource Manager support](traffic-manager-powershell-arm.md)
-# Get Started
-## [Manage endpoints](traffic-manager-manage-endpoints.md)
-## [Manage profiles](traffic-manager-manage-profiles.md)
-## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
-# How To
-## [Configure a routing method](traffic-manager-configure-routing-method.md)
-## [Test your settings](traffic-manager-testing-settings.md)
-## [Troubleshoot a degraded endpoint](traffic-manager-troubleshooting-degraded.md)
-# Reference
-## [Resource Manager APIs](https://msdn.microsoft.com/library/mt163667.aspx)
-## [PowerShell Cmdlets](https://msdn.microsoft.com/library/mt125941.aspx)
-## [Using network resources](../virtual-network/resource-groups-networking.md)
-## [Azure Networking blog](https://azure.microsoft.com/blog/topics/networking/)
-# Related
+# Visão geral
+## [O que é o Gerenciador de Tráfego?](traffic-manager-overview.md)
+## [Como funciona o Gerenciador de Tráfego](traffic-manager-how-traffic-manager-works.md)
+## [Pontos de extremidade do Gerenciador de Tráfego](traffic-manager-endpoint-types.md)
+## [Monitoramento e failover do ponto de extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md)
+## [Métodos de roteamento de tráfego](traffic-manager-routing-methods.md)
+## [Perfis aninhados](traffic-manager-nested-profiles.md)
+## [Considerações de desempenho sobre Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
+## [Suporte do Azure Resource Manager](traffic-manager-powershell-arm.md)
+# Introdução
+## [Gerenciar pontos de extremidade](traffic-manager-manage-endpoints.md)
+## [Gerenciar perfis](traffic-manager-manage-profiles.md)
+## [Apontar seu domínio da Internet para o Gerenciador de Tráfego](traffic-manager-point-internet-domain.md)
+# Como:
+## [Configurar um método de roteamento](traffic-manager-configure-routing-method.md)
+## [Testar suas configurações](traffic-manager-testing-settings.md)
+## [Solucionar problemas de um ponto de extremidade degradado](traffic-manager-troubleshooting-degraded.md)
+# Referência
+## [APIs do Resource Manager](https://msdn.microsoft.com/library/mt163667.aspx)
+## [Cmdlets do PowerShell](https://msdn.microsoft.com/library/mt125941.aspx)
+## [Usar recursos de rede](../virtual-network/resource-groups-networking.md)
+## [Blog de Rede do Azure](https://azure.microsoft.com/blog/topics/networking/)
+# Relacionados
 ## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway/)
-## [Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-## [Azure DNS](https://azure.microsoft.com/documentation/services/dns/)
-# Resources
-##[Pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
-##[SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-##[Service Limits](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Balanceador de Carga](https://azure.microsoft.com/documentation/services/load-balancer/)
+## [DNS do Azure](https://azure.microsoft.com/documentation/services/dns/)
+# Recursos
+##[Preços](https://azure.microsoft.com/pricing/details/traffic-manager/)
+##[CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+##[Limites de serviço](../azure-subscription-service-limits.md#traffic-manager-limits)
 
 
 <!--HONumber=Nov16_HO2-->

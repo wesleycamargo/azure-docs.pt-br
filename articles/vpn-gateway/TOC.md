@@ -1,65 +1,65 @@
-# Overview
-## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
-## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway)
-## [SLA](https://azure.microsoft.com/support/legal/sla)
-## [Subscription and Service Limits](../azure-subscription-service-limits.md)
-# Get Started
-## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
-## [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md)
-## [About VPN devices for Site-to-Site VPN Gateway connections](vpn-gateway-about-vpn-devices.md)
-## [About BGP and VPN Gateway](vpn-gateway-bgp-overview.md)
-## [About highly available connections](vpn-gateway-highlyavailable.md)
-# How To
-## Site-to-Site
-### [Configure a Site-to-Site connection using the Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-### [Configure a Site-to-Site connection using PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
-### [Configure a Site-to-Site connection using the Azure classic portal (Classic)](vpn-gateway-site-to-site-create.md)
-## Point-to-Site
-### [Configure a Point-to-Site connection to a VNet using the Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-### [Configure a Point-to-Site connection to a VNet using PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-### [Configure a Point-to-Site connection to a VNet using the Azure portal (Classic)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-### [Configure a Point-to-Site connection to a VNet using the classic portal (Classic)](vpn-gateway-point-to-site-create.md)
-## VNet-to-VNet
-### [Configure a VNet-to-VNet connection using the Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-### [Configure a VNet-to-VNet connection using PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-### [Configure a VNet-to-VNet connection (Classic)](virtual-networks-configure-vnet-to-vnet-connection.md)
-## VNet-to-VNet connections between the Resource Manager and classic deployment models
-### [Connect virtual networks from different deployment models in the portal](vpn-gateway-connect-different-deployment-models-portal.md)
-### [Connect virtual networks from different deployment models using PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-## Site-to-Site and ExpressRoute coexisting connections
-### [Create Site-to-Site and ExpressRoute coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-### [Create Site-to-Site and ExpressRoute coexisting connections (Classic)](../expressroute/expressroute-howto-coexist-classic.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
-## Forced tunneling
-### [Configure forced tunneling](vpn-gateway-forced-tunneling-rm.md)
-### [Configure forced tunneling (Classic)](vpn-gateway-about-forced-tunneling.md)
-## Multiple Site-to-Site connections
-### [Add multiple Site-to-Site connections to a VPN gateway](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-### [Add multiple Site-to-Site connections to a VPN gateway (Classic)](vpn-gateway-multi-site.md)
-## [Configure BGP for Azure VPN Gateways using PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
-## [Configure highly available active-active connections](vpn-gateway-activeactive-rm-powershell.md)
-## [Modify local network gateway settings using PowerShell](vpn-gateway-modify-local-network-gateway.md)
-## [Verify a gateway connection](vpn-gateway-verify-connection-resource-manager.md)
-## [Reset an Azure VPN Gateway using PowerShell](vpn-gateway-resetgw-classic.md)
-## [How to work with self-signed certificates for Point-to-Site connections](vpn-gateway-certificates-point-to-site.md)
-## [Configure a VPN gateway (Classic)](vpn-gateway-configure-vpn-gateway-mp.md)
-# Reference
-## REST APIs
-### [REST API Reference (Resource Manager)](https://msdn.microsoft.com/library/mt163859)
-### [REST API Reference (Classic)](https://msdn.microsoft.com/library/jj154113)
-## PowerShell cmdlets
-### [PowerShell cmdlets (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-### [PowerShell cmdlets (Classic)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-# Related 
-## [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines) 
+# Visão geral
+## [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md)
+## [Perguntas frequentes de gateway de VPN](vpn-gateway-vpn-faq.md)
+## [Preços](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla)
+## [Limites de Serviço e Assinatura](../azure-subscription-service-limits.md)
+# Introdução
+## [Planejamento e design do Gateway de VPN](vpn-gateway-plan-design.md)
+## [Sobre as configurações do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md)
+## [Sobre dispositivos VPN para conexões de Gateway de VPN Site a Site](vpn-gateway-about-vpn-devices.md)
+## [Sobre BGP e gateway de VPN](vpn-gateway-bgp-overview.md)
+## [Sobre a conectividade altamente disponível](vpn-gateway-highlyavailable.md)
+# Como:
+## Site a site
+### [Criar uma conexão Site a Site usando o Portal do Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+### [Criar uma conexão Site a Site usando o PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+### [Configurar uma conexão Site a Site usando o Portal Clássico do Azure (Clássico)](vpn-gateway-site-to-site-create.md)
+## Ponto a Site
+### [Configurar uma conexão Ponto a Site com uma rede virtual usando o Portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+### [Configurar uma conexão Ponto a Site com uma rede virtual usando o PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+### [Configurar uma conexão Ponto a Site com uma rede virtual usando o Portal do Azure (Clássico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+### [Configurar uma conexão Ponto a Site com uma rede virtual usando o Portal Clássico (Clássico)](vpn-gateway-point-to-site-create.md)
+## VNet a VNet
+### [Configurar uma conexão entre redes virtuais usando o Portal do Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+### [Configurar uma conexão entre redes virtuais usando o PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+### [Configurar uma conexão entre redes virtuais (Clássico)](virtual-networks-configure-vnet-to-vnet-connection.md)
+## Conexões entre redes virtuais entre o Resource Manager e os modelos de implantação clássica
+### [Conectar redes virtuais de diferentes modelos de implantação no portal](vpn-gateway-connect-different-deployment-models-portal.md)
+### [Conectar redes virtuais de diferentes modelos de implantação usando o PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+## Conexões coexistentes Site a Site e de Rota Expressa
+### [Criar conexões coexistentes Site a Site e ExpressRoute](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+### [Criar conexões coexistentes Site a Site e ExpressRoute (Clássico)](../expressroute/expressroute-howto-coexist-classic.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
+## Túnel forçado
+### [Configurar o túnel forçado](vpn-gateway-forced-tunneling-rm.md)
+### [Configurar o túnel forçado (Clássico)](vpn-gateway-about-forced-tunneling.md)
+## Múltiplas conexões site a site
+### [Adicionar múltiplas conexões site a site ao Gateway de VPN](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+### [Adicionar múltiplas conexões site a site ao Gateway de VPN (Clássico)](vpn-gateway-multi-site.md)
+## [Configurar o BGP para Gateways de VPN do Azure usando o PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+## [Configurar conexões de ativo-ativo altamente disponíveis](vpn-gateway-activeactive-rm-powershell.md)
+## [Modificar as configurações de gateway de rede local usando o PowerShell](vpn-gateway-modify-local-network-gateway.md)
+## [Verificar uma conexão de gateway](vpn-gateway-verify-connection-resource-manager.md)
+## [Redefinir um Gateway de VPN do Azure usando o PowerShell](vpn-gateway-resetgw-classic.md)
+## [Como trabalhar com certificados autoassinados para conexões de Ponto a site](vpn-gateway-certificates-point-to-site.md)
+## [Configurar um gateway de VPN (Clássico)](vpn-gateway-configure-vpn-gateway-mp.md)
+# Referência
+## APIs REST
+### [Referência de API REST (Resource Manager)](https://msdn.microsoft.com/library/mt163859)
+### [Referência da API REST (Clássica)](https://msdn.microsoft.com/library/jj154113)
+## Cmdlets do PowerShell
+### [Cmdlets do PowerShell (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
+### [Cmdlets do PowerShell (Clássico)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+# Relacionados 
+## [Máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machines) 
 ## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway)
-## [Azure DNS](https://azure.microsoft.com/documentation/services/dns)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager)
-## [Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway)
+## [DNS do Azure](https://azure.microsoft.com/documentation/services/dns)
+## [Gerenciador de Tráfego](https://azure.microsoft.com/documentation/services/traffic-manager)
+## [Balanceador de Carga](https://azure.microsoft.com/documentation/services/load-balancer)
+## [Gateway de VPN](https://azure.microsoft.com/documentation/services/vpn-gateway)
 ## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute) 
-# Resources
-## [Networking Blog](https://azure.microsoft.com/blog/topics/networking)
+# Recursos
+## [Blog de rede](https://azure.microsoft.com/blog/topics/networking)
 
 <!--HONumber=Nov16_HO2-->
 
