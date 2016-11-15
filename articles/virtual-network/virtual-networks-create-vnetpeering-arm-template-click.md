@@ -2,12 +2,12 @@
 title: Criar o Emparelhamento VNet usando os modelos do Resource Manager | Microsoft Docs
 description: Saiba como criar um emparelhamento de rede virtual usando modelos no Resource manager.
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: narayanannamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 75f8d10e-23e8-44bd-9972-aab74048cf38
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5af02963f139648d9f1b662f2da913ffa0d6f128
+
 
 ---
-# Criar o Emparelhamento VNet usando modelos do Resource Manager
+# <a name="create-vnet-peering-using-resource-manager-templates"></a>Criar o Emparelhamento VNet usando modelos do Resource Manager
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -59,7 +63,7 @@ Para criar um emparelhamento VNet usando os modelos do Resource Manager, execute
             }
         ]
         }
-3. A seção abaixo mostra a definição do link de emparelhamento VNet da VNet2 para a VNet1, com base no cenário acima. Copie o conteúdo abaixo e salve-o em um arquivo denominado VNetPeeringVNet2.json.
+3. A seção abaixo mostra a definição do link de emparelhamento VNet da VNet2 para a VNet1, com base no cenário acima.  Copie o conteúdo abaixo e salve-o em um arquivo denominado VNetPeeringVNet2.json.
    
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -91,7 +95,7 @@ Para criar um emparelhamento VNet usando os modelos do Resource Manager, execute
    
    | Opção | Descrição | Padrão |
    |:--- |:--- |:--- |
-   | AllowVirtualNetworkAccess |Se o espaço de endereço de uma VNet emparelhada é incluído ou não como parte da marcação virtual\_network. |Sim |
+   | AllowVirtualNetworkAccess |Se o espaço de endereço de uma VNet emparelhada é incluído ou não como parte da marcação virtual_network. |Sim |
    | AllowForwardedTraffic |Se o tráfego não originado em uma VNet emparelhada é aceito ou descartado. |Não |
    | AllowGatewayTransit |Permite que a VNet emparelhada use seu gateway de VNet. |Não |
    | UseRemoteGateways |Use o gateway de sua VNet emparelhada. A VNet emparelhada deve ter um gateway configurado e AllowGatewayTransit selecionado. Não será possível usar essa opção se você tiver um gateway configurado. |Não |
@@ -157,7 +161,7 @@ Para criar um emparelhamento VNet usando os modelos do Resource Manager, execute
         RemoteGateways                   : null
         RemoteVirtualNetworkAddressSpace : null
    
-    Após o estabelecimento do emparelhamento neste cenário, você poderá iniciar as conexões de qualquer máquina virtual para qualquer máquina virtual em ambas as VNets. Por padrão, o AllowVirtualNetworkAccess é True e o emparelhamento VNet provisionará as devidas ACLs para permitir a comunicação entre as VNets. Mas você ainda poderá aplicar as regras do grupo de segurança (NSG) para bloquear a conectividade entre sub-redes ou máquinas virtuais específicas para ter um controle mais preciso do acesso entre duas redes virtuais. Para obter mais informações como criar as regras NSG, consulte este [artigo](virtual-networks-create-nsg-arm-ps.md).
+    Após o estabelecimento do emparelhamento neste cenário, você poderá iniciar as conexões de qualquer máquina virtual para qualquer máquina virtual em ambas as VNets. Por padrão, o AllowVirtualNetworkAccess é True e o emparelhamento VNet provisionará as devidas ACLs para permitir a comunicação entre as VNets. Mas você ainda poderá aplicar as regras do grupo de segurança (NSG) para bloquear a conectividade entre sub-redes ou máquinas virtuais específicas para ter um controle mais preciso do acesso entre duas redes virtuais.  Para obter mais informações como criar as regras NSG, consulte este [artigo](virtual-networks-create-nsg-arm-ps.md).
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
@@ -175,7 +179,7 @@ Para criar um emparelhamento VNet entre as assinaturas, siga as etapas abaixo:
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet3.json -DeploymentDebugLogLevel all
    
-    Veja como o arquivo JSON é definido.
+    Veja como o arquivo JSON é definido.  
    
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -238,7 +242,7 @@ Para criar um emparelhamento VNet entre as assinaturas, siga as etapas abaixo:
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. Nesse cenário, você pode implantar o modelo de exemplo abaixo para estabelecer o emparelhamento VNet. Você precisará definir a propriedade AllowForwardedTraffic para True, o que permite que o dispositivo virtual da rede na VNet emparelhada envie e receba o tráfego.
+1. Nesse cenário, você pode implantar o modelo de exemplo abaixo para estabelecer o emparelhamento VNet.  Você precisará definir a propriedade AllowForwardedTraffic para True, o que permite que o dispositivo virtual da rede na VNet emparelhada envie e receba o tráfego.
    
     Este é o modelo para criar um emparelhamento VNet da HubVNet para a VNet1. Observe que AllowForwardedTraffic está definido como false.
    
@@ -305,7 +309,25 @@ Para criar um emparelhamento entre redes virtuais a partir de modelos de implant
    
     Coloque sua ID de assinatura no local onde está a rede virtual clássica ou VNET2, e altere MyResouceGroup para o nome do grupo de recursos apropriado.
    
-    { "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#", "contentVersion": "1.0.0.0", "parameters": { }, "variables": { }, "resources": [ { "apiVersion": "2016-06-01", "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings", "name": "VNET1/LinkToVNET2", "location": "[resourceGroup().location]", "properties": { "allowVirtualNetworkAccess": true, "allowForwardedTraffic": false, "allowGatewayTransit": false, "useRemoteGateways": false, "remoteVirtualNetwork": { "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]" } } } ] }
+    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [
+   
+        {
+        "apiVersion": "2016-06-01",
+        "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+        "name": "VNET1/LinkToVNET2",
+        "location": "[resourceGroup().location]",
+        "properties": {
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "allowGatewayTransit": false,
+        "useRemoteGateways": false,
+            "remoteVirtualNetwork": {
+            "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
+    }
+   
+        }
+        }
+    ]  }
 2. Para implantar o arquivo de modelo, execute o seguinte cmdlet para criar ou atualizar a implantação.
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
@@ -349,4 +371,9 @@ Para criar um emparelhamento entre redes virtuais a partir de modelos de implant
 
 Após o estabelecimento do emparelhamento entre uma VNet clássica e uma VNet do resource manager, você poderá iniciar conexões de qualquer máquina virtual no VNET1 para qualquer máquina virtual na VNET2 e vice-versa.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Visão geral da Retransmissão do Barramento de Serviço| Microsoft Docs
-description: Visão geral da retransmissão do Barramento de Serviço
+title: "Visão geral da retransmissão do Barramento de Serviço| Microsoft Docs"
+description: "Visão geral da retransmissão do Barramento de Serviço"
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1038a2d8-5def-4f48-8703-cb0070fc5f10
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0482096cbec6a5e4b7b13ea662a180cd9b96e85f
+
 
 ---
 # <a name="overview-of-service-bus-relay"></a>Visão geral da retransmissão do Barramento de Serviço
 Um componente importante do Barramento de Serviço é um serviço de *retransmissão* centralizado (mas com alto balanceamento de carga) que permite a compilação de aplicativos híbridos que executem tanto no datacenter do Azure quanto em seu próprio ambiente corporativo local.  A Retransmissão do Barramento de Serviço oferece suporte a vários protocolos de transporte e padrões de serviços Web. Isso inclui SOAP, WS-* e até REST. O serviço de retransmissão facilita seus aplicativos híbridos permitindo que você exiba com segurança os serviços da Windows Communication Foundation (WCF) que residem em uma rede corporativa para a nuvem pública, sem precisar abrir uma conexão de firewall ou exigir mudanças intrusivas em uma infraestrutura de rede corporativa. 
 
-![Conceitos de retransmissão](./media/service-bus-relay-overview/sb-relay-01.png)
+![Conceitos de retransmissão do WCF](./media/service-bus-relay-overview/sb-relay-01.png)
 
 O serviço de retransmissão oferece suporte às mensagens unidirecionais tradicionais, mensagens de solicitação/resposta e mensagens ponto a ponto. Ele também oferece suporte a distribuição de eventos no escopo da Internet para habilitar cenários de publicação/assinatura, e a comunicação de soquete bidirecional para maior eficiência ponto a ponto. 
 
@@ -30,9 +34,12 @@ Você inicia a conexão entre o serviço local e o serviço de retransmissão us
 ## <a name="next-steps"></a>Próximas etapas
 Para obter detalhes sobre a retransmissão do Barramento de Serviço, veja os tópicos a seguir.
 
-* [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
+* [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [Como usar o serviço de Retransmissão do WCF do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

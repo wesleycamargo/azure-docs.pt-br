@@ -1,12 +1,12 @@
 ---
-title: Introdução à Pesquisa do Azure em Java | Microsoft Docs
-description: Como criar um aplicativo de pesquisa hospedado na nuvem no Azure usando Java como linguagem de programação.
+title: "Introdução ao Azure Search no Java | Microsoft Docs"
+description: "Como criar um aplicativo de pesquisa hospedado na nuvem no Azure usando Java como linguagem de programação."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: EvanBoyle
 manager: pablocas
 editor: v-lincan
-
+ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -14,9 +14,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6ecc365fd90ba955efb977c4e598eae6746916f0
+
 
 ---
-# Introdução à Pesquisa do Azure em Java
+# <a name="get-started-with-azure-search-in-java"></a>Introdução à Pesquisa do Azure em Java
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -33,17 +37,17 @@ Para compilar e testar este exemplo, usamos o seguinte software:
 * [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-## Sobre os dados
+## <a name="about-the-data"></a>Sobre os dados
 Este exemplo de aplicativo usa dados do [Serviço Geológico dos Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados no estado de Rhode Island, para reduzir o tamanho do conjunto de dados. Vamos usar esses dados para criar um aplicativo de pesquisa que retorna prédios de referência, como hospitais e escolas, bem como características geológicas como rios, lagos e picos.
 
-Neste aplicativo, o programa **SearchServlet.java** cria e carrega o índice usando uma construção [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx), recuperando o conjunto de dados filtrado do USGS por meio de um Banco de dados SQL do Azure público. Credenciais predefinidas e informações de conexão para a fonte de dados online são fornecidas no código do programa. Em termos de acesso a dados, nenhuma configuração adicional é necessária.
+Neste aplicativo, o programa **SearchServlet.java** cria e carrega o índice usando uma construção [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx) , recuperando o conjunto de dados filtrado do USGS por meio de um Banco de dados SQL do Azure público. Credenciais predefinidas e informações de conexão para a fonte de dados online são fornecidas no código do programa. Em termos de acesso a dados, nenhuma configuração adicional é necessária.
 
 > [!NOTE]
 > Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplica e você pode modificar este código para usar um conjunto de dados maior. Para obter detalhes sobre a capacidade de cada camada de preços, consulte [Limites e restrições](search-limits-quotas-capacity.md).
 > 
 > 
 
-## Sobre os arquivos de programa
+## <a name="about-the-program-files"></a>Sobre os arquivos de programa
 A lista a seguir descreve os arquivos que são relevantes para este exemplo.
 
 * Search.jsp: fornece a interface do usuário
@@ -56,26 +60,26 @@ A lista a seguir descreve os arquivos que são relevantes para este exemplo.
 
 <a id="sub-2"></a>
 
-## Localizar o nome do serviço e a chave de api do serviço de Pesquisa do Azure
-Todas as chamadas da API REST na Pesquisa do Azure exigem que você forneça a URL do serviço e uma chave de api.
+## <a name="find-the-service-name-and-apikey-of-your-azure-search-service"></a>Localizar o nome do serviço e a chave de api do serviço de Pesquisa do Azure
+Todas as chamadas da API REST na Pesquisa do Azure exigem que você forneça a URL do serviço e uma chave de api. 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Na barra de navegação, clique em **Serviço de pesquisa** para listar todos os serviços da Pesquisa do Azure provisionados para sua assinatura.
+2. Na barra de atalhos, clique em **Serviço de Pesquisa** para listar todos os serviços da Pesquisa do Azure provisionados para sua assinatura.
 3. Selecione o serviço que você deseja usar.
 4. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
    
       ![][3]
-5. Copie a URL do serviço e uma chave de administrador. Você precisará dos três posteriormente, ao adicioná-los ao arquivo **config.properties**.
+5. Copie a URL do serviço e uma chave de administrador. Você precisará dos três posteriormente, ao adicioná-los ao arquivo **config.properties** .
 
-## Baixar os arquivos de exemplo
+## <a name="download-the-sample-files"></a>Baixar os arquivos de exemplo
 1. Vá para [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) no Github.
 2. Clique em **Baixar ZIP**, salve o arquivo .zip no disco e, em seguida, extraia todos os arquivos que ele contém. Considere a possibilidade de extrair os arquivos no espaço de trabalho Java para facilitar a localização do projeto posteriormente.
 3. Os arquivos de exemplo são somente leitura. Clique com o botão direito em propriedades da pasta e limpe o atributo somente leitura.
 
-Todas as modificações de arquivos subsequentes e instruções de execução serão feitas nos arquivos nessa pasta.
+Todas as modificações de arquivos subsequentes e instruções de execução serão feitas nos arquivos nessa pasta.  
 
-## Projeto de importação
-1. No Eclipse, escolha **Arquivo** > **Importação** > **Geral** > **Projetos Existentes no Espaço de Trabalho**.
+## <a name="import-project"></a>Projeto de importação
+1. No Eclipse, escolha **Arquivo** > **Importar** > **Geral** > **Projetos Existentes no Espaço de Trabalho**.
    
     ![][4]
 2. Em **Selecionar diretório raiz**, navegue até a pasta que contém os arquivos de exemplo. Selecione a pasta que contém a pasta .project. O projeto deve aparecer na lista **Projetos** como um item selecionado.
@@ -84,26 +88,26 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 3. Clique em **Concluir**.
 4. Use o **Gerenciador de Projetos** para exibir e editar os arquivos. Se não ainda estiver aberto, clique em **Janela** > **Exibição** > **Gerenciador de Projetos** ou use o atalho para abri-lo.
 
-## Configurar a URL de serviço e a chave de API
+## <a name="configure-the-service-url-and-apikey"></a>Configurar a URL de serviço e a chave de API
 1. Em **Gerenciador de Projetos**, clique duas vezes em **config.properties** para editar as definições de configuração que contêm o nome do servidor e a chave de Api.
 2. Consulte as etapas explicadas anteriormente neste artigo, em que você encontrou a URL de serviço e a chave de API no [Portal do Azure](https://portal.azure.com), para obter os valores que você vai inserir agora em **config.properties**.
 3. Em **config.properties**, substitua "Chave Api" com a chave de Api para o serviço. Em seguida, o nome do serviço (o primeiro componente da URL http://servicename.search.windows.net) substitui o "nome do serviço" no mesmo arquivo.
    
     ![][5]
 
-## Configurar ambientes de projeto, compilação e tempo de execução
+## <a name="configure-the-project-build-and-runtime-environments"></a>Configurar ambientes de projeto, compilação e tempo de execução
 1. No Eclipse, no Gerenciador de Projetos, clique com o botão direito do mouse no projeto > **Propriedades** > **Facetas do Projeto**.
 2. Selecione **Módulo da Web dinâmico**, **Java** e **JavaScript**.
    
     ![][6]
 3. Clique em **Aplicar**.
-4. Selecione **Janela** > **Preferências** > **Servidor** > **Ambientes de Tempo de Execução** > **Adicionar..**.
+4. Selecione **Janela** > **Preferências** > **Servidor** > **Ambientes de tempo de execução** > **Adicionar..**.
 5. Expanda o Apache e selecione a versão do servidor Apache Tomcat instalado anteriormente. Em nosso sistema, instalamos a versão 8.
    
     ![][7]
-6. Na próxima página, especifique o diretório de instalação do Tomcat. Em um computador Windows, isso provavelmente será C:\\Arquivos de Programas\\Apache Software Foundation\\Tomcat *versão*.
+6. Na próxima página, especifique o diretório de instalação do Tomcat. Em um computador Windows, isso provavelmente será C:\Arquivos de Programas\Apache Software Foundation\Tomcat *versão*.
 7. Clique em **Concluir**.
-8. Selecione **Janela** > **Preferências** > **Java** > **JREs instalado** > **Adicionar**.
+8. Selecione **Janela** > **Preferências** > **Java** > **JREs Instalados** > **Adicionar**.
 9. Em **Adicionar JRE**, selecione **VM padrão**.
 10. Clique em **Próximo**.
 11. Na Definição do JRE, na página inicial do JRE, clique em **Diretório**.
@@ -117,7 +121,7 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 
 Agora, você concluiu as tarefas de configuração. Em seguida, você compilará e executará o projeto.
 
-## Compilar o projeto
+## <a name="build-the-project"></a>Compilar o projeto
 1. No Gerenciador de Projetos, clique com o botão direito do mouse no nome do projeto e escolha **Executar como** > **Compilação Maven...** para configurar o projeto.
    
     ![][10]
@@ -125,7 +129,7 @@ Agora, você concluiu as tarefas de configuração. Em seguida, você compilará
 
 Mensagens de status são passadas para a janela do console. Você deve ver a mensagem COMPILAÇÃO BEM-SUCEDIDA, indicando que o foi projeto compilado sem erros.
 
-## Executar o aplicativo
+## <a name="run-the-app"></a>Executar o aplicativo
 Nesta última etapa, você executará o aplicativo em um ambiente de tempo de execução do servidor local.
 
 Se você ainda não especificou um ambiente de tempo de execução do servidor no Eclipse, você precisará fazer isso primeiro.
@@ -142,7 +146,7 @@ Quando você executar o aplicativo, verá uma janela do navegador, fornecendo um
 
 Aguarde aproximadamente um minuto antes de clicar em **Pesquisa** para dar ao serviço tempo de criar e carregar o índice. Se você receber um erro HTTP 404, basta esperar um pouco mais antes de tentar novamente.
 
-## Pesquisar em dados USGS
+## <a name="search-on-usgs-data"></a>Pesquisar em dados USGS
 O conjunto de dados do USGS inclui registros relevantes para o estado de Rhode Island. Se você clicar em **Pesquisar** em uma caixa de pesquisa vazia, obterá as 50 entradas principais, que é o valor padrão.
 
 A inserção de um termo de pesquisa fornecerá ao mecanismo de pesquisa algo para seguir. Tente inserir um nome regional. "Roger Williams" foi o primeiro governador de Rhode Island. Vários parques, edifícios e escolas receberam seus nomes em homenagem a ele.
@@ -155,10 +159,10 @@ Você também pode tentar qualquer um destes termos:
 * Pembroke
 * goose +cape
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Este é o primeiro tutorial da Pesquisa do Azure com base em Java e no conjunto de dados do USGS. Ao longo do tempo, ampliaremos este tutorial para demonstrar outros recursos de pesquisa que talvez você queira usar em suas soluções personalizadas.
 
-Se você já tiver um plano de fundo na Pesquisa do Azure, você pode usar este exemplo como um trampolim para experimentos adicionais, talvez aumentando a [página de pesquisa](search-pagination-page-layout.md) ou implementando [navegação facetada](search-faceted-navigation.md). Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
+Se você já tiver algum conhecimento sobre o Azure Search, use este exemplo como um trampolim para experimentos adicionais, talvez aumentando a [página de pesquisa](search-pagination-page-layout.md) ou implementando [navegação facetada](search-faceted-navigation.md). Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
 
 Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](search-video-demo-tutorial-list.md) para acessar mais informações.
 
@@ -176,4 +180,8 @@ Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para qu
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

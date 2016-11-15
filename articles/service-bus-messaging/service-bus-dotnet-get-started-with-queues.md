@@ -1,12 +1,12 @@
 ---
-title: Introdução às filas do Barramento de Serviço | Microsoft Docs
-description: Como escrever um aplicativo de console em C# para a mensagem do Barramento de Serviço
+title: "Introdução às filas do Barramento de Serviço | Microsoft Docs"
+description: "Como escrever um aplicativo de console em C# para a mensagem do Barramento de Serviço"
 services: service-bus
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/23/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c6405a6353cfcc56c79a6f842c6b150d10db75ee
+
 
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Barramento de Serviço
@@ -33,17 +37,17 @@ Neste tutorial, faremos seguinte:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1.-create-a-namespace-using-the-azure-portal"></a>1. Criar um namespace usando o portal do Azure
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Criar um namespace usando o portal do Azure
 Se você já tiver um namespace do Barramento de Serviço criado, vá para a seção [Criar uma fila usando o portal do Azure](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2.-create-a-queue-using-the-azure-portal"></a>2. Criar uma fila usando o portal do Azure
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Criar uma fila usando o portal do Azure
 Se você já tiver uma fila do Barramento de Serviço criada, vá para a seção [Enviar mensagens para a fila](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3.-send-messages-to-the-queue"></a>3. Enviar mensagens para a fila
+## <a name="3-send-messages-to-the-queue"></a>3. Enviar mensagens para a fila
 Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# usando o Visual Studio.
 
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
@@ -99,7 +103,7 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
    
       ![Contagem de mensagens][queue-message]
 
-## <a name="4.-receive-messages-from-the-queue"></a>4. Receber mensagens da fila
+## <a name="4-receive-messages-from-the-queue"></a>4. Receber mensagens da fila
 1. Crie um novo aplicativo de console e adicione uma referência ao pacote NuGet do Barramento de Serviço, parecido com o aplicativo de envio anterior.
 2. Adicione a seguinte instrução `using` à parte superior do arquivo Program.cs.
    
@@ -172,6 +176,7 @@ Confira nosso [Repositório GitHub com exemplos](https://github.com/Azure-Sample
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO2-->
 
 

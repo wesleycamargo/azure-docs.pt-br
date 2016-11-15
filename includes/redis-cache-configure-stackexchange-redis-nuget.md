@@ -1,11 +1,11 @@
-Os aplicativos .NET podem usar o cliente de cache **StackExchange.Redis**, que pode ser configurado no Visual Studio usando um pacote NuGet que simplifica a configuração dos aplicativos do cliente de cache.
+Os aplicativos .NET podem usar o cliente de cache **StackExchange.Redis** , que pode ser configurado no Visual Studio usando um pacote NuGet que simplifica a configuração dos aplicativos do cliente de cache. 
 
 > [!NOTE]
-> Para obter mais informações, consulte a página do github [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) e a [documentação do cliente do cache StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis#documentation).
+> Para obter mais informações, consulte a página do github [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) e a [documentação do cliente de cache StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis#documentation).
 > 
 > 
 
-Para configurar um aplicativo de cliente no Visual Studio utilizando o pacote NuGet StackExchange.Redis, clique com o botão direito no projeto em **Gerenciador de Soluções** e escolha **Gerenciar pacotes NuGet**.
+Para configurar um aplicativo de cliente no Visual Studio utilizando o pacote NuGet StackExchange.Redis, clique com o botão direito no projeto em **Gerenciador de Soluções** e escolha **Gerenciar pacotes NuGet**. 
 
 ![Gerenciar pacotes NuGet](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
 
@@ -25,4 +25,8 @@ Os downloads de pacote NuGet acrescentam as referências de assembly necessária
 > 
 > 
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

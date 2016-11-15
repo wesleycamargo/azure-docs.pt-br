@@ -1,12 +1,12 @@
 ---
-title: Secure your key vault | Microsoft Docs
-description: Manage access permissions for key vault for managing vaults and keys and secrets. Authentication and authorization model for key vault and how to secure your key vault
+title: Proteger seu cofre de chaves | Microsoft Docs
+description: "Gerencie permissões de acesso para o cofre de chaves para gerenciar cofres, chaves e segredos. Modelo de autenticação e autorização para o cofre de chaves e como proteger o cofre de chaves"
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,151 +14,155 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+
 
 ---
-# <a name="secure-your-key-vault"></a>Secure your key vault
-Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, passwords) for your cloud applications. Since this data is sensitive and business critical, you want to secure access to your key vaults so that only authorized applications and users can access key vault. This article provides an overview of key vault access model, explains authentication and authorization, and describes how to secure access to key vault for your cloud applications with an example.
+# <a name="secure-your-key-vault"></a>Proteger seu cofre de chaves
+O Cofre de Chaves do Azure é um serviço de nuvem que protege chaves de criptografia e segredos (como certificados, cadeias de conexão e senhas) para aplicativos de nuvem. Como esses dados são confidenciais e críticos para os negócios, convém proteger o acesso aos cofres de chaves para que apenas aplicativos e usuários autorizados possam acessar o cofre de chaves. Este artigo fornece uma visão geral do modelo de acesso do cofre de chaves, explica a autenticação e a autorização e descreve como proteger o acesso ao cofre de chaves para aplicativos de nuvem com um exemplo.
 
-## <a name="overview"></a>Overview
-Access to a key vault is controlled through two separate interfaces: management plane and data plane. For both planes proper authentication and authorization is required before a caller (a user or an application) can get access to key vault. Authentication establishes the identity of the caller, while authorization determines what operations the caller is allowed to perform.
+## <a name="overview"></a>Visão geral
+O acesso a um cofre de chaves é controlado por meio de duas interfaces separadas: plano de gerenciamento e plano de dados. Para ambos os planos, a autorização e a autenticação adequadas são necessárias para que um chamador (um usuário ou um aplicativo) possa obter acesso ao cofre de chaves. A autenticação estabelece a identidade do chamador, enquanto a autorização determina quais operações o chamador tem permissão para executar.
 
-For authentication both management plane and data plane use Azure Active Directory. For authorization, management plane uses role-based access control (RBAC) while data plane uses key vault access policy.
+Para a autenticação, o plano de gerenciamento e o plano de dados usam o Azure Active Directory. Para a autorização, o plano de gerenciamento usa RBAC (controle de acesso baseado em função), enquanto o plano de dados usa a política de acesso do cofre de chaves.
 
-Here is a brief overview of the topics covered:
+Aqui está uma breve visão geral dos tópicos abordados:
 
-[Authentication using Azure Active Directory](#authentication-using-azure-active-direcrory) - This section explains how a caller authenticates with Azure Active Directory to access a key vault via management plane and data plane. 
+[Autenticação usando o Azure Active Directory](#authentication-using-azure-active-direcrory) - esta seção explica como um chamador autenticado com o Azure Active Directory acessa um cofre de chaves por meio do plano de gerenciamento e do plano de dados. 
 
-[Management plane and data plane](#management-plane-and-data-plane) - Management plane and data plane are two access planes used for accessing your key vault. Each access plane supports specific operations. This section describes the access endpoints, operations supported, and access control method used by each plane. 
+[Plano de gerenciamento e plano de dados](#management-plane-and-data-plane) - o plano de gerenciamento e o plano de dados são dois planos de acesso usados para acessar o cofre de chaves. Cada plano de acesso dá suporte a operações específicas. Esta seção descreve os pontos de extremidade de acesso, as operações com suporte e o método de controle de acesso usado por cada plano. 
 
-[Management plane access control](#management-plane-access-control) - In this section we'll look at allowing access to management plane operations using role-based access control.
+[Controle de acesso do plano de gerenciamento](#management-plane-access-control) - nesta seção, veremos como permitir o acesso às operações do plano de gerenciamento usando o controle de acesso baseado em função.
 
-[Data plane access control](#data-plane-access-control) - This section describes how to use key vault access policy to control data plane access.
+[Controle de acesso do plano de dados](#data-plane-access-control) - esta seção descreve como usar a política de acesso do cofre de chaves para controlar o acesso do plano de dados.
 
-[Example](#example) - This example describes how to setup access control for your key vault to allow three different teams (security team, developers/operators, and auditors) to perform specific tasks to develop, manage and monitor an application in Azure.
+[Exemplo](#example) - Este exemplo descreve como configurar o controle de acesso para o cofre de chaves para permitir que três equipes diferentes (equipe de segurança, desenvolvedores/operadores e auditores) executem tarefas específicas para desenvolver, gerenciar e monitorar um aplicativo no Azure.
 
-## <a name="authentication-using-azure-active-directory"></a>Authentication using Azure Active Directory
-When you create a key vault in an Azure subscription, it is automatically associated with the subscription's Azure Active Directory tenant. All callers (users and applications) must be registered in this tenant to access this key vault. An application or a user must authenticate with Azure Active Directory to access key vault. This applies to both management plane and data plane access. In both cases, an application can access key vault in two ways:
+## <a name="authentication-using-azure-active-directory"></a>Autenticação usando o Azure Active Directory
+Quando você cria um cofre de chaves em uma assinatura do Azure, ele é associado automaticamente ao locatário do Azure Active Directory da assinatura. Todos os chamadores (usuários e aplicativos) devem ser registrados neste locatário para acessar este cofre de chaves. Um aplicativo ou um usuário deve se autenticar com o Azure Active Directory para acessar o cofre de chaves. Isso se aplica ao plano de gerenciamento e ao acesso do plano de dados. Em ambos os casos, um aplicativo pode acessar o cofre de chaves de duas maneiras:
 
-* **user+app access** - usually this is for applications that access key vault on behalf of a signed-in user. Azure PowerShell, Azure Portal are examples of this type of access. There are two ways to grant access to users: one way is to grant access to users so they can access key vault from any application and the other way is to grant a user access to key vault only when they use a specific application (referred to as compound identity). 
-* **app-only access** - for applications that run daemon services, background jobs etc. The application's identity is granted access to the key vault.
+* **acesso de usuário+aplicativo** - geralmente isso é para aplicativos que acessam o cofre de chaves em nome de um usuário conectado. O Azure PowerShell e o Portal do Azure são exemplos desse tipo de acesso. Há duas maneiras de conceder acesso a usuários: uma delas consiste em conceder acesso aos usuários para que eles possam acessar o cofre de chaves por meio de qualquer aplicativo e a outra forma é conceder a um usuário acesso ao cofre de chaves somente quando ele usa um aplicativo específico (conhecido como identidade composta). 
+* **Acesso somente de aplicativo** - para aplicativos que executam serviços de daemon, trabalhos em segundo plano etc. A identidade do aplicativo recebe acesso ao cofre de chaves.
 
-In both types of applications, the application authenticates with Azure Active Directory using any of the [supported authentication methods](../active-directory/active-directory-authentication-scenarios.md) and acquires a token. Authentication method used depends on the application type. Then the application uses this token and sends REST API request to key vault. In case of management plane access the requests are routed through Azure Resource Manager endpoint. When accessing data plane, the applications talks directly to a key vault endpoint. See more details on the [whole authentication flow](../active-directory/active-directory-protocols-oauth-code.md). 
+Em ambos os tipos de aplicativos, o aplicativo é autenticado com o Azure Active Directory usando qualquer um dos [métodos de autenticação com suporte](../active-directory/active-directory-authentication-scenarios.md) e adquire um token. O método de autenticação usado depende do tipo de aplicativo. Em seguida, o aplicativo usa esse token e envia a solicitação de API REST ao cofre de chaves. No caso de acesso do plano de gerenciamento, as solicitações são roteadas por meio do ponto de extremidade do Azure Resource Manager. Ao acessar o plano de dados, os aplicativos falam diretamente com um ponto de extremidade do cofre de chaves. Veja mais detalhes sobre o [fluxo de autenticação completo](../active-directory/active-directory-protocols-oauth-code.md). 
 
-The resource name for which the application requests a token is different depending on whether the application is accessing management plane or data plane. Hence the resource name is either management plane or data plane endpoint described in the table in a later section, depending on the Azure environment.
+O nome do recurso para o qual o aplicativo solicita um token é diferente, dependendo de o aplicativo acessar o plano de gerenciamento ou o plano de dados. Portanto, o nome do recurso é um ponto de extremidade de plano de gerenciamento ou plano de dados descrito na tabela em uma seção posterior, dependendo do ambiente do Azure.
 
-Having one single mechanism for authentication to both management and data plane has its own benefits:
+Um mecanismo de autenticação único para o plano de gerenciamento e o plano de dados tem suas próprias vantagens:
 
-* Organizations can centrally control access to all key vaults in their organization
-* If a user leaves, they instantly lose access to all key vaults in the organization
-* Organizations can customize authentication via the options in Azure Active Directory (for example, enabling multi-factor authentication for added security)
+* As organizações podem controlar centralmente o acesso a todos os cofres de chaves em sua organização
+* Se um usuário parte, ele perde instantaneamente o acesso a todos os cofres de chaves na organização
+* As organizações podem personalizar a autenticação por meio de opções no Azure Active Directory (por exemplo, habilitando a autenticação multifator para aumentar a segurança)
 
-## <a name="management-plane-and-data-plane"></a>Management plane and data plane
-Azure Key Vault is an Azure service available via Azure Resource Manager deployment model. When you create a key vault, you get a virtual container inside which you can create other objects like keys, secrets, and certificates. Then you access your key vault using management plane and data plane to perform specific operations. Management plane interface is used to manage your key vault itself, such as creating, deleting, updating key vault attributes and setting access policies for data plane. Data plane interface is used to add, delete, modify, and use the keys, secrets, and certificates stored in your key vault.
+## <a name="management-plane-and-data-plane"></a>Plano de gerenciamento e plano de dados
+O Cofre de Chaves do Azure é um serviço do Azure disponível por meio do modelo de implantação do Azure Resource Manager. Ao criar um cofre de chaves, você obtém um contêiner virtual no qual pode criar outros objetos, como chaves, segredos e certificados. Em seguida, você acessa o cofre de chaves usando o plano de gerenciamento e o plano de dados para executar operações específicas. A interface do plano de gerenciamento é usada para gerenciar o cofre de chaves em si, por exemplo, para criar, excluir, atualizar atributos do cofre de chaves e definir políticas de acesso para o plano de dados. A interface do plano de dados é usada para adicionar, excluir, modificar e usar as chaves, os segredos e os certificados armazenados no cofre de chaves.
 
-The management plane and data plane interfaces are accessed through different endpoints (see table). The second column in the table describes the DNS names for these endpoints in different Azure environments. The third column describes the operations you can perform from each access plane. Each access plane also has its own access control mechanism: for management plane access control is set using Azure Resource Manager Role-Based Access Control (RBAC), while for data plane access control is set using key vault access policy.
+As interfaces do plano de gerenciamento e do plano de dados são acessadas por meio de pontos de extremidade diferentes (confira a tabela). A segunda coluna da tabela descreve os nomes DNS para esses pontos de extremidade em diferentes ambientes do Azure. A terceira coluna descreve as operações que você pode executar em cada plano de acesso. Cada plano de acesso também tem seu próprio mecanismo de controle de acesso: para o plano de gerenciamento, o controle de acesso é definido usando o RBAC do Azure Resource Manager (Controle de Acesso Baseado em Função), enquanto para o plano de dados, o controle de acesso é definido usando a política de acesso do cofre de chaves.
 
-| Access plane | Access endpoints | Operations | Access control mechanism |
+| Plano de acesso | Pontos de extremidade de acesso | Operações | Mecanismo de controle de acesso |
 | --- | --- | --- | --- |
-| Management plane |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |Create/Read/Update/Delete key vault <br> Set access policies for key vault<br>Set tags for key vault |Azure Resource Manager Role-Based Access Control (RBAC) |
-| Data plane |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |For Keys: Decrypt, Encrypt, UnwrapKey, WrapKey, Verify, Sign, Get, List, Update, Create, Import, Delete, Backup, Restore<br><br> For secrets: Get, List, Set, Delete |Key vault access policy |
+| Plano de gerenciamento |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure Governo dos EUA:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br>  management.microsoftazure.de:443 |Criar/Ler/Atualizar/Excluir cofre de chaves <br> Definir políticas de acesso para o cofre de chaves<br>Definir marcas para o cofre de chaves |RBAC (Controle de Acesso Baseado em Função) do Azure Resource Manager |
+| Plano de dados |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure Governo dos EUA:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemanha:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |Para chaves: Descriptografar, Criptografar, UnwrapKey, WrapKey, Verificar, Entrar, Obter, Listar, Atualizar, Criar, Importar, Excluir, Backup, Restauração<br><br> Para segredos: Obter, Listar, Definir, Excluir |Política de acesso do cofre de chaves |
 
-The management plane and data plane access controls work independently. For example, if you want to grant an application access to use keys in a key vault, you only need to grant data plane access permissions using key vault access policies and no management plane access is needed for this application. And conversely, if you want a user to be able to read vault properties and tags, but not have any access to keys, secrets, or certificates, you can grant this user, 'read' access using RBAC and no access to data plane is required.
+Os controles de acesso do plano de gerenciamento e do plano e dados funcionam de forma independente. Por exemplo, se desejar conceder a um aplicativo acesso para usar as chaves em um cofre de chaves, você só precisará conceder permissões de acesso ao plano de dados usando políticas de acesso do cofre de chaves, e nenhum acesso do plano de gerenciamento será necessário para o aplicativo. Por outro lado, se quiser que um usuário possa ler propriedades de cofre e marcas, mas não tenha acesso a chaves, segredos ou certificados, você poderá conceder ao usuário acesso de 'leitura' usando o RBAC, e nenhum acesso a dados será necessário.
 
-## <a name="management-plane-access-control"></a>Management plane access control
-The management plane consists of operations that affect the key vault itself. For example, you can create or delete a key vault. You can get a list of vaults in a subscription. You can retrieve key vault properties (such as SKU, tags) and set key vault access policies that control the users and applications that can access keys and secrets in the key vault. Management plane access control uses RBAC. See the complete list of key vault operations that can be performed via management plane in the table in preceding section. 
+## <a name="management-plane-access-control"></a>Controle de acesso do plano de gerenciamento
+O plano de gerenciamento consiste em operações que afetam o cofre de chaves em si. Por exemplo, você pode criar ou excluir um cofre de chaves. Você pode obter uma lista de cofres em uma assinatura. Você pode recuperar as propriedades do cofre de chaves (como SKU e marcas) e definir políticas de acesso de cofre de chaves que controlam os usuários e os aplicativos que podem acessar chaves e segredos no cofre de chaves. O controle de acesso do plano de gerenciamento usa RBAC. Confira a lista completa das operações do cofre de chaves que podem ser executadas por meio do plano de gerenciamento na tabela da seção anterior. 
 
-### <a name="role-based-access-control-(rbac)"></a>Role-based Access Control (RBAC)
-Each Azure subscription has an Azure Active Directory. Users, groups, and applications from this directory can be granted access to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This type of access control is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+### <a name="rolebased-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
+Cada assinatura do Azure tem um Azure Active Directory. Os usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure que usam o modelo de implantação do Azure Resource Manager. Esse tipo de controle de acesso é chamado de RBAC (Controle de Acesso Baseado em função). Para gerenciar esse acesso, é possível usar o [Portal do Azure](https://portal.azure.com/), as [ferramentas da CLI do Azure](../xplat-cli-install.md), o [PowerShell](../powershell-install-configure.md) ou as [APIs REST do Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
-With the Azure Resource Manager model, you create your key vault in a resource group and control access to the management plane of this key vault by using Azure Active Directory. For example, you can grant users or a group ability to manage key vaults in a specific resource group.
+Com o modelo do Azure Resource Manager, você pode criar o cofre de chaves em um grupo de recursos e controlar o acesso do plano de gerenciamento ao cofre de chaves usando o Azure Active Directory. Por exemplo, você pode conceder a usuários ou a um grupo a capacidade de gerenciar cofres de chaves em um grupo de recursos específico.
 
-You can grant access to users, groups and applications at a specific scope by assigning appropriate RBAC roles. For example, to grant access to a user to manage key vaults you would assign a predefined role 'key vault Contributor' to this user at a specific scope. The scope in this case would be either a subscription, a resource group, or just a specific key vault. A role assigned at subscription level applies to all resource groups and resources within that subscription. A role assigned at resource group level applies to all resources in that resource group. A role assigned for a specific resource only applies to that resource. There are several predefined roles (see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md)), and if the predefined roles do not fit your needs you can also define your own roles.
-
-> [!IMPORTANT]
-> Note that if a user has Contributor permissions (RBAC) to a key vault management plane, she can grant herself access to data plane, by setting key vault access policy, which controls access to data plane. Therefore, it is recommended to tightly control who has 'Contributor' access to your key vaults to ensure only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
-> 
-> 
-
-## <a name="data-plane-access-control"></a>Data plane access control
-The key vault data plane consists of operations that affect the objects in a key vault, such as keys, secrets, and certificates.  This includes key operations such as create, import, update, list, backup, and restore keys, cryptographic operations such as sign, verify, encrypt, decrypt, wrap, and unwrap, and set tags and other attributes for keys. Similarly, for secrets it includes, get, set, list, delete.
-
-Data plane access is granted by setting access policies for a key vault. A user, group, or an application must have Contributor permissions (RBAC) for management plane for a key vault to be able to set access policies for that key vault. A user, group, or application can be granted access to perform specific operations for keys or secrets in a key vault. key vault support up to 16 access policy entries for a key vault. Create an Azure Active Directory security group and add users to that group to grant data plane access to several users to a key vault.
-
-### <a name="key-vault-access-policies"></a>key vault Access Policies
-key vault access policies grant permissions to keys, secrets and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, key vault access policy does not support object level permissions. You can use [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx) to set access policies for a key vault.
+Você pode conceder acesso a usuários, grupos e aplicativos em um escopo específico atribuindo funções RBAC apropriadas. Por exemplo, para conceder acesso a um usuário para gerenciar cofres de chaves, atribuaq uma função predefinida 'Colaborador de cofres de chaves' ao usuário em um escopo específico. Nesse caso, o escopo seria uma assinatura, um grupo de recursos ou apenas um cofre de chaves específico. Uma função atribuída no nível de assinatura se aplica a todos os grupos de recursos e recursos na assinatura. Uma função atribuída no nível do grupo de recursos se aplica a todos os recursos nesse grupo de recursos. Uma função atribuída a um recurso específico só se aplica a esse recurso. Há várias funções predefinidas (confira [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md)) e, se as funções predefinidas não atendem às suas necessidades, você também pode definir suas próprias funções.
 
 > [!IMPORTANT]
-> Note that key vault access policies apply at the vault level. For example, when a user is granted permission to create and delete keys, she can perform those operations on all keys in that key vault.
+> Observe que, se uma usuária tiver permissões de Colaborador (RBAC) para um plano de gerenciamento de cofre de chaves, poderá conceder a si mesma acesso ao plano de dados, definindo a política de acesso do cofre de chaves, que controla o acesso ao plano de dados. Portanto, é recomendável controlar exatamente quem tem o acesso de 'Colaborador' a seu cofres de chaves para garantir que somente pessoas autorizadas possam acessar e gerenciar cofres de chaves, chaves, segredos e certificados.
 > 
 > 
 
-## <a name="example"></a>Example
-Let's say you are developing an application that uses a certificate for SSL, Azure storage for storing data, and uses an RSA 2048-bit key for sign operations. Let's say this application is running in a VM (or a VM Scale Set). You can use a key vault to store all the application secrets, and use key vault to store the bootstrap certificate that is used by the application to authenticate with Azure Active Directory.
+## <a name="data-plane-access-control"></a>Controle de acesso do plano de dados
+O plano de dados de cofre de chaves consiste em operações que afetam os objetos em um cofre de chaves, como chaves, segredos e certificados.  Isso inclui operações-chave, como criar, importar, atualizar, listar, fazer backup de chaves e restaurá-las, operações criptográficas como entrar, verificar, criptografar, descriptografar, encapsular e desencapsular e definir marcas e outros atributos para chaves. Da mesma forma, para segredos, isso inclui obter, definir, listar e excluir.
 
-So, here's a summary of all the keys and secrets to be stored in a key vault.
+O acesso do dados do plano é concedido definindo políticas de acesso para um cofre de chaves. Um usuário, grupo ou aplicativo deve ter permissões de Colaborador (RBAC) para o plano de gerenciamento para um cofre de chaves para poder definir políticas de acesso para esse cofre de chaves. Um usuário, grupo ou aplicativo pode receber acesso para executar operações específicas para chaves ou segredos em um cofre de chaves. o cofre de chaves dá suporte a até 16 entradas de política de acesso para um cofre de chaves. Crie um grupo de segurança do Azure Active Directory e adicione usuários a esse grupo para conceder acesso do plano de dados para vários usuários em um cofre de chaves.
 
-* **SSL Cert** - used for SSL
-* **Storage Key** - used to get access to Storage account
-* **RSA 2048-bit key** - used for sign operations
-* **Bootstrap certificate** - used to authenticate to Azure Active Directory, to get access to key vault to fetch the storage key and use the RSA key for signing.
+### <a name="key-vault-access-policies"></a>Políticas de Acesso de cofre de chaves
+as políticas de acesso de cofre de chaves concedem permissões para chaves, segredos e certificados separadamente. Por exemplo, você pode dar a um usuário acesso apenas a chaves, mas nenhuma permissão para segredos. No entanto, as permissões para acessar chaves, segredos ou certificados estão no nível de cofre. Em outras palavras, a política de acesso de cofre de chaves não dá suporte a permissões em nível de objeto. Você pode usar o [portal do Azure](https://portal.azure.com/), as [Ferramentas de CLI do Azure](../xplat-cli-install.md), o [PowerShell](../powershell-install-configure.md) ou as [APIs REST de Gerenciamento de cofre de chaves](https://msdn.microsoft.com/library/azure/mt620024.aspx) para definir políticas de acesso para um cofre de chaves.
 
-Now let's meet the people who are managing, deploying and auditing this application. We'll use three roles in this example.
+> [!IMPORTANT]
+> Observe que as políticas de acesso de cofre de chaves se aplicam no nível de cofre. Por exemplo, quando uma usuária tem permissão para criar e excluir chaves, ela pode executar essas operações em todas as chaves no cofre de chaves.
+> 
+> 
 
-* **Security team** - These are typically IT staff from the 'office of the CSO (Chief Security Officer)' or equivalent, responsible for the proper safekeeping of secrets such as SSL certificates, RSA keys used for signing, connection strings for databases, storage account keys.
-* **Developers/operators** - These are the folks who develop this application and then deploy it in Azure. Typically, they are not part of the security team, and hence they should not have access to any sensitive data, such as SSL certificates, RSA keys, but the application they deploy should have access to those.
-* **Auditors** - This is usually a different set of people, isolated from the developers and general IT staff. Their responsibility is to review proper use and maintenance of certificates, keys, etc. and ensure compliance with data security standards. 
+## <a name="example"></a>Exemplo
+Digamos que você esteja desenvolvendo um aplicativo que usa um certificado para SSL, o armazenamento do Azure para armazenar dados e uma chave RSA de 2048 bits para operações de entrada. Digamos que esse aplicativo seja executado em uma VM (ou um Conjunto de Dimensionamento de VM). Você pode usar um cofre de chaves para armazenar todos os segredos do aplicativo e usar o cofre de chaves para armazenar o certificado de inicialização que é usado pelo aplicativo para se autenticar com o Azure Active Directory.
 
-There is one more role that is outside the scope of this application, but relevant here to be mentioned, and that would be the subscription (or resource group) administrator. Subscription administrator sets up initial access permissions for the security team. Here we assume that the subscription administrator has granted access to the security team to a resource group in which all the resources needed for this application reside.
+Portanto, aqui está um resumo de todas as chaves e segredos a serem armazenados em um cofre de chaves.
 
-Now let's see what actions each role performs in the context of this application.
+* **Certificado SSL** - usado para SSL
+* **Chave de Armazenamento** - usada para obter acesso à conta de Armazenamento
+* **Chave de 2048 bits RSA** - usada para operações de entrada
+* **Certificado de inicialização** - usado para autenticação no Azure Active Directory, para obter acesso ao cofre de chaves para buscar a chave de armazenamento e usar a chave RSA para assinatura.
 
-* **Security team**
-  * Create key vaults
-  * Turns on key vault logging
-  * Add keys/secrets
-  * Create backup of keys for disaster recovery
-  * Set key vault access policy to grant permissions to users and applications to perform specific operations
-  * Periodically roll keys/secrets
-* **Developers/operators**
-  * Get references to bootstrap and SSL certs (thumbprints), storage key (secret URI) and signing key (Key URI) from security team
-  * Develop and deploy application that accesses keys and secrets programmatically
-* **Auditors**
-  * Review usage logs to confirm proper key/secret use and compliance with data security standards
+Agora, vamos conhecer as pessoas que estão gerenciando, implantando e auditando esse aplicativo. Vamos usar três funções neste exemplo.
 
-Now let's see what access permissions to key vault are needed by each role (and the application) to perform their assigned tasks. 
+* **Equipe de segurança** - normalmente, a equipe de TI do 'escritório do CSO (Diretor de Segurança)' ou equivalente, responsável pela segurança adequada de segredos, como certificados SSL, chaves RSA usadas para assinatura, cadeias de conexão para bancos de dados e chaves de conta de armazenamento.
+* **Desenvolvedores/operadores** - as pessoas que desenvolvem o aplicativo e o implantam no Azure. Normalmente, não fazem parte da equipe de segurança e, assim, não devem ter acesso a dados confidenciais, como certificados SSL e chaves RSA, mas o aplicativo que implantam deve ter acesso a esses itens.
+* **Auditores** - geralmente esse é um conjunto diferente de pessoas, isoladas dos desenvolvedores e da equipe de TI geral. Sua responsabilidade é analisar o uso adequado e a manutenção de certificados, chaves etc. e garantir a conformidade com padrões de segurança de dados. 
 
-| User Role | Management plane permissions | Data plane permissions |
+Há mais uma função que está fora do escopo desse aplicativo, mas é relevante para ser mencionada aqui: o administrador de assinatura (ou grupo de recursos). O administrador de assinatura define permissões de acesso iniciais para a equipe de segurança. Estamos supondo que o administrador de assinatura concedeu acesso à equipe de segurança para um grupo de recursos no qual residem todos os recursos necessários para esse aplicativo.
+
+Agora, vamos ver as ações que cada função executa no contexto do aplicativo.
+
+* **Equipe de segurança**
+  * Criar cofres de chaves
+  * Ativar o registro em log do cofre de chaves
+  * Adicionar chaves/segredos
+  * Criar o backup de chaves de recuperação de desastre
+  * Definir a política de acesso de cofre de chaves para conceder permissões a usuários e aplicativos para executar operações específicas
+  * Distribuir periodicamente chaves/segredos
+* **Desenvolvedores/operadores**
+  * Obter referências para inicialização e certificados SSL (impressões digitais), chave de armazenamento (URI de segredo) e chave de assinatura (URI de chave) da equipe de segurança
+  * Desenvolver e implantar o aplicativo que acessa chaves e segredos de forma programática
+* **Auditores**
+  * Examinar logs de uso para confirmar o uso adequado de chaves/segredos e a conformidade com padrões de segurança de dados
+
+Agora, vamos ver quais permissões de acesso ao cofre de chaves são necessárias para cada função (e o aplicativo) para realizar suas tarefas atribuídas. 
+
+| Função de Usuário | Permissões do plano de gerenciamento | Permissões do plano de dados |
 | --- | --- | --- |
-| Security Team |key vault Contributor |Keys: backup, create, delete, get, import, list, restore <br> Secrets: all |
-| Developers/Operator |key vault deploy permission so that the VMs they deploy can fetch secrets from the key vault |None |
-| Auditors |None |Keys: list<br>Secrets: list |
-| Application |None |Keys: sign<br>Secrets: get |
+| Equipe de Segurança |Colaborador do cofre de chaves |Chaves: fazer backup, criar, excluir, obter, importar, listar, restaurar <br> Segredos: todos |
+| Desenvolvedores/Operador |permissão para implantar o cofre de chaves para que as VMs que eles implantam possam buscar segredos do cofre de chaves |Nenhum |
+| Auditores |Nenhum |Chaves: lista<br>Segredos: lista |
+| Aplicativo |Nenhum |Chaves: assinar<br>Segredos: obter |
 
 > [!NOTE]
-> Auditors need list permission for keys and secrets so they can inspect attributes for keys and secrets that are not emitted in the logs, such as tags, activation and expiration dates.
+> Os auditores precisam de permissão de lista para chaves e segredos para que possam inspecionar atributos de chaves e segredos que não são emitidos nos logs, como marcas, datas de ativação e expiração.
 > 
 > 
 
-Besides permission to key vault, all three roles also need access to other resources. For example, to be able to deploy VMs (or Web Apps etc.) Developers/Operators also need 'Contributor' access to those resource types. Auditors need read access to the storage account where the key vault logs are stored.
+Além de permissão para o cofre de chaves, todas as três funções também precisam acessar outros recursos. Por exemplo, para poder implantar VMs (ou aplicativos Web etc.) Os Desenvolvedores/Operadores também precisam de acesso de 'Colaborador' a esses tipos de recursos. Os auditores precisam de acesso de leitura à conta de armazenamento em que os logs do cofre de chaves são armazenados.
 
-Since the focus of this article is securing access to your key vault, we only illustrate the relevant portions pertaining to this topic and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use bootstrap certificate to authenticate to Azure AD to get access to key vault.
+Como o foco deste artigo é proteger o acesso ao seu cofre de chaves, só ilustramos as partes relevantes referentes a esse tópico e ignoramos detalhes sobre implantação de certificados, acesso a chaves e segredos de forma programática etc. Esses detalhes já são abrangidos em outro lugar. A implantação de certificados armazenados no cofre de chaves em VMs é abordada em uma [postagem de blog](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) e não há [código de exemplo](https://www.microsoft.com/download/details.aspx?id=45343) disponível para ilustrar como usar o certificado de inicialização para se autenticar no Azure AD e obter acesso ao cofre de chaves.
 
-Most of the access permissions can be granted using Azure portal, but to grant granular permissions you may need to use Azure PowerShell (or Azure CLI) to achieve the desired result. 
+A maioria das permissões de acesso pode ser concedida usando o portal do Azure, mas, para conceder permissões granulares, talvez seja necessário usar o Azure PowerShell (ou a CLI do Azure) para obter o resultado desejado. 
 
-The following PowerShell snippets assume:
+Os seguintes trechos de código do PowerShell pressupõem que:
 
-* The Azure Active Directory administrator has created security groups that represent the three roles, namely Contoso Security Team, Contoso App Devops, Contoso App Auditors. The administrator has also added users to the groups they belong.
-* **ContosoAppRG** is the resource group where all the resources reside. **contosologstorage** is where the logs are stored. 
-* Key vault **ContosoKeyVault** and storage account used for key vault logs **contosologstorage** must be in the same Azure location
+* O administrador do Azure Active Directory criou grupos de segurança que representam as três funções, ou seja, Equipe de Segurança da Contoso, Desenvolvedores e Operadores de Aplicativos da Contoso e Auditores de Aplicativos da Contoso. O administrador também adicionou usuários aos grupos aos quais pertencem.
+* **ContosoAppRG** é o grupo de recursos em que residem todos os recursos. **contosologstorage** é onde os logs são armazenados. 
+* O cofre de chaves **ContosoKeyVault** e a conta de armazenamento usada para logs de cofre de chaves **contosologstorage** devem estar no mesmo local no Azure
 
-First the subscription administrator assigns 'key vault Contributor' and 'User Access Administrator' roles to the security team. This allows the security team to manage access to other resources and manage key vaults in the resource group ContosoAppRG.
+Primeiro, o administrador de assinatura atribui funções de 'Colaborador do cofre de chaves' e 'Administrador de Acesso de Usuário' à equipe de segurança. Isso permite que a equipe de segurança gerencie o acesso a outros recursos e gerencie cofres de chaves no grupo de recursos ContosoAppRG.
 
 ```
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
-The following script illustrates how the security team can create a key vault, setup logging, and set access permissions for other roles and the application. 
+O script a seguir ilustra como a equipe de segurança pode criar um cofre de chaves, configurar o registro em log e definir permissões de acesso para outras funções e o aplicativo. 
 
 ```
 # Create key vault and enable logging
@@ -188,64 +192,67 @@ New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso A
 Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionToKeys list -PermissionToSecrets list
 ```
 
-The custom role defined, is only assignable to the subscription where the ContosoAppRG resource group is created. If the same custom roles will be used for other projects in other subscriptions, it's scope could have more subscriptions added.
+A função personalizada definida é atribuível somente à assinatura em que o grupo de recursos ContosoAppRG é criado. Se as mesmas funções personalizadas forem usadas para outros projetos em outras assinaturas, seu escopo poderá ter mais assinaturas adicionadas.
 
-The custom role assignment for the developers/operators for the "deploy/action" permission is scoped to the resource group. This way only the VMs created in the resource group 'ContosoAppRG' will get the secrets (SSL cert and bootstrap cert). Any VMs that a member of dev/ops team creates in other resource group will not be able to get these secrets even if they knew the secret URIs.
+A atribuição de função personalizada para desenvolvedores/operadores para a permissão "implantar/ação" está no escopo do grupo de recursos. Assim, somente as VMs criadas no grupo de recursos 'ContosoAppRG' obterão os segredos (certificado SSL e certificado de inicialização). As VMs que um membro da equipe de desenvolvedores/operadores criar em outro grupo de recursos não poderão obter esses segredos, mesmo que eles saibam os URIs do segredo.
 
-This example depicts a simple scenario. Real life scenarios may be more complex and you may need to adjust permissions to your key vault based on your needs. For example, in our example, we assume that security team will provide the key and secret references (URIs and thumbprints) that developers/operators team need to reference in their applications. Hence, they don't need to grant developers/operators any data plane access. Also, note that this example focuses on securing your key vault. Similar consideration should be given to secure [your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../storage/storage-security-guide.md) and other Azure resources too.
+Este exemplo ilustra um cenário simples. Cenários da vida real podem ser mais complexos, e talvez seja necessário ajustar as permissões para o cofre de chaves com base em suas necessidades. Por exemplo, em nosso exemplo, supomos que a equipe de segurança fornecerá as referências de chave e segredo (URIs e impressões digitais) que a equipe de desenvolvedores/operadores precisa referenciar em seus aplicativos. Portanto, eles não precisam conceder aos desenvolvedores/operadores acesso do plano de dados. Além disso, observe que esse exemplo enfoca a proteção do cofre de chaves. Considerações semelhantes também devem ser levadas em conta para proteger [suas VMs](https://azure.microsoft.com/services/virtual-machines/security/), [contas de armazenamento](../storage/storage-security-guide.md) e outros recursos do Azure.
 
 > [!NOTE]
-> Note: This example shows how key vault access will be locked down in production. The developers should have their own subscription or resourcegroup where they have full permissions to manage their vaults, VMs and storage account where they develop the application.
+> Observação: esse exemplo mostra como o acesso ao chave de cofres será bloqueado na produção. Os desenvolvedores devem ter sua própria assinatura ou grupo de recursos em que têm permissões completas para gerenciar seus cofres, VMs e conta de armazenamento onde desenvolvem o aplicativo.
 > 
 > 
 
-## <a name="resources"></a>Resources
-* [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md)
+## <a name="resources"></a>Recursos
+* [Controle de acesso baseado em função do Active Directory do Azure](../active-directory/role-based-access-control-configure.md)
   
-  This article explains the Azure Active Directory Role-based Access Control and how it works.
-* [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md)
+  Esse artigo explica o Controle de Acesso Baseado em Função do Azure Active Directory.
+* [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md)
   
-  This article details all the built-in roles available in RBAC.
-* [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
+  Esse artigo detalha as funções disponíveis internas no RBAC.
+* [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md)
   
-  This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
-* [Manage Role-Based Access Control with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+  Esse artigo explica os modelos de implantação clássica e implantação Resource Manager, além de explicar os benefícios de usar o Resource Manager e os grupos de recursos.
+* [Gerenciar o Controle de Acesso baseado em função com o Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   
-  This article explains how to manage role-based access control with Azure PowerShell
-* [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+  Este artigo explica como gerenciar o controle de acesso baseado em função com o Azure PowerShell
+* [Gerenciar o controle de acesso com base em função com a API REST](../active-directory/role-based-access-control-manage-access-rest.md)
   
-  This article shows how to use the REST API to manage RBAC.
-* [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
+  Esse artigo mostra como usar a API REST para gerenciar o RBAC.
+* [Role-Based Access Control for Microsoft Azure from Ignite (Controle de Acesso Baseado em Função do Microsoft Azure do Ignite)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
-  This is a link to a video on Channel 9 from the 2015 MS Ignite conference. In this session, they talk about access management and reporting capabilities in Azure, and explore best practices around securing access to Azure subscriptions using Azure Active Directory.
-* [Authorize access to web applications using OAuth 2.0 and Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
+  Este é um link para um vídeo da conferência MS Ignite de 2015, no Channel 9. Nessa sessão, falam sobre gerenciamento de acesso e recursos de relatório no Azure, além de explorar práticas recomendadas em torno de proteção do acesso às assinaturas do Azure usando o Azure Active Directory.
+* [Autorizar o acesso aos aplicativos Web usando o OAuth 2.0 e o Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
   
-  This article describes complete OAuth 2.0 flow for authenticating with Azure Active Directory.
-* [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx)
+  Este artigo descreve o fluxo completo do OAuth 2.0 para autenticação com o Azure Active Directory.
+* [APIs REST de Gerenciamento de cofre de chaves](https://msdn.microsoft.com/library/azure/mt620024.aspx)
   
-  This document is the reference for the REST APIs to manage your key vault programmatically, including setting key vault access policy.
-* [key vault REST APIs](https://msdn.microsoft.com/library/azure/dn903609.aspx)
+  Este documento é a referência para as APIs REST para gerenciar o cofre de chaves de forma programática, incluindo a configuração de política de acesso do cofre de chaves.
+* [APIs REST do cofre de chaves](https://msdn.microsoft.com/library/azure/dn903609.aspx)
   
-  Link to key vault REST API reference documentation.
-* [Key access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
+  Link para a documentação de referência de API REST do cofre de chaves.
+* [Controle de acesso a chave](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
   
-  Link to Key access control reference documentation.
-* [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
+  Vincular à documentação de referência de controle de acesso de Chave.
+* [Controle de acesso a segredo](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
-  Link to Key access control reference documentation.
-* [Set](https://msdn.microsoft.com/library/mt603625.aspx) and [Remove](https://msdn.microsoft.com/library/mt619427.aspx) key vault access policy using PowerShell
+  Vincular à documentação de referência de controle de acesso de Chave.
+* [Definir](https://msdn.microsoft.com/library/mt603625.aspx) e [Remover](https://msdn.microsoft.com/library/mt619427.aspx) política de acesso do cofre de chaves usando o PowerShell
   
-  Links to reference documentation for PowerShell cmdlets to manage key vault access policy.
+  Links para a documentação de referência de cmdlets do PowerShell para gerenciar a política de acesso do cofre de chaves.
 
-## <a name="next-steps"></a>Next Steps
-For a getting started tutorial for an administrator, see [Get Started with Azure key vault](key-vault-get-started.md).
+## <a name="next-steps"></a>Próximas etapas
+Para ver um tutorial de introdução para um administrador, confira [Introdução ao cofre de chaves do Azure](key-vault-get-started.md).
 
-For more information about usage logging for key vault, see [Azure key vault Logging](key-vault-logging.md).
+Para saber mais sobre o log de uso do cofre de chaves, confira [Log do cofre de chaves do Azure](key-vault-logging.md).
 
-For more information about using keys and secrets with Azure key vault, see [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx).
+Para saber mais sobre o uso de chaves e segredos com o cofre de chaves do Azure, confira [Sobre Chaves e Segredos](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
-If you have questions about key vault, visit the [Azure key vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
+Se você tiver dúvidas sobre o cofre de chaves, acesse os [Fóruns do cofre de chaves do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

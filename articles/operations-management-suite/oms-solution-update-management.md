@@ -1,22 +1,26 @@
 ---
-title: Atualizar solução de gerenciamento no OMS | Microsoft Docs
-description: Este artigo destina-se a ajudá-lo a entender como usar essa solução para gerenciar atualizações para os computadores Windows e Linux.
+title: "Atualizar solução de gerenciamento no OMS | Microsoft Docs"
+description: "Este artigo destina-se a ajudá-lo a entender como usar essa solução para gerenciar atualizações para os computadores Windows e Linux."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2016
+ms.date: 10/14/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+
 
 ---
-# <a name="![update-management-solution-in-oms](./media/oms-solution-update-management/update-management-solution-icon.png)-update-management-solution-in-oms"></a>![Solução Gerenciamento de Atualizações no OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Solução Gerenciamento de Atualizações no OMS
+# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![Solução Gerenciamento de Atualizações no OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Solução Gerenciamento de Atualizações no OMS
 A solução Gerenciamento de Atualizações no OMS permite que você gerencie atualizações para os computadores Windows e Linux.  Você pode avaliar o status de atualizações disponíveis em todos os computadores de agente e iniciar rapidamente o processo de instalação das atualizações necessárias para os servidores. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -35,15 +39,13 @@ Execute as etapas a seguir para adicionar a solução de gerenciamento de atuali
 2. No portal do OMS, selecione **Configurações** e **Fontes Conectadas**.  Observe a **ID do Espaço de Trabalho** e a **Chave Primária** ou a **Chave Secundária**.
 3. Execute as etapas a seguir para cada computador Linux.
    
-   a.  Instale a versão mais recente do Agente do OMS para Linux ao executar os comandos a seguir.  Substitua <Workspace ID> pela ID do espaço de trabalho e <Key> pela Chave Primária ou pela Chave Secundária.
+   a.    Instale a versão mais recente do Agente do OMS para Linux ao executar os comandos a seguir.  Substitua <Workspace ID> pela ID do espaço de trabalho e <Key> pela Chave Primária ou pela Chave Secundária.
    
-       cd ~
-       wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
    
-    b. Para remover o agente, execute o comando a seguir.
+   b. Para remover o agente, execute o comando a seguir.
    
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento
 Se o grupo de gerenciamento do System Center Operations Manager estiver conectado ao seu espaço de trabalho do OMS, os pacotes de gerenciamento a seguir serão instalados no Operations Manager quando você adicionar essa solução. Não é necessária nenhuma configuração nem a manutenção desses pacotes de gerenciamento. 
@@ -95,7 +97,7 @@ Clique no bloco **Gerenciamento de Atualizações** para abrir o painel **Gerenc
 ![Exibição de Pacote de Painel de Gerenciamento de Atualizações](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
 
 ## <a name="installing-updates"></a>Instalação de atualizações
-Depois de avaliar atualizações para todos os computadores no seu ambiente, você pode ter as necessárias atualizações instaladas, criando uma *Implantação de Atualizações*.  Uma Implantação de Atualizações é uma instalação agendada de atualizações necessárias para um ou mais computadores Windows.  Você especifica a data e hora para a implantação, além de um computador ou um grupo de computadores que devem ser incluídos.  
+Depois de avaliar atualizações para todos os computadores com Windows em seu ambiente, você pode ter as necessárias atualizações instaladas, criando uma *Implantação de Atualizações*.  Uma Implantação de Atualizações é uma instalação agendada de atualizações necessárias para um ou mais computadores Windows.  Você especifica a data e hora para a implantação, além de um computador ou um grupo de computadores que devem ser incluídos.  
 
 As atualizações são instaladas por runbooks na Automação do Azure.  Você não consegue exibir esses runbooks e eles não exigem nenhuma configuração.  Quando uma Implantação de Atualizações é criada, ela cria uma agenda em que inicia um runbook de atualização mestre no momento especificado para os computadores incluídos.  Esse runbook mestre inicia um runbook filho em cada agente do Windows que executa a instalação de atualizações necessárias.  
 
@@ -199,7 +201,7 @@ Um registro com um tipo **UpdateSummary** é criado para cada computador de agen
 | CriticalUpdatesMissing |Número de atualizações críticas ausentes no computador. |
 | ManagementGroupName |Nome do grupo de gerenciamento de agentes do SCOM. Para outros agentes, é o AOI-<workspace ID>. |
 | NETRuntimeVersion |Versão do tempo de execução .NET instalada no computador. |
-| OldestMissingSecurityUpdateBucket |Bucket para categorizar o tempo desde a segurança ausente mais antiga atualização neste computador foi publicado.<br>Os valores possíveis são:<br>- Mais antigos<br>-  Há 180 dias<br>- Há 150 dias<br>- Há 120 dias<br>- Há 90 dias<br>- Há 60 dias<br>- Há 30 dias<br>- Recente |
+| OldestMissingSecurityUpdateBucket |Bucket para categorizar o tempo desde a segurança ausente mais antiga atualização neste computador foi publicado.<br>Os valores possíveis são:<br>- Mais antigos<br>- Há 180 dias<br>- Há 150 dias<br>- Há 120 dias<br>- Há 90 dias<br>- Há 60 dias<br>- Há 30 dias<br>- Recente |
 | OldestMissingSecurityUpdateInDays |Número de dias desde que a atualização de segurança ausente mais antiga neste computador foi publicada. |
 | OsVersion |Versão do sistema operacional instalado no computador. |
 | OtherUpdatesMissing |Número de outras atualizações ausentes no computador. |
@@ -237,6 +239,9 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros de atual
 * [Crie seus próprios painéis](../log-analytics/log-analytics-dashboards.md) mostrando a conformidade da atualização dos computadores gerenciados.
 * [Crie alertas](../log-analytics/log-analytics-alerts.md) quando atualizações críticas forem detectadas como ausentes de um computador ou quando um computador tiver as atualizações automáticas desabilitadas.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

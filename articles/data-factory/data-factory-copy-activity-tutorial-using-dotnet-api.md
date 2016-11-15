@@ -1,22 +1,26 @@
 ---
-title: 'Tutorial: criar um pipeline com Atividade de Cópia usando a API .NET | Microsoft Docs'
-description: Neste tutorial, você cria um pipeline do Azure Data Factory com uma Atividade de Cópia usando a REST .NET.
+title: "Tutorial: criar um pipeline com Atividade de Cópia usando a API .NET | Microsoft Docs"
+description: "Neste tutorial, você cria um pipeline do Azure Data Factory com uma Atividade de Cópia usando a REST .NET."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 10/27/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 629ff68b11df0d17629ca101e5a80a396cfd0fb9
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-.net-api"></a>Tutorial: criar um pipeline com Atividade de Cópia usando a API .NET
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Tutorial: criar um pipeline com Atividade de Cópia usando a API .NET
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
@@ -105,25 +109,29 @@ Você deve ter quatro valores após estas etapas:
    6. Selecione **C:\ADFGetStarted** como o Local.
    7. Clique em **OK** para criar o projeto.
 2. Clique em **Ferramentas**, aponte para **Gerenciador de Pacotes Nuget** e clique em **Console do Gerenciador de Pacotes**.
-3. No **Console do Gerenciador de Pacotes**, digite os comandos a seguir, um por vez. 
-   
-       Install-Package Microsoft.Azure.Management.DataFactories
-       Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+3. No **Console do Gerenciador de Pacotes**, realize as seguintes etapas: 
+   1. Execute o seguinte comando para instalar o pacote de Data Factory: `Install-Package Microsoft.Azure.Management.DataFactories`        
+   2. Execute o seguinte comando para instalar o pacote do Azure Active Directory (use a API do Active Directory no código): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Adicione a seção **appSetttings** a seguir ao arquivo **App.config**. Essas configurações são usadas pelo método auxiliar: **GetAuthorizationHeader**. 
    
     Substitua os valores de **&lt;ID do aplicativo&gt;**, **&lt;Senha&gt;**, **&lt;ID da assinatura&gt;** e **&lt;ID do locatário&gt;** pelos seus próprios valores. 
    
-        <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+        <?xml version="1.0" encoding="utf-8" ?>
+        <configuration>
+            <startup> 
+                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+            </startup>
+            <appSettings>
+                <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+                <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+                <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
    
-            <!-- Replace the following values with your own -->
-            <add key="ApplicationId" value="<Application ID>" />
-            <add key="Password" value="<Password>" />    
-            <add key="SubscriptionId" value= "Subscription ID" />
-            <add key="ActiveDirectoryTenantId" value="tenant ID" />
-        </appSettings>
+                <add key="ApplicationId" value="your application ID" />
+                <add key="Password" value="Password you used while creating the AAD application" />
+                <add key="SubscriptionId" value= "Subscription ID" />
+                <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+            </appSettings>
+        </configuration>
 5. Adicione as seguintes declarações **using** ao arquivo de origem (Program.cs) no projeto.
    
         using System.Threading;
@@ -345,7 +353,7 @@ Você deve ter quatro valores após estas etapas:
                            },
                        }
                    }
-               }); 
+               });    
 2. Adicione o seguinte código ao método **Principal** para obter o status de uma fatia de dados do conjunto de dados de saída. Há apenas uma fatia esperada neste exemplo.   
    
            // Pulling status within a timeout threshold
@@ -453,12 +461,15 @@ Você deve ter quatro valores após estas etapas:
    * Serviço vinculado: **LinkedService_AzureStorage** 
    * Conjunto de dados: **DatasetBlobSource** e **DatasetBlobDestination**.
    * Pipeline: **PipelineBlobSample** 
-10. Verifique se um arquivo de saída foi criado na pasta “**apifactoryoutput**” no contêiner **adftutorial**.
+10. Verifique se os dois registros de funcionários são criados na tabela "**emp**" do banco de dados SQL do Azure especificado.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Leia o artigo [Atividades de movimentação de dados](data-factory-data-movement-activities.md) , que fornece informações detalhadas sobre a atividade de cópia que você usou no tutorial.
 * Veja [Referência de API .NET de Data Factory](https://msdn.microsoft.com/library/mt415893.aspx) para obter detalhes sobre o SDK do .NET de Data Factory. Este artigo não abrange toda a API .NET de Data Factory. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

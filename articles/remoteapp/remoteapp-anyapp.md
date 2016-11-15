@@ -1,12 +1,12 @@
 ---
 title: Execute qualquer aplicativo do Windows em qualquer dispositivo com o Azure RemoteApp | Microsoft Docs
-description: Saiba como compartilhar qualquer aplicativo do Windows com os usuários usando o Azure RemoteApp.
+description: "Saiba como compartilhar qualquer aplicativo do Windows com os usuários usando o Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 961d40ca-9673-4977-aa54-d6b22fc61ce1
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d46e4de6f8e1491671d4d5dfb73bacecefa2b118
+
 
 ---
-# Execute qualquer aplicativo do Windows em qualquer dispositivo com o Azure RemoteApp
+# <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Execute qualquer aplicativo do Windows em qualquer dispositivo com o Azure RemoteApp
 > [!IMPORTANT]
 > O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
@@ -24,7 +28,7 @@ ms.author: elizapo
 
 Você pode executar um aplicativo do Windows em qualquer lugar e em qualquer dispositivo, agora, é sério: basta usar o Azure RemoteApp. Seja um aplicativo personalizado escrito há 10 anos ou um aplicativo do Office, os usuários não precisam mais estar vinculados a um sistema operacional específico (como o Windows XP) para esses poucos aplicativos.
 
-Com o RemoteApp, os usuários também podem usar seus próprios dispositivos Android ou Apple e obter a mesma experiência que eles têm no Windows (ou em Windows Phones). Isso é realizado hospedando seus aplicativos do Windows em uma coleção de máquinas virtuais do Windows no Azure, em que os usuários podem acessá-los em qualquer lugar em que com conexão à Internet.
+Com o RemoteApp, os usuários também podem usar seus próprios dispositivos Android ou Apple e obter a mesma experiência que eles têm no Windows (ou em Windows Phones). Isso é realizado hospedando seus aplicativos do Windows em uma coleção de máquinas virtuais do Windows no Azure, em que os usuários podem acessá-los em qualquer lugar em que com conexão à Internet. 
 
 Continue lendo para obter um exemplo de como fazer isso.
 
@@ -40,7 +44,7 @@ Como o Access é um banco de dados e queremos que esse banco de dados seja útil
 > 
 > 
 
-## Criar uma coleção de RemoteApp
+## <a name="create-a-collection-in-remoteapp"></a>Criar uma coleção de RemoteApp
 Comece pela criação de uma coleção. A coleção serve como um contêiner para seus aplicativos e usuários. Cada coleção é baseada em uma imagem - você pode criar sua própria ou usar uma fornecida com sua assinatura. Para este tutorial, estamos usando a imagem de avaliação do Office 2013 - ela contém o aplicativo deseja compartilhar.
 
 1. No portal do Azure, role para baixo na árvore de navegação à esquerda até ver o RemoteApp. Abra essa página.
@@ -57,30 +61,36 @@ Isso inicia a criação de sua coleção, mas pode demorar até uma hora.
 
 Agora você está pronto para adicionar os usuários.
 
-## Compartilhar o aplicativo com usuários
+## <a name="share-the-app-with-users"></a>Compartilhar o aplicativo com usuários
 Depois que a coleção foi criada com êxito, é hora de publicar o Access a usuários e adicionar os usuários que devem ter acesso a ele.
 
 Se você navegou para fora do nó do Azure RemoteApp enquanto a coleção estava sendo criada, comece fazendo seu caminho de volta para ele na home page do Azure.
 
-1. Clique na coleção que você criou anteriormente para acessar opções adicionais e configurar a coleção. ![Uma nova coleção de nuvem no RemoteApp](./media/remoteapp-anyapp/ra-anyappcollection.png)
-2. Na guia **Publicação**, clique em **Publicar** na parte inferior da tela e, em seguida, clique **Publicar programas do menu Iniciar**. ![Publicar o programa do RemoteApp](./media/remoteapp-anyapp/ra-anyapppublish.png)
-3. Selecione os aplicativos que você deseja publicar na lista. Para nossa finalidade, escolhemos o Access. Clique em **Concluído**. Aguarde até que os aplicativos concluam a publicação. ![Publicação do Access no RemoteApp](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
+1. Clique na coleção que você criou anteriormente para acessar opções adicionais e configurar a coleção.
+   ![Uma nova coleção de nuvem no RemoteApp](./media/remoteapp-anyapp/ra-anyappcollection.png)
+2. Na guia **Publicação**, clique em **Publicar** na parte inferior da tela e clique **Publicar programas do menu Iniciar**.
+   ![Publicar o programa do RemoteApp](./media/remoteapp-anyapp/ra-anyapppublish.png)
+3. Selecione os aplicativos que você deseja publicar na lista. Para nossa finalidade, escolhemos o Access. Clique em **Concluído**. Aguarde até que os aplicativos concluam a publicação.
+   ![Publicação do Access no RemoteApp](./media/remoteapp-anyapp/ra-anyapppublishaccess.png)
 4. Quando o aplicativo tiver terminado de publicação, vá até a guia **Acesso de usuário** para adicionar todos os usuários que precisem acessar seus aplicativos. Insira nomes de usuário (endereço de email) para seus usuários e, em seguida, clique em **Salvar**.
 
 ![Adicionar usuários ao RemoteApp](./media/remoteapp-anyapp/ra-anyappaddusers.png)
 
-1. Agora, é hora de falar aos usuários sobre esses novos aplicativos e como acessá-los. Para fazer isso, envie um email que os direcione para a URL de download do cliente de área de trabalho remota. ![A URL de download do cliente para o RemoteApp](./media/remoteapp-anyapp/ra-anyappurl.png)
+1. Agora, é hora de falar aos usuários sobre esses novos aplicativos e como acessá-los. Para fazer isso, envie um email que os direcione para a URL de download do cliente de área de trabalho remota.
+   ![A URL de download do cliente para o RemoteApp](./media/remoteapp-anyapp/ra-anyappurl.png)
 
-## Configurar o acesso ao Access
-Alguns aplicativos precisam de configuração adicional após você implantá-los por meio do RemoteApp. Em particular, para o Access, vamos criar um compartilhamento de arquivo no Azure que qualquer usuário pode acessar. (Se não quiser fazer isso, você pode criar uma [coleção híbrida](remoteapp-create-hybrid-deployment.md) [em vez de nossa coleção de nuvem] que permite que os usuários acessem arquivos e informações em sua rede local.) Em seguida, precisaremos dizer a nossos usuários para mapear uma unidade local no seu computador para o sistema de arquivos do Azure.
+## <a name="configure-access-to-access"></a>Configurar o acesso ao Access
+Alguns aplicativos precisam de configuração adicional após você implantá-los por meio do RemoteApp. Em particular, para o Access, vamos criar um compartilhamento de arquivo no Azure que qualquer usuário pode acessar. (Se não quiser fazer isso, você pode criar uma [coleção híbrida](remoteapp-create-hybrid-deployment.md) [em vez de nossa coleção de nuvem] que permite que os usuários acessem arquivos e informações em sua rede local). Em seguida, precisaremos dizer a nossos usuários para mapear uma unidade local no seu computador para o sistema de arquivos do Azure.
 
 A primeira parte você, no papel de administrador, faz. Em seguida, temos algumas etapas para seus usuários.
 
-1. Comece publicando a interface de linha de comando (cmd.exe). Na guia **Publicação**, selecione **cmd** e, em seguida, clique em **Publicar > Publicar programa usando o caminho**.
-2. Digite o nome do aplicativo e o caminho. Para nosso objetivo, use "Gerenciador de Arquivos" como o nome e "% SYSTEMDRIVE%\\windows\\explorer.exe" como o caminho. ![Publique o arquivo cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Agora, você precisa criar uma [conta de armazenamento](../storage/storage-create-storage-account.md) do Azure. Nomeamos o nosso "accessstorage", então escolha um nome que seja significativo para você. (Para citar Highlander incorretamente, pode haver apenas um "accessstorage".) ![Nossa conta de armazenamento do Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
-4. Agora volte ao seu painel para que você possa obter o caminho para o armazenamento (local de ponto de extremidade). Você usará isso daqui a pouco, portanto certifique-se de copiá-lo em algum lugar. ![A chave da conta de armazenamento](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
-5. Em seguida, quando a conta de armazenamento tiver sido criada, você precisa da chave de acesso primário. Clique em **Gerenciar chaves de acesso** e, em seguida, copie a chave de acesso primário.
+1. Comece publicando a interface de linha de comando (cmd.exe). Na guia **Publicação**, selecione **cmd** e clique em **Publicar > Publicar programa usando o caminho**.
+2. Digite o nome do aplicativo e o caminho. Para nosso objetivo, use "Gerenciador de Arquivos" como o nome e "% SYSTEMDRIVE%\windows\explorer.exe" como o caminho.
+   ![Publique o arquivo cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
+3. Agora, você precisa criar uma [conta de armazenamento do Azure](../storage/storage-create-storage-account.md). Nomeamos o nosso "accessstorage", então escolha um nome que seja significativo para você. (Para citar Highlander incorretamente, pode haver apenas um "accessstorage".) ![Nossa conta do armazenamento do Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+4. Agora volte ao seu painel para que você possa obter o caminho para o armazenamento (local de ponto de extremidade). Você usará isso daqui a pouco, portanto certifique-se de copiá-lo em algum lugar.
+   ![A chave da conta de armazenamento](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
+5. Em seguida, quando a conta de armazenamento tiver sido criada, você precisa da chave de acesso primário. Clique em **Gerenciar chaves de acesso**e, em seguida, copie a chave de acesso primário.
 6. Agora, defina o contexto da conta de armazenamento e crie um novo compartilhamento de arquivo para o Access. Execute os seguintes cmdlets em uma janela elevada do Windows PowerShell:
    
         $ctx=New-AzureStorageContext <account name> <account key>
@@ -96,19 +106,25 @@ Agora, é a vez do usuário. Primeiro, faça com que os usuários instalem um [c
 1. No cliente RemoteApp, acesse os aplicativos publicados. Inicie o programa cmd.exe.
 2. Execute o seguinte comando para mapear uma unidade do computador para o compartilhamento de arquivos:
    
-        net use z: \<accountname>.file.core.windows.net<share name> /u:<user name> <account key>
+        net use z: \\<accountname>.file.core.windows.net\<share name> /u:<user name> <account key>
    
     Se você definir o parâmetro **/persistent** como sim, a unidade mapeada persistirá entre as sessões.
-3. Agora, inicie o aplicativo do Gerenciador de arquivos no RemoteApp. Copie quaisquer arquivos do Access que você deseje usar no aplicativo compartilhado para o compartilhamento de arquivos. ![Colocar arquivos do Access em um compartilhamento do Azure](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
-4. Por fim, abra o Access e abra o banco de dados que você acabou de compartilhar. Você deve ver os dados no Access em execução na nuvem. ![Um banco de dados real em execução na nuvem](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
+3. Agora, inicie o aplicativo do Gerenciador de arquivos no RemoteApp. Copie quaisquer arquivos do Access que você deseje usar no aplicativo compartilhado para o compartilhamento de arquivos.
+   ![Colocar arquivos do Access em um compartilhamento do Azure](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
+4. Por fim, abra o Access e abra o banco de dados que você acabou de compartilhar. Você deve ver os dados no Access em execução na nuvem.
+   ![Um banco de dados real em execução na nuvem](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
 
 Agora você pode usar o Access em qualquer um dos seus dispositivos - certifique-se de instalar um cliente RemoteApp.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora que você já dominou a criação de uma coleção, tente criar uma [coleção que use o Office 365](remoteapp-tutorial-o365anywhere.md). Ou você pode criar uma [coleção híbrida ](remoteapp-create-hybrid-deployment.md)que possa acessar sua rede local.
 
 <!--Image references-->
 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

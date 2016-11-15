@@ -1,13 +1,13 @@
 ---
-title: O que é Aprendizado de Máquina no Azure? | Microsoft Docs
-description: Explica os conceitos básicos do aprendizado de máquina na nuvem, descreve para que você pode usá-lo e define os termos do aprendizado de máquina.
-keywords: o que é aprendizado de máquina, termos do aprendizado de máquina, previsão, o que é análise preditiva, operacionalizar
+title: "O que é Machine Learning no Azure? | Microsoft Azure"
+description: "Explica os conceitos básicos do aprendizado de máquina na nuvem, descreve para que você pode usá-lo e define os termos do aprendizado de máquina."
+keywords: "o que é aprendizado de máquina, termos do aprendizado de máquina, previsão, o que é análise preditiva, operacionalizar"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: cjgronlund
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: eaee083e-eaa1-4408-838b-93e51423d159
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,17 +15,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: cgronlun;tedway;olgali
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a0415a3a07a1334f1947ff89e79bc710332de113
+
 
 ---
 # <a name="introduction-to-machine-learning-in-the-cloud"></a>Introdução ao aprendizado de máquina na nuvem
-## <a name="what-is-machine-learning?"></a>O que aprendizado da máquina?
+## <a name="what-is-machine-learning"></a>O que aprendizado da máquina?
 O aprendizado de máquina é uma técnica da ciência de dados que ajuda os computadores a aprenderem com os dados existentes para preverem as tendências, resultados e futuros comportamentos.  
 
 Essas estimativas ou previsões de aprendizado de máquina podem tornar aplicativos e dispositivos mais inteligentes. Quando você faz compras online, o aprendizado de máquina ajuda a recomendar outros produtos que podem lhe agradar com base no que você já comprou. Ao passar seu cartão de crédito, o aprendizado de máquina compara a transação com um banco de dados de transações e ajuda a detectar fraudes. Quando o aspirador de pó robô aspira uma sala, o aprendizado de máquina ajuda a decidir se o trabalho é feito ou não.
 
 Para ter uma visão geral, experimente a série de vídeos [Ciência de Dados para Iniciantes](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md). Sem usar o jargão ou matemática, a Ciência de dados para Iniciantes apresenta o aprendizado de máquina e orienta-o em um modelo de previsão simples.
 
-## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud?"></a>O que é Aprendizado de Máquina na nuvem do Microsoft Azure?
+## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>O que é Aprendizado de Máquina na nuvem do Microsoft Azure?
 O Aprendizado de Máquina do Azure é um serviço de análise de previsão poderoso baseado em nuvem que permite criar rapidamente modelos preditivos e implantá-los como soluções de análise. Quando você usa a nuvem do Azure para executar os experimentos do aprendizado de máquina ou criar soluções, não precisa comprar um hardware caro ou infraestrutura.
 
 ![O que aprendizado da máquina? Fluxo de trabalho básico para colocar em operação a análise preditiva no Aprendizado de Máquina do Azure.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
@@ -34,7 +38,7 @@ O Aprendizado de Máquina do Azure não apenas fornece ferramentas para modelar 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="what-is-predictive-analytics?"></a>O que é análise preditiva?
+## <a name="what-is-predictive-analytics"></a>O que é análise preditiva?
 A análise preditiva usa várias fórmulas matemáticas denominadas algoritmos que analisam os dados atuais ou históricos para obter padrões ou tendências para prever futuros eventos.
 
 O Aprendizado de Máquina do Azure é uma maneira especialmente poderosa de fazer uma análise preditiva: você pode trabalhar a partir de uma biblioteca de algoritmos pronta para uso, usar algoritmos para criar modelos em um PC conectado à Internet e implantar sua solução preditiva rapidamente. Para obter resultados rapidamente, inicie com soluções e exemplos prontos para uso na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com/).
@@ -42,17 +46,17 @@ O Aprendizado de Máquina do Azure é uma maneira especialmente poderosa de faze
 ## <a name="build-complete-machine-learning-solutions-in-the-cloud"></a>Crie soluções completas de aprendizado de máquina em nuvem
 O Aprendizado de Máquina do Azure tem tudo o que você precisa para criar soluções de análise preditiva na nuvem, desde uma biblioteca de algoritmos grande até um estúdio para criar modelos e uma maneira fácil de implantar o modelo como um serviço Web.
 
-### <a name="machine-learning-studio:-create-predictive-models"></a>Estúdio de Aprendizado de Máquina: criar modelos preditivos
+### <a name="machine-learning-studio-create-predictive-models"></a>Estúdio de Aprendizado de Máquina: criar modelos preditivos
 No [Estúdio de Aprendizado de Máquina](machine-learning-what-is-ml-studio.md), você pode criar rapidamente modelos preditivos arrastando, soltando e conectando módulos. É fácil experimentar combinações diferentes e você [experimenta gratuitamente](https://studio.azureml.net/?selectAccess=true&o=2).
 
-![O que é análise preditiva: exemplo de um experimento de análise preditiva no Estúdio de Aprendizado de Máquina do Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
-
 * Na [Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md), você pode experimentar soluções de análise criadas por outros usuários ou contribuir com suas próprias. Poste perguntas ou comentários sobre experimentos na comunidade ou compartilhe links para experimentos por meio de redes sociais, como o LinkedIn e o Twitter.
+  
+  ![Teste experimentos de previsão ou contribua com o seu próprio na Galeria do Cortana Intelligence do Azure](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Use uma ampla biblioteca de [algoritmos e módulos de aprendizado de máquina](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) no Estúdio de Aprendizado de Máquina para começar imediatamente seus modelos preditivos. Escolha os testes de amostra, pacotes R e Python, e algoritmos de ponta de empresas da Microsoft, como Xbox e Bing. Estenda os módulos do Studio com seus próprios scripts [R](machine-learning-r-quickstart.md) e [Python](machine-learning-execute-python-scripts.md) personalizados.
+  
+  ![O que é análise preditiva: exemplo de um experimento de análise preditiva no Estúdio de Aprendizado de Máquina do Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
-    ![Teste experimentos de previsão ou contribua com o seu próprio na Galeria do Cortana Intelligence do Azure](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
-
-### <a name="operationalize-predictive-analytics-solutions:-purchase-web-services-or-publish-your-own"></a>Operacionalizar soluções de análise preditiva: comprar serviços Web ou publicar os seus próprios
+### <a name="operationalize-predictive-analytics-solutions-purchase-web-services-or-publish-your-own"></a>Operacionalizar soluções de análise preditiva: comprar serviços Web ou publicar os seus próprios
 * Adquira no [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning)serviços Web prontos para consumo, como Recomendações, Análise de texto e Detecção de anomalias.
 * Operacionalize seus modelos de análise preditiva:
   
@@ -65,7 +69,7 @@ No [Estúdio de Aprendizado de Máquina](machine-learning-what-is-ml-studio.md),
 ## <a name="key-machine-learning-terms-and-concepts"></a>Principais termos e conceitos do aprendizado de máquina
 Termos do aprendizado de máquina podem ser confusos. Aqui estão as definições dos principais termos para ajudá-lo. Use comentários para nos dizer sobre qualquer outro termo que gostaria de ver definido.
 
-### <a name="data-exploration,-descriptive-analytics,-and-predictive-analytics"></a>Exploração de dados, análise descritiva e análise preditiva
+### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Exploração de dados, análise descritiva e análise preditiva
 **Exploração de dados** é o processo de coleta de informações sobre um conjunto de dados grande e geralmente não estruturado para encontrar características para uma análise focada. **Mineração de dados** refere-se à mineração de dados automatizada.
 
 **Análise descritiva** é o processo de análise de um conjunto de dados para gerar um resumo do que aconteceu. A grande maioria da análise de negócios - como relatórios de vendas, métricas de Web e análises de redes sociais - são descritivas.
@@ -111,6 +115,6 @@ Você pode aprender os fundamentos da análise preditiva e aprendizado de máqui
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

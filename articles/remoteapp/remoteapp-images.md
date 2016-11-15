@@ -1,11 +1,11 @@
 ---
-title: O que são as imagens de modelo do RemoteApp do Azure? | Microsoft Docs
-description: Saiba mais sobre as imagens de modelo incluídas no RemoteApp do Azure.
+title: "O que são as imagens de modelo do RemoteApp do Azure? | Microsoft Docs"
+description: "Saiba mais sobre as imagens de modelo incluídas no RemoteApp do Azure."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: 7f8442b2-81da-421e-a453-aa53ba2066b7
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b589fb3b1cdbf1f14ece6adf43e1eb0313ff09df
+
 
 ---
-# O que são as imagens de modelo do RemoteApp do Azure?
+# <a name="what-is-in-the-azure-remoteapp-template-images"></a>O que são as imagens de modelo do RemoteApp do Azure?
 > [!IMPORTANT]
 > O RemoteApp do Azure está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
@@ -36,7 +40,7 @@ Sua assinatura do RemoteApp do Azure inclui três imagens de modelo:
 
 Leia mais para obter detalhes sobre o que cada imagem contém.
 
-## Windows Server 2012 R2 (“a imagem baunilha")
+## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 ("a imagem baunilha")
 Essa imagem é baseada no sistema operacional para Data Center Microsoft Windows Server 2012 R2 e tem as seguintes funções e recursos instalados para atender aos requisitos de imagens de modelo RemoteApp do Azure:
 
 * .NET framework 4.5, 3.5.1 e 3.5
@@ -55,7 +59,7 @@ Esta imagem também tem os seguintes aplicativos instalados:
 * Microsoft System Center 2012 Endpoint Protection
 * Microsoft Windows Media Player
 
-## Microsoft Office 365 ProPlus (assinatura necessária)
+## <a name="microsoft-office-365-proplus-subscription-required"></a>Microsoft Office 365 ProPlus (assinatura necessária)
 O Office 365 é o aplicativo mais solicitado, criamos uma imagem "personalizada" para trabalhar com ele.
 
 Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes do Microsoft Office 365 ProPlus instalados juntamente com os componentes descritos na imagem do Windows Server 2012 R2:
@@ -82,11 +86,11 @@ E os seguintes aplicativos, assim:
 * PowerQuery
 * PowerMap
 
-Toda a funcionalidade dos aplicativos do Office 365 ProPlus está disponível apenas para os usuários que têm um plano do Office 365 ProPlus. Para obter mais detalhes sobre os planos de assinatura do Office 365, consulte [Planos de serviço do Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Ainda tem dúvidas? Confira as informações do [Office 365 + RemoteApp](remoteapp-o365.md). Verifique também o novo artigo, [Como usar sua assinatura do Office 365 com o RemoteApp do Azure](remoteapp-officesubscription.md).
+Toda a funcionalidade dos aplicativos do Office 365 ProPlus está disponível apenas para os usuários que têm um plano do Office 365 ProPlus. Para obter mais detalhes sobre os planos de assinatura do Office 365, consulte [Planos de serviço do Office 365](http://technet.microsoft.com/library/office-365-plan-options.aspx). Ainda tem dúvidas? Confira as informações do [Office 365 + RemoteApp](remoteapp-o365.md) . Verifique também o novo artigo, [Como usar sua assinatura do Office 365 com o RemoteApp do Azure](remoteapp-officesubscription.md).
 
 Observe que você precisa licenciar o Office 365 ProPlus, o Visio Pro e o Project Pro separadamente - cada um deles tem sua própria licença.
 
-## Microsoft Office 2013 Professional Plus (somente avaliação)
+## <a name="microsoft-office-2013-professional-plus-trial-only"></a>Microsoft Office 2013 Professional Plus (somente avaliação)
 Durante o período de avaliação gratuito, você pode testar o serviço com a imagem do Office 2013.
 
 Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes do Microsoft Office 2013 ProPlus instalados juntamente com os componentes descritos na imagem do Windows Server 2012 R2:
@@ -108,4 +112,9 @@ Essa imagem é uma extensão da imagem baunilha e tem os seguintes componentes d
 > 
 > 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

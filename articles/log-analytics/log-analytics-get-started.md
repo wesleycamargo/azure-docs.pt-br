@@ -1,12 +1,12 @@
 ---
-title: Introdução ao Log Analytics | Microsoft Docs
-description: Você pode entrar em funcionamento com o Log Analytics no Microsoft OMS (Operations Management Suite) em minutos.
+title: "Introdução ao Log Analytics | Microsoft Docs"
+description: "Você pode entrar em funcionamento com o Log Analytics no Microsoft OMS (Operations Management Suite) em minutos."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 508716de-72d3-4c06-9218-1ede631f23a6
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f8defce183e61825d9df3397ea1082dbdb4b11a
+
 
 ---
 # <a name="get-started-with-log-analytics"></a>Introdução ao Log Analytics
@@ -95,7 +99,7 @@ Para escolher soluções e conectar os servidores que você deseja gerenciar, cl
    
     ![coletar dados](./media/log-analytics-get-started/oms-onboard-logs.png)    
 
-## <a name="optionally,-connect-servers-directly-to-the-operations-management-suite-by-installing-an-agent"></a>Opcionalmente, conecte os servidores diretamente ao Operations Management Suite instalando um agente
+## <a name="optionally-connect-servers-directly-to-the-operations-management-suite-by-installing-an-agent"></a>Opcionalmente, conecte os servidores diretamente ao Operations Management Suite instalando um agente
 O exemplo a seguir mostra como instalar um agente do Windows.
 
 1. Clique no bloco **Configurações**, clique na guia **Fontes Conectadas**, clique em uma guia para o tipo de fonte que você deseja adicionar e baixe um agente ou saiba mais sobre como habilitar um agente. Por exemplo, clique em **Baixar Agente do Windows (64 bits)**. Para os agentes do Windows, você só pode instalar o agente no Windows Server 2008 SP 1 ou posterior, ou no Windows 7 SP1 ou posterior.
@@ -119,7 +123,7 @@ Você também pode conectar o agente ao System Center Operations Manager 2012 SP
 
 Você pode ler mais sobre como conectar agentes diretamente ao Operations Management Suite em [Conectar computadores com Windows ao Log Analytics](log-analytics-windows-agents.md).
 
-## <a name="optionally,-connect-servers-using-system-center-operations-manager"></a>Opcionalmente, conecte os servidores usando o System Center Operations Manager
+## <a name="optionally-connect-servers-using-system-center-operations-manager"></a>Opcionalmente, conecte os servidores usando o System Center Operations Manager
 1. No console do Operations Manager, clique em **Administração**.
 2. Expanda o nó **Insights Operacionais** e selecione **Conexão dos Insights Operacionais**.
    
@@ -133,7 +137,7 @@ Você pode ler mais sobre como conectar agentes diretamente ao Operations Manage
 
 Você pode ler mais sobre como conectar o Operations Manager ao Operations Management Suite em [Conectar o Operations Manager ao Log Analytics](log-analytics-om-agents.md).
 
-## <a name="optionally,-analyze-data-from-cloud-services-in-microsoft-azure"></a>Opcionalmente, analise os dados de serviços de nuvem no Microsoft Azure
+## <a name="optionally-analyze-data-from-cloud-services-in-microsoft-azure"></a>Opcionalmente, analise os dados de serviços de nuvem no Microsoft Azure
 Com o Operations Management Suite, você pode rapidamente pesquisar eventos e logs do IIS para serviços de nuvem e máquinas virtuais, permitindo o diagnóstico nos Serviços de Nuvem do Azure. Você também pode receber informações adicionais para as máquinas virtuais do Azure instalando o Microsoft Monitoring Agent. Você pode ler mais sobre como configurar seu ambiente do Azure para usar o Operations Management Suite em [Conectar o armazenamento do Azure ao Log Analytics](log-analytics-azure-storage.md).
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -141,6 +145,9 @@ Com o Operations Management Suite, você pode rapidamente pesquisar eventos e lo
 * Familiarize-se com as [pesquisas de log](log-analytics-log-searches.md) para exibir informações detalhadas reunidas por soluções.
 * Use [painéis](log-analytics-dashboards.md) para salvar e exibir suas próprias pesquisas personalizadas.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

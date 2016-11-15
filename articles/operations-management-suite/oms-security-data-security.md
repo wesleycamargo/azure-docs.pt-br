@@ -1,12 +1,12 @@
 ---
-title: Segurança de Dados de Solução de Segurança e Auditoria do Operations Management Suite | Microsoft Docs
-description: Este documento explica como os dados são gerenciados e protegidos na Solução de Segurança e Auditoria do Operations Management Suite.
+title: "Segurança de Dados de Solução de Segurança e Auditoria do Operations Management Suite | Microsoft Docs"
+description: "Este documento explica como os dados são gerenciados e protegidos na Solução de Segurança e Auditoria do Operations Management Suite."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 9cdf7deb-2a30-4672-b89f-71179ee8326a
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d81d3ff9c91d0056c69f5f190d3dfaa507c1e340
+
 
 ---
 # <a name="operations-management-suite-security-and-audit-solution-data-security"></a>Segurança de dados da solução de Segurança e Auditoria do Operations Management Suite
@@ -54,6 +58,9 @@ Neste documento, você aprendeu como os dados são gerenciados e protegidos no O
 * [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -7,4 +7,8 @@ Para localizar o endereço IP público do seu gateway de rede virtual usando o P
 
 Você também pode exibir o endereço IP público do seu gateway de rede virtual usando o Portal do Azure. Navegue até **Gateways de Rede Virtual**, em seguida, clique no nome do seu gateway.
 
-<!---HONumber=AcomDC_0406_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

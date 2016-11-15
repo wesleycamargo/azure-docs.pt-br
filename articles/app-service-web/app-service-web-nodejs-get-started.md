@@ -1,12 +1,12 @@
 ---
-title: Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure
-description: Saiba como implantar um aplicativo do Node.js em um aplicativo Web no Serviço de Aplicativo do Azure.
+title: "Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure"
+description: "Saiba como implantar um aplicativo do Node.js em um aplicativo Web no Serviço de Aplicativo do Azure."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+
 
 ---
 # <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure
@@ -113,7 +117,7 @@ O Serviço de Aplicativo do Azure usa [iisnode] para executar aplicativos Node.j
   * Personalize web.config para preparar o aplicativo para depuração com Node-Inspector.
 
 ## <a name="use-a-nodejs-framework"></a>Usar uma estrutura de Node.js
-Se você usa uma estrutura Node.js popular, como [Sails.js][SAILSJS] ou [MEAN.js][MEANJS] para desenvolver os aplicativos, pode implantá-los no Serviço de Aplicativo. Estruturas populares do Node.js têm suas peculiaridades específicas, e suas dependências de pacotes são atualizadas continuamente. No entanto, o Serviço de Aplicativo disponibiliza os logs stdout e stderr para você, para que possa saber exatamente o que está acontecendo com o aplicativo e fazer as alterações adequadas. Para saber mais, confira [Obter os logs de stdout e stderr do iisnode](#iisnodelog).
+Se você usa uma estrutura Node.js popular, como [Sails.js][SAILSJS] ou [MEAN.js][MEANSJS] para desenvolver os aplicativos, pode implantá-los no Serviço de Aplicativo. Estruturas populares do Node.js têm suas peculiaridades específicas, e suas dependências de pacotes são atualizadas continuamente. No entanto, o Serviço de Aplicativo disponibiliza os logs stdout e stderr para você, para que possa saber exatamente o que está acontecendo com o aplicativo e fazer as alterações adequadas. Para saber mais, confira [Obter os logs de stdout e stderr do iisnode](#iisnodelog).
 
 Os tutoriais a seguir mostram como trabalhar com uma estrutura específica no Serviço de Aplicativo:
 
@@ -227,10 +231,10 @@ Para habilitar o Node-Inspector, siga estas etapas:
 [Git]: http://www.git-scm.com/downloads
 [Como usar io.js com Aplicativos Web do Serviço de Aplicativo do Azure]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
-[MEANJS]: http://meanjs.org/
+[MEANSJS]: http://meanjs.org/
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
-[inscrever-se em uma avaliação gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
+[inscrever-se para uma avaliação gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 [aplicativo Web]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
@@ -243,6 +247,6 @@ Para habilitar o Node-Inspector, siga estas etapas:
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

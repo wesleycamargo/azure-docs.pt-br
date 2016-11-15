@@ -1,31 +1,36 @@
 ---
 title: Implante seu primeiro aplicativo Web Java no Azure em cinco minutos | Microsoft Docs
-description: Saiba como é fácil executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo de exemplo. Inicie o desenvolvimento real rapidamente e veja os resultados imediatamente.
+description: "Saiba como é fácil executar aplicativos Web no Serviço de Aplicativo implantando um aplicativo de exemplo. Inicie o desenvolvimento real rapidamente e veja os resultados imediatamente."
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 10/13/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
+
 
 ---
-# Implante seu primeiro aplicativo Web Java no Azure em cinco minutos
-Este tutorial o ajuda a implantar um aplicativo Web Java simples para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md). Você pode usar o Serviço de Aplicativo para criar aplicativos Web, [back-ends de aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/) e [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md).
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Implante seu primeiro aplicativo Web Java no Azure em cinco minutos
+Este tutorial o ajuda a implantar um aplicativo Web Java simples para o [Serviço de Aplicativo do Azure](../app-service/app-service-value-prop-what-is.md).
+Você pode usar o Serviço de Aplicativo para criar aplicativos Web, [back-ends de aplicativos móveis](/documentation/learning-paths/appservice-mobileapps/) e [aplicativos de API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
-Você irá:
+Você irá: 
 
 * Criar um aplicativo Web no Serviço de Aplicativo do Azure.
 * Implante um aplicativo Java de exemplo.
 * Ver seu código em execução na produção.
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Obtenha um cliente FTP/FTPS, como [FileZilla](https://filezilla-project.org/).
 * Obtenha uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [inscrever-se para uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) ou [ativar seus benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
@@ -36,7 +41,7 @@ Você irá:
 
 <a name="create"></a>
 
-## Criar um aplicativo Web
+## <a name="create-a-web-app"></a>Criar um aplicativo Web
 1. Entre no [portal do Azure](https://portal.azure.com) com sua conta do Azure.
 2. No menu à esquerda, clique em **Novo** > **Web + Móvel** > **Aplicativo Web**.
    
@@ -45,7 +50,7 @@ Você irá:
    
    * **Nome do aplicativo**: digite um nome exclusivo.
    * **Grupo de recursos**: selecione **Criar novo** e dê um nome ao grupo de recursos.
-   * **Local/Plano do Serviço de Aplicativo**: clique para configurar e clique em **Criar Novo** para definir o nome, o local e o tipo de preço do Plano do Serviço de Aplicativo. Fique à vontade para usar o tipo de preço **Gratuito**.
+   * **Local/Plano do Serviço de Aplicativo**: clique para configurar e clique em **Criar Novo** para definir o nome, o local e o tipo de preço do Plano do Serviço de Aplicativo. Fique à vontade para usar o tipo de preço **Gratuito** .
      
      Quando terminar, a folha de criação do aplicativo deve ter esta aparência:
      
@@ -60,13 +65,13 @@ Você irá:
    
     ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
-## Implante um aplicativo Java em seu aplicativo Web
+## <a name="deploy-a-java-app-to-your-web-app"></a>Implante um aplicativo Java em seu aplicativo Web
 Agora, vamos implantar um aplicativo Java no Azure usando FTPS.
 
-1. Na folha do aplicativo Web, role para baixo até as **Configurações do aplicativo** ou procure-as e clique nelas.
+1. Na folha do aplicativo Web, role para baixo até as **Configurações do aplicativo** ou procure-as e clique nelas. 
    
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
-2. Em **versão Java**, selecione **Java 8** e clique em **Salvar**.
+2. Em **Versão Java**, selecione **Java 8** e clique em **Salvar**.
    
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
    
@@ -93,23 +98,28 @@ Agora, vamos implantar um aplicativo Java no Azure usando FTPS.
     Clique em **OK** para substituir o arquivo no Azure.
    
    > [!NOTE]
-   > De acordo com o comportamento padrão do Tomcat, o nome de arquivo **ROOT.war** em /site/wwwroot/webapps lhe dá o aplicativo web raiz (http://*&lt;appname>*. azurewebsites.net) e o nome de arquivo ***&lt;anyname>*.war** fornece um aplicativo Web nomeado (http://*&lt;appname>*.azurewebsites.net/*&lt;anyname>*).
+   > De acordo com o comportamento padrão do Tomcat, o nome de arquivo **ROOT.war** em /site/wwwroot/webapps lhe dá o aplicativo Web raiz (http://*&lt;appname>*.azurewebsites.net) e o nome de arquivo ***&lt;anyname>*.war** fornece um aplicativo Web nomeado (http://*&lt;appname>*.azurewebsites.net/*&lt;anyname>*).
    > 
    > 
 
-É isso! Seu aplicativo Java agora está em execução no Azure. No navegador, vá até http://*&lt;appname>*.azurewebsites.net para vê-lo em ação.
+É isso! Seu aplicativo Java agora está em execução no Azure. No navegador, vá até http://*&lt;nomedoaplicativo>*.azurewebsites.net para vê-lo em ação. 
 
-## Fazer atualizações no aplicativo
+## <a name="make-updates-to-your-app"></a>Fazer atualizações no aplicativo
 Sempre que você precisar fazer uma atualização, basta carregar o novo arquivo WAR no mesmo diretório remoto com o cliente FTP/FTPS.
 
-## Próximas etapas
-[Criar um aplicativo Web Java de um modelo no Azure Marketplace](web-sites-java-get-started.md#marketplace). Você pode obter seu próprio contêiner Tomcat totalmente personalizável e obter interface do usuário do Manager familiar.
+## <a name="next-steps"></a>Próximas etapas
+[Crie um aplicativo Web Java de um modelo no Azure Marketplace](web-sites-java-get-started.md#marketplace). Você pode obter seu próprio contêiner Tomcat totalmente personalizável e obter interface do usuário do Manager familiar. 
 
 Depure seu aplicativo Web, diretamente no [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) ou [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
 Ou faça mais com seu primeiro aplicativo Web. Por exemplo:
 
-* Experimente [outras maneiras de implantar seu código no Azure](web-sites-deploy.md). Por exemplo, para implantar de um dos repositórios GitHub, basta selecionar **GitHub** em vez de **Repositório Git Local** nas **Opções de implantação**.
+* Experimente [outras maneiras de implantar seu código no Azure](web-sites-deploy.md). 
 * Leve o aplicativo do Azure para o próximo patamar. Autenticar os usuários. Dimensione-o com base na demanda. Configure alguns alertas de desempenho. Tudo isso com apenas alguns cliques. Confira [Adicionar funcionalidade a seu primeiro aplicativo Web](app-service-web-get-started-2.md).
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,25 +1,29 @@
 ---
-title: Guia de solução da Central de Segurança do Azure | Microsoft Docs
-description: Este documento ajuda a solucionar problemas na Central de Segurança do Azure.
+title: "Guia de solução de problemas da Central de Segurança do Azure | Microsoft Docs"
+description: "Este documento ajuda a solucionar problemas na Central de Segurança do Azure."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2016
+ms.date: 10/18/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0413d5c87d6df4d07b0e3197599aad154b589bb2
+
 
 ---
-# Guia de solução de problemas da Central de Segurança do Azure
+# <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 Este guia é para os profissionais de TI (tecnologia da informação), analistas de segurança de informações e administradores de nuvem cujas organizações estão usando a Central de Segurança do Azure e precisam solucionar os problemas relacionados a Central de Segurança.
 
-## Guia de Solução de Problemas
+## <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 Este guia explica como solucionar os problemas relacionados à Central de Segurança. A maioria das soluções de problemas feitas na Central de Segurança ocorrerá examinando primeiro os registros do [Log de Auditoria](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) em busca do componente com falha. Com os logs de auditoria, você pode determinar:
 
 * Quais operações ocorreram
@@ -30,10 +34,10 @@ Este guia explica como solucionar os problemas relacionados à Central de Segura
 
 O log de auditoria contém todas as operações de gravação (PUT, POST, DELETE) realizadas em seus recursos, mas não inclui operações de leitura (GET).
 
-## Solucionando problemas de instalação do agente de monitoramento no Windows
+## <a name="troubleshooting-monitoring-agent-installation-in-windows"></a>Solucionando problemas de instalação do agente de monitoramento no Windows
 A Central de Segurança do agente de monitoramento é usada para executar a coleta de dados. Após a coleta de dados estar habilitada e o agente estar instalado corretamente no computador de destino, os seguintes processos deverão estar em execução:
 
-* ASMAgentLauncher.exe - Agente de Monitoramento do Azure
+* ASMAgentLauncher.exe - Agente de Monitoramento do Azure 
 * ASMMonitoringAgent.exe - extensão de Monitoramento de Segurança do Azure
 * ASMSoftwareScanner.exe – Gerenciador de Verificação do Azure
 
@@ -43,19 +47,19 @@ Se a instalação for executada com êxito, você verá uma entrada semelhante �
 
 ![Logs de Auditoria](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig1.png)
 
-Você também pode obter mais informações sobre o processo de instalação lendo os logs de agente localizados em *%systemdrive%\\windowsazure\\logs* (exemplo: C:\\WindowsAzure\\Logs).
+Você também pode obter mais informações sobre o processo de instalação lendo os logs de agente localizados em *%systemdrive%\windowsazure\logs* (exemplo: C:\WindowsAzure\Logs).
 
 > [!NOTE]
 > Se o agente da Central de Segurança do Azure estiver se comportando mal, você precisará reiniciar a VM de destino porque não há nenhum comando para parar e iniciar o agente.
 > 
 > 
 
-## Solucionando problemas da instalação do agente de monitoramento no Linux
+## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Solucionando problemas da instalação do agente de monitoramento no Linux
 Ao solucionar problemas de instalação do agente de VM em um sistema Linux, você deverá fazer com que a extensão seja baixada em /var/lib/waagent/. Você pode executar o comando abaixo para verificar se ele foi instalado:
 
-`cat /var/log/waagent.log`
+`cat /var/log/waagent.log` 
 
-Outros arquivos de log que você pode examinar para fins de solução de problemas são:
+Outros arquivos de log que você pode examinar para fins de solução de problemas são: 
 
 * /var/log/mdsd.err
 * /var/log/azure/
@@ -64,12 +68,12 @@ Em um sistema em funcionamento, você deve ver uma conexão com o processo de md
 
 `netstat -plantu | grep 29130`
 
-## Entrando em contato com o Suporte da Microsoft
-Alguns problemas podem ser identificados usando as diretrizes fornecidas neste artigo. Outros, você também pode encontrar documentados no [Fórum](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureSecurityCenter) público da Central de Segurança. No entanto, se você precisa de mais solução de problemas, pode abrir uma nova solicitação de suporte usando o Portal do Azure, conforme mostrado abaixo:
+## <a name="contacting-microsoft-support"></a>Entrando em contato com o Suporte da Microsoft
+Alguns problemas podem ser identificados usando as diretrizes fornecidas neste artigo. Outros, você também pode encontrar documentados no [Fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) público da Central de Segurança. No entanto, se você precisa de mais solução de problemas, pode abrir uma nova solicitação de suporte usando o Portal do Azure, conforme mostrado abaixo: 
 
 ![Suporte da Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
 Neste documento, você aprendeu como configurar políticas de segurança na Central de segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, veja o seguinte:
 
 * [Guia de Operações e Planejamento da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) - saiba como planejar e entender as considerações de design para adotar a Central de Segurança do Azure.
@@ -79,4 +83,9 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](security-center-faq.md) – encontre as perguntas frequentes sobre como usar o serviço
 * [Blog de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

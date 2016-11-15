@@ -1,11 +1,11 @@
 ---
-title: Query your Azure Search Index using the REST API | Microsoft Docs
-description: Build a search query in Azure search and use search parameters to filter and sort search results.
+title: "Consultar um índice do Azure Search usando a API REST | Microsoft Docs"
+description: "Crie uma consulta de pesquisa na Pesquisa do Azure e use parâmetros de pesquisa para filtrar e classificar os resultados da pesquisa."
 services: search
-documentationcenter: ''
+documentationcenter: 
 manager: jhubbard
 author: ashmaka
-
+ms.assetid: 8b3ca890-2f5f-44b6-a140-6cb676fc2c9c
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -13,48 +13,52 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
+ms.openlocfilehash: ab769e5cd6abe27d6793d1aad816c4f4d10ff078
+
 
 ---
-# <a name="query-your-azure-search-index-using-the-rest-api"></a>Query your Azure Search index using the REST API
+# <a name="query-your-azure-search-index-using-the-rest-api"></a>Consultar seu índice de Pesquisa do Azure usando a API REST
 > [!div class="op_single_selector"]
-> * [Overview](search-query-overview.md)
+> * [Visão geral](search-query-overview.md)
 > * [Portal](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
 > 
 > 
 
-This article will show you how to query an index using the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Este artigo mostrará como consultar um índice usando a [API REST da Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-Before beginning this walkthrough, you should already have [created an Azure Search index](search-what-is-an-index.md) and [populated it with data](search-what-is-data-import.md).
+Antes de começar este passo a passo, você já deve ter [criado um índice do Azure Search](search-what-is-an-index.md), e este já deve estar [preenchido com os dados](search-what-is-data-import.md).
 
-## <a name="i.-identify-your-azure-search-service's-query-api-key"></a>I. Identify your Azure Search service's query api-key
-A key component of every search operation against the Azure Search REST API is the *api-key* that was generated for the service you provisioned. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Identificar sua api-key de consulta do serviço de Pesquisa do Azure
+Um componente-chave de todas as operações de pesquisa na API REST da Pesquisa do Azure é a *api-key* que foi gerada para o serviço provisionado. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
-1. To find your service's api-keys you must log into the [Azure Portal](https://portal.azure.com/)
-2. Go to your Azure Search service's blade
-3. Click on the "Keys" icon
+1. Para localizar as api-keys de seu serviço, você deve fazer logon no [Portal do Azure](https://portal.azure.com/)
+2. Vá para a folha do serviço de Pesquisa do Azure
+3. Clique no ícone de "Chaves"
 
-Your service will have *admin keys* and *query keys*.
+O serviço terá *chaves de administração* e *chaves de consulta*.
 
-* Your primary and secondary *admin keys* grant full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources. There are two keys so that you can continue to use the secondary key if you decide to regenerate the primary key, and vice-versa.
-* Your *query keys* grant read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.
+* Suas *chaves de administração* principal e secundária concedem direitos totais para todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados. Há duas chaves para que você possa continuar a usar a chave secundária se decidir regenerar a chave primária e vice-versa.
+* As *chaves de consulta* concedem acesso somente leitura a índices e documentos e normalmente são distribuídas para aplicativos cliente que emitem solicitações de pesquisa.
 
-For the purposes of querying an index, you can use one of your query keys. Your admin keys can also be used for queries, but you should use a query key in your application code as this better follows the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
+Para consultar um índice, você pode usar uma de suas chaves de consulta. As chaves de administração também podem ser usadas para consultas, mas você deve usar uma chave de consulta no código do aplicativo, já que isso segue melhor o [Princípio do privilégio mínimo](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## <a name="ii.-formulate-your-query"></a>II. Formulate your query
-There are two ways to [search your index using the REST API](https://msdn.microsoft.com/library/azure/dn798927.aspx). One way is to issue an HTTP POST request where your query parameters will be defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters will be defined within the request URL. Note that POST has more [relaxed limits](https://msdn.microsoft.com/library/azure/dn798927.aspx) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
+## <a name="ii-formulate-your-query"></a>II. Formular sua consulta
+Há duas maneiras de [pesquisar o índice usando a API REST](https://msdn.microsoft.com/library/azure/dn798927.aspx). Uma delas consiste em emitir uma solicitação HTTP POST em que os parâmetros de consulta serão definidos em um objeto JSON no corpo da solicitação. A outra maneira consiste em emitir uma solicitação HTTP GET em que os parâmetros de consulta serão definidos na URL da solicitação. Observe que POST tem [limites mais flexíveis](https://msdn.microsoft.com/library/azure/dn798927.aspx) quanto ao tamanho dos parâmetros de consulta do que GET. Por esse motivo, é recomendável usar POST, a menos que haja circunstâncias especiais em que o uso de GET seja mais conveniente.
 
-For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2015-02-28` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL will be where you provide the query parameters. See below for the URL format:
+Para POST e GET, você precisa fornecer o *nome do serviço*, o *nome do índice* e a *versão da API* adequada (a versão atual da API é `2015-02-28` no momento da publicação deste documento) na URL da solicitação. Para GET, você fornecerá os parâmetros de consulta na *cadeia de caracteres de consulta* no fim da URL. Veja a seguir o formato da URL:
 
     https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
 
-The format for POST is the same, but with only api-version in the query string parameters.
+O formato para POST é o mesmo, mas apenas com api-version nos parâmetros da cadeia de caracteres de consulta.
 
-#### <a name="example-queries"></a>Example Queries
-Here are a few example queries on an index named "hotels". These queries are shown in both GET and POST format.
+#### <a name="example-queries"></a>Consultas de Exemplo
+Veja algumas consultas de exemplo em um índice chamado "hotels". Essas consultas são mostradas nos formatos GET e POST.
 
-Search the entire index for the term 'budget' and return only the `hotelName` field:
+Pesquise em todo o índice o termo “budget” e retorne somente o campo `hotelName`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2015-02-28
@@ -66,7 +70,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Apply a filter to the index to find hotels cheaper than $150 per night, and return the `hotelId` and `description`:
+Aplique um filtro no índice para encontrar os hotéis com valores inferiores a US$ 150 por noite e retorne `hotelId` e `description`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
@@ -79,7 +83,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Search the entire index, order by a specific field (`lastRenovationDate`) in descending order, take the top two results, and show only `hotelName` and `lastRenovationDate`:
+Pesquise em todo o índice, ordene por um campo específico (`lastRenovationDate`) em ordem descendente, escolha os dois primeiros resultados e mostre apenas `hotelName` e `lastRenovationDate`:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2015-02-28
@@ -93,17 +97,17 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-## <a name="iii.-submit-your-http-request"></a>III. Submit your HTTP request
-Now that you have formulated your query as part of your HTTP request URL (for GET) or body (for POST), you can define your request headers and submit your query.
+## <a name="iii-submit-your-http-request"></a>III. Enviar sua solicitação HTTP
+Agora que formulou a consulta como parte da URL de solicitação HTTP (para GET) ou o corpo (POST), você pode definir os cabeçalhos de solicitação e enviar a consulta.
 
-#### <a name="request-and-request-headers"></a>Request and Request Headers
-You must define two request headers for GET, or three for POST:
+#### <a name="request-and-request-headers"></a>Solicitação e cabeçalhos de solicitação
+Você deve definir dois cabeçalhos de solicitação de GET ou três de POST:
 
-1. The `api-key` header must be set to the query key you found in step I above. Note that you can also use an admin key as the `api-key` header, but it is recommended that you use a query key as it exclusively grants read-only access to indexes and documents.
-2. The `Accept` header must be set to `application/json`.
-3. For POST only, the `Content-Type` header should also be set to `application/json`.
+1. O cabeçalho `api-key` deve ser definido para a chave de consulta que você encontrou na etapa I acima. Observe que você também pode usar uma chave de administração como o cabeçalho `api-key` , mas é recomendável usar uma chave de consulta, pois ela concede exclusivamente acesso de somente leitura a índices e documentos.
+2. O cabeçalho `Accept` deve ser definido para `application/json`.
+3. Apenas para POST, o cabeçalho `Content-Type` também deve ser definido para `application/json`.
 
-See below for a HTTP GET request to search the "hotels" index using the Azure Search REST API, using a simple query that searches for the term "motel":
+Veja abaixo uma solicitação HTTP GET para pesquisar o índice "hotels" usando a API REST da Pesquisa do Azure, usando uma consulta simples que pesquisa o termo "motel":
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2015-02-28
@@ -111,7 +115,7 @@ Accept: application/json
 api-key: [query key]
 ```
 
-Here is the same example query, this time using HTTP POST:
+Veja a mesma consulta de exemplo, desta vez usando HTTP POST:
 
 ```
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
@@ -124,7 +128,7 @@ api-key: [query key]
 }
 ```
 
-A successful query request will result in a Status Code of `200 OK` and the search results are returned as JSON in the response body. Here is what the results for the above query look like, assuming the "hotels" index is populated with the sample data in [Data Import in Azure Search using the REST API](search-import-data-rest-api.md) (note that the JSON has been formatted for clarity).
+Uma solicitação de consulta bem-sucedida resultará em um Código de Status `200 OK` e os resultados da pesquisa serão retornados como JSON no corpo da resposta. Esta é a aparência dos resultados da consulta acima, supondo que o índice "hotéis" seja preenchido com os dados de exemplo em [Importação de Dados na Pesquisa do Azure usando a API REST](search-import-data-rest-api.md) (observe que o JSON foi formatado para ter clareza).
 
 ```JSON
 {
@@ -157,8 +161,11 @@ A successful query request will result in a Status Code of `200 OK` and the sear
 }
 ```
 
-To learn more, please visit the "Response" section of [Search Documents](https://msdn.microsoft.com/library/azure/dn798927.aspx). For more information on other HTTP status codes that could be returned in case of failure, see [HTTP status codes (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Para saber mais, visite a seção "Resposta" de [Pesquisar Documentos](https://msdn.microsoft.com/library/azure/dn798927.aspx). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

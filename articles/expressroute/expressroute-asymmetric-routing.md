@@ -1,12 +1,12 @@
 ---
-title: Roteamento assimétrico | Microsoft Docs
-description: Este artigo aborda os problemas que um cliente pode enfrentar no roteamento assimétrico em uma rede que tem vários links para um destino.
+title: "Roteamento assimétrico | Microsoft Docs"
+description: "Este artigo aborda os problemas que um cliente pode enfrentar no roteamento assimétrico em uma rede que tem vários links para um destino."
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+
 
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Roteamento assimétrico com vários caminhos de rede
@@ -60,7 +64,7 @@ Verifique se seus endereços IP públicos são anunciados para os devidos links 
 
 Se você quiser usar o ExpressRoute para a autenticação, verifique se está anunciando os endereços IP públicos do AD FS no ExpressRoute sem a NAT. Dessa forma, o tráfego que se origina na Microsoft e vai para um servidor AD FS local passa pelo ExpressRoute. O tráfego de retorno do cliente para a Microsoft usa o ExpressRoute porque é a rota preferida na Internet.
 
-### <a name="source-based-nat"></a>NAT com base em origem
+### <a name="sourcebased-nat"></a>NAT com base em origem
 Outra maneira de solucionar os problemas do roteamento assimétrico é usando a SNAT. Por exemplo, você não anunciou o endereço IP público de um servidor SMTP (Simple Mail Transfer Protocol) local no ExpressRoute porque pretende usar a Internet para esse tipo de comunicação. Uma solicitação que se origina na Microsoft e vai para o servidor SMTP local atravessa a Internet. Você usa a SNAT na solicitação de entrada para um endereço IP interno. O tráfego reverso do servidor SMTP vai para o firewall da borda (que você usa para a NAT), em vez de passar pelo ExpressRoute. O tráfego de retorno volta via Internet.
 
 ![Configuração de rede da NAT com base na origem](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -68,6 +72,9 @@ Outra maneira de solucionar os problemas do roteamento assimétrico é usando a 
 ## <a name="asymmetric-routing-detection"></a>Detecção de roteamento assimétrico
 O rastreamento de rotas é a melhor maneira de garantir que o tráfego de rede está atravessando o caminho esperado. Se você espera que o tráfego do servidor SMTP local para a Microsoft tome o caminho da Internet, o rastreamento de rotas esperado é do servidor SMTP para o Office 365. O resultado valida que o tráfego realmente sai de sua rede para a Internet, não na direção do ExpressRoute.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

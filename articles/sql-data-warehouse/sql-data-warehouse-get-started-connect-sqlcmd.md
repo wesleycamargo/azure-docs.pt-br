@@ -1,36 +1,41 @@
 ---
 title: Consultar o SQL Data Warehouse do Azure (sqlcmd)| Microsoft Docs
-description: Como consultar o SQL Data Warehouse do Azure com o Utilitário de linha de comando sqlcmd.
+description: "Como consultar o SQL Data Warehouse do Azure com o Utilitário de linha de comando sqlcmd."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/06/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+
 
 ---
-# Consultar o SQL Data Warehouse do Azure (sqlcmd)
+# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Consultar o SQL Data Warehouse do Azure (sqlcmd)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Aprendizado de Máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
-Este passo a passo usa o utilitário da linha de comando [sqlcmd][sqlcmd] para consultar um SQL Data Warehouse do Azure.
+Este passo a passo usa o utilitário da linha de comando [sqlcmd][sqlcmd] para consultar um SQL Data Warehouse do Azure.  
 
-## 1\. Connect
+## <a name="1-connect"></a>1. Connect
 Para começar com o [sqlcmd][sqlcmd], abra o prompt de comando e digite **sqlcmd** seguido da cadeia de conexão do banco de dados SQL Data Warehouse. A cadeia de conexão precisará dos seguintes parâmetros:
 
-* **Servidor (-S):** Servidor no formato `<`Nome do servidor`>`.database.windows.net
+* **Servidor (-S):** Servidor no formato `<`Nome do Servidor`>`.database.windows.net
 * **Banco de dados (-d):** nome do banco de dados.
 * **Habilitar Identificadores com Cotas (-I):** os identificadores com cotas devem ser habilitados para conectarem uma instância do SQL Data Warehouse.
 
@@ -60,8 +65,8 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## 2\. Consultar
-Após a conexão, você pode executar quaisquer instruções Transact-SQL compatíveis com a instância. Neste exemplo, as consultas são enviadas no modo interativo.
+## <a name="2-query"></a>2. Consultar
+Após a conexão, você pode executar quaisquer instruções Transact-SQL compatíveis com a instância.  Neste exemplo, as consultas são enviadas no modo interativo.
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -80,7 +85,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Veja a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as opções disponíveis no sqlcmd.
 
 <!--Image references-->
@@ -89,8 +94,12 @@ Veja a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as opç
 
 <!--MSDN references--> 
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure portal]: https://portal.azure.com
+[portal do Azure]: https://portal.azure.com
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

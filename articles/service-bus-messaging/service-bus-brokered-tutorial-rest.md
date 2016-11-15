@@ -1,12 +1,12 @@
 ---
-title: Tutorial REST do sistema de mensagens agenciado do Barramento de Serviço | Microsoft Docs
+title: "Tutorial REST do sistema de mensagens agenciado do Barramento de Serviço | Microsoft Docs"
 description: Tutorial REST do sistema de mensagens agenciado.
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+
 
 ---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>Tutorial REST do sistema de mensagens agenciado do Barramento de Serviço
@@ -22,7 +26,7 @@ ms.author: sethm
 Este tutorial mostra como criar uma fila, tópico/assinatura básicos de Barramento de Serviço do Azure com base no REST.
 
 ## <a name="create-a-namespace"></a>Criar um namespace
-A primeira etapa é criar um namespace de serviço e obter uma chave de [SAS](../service-bus/service-bus-sas-overview.md) (Assinatura de Acesso Compartilhado). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é automaticamente gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e a chave SAS fornece uma credencial para o Barramento de Serviço autenticar o acesso a um aplicativo.
+A primeira etapa é criar um namespace de serviço e obter uma chave de [SAS](service-bus-sas-overview.md) (Assinatura de Acesso Compartilhado). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é automaticamente gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e a chave SAS fornece uma credencial para o Barramento de Serviço autenticar o acesso a um aplicativo.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -31,7 +35,7 @@ As filas do Barramento de Serviço permitem armazenar mensagens em uma fila do t
 
 O código desta seção faz o descrito a seguir.
 
-* Usa o namespace e a chave [SAS](../service-bus/service-bus-sas-overview.md) (Assinatura de Acesso Compartilhado) para acessar os recursos de namespace do Barramento de Serviço.
+* Usa o namespace e a chave [SAS](service-bus-sas-overview.md) (Assinatura de Acesso Compartilhado) para acessar os recursos de namespace do Barramento de Serviço.
 * Cria uma fila, envia uma mensagem para a fila e lê a mensagem proveniente da fila.
 * Cria um tópico, uma assinatura para esse tópico e envia e lê a mensagem da assinatura.
 * Recupera os itens a seguir do Barramento de Serviço: a fila, o tópico e as informações de assinatura, incluindo as regras de assinatura.
@@ -139,7 +143,7 @@ Depois de obter o namespace e as credenciais na primeira etapa, você cria em se
 ## <a name="create-management-credentials"></a>Criar credenciais de gerenciamento
 A próxima etapa é escrever um método que processa o namespace e a chave SAS que você inseriu na etapa anterior e retorna um token SAS. Este exemplo cria um token SAS que é válido para uma hora.
 
-### <a name="create-a-getsastoken()-method"></a>Criar um método GetSASToken()
+### <a name="create-a-getsastoken-method"></a>Criar um método GetSASToken()
 Cole o código a seguir após o método `Main()`, na classe `Program`:
 
 ```
@@ -594,9 +598,12 @@ namespace Microsoft.ServiceBus.Samples
 Para saber mais, consulte os seguintes artigos:
 
 * [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-* [Conceitos básicos do Barramento de Serviço do Azure](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Conceitos básicos do Barramento de Serviço do Azure](service-bus-fundamentals-hybrid-solutions.md)
 * [Tutorial do REST para Retransmissão do Barramento de Serviço](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

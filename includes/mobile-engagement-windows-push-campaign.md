@@ -14,7 +14,7 @@ Agora criaremos uma campanha simples de notificação por push que enviará uma 
    
     d. No texto de notificação - digite o **Título** que estará em negrito no envio por push.
    
-    e. Em seguida, digite sua **Mensagem**.
+    e. Em seguida, digite sua **Mensagem**
 4. Role para baixo e, na seção **Conteúdo**, selecione **Somente notificação**.
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
@@ -23,4 +23,8 @@ Agora criaremos uma campanha simples de notificação por push que enviará uma 
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

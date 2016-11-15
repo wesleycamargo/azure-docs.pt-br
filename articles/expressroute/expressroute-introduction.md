@@ -1,12 +1,12 @@
 ---
-title: Introdução à Rota Expressa | Microsoft Docs
-description: Esta página fornece uma visão geral do serviço Rota Expressa, incluindo o modo de funcionamento de uma conexão da Rota Expressa.
+title: "Introdução à ExpressRoute | Microsoft Docs"
+description: "Esta página fornece uma visão geral do serviço Rota Expressa, incluindo o modo de funcionamento de uma conexão da Rota Expressa."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3b3e0fd5342c4729d6ffee4858089099b31404a8
+
 
 ---
 # <a name="expressroute-technical-overview"></a>Visão Geral Técnica da Rota Expressa
@@ -33,16 +37,16 @@ A Rota Expressa do Microsoft Azure permite que você estenda suas redes locais a
 
 Consulte as [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md) para obter mais detalhes.
 
-## <a name="<a-name="howtoconnect"></a>how-can-i-connect-my-network-to-microsoft-using-expressroute?"></a><a name="howtoconnect"></a>Como posso conectar minha rede à Microsoft usando a Rota Expressa?
+## <a name="a-namehowtoconnectahow-can-i-connect-my-network-to-microsoft-using-expressroute"></a><a name="howtoconnect"></a>Como posso conectar minha rede à Microsoft usando a Rota Expressa?
 Há três maneiras diferentes para você criar uma conexão entre sua rede local e a nuvem da Microsoft:
 
-### <a name="co-located-at-a-cloud-exchange"></a>Colocalizada em uma troca de nuvem
+### <a name="colocated-at-a-cloud-exchange"></a>Colocalizada em uma troca de nuvem
 Se você estiver colocalizado em uma instalação que possua uma troca de nuvem, poderá solicitar conexões cruzadas virtuais para a nuvem da Microsoft por meio da troca Ethernet do provedor da colocalização. Os provedores da colocalização podem oferecer conexões cruzadas de Camada 2 ou conexões cruzadas gerenciadas de Camada 3 entre sua infraestrutura na instalação de colocalização e a nuvem da Microsoft.
 
-### <a name="point-to-point-ethernet-connections"></a>Conexões Ethernet ponto a ponto
+### <a name="pointtopoint-ethernet-connections"></a>Conexões Ethernet ponto a ponto
 Você pode conectar seus data centers/escritórios locais à nuvem da Microsoft por meio de links de Ethernet ponto a ponto. Os provedores de Ethernet ponto a ponto podem oferecer conexões de Camada 2 ou conexões gerenciadas de Camada 3 entre seu site e a nuvem da Microsoft.
 
-### <a name="any-to-any-(ipvpn)-networks"></a>Redes qualquer para qualquer (IPVPN)
+### <a name="anytoany-ipvpn-networks"></a>Redes qualquer para qualquer (IPVPN)
 É possível integrar sua WAN à nuvem da Microsoft. Os Provedores de IPVPN (normalmente, VPN MPLS) oferecem conectividade “qualquer para qualquer” entre suas filiais e datacenters. A nuvem da Microsoft pode ser interconectada à sua WAN para que ela fique exatamente igual a qualquer outra filial. Normalmente, os provedores de rede WAN oferecem conectividade gerenciada de Camada 3. Os recursos da Rota Expressa são idênticos em todos os modelos de conectividade mencionados acima. 
 
 Os provedores de conectividade podem oferecer um ou mais modelos de conectividade. Converse com seu provedor de conectividade a fim de escolher o modelo mais adequado a você.
@@ -74,7 +78,7 @@ Você pode se conectar à Microsoft em um dos nossos [locais de emparelhamento](
 
 Por exemplo, se você estiver conectado à Microsoft em Amsterdã por meio da Rota Expressa, terá acesso a todos os serviços de nuvem da Microsoft hospedados no Norte da Europa e na Europa Ocidental. Consulte o artigo [Parceiros e locais de emparelhamento da Rota Expressa](expressroute-locations.md) para obter uma visão geral das regiões geopolíticas, regiões associadas da nuvem da Microsoft e locais de emparelhamento correspondentes da Rota Expressa.
 
-### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Conectividade global com o complemento premium da Rota Expressa
+### <a name="global-connectivity-with-expressroute-premium-addon"></a>Conectividade global com o complemento premium da Rota Expressa
 Você pode habilitar o complemento da Rota Expressa premium a fim de estender a conectividade pelas fronteiras geopolíticas. Por exemplo, se você estiver conectado à Microsoft em Amsterdã por meio da Rota Expressa, terá acesso a todos os serviços de nuvem da Microsoft hospedados em todas as regiões do mundo (nuvens nacionais são excluídas). Você pode acessar serviços implantados na América do Sul ou na Austrália da mesma maneira que acessa as regiões do Norte da Europa e da Europa Ocidental.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Ecossistema abundante de parceiros de conectividade
@@ -118,6 +122,9 @@ Escolha o modelo de cobrança que funcione melhor para você. Escolha um dos mod
   * [Configurar o roteamento](expressroute-howto-routing-classic.md)
   * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
