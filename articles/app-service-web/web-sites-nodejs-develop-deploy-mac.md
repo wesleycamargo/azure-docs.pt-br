@@ -1,22 +1,26 @@
 ---
-title: Criar um aplicativo Web Node.js no Serviço de Aplicativo do Azure | Microsoft Docs
-description: Saiba como implantar um aplicativo do Node.js em um aplicativo Web no Serviço de Aplicativo do Azure.
+title: "Criar um aplicativo Web Node.js no Serviço de Aplicativo do Azure | Microsoft Docs"
+description: "Saiba como implantar um aplicativo do Node.js em um aplicativo Web no Serviço de Aplicativo do Azure."
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 85af23df-54af-4430-8d77-a1f97e2f5b10
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+
 
 ---
-# Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure
+# <a name="create-a-nodejs-web-app-in-azure-app-service"></a>Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure
 > [!div class="op_single_selector"]
 > * [.Net](web-sites-dotnet-get-started.md)
 > * [Node.js](web-sites-nodejs-develop-deploy-mac.md)
@@ -41,29 +45,29 @@ O aplicativo concluído grava uma cadeia de caracteres curta "hello world" no na
 Para obter tutoriais e código de exemplo com aplicativos mais complexos do Node.js, ou para outros tópicos sobre como usar o Node.js no Azure, consulte o [Centro de desenvolvedores do Node.js](/develop/nodejs/).
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio](/pt-BR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se em uma avaliação gratuita](/pt-BR/pricing/free-trial/?WT.mc_id=A261C142F).
+> Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se em uma avaliação gratuita](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Lá, você poderá criar imediatamente um aplicativo Web de curta duração inicial no Serviço de Aplicativo – sem exigência de cartão de crédito e sem compromissos.
 > 
 > 
 
-## Criar um aplicativo Web e habilitar a publicação Git
-Siga estas etapas para criar um aplicativo Web no Serviço de Aplicativo do Azure e habilitar a publicação no Git.
+## <a name="create-a-web-app-and-enable-git-publishing"></a>Criar um aplicativo Web e habilitar a publicação Git
+Siga estas etapas para criar um aplicativo Web no Serviço de Aplicativo do Azure e habilitar a publicação no Git. 
 
-[O Git](http://git-scm.com/) é um sistema de controle de versão distribuído que você pode usar para implantar seu Site do Azure. Você armazenará o código que você escreve para seu aplicativo Web em um repositório Git local e você implantará seu código no Azure enviando-o por push para um repositório remoto. Esse método de implantação é um recurso de aplicativos Web do Serviço de Aplicativo.
+[O Git](http://git-scm.com/) é um sistema de controle de versão distribuído que você pode usar para implantar seu Site do Azure. Você armazenará o código que você escreve para seu aplicativo Web em um repositório Git local e você implantará seu código no Azure enviando-o por push para um repositório remoto. Esse método de implantação é um recurso de aplicativos Web do Serviço de Aplicativo.  
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique no ícone **+ NOVO** no canto superior esquerdo do Portal do Azure.
 3. Clique em **Web + Celular** e em **Aplicativo Web**.
    
     ![][portal-quick-create]
-4. Digite um nome para o aplicativo Web na caixa **aplicativo Web**.
+4. Digite um nome para o aplicativo Web na caixa **aplicativo Web** .
    
     Esse nome deve ser exclusivo no domínio azurewebsites.net porque a URL do aplicativo Web será {nome}.azurewebsites.net. Se o nome inserido não for exclusivo, um ponto de exclamação vermelho aparecerá na caixa de texto.
 5. Selecione uma **Assinatura**.
 6. Selecione um **Grupo de Recursos** ou crie um novo.
    
-    Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md).
+    Para saber mais sobre os grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 7. Selecione um **Plano/Local do Serviço de Aplicativo** ou crie um novo.
    
     Para saber mais sobre os planos do Serviço de Aplicativo, confira [Visão geral dos planos do Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
@@ -88,7 +92,7 @@ Siga estas etapas para criar um aplicativo Web no Serviço de Aplicativo do Azur
     
     ![][deployment-credentials]
     
-    b. Digite um nome de usuário e senha.
+    b. Digite um nome de usuário e senha. 
     
     ![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
 14. Na folha do aplicativo Web, clique em **Configurações** e clique em **Propriedades**.
@@ -97,11 +101,11 @@ Siga estas etapas para criar um aplicativo Web no Serviço de Aplicativo do Azur
     
     ![][git-url]
 
-## Criar e testar o aplicativo localmente
+## <a name="build-and-test-your-application-locally"></a>Criar e testar o aplicativo localmente
 Nesta seção, você criará um arquivo **server.js** que contém uma versão ligeiramente modificada do exemplo 'Olá Mundo' de [nodejs.org]. O código adiciona process.env.PORT como a porta de escuta ao executar em um aplicativo Web do Azure.
 
 1. Crie um diretório chamado *helloworld*.
-2. Use um editor de texto para criar um novo arquivo chamado **server.js** no diretório *helloworld*.
+2. Use um editor de texto para criar um novo arquivo chamado **server.js** no diretório *helloworld* .
 3. Copie o código a seguir para o arquivo **server.js** e salve o arquivo:
    
         var http = require('http')
@@ -113,13 +117,13 @@ Nesta seção, você criará um arquivo **server.js** que contém uma versão li
 4. Abra a linha de comando e use o seguinte comando para iniciar o aplicativo Web localmente.
    
         node server.js
-5. Abra o navegador e acesse http://localhost:1337.
+5. Abra o navegador da Web e navegue até http://localhost:1337. 
    
     Será exibida uma página da Web que exibe "Hello World", conforme mostrado na captura de tela a seguir.
    
     ![Navegador exibindo a mensagem "Hello World".][helloworld-localhost]
 
-## Publicar seu aplicativo
+## <a name="publish-your-application"></a>Publicar seu aplicativo
 1. Instale o Git, se você ainda não fez isso.
    
     Para obter instruções de instalação para sua plataforma, confira a [Página de download do Git](http://git-scm.com/download).
@@ -152,14 +156,14 @@ Nesta seção, você criará um arquivo **server.js** que contém uma versão li
         remote: Deployment successful.
         To https://user@testsite.scm.azurewebsites.net/testsite.git
          * [new branch]      master -> master
-6. Para exibir seu aplicativo, clique no botão **Procurar**, na parte **Aplicativo Web** no portal do Azure.
+6. Para exibir seu aplicativo, clique no botão **Procurar**, na parte **Aplicativo Web** no Portal do Azure.
    
     ![Botão Procurar](./media/web-sites-nodejs-develop-deploy-mac/browsebutton.png)
    
     ![Hello world no Azure](./media/web-sites-nodejs-develop-deploy-mac/helloworldazure.png)
 
-## Publicar alterações em seu aplicativo
-1. Abra o arquivo **Server.js** em um editor de texto e altere 'Hello World\\n' para 'Hello Azure\\n'.
+## <a name="publish-changes-to-your-application"></a>Publicar alterações em seu aplicativo
+1. Abra o arquivo **Server.js** em um editor de texto e altere 'Hello World\n' para 'Hello Azure\n'. 
 2. Salve o arquivo.
 3. Na linha de comando, mude para o diretório **helloworld** e execute os seguintes comandos:
    
@@ -172,10 +176,10 @@ Nesta seção, você criará um arquivo **server.js** que contém uma versão li
    
     ![Página da web exibindo 'Hello Azure'][helloworld-completed]
 
-## Reverter uma implantação
+## <a name="roll-back-a-deployment"></a>Reverter uma implantação
 Na folha do **aplicativo Web**, você pode clicar em **Configurações > Implantação Contínua** para ver o histórico de implantação na folha **Implantações**. Se precisar reverter para uma implantação anterior, você poderá selecioná-la e clicar em **Reimplantar** na folha **Detalhes de Implantação**.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Você implantou um aplicativo do Node.js para um aplicativo Web no Serviço de Aplicativo do Azure. Para saber mais sobre como os aplicativos Web do Aplicativo de Serviço executam aplicativos do Node.js, confira [Aplicativos Web do Serviço de Aplicativo do Azure: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) e [Especificando uma versão do Node.js em um aplicativo do Azure](../nodejs-specify-node-version-azure-apps.md).
 
 O Node.js fornece um rico ecossistema de módulos que podem ser usadas por seus aplicativos. Para saber como os Aplicativos Web funcionam com módulos, confira [Usando módulos do Node.js com aplicativos do Azure](../nodejs-use-node-modules-azure-apps.md).
@@ -196,4 +200,8 @@ Para obter mais informações sobre como desenvolver aplicativos do Node.js no A
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

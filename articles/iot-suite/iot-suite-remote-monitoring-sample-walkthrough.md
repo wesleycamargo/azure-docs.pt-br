@@ -1,13 +1,13 @@
 ---
-title: Passo a passo da solução pré-configurada de monitoramento remoto | Microsoft Docs
-description: Uma descrição do monitoramento remoto pré-configurado da solução de IoT do Azure e sua arquitetura.
-services: ''
+title: "Passo a passo da solução pré-configurada de monitoramento remoto | Microsoft Docs"
+description: "Uma descrição do monitoramento remoto pré-configurado da solução de IoT do Azure e sua arquitetura."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,24 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6338750446b33269614c404ecaad8f8192bf1ab2
+
 
 ---
-# Passo a passo da solução pré-configurada de monitoramento remoto
-## Introdução
-A [solução pré-configurada][lnk-preconfigured-solutions] de monitoramento remoto do IoT Suite é uma implementação de uma solução de monitoramento de ponta a ponta para vários computadores em execução em locais remotos. A solução combina os principais serviços do Azure para fornecer uma implementação genérica do cenário de negócios e você pode usá-la como ponto de partida para sua própria implementação. Você pode [personalizar][lnk-customize] a solução para atender a seus requisitos de negócios específicos.
+# <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Passo a passo da solução pré-configurada de monitoramento remoto
+## <a name="introduction"></a>Introdução
+A [solução pré-configurada][solução pré-configurada] de monitoramento remoto do IoT Suite é uma implementação de uma solução de monitoramento de ponta a ponta para vários computadores em execução em locais remotos. A solução combina os principais serviços do Azure para fornecer uma implementação genérica do cenário de negócios e você pode usá-la como ponto de partida para sua própria implementação. Você pode [personalizar][lnk-customize] a solução para atender a seus requisitos de negócios específicos.
 
 Este artigo explica alguns dos principais elementos da solução de monitoramento remoto para que você possa entender como ela funciona. Esse conhecimento ajuda a:
 
 * Solucionar problemas na solução.
-* Planejar como personalizar a solução para atender a seus próprios requisitos específicos.
+* Planejar como personalizar a solução para atender a seus próprios requisitos específicos. 
 * Criar sua própria solução IoT que usa os serviços do Azure.
 
-## Arquitetura lógica
+## <a name="logical-architecture"></a>Arquitetura lógica
 O seguinte diagrama descreve os componentes lógicos da solução pré-configurada:
 
 ![Arquitetura lógica](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
-## Dispositivos simulados
+## <a name="simulated-devices"></a>Dispositivos simulados
 Na solução pré-configurada, o dispositivo simulado representa um dispositivo de resfriamento (como um ar-condicionado para edifícios ou uma unidade de tratamento de ar para instalações). Ao implantar a solução pré-configurada, você também provisiona automaticamente quatro dispositivos simulados que são executados em um [Trabalho Web do Azure][lnk-webjobs]. Os dispositivos simulados facilitam a exploração do comportamento da solução sem a necessidade de implantar dispositivos físicos. Para implantar um dispositivo físico real, consulte o tutorial [Conectar o dispositivo à solução pré-configurada de monitoramento remoto][lnk-connect-rm].
 
 Cada dispositivo simulado pode enviar os seguintes tipos de mensagens ao Hub IoT:
@@ -43,7 +47,7 @@ Cada dispositivo simulado pode enviar os seguintes tipos de mensagens ao Hub IoT
 | Presença |Um dispositivo envia periodicamente uma mensagem de **presença** para relatar se o dispositivo pode detectar a presença de um sensor. |
 | Telemetria |Um dispositivo envia periodicamente uma mensagem de **telemetria** que relata os valores simulados de temperatura e umidade coletados nos sensores simulados do dispositivo. |
 
-Os dispositivos simulados enviam as seguintes propriedades do dispositivo em uma mensagem de **informações do dispositivo**:
+Os dispositivos simulados enviam as seguintes propriedades do dispositivo em uma mensagem de **informações do dispositivo** :
 
 | Propriedade | Finalidade |
 | --- | --- |
@@ -61,7 +65,7 @@ Os dispositivos simulados enviam as seguintes propriedades do dispositivo em uma
 | Latitude |Localização de latitude do dispositivo |
 | Longitude |Localização de longitude do dispositivo |
 
-O simulador propaga essas propriedades em dispositivos simulados com valores de exemplo. Sempre que o simulador inicializa um dispositivo simulado, o dispositivo posta os metadados predefinidos no Hub IoT. Observe como isso substitui quaisquer atualizações de metadados feitas no portal do dispositivo.
+O simulador propaga essas propriedades em dispositivos simulados com valores de exemplo.  Sempre que o simulador inicializa um dispositivo simulado, o dispositivo posta os metadados predefinidos no Hub IoT. Observe como isso substitui quaisquer atualizações de metadados feitas no portal do dispositivo.
 
 Os dispositivos simulados podem lidar com os seguintes comandos enviados do painel de solução por meio do hub IoT:
 
@@ -76,13 +80,13 @@ Os dispositivos simulados podem lidar com os seguintes comandos enviados do pain
 
 O reconhecimento de comando de dispositivo para o back-end da solução é fornecido por meio do hub IoT.
 
-## Hub IoT
+## <a name="iot-hub"></a>Hub IoT
 O [hub IoT][lnk-iothub] consome os dados enviados dos dispositivos para a nuvem e os disponibiliza para os trabalhos do Stream Analytics do Azure (ASA). O hub IoT também envia comandos aos dispositivos em nome do portal do dispositivo. Cada trabalho de fluxo do ASA usa um grupo separado de consumidores do Hub IoT para ler o fluxo de mensagens dos dispositivos.
 
-## Stream Analytics do Azure
-Na solução de monitoramento remoto, o [Stream Analytics do Azure][lnk-asa] \(ASA) envia mensagens do dispositivo recebidas pelo hub IoT para outros componentes de back-end para o processamento ou armazenamento. Diferentes trabalhos do ASA executam funções específicas com base no conteúdo das mensagens.
+## <a name="azure-stream-analytics"></a>Stream Analytics do Azure
+Na solução de monitoramento remoto, o [Stream Analytics do Azure][lnk-asa] (ASA) envia mensagens do dispositivo recebidas pelo hub IoT para outros componentes de back-end para o processamento ou armazenamento. Diferentes trabalhos do ASA executam funções específicas com base no conteúdo das mensagens.
 
-**Trabalho 1: as Informações do Dispositivo** filtram as mensagens de informações do dispositivo a partir do fluxo de mensagens de entrada e enviam-nas para um ponto de extremidade do Hubs de Eventos. Um dispositivo envia mensagens de informações do dispositivo na inicialização e em resposta a um comando **SendDeviceInfo**. Esse trabalho usa a seguinte definição de consulta para identificar as mensagens de **informações do dispositivo**:
+**Trabalho 1: as Informações do Dispositivo** filtram as mensagens de informações do dispositivo a partir do fluxo de mensagens de entrada e enviam-nas para um ponto de extremidade do Hubs de Eventos. Um dispositivo envia mensagens de informações do dispositivo na inicialização e em resposta a um comando **SendDeviceInfo** . Esse trabalho usa a seguinte definição de consulta para identificar as mensagens de **informações do dispositivo** :
 
 ```
 SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
@@ -176,26 +180,26 @@ GROUP BY
     SlidingWindow (mi, 5)
 ```
 
-## Hubs de Eventos
+## <a name="event-hubs"></a>Hubs de Eventos
 Os trabalhos do ASA de **informações do dispositivo** e **regras** enviam seus dados para os Hubs de Eventos para um encaminhamento confiável ao **Processador de Eventos** em execução no Trabalho Web.
 
-## Armazenamento do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 A solução usa o armazenamento de blobs do Azure para persistir todos os dados de telemetria brutos e resumidos dos dispositivos na solução. O painel lê os dados de telemetria do armazenamento de blobs para popular os gráficos. Para exibir alertas, o painel lê os dados do armazenamento de blobs que registra quando os valores de telemetria excederam os valores de limite configurados. A solução também usa o armazenamento de blobs para registrar os valores de limite definidos no painel.
 
-## Trabalhos Web
+## <a name="webjobs"></a>Trabalhos Web
 Além de hospedar os simuladores de dispositivo, os Trabalhos Web na solução também hospedam o **Processador de Eventos** em execução em um Trabalho Web do Azure que lida com as mensagens de informações do dispositivo e as respostas do comando. Ele usa:
 
 * Mensagens de informações de dispositivo para atualizar o Registro do dispositivo (armazenado no banco de dados do Banco de Dados de Documentos) com as informações atuais do dispositivo.
 * Mensagens de resposta de comando para atualizar o histórico de comandos do dispositivo (armazenados no banco de dados do Banco de Dados de Documentos).
 
-## Banco de Dados de Documentos
+## <a name="documentdb"></a>Banco de Dados de Documentos
 A solução usa um Banco de Dados de Documentos para armazenar informações sobre os dispositivos conectados à solução. Essas informações incluem os metadados do dispositivo e o histórico de comandos enviados aos dispositivos a partir do painel.
 
-## Aplicativos Web
-### Painel de monitoramento remoto
+## <a name="web-apps"></a>Aplicativos Web
+### <a name="remote-monitoring-dashboard"></a>Painel de monitoramento remoto
 Esta página no aplicativo Web usa os controles javascript do PowerBI (Consulte [Repositório PowerBI-visuals](https://www.github.com/Microsoft/PowerBI-visuals)) para visualizar os dados de telemetria dos dispositivos. A solução usa o trabalho de telemetria do ASA para gravar os dados de telemetria no armazenamento de blobs.
 
-### Portal de administração de dispositivo
+### <a name="device-administration-portal"></a>Portal de administração de dispositivo
 O aplicativo Web permite que você:
 
 * Provisione um novo dispositivo. Esta ação define a id do dispositivo exclusiva e gera a chave de autenticação. Ela grava as informações sobre o dispositivo no registro de identidade do Hub IoT e no Banco de Dados de Documentos específico da solução.
@@ -204,7 +208,7 @@ O aplicativo Web permite que você:
 * Exiba o histórico de comandos de um dispositivo.
 * Habilite e desabilite dispositivos.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 As postagens de blog do TechNet abaixo fornecem mais detalhes sobre a solução pré-configurada de monitoramento remoto:
 
 * [IoT Suite - Under the Hood - Remote Monitoring (Monitoramento remoto)](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
@@ -223,4 +227,8 @@ Você pode continuar a introdução ao IoT Suite lendo os seguintes artigos:
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

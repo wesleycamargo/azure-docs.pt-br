@@ -1,11 +1,11 @@
-## Receber mensagens com EventProcessorHost em Java
+## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Receber mensagens com EventProcessorHost em Java
 EventProcessorHost é uma classe Java que simplifica o recebimento de eventos dos Hubs de Eventos gerenciando pontos de verificação persistentes e recebimentos paralelos desses Hubs de Eventos. Usando o EventProcessorHost, você pode dividir eventos entre vários destinatários, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o EventProcessorHost para um único destinatário.
 
-### Criar uma conta de armazenamento
-Para usar o EventProcessorHost, você deve ter uma [Conta de armazenamento do Azure][Conta de armazenamento do Azure]\:
+### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
+Para usar o EventProcessorHost, você deve ter uma [Conta de Armazenamento do Azure][Azure Storage account]:
 
-1. Faça logon no [portal clássico do Azure][portal clássico do Azure] e clique em **NOVO** na parte inferior da tela.
-2. Clique em **Serviços de Dados**, em **Armazenamento**, em **Criação Rápida** e, em seguida, digite um nome para sua conta de armazenamento. Selecione a região desejada e, em seguida, clique em **Criar Conta de Armazenamento**.
+1. Faça logon no [Portal Clássico do Azure][Azure classic portal] e clique em **NOVO** na parte inferior da tela.
+2. Clique em **Serviços de Dados**, em **Armazenamento**, em **Criação Rápida** e digite um nome para sua conta de armazenamento. Selecione a região desejada e, em seguida, clique em **Criar Conta de Armazenamento**.
    
     ![][11]
 3. Clique na conta de armazenamento criada recentemente e, em seguida, clique em **Gerenciar Chaves de Acesso**:
@@ -14,8 +14,8 @@ Para usar o EventProcessorHost, você deve ter uma [Conta de armazenamento do Az
    
     Copie a chave de acesso primária para usar posteriormente neste tutorial.
 
-### Crie um projeto Java usando o Host de EventProcessor
-A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso em projetos do Maven por meio do [Repositório Central do Maven][Maven Package] e pode ser referenciada usando a seguinte declaração de dependência dentro do arquivo de projeto do Maven:
+### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Crie um projeto Java usando o Host de EventProcessor
+A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso em projetos do Maven por meio do [Repositório Central do Maven][Maven Package], e pode ser referenciada usando a seguinte declaração de dependência dentro do arquivo de projeto do Maven:    
 
 ``` XML
 <dependency>
@@ -30,9 +30,9 @@ A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso 
 </dependency>
 ```
 
-Para diferentes tipos de ambientes de compilação, é possível obter explicitamente os arquivos JAR liberados mais recentemente no [Repositório Central do Maven][Maven Package] ou no [ponto de distribuição de versão no GitHub](https://github.com/Azure/azure-event-hubs/releases).
+Para diferentes tipos de ambientes de compilação, é possível obter explicitamente os arquivos JAR liberados mais recentemente no [Repositório Central do Maven][Maven Package] ou no [ponto de distribuição de versão no GitHub](https://github.com/Azure/azure-event-hubs/releases).  
 
-1. Para o exemplo a seguir, primeiro crie um novo projeto do Maven para um aplicativo de console/shell em seu ambiente de desenvolvimento Java favorito. A classe será chamada ```ErrorNotificationHandler```.
+1. Para o exemplo a seguir, primeiro crie um novo projeto do Maven para um aplicativo de console/shell em seu ambiente de desenvolvimento Java favorito. A classe será chamada ```ErrorNotificationHandler```.     
    
     ``` Java
     import java.util.function.Consumer;
@@ -179,18 +179,22 @@ Para diferentes tipos de ambientes de compilação, é possível obter explicita
     ```
 
 > [!NOTE]
-> Este tutorial usa uma única instância do EventProcessorHost. Para aumentar a taxa de transferência, é recomendável que você execute várias instâncias do EventProcessorHost. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup**. Ao receber eventos em máquinas diferentes, pode ser útil especificar nomes para instâncias de EventProcessorHost com base em máquinas (ou funções) nas quais eles foram implantados.
+> Este tutorial usa uma única instância do EventProcessorHost. Para aumentar a taxa de transferência, é recomendável que você execute várias instâncias do EventProcessorHost. Nesses casos, as diversas instâncias são coordenadas automaticamente umas com as outras para balancear a carga de eventos recebidos. Se você quiser que vários destinatários processem, cada um, *todos* os eventos, você deve usar o conceito **ConsumerGroup** . Ao receber eventos em máquinas diferentes, pode ser útil especificar nomes para instâncias de EventProcessorHost com base em máquinas (ou funções) nas quais eles foram implantados.
 > 
 > 
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
-[Conta de armazenamento do Azure]: ../storage/storage-create-storage-account.md
-[portal clássico do Azure]: http://manage.windowsazure.com
-[Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
+[Visão Geral dos Hubs de Eventos]: ../articles/event-hubs/event-hubs-overview.md
+[Conta do Armazenamento do Azure]: ../articles/storage/storage-create-storage-account.md
+[Portal clássico do Azure]: http://manage.windowsazure.com
+[Pacote do Maven]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

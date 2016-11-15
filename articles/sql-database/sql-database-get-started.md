@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial do Banco de Dados SQL: Criar um banco de dados SQL | Microsoft Docs'
-description: Saiba como configurar um servidor lógico do Banco de Dados SQL, regra de firewall do servidor, banco de dados SQL e dados de exemplo. Além disso, saiba como conectar com as ferramentas do cliente, configurar usuários e configurar uma regra de firewall do banco de dados.
+description: "Saiba como configurar um servidor lógico do Banco de Dados SQL, regra de firewall do servidor, banco de dados SQL e dados de exemplo. Além disso, saiba como conectar com as ferramentas do cliente, configurar usuários e configurar uma regra de firewall do banco de dados."
 keywords: tutorial do banco de dados SQL, criar um banco de dados SQL
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/07/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 914d5f7e6b8e9165fc8ba9021e1030b865ba5fb2
+
 
 ---
-# Tutorial do Banco de Dados SQL: criar um banco de dados SQL em minutos usando o portal do Azure
+# <a name="sql-database-tutorial-create-a-sql-database-in-minutes-by-using-the-azure-portal"></a>Tutorial do Banco de Dados SQL: criar um banco de dados SQL em minutos usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal do Azure](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
@@ -30,13 +34,13 @@ Neste tutorial, você aprenderá a usar o portal do Azure para:
 * Criar um Banco de Dados SQL do Azure com dados de exemplo.
 * Crie uma regra de firewall de nível de servidor para um único endereço IP ou para um intervalo de endereços IP.
 
-Você pode executar as mesmas tarefas usando o [C#](sql-database-get-started-csharp.md) ou o [PowerShell](sql-database-get-started-powershell.md).
+Você pode executar as mesmas tarefas usando o [C#](sql-database-get-started-csharp.md) ou [PowerShell](sql-database-get-started-powershell.md).
 
-[!INCLUDE [Logon](../../includes/azure-getting-started-portal-login.md)]
+[!INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
 <a name="create-logical-server-bk"></a>
 
-## Criar seu primeiro banco de dados SQL do Azure
+## <a name="create-your-first-azure-sql-database"></a>Criar seu primeiro banco de dados SQL do Azure
 1. Se você não estiver conectado, conecte-se ao [Portal do Azure](http://portal.azure.com).
 2. Clique em **Novo**, clique em **Dados + Armazenamento** e localize o **Banco de Dados SQL**.
    
@@ -44,7 +48,7 @@ Você pode executar as mesmas tarefas usando o [C#](sql-database-get-started-csh
 3. Clique em **Banco de Dados SQL** para abrir a folha Banco de Dados SQL. O conteúdo dessa folha varia dependendo da quantidade das assinaturas e dos objetos existentes (como servidores existentes).
    
     ![Novo banco de dados SQL 2](./media/sql-database-get-started/sql-database-new-database-2.png)
-4. Na caixa de texto **Nome do banco de dados**, forneça um nome para o seu primeiro banco de dados, como "meu-bancodedados". Uma marca de seleção verde indica que você forneceu um nome válido.
+4. Na caixa de texto **Nome do banco de dados** , forneça um nome para o seu primeiro banco de dados, como "meu-bancodedados". Uma marca de seleção verde indica que você forneceu um nome válido.
    
     ![Novo banco de dados SQL 3](./media/sql-database-get-started/sql-database-new-database-3.png)
 5. Se você tiver várias assinaturas, selecione uma.
@@ -63,13 +67,13 @@ Você pode executar as mesmas tarefas usando o [C#](sql-database-get-started-csh
 10. Examine a folha **Novo servidor** para entender as informações que você precisa fornecer para o novo servidor.
     
     ![Novo banco de dados SQL 8](./media/sql-database-get-started/sql-database-new-database-8.png)
-11. Na caixa de texto **Nome do servidor**, forneça um nome para seu primeiro servidor, como "meu-novo-objetodeservidor". Uma marca de seleção verde indica que você forneceu um nome válido.
+11. Na caixa de texto **Nome do servidor** , forneça um nome para seu primeiro servidor, como "meu-novo-objetodeservidor". Uma marca de seleção verde indica que você forneceu um nome válido.
     
     ![Novo banco de dados SQL 9](./media/sql-database-get-started/sql-database-new-database-9.png)
-12. Em **Logon de administrador do servidor**, forneça um nome de usuário para o logon de administrador do servidor, como "minha\_contadeadministrador". Esse logon é conhecido como o logon principal do servidor. Uma marca de seleção verde indica que você forneceu um nome válido.
+12. Em **Logon de administrador do servidor**, forneça um nome de usuário para o logon de administrador do servidor, como "minha_contadeadministrador". Esse logon é conhecido como o logon principal do servidor. Uma marca de seleção verde indica que você forneceu um nome válido.
     
     ![Novo banco de dados SQL 10](./media/sql-database-get-started/sql-database-new-database-10.png)
-13. Em **Senha** e em **Confirmar senha**, forneça uma senha para a conta de logon principal do servidor, como "s3nh@". Uma marca de seleção verde indica que você forneceu uma senha válida.
+13. Em **Senha** e em **Confirmar senha**, forneça uma senha para a conta de logon principal do servidor, como "p@ssw0rd1". Uma marca de seleção verde indica que você forneceu uma senha válida.
     
     ![Novo banco de dados SQL 11](./media/sql-database-get-started/sql-database-new-database-11.png)
 14. Em **Local**, selecione um data center apropriado para seu local, como "Leste da Austrália".
@@ -99,9 +103,9 @@ Você pode executar as mesmas tarefas usando o [C#](sql-database-get-started-csh
 > 
 > 
 
-[!INCLUDE [Criar regra de firewall de servidor](../../includes/sql-database-create-new-server-firewall-portal.md)]
+[!INCLUDE [Create server firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora que você concluiu este tutorial do Banco de Dados SQL e criou um banco de dados com alguns dados de exemplo, está pronto para explorar usando suas ferramentas favoritas.
 
 * Se você estiver familiarizado com o Transact-SQL e o SQL Server Management Studio (SSMS), saiba como [Conectar e consultar um banco de dados SQL com o SSMS](sql-database-connect-query-ssms.md).
@@ -111,7 +115,12 @@ Agora que você concluiu este tutorial do Banco de Dados SQL e criou um banco de
 * Se você quiser carregar alguns dados em uma nova tabela de um arquivo CSV usando a ferramenta da linha de comando BCP, consulte [Carregando dados no Banco de Dados SQL a partir de um arquivo CSV usando o BCP](sql-database-load-from-csv-with-bcp.md).
 * Se quiser começar a explorar a segurança do Banco de Dados SQL do Azure, confira [Introdução à segurança](sql-database-get-started-security.md)
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 [O que é o Banco de Dados SQL?](sql-database-technical-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

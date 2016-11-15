@@ -1,12 +1,12 @@
 ---
-title: Lista de Aplicativos de API e de Conectores no Serviço de Aplicativo do Microsoft Azure
-description: Leia sobre os Conectores e os Aplicativos de API no Serviço de Aplicativo do Azure
+title: "Lista de Aplicativos de API e de Conectores no Serviço de Aplicativo do Microsoft Docs"
+description: "Leia sobre os Conectores e os Aplicativos de API no Serviço de Aplicativo do Azure"
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
 editor: cgronlun
-
+ms.assetid: 984a425d-ba64-48cc-90dc-bb624411e0f0
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6028fc53661978f63bbac89be6214ffebdc22405
+
 
 ---
 # <a name="list-of-connectors-and-api-apps-to-use-in-your-logic-apps"></a>Lista de Conectores e de Aplicativos de API a serem usados em seus Aplicativos Lógicos
@@ -72,6 +76,9 @@ Os conectores também podem ser usados como ações dentro do Aplicativo Lógico
 [Usando o Gerenciador de Conexão Híbrida no Serviço de Aplicativo do Azure](app-service-logic-hybrid-connection-manager.md)  
 [Gerenciar e monitorar aplicativos de API e conectores internos](app-service-logic-monitor-your-connectors.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

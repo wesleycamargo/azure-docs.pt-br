@@ -6,4 +6,7 @@ Você pode configurar um balanceador de carga para:
 * Balancear a carga do tráfego entre máquinas virtuais em uma VNet (rede virtual), entre VMs em serviços de nuvem ou entre computadores locais e máquinas virtuais em uma rede virtual entre instalações. Nós nos referimos a um balanceador de carga neste cenário como um [ILB (Balanceador de carga interno)](../articles/load-balancer/load-balancer-internal-overview.md).
 * Encaminhar tráfego externo para uma instância VM específica.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

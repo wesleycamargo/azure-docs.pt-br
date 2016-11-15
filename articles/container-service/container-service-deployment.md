@@ -1,14 +1,14 @@
 ---
-title: Implantar um cluster do Serviço de Contêiner do Azure | Microsoft Docs
-description: Implante um cluster do Serviço de Contêiner do Azure usando o portal do Azure, a CLI do Azure ou o PowerShell.
+title: "Implantar um cluster do Serviço de Contêiner do Azure | Microsoft Docs"
+description: "Implante um cluster do Serviço de Contêiner do Azure usando o portal do Azure, a CLI do Azure ou o PowerShell."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Docker, Contêineres, Microsserviços, Mesos, Azure
-
+keywords: "Docker, Contêineres, Microsserviços, Mesos, Azure"
+ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,21 +16,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c8c06906a5f99890295ff2b2433ff6f7e02dece5
+
 
 ---
-# Implantar um cluster do Serviço de Contêiner do Azure
+# <a name="deploy-an-azure-container-service-cluster"></a>Implantar um cluster do Serviço de Contêiner do Azure
 O Serviço de Contêiner do Azure fornece implantação rápida de soluções populares de orquestração e clustering de contêiner de software livre. Usando o Serviço de Contêiner do Azure, você pode implantar clusters DC/OS e Docker Swarm com modelos do Azure Resource Manager ou por meio do portal do Azure. Você implanta esses clusters usando Conjuntos de Escala de Máquina Virtual do Azure e tiram proveito das ofertas de rede e armazenamento do Azure. Para acessar o Serviço de Contêiner do Azure, você precisa de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
-Este documento orienta você durante a implantação de um cluster do Serviço de Contêiner do Azure usando o [Portal do Azure](#creating-a-service-using-the-azure-portal), a [interface de linha de comando (CLI) do Azure](#creating-a-service-using-the-azure-cli) e o [módulo do Azure PowerShell](#creating-a-service-using-powershell).
+Este documento orienta você durante a implantação de um cluster do Serviço de Contêiner do Azure usando o [portal do Azure](#creating-a-service-using-the-azure-portal), a [CLI (interface de linha de comando) do Azure](#creating-a-service-using-the-azure-cli) e o [módulo do Azure PowerShell](#creating-a-service-using-powershell).  
 
-## Criar um serviço usando o portal do Azure
+## <a name="create-a-service-by-using-the-azure-portal"></a>Criar um serviço usando o portal do Azure
 Entre no portal do Azure, selecione **Novo** e pesquise no Azure Marketplace o **Serviço de Contêiner do Azure**.
 
-![Criar implantação 1](media/acs-portal1.png) <br />
+![Criar implantação 1](media/acs-portal1.png)  <br />
 
 Selecione **Serviço de Contêiner do Azure** e clique em **Criar**.
 
-![Criar implantação 2](media/acs-portal2.png) <br />
+![Criar implantação 2](media/acs-portal2.png)  <br />
 
 Insira as seguintes informações:
 
@@ -38,11 +42,11 @@ Insira as seguintes informações:
 * **Assinatura**: selecione uma assinatura do Azure.
 * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo.
 * **Local**: selecione uma região do Azure para a implantação do Serviço de Contêiner do Azure.
-* **Chave pública SSH**: adicione a chave pública que será usada para autenticação em relação a Máquinas Virtuais do Serviço de Contêiner do Azure. É muito importante que a chave não contenha quebras de linha e que inclua o prefixo 'ssh-rsa' e o sufixo 'nomedeusuário@domínio'. Ele deve ser algo semelhante ao seguinte: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Para obter orientação sobre como criar chaves SSH (Secure Shell), confira os artigos sobre [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+* **Chave pública SSH**: adicione a chave pública que será usada para autenticação em relação a Máquinas Virtuais do Serviço de Contêiner do Azure. É muito importante que a chave não contenha quebras de linha e que inclua o prefixo 'ssh-rsa' e o sufixo 'username@domain'. Ele deve ser algo semelhante ao seguinte: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Para obter orientação sobre como criar chaves SSH (Secure Shell), confira os artigos sobre [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) e [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/).
 
 Clique em **OK** quando estiver pronto para continuar.
 
-![Criar implantação 3](media/acs-portal3.png) <br />
+![Criar implantação 3](media/acs-portal3.png)  <br />
 
 Selecione um tipo de Orquestração. As opções são:
 
@@ -51,7 +55,7 @@ Selecione um tipo de Orquestração. As opções são:
 
 Clique em **OK** quando estiver pronto para continuar.
 
-![Criar implantação 4](media/acs-portal4.png) <br />
+![Criar implantação 4](media/acs-portal4.png)  <br />
 
 Insira as seguintes informações:
 
@@ -62,28 +66,28 @@ Insira as seguintes informações:
 
 Clique em **OK** quando estiver pronto para continuar.
 
-![Criar implantação 5](media/acs-portal5.png) <br />
+![Criar implantação 5](media/acs-portal5.png)  <br />
 
 Clique em **OK** após a validação de serviço.
 
-![Criar implantação 6](media/acs-portal6.png) <br />
+![Criar implantação 6](media/acs-portal6.png)  <br />
 
 Clique em **Criar** para iniciar o processo de implantação.
 
-![Criar implantação 7](media/acs-portal7.png) <br />
+![Criar implantação 7](media/acs-portal7.png)  <br />
 
 Se tiver optado por fixar a implantação no portal do Azure, você poderá ver o status da implantação.
 
-![Criar implantação 8](media/acs-portal8.png) <br />
+![Criar implantação 8](media/acs-portal8.png)  <br />
 
 Quando a implantação for concluída, o cluster do Serviço de Contêiner do Azure estará pronto para uso.
 
-## Criar um serviço usando a CLI do Azure
+## <a name="create-a-service-by-using-the-azure-cli"></a>Criar um serviço usando a CLI do Azure
 Para criar uma instância do Serviço de Contêiner do Azure usando a linha de comando, você precisará de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Você também precisará ter [instalado](../xplat-cli-install.md) e [configurado](../xplat-cli-connect.md) a CLI do Azure.
 
 Para implantar um cluster DC/OS ou Docker Swarm, selecione um dos modelos a seguir no GitHub. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
 
-* [Modelo DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Modelo DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Modelo do Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
 Em seguida, verifique se a CLI do Azure foi conectada a uma assinatura do Azure. Faça isso usando este comando:
@@ -105,9 +109,9 @@ azure config mode arm
 
 Crie um cluster do grupo de recursos do Azure e um cluster do Serviço de Contêiner com o seguinte comando, em que:
 
-* **RESOURCE\_GROUP** é o nome do grupo de recursos que você deseja usar para esse serviço.
+* **RESOURCE_GROUP** é o nome do grupo de recursos que você deseja usar para esse serviço.
 * **LOCATION** é a região do Azure e que a implantação do Grupo de Recursos e do Serviço de Contêiner do Azure será criada.
-* **TEMPLATE\_URI** é o local do arquivo de implantação. Observe que este deve ser o arquivo Bruto, não um ponteiro para a interface do usuário do GitHub. Para localizar essa URL, selecione o arquivo azuredeploy.json no GitHub e clique no botão **Bruto**.
+* **TEMPLATE_URI** é o local do arquivo de implantação. Observe que este deve ser o arquivo Bruto, não um ponteiro para a interface do usuário do GitHub. Para localizar essa URL, selecione o arquivo azuredeploy.json no GitHub e clique no botão **Bruto** .
 
 > [!NOTE]
 > Quando você executar esse comando, o shell solicitará valores de parâmetros de implantação.
@@ -118,14 +122,14 @@ Crie um cluster do grupo de recursos do Azure e um cluster do Serviço de Contê
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
-### Fornecer parâmetros de modelo
-Esta versão do comando requer que você defina os parâmetros interativamente. Se você quiser fornecer parâmetros, como uma cadeia de caracteres formatada em JSON, poderá fazer isso com a opção `-p`. Por exemplo:
+### <a name="provide-template-parameters"></a>Fornecer parâmetros de modelo
+Esta versão do comando requer que você defina os parâmetros interativamente. Se você quiser fornecer parâmetros, como uma cadeia de caracteres formatada em JSON, poderá fazer isso com a opção `-p` . Por exemplo:
 
  ```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
 ```
 
-Como alternativa, você pode fornecer um arquivo de parâmetros formatado em JSON usando a opção `-e`:
+Como alternativa, você pode fornecer um arquivo de parâmetros formatado em JSON usando a opção `-e` :
 
 ```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
@@ -133,21 +137,21 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 
 Para ver um arquivo de parâmetros de exemplo chamado `azuredeploy.parameters.json`, procure-o com os modelos do Serviço de Contêiner do Azure no GitHub.
 
-## Criar um serviço usando o PowerShell
+## <a name="create-a-service-by-using-powershell"></a>Criar um serviço usando o PowerShell
 Você também pode implantar um cluster do Serviço de Contêiner do Azure com o PowerShell. Este documento se baseia na versão 1.0 do [módulo do Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
 
 Para implantar um cluster DC/OS ou Docker Swarm, selecione um dos modelos a seguir. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
 
-* [Modelo DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-mesos)
+* [Modelo DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Modelo do Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
 
-Antes de criar um cluster em sua assinatura do Azure, verifique se sua sessão do PowerShell foi conectada ao Azure. Você pode fazer isso com o comando `Get-AzureRMSubscription`:
+Antes de criar um cluster em sua assinatura do Azure, verifique se sua sessão do PowerShell foi conectada ao Azure. Você pode fazer isso com o comando `Get-AzureRMSubscription` :
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Se precisar entrar no Azure, use o comando `Login-AzureRMAccount`:
+Se precisar entrar no Azure, use o comando `Login-AzureRMAccount` :
 
 ```powershell
 Login-AzureRmAccount
@@ -159,13 +163,13 @@ Se estiver implantando em um grupo de recursos novo, primeiro crie o grupo de re
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 ```
 
-Depois de criar um grupo de recursos, você poderá criar seu cluster com o comando a seguir. O URI do modelo desejado será especificado para o parâmetro `-TemplateUri`. Quando você executar esse comando, o PowerShell solicitará os valores de parâmetros de implantação.
+Depois de criar um grupo de recursos, você poderá criar seu cluster com o comando a seguir. O URI do modelo desejado será especificado para o parâmetro `-TemplateUri` . Quando você executar esse comando, o PowerShell solicitará os valores de parâmetros de implantação.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
 ```
 
-### Fornecer parâmetros de modelo
+### <a name="provide-template-parameters"></a>Fornecer parâmetros de modelo
 Se estiver familiarizado com o PowerShell, você saberá que pode percorrer os parâmetros disponíveis para um cmdlet digitando um sinal de subtração (-) e, em seguida, pressionando a tecla TAB. Essa mesma funcionalidade também funciona com os parâmetros definidos no modelo. Assim que você digitar o nome do modelo, o cmdlet buscará o modelo, o analisará os parâmetros e adicionará dinamicamente os parâmetros do modelo ao comando. Isso facilita muito a especificação dos valores de parâmetros do modelo. E, se você esquecer um valor de parâmetro necessário, o PowerShell solicitará o valor.
 
 A seguir, o comando completo com os parâmetros incluídos. Você pode fornecer seus próprios valores para os nomes dos recursos.
@@ -174,11 +178,16 @@ A seguir, o comando completo com os parâmetros incluídos. Você pode fornecer 
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora que você tem um cluster em funcionamento, confira estes documentos para obter detalhes sobre conexão e gerenciamento:
 
 * [Conectar a um cluster do Serviço de Contêiner do Azure](container-service-connect.md)
 * [Trabalhar com o Serviço de Contêiner do Azure e o DC/SO](container-service-mesos-marathon-rest.md)
 * [Trabalhar com o Serviço de Contêiner do Azure e o Docker Swarm](container-service-docker-swarm.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

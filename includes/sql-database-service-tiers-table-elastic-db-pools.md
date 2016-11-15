@@ -1,5 +1,5 @@
 
-### Limites de pool elástico Básico
+### <a name="basic-elastic-pool-limits"></a>Limites de pool elástico Básico
 |  |  |
 | --- |:---:|
 | Número máximo de eDTUs por pool |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -16,11 +16,11 @@
 | Recuperação de desastre |Replicação geográfica ativa |
 |  | |
 
-* As eDTUs Máx e Mín por banco de dados podem ser definidas como qualquer um dos valores listados, contanto que o tamanho de DTU do pool selecionado seja pelo menos igual às eDTUs máx. por banco de dados
+* As eDTUs Máx e Mín por banco de dados podem ser definidas como qualquer um dos valores listados, contanto que o tamanho de DTU do pool selecionado seja pelo menos igual às eDTUs máx. por banco de dados 
 
 ** O banco de dados elástico compartilha o armazenamento de pool, de modo que o armazenamento do banco de dados é limitado ao menor entre o armazenamento de pool restante ou o armazenamento máximo por banco de dados
 
-### Limites de pool elástico Standard
+### <a name="standard-elastic-pool-limits"></a>Limites de pool elástico Standard
 |  |  |
 | --- |:---:|
 | Número máximo de eDTUs por pool |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -37,11 +37,11 @@
 | Recuperação de desastre |Replicação geográfica ativa |
 |  | |
 
-* As eDTUs Máx e Mín por banco de dados podem ser definidas como qualquer um dos valores listados, contanto que o tamanho de DTU do pool selecionado seja pelo menos igual às eDTUs máx. por banco de dados
+* As eDTUs Máx e Mín por banco de dados podem ser definidas como qualquer um dos valores listados, contanto que o tamanho de DTU do pool selecionado seja pelo menos igual às eDTUs máx. por banco de dados 
 
 ** O banco de dados elástico compartilha o armazenamento de pool, de modo que o armazenamento do banco de dados é limitado ao menor entre o armazenamento de pool restante ou o armazenamento máximo por banco de dados
 
-### Limites de pool elástico Premium
+### <a name="premium-elastic-pool-limits"></a>Limites de pool elástico Premium
 |  |  |
 | --- |:---:|
 | Número máximo de eDTUs por pool |125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
@@ -58,8 +58,12 @@
 | Recuperação de desastre |Replicação geográfica ativa |
 |  | |
 
-* As eDTUs Máx e Mín por banco de dados podem ser definidas como qualquer um dos valores listados, contanto que o tamanho de DTU do pool selecionado seja pelo menos igual às eDTUs máx. por banco de dados
+* As eDTUs Máx e Mín por banco de dados podem ser definidas como qualquer um dos valores listados, contanto que o tamanho de DTU do pool selecionado seja pelo menos igual às eDTUs máx. por banco de dados 
 
 ** O banco de dados elástico compartilha o armazenamento de pool, de modo que o armazenamento do banco de dados é limitado ao menor entre o armazenamento de pool restante ou o armazenamento máximo por banco de dados
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

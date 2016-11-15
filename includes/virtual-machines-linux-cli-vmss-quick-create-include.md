@@ -1,7 +1,7 @@
-Se você ainda não fez isso, você pode obter uma [avaliação gratuita de assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) e a [CLI do Azure](../articles/xplat-cli-install.md) [conectada à sua conta do Azure](../articles/xplat-cli-connect.md). Depois que você fizer isso, você pode executar os seguintes comandos para criar rapidamente um conjunto de escala:
+Se você ainda não fez isso, obtenha uma [Avaliação gratuita da assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/) e a [CLI do Azure](../articles/xplat-cli-install.md) [conectada à sua conta do Azure](../articles/xplat-cli-connect.md). Depois que você fizer isso, você pode executar os seguintes comandos para criar rapidamente um conjunto de escala:
 
 ```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
 azure config mode arm
 
 # quick-create a scale set
@@ -13,7 +13,7 @@ azure config mode arm
 azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
-Se desejar personalizar o local ou o urn da imagem, veja os comandos `azure location list` e `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+Se desejar personalizar o local ou o image-urn, veja os comandos `azure location list` e `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
 Depois que esse comando foi retornado, o conjunto de escala terá sido criado. Esse conjunto de escala terá um balanceador de carga com regras NAT de mapeamento de porta 50.000+ i no balanceador de carga para a porta 22 na VM i. Portanto, depois que pudermos descobrir o FQDN do balanceador de carga, poderemos nos conectar a nossas VMs via SSH:
 
@@ -56,4 +56,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

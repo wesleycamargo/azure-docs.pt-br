@@ -1,13 +1,13 @@
 ---
-title: 'Opções e desempenho do Banco de Dados SQL: camadas de serviço | Microsoft Docs'
-description: Compare os recursos de continuidade dos negócios e o desempenho do Banco de Dados SQL das camadas de serviço para equilibrar o custo e o recurso à medida que você dimensiona.
-keywords: opções de banco de dados, desempenho do banco de dados
+title: "Opções e desempenho do Banco de Dados SQL: camadas de serviço | Microsoft Docs"
+description: "Compare os recursos de continuidade dos negócios e o desempenho do Banco de Dados SQL das camadas de serviço para equilibrar o custo e o recurso à medida que você dimensiona."
+keywords: "opções de banco de dados, desempenho do banco de dados"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
 editor: CarlRabeler
-
+ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/10/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ecbee74bc0559aa632304b0a0428abb36606597
+
 
 ---
-# <a name="sql-database-options-and-performance:-understand-what's-available-in-each-service-tier"></a>Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço
+# <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opções e desempenho de Banco de Dados SQL: compreender o que está disponível em cada camada de serviço
 [Banco de Dados SQL do Azure](sql-database-technical-overview.md) oferece três camadas de serviço com vários níveis de desempenho a fim de lidar com cargas de trabalho diferentes. Cada nível de desempenho fornece um conjunto de recursos cada vez maior, projetado para fornecer uma taxa de transferência crescente. Você pode gerenciar cada banco de dados em sua própria [camada de serviço](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) com seu próprio nível de desempenho. Você também pode gerenciar vários bancos de dados em um [pool Elástico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) com um conjunto compartilhado de recursos. Os recursos disponíveis para bancos de dados autônomos são expressos em termos de DTUs (Unidades de transação de banco de dados), e para pools elásticos em termos de DTUs elásticos, ou eDTUs. Para saber mais sobre DTUs e eDTUs, confira [O que é um DTU](sql-database-what-is-a-dtu.md). 
 
 Nos dois casos, as camadas de serviço incluem **Básico**, **Standard** e **Premium**. As opções de banco de dados nesses níveis são semelhantes bancos de dados autônomos e pools elásticos, mas há considerações adicionais sobre os pools elásticos. Este artigo fornece detalhes sobre camadas de serviço para bancos de dados autônomos e pools elásticos.
@@ -70,7 +74,7 @@ Para decidir sobre uma camada de serviço para um banco de dados autônomo, come
 
 Depois de determinar a edição do Banco de Dados SQL, você estará pronto para determinar o nível de desempenho do banco de dados (o número de DTUs). Você pode fazer uma suposição e depois [Escalar ou reduzir verticalmente ou horizontalmente](sql-database-scale-up.md) com base na experiência real. Você também pode usar a [Calculadora de DTU](http://dtucalculator.azurewebsites.net/) para ter uma ideia aproximada do número de DTUs necessários. 
 
-### <a name="choosing-a-service-tier-for-an-elastic-database-pool."></a>Como escolher uma camada de serviço para um pool de banco de dados elástico.
+### <a name="choosing-a-service-tier-for-an-elastic-database-pool"></a>Como escolher uma camada de serviço para um pool de banco de dados elástico.
 Para decidir sobre uma camada de serviço para um pool de banco de dados elástico, comece determinando os recursos do banco de dados necessários para escolher a camada de serviço para seu pool.
 
 * Tamanho do banco de dados (2 GB para Básico, 250 GB para Standard e 500 GB para Premium)
@@ -90,6 +94,9 @@ Depois de determinar a camada de serviço para o pool, você estará pronto para
 * [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Curso em vídeo da Microsoft Virtual Academy sobre os recursos de banco de dados elástico no Banco de Dados SQL do Azure](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

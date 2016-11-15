@@ -1,4 +1,4 @@
-### Conceda acesso a seu Certificado Push para o Mobile Engagement
+### <a name="grant-access-to-your-push-certificate-to-mobile-engagement"></a>Conceda acesso a seu Certificado Push para o Mobile Engagement
 Para permitir que o Mobile Engagement envie Notificações por Push em seu nome, você precisa conceder acesso ao certificado. Isso é feito configurando e inserindo seu certificado no portal do Mobile Engagement. Certifique-se de ter o certificado .p12, conforme explicado na [documentação da Apple](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
 1. Navegue até o portal do Mobile Engagement. Verifique se você está no item correto e, em seguida, clique no botão **Acionar** na parte inferior:
@@ -11,7 +11,7 @@ Para permitir que o Mobile Engagement envie Notificações por Push em seu nome,
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a id="send"></a>Envie uma notificação para seu aplicativo
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Envie uma notificação para seu aplicativo
 Agora, criaremos uma campanha de Notificação por Push simples que enviará um push para nosso aplicativo:
 
 1. Navegue até a guia **Reach** em seu portal do Mobile Engagement.
@@ -29,8 +29,8 @@ Agora, criaremos uma campanha de Notificação por Push simples que enviará um 
 4. Role para baixo e, na seção de conteúdo, selecione **Somente notificação**
    
     ![](./media/mobile-engagement-ios-send-push/campaign-content.png)
-5. Você concluiu a configuração da campanha mais básica possível. Agora, role para baixo novamente e clique no botão **Criar** para salvar sua campanha de notificação por push.
-6. Por fim, clique em **Ativar** enviar notificação por push.
+5. Você concluiu a configuração da campanha mais básica possível. Agora, role para baixo novamente e clique no botão **Criar** para salvar sua campanha de notificação por push. 
+6. Por fim, clique em **Ativar** enviar notificação por push. 
    
     ![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 7. Você poderá receber a notificação em seu dispositivo iOS no centro de notificação dessa forma:
@@ -40,4 +40,8 @@ Agora, criaremos uma campanha de Notificação por Push simples que enviará um 
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
-<!---HONumber=Nov15_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

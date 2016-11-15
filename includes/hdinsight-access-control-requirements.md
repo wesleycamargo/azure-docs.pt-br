@@ -6,6 +6,10 @@ Se você usa uma assinatura do Azure e não é o administrador ou o proprietári
 Para saber mais sobre como trabalhar com o gerenciamento de acesso, confira os seguintes documentos:
 
 * [Introdução ao gerenciamento de acesso no portal do Azure](../articles/active-directory/role-based-access-control-what-is.md)
-* [Usar atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../articles/active-directory/role-based-access-control-configure.md)
+* [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../articles/active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

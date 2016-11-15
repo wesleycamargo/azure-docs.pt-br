@@ -1,4 +1,4 @@
-## Baixar e entender o modelo ARM
+## <a name="download-and-understand-the-arm-template"></a>Baixar e entender o modelo ARM
 No github, você pode baixar o modelo ARM existente para criar uma rede virtual e duas sub-redes; faça as alterações que desejar e reutilize-o. Para isso, siga as etapas abaixo.
 
 1. Navegue até [a página do modelo de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
@@ -56,4 +56,8 @@ No github, você pode baixar o modelo ARM existente para criar uma rede virtual 
         }
 11. Salve o arquivo.
 
-<!---HONumber=AcomDC_0211_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

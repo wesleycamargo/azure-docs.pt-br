@@ -1,4 +1,4 @@
-### Camada de serviço Básica
+### <a name="basic-service-tier"></a>Camada de serviço Básica
 |  |  |
 | --- | --- |
 | Número máximo de DTUs |5 |
@@ -10,7 +10,7 @@
 | Restauração pontual |Qualquer ponto nos sete últimos dias |
 | Recuperação de desastre |Replicação geográfica ativa |
 
-### Camada de serviço Standard
+### <a name="standard-service-tier"></a>Camada de serviço Standard
 |  |  |
 | --- |:---:|
 | **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
@@ -23,7 +23,7 @@
 | Restauração pontual |Qualquer ponto nos 35 últimos dias |
 | Recuperação de desastre |Replicação geográfica ativa |
 
-### Camada de serviço Premium
+### <a name="premium-service-tier"></a>Camada de serviço Premium
 |  |  |
 | --- |:---:|
 | **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
@@ -36,4 +36,8 @@
 | Restauração pontual |Qualquer ponto nos 35 últimos dias |
 | Recuperação de desastre |Replicação geográfica ativa |
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

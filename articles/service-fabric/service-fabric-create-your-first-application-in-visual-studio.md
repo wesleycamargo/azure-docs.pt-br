@@ -5,15 +5,19 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 10/26/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar seu primeiro aplicativo do Azure Service Fabric
@@ -71,7 +75,7 @@ Agora que você tem um aplicativo, tente executá-lo.
 1. Pressione F5 no Visual Studio para implantar o aplicativo para depuração.
    
    > [!NOTE]
-   > A implantação leva algum tempo na primeira vez em que o Visual Studio está criando um cluster local para desenvolvimento. Um cluster local é executado no mesmo código de plataforma que você criará em um cluster com vários computadores, só que em um único computador. O status de criação do cluster aparece na janela de saída do Visual Studio.
+   > A implantação leva algum tempo na primeira vez em que o Visual Studio está criando um cluster local para desenvolvimento. Um cluster local é executado no mesmo código de plataforma que você cria em um cluster com vários computadores, só que em um único computador. O status de criação do cluster aparece na janela de saída do Visual Studio.
    > 
    > 
    
@@ -96,7 +100,7 @@ Agora que você tem um aplicativo, tente executá-lo.
 4. Localize a classe em seu projeto de serviço que derive de StatefulService (por exemplo, MyStatefulService) e defina um ponto de interrupção na primeira linha do método `RunAsync` .
    
     ![Ponto de interrupção no método RunAsync de serviço com estado][7]
-5. Clique com o botão direito do mouse no aplicativo de bandeja do sistema do Gerenciador de Cluster Local de atalho e escolha **Gerenciar Cluster Local** para iniciar o Service Fabric Explorer.
+5. Clique com o botão direito no aplicativo de bandeja de sistema do Gerenciador de Cluster Local e escolha **Gerenciar Cluster Local** para iniciar o Service Fabric Explorer.
    
     ![Iniciar o Service Fabric Explorer do Gerenciador de Cluster Local][systray-launch-sfx]
    
@@ -107,7 +111,7 @@ Agora que você tem um aplicativo, tente executá-lo.
     ![Parar um nó no Service Fabric Explorer][sfx-stop-node]
    
     Momentaneamente, você deverá ver o ponto de interrupção atingido no Visual Studio, já que a computação que você estava fazendo diretamente em um nó falha em outro.
-8. Retorne ao Visualizador de Eventos de Diagnóstico e observe as mensagens. Observe que o contador continua aumentando, mesmo que os eventos estejam, na verdade, vindo de um nó diferente.
+8. Retorne ao Visualizador de Eventos de Diagnóstico e observe as mensagens. O contador continua aumentando, mesmo que os eventos estejam, na verdade, vindo de um nó diferente.
    
     ![Visualizador de eventos de diagnóstico após o failover][diagnostic-events-viewer-detail-post-failover]
 
@@ -122,7 +126,7 @@ Quando você altera o modo de cluster, o cluster de desenvolvimento é redefinid
   Antes da conclusão, é importante lembrar que o cluster local é muito real. Parar o depurador remove a instância do aplicativo e cancela o registro do tipo de aplicativo. Porém, o cluster continua em execução em segundo plano. Você tem várias opções para gerenciar o cluster:
 
 1. Para desativar o cluster, mas manter os dados e os rastreamentos do aplicativo, clique em **Parar Cluster Local** no aplicativo da bandeja do sistema.
-2. Para excluir totalmente o cluster, clique em **Remover Cluster Local** no aplicativo da bandeja do sistema. Observe que essa opção resultará em outra implantação lenta na próxima vez que você pressionar F5 no Visual Studio. Somente exclua o cluster se você não pretende usar o cluster local por algum tempo ou se precisa recuperar recursos.
+2. Para excluir totalmente o cluster, clique em **Remover Cluster Local** no aplicativo da bandeja do sistema. Essa opção resultará em outra implantação lenta na próxima vez que você pressionar F5 no Visual Studio. Somente exclua o cluster se você não pretende usar o cluster local por algum tempo ou se precisa recuperar recursos.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como criar um [cluster no Azure](service-fabric-cluster-creation-via-portal.md) ou um [cluster autônomo no Windows](service-fabric-cluster-creation-for-windows-server.md).
@@ -147,6 +151,6 @@ Quando você altera o modo de cluster, o cluster de desenvolvimento é redefinid
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Adicionar novos usuários ao Azure Active Directory | Microsoft Docs
-description: Explica como adicionar novos usuários ou como alterar informações do usuário no Azure Active Directory.
+title: "Adicionar novos usuários ao Azure Active Directory | Microsoft Docs"
+description: "Explica como adicionar novos usuários ou como alterar informações do usuário no Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e3673727-6bec-4fdc-87a4-d65b213c4c3c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 09293d71b99e325a417edf59172550ef6e5f5b71
+
 
 ---
-# Adicionar novos usuários ou usuários com contas da Microsoft ao Azure Active Directory
+# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Adicionar novos usuários ou usuários com contas da Microsoft ao Azure Active Directory
 Adicione usuários para preencher seu diretório. Este artigo explica como adicionar novos usuários na sua organização e como adicionar usuários que tenham contas da Microsoft. Para saber mais sobre como adicionar usuários de outros diretórios ao Azure Active Directory ou como adicionar usuários de empresas parceiras, veja [Adicionar usuários de outros diretórios ou de empresas parceiras ao Azure Active Directory](active-directory-create-users-external.md). Os usuários adicionados não têm permissões de administrador, mas você pode atribuir funções a eles a qualquer momento.
 
-## Adicionar um usuário
+## <a name="add-a-user"></a>Adicionar um usuário
 1. Entre no [portal clássico do Azure](https://manage.windowsazure.com) com uma conta que seja um administrador global para o diretório.
-2. Selecione **Active Directory** e selecione o nome do diretório da sua organização.
+2. Selecione **Active Directory**e selecione o nome do diretório da sua organização.
 3. Selecione a guia **Usuários** e, na barra de comandos, selecione **Adicionar Usuário**.
 4. Na página **Conte-nos sobre este usuário**, em **Tipo de usuário**, selecione:
    
@@ -34,12 +38,12 @@ Adicione usuários para preencher seu diretório. Este artigo explica como adici
 > [!IMPORTANT]
 > Se sua organização usa mais de um domínio, você deve saber sobre os seguintes problemas ao adicionar uma conta de usuário:
 > 
-> * PARA adicionar contas de usuário com o mesmo nome UPN entre domínios, **primeiro** adicione, por exemplo, geoffgrisso@contoso.onmicrosoft.com, **seguido de** geoffgrisso@contoso.com.
-> * **Não** adicione geoffgrisso@contoso.com antes de adicionar geoffgrisso@contoso.onmicrosoft.com. Essa ordem é extremamente importante e pode ser inconveniente para desfazer.
+> * PARA adicionar contas de usuário com o mesmo nome UPN entre domínios, **primeiro** adicione, por exemplo, geoffgrisso@contoso.onmicrosoft.com,, **seguido de** geoffgrisso@contoso.com.
+> * **Não** adicione geoffgrisso@contoso.com antes de adicionar geoffgrisso@contoso.onmicrosoft.com.; essa ordem é extremamente importante e pode ser inconveniente para desfazer.
 > 
 > 
 
-## Alterar as informações do usuário
+## <a name="change-user-information"></a>Alterar as informações do usuário
 Você pode alterar qualquer atributo de usuário, exceto a ID de objeto.
 
 1. Abra seu diretório.
@@ -48,7 +52,7 @@ Você pode alterar qualquer atributo de usuário, exceto a ID de objeto.
 
 Se o usuário que você está alterando estiver sincronizado com seu serviço do Active Directory local, não poderá alterar as informações do usuário usando este procedimento. Para alterar o usuário, use suas ferramentas de gerenciamento do Active Directory local.
 
-## Limitações e gerenciamento de usuário convidado
+## <a name="guest-user-management-and-limitations"></a>Limitações e gerenciamento de usuário convidado
 Contas de convidados são usuários de outros diretórios que foram convidados a seu diretório para acessar documentos do SharePoint, aplicativos ou outros recursos do Azure. Uma conta de convidado no diretório que tem o atributo UserType subjacente definido como "Convidado". Usuários normais (especificamente, membros de seu diretório) têm o atributo UserType "Membro".
 
 Os convidados têm um conjunto limitado de direitos no diretório. Esses direitos limitam a capacidade dos Convidados para descobrir informações sobre outros usuários no diretório. No entanto, os usuários convidados ainda podem interagir com os usuários e os grupos associados aos recursos em que estão trabalhando. Os usuários convidados podem:
@@ -60,10 +64,10 @@ Os convidados têm um conjunto limitado de direitos no diretório. Esses direito
 * Obter uma lista dos domínios verificados no diretório
 * consentir o acesso a aplicativos, concedendo a eles o mesmo acesso que os Membros têm em seu diretório
 
-## Definir políticas de acesso de usuário convidado
+## <a name="set-guest-user-access-policies"></a>Definir políticas de acesso de usuário convidado
 A guia **Configurar** do diretório inclui opções para controlar o acesso para usuários convidados. Essas opções só podem ser alteradas no portal clássico do Azure por um administrador global. Atualmente, não existe um método de API ou do PowerShell.
 
-Para abrir a guia **Configurar** no portal clássico do Azure, selecione **Active Directory** e selecione o nome do diretório.
+Para abrir a guia **Configurar** no Portal Clássico do Azure, selecione **Active Directory** e selecione o nome do diretório.
 
 ![Configurar a guia no Azure Active Directory][1]
 
@@ -71,14 +75,18 @@ Então você pode editar as opções para controlar o acesso para os usuários c
 
 ![opções de controle de acesso para usuários convidados][2]
 
-## O que vem a seguir
+## <a name="whats-next"></a>O que vem a seguir
 * [Adicionar usuários de outros diretórios ou de empresas parceiras no Azure Active Directory](active-directory-create-users-external.md)
 * [Administrando o Azure AD](active-directory-administer.md)
 * [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
-* [Gerenciar grupos no Azure AD](active-directory-manage-groups.md)
+* [Gerenciar grupos no AD do Azure](active-directory-manage-groups.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

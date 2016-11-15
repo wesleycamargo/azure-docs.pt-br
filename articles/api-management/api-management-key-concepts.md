@@ -1,22 +1,26 @@
 ---
 title: Principais conceitos de Gerenciamento de API
-description: Saiba mais sobre APIs, produtos, funções, grupos e outros conceitos principais do Gerenciamento de API.
+description: "Saiba mais sobre APIs, produtos, funções, grupos e outros conceitos principais do Gerenciamento de API."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e71da405-835a-48f3-956f-45c1a85698d7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dcff834c9d4aff82e8319e6c23a74c2e49902a8c
+
 
 ---
-# O que é Gerenciamento de API?
+# <a name="what-is-api-management"></a>O que é Gerenciamento de API?
 O Gerenciamento de API ajuda as organizações a publicar APIs para parceiros externos e desenvolvedores internos a fim de desbloquear o potencial de seus dados e serviços. Empresas em todos os lugares estão procurando estender suas operações para uma plataforma digital, criando novos canais, encontrando novos clientes e estimulando uma interação mais profunda com os clientes já existentes. O Gerenciamento de API fornece as competências essenciais para garantir um programa de API de sucesso através do envolvimento do desenvolvedor, ideias de negócios, análises, segurança e proteção.
 
 Assista ao vídeo a seguir para obter uma visão geral do Gerenciamento de API do Azure e aprenda a usar o Gerenciamento de API para adicionar muitos recursos para sua API, incluindo o controle de acesso, a limitação de taxa, o monitoramento, o log de eventos e o cache de resposta, com um mínimo de trabalho de sua parte.
@@ -30,7 +34,7 @@ Para usar o Gerenciamento de API, os administradores criaram as APIs. Cada API c
 Esse tópico fornece uma visão geral dos principais conceitos de Gerenciamento de API.
 
 > [!NOTE]
-> Para obter mais informações, consulte o white-paper em PDF [Gerenciamento de API baseado em nuvem: utilizando a energia das APIs](http://j.mp/ms-apim-whitepaper). Este white paper introdutório sobre o Gerenciamento de API, feito pelo CITO Research, abrange:
+> Para obter mais informações, consulte o white-paper em PDF [Gerenciamento de API baseado em nuvem: utilizando a energia das APIs](http://j.mp/ms-apim-whitepaper) . Este white paper introdutório sobre o Gerenciamento de API, feito pelo CITO Research, abrange: 
 > 
 > * Desafios e requisitos comuns de API
 > * Dissociação de APIs e apresentação de fachadas
@@ -51,7 +55,7 @@ Para obter mais informações, consulte [Como criar APIs][Como criar APIs] e [Co
 ## <a name="products"> </a> Produtos
 Os produtos são como as APIs são exibidas para os desenvolvedores. Os produtos no Gerenciamento de API têm uma ou mais APIs e são configurados com título, descrição e termos de uso. Produtos podem ser **Abertos** ou **Protegidos**. Produtos protegidos devem ser assinados antes que possam ser usados, enquanto produtos abertos podem ser usados sem uma assinatura. Quando um produto fica pronto para uso pelo desenvolvedor ele pode ser publicado. Após ele ser publicado, pode ser visualizado (e em caso de produtos protegidos, assinado) pelos desenvolvedores. A aprovação de assinatura é configurada no nível do produto e pode requere a aprovação do administrador ou ser aprovada automaticamente.
 
-Os grupos são usados para gerenciar a visibilidade dos produtos para os desenvolvedores. Os produtos dão visibilidade aos grupos e os desenvolvedores podem exibir e assinar os produtos visíveis para os grupos aos quais pertencem.
+Os grupos são usados para gerenciar a visibilidade dos produtos para os desenvolvedores. Os produtos dão visibilidade aos grupos e os desenvolvedores podem exibir e assinar os produtos visíveis para os grupos aos quais pertencem. 
 
 Para obter mais informações, consulte [Como criar e publicar um produto][Como criar e publicar um produto] e o vídeo a seguir.
 
@@ -68,14 +72,14 @@ Os grupos são usados para gerenciar a visibilidade dos produtos para os desenvo
 
 Além desses grupos de sistema, os administradores podem criar grupos personalizados ou [aproveitar grupos externos em locatários do Active Directory do Azure](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Grupos personalizados e externos podem ser usados juntamente com grupos de sistema oferecendo visibilidade aos desenvolvedores e acesso a produtos de API. Por exemplo, você poderia criar um grupo personalizado para os desenvolvedores associados a uma organização parceira específica e conceder acesso às APIs de um produto que contém apenas as APIs relevantes. Um usuário pode ser um membro de mais de um grupo.
 
-Para obter mais informações, consulte [Como criar e utilizar grupos][Como criar e utilizar grupos].
+Para obter mais informações, consulte [Como criar e usar grupos][Como criar e usar grupos].
 
 ## <a name="developers"> </a> Desenvolvedores
 Os desenvolvedores representam as contas de usuários em uma instância de serviço de Gerenciamento de API. Os desenvolvedores podem ser criados ou convidados para se juntar aos administradores ou podem fazer a inscrição no [Portal do desenvolvedor][Portal do desenvolvedor]. Cada desenvolvedor é um membro de um ou mais grupos e pode assinar os produtos que tornam visíveis esses grupos.
 
 Quando os desenvolvedores assinam um produto, recebem as chaves principal e secundária para esse produto. Essa chave é usada quando eles fazem chamadas às APIs dos produtos.
 
-Para obter mais informações, consulte [Como criar ou convidar desenvolvedores][Como criar ou convidar desenvolvedores] e [Como associar grupos aos desenvolvedores][Como associar grupos aos desenvolvedores].
+Para obter mais informações, veja [Como criar ou convidar desenvolvedores][Como criar ou convidar desenvolvedores] e [Como associar grupos a desenvolvedores][Como associar grupos a desenvolvedores].
 
 ## <a name="policies"> </a> Políticas
 As políticas são um poderoso recurso de Gerenciamento de API que permite ao editor alterar o comportamento da API através da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. Instruções populares incluem a conversão do formato de XML para JSON e limite de taxa de chamada para restringir a quantidade de chamadas recebidas de um desenvolvedor, além de várias outras políticas disponíveis.
@@ -97,18 +101,18 @@ O portal do desenvolvedor é onde os desenvolvedores podem aprender sobre suas o
 
 Você pode personalizar a aparência do portal do desenvolvedor adicionando conteúdo personalizado, personalização de estilo e adicionando sua marca.
 
-## Gerenciamento de API e a economia de API
+## <a name="api-management-and-the-api-economy"></a>Gerenciamento de API e a economia de API
 Para saber mais sobre o Gerenciamento de API, assista à apresentação a seguir da conferência Microsoft Ignite 2015.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3708/player]
 > 
 > 
 
-[APIs and operations]: #apis
-[Products]: #products
-[Groups]: #groups
-[Developers]: #developers
-[Policies]: #policies
+[APIs e operações]: #apis
+[Produtos]: #products
+[Grupos]: #groups
+[Desenvolvedores]: #developers
+[Políticas]: #policies
 [Portal do desenvolvedor]: #developer-portal
 
 [Como criar APIs]: api-management-howto-create-apis.md
@@ -120,10 +124,14 @@ Para saber mais sobre o Gerenciamento de API, assista à apresentação a seguir
 [Como criar ou convidar desenvolvedores]: api-management-howto-create-or-invite-developers.md
 [Referência de política]: api-management-policy-reference.md
 [Políticas de Gerenciamento de API]: api-management-howto-policies.md
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 
 
 
 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+
