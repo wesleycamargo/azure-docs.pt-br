@@ -1,4 +1,4 @@
-## <a name="setupdevenv"></a>Configurar o ambiente de desenvolvimento
+## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Configurar o ambiente de desenvolvimento
 Para começar, configure o ambiente de desenvolvimento instalando o [SDK do Azure para o Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003) ou o [SDK do Azure para o Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322).
 
 Se você não tiver instalado o Visual Studio, use o link para o Visual Studio 2015, e o Visual Studio será instalado com o SDK.
@@ -8,4 +8,8 @@ Se você não tiver instalado o Visual Studio, use o link para o Visual Studio 2
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

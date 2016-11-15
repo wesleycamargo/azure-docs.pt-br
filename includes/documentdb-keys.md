@@ -2,4 +2,8 @@
 
 ![Captura de tela do Portal do Azure mostrando uma conta de Banco de Dados de Documentos, com o botão Chaves realçado na folha Conta de Banco de Dados de Documentos e os valores URI, CHAVE PRIMÁRIA e CHAVE SECUNDÁRIA realçados na folha Chaves](./media/documentdb-keys/keys.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+
