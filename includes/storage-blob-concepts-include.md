@@ -1,4 +1,4 @@
-## O que é Armazenamento de Blob?
+## <a name="what-is-blob-storage"></a>O que é Armazenamento de Blob?
 A Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados de objeto não estruturados, como texto ou dados binários, que podem ser acessados de qualquer lugar do mundo por meio de HTTP ou HTTPS. Você pode usar o armazenamento de Blob para expor dados publicamente para o mundo ou para armazenar dados do aplicativo de forma privada.
 
 Usos comuns de armazenamento de Blob incluem:
@@ -9,12 +9,12 @@ Usos comuns de armazenamento de Blob incluem:
 * Armazenamento de dados de backup e restauração, recuperação de desastres e arquivamento
 * Armazenando dados para análise por um serviço local ou hospedado do Azure
 
-## Conceitos do Serviço Blob
+## <a name="blob-service-concepts"></a>Conceitos do Serviço Blob
 O serviço Blob contém os seguintes componentes:
 
 ![Blob1][Blob1]
 
-* **Conta de Armazenamento:** todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Essa conta de armazenamento pode ser uma **conta de armazenamento de uso geral** ou uma **conta de Armazenamento de Blobs**, que é especializada em armazenar objetos/blobs. Para saber mais sobre as contas de armazenamento, confira [Conta de armazenamento do Azure](../articles/storage/storage-create-storage-account.md).
+* **Conta de Armazenamento:** todo o acesso ao Armazenamento do Azure é feito através de uma conta de armazenamento. Essa conta de armazenamento pode ser uma **conta de armazenamento** de uso geral ou uma **conta de Armazenamento de Blobs**, que é especializada em armazenar objetos/blobs. Para saber mais sobre as contas de armazenamento, confira [Conta de armazenamento do Azure](../articles/storage/storage-create-storage-account.md).
 * **Contêiner:** um contêiner fornece um agrupamento de conjunto de blobs. Todos os blobs devem ter um contêiner. Uma conta pode conter um número ilimitado de contêineres. Um contêiner pode armazenar um número ilimitado de blobs. Observe que o nome do contêiner deve estar em letras minúsculas.
 * **Blob:** um arquivo de qualquer tipo e tamanho. O armazenamento do Azure oferece três tipos de blobs: blob de blocos, blob de páginas e blob de anexo.
   
@@ -25,3 +25,8 @@ O serviço Blob contém os seguintes componentes:
     Para obter detalhes sobre como nomear contêineres e blobs, confira [Nomenclatura e referência de contêineres, blobs e metadados](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
+
+
+<!--HONumber=Nov16_HO2-->
+
+

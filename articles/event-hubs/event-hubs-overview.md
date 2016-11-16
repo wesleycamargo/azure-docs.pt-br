@@ -1,12 +1,12 @@
 ---
-title: Visão geral dos Hubs de Eventos do Azure | Microsoft Docs
-description: Introdução e visão geral de Hubs de Eventos do Azure.
+title: "Visão geral dos Hubs de Eventos do Azure | Microsoft Docs"
+description: "Introdução e visão geral de Hubs de Eventos do Azure."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f0e0dd20-f745-49c7-bfca-30ea1c46e873
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: df9897894a2a2a09735b0947fd335959e81a46cd
+
 
 ---
 # <a name="azure-event-hubs-overview"></a>Visão geral dos Hubs de Eventos do Azure
@@ -25,7 +29,7 @@ O Hub de Evento do Azure é um serviço de processamento de eventos que fornece 
 
 Um Hub de Eventos é criado no nível de namespace do Hubs de Eventos, semelhante a filas e tópicos do Barramento de Serviço. O Hubs de Evento usa HTTP e AMQP como suas interfaces de API principais. O diagrama a seguir mostra a relação entre o Hubs de Eventos e o Barramento de Serviço.
 
-![Hubs de Eventos](./media/event-hubs-overview/IC741188.png)
+![Hubs de Eventos](./media/event-hubs-overview/ehoverview2.png)
 
 ## <a name="conceptual-overview"></a>Visão geral conceitual
 O Hub de Evento fornece um fluxo de mensagens por meio de um padrão de consumidor particionado. As filas e tópicos usam um modelo [Consumidor concorrente](https://msdn.microsoft.com/library/dn568101.aspx) no qual cada consumidor tenta ler a partir da mesma fila ou recurso. Essa competição por recursos acaba resultando em complexidade e limites de escala para aplicativos de processamento de fluxo. O Hub de Evento usa um padrão de consumidor particionado no qual cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens. Esse padrão permite a escala horizontal para processamento de eventos e fornece outros recursos centrados no fluxo que não estão disponíveis em filas e tópicos.
@@ -48,13 +52,13 @@ No contexto dos Hubs de Evento, as mensagens são denominadas *dados de evento*.
 ## <a name="event-publisher"></a>Editor de eventos
 Qualquer entidade que envia eventos ou dados para um Hub de Eventos é um *editor de eventos*. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0. Os editores de eventos usam um token de SAS (Assinatura de Acesso Compartilhado) para se identificar para um Hub de eventos, e podem ter uma identidade exclusiva ou usar um token SAS comum, dependendo das exigências do cenário.
 
-Para saber mais sobre como trabalhar com SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de Serviço](../service-bus/service-bus-shared-access-signature-authentication.md).
+Para saber mais sobre como trabalhar com SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de Serviço](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
 
 ### <a name="common-publisher-tasks"></a>Tarefas comuns do editor
 Esta seção descreve as tarefas comuns para editores de eventos.
 
 #### <a name="acquire-a-sas-token"></a>Adquirir um token SAS
-O SAS (Assinatura de Acesso Compartilhado) é o mecanismo de autenticação para Hubs de Evento. O Barramento de Serviço fornece políticas de SAS no namespace e no nível do Hub de Eventos. Um token SAS é gerado a partir de uma chave de SAS e é um hash SHA de uma URL, codificado em um formato específico. Usando o nome da chave (política) e o token, o Barramento de Serviço pode regenerar o hash e, portanto, autenticar o remetente. Normalmente, os tokens SAS para editores de eventos são criados apenas com privilégios de **enviar** em um Hub de Eventos específico. Esse mecanismo de URL de token SAS é a base para a identificação de editor abordada na política do editor. Para saber mais sobre como trabalhar com SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de Serviço](../service-bus/service-bus-shared-access-signature-authentication.md).
+O SAS (Assinatura de Acesso Compartilhado) é o mecanismo de autenticação para Hubs de Evento. O Barramento de Serviço fornece políticas de SAS no namespace e no nível do Hub de Eventos. Um token SAS é gerado a partir de uma chave de SAS e é um hash SHA de uma URL, codificado em um formato específico. Usando o nome da chave (política) e o token, o Barramento de Serviço pode regenerar o hash e, portanto, autenticar o remetente. Normalmente, os tokens SAS para editores de eventos são criados apenas com privilégios de **enviar** em um Hub de Eventos específico. Esse mecanismo de URL de token SAS é a base para a identificação de editor abordada na política do editor. Para saber mais sobre como trabalhar com SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de Serviço](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
 
 #### <a name="publishing-an-event"></a>Publicar um evento
 Você pode publicar um evento por meio do AMQP 1.0 ou HTTPS. O Barramento de Serviço fornece uma classe [EventHubClient](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.aspx) de publicação de eventos para um Hub de Eventos de clientes .NET. Para outras plataformas e tempos de execução, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](http://qpid.apache.org/). Você pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados do evento) tem um limite de 256 KB, independentemente de ser um único evento ou um lote. Eventos de publicação maiores que isso resultam em um erro. Uma prática recomendada para editores é não conhecer as partições no Hub de Eventos e especificar apenas uma *chave de partição* (abordada na próxima seção), ou sua identidade por meio de seu token SAS.
@@ -130,7 +134,7 @@ Os Hubs de Eventos permitem um controle granular sobre os editores de eventos po
 
     //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
-Você não precisa criar nomes de editor com antecedência, mas eles devem coincidir com o token SAS usado ao publicar um evento, para garantir identidades de editores independentes. Para saber mais sobre SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de serviço](../service-bus/service-bus-shared-access-signature-authentication.md). Ao usar políticas de editor, o valor **PartitionKey** é definido como o nome do editor. Para funcionar adequadamente, esses valores devem corresponder.
+Você não precisa criar nomes de editor com antecedência, mas eles devem coincidir com o token SAS usado ao publicar um evento, para garantir identidades de editores independentes. Para saber mais sobre SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de serviço](../service-bus-messaging/service-bus-shared-access-signature-authentication.md). Ao usar políticas de editor, o valor **PartitionKey** é definido como o nome do editor. Para funcionar adequadamente, esses valores devem corresponder.
 
 ## <a name="summary"></a>Resumo
 Os Hubs de Eventos do Azure fornecem um evento de hiperescala e um serviço de processamento de telemetria que pode ser usado para monitoramento de fluxo de trabalho do usuário e aplicativos comuns em qualquer escala. Com a capacidade de fornecer recursos de publicação/assinatura com baixa latência e em grande escala, os Hubs de Eventos servem como uma "subida" para Big Data. Com a identidade baseada no editor e listas de revogação, esses recursos são estendidos para cenários comuns de Internet das Coisas. Para obter mais informações sobre como desenvolver aplicativos de Hubs de Eventos, confira o [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md).
@@ -147,6 +151,6 @@ Agora que já aprendeu sobre conceitos de Hubs de Evento, você pode passar para
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

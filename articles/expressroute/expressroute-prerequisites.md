@@ -1,12 +1,12 @@
 ---
-title: Pré-requisitos para a adoção de Rota Expressa| Microsoft Docs
-description: Esta página fornece uma lista dos requisitos a serem atendidos antes que você pode solicitar um circuito de Rota Expressa do Azure.
+title: "Pré-requisitos para a adoção de ExpressRoute| Microsoft Docs"
+description: "Esta página fornece uma lista dos requisitos a serem atendidos antes que você pode solicitar um circuito de Rota Expressa do Azure."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a582941b06fa7f81d7db188f2a9feba837b9bfd8
+
 
 ---
-# <a name="expressroute-prerequisites-&-checklist"></a>Pré-requisitos e lista de verificação da Rota Expressa
+# <a name="expressroute-prerequisites-checklist"></a>Pré-requisitos e lista de verificação da Rota Expressa
 Para se conectar aos serviços de nuvem da Microsoft usando a Rota Expressa, será necessário verificar se os requisitos listados nas seções abaixo foram atendidos.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
@@ -60,6 +64,9 @@ Se você planeja habilitar o CRM Online na Rota Expressa, consulte os documentos
   * [Configurar o roteamento](expressroute-howto-routing-classic.md)
   * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: criar um pipeline com a Atividade de Cópia usando o portal do Azure | Microsoft Docs'
-description: Neste tutorial, você cria um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Data Factory Editor no portal do Azure.
+title: "Tutorial: criar um pipeline com a Atividade de Cópia usando o portal do Azure | Microsoft Docs"
+description: "Neste tutorial, você cria um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Data Factory Editor no portal do Azure."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-azure-portal"></a>Tutorial: criar um pipeline com a Atividade de Cópia usando o portal do Azure
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-azure-portal"></a>Tutorial: criar um pipeline com a Atividade de Cópia usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
@@ -49,12 +53,12 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
 
 1. Depois de fazer logon no [portal do Azure](https://portal.azure.com/), clique em **Novo**, selecione **Intelligence + Analytics** e clique em **Data Factory**. 
    
-   ![Novo -> DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)  
+   ![Novo -> DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. Na folha **Nova data factory** :
    
    1. Digite **ADFTutorialDataFactory** como **nome**. 
       
-       ![Folha Nova data factory](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
+         ![Folha Nova data factory](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
       
        O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você receber o seguinte erro, altere o nome de data factory (por exemplo, yournameADFTutorialDataFactory) e tente criar novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.
       
@@ -67,7 +71,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
       1. Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
       2. Selecione **Criar novo**e insira o nome de um grupo de recursos.   
          
-          Algumas das etapas neste tutorial supõem que você usa o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../resource-group-overview.md).  
+          Algumas das etapas neste tutorial supõem que você usa o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
    4. Selecione o **local** do data factory. Apenas as regiões com suporte pelo serviço Data Factory são mostradas na lista suspensa.
    5. Selecione **Fixar no quadro inicial**.     
    6. Clique em **Criar**.
@@ -75,7 +79,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
       > [!IMPORTANT]
       > Para criar instâncias de Data Factory, você deve ser um membro da função [Colaborador de Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
       > 
-      > O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.              
+      > O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se publicamente visível.                
       > 
       > 
 3. Para ver as mensagens de status e notificação, clique no ícone de sino na barra de ferramentas. 
@@ -99,7 +103,7 @@ Nesta etapa, você cria dois serviços vinculados: **AzureStorageLinkedService**
     ![Botão Novo repositório de dados do editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
 3. Substitua `<accountname>` e `<accountkey>` pelos valores de nome e de chave da sua conta de armazenamento do Azure. 
    
-    ![JSON do armazenamento de Blob do editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png) 
+    ![JSON do armazenamento de Blob do editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)    
 4. Clique em **Implantar** na barra de ferramentas. Você deve ver o **AzureStorageLinkedService** implantado na árvore de exibição agora. 
    
     ![Implantar armazenamento de Blob do editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
@@ -168,7 +172,7 @@ Nesta etapa, você criará um conjunto de dados denominado **InputDataset** que 
    * **linkedServiceName** é definido como **AzureStorageLinkedService**. Você criou esse serviço vinculado na Etapa 2.
    * **folderPath** é definido como o contêiner **adftutorial**. Você também pode especificar o nome de um blob dentro da pasta usando a propriedade **fileName** . Como você não está especificando o nome do blob, dados de todos os blobs no contêiner são considerados como um entrada de dados.  
    * O **tipo** do formato é definido como **TextFormat**
-   * Há dois campos no arquivo de texto, **FirstName** e **LastName**, separados por uma vírgula (**columnDelimiter**) 
+   * Há dois campos no arquivo de texto, **FirstName** e **LastName**, separados por uma vírgula (**columnDelimiter**)    
    * A **availability** é definida como **hourly** (a **frequency** definida como **hour** e o **interval** é definido como **1**). Portanto, o Data Factory procurará dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado. 
      
      Se você não especificar um **fileName** para um conjunto de dados de **entrada**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn.
@@ -369,7 +373,7 @@ Nesta etapa, você utiliza o portal do Azure para monitorar o que está acontece
     
     ![resultados da consulta sql](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### <a name="monitor-pipeline-using-monitor-&-manage-app"></a>Monitorar o pipeline usando o aplicativo Monitorar e Gerenciar
+### <a name="monitor-pipeline-using-monitor-manage-app"></a>Monitorar o pipeline usando o aplicativo Monitorar e Gerenciar
 Você também pode usar o aplicativo Monitorar e Gerenciar para monitorar os pipelines. Para obter informações detalhadas sobre como usar esse aplicativo, confira [Monitorar e gerenciar pipelines do Azure Data Factory usando o aplicativo Monitorar e Gerenciar](data-factory-monitor-manage-app.md).
 
 1. Clique no bloco **Monitorar e Gerenciar** na home page do seu data factory.
@@ -386,7 +390,7 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 
 1. Foi criado um **data factory**do Azure.
 2. Foram criados **serviços vinculados**:
-   1. Um serviço vinculado do **Armazenamento do Azure** para vincular sua conta do Armazenamento do Azure que contém os dados de entrada.    
+   1. Um serviço vinculado do **Armazenamento do Azure** para vincular sua conta do Armazenamento do Azure que contém os dados de entrada.     
    2. Um serviço vinculado do **SQL Azure** para vincular o banco de dados SQL do Azure que contém os dados de saída. 
 3. Foram criados **conjuntos de dados** que descrevem os dados de entrada e de saída para os pipelines.
 4. Foi criado um **pipeline** com uma **Atividade de Cópia** com **BlobSource** como origem e **SqlSink** como coletor.  
@@ -400,6 +404,9 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 | [Conjunto de dados](data-factory-create-datasets.md) |Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory. |
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) |Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

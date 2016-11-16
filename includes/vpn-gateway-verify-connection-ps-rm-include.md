@@ -1,9 +1,9 @@
-You can verify that your connection succeeded by using the `Get-AzureRmVirtualNetworkGatewayConnection` cmdlet, with or without `-Debug`. 
+Você pode verificar se a conexão foi bem-sucedida usando o cmdlet `Get-AzureRmVirtualNetworkGatewayConnection` com ou sem `-Debug`. 
 
-1. Use the following cmdlet example, configuring the values to match your own. If prompted, select 'A' in order to run 'All'. In the example, `-Name` refers to the name of the connection that you created and want to test.
+1. Use o seguinte exemplo de cmdlet, configurando os valores para coincidirem com os seus. Quando solicitado, selecione ‘A’ para executar ‘Todos’. No exemplo, `-Name` se refere ao nome da conexão que você criou e deseja testar.
    
         Get-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnection -ResourceGroupName MyRG
-2. After the cmdlet has finished, view the values. In the example below, the connection status shows as 'Connected' and you can see ingress and egress bytes.
+2. Após o cmdlet ter sido concluído, exiba os valores. No exemplo abaixo, o status da conexão é exibido como ‘Conectado’ e é possível ver os bytes de entrada e saída.
    
         Body:
         {
@@ -30,4 +30,9 @@ You can verify that your connection succeeded by using the `Get-AzureRmVirtualNe
             "ingressBytesTransferred": 33509044,
             "egressBytesTransferred": 4142431
           }
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

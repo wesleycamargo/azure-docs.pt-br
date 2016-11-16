@@ -1,13 +1,13 @@
 ---
-title: Criar um novo pool elástico com o portal do Azure | Microsoft Docs
-description: Como adicionar um pool de banco de dados elástico escalonável à sua configuração do banco de dados SQL para facilitar a administração e o compartilhamento de recursos entre vários bancos de dados.
-keywords: banco de dados escalonável, configuração do banco de dados
+title: "Criar um novo pool elástico com o Portal do Azure | Microsoft Azure"
+description: "Como adicionar um pool de banco de dados elástico escalonável à sua configuração do banco de dados SQL para facilitar a administração e o compartilhamento de recursos entre vários bancos de dados."
+keywords: "banco de dados escalonável, configuração do banco de dados"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: ninarn
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
 ms.devlang: NA
 ms.date: 07/20/2016
@@ -15,9 +15,13 @@ ms.author: ninarn
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f83e1aa30cfee86137c13c3a15c0e989558c0df8
+
 
 ---
-# Criar um Pool de Banco de Dados Elástico com o portal do Azure
+# <a name="create-a-new-elastic-database-pool-with-the-azure-portal"></a>Criar um Pool de Banco de Dados Elástico com o portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal do Azure](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -30,19 +34,19 @@ Este artigo mostra como criar um [pool de banco de dados elástico](sql-database
 Você pode adicionar vários pools a um servidor, mas não pode adicionar bancos de dados de servidores diferentes ao mesmo pool. Para criar um pool, você precisa de pelo menos um banco de dados em um servidor V12. Se você não tiver um, consulte [Criar seu primeiro banco de dados SQL do Azure](sql-database-get-started.md). Você pode criar um pool com apenas um banco de dados, mas os pools são econômicos apenas quando há vários bancos de dados. Consulte [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
 
 > [!NOTE]
-> Os pools elásticos têm uma disponibilidade geral (DG) em todas as regiões do Azure, exceto na Índia Ocidental, onde atualmente estão no modo de visualização. A DG dos pools elásticos nessa região ocorrerá assim que possível.
+> Os pools elásticos têm uma disponibilidade geral (DG) em todas as regiões do Azure, exceto na Índia Ocidental, onde atualmente estão no modo de visualização.  A DG dos pools elásticos nessa região ocorrerá assim que possível. 
 > 
 > 
 
-## Etapa 1: criar um novo pool
-Este artigo mostra como criar um novo pool de uma folha de **servidor** existente no portal, que é a maneira mais fácil de mover os bancos de dados existentes para um pool.
+## <a name="step-1-create-a-new-pool"></a>Etapa 1: criar um novo pool
+Este artigo mostra como criar um novo pool de uma folha de **servidor** existente no portal, que é a maneira mais fácil de mover os bancos de dados existentes para um pool. 
 
 > [!NOTE]
 > Caso você tenha um servidor ou não, também poderá criar um novo pool desde a folha **Pools elásticos SQL** (abaixo da lista no lado esquerdo do portal, clique em **Procurar** **>** **Pools elásticos SQL**). Clicar em **+Adicionar** na folha **Pools elásticos SQL** fornece etapas para criar um novo servidor durante o fluxo de trabalho de provisionamento do pool.
 > 
 > 
 
-1. No [portal do Azure](http://portal.azure.com/), abaixo da lista no lado esquerdo, clique em **Procurar** **>** **Servidores SQL** e clique no servidor que contém os bancos de dados que você deseja adicionar a um pool.
+1. No [Portal do Azure](http://portal.azure.com/), abaixo da lista no lado esquerdo, clique em **Procurar** **>** **Servidores SQL** e clique no servidor que contém os bancos de dados que você deseja adicionar a um pool.
 2. Clique em **Novo pool**.
    
     ![Adicionar pool a um servidor](./media/sql-database-elastic-pool-create-portal/new-pool.png)
@@ -58,7 +62,7 @@ Este artigo mostra como criar um novo pool de uma folha de **servidor** existent
     ![Configurar pool elástico](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 3. Especifique um nome para o pool elástico ou deixe o padrão.
 
-## Etapa 2: escolher um tipo de preço
+## <a name="step-2-choose-a-pricing-tier"></a>Etapa 2: escolher um tipo de preço
 O tipo de preço do pool determina os recursos disponíveis para os bancos de dados elásticos no pool, o número máximo de eDTUs (MÁX DE eDTUs) e o armazenamento (GBs) disponível para cada banco de dados. Para obter detalhes, consulte Camadas de serviço.
 
 Para alterar o tipo de preço do pool, clique em **Tipo de preço**, clique no tipo desejado e em **Selecionar**.
@@ -70,25 +74,26 @@ Para alterar o tipo de preço do pool, clique em **Tipo de preço**, clique no t
 
 ![Selecione uma faixa de preço.](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
 
-## Etapa 3: configurar o pool
+## <a name="step-3-configure-the-pool"></a>Etapa 3: configurar o pool
 Depois de definir o tipo de preço, clique em Configurar pool, onde você adicionará bancos de dados, definirá eDTUs e armazenamento do pool (GBs do pool) e onde você definirá os eDTUs mínimo e máximo para os bancos de dados elásticos no pool.
 
 1. Clique em **Configurar pool**
-2. Selecione os bancos de dados que você deseja adicionar ao pool. Esta etapa é opcional durante a criação do pool. É possível adicionar bancos de dados após a criação do pool. Para adicionar bancos de dados, clique em **Adicionar banco de dados**, clique nos bancos de dados que você deseja adicionar e clique no botão **Selecionar**.
+2. Selecione os bancos de dados que você deseja adicionar ao pool. Esta etapa é opcional durante a criação do pool. É possível adicionar bancos de dados após a criação do pool.
+    Para adicionar bancos de dados, clique em Para adicionar bancos de dados, clique em **Adicionar banco de dados**, clique nos bancos de dados que você deseja adicionar e clique no botão **Selecionar**.
    
     ![Adicionar bancos de dados](./media/sql-database-elastic-pool-create-portal/add-databases.png)
    
     Se os bancos de dados nos quais você está trabalhando tiverem telemetria de uso histórico suficiente, o gráfico **Uso estimado de eDTU e GB** e o gráfico de barras **Uso real de eDTU** serão atualizados para ajudá-lo a tomar decisões de configuração. Além disso, o serviço pode fornecer uma mensagem de recomendação para ajudá-lo a planejar o tamanho do pool. Veja [Recomendações dinâmicas](#dynamic-recommendations).
 3. Use os controles na página **Configurar pool** para explorar as configurações e configurar o pool. Confira [Limites dos pools elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) para saber mais sobre os limites de cada camada de serviço, e confira as [Considerações de preço e desempenho dos Pools de Banco de Dados Elástico](sql-database-elastic-pool-guidance.md) para obter uma orientação detalhada sobre o tamanho correto de um pool. Para obter mais detalhes sobre as configurações do pool, veja [Propriedades do pool de banco de dados elástico](sql-database-elastic-pool.md#elastic-database-pool-properties).
    
-    ![Configurar Pool Elástico](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
-4. Clique em **Selecionar** na folha **Configurar Pool** depois de alterar as configurações.
+    ![Configurar pool elástico](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
+4. Clique em **Selecionar** in the **Configure Pool** depois de alterar as configurações.
 5. Clique em **OK** para criar o pool.
 
-## Entender as recomendações de pool
+## <a name="understand-pool-recommendations"></a>Entender as recomendações de pool
 O serviço do Banco de Dados SQL avalia o histórico de uso e recomenda um ou mais pools quando essa alternativa for mais econômica do que usar bancos de dados individuais. Cada recomendação é configurada com um subconjunto exclusivo de bancos de dados do servidor que melhor se enquadram no pool.
 
-![pool recomendado](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
+![pool recomendado](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
 A recomendação de pool inclui:
 
@@ -101,15 +106,20 @@ O serviço leva em consideração os últimos 30 dias de telemetria ao recomenda
 
 O serviço avalia os recursos necessários e o custo-benefício de mover os bancos de dados individuais em cada camada de serviço para os pools na mesma camada. Por exemplo, todos os bancos de dados padrão em um servidor são avaliados para sua adaptação em um pool elástico Standard. Isso significa que o serviço não faz recomendações entre camadas diferentes, como mover um banco de dados Standard para um pool Premium.
 
-### Recomendações dinâmicas
-Depois de adicionar os bancos de dados ao pool, as recomendações serão dinamicamente geradas com base no uso histórico dos bancos de dados selecionados. Essas recomendações serão mostradas no gráfico de uso de GB e de eDTU, bem como em uma faixa de recomendação na parte superior da folha **Configurar pool**. Essas recomendações devem ajudar na criação de um pool otimizado para bancos de dados específicos.
+### <a name="dynamic-recommendations"></a>Recomendações dinâmicas
+Depois de adicionar os bancos de dados ao pool, as recomendações serão dinamicamente geradas com base no uso histórico dos bancos de dados selecionados. Essas recomendações serão mostradas no gráfico de uso de GB e de eDTU, bem como em uma faixa de recomendação na parte superior da folha **Configurar pool** . Essas recomendações devem ajudar na criação de um pool otimizado para bancos de dados específicos.
 
-![recomendações dinâmicas](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
+![Recomendações dinâmicas](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 * [Gerenciar um pool elástico do Banco de Dados SQL com o portal](sql-database-elastic-pool-manage-portal.md)
 * [Gerenciar um pool elástico do Banco de Dados SQL com o PowerShell](sql-database-elastic-pool-manage-powershell.md)
 * [Gerenciar um pool elástico do Banco de Dados SQL com o C#](sql-database-elastic-pool-manage-csharp.md)
-* [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md)
+* [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md) 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

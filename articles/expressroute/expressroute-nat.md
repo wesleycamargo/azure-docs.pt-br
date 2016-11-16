@@ -1,12 +1,12 @@
 ---
-title: Requisitos de NAT para circuitos da Rota Expressa | Microsoft Docs
-description: Esta página fornece os requisitos detalhados para a configuração e o gerenciamento de NAT para circuitos da Rota Expressa.
+title: Requisitos de NAT para circuitos da ExpressRoute | Microsoft Docs
+description: "Esta página fornece os requisitos detalhados para a configuração e o gerenciamento de NAT para circuitos da Rota Expressa."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 867bf936-c851-485f-84c8-d8d6e33fee9f
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+
 
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos de NAT da Rota Expressa
@@ -50,7 +54,7 @@ O caminho de emparelhamento da Microsoft permite que você se conecte a serviço
   > 
   > 
 
-#### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Tráfego com origem na Microsoft e destinado à sua rede
+#### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Tráfego com origem na Microsoft e destinado à sua rede 
 * Certas situações exigem que a Microsoft inicie a conectividade com os pontos de extremidade do serviço hospedados em sua rede. Um exemplo típico dessa situação seria a conectividade com servidores ADFS hospedados em sua rede desde o Office 365. Nesses casos, você deve vazar os prefixos apropriados de sua rede para o emparelhamento da Microsoft. 
 * Você deve colocar no modo SNAT o tráfego destinado aos endereços IP em sua rede da Microsoft. 
 
@@ -63,6 +67,9 @@ O caminho de emparelhamento da Microsoft permite que você se conecte a serviço
   * [Configurar o roteamento](expressroute-howto-routing-classic.md)
   * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

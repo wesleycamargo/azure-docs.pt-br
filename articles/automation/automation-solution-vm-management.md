@@ -1,12 +1,12 @@
 ---
-title: Solução Iniciar/Parar VMs fora do horário comercial [Visualização] na Automação | Microsoft Docs
-description: As soluções de Gerenciamento de VM iniciam e param suas Máquinas Virtuais do Azure Resource Manager com agendamento e as monitoram proativamente no Log Analytics.
+title: "Solução Iniciar/Parar VMs fora do horário comercial [versão prévia] na Automação | Microsoft Docs"
+description: "As soluções de Gerenciamento de VM iniciam e param suas Máquinas Virtuais do Azure Resource Manager com agendamento e as monitoram proativamente no Log Analytics."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+
 
 ---
-# <a name="start/stop-vms-during-off-hours-[preview]-solution-in-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial [Visualização] na Automação
+# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial [Visualização] na Automação
 A solução Iniciar/Parar VMs fora do horário comercial [Visualização] inicia e para máquinas virtuais do Azure Resource Manager em um agendamento definido pelo usuário e fornece informações sobre o sucesso dos trabalhos de Automação que iniciam e param as máquinas virtuais com o Log Analytics do OMS.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -121,7 +125,7 @@ A escolha da solução exibirá a folha da solução **Start-Stop-VM[Workspace]*
 
 Daqui, você pode abrir o espaço de trabalho do OMS e executar outras análises dos registros de trabalho.  Basta clicar em **Todas as configurações** e, na folha **Configurações**, selecione **Início Rápido** e, na folha **Início Rápido**, selecione **Portal OMS**.   Isso abrirá uma nova guia ou sessão do navegador e introduzirá seu espaço de trabalho do OMS associado à sua conta de Automação e assinatura.  
 
-### <a name="configuring-e-mail-notifications"></a>Configurando notificações por email
+### <a name="configuring-email-notifications"></a>Configurando notificações por email
 Para habilitar notificações por email quando os runbooks Iniciar e Parar VM forem concluídos, você precisará modificar a credencial **O365Credential** e, no mínimo, as seguintes variáveis:
 
 * SendMailO365-IsSendEmail-MS-Mgmt
@@ -202,6 +206,9 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros de alert
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)
 * Para saber mais sobre o Log Analytics do OMS e fontes de coleta de dados, confira [Coletar dados do Armazenamento do Azure na visão geral do Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

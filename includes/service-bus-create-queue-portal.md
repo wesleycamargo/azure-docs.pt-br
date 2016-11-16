@@ -1,11 +1,11 @@
 Verifique se você já criou um namespace do Barramento de Serviço, como mostrado [aqui][namespace-how-to].
 
-1. Faça logon no [portal do Azure][azure-portal].
+1. Faça logon no [Portal do Azure][azure-portal].
 2. No painel de navegação esquerdo do portal, clique em **Barramento de Serviço**.
 3. Selecione o namespace no qual você gostaria de criar a fila. Nesse caso, é **nstest1**.
    
     ![Criar uma fila][createqueue1]
-4. Na folha**namespace do Barramento de Serviço**, selecione **Filas** e clique em **Adicionar fila**.
+4. Na folha **Namespace do Barramento de Serviço**, selecione **Filas** e clique em **Adicionar fila**.
    
     ![Selecionar Filas][createqueue2]
 5. Insira o **Nome da Fila** e deixe os outros valores com os padrões.
@@ -17,7 +17,10 @@ Verifique se você já criou um namespace do Barramento de Serviço, como mostra
 [createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
 [createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
 
-[namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
+[namespace-how-to]: ../articles/service-bus-messaging/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

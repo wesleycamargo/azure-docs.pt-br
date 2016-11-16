@@ -1,12 +1,12 @@
 ---
-title: Hospedando vários sites no Application Gateway | Microsoft Docs
-description: Esta página fornece uma visão geral do suporte a vários sites do Application Gateway.
+title: "Hospedando vários sites no Gateway de Aplicativo | Microsoft Docs"
+description: "Esta página fornece uma visão geral do suporte a vários sites do Application Gateway."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85fc1315f32811873c577fe75d88eb08a2bbac26
+
 
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedagem de vários sites do Application Gateway
@@ -25,7 +29,7 @@ As solicitações de http://contoso.com são roteadas para ContosoServerPool e a
 
 Da mesma forma, dois subdomínios do mesmo domínio pai podem ser hospedados na mesma implantação do Gateway de Aplicativo. Exemplos de uso de subdomínios podem incluir http://blog.contoso.com e http://app.contoso.com hospedado em uma implantação do gateway de aplicativo única.
 
-## <a name="host-headers-and-server-name-indication-(sni)"></a>Cabeçalhos de host e SNI (Indicação de Nome de Servidor)
+## <a name="host-headers-and-server-name-indication-sni"></a>Cabeçalhos de host e SNI (Indicação de Nome de Servidor)
 Existem três mecanismos comuns para habilitar a hospedagem de vários sites na mesma infraestrutura.
 
 1. Hospede vários aplicativos Web, cada um em um endereço IP exclusivo.
@@ -117,6 +121,9 @@ Não há nenhuma alteração necessária na regra de roteamento. A regra de rote
 ## <a name="next-steps"></a>Próximas etapas
 Depois de conhecer várias opções de hospedagem de site, vá para [criar um Application Gateway usando a hospedagem de vários sites](application-gateway-create-multisite-azureresourcemanager-powershell.md) para criar um Application Gateway com capacidade de dar suporte a mais de um aplicativo Web.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,4 +1,4 @@
-## Conectar-se ao Banco de Dados SQL do Azure como um usuário
+## <a name="connect-to-azure-sql-database-as-a-user"></a>Conectar-se ao Banco de Dados SQL do Azure como um usuário
 Use as etapas a seguir para se conectar ao Banco de Dados SQL do Azure com SSMS como um usuário.
 
 1. Digite "Microsoft SQL Server Management Studio" na caixa de pesquisa do Windows e clique no aplicativo de área de trabalho para iniciar o SSMS.
@@ -27,7 +27,11 @@ Use as etapas a seguir para se conectar ao Banco de Dados SQL do Azure com SSMS 
    
       ![SQL Server Manager Studio: conectar-se a um servidor de Banco de Dados SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
 
-## Solucionar falhas de conexão
-O motivo mais comum das falhas de conexão são os erros no nome do servidor (lembre-se, <*nomeservidor*> é o nome do servidor lógico, não do banco de dados), nome de usuário ou senha, bem como o fato de o servidor não permitir conexões por motivos de segurança.
+## <a name="troubleshoot-connection-failures"></a>Solucionar falhas de conexão
+O motivo mais comum das falhas de conexão são os erros no nome do servidor (lembre-se, <*nomeservidor*> é o nome do servidor lógico, não do banco de dados), nome de usuário ou senha, bem como o fato de o servidor não permitir conexões por motivos de segurança. 
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

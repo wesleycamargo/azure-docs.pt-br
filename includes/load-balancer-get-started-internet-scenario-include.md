@@ -6,4 +6,7 @@ As tarefas a seguir serão feitas nesse cenário:
 
 ![Cenário com o balanceador de carga](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

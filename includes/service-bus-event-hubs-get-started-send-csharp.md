@@ -1,28 +1,28 @@
-## Enviar mensagens ao Hub de Eventos
+## <a name="send-messages-to-event-hubs"></a>Enviar mensagens ao Hub de Eventos
 Nesta seção, você escreverá um aplicativo de console do Windows para enviar eventos para o hub de eventos.
 
-1. No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Visual C# usando o modelo de projeto de **Aplicativo de Console**. Nomeie o projeto como **Remetente**.
+1. No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Visual C# usando o modelo de projeto de **Aplicativo de Console** . Nomeie o projeto como **Remetente**.
    
     ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png)
-2. No Gerenciador de Soluções, clique com o botão direito na solução e clique em **Gerenciar Pacotes NuGet para Solução**.
-3. Clique na guia **Procurar** e pesquise `Microsoft Azure Service Bus`. Verifique se o nome do projeto (**Remetente**) está especificado na caixa **Versão(ões)**. Clique em **Instalar** e aceite os termos de uso.
+2. No Gerenciador de Soluções, clique com o botão direito na solução e clique em **Gerenciar Pacotes NuGet para Solução**. 
+3. Clique na guia **Procurar** e procure `Microsoft Azure Service Bus`. Verifique se o nome do projeto (**Remetente**) está especificado na caixa **Versão(ões)**. Clique em **Instalar**e aceite os termos de uso. 
    
     ![](./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png)
    
     O Visual Studio faz o download, instala e adiciona uma referência ao [pacote NuGet de biblioteca do Barramento de Serviço do Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
-4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs**:
+4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
    
     ```
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
-5. Adicione os seguintes campos à classe **Programa**, substituindo os valores do espaço reservado pelo nome do Hub de Eventos criado na seção anterior e a cadeia de conexão no nível do namespace que você salvou anteriormente.
+5. Adicione os seguintes campos à classe **Programa** , substituindo os valores do espaço reservado pelo nome do Hub de Eventos criado na seção anterior e a cadeia de conexão no nível do namespace que você salvou anteriormente.
    
     ```
     static string eventHubName = "{Event Hub name}";
     static string connectionString = "{send connection string}";
     ```
-6. Adicione o seguinte método à classe **Programa**:
+6. Adicione o seguinte método à classe **Programa** :
    
     ```
     static void SendingRandomMessages()
@@ -49,7 +49,7 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
     ```
    
     Este método envia continuamente os eventos ao seu hub de eventos com um atraso de 200 ms.
-7. Por fim, adicione as seguintes linhas ao método **Main**:
+7. Por fim, adicione as seguintes linhas ao método **Main** :
    
     ```
     Console.WriteLine("Press Ctrl-C to stop the sender process");
@@ -58,4 +58,8 @@ Nesta seção, você escreverá um aplicativo de console do Windows para enviar 
     SendingRandomMessages();
     ```
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

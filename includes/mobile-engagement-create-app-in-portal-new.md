@@ -10,7 +10,7 @@
    * **Nome**: o nome de sua *coleção de aplicativos* 
    * **Plataformas**: selecione as plataformas de destino para seu aplicativo na folha Plataformas que será aberta. Por exemplo se você quiser um aplicativo para o iOS e o Android, então, selecione ambas as plataformas e terá dois aplicativos criados sob essa coleção de aplicativos. 
      
-     ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
+      ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
    * **Assinatura**: selecione a assinatura do Azure. 
    * **Grupo de recursos**: selecione o Grupo de recursos do Azure no qual você deseja esse recurso do Azure (Coleção de Aplicativos do Mobile Engagement). Você pode optar por criar um novo.  
    * **Local**: a região onde serão armazenados os dados sobre essa coleção de aplicativos e aplicativos.
@@ -30,6 +30,8 @@
    
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

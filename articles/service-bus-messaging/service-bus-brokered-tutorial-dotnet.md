@@ -1,12 +1,12 @@
 ---
-title: Tutorial .NET do sistema de mensagens agenciado do Barramento de Serviço | Microsoft Docs
+title: "Tutorial .NET do sistema de mensagens agenciado do Barramento de Serviço | Microsoft Docs"
 description: Tutorial .NET do sistema de mensagens agenciado.
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+
 
 ---
-# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Tutorial .NET do sistema de mensagens agenciado do Barramento de Serviço
+# <a name="service-bus-brokered-messaging-net-tutorial"></a>Tutorial .NET do sistema de mensagens agenciado do Barramento de Serviço
 O Barramento de Serviço do Azure oferece duas soluções de mensagens abrangentes – uma por meio de um serviço de “retransmissão” centralizado em execução na nuvem que oferece suporte a vários protocolos diferentes de transporte e padrões de serviços Web, incluindo SOAP, WS-* e REST. O cliente não precisa de uma conexão direta com o serviço local nem precisa saber onde reside o serviço, e o serviço local não precisa de portas de entrada abertas no firewall.
 
 A segunda solução de mensagens habilita os recursos de mensagens “agenciados”. Eles podem ser considerados como assíncronos ou recursos do sistema de mensagens desacoplados que dão suporte a cenários de publicação-assinatura, de desacoplamento temporal e de balanceamento de carga usando a infraestrutura do sistema de mensagens do Barramento de Serviço. A comunicação desacoplada tem diversas vantagens; por exemplo, clientes e servidores podem se conectar como necessário e executar as operações deles de forma assíncrona.
 
-O objetivo deste tutorial é oferecer uma visão geral e uma experiência prática com filas, um dos principais componentes do sistema de mensagens agenciado do Barramento de Serviço. Depois de trabalhar na sequência de tópicos deste tutorial, você terá um aplicativo que preenche uma lista de mensagens, cria uma fila e envia mensagens para essa fila. Por fim, o aplicativo recebe e exibe as mensagens da fila, limpa seus recursos e sai. Para obter um tutorial correspondente que descreve como compilar um aplicativo que use a Retransmissão do Barramento de Serviço, consulte o [tutorial do sistema de mensagens de retransmissão do Barramento de Serviço](../service-bus-relay/service-bus-relay-tutorial.md).
+O objetivo deste tutorial é oferecer uma visão geral e uma experiência prática com filas, um dos principais componentes do sistema de mensagens agenciado do Barramento de Serviço. Depois de trabalhar na sequência de tópicos deste tutorial, você terá um aplicativo que preenche uma lista de mensagens, cria uma fila e envia mensagens para essa fila. Por fim, o aplicativo recebe e exibe as mensagens da fila, limpa seus recursos e sai. Para obter um tutorial correspondente que descreve como compilar um aplicativo que use a Retransmissão do WCF, veja o [tutorial do sistema de mensagens de retransmissão do Barramento de Serviço](../service-bus-relay/service-bus-relay-tutorial.md).
 
 ## <a name="introduction-and-prerequisites"></a>Introdução e pré-requisitos
 Filas oferecem entrega de mensagem do tipo PEPS (primeiro a entrar, primeiro a sair) para um ou mais consumidores concorrentes. PEPS significa que geralmente se espera que as mensagens sejam recebidas e processadas pelos receptores na ordem cronológica em que foram adicionadas à fila, sendo que cada mensagem será recebida e processada por apenas um consumidor de mensagem. Um dos principais benefícios da utilização de filas é obter o *desacoplamento temporal* de componentes do aplicativo: em outras palavras, os produtores e os consumidores não precisam enviar e receber mensagens ao mesmo tempo, já que as mensagens são armazenadas de forma duradoura na fila. Um benefício relacionado é o *nivelamento de carga*, que permite que produtores e consumidores enviem e recebam mensagens em taxas diferentes.
@@ -29,7 +33,7 @@ Filas oferecem entrega de mensagem do tipo PEPS (primeiro a entrar, primeiro a s
 A seguir, algumas etapas administrativas e de pré-requisito que você deve seguir antes de iniciar o tutorial. A primeira etapa é criar um namespace de serviço e obter uma chave de assinatura de acesso compartilhado (SAS). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é automaticamente gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e da chave SAS oferece uma credencial com a qual o Barramento de Serviço autentica o acesso a um aplicativo.
 
 ### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Criar um namespace de serviço e obter uma chave SAS
-A primeira etapa é criar um namespace de serviço e obter uma chave de [SAS](../service-bus/service-bus-sas-overview.md) (Assinatura de Acesso Compartilhado). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é automaticamente gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e a chave SAS fornece uma credencial para o Barramento de Serviço autenticar o acesso a um aplicativo.
+A primeira etapa é criar um namespace de serviço e obter uma chave de [SAS](service-bus-sas-overview.md) (Assinatura de Acesso Compartilhado). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é automaticamente gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e a chave SAS fornece uma credencial para o Barramento de Serviço autenticar o acesso a um aplicativo.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -611,14 +615,17 @@ Agora que você concluiu as etapas anteriores, poderá compilar e executar o apl
 No Visual Studio, no menu **Compilar**, clique em **Compilar Solução** ou pressione **Ctrl+Shift+B**. Se você encontrar erros, verifique se seu código está correto com base no exemplo completo apresentado no final da etapa anterior.
 
 ## <a name="next-steps"></a>Próximas etapas
-Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples do Barramento de Serviço usando os recursos de sistema de mensagens agenciado do Barramento de Serviços. Para obter um tutorial semelhante que use a [Retransmissão](service-bus-messaging-overview.md#Relayed-messaging) do Barramento de Serviço, consulte o [tutorial do sistema de mensagens de retransmissão do Barramento de Serviço](../service-bus-relay/service-bus-relay-tutorial.md).
+Este tutorial mostrou como compilar um serviço e um aplicativo cliente simples do Barramento de Serviço usando os recursos de sistema de mensagens agenciado do Barramento de Serviços. Para obter um tutorial semelhante que use a [Retransmissão](service-bus-messaging-overview.md#Relayed-messaging) do WCF, consulte o [tutorial do sistema de mensagens de retransmissão do Barramento de Serviço](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Para saber mais sobre o [Barramento de Serviço](https://azure.microsoft.com/services/service-bus/), veja os tópicos a seguir.
 
 * [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
-* [Conceitos fundamentais do barramento de serviço](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Arquitetura do Barramento de Serviço](../service-bus/service-bus-architecture.md)
+* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
+* [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -27,7 +27,7 @@
 ### [Criar e modificar a configuração de roteamento usando o portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
 ### [Criar e modificar a configuração de roteamento usando o PowerShell](expressroute-howto-routing-arm.md)
 ### [Criar e modificar a configuração de roteamento usando o PowerShell (Clássico)](expressroute-howto-routing-classic.md)
-## Vincular uma rede virtual a um circuito de Rota Expressa
+## Vincular uma rede virtual a um circuito de ExpressRoute
 ### [Vincular uma rede virtual a um circuito do ExpressRoute usando o portal do Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 ### [Vincular uma rede virtual a um circuito do ExpressRoute usando PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Vincular uma rede virtual a um circuito do ExpressRoute usando o PowerShell (Clássico)](expressroute-howto-linkvnet-classic.md)
@@ -43,28 +43,28 @@
 
 
 # Referência
-## [Gerenciador de Recursos de APIs](https://msdn.microsoft.com/library/azure/mt586720)
-## [Gerenciamento de serviços de APIs](https://msdn.microsoft.com/library/azure/dn606310)
-## [Cmdlets do PowerShell – Gerenciador de Recursos](https://msdn.microsoft.com/library/azure/mt163510(v=azure.300))
-## [Cmdlets do PowerShell – Gerenciamento de Serviço](https://msdn.microsoft.com/library/azure/dn683813)
+
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
 ## [Exemplos de definições de configuração de roteador](expressroute-config-samples-routing.md)
 ## [Exemplos de configuração de roteador para NAT](expressroute-config-samples-nat.md)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST clássico](https://msdn.microsoft.com/library/azure/dn606310)
 
-# Relacionados 
-## [Rede Virtual](../virtual-network/index.md)
-## [Gateway de VPN](../vpn-gateway/index.md)
-## [Máquinas virtuais](../virtual-machines/index.md)
-## [Balanceador de carga](../load-balancer/index.md)
-## [Gerenciador de Tráfego](../traffic-manager/index.md)
+# Relacionados
+## [Rede Virtual](/azure/virtual-network/)
+## [Gateway de VPN](/azure/vpn-gateway/)
+## [Máquinas virtuais](/azure/virtual-machines/)
+## [Balanceador de carga](/azure/load-balancer/)
+## [Gerenciador de Tráfego](/azure/traffic-manager/)
 
 # Recursos
+## [Preços](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [Blog de rede](https://azure.microsoft.com/blog/topics/networking/)
 ## [Estudos de Caso](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [Preços](https://azure.microsoft.com/pricing/details/expressroute/)
-## [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/)
+## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Limites de Serviço e Assinatura](../azure-subscription-service-limits.md)
-## Vídeos
-### [Criar um circuito da Rota Expressa](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute) 
+### [Criar um circuito do ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Como configurar Emparelhamento Privado para seu circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Configurar Emparelhamento Público para seu circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
 ### [Configurar Emparelhamento da Microsoft para seu circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/)
@@ -73,6 +73,7 @@
 ### [Conectar um gateway de rede virtual a um circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Aprimorar a infraestrutura de rede para conectividade](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Parcerias híbridas: como habilitar cenários locais](https://go.microsoft.com/fwlink/p/?LinkId=615125)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=expressroute) 
 
 <!--HONumber=Nov16_HO2-->
 

@@ -6,12 +6,17 @@ O Gateway de VPN pode usar os SKUs a seguir:
 * Standard
 * HighPerformance
 
-Ao selecionar uma SKU, considere as seguintes limitações:
+O gateway de VPN não usa a SKU do gateway UltraPerformance. Para saber mais sobre a SKU do UltraPerformance, veja a documentação do [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 
-* Se quiser usar um tipo PolicyBased VPN, você deverá usar a SKU de gateway Básica. VPNs PolicyBased (anteriormente chamadas de Roteamento Estático) não têm suporte em qualquer outro tipo de SKU.
+Ao selecionar uma SKU, considere o seguinte:
+
+* Se quiser usar um tipo PolicyBased VPN, você deverá usar a SKU Básica. VPNs PolicyBased (anteriormente chamadas de Roteamento Estático) não têm suporte em qualquer outro tipo de SKU.
 * BGP não tem suporte na SKU Básica.
 * Configurações de coexistência de ExpressRoute-Gateway de VPN não têm suporte na SKU Básica.
+* As conexões de Gateway de VPN S2S ativa-ativa só podem ser configuradas na SKU HighPerformance.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Aprenda a fazer backup de arquivos e pastas do cliente ou servidor do Azure com o Backup do Azure usando o modelo de implantação do Gerenciador de Recursos | Microsoft Docs
-description: Saiba como fazer backup de dados do Windows Server criando um cofre, instalando o agente dos Serviços de Recuperação e fazendo backup de seus arquivos e pastas no Azure.
+title: "Aprenda a fazer backup de arquivos e pastas do Windows para o Azure com o Backup do Azure usando o modelo de implantação do Azure Resource Manager | Microsoft Docs"
+description: "Saiba como fazer backup de dados do Windows Server criando um cofre, instalando o agente dos Serviços de Recuperação e fazendo backup de seus arquivos e pastas no Azure."
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: cfreeman
-editor: ''
+editor: 
 keywords: como fazer backup; como fazer backup
-
+ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -15,26 +15,34 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+
 
 ---
-# Introdução: fazer backup de arquivos e pastas com o Backup do Azure usando o modelo de implantação do Gerenciador de Recursos
+# <a name="first-look-back-up-files-and-folders-with-azure-backup-using-the-resource-manager-deployment-model"></a>Introdução: fazer backup de arquivos e pastas com o Backup do Azure usando o modelo de implantação do Gerenciador de Recursos
 Este artigo explica como fazer backup de arquivos e pastas do Windows Server (ou cliente Windows) para o Azure com o Backup do Azure usando o Gerenciador de Recursos. É um tutorial que pretende explicar os conceitos básicos. Se deseja obter uma introdução ao uso do Backup do Azure, você está no lugar certo.
 
 Se você quiser saber mais sobre o Backup do Azure, leia esta [visão geral](backup-introduction-to-azure-backup.md).
 
 O backup de arquivos e de pastas no Azure exige estas atividades:
 
-![Etapa 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Obter uma assinatura do Azure (caso você ainda não tenha uma).<br> ![Etapa 2](./media/backup-try-azure-backup-in-10-mins/step-2.png)Criar um cofre dos Serviços de Recuperação.<br> ![Etapa 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Baixar os arquivos necessários.<br> ![Etapa 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Instalar e registrar o agente dos Serviços de Recuperação.<br> ![Etapa 5](./media/backup-try-azure-backup-in-10-mins/step-5.png) Fazer o backup de arquivos e pastas.
+![Etapa 1](./media/backup-try-azure-backup-in-10-mins/step-1.png) Obter uma assinatura do Azure (caso você ainda não tenha uma).<br>
+![Etapa 2](./media/backup-try-azure-backup-in-10-mins/step-2.png) Criar um cofre dos Serviços de Recuperação.<br>
+![Etapa 3](./media/backup-try-azure-backup-in-10-mins/step-3.png) Baixar os arquivos necessários.<br>
+![Etapa 4](./media/backup-try-azure-backup-in-10-mins/step-4.png) Instalar e registrar o agente dos Serviços de Recuperação.<br>
+![Etapa 5](./media/backup-try-azure-backup-in-10-mins/step-5.png): fazer backup de arquivos e de pastas.
 
 ![Como fazer backup de um computador Windows com o Backup do Azure](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
-## Etapa 1: Obtenha uma assinatura do Azure
-Se não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/), que permitirá o acesso a qualquer serviço do Azure.
+## <a name="step-1-get-an-azure-subscription"></a>Etapa 1: Obtenha uma assinatura do Azure
+Se não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) , que permitirá o acesso a qualquer serviço do Azure.
 
-## Etapa 2: Criar um cofre dos Serviços de Recuperação
+## <a name="step-2-create-a-recovery-services-vault"></a>Etapa 2: Criar um cofre dos Serviços de Recuperação
 Para fazer backup de seus arquivos e pastas, você precisa criar um cofre de Serviços de Recuperação na região onde deseja armazenar os dados. Você também precisa determinar como deseja que o armazenamento seja replicado.
 
-### Para criar um cofre de Serviços de Recuperação
+### <a name="to-create-a-recovery-services-vault"></a>Para criar um cofre de Serviços de Recuperação
 1. Se ainda não tiver feito isso, entre no [Portal do Azure](https://portal.azure.com/) usando a sua assinatura do Azure.
 2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação** e clique em **cofres dos Serviços de Recuperação**.
    
@@ -54,7 +62,7 @@ Para fazer backup de seus arquivos e pastas, você precisa criar um cofre de Ser
    
     Se você não vir seu cofre listado depois de ter sido concluído, clique em **Atualizar**. Quando a lista for atualizada, clique no nome do cofre.
 
-### Para determinar a redundância de armazenamento
+### <a name="to-determine-storage-redundancy"></a>Para determinar a redundância de armazenamento
 Quando você cria um cofre dos Serviços de Recuperação, determina como o armazenamento é replicado.
 
 1. Clique no novo cofre para abrir o painel.
@@ -70,7 +78,7 @@ Quando você cria um cofre dos Serviços de Recuperação, determina como o arma
 
 Agora que você criou um cofre, prepare sua infraestrutura para fazer backup de arquivos e pastas baixando as credenciais do agente dos Serviços de Recuperação do Microsoft Azure e do cofre.
 
-## Etapa 3: baixar arquivos
+## <a name="step-3-download-files"></a>Etapa 3: baixar arquivos
 1. Clique em **Configurações** no painel do cofre dos Serviços de Recuperação.
    
     ![Abrir folha de meta backup](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -80,21 +88,21 @@ Agora que você criou um cofre, prepare sua infraestrutura para fazer backup de 
 3. Clique em **Meta de Backup** na folha Backup.
    
     ![Abrir folha de meta backup](./media/backup-try-azure-backup-in-10-mins/backup-goal.png)
-4. Selecione **Local** no menu Onde a sua carga de trabalho está sendo executada?
+4. Selecione **Local** no menu Onde sua carga de trabalho é executada?
 5. Selecione **Arquivos e pastas** no menu Do que você deseja fazer backup? e clique em **OK**.
 
-### Baixar o agente dos Serviços de Recuperação
+### <a name="download-the-recovery-services-agent"></a>Baixar o agente dos Serviços de Recuperação
 1. Clique em **Baixar agente do Windows Server ou Windows Client** na folha **Preparar infraestrutura**.
    
-    ![preparar infraestrutura](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
+    ![Preparar infraestrutura](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
 2. Clique em **Salvar** no pop-up de download. Por padrão, o arquivo **MARSagentinstaller.exe** será salvo em sua pasta Downloads.
 
-### Baixar as credenciais do cofre
+### <a name="download-vault-credentials"></a>Baixar as credenciais do cofre
 1. Clique em **Baixar > Salvar** na folha Preparar infraestrutura.
    
-    ![preparar infraestrutura](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
+    ![Preparar infraestrutura](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## Etapa 4: instalar e registrar o agente
+## <a name="step-4-install-and-register-the-agent"></a>Etapa 4: instalar e registrar o agente
 > [!NOTE]
 > A habilitação do backup pelo portal do Azure estará disponível em breve. Neste momento, você pode usar o agente dos Serviços de Recuperação do Microsoft Azure no local para fazer backup de seus arquivos e pastas.
 > 
@@ -116,7 +124,7 @@ Agora que você criou um cofre, prepare sua infraestrutura para fazer backup de 
 
 Agora, o agente está instalado e seu computador está registrado no cofre. Você está pronto para configurar e agendar o backup.
 
-## Etapa 5: fazer backup de arquivos e de pastas
+## <a name="step-5-back-up-your-files-and-folders"></a>Etapa 5: fazer backup de arquivos e de pastas
 O backup inicial inclui duas tarefas principais:
 
 * Agendar o backup
@@ -124,8 +132,8 @@ O backup inicial inclui duas tarefas principais:
 
 Para concluir o backup inicial, você deverá usar o agente dos Serviços de Recuperação do Microsoft Azure.
 
-### Para agendar o backup
-1. Abra o agente dos Serviços de Recuperação do Microsoft Azure Você pode localizá-la pesquisando seu computador por **Backup do Microsoft Azure**.
+### <a name="to-schedule-the-backup"></a>Para agendar o backup
+1. Abra o agente dos Serviços de Recuperação do Microsoft Azure Você pode localizá-lo pesquisando no seu computador por **Backup do Microsoft Azure**.
    
     ![Inicialize o agente dos Serviços de Recuperação do Azure](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 2. O agente dos Serviços de Recuperação, clique em **Agendar Backup**.
@@ -154,7 +162,7 @@ Para concluir o backup inicial, você deverá usar o agente dos Serviços de Rec
 10. Na página Confirmação, examine as informações e clique em **Concluir**.
 11. Depois que o assistente terminar de criar o agendamento de backup, clique em **Fechar**.
 
-### Para fazer backup de arquivos e pastas pela primeira vez
+### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Para fazer backup de arquivos e pastas pela primeira vez
 1. No Agente dos Serviços de Recuperação, clique em **Fazer Backup Agora** para concluir a propagação inicial pela rede.
    
     ![Fazer backup do Windows Server agora](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
@@ -165,12 +173,17 @@ Depois que o backup inicial for concluído, o status **Trabalho concluído** apa
 
 ![IR completo](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## Perguntas?
+## <a name="questions"></a>Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Obtenha mais detalhes sobre o [backup de computadores que usam o Windows](backup-configure-vault.md).
 * Agora que você faz backup de seus arquivos e pastas, poderá [gerenciar seus servidores e cofres](backup-azure-manage-windows-server.md).
 * Se você precisar restaurar um backup, use este artigo para [restaurar os arquivos para um computador que usa o Windows](backup-azure-restore-windows-server.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

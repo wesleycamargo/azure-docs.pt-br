@@ -1,7 +1,7 @@
 # Visão geral
-## [Noções básicas de lote](batch-technical-overview.md)
-## [Visão geral do recurso de Lote](batch-api-basics.md)
-## [Cotas e limites do lote](batch-quota-limit.md)
+## [O que é o Lote do Azure](batch-technical-overview.md)
+## [Visão geral do recurso](batch-api-basics.md)
+## [Cotas e limites](batch-quota-limit.md)
 # Introdução
 ## [Criar uma conta do Lote](batch-account-create-portal.md)
 ## [Tutorial de .NET em lote](batch-dotnet-get-started.md)
@@ -20,26 +20,32 @@
 ### [Dependências da tarefa](batch-task-dependencies.md)
 ### [Modelos de projeto do Visual Studio para o Lote](batch-visual-studio-templates.md)
 ## Gerenciar
-### [CLI do Lote](batch-cli-get-started.md)
 ### [Cmdlets do PowerShell do Lote](batch-powershell-cmdlets-get-started.md)
+### [CLI do Azure](batch-cli-get-started.md)
 ### [Logs de diagnóstico do Lote](batch-diagnostics.md)
+
 # Referência
-## [Referência da API REST do Lote](https://go.microsoft.com/fwlink/p/?linkid=833492)
-## [Referência .NET do Lote](https://go.microsoft.com/fwlink/p/?linkid=833494)
-## [Referência de Python do Lote](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Referência de Node.js do Lote](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [Referência de Java do Lote](https://go.microsoft.com/fwlink/p/?linkid=833497)
-## [Referência .NET de Gerenciamento do Lote](https://go.microsoft.com/fwlink/p/?linkid=833498)
-## [Referência de PowerShell do Lote](https://go.microsoft.com/fwlink/p/?linkid=833500)
+## [Cmdlets do PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+## [Java](https://docs.microsoft.com/java/api)
+## [API do .NET](https://docs.microsoft.com/dotnet/api)
+## [SDK do Python](https://go.microsoft.com/fwlink/p/?linkid=833496)
+## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
+## [REST](https://docs.microsoft.com/rest/api/batchservice/)
+
 # Relacionados
+## [Shipyard de lote](https://github.com/Azure/batch-shipyard)
 ## [Soluções de Lote e HPC na nuvem do Azure](batch-hpc-solutions.md)
 ## [Big Compute no Azure: recursos técnicos](big-compute-resources.md)
+
 # Recursos
+## [Preços](https://azure.microsoft.com/pricing/details/batch/)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 ## [Modelos de código C# de lote](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Exemplos de código do Python de Lote](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Shipyard de lote](https://github.com/Azure/batch-shipyard)
+
 
 
 <!--HONumber=Nov16_HO2-->

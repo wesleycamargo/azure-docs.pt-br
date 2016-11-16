@@ -1,12 +1,12 @@
 ---
-title: Introdução à solução de Segurança e Auditoria do Operations Management Suite | Microsoft Docs
-description: Este documento o ajuda a se familiarizar com os recursos de segurança e auditoria do Operations Management Suite para monitorar sua nuvem híbrida.
+title: "Introdução à Solução de Segurança e Auditoria do Operations Management Suite | Microsoft Docs"
+description: "Este documento o ajuda a se familiarizar com os recursos de segurança e auditoria do Operations Management Suite para monitorar sua nuvem híbrida."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.topic: get-started-article
 ms.devlang: na
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Introdução à solução de Segurança e Auditoria do Operations Management Suite
 Este documento o ajuda a se familiarizar rapidamente com as funcionalidades da solução de Auditoria e Segurança do OMS (Operations Management Suite) explicando cada uma das opções.
 
-## <a name="what-is-oms?"></a>O que é o OMS?
+## <a name="what-is-oms"></a>O que é o OMS?
 O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem. Para obter mais informações sobre o OMS, leia o artigo [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="oms-security-and-audit-dashboard"></a>Painel Segurança e Auditoria do OMS
@@ -139,7 +143,7 @@ O objetivo principal deste grupo de opções é fornecer uma visão geral dos pr
 
 Você pode ver que esses problemas já foram abordados em diferentes áreas do grupo **Domínios de Segurança** , o que reforça o objetivo dessa exibição: visualizar os problemas mais importantes em seu ambiente em um único lugar.
 
-## <a name="detections-(preview)"></a>Detecções (visualização)
+## <a name="detections-preview"></a>Detecções (visualização)
 O objetivo principal dessa opção é permitir que a TI identifique rapidamente as ameaças potenciais em seu ambiente e a gravidade da ameaça.
 
 ![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig12.png)
@@ -179,6 +183,9 @@ Neste documento, apresentamos a você a solução de Segurança e Auditoria do O
 * [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

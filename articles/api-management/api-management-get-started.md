@@ -1,22 +1,26 @@
 ---
 title: Gerenciar sua primeira API no Gerenciamento de API do Azure | Microsoft Docs
-description: Saiba como criar APIs, adicionar operações e obtenha uma introdução ao Gerenciamento de API.
+description: "Saiba como criar APIs, adicionar operações e obtenha uma introdução ao Gerenciamento de API."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 51b7df8b-1c43-43c6-90c9-0aa24f48206b
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+
 
 ---
-# Gerenciar sua primeira API no Gerenciamento de API do Azure
+# <a name="manage-your-first-api-in-azure-api-management"></a>Gerenciar sua primeira API no Gerenciamento de API do Azure
 ## <a name="overview"> </a>Visão geral
 Este guia mostra como começar rapidamente a usar o Gerenciamento de API do Azure e como fazer sua primeira chamada à API.
 
@@ -39,7 +43,7 @@ O sistema é composto pelos seguintes componentes:
   * Transforma sua API imediatamente sem modificações no código.
   * Armazena respostas de back-end em cache em que a instalação.
   * Registra logs de metadados de chamadas para fins de análise.
-* O **portal do editor** é a interface administrativa na qual você configura seu programa de API Use-o para:
+* O **portal do editor** é a interface administrativa na qual você configura seu programa de API. Use-o para:
   
   * Definir ou importar esquema de API.
   * Empacotar APIs em produtos.
@@ -59,33 +63,31 @@ O sistema é composto pelos seguintes componentes:
 > 
 > 
 
-Esta etapa sobre como trabalhar com o Gerenciamento de API serve para criar uma instância de serviço. Faça logon no [Portal Clássico do Azure][Portal Clássico do Azure] e clique em **Novo**, **Serviços de Aplicativos**, **Gerenciamento de API**, **Criar**.
+Esta etapa sobre como trabalhar com o Gerenciamento de API serve para criar uma instância de serviço. Entre no [Portal do Azure][Portal do Azure] e clique em **Novo**, **Web + Móvel** e **Gerenciamento de API**.
 
 ![Nova instância do Gerenciamento de API][api-management-create-instance-menu]
 
-Para obter a **URL**, especifique um nome de subdomínio exclusivo para usar na URL do serviço.
+Para **Nome**, especifique um nome de subdomínio exclusivo para usar na URL do serviço.
 
-Selecione a **Assinatura** e a **Região** da sua instância de serviço. Após fazer suas seleções, clique no botão **Avançar**.
+Selecione a **Assinatura**, **Grupo de recursos** e **Local** desejados para sua instância de serviço.
+
+Digite **Contoso Ltd.** como o **Nome da Organização** e insira seu endereço de email no campo de **Email do Administrador**.
+
+> [!NOTE]
+> Esse endereço de email é usado para notificações do sistema de Gerenciamento de API. Para obter mais informações, consulte [Como configurar notificações e modelos de email no Gerenciamento de API do Azure][Como configurar notificações e modelos de email no Gerenciamento de API do Azure].
+> 
+> 
 
 ![Novo serviço de Gerenciamento de API][api-management-create-instance-step1]
 
-Insira **Contoso Ltd.** como o **Nome da Organização** e insira seu endereço de email no campo de **E-mail do Administrador**.
-
-> [!NOTE]
-> Esse endereço de email é usado para notificações do sistema de Gerenciamento de API. Para obter mais informações, consulte [Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure][Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure].
-> 
-> 
-
-![Novo serviço de Gerenciamento de API][api-management-create-instance-step2]
-
-As instâncias de serviço de Gerenciamento de API estão disponíveis em três camadas: Developer, Standard e Premium. Por padrão, as novas instâncias de serviço de Gerenciamento de API são criadas usando a camada do Desenvolvedor. Para selecionar a camada Standard ou Premium, marque a caixa de seleção **Configurações avançadas** e selecione a camada desejada na tela seguinte.
+As instâncias de serviço de Gerenciamento de API estão disponíveis em três camadas: Developer, Standard e Premium.
 
 > [!NOTE]
 > A Camada do Desenvolvedor é para programas pilotos de API, teste e desenvolvimento, onde a alta disponibilidade não é uma preocupação. Nas camadas Standard e Premium, você pode dimensionar sua contagem de unidade reservada para lidar com mais tráfego. As camadas Standard e Premium fornecem um serviço de Gerenciamento de API com o maior poder de processamento e desempenho. Você pode concluir este tutorial usando qualquer camada. Para obter mais informações sobre as camadas de Gerenciamento de API, consulte [Preços de Gerenciamento de API][Preços de Gerenciamento de API].
 > 
 > 
 
-Clique na caixa de seleção para criar sua instância de serviço.
+Clique em **Criar** para iniciar a instância do serviço de provisionamento.
 
 ![Novo serviço de Gerenciamento de API][api-management-instance-created]
 
@@ -101,7 +103,7 @@ APIs podem ser criadas (e as operações podem ser adicionadas) manualmente, pod
 > 
 > 
 
-As APIs são configuradas no portal do editor, que pode ser acessado por meio do Portal Clássico do Azure. Para acessar o portal do editor, clique em **Gerenciar** no Portal Clássico do Azure do serviço de Gerenciamento de API.
+APIs são configuradas no Portal do editor. Para alcançá-lo, clique em **Portal do editor** na barra de ferramentas do serviço.
 
 ![Portal do editor][api-management-management-console]
 
@@ -119,7 +121,7 @@ Execute as seguintes etapas para configurar a API de calculadora:
 ![Adicionar nova API][api-management-import-new-api]
 
 > [!NOTE]
-> O **Gerenciamento de API** atualmente oferece suporte à versão 1.2 e 2.0 do documento de Swagger para importação. Certifique-se de que, mesmo que a [Especificação Swagger 2.0](http://swagger.io/specification) declare que as propriedades `host`, `basePath` e `schemes` são opcionais, o documento de Swagger 2.0 **DEVE** conter essas propriedades; caso contrário, não será importado.
+> **Gerenciamento de API** atualmente oferece suporte à versão 1.2 e 2.0 do documento de Swagger para importação. Certifique-se de que, mesmo que a [Especificação Swagger 2.0](http://swagger.io/specification) declare que as propriedades `host`, `basePath` e `schemes` são opcionais, o documento de Swagger 2.0 **PRECISA** conter essas propriedades; caso contrário, não será importado. 
 > 
 > 
 
@@ -127,7 +129,7 @@ Depois que a API é importada, a página de resumo para a API é exibida no port
 
 ![Resumo da API][api-management-imported-api-summary]
 
-A seção API tem várias guias. A guia **Resumo** exibe as métricas básicas e as informações sobre a API. A guia [Configurações](api-management-howto-create-apis.md#configure-api-settings) é usada para exibir e editar a configuração de uma API. A guia [Operações](api-management-howto-add-operations.md) é usada para gerenciar as operações da API. A guia **Segurança** pode ser usada para configurar a autenticação de gateway para o servidor de back-end usando a autenticação Básica ou [autenticação mútua de certificados](api-management-howto-mutual-certificates.md), bem como para configurar a [autorização do usuário usando OAuth 2.0](api-management-howto-oauth2.md). A guia **Problemas** é usada para exibir os problemas relatados pelos desenvolvedores que utilizam suas APIs. A guia **Produtos** é usada para configurar os produtos que contêm essa API.
+A seção API tem várias guias. A guia **Resumo** exibe as métricas básicas e as informações sobre a API. A guia [Configurações](api-management-howto-create-apis.md#configure-api-settings) é usada para exibir e editar a configuração de uma API. A guia [Operações](api-management-howto-add-operations.md) é usada para gerenciar as operações da API. A guia **Segurança** pode ser usada para configurar a autenticação de gateway para o servidor de back-end usando a autenticação Básica ou [autenticação mútua de certificados](api-management-howto-mutual-certificates.md), bem como para configurar a [autorização do usuário usando OAuth 2.0](api-management-howto-oauth2.md).  A guia **Problemas** é usada para exibir os problemas relatados pelos desenvolvedores que utilizam suas APIs. A guia **Produtos** é usada para configurar os produtos que contêm essa API.
 
 Por padrão, cada instância de Gerenciamento de API é fornecida com dois produtos função Web:
 
@@ -159,7 +161,7 @@ Você pode inserir alguns valores para os parâmetros ou manter os padrões, dep
 
 Após invocar uma operação, o portal do desenvolvedor exibe o **Status de resposta**, os **Cabeçalhos de resposta** e o **Conteúdo de resposta**.
 
-![Resposta][api-management-invoke-get-response]
+![Response][api-management-invoke-get-response]
 
 ## <a name="view-analytics"> </a>Exibir análise
 Para exibir a análise da Calculadora Básica, alterne para o portal do editor selecionando **Gerenciar** no menu na parte superior direita do portal do desenvolvedor.
@@ -183,7 +185,7 @@ Clique em **Exibir detalhes** para exibir a página de resumo da API, incluindo 
 
 ![Resumo][api-management-api-summary-metrics]
 
-Para obter métricas e relatórios detalhados, clique em **Análise** no menu **Gerenciamento de API** à esquerda.
+Para obter métricas e relatórios detalhados, clique em **Analytics** no menu **Gerenciamento de API** à esquerda.
 
 ![Visão geral][api-management-analytics-overview]
 
@@ -199,24 +201,24 @@ A seção **Análise** possui as quatro guias a seguir.
 
 [Avaliação gratuita do Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-[Create an API Management instance]: #create-service-instance
-[Create an API]: #create-api
-[Add an operation]: #add-operation
-[Add the new API to a product]: #add-api-to-product
-[Subscribe to the product that contains the API]: #subscribe
+[Criar uma instância de Gerenciamento de API]: #create-service-instance
+[Criar uma API]: #create-api
+[Adicionar uma operação]: #add-operation
+[Adicionar a nova API a um produto]: #add-api-to-product
+[Assinar o produto que contém a API]: #subscribe
 [Call an operation from the Developer Portal]: #call-operation
-[View analytics]: #view-analytics
-[Next steps]: #next-steps
+[Exibir análise]: #view-analytics
+[Próximas etapas]: #next-steps
 
 
-[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
-[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[Como gerenciar contas de desenvolvedor no Gerenciamento de API do Azure]: api-management-howto-create-or-invite-developers.md
+[Definir configurações de API]: api-management-howto-create-apis.md#configure-api-settings
 [Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure]: api-management-howto-configure-notifications.md
-[Responses]: api-management-howto-add-operations.md#responses
-[How create and publish a product]: api-management-howto-add-products.md
+[Respostas]: api-management-howto-add-operations.md#responses
+[Como criar e publicar um produto]: api-management-howto-add-products.md
 [Preços de Gerenciamento de API]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Portal Clássico do Azure]: https://manage.windowsazure.com/
+[Portal do Azure]: https://portal.azure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -253,4 +255,8 @@ A seção **Análise** possui as quatro guias a seguir.
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

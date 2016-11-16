@@ -1,5 +1,6 @@
-## Encadeamento de Serviço - Trânsito na rede virtual emparelhada
-Embora o uso de rotas do sistema facilite o tráfego automaticamente para a sua implantação, há casos em que você deseja controlar o roteamento de pacotes por meio de um dispositivo virtual. Nesse cenário, há duas VNets em uma assinatura, HubVNet e VNet1, como descrito no diagrama abaixo. Implante a NVA (Dispositivo de Rede Virtual) na VNet HubVNet. Depois de estabelecer o emparelhamento VNet entre HubVNet e VNet1, você pode configurar as Rotas Definidas pelo Usuário e especificar o próximo salto para NVA na HubVNet.
+## <a name="service-chaining-transit-through-peered-vnet"></a>Encadeamento de Serviço - Trânsito na rede virtual emparelhada
+Embora o uso de rotas do sistema facilite o tráfego automaticamente para a sua implantação, há casos em que você deseja controlar o roteamento de pacotes por meio de um dispositivo virtual.
+Nesse cenário, há duas VNets em uma assinatura, HubVNet e VNet1, como descrito no diagrama abaixo. Implante a NVA (Dispositivo de Rede Virtual) na VNet HubVNet. Depois de estabelecer o emparelhamento VNet entre HubVNet e VNet1, você pode configurar as Rotas Definidas pelo Usuário e especificar o próximo salto para NVA na HubVNet.
 
 ![Tráfego e NVA](./media/virtual-networks-create-vnetpeering-scenario-transit-include/figure01.PNG)
 
@@ -8,6 +9,10 @@ Embora o uso de rotas do sistema facilite o tráfego automaticamente para a sua 
 > 
 > 
 
-A principal propriedade para habilitar o Toteamento de tráfego é o parâmetro "Permitir Tráfego Encaminhado". Isso permite aceitar e enviar o tráfego de/para o NVA na VNet emparelhada.
+A principal propriedade para habilitar o Toteamento de tráfego é o parâmetro "Permitir Tráfego Encaminhado". Isso permite aceitar e enviar o tráfego de/para o NVA na VNet emparelhada.  
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

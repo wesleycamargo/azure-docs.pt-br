@@ -1,7 +1,7 @@
-## Configurar seu ambiente de desenvolvimento
+## <a name="set-up-your-development-environment"></a>Configurar seu ambiente de desenvolvimento
 Em seguida, configure seu ambiente de desenvolvimento no Visual Studio para que você fique pronto para experimentar os exemplos de código fornecidos neste guia.
 
-### Criar um projeto de aplicativo de console do Windows.
+### <a name="create-a-windows-console-application-project"></a>Criar um projeto de aplicativo de console do Windows.
 No Visual Studio, crie um novo aplicativo de console do Windows, conforme exibido:
 
 ![Criar aplicativo de console do Windows](./media/storage-development-environment-include/storage-development-environment-include-1.png)
@@ -10,7 +10,7 @@ Todos os exemplos de código neste tutorial podem ser adicionados ao método **M
 
 Observe que você pode usar a Biblioteca de Cliente da Armazenamento do Azure a partir de qualquer tipo de aplicativo .NET, incluindo um serviço de nuvem do Azure, um aplicativo Web do Azure, um aplicativo de desktop ou um aplicativo móvel. Neste guia, usamos um aplicativo de console para simplificar.
 
-### Use o NuGet para instalar os pacotes necessários
+### <a name="use-nuget-to-install-the-required-packages"></a>Use o NuGet para instalar os pacotes necessários
 Há dois pacotes que você precisará instalar em seu projeto para concluir este tutorial:
 
 * [Biblioteca de Cliente de Armazenamento do Microsoft Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): este pacote fornece acesso programático aos recursos de dados em sua conta de armazenamento.
@@ -18,7 +18,7 @@ Há dois pacotes que você precisará instalar em seu projeto para concluir este
 
 Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
 
-1. Clique com o botão direito do mouse no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**.
+1. Clique com o botão direito do mouse no seu projeto no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**.
 2. Pesquise online por "Windowsazure.Storage" e clique em **Instalar** para instalar a Biblioteca de Cliente de Armazenamento e suas dependências.
 3. Pesquise online por "ConfigurationManager" e clique em **Instalar** para instalar o Gerenciador de Configuração do Azure.
 
@@ -29,7 +29,7 @@ Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
 > 
 > 
 
-### Determinar o ambiente de destino
+### <a name="determine-your-target-environment"></a>Determinar o ambiente de destino
 Você tem duas opções de ambiente para executar os exemplos neste guia:
 
 * Você pode executar o código em uma conta de Armazenamento do Azure na nuvem. 
@@ -42,8 +42,8 @@ Se você estiver selecionando uma conta de armazenamento na nuvem, copie a chave
 > 
 > 
 
-### Configurar a cadeia de conexão de armazenamento
-A Biblioteca de Cliente de Armazenamento do Azure para .NET oferece suporte ao uso de uma cadeia de conexão de armazenamento para configurar pontos de extremidade e credenciais para acesso a serviços de armazenamento. A melhor maneira de manter a cadeia de conexão de armazenamento é em um arquivo de configuração.
+### <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de conexão de armazenamento
+A Biblioteca de Cliente de Armazenamento do Azure para .NET oferece suporte ao uso de uma cadeia de conexão de armazenamento para configurar pontos de extremidade e credenciais para acesso a serviços de armazenamento. A melhor maneira de manter a cadeia de conexão de armazenamento é em um arquivo de configuração. 
 
 Para obter mais detalhes sobre as sequências de conexão, veja [Configurar uma cadeia de conexão para o Armazenamento do Azure](../articles/storage/storage-configure-connection-string.md).
 
@@ -71,4 +71,8 @@ Para direcionar o emulador de armazenamento, você pode usar um atalho que mapei
 
     <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

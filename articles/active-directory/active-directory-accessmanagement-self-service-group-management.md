@@ -1,30 +1,36 @@
 ---
-title: Configurando o Active Directory do Azure para gerenciamento de acesso de aplicativos de autoatendimento | Microsoft Docs
-description: O gerenciamento de grupos de autoatendimento permite que os usuários criem e gerenciem grupos de segurança ou grupos do Office 365 no Azure Active Directory e oferece aos usuários a possibilidade de solicitar associações ao grupo de segurança ou ao grupo do Office 365
+title: Configurando o Azure Active Directory para gerenciamento de acesso de aplicativos de autoatendimento | Microsoft Docs
+description: "O gerenciamento de grupos de autoatendimento permite que os usuários criem e gerenciem grupos de segurança ou grupos do Office 365 no Azure Active Directory e oferece aos usuários a possibilidade de solicitar associações ao grupo de segurança ou ao grupo do Office 365"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 904d5c70-c34a-46c4-a9a7-d1efecf4821c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
+
 
 ---
-# Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento
+# <a name="setting-up-azure-active-directory-for-selfservice-group-management"></a>Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento
 O gerenciamento de grupo de autoatendimento habilita os usuários a criar e gerenciar grupos de segurança ou grupos do Office 365 no Azure Active Directory (Azure AD). Os usuários também podem solicitar associações ao grupo de segurança ou ao grupo do Office 365, e o proprietário do grupo pode aprovar ou recusar a associação. Assim, o controle diário da associação de grupo pode ser delegado a pessoas que compreendem o contexto de negócios da associação. Os recursos de gerenciamento de grupo de autoatendimento só estão disponíveis para grupos de segurança e para grupos do Office 365, mas não para grupos de segurança habilitados para email ou listas de distribuição.
 
 Atualmente, o gerenciamento de grupo de autoatendimento é composto de dois cenários essenciais:gerenciamento de grupo delegado e gerenciamento de grupo de autoatendimento.
 
-* **Gerenciamento de grupo delegado** Um exemplo é um administrador que está gerenciando o acesso a um aplicativo SaaS que a empresa está usando. O gerenciamento desses direitos de acesso está se tornando inconveniente, portanto esse administrador solicita ao proprietário de negócios para criar um novo grupo. O administrador atribui acesso ao aplicativo para o novo grupo e adiciona ao grupo todas as pessoas que já acessam o aplicativo. O proprietário da empresa pode então adicionar mais usuários, e os usuários são automaticamente provisionados para o aplicativo. O proprietário da empresa não precisa esperar que o administrador gerencie o acesso para usuários. Se o administrador conceder a mesma permissão a um gerente de um grupo de negócios diferente, essa pessoa também poderá gerenciar o acesso para seus próprios usuários. O proprietário da empresa ou o gerente não podem exibir nem gerenciar os usuários uns dos outros. O administrador ainda pode ver todos os usuários que têm acesso ao aplicativo e direitos de acesso de bloco, se necessário.
-* **Gerenciamento de grupo de autoatendimento** Um exemplo deste cenário consiste em dois usuários que têm sites do SharePoint Online que eles configuram de forma independente. Eles desejam fornecer às equipes um do outro acesso a seus sites. Para isso, eles podem criar um grupo no Azure AD e, no SharePoint Online, cada um seleciona esse grupo para fornecer acesso a seus sites. Quando alguém deseja acesso, solicita do painel de acesso, e depois da aprovação obtêm acesso a ambos os sites do SharePoint Online automaticamente. Posteriormente, um deles decide que todas as pessoas que acessam o site também devem obter acesso a determinado aplicativo SaaS. O administrador do aplicativo SaaS pode adicionar direitos de acesso ao aplicativo para o site do SharePoint Online. Depois, as solicitações que forem aprovadas darão acesso aos dois sites do SharePoint Online e também ao aplicativo SaaS.
+* **Gerenciamento de grupo delegado**
+    Um exemplo é um administrador que está gerenciando o acesso a um aplicativo SaaS que a empresa está usando. O gerenciamento desses direitos de acesso está se tornando inconveniente, portanto esse administrador solicita ao proprietário de negócios para criar um novo grupo. O administrador atribui acesso ao aplicativo para o novo grupo e adiciona ao grupo todas as pessoas que já acessam o aplicativo. O proprietário da empresa pode então adicionar mais usuários, e os usuários são automaticamente provisionados para o aplicativo. O proprietário da empresa não precisa esperar que o administrador gerencie o acesso para usuários. Se o administrador conceder a mesma permissão a um gerente de um grupo de negócios diferente, essa pessoa também poderá gerenciar o acesso para seus próprios usuários. O proprietário da empresa ou o gerente não podem exibir nem gerenciar os usuários uns dos outros. O administrador ainda pode ver todos os usuários que têm acesso ao aplicativo e direitos de acesso de bloco, se necessário.
+* **Gerenciamento de grupo de autoatendimento**
+    Um exemplo deste cenário consiste em dois usuários que têm sites do SharePoint Online que eles configuram de forma independente. Eles desejam fornecer às equipes um do outro acesso a seus sites. Para isso, eles podem criar um grupo no Azure AD e, no SharePoint Online, cada um seleciona esse grupo para fornecer acesso a seus sites. Quando alguém deseja acesso, solicita do painel de acesso, e depois da aprovação obtêm acesso a ambos os sites do SharePoint Online automaticamente. Posteriormente, um deles decide que todas as pessoas que acessam o site também devem obter acesso a determinado aplicativo SaaS. O administrador do aplicativo SaaS pode adicionar direitos de acesso ao aplicativo para o site do SharePoint Online. Depois, as solicitações que forem aprovadas darão acesso aos dois sites do SharePoint Online e também ao aplicativo SaaS.
 
-## Disponibilização de um grupo para o usuário final de autoatendimento
+## <a name="making-a-group-available-for-end-user-selfservice"></a>Disponibilização de um grupo para o usuário final de autoatendimento
 1. No [portal clássico do Azure](https://manage.windowsazure.com), abra o diretório do Azure AD.
 2. Na guia **Configurar**, defina **Gerenciamento de grupo delegado** como Habilitado.
 3. Defina **Os usuários podem criar grupos de segurança** ou **Os usuários podem criar grupos do Office** como Habilitado.
@@ -35,7 +41,7 @@ Você também pode usar **Usuários que podem usar o autoatendimento para grupos
 
 Você também pode usar a caixa **Grupo que pode usar autoatendimento para grupos de segurança** para especificar um nome personalizado para um grupo cujos membros podem usar o autoatendimento.
 
-## Informações adicionais
+## <a name="additional-information"></a>Informações adicionais
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
@@ -44,4 +50,9 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

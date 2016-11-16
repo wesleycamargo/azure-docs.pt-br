@@ -1,4 +1,4 @@
-## Definindo uma política de backup
+## <a name="defining-a-backup-policy"></a>Definindo uma política de backup
 Uma política de backup define uma matriz de quando os instantâneos de dados são obtidos e por quanto tempo esses instantâneos são mantidos. Ao definir uma política para fazer backup de uma VM, você pode disparar um trabalho de backup *uma vez por dia*. Quando você cria uma nova política, ela é aplicada ao cofre. A interface da política de backup fica assim:
 
 ![Política do backup](./media/backup-create-policy-for-vms/backup-policy.png)
@@ -26,4 +26,8 @@ Para criar uma política:
    
     A nova política será aplicada imediatamente no cofre.
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

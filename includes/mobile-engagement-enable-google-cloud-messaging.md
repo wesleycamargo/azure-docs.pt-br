@@ -12,6 +12,8 @@
 5. Clique na guia **Mensagens de Nuvem** na parte superior. 
 6. Anote a **Chave do Servidor** e a **ID do Remetente** que você usará posteriormente no *Arquivo de Manifesto do Android*.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -5,9 +5,9 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-sql-data-warehouse
-
+ms.assetid: ac7ddaa7-a3a5-4e15-b3cf-c696d2d105df
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 960225117a1c9b0802004455353fb9015a80b07b
+
 
 ---
 # <a name="load-data-with-azure-data-factory"></a>Carregar dados com o Azure Data Factory
@@ -50,7 +54,7 @@ Antes de iniciar este tutorial, você precisa ter os recursos a seguir:
 ## <a name="step-1-copy-sample-data-to-azure-storage-blob"></a>Etapa 1: copiar dados de exemplo para o Blob de Armazenamento do Azure
 Depois que todas as partes estiverem prontas, você estará pronto para copiar dados de exemplo para o Blob de Armazenamento do Azure.
 
-1. [Baixe os dados de exemplo][Baixe os dados de exemplo]. Esses dados adicionam outros três anos de dados de vendas aos dados de exemplo de AdventureWorksDW.
+1. [Baixe dados de exemplo][Baixe dados de exemplo]. Esses dados adicionam outros três anos de dados de vendas aos dados de exemplo de AdventureWorksDW.
 2. Use este comando do AZCopy para copiar os três anos de dados para o Blob de Armazenamento do Azure.
    
     ````
@@ -60,7 +64,7 @@ Depois que todas as partes estiverem prontas, você estará pronto para copiar d
 ## <a name="step-2-connect-resources-to-azure-data-factory"></a>Etapa 2: conectar recursos ao Azure Data Factory
 Agora que os dados estão no lugar certo, podemos criar o pipeline do Azure Data Factory para mover os dados do armazenamento de blob do Azure para o SQL Data Warehouse.
 
-Para começar, abra o [Portal do Azure][Portal do Azure] e selecione o data factory no menu à esquerda.
+Para começar, abra o [Portal do Azure][Portal do Azure] e selecione o seu data factory no menu à esquerda.
 
 ### <a name="step-21-create-linked-service"></a>Etapa 2.1: criar serviço vinculado
 Vincule sua conta de armazenamento do Azure e oi SQL Data Warehouse ao data factory.  
@@ -193,12 +197,12 @@ Na seção 'Criar e Implantar', clique em 'Mais Comandos' e em 'Novo Pipeline'. 
 Para saber mais, comece exibindo o seguinte:
 
 * [Roteiro de aprendizagem do Azure Data Factory][Roteiro de aprendizagem do Azure Data Factory].
-* [Conector do SQL Data Warehouse do Azure][Conector do SQL Data Warehouse do Azure]. Este é o tópico de referência principal para usar o Azure Data Factory com o SQL Data Warehouse do Azure.
+* [Conector do Azure SQL Data Warehouse][Conector do Azure SQL Data Warehouse]. Este é o tópico de referência principal para usar o Azure Data Factory com o SQL Data Warehouse do Azure.
 
 Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Eles abordam o Banco de Dados SQL do Azure ou o HDinsight, mas as informações também se aplicam ao SQL Data Warehouse do Azure.
 
 * [Tutorial: introdução ao Azure Data Factory][Tutorial: introdução ao Azure Data Factory] Este é o tutorial principal para processar dados com o Azure Data Factory. Neste tutorial, você criará seu primeiro pipeline que usa HDInsight para transformar e analisar logs da web mensalmente. Observe que não há nenhuma atividade de cópia neste tutorial.
-* [Tutorial: Copiar dados do Blob de Armazenamento do Azure para o Banco de Dados Azure SQL][Tutorial: Copiar dados do Blob de Armazenamento do Azure para o Banco de Dados Azure SQL]. Neste tutorial, você criará um pipeline no Azure Data Factory para copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure.
+* [Tutorial: Copiar dados de Blob de armazenamento do Azure para o banco de dados SQL][Tutorial: copiar dados do Azure Storage Blob para o Banco de Dados SQL do Azure]. Neste tutorial, você criará um pipeline no Azure Data Factory para copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure.
 
 <!--Image references-->
 
@@ -226,6 +230,6 @@ Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Ele
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

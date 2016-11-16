@@ -1,12 +1,12 @@
 ---
-title: Linha de base de solução de auditoria e segurança do Operations Management Suite | Microsoft Docs
-description: Este documento explica como usar a solução de Segurança e Auditoria do OMS para realizar uma avaliação de linha de base de todos os computadores monitorados para fins de conformidade e segurança.
+title: "Linha de base de solução de auditoria e segurança do Operations Management Suite | Microsoft Docs"
+description: "Este documento explica como usar a solução de Segurança e Auditoria do OMS para realizar uma avaliação de linha de base de todos os computadores monitorados para fins de conformidade e segurança."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 17837c8b-3e79-47c0-9b83-a51c6ca44ca6
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1c3e2cf86a33f9bbe6b34f4f52b82a078b91661f
+
 
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Avaliação de linha de base na Solução de Auditoria e Segurança do Operations Management Suite
 Este documento o ajuda a usar os recursos de avaliação da linha de base da [Solução de Segurança e Auditoria do Operations Management Suite (OMS)](operations-management-suite-overview.md) para acessar o estado de segurança de seus recursos monitorados.
 
-## <a name="what-is-baseline-assessment?"></a>O que é a Avaliação de Linha de Base?
+## <a name="what-is-baseline-assessment"></a>O que é a Avaliação de Linha de Base?
 A Microsoft, juntamente com organizações governamentais e do setor no mundo todo, define uma configuração do Windows que representa implantações de servidor altamente seguras. Essa configuração é um conjunto de chaves do registro, configurações de política de auditoria e configurações de política de segurança, juntamente com os valores recomendados da Microsoft para essas configurações. Esse conjunto de regras é conhecido como linha de base de Segurança. Recursos de avaliação da linha de base de Segurança e Auditoria do OMS podem examinar perfeitamente todos os seus computadores para fins de conformidade. 
 
 Há três tipos de regras:
@@ -80,6 +84,9 @@ Neste documento, você aprendeu sobre a avaliação de linha de base da Seguran�
 * [Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite](oms-security-responding-alerts.md)
 * [Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

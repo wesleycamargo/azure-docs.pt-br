@@ -33,7 +33,7 @@
 # Como
 
 ## Planejar e projetar
-### [Práticas recomendadas para o Serviço de Aplicativo do Azure](app-service-best-practices.md)
+### [Práticas Recomendadas para o Serviço de Aplicativo do Azure](app-service-best-practices.md)
 ### [Serviço de Aplicativo do Azure e serviços existentes do Azure](app-service-changes-existing-services.md)
 ### [Visão geral do cache local](../app-service/app-service-local-cache.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Detalhes dos planos do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -55,6 +55,9 @@
 ## Desenvolver
 ### [Adicionar funcionalidade ao seu primeiro aplicativo Web](app-service-web-get-started-2.md)
 ### [Criar um aplicativo Web](app-service-linux-how-to-create-a-web-app.md)
+### [Referência do Serviço de Aplicativo](app-service-changes-existing-services.md)
+### [Portal do Azure](app-service-web-app-azure-portal.md)
+### [SDK de WebJobs](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### Aplicativos ASP.NET
 #### [Implantar seu primeiro aplicativo Web .NET no Azure em cinco minutos](app-service-web-get-started-dotnet.md)
@@ -243,9 +246,10 @@
 ### [Solucionar problemas de desempenho do aplicativo Web](app-service-web-troubleshoot-performance-degradation.md)
 
 # Referência
-## [Referência do Serviço de Aplicativo](app-service-changes-existing-services.md)
-## [Portal do Azure](app-service-web-app-azure-portal.md)
-## [SDK de WebJobs](websites-dotnet-webjobs-sdk-get-started.md)
+## [CLI do Azure](/cli/azure/)
+## [Java](/java/api/)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/appservice)
 
 # Relacionados
 ## [Notas de versão do SDK do Azure para .NET](azure-sdk-dotnet-release-notes.md)

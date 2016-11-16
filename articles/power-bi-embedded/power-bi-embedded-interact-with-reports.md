@@ -1,13 +1,13 @@
 ---
-title: Interagir com relatórios usando a API JavaScript | Microsoft Docs
-description: Power BI Embedded, interagir com relatórios usando a API JavaScript
+title: "Interagir com relatórios usando a API JavaScript | Microsoft Docs"
+description: "Power BI Embedded, interagir com relatórios usando a API JavaScript"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+
 
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagir com relatórios do Power BI usando a API JavaScript
@@ -30,7 +34,7 @@ O iframe torna o processo de incorporação muito mais fácil, mas sem a API Jav
 
 A API JavaScript do Power BI permite que você escreva código que possa passar com segurança pelo limite do iframe. Isso permite que seu aplicativo execute programaticamente uma ação em um relatório e escute eventos de ações que os usuários fazem no relatório.
 
-## <a name="what-can-you-do-with-the-power-bi-javascript-api?"></a>O que você pode fazer com a API JavaScript do Power BI?
+## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>O que você pode fazer com a API JavaScript do Power BI?
 Com a API JavaScript você pode gerenciar relatórios, navegar pelas páginas de um relatório, filtrar um relatório e manipular eventos de inserção. O diagrama a seguir mostra a estrutura da API.
 
 ![Diagrama da API JavaScript do Power BI](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
@@ -132,6 +136,9 @@ Para saber mais sobre a API JavaScript do Power BI, confira os links a seguir:
   * [Ember](https://github.com/Microsoft/powerbi-ember)
 * [Demonstração ao vivo](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

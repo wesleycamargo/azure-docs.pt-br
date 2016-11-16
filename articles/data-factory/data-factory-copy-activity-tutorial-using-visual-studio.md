@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio | Microsoft Docs'
-description: Neste tutorial, você cria um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Visual Studio.
+title: "Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio | Microsoft Docs"
+description: "Neste tutorial, você cria um pipeline do Azure Data Factory com uma Atividade de Cópia usando o Visual Studio."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 1751185b-ce0a-4ab2-a9c3-e37b4d149ca3
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/17/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
@@ -59,7 +63,7 @@ Eis as etapas executadas como parte deste tutorial:
     ![Caixa de diálogo Novo projeto](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
 3. Insira um **nome** para o projeto, o **local**, um nome para a **solução** e clique em **OK**.
    
-    ![Gerenciador de Soluções](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png) 
+    ![Gerenciador de Soluções](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 Serviços vinculados vinculam armazenamentos de dados ou serviços de computação para uma data factory do Azure. Confira [repositórios de dados com suporte](data-factory-data-movement-activities.md##supported-data-stores-and-formats) para ver todas as fontes e coletores com suporte da Atividade de Cópia. Confira os [serviços vinculados de computação](data-factory-compute-linked-services.md) para ver uma lista dos serviços de computação com suporte do Data Factory. Neste tutorial, você não usa nenhum serviço de computação. 
@@ -137,7 +141,7 @@ Nesta etapa, você criará um conjunto de dados denominado **InputDataset** que 
    * **linkedServiceName** é definido como **AzureStorageLinkedService**. Você criou esse serviço vinculado na Etapa 2.
    * **folderPath** é definido como o contêiner **adftutorial**. Você também pode especificar o nome de um blob dentro da pasta usando a propriedade **fileName** . Como você não está especificando o nome do blob, dados de todos os blobs no contêiner são considerados como um entrada de dados.  
    * O **tipo** do formato é definido como **TextFormat**
-   * Há dois campos no arquivo de texto, **FirstName** e **LastName**, separados por uma vírgula (**columnDelimiter**) 
+   * Há dois campos no arquivo de texto, **FirstName** e **LastName**, separados por uma vírgula (**columnDelimiter**)    
    * A **availability** é definida como **hourly** (a **frequency** definida como **hour** e o **interval** é definido como **1**). Portanto, o Data Factory procurará dados de entrada a cada hora na pasta raiz do contêiner de blob (**adftutorial**) especificado. 
    
    Se você não especificar um **fileName** para um conjunto de dados de **entrada**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn.
@@ -269,7 +273,7 @@ Você criou tabelas e serviços vinculados de entrada/saída até o momento. Ago
    
    No exemplo anterior, há 24 fatias de dados, pois cada fatia de dados é produzida a cada hora.
 
-## <a name="publish/deploy-data-factory-entities"></a>Publicar/implantar entidades de data factory
+## <a name="publishdeploy-data-factory-entities"></a>Publicar/implantar entidades de data factory
 Nesta etapa, você publica as entidades de Data Factory (serviços vinculados, conjuntos de dados e pipeline) criadas anteriormente. Você também pode especificar o nome do novo data factory a ser criado para manter essas entidades.  
 
 1. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e clique em **Publicar**. 
@@ -283,7 +287,7 @@ Nesta etapa, você publica as entidades de Data Factory (serviços vinculados, c
    2. Digite **VSTutorialFactory** para **Nome**.  
       
       > [!IMPORTANT]
-      > O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber um erro sobre o nome do data factory durante a publicação, altere o nome (por exemplo, seunomeVSTutorialFactory) e tente publicar novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.     
+      > O nome da data factory do Azure deve ser globalmente exclusivo. Se você receber um erro sobre o nome do data factory durante a publicação, altere o nome (por exemplo, seunomeVSTutorialFactory) e tente publicar novamente. Consulte o tópico [Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura para artefatos de Data Factory.        
       > 
       > 
    3. Selecione a assinatura do Azure no campo **Assinatura** .
@@ -292,17 +296,18 @@ Nesta etapa, você publica as entidades de Data Factory (serviços vinculados, c
       > Se você não vir nenhuma assinatura, verifique se está conectado usando uma conta que seja administrador ou coadministrador da assinatura.  
       > 
       > 
-   4. Selecione o **grupo de recursos** para o data factory a ser criado. 5. Selecione a **região** do data factory. Apenas as regiões com suporte pelo serviço Data Factory são mostradas na lista suspensa.
-5. Clique em **Avançar** para alternar para a página **Publicar Itens**.
-   
-        ![Configurar página de data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/configure-data-factory-page.png)   
-6. Na página **Publicar Itens**, verifique se todas as entidades de Data Factories estão selecionadas e clique em **Avançar** para alternar para a página **Resumo**.
+   4. Selecione o **grupo de recursos** para o data factory a ser criado. 
+   5. Selecione a **região** do data factory. Apenas as regiões com suporte pelo serviço Data Factory são mostradas na lista suspensa.
+   6. Clique em **Avançar** para alternar para a página **Publicar Itens**.
+      
+       ![Configurar página de data factory](media/data-factory-copy-activity-tutorial-using-visual-studio/configure-data-factory-page.png)   
+5. Na página **Publicar Itens**, verifique se todas as entidades de Data Factories estão selecionadas e clique em **Avançar** para alternar para a página **Resumo**.
    
    ![Publicar página de item](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-items-page.png)     
-7. Examine o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
+6. Examine o resumo e clique em **Avançar** para iniciar o processo de implantação e exibir o **Status da Implantação**.
    
    ![Publicar página de resumo](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png)
-8. Na página **Status da Implantação** , você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado. 
+7. Na página **Status da Implantação** , você deve ver o status do processo de implantação. Clique em Concluir depois que a implantação tiver terminado. 
    ![Página Status da implantação](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png) Observe os seguintes pontos: 
 
 * Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente: 
@@ -327,7 +332,7 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 
 1. Foi criado um **data factory**do Azure.
 2. Foram criados **serviços vinculados**:
-   1. Um serviço vinculado do **Armazenamento do Azure** para vincular sua conta do Armazenamento do Azure que contém os dados de entrada.    
+   1. Um serviço vinculado do **Armazenamento do Azure** para vincular sua conta do Armazenamento do Azure que contém os dados de entrada.     
    2. Um serviço vinculado do **SQL Azure** para vincular o banco de dados SQL do Azure que contém os dados de saída. 
 3. Foram criados **conjuntos de dados**que descrevem os dados de entrada e de saída para os pipelines.
 4. Foi criado um **pipeline** com uma **Atividade de Cópia** com **BlobSource** como origem e **SqlSink** como coletor. 
@@ -357,6 +362,9 @@ Confira [Monitorar os conjuntos de dados e o pipeline](data-factory-copy-activit
 | [Conjunto de dados](data-factory-create-datasets.md) |Este artigo o ajuda a entender os conjuntos de dados no Azure Data Factory. |
 | [Monitorar e gerenciar pipelines usando o Aplicativo de Monitoramento](data-factory-monitor-manage-app.md) |Este artigo descreve como monitorar, gerenciar e depurar seus pipelines usando o Aplicativo de Monitoramento e Gerenciamento. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

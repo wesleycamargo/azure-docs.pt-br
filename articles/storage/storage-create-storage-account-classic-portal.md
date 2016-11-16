@@ -1,27 +1,31 @@
 ---
-title: Como criar, gerenciar ou excluir uma conta de armazenamento no Portal Clássico do Azure | Microsoft Docs
+title: "Como criar, gerenciar ou excluir uma conta de armazenamento no Portal Clássico do Azure | Microsoft Docs"
 description: Crie uma nova conta de armazenamento, gerencie as chaves de acesso de sua conta ou exclua uma conta de armazenamento no Portal do Azure. Saiba mais sobre contas de armazenamento standard e premium.
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/26/2016
-ms.author: micurd;robinsh
+ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 90e9fcf933173b5609eff70fa1ce4bfa027fee3d
+
 
 ---
-# Sobre as contas de armazenamento do Azure
+# <a name="about-azure-storage-accounts"></a>Sobre as contas de armazenamento do Azure
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 Uma conta de armazenamento do Azure fornece acesso aos serviços de Blob, Fila, Tabela e Arquivo no Armazenamento do Azure. Sua conta de armazenamento fornece um namespace exclusivo para os objetos de dados de Armazenamento do Azure. Por padrão, os dados em sua conta estão disponíveis somente para você, o proprietário da conta.
 
 Existem dois tipos de contas de armazenamento:
@@ -29,13 +33,13 @@ Existem dois tipos de contas de armazenamento:
 * Uma conta de armazenamento padrão inclui armazenamento de Blob, Tabela e Fila.
 * Atualmente, uma conta de armazenamento premium dá suporte apenas aos discos de máquina virtual do Azure. Confira [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](storage-premium-storage.md) para ter uma visão geral detalhada do Armazenamento Premium.
 
-## Cobrança de conta de armazenamento
+## <a name="storage-account-billing"></a>Cobrança de conta de armazenamento
 Você é cobrado pelo uso do Armazenamento do Azure com base na sua conta de armazenamento. Os custos de armazenamento baseiam-se em quatro fatores: capacidade de armazenamento, esquema de replicação, transações de armazenamento e saída de dados.
 
 * A capacidade do armazenamento refere-se a quanto de sua alocação de conta de armazenamento você está usando para armazenar dados. O custo de simplesmente armazenar seus dados é determinado pela quantidade de dados que você está armazenando e como eles são replicados.
 * A replicação determina quantas cópias dos seus dados são mantidas de uma só vez e em quais locais.
 * As transações referem-se a todas as operações de leitura e gravação no Armazenamento do Azure.
-* A saída de dados refere-se a dados transferidos para fora de uma região do Azure. Quando os dados de sua conta de armazenamento são acessados por um aplicativo que não está sendo executado na mesma região, quer esse aplicativo seja um serviço de nuvem ou algum outro tipo de aplicativo, você é cobrado pela saída de dados. (Nos serviços do Azure, você pode tomar medidas para agrupar seus dados e serviços nos mesmos data centers para reduzir ou eliminar encargos de saída de dados.)
+* A saída de dados refere-se a dados transferidos para fora de uma região do Azure. Quando os dados de sua conta de armazenamento são acessados por um aplicativo que não está sendo executado na mesma região, quer esse aplicativo seja um serviço de nuvem ou algum outro tipo de aplicativo, você é cobrado pela saída de dados. (Nos serviços do Azure, você pode tomar medidas para agrupar seus dados e serviços nos mesmos data centers para reduzir ou eliminar encargos de saída de dados.)  
 
 A página [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage) fornece informações detalhadas de preços para a capacidade de armazenamento, replicação e transações. A página [Detalhes dos Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/) fornece informações detalhadas dos preços para a saída de dados.
 
@@ -46,7 +50,7 @@ Para obter detalhes sobre a capacidade e produtividade da conta de armazenamento
 > 
 > 
 
-## Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 1. Entre no [Portal Clássico do Azure](https://manage.windowsazure.com).
 2. Clique em **Novo** na barra de tarefas na parte inferior da página. Escolha **Serviços de Dados** | **Armazenamento** e clique em **Criação Rápida**.
    
@@ -66,7 +70,7 @@ Para obter detalhes sobre a capacidade e produtividade da conta de armazenamento
     Vale lembrar que você deve selecionar um grupo de afinidades durante a criação de sua conta de armazenamento. Não é possível mover uma conta existente para um grupo de afinidades. Para saber mais sobre grupos de afinidade, confira [Colocalização de serviços com um grupo de afinidade](#service-co-location-with-an-affinity-group) abaixo.
    
    > [!IMPORTANT]
-   > Para determinar quais locais estão disponíveis para sua assinatura, você poderá chamar a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx). Para listar provedores do PowerShell, chame [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). No .NET, use o método [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) da classe ProviderOperationsExtensions.
+   > Para determinar quais locais estão disponíveis para sua assinatura, você poderá chamar a operação [Listar todos os provedores de recursos](https://msdn.microsoft.com/library/azure/dn790524.aspx) . Para listar provedores do PowerShell, chame [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). No .NET, use o método [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) da classe ProviderOperationsExtensions.
    > 
    > Além disso, veja [Regiões do Azure](https://azure.microsoft.com/regions/#services) para obter mais informações sobre quais serviços estão disponíveis em uma região específica.
    > 
@@ -79,15 +83,15 @@ Para obter detalhes sobre a capacidade e produtividade da conta de armazenamento
 
 ![StoragePage](./media/storage-create-storage-account-classic-portal/Storage_StoragePage.png)
 
-### Pontos de extremidade da conta de armazenamento
+### <a name="storage-account-endpoints"></a>Pontos de extremidade da conta de armazenamento
 Cada objeto armazenado no Armazenamento do Azure tem um endereço de URL exclusivo. O nome da conta de armazenamento forma o subdomínio desse endereço. A combinação do nome do subdomínio e do domínio, que é específico a cada serviço, forma um *ponto de extremidade* para a sua conta de armazenamento.
 
 Por exemplo, se a sua conta de armazenamento se chamar *mystorageaccount*, os pontos de extremidade padrão para a conta de armazenamento serão:
 
-* Serviço blob: http://*mystorageaccount*.blob.core.windows.net
-* Serviço de tabela: http://*mystorageaccount*.table.core.windows.net
-* Serviço de fila: http://*mystorageaccount*.queue.core.windows.net
-* Serviço de arquivo: http://*mystorageaccount*.file.core.windows.net
+* Serviço Blob: http://*mystorageaccount*.blob.core.windows.net
+* Serviço Tabela: http://*mystorageaccount*.table.core.windows.net
+* Serviço Fila: http://*mystorageaccount*.queue.core.windows.net
+* Serviço Arquivo: http://*mystorageaccount*.file.core.windows.net
 
 É possível ver os pontos de extremidade da sua conta de armazenamento no painel de armazenamento do [Portal Clássico do Azure](https://manage.windowsazure.com) depois que a conta for criada.
 
@@ -95,7 +99,7 @@ A URL para acessar um objeto em uma conta de armazenamento é compilada acrescen
 
 Também é possível configurar um nome de domínio para usar com a conta de armazenamento. Confira [Configurar um nome de domínio personalizado para seu ponto de extremidade do armazenamento de blobs](storage-custom-domain-name.md) para obter detalhes.
 
-### Localização conjunta de serviço com grupo de afinidade
+### <a name="service-colocation-with-an-affinity-group"></a>Colocalização de serviços com um grupo de afinidade
 Um *grupo de afinidades* é um agrupamento geográfico de seus serviços Azure e VMs na conta de armazenamento do Azure. Um grupo de afinidade pode melhorar o desempenho do serviço localizando cargas de trabalho do computador no mesmo data center ou próximo do público-alvo de usuários. Além disso, não há encargos de cobrança incorridos para saída quando os dados em uma conta de armazenamento são acessados por um serviço em execução do mesmo grupo de afinidade.
 
 > [!NOTE]
@@ -103,7 +107,7 @@ Um *grupo de afinidades* é um agrupamento geográfico de seus serviços Azure e
 > 
 > 
 
-## exibir, copiar e regenerar chaves de acesso de armazenamento
+## <a name="view-copy-and-regenerate-storage-access-keys"></a>exibir, copiar e regenerar chaves de acesso de armazenamento
 Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso de armazenamento de 512 bits, que são usadas para autenticação quando a conta de armazenamento é acessada. Ao fornecer as duas chaves de acesso de armazenamento, o Azure permite que você regenere as chaves sem interrupção para o serviço de armazenamento ou o acesso a esse serviço.
 
 > [!NOTE]
@@ -113,10 +117,10 @@ Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso
 
 No [Portal Clássico do Azure](https://manage.windowsazure.com), use **Gerenciar Chaves** no painel ou a página **Armazenamento** para exibir, copiar e regenerar as chaves de acesso de armazenamento usadas para acessar os serviços Blob, Tabela e Fila.
 
-### Copiar uma chave de acesso de armazenamento
+### <a name="copy-a-storage-access-key"></a>Copiar uma chave de acesso de armazenamento
 Você pode usar **Gerenciar Chaves** para copiar uma chave de acesso de armazenamento para uso em uma cadeia de conexão. A cadeia de conexão requer o nome da conta de armazenamento e uma chave a ser usada na autenticação. Para saber mais sobre como configurar as cadeias de conexão para acessar os serviços de armazenamento do Azure, confira [Configurar Cadeias de Conexão de Armazenamento do Azure](storage-configure-connection-string.md).
 
-1. No [Portal Clássico do Azure](https://manage.windowsazure.com), clique em **Armazenamento** e no nome da conta de armazenamento para abrir o painel.
+1. No [Portal Clássico do Azure](https://manage.windowsazure.com), clique em **Armazenamento**e no nome da conta de armazenamento para abrir o painel.
 2. Clique em **Gerenciar Chaves**.
    
      **Gerenciar Chaves de Acesso** é aberta.
@@ -124,7 +128,7 @@ Você pode usar **Gerenciar Chaves** para copiar uma chave de acesso de armazena
     ![Managekeys](./media/storage-create-storage-account-classic-portal/Storage_ManageKeys.png)
 3. Para copiar uma chave de acesso de armazenamento, selecione o texto da chave. Em seguida, clique com o botão direito do mouse e clique em **Copiar**.
 
-### Regenerar chaves de acesso de armazenamento
+### <a name="regenerate-storage-access-keys"></a>Regenerar chaves de acesso de armazenamento
 Você deve alterar as chaves de acesso de sua conta de armazenamento periodicamente para ajudar a manter as conexões de armazenamento seguras. Duas chaves de acesso são atribuídas para que você possa manter conexões com a conta de armazenamento usando uma chave de acesso enquanto regenera a outra.
 
 > [!WARNING]
@@ -134,7 +138,7 @@ Você deve alterar as chaves de acesso de sua conta de armazenamento periodicame
 
 **Serviços de mídia** - se algum serviço de mídia depender de sua conta de armazenamento, você deverá ressincronizar as chaves de acesso com o serviço de mídia depois de regenerá-las.
 
-**Aplicativos** - se você tiver algum aplicativo Web ou serviços de nuvem que usam a conta de armazenamento, perderá as conexões se regenerar as chaves, a menos que você as reverta.
+**Aplicativos** - se você tiver algum aplicativo Web ou serviços de nuvem que usam a conta de armazenamento, perderá as conexões se regenerar as chaves, a menos que você as reverta. 
 
 **Gerenciadores de Armazenamento** - se você estiver usando qualquer [aplicativo do gerenciador de armazenamento](storage-explorers.md), provavelmente precisará atualizar a chave de armazenamento usada por esses aplicativos.
 
@@ -145,7 +149,7 @@ Veja o processo para trocar suas chaves de acesso de armazenamento:
 3. Atualize as cadeias de conexão em seu código para fazer referência à nova chave de acesso primária.
 4. Regenere a chave de acesso secundária.
 
-## Excluir uma conta de armazenamento
+## <a name="delete-a-storage-account"></a>Excluir uma conta de armazenamento
 Para remover uma conta de armazenamento que você não esteja mais usando, use **Excluir** no painel ou na página **Configurar**. **Excluir** exclui a conta de armazenamento inteira, incluindo todos os blobs, tabelas e filas da conta.
 
 > [!WARNING]
@@ -163,9 +167,14 @@ Para remover uma conta de armazenamento que você não esteja mais usando, use *
     Clique no nome da conta de armazenamento para abrir o painel e, em seguida, clique em **Excluir**.
 3. Clique em **Sim** para confirmar que deseja excluir a conta de armazenamento.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre o Armazenamento do Azure, confira a [documentação do Armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/).
 * Visite o [Blog da equipe do Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 * [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

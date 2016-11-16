@@ -1,12 +1,12 @@
 ---
-title: Introdução à implantação e à atualização de aplicativos em seu cluster local | Microsoft Docs
+title: "Introdução à implantação e à atualização de aplicativos em seu cluster local | Microsoft Docs"
 description: Configure um cluster local do Service Fabric, implante um aplicativo existente nele e atualize esse aplicativo.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2016
 ms.author: ryanwi;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+
 
 ---
-# Introdução à implantação e à atualização de aplicativos em seu cluster local
+# <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Introdução à implantação e à atualização de aplicativos em seu cluster local
 O SDK do Service Fabric do Azure inclui um ambiente de desenvolvimento local completo que você pode usar para rapidamente começar a implantar e a gerenciar aplicativos em um cluster local. Neste artigo, você cria um cluster local, implantará um aplicativo existente nele e atualizará o aplicativo para uma nova versão, tudo do Windows PowerShell.
 
 > [!NOTE]
@@ -24,7 +28,7 @@ O SDK do Service Fabric do Azure inclui um ambiente de desenvolvimento local com
 > 
 > 
 
-## Criar um cluster local
+## <a name="create-a-local-cluster"></a>Criar um cluster local
 Um cluster do Service Fabric representa um conjunto de recursos de hardware em que você pode implantar aplicativos. Normalmente, um cluster é composto, em qualquer lugar, de cinco a muitos milhares de computadores. No entanto, o SDK do Service Fabric inclui uma configuração de cluster que pode ser executada em um único computador.
 
 O cluster local do Service Fabric não é um simulador ou um emulador. Ele executa o mesmo código de plataforma encontrado em clusters com vários computadores. A única diferença é que ele executa os processos de plataforma normalmente espalhados por cinco computadores em um só.
@@ -49,7 +53,7 @@ O SDK fornece duas maneiras de configurar um cluster local: um script do Windows
    
     Agora você está pronto para tentar implantar um aplicativo em seu cluster.
 
-## Implantar um aplicativo
+## <a name="deploy-an-application"></a>Implantar um aplicativo
 O SDK do Service Fabric inclui um conjunto avançado de estruturas e de ferramentas de desenvolvedor para a criação de aplicativos. Se você estiver interessado em aprender a criar aplicativos no Visual Studio, veja [Criar seu primeiro aplicativo do Service Fabric no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
 Neste tutorial, usaremos um aplicativo de exemplo existente (chamado WordCount) para que possamos nos concentrar nos aspectos de gerenciamento da plataforma, incluindo a implantação, o monitoramento e a atualização.
@@ -60,13 +64,13 @@ Neste tutorial, usaremos um aplicativo de exemplo existente (chamado WordCount) 
     ```powershell
     Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
     ```
-3. Crie um diretório para armazenar o aplicativo baixado e implantado, como C:\\ServiceFabric.
+3. Crie um diretório para armazenar o aplicativo baixado e implantado, como C:\ServiceFabric.
    
     ```powershell
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
-4. [Baixe o aplicativo WordCount](http://aka.ms/servicefabric-wordcountapp) para o local que você criou. Observação: o navegador Microsoft Edge salva o arquivo com uma extensão *.zip*. Altere a extensão do arquivo para *.sfpkg*.
+4. [Baixe o aplicativo WordCount](http://aka.ms/servicefabric-wordcountapp) para o local que você criou.  Observação: o navegador Microsoft Edge salva o arquivo com uma extensão *.zip* .  Altere a extensão do arquivo para *.sfpkg*.
 5. Conecte-se ao cluster local:
    
     ```powershell
@@ -89,7 +93,7 @@ Neste tutorial, usaremos um aplicativo de exemplo existente (chamado WordCount) 
    
     O aplicativo que implantamos contém quatro partições. Dessa forma, as palavras de A a G são armazenadas na primeira partição, as palavras iniciadas com H a N são armazenadas na segunda partição e assim por diante.
 
-## Exibir detalhes e o status do aplicativo
+## <a name="view-application-details-and-status"></a>Exibir detalhes e o status do aplicativo
 Agora que implantamos o aplicativo, vamos examinar alguns dos detalhes do aplicativo no PowerShell.
 
 1. Consulte todos os aplicativos implantados no cluster:
@@ -129,7 +133,7 @@ Agora que implantamos o aplicativo, vamos examinar alguns dos detalhes do aplica
    > 
    > 
 
-## Atualizar um aplicativo
+## <a name="upgrade-an-application"></a>Atualizar um aplicativo
 O Service Fabric oferece atualizações sem tempo de inatividade por meio do monitoramento da integridade do aplicativo à medida que ele percorre o cluster. Vamos fazer uma atualização simples do aplicativo WordCount.
 
 A nova versão do aplicativo agora conta somente as palavras que comecem por vogal. À medida que a atualização for distribuída, veremos duas alterações no comportamento do aplicativo. Primeiro, a taxa na qual a contagem aumenta deve ficar mais lenta, já que menos palavras serão contadas. Em segundo lugar, como a primeira partição tem duas vogais (A e E) e todas as outras partições contêm apenas uma, sua contagem eventualmente deverá começar a ultrapassar as outras.
@@ -162,8 +166,8 @@ A nova versão do aplicativo agora conta somente as palavras que comecem por vog
    
     ![Exibir a nova versão do aplicativo no navegador][deployed-app-ui-v2]
 
-## Limpando
-Antes da conclusão, é importante lembrar que o cluster local é real. Os aplicativos continuam sendo executados em segundo plano até você removê-los. Dependendo da natureza de seus aplicativos, um aplicativo em execução pode consumir recursos significativos em seu computador. Você tem várias opções para gerenciar aplicativos e o cluster:
+## <a name="cleaning-up"></a>Limpando
+Antes da conclusão, é importante lembrar que o cluster local é real. Os aplicativos continuam sendo executados em segundo plano até você removê-los.  Dependendo da natureza de seus aplicativos, um aplicativo em execução pode consumir recursos significativos em seu computador. Você tem várias opções para gerenciar aplicativos e o cluster:
 
 1. Para remover um aplicativo individual e todos os seus dados, execute o seguinte:
    
@@ -185,8 +189,10 @@ Antes da conclusão, é importante lembrar que o cluster local é real. Os aplic
 3. Para desativar o cluster, mas manter os dados e os rastreamentos do aplicativo, clique em **Parar Cluster Local** no aplicativo da bandeja do sistema.
 4. Para excluir totalmente o cluster, clique em **Remover Cluster Local** no aplicativo da bandeja do sistema. Essa opção resultará em outra implantação lenta na próxima vez que você pressionar F5 no Visual Studio. Só remova o cluster local se você não pretender usá-lo por algum tempo ou se precisar recuperar recursos.
 
-## Modo de cluster de um e cinco nós
-Ao trabalhar com o cluster local para desenvolver aplicativos, você geralmente acaba fazendo iterações rápidas entre a produção do código, depuração, alteração do código, depuração etc. Para ajudar a otimizar esse processo, o cluster local pode ser executado em dois modos: Um nó ou Cinco nós. Os dois modos de cluster têm seus benefícios. O modo de cluster de Cinco nós permite que você trabalhe com um cluster real. Você pode testar os cenários de failover, trabalhar com mais instâncias e réplicas de seus serviços. O modo de cluster de Um nó é otimizado para fazer implantação e registro rápidos de serviços, a fim de ajudar você a validar rapidamente o código usando o tempo de execução do Service Fabric.
+## <a name="1-node-and-5-node-cluster-mode"></a>Modo de cluster de um e cinco nós
+Ao trabalhar com o cluster local para desenvolver aplicativos, você geralmente acaba fazendo iterações rápidas entre a produção do código, depuração, alteração do código, depuração etc. Para ajudar a otimizar esse processo, o cluster local pode ser executado em dois modos: Um nó ou Cinco nós. Os dois modos de cluster têm seus benefícios.
+O modo de cluster de Cinco nós permite que você trabalhe com um cluster real. Você pode testar os cenários de failover, trabalhar com mais instâncias e réplicas de seus serviços.
+O modo de cluster de Um nó é otimizado para fazer implantação e registro rápidos de serviços, a fim de ajudar você a validar rapidamente o código usando o tempo de execução do Service Fabric.
 
 Os modos de cluster de um e de cinco nós não são emuladores ou simuladores. Ele executa o mesmo código de plataforma encontrado em clusters com vários computadores.
 
@@ -217,9 +223,9 @@ Se você estiver usando o Gerenciador de Cluster Local do Service Fabric:
 > 
 > 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Agora que você implantou e atualizou alguns aplicativos pré-compilados, poderá [tentar compilar seu próprio aplicativo no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
-* Todas as ações executadas no cluster local neste artigo também podem ser executadas em um [cluster do Azure](service-fabric-cluster-creation-via-portal.md).
+* Todas as ações executadas no cluster local neste artigo também podem ser executadas em um [cluster do Azure](service-fabric-cluster-creation-via-portal.md) .
 * A atualização que executamos neste artigo foi básica. Consulte a [documentação de atualização](service-fabric-application-upgrade.md) para saber mais sobre a eficiência e a flexibilidade das atualizações do Service Fabric.
 
 <!-- Images -->
@@ -242,4 +248,8 @@ Se você estiver usando o Gerenciador de Cluster Local do Service Fabric:
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 [switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

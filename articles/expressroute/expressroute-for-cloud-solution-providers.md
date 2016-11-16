@@ -1,12 +1,12 @@
 ---
-title: Rota Expressa do Azure para Provedores de Soluções na Nuvem | Microsoft Docs
-description: Este artigo fornece informações para Provedor de Soluções na Nuvem que desejam incorporar serviços do Azure e a Rota Expressa a suas ofertas.
+title: "ExpressRoute do Azure para Provedores de Soluções na Nuvem | Microsoft Docs"
+description: "Este artigo fornece informações para Provedor de Soluções na Nuvem que desejam incorporar serviços do Azure e a Rota Expressa a suas ofertas."
 documentationcenter: na
 services: expressroute
 author: richcar
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8f2c2253132d2c0ca8eefd975af2ac23f196afd0
+
 
 ---
-# <a name="expressroute-for-cloud-solution-providers-(csp)"></a>Rota Expressa para Provedores de Soluções na Nuvem (CSP)
+# <a name="expressroute-for-cloud-solution-providers-csp"></a>Rota Expressa para Provedores de Soluções na Nuvem (CSP)
 A Microsoft fornece serviços de Hyper-escala para revendedores e distribuidores tradicionais (CSP) poderem provisionar rapidamente novos serviços e soluções para seus clientes sem a necessidade de investir no desenvolvimento desses novos serviços. Para permitir que o Provedor de Soluções na Nuvem (CSP) tenha a capacidade de gerenciar esses novos serviços diretamente, a Microsoft oferece programas e APIs que permitem que o CSP gerencie recursos do Microsoft Azure em nome de seus clientes. Um desses recursos é a Rota Expressa. A Rota Expressa permite que o CSP conecte os recursos do cliente aos serviços do Azure. A Rota Expressa é um link de comunicações privado de alta velocidade para serviços do Azure. 
 
 A Rota Expressa é composta de um par de circuitos para alta disponibilidade conectados a uma única assinatura de cliente e não pode ser compartilhada por vários clientes. Cada circuito deve ser encerrado em um roteador diferente para manter a alta disponibilidade.
@@ -34,7 +38,7 @@ A Microsoft fornece CSPs com APIs para gerenciar as assinaturas de cliente do Az
 ## <a name="microsoft-azure-resource-management"></a>Gerenciamento de recursos do Microsoft Azure
 Dependendo do contrato que você tenha com o cliente, isso determinará como a assinatura será gerenciada. O CSP pode gerenciar diretamente a criação e a manutenção de recursos ou o cliente pode manter o controle da assinatura do Microsoft Azure e criar recursos necessário do Azure. Se o cliente gerenciar a criação de recursos na sua assinatura do Microsoft Azure, ele usará um destes dois modelos: o modelo “Connect-Through” ou o modelo “Direct-To”. Esses modelos serão descritos em detalhes nas seções a seguir.  
 
-### <a name="connect-through-model"></a>Modelo Connect-Through
+### <a name="connectthrough-model"></a>Modelo Connect-Through
 ![texto alt](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 No modelo Connect-Through, o CSP cria uma conexão direta entre seu datacenter e a assinatura do Azure do seu cliente. A conexão direta é feita usando a Rota Expressa, conectando a sua rede ao Azure. Em seguida, seu cliente se conecta à sua rede. Esse cenário requer que o cliente passe pela rede CSP para acessar os serviços do Azure. 
@@ -45,7 +49,7 @@ Para que o CSP gerencie serviços do Azure, supõe-se que o CSP tenha um armazen
 
 ![texto alt](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
-### <a name="connect-to-model"></a>Modelo Connect-To
+### <a name="connectto-model"></a>Modelo Connect-To
 ![texto alt](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 No modelo Connect-To, o provedor de serviço cria uma conexão direta entre o datacenter do cliente e a assinatura do Azure provisionada pelo CSP usando a Rota Expressa na rede do cliente.
@@ -78,10 +82,10 @@ A Rota Expressa oferece suporte à conexão de várias Redes Virtuais a um únic
 ## <a name="configuring-expressroute"></a>Configuração da Rota Expressa
 A Rota Expressa pode ser configurada para oferecer suporte a três tipos de tráfego ([domínios de roteamento](#ExpressRoute-routing-domains)) em um único circuito de Rota Expressa. Esse tráfego é dividido em emparelhamento da Microsoft, emparelhamento público e emparelhamento privado do Azure. Você pode escolher o envio de um ou de todos os tipos de tráfego em um único circuito de Rota Expressa ou usar vários circuitos de Rota Expressa, dependendo do tamanho do circuito de Rota Expressa e do isolamento exigidos pelo cliente. A postura de segurança do cliente pode não permitir o tráfego público e o tráfego privado no mesmo circuito.
 
-### <a name="connect-through-model"></a>Modelo Connect-Through
+### <a name="connectthrough-model"></a>Modelo Connect-Through
 Em uma configuração Connect-Through, você será responsável por todas as bases de rede conectadas a seus recursos de datacenter de clientes para as assinaturas hospedadas no Azure. Cada um dos seus clientes que quiser usar recursos do Azure terá sua própria conexão de Rota Expressa, que será gerenciada por você. Você usará os mesmos métodos que o cliente usaria para adquirir o circuito de Rota Expressa. Em seguida, você seguirá as mesmas etapas descritas no artigo [Fluxos de trabalho da Rota Expressa](expressroute-workflows.md) para o provisionamento de circuitos e os estados de circuito. Em seguida, você irá configurar as rotas BGP (Border Gateway Protocol) para controlar o tráfego que flui entre a rede local e a Rede Virtual do Azure.
 
-### <a name="connect-to-model"></a>Modelo Connect-To
+### <a name="connectto-model"></a>Modelo Connect-To
 Em uma configuração Connect-To, ou seu cliente já tem uma conexão existente com o Azure ou iniciará uma conexão com o provedor de serviços de Internet ao vincular a Rota Expressa do próprio datacenter do seu cliente diretamente ao Azure, em vez de ao seu datacenter. Para iniciar o processo de provisionamento, o cliente seguirá as etapas como descrito no modelo Connect-Through, acima. Depois que o circuito tiver sido estabelecido, seu cliente precisará configurar os roteadores locais para que eles possam acessar sua rede e as Redes Virtuais do Azure.
 
 Você pode auxiliar na configuração da conexão e na configuração das rotas para permitir que os recursos do seu datacenter também se comuniquem com os recursos do cliente em seu datacenter, ou com os recursos hospedados no Azure.
@@ -112,7 +116,7 @@ A tabela de rotas padrão inclui as seguintes rotas:
 
 ![texto alt](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
-### <a name="user-defined-routing-(udr)"></a>Roteamento definido pelo usuário (UDR)
+### <a name="userdefined-routing-udr"></a>Roteamento definido pelo usuário (UDR)
 As rotas definidas pelo usuário permitem o controle do tráfego de saída da sub-rede atribuída para outras sub-redes na rede virtual ou em um dos outros gateways predefinidos (Rota Expressa, Internet ou VPN). A tabela padrão de roteamento do sistema pode ser substituída por uma tabela de roteamento definida pelo usuário que substitua a tabela de roteamento padrão com rotas personalizadas. Com o roteamento definido pelo usuário, os clientes podem criar rotas específicas para dispositivos como firewalls ou dispositivos de detecção de intrusão, além de bloquear o acesso a sub-redes específicas da sub-rede que hospeda a rota definida pelo usuário. Para obter uma visão geral das Rotas Definidas pelo Usuário, entre [aqui](../virtual-network/virtual-networks-udr-overview.md). 
 
 ## <a name="security"></a>Segurança
@@ -134,6 +138,9 @@ Encontre mais informações nestes links:
 [Prepare-se para a transação como um Provedor de Soluções da Nuvem](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch).  
 [Recursos do Provedor de Soluções da Nuvem da Microsoft](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

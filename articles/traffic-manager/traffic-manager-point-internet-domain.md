@@ -1,40 +1,46 @@
 ---
-title: Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego | Microsoft Docs
-description: Este artigo ajudará a indicar o nome de domínio de sua empresa para um nome de domínio do Gerenciador de Tráfego.
+title: "Apontar um domínio de Internet da empresa para um nome de domínio do Gerenciador de Tráfego | Microsoft Docs"
+description: "Este artigo ajudará a indicar o nome de domínio de sua empresa para um nome de domínio do Gerenciador de Tráfego."
 services: traffic-manager
-documentationcenter: ''
+documentationcenter: 
 author: sdwheeler
 manager: carmonm
-editor: tysonn
-
+editor: 
+ms.assetid: 29822946-2d45-4434-ba47-fc180a445cc3
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2016
+ms.date: 10/11/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 16602ca37e3b62fc628ec3178e6f65e32fc3d345
 
 ---
-# Apontar um domínio de Internet da empresa para um Domínio do Gerenciador de Tráfego do Azure.
-Para apontar o nome de domínio da empresa para um nome de domínio do Gerenciador de Tráfego, modifique o registro de recurso DNS no servidor DNS da Internet para usar o tipo de registro CNAME, que mapeia o nome de domínio da empresa para o nome de domínio do seu perfil do Gerenciador de Tráfego. Você pode ver o nome do domínio do Gerenciador de Tráfego na seção **Geral** da página Configuração do perfil do Gerenciador de Tráfego.
 
-Por exemplo, para apontar o nome de domínio de empresa www.contoso.com para o nome de domínio do Gerenciador de Tráfego contoso.trafficmanager.net, você atualizaria seu registro de recurso DNS para o seguinte:
+# <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Apontar um domínio de Internet da empresa para um domínio do Gerenciador de Tráfego do Azure
+
+Quando você cria um perfil do Gerenciador de tráfego, o Azure atribui automaticamente um nome DNS ao perfil. Para usar um nome de sua zona DNS, crie um registro DNS CNAME que mapeia para o nome de domínio de seu perfil do Gerenciador de Tráfego. Você pode encontrar o nome do domínio do Gerenciador de Tráfego na seção **Geral** da página Configuração do perfil do Gerenciador de Tráfego.
+
+Por exemplo, para apontar o nome www.contoso.com para o nome DNS do Gerenciador de Tráfego contoso.trafficmanager.net, você criaria o seguinte registro de recurso DNS:
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-Todas as solicitações de tráfego para *www.contoso.com* agora serão direcionadas para *contoso.trafficmanager.net*.
+Todas as solicitações de tráfego para *www.contoso.com* são direcionadas para *contoso.trafficmanager.net*.
 
 > [!IMPORTANT]
-> Não é possível indicar um domínio de segundo nível, como *contoso.com*, para o domínio do Gerenciador de Tráfego. Essa é uma limitação do protocolo DNS, que não permite registros CNAME para nomes de domínio de segundo nível.
-> 
-> 
+> Não é possível indicar um domínio de segundo nível, como *contoso.com*, para o domínio do Gerenciador de Tráfego. Os padrões de protocolo DNS não permitem registros CNAME para nomes de domínio de segundo nível.
 
-## Próximas etapas
-[Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
+## <a name="next-steps"></a>Próximas etapas
 
-[Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
+* [Métodos de roteamento do Gerenciador de Tráfego](traffic-manager-routing-methods.md)
+* [Gerenciador de Tráfego - Desabilitar, habilitar ou excluir um perfil](disable-enable-or-delete-a-profile.md)
+* [Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-[Gerenciador de Tráfego - Desabilitar ou habilitar um ponto de extremidade](disable-or-enable-an-endpoint.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

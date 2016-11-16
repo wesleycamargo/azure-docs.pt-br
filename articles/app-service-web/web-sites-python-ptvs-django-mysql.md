@@ -1,12 +1,12 @@
 ---
 title: Django e MySQL no Azure com Ferramentas Python 2.2 para Visual Studio
-description: Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Django que armazena dados em uma instância do banco de dados MySQL e o implanta em Aplicativos Web do Serviço de Aplicativo do Azure.
+description: "Aprenda a usar o Python Tools para Visual Studio para criar um aplicativo Django que armazena dados em uma instância do banco de dados MySQL e o implanta em Aplicativos Web do Serviço de Aplicativo do Azure."
 services: app-service\web
 documentationcenter: python
 author: huguesv
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: c60a50b5-8b5e-4818-a442-16362273dabb
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,23 +14,27 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+
 
 ---
-# Django e MySQL no Azure com Ferramentas Python 2.2 para Visual Studio
-[!INCLUDE [guias](../../includes/app-service-web-get-started-nav-tabs.md)]
+# <a name="django-and-mysql-on-azure-with-python-tools-22-for-visual-studio"></a>Django e MySQL no Azure com Ferramentas Python 2.2 para Visual Studio
+[!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Neste tutorial, usaremos o [Python Tools para Visual Studio](PTVS.md) para criar um aplicativo Web de votação simples, usando um dos modelos de exemplo de PTVS. Você aprenderá a usar um serviço MySQL hospedado no Azure, configurar o aplicativo Web para usar o MySQL e publicar o aplicativo Web para os [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Neste tutorial, usaremos o [Python Tools para Visual Studio](https://www.visualstudio.com/vs/python) para criar um aplicativo Web de votação simples, usando um dos modelos de exemplo de PTVS. Você aprenderá a usar um serviço MySQL hospedado no Azure, configurar o aplicativo Web para usar o MySQL e publicar o aplicativo Web para os [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 > [!NOTE]
 > As informações contidas neste tutorial também estão disponíveis no vídeo a seguir:
 > 
-> [PTVS 2.1: aplicativo do Django com o MySQL][video]
+> [PTVS 2.1: aplicativo do Django com o MySQL][vídeo]
 > 
 > 
 
 Confira o [Python Developer Center] para obter mais artigos que abrangem o desenvolvimento de Aplicativos Web do Serviço de Aplicativo do Azure com PTVS usando estruturas da Web Bottle, Flask e Django, com serviços Armazenamento de Tabelas do Azure, MySQL e Banco de dados SQL. Embora este artigo se concentre no Serviço de Aplicativo, as etapas são semelhantes ao desenvolvimento de [Serviços de Nuvem do Azure].
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2015
 * [Python 2.7 de 32 bits] ou [Python 3.4 de 32 bits]
 * [Ferramentas Python 2.2 para Visual Studio]
@@ -47,7 +51,7 @@ Confira o [Python Developer Center] para obter mais artigos que abrangem o desen
 > 
 > 
 
-## Criar o projeto
+## <a name="create-the-project"></a>Criar o projeto
 Nesta seção, criaremos um projeto do Visual Studio usando um modelo de amostra. Você irá criar um ambiente virtual e instalará os pacotes necessários. Você irá criar um banco de dados local usando sqlite. Em seguida, irá executar o aplicativo localmente.
 
 1. No Visual Studio, selecione **Arquivo**, **Novo Projeto**.
@@ -60,7 +64,7 @@ Nesta seção, criaremos um projeto do Visual Studio usando um modelo de amostra
 4. Selecione **Python 2.7** ou **Python 3.4** como o interpretador base.
    
     ![Caixa de diálogo Adicionar Ambiente Virtual](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
-5. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto e selecione **Python** e, em seguida, selecione **Django Migrate**. Em seguida, selecione **Criar Superusuário do Django**.
+5. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto, selecione **Python** e **Migrar Django**.  Em seguida, selecione **Criar Superusuário do Django**.
 6. Isso abrirá um Console de Gerenciamento do Django e criará um banco de dados sqlite na pasta do projeto. Siga os prompts para criar um usuário.
 7. Confirme se o aplicativo funciona pressionando `F5`.
 8. Clique em **Fazer logon** na barra de navegação na parte superior.
@@ -76,7 +80,7 @@ Nesta seção, criaremos um projeto do Visual Studio usando um modelo de amostra
     
      ![Votação em votações de exemplo](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSqliteBrowser.png)
 
-## Criar um banco de dados MySQL
+## <a name="create-a-mysql-database"></a>Criar um banco de dados MySQL
 Para banco de dados, você irá criar um banco de dados ClearDB MySQL hospedado no Azure.
 
 Como alternativa, você pode criar sua própria máquina virtual em execução no Azure, em seguida, instalar e administrar o MySQL por conta própria.
@@ -84,15 +88,15 @@ Como alternativa, você pode criar sua própria máquina virtual em execução n
 Você pode criar um banco de dados com um plano grátis seguindo estas etapas.
 
 1. Faça logon no [Portal do Azure].
-2. Na parte superior do painel de navegação, clique em **NOVO** e, em seguida, clique em **Dados + Armazenamento**, e depois clique em **Banco de dados MySQL**.
+2. Na parte superior do painel de navegação, clique em **NOVO** e clique em **Dados + Armazenamento**, e depois clique em **Banco de dados MySQL**.
 3. Configure o novo banco de dados MySQL, criando um novo grupo de recursos e selecione o local apropriado para o mesmo.
 4. Depois de criar o banco de dados MySQL, clique em **Propriedades** na folha do banco de dados.
 5. É possível usar o botão de cópia para colocar o valor de **CADEIA DE CONEXÃO** na área de transferência.
 
-## Configurar o projeto
+## <a name="configure-the-project"></a>Configurar o projeto
 Nesta seção, você irá configurar nosso aplicativo Web para usar o banco de dados MySQL que acabou de criar. Também irá instalar pacotes adicionais Python necessários para usar bancos de dados MySQL com Django. Em seguida, você irá executar o aplicativo Web localmente.
 
-1. No Visual Studio, abra **settings.py**, na pasta *ProjectName*. Cole temporariamente a cadeia de conexão obtida no editor. A cadeia de conexão está neste formato:
+1. No Visual Studio, abra **settings.py**, na pasta *ProjectName* . Cole temporariamente a cadeia de conexão obtida no editor. A cadeia de conexão está neste formato:
    
         Database=<NAME>;Data Source=<HOST>;User Id=<USER>;Password=<PASSWORD>
    
@@ -112,12 +116,12 @@ Nesta seção, você irá configurar nosso aplicativo Web para usar o banco de d
 3. Instale o pacote `mysqlclient` usando **pip**.
    
     ![Caixa de diálogo Instalar Pacote](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
-4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto e selecione **Python** e, em seguida, selecione **Django Migrate**. Em seguida, selecione **Criar Superusuário do Django**.
+4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto, selecione **Python** e **Migrar Django**.  Em seguida, selecione **Criar Superusuário do Django**.
    
     Isso criará as tabelas de banco de dados MySQL que você criou na seção anterior. Siga os prompts para criar um usuário, que não tem de corresponder ao usuário no banco de dados sqlite criado na primeira seção deste artigo.
 5. Execute o aplicativo com `F5`. As votações criadas com **Criar Votações de Exemplo** e os dados enviados por voto serão serializados no banco de dados MySQL.
 
-## Publicar aplicativo Web para Serviço de Aplicativo do Azure
+## <a name="publish-the-web-app-to-azure-app-service"></a>Publicar aplicativo Web para Serviço de Aplicativo do Azure
 O SDK .NET do Azure fornece uma forma fácil de implantar seu aplicativo Web no Serviço de Aplicativo do Azure.
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nó do projeto e selecione **Publicar**.
@@ -139,7 +143,7 @@ O SDK .NET do Azure fornece uma forma fácil de implantar seu aplicativo Web no 
    
     Parabéns! Você publicou com êxito seu aplicativo Web com base em MySQL no Azure.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Siga estas etapas para aprender mais sobre o Python Tools para Visual Studio, Django e MySQL.
 
 * [Ferramentas Python para documentação do Visual Studio]
@@ -154,14 +158,13 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 <!--Link references-->
 
 [Python Developer Center]: /develop/python/
-[Serviços de Nuvem do Azure]: ../cloud-services-python-ptvs.md
+[Serviços de Nuvem do Azure]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
 
 [Portal do Azure]: https://portal.azure.com
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[Python Tools para Visual Studio]: https://www.visualstudio.com/vs/python/
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Ferramentas do Python 2.2 para Amostras VSIX do Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [VSIX de amostra de Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Ferramentas do SDK do Azure para VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
@@ -172,6 +175,10 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 [Projetos do serviço de nuvem]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Documentação do Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
-[video]: http://youtu.be/oKCApIrS0Lo
+[vídeo]: http://youtu.be/oKCApIrS0Lo
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

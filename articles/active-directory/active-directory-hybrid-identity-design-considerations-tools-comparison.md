@@ -1,12 +1,12 @@
 ---
-title: 'Identidade Híbrida: comparação de ferramentas de integração de diretório | Microsoft Docs'
-description: Esta é a página que fornece uma tabela abrangente que compara as diversas ferramentas de integração de diretório que podem ser usadas para a integridade de diretório.
+title: "Identidade Híbrida: comparação de ferramentas de integração de diretório | Microsoft Docs"
+description: "Esta é a página que fornece uma tabela abrangente que compara as diversas ferramentas de integração de diretório que podem ser usadas para a integridade de diretório."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+
 
 ---
-# Comparação de ferramentas de integração de diretório da Identidade Híbrida
-Ao longo dos anos, as ferramentas de integração de diretório cresceram e evoluíram. Este documento tem o objetivo de ajudar a fornecer uma visão consolidada dessas ferramentas e uma comparação dos recursos que estão disponíveis em cada uma.
+# <a name="hybrid-identity-directory-integration-tools-comparison"></a>Comparação de ferramentas de integração de diretório da Identidade Híbrida
+Ao longo dos anos, as ferramentas de integração de diretório cresceram e evoluíram.  Este documento tem o objetivo de ajudar a fornecer uma visão consolidada dessas ferramentas e uma comparação dos recursos que estão disponíveis em cada uma.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
@@ -30,9 +34,11 @@ Ao longo dos anos, as ferramentas de integração de diretório cresceram e evol
 
 Use a seguinte chave para cada uma das tabelas.
 
-● = Disponível Agora FR = Versão Futura PP = Visualização Pública
+● = Disponível Agora  
+FR = Versão Futura  
+PP = Versão prévia pública  
 
-## Local para a sincronização de nuvem
+## <a name="onpremises-to-cloud-synchronization"></a>Local para a sincronização de nuvem
 | Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure (sincronização do AAD) | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Conectar-se a única floresta do AD local |● |● |● |● |● |
@@ -46,7 +52,7 @@ Use a seguinte chave para cada uma das tabelas.
 | Conectar-se ao RH local (isto é, SAP, Oracle eBusiness,PeopleSoft) |FR | | |● |● |
 | Oferece suporte a regras de sincronização do FIM e conectores para provisionamento para os sistemas locais. | | | |● |● |
 
-## Nuvem para sincronização no local
+## <a name="cloud-to-onpremises-synchronization"></a>Nuvem para sincronização no local
 | Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Write-back de dispositivos |● | |● | | |
@@ -54,7 +60,7 @@ Use a seguinte chave para cada uma das tabelas.
 | Write-back de objetos de usuários e grupos |● | | | | |
 | Write-back de senhas (de redefinição de senha de autoatendimento (SSPR) e alteração de senha) |● |● | | | |
 
-## Suporte ao recurso de autenticação
+## <a name="authentication-feature-support"></a>Suporte ao recurso de autenticação
 | Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Sincronização de senha para a floresta única do AD local |● |● |● | | |
@@ -62,7 +68,7 @@ Use a seguinte chave para cada uma das tabelas.
 | Logon único com federação |● |● |● |● |● |
 | Write-back de senhas (de alteração SSPR e senha) |● |● | | | |
 
-## Instalação e configuração
+## <a name="setup-and-installation"></a>Instalação e configuração
 | Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Oferece suporte à instalação em um controlador de domínio |● |● |● | |
@@ -73,7 +79,7 @@ Use a seguinte chave para cada uma das tabelas.
 | Suporte para Windows Server 2008 e Windows Server 2008 R2 |● para sincronização, não para federação |● |● |● |
 | Suporte para o Windows Server 2012 e Windows Server 2012 R2 |● |● |● |● |
 
-## Filtragem e configuração
+## <a name="filtering-and-configuration"></a>Filtragem e configuração
 | Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Filtrar em domínios e unidades organizacionais |● |● |● |● |● |
@@ -83,7 +89,12 @@ Use a seguinte chave para cada uma das tabelas.
 | Permitir a remoção de atributos do fluxo do AD para o AD do Azure |● |● | | | |
 | Permitir a personalização avançada para fluxos de atributo |● |● | |● |● |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Use o Controle de Acesso Baseado em Função no portal do Microsoft Azure | Microsoft Docs
-description: Introdução ao gerenciamento de acesso com o Controle de Acesso Baseado em Função no Portal do Azure. Use as atribuições de função para atribuir permissões a seus recursos.
+title: "Use o Controle de Acesso Baseado em Função no portal do Azure | Microsoft Docs"
+description: "Introdução ao gerenciamento de acesso com o Controle de Acesso Baseado em Função no Portal do Azure. Use as atribuições de função para atribuir permissões a seus recursos."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+
 
 ---
 # <a name="use-role-assignments-to-manage-access-to-your-azure-subscription-resources"></a>Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure
@@ -78,6 +82,9 @@ Você pode atribuir funções e gerenciar o acesso com comandos do RBAC do Azure
 * Confira as [Funções internas do RBAC do Azure](role-based-access-built-in-roles.md)
 * Defina suas próprias [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Movendo os circuitos da Rota Expressa do clássico para o Gerenciador de Recursos | Microsoft Docs
-description: Esta página fornece uma visão geral do que você precisa saber ao fazer uma ponte entre os modelos de implantação clássico e do Gerenciador de Recursos.
+title: "Movendo os circuitos da ExpressRoute do clássico para o Gerenciador de Recursos | Microsoft Docs"
+description: "Esta página fornece uma visão geral do que você precisa saber ao fazer uma ponte entre os modelos de implantação clássico e do Gerenciador de Recursos."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mova os circuitos da Rota Expressa do clássico para o modelo de implantação do Gerenciador de Recursos
@@ -74,7 +78,7 @@ A taxa de transferência agregada é limitada pela capacidade da taxa de transfe
 ## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Acesso aos recursos de emparelhamento do Azure público e da Microsoft
 Você pode continuar a acessar os recursos normalmente acessíveis por meio do emparelhamento do Azure público e do emparelhamento da Microsoft sem interrupções.  
 
-## <a name="what's-supported"></a>O que tem suporte
+## <a name="whats-supported"></a>O que tem suporte
 Esta seção descreve o que tem suporte para os circuitos da Rota Expressa:
 
 * Você pode usar um único circuito da Rota Expressa para conectar as redes virtuais implantadas nos modelos de implantação clássico e do Gerenciador de Recursos.
@@ -84,7 +88,7 @@ Esta seção descreve o que tem suporte para os circuitos da Rota Expressa:
 * O circuito da Rota Expressa atua como uma ponte entre os modelos de implantação clássico e do Gerenciador de Recursos. O tráfego entre as máquinas virtuais nas redes virtuais no modelo de implantação clássico e aquelas nas redes virtuais no modelo de implantação do Gerenciador Recursos fluirá pela Rota Expressa se ambas as redes virtuais estiverem vinculadas ao mesmo circuito da Rota Expressa.
 * A conectividade entre as assinaturas é suportada nos modelos de implantação clássico e do Gerenciador de Recursos.
 
-## <a name="what's-not-supported"></a>O que não tem suporte
+## <a name="whats-not-supported"></a>O que não tem suporte
 Esta seção descreve o que não tem suporte para os circuitos da Rota Expressa:
 
 * Mover os links do circuito, gateways e redes virtuais do clássico para o modelo de implantação do Gerenciador de Recursos.
@@ -102,6 +106,9 @@ Siga as instruções descritas em [Mover um circuito da Rota Expressa do clássi
   * [Configurar o roteamento](expressroute-howto-routing-arm.md)
   * [Vincular uma rede virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

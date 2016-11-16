@@ -1,14 +1,14 @@
 ---
-title: Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure | Microsoft Docs
-description: Balancear a carga entre vários contêineres em um cluster do Serviço de Contêiner do Azure.
+title: "Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure | Microsoft Docs"
+description: "Balancear a carga entre vários contêineres em um cluster do Serviço de Contêiner do Azure."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Contêineres, microsserviços, DC/OS, Azure
-
+keywords: "Contêineres, microsserviços, DC/OS, Azure"
+ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure
@@ -35,14 +39,14 @@ O Balanceador de Carga do Marathon reconfigura dinamicamente baseado nos contêi
 
 Para instalar o Balanceador de Carga do Marathon, você pode usar a IU da Web do DC/SO ou a linha de comando.
 
-### <a name="install-marathon-lb-using-dc/os-web-ui"></a>Instalar o Marathon-LB usando a IU da Web do DC/SO
+### <a name="install-marathonlb-using-dcos-web-ui"></a>Instalar o Marathon-LB usando a IU da Web do DC/SO
 1. Clicar em 'Universo'
 2. Pesquisar 'Marathon-LB'
 3. Clicar em ‘Instalar’
 
 ![Instalando o marathon-lb por meio da Interface da Web do DC/SO](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathon-lb-using-the-dc/os-cli"></a>Instalar o Marathon-LB usando a CLI do DC/SO
+### <a name="install-marathonlb-using-the-dcos-cli"></a>Instalar o Marathon-LB usando a CLI do DC/SO
 Depois de instalar a CLI do DC/SO e assegurar que você pode conectar o cluster, execute o seguinte comando a partir do computador cliente:
 
 ```bash
@@ -97,13 +101,13 @@ Agora que temos o pacote marathon-lb, podemos implantar um contêiner de aplicat
 
 Vale a pena saber que, por padrão, o Marathon implantará o cluster privado, e isso significa que a implantação acima só poderá ser acessada por meio do balanceador de carga, que geralmente é o comportamento desejado.
 
-### <a name="deploy-using-the-dc/os-web-ui"></a>Implantar usando a IU da Web do DC/SO
+### <a name="deploy-using-the-dcos-web-ui"></a>Implantar usando a IU da Web do DC/SO
 1. Visite a página do Marathon em http://localhost/marathon (depois de configurar seu [túnel SSH](container-service-connect.md) e clique em `Create Appliction`
 2. No diálogo `New Application`, clique em `JSON Mode` no canto superior direito
 3. Colar o JSON acima no editor
 4. Clique em `Create Appliction`
 
-### <a name="deploy-using-the-dc/os-cli"></a>Implantar usando a CLI do DC/SO
+### <a name="deploy-using-the-dcos-cli"></a>Implantar usando a CLI do DC/SO
 Para implantar esse aplicativo com a CLI do DC/SO, basta copiar o JSON acima para um arquivo chamado `hello-web.json` e executar:
 
 ```bash
@@ -129,6 +133,9 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 ## <a name="next-steps"></a>Próximas etapas
 Veja a documentação do DC/SO para saber mais sobre o [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -7,6 +7,10 @@
 3. No Console do Firebase, clique na engrenagem para seu projeto e, em seguida, clique em **Configurações do Projeto**.
    
     ![](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
-4. Clique na guia **Cloud Messaging** nas configurações do projeto e copie o valor da **Chave do servidor** e da **ID do remetente**. Esses valores serão usados mais tarde para configurar a Política de Acesso do hub de notificação e o manipulador de notificações no aplicativo.
+4. Clique na guia **Cloud Messaging** nas configurações do projeto e copie o valor da **Chave do servidor** e da **ID do remetente**.  Esses valores serão usados mais tarde para configurar a Política de Acesso do hub de notificação e o manipulador de notificações no aplicativo.
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

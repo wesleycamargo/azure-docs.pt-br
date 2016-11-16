@@ -1,12 +1,12 @@
 ---
 title: Analisar o uso de dados no Log Analytics | Microsoft Docs
-description: Você pode usar a página Uso no Log Analytics para exibir quantos dados estão sendo enviados para o serviço do OMS.
+description: "Você pode usar a página Uso no Log Analytics para exibir quantos dados estão sendo enviados para o serviço do OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/11/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4c1d0319e768eec69718d8b49db30069ec1331d9
+
 
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar o uso de dados no Log Analytics
@@ -65,6 +69,9 @@ A página **Uso** exibe as seguintes informações:
 ## <a name="next-steps"></a>Próximas etapas
 * Consulte as [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir as informações detalhadas reunidas pelas soluções.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

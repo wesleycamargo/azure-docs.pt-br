@@ -1,12 +1,12 @@
 ---
-title: Introdução ao Agendador do Azure no portal do Azure | Microsoft Docs
-description: Introdução ao Agendador do Azure no Portal do Azure
+title: "Introdução ao Agendador do Azure no portal do Azure | Microsoft Docs"
+description: "Introdução ao Agendador do Azure no Portal do Azure"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,26 +14,30 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 85e0f59bdaae76f6feb03e66a7bbf96c29b45dec
+
 
 ---
-# Introdução ao Agendador do Azure no Portal do Azure
+# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introdução ao Agendador do Azure no Portal do Azure
 É fácil criar trabalhos agendados no Agendador do Azure. Neste tutorial, você aprenderá a criar um trabalho. Você também aprenderá sobre os recursos de monitoramento e gerenciamento do Agendador.
 
-## Criar um trabalho
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+## <a name="create-a-job"></a>Criar um trabalho
+1. Entre no [Portal do Azure](https://portal.azure.com/).  
 2. Clique em **+Novo** > digite *Agendador* na caixa de pesquisa > selecione **Agendador** nos resultados > clique em **Criar**.
    
     ![][marketplace-create]
-3. Vamos criar um trabalho que simplesmente visita http://www.microsoft.com/ com uma solicitação GET. Na tela **Trabalho do Agendador**, insira as seguintes informações:
+3. Vamos criar um trabalho que simplesmente visita http://www.microsoft.com/ com uma solicitação GET. Na tela **Trabalho do Agendador** , insira as seguintes informações:
    
-   1. **Nome:** `getmicrosoft`
-   2. **Assinatura:** sua assinatura do Azure
+   1. **Nome:** `getmicrosoft`  
+   2. **Assinatura:** sua assinatura do Azure   
    3. **Coleção de Trabalhos:** selecione uma coleção de trabalhos existente ou clique em **Criar Novo** > insira um nome.
 4. Em seguida, nas **Configurações de Ação**, defina os seguintes valores:
    
-   1. **Tipo de ação:** ` HTTP`
-   2. **Método:** `GET`
-   3. **URL:** ` http://www.microsoft.com`
+   1. **Tipo de ação:** ` HTTP`  
+   2. **Método:** `GET`  
+   3. **URL:** ` http://www.microsoft.com`  
       
       ![][action-settings]
 5. Finalmente, vamos definir uma agenda. O trabalho pode ser definido como um único trabalho, mas convém escolher uma agenda de recorrência:
@@ -41,28 +45,28 @@ ms.author: deli
    1. **Recorrência**: `Recurring`
    2. **Iniciar**: data de hoje
    3. **Repetir a cada**: `12 Hours`
-   4. **Terminar**: dois dias após a data de hoje
+   4. **Terminar**: dois dias após a data de hoje  
       
       ![][recurrence-schedule]
 6. Clique em **Criar**
 
-## Gerenciar e monitorar trabalhos
+## <a name="manage-and-monitor-jobs"></a>Gerenciar e monitorar trabalhos
 Depois que um trabalho é criado, ele aparece no painel principal do Azure. Clique no trabalho e uma nova janela será aberta com as seguintes guias:
 
-1. Propriedades
-2. Configurações de Ação
-3. Agenda
+1. Propriedades  
+2. Configurações de Ação  
+3. Agenda  
 4. Histórico
 5. Usuários
    
    ![][job-overview]
 
-### Propriedades
+### <a name="properties"></a>Propriedades
 Essas propriedades somente leitura descrevem os metadados de gerenciamento para o trabalho do Agendador.
 
    ![][job-properties]
 
-### Configurações de ação
+### <a name="action-settings"></a>Configurações de Ação
 Clicar em um trabalho na tela **Trabalhos** permite que você configure esse trabalho. Isso permitirá definir configurações avançadas, se você não as tiver configurado no assistente de criação rápida.
 
 Para todos os tipos de ação, você pode alterar a política de repetição e a ação de erro.
@@ -75,7 +79,7 @@ Para tipos de ação do barramento de serviço, você pode alterar o namespace, 
 
    ![][job-action-settings]
 
-### Agenda
+### <a name="schedule"></a>Agenda
 Isso permite reconfigurar o agendamento, se você desejar alterar o agendamento que criou no assistente de criação rápida.
 
 Essa é uma oportunidade de criar [agendas complexas e recorrência avançada no trabalho](scheduler-advanced-complexity.md)
@@ -84,14 +88,14 @@ Você pode alterar a data e hora de início, o agendamento de recorrência e a d
 
    ![][job-schedule]
 
-### Histórico
+### <a name="history"></a>Histórico
 A guia **Histórico** exibe as métricas selecionadas para cada execução do trabalho do sistema para o trabalho selecionado. Essas métricas fornecem valores em tempo real relacionados à integridade de seu Agendador:
 
-1. Status
-2. Detalhes
+1. Status  
+2. Detalhes  
 3. Tentativas de repetição
 4. Ocorrência: 1ª, 2ª, 3ª etc.
-5. Hora de início da execução
+5. Hora de início da execução  
 6. Hora de término da execução
    
    ![][job-history]
@@ -100,10 +104,10 @@ Você pode clicar em uma execução para exibir seus **Detalhes de Histórico**,
 
    ![][job-history-details]
 
-### Usuários
+### <a name="users"></a>Usuários
 O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Agendador do Azure. Para saber como usar a guia Usuários, confira [Controle de Acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md)
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
  [O que é o Agendador?](scheduler-intro.md)
 
  [Conceitos, terminologia e hierarquia de entidades do Agendador](scheduler-concepts-terms.md)
@@ -149,4 +153,8 @@ O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

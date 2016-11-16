@@ -1,7 +1,7 @@
-## Implantar o modelo ARM usando a CLI do Azure
+## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Implantar o modelo ARM usando a CLI do Azure
 Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo.
 
-1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../articles/xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
+1. Se você nunca usou a CLI do Azure, veja [Instalar e configurar a CLI do Azure](../articles/xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute a opção de comando **`azure config mode`** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
    
         azure config mode arm
@@ -9,7 +9,7 @@ Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo
     Este é o resultado esperado para o comando descrito acima:
    
         info:    New mode is arm
-3. Se necessário, execute o **`azure group create`** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para obter mais informações sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](../articles/resource-group-overview.md).
+3. Se necessário, execute o **`azure group create`** para criar um novo grupo de recursos, como mostrado abaixo. Observe a saída do comando. A lista exibida após a saída explicar os parâmetros usados. Para saber mais sobre grupos de recursos, acesse [Visão geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    
         azure group create -n TestRG -l centralus
    
@@ -85,4 +85,8 @@ Para implantar o modelo ARM baixado usando a CLI do Azure, siga as etapas abaixo
         data:
         info:    network vnet show command OK
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

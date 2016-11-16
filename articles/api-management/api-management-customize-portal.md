@@ -2,27 +2,31 @@
 title: Personalizar o portal do desenvolvedor no Gerenciamento de API do Azure | Microsoft Docs
 description: Saiba como personalizar o portal do desenvolvedor no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+
 
 ---
-# Personalizar o portal do desenvolvedor no Gerenciamento de API do Azure
+# <a name="customize-the-developer-portal-in-azure-api-management"></a>Personalizar o portal do desenvolvedor no Gerenciamento de API do Azure
 Este guia mostra como modificar a aparência do portal do desenvolvedor no Gerenciamento de API do Azure para manter a consistência com a sua marca.
 
 ## <a name="change-page-headers"> </a>Alterar o texto ou logotipo no cabeçalho da página
 Um dos principais aspectos da personalização do portal é a substituição do texto na parte superior de todas as páginas pelo nome ou logotipo de sua empresa.
 
-O conteúdo no portal do desenvolvedor é modificado por meio do portal do publicador, que é acessado pelo Portal Clássico do Azure. Para acessar o portal do editor de API, clique em **Gerenciar** no Portal Clássico do Azure do serviço de Gerenciamento de API.
+O conteúdo no portal do desenvolvedor é modificado por meio do portal do editor, que pode ser acessado do Portal do Azure. Para alcançá-lo, clique em **Portal do editor** na barra de ferramentas do serviço da sua instância do Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
@@ -30,7 +34,7 @@ O portal do desenvolvedor é baseado em um CMS ou sistema de gerenciamento de co
 
 ![Cabeçalho de widget][api-management-widgets-header]
 
-O conteúdo do cabeçalho é editável no campo **Corpo**. Altere o texto para "Fabrikam Developer Portal" e clique em **Salvar** na parte inferior da página.
+O conteúdo do cabeçalho é editável no campo **Corpo** . Altere o texto para "Fabrikam Developer Portal" e clique em **Salvar** na parte inferior da página.
 
 Agora você poderá ver o novo cabeçalho em cada página no portal do desenvolvedor.
 
@@ -45,13 +49,13 @@ Seu navegador alterna para uma página oculta no portal do desenvolvedor que con
 
 ![Barra de ferramentas de personalização][api-management-customization-toolbar]
 
-Existem dois modos principais para editar as regras de estilo - **Editar todas as regras** exibe uma lista de todas as regras de estilo usadas em todo lugar; enquanto **Separar elemento** permite selecionar um elemento na página em que você está e exibe os estilos somente para esse elemento.
+Existem dois modos principais para editar as regras de estilo - **Editar todas as regras** exibe uma lista de todas as regras de estilo usadas em todo lugar; enquanto **Escolher elemento** permite selecionar um elemento na página em que você está e exibe os estilos somente para esse elemento.
 
 Nesta seção gostaríamos de alterar o estilo somente dos cabeçalhos. Clique na opção **Escolher elemento** na barra de ferramentas do editor de estilo e depois clique em **Selecionar um elemento para personalizar**. Os elementos agora ficam destacados à medida que você passa o ponteiro do mouse sobre eles, indicando quais estilos do elemento você começaria a editar se clicasse. Mova o ponteiro do mouse sobre o texto que representa o nome da empresa no cabeçalho ("Fabrikam Developer Portal" se você seguiu as instruções na seção anterior), então clique nele. Um conjunto de regras de estilo categorizadas e nomeadas é exibido no editor de estilos.
 
 Cada regra representa uma propriedade de estilo do elemento selecionado. Por exemplo, para o texto do cabeçalho selecionado acima, o tamanho do texto está em @font-size-h1, enquanto que o nome da fonte com alternativas está em in @headings-font-family.
 
-> Se estiver familiarizado com [bootstrap][bootstrap], essas regras são, na verdade, [variáveis LESS][variáveis LESS] no tema do bootstrap usadas pelo portal do desenvolvedor.
+> Caso esteja familiarizado com [bootstrap][bootstrap], essas regras são, na verdade, [variáveis LESS][variáveis LESS] no tema do bootstrap usadas pelo portal do desenvolvedor.
 > 
 > 
 
@@ -76,19 +80,19 @@ Para ver uma lista de todas as páginas de conteúdo existentes, clique em **Con
 
 Clique na página **Bem-vindo** para editar o que é exibido na home page do portal do desenvolvedor. Faça as alterações desejadas, visualize-as se necessário e depois clique em **Publicar Agora** para torná-las visíveis para todos.
 
-> A home page usa um layout especial que permite exibir uma faixa na parte superior. Essa faixa não é editável na seção **Conteúdo**. Para editá-la, clique em **Widgets** no menu **Portal do desenvolvedor**, depois selecione **Home page** na lista suspensa **Camada Atual** e, em seguida, abra o item **Faixa** na **seção Em destaque**. O conteúdo desse widget pode ser editado como o conteúdo de qualquer outra página.
+> A home page usa um layout especial que permite exibir uma faixa na parte superior. Essa faixa não é editável na seção **Conteúdo** . Para editá-la, clique em **Widgets** no menu **Portal do desenvolvedor**, selecione **Home page** na lista suspensa **Camada Atual** e abra o item **Faixa** na seção **Em destaque**. O conteúdo desse widget pode ser editado como o conteúdo de qualquer outra página.
 > 
 > 
 
 ## <a name="next-steps"> </a>Próximas etapas
 * Saiba como personalizar o conteúdo das páginas do portal do desenvolvedor usando [Modelos de portal do desenvolvedor](api-management-developer-portal-templates.md).
 
-[Change the text/logo in the page headers]: #change-page-headers
-[Change the styling of the headers]: #change-headers-styling
-[Edit the contents of a page]: #edit-page-contents
-[Next steps]: #next-steps
+[Alterar o texto/logotipo nos cabeçalhos da página]: #change-page-headers
+[Alterar o estilo dos cabeçalhos]: #change-headers-styling
+[Editar o conteúdo de uma página]: #edit-page-contents
+[Próximas etapas]: #next-steps
 
-[Azure Classic Portal]: https://manage.windowsazure.com/
+[Portal Clássico do Azure]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -101,4 +105,8 @@ Clique na página **Bem-vindo** para editar o que é exibido na home page do por
 [bootstrap]: http://getbootstrap.com/
 [variáveis LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,8 +1,8 @@
-## Como criar uma VNet usando o PowerShell
+## <a name="how-to-create-a-vnet-using-powershell"></a>Como criar uma VNet usando o PowerShell
 Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 
 1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../articles/powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
-2. Se necessário, crie um novo grupo de recursos, como mostrado abaixo. Para o nosso cenário, crie um grupo de recursos chamado *TestRG*. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](../articles/resource-group-overview.md).
+2. Se necessário, crie um novo grupo de recursos, como mostrado abaixo. Para o nosso cenário, crie um grupo de recursos chamado *TestRG*. Para saber mais sobre grupos de recursos, acesse [Visão geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
    
@@ -74,7 +74,7 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
    
         Add-AzureRmVirtualNetworkSubnetConfig -Name BackEnd `
             -VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
-7. Embora você crie sub-redes, elas atualmente só existem na variável local usada para recuperar a VNet criada na etapa 4 acima. Para salvar as alterações no Azure, execute o cmdlet **Set-AzureRmVirtualNetwork**, como mostrado abaixo.
+7. Embora você crie sub-redes, elas atualmente só existem na variável local usada para recuperar a VNet criada na etapa 4 acima. Para salvar as alterações no Azure, execute o cmdlet **Set-AzureRmVirtualNetwork** , como mostrado abaixo.
    
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet    
    
@@ -98,7 +98,7 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
         Subnets               : [
                                   {
                                     "Name": "FrontEnd",
-                                    "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+                                    "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
                                     "AddressPrefix": "192.168.1.0/24",
                                     "IpConfigurations": [],
@@ -106,7 +106,7 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
                                   },
                                   {
                                     "Name": "BackEnd",
-                                    "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+                                    "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
                                     "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
                                     "AddressPrefix": "192.168.2.0/24",
                                     "IpConfigurations": [],
@@ -115,4 +115,8 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
                                 ]
         VirtualNetworkPeerings : []
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

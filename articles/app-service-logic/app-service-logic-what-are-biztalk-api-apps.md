@@ -1,12 +1,12 @@
 ---
-title: O que são aplicativos de API do BizTalk e conectores
+title: "O que são aplicativos de API do BizTalk e conectores"
 description: Saiba mais sobre Aplicativos de API, Conectores e Aplicativos de API do BizTalk
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1295ea9c-30e0-4b5c-931e-51aefae2d4fe
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c89b0714a5c6e606cf8517a40be62cc856d5959c
+
 
 ---
 # <a name="what-are-connectors-and-biztalk-api-apps"></a>O que são aplicativos de API do BizTalk e conectores
@@ -45,6 +49,9 @@ As regras de negócios encapsulam as políticas e as decisões que controlam pro
 ## <a name="connector-and-api-app-list"></a>Lista de conectores e aplicativos de API
 Consulte [Conectores e lista de aplicativos da API](app-service-logic-connectors-list.md) para obter uma lista completa dos conectores e API aplicativos presentes em cada categoria, incluindo conectores padrão, BizTalk EAI, conectores Premium etc.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

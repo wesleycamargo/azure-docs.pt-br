@@ -5,9 +5,9 @@ services: load-balancer
 documentationcenter: na
 author: anavinahar
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d9e27ce132a837ec26a92de0c38b3e1c23b706c1
+
 
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Criar um balanceador de carga para a Internet usando o Portal do Azure
+# <a name="creating-an-internetfacing-load-balancer-using-the-azure-portal"></a>Criar um balanceador de carga para a Internet usando o Portal do Azure
 [!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -30,7 +34,7 @@ Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Também
 
 Isto aborda a sequência de tarefas individuais que precisam ser realizadas para a criação de um balanceador de carga e explica em detalhes o que é feito para atingir essa meta.
 
-## <a name="what-is-required-to-create-an-internet-facing-load-balancer?"></a>O que é necessário para criar um balanceador de carga para a Internet?
+## <a name="what-is-required-to-create-an-internetfacing-load-balancer"></a>O que é necessário para criar um balanceador de carga para a Internet?
 Você precisa criar e configurar os objetos a seguir para implantar um balanceador de carga.
 
 * Configuração de IP de front-end – contém endereços IP públicos para o tráfego de rede de entrada.
@@ -56,14 +60,14 @@ Você precisa criar e configurar os objetos a seguir para implantar um balancead
 
 ![Atualizando o grupo de recursos do balanceador de carga](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
-## <a name="create-a-back-end-address-pool"></a>Criar um pool de endereços de back-end
+## <a name="create-a-backend-address-pool"></a>Criar um pool de endereços de back-end
 1. Depois que o balanceador de carga for implantado com êxito, selecione-o dentro de seus recursos. Em configurações, selecione Pools de Back-end. Digite um nome para o seu pool de back-end. Em seguida, clique no botão **Adicionar** na parte superior da folha que aparece.
 2. Clique em **Adicionar máquina virtual** na folha **Adicionar pool de back-end**.  Selecione **Escolher um conjunto de disponibilidade** em **Conjunto de disponibilidade** e selecione **myAvailSet**. Em seguida, selecione **Escolher as máquinas virtuais** na seção Máquinas Virtuais na folha e clique em **web1** e **web2**, as duas VMs criadas para balanceamento de carga. Verifique se ambas têm marcas de seleção azuis à esquerda, conforme mostrado na imagem abaixo. Em seguida, clique em **Selecionar** nessa folha seguido de OK na folha **Escolher máquinas virtuais** e, em seguida, **OK** na folha **Adicionar pool de back-end**.
    
     ![Adicionando ao pool de endereços de back-end – ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 3. Verifique se as notificações de lista suspensa têm uma atualização relacionada a salvar o pool de back-end do balanceador de carga, além de atualizar o adaptador de rede para ambas as VMs, **web1** e **web2**.
 
-## <a name="create-a-probe,-lb-rule,-and-nat-rules"></a>Criar uma investigação, regra de balanceamento de carga e regras de NAT
+## <a name="create-a-probe-lb-rule-and-nat-rules"></a>Criar uma investigação, regra de balanceamento de carga e regras de NAT
 1. Crie um teste de integridade.
    
     Em Configurações do balanceador de carga, selecione Investigações. Na parte superior da folha, clique em **Adicionar** .
@@ -97,6 +101,9 @@ Para excluir um balanceador de carga, selecione o balanceador de carga que desej
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

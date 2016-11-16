@@ -1,12 +1,12 @@
 ---
 title: Configurar o ambiente de desenvolvimento no Mac OS X | Microsoft Docs
-description: Instale o tempo de execução, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir a instalação, você estará pronto para criar aplicativos no Mac OS X.
+description: "Instale o tempo de execução, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir a instalação, você estará pronto para criar aplicativos no Mac OS X."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b25afa13010716188eab0623b1d8ea0d525a2b36
+
 
 ---
-# Configurar seu ambiente de desenvolvimento no Mac OS X
+# <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar seu ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
 Você pode criar aplicativos do Service Fabric para serem executados nos clusters do Linux usando o Mac OS X. Este artigo aborda como configurar seu Mac para o desenvolvimento.
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 O Service Fabric não é executado nativamente no OS X. Para executar um cluster do Service Fabric local, fornecemos uma máquina de virtual pré-configurada do Ubuntu usando o Vagrant e o VirtualBox. Antes de começar, você precisa do:
 
 * [Vagrant (v1.8.4 ou posterior)](http://wwww.vagrantup.com/downloads)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
-## Criar a VM local
+## <a name="create-the-local-vm"></a>Criar a VM local
 Para criar a VM local que contém um cluster de cinco nós do Service Fabric, faça o seguinte:
 
 1. Clone o repositório Vagrantfile
@@ -67,7 +71,7 @@ Para criar a VM local que contém um cluster de cinco nós do Service Fabric, fa
    
     ![Service Fabric Explorer exibido a partir do Mac de host][sfx-mac]
 
-## Instalar o plug-in do Service Fabric para o Eclipse Neon (opcional)
+## <a name="install-the-service-fabric-plugin-for-eclipse-neon-optional"></a>Instalar o plug-in do Service Fabric para o Eclipse Neon (opcional)
 O Service Fabric fornece um plug-in para o IDE do Eclipse Neon que pode simplificar o processo de criação e implantação dos serviços Java.
 
 1. No Eclipse, verifique se você tem o Buildship versão 1.0.17 ou posterior instalado. Você pode verificar as versões dos componentes instalados escolhendo **Ajuda > Detalhes da Instalação**. Você pode atualizar o Buildship usando as instruções [aqui][buildship-update].
@@ -79,7 +83,7 @@ O Service Fabric fornece um plug-in para o IDE do Eclipse Neon que pode simplifi
 5. Escolha o plug-in do Service Fabric e clique em Avançar.
 6. Continue com a instalação e aceite o contrato de licença do usuário final.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * [Criar seu primeiro aplicativo do Service Fabric para Linux](service-fabric-create-your-first-linux-application-with-java.md)
 
 <!-- Links -->
@@ -94,4 +98,8 @@ O Service Fabric fornece um plug-in para o IDE do Eclipse Neon que pode simplifi
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

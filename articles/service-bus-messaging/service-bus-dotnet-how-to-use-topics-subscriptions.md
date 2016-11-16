@@ -1,12 +1,12 @@
 ---
-title: Usar os tópicos de Barramento de Serviço com o .NET | Microsoft Docs
-description: Saiba como usar as assinaturas e os tópicos do Barramento de Serviço com o .NET no Azure. Os códigos de exemplo são escritos para aplicativos .NET.
+title: "Usar os tópicos de Barramento de Serviço com o .NET | Microsoft Docs"
+description: "Saiba como usar as assinaturas e os tópicos do Barramento de Serviço com o .NET no Azure. Os códigos de exemplo são escritos para aplicativos .NET."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Como usar tópicos e assinaturas do Barramento de Serviço
@@ -47,7 +51,7 @@ O Barramento de Serviço usa uma cadeia de conexão para armazenar pontos de ext
 Nos dois casos, você pode recuperar a cadeia de conexão usando o método `CloudConfigurationManager.GetSetting`, como mostrado mais adiante neste artigo.
 
 ### <a name="configure-your-connection-string"></a>Configurar a cadeia de conexão
-O mecanismo de configuração do serviço permite que você altere dinamicamente as definições da configuração no [portal do Azure][portal do Azure] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (**.csdef**), como mostrado no próximo exemplo.
+O mecanismo de configuração do serviço permite que você altere dinamicamente as definições da configuração no [Portal do Azure][Portal do Azure] sem reimplantar o aplicativo. Por exemplo, adicione um rótulo `Setting` ao seu arquivo de definição de serviço (**.csdef**), como mostrado no próximo exemplo.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -90,7 +94,7 @@ Ao usar sites ou Máquinas Virtuais, é recomendável usar o sistema de configur
 </configuration>
 ```
 
-Use o nome da SAS e os valores de chave recuperados no [portal do Azure][portal do Azure], conforme descrito anteriormente.
+Use o nome da SAS e os valores de chave recuperados no [Portal do Azure][Portal do Azure], conforme descrito anteriormente.
 
 ## <a name="create-a-topic"></a>Criar um tópico
 Você pode executar operações de gerenciamento de tópicos e assinaturas do Barramento de Serviço usando a classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Essa classe fornece métodos para criar, enumerar e excluir tópicos.
@@ -151,7 +155,7 @@ Você também pode criar assinaturas de tópico usando a classe [NamespaceManage
 > 
 > 
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
 Se nenhum filtro for especificado quando uma nova assinatura for criada, o filtro **MatchAll** será o padrão usado. Quando você usa o filtro **MatchAll**, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada “AllMessages” e usa o filtro padrão **MatchAll**.
 
 ```
@@ -170,7 +174,7 @@ if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
 ### <a name="create-subscriptions-with-filters"></a>Criar assinaturas com os filtros
 Você também pode configurar filtros que permitem especificar quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica do tópico.
 
-O tipo de filtro mais flexível com suporte das assinaturas é a classe [SqlFilter][SqlFilter], que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais informações sobre as expressões que podem ser usadas com um filtro SQL, consulte a sintaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+O tipo de filtro mais flexível com suporte das assinaturas é a classe [SqlFilter][SqlFilter], que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais detalhes sobre as expressões que podem ser usadas com um filtro SQL, examine a sintaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 O exemplo a seguir cria uma assinatura denominada **HighMessages** com um objeto [SqlFilter][SqlFilter] que seleciona apenas as mensagens que tenham uma propriedade **MessageNumber** personalizada maior do que 3.
 
@@ -306,8 +310,8 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 * [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas].
 * [Exemplo de filtros do tópico][Exemplo de filtros do tópico]
 * Referência da API para [SqlFilter][SqlFilter].
-* Compile um aplicativo de trabalho que envie e receba mensagens de e para uma fila do Barramento de Serviço: [tutorial do .NET do sistema de mensagens agenciado do Barramento de Serviço][].
-* Exemplos do Barramento de Serviço: baixe de [Exemplos do Azure][] ou consulte a [visão geral](../service-bus/service-bus-samples.md).
+* Crie um aplicativo de trabalho que envie e receba mensagens de e para uma fila do Barramento de Serviço: [tutorial do .NET do sistema de mensagens agenciado do Barramento de Serviço][tutorial do .NET do sistema de mensagens agenciado do Barramento de Serviço].
+* Exemplos do Barramento de Serviço: baixe de [Exemplos do Azure][Exemplos do Azure] ou consulte a [visão geral](service-bus-samples.md).
 
 [Portal do Azure]: https://portal.azure.com
 
@@ -322,6 +326,6 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

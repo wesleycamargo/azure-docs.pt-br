@@ -1,4 +1,4 @@
-## Emparelhamento entre assinaturas
+## <a name="peering-across-subscriptions"></a>Emparelhamento entre assinaturas
 Nesse cenário, você criará um emparelhamento entre duas VNets pertencentes a assinaturas diferentes.
 
 ![cenário entre assinaturas](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
@@ -10,4 +10,8 @@ O emparelhamento VNet depende do RBAC (Controle de acesso baseado em função) p
 > 
 > 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

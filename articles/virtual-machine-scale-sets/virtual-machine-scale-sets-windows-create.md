@@ -1,20 +1,24 @@
 ---
-title: Criar um Conjunto de Escala de Máquina Virtual usando o PowerShell | Microsoft Docs
-description: Criar um Conjunto de Escala de Máquina Virtual usando o PowerShell
+title: "Criar um Conjunto de Dimensionamento de Máquina Virtual usando o PowerShell | Microsoft Docs"
+description: "Criar um Conjunto de Escala de Máquina Virtual usando o PowerShell"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7bb03323-8bcc-4ee4-9a3e-144ca6d644e2
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+
 
 ---
 # <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Criar um conjunto de escala de máquina virtual do Windows usando o Azure PowerShell
@@ -22,41 +26,18 @@ Estas etapas seguem uma abordagem de preenchimento de lacunas para criar um conj
 
 Deve levar cerca de 30 minutos para executar as etapas neste artigo.
 
-## <a name="step-1:-install-azure-powershell"></a>Etapa 1: instalar o PowerShell do Azure
+## <a name="step-1-install-azure-powershell"></a>Etapa 1: instalar o PowerShell do Azure
 Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 
-## <a name="step-2:-create-resources"></a>Etapa 2: criar recursos
+## <a name="step-2-create-resources"></a>Etapa 2: criar recursos
 Crie os recursos que são necessários para o novo conjunto de escala.
 
 ### <a name="resource-group"></a>Grupo de recursos
 Um conjunto de escala de máquina virtual deve estar contido em um grupo de recursos.
 
-1. Obtenha uma lista de locais disponíveis e os serviços que têm suporte:
+1. Obtenha uma lista dos locais disponíveis nos quais os recursos podem ser posicionados:
    
-        Get-AzureLocation | Sort Name | Select Name, AvailableServices
-   
-    Você deverá ver algo como este exemplo:
-   
-        Name                AvailableServices
-        ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Get-AzureLocation | Sort Name | Select Name
 2. Escolha o local que funciona melhor para você, substitua o valor de **$locName** pelo nome do local e crie a variável:
    
         $locName = "location name from the list, such as Central US"
@@ -132,36 +113,6 @@ Uma rede virtual é necessária para as máquinas virtuais no conjunto de escala
 4. Crie a rede virtual:
    
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-### <a name="public-ip-address"></a>Endereço IP público
-Antes da criação de uma interface de rede, você precisa criar um endereço IP público.
-
-1. Substitua o valor de **$domName** pelo rótulo do nome de domínio que você deseja usar com seu endereço IP público e crie a variável:  
-   
-        $domName = "domain name label"
-   
-    O rótulo pode conter somente letras, números e hifens, e o último caractere deve ser uma letra ou um número.
-2. Teste se o nome é exclusivo:
-   
-        Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
-   
-    Se a resposta for **True**, o nome proposto será exclusivo.
-3. Substitua o valor de **$pipName** pelo nome que você deseja usar para o endereço IP público e crie a variável. 
-   
-        $pipName = "public ip address name"
-4. Crie o endereço IP público:
-   
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
-
-### <a name="network-interface"></a>Interface de rede
-Agora que tem o endereço IP público, você pode criar a interface de rede.
-
-1. Substitua o valor de **$nicName** pelo nome que você deseja usar para a interface de rede e crie a variável: 
-   
-        $nicName = "network interface name"
-2. Crie a interface de rede:
-   
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 ### <a name="configuration-of-the-scale-set"></a>Configuração do conjunto de escala
 Você tem todos os recursos necessários para a configuração do conjunto de escala, então vamos criá-lo.  
@@ -253,7 +204,7 @@ Por fim, você pode criar o conjunto de escala.
         Location              : centralus
         Tags                  :
 
-## <a name="step-3:-explore-resources"></a>Etapa 3: explorar recursos
+## <a name="step-3-explore-resources"></a>Etapa 3: explorar recursos
 Use estes recursos para explorar o conjunto de escala de máquina virtual que criou:
 
 * Portal do Azure - uma quantidade limitada de informações está disponível por meio do portal.
@@ -271,6 +222,9 @@ Use estes recursos para explorar o conjunto de escala de máquina virtual que cr
 * Considere configurar o dimensionamento automático de seu conjunto de dimensionamento usando as informações em [Dimensionamento automático e conjuntos de dimensionamento da máquina virtual](virtual-machine-scale-sets-autoscale-overview.md)
 * Saiba mais sobre o dimensionamento vertical revisando [Dimensionamento vertical automático com conjuntos de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

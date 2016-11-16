@@ -1,5 +1,5 @@
 # Visão geral
-## [Introdução ao ACS](container-service-intro.md)
+## [O que é o Serviço de Contêiner do Azure?](container-service-intro.md)
 # Introdução
 
 ## [Implantar um cluster do ACS](container-service-deployment.md)
@@ -21,12 +21,11 @@
 ### [Visão geral do Docker Swarm](container-service-docker-swarm.md)
 
 # Referência
-
-## [API REST](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [API REST](https://docs.microsoft.com/rest/api/compute/containerservices/)
 
 # Recursos
-
 ## [Disponibilidade na região](https://azure.microsoft.com/regions/services/)
+## [Preços](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Atualizações de serviço](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 

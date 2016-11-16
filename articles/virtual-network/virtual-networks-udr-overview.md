@@ -1,12 +1,12 @@
 ---
-title: O que são Rotas Definidas pelo Usuário e Encaminhamento de IP?
-description: Saiba como usar Rotas de Definida pelo Usuário (UDR) e o Encaminhamento de IP para encaminhar o tráfego para os dispositivos virtuais da rede no Azure.
+title: "O que são Rotas Definidas pelo Usuário e Encaminhamento de IP?"
+description: "Saiba como usar Rotas de Definida pelo Usuário (UDR) e o Encaminhamento de IP para encaminhar o tráfego para os dispositivos virtuais da rede no Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+
 
 ---
-# O que são Rotas Definidas pelo Usuário e Encaminhamento de IP?
+# <a name="what-are-user-defined-routes-and-ip-forwarding"></a>O que são Rotas Definidas pelo Usuário e Encaminhamento de IP?
 Ao adicionar VMs (máquinas virtuais) a uma VNet (rede virtual) no Azure, você observará que as VMs podem se comunicar automaticamente com outras VMs na rede. Não é necessário especificar um gateway, mesmo que as VMs estejam em sub-redes diferentes. O mesmo vale para a comunicação entre as VMs para a Internet pública e até mesmo em suas instalações de rede quando houver uma conexão híbrida do Azure para o seu próprio datacenter.
 
 Esse fluxo de comunicação é possível porque o Azure usa uma série de rotas do sistema para definir como o tráfego IP flui. As rotas de sistema controlam o fluxo de comunicação nos seguintes cenários:
@@ -38,18 +42,18 @@ A figura abaixo mostra um exemplo das rotas definidas pelo usuário e do encamin
 ![Rotas de sistema no Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Rotas definidas pelo usuário só se aplicam ao tráfego que sai de uma sub-rede. Não é possível criar rotas para especificar como o tráfego entra em uma sub-rede da Internet, por exemplo. Além disso, o dispositivo para onde você está encaminhando o tráfego não pode estar na mesma sub-rede onde se origina o tráfego. Sempre crie uma sub-rede separada para seus dispositivos.
+> Rotas definidas pelo usuário só se aplicam ao tráfego que sai de uma sub-rede. Não é possível criar rotas para especificar como o tráfego entra em uma sub-rede da Internet, por exemplo. Além disso, o dispositivo para onde você está encaminhando o tráfego não pode estar na mesma sub-rede onde se origina o tráfego. Sempre crie uma sub-rede separada para seus dispositivos. 
 > 
 > 
 
-## Recurso de rota
+## <a name="route-resource"></a>Recurso de rota
 Os pacotes são roteados através de uma rede TCP/IP com base em uma tabela de rotas definida em cada nó na rede física. Uma tabela de rotas é uma coleção de rotas individuais usadas para decidir para onde encaminhar pacotes com base no endereço IP de destino. Uma rota consiste no seguinte:
 
 | Propriedade | Descrição | Restrições | Considerações |
 | --- | --- | --- | --- |
 | Prefixo de Endereço |O CIDR de destino ao qual a rota se aplica, como 10.1.0.0/16. |Deve ser um intervalo CIDR válido que represente endereços na Internet pública, na rede virtual do Azure ou no datacenter local. |Verifique se o **Prefixo do endereço** não contém o **Endereço do próximo salto**, caso contrário, seus pacotes entrarão em um loop, indo da origem para o próximo salto sem jamais chegar ao destino. |
-| Tipo do próximo salto |O tipo de salto do Azure ao qual o pacote deve ser enviado. |Deve ser um dos seguintes valores: <br/> **Rede Virtual**. Representa a rede virtual local. Por exemplo, se você tiver duas sub-redes, 10.1.0.0/16 e 10.2.0.0/16 na mesma rede virtual, a rota para cada sub-rede na tabela de rotas terá um valor do próximo salto da *Rede Virtual*. <br/> **Gateway de Rede Virtual**. Representa um Gateway de VPN S2S do Azure. <br/> **Internet**. Representa o gateway de Internet padrão fornecido pela Infraestrutura do Azure. <br/> **Dispositivo Virtual**. Representa um dispositivo virtual que você adicionou à sua rede virtual do Azure. <br/> **None**. Representa um buraco negro. Pacotes encaminhados a um buraco negro não serão encaminhados. |Considere usar um tipo **None** para impedir que os pacotes sigam para um determinado destino. |
-| Endereço do próximo salto |O endereço do próximo salto contém o endereço IP para o qual os pacotes devem ser encaminhados. Os valores de próximas salto são permitidos apenas em rotas em que o próximo salto é um *Dispositivo Virtual*. |Deve ser um endereço IP acessível. |Se o endereço IP representar uma VM, habilite o [encaminhamento IP](#IP-forwarding) no Azure para a VM. |
+| Tipo do próximo salto |O tipo de salto do Azure ao qual o pacote deve ser enviado. |Deve ser um dos seguintes valores:  <br/> **Rede Virtual**. Representa a rede virtual local. Por exemplo, se você tiver duas sub-redes, 10.1.0.0/16 e 10.2.0.0/16 na mesma rede virtual, a rota para cada sub-rede na tabela de rotas terá um valor do próximo salto da *Rede Virtual*. <br/> **Gateway de Rede Virtual**. Representa um Gateway de VPN S2S do Azure. <br/> **Internet**. Representa o gateway de Internet padrão fornecido pela Infraestrutura do Azure. <br/> **Dispositivo Virtual**. Representa um dispositivo virtual que você adicionou à sua rede virtual do Azure. <br/> **None**. Representa um buraco negro. Pacotes encaminhados a um buraco negro não serão encaminhados. |Considere usar um tipo **None** para impedir que os pacotes sigam para um determinado destino. |
+| Endereço do próximo salto |O endereço do próximo salto contém o endereço IP para o qual os pacotes devem ser encaminhados. Os valores de próximas salto são permitidos apenas em rotas em que o próximo salto é um *Dispositivo Virtual*. |Deve ser um endereço IP acessível na rede virtual onde a Rota Definida pelo Usuário é aplicada. |Se o endereço IP representar uma VM, habilite o [encaminhamento IP](#IP-forwarding) no Azure para a VM. |
 
 No Azure PowerShell, alguns dos valores "NextHopType" têm nomes diferentes:
 
@@ -59,14 +63,14 @@ No Azure PowerShell, alguns dos valores "NextHopType" têm nomes diferentes:
 * A Internet é Internet
 * Nenhum é None
 
-### Rotas do sistema
+### <a name="system-routes"></a>Rotas do sistema
 Cada sub-rede criada em uma rede virtual é associada automaticamente a uma tabela de rota que contém as seguintes regras de rota do sistema:
 
 * **Regra de VNet local**: essa regra é criada automaticamente para todas as sub-redes em uma rede virtual. Ela especifica que há um link direto entre as VMs na VNet e não há nenhum próximo salto intermediário.
 * **Regra local**: essa regra se aplica a todo o tráfego destinado ao intervalo de endereços locais e usa o gateway de VPN como o destino do próximo salto.
-* **Regra de Internet**: essa regra manipula todo o tráfego destinado à Internet pública e usa o gateway de Internet de infraestrutura como o próximo salto para todo o tráfego destinado à Internet.
+* **Regra de Internet**: essa regra manipula todo o tráfego destinado à Internet pública (prefixo de endereço 0.0.0.0/0) e usa o gateway de Internet de infraestrutura como o próximo salto para todo o tráfego destinado à Internet.
 
-### Rotas definidas pelo usuário
+### <a name="user-defined-routes"></a>Rotas definidas pelo usuário
 Para a maioria dos ambientes, serão necessárias apenas as rotas de sistema já definidas pelo Azure. No entanto, talvez seja necessário criar uma tabela de rotas e adicionar uma ou mais rotas em casos específicos, como:
 
 * Túnel à força para a Internet através de sua rede local.
@@ -87,7 +91,7 @@ Para saber como criar rotas definidas pelo usuário, veja [Como criar rotas e ha
 > 
 > 
 
-### Rotas BGP
+### <a name="bgp-routes"></a>Rotas BGP
 Se houver uma conexão ExpressRoute entre sua rede local e o Azure, você poderá habilitar o BGP para propagar rotas da rede local para o Azure. Essas rotas BGP são usadas da mesma maneira que as rotas do sistema e as rotas definidas pelo usuário em cada sub-rede do Azure. Para obter mais informações, consulte [Introdução ao ExpressRoute](../expressroute/expressroute-introduction.md).
 
 > [!IMPORTANT]
@@ -95,13 +99,18 @@ Se houver uma conexão ExpressRoute entre sua rede local e o Azure, você poder�
 > 
 > 
 
-## Encaminhamento IP
+## <a name="ip-forwarding"></a>encaminhamento IP
 Conforme descrito acima, uma das principais razões para criar uma rota definida pelo usuário é encaminhar o tráfego para um dispositivo virtual. Um dispositivo virtual é nada mais do que uma VM que executa um aplicativo usado para lidar com o tráfego de rede de alguma forma, como um firewall ou um dispositivo NAT.
 
 Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada não endereçado a si mesma. Para permitir que uma VM receba o tráfego endereçado a outros destinos, você deve habilitar o Encaminhamento IP para a VM. Esta é uma configuração do Azure, não uma configuração no sistema operacional convidado.
 
-## Próximas etapas
-* Saiba como [criar rotas no modelo de implantação do Gerenciador de Recursos](virtual-network-create-udr-arm-template.md) e associá-las a sub-redes.
+## <a name="next-steps"></a>Próximas etapas
+* Saiba como [criar rotas no modelo de implantação do Gerenciador de Recursos](virtual-network-create-udr-arm-template.md) e associá-las a sub-redes. 
 * Saiba como [criar rotas no modelo de implantação clássico](virtual-network-create-udr-classic-ps.md) e associá-las a sub-redes.
 
-<!----HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

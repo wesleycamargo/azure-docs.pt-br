@@ -10,7 +10,11 @@
   * [Exercício: Criar um Ambiente do Serviço de Aplicativo](../articles/app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
 * [Suporte a Pilhas de Desenvolvimento de Serviço de Aplicativo do Azure](/blog/windows-azure-websites-development-stacks-support/)
 
-## Vídeos
+## <a name="videos"></a>Vídeos
 * [Arquitetura de Serviço de Aplicativo do Azure](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+
