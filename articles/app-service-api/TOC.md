@@ -51,14 +51,14 @@
 #### [O que é o SDK de WebJobs do Azure](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Criar um WebJob do .NET no Serviço de Aplicativo do Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Como usar o armazenamento de blobs do Azure com o SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Como usar o armazenamento de filas do Azure com o SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Como usar o Barramento de Serviço do Azure com o SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Como usar o armazenamento de tabelas do Azure com o SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Como usar o barramento de serviço do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ### Ambiente do Serviço de Aplicativo
 #### [Criar um aplicativo Web em um Ambiente de Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Como criar um ASE ILB usando modelos do Azure Resource Manager](../app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Utilizando um Balanceador de carga interno](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Usar um balanceador de carga interno](../app-service-web/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [Implantar](../app-service/app-service-deployment-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Implantar no Serviço de Aplicativo](../app-service-web/web-sites-deploy.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -89,7 +89,7 @@
 ### [Configuração avançada](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Grupos de recursos](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Trabalhos da Web](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Executar tarefas em segundo plano com WebJobs](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Executar tarefas em segundo plano com o WebJobs](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ### [Ambiente do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Configurar](../app-service-web/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -119,12 +119,12 @@
 ### Proteger um Ambiente de Serviço de Aplicativo
 #### [Configurar um firewall de aplicativo Web](../app-service-web/app-service-app-service-environment-web-application-firewall.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Implementar uma arquitetura de segurança em camadas](../app-service-web/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Conectando-se a Recursos de back-end com segurança](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Conectar-se a recursos de back-end com segurança](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## Backup
 ### [Fazer backup de seu aplicativo no Azure](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Restaurar um aplicativo no Azure](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Usar REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Usar REST para fazer backup e restaurar apps do Serviço de Aplicativo](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [Monitorar](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Habilitar o registro em log de diagnóstico](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service-api%2ftoc.json)

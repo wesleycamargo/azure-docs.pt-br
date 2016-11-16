@@ -1,16 +1,13 @@
 # [Visão geral](cdn-overview.md)
-## [Práticas Recomendadas de CDN do Azure](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+## [O que é a CDN do Azure?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
 # Introdução
-## [Usando o Azure CDN](cdn-create-new-endpoint.md)
-## Introdução ao desenvolvimento de CDN do Azure
-### [.NET](cdn-app-dev-net.md)
-### [Node.js](cdn-app-dev-node.md)
+## [Habilitar a CDN do Azure](cdn-create-new-endpoint.md)
 
-# Como:
+# Como
 ## Integração
-### [Integrar com Aplicativos Web](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Integrar com Serviços de Nuvem](cdn-cloud-service-with-cdn.md)
-### [Integrar com Armazenamento](cdn-create-a-storage-account-with-cdn.md)
+### [Aplicativos Web](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Serviços de Nuvem](cdn-cloud-service-with-cdn.md)
+### [Armazenamento](cdn-create-a-storage-account-with-cdn.md)
 ### [Compartilhamento de recursos entre origens](cdn-cors.md)
 
 ## Gerenciar
@@ -29,9 +26,6 @@
 ### [Substituir comportamento com regras](cdn-rules-engine.md)
 ### [Obter alertas em tempo real](cdn-real-time-alerts.md)
 
-## Automatizar
-### [Gerenciar com o PowerShell](cdn-manage-powershell.md)
-
 ## Analise
 ### [Analisar os padrões de uso](cdn-analyze-usage-patterns.md)
 ### [Gerar relatórios HTTP avançados](cdn-advanced-http-reports.md)
@@ -39,21 +33,25 @@
 ### [Analisar o desempenho do nó de borda](cdn-edge-performance.md)
 
 ## Desenvolver
-### Introdução ao desenvolvimento de CDN do Azure
-#### [.NET](cdn-app-dev-net.md)
-#### [Node.js](cdn-app-dev-node.md)
+### [.NET](cdn-app-dev-net.md)
+### [Node.js](cdn-app-dev-node.md)
 
 ## Solucionar problemas
-### [Solucionar problemas de status 404](cdn-troubleshoot-endpoint.md)
-### [Solucionar problemas de compactação de arquivos](cdn-troubleshoot-compression.md)
+### [Status 404](cdn-troubleshoot-endpoint.md)
+### [Compactação de arquivos](cdn-troubleshoot-compression.md)
 
 # Referência
-## [Referência da API REST](https://msdn.microsoft.com/library/mt634456.aspx)
-
-# Relacionados
+## [Cmdlets do PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [API do .NET](https://docs.microsoft.com/dotnet/api)
+## [Locais POP da CDN do Azure](cdn-pop-locations.md)
+## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
 # Recursos
-## [Locais POP da CDN do Azure](cdn-pop-locations.md)
+## [Preços](https://azure.microsoft.com/pricing/details/cdn/)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=cdn)
+
 
 
 <!--HONumber=Nov16_HO2-->

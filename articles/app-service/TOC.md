@@ -1,5 +1,6 @@
-# [Visão geral](app-service-how-works-readme.md)
+# Visão geral
 ## [O que é o Serviço de Aplicativo](app-service-value-prop-what-is.md)
+## [Como funciona](app-service-how-works-readme.md)
 ## [Planos do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 # Introdução
@@ -45,9 +46,9 @@
 #### [O que é o SDK do Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Criar um WebJob do .NET no Serviço de Aplicativo do Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Como usar o armazenamento de blobs do Azure com o SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Como usar o armazenamento de filas do Azure com o SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Como usar o Barramento de Serviço do Azure com o SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Como usar o armazenamento de tabelas do Azure com o SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Como usar o barramento de serviço do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Como usar o armazenamento de tabela do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### Ambiente do Serviço de Aplicativo
 #### [Criar um aplicativo Web em um Ambiente de Serviço de Aplicativo](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -149,15 +150,14 @@
 ## [Referência do Serviço de Aplicativo](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [práticas recomendadas](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Recursos do WebJob](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
-
-# Relacionados
 ## [SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
 
-
-
-
-
-
+# Recursos
+## [Preços](https://azure.microsoft.com/pricing/details/app-service/)  
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=app-service) 
 
 <!--HONumber=Nov16_HO2-->
 

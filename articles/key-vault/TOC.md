@@ -1,6 +1,5 @@
 # Visão geral
 ## [O que é o Cofre de Chaves?](key-vault-whatis.md)
-## [Preços](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Visão geral do serviço](https://azure.microsoft.com/services/key-vault/)
 
 # Introdução
@@ -30,11 +29,14 @@
 # Referência
 ## [Sobre chaves e segredos](https://msdn.microsoft.com/en-us/library/azure/dn903623)
 ## [Exemplos de código](https://www.microsoft.com/download/details.aspx?id=45343)
-## [.NET para o Cofre de Chaves](https://msdn.microsoft.com/en-us/library/azure/mt430941)
-## [REST para o Cofre de Chaves](https://msdn.microsoft.com/en-us/library/azure/dn903609)
+
+## [Cmdlets do PowerShell do Resource Manager do Cofre de Chaves](/powershell/resourcemanager/)
+## [Cmdlets do PowerShell Clássico do Cofre de Chaves](/powershell/servicemanagement/)
+## [Cofre de Chaves usando a CLI do Azure](/cli/azure/)
+## [Cofre de Chaves na Referência Java](/java/api/)
+## [API de Referência Gerenciada do Cofre de Chaves](/dotnet/api/) 
+## [Referência de API REST do Cofre de Chaves](/rest/api/keyvault) 
 ## [Node.js para o Cofre de Chaves](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-## [Cmdlets do Cofre de Chaves](https://msdn.microsoft.com/en-us/library/azure/dn868052)
-## [Microsoft Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/jj156055.aspx)
 
 # Relacionados
 ## [Active Directory do Azure](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -43,6 +45,7 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Recursos
+## [Preços](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Fóruns](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 

@@ -1,12 +1,16 @@
 ---
 layout: LandingPage
----
-#Azure Resource Manager Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 00db07b08a15b37c38e6c3a303e3e35cf16b0774
+ms.openlocfilehash: 8976abfecb246fa1f0d5183308f4d2cdf5d5f3dd
 
-Azure Resource Manager enables you to repeatedly deploy your app and have confidence your resources are deployed in a consistent state. You define the infrastructure and dependencies for your app in a single declarative template. The infrastructure for your application is typically made up of many components – maybe a virtual machine, storage account, and virtual network, or a web app, database, database server, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your solution as a group. You can deploy, update, or delete all the resources for your solution in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging, and production. Resource Manager provides security, auditing, and tagging features to help you manage your resources after deployment. 
+---
+#<a name="azure-resource-manager-documentation"></a>Documentação do Azure Resource Manager
+
+O Azure Resource Manager permite que você implante repetidamente seu aplicativo e tenha confiança de que os recursos sejam implantados em um estado consistente. Você define a infraestrutura e as dependências do aplicativo em um modelo declarativo único. A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação. 
 
 <ul class="panelContent cardsFTitle">
-	<li>
+    <li>
         <a href="/azure/Azure-Resource-Manager/resource-group-overview">
         <div class="cardSize">
             <div class="cardPadding">
@@ -17,7 +21,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Resource Manager</h3>
+                        <h3>Saiba mais sobre o Azure Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -35,14 +39,14 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Resource Manager Video Library</h3>
+                        <h3>Biblioteca de Vídeos do Azure Resource Manager</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-	<li>
+    <li>
         <a href="/azure/resource-manager-template-walkthrough/">
         <div class="cardSize">
             <div class="cardPadding">
@@ -53,14 +57,14 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an Azure Resource Manager Template</h3>
+                        <h3>Criar um Modelo do Azure Resource Manager</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-	<li>
+    <li>
         <a href="/azure/resource-group-define-dependencies/">
         <div class="cardSize">
             <div class="cardPadding">
@@ -71,7 +75,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create dependencies in Azure Resource Manager templates</h3>
+                        <h3>Criar dependências em modelos do Azure Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create multiple instances of resources in Azure Resource Manager</h3>
+                        <h3>Criar várias instâncias de recursos no Azure Resource Manager</h3>
                     </div>
                 </div>
             </div>
@@ -100,35 +104,39 @@ Azure Resource Manager enables you to repeatedly deploy your app and have confid
 
 ---
 
-##Reference
+##<a name="reference"></a>Referência
 
-###PowerShell
-[PowerShell cmdlets](/powershell/azureps-cmdlets-docs/)
+###<a name="powershell"></a>PowerShell
+[Cmdlets do PowerShell](/powershell/azureps-cmdlets-docs/)
 
-###Azure CLI
-[Azure CLI](/cli/azure)
+###<a name="azure-cli"></a>CLI do Azure
+[CLI do Azure](/cli/azure)
 
-###.NET
-[Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+###<a name="net"></a>.NET
+[Gerenciar recursos e grupos de recursos do Azure com .NET](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/)
 
-###Java
-[Getting Started with Resources - Manage Resource - in Java](https://azure.microsoft.com/en-us/documentation/samples/resources-java-manage-resource/)
+###<a name="java"></a>Java
+[Introdução aos Recursos – Gerenciar Recursos – em Java](https://azure.microsoft.com/en-us/documentation/samples/resources-java-manage-resource/)
 
-###Node.js
-[Manage Azure resources and resource groups with Node.js](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/)
+###<a name="nodejs"></a>Node.js
+[Gerenciar recursos e grupos de recursos do Azure com Node.js](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/)
 
-###Python
-[Manage Azure resources and resource groups with Python](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/)
+###<a name="python"></a>Python
+[Gerenciar recursos e grupos de recursos do Azure com Python](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/)
 
-###Ruby
-[Manage Azure resources and resource groups with Ruby](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/)
+###<a name="ruby"></a>Ruby
+[Gerenciar recursos e grupos de recursos do Azure com Ruby](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ---
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-resource-manager.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure Resource Manager Documentation
-        </div>
+Download da Documentação do Azure Resource Manager </div>
     </a>
 </div>
+
+
+<!--HONumber=Nov16_HO2-->
+
+

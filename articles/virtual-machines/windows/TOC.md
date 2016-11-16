@@ -17,7 +17,6 @@
 ## [PERGUNTAS FREQUENTES](../virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Introdução
-## [Conta gratuita](https://azure.microsoft.com/free/)
 ## [Criar uma VM usando o portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Fazer logon em uma VM](../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Instalar uma função e abrir portas](../virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -32,9 +31,9 @@
 ### [Implantação do aplicativo](../virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Como
-## Armazenamento
-### [Anexar um disco de dados usando o portal](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Desanexar um disco de dados usando o portal](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## Usar o Armazenamento
+### [Anexar um disco de dados](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Desanexar um disco de dados](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Expandir o disco do SO](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Usar D: como um disco de dados](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Criptografia do disco](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -50,15 +49,6 @@
 ### [Criar um IP público estático](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Conectar VNets Clássicas a VNets do Resource Manager](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Imagens
-### [Preparar um VHD para carregar](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Generalizar uma VM usando Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Carregar uma imagem de VM](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Capturar uma VM do Azure generalizada](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Copiar uma VM do Azure especializada](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Criar uma VM com base em um VHD generalizado](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Criar uma VM com base em um VHD especializado](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 ## Implantar
 ### [Usar licenciamento de Garantia de Software](../virtual-machines-windows-hybrid-use-benefit-licensing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Localizar imagens da VM usando Powershell](../virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -71,6 +61,14 @@
 ### [Implantar usando C#](../virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Implantar usando C# e modelos](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Implantar estruturas de aplicativos a partir de um modelo](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Imagens
+#### [Preparar um VHD para carregar](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Generalizar uma VM usando Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Carregar uma imagem de VM](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Capturar uma VM do Azure generalizada](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Copiar uma VM do Azure especializada](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Criar uma VM com base em um VHD generalizado](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Criar uma VM com base em um VHD especializado](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Configurar
 ### [Criar conjunto de disponibilidade](../virtual-machines-windows-create-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -84,7 +82,7 @@
 ### [Tarefas comuns da CLI](../virtual-machines-windows-cli-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Gerenciar
-### [Criar uma identidade corporativa ou estudantil no Azure Active Directory](../virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Criar uma identidade corporativa ou de estudante no Azure AD](../virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Gerenciar acesso](../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Configurar o Cofre de Chaves](../virtual-machines-windows-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Configurar acesso do WinRM](../virtual-machines-windows-winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -107,7 +105,7 @@
 ### [Exemplos de configuração](../virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Solucionar problemas de extensões](../virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Visão geral da Automação do Azure](../virtual-machines-windows-manage-using-azure-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Escalar verticalmente VMs com a Automação do Azure](../virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Dimensionar verticalmente as VMs](../virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Baixar o modelo para uma VM](../virtual-machines-windows-download-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Automatizar com o Chef](../virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -117,10 +115,8 @@
 ### [Migrar usando o PowerShell](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Ferramentas de comunidade para a migração](../virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Práticas Recomendadas
-### [Práticas recomendadas para executar uma VM do Windows no Azure](../virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 ## Plano
+### [Práticas recomendadas de VMs do Windows](../virtual-machines-windows-guidance-compute-single-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Diretrizes de infraestrutura](../virtual-machines-windows-infrastructure-virtual-machine-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Assinaturas e contas](../virtual-machines-windows-infrastructure-subscription-accounts-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Nomenclatura](../virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -132,36 +128,36 @@
 ### [Manutenção planejada do Azure](../virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Agenda](../virtual-machines-windows-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Cargas de trabalho
+## Gerenciar cargas de trabalho
 ### [HPC (Computação de Alto Desempenho)](../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [MATLAB](../virtual-machines-windows-matlab-mdcs-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [MongoDB](../virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [SQL](../virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Provisionar uma máquina virtual do SQL Server no Portal do Azure](../virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Provisionar uma máquina virtual do SQL Server usando o Azure PowerShell](../virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Conectar-se a uma máquina virtual do SQL Server no Azure](../virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Migrar um banco de dados do SQL Server para o SQL Server em uma VM do Azure](../virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Configurar manualmente os grupos de disponibilidade Always On na VM do Azure](../virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Configurar automaticamente os grupos de disponibilidade Always On na VM do Azure](../virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Configurar um balanceador de carga interno para um grupo de disponibilidade AlwaysOn no Azure](../virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Provisionar uma VM no Portal do Azure](../virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Provisionar uma VM usando o Azure PowerShell](../virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Conectar-se a uma VM](../virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Migrar um banco de dados do SQL Server](../virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Configurar manualmente os grupos de disponibilidade Always On](../virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Configurar automaticamente os grupos de disponibilidade Always On](../virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Configurar um balanceador de carga interno para um grupo de disponibilidade AlwaysOn](../virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Configurar um ou mais ouvintes grupo de disponibilidade AlwaysOn](../virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Configurar a integração do Cofre de Chaves do Azure para SQL Server em VMs do Azure](../virtual-machines-windows-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure](../virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Backup automatizado para SQL Server em Máquinas Virtuais do Azure](../virtual-machines-windows-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Backup e restauração para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Usar o armazenamento do Azure para o backup e restauração do SQL Server](../virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Aplicação de patch automatizada para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines-windows-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Considerações sobre Segurança para SQL Server em Máquinas Virtuais do Azure](../virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Extensão do SQL Server Agent para VMs do SQL Server](../virtual-machines-windows-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Estratégias de Desenvolvimento e Padrões de Aplicativo para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Configurar a integração do Cofre de Chaves do Azure](../virtual-machines-windows-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Alta disponibilidade e recuperação de desastres](../virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Backup Automatizado](../virtual-machines-windows-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Backup e restauração](../virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Usar o Armazenamento do Azure para backup e restauração](../virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Aplicação de patch automatizada](../virtual-machines-windows-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Práticas recomendadas de desempenho](../virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Considerações de segurança](../virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Extensão do agente do SQL Server](../virtual-machines-windows-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Estratégias e padrões de aplicativo](../virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Perguntas frequentes sobre o SQL Server em Máquinas Virtuais do Azure](../virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Configuração de armazenamento para VMs do SQL Server](../virtual-machines-windows-sql-server-storage-configuration.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure](../virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver em VMs (máquinas virtuais) do Windows - guia de planejamento e implementação](../virtual-machines-windows-sap-planning-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver em VMs (máquinas virtuais) do Windows - guia de alta disponibilidade](../virtual-machines-windows-sap-high-availability-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver em VMs (máquinas virtuais) do Windows - guia de implantação do DBMS](../virtual-machines-windows-sap-dbms-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SAP NetWeaver em VMs (máquinas virtuais) do Windows - guia de implantação](../virtual-machines-windows-sap-deployment-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Guia de implementação e planejamento](../virtual-machines-windows-sap-planning-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Guia de alta disponibilidade](../virtual-machines-windows-sap-high-availability-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Guia de implantação de DBMS](../virtual-machines-windows-sap-dbms-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Guia de implantação](../virtual-machines-windows-sap-deployment-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
 ### [SAP](../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -172,7 +168,7 @@
 ## Solucionar problemas
 ### [Solucionar problemas em conexões de Área de Trabalho Remota](../virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Redefinir a senha RDP](../virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Solucionar problemas de mensagens de erro específicas ao RDP para uma VM do Windows no Azure](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Solução de problemas de mensagens de erro específicas do RDP](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Solucionar problemas ao criar uma nova VM](../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Solucionar problemas ao reinicializar ou redimensionar uma VM](../virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Solucionar problemas de acesso a aplicativo](../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -180,21 +176,19 @@
 ### [Reimplantar uma VM](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Referência
-## [Criar modelos do Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [API REST de computação](https://msdn.microsoft.com/library/azure/mt163647)
-## [API REST de rede](https://msdn.microsoft.com/library/azure/mt163658)
-## [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355)
-## [API REST de Conjuntos de Dimensionamento de Máquina Virtual](https://msdn.microsoft.com/library/azure/mt705635)
-## [API .NET de Máquinas Virtuais](https://msdn.microsoft.com/library/azure/mt131911)
-## [API .NET de rede](https://msdn.microsoft.com/library/azure/dn973320)
-## [API .NET de armazenamento](https://msdn.microsoft.com/library/azure/mt131037)
-## [CLI](../azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [PowerShell](https://msdn.microsoft.com/library/azure/mt125979)
+## [CLI do Azure](/cli/azure/vm)
+## [Java](/java/api/)
+## [Criar modelos do Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Modelos da comunidade](https://azure.microsoft.com/documentation/templates/)
+## [REST de computação](/rest/api/compute/)
+## [REST de rede](/rest/api/)
+## [REST de armazenamento](/rest/api/storageservices/)
 
 # Recursos
 ## [Preços](https://azure.microsoft.com/pricing/details/#Windows)
 ## [Disponibilidade regional](https://azure.microsoft.com/regions/services/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
 <!--HONumber=Nov16_HO2-->

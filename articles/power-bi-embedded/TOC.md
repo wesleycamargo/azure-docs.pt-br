@@ -5,8 +5,9 @@
 # Introdução
 ## [Introdução ao Power BI Embedded](power-bi-embedded-get-started.md)
 ## [Começar com um exemplo](power-bi-embedded-get-started-sample.md)
+## [Perguntas frequentes](power-bi-embedded-faq.md)
 
-# Como 
+# Como
 ## Planejar e projetar
 ### [Cenários comuns](power-bi-embedded-scenarios.md)
 
@@ -20,19 +21,17 @@
 ### [Segurança em nível de linha com o Power BI Embedded](power-bi-embedded-rls.md)
 
 # Referência
-## [Referência de API .NET](https://msdn.microsoft.com/en-us/library/azure/mt669800)
-## [SDK do JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
-## [Referência da API REST](https://msdn.microsoft.com/en-us/library/azure/mt712303)
+## [PowerShell](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
 ## [Download do SDK do .NET](https://www.nuget.org/profiles/powerbi)
+## [JavaScript](https://github.com/Microsoft/PowerBI-JavaScript)
+## [REST](/rest/api/powerbiembedded/)
 
-# Relacionados 
 
 # Recursos
-## [Perguntas frequentes](power-bi-embedded-faq.md)
 ## [Exemplos](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Comunidade do Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)
-
 
 
 <!--HONumber=Nov16_HO2-->
