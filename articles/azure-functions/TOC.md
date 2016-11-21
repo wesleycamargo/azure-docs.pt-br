@@ -38,9 +38,6 @@
 ## Implantar
 ### [Implantação contínua para Azure Functions](functions-continuous-deployment.md)
 
-# Referência
-## [API do .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-
 # Recursos
 ## [Preços](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
@@ -48,6 +45,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

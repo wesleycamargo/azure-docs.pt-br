@@ -40,13 +40,17 @@
 ### [Gerenciar usando automação](automation-manage-api-management.md)
 ### [Configurar usando Git](api-management-configuration-repository-git.md)
 #Referência
-## [Cmdlet do PowerShell de Gerenciamento de Recursos]/powershell/resourcemanager()
-## [Referência de cmdlets do PowerShell para implantação clássica](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-## [API REST](/rest/api/apimanagement/)
-## [Políticas](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [Modelos](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Classic PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
+## [REST](/rest/api/apimanagement/)
+## [Políticas](https://msdn.microsoft.com/library/azure/dn894081)
+## [Modelos](https://msdn.microsoft.com/library/azure/mt697540)
 #Recursos
 ## [Preços](https://azure.microsoft.com/pricing/details/api-management/)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=api-management)
 ## [White paper: gerenciamento de API baseado em nuvem](http://j.mp/ms-apim-whitepaper)
 ## [Diretrizes de design de API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [Diretrizes para implementação de API](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
@@ -59,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 50a8865afe60b47b094e3fa64ab622c229a8a4a4
-ms.openlocfilehash: fc7e57b12158c34b2ee0de334f1b08469765f39d
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: fc9ecdbafdd81a4e1c4dfce546ea9c9cebc647d6
 
 ---
 #<a name="backup-documentation"></a>Documentação de backup
@@ -104,13 +104,39 @@ O Backup do Azure é o serviço de nuvem que você pode usar para fazer backup d
 
 ---
 
-##<a name="reference"></a>Referência
+## <a name="reference"></a>Referência
 
-###<a name="net"></a>.NET
-[Referência Gerenciada do .NET](/dotnet/api)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Referência gerenciada do .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/recoveryservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referência da API REST do Backup</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
-###<a name="rest"></a>REST
-[Referência da API REST do Backup](/rest/api/recoveryservices)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/backup.pdf">
@@ -122,6 +148,6 @@ Download da Documentação de Backup do Azure </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

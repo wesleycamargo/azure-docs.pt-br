@@ -14,7 +14,7 @@
 ## [Gerenciar](sql-data-warehouse-overview-manage.md)
 ## [Obtenha suporte](sql-data-warehouse-get-started-create-support-ticket.md)
 
-# Como:
+# Como
 
 ## Fazer backup e restauração
 
@@ -28,10 +28,9 @@
 
 ### [Visão geral](sql-data-warehouse-connect-overview.md)
 ### [Cadeias de conexão](sql-data-warehouse-connection-strings.md)
-### Consultar
-#### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-#### [SSMS](sql-data-warehouse-query-ssms.md)
-#### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [SSMS](sql-data-warehouse-query-ssms.md)
+### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Instalar Visual Studio](sql-data-warehouse-install-visual-studio.md)
 
 ## Desenvolver
@@ -111,6 +110,7 @@
 ## Desempenho
 
 ### [Visão geral](sql-data-warehouse-overview-manage-user-queries.md)
+### [Compactação columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Consultas](sql-data-warehouse-manage-monitor.md)
 ### [Carga de trabalho](sql-data-warehouse-develop-concurrency.md)
 ### [Solucionar problemas](sql-data-warehouse-troubleshoot.md)
@@ -146,6 +146,6 @@
 ### [Gerenciamento de dados](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

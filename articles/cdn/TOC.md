@@ -1,5 +1,6 @@
 # [Visão geral](cdn-overview.md)
 ## [O que é a CDN do Azure?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+
 # Introdução
 ## [Habilitar a CDN do Azure](cdn-create-new-endpoint.md)
 
@@ -41,19 +42,19 @@
 ### [Compactação de arquivos](cdn-troubleshoot-compression.md)
 
 # Referência
-## [Cmdlets do PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [API do .NET](https://docs.microsoft.com/dotnet/api)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [.NET](/dotnet/api/)
 ## [Locais POP da CDN do Azure](cdn-pop-locations.md)
-## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
+## [REST](/rest/api/cdn/)
 
 # Recursos
-## [Preços](https://azure.microsoft.com/pricing/details/cdn/)
-## [Fórum do MSDN](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
-## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=cdn)
+## [Preços](https://azure.microsoft.com/pricing/details/cdn/)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

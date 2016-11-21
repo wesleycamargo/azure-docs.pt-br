@@ -4,6 +4,7 @@
 ## [Entender o Resource Manager e a implantação Clássica](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Governança de assinatura prescritiva](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Exemplos de governança para empresas](../resource-manager-subscription-examples.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+
 # Introdução
 ## [Exportar modelo](../resource-manager-export-template.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Passo a passo do modelo](../resource-manager-template-walkthrough.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -51,23 +52,22 @@
 ### [Exibir operações de implantação com o PowerShell](../resource-manager-troubleshoot-deployments-powershell.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Exibir operações de implantação com a CLI do Azure](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Exibir operações de implantação com a API REST](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+
 # Referência
-## [Cmdlets do PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
 ## [CLI do Azure](/cli/azure)
 ## [Java](/java/api)
-## [API do .NET](/dotnet/api)
+## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Esquemas de modelo](https://github.com/Azure/azure-resource-manager-schemas)
-## [Cmdlets do PowerShell para o Resource Manager](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [API REST para o Resource Manager](/rest/api/resources/)
-## [Biblioteca de cliente .NET para o Resource Manager](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Solicitações de limitação](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [REST](/rest/api/resources/)
 
 # Recursos
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=azure-resource-manager) 
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

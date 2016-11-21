@@ -13,14 +13,15 @@
 ## [Gerenciar perfis](traffic-manager-manage-profiles.md)
 ## [Apontar seu domínio da Internet para o Gerenciador de Tráfego](traffic-manager-point-internet-domain.md)
 
-# Como:
+# Como
 ## [Configurar um método de roteamento](traffic-manager-configure-routing-method.md)
 ## [Testar suas configurações](traffic-manager-testing-settings.md)
 ## [Solucionar problemas de um ponto de extremidade degradado](traffic-manager-troubleshooting-degraded.md)
-## [Usar recursos de rede](../virtual-network/resource-groups-networking.md)
+## [Combinando serviços de balanceamento de carga](traffic-manager-load-balancing-azure.md)
+## [Usar recursos de rede](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell (clássico)](/powershell/servicemanagement/)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
@@ -30,14 +31,15 @@
 ## [DNS do Azure](/azure/dns/)
 
 # Recursos
-##[Preços](https://azure.microsoft.com/pricing/details/traffic-manager/)
-##[CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-##[Limites de serviço](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Preços](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [CONTRATO DE NÍVEL DE SERVIÇO](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [Limites de serviço](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
-## [Fórum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

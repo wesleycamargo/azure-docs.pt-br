@@ -49,7 +49,7 @@
 ## [Monitorar e solucionar problemas](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Implantação clássica do PowerShell](/powershell/servicemanagement/)
 
 # Relacionados
@@ -63,6 +63,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
