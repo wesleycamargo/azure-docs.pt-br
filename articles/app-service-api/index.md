@@ -6,7 +6,7 @@ ms.openlocfilehash: 078421d67ae2b2f0854b6f31bb97d146224ef685
 
 
 ---
-# <a name="app-service-api-apps-documentation"></a>Serviço de Aplicativo - Documentação de Aplicativos de API
+# <a name="app-service---api-apps-documentation"></a>Serviço de Aplicativo - Documentação de Aplicativos de API
 
 Os Aplicativos de API são um dos quatro tipos de aplicativos oferecidos pelo Serviço de Aplicativo do Azure. Os Aplicativos de API no Serviço de Aplicativo do Azure oferecem um rico conjunto de recursos para desenvolver, hospedar e utilizar APIs na nuvem e localmente. O Serviço de Aplicativo do Azure é uma plataforma totalmente gerenciada para Web, dispositivos móveis e cenários de integração.
 
@@ -133,6 +133,6 @@ Baixar documentação dos Aplicativos Móveis </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

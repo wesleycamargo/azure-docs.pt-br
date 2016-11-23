@@ -102,6 +102,6 @@ O Registro de Contêiner do Azure (visualização) é um Registro privado para h
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
