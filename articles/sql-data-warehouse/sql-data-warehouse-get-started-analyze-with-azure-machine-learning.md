@@ -32,7 +32,7 @@ ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
 
 Este tutorial usa o Aprendizado de Máquina do Azure para compilar um modelo de aprendizado de máquina preditivo com base nos dados armazenados no SQL Data Warehouse do Azure. Especificamente, isso compila uma campanha de marketing direcionado da Adventure Works, uma loja de bicicletas, prevendo se um cliente tem probabilidade de comprar uma bicicleta ou não.
 
-> [!VÍDEO https://channel9.msdn.com/Blogs/Windows-Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
