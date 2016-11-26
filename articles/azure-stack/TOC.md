@@ -68,20 +68,17 @@
 ## [Gerenciar atualizações](azure-stack-updates.md)
 ## [Desenvolver para o Azure Stack](azure-stack-developer.md)
 ## Implantar o provedor de recursos do MySQL ou SQL
-### [Usar bancos de dados MySQL como PaaS no Azure Stack](azure-stack-mysql-rp-deploy-short.md)
-### [Implantar o Adaptador de provedor de recursos do SQL Server no Azure Stack](azure-stack-sql-rp-deploy-long.md)
-### [Usar bancos de dados SQL no Azure Stack](azure-stack-sql-rp-deploy-short.md)
+### [Usar bancos de dados MySQL como PaaS no Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
+### [Implantar o Adaptador de provedor de recursos do SQL Server no Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
-## Planejar e implantar Aplicativos Web
-### [Visão geral dos aplicativos Web do Azure Stack](azure-stack-webapps-overview.md)
-### [Antes de começar com os aplicativos Web do Azure Stack](azure-stack-webapps-before-you-get-started.md)
-### [Implantar o Provedor de recursos MySQL no Azure Stack para usar com o WebApps](azure-stack-mysql-rp-deploy-long.md)
+## Planejar e implantar o Serviço de Aplicativo
+### [Visão geral dos aplicativos Web do Azure Stack](azure-stack-app-service-overview.md)
+### [Antes de começar com os aplicativos Web do Azure Stack](azure-stack-app-service-before-you-get-started.md)
 ### [Aplicativos Web: adicionando mais funções de trabalho da Web](azure-stack-webapps-add-worker-roles.md)
-### [Adicionar um provedor de recursos de aplicativos Web ao Azure Stack](azure-stack-webapps-deploy.md)
+### [Adicionar um provedor de recursos de aplicativos Web ao Azure Stack](azure-stack-app-service-deploy.md)
 
 # Solucionar problemas
 ## [Solucionar problemas do Azure Stack](azure-stack-troubleshooting.md)
-## [Executar novamente uma implantação de uma etapa com falha](azure-stack-rerun-deploy.md)
 ## [Provedor de Recursos de Aplicativos Web](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Recursos
@@ -90,6 +87,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

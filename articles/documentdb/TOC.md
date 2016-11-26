@@ -5,12 +5,11 @@
 ## Cenários
 ### [Casos de uso comuns](documentdb-use-cases.md)
 ### [Expandindo o DocumentDB para as redes sociais](documentdb-social-media-apps.md)
-### [Multilocação](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
-
 
 # Introdução
 ## Escrever seu primeiro aplicativo
 ### [Aplicativo de console .NET](documentdb-get-started.md)
+### [Aplicativo de console do .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Aplicativo de console do Node.js](documentdb-nodejs-get-started.md)
 ### [Aplicativo de console do C++](documentdb-cpp-get-started.md)
 ## Compilar um aplicativo Web
@@ -18,6 +17,7 @@
 ### [Aplicativo Web Node.js](documentdb-nodejs-application.md)
 ### [Aplicativo Web Java](documentdb-java-application.md)
 ### [Aplicativo Web Python Flask](documentdb-python-application.md)
+## [Desenvolver Localmente](documentdb-nosql-local-emulator.md)
 ## [PERGUNTAS FREQUENTES](documentdb-faq.md)
 
 # Como
@@ -85,6 +85,7 @@
 # Referência
 ## [Java SDK](documentdb-sdk-java.md)
 ## [SDK .NET](documentdb-sdk-dotnet.md)
+## [SDK do .NET Core](documentdb-sdk-dotnet-core.md)
 ## [Amostras do .NET](documentdb-dotnet-samples.md)
 ## [SDK do Node.js](documentdb-sdk-node.md)
 ## [Exemplos do Node.js](documentdb-nodejs-samples.md)
@@ -109,6 +110,6 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

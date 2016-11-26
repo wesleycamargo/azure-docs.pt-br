@@ -24,6 +24,8 @@
 #### [Camada Premium](cdn-query-string-premium.md)
 ### [Limpar ativos armazenados em cache](cdn-purge-endpoint.md)
 ### [Pré-carregar ativos armazenados em cache](cdn-preload-endpoint.md)
+### [Autenticação de token](cdn-token-auth.md)
+### [Monitorar recursos](cdn-resource-health.md)
 ### [Substituir comportamento com regras](cdn-rules-engine.md)
 ### [Obter alertas em tempo real](cdn-real-time-alerts.md)
 
@@ -55,6 +57,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

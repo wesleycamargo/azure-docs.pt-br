@@ -20,7 +20,7 @@
 ### [Dimensionamento automático e conjuntos de dimensionamento](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Colocação em escala vertical em um conjunto de dimensionamento](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Atualizações para conjuntos de dimensionamento](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Dimensionamento automático avançado](virtual-machine-scale-sets-advanced-autoscale.md)
+### [Dimensionamento automático avançado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Usar DSC e conjuntos de dimensionamento](virtual-machine-scale-sets-dsc.md)
 
 ## Solucionar problemas
@@ -38,6 +38,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

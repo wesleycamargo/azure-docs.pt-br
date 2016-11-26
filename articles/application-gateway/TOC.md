@@ -6,7 +6,7 @@
 ## [Multissite](application-gateway-multi-site-overview.md)
 ## [SSL de Ponta a Ponta](application-gateway-backend-ssl.md)
 ## [WebSocket](application-gateway-websocket.md)
-## [Limites de serviço e assinatura](../azure-subscription-service-limits.md#application-gateway-limits.md)
+## [Limites de serviço](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 # Introdução
 ## Criar um Gateway de Aplicativo
 ### Voltada para o pública
@@ -19,25 +19,25 @@
 #### [PowerShell](application-gateway-ilb-arm.md)
 #### [PowerShell (clássico)](application-gateway-ilb.md)
 # Como
-## Criar com firewall de aplicativo Web
+## Configurar firewall do aplicativo Web
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
-## Configurar para SSL
+## Configurar para descarregamento do SSL
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (Clássico)](application-gateway-ssl.md)
 ### [Política e ponta a ponta](application-gateway-end-to-end-ssl-powershell.md)
-## Criar roteamento baseado em caminho de URL
+## Configurar roteamento baseado no caminho da URL
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
-## Configurar para hospedagem de vários sites
+## Configurar hospedagem de vários sites
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Criar investigações de integridade
+## Configurar investigações da integridade
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Clássico)](application-gateway-create-probe-classic-ps.md)
-## [Combinando serviços de balanceamento de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
+## [Combinar serviços de balanceamento de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Gerenciar
 ### [Diagnostics](application-gateway-diagnostics.md)
 ### [Solucionar problemas](application-gateway-troubleshooting-502.md)
@@ -61,6 +61,6 @@
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

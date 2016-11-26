@@ -153,6 +153,7 @@
 ### [Conexões locais](web-sites-hybrid-connection-get-started.md)
 ### [Rede Virtual do Azure](web-sites-integrate-with-vnet.md)
 ### [Configuração avançada](web-sites-transform-extend.md)
+### [Configurar contêiner para Serviço de Aplicativo no Linux](app-service-linux-using-custom-docker-image.md)
 ### [Grupos de recursos](app-service-move-resources.md)
 ### [Converter WordPress para Multissite](web-sites-php-convert-wordpress-multisite.md) 
 
@@ -265,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

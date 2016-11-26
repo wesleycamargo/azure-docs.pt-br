@@ -9,7 +9,7 @@
 
 # Como
 
-## [Criar uma entidade de serviço](../resource-group-create-service-principal-portal.md)
+## [Criar uma entidade de serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json)
 ## [Autenticar com um Registro](container-registry-authentication.md)
 
 # Referência
@@ -27,6 +27,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -26,6 +26,6 @@
 ## [Controle de acesso baseado em função](../role-based-access-control-what-is.md)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

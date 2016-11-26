@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 2bb861bf0e2d3505b3e2eeeb3ce779ab718e7013
-ms.openlocfilehash: 53f98b140cd1daa82b71a2924312cb0c2b3ac553
+ms.sourcegitcommit: 9e86ae23b3fe3b8134f4725035c03837425cc0c4
+ms.openlocfilehash: 9a05d78edbf2c186d4a4d84f38eb6deff0cdafc5
 
 ---
 #<a name="traffic-manager-documentation"></a>Documentação do Gerenciador de Tráfego
 
-O Gerenciador de Tráfego do Azure permite que você controle a distribuição do tráfego do usuário para pontos de extremidade do serviço em diferentes datacenters.  O Gerenciador de Tráfego usa o sistema de nome de domínio (DNS) para direcionar as solicitações para o ponto de extremidade mais apropriado com base em um método de roteamento de tráfego e na integridade dos pontos de extremidade, permitindo que seu aplicativo tenha a disponibilidade e a capacidade de resposta necessárias a um aplicativo de larga escala.
+O Gerenciador de Tráfego do Azure permite controlar a distribuição do tráfego do usuário para os pontos de extremidade do serviço em diferentes regiões. O Gerenciador de Tráfego usa o Sistema de Nome de Domínio (DNS) para direcionar as solicitações do cliente para o ponto de extremidade mais apropriado com base no método de roteamento de tráfego selecionado e na integridade dos pontos de extremidade, permitindo que seu aplicativo tenha uma disponibilidade e capacidade de resposta maiores.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -123,12 +123,12 @@ O Gerenciador de Tráfego do Azure permite que você controle a distribuição d
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
         <div class="img"></div>
         <div class="text">
-Download da Documentação do Service Fabric </div>
+Baixar Documentação do Gerenciador de Tráfego </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
