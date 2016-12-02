@@ -47,7 +47,7 @@
 ### [Namespaces emparelhados](service-bus-paired-namespaces.md)
 ### [Entidades em cadeia com encaminhamento automático](service-bus-auto-forwarding.md)
 ## Gerenciar
-### [Usando modelos do ARM](service-bus-resource-manager-overview.md)
+### [Usando modelos do Azure Resource Manager](service-bus-resource-manager-overview.md)
 ### [Usando o PowerShell para provisionar entidades](service-bus-powershell-how-to-provision.md)
 
 # Referência
@@ -57,6 +57,10 @@
 ## [Cotas](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
+## [Sintaxe SQLFilter](service-bus-messaging-sql-filter.md)
+## [Sintaxe SQLRuleAction](service-bus-messaging-sql-rule-action.md)
+## [Guia do protocolo AMQP1.0](service-bus-amqp-protocol-guide.md)
+### [Operações baseadas em resposta de solicitação AMQP 1.0](service-bus-amqp-request-response.md)
 
 # Recursos
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -69,6 +73,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

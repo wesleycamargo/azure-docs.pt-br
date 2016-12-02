@@ -111,7 +111,7 @@
 ### Aprenda
 #### [Visão geral](sql-database-business-continuity.md)
 #### [Backups de banco de dados](sql-database-automated-backups.md)
-#### [Retenção de longo prazo](sql-database-long-term-retention.md) 
+#### [Retenção de longo prazo](sql-database-long-term-retention.md)
 #### [Recuperação do banco de dados usando backups](sql-database-recovery-using-backups.md)
 #### [Requisitos de autenticação para recuperação de desastre](sql-database-geo-replication-security-config.md)
 #### [Cenários de design de continuidade dos negócios](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -160,7 +160,7 @@
 #### [Conectar com Visual Studio](sql-database-connect-query.md)
 #### [Compilar um aplicativo cliente](https://www.microsoft.com/sql-server/developer-get-started)
 #### [Trabalhar com mensagens de erro](sql-database-develop-error-messages.md)
-### Implementations de cliente do software como um serviço
+### Implementações do cliente de software como serviço
 #### [Software Daxko/CSI](sql-database-implementation-daxko.md)
 #### [GEP](sql-database-implementation-gep.md)
 #### [SnelStart](sql-database-implementation-snelstart.md)
@@ -287,7 +287,7 @@
 ### [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md)
 ## Consultar
 ### [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-### [Consulta Muiltishard](sql-database-elastic-scale-multishard-querying.md)
+### [Consulta Multishard](sql-database-elastic-scale-multishard-querying.md)
 ### Consultas entre bancos de dados
 #### [Visão geral](sql-database-elastic-query-overview.md)
 #### [Consulta entre bancos de dados com diferentes esquemas](sql-database-elastic-query-vertical-partitioning.md)
@@ -358,8 +358,6 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
 
 
 <!--HONumber=Nov16_HO4-->
