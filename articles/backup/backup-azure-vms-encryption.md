@@ -1,78 +1,97 @@
 ---
-title: Backup do Azure - Backup das VMs de IaaS do Azure com discos criptografados | Microsoft Docs
-description: Saiba como o Backup do Azure trata dados criptografados usando o BitLocker ou dmcrypt durante o backup de VM de IaaS. Este artigo o prepara para as diferenças nas experiências de backup e restauração ao lidar com discos criptografados.
+title: "VMs criptografadas de backup e restauração usando o Backup do Azure"
+description: "Este artigo fala sobre a experiência de backup e restauração para VMs criptografada usando a Azure Disk Encryption."
 services: backup
-documentationcenter: ''
-author: pallavijoshi
+documentationcenter: 
+author: JPallavi
 manager: vijayts
-editor: ''
-
+editor: 
+ms.assetid: 8387f186-7d7b-400a-8fc3-88a85403ea63
 ms.service: backup
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/16/2016
+ms.date: 10/25/2016
 ms.author: markgal; jimpark; trinadhk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd65e7acc10b3e750025279820bddbdef5de5498
+
 
 ---
-# Lidando com discos criptografados durante o backup da VM
-Para empresas que desejam criptografar seus dados de VM no Azure, a solução é usar a [Azure Disk Encryption](../security/azure-security-disk-encryption.md) ou o Bitlocker no Windows e dmcrypt em máquinas Linux.
+# <a name="backup-and-restore-encrypted-vms-using-azure-backup"></a>VMs criptografadas de backup e restauração usando o Backup do Azure
+Este artigo fala sobre as etapas para fazer backup e restauração de máquinas virtuais usando o Backup do Azure. Ele também oferece detalhes sobre os cenários com suporte, os pré-requisitos e as etapas de solução de problemas para casos de erro.
 
+## <a name="supported-scenarios"></a>Cenários com suporte
 > [!NOTE]
-> O Backup do Azure dá suporte a backup e restauração de VMs criptografados usando ADE (Azure Disk Encryption). <br>
-> 
-> 1. Isso tem suporte usando o PowerShell se a VM é criptografada usando BEK e KEK. <br>
-> 2. Não há suporte para backup e restauração se a VM é criptografada usando apenas o BEK. <br> Confira a [documentação do PowerShell](backup-azure-vms-automation.md) do Backup do Azure para backup e restauração de VMs criptografadas usando ADE.
+> 1. O backup e a restauração de VMs criptografadas têm suporte somente para as máquinas virtuais implantadas pelo Resource Manager. Não há suporte para as máquinas virtuais Clássicas. <br>
+> 2. Isso só tem suporte para as máquinas virtuais criptografadas usando a Chave de Criptografia BitLocker e a Chave de Criptografia. Não tem suporte para as máquinas virtuais criptografadas usando somente a Chave de Criptografia BitLocker. <br>
 > 
 > 
 
-Este artigo lida com VMs do Azure criptografados usando CloudLink.
+## <a name="pre-requisites"></a>Pré-requisitos
+1. A máquina virtual foi criptografada usando a [Azure Disk Encryption](../security/azure-security-disk-encryption.md). Ele deve ser criptografado usando a Chave de Criptografia BitLocker e a Chave de Criptografia.
+2. O cofre de serviços de recuperação foi criado e a replicação de armazenamento definida usando as etapas mencionadas no artigo [Preparar seu ambiente para backup](backup-azure-arm-vms-prepare.md).
 
-## Como funciona o backup
-A solução geral consiste em duas camadas - a camada de VM e a camada de Armazenamento.
+## <a name="backup-encrypted-vm"></a>Fazer backup da VM criptografada
+Use as etapas a seguir para definir o objetivo do backup, definir a política, configurar itens e disparar o backup.
 
-1. A camada de VM lida com os dados, como vistos pelo sistema operacional convidado, e com os aplicativos em execução na máquina virtual. Ela também é a camada que executa o software de criptografia (Bitlocker ou dmcrypt), criptografando de modo transparente os dados nos volumes antes de gravá-los nos discos.
-2. A camada de Armazenamento lida com os blobs de páginas e os discos anexados à VM. Ela não tem conhecimento dos dados que estão sendo gravados no disco, nem se eles são criptografados ou não. Essa é a camada na qual opera a funcionalidade de backup de VM.
+### <a name="configure-backup"></a>Configurar o backup
+1. Se você já tiver um cofre dos Serviços de Recuperação aberto, vá para a próxima etapa. Se você não tiver um cofre dos Serviços de Recuperação aberto, mas estiver no portal do Azure, no menu Hub, clique em **Procurar**.
+   
+   * Na lista de recursos, digite **Serviços de Recuperação**.
+   * Quando você começa a digitar, a lista é filtrada com base em sua entrada. Quando vir a opção **Cofres de Serviços de Recuperação**, clique nela.
+     
+      ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
+     
+     A lista de cofres de Serviços de Recuperação aparecerá. Na lista de cofres de Serviços de Recuperação, selecione um cofre.
+     
+     O painel de cofres selecionados será aberto.
+2. Na lista de itens que aparece no cofre, clique em **Backup** para abrir a folha Backup.
+   
+      ![Abrir a folha Backup](./media/backup-azure-vms-encryption/select-backup.png) 
+3. Na folha Backup, clique em **Meta de backup** para abrir a folha Meta de Backup.
+   
+      ![Abrir a folha Cenário](./media/backup-azure-vms-encryption/select-backup-goal-one.png) 
+4. Na folha Meta de Backup, defina **Onde está a carga de trabalho em execução** no Azure, **Do que você deseja fazer backup** na máquina Virtual e clique **OK**.
+   
+   A folha Meta de Backup fecha e a folha Política de Backup abre.
+   
+   ![Abrir a folha Cenário](./media/backup-azure-vms-encryption/select-backup-goal-two.png) 
+5. Na folha Política de Backup, selecione a política de backup que você deseja aplicar no cofre e clique em **OK**.
+   
+      ![Selecionar a política de backup](./media/backup-azure-vms-encryption/setting-rs-backup-policy-new.png) 
+   
+    Os detalhes da política padrão estão listados nos detalhes. Se você quiser criar uma política, selecione **Criar Nova** no menu suspenso. Quando você clicar em **OK**, a política de backup será associada ao cofre.
+   
+    Em seguida, escolha as VMs para associar ao cofre.
+6. Escolha as máquinas virtuais para associar à política especificada e clique em **OK**.
+   
+      ![Selecionar VMs criptografadas](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
+7. Essa página mostra uma mensagem sobre o cofre de chaves associado às VMs criptografadas selecionadas. O serviço de backup requer acesso somente leitura às chaves e segredos no cofre de chaves. Ele usa essas permissões para fazer backup da chave e do segredo, junto com as VMs associadas. 
+   
+      ![Mensagem de VMs criptografada](./media/backup-azure-vms-encryption/encrypted-vm-message.png)
+   
+      Agora que você definiu todas as configurações para o cofre, na folha Backup, clique em Habilitar Backup na parte inferior da página. Habilitar o Backup implanta a política para o cofre e as VMs.
+8. A próxima fase de preparação será instalar o Agente de VM ou verificar se ele está instalado. Para fazer o mesmo, use as etapas mencionadas no artigo [Preparar seu ambiente para backup](backup-azure-arm-vms-prepare.md). 
 
-![Como a criptografia do Bitlocker e o backup de VM do Azure coexistem](./media/backup-azure-vms-encryption/how-it-works.png)
+### <a name="triggering-backup-job"></a>Disparar o trabalho de backup
+Use as etapas mencionadas no artigo [Fazer backup das VMs do Azure no cofre de serviços de recuperação](backup-azure-arm-vms.md) para disparar o trabalho de backup.
 
-Toda a criptografia de dados ocorre de maneira transparente e contínua na camada de VM. Portanto, os dados gravados nos blobs de páginas anexados à VM são dados criptografados. Quando o [Backup do Azure tira um instantâneo dos discos da VM e transfere os dados](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines), ele copia os dados criptografados presentes nos blobs de páginas.
+## <a name="restore-encrypted-vm"></a>Restauração a VM criptografada
+A experiência de restauração para máquinas virtuais criptografadas e não criptografadas é igual. Use as etapas mencionadas em [restaurar máquinas virtuais no portal do Azure](backup-azure-arm-restore-vms.md) para restaurar a VM criptografada. No caso de você precisar restaurar as chaves e segredos, certifique-se de que o cofre de chaves para restaurá-los caso ele já exista.
 
-## Componentes da solução
-Há muitas partes dessa solução que precisam ser configuradas e gerenciadas corretamente para que isto funcione:
-
-| Função | Software usado | Observações adicionais |
+## <a name="troubleshooting-errors"></a>Solucionar erros
+| Operação | Detalhes do erro | Resolução |
 | --- | --- | --- |
-| Criptografia |Bitlocker ou dmcrypt |Como a criptografia ocorre em uma camada *diferente* quando comparado ao Backup do Azure, não importa qual software de criptografia é usado. Dito isso, essa experiência foi validada apenas com o CloudLink usando Bitlocker e o dmcrypt.<br><br> Para criptografar os dados, é necessária uma chave. A chave também precisa ser mantida com segurança para garantir o acesso autorizado aos dados. |
-| Gerenciamento de chaves |CloudLink SecureVM |A chave é essencial para criptografar ou descriptografar os dados. Sem a chave correta, os dados não podem ser recuperados. Isso se torna *incrivelmente* importante com:<br><li>Principais substituições<li>Retenção de longo prazo<br><br>Por exemplo, é possível que a chave usada para o backup dos dados há sete anos não seja a mesma chave usada hoje. Sem a chave de 7 anos atrás, será impossível usar os dados restaurados daquela época. |
-| Backup de dados |Serviço de Backup do Azure |Use o Backup do Azure para fazer backup de suas VMs de IaaS do Azure usando o [portal de gerenciamento do Azure](http://manage.windowsazure.com) ou o PowerShell |
-| Restauração de dados |Serviço de Backup do Azure |Use o Backup do Azure para restaurar discos ou uma VM inteira de um ponto de recuperação. Os dados não são descriptografados pelo Backup do Azure como parte da operação de restauração. |
-| Descriptografia |Bitlocker ou dmcrypt |Para ler dados de um disco de dados restaurado ou uma VM restaurada, o software precisa da chave do software de Gerenciamento de Chaves. Sem a chave correta, os dados não podem ser descriptografados. |
+| Backup |Falha na validação pois a máquina virtual é criptografada somente com BEK. Os backups podem ser habilitados somente para máquinas virtuais criptografadas com BEK e KEK. |A máquina virtual deve ser criptografada usando BEK e KEK. Depois disso, o backup deve ser habilitado. |
+| Restaurar |Você não poderá restaurar essa VM criptografada pois o cofre de chaves associado a essa VM não existe. |Crie o cofre de chaves usando [Introdução ao Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md). Veja o artigo [Restaurar chave do Cofre de Chaves e o segredo usando o Backup do Azure Backup](backup-azure-restore-key-secret.md) para restaurar a chave e o segredo, se não estiverem presentes. |
+| Restaurar |Você não poderá restaurar essa VM criptografada pois a chave e o segredo associados a essa VM não existem. |Veja o artigo [Restaurar chave do Cofre de Chaves e o segredo usando o Backup do Azure Backup](backup-azure-restore-key-secret.md) para restaurar a chave e o segredo, se não estiverem presentes. |
 
-> [!IMPORTANT]
-> O gerenciamento de chaves - incluindo substituição de chave - não é uma parte do Backup do Azure. Esse aspecto deve ser gerenciado de modo independente, mas é muito importante para a operação geral de backup/restauração.
-> 
-> 
 
-### Cenários com suporte
-| &nbsp; | Cofre de backup | Cofre dos Serviços de Recuperação |
-|:--- |:--- |:--- |
-| VMs V1 do Azure IaaS |Sim |Não |
-| VMs V2 do Azure IaaS |N/D |Não |
 
-## CloudLink SecureVM
-[CloudLink SecureVM](http://www.cloudlinktech.com/choose-your-cloud/microsoft-azure/) é uma solução de criptografia de VM que pode ser usada para proteger seus dados de VM de IaaS do Azure. Há suporte para o CloudLink SecureVM para uso com o Backup do Azure.
 
-### Informações de suporte
-* CloudLink SecureVM versão 4.0 (compilação 21536.121 ou superior)
-* Azure PowerShell, versão 0.9.8 ou posterior
+<!--HONumber=Nov16_HO3-->
 
-### Gerenciamento de Chaves
-Quando você precisar substituir ou alterar as chaves para as VMs que têm backups existentes, você precisa garantir que as chaves usadas no momento do backup estejam disponíveis. Uma maneira recomendada é fazer um backup do armazenamento de chaves ou de todo o sistema do SecureVM.
 
-### Documentação e recursos
-* [Guia de implantação - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
-* [Implantando e usando o SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
-
-<!---HONumber=AcomDC_0817_2016-->
