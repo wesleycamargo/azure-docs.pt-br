@@ -14,7 +14,7 @@
 ## [Gerenciar](sql-data-warehouse-overview-manage.md)
 ## [Obtenha suporte](sql-data-warehouse-get-started-create-support-ticket.md)
 
-# Como:
+# Como
 
 ## Fazer backup e restauração
 
@@ -28,10 +28,9 @@
 
 ### [Visão geral](sql-data-warehouse-connect-overview.md)
 ### [Cadeias de conexão](sql-data-warehouse-connection-strings.md)
-### Consultar
-#### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-#### [SSMS](sql-data-warehouse-query-ssms.md)
-#### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [SSMS](sql-data-warehouse-query-ssms.md)
+### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Instalar Visual Studio](sql-data-warehouse-install-visual-studio.md)
 
 ## Desenvolver
@@ -82,8 +81,7 @@
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [BCP do SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
-### [Fábrica de dados](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-### [Fábrica de dados do armazenamento de blobs](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+### [Fábrica de dados](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [Diretrizes do PolyBase](sql-data-warehouse-load-polybase-guide.md)
 ### [PolyBase do armazenamento de blobs](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
@@ -111,6 +109,7 @@
 ## Desempenho
 
 ### [Visão geral](sql-data-warehouse-overview-manage-user-queries.md)
+### [Compactação columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Consultas](sql-data-warehouse-manage-monitor.md)
 ### [Carga de trabalho](sql-data-warehouse-develop-concurrency.md)
 ### [Solucionar problemas](sql-data-warehouse-troubleshoot.md)
@@ -146,6 +145,6 @@
 ### [Gerenciamento de dados](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

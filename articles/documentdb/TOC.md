@@ -1,34 +1,34 @@
 # Visão geral
 ## [O que é o DocumentDB?](documentdb-introduction.md)
 ## [Conceitos principais](documentdb-resources.md)
-## [Armazenamento e desempenho](documentdb-manage.md)
-## [Particionamento e colocação em escala](documentdb-partition-data.md)
 ## [Distribuição global](documentdb-distribute-data-globally.md)
-## [Consistência](documentdb-consistency-levels.md)
-## [SQL query](documentdb-sql-query.md)
-## [NoSQL versus SQL](documentdb-nosql-vs-sql.md)
 ## Cenários
 ### [Casos de uso comuns](documentdb-use-cases.md)
 ### [Expandindo o DocumentDB para as redes sociais](documentdb-social-media-apps.md)
-### [Multilocação](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
-
 
 # Introdução
 ## Escrever seu primeiro aplicativo
 ### [Aplicativo de console .NET](documentdb-get-started.md)
+### [Aplicativo de console do .NET Core](documentdb-dotnetcore-get-started.md)
 ### [Aplicativo de console do Node.js](documentdb-nodejs-get-started.md)
+### [Aplicativo de console do C++](documentdb-cpp-get-started.md)
 ## Compilar um aplicativo Web
 ### [Aplicativo Web .NET](documentdb-dotnet-application.md)
 ### [Aplicativo Web Node.js](documentdb-nodejs-application.md)
 ### [Aplicativo Web Java](documentdb-java-application.md)
 ### [Aplicativo Web Python Flask](documentdb-python-application.md)
+## [Desenvolver Localmente](documentdb-nosql-local-emulator.md)
 ## [PERGUNTAS FREQUENTES](documentdb-faq.md)
 
+# Como
 
+## Plano
+### [Armazenamento e desempenho](documentdb-manage.md)
+### [Particionamento e colocação em escala](documentdb-partition-data.md)
+### [Consistência](documentdb-consistency-levels.md)
+### [NoSQL versus SQL](documentdb-nosql-vs-sql.md)
 
-# Como:
-
-## Gerenciar 
+## Gerenciar
 ### [Importar seus dados](documentdb-import-data.md)
 ### [Modelar seus dados](documentdb-modeling-data.md)
 ### [Usar dados geoespaciais](documentdb-geospatial.md)
@@ -46,17 +46,18 @@
 ### [Turbine sua conta](documentdb-supercharge-your-account.md)
 
 ## Desenvolver
+### [SQL query](documentdb-sql-query.md)
 ### [Procedimentos armazenados, gatilhos e UDFs](documentdb-programming.md)
 ### [Testes de desempenho](documentdb-performance-testing.md)
 ### [Dicas de desempenho](documentdb-performance-tips.md)
 ### DocumentDB para desenvolvedores MongoDB
-#### [O que é o suporte de protocolo para MongoDB?](documentdb-protocol-mongodb.md)
+#### [Suporte de protocolo para MongoDB](documentdb-protocol-mongodb.md)
 #### [Criar conta](documentdb-create-mongodb-account.md)
 #### [Conectar-se à sua conta](documentdb-connect-mongodb-account.md)
 #### [Usar o MongoChef](documentdb-mongodb-mongochef.md)
 #### [Exemplos de suporte de protocolo](documentdb-mongodb-samples.md)
 
-## Usar o portal 
+## Usar o portal
 ### [Criar uma conta de banco de dados](documentdb-create-account.md)
 ### [Criar uma coleção](documentdb-create-collection.md)
 ### [Adicionar replicação global](documentdb-portal-global-replication.md)
@@ -75,34 +76,33 @@
 ### [Analisar dados com o Hadoop](documentdb-run-hadoop-with-hdinsight.md)
 ### [Integrar ao Azure Search](documentdb-search-indexer.md)
 ### [Mover dados com o Azure Data Factory](../data-factory/data-factory-azure-documentdb-connector.md)
-### [Analisar dados em tempo real com o Stream Analytics do Azure](../stream-analytics/stream-analytics-define-outputs.md#documentdb.md)
+### [Analisar dados em tempo real com o Stream Analytics do Azure](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Obter notificações com Aplicativos Lógicos](documentdb-change-notification.md)
 ### [Processar dados de sensor em tempo real](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Visualizar seus dados com o Power BI](documentdb-powerbi-visualize.md)
 
 
 # Referência
-## [SDK .NET](documentdb-sdk-dotnet.md)
-## [Amostras do .NET](documentdb-dotnet-samples.md)
 ## [Java SDK](documentdb-sdk-java.md)
+## [SDK .NET](documentdb-sdk-dotnet.md)
+## [SDK do .NET Core](documentdb-sdk-dotnet-core.md)
+## [Amostras do .NET](documentdb-dotnet-samples.md)
 ## [SDK do Node.js](documentdb-sdk-node.md)
 ## [Exemplos do Node.js](documentdb-nodejs-samples.md)
-## [Python](documentdb-sdk-python.md)
+## [SDK do Python](documentdb-sdk-python.md)
 ## [Exemplos em Python](documentdb-python-samples.md)
-## [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
 ## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 ## [Roteiro de gramática SQL](documentdb-sql-query-cheat-sheet.md)
-
+## [REST](/rest/api/documentdb/)
+## [Provedor de recursos REST](/rest/api/documentdbresourceprovider/)
 
 # Recursos
 ## [Preços](https://azure.microsoft.com/pricing/details/documentdb/)
-## [Fóruns do MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
-## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb) 
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=documentdb) 
-## [Solicitar DocumentDB](documentdb-community.md#contact-the-team)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=documentdb)
 ## [Portal da comunidade](documentdb-community.md)
-## [Eventos e gravações](documentdb-community.md#events-and-recordings)
 ## [Espaço de Consulta](https://www.documentdb.com/sql/demo)
 ## [Artigo de indexação independente de esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 ## [Consistência dos dados explicada por meio de basebol](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
@@ -110,23 +110,6 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

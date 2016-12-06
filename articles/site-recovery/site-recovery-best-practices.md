@@ -1,12 +1,12 @@
 ---
-title: Preparar-se para a implantação de Recuperação de Site | Microsoft Docs
-description: Este artigo descreve como se preparar para implantar a replicação com o Azure Site Recovery.
+title: "Preparar-se para a implantação de Recuperação de Site | Microsoft Docs"
+description: "Este artigo descreve como se preparar para implantar a replicação com o Azure Site Recovery."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
 editor: tysonn
-
+ms.assetid: e24eea6c-50a7-4cd5-aab4-2c5c4d72ee2d
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: 8a4d265694e5eef438b0560a42ea5a95c04f9b02
+
 
 ---
 # <a name="prepare-for-azure-site-recovery-deployment"></a>Preparar-se para a implantação do Azure Site Recovery
@@ -22,7 +26,7 @@ Leia este artigo para obter uma visão de alto nível dos requisitos de implanta
 Depois de ler este artigo, publique quaisquer comentários ou perguntas ao final dele ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="overview"></a>Visão geral
-As organizações precisam de uma estratégia de BCDR que determine como os aplicativos, as cargas de trabalho e os dados permanecerão em execução e disponíveis durante o tempo de inatividade planejado e não planejado, e como recuperarão as condições normais de trabalho assim que possível. Sua estratégia de BCDR devem manter os dados comerciais seguros e passíveis de recuperação e garantir que as cargas de trabalho permaneçam continuamente disponíveis mediante um desastre. 
+As organizações precisam de uma estratégia de BCDR que determine como os aplicativos, as cargas de trabalho e os dados permanecerão em execução e disponíveis durante o tempo de inatividade planejado e não planejado, e como recuperarão as condições normais de trabalho assim que possível. Sua estratégia de BCDR devem manter os dados comerciais seguros e passíveis de recuperação e garantir que as cargas de trabalho permaneçam continuamente disponíveis mediante um desastre.
 
 A Recuperação de Site é um serviço do Azure que colabora com sua estratégia de BCDR por meio da coordenação da replicação de servidores físicos e máquinas virtuais locais na nuvem (Azure) ou em um datacenter secundário. Quando ocorrem paralisações em seu local primário, você realiza o failover em um local secundário a fim de manter os aplicativos e cargas de trabalho disponíveis. Quando o local primário retoma as operações normais, você realiza o failback. Saiba mais em [O que é a Recuperação de Site?](site-recovery-overview.md)
 
@@ -57,7 +61,7 @@ Ao escolher um modelo de implantação, observe que:
 | **Armazenamento do Azure** |Os dados replicados são armazenados no armazenamento do Azure e as VMs do Azure são criadas quando ocorre failover. Para replicar no Azure, você precisará de uma [conta de armazenamento do Azure](../storage/storage-introduction.md).<br/><br/>Se estiver implantando o Site Recovery no Portal Clássico, você precisará de uma ou mais [contas de armazenamento padrão do GRS](../storage/storage-redundancy.md#geo-redundant-storage).<br/><br/> Se estiver implantando no Portal do Azure, você poderá usar armazenamento GRS ou LRS.<br/><br/>  Se você estiver replicando VMs de VMware ou servidores físicos no Portal do Azure, haverá suporte para o armazenamento premium. Observe que se estiver usando uma conta de armazenamento premium, você também precisará de uma conta de armazenamento padrão para armazenar os logs de replicação que capturam as alterações contínuas nos dados locais. O [Armazenamento premium](../storage/storage-premium-storage.md) normalmente é usada para máquinas virtuais que precisam de um desempenho de E/S consistentemente alto e baixa latência para hospedar cargas de trabalho intensivas de E/S de host.<br/><br/>  Se você desejar usar uma conta premium para armazenar dados replicados, também precisará de uma conta de armazenamento padrão para armazenar os logs de replicação que capturam as alterações contínuas nos dados locais. |
 | **Rede do Azure** |Para replicar para o Azure, você precisará de uma rede do Azure com a qual as máquinas virtuais do Azure se conectarão quando forem criadas após o failover.<br/><br/>  Se estiver implantando no Portal Clássico, você usará uma rede clássica. Se estiver implantando no Portal do Azure, você poderá usar uma rede clássica ou do Resource Manager.<br/><br/>  A rede deve estar na mesma região do que o cofre. |
 | **Mapeamento de rede (VMM para Azure)** |Se você estiver replicando do VMM para o Azure, o [mapeamento de rede](site-recovery-network-mapping.md), garanta que as VMs do Azure estejam conectadas às redes corretas depois do failover.<br/><br/>  Para configurar o mapeamento de rede, você precisará configurar redes VM no portal do VMM. |
-| **Configuração local** |**VMs VMware**: você precisará de um computador local executando componentes da Recuperação de Site, servidor do VMware vSphere hosts/vCenter e VMs que você deseja replicar. [Leia mais](site-recovery-vmware-to-azure.md#configuration-server-prerequisites).<br/><br/> **Servidores físicos**: se estiver replicando servidores físicos, você precisará de computadores locais que executam componentes da Recuperação de Site e servidores físicos que você deseja replicar. [Leia mais](site-recovery-vmware-to-azure.md#configuration-server-prerequisites). Se quiser realizar [failback](site-recovery-failback-azure-to-vmware.md) após o failover para o Azure, você precisará de uma infraestrutura de VMware para fazer isso.<br/><br/> **VMs Hyper-V**: If you want to replicate VMs Hyper-V in VMM clouds you'll need a VMM server, and Hyper-V hosts on which VMs you want to protect are located. [Leia mais](site-recovery-vmm-to-azure.md#on-premises-prerequisites).<br/><br/>  Se você quiser replicar VMs Hyper-V sem VMM, precisará de hosts Hyper-V nos quais as VMs estejam localizadas. [Leia mais](site-recovery-hyper-v-site-to-azure.md#on-premises-prerequisites). |
+| **Configuração local** |**VMs VMware**: você precisará de um computador local executando componentes da Recuperação de Site, servidor do VMware vSphere hosts/vCenter e VMs que você deseja replicar. [Leia mais](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites).<br/><br/> **Servidores físicos**: se estiver replicando servidores físicos, você precisará de computadores locais que executam componentes da Recuperação de Site e servidores físicos que você deseja replicar. [Leia mais](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Se quiser realizar [failback](site-recovery-failback-azure-to-vmware.md) após o failover para o Azure, você precisará de uma infraestrutura de VMware para fazer isso.<br/><br/> **VMs Hyper-V**: If you want to replicate VMs Hyper-V in VMM clouds you'll need a VMM server, and Hyper-V hosts on which VMs you want to protect are located. [Leia mais](site-recovery-vmm-to-azure.md#on-premises-prerequisites).<br/><br/>  Se você quiser replicar VMs Hyper-V sem VMM, precisará de hosts Hyper-V nos quais as VMs estejam localizadas. [Leia mais](site-recovery-hyper-v-site-to-azure.md#on-premises-prerequisites). |
 | **Computadores protegidos** |Computadores protegidos que serão replicados para o Azure devem cumprir os [pré-requisitos do Azure](#azure-virtual-machine-requirements) descritos abaixo. |
 
 ### <a name="replicate-to-a-secondary-site"></a>Replicar para um site secundário
@@ -143,6 +147,8 @@ Depois de aprender e comparando os requisitos de implantação geral, você pode
 * [Replicar máquinas virtuais do Hyper-V para um site secundário com SAN](site-recovery-vmm-san.md)
 * [Replicar máquinas virtuais do Hyper-V com um único servidor VMM](site-recovery-single-vmm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

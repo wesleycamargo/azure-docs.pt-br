@@ -2,7 +2,7 @@
 ## [O que é a Site Recovery?](site-recovery-overview.md)
 ## [Como funciona o Site Recovery?](site-recovery-components.md)
 ## [Quais cargas de trabalho você pode proteger?](site-recovery-workload.md)
-## [Há suporte para quais sistemas operacionais?](site-recovery-support-matrix.md)
+## [Matriz de suporte do Site Recovery](site-recovery-support-matrix.md)
 ## [PERGUNTAS FREQUENTES](site-recovery-faq.md)
 ## [Assistir a uma introdução](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -49,7 +49,7 @@
 ## [Monitorar e solucionar problemas](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Implantação clássica do PowerShell](/powershell/servicemanagement/)
 
 # Relacionados
@@ -63,6 +63,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

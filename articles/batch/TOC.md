@@ -6,7 +6,7 @@
 ## [Criar uma conta do Lote](batch-account-create-portal.md)
 ## [Tutorial de .NET em lote](batch-dotnet-get-started.md)
 ## [Tutorial do Python em Lote](batch-python-tutorial.md)
-# Como:
+# Como
 ## Desenvolver
 ### [Pacotes de aplicativos](batch-application-packages.md)
 ### [Dimensionar nós de computação automaticamente](batch-automatic-scaling.md)
@@ -25,7 +25,7 @@
 ### [Logs de diagnóstico do Lote](batch-diagnostics.md)
 
 # Referência
-## [Cmdlets do PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+## [Cmdlets do PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [API do .NET](https://docs.microsoft.com/dotnet/api)
 ## [SDK do Python](https://go.microsoft.com/fwlink/p/?linkid=833496)
@@ -43,11 +43,11 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [Modelos de código C# de lote](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Exemplos de código do Python de Lote](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Exemplos de código do C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [Exemplos de código do Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

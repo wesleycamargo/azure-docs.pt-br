@@ -1,4 +1,4 @@
-Ao adicionar discos de dados a uma VM Linux, você poderá encontrar erros se não existir um disco no LUN 0. Se você estiver adicionando um disco manualmente usando o comando `azure vm disk attach-new` e especificar um LUN (`--lun`) em vez de deixar que a plataforma Azure determine o LUN apropriado, verifique com atenção se já existe (ou existirá) um disco no LUN 0.
+Ao adicionar discos de dados a uma VM Linux, você poderá encontrar erros se não existir um disco no LUN 0. Se você estiver adicionando um disco manualmente usando o comando `azure vm disk attach-new` e especificar um LUN (`--lun`) em vez de deixar que a plataforma Azure determine o LUN apropriado, verifique com atenção se já existe (ou existirá) um disco no LUN 0. 
 
 Considere o exemplo a seguir que mostra um trecho da saída do `lsscsi`:
 
@@ -19,4 +19,8 @@ Esse comportamento de disco não é um problema do Azure, mas da maneira em que 
 * Examine a saída do `lsscsi` depois de adicionar um disco de dados para verificar se há um disco no LUN 0.
 * Se o disco não aparecer corretamente para a VM, verifique se existe um disco no LUN 0.
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

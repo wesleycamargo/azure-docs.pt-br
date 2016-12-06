@@ -13,12 +13,13 @@
 ### [CLI](dns-getstarted-create-recordset-cli.md)
 
 ## [Delegar seu domínio ao DNS do Azure](dns-domain-delegation.md)
+## [Criar registros DNS personalizados para um aplicativo Web](dns-web-sites-custom-domain.md)
 
 # Como
 
 ## Gerenciar zonas DNS
 ### [PowerShell](dns-operations-dnszones.md)
-### [CLI](dns-operations-dnszones.md)
+### [CLI](dns-operations-dnszones-cli.md)
 
 ## [Gerenciar registros DNS](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
@@ -29,12 +30,12 @@
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [Como importar e exportar um arquivo de zona DNS](dns-import-export.md)
-## [Usar o Azure DNS com outros serviços do Azure](dns-for-azure-services.md)
+## [Integração com outros serviços do Azure](dns-for-azure-services.md)
 ## [Proteger zonas e registros DNS](dns-protect-zones-recordsets.md)
 ## [Automatizar operações de DNS com o SDK do .NET](dns-sdk.md)
 
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [APIs REST](/rest/api/dns/)
 
 # Relacionados
@@ -46,11 +47,12 @@
 ## [Aplicativos Web](/azure/app-service-web/)
 
 # Recursos
-## [Blog de rede](http://azure.microsoft.com/blog/topics/networking)
-## [Fórum de rede](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=dns)
 ## [Preços](https://azure.microsoft.com/pricing/details/dns/)
+## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Blog de rede](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

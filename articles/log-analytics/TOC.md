@@ -18,6 +18,7 @@
 #### [Armazenamento do Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Gerenciador de Configurações](log-analytics-sccm.md)
+#### [Gateway do OMS](log-analytics-oms-gateway.md)
 ### Fontes de dados
 #### [Visão geral de fontes de dados](log-analytics-data-sources.md)
 #### [Eventos do Windows](log-analytics-data-sources-windows-events.md)
@@ -38,7 +39,6 @@
 #### [Gerenciamento de alertas](log-analytics-solution-alert-management.md)
 #### [Gerenciamento de Capacidade](log-analytics-capacity.md)
 #### [Controle de alterações](log-analytics-change-tracking.md)
-#### [Avaliação de Configuração](log-analytics-configuration-assessment.md)
 #### [Contêineres](log-analytics-containers.md)
 #### [Cofre da Chave](log-analytics-azure-key-vault.md)
 #### [Avaliação de malware](log-analytics-malware.md)
@@ -48,9 +48,9 @@
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [Avaliação do SQL](log-analytics-sql-assessment.md)
 #### [Hub de Superfície](log-analytics-surface-hubs.md)
-#### [Avaliação de atualização do sistema](log-analytics-system-update.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Dados durante a transmissão](log-analytics-wire-data.md)
+#### [Avaliação do SCOM](log-analytics-scom-assessment.md)
 ## Analise
 ### [Painéis](log-analytics-dashboards.md)
 ### [Exibir Designer](log-analytics-view-designer.md)
@@ -63,11 +63,10 @@
 
 # Recursos
 ## [Atualizar análise](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Preços](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

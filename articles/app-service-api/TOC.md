@@ -48,7 +48,7 @@
 ### [Personalizar o Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md)
 
 ### Trabalhos da Web
-#### [O que é o SDK de WebJobs do Azure](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [O que é o SDK do Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Criar um WebJob do .NET no Serviço de Aplicativo do Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Como usar o armazenamento de blobs do Azure com o SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Como usar o armazenamento de fila do Azure com o SDK de Trabalhos Web](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -72,7 +72,7 @@
 ### [Escalar verticalmente um aplicativo](../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Ambiente do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Escala distribuída geograficamente com ambientes de Serviço de Aplicativo](../app-service-web/app-service-app-service-environment-geo-distributed-scale.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Escalando aplicativos em um Ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
+#### [Escalar aplicativos em um ambiente do Serviço de Aplicativo](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 #### [Dimensionamento automático em um Ambiente do Serviço de Aplicativo](../app-service/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## Gerenciar
@@ -167,6 +167,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

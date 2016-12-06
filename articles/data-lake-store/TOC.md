@@ -5,9 +5,9 @@
 ## [Aplicativos de software livre que funcionam com o Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
 # Introdução
-## [Usar o Portal](data-lake-store-get-started-portal.md)
-## [Usar o PowerShell](data-lake-store-get-started-powershell.md)
-## [Usar o SDK .NET](data-lake-store-get-started-net-sdk.md)
+## [Usando o Portal](data-lake-store-get-started-portal.md)
+## [Usando o PowerShell](data-lake-store-get-started-powershell.md)
+## [Usando o SDK .NET](data-lake-store-get-started-net-sdk.md)
 ## [Usar o SDK do Java](data-lake-store-get-started-java-sdk.md)
 ## [Usar a API REST](data-lake-store-get-started-rest-api.md)
 ## [Usar a CLI do Azure](data-lake-store-get-started-cli.md)
@@ -23,7 +23,7 @@
 
 ## Desenvolver
 ### [Usar o PowerShell](data-lake-store-get-started-powershell.md)
-### [Usar o SDK .NET](data-lake-store-get-started-net-sdk.md)
+### [Usando o SDK .NET](data-lake-store-get-started-net-sdk.md)
 ### [Usar o SDK do Java](data-lake-store-get-started-java-sdk.md)
 ### [Usar a API REST](data-lake-store-get-started-rest-api.md)
 ### [Usar a CLI do Azure](data-lake-store-get-started-cli.md)
@@ -51,19 +51,22 @@
 ### [Acessar logs de diagnóstico](data-lake-store-diagnostic-logs.md)
 
 # Referência
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [.NET](https://docs.microsoft.com/dotnet/api)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [REST](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
+## [REST](/rest/api/datalakestore/)
 
 # Recursos
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=data-lake-store)
+## [Preços](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Fórum Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Fornecer comentários sobre o UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Blog do Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

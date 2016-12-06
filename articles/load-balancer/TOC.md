@@ -6,38 +6,49 @@
 ## [Suporte do Azure Resource Manager](load-balancer-arm.md)
 ## [Suporte a IPv6](load-balancer-ipv6-overview.md)
 ## [Vários VIPs](load-balancer-multivip-overview.md)
+## [Entendendo as conexões de saída](load-balancer-outbound-connections.md)
+
 # Introdução
+
 ## [Configurar o Balanceador de carga interno](load-balancer-get-started-ilb-arm-portal.md)
 ### [Configurar o Balanceador de carga interno (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [Configurar o Balanceador de carga interno (CLI)](load-balancer-get-started-ilb-arm-cli.md)
 ### [Configurar o Balanceador de carga interno (modelo)](load-balancer-get-started-ilb-arm-template.md)
+
 ## [Configurar o Balanceador de carga interno para Serviços de Nuvem](load-balancer-get-started-ilb-classic-cloud.md)
 ### [Configurar o Balanceador de carga interno para Serviços de Nuvem (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 ### [Configurar o Balanceador de carga interno para Serviços de Nuvem (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+
 ## [Configurar Balanceador de carga para a Internet](load-balancer-get-started-internet-portal.md)
 ### [Configurar Balanceador de carga para a Internet (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
 ### [Configurar Balanceador de carga para a Internet (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [Configurar balanceador de carga para a Internet (Modelo)](load-balancer-get-started-internet-arm-template.md)
+
 ## [Configurar Balanceador de carga para a Internet (Portal Clássico)](load-balancer-get-started-internet-classic-portal.md)
 ### [Configurar Balanceador de carga para a Internet (Nuvem Clássica)](load-balancer-get-started-internet-classic-cloud.md)
 ### [Configurar Balanceador de carga para a Internet (PS Clássico)](load-balancer-get-started-internet-classic-ps.md)
 ### [Configurar balanceador de carga para a Internet (CLI Clássica)](load-balancer-get-started-internet-classic-cli.md)
+
 ## [Criar um Balanceador de carga para a Internet com IPv6](load-balancer-ipv6-internet-ps.md)
 ### [Criar um Balanceador de carga para a Internet com IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [Criar um Balanceador de carga para a Internet com IPv6 (Modelo)](load-balancer-ipv6-internet-template.md)
+
 # Como
 ## [Configurar tempo limite de ociosidade TCP para Balanceador de carga](load-balancer-tcp-idle-timeout.md)
 ## [Configurar modo de Distribuição para o Balanceador de carga](load-balancer-distribution-mode.md)
 ## [Configurar o Balanceador de carga Interno para SQL AlwaysOn](load-balancer-configure-sqlao.md)
 ## [Configurar vários VIPs para serviço de nuvem](load-balancer-multivip.md)
+## [Combinando serviços de balanceamento de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+## [Configurações para usar vários endereços IP](load-balancer-multiple-ip.md)
 ## [Log Analytics para o Azure Load Balancer](load-balancer-monitor-log.md)
 ## [Configuração de DHCPv6 para VMs Linux](load-balancer-ipv6-for-linux.md)
 
 # Referência
-## [PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
-## [API do Gerenciador de recursos](https://go.microsoft.com/fwlink/p/?LinkId=536405)
-## [Usando recursos de rede](https://go.microsoft.com/fwlink/p/?LinkId=536403)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [CLI do Azure](/cli/azure/network/lb)
+## [Java](/java/api)
+## [.NET](/dotnet/api)
+## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # Relacionados
 ## [Application Gateway](/azure/application-gateway/)
@@ -49,10 +60,10 @@
 ## [DNS](/azure/dns/)
 
 # Recursos
-## [Preços](https://azure.microsoft.com/pricing/details/load-balancer/) 
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=load-balancer) 
+## [Preços](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

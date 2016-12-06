@@ -1,13 +1,12 @@
 # Visão geral
-## [Monitoramento no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)
+## [Visão Geral do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)
 ## [Métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 ## [Alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
 ## [Autoescala](../monitoring-and-diagnostics/monitoring-overview-autoscale.md)
-## [Práticas recomendadas para dimensionamento automático](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Log de atividade](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
 ## [Logs de Diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
 ## [Integrações de parceiro](../monitoring-and-diagnostics/monitoring-partners.md)
-## [Passo a passo usando a API REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+
 
 # Introdução
 ## [Introdução ao Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md)
@@ -21,11 +20,12 @@
 ### [Configurar webhook em um alerta de métrica](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 ### [Criar um alerta de métrica com um modelo do Resource Manager](../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md)
 ## Usar autoescala
+### [Práticas recomendadas para dimensionamento automático](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ### [Métricas comuns para dimensionamento automático](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ### [Dimensionar automaticamente Conjuntos de Dimensionamento de VMs usando modelos do Resource Manager](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Dimensionar automaticamente máquinas em um conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
 ### [Configurar webhooks e notificações por email em dimensionamento automático](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
-## Gerenciar o log de atividades
+## Usar o log de atividades
 ### [Exibir eventos no log de atividades](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Configurar webhook em um alerta de log de atividades](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Arquivar log de atividades](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
@@ -35,7 +35,8 @@
 ### [Arquivar](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Transmitir para Hubs de Eventos](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
 ### [Habilitar configurações de diagnóstico usando modelos do Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
-
+## Usar a API REST
+### [Passo a passo usando a API REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
 
 # Referência
@@ -43,10 +44,8 @@
 ## [CLI do Azure](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [Lista de métricas com suporte](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-## [REST](https://docs.microsoft.com/rest/api/monitor/)
+## [API REST](https://msdn.microsoft.com/library/azure/dn931943)
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

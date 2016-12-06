@@ -102,7 +102,7 @@
 ### [SAS (Assinaturas de acesso compartilhado)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: criptografar e descriptografar blobs usando o Cofre de Chaves do Azure](storage-encrypt-decrypt-blobs-key-vault.md)
 ### Criptografia do cliente
-#### [Cofre de Chaves do Azure](storage-client-side-encryption.md)
+#### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
 
@@ -181,6 +181,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
