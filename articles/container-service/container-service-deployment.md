@@ -7,7 +7,7 @@ author: rgardler
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: "Docker, Contêineres, Microsserviços, Mesos, Azure"
+keywords: "Docker, Contêineres, Microsserviços, Mesos, Azure, dcos, swarm, kubernetes, serviço de contêiner do azure, acs"
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c8c06906a5f99890295ff2b2433ff6f7e02dece5
+ms.sourcegitcommit: a7d957fd4be4c823077b1220dfb8ed91070a0e97
+ms.openlocfilehash: d056b9489eba1f97e8fb87f231b03d104c4cab66
 
 
 ---
 # <a name="deploy-an-azure-container-service-cluster"></a>Implantar um cluster do Serviço de Contêiner do Azure
-O Serviço de Contêiner do Azure fornece implantação rápida de soluções populares de orquestração e clustering de contêiner de software livre. Usando o Serviço de Contêiner do Azure, você pode implantar clusters DC/OS e Docker Swarm com modelos do Azure Resource Manager ou por meio do portal do Azure. Você implanta esses clusters usando Conjuntos de Escala de Máquina Virtual do Azure e tiram proveito das ofertas de rede e armazenamento do Azure. Para acessar o Serviço de Contêiner do Azure, você precisa de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+O Serviço de Contêiner do Azure fornece implantação rápida de soluções populares de orquestração e clustering de contêiner de software livre. Usando o Serviço de Contêiner do Azure, você pode implantar clusters DC/OS, Kubernetes e Docker Swarm com modelos do Azure Resource Manager ou por meio do Portal do Azure. Você implanta esses clusters usando Conjuntos de Escala de Máquina Virtual do Azure e tiram proveito das ofertas de rede e armazenamento do Azure. Para acessar o Serviço de Contêiner do Azure, você precisa de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 Este documento orienta você durante a implantação de um cluster do Serviço de Contêiner do Azure usando o [portal do Azure](#creating-a-service-using-the-azure-portal), a [CLI (interface de linha de comando) do Azure](#creating-a-service-using-the-azure-cli) e o [módulo do Azure PowerShell](#creating-a-service-using-powershell).  
 
@@ -52,15 +52,21 @@ Selecione um tipo de Orquestração. As opções são:
 
 * **DC/OS**: implanta um cluster de DC/OS.
 * **Swarm**: implanta um cluster Docker Swarm.
+* **Kubernetes**: implanta um cluster Kubernetes.
 
 Clique em **OK** quando estiver pronto para continuar.
 
-![Criar implantação 4](media/acs-portal4.png)  <br />
+![Criar implantação 4](media/acs-portal4-new.png)  <br />
+
+Se **Kubernetes** estiver selecionado na lista suspensa, você precisará inserir a ID e o segredo do cliente da entidade de serviço.
+Para saber mais sobre como criar uma entidade de serviço, visite [esta](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md) página 
+
+![Criar implantação 4.5](media/acs-portal10.PNG)  <br />
 
 Insira as seguintes informações:
 
-* **Contagem de mestres**: o número de mestres do cluster.
-* **Contagem de agentes**: para Docker Swarm, esse será o número inicial de agentes no conjunto de escala de agentes. Para DC/OS, esse será o número inicial de agentes em um conjunto de escala privado. Além disso, é criado um conjunto de escala pública, que contém um número predeterminado de agentes. O número de agentes nesse conjunto de escala público é determinado pelo número de mestres criados no cluster: um agente público para um mestre e dois agentes públicos para três ou cinco mestres.
+* **Contagem de mestres**: o número de mestres do cluster. Se 'Kubernetes' for selecionada, o número de mestre é definido como um padrão de 1
+* **Contagem de agentes**: para Docker Swarm e Kubernetes, esse será o número inicial de agentes no conjunto de dimensionamento de agentes. Para DC/OS, esse será o número inicial de agentes em um conjunto de escala privado. Além disso, é criado um conjunto de escala pública, que contém um número predeterminado de agentes. O número de agentes nesse conjunto de escala público é determinado pelo número de mestres criados no cluster: um agente público para um mestre e dois agentes públicos para três ou cinco mestres.
 * **Tamanho da máquina virtual de agente**: o tamanho das máquinas virtuais de agente.
 * **Prefixo DNS**: um nome exclusivo no mundo que será usado para prefixar partes-chave dos nomes de domínio totalmente qualificados para o serviço.
 
@@ -85,10 +91,11 @@ Quando a implantação for concluída, o cluster do Serviço de Contêiner do Az
 ## <a name="create-a-service-by-using-the-azure-cli"></a>Criar um serviço usando a CLI do Azure
 Para criar uma instância do Serviço de Contêiner do Azure usando a linha de comando, você precisará de uma assinatura do Azure. Se não tiver uma, você poderá se inscrever para obter uma [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Você também precisará ter [instalado](../xplat-cli-install.md) e [configurado](../xplat-cli-connect.md) a CLI do Azure.
 
-Para implantar um cluster DC/OS ou Docker Swarm, selecione um dos modelos a seguir no GitHub. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
+Para implantar um cluster DC/OS ou Docker Swarm ou Kubernetes, selecione um dos modelos a seguir no GitHub. 
 
 * [Modelo DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Modelo do Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Modelo Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
 Em seguida, verifique se a CLI do Azure foi conectada a uma assinatura do Azure. Faça isso usando este comando:
 
@@ -140,10 +147,11 @@ Para ver um arquivo de parâmetros de exemplo chamado `azuredeploy.parameters.js
 ## <a name="create-a-service-by-using-powershell"></a>Criar um serviço usando o PowerShell
 Você também pode implantar um cluster do Serviço de Contêiner do Azure com o PowerShell. Este documento se baseia na versão 1.0 do [módulo do Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/).
 
-Para implantar um cluster DC/OS ou Docker Swarm, selecione um dos modelos a seguir. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
+Para implantar um cluster DC/OS ou Docker Swarm ou Kubernetes, selecione um dos modelos a seguir. Observe que os modelos são iguais, com a exceção da seleção do orquestrador padrão.
 
 * [Modelo DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Modelo do Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Modelo Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
 Antes de criar um cluster em sua assinatura do Azure, verifique se sua sessão do PowerShell foi conectada ao Azure. Você pode fazer isso com o comando `Get-AzureRMSubscription` :
 
@@ -184,10 +192,11 @@ Agora que você tem um cluster em funcionamento, confira estes documentos para o
 * [Conectar a um cluster do Serviço de Contêiner do Azure](container-service-connect.md)
 * [Trabalhar com o Serviço de Contêiner do Azure e o DC/SO](container-service-mesos-marathon-rest.md)
 * [Trabalhar com o Serviço de Contêiner do Azure e o Docker Swarm](container-service-docker-swarm.md)
+* [Trabalhar com o Serviço de Contêiner do Azure e o Kubernetes](container-service-kubernetes-walkthrough.md)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

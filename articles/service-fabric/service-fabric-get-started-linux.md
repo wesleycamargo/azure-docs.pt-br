@@ -15,19 +15,18 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567a998102558626df73878865b317b830ba1faa
+ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
+ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
 
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar seu ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
-> -[ Windows](service-fabric-get-started.md)
-> 
+> * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
-> 
+>  
 
  Para implantar e executar os [aplicativos do Azure Service Fabric](service-fabric-application-model.md) em seu computador de desenvolvimento Linux, instale o tempo de execução e o SDK comum. Você também pode instalar os SDKs opcionais para Java e .NET Core.
 
@@ -71,7 +70,7 @@ Após a atualização de suas fontes, você pode instalar o SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-## <a name="set-up-the-azure-crossplatform-cli"></a>Configurar a CLI de plataforma cruzada do Azure
+## <a name="set-up-the-azure-cross-platform-cli"></a>Configurar a CLI de plataforma cruzada do Azure
 A [CLI de plataforma cruzada do Azure][azure-xplat-cli-github] inclui comandos para interagir com entidades do Service Fabric, incluindo clusters e aplicativos. Ela se baseia no Node.js, portanto [verifique se você instalou o Node][install-node] antes de prosseguir com as instruções abaixo.
 
 1. Clone o repositório do github em sua máquina de desenvolvimento.
@@ -168,6 +167,6 @@ O SDK do .Net Core fornece as bibliotecas e modelos necessários para compilar s
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,5 +1,5 @@
-### Alterações do cmdlet de marcação na versão mais recente do PowerShell
-A versão de agosto de 2016 do [Azure PowerShell 2.0][powershell] inclui alterações significativas no trabalho com marcações. Antes de continuar, verifique a versão do módulo AzureRm.Resources.
+### <a name="tag-cmdlet-changes-in-latest-powershell-version"></a>Alterações do cmdlet de marcação na versão mais recente do PowerShell
+A versão de agosto de 2016 do Azure PowerShell 2.0 inclui alterações significativas no trabalho com marcações. Antes de continuar, verifique a versão do módulo AzureRm.Resources.
 
     Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 
@@ -15,9 +15,9 @@ Se você atualizou o Azure PowerShell desde agosto de 2016, os resultados dever�
     -------
     3.0.1
 
-Se sua versão do módulo é 3.0.1 ou posterior, você tem os cmdlets mais recentes para trabalhar com marcações. Esta versão do módulo de recursos do Azure é instalada automaticamente quando você instala ou atualiza o Azure PowerShell usando a Galeria do PowerShell, o Web Platform Installer ou o PowerShellGet. Se sua versão é anterior a 3.0.1, você pode continuar usando essa versão, mas pode considerar atualizá-la para a versão mais recente. A versão mais recente inclui alterações que facilitam o trabalho com marcações. As duas abordagens são mostradas neste tópico.
+Se sua versão do módulo é 3.0.1 ou posterior, você tem os cmdlets mais recentes para trabalhar com marcações. Esta versão do módulo de recursos do Azure é instalada automaticamente quando você instala ou atualiza o Azure PowerShell usando a Galeria do PowerShell, o Web Platform Installer ou o PowerShellGet.  Se sua versão é anterior a 3.0.1, você pode continuar usando essa versão, mas pode considerar atualizá-la para a versão mais recente. A versão mais recente inclui alterações que facilitam o trabalho com marcações. As duas abordagens são mostradas neste tópico.
 
-### Atualizando o script para as alterações na versão mais recente
+### <a name="updating-your-script-for-changes-in-latest-version"></a>Atualizando o script para as alterações na versão mais recente
 Na versão mais recente, o nome de parâmetro **Tags** foi alterado para **Tag** e o tipo foi alterado de **Hashtable** para **Hashtable**. Não é mais necessário fornecer o **Nome** nem o **Valor** de cada entrada. Em vez disso, você pode fornecer pares chave-valor no formato **Chave = "Valor"**.
 
 Para atualizar o script existente, altere o parâmetro **Tags** para **Tag** e altere o formato de marcação, conforme mostrado no exemplo a seguir.
@@ -30,8 +30,8 @@ Para atualizar o script existente, altere o parâmetro **Tags** para **Tag** e a
 
 No entanto, é necessário observar que os grupos de recursos e os recursos ainda retornarão uma propriedade **Tags** em seus metadados. Essa propriedade não é alterada.
 
-### Versão 3.0.1 ou posterior
-Marcações existem diretamente em recursos e grupos de recursos. Para ver as marcações existentes, exiba um recurso com **Get-AzureRmResource** ou um ou grupo de recursos com **Get-AzureRmResourceGroup**.
+### <a name="version-301-or-later"></a>Versão 3.0.1 ou posterior
+Marcações existem diretamente em recursos e grupos de recursos. Para ver as marcações existentes, exiba um recurso com **Get-AzureRmResource** ou um ou grupo de recursos com **Get-AzureRmResourceGroup**. 
 
 Vamos começar com um grupo de recursos.
 
@@ -81,7 +81,7 @@ Para recuperar grupos de recursos com um valor de marcação, use o formato a se
 
     (Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
 
-Para obter todos os recursos com uma determinada marcação e valor, use o cmdlet **Find-AzureRmResource**.
+Para obter todos os recursos com uma determinada marcação e valor, use o cmdlet **Find-AzureRmResource** .
 
     (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 
@@ -100,7 +100,7 @@ Ele retorna o grupo de recursos com seus novos valores de marcação.
                     Dept          IT
                     Environment   Test
 
-Você pode adicionar marcações a um recurso sem marcações existentes usando o comando **Set-AzureRmResource**
+Você pode adicionar marcações a um recurso sem marcações existentes usando o comando **Set-AzureRmResource** 
 
     Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
 
@@ -112,9 +112,9 @@ Marcações são atualizadas como um todo. Para adicionar uma marcação a um re
 
 Para remover uma ou mais marcas, apenas salve a matriz sem aquela(s) que deseja remover.
 
-O processo é o mesmo para os recursos, exceto que você usa os cmdlets **Get-AzureRmResource** e **Set-AzureRmResource**.
+O processo é o mesmo para os recursos, exceto que são utilizados os cmdlets **Get-AzureRmResource** e **Set-AzureRmResource**. 
 
-Para obter uma lista de todas as marcas dentro de uma assinatura usando o PowerShell, use o cmdlet **Get-AzureRmTag**.
+Para obter uma lista de todas as marcas dentro de uma assinatura usando o PowerShell, use o cmdlet **Get-AzureRmTag** .
 
     Get-AzureRmTag
 
@@ -129,8 +129,8 @@ Você pode ver as marcas que começam com "hidden-" e "link:". Elas são marcaç
 
 Use o cmdlet **New-AzureRmTag** para adicionar novas marcas à taxonomia. Essas marcações estão incluídas no preenchimento automático, mesmo que elas ainda não tenham sido aplicadas a nenhum recurso ou grupo de recursos. Para remover um nome/valor de uma marca, primeiramente remova a marca de todos os recursos com os quais ela pode ser usada e, em seguida, use o cmdlet **Remove-AzureRmTag** para removê-la da taxonomia.
 
-### Versões anteriores à 3.0.1
-Marcações existem diretamente em recursos e grupos de recursos. Para ver as marcações existentes, exiba um recurso com **Get-AzureRmResource** ou um ou grupo de recursos com **Get-AzureRmResourceGroup**.
+### <a name="versions-earlier-than-301"></a>Versões anteriores à 3.0.1
+Marcações existem diretamente em recursos e grupos de recursos. Para ver as marcações existentes, exiba um recurso com **Get-AzureRmResource** ou um ou grupo de recursos com **Get-AzureRmResourceGroup**. 
 
 Vamos começar com um grupo de recursos.
 
@@ -147,7 +147,7 @@ Esse cmdlet retorna vários bits de metadados sobre o grupo de recursos, incluin
                     Dept         Finance
                     Environment  Production
 
-Para recuperar os metadados de recursos, use o exemplo a seguir. Os metadados de recursos não exibem marcações diretamente.
+Para recuperar os metadados de recursos, use o exemplo a seguir. Os metadados de recursos não exibem marcações diretamente. 
 
     Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName testrg1
 
@@ -163,7 +163,7 @@ Você verá nos resultados que as marcações são exibidas apenas como objeto H
     SubscriptionId    : {guid}
     Tags              : {System.Collections.Hashtable}
 
-Você pode exibir as marcações reais recuperando a propriedade **Tags**.
+Você pode exibir as marcações reais recuperando a propriedade **Tags** .
 
     (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
 
@@ -209,9 +209,9 @@ Marcações são atualizadas como um todo. Para adicionar uma marcação a um re
 
 Para remover uma ou mais marcas, apenas salve a matriz sem aquela(s) que deseja remover.
 
-O processo é o mesmo para os recursos, exceto que são utilizados os cmdlets Get-AzureRmResource e Set-AzureRmResource.
+O processo é o mesmo para os recursos, exceto que são utilizados os cmdlets Get-AzureRmResource e Set-AzureRmResource. 
 
-Para obter uma lista de todas as marcas dentro de uma assinatura usando o PowerShell, use o cmdlet **Get-AzureRmTag**.
+Para obter uma lista de todas as marcas dentro de uma assinatura usando o PowerShell, use o cmdlet **Get-AzureRmTag** .
 
     Get-AzureRmTag
 
@@ -226,6 +226,8 @@ Você pode ver as marcas que começam com "hidden-" e "link:". Elas são marcaç
 
 Use o cmdlet **New-AzureRmTag** para adicionar novas marcas à taxonomia. Essas marcações estão incluídas no preenchimento automático, mesmo que elas ainda não tenham sido aplicadas a nenhum recurso ou grupo de recursos. Para remover um nome/valor de uma marca, primeiramente remova a marca de todos os recursos com os quais ela pode ser usada e, em seguida, use o cmdlet **Remove-AzureRmTag** para removê-la da taxonomia.
 
-[powershell]: https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

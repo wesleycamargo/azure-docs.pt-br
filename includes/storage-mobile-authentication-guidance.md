@@ -1,17 +1,18 @@
-## Configurar seu aplicativo para acessar o Armazenamento de Blob
+## <a name="configure-your-application-to-access-azure-storage"></a>Configurar seu aplicativo para acessar o Armazenamento de Blob
 Há duas maneiras de autenticar o aplicativo para acessar os serviços de Armazenamento:
 
 * Chave compartilhada: usar a chave compartilhada somente para fins de teste
 * SAS (Assinatura de Acesso Compartilhado): use a SAS para aplicativos de produção
 
-### Chave compartilhada
+### <a name="shared-key"></a>Chave compartilhada
 A autenticação de Chave Compartilhada significa que o aplicativo usará seu nome da conta e chave de conta para acessar os serviços de Armazenamento. Para mostrar rapidamente como usar essa biblioteca, vamos usar a autenticação de Chave Compartilhada nesta introdução.
 
-> [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ] Seu nome de conta e chave de conta, que dão acesso completo de leitura/gravação à conta de Armazenamento associada, serão distribuídos a todas as pessoas que baixarem o aplicativo. Isso **não** é uma prática recomendada, pois você corre o risco de ter sua chave comprometida por clientes não confiáveis.
+> [!WARNING] 
+> **Use autenticação de chave compartilhada somente para fins de teste!** Seu nome de conta e chave de conta, que dão acesso completo de leitura/gravação à conta de Armazenamento associada, serão distribuídos a todas as pessoas que baixarem o aplicativo. Isso **não** é uma prática recomendada, pois você corre o risco de ter sua chave comprometida por clientes não confiáveis.
 > 
 > 
 
-Ao usar a autenticação de Chave Compartilhada, você criará uma [cadeia de conexão](../articles/storage/storage-configure-connection-string.md). A cadeia de conexão é composta dos seguintes itens:
+Ao usar a autenticação de Chave Compartilhada, você criará uma [cadeia de conexão](../articles/storage/storage-configure-connection-string.md). A cadeia de conexão é composta dos seguintes itens:  
 
 * O **DefaultEndpointsProtocol** -você pode escolher HTTP ou HTTPS. No entanto, é altamente recomendável usar HTTPS.
 * O **Nome da Conta** - o nome de sua conta de armazenamento
@@ -22,8 +23,9 @@ Veja um exemplo de cadeia de conexão usando a autenticação de Chave Compartil
 
 `"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"`
 
-### SAS (Assinaturas de Acesso Compartilhado)
-Para um aplicativo móvel, o método recomendado para autenticar uma solicitação por um cliente em relação ao serviço de Armazenamento do Azure é usando uma SAS (Assinatura de Acesso Compartilhado). A SAS permite conceder a um cliente acesso a um recurso por um período de tempo especificado, com um conjunto de permissões especificado. Como proprietário da conta de armazenamento, você precisará gerar uma SAS a ser consumida por seus clientes móveis. Para gerar a SAS, provavelmente você desejará escrever um serviço separado que gere a SAS a ser distribuída a seus clientes. Para fins de teste, você pode usar o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com) ou o [Portal do Azure](https://portal.azure.com) para gerar um SAS. Ao criar a SAS, você pode especificar o intervalo de tempo em que a SAS é válida e as permissões que a SAS concede ao cliente.
+### <a name="shared-access-signatures-sas"></a>SAS (Assinaturas de Acesso Compartilhado)
+Para um aplicativo móvel, o método recomendado para autenticar uma solicitação por um cliente em relação ao serviço de Armazenamento do Azure é usando uma SAS (Assinatura de Acesso Compartilhado). A SAS permite conceder a um cliente acesso a um recurso por um período de tempo especificado, com um conjunto de permissões especificado.
+Como proprietário da conta de armazenamento, você precisará gerar uma SAS a ser consumida por seus clientes móveis. Para gerar a SAS, provavelmente você desejará escrever um serviço separado que gere a SAS a ser distribuída a seus clientes. Para fins de teste, você pode usar o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com) ou o [Portal do Azure](https://portal.azure.com) para gerar um SAS. Ao criar a SAS, você pode especificar o intervalo de tempo em que a SAS é válida e as permissões que a SAS concede ao cliente.
 
 O exemplo a seguir mostra como usar o Gerenciador de Armazenamento do Microsoft Azure para gerar uma SAS.
 
@@ -36,4 +38,8 @@ O exemplo a seguir mostra como usar o Gerenciador de Armazenamento do Microsoft 
 
 Como você pode ver, ao usar um SAS, você não expõe a chave de sua conta em seu aplicativo. Saiba mais sobre a SAS e as práticas recomendadas sobre o uso do SAS consultando [Assinaturas de Acesso Compartilhado: entendendo o modelo SAS](../articles/storage/storage-dotnet-shared-access-signature-part-1.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO4-->
+
+

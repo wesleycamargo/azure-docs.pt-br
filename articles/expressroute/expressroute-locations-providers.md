@@ -1,5 +1,5 @@
 ---
-title: Locais da ExpressRoute | Microsoft Docs
+title: Locais da Rota Expressa | Microsoft Docs
 description: "Este artigo fornece uma visão geral detalhada dos locais onde os serviços são oferecidos e de como se conectar a regiões do Azure."
 services: expressroute
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2016
+ms.date: 11/28/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 86b7d396307761acb8baee5761f08a3e1120cddc
+ms.sourcegitcommit: eb618aea1ee5aba24cebd4d8518e9c7f546f5f4f
+ms.openlocfilehash: ae1e750a5f97325df064a02ed156610b4576f1d3
 
 
 ---
@@ -28,7 +28,10 @@ Há suporte para Rota Expressa em todos os locais e regiões do Azure. O mapa a 
 
 ![Mapa de localização][0]
 
-Você terá acesso aos serviços do Azure em todas as regiões dentro de uma região geopolítica se estiver conectado a pelo menos um local de Rota Expressa dentro da região geopolítica. A tabela a seguir fornece um mapa das regiões do Azure para locais de Rota Expressa em uma região geopolítica.
+Você terá acesso aos serviços do Azure em todas as regiões dentro de uma região geopolítica se estiver conectado a pelo menos um local de Rota Expressa dentro da região geopolítica. 
+
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Regiões do Azure para locais do ExpressRoute em uma região geopolítica
+A tabela a seguir fornece um mapa das regiões do Azure para locais de Rota Expressa em uma região geopolítica.
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de Rota Expressa** |
 | --- | --- | --- |
@@ -40,6 +43,7 @@ Você terá acesso aos serviços do Azure em todas as regiões dentro de uma reg
 | **Austrália** |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney |
 | **Índia** |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Mumbai |
 
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiões e limites geopolíticos para nuvens nacionais
 A tabela a seguir fornece informações sobre regiões e limites geopolíticos para nuvens nacionais.
 
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de Rota Expressa** |
@@ -50,10 +54,10 @@ A tabela a seguir fornece informações sobre regiões e limites geopolíticos p
 
 Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota Expressa padrão. Você precisará habilitar o complemento premium de Rota Expressa para dar suporte a conectividade global. Não há suporte a conectividade para ambientes de nuvem nacionais. Você pode trabalhar com seu provedor de conectividade se surgir necessidade de fazê-lo.
 
-## <a name="connectivity-provider-locations"></a>Locais de provedor de conectividade
+## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Locais de provedor de conectividade
 > [!div class="op_single_selector"]
-> [Locais Por Provedor](expressroute-locations.md#connectivity-provider-locations)
-> [Provedores Por Local](expressroute-locations-providers.md#connectivity-provider-locations)
+> * [Locais por provedor](expressroute-locations.md#locations)
+> * [Provedores por local](expressroute-locations-providers.md#locations)
 > 
 > 
 
@@ -83,13 +87,14 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Cingapura** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tóquio** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
-| **Toronto** |Cologix, Equinix, Zayo Group |
+| **Toronto** |Cologix, Equinix, Megaport, Zayo Group |
 | **Washington, D.C.** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** indica que haverá em breve
 
 ### <a name="national-cloud-environments"></a>Ambientes de nuvem nacionais
-#### <a name="us-government-cloud"></a>Nuvem do Governo dos EUA
+
+### <a name="us-government-cloud"></a>Nuvem do Governo dos EUA
 | **Localidade** | **Provedores de Serviço** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -97,7 +102,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Nova Iorque** |Equinix, Level 3 Communications+, Verizon |
 | **Washington, D.C.** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### <a name="china"></a>China
+### <a name="china"></a>China
 | **Localidade** | **Provedores de Serviço** |
 | --- | --- |
 | **Pequim** |China Telecom |
@@ -105,7 +110,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 
 Para saber mais, consulte [Rota Expressa na China](http://www.windowsazure.cn/home/features/expressroute/)
 
-#### <a name="germany"></a>Alemanha
+### <a name="germany"></a>Alemanha
 | **Localidade** | **Provedores de Serviço** |
 | --- | --- |
 | **Berlim** |Colt+, e-shelter |
@@ -115,13 +120,13 @@ Para saber mais, consulte [Rota Expressa na China](http://www.windowsazure.cn/ho
 Se seu provedor de conectividade não estiver listado em seções anteriores, você ainda pode criar uma conexão.
 
 * Verifique com seu provedor de conectividade para ver se eles estão conectados a qualquer um dos Exchanges na tabela acima. Você pode verificar os links a seguir para obter mais informações sobre os serviços oferecidos por provedores do Exchange. Vários provedores de conectividade já estão conectados a Exchanges de Ethernet.
-  
+  * [Cologix](http://www.cologix.com/)
+  * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
   * [InterXion](http://www.interxion.com/)
   * [NextDC](http://www.nextdc.com/)
-  * [CoreSite](http://www.coresite.com/)
-  * [Cologix](http://www.cologix.com/)
+  * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
+  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 * Faça com que seu provedor de conectividade estenda sua rede para o local de emparelhamento de sua escolha.
   * Certifique-se de que seu provedor de conectividade estenda sua conectividade de maneira altamente disponível para que não exista nenhum ponto de falha.
 * Solicite um circuito da Rota Expressa com o Exchange como o provedor de conectividade para conectar-se à Microsoft.
@@ -153,6 +158,6 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

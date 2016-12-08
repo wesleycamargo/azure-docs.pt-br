@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+ms.sourcegitcommit: 1a6d1497dee72a49705e15bd2907a42f744bd3b5
+ms.openlocfilehash: 8b32412b2dcfb20f3cb1f858fa4ae4230d72c7cd
 
 
 ---
@@ -47,10 +47,9 @@ Assim que tiver uma conta, você poderá criar um aplicativo simples de armazena
 3. Na caixa de diálogo **Novo Projeto**, clique em **Instalados** > **Modelos** > **Visual C#** > **Nuvem** > **QuickStarts** > **Serviços de Dados**.
     a. Escolha um dos seguintes modelos:** Armazenamento do Azure: blobs**, **Armazenamento do Azure: arquivos**, **Armazenamento do Azure: filas** ou **Armazenamento do Azure: tabelas**.
     b. Verifique se o **.NET Framework 4.5** está selecionado como a estrutura de destino.
-   
-   * 3.c. Especifique um nome para seu projeto e crie a nova solução do Visual Studio, conforme mostrado:
+    c. Especifique um nome para seu projeto e crie a nova solução do Visual Studio, conforme mostrado:
      
-     ![Inícios Rápidos do Azure][Image1]
+    ![Inícios Rápidos do Azure][Image1]
 
 Convém examinar o código-fonte antes de executar o aplicativo. Para examinar o código, escolha **Gerenciador de Soluções** no menu **Exibir** do Visual Studio. Em seguida, clique duas vezes no arquivo Program.cs.
 
@@ -59,7 +58,10 @@ Em seguida, execute o aplicativo de exemplo:
 1. No Visual Studio, selecione **Gerenciador de Soluções** no menu **Exibir**. Abra o arquivo App.config e comente a cadeia de conexão para o emulador de armazenamento do Azure:
    
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
-2. Remova o comentário da cadeia de conexão para o Serviço de Armazenamento do Azure e forneça a chave de acesso e do nome da conta de armazenamento no arquivo App.config: `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+
+2. Remova o comentário da cadeia de conexão para o Serviço de Armazenamento do Azure e forneça a chave de acesso e do nome da conta de armazenamento no arquivo App.config:
+   
+   `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
    
    Para recuperar sua chave de acesso da conta de armazenamento, confira [Gerenciar as chaves de acesso de armazenamento](storage-create-storage-account.md#manage-your-storage-access-keys).
 3. Depois de fornecer a chave de acesso e o nome da conta de armazenamento no arquivo App.config, no menu **Arquivo**, clique em **Salvar Tudo** para salvar todos os arquivos de projeto.
@@ -79,6 +81,7 @@ Para experimentar, vamos criar um aplicativo simples do Armazenamento do Azure u
     c. Especifique um nome para seu projeto e crie a nova solução do Visual Studio, conforme mostrado:
    
     ![Inícios Rápidos do Azure][Image1]
+
 4. No Visual Studio, selecione **Gerenciador de Soluções** no menu **Exibir**. Abra o arquivo App.config e comente a cadeia de conexão para a conta de armazenamento do Azure se você já tiver adicionado uma. Em seguida, remova o comentário da cadeia de conexão para o emulador de armazenamento do Azure:
    
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
@@ -109,6 +112,6 @@ Consulte estes recursos para saber mais sobre o Armazenamento do Azure:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,13 +1,13 @@
 ---
 title: Aplicativo multicamadas .NET | Microsoft Docs
 description: "Um tutorial .NET que ajuda você a desenvolver um aplicativo de várias camadas no Azure que usa filas do barramento de serviço para se comunicar entre camadas."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 60ed71eac1a233a08414edb8c89b196401895cd8
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
 
 
 ---
-# <a name="net-multitier-application-using-azure-service-bus-queues"></a>Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure
+# <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure
 ## <a name="introduction"></a>Introdução
 O desenvolvimento para o Microsoft Azure é fácil usando o Visual Studio e o SDK do Azure gratuito para o .NET. Este tutorial orienta você nas etapas para criar um aplicativo que usa vários recursos do Azure em execução no seu ambiente local. As etapas pressupõem que você não tem experiência anterior com o Azure.
 
@@ -39,7 +39,7 @@ A captura de tela a seguir mostra o aplicativo concluído.
 
 ![][0]
 
-## <a name="scenario-overview-interrole-communication"></a>Visão geral de cenário: comunicação interfunções
+## <a name="scenario-overview-inter-role-communication"></a>Visão geral de cenário: comunicação interfunções
 Para enviar um pedido para processamento, o componente de UI de front-end, executando a função web, é necessário interagir com a lógica de camada intermediária em execução na função de trabalho. Este exemplo usa o sistema de mensagens agenciado Barramento de Serviço para a comunicação entre as camadas.
 
 Usar o sistema de mensagens agenciado entre as camadas intermediárias e a Web separa os dois componentes. Ao contrário das mensagens diretas (isto é, TCP ou HTTP), a camada da Web não se conecta com a camada intermediária diretamente; em vez disso, envia unidades de trabalho, como mensagens, para o Barramento de Serviço, que mantém confiável até a camada intermediária estar pronta para os consumir e processar.
@@ -61,7 +61,7 @@ As seções a seguir discutem o código que implementa essa arquitetura.
 ## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
 Antes começar a desenvolver os aplicativos do Azure, obtenha as ferramentas e configure seu ambiente de desenvolvimento.
 
-1. Instale o SDK do Azure para .NET em [Obter ferramentas e SDK][Obter ferramentas e SDK].
+1. Instale o SDK do Azure para .NET em [Obter as ferramentas e o SDK][Obter as ferramentas e o SDK].
 2. Clique em **Instalar o SDK** da versão do Visual Studio que você está usando. As etapas neste tutorial usam o Visual Studio 2015.
 3. Quando for solicitado a executar ou salvar o instalador, clique em **Executar**.
 4. No **Web Platform Installer**, clique em **Instalar** e prossiga com a instalação.
@@ -410,6 +410,6 @@ Para saber mais sobre os cenários com várias camadas, consulte:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

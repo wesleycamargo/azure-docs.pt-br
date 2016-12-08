@@ -1,13 +1,13 @@
 ---
 title: "Criar um namespace do Barramento de Serviço usando o portal do Azure | Microsoft Docs"
 description: "Para começar a usar o Barramento de Serviço, você precisará de um namespace. Aqui está como criar um usando o portal do Azure."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/22/2016
 ms.author: jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a341d32149a84b9959afb6c3c1796c66c4d593cd
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: 5fa107c857b3291cf2687cb4097649e23e9f95da
 
 
 ---
@@ -39,6 +39,6 @@ Confira nossos [exemplos do GitHub][github-samples] que mostram alguns dos recur
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

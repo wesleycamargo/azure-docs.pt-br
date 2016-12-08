@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 11/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 996bac38e6b67cfe7b72e11bf29831b12086bf1b
+ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
+ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
 
 
 ---
 # <a name="create-start-or-delete-an-application-gateway"></a>Criar, iniciar ou excluir um gateway de aplicativo
+
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-gateway-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-gateway-arm.md)
@@ -35,13 +36,14 @@ O Azure Application Gateway é um balanceador de carga de camada 7. Ele fornece 
 Este artigo orienta você pelas etapas para criar, configurar, iniciar e excluir um gateway de aplicativo.
 
 ## <a name="before-you-begin"></a>Antes de começar
+
 1. Instale a versão mais recente dos cmdlets do Azure PowerShell usando o Web Platform Installer. Você pode baixar e instalar a versão mais recente na seção **Windows PowerShell** da [página Downloads](https://azure.microsoft.com/downloads/).
 2. Se você tiver uma rede virtual existente, selecione uma sub-rede vazia existente ou crie uma nova sub-rede na rede virtual existente unicamente para uso pelo gateway de aplicativo. Você não pode implantar o gateway de aplicativo para uma rede virtual diferente dos recursos que pretende implantar por trás do gateway de aplicativo, a não ser que use emparelhamento de Vnet. Para saber mais, acesse [Emparelhamento de VNet](../virtual-network/virtual-network-peering-overview.md)
 3. Verifique se você tem uma rede virtual em funcionamento com uma sub-rede válida. Verifique se não há máquinas virtuais ou implantações em nuvem usando a sub-rede. O gateway de aplicativo deve estar sozinho em uma sub-rede de rede virtual.
 4. Os servidores que você configura para usar o gateway de aplicativo devem existir ou ter seus pontos de extremidade criados na rede virtual ou com um IP/VIP público atribuído.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>O que é necessário para criar um gateway de aplicativo?
-Quando você usa o comando **New-AzureApplicationGateway** para criar o gateway de aplicativo, nenhuma configuração é definida nesse ponto, e o recurso recém-criado é configurado usando um objeto de configuração ou XML.
+Quando você usa o comando `New-AzureApplicationGateway` para criar o gateway de aplicativo, nenhuma configuração é definida nesse ponto e o recurso recém-criado é configurado usando um objeto de configuração ou usando XML.
 
 Os valores são:
 
@@ -52,6 +54,7 @@ Os valores são:
 * **Regra:** a regra vincula o ouvinte e o pool de servidores back-end e define à qual pool de servidores back-end o tráfego deve ser direcionado quando atinge um ouvinte específico.
 
 ## <a name="create-an-application-gateway"></a>Criar um Application Gateway
+
 Para criar um Application Gateway:
 
 1. Criar um recurso de gateway de aplicativo.
@@ -65,8 +68,9 @@ Para criar um Application Gateway:
 
 ![Cenário de exemplo][scenario]
 
-### <a name="create-an-application-gateway-resource"></a>Criar um recurso do gateway de aplicativo
-Para criar o gateway, use o cmdlet **New-AzureApplicationGateway** , substituindo os valores pelos seus próprios. A cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
+### <a name="create-an-application-gateway-resource"></a>Criar um recurso de Application Gateway
+
+Para criar o gateway, use o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios. A cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
 
 O exemplo a seguir cria um novo Application Gateway usando uma rede virtual chamada "testvnet1" e uma sub-rede chamada "subnet-1".
 
@@ -76,7 +80,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 *Description*, *InstanceCount* e *GatewaySize* são parâmetros opcionais.
 
-Para validar que esse gateway foi criado, você poderá usar o cmdlet **Get-AzureApplicationGateway** .
+Para validar esse gateway que foi criado, você pode usar o cmdlet `Get-AzureApplicationGateway`.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -102,12 +106,15 @@ DnsName       :
 *VirtualIPs* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
 
 ## <a name="configure-the-application-gateway"></a>Configurar o gateway de aplicativo
+
 Você pode configurar o gateway de aplicativo usando XML ou um objeto de configuração.
 
 ## <a name="configure-the-application-gateway-by-using-xml"></a>Configurar o gateway de aplicativo usando XML
+
 No exemplo a seguir, você usará um arquivo XML para definir todas as configurações do Application Gateway e confirmá-las para o recurso do Application Gateway.  
 
 ### <a name="step-1"></a>Etapa 1
+
 Copie o seguinte texto no bloco de notas.
 
 ```xml
@@ -210,21 +217,24 @@ O exemplo a seguir mostra como usar um arquivo de configuração para configurar
 ```
 
 ### <a name="step-2"></a>Etapa 2
-Em seguida, defina o gateway de aplicativo. Use o cmdlet **Set-AzureApplicationGatewayConfig** com um arquivo XML de configuração.
+
+Em seguida, defina o gateway de aplicativo. Use o cmdlet `Set-AzureApplicationGatewayConfig` com um arquivo XML de configuração.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
 ## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Configurar o gateway de aplicativo usando um objeto de configuração
-O exemplo a seguir mostra como configurar o gateway de aplicativo usando objetos de configuração. Todos os itens de configuração devem ser configurados individualmente e, em seguida, adicionados a um objeto de configuração do gateway de aplicativo. Depois de criar o objeto de configuração, você usa o comando **Set-AzureApplicationGateway** para confirmar a configuração para o recurso do gateway de aplicativo criado anteriormente.
+
+O exemplo a seguir mostra como configurar o gateway de aplicativo usando objetos de configuração. Todos os itens de configuração devem ser configurados individualmente e, em seguida, adicionados a um objeto de configuração do gateway de aplicativo. Depois de criar o objeto de configuração, você usa o comando `Set-AzureApplicationGateway` para confirmar a configuração para o recurso do gateway de aplicativo criado anteriormente.
 
 > [!NOTE]
-> Antes de atribuir um valor a cada objeto de configuração, você precisa declarar que tipo de objeto do PowerShell vai armazená-lo. A primeira linha para criar os itens individuais define quais Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nome de objeto) são usados.
+> Antes de atribuir um valor a cada objeto de configuração, você precisa declarar que tipo de objeto do PowerShell vai armazená-lo. A primeira linha para criar os itens individuais define quais **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nome de objeto)** são usados.
 > 
 > 
 
 ### <a name="step-1"></a>Etapa 1
+
 Crie todos os itens de configuração individuais.
 
 Crie o IP front-end, como mostrado no exemplo a seguir.
@@ -295,6 +305,7 @@ $rule.BackendAddressPool = "pool1"
 ```
 
 ### <a name="step-2"></a>Etapa 2
+
 Atribua todos os itens de configuração individuais a um objeto de configuração do gateway de aplicativo ($appgwconfig):
 
 Adicione o IP front-end à configuração.
@@ -340,17 +351,18 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>Etapa 3
-Confirme o objeto de configuração do recurso de gateway de aplicativo usando **Set-AzureApplicationGatewayConfig**.
+Confirme o objeto de configuração do recurso do gateway de aplicativo usando `Set-AzureApplicationGatewayConfig`.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
 ## <a name="start-the-gateway"></a>Iniciar o gateway
-Depois que o gateway tiver sido configurado, use o cmdlet **Start-AzureApplicationGateway** para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito.
+
+Depois que o gateway tiver sido configurado, use o cmdlet `Start-AzureApplicationGateway` para iniciá-lo. A cobrança por um gateway de aplicativo começa depois que o gateway tiver sido iniciado com êxito.
 
 > [!NOTE]
-> O cmdlet **Start-AzureApplicationGateway** pode demorar de 15 a 20 minutos para ser concluído.
+> O cmdlet `Start-AzureApplicationGateway` poderá levar até 15 a 20 minutos para terminar.
 > 
 > 
 
@@ -359,7 +371,8 @@ Start-AzureApplicationGateway AppGwTest
 ```
 
 ## <a name="verify-the-gateway-status"></a>Verificar o status do gateway
-Use o cmdlet **Get-AzureApplicationGateway** para verificar o status do gateway. Se **Start-AzureApplicationGateway** tiver sido bem-sucedido na etapa anterior, o item *Estado* deverá ser Em execução e *Vip* e *DnsName* deverão ter entradas válidas.
+
+Use o cmdlet `Get-AzureApplicationGateway` para verificar o status do gateway. Se `Start-AzureApplicationGateway` tiver sido bem-sucedido na etapa anterior, o item *Estado* deverá estar Em execução e *Vip* e *DnsName* deverão ter entradas válidas.
 
 Este exemplo mostra um gateway de aplicativo que está ativo, em execução e pronto para assumir o tráfego destinado a `http://<generated-dns-name>.cloudapp.net`.
 
@@ -382,13 +395,14 @@ DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
 ## <a name="delete-an-application-gateway"></a>Excluir um gateway de aplicativo
+
 Para excluir um gateway de aplicativo:
 
-1. Use o cmdlet **Stop-AzureApplicationGateway** para parar o gateway.
-2. Use o cmdlet **Remove-AzureApplicationGateway** para remover o gateway.
-3. Verifique se o gateway foi removido usando o cmdlet **Get-AzureApplicationGateway** .
+1. Use o cmdlet `Stop-AzureApplicationGateway` para parar o gateway.
+2. Use o cmdlet `Remove-AzureApplicationGateway` para remover o gateway.
+3. Verifique se o gateway foi removido usando o cmdlet `Get-AzureApplicationGateway`.
 
-O exemplo a seguir mostra o cmdlet **Stop-AzureApplicationGateway** na primeira linha, seguido pela saída.
+O exemplo a seguir mostra o cmdlet `Stop-AzureApplicationGateway` na primeira linha, seguido pela saída.
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
@@ -402,7 +416,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-Depois que o gateway de aplicativo estiver em um estado parado, use o cmdlet **Remove-AzureApplicationGateway** para remover o serviço.
+Depois que o gateway de aplicativo estiver em um estado parado, use o cmdlet `Remove-AzureApplicationGateway` para remover o serviço.
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
@@ -416,7 +430,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-Para verificar se o serviço foi removido, você poderá usar o cmdlet **Get-AzureApplicationGateway** . Essa etapa não é necessária.
+Para verificar se o serviço foi removido, você pode usar o cmdlet `Get-AzureApplicationGateway`. Essa etapa não é necessária.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -430,6 +444,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Se desejar configurar o descarregamento SSL, confira [Configurar um application gateway para descarregamento SSL](application-gateway-ssl.md).
 
 Para configurar um gateway de aplicativo para usar com um balanceador de carga interno, confira [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
@@ -443,6 +458,6 @@ Se deseja obter mais informações sobre as opções de balanceamento de carga n
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

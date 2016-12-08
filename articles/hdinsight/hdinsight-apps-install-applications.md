@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
+ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
 
 
 ---
 # <a name="install-hdinsight-applications"></a>Instalar aplicativos do HDInsight
 Um aplicativo do HDInsight é um aplicativo que os usuários podem instalar em um cluster HDInsight baseado em Linux. Esses aplicativos podem ser desenvolvidos pela Microsoft, por ISVs (fornecedores independentes de software) ou por conta própria. Neste artigo, você aprenderá a instalar um aplicativo publicado. Para instalar seu próprio aplicativo, confira [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md). 
 
-No momento, há um aplicativo publicado:
+No momento, há três aplicativos publicados:
 
 * **Datameer**: o [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft) oferece aos analistas uma forma interativa de descobrir, analisar e visualizar os resultados em Big Data. Inclua facilmente outras fontes de dados para descobrir novas relações e obter com rapidez as respostas de que precisa.
+* O **Coletor de Dados de Streamsets para HDnsight** fornece um IDE (ambiente de desenvolvimento integrado) completo que permite projetar, testar, implantar e gerenciar pipelines de ingestão de qualquer ponto a qualquer ponto, que combinam dados de lote e malha e incluem uma variedade de transformações no fluxo – tudo sem ter que escrever código personalizado. 
+* **Cask CDAP 3.5 para o HDInsight** fornece a primeira plataforma de integração unificada para Big Data que reduz o tempo de inatividade na produção para aplicativos de dados e data lakes em 80%. Este aplicativo só dá suporte a clusters HBase 3.4 padrão.
 
-> [!NOTE]
-> No momento, o Datameer só tem suporte em clusters Azure HDInsight versão 3.2.
-> 
-> 
 
 As instruções fornecidas neste artigo usam o portal do Azure. Você também pode exportar o modelo do Azure Resource Manager do portal ou obter uma cópia do modelo do Resource Manager de fornecedores e usar o Azure PowerShell e a CLI do Azure para implantar o modelo.  Confira [Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Gerenciador de Recursos](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -46,14 +44,14 @@ O procedimento a seguir mostra como instalar aplicativos do HDInsight em um clus
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **Clusters HDInsight** no menu esquerdo.  Se você não conseguir ver a opção, clique em **Procurar** e clique em **Clusters HDInsight**.
 3. Clique em um cluster HDInsight.  Se não tiver um, você deverá criá-lo primeiro.  Confira [Criar clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. Na folha **Configurações**, clique em **Aplicativos** na categoria **Geral**. A folha **Aplicativos Instalados** lista todos os aplicativos instalados. 
+4. Clique em **Aplicativos** sob a categoria **Configurações**. Você poderá ver uma lista de aplicativos instalados, se houver algum.
    
     ![menu de portal de aplicativos do hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Clique em **Adicionar** no menu da folha. 
    
     ![aplicativos instalados de aplicativos do hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
    
-    Você deverá ver uma lista de aplicativos existentes do HDInsight.
+    Você poderá ver uma lista de aplicativos existentes do HDInsight.
    
     ![aplicativos disponíveis de aplicativos hdinsight](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
 6. Clique em um dos aplicativos, aceite os termos legais e clique em **Selecionar**.
@@ -120,6 +118,6 @@ Confira [Solucionar problemas de instalação](hdinsight-apps-install-custom-app
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

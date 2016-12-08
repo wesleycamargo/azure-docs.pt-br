@@ -12,15 +12,15 @@ ms.devlang: cpp
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+ms.sourcegitcommit: a76320718f0cefa015728cb79df944e0d34bbf74
+ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
 
 
 ---
-# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>SDK do Gateway IoT do Azure (beta) - Introdução usando o Linux
+# <a name="azure-iot-gateway-sdk---get-started-using-linux"></a>SDK do Gateway IoT do Azure – Introdução usando o Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Como criar a amostra
@@ -38,45 +38,48 @@ Antes de começar, é necessário [configurar seu ambiente de desenvolvimento][l
 ## <a name="how-to-run-the-sample"></a>Como executar a amostra
 1. O script **build.sh** gera sua saída na pasta **build** na cópia local do repositório **azure-iot-gateway-sdk**. Isso inclui os dois módulos usados nesta amostra.
    
-    O script de build coloca **liblogger_hl.so** na pasta **build/modules/logger/** e **libhello_world_hl.so** na pasta **build/modules/hello_world/**. Use esses caminhos para o valor de **caminho do módulo** , conforme mostrado no arquivo de configurações do JSON abaixo.
-2. O arquivo **hello_world_lin.json** na pasta **samples/hello_world/src** é um arquivo de configurações do JSON de exemplo para o Linux que pode ser usado para executar a amostra. As definições do JSON de exemplo mostradas abaixo pressupõem que você executará a amostra da raiz de sua cópia local do repositório **azure-iot-gateway-sdk** .
-3. Para o módulo **logger_hl**, na seção **args**, defina o valor de **filename** para o nome e caminho do arquivo que conterá os dados de log.
-   
-    Este é um exemplo de um arquivo de configurações do JSON para o Linux que gravará no **log.txt** , na pasta em que a amostra é executada.
+    O script de build coloca **liblogger.so** na pasta **build/modules/logger/** e **libhello_world.so** na pasta **build/modules/hello_world/**. Use esses caminhos para o valor de **caminho do módulo** , conforme mostrado no arquivo de configurações do JSON abaixo.
+2. O processo de hello_world_sample leva o caminho até um arquivo de configuração JSON como um argumento na linha de comando. Um exemplo de arquivo JSON foi fornecido como parte do repositório em **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json** e está copiado abaixo. Ele funcionará da forma como está, a menos que você tenha modificado o script de compilação e colocado módulos ou exemplo de executáveis em locais não padrão.
+
+   > [!NOTE]
+   > Os caminhos do módulo são relativos ao diretório de trabalho atual de onde o executável hello_world_sample é iniciado, não ao diretório onde o executável está localizado. O arquivo de configuração do JSON de exemplo assume o padrão de gravar 'log.txt' no diretório de trabalho atual.
    
     ```
     {
-      "modules" :
-      [ 
-        {
-          "module name" : "logger_hl",
-          "loading args": {
-            "module path" : "./build/modules/logger/liblogger_hl.so"
-          },
-          "args" : 
-          {
-            "filename":"./log.txt"
-          }
-        },
-        {
-          "module name" : "hello_world",
-          "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
-          },
-          "args" : null
-        }
-      ],
-      "links" :
-      [
-        {
-          "source": "hello_world",
-          "sink": "logger_hl"
-        }
-      ]
+        "modules" :
+        [
+            {
+              "name" : "logger",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/logger/liblogger.so"
+                }
+              },
+              "args" : {"filename":"log.txt"}
+            },
+            {
+                "name" : "hello_world",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/hello_world/libhello_world.so"
+                }
+              },
+                "args" : null
+            }
+        ],
+        "links": 
+        [
+            {
+                "source": "hello_world",
+                "sink": "logger"
+            }
+        ]
     }
     ```
-4. No shell, navegue até a pasta **azure-iot-gateway-sdk** .
-5. Execute o comando a seguir:
+3. Navegue até a pasta **azure-iot-gateway-sdk**.
+4. Execute o comando a seguir:
    
    ```
    ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
@@ -89,6 +92,6 @@ Antes de começar, é necessário [configurar seu ambiente de desenvolvimento][l
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: 57af74321c453733daadc1b295dd3df95d0fd052
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 > * [API REST](data-lake-store-get-started-rest-api.md)
 > * [CLI do Azure](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Neste artigo, você aprenderá a usar as APIs REST WebHDFS e as APIs REST do Repositório Data Lake para executar o gerenciamento de contas e as operações de sistema de arquivos no Repositório Azure Data Lake. O Repositório Azure Data Lake expõe suas próprias APIs REST para operações de gerenciamento de conta. No entanto, como o Repositório Data Lake é compatível com o ecossistema HDFS e Hadoop, ele oferece suporte usando as APIs REST WebHDFS para operações do sistema de arquivos.
@@ -47,7 +48,7 @@ Neste artigo, você aprenderá a usar as APIs REST WebHDFS e as APIs REST do Rep
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Como faço para me autenticar usando o Azure Active Directory?
 Você pode usar duas abordagens para se autenticar usando o Azure Active Directory.
 
-### <a name="enduser-authentication-interactive"></a>Autenticação do usuário (interativa)
+### <a name="end-user-authentication-interactive"></a>Autenticação do usuário (interativa)
 Nesse cenário, o aplicativo solicita o logon do usuário e todas as operações são executadas no contexto do usuário. Realize as seguintes etapas para a autenticação interativa.
 
 1. Por meio de seu aplicativo, redirecione o usuário para a seguinte URL:
@@ -88,7 +89,7 @@ Nesse cenário, o aplicativo solicita o logon do usuário e todas as operações
 
 Para obter mais informações sobre a autenticação interativa de usuário, confira [Fluxo de concessão de código de autorização](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Autenticação serviço a serviço (não interativa)
+### <a name="service-to-service-authentication-non-interactive"></a>Autenticação serviço a serviço (não interativa)
 Nesse cenário, o aplicativo fornece suas próprias credenciais para executar as operações. Para isso, você deve emitir uma solicitação POST como a mostrada abaixo. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -263,6 +264,6 @@ Você verá algo semelhante ao mostrado a seguir:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

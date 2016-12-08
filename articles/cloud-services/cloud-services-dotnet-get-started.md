@@ -12,20 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/10/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: a3fc284a436173f1a1debc205a83d55cc1869b32
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 81fd8f40d8f939e68fbe2cf9ef7b413073a8c363
 
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
-> [!div class="op_single_selector"]
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [.NET](cloud-services-dotnet-get-started.md)
->
->
 
 ## <a name="overview"></a>Visão geral
 Este tutorial mostra como criar um aplicativo de várias camadas .NET com front-end ASP.NET MVC e implantá-lo no [serviço de nuvem do Azure](cloud-services-choose-me.md). O aplicativo usa o [Banco de Dados SQL do Azure](http://msdn.microsoft.com/library/azure/ee336279), o [serviço Blob do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Você pode [baixar o projeto do Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) na Galeria de Códigos do MSDN.
@@ -415,7 +410,7 @@ As seções a seguir explicam o código relacionado ao trabalho com os blobs e f
 * [Introdução ao EF 6 e ao MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [Introdução à programação assíncrona no .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
-### <a name="contosoadscommon-adcs"></a>ContosoAdsCommon - Ad.cs
+### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
 O arquivo Ad.cs file define uma enumeração para categorias de anúncios e uma classe de entidade POCO para as informações de anúncios.
 
 ```csharp
@@ -459,7 +454,7 @@ public class Ad
 }
 ```
 
-### <a name="contosoadscommon-contosoadscontextcs"></a>ContosoAdsCommon - ContosoAdsContext.cs
+### <a name="contosoadscommon---contosoadscontextcs"></a>ContosoAdsCommon - ContosoAdsContext.cs
 A classe ContosoAdsContext especifica que a classe de anúncio é usada em uma coleção de DbSet e qual Entity Framework será armazenada em um banco de dados SQL.
 
 ```csharp
@@ -478,7 +473,7 @@ public class ContosoAdsContext : DbContext
 
 A classe possui dois construtores. O primeiro deles é usado pelo projeto Web e especifica o nome de uma cadeia de conexão armazenada no arquivo Web.config. O segundo construtor habilita você a transmitir a cadeia de conexão real. Isso é necessário para o projeto de função de trabalho, porque ela não tem um arquivo Web.config. Foi mostrado anteriormente onde essa cadeia de conexão foi armazenada, e você verá mais adiante como o código recupera a cadeia de conexão quando ele cria uma instância de classe DbContext.
 
-### <a name="contosoadsweb-globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
+### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
 O código que é chamado do método `Application_Start` criará um contêiner de blob *images* e uma fila *images*, se ainda não existirem. Isso garante que sempre que você começar a usar uma nova conta de armazenamento, ou começar a usar o emulador de armazenamento em um novo computador, o contêiner do blob e a fila necessários serão criados automaticamente.
 
 O código obtém acesso à conta de armazenamento usando a cadeia de conexão de armazenamento do arquivo *.cscfg* .
@@ -511,10 +506,10 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb-layoutcshtml"></a>ContosoAdsWeb – \_Layout.cshtml
+### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb – \_Layout.cshtml
 O arquivo *_Layout.cshtml* define o nome do aplicativo no cabeçalho e no rodapé e cria uma entrada de menu "Ads".
 
-### <a name="contosoadsweb-viewshomeindexcshtml"></a>ContosoAdsWeb - Views\Home\Index.cshtml
+### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb - Views\Home\Index.cshtml
 O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os links passam o valor inteiro da enumeração `Category` em uma variável querystring para a página Índice de anúncio.
 
 ```razor
@@ -524,7 +519,7 @@ O arquivo *Views\Home\Index.cshtml* exibe links de categoria na home page. Os li
 <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 ```
 
-### <a name="contosoadsweb-adcontrollercs"></a>ContosoAdsWeb - AdController.cs
+### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 No arquivo *AdController.cs*, o construtor chama o método `InitializeStorage` para criar os objetos da Biblioteca do Cliente do Armazenamento do Azure que fornecem uma API para trabalhar com blobs e filas.
 
 Em seguida, o código obtém uma referência para o contêiner do blob de *imagens* como visto anteriormente em *Global.asax.cs*. Enquanto faz isso ele define uma [política de recuperação](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) padrão apropriada para um aplicativo Web. A política de recuperação de retirada exponencial padrão pode fazer com que o aplicativo Web pare de responder por mais de um minuto em tentativas repetidas de uma falha transitória. A política de recuperação especificada aqui aguarda 3 segundos após cada tentativa, até 3 tentativas.
@@ -621,7 +616,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 }
 ```
 
-### <a name="contosoadsweb-viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
+### <a name="contosoadsweb---viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb - Views\Ad\Index.cshtml e Details.cshtml
 O arquivo *Index.cshtml* exibe miniaturas com os outros dados de anúncio.
 
 ```razor
@@ -634,7 +629,7 @@ O arquivo *Details.cshtml* exibe a imagem em tamanho real.
 <img src="@Html.Raw(Model.ImageURL)" />
 ```
 
-### <a name="contosoadsweb-viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb - Views\Ad\Create.cshtml e Edit.cshtml
+### <a name="contosoadsweb---viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb - Views\Ad\Create.cshtml e Edit.cshtml
 Os arquivos *Create.cshtml* e *Edit.cshtml* especificam a codificação de formulário que habilita o controlador a obter o objeto `HttpPostedFileBase`.
 
 ```razor
@@ -647,7 +642,7 @@ Um elemento `<input>` informa o navegador para fornecer uma caixa de diálogo de
 <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 ```
 
-### <a name="contosoadsworker-workerrolecs-onstart-method"></a>ContosoAdsWorker - WorkerRole.cs - Método OnStart
+### <a name="contosoadsworker---workerrolecs---onstart-method"></a>ContosoAdsWorker - WorkerRole.cs - Método OnStart
 O ambiente da função de trabalho do Azure chama o método `OnStart` na classe `WorkerRole` quando a função de trabalho é iniciada, e chama o método `Run` quando o método `OnStart` é concluído.
 
 O método `OnStart` obtém a cadeia de conexão do banco de dados do arquivo *.cscfg* e a transmite para a classe DbContext do Entity Framework. O provedor SQLClient é usado por padrão para que o provedor não precisar ser especificado.
@@ -659,7 +654,7 @@ db = new ContosoAdsContext(dbConnString);
 
 Após, o método obtém uma referência para a conta de armazenamento e cria a fila e o contêiner do blob, se eles não existirem. O código para isso é semelhante àquele já visto no método da função Web `Application_Start` .
 
-### <a name="contosoadsworker-workerrolecs-run-method"></a>ContosoAdsWorker - WorkerRole.cs - Método de execução
+### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker - WorkerRole.cs - Método de execução
 O método `Run` é chamado quando o método `OnStart` conclui seu trabalho de inicialização. O método executa um loop infinito que procura novas mensagens na fila e as processa quando chegam.
 
 ```csharp
@@ -777,6 +772,6 @@ Para saber mais, consulte os recursos a seguir:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

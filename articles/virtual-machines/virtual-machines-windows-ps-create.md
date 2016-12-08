@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
+ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
+ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
 
 
 ---
@@ -114,7 +114,7 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
     $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
     ```
    
-    Consulte [Tamanhos das máquinas virtuais no Azure](virtual-machines-windows-sizes.md) para obter uma lista dos tamanhos disponíveis para uma máquina virtual.
+    Consulte [Tamanhos das máquinas virtuais no Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter uma lista dos tamanhos disponíveis para uma máquina virtual.
 3. Defina as configurações do sistema operacional da VM. Este comando define o nome do computador, o tipo de sistema operacional e as credenciais da conta da VM.
    
     ```powershell
@@ -128,13 +128,13 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
         -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
    
-    Para saber mais sobre como selecionar as imagens a usar, consulte [Navegar e selecionar as imagens da máquina virtual do Windows no Azure com o PowerShell ou a CLI](virtual-machines-windows-cli-ps-findimage.md).
+    Para saber mais sobre como selecionar as imagens a usar, consulte [Navegar e selecionar as imagens da máquina virtual do Windows no Azure com o PowerShell ou a CLI](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Adicione a interface de rede que você criou à configuração.
    
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. Defina o nome e o local do disco rígido da VM. O arquivo de disco rígido virtual é armazenado em um contêiner. Este comando cria o disco em um contêiner chamado **vhds/WindowsVMosDisk.vhd** na conta de armazenamento que você criou.
+6. Defina o nome e o local do disco rígido da VM. O arquivo de disco rígido virtual é armazenado em um contêiner. Este comando cria o disco em um contêiner chamado **vhds/myOsDisk1.vhd** na conta de armazenamento que você criou.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -143,7 +143,7 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
 7. Adicione as informações de disco do sistema operacional à configuração da VM. Substitua o valor **$diskName** por um nome para o disco do sistema operacional. Crie a variável e adicione as informações do disco à configuração.
    
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
 8. Finalmente, crie a máquina virtual.
    
@@ -153,12 +153,12 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
 
 ## <a name="next-steps"></a>Próximas etapas
 * Se houver problemas com a implantação, uma próxima etapa será examinar [Solucionando problemas de implantações do grupo de recursos com o portal do Azure](../resource-manager-troubleshoot-deployments-portal.md)
-* Saiba como gerenciar a máquina virtual que você criou examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md).
-* Aproveite o uso de um modelo para criar uma máquina virtual usando as informações em [Criar uma máquina virtual do Windows com um modelo do Resource Manager](virtual-machines-windows-ps-template.md)
+* Saiba como gerenciar a máquina virtual que você criou examinando [Gerenciar Máquinas Virtuais usando o Azure Resource Manager e o PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Aproveite o uso de um modelo para criar uma máquina virtual usando as informações em [Criar uma máquina virtual do Windows com um modelo do Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

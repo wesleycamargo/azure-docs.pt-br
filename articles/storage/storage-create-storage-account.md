@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/26/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5b24b28f82c53b880e025dc43169aaad49e8434
+ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
+ms.openlocfilehash: fd5ca2dfb12b7527f49d32d9642a91df9e590b14
 
 
 ---
@@ -68,7 +68,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
    > O nome da sua conta de armazenamento deve ser exclusivo no Azure. O portal do Azure indicará se o nome da conta de armazenamento selecionada já está em uso.
    > 
    > 
-4. Especifique o modelo de implantação a ser usado: **Resource Manager** ou **Clássico**. **Gerenciador de Recursos** é o modelo de implantação recomendado. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md).
+4. Especifique o modelo de implantação a ser usado: **Resource Manager** ou **Clássico**. **Gerenciador de Recursos** é o modelo de implantação recomendado. Para saber mais, confira [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
    
    > [!NOTE]
    > As contas de armazenamento de Blobs só podem ser criadas usando o modelo de implantação do Resource Manager.
@@ -162,6 +162,6 @@ Para saber mais, veja a [Documentação da Máquina Virtual do Azure](http://azu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

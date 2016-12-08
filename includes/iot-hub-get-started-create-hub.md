@@ -1,5 +1,5 @@
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
-Crie um hub IoT ao qual o dispositivo simulado se conectará. As etapas a seguir mostram como concluir esta tarefa usando o portal do Azure.
+Crie um Hub IoT ao qual o aplicativo de dispositivo simulado poderá se conectar. As etapas a seguir mostram como concluir esta tarefa usando o portal do Azure.
 
 1. Entre no [Portal do Azure][lnk-portal].
 2. Na Barra de Navegação, clique em **Novo** > **Internet das Coisas** > **Hub IoT do Azure**.
@@ -11,7 +11,7 @@ Crie um hub IoT ao qual o dispositivo simulado se conectará. As etapas a seguir
    
    * Na caixa **Nome** , insira um nome para identificar seu hub IoT. Se o **Nome** for válido e estiver disponível, aparecerá uma marca de seleção verde na caixa **Nome**.
    * Selecione um [tipo de preço e de dimensionamento][lnk-pricing]. Este tutorial não requer uma camada específica. Para este tutorial, use a camada F1 gratuita.
-   * No **Grupo de recursos**, crie um novo grupo de recursos ou selecione um existente. Para obter mais informações sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure][lnk-resource-groups].
+   * No **Grupo de recursos**, crie um novo grupo de recursos ou selecione um existente. Para obter mais informações, consulte [Usando os grupos de recursos para gerenciar seus recursos do Azure][lnk-resource-groups].
    * Em **Local**, selecione o local para hospedar o hub IoT. Para este tutorial, escolha o local mais próximo.
 4. Quando você tiver escolhido as opções de configuração do hub IoT, clique em **Criar**.  O Azure poderá demorar alguns minutos para criar seu hub IoT. Para verificar o status, você pode monitorar o progresso no quadro inicial ou no painel Notificações.
    
@@ -37,6 +37,6 @@ Crie um hub IoT ao qual o dispositivo simulado se conectará. As etapas a seguir
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

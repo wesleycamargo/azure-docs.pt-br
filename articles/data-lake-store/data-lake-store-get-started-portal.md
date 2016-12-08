@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
+ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
+ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
 > * [API REST](data-lake-store-get-started-rest-api.md)
 > * [CLI do Azure](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Saiba como usar o Portal do Azure para criar uma conta do Repositório do Azure Data Lake e executar operações básicas, como criar pastas, carregar e baixar arquivos de dados, excluir sua conta, etc. Para saber mais sobre o Data Lake Store, consulte [Visão geral do Azure Data Lake Store](data-lake-store-overview.md).
@@ -58,8 +59,8 @@ Veja os vídeos a seguir para começar a usar o Repositório Data Lake.
    * **Local**: selecione um local no qual você deseja criar a conta do Data Lake.
    * **Configurações de Criptografia**. Você pode escolher se deseja criptografar sua conta do Data Lake Store. Se você optar por criptografar, também poderá especificar como gerenciar a chave de criptografia principal que deseja usar para criptografar os dados em sua conta.
      
-     * (Padrão) Selecione **Não habilitar a criptografia** do menu suspenso para recusar a criptografia.
-     * (Opcional) Selecione **Usar chaves gerenciadas pelo Azure Data Lake** se quiser que o Azure Data Lake Store gerencie suas chaves de criptografia.
+     * (Opcional) Selecione **Não habilitar a criptografia** no menu suspenso para recusar a criptografia.
+     * (Padrão) Selecione **Usar chaves gerenciadas pelo Azure Data Lake** se quiser que o Azure Data Lake Store gerencie suas chaves de criptografia.
        
          ![Criptografia do Data Lake Store](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
      * (Opcional) Selecione **Escolher chaves do Cofre de Chaves do Azure** se quiser usar suas próprias chaves presentes em seu Cofre de Chaves do Azure. Com essa opção, você também pode criar uma conta do Cofre de chaves se ainda não tiver uma.
@@ -136,6 +137,6 @@ Para excluir uma conta do Repositório Azure Data Lake da folha de seu Repositó
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
