@@ -1,12 +1,12 @@
 ---
-title: Como criar um processador de mídia | Microsoft Docs
-description: Saiba como criar um componente de processador de mídia para codificar, converter o formato, criptografar ou descriptografar conteúdo de mídia dos Serviços de Mídia do Azure.
+title: "Como criar um processador de mídia | Microsoft Docs"
+description: "Saiba como criar um componente de processador de mídia para codificar, converter o formato, criptografar ou descriptografar conteúdo de mídia dos Serviços de Mídia do Azure."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
+
 
 ---
-# <a name="how-to:-get-a-media-processor-instance"></a>Como obter uma instância do processador de mídia
+# <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância do processador de mídia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -91,6 +95,9 @@ Resposta:
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você já sabe como obter uma instância do processador de mídia, vá para o tópico [Como Codificar um Ativo](media-services-rest-get-started.md) , que mostrará como usar o Codificador de Mídia Standard para codificar um ativo.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

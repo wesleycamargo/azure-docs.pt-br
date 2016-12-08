@@ -1,12 +1,12 @@
 ---
-title: Diretrizes técnicas de resiliência para recuperação de perda de uma região do Azure | Microsoft Docs
-description: Artigo sobre compreensão e design de aplicativos resilientes, altamente disponíveis e tolerante a falhas, bem como planejamento de recuperação de desastre
-services: ''
+title: "Diretrizes técnicas de resiliência para recuperação de perda de uma região do Azure | Microsoft Docs"
+description: "Artigo sobre compreensão e design de aplicativos resilientes, altamente disponíveis e tolerante a falhas, bem como planejamento de recuperação de desastre"
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: f2f750aa-9305-487e-8c3f-1f8fbc06dc47
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 15f0183d8ada59227a412788f1d53a9db0e712c8
+
 
 ---
-# <a name="azure-resiliency-technical-guidance:-recovery-from-a-region-wide-service-disruption"></a>Orientações técnicas de resiliência do Azure: recuperação de uma interrupção de serviço em toda a região
+# <a name="azure-resiliency-technical-guidance-recovery-from-a-region-wide-service-disruption"></a>Orientações técnicas de resiliência do Azure: recuperação de uma interrupção de serviço em toda a região
 O Azure é dividido fisicamente e logicamente em unidades chamadas de regiões. Uma região consiste em um ou mais datacenters nas proximidades. No momento da redação deste artigo, o Azure tem vinte e quatro regiões pelo mundo.
 
 Em raras circunstâncias é possível que instalações em toda a região se tornem inacessíveis, por exemplo, devido a falhas de rede. Ou instalações podem ser inteiramente perdidas, por exemplo, devido a um desastre natural. Esta seção explica os recursos do Azure para criar aplicativos que são distribuídos entre regiões. Essa distribuição ajuda a minimizar a possibilidade de que uma falha em uma região afete outras regiões.
@@ -53,7 +57,7 @@ A recuperação de VMs (máquinas virtuais) de IaaS (infraestrutura como um serv
 * **Estar ciente dos possíveis problemas de consistência após um failover geográfico de vários Discos de VM**. Os Discos de VM são implementados como blobs de Armazenamento do Azure e têm a mesma característica de replicação geográfica. A menos que o [Backup do Azure](https://azure.microsoft.com/services/backup/) seja usado, não há garantia de consistência entre discos, pois a replicação geográfica é assíncrona e é replicada de maneira independente. Discos de VM individuais têm a garantia de estar em um estado com controle de falhas após um failover geográfico, mas não consistente entre discos. Isso pode causar problemas em alguns casos (por exemplo, no caso de divisão entre discos).
 
 ## <a name="storage"></a>Armazenamento
-### <a name="recovery-by-using-geo-redundant-storage-of-blob,-table,-queue-and-vm-disk-storage"></a>Recuperação usando armazenamento com Redundância Geográfica de blob, tabela, fila e armazenamento em disco de VM
+### <a name="recovery-by-using-geo-redundant-storage-of-blob-table-queue-and-vm-disk-storage"></a>Recuperação usando armazenamento com Redundância Geográfica de blob, tabela, fila e armazenamento em disco de VM
 Em blobs do Azure, tabelas, filas e discos de VM são todos replicados geograficamente por padrão. Isso é conhecido como GRS (armazenamento com redundância geográfica). O GRS replica dados de armazenamento para um datacenter emparelhado a centenas de milhas de distância dentro de uma região geográfica específica. O GRS é destinado a fornecer durabilidade adicional caso ocorra um desastre de grandes proporções no datacenter. A Microsoft controla quando ocorre o failover, que se limita a grandes desastres em que o local principal de origem é considerado irrecuperável em um período de tempo razoável. Em alguns cenários, isso pode consistir em vários dias. Os dados normalmente são replicados em poucos minutos, embora o intervalo de sincronização ainda não seja coberto por um contrato de nível de serviço.
 
 No caso de um failover geográfico, não haverá alteração na maneira como a conta é acessada (a URL e a chave da conta não serão alteradas). No entanto, a conta de armazenamento estará em uma região diferente após o failover. Isso pode afetar aplicativos que exigem afinidade regional com sua conta de armazenamento. Mesmo para serviços e aplicativos que não exigem uma conta de armazenamento no mesmo datacenter, os encargos de largura de banda e a latência entre datacenters podem ser motivos convincentes para mover temporariamente o tráfego para a região de failover. Isso pode influenciar uma estratégia geral de recuperação de desastre.
@@ -62,12 +66,12 @@ Além do failover automático fornecido pelo GRS, o Azure introduziu um serviço
 
 Para saber mais sobre as opções de armazenamento GRS e RA-GRS, confira [Replicação do Armazenamento do Azure](../storage/storage-redundancy.md).
 
-### <a name="geo-replication-region-mappings:"></a>Mapeamentos de região de Replicação Geográfica:
+### <a name="geo-replication-region-mappings"></a>Mapeamentos de região de Replicação Geográfica:
 É importante saber onde os dados são replicados geograficamente para saber onde implantar as outras instâncias de dados que exigem afinidade regional com o armazenamento. A tabela a seguir mostra os emparelhamentos de locais primários e secundários:
 
 [!INCLUDE [paired-region-list](../../includes/paired-region-list.md)]
 
-### <a name="geo-replication-pricing:"></a>Preços da Replicação Geográfica:
+### <a name="geo-replication-pricing"></a>Preços da Replicação Geográfica:
 A replicação geográfica está incluída no preço atual do Armazenamento do Azure. Isso se chama GRS (Armazenamento com Redundância Geográfica). Se não quiser que os dados sejam replicados geograficamente, você poderá desabilitar a replicação geográfica para sua conta. Isso é chamado de Armazenamento com Redundância Local e é cobrado com um preço com desconto em comparação com o GRS.
 
 ### <a name="determining-if-a-geo-failover-has-occurred"></a>Determinando se um failover geográfico ocorreu
@@ -93,7 +97,7 @@ O Banco de Dados SQL do Azure fornece dois tipos de recuperação: Restauração
 [Replicação geográfica ativa](../sql-database/sql-database-geo-replication-overview.md) está disponível para todas as camadas de banco de dados. Ela foi criada para aplicativos que têm requisitos de recuperação mais agressivos do que a Restauração Geográfica pode oferecer. Com a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em regiões diferentes. Você pode iniciar o failover para qualquer um dos secundários. Além disso, a replicação geográfica ativa pode ser usada para suportar a atualização do aplicativo ou os cenários de realocação, bem como o balanceamento de carga para cargas de trabalho somente leitura. Para obter detalhes, veja [configurar a Replicação Geográfica](../sql-database/sql-database-geo-replication-portal.md) e [failover para o banco de dados secundário](../sql-database/sql-database-geo-replication-failover-portal.md). Confira [Criar um aplicativo para recuperação de desastre na nuvem usando a Replicação Geográfica ativa no Banco de Dados SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Gerenciando as atualizações sem interrupção de aplicativos na nuvem usando a Replicação Geográfica Ativa do Banco de Dados SQL](../sql-database/sql-database-manage-application-rolling-upgrade.md) para obter detalhes sobre como criar e implementar aplicativos e a atualização de aplicativos sem tempo de inatividade.
 
 ### <a name="sql-server-on-virtual-machines"></a>SQL Server em máquinas virtuais
-Várias opções estão disponíveis para recuperação e alta disponibilidade para o SQL Server 2012 (e posterior) em execução em Máquinas Virtuais do Azure. Para saber mais, confira [Alta disponibilidade e recuperação de desastres para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+Várias opções estão disponíveis para recuperação e alta disponibilidade para o SQL Server 2012 (e posterior) em execução em Máquinas Virtuais do Azure. Para saber mais, confira [Alta disponibilidade e recuperação de desastres para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="other-azure-platform-services"></a>Outros serviços da plataforma Azure
 Ao tentar executar seu serviço de nuvem em várias regiões do Azure, você deve considerar as implicações para cada uma de suas dependências. Nas seções a seguir, as diretrizes específicas do serviço pressupõem que você deve usar o mesmo serviço do Azure em um datacenter alternativo do Azure. Isso envolve tanto tarefas de configuração quanto de replicação de dados.
@@ -104,13 +108,10 @@ Ao tentar executar seu serviço de nuvem em várias regiões do Azure, você dev
 > 
 
 ### <a name="service-bus"></a>Barramento de Serviço
-O Barramento de Serviço do Azure usa um namespace exclusivo que não abrange regiões do Azure. Portanto, o primeiro requisito é configurar os namespaces do barramento de serviço necessários na região alternativa. No entanto, também há considerações sobre a durabilidade das mensagens na fila. Há várias estratégias para replicar mensagens entre regiões do Azure. Para obter detalhes sobre essas estratégias de replicação e outras estratégias de recuperação de desastre, confira [Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço](../service-bus/service-bus-outages-disasters.md). Para obter outras considerações sobre disponibilidade, confira [Barramento de Serviço (Disponibilidade)](resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
+O Barramento de Serviço do Azure usa um namespace exclusivo que não abrange regiões do Azure. Portanto, o primeiro requisito é configurar os namespaces do barramento de serviço necessários na região alternativa. No entanto, também há considerações sobre a durabilidade das mensagens na fila. Há várias estratégias para replicar mensagens entre regiões do Azure. Para obter detalhes sobre essas estratégias de replicação e outras estratégias de recuperação de desastre, confira [Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço](../service-bus-messaging/service-bus-outages-disasters.md). Para obter outras considerações sobre disponibilidade, confira [Barramento de Serviço (Disponibilidade)](resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
 
-### <a name="web-apps"></a>Aplicativos Web
-Para migrar um aplicativo Web para uma região do Azure secundária, você deve ter um backup do site disponível para publicação. Se a interrupção não envolver todo o datacenter do Azure, talvez seja possível usar o FTP para baixar um backup recente do conteúdo do site. Em seguida, crie um novo aplicativo Web na região alternativa, a menos que você tenha feito isso anteriormente para a capacidade reserva. Publique o site na nova região e faça quaisquer alterações de configuração necessárias. Essas alterações podem incluir cadeias de conexão de banco de dados ou outras configurações específicas de região. Se necessário, adicione o certificado SSL do site e altere o registro DNS CNAME para que o nome de domínio personalizado aponte para a URL do aplicativo Web do Azure reimplantado.
-
-### <a name="mobile-services"></a>Serviços móveis
-Na região secundária do Azure, crie um serviço móvel de backup para seu aplicativo. Restaure o Banco de Dados SQL do Azure também para a região alternativa. Em seguida, use as ferramentas de linha de comando do Azure para mover o serviço móvel para a região alternativa. Finalmente, configure o serviço móvel para usar o banco de dados restaurado. Para obter mais informações sobre esse processo, confira [Recuperar o serviço móvel em caso de desastre](../mobile-services/mobile-services-disaster-recovery.md). Para obter outras considerações sobre disponibilidade, confira [Serviços Móveis (Disponibilidade)](resiliency-technical-guidance-recovery-local-failures.md#mobile-services).
+### <a name="app-service"></a>Serviço de Aplicativo
+Para migrar um aplicativo do Serviço de Aplicativo do Azure, como Aplicativos Web ou Aplicativos Móveis, para uma região do Azure secundária, você deve ter um backup do site disponível para publicação. Se a interrupção não envolver todo o datacenter do Azure, talvez seja possível usar o FTP para baixar um backup recente do conteúdo do site. Em seguida, crie um novo aplicativo na região alternativa, a menos que você tenha feito isso anteriormente para a capacidade reserva. Publique o site na nova região e faça quaisquer alterações de configuração necessárias. Essas alterações podem incluir cadeias de conexão de banco de dados ou outras configurações específicas de região. Se necessário, adicione o certificado SSL do site e altere o registro DNS CNAME para que o nome de domínio personalizado aponte para a URL do aplicativo Web do Azure reimplantado.
 
 ### <a name="hdinsight"></a>HDInsight
 Os dados associados ao HDInsight são armazenados por padrão no armazenamento de Blobs do Azure. O HDInsight requer que um cluster Hadoop processando trabalhos de MapReduce esteja colocalizado na mesma região da conta de armazenamento que contém os dados sendo analisados. Desde que você use o recurso de replicação geográfica disponível para o Armazenamento do Azure, você poderá acessar os dados na região secundária onde os dados foram replicados se, por algum motivo, a região primária não estiver mais disponível. Você pode criar um novo cluster Hadoop na região em que os dados foram replicados e continuar processando-os. Para obter outras considerações sobre disponibilidade, confira [HDInsight (Disponibilidade)](resiliency-technical-guidance-recovery-local-failures.md#other-azure-platform-services).
@@ -155,18 +156,12 @@ Os arquivos de configuração fornecem a maneira mais rápida de configurar uma 
 2. Configurar um namespace do Barramento de Serviço em uma região alternativa.
 3. Considerar estratégias de replicação personalizadas para mensagens entre regiões.
 
-## <a name="web-apps-checklist"></a>Lista de verificação de aplicativos Web
-1. Examine a seção Aplicativos Web deste documento.
+## <a name="app-service-checklist"></a>Lista de verificação do Serviço de Aplicativo
+1. Examinar a seção de Serviço de Aplicativo deste documento.
 2. Manter os backups de sites fora da região primária.
 3. Se a interrupção for parcial, tentar recuperar o site atual com FTP.
-4. Planejar implantar o site da Web em um site da Web novo ou existente em uma região alternativa.
+4. Planejar implantar o site em um site novo ou existente em uma região alternativa.
 5. Planejar alterações de configuração tanto de aplicativo quanto dos registros DNS CNAME.
-
-## <a name="mobile-services-checklist"></a>Lista de verificação de serviços móveis
-1. Examinar a seção Serviços móveis deste documento.
-2. Criar um serviço móvel de backup em uma região alternativa.
-3. Gerenciar backups do Banco de Dados SQL do Azure associado para restaurar durante o failover.
-4. Usar ferramentas de linha de comando do Azure para mover o serviço móvel.
 
 ## <a name="hdinsight-checklist"></a>Lista de verificação do HDInsight
 1. Examinar a seção HDInsight deste documento.
@@ -190,6 +185,9 @@ Os arquivos de configuração fornecem a maneira mais rápida de configurar uma 
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](resiliency-technical-guidance.md). O próximo artigo desta série se concentra em [recuperação de um datacenter local para o Azure](resiliency-technical-guidance-recovery-on-premises-azure.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

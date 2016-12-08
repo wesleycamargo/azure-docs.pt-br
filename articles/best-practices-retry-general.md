@@ -1,13 +1,13 @@
 ---
-title: Diretrizes gerais de repetição | Microsoft Docs
-description: Orientações sobre repetição no tratamento de falhas transitórias.
-services: ''
+title: "Diretrizes gerais de repetição | Microsoft Docs"
+description: "Orientações sobre repetição no tratamento de falhas transitórias."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 5115cbf2-ecdd-42a4-8191-886de7bbadef
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,17 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 426c3ef5d5197422aa6d38cda613fe0050315fab
+
 
 ---
-# Diretrizes gerais de repetição
+# <a name="retry-general-guidance"></a>Diretrizes gerais de repetição
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 Todos os aplicativos que se comunicam com serviços e recursos remotos são suscetíveis a falhas transitórias. Especificamente, esse é o caso de aplicativos que são executados na nuvem, onde a natureza do ambiente e da conectividade pela Internet significam que esses tipos de falha provavelmente podem ser encontrados com mais frequência. As falhas transitórias incluem a perda momentânea da conectividade de rede com componentes e serviços, a indisponibilidade temporária de um serviço ou tempos limite que surgem quando um serviço está ocupado. Essas falhas geralmente são autocorretivas e, se a ação for repetida após um tempo razoável, é provável que seja bem-sucedida.
 
 Este documento aborda as diretrizes gerais para lidar com falhas transitórias. Para obter informações sobre como lidar com falhas transitórias ao usar os serviços do Microsoft Azure, consulte [Diretrizes para repetição específica de serviços do Azure](best-practices-retry-service-specific.md).
 
-## Por que ocorrem falhas transitórias na nuvem?
+## <a name="why-do-transient-faults-occur-in-the-cloud"></a>Por que ocorrem falhas transitórias na nuvem?
 As falhas transitórias podem ocorrer em qualquer ambiente, em qualquer plataforma ou sistema operacional e em qualquer tipo de aplicativo. Em soluções que são executadas na infraestrutura local, o desempenho e a disponibilidade do aplicativo e seus componentes geralmente são mantidos por meio de redundância de hardware muitas vezes subutilizada e cara, e os componentes e recursos são localizados próximos um do outro. Embora isso torne uma falha menos provável, isso ainda pode resultar em falhas transitórias e, até mesmo, em uma interrupção por meio de eventos inesperados, como problemas externos de rede e fonte de energia, ou outros cenários de desastre.
 
 A hospedagem da nuvem, incluindo sistemas de nuvem privada, pode oferecer uma disponibilidade geral mais alta usando recursos compartilhados, redundância, failover automático e alocação dinâmica de recursos em um grande número de nós de computação primários. No entanto, a natureza desses ambientes pode significar que falhas transitórias têm mais probabilidade de ocorrer. Há vários motivos para isso:
@@ -35,14 +39,14 @@ A hospedagem da nuvem, incluindo sistemas de nuvem privada, pode oferecer uma di
 * Muitas vezes, há mais componentes de hardware, incluindo estrutura de rede, como roteadores e balanceadores de carga, entre o aplicativo e os recursos e serviços que ele usa. Essa infraestrutura adicional pode, ocasionalmente, introduzir latência de conexão adicional e falhas de conexão transitórias.
 * As condições de rede entre o cliente e o servidor podem ser variáveis, especialmente quando a comunicação atravessa a Internet. Mesmo em pontos locais, as cargas de tráfego muito pesadas podem atrasar a comunicação e causar falhas de conexão intermitentes.
 
-## Desafios
+## <a name="challenges"></a>Desafios
 As falhas transitórias podem ter um enorme impacto na disponibilidade percebida de um aplicativo, mesmo que ele tenha sido integralmente testado sob todas as circunstâncias previsíveis. Para garantir que aplicativos hospedados na nuvem operem de forma confiável, eles devem ser capazes de responder aos seguintes desafios:
 
 * O aplicativo deve ser capaz de detectar falhas quando elas ocorrerem e determinar se essas falhas têm probabilidade de serem transitórias, de duração mais longa ou falhas de terminal. Diferentes recursos têm mais probabilidade de retornar respostas diferentes quando uma falha ocorre, e essas respostas também podem variar de acordo com o contexto da operação; por exemplo, a resposta de um erro ao ler no armazenamento pode ser diferente da resposta de um erro ao gravar no armazenamento. Muitos recursos e serviços têm contratos de falha transitória bem documentados. No entanto, quando essas informações não estão disponíveis, pode ser difícil descobrir a natureza da falha e se há probabilidade de que ela seja transitória.
 * O aplicativo deve poder repetir a operação se determinar que a falha pode ser transitória e acompanhar o número de vezes que a operação foi repetida.
 * O aplicativo deve usar uma estratégia apropriada para as repetições. Essa estratégia especifica o número de vezes que ele deve tentar novamente, o intervalo entre cada tentativa e as ações a serem executadas após cada tentativa que falhar. O número apropriado de tentativas e o intervalo entre cada uma delas costumam ser difíceis de determinar e variam de acordo com o tipo de recurso, bem como das condições operacionais do recurso e do próprio aplicativo.
 
-## Diretrizes gerais
+## <a name="general-guidelines"></a>Diretrizes gerais
 As diretrizes a seguir ajudarão você a projetar um mecanismo adequado para tratamento de falha transitória de seus aplicativos:
 
 * **Determine se há um mecanismo interno de repetição:**
@@ -51,7 +55,7 @@ As diretrizes a seguir ajudarão você a projetar um mecanismo adequado para tra
 * **Determine se a operação é adequada para repetição**:
   * Você deve repetir a operação apenas onde as falhas forem transitórias (geralmente indicadas pela natureza do erro) e se houver, pelo menos, alguma probabilidade de que a operação seja bem-sucedida na nova tentativa. Não faz sentido repetir operações que indicam uma operação inválida, como atualização de um banco de dados para um item que não existe, ou solicitações para um serviço ou recurso que sofreu um erro fatal.
   * Em geral, você deve implementar novas tentativas apenas onde o impacto total disso puder ser determinado, e as condições forem bem entendidas e puderem ser validadas. Caso contrário, deixe que o código de chamada implemente as novas tentativas. Lembre-se de que os erros retornados de recursos e serviços fora do seu controle podem evoluir ao longo do tempo, e talvez seja necessário rever sua lógica de detecção de falhas transitórias.
-  * Ao criar serviços ou componentes, considere a implementação de mensagens e códigos de erro que ajudarão os clientes a determinar se devem repetir as operações com falha. Em particular, indique se o cliente deve repetir a operação (talvez retornando um valor **isTransient**) e sugira um intervalo adequado antes da próxima tentativa de repetição. Se você criar um serviço Web, considere retornar erros personalizados definidos em seus contratos de serviço. Mesmo que os clientes genéricos não possam lê-los, eles serão úteis na criação de clientes personalizados.
+  * Ao criar serviços ou componentes, considere a implementação de mensagens e códigos de erro que ajudarão os clientes a determinar se devem repetir as operações com falha. Em particular, indique se o cliente deve repetir a operação (talvez retornando um valor **isTransient** ) e sugira um intervalo adequado antes da próxima tentativa de repetição. Se você criar um serviço Web, considere retornar erros personalizados definidos em seus contratos de serviço. Mesmo que os clientes genéricos não possam lê-los, eles serão úteis na criação de clientes personalizados.
 * **Determine uma contagem de repetições e intervalo apropriados:**
   * É fundamental otimizar a contagem de repetições e o intervalo para o tipo de caso de uso. Se você não repetir um número de vezes suficiente, o aplicativo não poderá concluir a operação e, provavelmente, apresentar uma falha. Se você repetir muitas vezes, ou com um intervalo muito curto entre as tentativas, há grandes chances de que o aplicativo retenha recursos como threads, conexões e memória por longos períodos, o que afetará negativamente a integridade do aplicativo.
   * Os valores apropriados para o intervalo de tempo e o número de tentativas de repetição dependem do tipo de operação que está sendo tentada. Por exemplo, se a operação fizer parte de uma interação do usuário, o intervalo deverá ser curto e apenas algumas tentativas deverão ser feitas a fim de evitar que os usuários tenham que esperar por uma resposta (o que retém conexões abertas e pode reduzir a disponibilidade para outros usuários). Se a operação fizer parte de um fluxo de trabalho de execução longa ou crítico, onde cancelar e reiniciar o processo seja caro ou demorado, é apropriado aguardar mais tempo entre as tentativas e repetir mais vezes.
@@ -60,7 +64,7 @@ As diretrizes a seguir ajudarão você a projetar um mecanismo adequado para tra
     * **Intervalos incrementais**. O aplicativo aguarda pouco tempo antes da primeira repetição e depois os tempos aumentam de modo incremental entre as repetições subsequentes. Por exemplo, ele pode repetir a operação depois de 3 segundos, 7 segundos, 13 segundos e assim por diante.
     * **Intervalos regulares**. O aplicativo aguarda o mesmo período entre cada tentativa. Por exemplo, ele pode repetir a operação a cada 3 segundos.
     * **Repetição imediata**. Às vezes, uma falha transitória é extremamente curta, talvez devido a um evento, como uma colisão de pacote de rede ou um pico em um componente de hardware. Neste caso, repetir a operação imediatamente é apropriado, pois ela poderá ser bem-sucedida se a falha for removida no tempo que leva para o aplicativo montar e enviar a próxima solicitação. No entanto, nunca deverá haver mais de uma tentativa de repetição imediata, e você deverá tentar estratégias alternativas, como retirada exponencial ou ações de fallback, caso a repetição imediata falhe.
-    * **Aleatoriedade**. Qualquer uma das estratégias de repetição listadas acima pode incluir uma aleatoriedade para impedir que várias instâncias do cliente enviem tentativas de repetição subsequentes ao mesmo tempo. Por exemplo, uma instância pode repetir a operação após 3 segundos, 11 segundos, 28 segundos e assim por diante, enquanto outra instância pode repetir a operação após 4 segundos, 12 segundos, 26 segundos e assim por diante. A aleatoriedade é uma técnica útil que pode ser combinada com outras estratégias.
+    * **Aleatoriedade**. Qualquer uma das estratégias de repetição listadas acima pode incluir uma aleatoriedade para impedir que várias instâncias do cliente enviem tentativas de repetição subsequentes ao mesmo tempo. Por exemplo, uma instância pode repetir a operação após 3 segundos, 11 segundos, 28 segundos e assim por diante, enquanto outra instância pode repetir a operação após 4 segundos, 12 segundos, 26 segundos e assim por diante. A aleatoriedade é uma técnica útil que pode ser combinada com outras estratégias.  
   * Como regra geral, use uma estratégia de retirada exponencial para operações em segundo plano, bem como estratégias de repetição de intervalo regular ou imediato para operações interativas. Em ambos os casos, você deve escolher o intervalo e a contagem de repetições para que a latência máxima de todas as tentativas de repetição esteja dentro do requisito obrigatório de latência de ponta a ponta.
   * Leve em consideração a combinação de todos os fatores que contribuem para o tempo limite geral máximo de uma operação repetida. Esses fatores incluem o tempo necessário para que uma conexão com falha gere uma resposta (normalmente definido por um valor de tempo limite do cliente), bem como o intervalo entre tentativas de repetição e o número máximo de repetições. O total de todos esses tempos pode resultar em um número de vezes de operação bem alto, especialmente ao usar uma estratégia de intervalo exponencial onde o intervalo entre repetições aumenta rapidamente após cada falha. Se um processo deve atender a um SLA (contrato de nível de serviço) específico, o tempo de operação geral, incluindo todos os tempos limite e intervalos, deverá estar dentro do que foi definido no SLA
   * Estratégias de repetição superagressivas, que têm intervalos muito curtos ou muitas repetições, podem ter um efeito negativo no recurso ou serviço de destino. Isso pode impedir que o recurso ou serviço se recupere de seu estado sobrecarregado, e ele continuará bloqueando ou recusando solicitações. Isso resulta em um círculo vicioso onde cada vez mais solicitações são enviadas para o recurso ou serviço e, consequentemente, sua capacidade de recuperação é ainda mais reduzida.
@@ -77,7 +81,7 @@ As diretrizes a seguir ajudarão você a projetar um mecanismo adequado para tra
     * Injetar falhas transitórias e não transitórias no serviço. Por exemplo, envie solicitações inválidas ou adicione código que detecte solicitações de teste e responda com diferentes tipos de erro. Para obter um exemplo usando o TestApi, consulte [Teste de injeção de falha com o TestApi](http://msdn.microsoft.com/magazine/ff898404.aspx) e [Introdução ao TestApi – parte 5: APIs de injeção de falhas por código gerenciado](http://blogs.msdn.com/b/ivo_manolov/archive/2009/11/25/9928447.aspx).
     * Criar uma simulação do recurso ou serviço que retorne uma gama de erros que o serviço real pode retornar. Certifique-se de incluir todos os tipos de erro que sua estratégia de repetição foi projetada para detectar.
     * Forçar a ocorrência de erros transitórios desabilitando ou sobrecarregando temporariamente o serviço se for um serviço personalizado que você criou e implantou (você não deve, é claro, tentar sobrecarregar nenhum recurso ou serviço compartilhado no Azure).
-    * Para APIs baseadas em HTTP, pensar em usar a biblioteca FiddlerCore em seus testes automatizados para alterar a saída das solicitações HTTP, seja adicionando tempos extras de viagem de ida e volta, seja alterando a resposta (como código de status HTTP, cabeçalhos, corpo ou outros fatores). Isso permite o teste determinista de um subconjunto das condições de falha, sejam falhas transitórias ou outros tipos de falha. Para saber mais, consulte [FiddlerCore](http://www.telerik.com/fiddler/fiddlercore). Para obter exemplos de como usar a biblioteca, especificamente a classe **HttpMangler**, examine o [código-fonte do SDK do Armazenamento do Azure](https://github.com/Azure/azure-storage-net/tree/master/Test).
+    * Para APIs baseadas em HTTP, pensar em usar a biblioteca FiddlerCore em seus testes automatizados para alterar a saída das solicitações HTTP, seja adicionando tempos extras de viagem de ida e volta, seja alterando a resposta (como código de status HTTP, cabeçalhos, corpo ou outros fatores). Isso permite o teste determinista de um subconjunto das condições de falha, sejam falhas transitórias ou outros tipos de falha. Para saber mais, consulte [FiddlerCore](http://www.telerik.com/fiddler/fiddlercore). Para obter exemplos de como usar a biblioteca, especificamente a classe **HttpMangler** , examine o [código-fonte do SDK do Armazenamento do Azure](https://github.com/Azure/azure-storage-net/tree/master/Test).
     * Execute o fator de carga alta e testes simultâneos para garantir que o mecanismo e a estratégia de repetição funcionem corretamente sob essas condições, e não tenham um efeito negativo na operação do cliente nem causem contaminação cruzada entre solicitações.
 * **Gerencie as configurações de política de repetição:**
   * Uma *política de repetição* é uma combinação de todos os elementos de sua estratégia de repetição. Ela define o mecanismo de detecção que determina se uma falha tem probabilidade de ser transitória, o tipo de intervalo a ser usado (como regular, retirada exponencial e aleatoriedade), os valores reais de intervalo e o número de vezes da repetição.
@@ -87,7 +91,7 @@ As diretrizes a seguir ajudarão você a projetar um mecanismo adequado para tra
 * **Registre em log e rastreie falhas transitórias e não transitórias:**
   * Como parte de sua estratégia de repetição, inclua o tratamento de exceções e outra instrumentação que é registrada em log quando são feitas tentativas de repetição. Embora uma falha transitória ocasional e a repetição sejam esperadas, e não indiquem um problema, números regulares e crescentes de repetições, muitas vezes, são um indicador de um problema que pode causar uma falha ou que pode estar afetando, no momento, o desempenho e a disponibilidade do aplicativo.
   * Registre falhas transitórias em log como entradas de Aviso em vez de entradas de Erro, de modo que a monitoração dos sistemas não as detecte como erros de aplicativo que podem disparar alertas falsos.
-  * Considere armazenar um valor em suas entradas de log que indique se as repetições foram causadas por limitação no serviço ou por outros tipos de falha, como falhas de conexão, para que você possa diferenciá-las durante a análise dos dados. Um aumento no número de erros de limitação geralmente é um indicador de uma falha de design no aplicativo ou a necessidade de alternar para um serviço premium que ofereça hardware dedicado.
+  * Considere armazenar um valor em suas entradas de log que indique se as repetições foram causadas por limitação no serviço ou por outros tipos de falha, como falhas de conexão, para que você possa diferenciá-las durante a análise dos dados. Um aumento no número de erros de limitação geralmente é um indicador de uma falha de design no aplicativo ou a necessidade de alternar para um serviço premium que ofereça hardware dedicado.  
   * Considere a possibilidade de medir e registrar em log o tempo geral necessário para operações que incluem um mecanismo de repetição. Esse é um bom indicador do efeito geral das falhas transitórias nos tempos de resposta do usuário, na latência de processo e na eficiência dos casos de uso do aplicativo. Registre também o número de repetições ocorridas para entender os fatores que contribuíram para o tempo de resposta.
   * Considere implementar um sistema de telemetria e monitoramento que possa gerar alertas quando o número e a taxa de falhas, o número médio de repetições ou os tempos gerais necessários para que as operações sejam bem-sucedidas, estiverem aumentando.
 * **Gerencie operações que falham continuamente:**
@@ -105,11 +109,16 @@ As diretrizes a seguir ajudarão você a projetar um mecanismo adequado para tra
   * Se você escolher um escopo de repetição que englobe várias operações, leve em conta a latência total de todos elas ao determinar os intervalos de repetição, ao monitorar o tempo gasto e antes de gerar alertas para falhas.
   * Considere como sua estratégia de repetição pode afetar vizinhos e outros locatários em um aplicativo compartilhado ou ao usar os serviços e recursos compartilhados. As políticas de repetição agressivas podem aumentar o número de falhas transitórias que ocorrem para esses outros usuários e para aplicativos que compartilham os recursos e serviços. Da mesma forma, seu aplicativo poderá ser afetado pelas políticas de repetição implementadas por outros usuários dos recursos e serviços. Para aplicativos de missão crítica, você pode decidir usar os serviços premium que não são compartilhados. Isso oferece muito mais controle sobre a carga e a limitação resultante desses recursos e serviços, o que pode ajudar a justificar o custo adicional.
 
-## Mais informações
+## <a name="more-information"></a>Mais informações
 * [Diretrizes para repetição específicas do serviço do Azure](best-practices-retry-service-specific.md)
 * [Bloco de aplicativos de tratamento de falhas transitórias](http://msdn.microsoft.com/library/hh680934.aspx)
 * [Padrão de Disjuntor](http://msdn.microsoft.com/library/dn589784.aspx)
 * [Padrão de transação de compensação](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Padrões de idempotência](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

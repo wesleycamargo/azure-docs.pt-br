@@ -1,12 +1,12 @@
 ---
-title: 'Azure Insights: Use autoscale actions to send email and webhook alert notifications. | Microsoft Docs'
-description: 'See how to use autoscale actions to call web URLs or send email notifications in Azure Insights. '
+title: "Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook. | Microsoft Docs"
+description: "Consulte como usar ações de escala automática para chamar URLs da web ou enviar notificações por email no Azure Monitor. "
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: eb9a4c98-0894-488c-8ee8-5df0065d094f
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,27 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d5fb08bbeb5564566808cd8ff6d2e83dec89de6c
+
 
 ---
-# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-insights"></a>Use autoscale actions to send email and webhook alert notifications in Azure Insights
-This article shows you how set up triggers so that you can call specific web URLs or send emails based on autoscale actions in Azure.  
+# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
+Este artigo mostra como configurar gatilhos para que você possa chamar URLs da web específicas ou enviar emails com base em ações de escala automática no Azure.  
 
 ## <a name="webhooks"></a>Webhooks
-Webhooks allow you to route the Azure alert notifications to other systems for post-processing or custom notifications. For example, routing the alert to services that can handle an incoming web request to send SMS, log bugs, notify a team using chat or messaging services, etc. The webhook URI must be a valid HTTP or HTTPS endpoint.
+Webhooks permitem rotear as notificações de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Por exemplo, rotear o alerta para serviços que podem lidar com uma solicitação da Web de entrada para enviar SMS, registrar bugs, notificar a equipe por meio de serviços de chat/mensagens etc. O URI do webhook deve ser um ponto de extremidade HTTP ou HTTPS válido.
 
 ## <a name="email"></a>Email
-Email can be sent to any valid email address. Administrators and co-administrators of the subscription where the rule is running will also be notified.
+O email pode ser enviado para qualquer endereço de email válido. Os administradores e administradores da assinatura em que a regra está em execução também serão notificados.
 
-## <a name="cloud-services-and-web-apps"></a>Cloud Services and Web Apps
-You can opt-in from the Azure portal for Cloud Services and Server Farms (Web Apps).
+## <a name="cloud-services-and-web-apps"></a>Serviços de nuvem e aplicativos Web
+Você pode aderir no portal do Azure para Serviços de Nuvem e Farms de Servidores (aplicativos Web).
 
-* Choose the **scale by** metric.
+* Escolha a métrica **escalar por** .
 
-![scale by](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
+![escalar por](./media/insights-autoscale-to-webhook-email/insights-autoscale-scale-by.png)
 
-## <a name="virtual-machine-scale-sets"></a>Virtual Machine scale sets
-For newer Virtual Machines created with Resource Manager (Virtual Machine scale sets), you can configure this using REST API, Resource Manager templates, PowerShell, and CLI. A portal interface is not yet available.
-When using the REST API or Resource Manager template, include the notifications element with the following options.
+## <a name="virtual-machine-scale-sets"></a>Conjuntos de escala de Máquina Virtual
+Para ver as Máquinas Virtuais mais novas criadas com o Gerenciador de Recursos (conjuntos de escala da Máquina Virtual), você pode configurar isso usando a API REST, modelos do Gerenciador de Recursos, PowerShell e CLI. Uma interface de portal ainda não está disponível.
+Ao usar o modelo da API REST ou do Gerenciador de Recursos, inclua o elemento de notificações com as seguintes opções.
 
 ```
 "notifications": [
@@ -60,24 +64,24 @@ When using the REST API or Resource Manager template, include the notifications 
       }
     ]
 ```
-| Field | Mandatory? | Description |
+| Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
-| operation |yes |value must be "Scale" |
-| sendToSubscriptionAdministrator |yes |value must be "true" or "false" |
-| sendToSubscriptionCoAdministrators |yes |value must be "true" or "false" |
-| customEmails |yes |value can be null [] or string array of emails |
-| webhooks |yes |value can be null or valid Uri |
-| serviceUri |yes |a valid https Uri |
-| properties |yes |value must be empty {} or can contain key-value pairs |
+| operation |sim |o valor deve ser "Scale" |
+| sendToSubscriptionAdministrator |sim |o valor deve ser "true" ou "false" |
+| sendToSubscriptionCoAdministrators |sim |o valor deve ser "true" ou "false" |
+| customEmails |sim |o valor pode ser null [] ou uma matriz da cadeia de caracteres de emails |
+| Webhooks |sim |o valor pode ser um Uri válido ou nulo |
+| serviceUri |sim |um Uri de https válido |
+| propriedades |sim |o valor deve ser vazio {} ou pode conter pares de chave-valor |
 
-## <a name="authentication-in-webhooks"></a>Authentication in webhooks
-There are two authentication URI forms:
+## <a name="authentication-in-webhooks"></a>Autenticação em webhooks
+Há duas formas de URI de autenticação:
 
-1. Token-base authentication, where you save the webhook URI with a token ID as a query parameter. For example, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
-2. Basic authentication, where you use a user ID and password. For example, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
+1. Autenticação baseada em token, em que você salva o URI do webhook com uma ID de token como um parâmetro de consulta. Por exemplo, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+2. Autenticação básica, em que você usa uma ID de usuário e senha. Por exemplo, https://userid:password@mysamplealert/webcallback?someparamater=somevalue&parameter=value
 
-## <a name="autoscale-notification-webhook-payload-schema"></a>Autoscale notification webhook payload schema
-When the autoscale notification is generated, the following metadata is included in the webhook payload:
+## <a name="autoscale-notification-webhook-payload-schema"></a>Escala automática do esquema de carga útil do webhook de notificação
+Quando a notificação de escala automática é gerada, os metadados a seguir são incluídos na carga útil do webhook:
 
 ```
 {
@@ -106,25 +110,28 @@ When the autoscale notification is generated, the following metadata is included
 ```
 
 
-| Field | Mandatory? | Description |
+| Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
-| status |yes |The status that indicates that an autoscale action was generated |
-| operation |yes |For an increase of instances, it will be "Scale Out" and for a decrease in instances, it will be "Scale In" |
-| context |yes |The autoscale action context |
-| timestamp |yes |Time stamp when the autoscale action was triggered |
-| id |Yes |Resource Manager ID of the autoscale setting |
-| name |Yes |The name of the autoscale setting |
-| details |Yes |Explanation of the action that the autoscale service took and the change in the instance count |
-| subscriptionId |Yes |Subscription ID of the target resource that is being scaled |
-| resourceGroupName |Yes |Resource Group name of the target resource that is being scaled |
-| resourceName |Yes |Name of the target resource that is being scaled |
-| resourceType |Yes |The three supported values: "microsoft.classiccompute/domainnames/slots/roles" - Cloud Service roles, "microsoft.compute/virtualmachinescalesets" - Virtual Machine Scale Sets,  and "Microsoft.Web/serverfarms" - Web App |
-| resourceId |Yes |Resource Manager ID of the target resource that is being scaled |
-| portalLink |Yes |Azure portal link to the summary page of the target resource |
-| oldCapacity |Yes |The current (old) instance count when Autoscale took a scale action |
-| newCapacity |Yes |The new instance count that Autoscale scaled the resource to |
-| Properties |No |Optional. Set of <Key, Value> pairs (for example,  Dictionary <String, String>). The properties field is optional. In a custom user interface  or Logic app based workflow, you can enter keys and values that can be passed using the payload. An alternate way to pass custom properties back to the outgoing webhook call is to use the webhook URI itself (as query parameters) |
+| status |sim |O status que indica que uma ação de escala automática foi gerada |
+| operation |sim |Para um aumento de instâncias, será "Escalar Horizontalmente" e para uma diminuição de instâncias, será "Reduzir Horizontalmente" |
+| context |sim |O contexto de ação de escala automática |
+| timestamp |sim |Carimbo de data/hora de quando a ação de escala automática foi disparada |
+| ID |sim |ID do Gerenciador de Recursos da configuração de autoescala |
+| name |sim |O nome da configuração de escala automática |
+| detalhes |sim |Explicação da ação que o serviço de escala automática realizada a alteração na contagem da instância |
+| subscriptionId |sim |ID da assinatura do recurso de destino que está sendo escalado |
+| resourceGroupName |sim |Nome do Grupo de Recursos do recurso de destino que está sendo escalado |
+| resourceName |sim |Nome do recurso de destino que está sendo escalado |
+| resourceType |Sim |Os três valores com suporte: "microsoft.classiccompute/domainnames/slots/roles" - funções de Serviço de Nuvem, "microsoft.compute/virtualmachinescalesets" - Conjuntos de Escala de Máquina Virtual e "Microsoft.Web/serverfarms" - Aplicativo Web |
+| resourceId |sim |ID do Gerenciador de Recursos do recurso de destino que está sendo dimensionado |
+| portalLink |sim |Link do portal do Azure para a página de resumo do recurso de destino |
+| oldCapacity |sim |A atual (antiga) contagem de instância quando Escala Automática adotou uma ação de escala |
+| newCapacity |sim |A nova contagem de instância para a qual a Escala Automática escalou o recurso |
+| propriedades |Não |Opcional. Conjunto de pares de <Chave, Valor> (por exemplo, Dicionário <Cadeia de caracteres, Cadeia de caracteres>). O campo de propriedades é opcional. Em uma interface do usuário personalizada ou fluxo de trabalho de aplicativo Lógico, você pode inserir as chaves e valores que podem ser passados usando a carga útil. Uma maneira alternativa de passar as propriedades personalizadas de volta para a chamada de saída do webhook é usar o URI do webhook em si (como parâmetros de consulta) |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

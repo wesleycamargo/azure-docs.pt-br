@@ -1,11 +1,11 @@
 ---
-title: Opções de computação do Azure - Serviços de Nuvem | Microsoft Docs
-description: 'Saiba mais sobre opções de hospedagem de computação do Azure e como elas funcionam: Serviço de Aplicativo, Serviços de Nuvem e Máquinas Virtuais'
+title: "Opções de computação do Azure - Serviços de Nuvem | Microsoft Docs"
+description: "Saiba mais sobre opções de hospedagem de computação do Azure e como elas funcionam: Serviço de Aplicativo, Serviços de Nuvem e Máquinas Virtuais"
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-
+ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db55f505d499fdb60f8a9d99509a68a1fd487eae
+
 
 ---
-# <a name="should-i-choose-cloud-services-or-something-else?"></a>Devo escolher os serviços de nuvem ou algo mais?
+# <a name="should-i-choose-cloud-services-or-something-else"></a>Devo escolher os serviços de nuvem ou algo mais?
 Os Serviços de Nuvem do Azure são a escolha certa para você? A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada um deles fornece um conjunto de serviços diferente, portanto, qual deles você escolhe depende exatamente do que você está tentando fazer.
 
 [!INCLUDE [compute-table](../../includes/compute-options-table.md)]
@@ -38,7 +42,7 @@ Qualquer combinação dessas duas opções de hospedagem de VM ligeiramente dife
 * **Função de trabalho**  
    Executa o Windows Server sem o IIS.
 
-Por exemplo, um aplicativo simples pode usar apenas uma função Web, enquanto um aplicativo mais complexo pode usar uma função Web para lidar com solicitações de entrada de usuários, em seguida, passar o trabalho que essas solicitações criam a uma função de trabalho para processamento. (Essa comunicação pode usar o [Barramento de Serviço](../service-bus/service-bus-fundamentals-hybrid-solutions.md) ou as [Filas do Azure](../storage/storage-introduction.md)).
+Por exemplo, um aplicativo simples pode usar apenas uma função Web, enquanto um aplicativo mais complexo pode usar uma função Web para lidar com solicitações de entrada de usuários, em seguida, passar o trabalho que essas solicitações criam a uma função de trabalho para processamento. (Essa comunicação pode usar o [Barramento de Serviço](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) ou as [Filas do Azure](../storage/storage-introduction.md)).
 
 Como a figura acima sugere, todas as VMs em um único aplicativo são executados no mesmo serviço de nuvem. Em razão disso, os usuários acessam o aplicativo por meio de um único endereço IP público, com a carga de solicitações balanceada automaticamente entre as VMs do aplicativo. A plataforma vai [escalar e implantar](cloud-services-how-to-scale.md) as VMs em um aplicativo de Serviços de Nuvem de uma maneira que evita um único ponto de falha de hardware.
 
@@ -60,6 +64,9 @@ A natureza da PaaS dos Serviços de Nuvem tem outras implicações também. Uma 
 [Criar um aplicativo de serviço de nuvem em PHP](../cloud-services-php-create-web-role.md)  
 [Criar um aplicativo de serviço de nuvem no Python](cloud-services-python-ptvs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

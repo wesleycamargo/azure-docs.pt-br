@@ -1,13 +1,13 @@
 ---
 title: Analisar dados do Twitter com o Apache Hive no HDInsight | Microsoft Docs
-description: Aprenda a usar o Python para armazenar Tweets que contêm palavras-chave específicas. Em seguida, use o Hive e Hadoop no HDInsight para transformar os dados brutos do TWitter em uma tabela Hive pesquisável.
+description: "Aprenda a usar o Python para armazenar Tweets que contêm palavras-chave específicas. Em seguida, use o Hive e Hadoop no HDInsight para transformar os dados brutos do TWitter em uma tabela Hive pesquisável."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 660524509b523ae2edb72cb8c80d75437730c119
+
 
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analisar dados do Twitter usando o Hive no HDInsight
@@ -231,7 +235,7 @@ Isso armazenará os dados em um local que todos os nós do cluster podem acessar
             concat(substr (get_json_object(json_response, '$.created_at'),1,10),' ',
             substr (get_json_object(json_response, '$.created_at'),27,4)),
             substr (get_json_object(json_response, '$.created_at'),27,4),
-            case substr (get_json_object(json_response, '$.created_at'),5,3)
+            case substr (get_json_object(json_response,    '$.created_at'),5,3)
                 when "Jan" then "01"
                 when "Feb" then "02"
                 when "Mar" then "03"
@@ -312,6 +316,6 @@ Neste tutorial vimos como transformar o conjunto de dados não estruturado JSON 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Configurar o SSL para um serviço de nuvem (clássico) | Microsoft Docs
-description: Saiba como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo.
+title: "Configurar o SSL para um serviço de nuvem (clássico) | Microsoft Docs"
+description: "Saiba como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 4cbb7f38-7994-454d-b4f0-7259b558c766
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1bfb0841ce6ad151d863d4635cb10d3ef1b1e06b
+
 
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurando SSL para um aplicativo no Azure
@@ -36,7 +40,7 @@ Leia [este](cloud-services-how-to-create-deploy.md) artigo primeiro se você ain
 
 [!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-## <a name="step-1:-get-an-ssl-certificate"></a>Etapa 1: Obter um certificado SSL
+## <a name="step-1-get-an-ssl-certificate"></a>Etapa 1: Obter um certificado SSL
 Para configurar SSL de um aplicativo, você deve primeiro obter um certificado SSL assinado por uma Autoridade de Certificação (CA), um terceiro confiável que emita certificados com essa finalidade. Se ainda não tiver um, você precisará obtê-lo junto a uma empresa que venda certificados SSL.
 
 O certificado deve atender aos seguintes requisitos para certificados SSL no Azure:
@@ -50,7 +54,7 @@ Para fins de teste, você pode [criar](cloud-services-certs-create.md) e usar um
 
 Em seguida, você deve incluir informações sobre o certificado nos arquivos de definição e configuração do serviço.
 
-## <a name="step-2:-modify-the-service-definition-and-configuration-files"></a>Etapa 2: Modificar a definição de serviço e arquivos de configuração
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Etapa 2: Modificar a definição de serviço e arquivos de configuração
 O aplicativo deve ser configurado para usar o certificado, e um ponto de extremidade HTTPS deve ser adicionado. Dessa forma, os arquivos de definição e configuração do serviço precisam ser atualizados.
 
 1. No ambiente de desenvolvimento, abra o arquivo de definição de serviço (CSDEF), adicione uma seção **Certificados** dentro da seção **WebRole** e inclua as seguintes informações sobre o certificado (e os certificados intermediários):
@@ -129,10 +133,10 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
 
 Agora que os arquivos de definição e configuração do serviço foram atualizados, empacote a implantação para carregamento no Azure. Caso esteja usando **cspack**, não use o sinalizador **/generateConfigurationFile**, pois ele substituirá as informações de certificado que você acabou de inserir.
 
-## <a name="step-3:-upload-a-certificate"></a>Etapa 3: Carregar um certificado
+## <a name="step-3-upload-a-certificate"></a>Etapa 3: Carregar um certificado
 O pacote de implantação foi atualizado para usar o certificado, e um ponto de extremidade HTTPS foi adicionado. Agora é possível carregar o pacote e o certificado no Azure com o portal clássico do Azure.
 
-1. Faça logon no [portal clássico do Azure][portal clássico do Azure]. 
+1. Faça logon no [Portal clássico do Azure][Portal clássico do Azure]. 
 2. Clique em **Serviços de Nuvem** no painel de navegação à esquerda.
 3. Clique no serviço de nuvem desejado.
 4. Clique na guia **Certificados**.
@@ -143,7 +147,7 @@ O pacote de implantação foi atualizado para usar o certificado, e um ponto de 
     ![Carregar](./media/cloud-services-configure-ssl-certificate/upload-button.png)
 6. Forneça o **Arquivo**, a **Senha** e depois clique em **Concluir** (a marca de seleção).
 
-## <a name="step-4:-connect-to-the-role-instance-by-using-https"></a>Etapa 4: Conectar-se à instância da função usando HTTPS
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Etapa 4: Conectar-se à instância da função usando HTTPS
 Agora que sua implantação está ativa e em execução no Azure, você pode se conectar a ela usando HTTPS.
 
 1. No portal clássico do Azure, selecione a implantação e clique no link em **URL do Site**.
@@ -175,6 +179,6 @@ Se quiser usar SSL em uma implantação de preparação em lugar de uma implanta
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

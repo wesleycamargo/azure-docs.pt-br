@@ -1,13 +1,13 @@
 ---
-title: Erro OOM (memória insuficiente) – Configurações do Hive | Microsoft Docs
-description: Corrigir um erro OOM (memória insuficiente) de uma consulta Hive no Hadoop no HDInsight. O cenário de cliente é uma consulta em várias tabelas grandes.
-keywords: erro de memória insuficiente, OOM, configurações do Hive
+title: "Erro OOM (memória insuficiente) – Configurações do Hive | Microsoft Docs"
+description: "Corrigir um erro OOM (memória insuficiente) de uma consulta Hive no Hadoop no HDInsight. O cenário de cliente é uma consulta em várias tabelas grandes."
+keywords: "erro de memória insuficiente, OOM, configurações do Hive"
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: rashimg
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7bce3dff-9825-4fa0-a568-c52a9f7d1dad
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: rashimg;jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bf0ff13a2d5ffc5bf0b07b80f482fc4144b0cd0f
+
 
 ---
-# Corrigir um erro OOM (memória insuficiente) com as configurações de memória do Hive no Hadoop no Azure HDInsight
+# <a name="fix-an-out-of-memory-oom-error-with-hive-memory-settings-in-hadoop-in-azure-hdinsight"></a>Corrigir um erro OOM (memória insuficiente) com as configurações de memória do Hive no Hadoop no Azure HDInsight
 Um dos problemas comuns enfrentados pelos clientes é o recebimento de erro OOM (memória insuficiente) ao usar o Hive. Esse artigo descreve um cenário de cliente e as configurações de Hive recomendadas para corrigir o problema.
 
-## Cenário: consulta de Hive em tabelas grandes
+## <a name="scenario-hive-query-across-large-tables"></a>Cenário: consulta de Hive em tabelas grandes
 Um cliente executou a consulta abaixo usando o Hive.
 
     SELECT
@@ -52,7 +56,7 @@ Quando o cliente executou a consulta usando o Hive no MapReduce em um cluster A3
 
 Como a consulta terminou a execução em aproximadamente 26 minutos, o cliente ignorou esses avisos e começou a se concentrar em como melhorar ainda mais o desempenho da consulta.
 
-O cliente consultou [Otimizar consultas do Hive para Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md) e decidiu usar o mecanismo de execução Tez. Depois que a mesma consulta foi executada com a configuração de Tez habilitada, ela foi executada por 15 minutos e apresentou o seguinte erro:
+O cliente consultou [Otimizar consultas do Hive para Hadoop no HDInsight](hdinsight-hadoop-optimize-hive-query.md)e decidiu usar o mecanismo de execução Tez. Depois que a mesma consulta foi executada com a configuração de Tez habilitada, ela foi executada por 15 minutos e apresentou o seguinte erro:
 
     Status: Failed
     Vertex failed, vertexName=Map 5, vertexId=vertex_1443634917922_0008_1_05, diagnostics=[Task failed, taskId=task_1443634917922_0008_1_05_000006, diagnostics=[TaskAttempt 0 failed, info=[Error: Failure while running task:java.lang.RuntimeException: java.lang.OutOfMemoryError: Java heap space
@@ -80,7 +84,7 @@ O cliente consultou [Otimizar consultas do Hive para Hadoop no HDInsight](hdinsi
 
 O cliente decidiu, então, usar uma VM maior (ou seja, D12) pensando que uma VM maior teria mais espaço de heap. Mesmo assim, o cliente continuou a ver o erro. O cliente pediu ajuda à equipe do HDInsight para ajudar a depurar esse problema.
 
-## Depurar o erro OOM (memória insuficiente)
+## <a name="debug-the-out-of-memory-oom-error"></a>Depurar o erro OOM (memória insuficiente)
 Nosso suporte e as equipes de engenharia juntos descobriram que um dos problemas que causou o erro OOM (memória insuficiente) era um [problema conhecido descrito no Apache JIRA](https://issues.apache.org/jira/browse/HIVE-8306). Da descrição no JIRA:
 
     When hive.auto.convert.join.noconditionaltask = true we check noconditionaltask.size and if the sum  of tables sizes in the map join is less than noconditionaltask.size the plan would generate a Map join, the issue with this is that the calculation doesnt take into account the overhead introduced by different HashTable implementation as results if the sum of input sizes is smaller than the noconditionaltask size by a small margin queries will hit OOM.
@@ -101,7 +105,7 @@ Baseado no aviso e no JIRA, nossa tese foi de que Map Join foi a causa do erro d
 
 Conforme explicado na postagem no blog [Configurações de memória Yarn do Hadoop no HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando o mecanismo de execução Tez é usado, o espaço heap usado realmente pertence ao contêiner Tez. Confira a imagem abaixo que descreve a memória do contêiner Tez.
 
-![Diagrama de memória de contêiner Tez: erro OOM de memória insuficiente](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
+![Diagrama de memória de contêiner Tez: erro de Hive de OOM de memória insuficiente](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 
 Como sugere a postagem no blog, as duas configurações de memória a seguir definem a memória de contêiner para o heap: **hive.tez.container.size** e **hive.tez.java.opts**. Em nossa experiência, a exceção de OOM não significa que o tamanho do contêiner seja muito pequeno. Isso significa que o tamanho do heap de Java (hive.tez.java.opts) é muito pequeno. Portanto, sempre que você vir OOM, poderá tentar aumentar **hive.tez.java.opts**. Se necessário, pode ser que você precise aumentar **hive.tez.container.size**. A configuração **java.opts** deve ser aproximadamente 80% do **container.size**.
 
@@ -117,7 +121,12 @@ Como uma máquina D12 tem 28 GB de memória, decidimos usar um tamanho de contê
 
 Baseada nessas configurações, a consulta foi executada com êxito em menos de dez minutos.
 
-## Conclusão: erros de memória insuficiente e tamanho do contêiner
+## <a name="conclusion-oom-errors-and-container-size"></a>Conclusão: erros de memória insuficiente e tamanho do contêiner
 O recebimento de um erro de memória insuficiente não significa necessariamente que o tamanho do contêiner é muito pequeno. Em vez disso, você deve definir as configurações de memória para que o tamanho do heap seja aumentado para pelo menos 80% do tamanho da memória do contêiner.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

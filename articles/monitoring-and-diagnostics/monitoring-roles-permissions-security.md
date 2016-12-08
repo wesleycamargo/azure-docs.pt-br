@@ -1,12 +1,12 @@
 ---
-title: Introdução às funções, permissões e segurança com o Azure Monitor | Microsoft Docs
-description: Saiba como usar funções e permissões internas do Azure Monitor para restringir o acesso aos recursos de monitoramento.
+title: "Introdução às funções, permissões e segurança com o Azure Monitor | Microsoft Docs"
+description: "Saiba como usar funções e permissões internas do Azure Monitor para restringir o acesso aos recursos de monitoramento."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
+
 
 ---
-# <a name="get-started-with-roles,-permissions,-and-security-with-azure-monitor"></a>Introdução às funções, permissões e segurança com o Azure Monitor
+# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução às funções, permissões e segurança com o Azure Monitor
 Muitas equipes precisam regular estritamente o acesso aos dados e configurações de monitoramento. Por exemplo, se você tiver os membros da equipe que trabalham exclusivamente no monitoramento (engenheiros de suporte, engenheiros de devops) ou se você usar um provedor de serviços gerenciados, você talvez queira conceder-lhes acesso aos dados de monitoramento apenas enquanto restringe a capacidade de criar, modificar ou excluir recursos. Este artigo mostra como aplicar uma função interna de RBAC de monitoramento a um usuário no Azure rapidamente ou criar sua própria função personalizada para um usuário que precise de permissões limitadas de monitoramento. Em seguida, ele aborda considerações de segurança para os recursos relacionados ao Azure Monitor e como você pode limitar o acesso aos dados contidos nos mesmos.
 
 ## <a name="built-in-monitoring-roles"></a>Funções internas de monitoramento
@@ -166,6 +170,9 @@ Um padrão semelhante pode ser seguido com hubs de eventos, mas primeiro você p
 * [Leia sobre RBAC e permissões no Gerenciador de Recursos](../active-directory/role-based-access-control-what-is.md)
 * [Leia a visão geral do monitoramento no Azure](monitoring-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

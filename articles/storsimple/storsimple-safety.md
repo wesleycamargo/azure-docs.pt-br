@@ -1,12 +1,12 @@
 ---
-title: Segurança para seu dispositivo StorSimple | Microsoft Docs
-description: Descreve considerações, diretrizes e convenções de segurança e explica como instalar e operar seu dispositivo StorSimple com segurança.
+title: "Segurança para seu dispositivo StorSimple | Microsoft Docs"
+description: "Descreve considerações, diretrizes e convenções de segurança e explica como instalar e operar seu dispositivo StorSimple com segurança."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: dae6d535-1ca2-4d2b-b221-6819043aa068
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,14 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7ab38d9fb438a5629e0a9c2388a2ce296ab7ba03
+
 
 ---
-# Instalar e operar seu dispositivo StorSimple com segurança
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Leia o ícone de aviso de segurança](./media/storsimple-safety/IC740885.png) **LEIA AS INFORMAÇÕES DE SEGURANÇA E INTEGRIDADE**
+# <a name="safely-install-and-operate-your-storsimple-device"></a>Instalar e operar seu dispositivo StorSimple com segurança
+![Ícone de aviso](./media/storsimple-safety/IC740879.png)
+![Leia o ícone de aviso de segurança](./media/storsimple-safety/IC740885.png) **LEIA AS INFORMAÇÕES DE SEGURANÇA E INTEGRIDADE**
 
 Leia todas as informações de segurança e integridade neste artigo, que aplicam-se ao dispositivo do Microsoft Azure StorSimple. Guarde todos os guias impressos fornecidos com o dispositivo StorSimple para referência futura. Não seguir as instruções nem configurar, usar e manter adequadamente este produto pode aumentar o risco de danos graves, morte ou danificar o dispositivo ou dispositivos. Uma [versão para download deste guia](http://www.microsoft.com/download/details.aspx?id=44233) também está disponível.
 
-## Convenções de ícones de segurança
+## <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 Estes são os ícones que você encontrará ao ler as precauções de segurança a serem observadas ao configurar e executar seu dispositivo Microsoft Azure StorSimple.
 
 | ícone | Descrição |
@@ -29,15 +34,15 @@ Estes são os ícones que você encontrará ao ler as precauções de segurança
 | ![Ícone de perigo](./media/storsimple-safety/IC740879.png) **PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra limitas-e às situações mais graves. |
 | ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **AVISO!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
 | ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **CUIDADO!** |Indica uma situação perigosa que, se não for evitada, pode em uma lesão pequena ou moderada. |
-| ![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
-| ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png)**Risco de choque elétrico** |Alta tensão |
+| ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:** |Indica informações consideradas importantes, mas não são relacionadas a riscos. |
+| ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **Risco de choque elétrico** |Alta tensão |
 | ![Ícone de peso pesado](./media/storsimple-safety/IC740883.png) **Peso pesado** | |
 | ![Ícone de nenhuma peça operada pelo usuário](./media/storsimple-safety/IC740879.png) **Nenhuma peça é operada pelo usuário** |Não acesse a menos que seja devidamente treinado. |
 | ![Leia o ícone de aviso de segurança](./media/storsimple-safety/IC740885.png)**Leia todas as instruções primeiro** | |
 | ![Ícone de risco de tombamento](./media/storsimple-safety/IC740886.png) **Risco de tombamento** | |
 
-## Precauções de manuseio
-![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de peso pesado](./media/storsimple-safety/IC740883.png) **AVISO!**
+## <a name="handling-precautions"></a>Precauções de manuseio
+![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de peso pesado](./media/storsimple-safety/IC740883.png) **AVISO!** 
 
 Para reduzir o risco de lesões:
 
@@ -45,7 +50,7 @@ Para reduzir o risco de lesões:
 * Antes de mover o compartimento, certifique-se sempre de que duas pessoas estejam disponíveis para dar suporte ao peso. Esteja ciente que uma pessoa que tente erguer esse peso sozinha pode sofrer lesões.
 * Não erga o compartimento pelas alças nos PCMs (Módulos de Energia e Resfriamento) localizados na parte traseira da unidade. Eles não se destinam para aguentar esse peso.
 
-## Precauções de conexão
+## <a name="connection-precautions"></a>Precauções de conexão
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
 
 Para reduzir a probabilidade de lesões, choque elétrico ou morte:
@@ -65,7 +70,7 @@ Para reduzir a probabilidade de superaquecimento ou chamas nas conexões elétri
 * Para atender aos requisitos térmicos, de emissão e de segurança aplicáveis, nenhuma tampa deverá ser removida e todos os compartimentos devem ser preenchidos com ou módulos plug-in ou unidades em branco.
 * Certifique-se de que o equipamento seja usado da maneira especificada pelo fabricante. Se este equipamento for usado de maneira não especificada pelo fabricante, a proteção fornecida pelo equipamento poderá ser afetada.
 
-![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:**
+![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
 Para a operação adequada do seu equipamento e para evitar danos ao produto:
 
@@ -73,7 +78,7 @@ Para a operação adequada do seu equipamento e para evitar danos ao produto:
 * Instale o dispositivo em um rack que possa acomodar um design de resfriamento de frente para trás.
 * Todos os módulos de plug-in e placas em branco fazem parte do compartimento do sistema. Eles devem ser removidos somente caso um substituto possa ser adicionado imediatamente. O sistema não deve ser executado sem todos os módulos ou módulos em branco no devido lugar.
 
-## Precauções do sistema de rack
+## <a name="rack-system-precautions"></a>Precauções do sistema de rack
 Os seguintes requisitos de segurança devem ser considerados ao montar o dispositivo em um gabinete de rack.
 
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de risco de tombamento](./media/storsimple-safety/IC740886.png) **AVISO!**
@@ -93,14 +98,14 @@ Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 * O design do sistema de distribuição de energia deve levar em consideração a corrente de perda do aterramento total de todas as fontes de alimentação em todos os compartimentos. Observe que cada fonte de alimentação em cada compartimento tem uma corrente de perda de aterramento máximo de mA 1,0 a 60 Hz, 264 v. O rack pode exigir rótulos como "CORRENTE DE ALTA PERDA. O aterramento é essencial para conectar a alimentação."
 * O rack, quando configurado com os compartimentos deve atender aos requisitos de segurança UL 60950-1 e IEC 60950-1/EN 60950-1.
 
-![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:**
+![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
 Para o resfriamento correto do seu sistema de rack:
 
-* Certifique-se de que o design de rack considere a temperatura ambiente máxima de operação de 35 °C (95 °F).
+* Certifique-se de que o design de rack considere a temperatura ambiente máxima de operação de 35 °C (95 °F).
 * O sistema é operado com instalação de exaustor traseiro de baixa pressão (a pressão traseira criada pelas portas e obstáculos do rack não excedem 5 Pascal [0,5 mm no medidor de água]).
 
-## Precauções do PCM (Módulo de Resfriamento de Energia)
+## <a name="power-cooling-module-pcm-precautions"></a>Precauções do PCM (Módulo de Resfriamento de Energia)
 Este dispositivo foi projetado para operar com dois PCMs. Cada PCMs tem uma fonte de energia e uma ventoinha de dois eixos. Durante uma condição crítica, o sistema dá suporte à falha de uma fonte de alimentação e continua com suas operações normais. Dois PCMs (e, portanto, duas fontes de alimentação) sempre devem estar instalados. Um único PCM não oferece fontes de alimentação redundantes. Por isso, a falha de um dos PCMs pode resultar em tempo de inatividade ou possível perda de dados.
 
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png) ![Ícone de choque elétrico](./media/storsimple-safety/IC740882.png) **AVISO!**
@@ -109,15 +114,15 @@ Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
 * Não remova as tampas do PCM. Há risco de choque elétrico no interior. Para devolver o PCM e obter um substituto, [contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:**
+![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
 Para a operação adequada do seu equipamento e para evitar danos ao produto:
 
 * Você deve substituir o PCM com falha dentro de 24 horas. Após a remoção de um PCM para substituição, ela deve ser concluída dentro de 10 minutos após a remoção.
 * Não remova um PCM a menos que um substituto possa ser instalado imediatamente. O compartimento não deve ser operado sem todos os módulos no lugar.
 
-## Precauções contra ESD (descarga elétrica)
-![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:**
+## <a name="electrostatic-discharge-esd-precautions"></a>Precauções contra ESD (descarga elétrica)
+![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
 Observe as seguintes precauções relacionada a ESD.
 
@@ -126,7 +131,7 @@ Observe as seguintes precauções relacionada a ESD.
 * Evite o contato com os componentes de backplane e conectores de módulo.
 * Danos de ESD não são cobertos pela garantia.
 
-## Precauções de descarte de bateria
+## <a name="battery-disposal-precautions"></a>Precauções de descarte de bateria
 A fonte de alimentação usa uma bateria especial para proteger o conteúdo da memória durante interrupções de energia temporárias e de curto prazo. A bateria está encaixada no PCM. Lembre-se das informações a seguir sobre a bateria.
 
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png) **AVISO!**
@@ -134,17 +139,22 @@ A fonte de alimentação usa uma bateria especial para proteger o conteúdo da m
 Para reduzir o risco de curto, incêndio, explosão, lesões ou morte:
 
 * Descarte as baterias usadas de acordo com as regulamentações nacionais/regionais.
-* Não desmonte, amasse, aqueça acima de 60 °C (140 °F) ou incinere a bateria. Substitua a bateria do PCM apenas por uma bateria fornecida. Usar outra bateria pode apresentar risco de incêndio ou explosão.
+* Não desmonte, amasse, aqueça acima de 60 °C (140 °F) ou incinere a bateria. Substitua a bateria do PCM apenas por uma bateria fornecida. Usar outra bateria pode apresentar risco de incêndio ou explosão.
 * Use tampas protetoras nas baterias se elas forem removidas da fonte de alimentação.
 
-![Ícone de observação](./media/storsimple-safety/IC740881.png)**OBSERVAÇÃO:**
+![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 
 Ao enviar ou transportar as baterias por via aérea, siga o documento de Diretrizes de Bateria de Lítio IATA disponível em [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Depois de revisar esses avisos de segurança, as próximas etapas serão desembalar, montar no rack e cabear o dispositivo.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Para um dispositivo 8100, acesse [Instalar o dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md).
 * Para um dispositivo 8600, acesse [Instalar o dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

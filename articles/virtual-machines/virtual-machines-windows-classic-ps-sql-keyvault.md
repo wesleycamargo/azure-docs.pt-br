@@ -1,13 +1,13 @@
 ---
-title: Configurar a Integração do Cofre de Chaves do Azure para SQL Server em VMs do Azure (Clássico)
-description: Saiba como automatizar a configuração da criptografia do SQL Server para uso com o cofre de chave do Azure. Este tópico explica como usar a integração do Cofre de Chaves do Azure com máquinas virtuais do SQL Server para criação no modelo de implantação clássico.
+title: "Configurar a Integração do Cofre de Chaves do Azure para SQL Server em VMs do Azure (Clássico)"
+description: "Saiba como automatizar a configuração da criptografia do SQL Server para uso com o cofre de chave do Azure. Este tópico explica como usar a integração do Cofre de Chaves do Azure com máquinas virtuais do SQL Server para criação no modelo de implantação clássico."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: jroth
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 53120cbdbee8463f579d72af6fb29ed17b261dde
+
 
 ---
-# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-(classic)"></a>Configurar a Integração do Cofre de Chaves do Azure para SQL Server em VMs do Azure (Clássico)
+# <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-vms-classic"></a>Configurar a Integração do Cofre de Chaves do Azure para SQL Server em VMs do Azure (Clássico)
 > [!div class="op_single_selector"]
-> * [Gerenciador de Recursos](virtual-machines-windows-ps-sql-keyvault.md)
-> * [Clássico](virtual-machines-windows-classic-ps-sql-keyvault.md)
+> * [Gerenciador de Recursos](virtual-machines-windows-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [Clássico](virtual-machines-windows-classic-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > 
 > 
 
@@ -39,7 +43,7 @@ Quando esse recurso está habilitado, ele instala automaticamente o SQL Server C
 Use o PowerShell para configurar a integração do Cofre da Chave do Azure. As seções a seguir oferecem uma visão geral dos parâmetros necessários e um exemplo de script do PowerShell.
 
 ### <a name="install-the-sql-server-iaas-extension"></a>Instalar a Extensão IaaS do SQL Server
-Primeiro, [instale a extensão IaaS do SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md).
+Primeiro, [instale a extensão IaaS do SQL Server](virtual-machines-windows-classic-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ### <a name="understand-the-input-parameters"></a>Compreender os parâmetros de entrada
 A tabela a seguir lista os parâmetros necessários para executar o script do PowerShell na próxima seção.
@@ -66,14 +70,15 @@ O cmdlet **New-AzureVMSqlServerKeyVaultCredentialConfig** cria um objeto de conf
         $serviceName = "mycloudservicename"
 2. Em seguida, use o script abaixo para configurar e habilitar a integração de AKV.
    
-       $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force
-       $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv
-       Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
+     $secureakv =  $spSecret | ConvertTo-SecureString -AsPlainText -Force   $akvs = New-AzureVMSqlServerKeyVaultCredentialConfig -Enable -CredentialName $credname -AzureKeyVaultUrl $akvURL -ServicePrincipalName $spName -ServicePrincipalSecret $secureakv   Get-AzureVM -ServiceName $serviceName -Name $vmName | Set-AzureVMSqlServerExtension -KeyVaultCredentialSettings $akvs | Update-AzureVM
 
 A extensão do Agente IaaS do SQL atualizará a VM do SQL com essa nova configuração.
 
 [!INCLUDE [AKV Integration Next Steps](../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Metas de desempenho e escalabilidade do Armazenamento do Azure | Microsoft Docs
-description: Saiba mais sobre as metas de desempenho e escalabilidade para Armazenamento do Azure, incluindo a capacidade, taxa de solicitação e largura de banda de entrada e saída, tanto para contas de armazenamento standard quanto premium. Entender as metas de desempenho para partições em de cada um dos serviços do Armazenamento do Azure.
+description: "Saiba mais sobre as metas de desempenho e escalabilidade para Armazenamento do Azure, incluindo a capacidade, taxa de solicitação e largura de banda de entrada e saída, tanto para contas de armazenamento standard quanto premium. Entender as metas de desempenho para partições em de cada um dos serviços do Armazenamento do Azure."
 services: storage
 documentationcenter: na
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 08/03/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 70f73577fdaf6efa74fe1516a8486c45ef76db31
+
 
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Armazenamento do Azure
@@ -32,13 +36,13 @@ Este tópico descreve os tópicos de desempenho e escalabilidade do Armazenament
 
 Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e faça o particionamento dos seus objetos de dados nessas contas de armazenamento. Consulte [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter informações sobre preço por volume.
 
-## <a name="scalability-targets-for-blobs,-queues,-tables,-and-files"></a>Metas de escalabilidade para blobs, filas, tabelas e arquivos
+## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Metas de escalabilidade para blobs, filas, tabelas e arquivos
 [!INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>Metas de escalabilidade para discos de máquina virtual
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-Veja [Tamanhos de VM do Windows](../virtual-machines/virtual-machines-windows-sizes.md) ou [Tamanhos de VM do Linux](../virtual-machines/virtual-machines-linux-sizes.md) para obter detalhes adicionais.
+Veja [Tamanhos de VM do Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [Tamanhos de VM do Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter detalhes adicionais.
 
 ### <a name="standard-storage-accounts"></a>Contas de armazenamento padrão
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
@@ -75,6 +79,9 @@ Recomendações detalhadas para a criação de estratégias de particionamento d
 * [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](storage-performance-checklist.md)
 * [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

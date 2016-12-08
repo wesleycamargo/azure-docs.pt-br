@@ -1,26 +1,30 @@
 ---
-title: Instalar a Atualização 3 no dispositivo StorSimple | Microsoft Docs
-description: Explica como instalar a Atualização 3 do StorSimple série 8000 em seu dispositivo StorSimple série 8000.
+title: "Instalar a Atualização 3 no dispositivo StorSimple | Microsoft Docs"
+description: "Explica como instalar a Atualização 3 do StorSimple série 8000 em seu dispositivo StorSimple série 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: c6c4634d-4f3a-4bc4-b307-a22bf18664e1
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/21/2016
+ms.date: 10/05/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ddefdc95e8fb6e5f3743df9f4436e45cfef49b65
+
 
 ---
-# Instalar a Atualização 3 em seu dispositivo StorSimple
-## Visão geral
+# <a name="install-update-3-on-your-storsimple-device"></a>Instalar a Atualização 3 em seu dispositivo StorSimple
+## <a name="overview"></a>Visão geral
 Este tutorial explica como instalar a Atualização 3 em um dispositivo StorSimple que executa uma versão de software anterior por meio do portal clássico do Azure e usando o método de hotfix. O método de hotfix é usado quando um gateway é configurado em uma interface de rede que não seja DATA 0 do dispositivo StorSimple e quando você está tentando atualizar de uma versão de software anterior à Atualização 1.
 
-A Atualização 3 inclui atualizações de software de dispositivo, firmware e driver LSI, Storport e Spaceport. Se estiver atualizando da Atualização 2 ou de uma versão anterior, também será necessário aplicar atualizações de iSCSI, WMI e, em alguns casos, de firmware de disco. O software do dispositivo e as correções de WMI, iSCSI, LSI driver, Spaceport e Storport são atualizações sem interrupções e podem ser aplicadas por meio do Portal Clássico do Azure. As atualizações de firmware de disco são as atualizações de interrupção e só podem ser aplicadas por meio da interface do Windows PowerShell do dispositivo.
+A Atualização 3 inclui atualizações de software de dispositivo, firmware e driver LSI, Storport e Spaceport. Se estiver atualizando da Atualização 2 ou de uma versão anterior, também será necessário aplicar atualizações de iSCSI, WMI e, em alguns casos, de firmware de disco. O software do dispositivo e as correções de WMI, iSCSI, LSI driver, Spaceport e Storport são atualizações sem interrupções e podem ser aplicadas por meio do Portal Clássico do Azure. As atualizações de firmware de disco são as atualizações de interrupção e só podem ser aplicadas por meio da interface do Windows PowerShell do dispositivo. 
 
 > [!IMPORTANT]
 > * Um conjunto de verificações prévias manuais e automáticas para são realizadas antes da instalação para determinar a integridade do dispositivo em termos de conectividade de rede e estado do hardware. Essas pré-verificações são executadas somente se você aplicar as atualizações no portal clássico do Azure.
@@ -31,7 +35,7 @@ A Atualização 3 inclui atualizações de software de dispositivo, firmware e d
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## Instalar a Atualização 3 por meio do portal clássico do Azure
+## <a name="install-update-3-via-the-azure-classic-portal"></a>Instalar a Atualização 3 por meio do portal clássico do Azure
 Realize as etapas a seguir para atualizar seu dispositivo para a [Atualização 3](storsimple-update3-release-notes.md).
 
 > [!NOTE]
@@ -41,7 +45,7 @@ Realize as etapas a seguir para atualizar seu dispositivo para a [Atualização 
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-1. Verifique se o dispositivo está executando a **Atualização 3 do StorSimple 8000 Series (6.3.9600.17759)**. A **Data da última atualização** também deve ser modificada.
+1. Verifique se o dispositivo está executando a **Atualização 3 do StorSimple 8000 Series (6.3.9600.17759)**. A **Data da última atualização** também deve ser modificada. 
    
    Se você estiver atualizando de uma versão anterior à Atualização 2, você também verá que as atualizações do modo de manutenção estarão disponíveis (essa mensagem poderá continuar a ser exibida por até 24 horas após a instalação das atualizações).
    
@@ -49,19 +53,19 @@ Realize as etapas a seguir para atualizar seu dispositivo para a [Atualização 
    
    Se você estiver atualizando da Atualização 2 ou posterior, seu dispositivo agora deverá estar atualizado. Você pode ignorar as etapas restantes.
 2. Baixe as atualizações do modo de manutenção usando as etapas listadas em [Para baixar os hotfixes](#to-download-hotfixes) para pesquisar e baixar a KB3121899, que instala atualizações de firmware de disco (as outras atualizações já devem estar instaladas agora).
-3. Siga as etapas listadas em [instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes) para instalar as atualizações do modo de manutenção.
+3. Siga as etapas listadas em [instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes) para instalar as atualizações do modo de manutenção. 
 
-## Instalar a Atualização 3 como um hotfix
+## <a name="install-update-3-as-a-hotfix"></a>Instalar a Atualização 3 como um hotfix
 Use este procedimento se a verificação de gateway falhar ao tentar instalar as atualizações por meio do portal clássico do Azure. A verificação falha pois você tem um gateway atribuído a uma interface de rede diferente de DATA 0 e o dispositivo está executando uma versão de software anterior à Atualização 1.
 
 As versões de software que podem ser atualizadas usando o método de hotfix são:
 
 * Atualização 0.1, 0.2, 0.3
 * Atualização 1, 1.1, 1.2
-* Atualização 2, 2.1, 2.2
+* Atualização 2, 2.1, 2.2 
 
 > [!IMPORTANT]
-> * Se o dispositivo estiver executando a versão de lançamento (GA), contate o [ Suporte da Microsoft](storsimple-contact-microsoft-support.md) para ajudar na instalação dessa atualização.
+> * Se o dispositivo estiver executando a versão de lançamento (GA), contate o [Suporte da Microsoft](storsimple-contact-microsoft-support.md) para ajudar na instalação dessa atualização.
 > 
 > 
 
@@ -71,31 +75,31 @@ O método de hotfix envolve as três etapas a seguir:
 2. Instale e verifique os hotfixes do modo normal.
 3. Instale e verifique o hotfix do modo de manutenção (somente ao atualizar o software anterior à Atualização 2).
 
-#### Baixar atualizações para seu dispositivo
+#### <a name="download-updates-for-your-device"></a>Baixar atualizações para seu dispositivo
 **Se o dispositivo estiver executando a Atualização 2.1 ou 2.2**, baixe e instale os seguintes hotfixes na ordem indicada:
 
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
 | --- | --- | --- | --- | --- |
-| 1\. |KB3186843 |Atualização de software &#42; |Regular <br></br>Não interruptiva |~ 45 Min. |
-| 2\. |KB3186859 |Driver LSI e firmware |Regular <br></br>Não interruptiva |~ 20 Min. |
-| 3\. |KB3121261 |Correção do Storport e do Spaceport </br> Windows Server 2012 R2 |Regular <br></br>Não interruptiva |~ 20 Min. |
+| 1. |KB3186843 |Atualização de software &#42; |Regular  <br></br>Não interruptiva |~ 45 Min. |
+| 2. |KB3186859 |Driver LSI e firmware |Regular  <br></br>Não interruptiva |~ 20 Min. |
+| 3. |KB3121261 |Correção do Storport e do Spaceport  </br>  Windows Server 2012 R2 |Regular  <br></br>Não interruptiva |~ 20 Min. |
 
-&#42; *Observe que a atualização de software consiste em dois arquivos binários: atualização de software do dispositivo precedida por `all-hcsmdssoftwareupdate` e o agente Cis e Mds precedido por `all-cismdsagentupdatebundle`. A atualização de software do dispositivo deve ser instalada antes do agente CIS e MDS. Também será preciso reiniciar o controlador ativo por meio do cmdlet `Restart-HcsController` após aplicar a atualização de agente Cis e Mds (e antes de aplicar as atualizações restantes).*
+&#42; *Observe que a atualização de software consiste em dois arquivos binários: atualização de software do dispositivo precedida por `all-hcsmdssoftwareupdate` e o agente Cis e Mds precedido por `all-cismdsagentupdatebundle`. A atualização de software do dispositivo deve ser instalada antes do agente CIS e MDS. Também será preciso reiniciar o controlador ativo por meio do cmdlet `Restart-HcsController` após aplicar a atualização de agente Cis e Mds (e antes de aplicar as atualizações restantes).* 
 
 **Se o dispositivo estiver executando a atualização 0.1, 0.2, 0.3, 1.0, 1.1, 1.2 ou 2.0**, você deverá baixar e instalar os seguintes hotfixes além das atualizações de software, do driver de LSI e de firmware (mostradas na tabela anterior), na ordem indicada:
 
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
 | --- | --- | --- | --- | --- |
-| 4\. |KB3146621 |Pacote iSCSI |Regular <br></br>Não interruptiva |~ 20 Min. |
-| 5\. |KB3103616 |Pacote WMI |Regular <br></br>Não interruptiva |~ 12 Min. |
+| 4. |KB3146621 |Pacote iSCSI |Regular  <br></br>Não interruptiva |~ 20 Min. |
+| 5. |KB3103616 |Pacote WMI |Regular  <br></br>Não interruptiva |~ 12 Min. |
 
 <br></br>
 
-**Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0, 1.1 e 1.2**, você também precisará instalar as atualizações de firmware de disco além de todas as atualizações mostradas nas tabelas anteriores. Você pode verificar se precisa de atualizações de firmware de disco executando o cmdlet `Get-HcsFirmwareVersion`. Se estiver executando as versões de firmware `XMGG`, `XGEG`, `KZ50`, `F6C2` ou `VR08`, você não precisará instalar essas atualizações.
+**Se o dispositivo estiver executando as versões 0.2, 0.3, 1.0, 1.1 e 1.2**, você também precisará instalar as atualizações de firmware de disco além de todas as atualizações mostradas nas tabelas anteriores. Você pode verificar se precisa de atualizações de firmware de disco executando o cmdlet `Get-HcsFirmwareVersion` . Se estiver executando as versões de firmware `XMGG`, `XGEG`, `KZ50`, `F6C2` ou `VR08`, você não precisará instalar essas atualizações.
 
 | Classificar | KB | Descrição | Tipo de atualização | Hora da instalação |
 | --- | --- | --- | --- | --- |
-| 6\. |KB3121899 |Firmware de disco |Manutenção <br></br>Interruptiva |~ 30 Min. |
+| 6. |KB3121899 |Firmware de disco |Manutenção  <br></br>Interruptiva |~ 30 Min. |
 
 <br></br>
 
@@ -112,7 +116,12 @@ Execute as seguintes etapas para baixar e instalar os hotfixes.
 
 [!INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a [versão de Atualização 3](storsimple-update3-release-notes.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

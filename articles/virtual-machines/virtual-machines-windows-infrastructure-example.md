@@ -1,13 +1,13 @@
 ---
 title: Passo a passo da infraestrutura de exemplo | Microsoft Docs
-description: Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de uma infraestrutura de exemplo no Azure.
-documentationcenter: ''
+description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de uma infraestrutura de exemplo no Azure."
+documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 95b8ccfbd88e423f035905204615bebffb6c0c50
+
 
 ---
-# Passo a passo de infraestrutura do Azure de exemplo
+# <a name="example-azure-infrastructure-walkthrough"></a>Passo a passo de infraestrutura do Azure de exemplo
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artigo explica como criar uma infraestrutura de aplicativo de exemplo. Fornecemos detalhes de como projetar uma infraestrutura para um repositório online simples que reúne todas as diretrizes e decisões sobre convenções de nomenclatura, conjuntos de disponibilidade, redes virtuais e balanceadores de carga, bem como a implantação de fato das VMs (máquinas virtuais).
 
-## Carga de trabalho de exemplo
+## <a name="example-workload"></a>Carga de trabalho de exemplo
 A Adventure Works Cycles deseja criar um aplicativo do repositório online no Azure que consiste em:
 
 * Dois servidores IIS que executam o front-end do cliente em uma camada da Web
@@ -30,7 +34,7 @@ A Adventure Works Cycles deseja criar um aplicativo do repositório online no Az
 * Duas instâncias do Microsoft SQL Server com grupos de disponibilidade AlwaysOn (dois SQL Servers e uma testemunha do nó principal) para armazenar dados de produtos e pedidos em uma camada de banco de dados
 * Dois controladores de domínio do Active Directory para contas de clientes e fornecedores em uma camada de autenticação
 * Todos os servidores estão localizados em duas sub-redes:
-  * uma sub-rede de front-end para os servidores Web
+  * uma sub-rede de front-end para os servidores Web 
   * uma sub-rede de back-end para os servidores de aplicativos, cluster do SQL e controladores de domínio
 
 ![Diagrama de níveis diferentes de infraestrutura de aplicativos](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
@@ -56,16 +60,16 @@ Todos os itens acima seguem estas convenções de nomenclatura:
 * Os conjuntos de disponibilidade usam azos-use-as-**[função]**
 * Os nomes de máquina virtual usam azos-use-vm-**[nomevm]**
 
-## Assinaturas e contas do Azure
+## <a name="azure-subscriptions-and-accounts"></a>Assinaturas e contas do Azure
 A Adventure Works Cycles usa sua assinatura Enterprise, chamada Adventure Works Enterprise Subscription, para fornecer cobrança para essa carga de trabalho de TI.
 
-## Contas de armazenamento
+## <a name="storage-accounts"></a>Contas de armazenamento
 A Adventure Works Cycles determinou que precisava de duas contas de armazenamento:
 
 * **adventureazosusesawebapp** para o armazenamento padrão dos servidores Web, servidores de aplicativos, controladores de domínio e seus discos de dados.
 * **adventureazosusesasql** para o Armazenamento Premium das VMs SQL Server e seus discos de dados.
 
-## Rede virtual e sub-redes
+## <a name="virtual-network-and-subnets"></a>Rede virtual e sub-redes
 Como a rede virtual não precisa de conectividade contínua com a rede local da Adventure Work Cycles, ela decidiu usar uma rede virtual somente em nuvem.
 
 Criaram uma rede virtual somente em nuvem com as seguintes configurações usando o portal do Azure:
@@ -80,7 +84,7 @@ Criaram uma rede virtual somente em nuvem com as seguintes configurações usand
   * Nome: BackEnd
   * Espaço de endereço: 10.0.2.0/24
 
-## Conjuntos de disponibilidade
+## <a name="availability-sets"></a>Conjuntos de disponibilidade
 Para manter a alta disponibilidade de todas as quatro camadas de seu repositório online, a Adventure Works Cycles decidiu usar quatro conjuntos de disponibilidade:
 
 * **azos-use-as-web** para os servidores Web
@@ -88,7 +92,7 @@ Para manter a alta disponibilidade de todas as quatro camadas de seu repositóri
 * **azos-use-as-sql** para os SQL Servers
 * **azos-use-as-dc** para os controladores de domínio
 
-## Máquinas virtuais
+## <a name="virtual-machines"></a>Máquinas virtuais
 A Adventure Works Cycles decidiu usar os seguintes nomes para suas VMs do Azure:
 
 * **azos-use-vm-web01** para o primeiro servidor Web
@@ -114,7 +118,12 @@ Essa configuração inclui:
 * Um conjunto de balanceamento de carga interno para tráfego da Web dos servidores Web para os servidores de aplicativos
 * Um único grupo de recursos
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

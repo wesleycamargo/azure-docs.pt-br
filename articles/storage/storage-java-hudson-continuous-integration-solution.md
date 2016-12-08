@@ -1,12 +1,12 @@
 ---
 title: Como usar o Hudson com o Armazenamento de Blobs | Microsoft Docs
-description: Descreve como usar o Hudson com o armazenamento de Blob do Azure como um repositório para artefatos de compilação.
+description: "Descreve como usar o Hudson com o armazenamento de Blob do Azure como um repositório para artefatos de compilação."
 services: storage
 documentationcenter: java
 author: dineshmurthy
 manager: jahogg
 editor: tysonn
-
+ms.assetid: 119becdd-72c4-4ade-a439-070233c1e1ac
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: dinesh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 37ad86ce34d7f9ed6642e6f0fa98cf5fbf26e8bc
+
 
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
@@ -46,6 +50,7 @@ Será necessário o seguinte para usar o serviço Blob com a solução Hudson CI
   2. Em um prompt de comando aberto para a pasta que contém o Hudson WAR, execute o Hudson WAR. Por exemplo, se você baixou a versão 3.1.2:
      
       `java -jar hudson-3.1.2.war`
+
   3. No seu navegador, abra `http://localhost:8080/`. Isso abrirá o painel do Hudson.
   4. Na primeira utilização do Hudson, conclua a configuração inicial em `http://localhost:8080/`.
   5. Depois de concluir a configuração inicial, cancele a instância em execução do Hudson WAR, inicie o Hudson WAR novamente e reabra o painel do Hudson, `http://localhost:8080/`, que você usará para instalar e configurar o plug-in de Armazenamento do Azure.
@@ -91,12 +96,15 @@ Para fins de instrução, primeiro será necessário criar um trabalho que crie 
 2. Nomeie o trabalho como **MyJob**, clique em **Build a free-style software job** e em **OK**.
 3. Na seção **Compilar** da configuração do trabalho, clique em **Adicionar etapa de compilação** e selecione **Executar comando em lote do Windows**.
 4. Em **Comando**, use os seguintes comandos:
-   
+
+    ```   
         md text
         cd text
         echo Hello Azure Storage from Hudson > hello.txt
         date /t > date.txt
         time /t >> date.txt
+    ```
+
 5. Na seção **Post-build Actions** de configuração do trabalho, clique em **Upload artifacts to Microsoft Azure Blob storage**.
 6. Em **Nome de Conta de Armazenamento**, selecione a conta de armazenamento a ser usada.
 7. Em **Nome do contêiner**, especifique o nome do contêiner. (O contêiner será criado se ele ainda não existir quando os artefatos de compilação forem carregados.) É possível usar variáveis do ambiente, portanto, para este exemplo, insira **${JOB_NAME}** como o nome do contêiner.
@@ -162,6 +170,7 @@ Segue abaixo uma visão geral dos componentes do serviço Blob.
 
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](https://azure.microsoft.com/develop/java/).
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

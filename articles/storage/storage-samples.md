@@ -1,12 +1,12 @@
 ---
-title: Azure Storage samples | Microsoft Docs
-description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET, Java, Node.js, and C++ storage client libraries.
+title: Exemplos do Armazenamento do Azure | Microsoft Docs
+description: "Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra os exemplos de introdução aos blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do .NET, Java, Node.js e C++."
 services: storage
 documentationcenter: na
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 8fceeff7-dd8a-47d6-b2cd-564a34a2a776
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,71 +14,78 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/31/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fe7be9085c0f6ad0aa2cf3d7dcb03381efd05f6f
+
 
 ---
-# <a name="azure-storage-samples"></a>Azure Storage samples
-## <a name="overview"></a>Overview
-Use the links below to view and download working Azure Storage samples.
+# <a name="azure-storage-samples"></a>Exemplos do Armazenamento do Azure
+## <a name="overview"></a>Visão geral
+Use os links abaixo para exibir e baixar exemplos de como trabalhar com o Armazenamento do Azure.
 
-## <a name="azure-code-sample-library"></a>Azure Code Sample Library
-The [Azure Code Sample Library](https://azure.microsoft.com/documentation/samples/?service=storage) includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+## <a name="azure-code-sample-library"></a>Biblioteca de Exemplo de Código do Azure
+A [Biblioteca de Exemplo de Código](https://azure.microsoft.com/documentation/samples/?service=storage) inclui exemplos do Armazenamento do Azure que você pode baixar e executar localmente. A Biblioteca de Exemplo de Código fornece exemplo de código em formato .zip. Como alternativa, você pode navegar e clonar o repositório GitHub para cada exemplo.
 
-## <a name="getting-started-samples"></a>Getting started samples
-* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
-* [Visual Studio Quick Starts for Azure Storage](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
+## <a name="getting-started-samples"></a>Exemplos de introdução
+* [Introdução ao Armazenamento do Azure em cinco minutos](storage-getting-started-guide.md)
+* [Inícios Rápidos do Visual Studio para o Armazenamento do Azure](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
 
-## <a name="net-samples"></a>.NET samples
-To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
+## <a name="net-samples"></a>Amostras do .NET
+Para explorar os exemplos do .NET, baixe a [Biblioteca do Cliente de Armazenamento do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) do NuGet. A biblioteca de cliente de armazenamento do .NET também está disponível no [SDK do Azure para .NET](https://azure.microsoft.com/downloads/).
 
-* [Getting Started with Azure Blob Service in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
-* [Getting Started with Azure Queue Service in .NET](https://azure.microsoft.com/documentation/samples/storage-queue-dotnet-getting-started/)
-* [Getting Started with Azure Table Service in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
-* [Getting Started with Azure File Service in .NET](https://azure.microsoft.com/documentation/samples/storage-file-dotnet-getting-started/)
-* [Azure Blob Storage Photo Gallery Web Application](https://azure.microsoft.com/documentation/samples/storage-blobs-dotnet-webapp/)
-* [Managing concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
+* [Introdução ao Serviço Blob do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+* [Introdução ao Serviço Fila do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-queue-dotnet-getting-started/)
+* [Introdução ao Serviço Tabela do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
+* [Introdução ao Serviço de Arquivos do Azure no .NET](https://azure.microsoft.com/documentation/samples/storage-file-dotnet-getting-started/)
+* [Aplicativo Web de Galeria de Fotos do Armazenamento de Blobs do Azure](https://azure.microsoft.com/documentation/samples/storage-blobs-dotnet-webapp/)
+* [Gerenciando a simultaneidade usando o Armazenamento do Azure](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 
-## <a name="java-samples"></a>Java samples
-To explore the Java samples, download the [Java Storage Client Library](https://github.com/azure/azure-storage-java).
+## <a name="java-samples"></a>Exemplos do Java
+Para explorar os exemplos do Java, baixe a [Biblioteca do Cliente de Armazenamento do Java](https://github.com/azure/azure-storage-java).
 
-* [Get started with blobs](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/blob/gettingstarted)
-* [Get started with tables](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted)
-* [Get started with queues](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted)
+* [Introdução aos blobs](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/blob/gettingstarted)
+* [Introdução às tabelas](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted)
+* [Introdução às filas](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted)
 
-## <a name="nodejs-samples"></a>Node.js samples
-To explore the Node.js samples, download the [Node.js Storage Client Library](https://github.com/Azure/azure-storage-node).
+## <a name="nodejs-samples"></a>Exemplos do Node.js
+Para explorar os exemplos do Node.js, baixe a [Biblioteca do Cliente de Armazenamento do Node.js](https://github.com/Azure/azure-storage-node).
 
-* [Blob uploader](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
-* [Upload and download blob](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
-* [Continuation token](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)
-* [Retry policy](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/retrypolicysample.js)
-* [Shared access signature](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/sassample.js)
-* [Snapshot](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
-* [Table query](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
+* [Carregador de blobs](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
+* [Carregar e baixar blobs](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
+* [Token de continuação](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)
+* [Política de repetição](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/retrypolicysample.js)
+* [Assinatura de acesso compartilhado](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/sassample.js)
+* [Instantâneo](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
+* [Consulta de tabela](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
 
-## <a name="c-samples"></a>C++ samples
-To explore the C++ samples, download the [C++ Storage Client Library](https://www.nuget.org/packages/wastorage/) from NuGet.
+## <a name="c-samples"></a>Exemplos do C++
+Para explorar os exemplos do C++, baixe a [Biblioteca do Cliente de Armazenamento do C++](https://www.nuget.org/packages/wastorage/) do NuGet.
 
-* [Get started with blobs](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
-* [Get started with tables](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
-* [Get started with queues](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
+* [Introdução aos blobs](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
+* [Introdução às tabelas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
+* [Introdução às filas](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
 
-## <a name="see-also"></a>See also
-### <a name="net-resources"></a>.NET resources
-* [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net)
-* [.NET Client Library Reference](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+## <a name="see-also"></a>Confira também
+### <a name="net-resources"></a>Recursos do .NET
+* [Código-fonte da biblioteca do cliente de armazenamento do .NET](https://github.com/Azure/azure-storage-net)
+* [Referência da Biblioteca do Cliente do .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 
-### <a name="java-resources"></a>Java resources
-* [Source code for the Java storage client library](https://github.com/azure/azure-storage-java)
-* [Java Client Library Reference](http://dl.windowsazure.com/storage/javadoc/)
+### <a name="java-resources"></a>Recursos do Java
+* [Código-fonte da biblioteca do cliente de armazenamento do Java](https://github.com/azure/azure-storage-java)
+* [Referência da Biblioteca do Cliente do Java](http://dl.windowsazure.com/storage/javadoc/)
 
-### <a name="nodejs-resources"></a>Node.js resources
-* [Source code for the Node.js storage client library](https://github.com/Azure/azure-storage-node)
-* [Node.js Client Library Reference](http://dl.windowsazure.com/nodestoragedocs/index.html)
+### <a name="nodejs-resources"></a>Recursos do Node.js
+* [Código-fonte da biblioteca do cliente de armazenamento do Node.js](https://github.com/Azure/azure-storage-node)
+* [Referência da Biblioteca do Cliente do Node.js](http://dl.windowsazure.com/nodestoragedocs/index.html)
 
-### <a name="c-resources"></a>C++ resources
-* [Source code for the C++ storage client library](https://github.com/Azure/azure-storage-cpp)
-* [C++ Client Library Reference](http://azure.github.io/azure-storage-cpp/)
+### <a name="c-resources"></a>Recursos do C++
+* [Código-fonte da biblioteca do cliente de armazenamento do C++](https://github.com/Azure/azure-storage-cpp)
+* [Referência da Biblioteca do Cliente do C++](http://azure.github.io/azure-storage-cpp/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

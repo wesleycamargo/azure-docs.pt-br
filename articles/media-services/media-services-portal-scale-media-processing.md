@@ -1,22 +1,26 @@
 ---
 title: " Como escalar o processamento de mídia usando o Portal do Azure | Microsoft Docs"
-description: Este tutorial orienta você pelas etapas de dimensionar o processamento de mídia usando o portal do Azure.
+description: "Este tutorial orienta você pelas etapas de dimensionar o processamento de mídia usando o portal do Azure."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c7c894b62253273a0cda61c02e198eda28496650
+
 
 ---
-# Alterar o tipo de unidade reservada
+# <a name="change-the-reserved-unit-type"></a>Alterar o tipo de unidade reservada
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [Portal](media-services-portal-scale-media-processing.md)
@@ -26,19 +30,19 @@ ms.author: juliako
 > 
 > 
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 > [!IMPORTANT]
 > Lembre-se de examinar o tópico [Visão geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o tópico de dimensionamento de processamento de mídia.
 > 
 > 
 
-## Processamento de mídia de escala
+## <a name="scale-media-processing"></a>Processamento de mídia de escala
 Para alterar o tipo de unidade reservada e o número de unidades reservadas, faça o seguinte:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No **Configurações** janela, selecione **Unidades reservadas de mídia**.
+1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
+2. Na janela **Configurações**, selecione **Unidades reservadas de mídia**.
    
-    Para alterar o número de unidades reservadas para o tipo de unidade reservada selecionado, use o controle deslizante **Unidades Reservadas de Mídia**.
+    Para alterar o número de unidades reservadas para o tipo de unidade reservada selecionado, use o controle deslizante **Unidades Reservadas de Mídia** .
    
     Para alterar o **TIPO DE UNIDADE RESERVADA**, pressione S1, S2 ou S3.
    
@@ -47,12 +51,17 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas, fa�
    
     As novas unidades reservadas são alocadas quando você pressiona SALVAR.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornecer comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

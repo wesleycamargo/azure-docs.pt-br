@@ -1,12 +1,12 @@
 ---
 title: 'Armazenamento Premium do Azure: projetado para desempenho | Microsoft Docs'
-description: Crie aplicativos de alto desempenho usando o Armazenamento Premium do Azure. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure.
+description: "Crie aplicativos de alto desempenho usando o Armazenamento Premium do Azure. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure."
 services: storage
 documentationcenter: na
 author: aungoo-msft
 manager: tadb
 editor: tysonn
-
+ms.assetid: e6a409c3-d31a-4704-a93c-0a04fdc95960
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: aungoo
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 67b5ea270bc8bcbe22aa4a3cbdd15b7affbbb4e6
+
 
 ---
-# <a name="azure-premium-storage:-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
+# <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: projeto para alto desempenho
 ## <a name="overview"></a>Visão geral
 Este artigo fornece diretrizes para a criação de aplicativos de alto desempenho usando o Armazenamento Premium do Azure. Você pode usar as instruções fornecidas neste documento combinadas com as práticas recomendadas de desempenho aplicáveis às tecnologias usadas pelo aplicativo. Para ilustrar as diretrizes, usamos o SQL Server em execução no Armazenamento Premium como exemplo em todo este documento.
 
@@ -88,9 +92,9 @@ Em seguida, avalie os requisitos de desempenho máximo do aplicativo durante tod
 | Profundidade da Fila | | | |
 
 > **Observação importante:**  
-> você deve considerar o dimensionamento desses números com base no futuro crescimento esperado do aplicativo. É uma boa ideia planejar o crescimento antecipadamente, pois pode ser mais difícil alterar a infraestrutura para melhorar o desempenho posteriormente.
-> 
-> 
+>  você deve considerar o dimensionamento desses números com base no futuro crescimento esperado do aplicativo. É uma boa ideia planejar o crescimento antecipadamente, pois pode ser mais difícil alterar a infraestrutura para melhorar o desempenho posteriormente.
+>
+>
 
 Se você já tiver um aplicativo e deseja passar para o Armazenamento Premium, antes de qualquer coisa, crie a lista de verificação acima para o aplicativo. Em seguida, crie um protótipo do aplicativo no Armazenamento Premium e projete o aplicativo com base nas diretrizes descritas em *Otimizando o desempenho do aplicativo* em uma seção posterior deste documento. A próxima seção descreve as ferramentas que você pode usar para entender as medições de desempenho.
 
@@ -119,7 +123,7 @@ Os principais fatores que influenciam o desempenho de um aplicativo em execuçã
 
 Ao longo desta seção, consulte a lista de verificação de requisitos de aplicativo que você criou para identificar quanto você precisa para otimizar o desempenho do aplicativo. Com base nisso, você poderá determinar quais fatores dessa seção será preciso ajustar. Para ver os efeitos de cada fator no desempenho do aplicativo, execute os parâmetros de comparação na configuração do aplicativo. Consulte a seção [Parâmetros de comparação](#Benchmarking) no fim deste artigo para ver as etapas para executar ferramentas comuns de comparação em VMs do Windows e do Linux.
 
-### <a name="optimizing-iops,-throughput-and-latency-at-a-glance"></a>Otimizando a IOPS, a Taxa de Transferência e a latência em segundos
+### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>Otimizando a IOPS, a Taxa de Transferência e a latência em segundos
 A tabela abaixo resume os fatores de desempenho e as etapas para otimizar a IOPS, Taxa de Transferência e Latência. As seções a seguir deste resumo descreverão cada fator mais detalhadamente.
 
 |  | **IOPS** | **Taxa de transferência** | **Latência** |
@@ -167,8 +171,8 @@ Para obter IOPS e Largura de Banda mais altas do que o valor máximo de um únic
 
 > **Observação**  
 > À medida que você aumenta a IOPS ou a Taxa de Transferência, a outra também aumenta. Fique dentro dos limites de Taxa de Transferência ou de IOPS do disco ou da VM ao aumentar uma das duas.
-> 
-> 
+>
+>
 
 Para ver os efeitos do tamanho de E/S no desempenho do aplicativo, você pode executar ferramentas de parâmetros comparação na VM e nos discos. Crie várias execuções de teste e use diferentes tamanhos de E/S para cada execução a fim de ver o impacto. Consulte a seção [Parâmetros de comparação](#Benchmarking) no fim deste artigo para obter mais detalhes.
 
@@ -182,7 +186,7 @@ As VMs de alta escala estão disponíveis em diferentes tamanhos com diferentes 
 | Standard_DS14 |16 |112 GB |SO = 1023 GB  <br>  SSD local = 224 GB |32 |576 GB |50.000 IOPS  <br>  512 MB por segundo |4.000 IOPS e 33 MB por segundo |
 | Standard_GS5 |32 |448 GB |SO = 1023 GB  <br>  SSD local = 896 GB |64 |4224 GB |80.000 IOPS  <br>  2.000 MB por segundo |5.000 IOPS e 50 MB por segundo |
 
-Para exibir uma lista completa de todos os tamanhos de VM do Azure disponíveis, consulte [tamanhos de VM do Windows](../virtual-machines/virtual-machines-windows-sizes.md) ou [tamanhos de VM do Linux](../virtual-machines/virtual-machines-linux-sizes.md). Escolha um tamanho de VM que possa atender aos requisitos de desempenho de aplicativo desejados. Além disso, leve em consideração as seguintes considerações importantes ao escolher tamanhos de VM.
+Para exibir uma lista completa de todos os tamanhos de VM do Azure disponíveis, consulte [tamanhos de VM do Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [tamanhos de VM do Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Escolha um tamanho de VM que possa atender aos requisitos de desempenho de aplicativo desejados. Além disso, leve em consideração as seguintes considerações importantes ao escolher tamanhos de VM.
 
 *Limites de Escala*  
  Os limites máximos de IOPS por VM e por disco são diferentes e independentes um do outro. Verifique se o aplicativo está impulsionando a IOPS dentro dos limites da VM, bem como os discos premium anexados a ela. Caso contrário, o desempenho do aplicativo será limitado.
@@ -206,7 +210,7 @@ A tabela abaixo resume o detalhamento do custo desse cenário para Armazenamento
 
 *Distribuições do Linux*  
 
-Com o Armazenamento Premium do Azure, você obtém o mesmo nível de Desempenho para VMs que executam Windows e Linux. Há suporte para vários tipos de distribuição Linux, e você pode ver a lista completa [aqui](../virtual-machines/virtual-machines-linux-endorsed-distros.md). É importante observar que as diferentes distribuições são mais adequadas para tipos diferentes de carga de trabalho. Você verá diferentes níveis de desempenho dependendo da distribuição em que a carga de trabalho está sendo executada. Teste as distribuições Linux com seu aplicativo e escolha a mais adequada.
+Com o Armazenamento Premium do Azure, você obtém o mesmo nível de Desempenho para VMs que executam Windows e Linux. Há suporte para vários tipos de distribuição Linux, e você pode ver a lista completa [aqui](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É importante observar que as diferentes distribuições são mais adequadas para tipos diferentes de carga de trabalho. Você verá diferentes níveis de desempenho dependendo da distribuição em que a carga de trabalho está sendo executada. Teste as distribuições Linux com seu aplicativo e escolha a mais adequada.
 
 Ao executar Linux com Armazenamento Premium, verifique as últimas atualizações dos drivers necessários para garantir alto desempenho.
 
@@ -227,11 +231,11 @@ Quantos discos você escolhe depende do tamanho do disco escolhido. Você pode u
 Por exemplo, se o requisito de um aplicativo for de, no máximo, 250 MB/s de Taxa de Transferência e você estiver usando uma VM DS4 com um único disco P30. A VM DS4 pode fornecer uma Taxa de Transferência de 256 MB/s. No entanto, um único disco P30 tem um limite de Taxa de Transferência de 200 MB/s. Consequentemente, o aplicativo será restrito a 200 MB/s devido ao limite do disco. Para superar esse limite, provisione mais de um disco de dados à VM.
 
 > **Observação:**  
-> as leituras atendidas pelo cache não estão incluídas na IOPS e Taxa de Transferência do disco, portanto, não estão sujeitas aos limites de disco. O cache tem seu limite de IOPS e Taxa de Transferência separado por VM.
-> 
+>  as leituras atendidas pelo cache não estão incluídas na IOPS e Taxa de Transferência do disco, portanto, não estão sujeitas aos limites de disco. O cache tem seu limite de IOPS e Taxa de Transferência separado por VM.
+>
 > Por exemplo, inicialmente as leituras e gravações são de 60 MB/s e 40 MB/s, respectivamente. Ao longo do tempo, o cache aquece e atende cada vez mais leituras no cache. Assim, você pode obter Taxa de Transferência de gravação mais alta do disco.
-> 
-> 
+>
+>
 
 *Número de discos*  
  Determine o número de discos que você precisará ao avaliar os requisitos de aplicativo. Cada tamanho de VM também tem um limite de número de discos que você pode anexar à VM. Normalmente, é duas vezes o número de núcleos. Verifique se o tamanho de VM que você escolheu pode oferecer suporte ao número de discos necessário.
@@ -243,8 +247,8 @@ As VMs de alta escala que aproveitam o Armazenamento Premium do Azure têm uma t
 
 > [!WARNING]
 > Alterar a configuração de cache de um disco do Azure desanexa e anexa novamente o disco de destino. Se for o disco do sistema operacional, a VM será reiniciada. Pare todos os aplicativos/serviços que podem ser afetados por essa interrupção antes de alterar a configuração de cache do disco.
-> 
-> 
+>
+>
 
 Para saber mais sobre como o BlobCache funciona, consulte a postagem do blog interno [Armazenamento Premium do Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) .
 
@@ -287,19 +291,19 @@ No Windows, você pode usar Espaços de Armazenamento para dividir discos em con
 
 Importante: usando a interface de usuário do Gerenciador de Servidores, você pode definir o número total de colunas até 8 para um volume distribuído. Ao anexar mais de 8 discos, use o PowerShell para criar o volume. Usando o PowerShell, é possível definir o número de colunas como igual ao número de discos. Por exemplo, se houver 16 discos em um único conjunto de distribuição; especifique 16 colunas no parâmetro *NumberOfColumns* do cmdlet *New-VirtualDisk* do PowerShell.
 
-No Linux, use o utilitário MDADM para distribuir os discos em conjunto. Para ver etapas detalhadas sobre como distribuir discos no Linux, consulte [Configurar o Software RAID no Linux](../virtual-machines/virtual-machines-linux-configure-raid.md).
+No Linux, use o utilitário MDADM para distribuir os discos em conjunto. Para ver etapas detalhadas sobre como distribuir discos no Linux, consulte [Configurar o Software RAID no Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 *Tamanho da distribuição*  
  Uma configuração importante na distribuição de disco é o tamanho dela. O tamanho da distribuição ou tamanho do bloco é a menor parte de dados que o aplicativo pode incluir em um volume distribuído. O tamanho da distribuição que você configura depende do tipo de aplicativo e de seu padrão de solicitação. Se você escolher o tamanho de distribuição errado, isso pode levar ao alinhamento incorreto de E/S, o que leva à degradação de desempenho do aplicativo.
 
 Por exemplo, se uma solicitação de E/S gerada pelo seu aplicativo for maior que o tamanho da distribuição do disco, o sistema de armazenamento a gravará entre limites de unidade de distribuição em mais de um disco. Quando for a hora de acessar esses dados, ele terá que procurar em mais de uma unidade de distribuição para concluir a solicitação. O efeito cumulativo de tal comportamento pode levar à degradação substancial de desempenho. Por outro lado, se o tamanho da solicitação de E/S for menor que o tamanho da distribuição e se ela for de natureza aleatória, as solicitações de E/S poderão ser adicionadas no mesmo disco, causando um afunilamento e, por fim, a degradação do desempenho de E/S.
 
-De acordo com o tipo de carga de trabalho que o aplicativo está executando, escolha um tamanho de distribuição apropriado. Para solicitações pequenas e aleatórias de E/S, use um tamanho de distribuição menor. Já para solicitações de E/S grandes e sequenciais, use um tamanho de distribuição maior. Descubra as recomendações de tamanho de distribuição para o aplicativo que será executado no Armazenamento Premium. Para SQL Server, configure o tamanho da distribuição de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de data warehouse. Confira [Melhores práticas de desempenho para o SQL Server em VMs do Azure](../virtual-machines/virtual-machines-windows-sql-performance.md#disks-and-performance-considerations) para saber mais.
+De acordo com o tipo de carga de trabalho que o aplicativo está executando, escolha um tamanho de distribuição apropriado. Para solicitações pequenas e aleatórias de E/S, use um tamanho de distribuição menor. Já para solicitações de E/S grandes e sequenciais, use um tamanho de distribuição maior. Descubra as recomendações de tamanho de distribuição para o aplicativo que será executado no Armazenamento Premium. Para SQL Server, configure o tamanho da distribuição de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de data warehouse. Confira [Melhores práticas de desempenho para o SQL Server em VMs do Azure](../virtual-machines/virtual-machines-windows-sql-performance.md#disks-guidance) para saber mais.
 
 > **Observação:**  
-> você pode usar a distribuição com um máximo de 32 discos do armazenamento premium em uma VM série DS e 64 discos do armazenamento premium em uma VM série GS.
-> 
-> 
+>  você pode usar a distribuição com um máximo de 32 discos do armazenamento premium em uma VM série DS e 64 discos do armazenamento premium em uma VM série GS.
+>
+>
 
 ## <a name="multi-threading"></a>Multithreading
 O Azure projetou a plataforma Armazenamento Premium para ser extremamente paralela. Portanto, um aplicativo com multithread atinge desempenho muito mais alto que um aplicativo de único thread. Um aplicativo com multithread divide as tarefas entre vários threads e aumenta a eficiência de sua execução ao utilizar ao máximo os recursos de VM e disco.
@@ -354,9 +358,9 @@ Para seguir os exemplos abaixo, crie uma VM DS14 padrão e anexe 11 discos do Ar
  O disco com o cache de host ReadOnly poderá oferecer IOPS mais alta do que o limite do disco. Para atingir esse desempenho máximo de leitura do cache de host, primeiramente você deve aquecer o cache desse disco. Isso garante que as E/S de leitura que a ferramenta de parâmetros de comparação impulsionará no volume CacheReads realmente atinjam o cache, e não o disco diretamente. Os acertos no cache resultam em IOPS adicional do único disco habilitado para cache.
 
 > **Importante:**  
-> você deve aquecer o cache antes de executar os parâmetros de comparação, toda vez que a VM é reinicializada.
-> 
-> 
+>  você deve aquecer o cache antes de executar os parâmetros de comparação, toda vez que a VM é reinicializada.
+>
+>
 
 #### <a name="iometer"></a>Iometer
 [Baixe a ferramenta Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) na VM.
@@ -390,18 +394,18 @@ Um exemplo de especificações de acesso para o cenário de IOPS de gravação m
  Execute as etapas abaixo para aquecer o cache
 
 1. Crie duas especificações de acesso com os valores mostrados abaixo:
-   
+
    | Nome | Tamanho da solicitação | Aleatório % | Leitura % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 2. Execute o teste Iometer para inicializar o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" para 2 horas na guia "Configuração do teste".
-   
+
    | Cenário | Volume de destino | Nome | Duração |
    | --- | --- | --- | --- |
    | Inicializar disco do cache |CacheReads |RandomWrites\_1MB |2 horas |
 3. Execute o teste Iometer para aquecer o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" para 2 horas na guia "Configuração do teste".
-   
+
    | Cenário | Volume de destino | Nome | Duração |
    | --- | --- | --- | --- |
    | Aquecer o disco do cache |CacheReads |RandomReads\_1MB |2 horas |
@@ -410,7 +414,7 @@ Depois de aquecer o disco do cache, prossiga com os cenários de teste listados 
 
 | Cenário de teste | Volume de destino | Nome | Result |
 | --- | --- | --- | --- |
-| Máx. IOPS de leitura |CacheReads |RandomWrites\_8K |50.000 IOPS |
+| Máx. IOPS de leitura |CacheReads |RandomWrites\_8K |50.000 IOPS  |
 | Máx. IOPS de gravação |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
 | Máx. IOPS combinada |CacheReads |RandomWrites\_8K |100.000 IOPS |
 | NoCacheWrites |RandomReads\_8K | | |
@@ -579,9 +583,11 @@ Saiba mais sobre o Armazenamento Premium do Azure:
 
 Para usuários do SQL Server, leia os artigos sobre Práticas recomendadas de desempenho para o SQL Server:
 
-* [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-performance.md)
-* [Armazenamento Premium do Azure fornece desempenho mais alto para SQL Server na VM do Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
+* [Práticas recomendadas para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Armazenamento Premium do Azure fornece desempenho mais alto para SQL Server na VM do Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

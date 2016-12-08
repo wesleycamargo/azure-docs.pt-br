@@ -1,14 +1,14 @@
 ---
 title: Criar um conjunto de disponibilidade de VM | Microsoft Docs
-description: Saiba como criar um conjunto de disponibilidade para suas máquinas virtuais usando o Portal do Azure ou o PowerShell usando o modelo de implantação do Resource Manager.
+description: "Saiba como criar um conjunto de disponibilidade para suas máquinas virtuais usando o Portal do Azure ou o PowerShell usando o modelo de implantação do Resource Manager."
 keywords: conjunto de disponibilidade
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a3db8659-ace8-4e78-8b8c-1e75c04c042c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,12 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 19f22b9e38e472b56fc9abecc6c14b63b521a58b
+
 
 ---
 # <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
 Ao usar o portal, se quiser que sua VM faça parte de um conjunto de disponibilidade, você precisará criar o conjunto de disponibilidade primeiro.
 
-Para obter mais informações sobre como criar e usar conjuntos de disponibilidade, confira [Gerenciar a disponibilidade de máquinas virtuais](virtual-machines-windows-manage-availability.md).
+Para obter mais informações sobre como criar e usar conjuntos de disponibilidade, confira [Gerenciar a disponibilidade de máquinas virtuais](virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="use-the-portal-to-create-an-availability-set-before-creating-your-vms"></a>Usar o portal para criar um conjunto de disponibilidade antes de criar suas VMs
 1. No menu hub, clique em **Procurar** e selecione **Conjuntos de disponibilidade**.
@@ -61,8 +65,11 @@ Para obter mais informações, consulte [New-AzureRmAvailabilitySet](https://msd
 * Ao criar uma VM, se o conjunto de disponibilidade desejado não estiver na lista suspensa no portal, você poderá ter realizado a criação dele em um grupo de recursos diferente. Se você não souber o grupo de recursos para sua seu conjunto de disponibilidade, vá até o menu hub e clique em Procurar > Conjuntos de disponibilidade para ver uma lista dos seus conjuntos de disponibilidade e a quais grupos de recursos pertencem.
 
 ## <a name="next-steps"></a>Próximas etapas
-Adicione armazenamento adicional à sua VM incluindo um [disco de dados](virtual-machines-windows-attach-disk-portal.md)adicional.
+Adicione armazenamento adicional à sua VM incluindo um [disco de dados](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)adicional.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

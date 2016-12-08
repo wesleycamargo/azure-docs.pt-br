@@ -1,13 +1,13 @@
 ---
-title: Usando a Extensão de VM do Docker para Linux | Microsoft Docs
-description: Descreve as extensões de Máquinas Virtuais do Docker e do Azure, além de mostrar como criar Máquinas Virtuais do Azure que sejam hosts do Docker por meio da CLI do Azure no modelo de implantação clássico.
+title: "Usando a Extensão de VM do Docker para Linux | Microsoft Docs"
+description: "Descreve as extensões de Máquinas Virtuais do Docker e do Azure, além de mostrar como criar Máquinas Virtuais do Azure que sejam hosts do Docker por meio da CLI do Azure no modelo de implantação clássico."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: squillace
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 19cf64e8-f92c-43ad-a120-8976cd9102ac
 ms.service: virtual-machines-linux
 ms.devlang: multiple
 ms.topic: article
@@ -15,19 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51490fa46a1d9c23d73d4071fb900a97327425a8
+
 
 ---
-# Usando a extensão de VM do Docker com o portal clássico do Azure
+# <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>Usando a extensão de VM do Docker com o portal clássico do Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a extensão da VM Docker gerenciada pelo [Agente Linux do Azure] para criar uma VM Docker que hospede diversos contêineres para seus aplicativos no Azure.
 
 > [!NOTE]
-> Este tópico descreve como criar uma VM Docker no portal clássico do Azure. Para ver como criar uma máquina virtual Docker na linha de comando, confira [Como usar a extensão de máquina virtual do Docker na interface de linha de comando (CLI do Azure)]. Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> Este tópico descreve como criar uma VM Docker no portal clássico do Azure. Para ver como criar uma máquina virtual Docker na linha de comando, confira [Como usar a extensão de VM Docker da Interface de Linha de Comando (CLI do Azure)]. Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
-## Criar uma nova máquina virtual na Galeria de Imagens
+## <a name="create-a-new-vm-from-the-image-gallery"></a>Criar uma nova máquina virtual na Galeria de Imagens
 A primeira etapa requer uma máquina virtual do Azure obtida por meio de uma imagem Linux compatível com a extensão de máquina virtual Docker, usando uma imagem Ubuntu 14.04 LTS da Galeria de Imagens como exemplo de imagem do servidor e um desktop Ubuntu 14.04 como cliente. No portal, clique em **+ Novo** no canto inferior esquerdo para criar uma nova instância de máquina virtual e selecione uma imagem Ubuntu 14.04 LTS dentre as opções disponíveis ou na Galeria de Imagens, como mostramos abaixo.
 
 > [!NOTE]
@@ -37,7 +41,7 @@ A primeira etapa requer uma máquina virtual do Azure obtida por meio de uma ima
 
 ![Criar uma nova imagem Ubuntu](./media/virtual-machines-linux-classic-portal-use-docker/ChooseUbuntu.png)
 
-## Criar certificados Docker
+## <a name="create-docker-certificates"></a>Criar certificados Docker
 Depois de criar a máquina virtual, verifique se o Docker está instalado no computador cliente. Para obter detalhes, confira [Instruções de instalação do Docker](https://docs.docker.com/installation/#installation).
 
 Crie os arquivos de certificado e de chave para comunicação do Docker de acordo com as instruções em [Executando Docker com https] e coloque-os no diretório **`~/.docker`** do computador cliente.
@@ -60,7 +64,7 @@ Na linha de comando, use **`base64`** ou outra ferramenta de codificação de su
  ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
 ```
 
-## Adicionar a extensão de máquina virtual Docker
+## <a name="add-the-docker-vm-extension"></a>Adicionar a extensão de máquina virtual Docker
 Para adicionar a extensão de máquina virtual Docker, localize a instância de máquina virtual criada e clique em **Extensões** para visualizar as extensões de máquina virtual, como mostramos abaixo.
 
 > [!NOTE]
@@ -70,19 +74,19 @@ Para adicionar a extensão de máquina virtual Docker, localize a instância de 
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/ClickExtensions.png)
 
-### Adicionar uma extensão
+### <a name="add-an-extension"></a>Adicionar uma extensão
 Clique em **+ Adicionar** para visualizar as extensões de máquina virtual que podem ser adicionadas à máquina em questão.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/ClickAdd.png)
 
-### Selecionar a extensão de máquina virtual Docker
-Escolha a extensão de máquina virtual Docker, que apresenta a descrição do Docker e links importantes. Em seguida, clique em **Criar** na parte inferior da página para iniciar o procedimento de instalação.
+### <a name="select-the-docker-vm-extension"></a>Selecionar a extensão de máquina virtual Docker
+Escolha a extensão de VM do Docker, que apresenta a descrição do Docker e links importantes. Em seguida, clique em **Criar** na parte inferior da página para iniciar o procedimento de instalação.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/ChooseDockerExtension.png)
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/CreateButtonFocus.png)
 
-### Adicionar seus arquivos de certificado e de chaves:
+### <a name="add-your-certificate-and-key-files"></a>Adicionar seus arquivos de certificado e de chaves:
 Nos campos do formulário, insira as versões codificadas em base64 do certificado de autoridade de certificação, do certificado do servidor e da chave do servidor, como mostramos na imagem abaixo.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddExtensionFormFilled.png)
@@ -92,16 +96,16 @@ Nos campos do formulário, insira as versões codificadas em base64 do certifica
 > 
 > 
 
-## Adicionar o ponto de extremidade de comunicação do Docker
+## <a name="add-the-docker-communication-endpoint"></a>Adicionar o ponto de extremidade de comunicação do Docker
 Ao exibir o grupo de recursos que você criou, selecione o grupo de segurança de rede associado com sua VM e clique em **Regras de Segurança de Entrada** para exibir as regras, como mostrado aqui.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddingEndpoint.png)
 
-Clique em **+ Adicionar** para adicionar outra regra e, no caso padrão, insira o nome do ponto de extremidade (neste exemplo, **Docker**), e 'Intervalo de Portas de Destino' 2376. Defina o valor do protocolo mostrando **TCP** e clique em **OK** para criar a regra.
+Clique em **+ Adicionar** para adicionar outra regra e, no caso padrão, insira o nome do ponto de extremidade (neste exemplo, **Docker**) e 'Intervalo de Portas de Destino' 2376. Defina o valor do protocolo mostrando **TCP** e clique em **OK** para criar a regra.
 
 ![](./media/virtual-machines-linux-classic-portal-use-docker/AddEndpointFormFilledOut.png)
 
-## Testar o cliente Docker e o host Docker do Azure
+## <a name="test-your-docker-client-and-azure-docker-host"></a>Testar o cliente Docker e o host Docker do Azure
 Localize e copie o nome do domínio da sua VM, na linha de comando de seu computador cliente, insira `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:2376 info` (onde *dockerextension* é substituído pelo subdomínio da VM).
 
 O resultado deve ter esta aparência:
@@ -128,15 +132,15 @@ WARNING: No swap limit support
 Depois de concluir as etapas acima, você terá um host de Docker totalmente funcional em execução em uma VM do Azure, configurado para ser conectado remotamente a outros clientes.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máquina virtual Docker. Se quiser automatizar a criação hosts de Docker em VMs do Azure por meio da interface de linha de comando, confira [Como usar a extensão de VM Docker da Interface de Linha de Comando (CLI do Azure)]
 
 <!--Anchors-->
-[Create a new VM from the Image Gallery]: #createvm
-[Create Docker Certificates]: #dockercerts
-[Add the Docker VM Extension]: #adddockerextension
-[Test Docker Client and Azure Docker Host]: #testclientandserver
-[Next steps]: #next-steps
+[Criar uma nova máquina virtual na Galeria de Imagens]: #createvm
+[Criar certificados Docker]: #dockercerts
+[Adicionar a extensão de máquina virtual Docker]: #adddockerextension
+[Testar cliente do Docker e host do Docker do Azure]: #testclientandserver
+[Próximas etapas]: #next-steps
 
 <!--Image references-->
 [StartingPoint]: ./media/StartingPoint.png
@@ -153,11 +157,14 @@ Você está pronto para conferir o [Guia do usuário do Docker] e usar sua máqu
 
 <!--Link references-->
 [Como usar a extensão de VM Docker da Interface de Linha de Comando (CLI do Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Como usar a extensão de máquina virtual do Docker na interface de linha de comando (CLI do Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [Agente Linux do Azure]: virtual-machines-linux-agent-user-guide.md
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+[Link 3 para outro tópico de documentação azure.microsoft.com]: ../storage-whatis-account.md
 
 [Executando Docker com https]: http://docs.docker.com/articles/https/
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

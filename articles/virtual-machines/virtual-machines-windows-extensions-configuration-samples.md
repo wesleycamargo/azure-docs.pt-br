@@ -1,13 +1,13 @@
 ---
-title: Exemplo de configuração para extensões de VM do Windows | Microsoft Docs
-description: Exemplo de configuração para a criação de modelos com extensões
+title: "Exemplo de configuração para extensões de VM do Windows | Microsoft Docs"
+description: "Exemplo de configuração para a criação de modelos com extensões"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 0a1cee6c-51ea-4c03-b607-f158586d7175
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 380778b28a233e28c93f1ae8b16ac01a9f72ca20
+
 
 ---
-# Exemplos de configuração de extensão de VM do Windows do Azure.
+# <a name="azure-windows-vm-extension-configuration-samples"></a>Exemplos de configuração de extensão de VM do Windows do Azure.
 > [!div class="op_single_selector"]
-> * [PowerShell – modelo](virtual-machines-windows-extensions-configuration-samples.md)
-> * [CLI - Modelo](virtual-machines-linux-extensions-configuration-samples.md)
+> * [PowerShell – modelo](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI - Modelo](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -28,13 +32,13 @@ ms.author: kundanap
 
 Este artigo fornece um exemplo de configuração para configurar extensões de VM do Azure para VMs do Windows.
 
-Para saber mais sobre estas extensões, consulte, [Visão geral de extensões de VM do Azure.](virtual-machines-windows-extensions-features.md)
+Para saber mais sobre estas extensões, veja [Visão geral de extensões de VM do Azure.](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-Para saber mais sobre a criação de modelos de extensão, consulte: [Criação de modelos de extensão.](virtual-machines-windows-extensions-authoring-templates.md)
+Para saber mais sobre a criação de modelos de extensão, veja [Criação de modelos de extensão.](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 Este artigo lista os valores de configuração esperados para algumas das Extensões do Windows.
 
-## Trecho de código do modelo de exemplo para extensões de VM com VMs IaaS.
+## <a name="sample-template-snippet-for-vm-extensions-with-iaas-vms"></a>Trecho de código do modelo de exemplo para extensões de VM com VMs IaaS.
 O trecho do modelo para Implantação de extensões tem a seguinte aparência:
 
       {
@@ -55,7 +59,7 @@ O trecho do modelo para Implantação de extensões tem a seguinte aparência:
       }
       }
 
-## Trecho de código do modelo de exemplo para extensões de VM com Conjuntos de Escala de VM.
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets"></a>Trecho de código do modelo de exemplo para extensões de VM com Conjuntos de Escala de VM.
     {
      "type":"Microsoft.Compute/virtualMachineScaleSets",
     ....
@@ -82,7 +86,7 @@ O restante do artigo oferece exemplos de configurações para Extensões de VM d
 
 Antes de implantar a extensão, verifique a versão mais recente da extensão e substitua "typeHandlerVersion" pela versão mais recente atual.
 
-### Extensão CustomScript 1.4.
+### <a name="customscript-extension-14"></a>Extensão CustomScript 1.4.
       {
           "publisher": "Microsoft.Compute",
           "type": "CustomScriptExtension",
@@ -99,13 +103,13 @@ Antes de implantar a extensão, verifique a versão mais recente da extensão e 
           }
       }
 
-#### Descrição do parâmetro:
+#### <a name="parameter-description"></a>Descrição do parâmetro:
 * fileUris: lista de separada por vírgulas de URLs dos arquivos que serão baixados na VM pela extensão. Nenhum arquivo será baixado se nada for especificado. Se os arquivos estiverem no armazenamento do Azure, fileURLs poderá ser marcado como privado e os storageAccountName e storageAccountKey correspondentes podem ser passados como parâmetros privados para acessar esses arquivos.
 * commandToExecute: [Parâmetro Obrigatório]: esse é o comando que será executado pela extensão.
 * storageAccountName: [Parâmetro Opcional]: nome da conta de armazenamento para acessar fileURLs, se eles estiverem marcados como particulares.
 * storageAccountKey: [Parâmetro Opcional]: chave da conta de armazenamento para acessar fileURLs, se eles estiverem marcados como particulares.
 
-### Extensão CustomScript 1.7.
+### <a name="customscript-extension-17"></a>Extensão CustomScript 1.7.
 Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A versão 1.7 introduz suporte para enviar o parâmetros de script (commandToExecute) como protectedSettings, quando então eles serão criptografados antes do envio. O parâmetro “commandToExecute” pode ser especificado nas configurações ou protectedSettings mas não em ambos.
 
         {
@@ -125,7 +129,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
             }
         }
 
-### Extensão VMAccess.
+### <a name="vmaccess-extension"></a>Extensão VMAccess.
       {
           "publisher": "Microsoft.Compute",
           "type": "VMAccessAgent",
@@ -138,7 +142,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
           }
       }
 
-### Extensão DSC.
+### <a name="dsc-extension"></a>Extensão DSC.
       {
           "publisher": "Microsoft.Powershell",
           "type": "DSC",
@@ -170,7 +174,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
       }
 
 
-### Proteção de Ponto de Extremidade da Symantec.
+### <a name="symantec-endpoint-protection"></a>Proteção de Ponto de Extremidade da Symantec.
       {
         "publisher": "SymantecEndpointProtection",
         "type": "Symantec",
@@ -178,13 +182,13 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
         "settings": {}
       }
 
-### Agente do Deep Security da Trend Micro..
+### <a name="trend-micro-deep-security-agent"></a>Agente do Deep Security da Trend Micro..
       {
         "publisher": "TrendMicro.DeepSecurity",
         "type": "TrendMicroDSA",
         "typeHandlerVersion": "9.6",
         "settings": {
-          "ManagerAddress" : "Enter the externally accessible DNS name or IP address of the Deep Security Manager. Please enter "agents.deepsecurity.trendmicro.com" if using Deep Security as a Service",
+          "ManagerAddress" : "Enter the externally accessible DNS name or IP address of the Deep Security Manager. Please enter \"agents.deepsecurity.trendmicro.com\" if using Deep Security as a Service",
 
           "ActivationPort" : "Enter the port number of the Deep Security Manager, default value - 443",
 
@@ -196,7 +200,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
         }
       }
 
-### Agente de Criptografia Transparente da Vormertric.
+### <a name="vormertric-transparent-encryption-agent"></a>Agente de Criptografia Transparente da Vormertric.
             {
               "publisher": "Vormetric",
               "type": "VormetricTransparentEncryptionAgent",
@@ -205,7 +209,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
               }
             }
 
-### Agente do Puppet Enterprise.
+### <a name="puppet-enterprise-agent"></a>Agente do Puppet Enterprise.
             {
               "publisher": "PuppetLabs",
               "type": "PuppetEnterpriseAgent",
@@ -215,7 +219,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
               }
             }  
 
-### Microsoft Monitoring Agent para Insights Operacionais do Azure
+### <a name="microsoft-monitoring-agent-for-azure-operational-insights"></a>Microsoft Monitoring Agent para Insights Operacionais do Azure
             {
               "publisher": "Microsoft.EnterpriseCloud.Monitoring",
               "type": "MicrosoftMonitoringAgent",
@@ -229,7 +233,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
               }
             }
 
-### McAfee EndpointSecurity
+### <a name="mcafee-endpointsecurity"></a>McAfee EndpointSecurity
             {
               "publisher": "McAfee.EndpointSecurity",
               "type": "McAfeeEndpointSecurity",
@@ -243,7 +247,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
               }
             }
 
-### Antimalware do IaaS do Azure
+### <a name="azure-iaas-antimalware"></a>Antimalware do IaaS do Azure
           {
             "publisher": "Microsoft.Azure.Security",
             "type": "IaaSAntimalware",
@@ -261,7 +265,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
             }
           }
 
-### Segurança de arquivo ESET
+### <a name="eset-file-security"></a>Segurança de arquivo ESET
           {
             "publisher": "ESET",
             "type": "FileSecurity",
@@ -270,7 +274,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
             }
           }
 
-### Agente Datadog
+### <a name="datadog-agent"></a>Agente Datadog
           {
             "publisher": "Datadog.Agent",
             "type": "DatadogWindowsAgent",
@@ -280,7 +284,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
             }
           }
 
-### Prevenção Avançada contra Ameaças e Resposta a Incidentes Confer para o Azure
+### <a name="confer-advanced-threat-prevention-and-incident-response-for-azure"></a>Prevenção Avançada contra Ameaças e Resposta a Incidentes Confer para o Azure
           {
             "publisher": "Confer",
             "type": "ConferForAzure",
@@ -291,7 +295,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
             }
           }
 
-### Agente CloudLink SecureVM
+### <a name="cloudlink-securevm-agent"></a>Agente CloudLink SecureVM
           {
             "publisher": "CloudLinkEMC.SecureVM",
             "type": "CloudLinkSecureVMWindowsAgent",
@@ -301,7 +305,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
             }
           }
 
-### Agente de Conectividade VPN Barracuda para o Microsoft Azure
+### <a name="barracuda-vpn-connectivity-agent-for-microsoft-azure"></a>Agente de Conectividade VPN Barracuda para o Microsoft Azure
           {
             "publisher": "Barracuda.Azure.ConnectivityAgent",
             "type": "BarracudaConnectivityAgent",
@@ -314,7 +318,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
             }
           }
 
-### Gerenciador de Logs Alert Logic
+### <a name="alert-logic-log-manager"></a>Gerenciador de Logs Alert Logic
           {
             "publisher": "AlertLogic.Extension",
             "type": "AlertLogicLM",
@@ -324,7 +328,7 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
             }
           }
 
-### Agente Chef
+### <a name="chef-agent"></a>Agente Chef
           {
             "publisher": "Chef.Bootstrap.WindowsAzure",
             "type": "ChefClient",
@@ -336,8 +340,8 @@ Consulte o CustomScript versão 1.4 para ver a descrição do parâmetro. A vers
             }
           }
 
-### Diagnóstico do Azure
-Para obter mais detalhes sobre como configurar o diagnóstico, consulte [Extensão de diagnóstico do Azure](virtual-machines-windows-extensions-diagnostics-template.md)
+### <a name="azure-diagnostics"></a>Diagnóstico do Azure
+Para obter mais detalhes sobre como configurar o diagnóstico, veja [Extensão de diagnóstico do Azure](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
@@ -361,4 +365,9 @@ Veja abaixo um exemplo de um modelo de VM completo com uma Extensão de Script P
 
 [Extensão de script personalizado em uma VM do Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

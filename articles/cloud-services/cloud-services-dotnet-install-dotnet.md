@@ -1,34 +1,41 @@
 ---
-title: Instalar o .NET em uma Função do Serviço de Nuvem | Microsoft Docs
-description: Este artigo descreve como instalar o .NET Framework manualmente em funções de trabalho ou Web do serviço de nuvem.
+title: "Instalar o .NET em uma Função do Serviço de Nuvem | Microsoft Docs"
+description: "Este artigo descreve como instalar o .NET Framework manualmente em funções de trabalho ou Web do serviço de nuvem."
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2016
+ms.date: 11/16/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: d67271ebf90ac2a1870787de7cfe6459526fcb37
+ms.openlocfilehash: 60cd63540d91e11729f2a305b999548d5c6b9320
+
 
 ---
-# Instalar o .NET em uma Função do Serviço de Nuvem
-Este artigo descreve como instalar o .NET Framework em funções de trabalho ou Web do serviço de nuvem. Você pode usar estas etapas para instalar o .NET 4.6.1 no SO Convidado do Azure, Família 4. Para obter as informações mais recentes sobre versões do sistema operacional convidado, consulte [Azure Guest OS Releases and SDK Compatibility Matrix (Matriz de compatibilidade do SDK e das versões do sistema operacional convidado do Azure)](cloud-services-guestos-update-matrix.md).
+# <a name="install-net-on-a-cloud-service-role"></a>Instalar o .NET em uma Função do Serviço de Nuvem
+Este artigo descreve como instalar versões diferentes do .NET Framework nas Funções de Trabalho e Web do Serviço de Nuvem em comparação com o que vem com o SO Convidado. Por exemplo, você pode usar estas etapas para instalar o .NET 4.6.1 no SO Convidado do Azure Família 4, que não vem com nenhuma versão do .NET 4.6. Para obter as informações mais recentes sobre versões do SO Convidado, consulte [Notícias da versão do SO Convidado do Azure](cloud-services-guestos-update-matrix.md).
 
-O processo de instalação do .NET em suas funções de trabalho e web envolve incluir o pacote do instalador do .NET como parte do seu projeto de nuvem e iniciar o instalador como parte das tarefas de inicialização da função.
+>[!NOTE]
+>O SO Convidado 5 inclui o .NET 4.6
 
-## Adicione o instalador do .NET ao seu projeto
+O processo de instalação do .NET em suas funções de trabalho e web envolve incluir o pacote do instalador do .NET como parte do seu projeto de nuvem e iniciar o instalador como parte das tarefas de inicialização da função.  
+
+## <a name="add-the-net-installer-to-your-project"></a>Adicione o instalador do .NET ao seu projeto
 * Baixe o instalador da Web do .NET Framework que você deseja instalar
   * [.NET 4.6.1 Web Installer](http://go.microsoft.com/fwlink/?LinkId=671729)
 * Para uma função Web
-  1. Em **Gerenciador de Soluções**, em **Funções** no projeto de serviço de nuvem, clique com o botão direito do mouse na sua função e selecione **Adicionar>Nova Pasta**. Crie uma pasta chamada *bin*
-  2. Clique com o botão direito na pasta **bin** e selecione **Adicionar>Item Existente**. Selecione o instalador do .NET e adicione-o à pasta bin.
+  1. No **Gerenciador de Soluções**, em **Funções** no projeto do serviço de nuvem, clique com botão direito em sua função e selecione **Adicionar > nova Pasta**. Crie uma pasta chamada *bin*
+  2. Clique com o botão direito na pasta **bin** e selecione **Adicionar > Item Existente**. Selecione o instalador do .NET e adicione-o à pasta bin.
 * Para uma função de trabalho
-  1. Clique com o botão direito na sua função e selecione **Adicionar>Item Existente**. Selecione o instalador do .NET e adicione-o à função.
+  1. Clique com o botão direito em sua função e selecione **Adicionar > Item Existente**. Selecione o instalador do .NET e adicione-o à função. 
 
 Os arquivos adicionados dessa maneira à pasta de conteúdo de função serão automaticamente adicionados ao pacote de serviço de nuvem e implantados em um local consistente na máquina virtual. Repita esse processo para todas as funções de trabalho e web no seu serviço de nuvem para que todas as funções tenham uma cópia do instalador.
 
@@ -39,10 +46,10 @@ Os arquivos adicionados dessa maneira à pasta de conteúdo de função serão a
 
 ![Conteúdos de função com arquivos do instalador][1]
 
-## Defina tarefas de inicialização para suas funções
-As tarefas de inicialização permitem que você execute operações antes de uma função iniciar. Instalar o .NET Framework como parte da tarefa de inicialização garante que o Framework seja instalado antes de qualquer um de seus códigos de aplicativo ser executado. Para obter mais informações sobre as tarefas de inicialização, consulte: [Execução de tarefas de inicialização do Azure](cloud-services-startup-tasks.md).
+## <a name="define-startup-tasks-for-your-roles"></a>Defina tarefas de inicialização para suas funções
+As tarefas de inicialização permitem que você execute operações antes de uma função iniciar. Instalar o .NET Framework como parte da tarefa de inicialização garante que o Framework seja instalado antes de qualquer um de seus códigos de aplicativo ser executado. Para obter mais informações sobre as tarefas de inicialização, consulte: [Execução de tarefas de inicialização do Azure](cloud-services-startup-tasks.md). 
 
-1. Adicione o seguinte ao arquivo *ServiceDefinition.csdef* no nó **WebRole** ou **WorkerRole** para todas as funções:
+1. Adicione o seguinte ao arquivo *ServiceDefinition.csdef* sob o nó **WebRole** ou **WorkerRole** para todas as funções:
    
     ```xml
     <LocalResources>
@@ -62,24 +69,24 @@ As tarefas de inicialização permitem que você execute operações antes de um
     </Startup>
     ```
    
-    A configuração acima executará o comando do console *install.cmd* com privilégios de administrador para que ele possa instalar o .NET Framework. A configuração também cria um LocalStorage com o nome *NETFXInstall*. O script de inicialização definirá a pasta temp para usar este recurso de armazenamento local para que o instalador do .NET Framework seja baixado e instalado desse recurso. É importante definir o tamanho desse recurso como, pelo menos, 1024 MB para garantir que a estrutura seja instalada corretamente. Para saber mais sobre as tarefas de inicialização, confira: [Tarefas de inicialização comuns do Serviço de Nuvem](cloud-services-startup-tasks-common.md)
-2. Crie um arquivo **install.cmd** e adicione-o a todas as funções clicando com o botão direito do mouse na função e selecionando **Adicionar>Item Existente...**. Agora todas as funções devem ter o arquivo do instalador do .NET, assim como o arquivo install.cmd.
+    A configuração acima executará o comando do console *install.cmd* com privilégios de administrador para que ele possa instalar o .NET Framework. A configuração também cria um LocalStorage com o nome *NETFXInstall*. O script de inicialização definirá a pasta temp para usar este recurso de armazenamento local para que o instalador do .NET Framework seja baixado e instalado desse recurso. É importante definir o tamanho desse recurso como, pelo menos, 1024 MB para garantir que a estrutura seja instalada corretamente. Para saber mais sobre as tarefas de inicialização, confira: [Tarefas de inicialização comuns do Serviço de Nuvem](cloud-services-startup-tasks-common.md) 
+2. Crie um arquivo **install.cmd** e adicione-o a todas as funções clicando com o botão direito na função e selecionando **Adicionar > Item Existente...**. Agora todas as funções devem ter o arquivo do instalador do .NET, assim como o arquivo install.cmd.
    
     ![Conteúdos de função com todos os arquivos][2]
    
    > [!NOTE]
-   > Use um editor de texto simples como o Bloco de Notas para criar esse arquivo. Se você usar o Visual Studio para criar um arquivo de texto e, em seguida, renomeá-lo como '.cmd', o arquivo ainda pode conter uma marca de ordem de byte UTF-8 e a execução da primeira linha do script resultará em um erro. Se você usar o Visual Studio para criar o arquivo, adicione um REM (Comentário) à primeira linha do arquivo para que ela seja ignorada ao executar.
+   > Use um editor de texto simples como o Bloco de Notas para criar esse arquivo. Se você usar o Visual Studio para criar um arquivo de texto e, em seguida, renomeá-lo como '.cmd', o arquivo ainda pode conter uma marca de ordem de byte UTF-8 e a execução da primeira linha do script resultará em um erro. Se você usar o Visual Studio para criar o arquivo, adicione um REM (Comentário) à primeira linha do arquivo para que ela seja ignorada ao executar. 
    > 
    > 
-3. Adicione o seguinte script ao arquivo **install.cmd**:
+3. Adicione o seguinte script ao arquivo **install.cmd** :
    
-    ```
+    ```cmd
     REM Set the value of netfx to install appropriate .NET Framework. 
     REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
     REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
-    set netfx="NDP462"
+    set netfx="NDP461"
    
     REM ***** Set script start timestamp *****
     set timehour=%time:~0,2%
@@ -156,17 +163,17 @@ As tarefas de inicialização permitem que você execute operações antes de um
     EXIT /B 0
     ```
    
-    O script de instalação verifica se a versão do .NET Framework já está instalada no computador ao consultar o Registro. Se a versão do .NET não estiver instalada, o instalador da Web do .Net será iniciado. Para ajudar a solucionar problemas com quaisquer questões, o script registrará toda a atividade em um arquivo chamado *startuptasklog-(currentdatetime).txt* armazenado no armazenamento local *InstallLogs*.
+    O script de instalação verifica se a versão do .NET Framework já está instalada no computador ao consultar o Registro. Se a versão do .NET não estiver instalada, o instalador da Web do .Net será iniciado. Para ajudar na solução de problemas, o script registrará todas as atividades em um arquivo denominado *startuptasklog-(currentdatetime).txt* colocado no armazenamento local *InstallLogs*.
    
    > [!NOTE]
    > O script ainda mostra como instalar o .NET 4.5.2 ou o .NET 4.6 para manter a continuidade. Não é necessário instalar manualmente o .NET 4.5.2, pois ele já está disponível no SO Convidado do Azure. Em vez de instalar o .NET 4.6, instale diretamente o .NET 4.6.1 devido à [KB 3118750](https://support.microsoft.com/kb/3118750).
    > 
    > 
 
-## Configurar o diagnóstico para transferir os logs das tarefas de inicialização para o Armazenamento de Blobs
+## <a name="configure-diagnostics-to-transfer-the-startup-task-logs-to-blob-storage"></a>Configurar o diagnóstico para transferir os logs das tarefas de inicialização para o Armazenamento de Blobs
 Para simplificar a solução de quaisquer problemas de instalação, você pode configurar o Diagnóstico do Azure para transferir os arquivos de log gerados pelo script de inicialização ou pelo instalador do .NET para o Armazenamento de Blobs. Com essa abordagem, você pode exibir os logs simplesmente ao baixar os arquivos de log do armazenamento de blob em vez de precisar utilizar a área de trabalho remota na função.
 
-Para configurar o diagnóstico, abra o *diagnostics.wadcfgx* e adicione o seguinte abaixo do nó **Directories**:
+Para configurar o diagnóstico, abra o *diagnostics.wadcfgx* e adicione o seguinte abaixo do nó **Directories** : 
 
 ```xml 
 <DataSources>
@@ -176,12 +183,12 @@ Para configurar o diagnóstico, abra o *diagnostics.wadcfgx* e adicione o seguin
 </DataSources>
 ```
 
-Isso configurará o diagnóstico do Azure para transferir todos os arquivos no diretório *log* no recurso *NETFXInstall* para a conta de armazenamento de diagnóstico no contêiner de blob *netfx-install*.
+Isso irá configurar o diagnóstico do Azure para transferir todos os arquivos no diretório do *log* sob o recurso *NETFXInstall* para a conta de armazenamento de diagnóstico no contêiner de blobs *netfx-install*.
 
-## Implantando o serviço
-Quando você implantar o serviço, as tarefas de inicialização serão executadas e instalarão o .NET Framework se ele ainda não estiver instalado. Suas funções estarão no estado ocupado enquanto o Framework estiver sendo instalado e podem até mesmo reiniciar se for necessário para a instalação do Framework.
+## <a name="deploying-your-service"></a>Implantando o serviço
+Quando você implantar o serviço, as tarefas de inicialização serão executadas e instalarão o .NET Framework se ele ainda não estiver instalado. Suas funções estarão no estado ocupado enquanto o Framework estiver sendo instalado e podem até mesmo reiniciar se for necessário para a instalação do Framework. 
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 * [Instalando o .NET Framework][Instalando o .NET Framework]
 * [Como determinar quais versões do .NET Framework estão instaladas][Como determinar quais versões do .NET Framework estão instaladas]
 * [Solução de problemas de instalações do .NET Framework][Solução de problemas de instalações do .NET Framework]
@@ -196,4 +203,8 @@ Quando você implantar o serviço, as tarefas de inicialização serão executad
 
 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

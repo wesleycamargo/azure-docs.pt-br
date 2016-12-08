@@ -1,13 +1,13 @@
 ---
-title: Executar consultas do Hive usando o SDK .NET do HDInsight | Microsoft Docs
+title: Executar consultas do Hive usando o SDK do HDInsight .NET | Microsoft Docs
 description: Saiba como enviar trabalhos Hadoop para o Hadoop no Azure HDInsight usando o SDK .NET do HDInsight.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
-
+ms.assetid: 4e291890-f8b4-426c-b5e8-d4fd512ff042
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 2168147972184e14705781765b9afb3f2ee902e3
+
 
 ---
-# Executar consultas Hive usando o SDK .NET do HDInsight
+# <a name="run-hive-queries-using-hdinsight-net-sdk"></a>Executar consultas Hive usando o SDK .NET do HDInsight
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 Saiba como enviar consultas do Hive usando o SDK .NET do HDInsight.
@@ -27,14 +31,14 @@ Saiba como enviar consultas do Hive usando o SDK .NET do HDInsight.
 > 
 > 
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, você deve ter o seguinte:
 
-* **Um cluster Hadoop no HDInsight**. Confira [Create cluster and SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database) (Criar o cluster e o Banco de dados SQL).
+* **Um cluster Hadoop no HDInsight**. Confira a [Introdução ao uso do Hadoop baseado em Linux no HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 * **Visual Studio 2012/2013/2015**.
 
-## Enviar consultas do Hive usando o SDK do .NET do HDInsight
-O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight do .NET.
+## <a name="submit-hive-queries-using-hdinsight-net-sdk"></a>Enviar consultas do Hive usando o SDK do .NET do HDInsight
+O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight do .NET. 
 
 **Para enviar trabalhos**
 
@@ -43,7 +47,8 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. Use o seguinte código:
-   
+
+    ```csharp
         using System.Collections.Generic;
         using System.IO;
         using System.Text;
@@ -124,9 +129,10 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
                 }
             }
         }
+    ```
 4. Pressione **F5** para executar o aplicativo.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Para saber mais, consulte os seguintes artigos:
 
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
@@ -140,4 +146,10 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

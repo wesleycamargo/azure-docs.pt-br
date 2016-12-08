@@ -1,12 +1,12 @@
 ---
 title: Limites do sistema StorSimple| Microsoft Docs
-description: Descreve os limites do sistema e os tamanhos recomendados para componentes e conexões do StorSimple série 8000.
+description: "Descreve os limites do sistema e os tamanhos recomendados para componentes e conexões do StorSimple série 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/06/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 884f9ad8cf3c0862fa0f235ee19efd0dbdadbab6
+
 
 ---
 # <a name="storsimple-system-limits"></a>Limites do sistema StorSimple
@@ -53,6 +57,9 @@ O StorSimple fornece armazenamento escalonável e flexível para seu datacenter.
 ## <a name="next-steps"></a>Próximas etapas
 Analise os [requisitos de sistema do StorSimple](storsimple-system-requirements.md). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

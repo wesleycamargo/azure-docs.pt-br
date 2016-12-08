@@ -1,12 +1,12 @@
 ---
-title: Codificação avançada com o Codificador de Mídia Standard | Microsoft Docs
-description: Esse tópico mostra como executar a codificação avançada ao personalizar predefinições de tarefa do Codificador de Mídia Padrão. Esse tópico mostra como usar o SDK do .NET dos Serviços de Mídia para criar um trabalho e uma tarefa de codificação. Ele também mostra como fornecer predefinições personalizadas para o trabalho de codificação.
+title: "Codificação avançada com o Media Encoder Standard | Microsoft Docs"
+description: "Esse tópico mostra como executar a codificação avançada ao personalizar predefinições de tarefa do Codificador de Mídia Padrão. Esse tópico mostra como usar o SDK do .NET dos Serviços de Mídia para criar um trabalho e uma tarefa de codificação. Ele também mostra como fornecer predefinições personalizadas para o trabalho de codificação."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e85bc8a1e9193474fa3c9ef3f19ead25f314ecac
+
 
 ---
 # <a name="advanced-encoding-with-media-encoder-standard"></a>Codificação avançada com o Codificador de Mídia Padrão
@@ -29,7 +33,7 @@ As predefinições personalizadas que executam as seguintes tarefas de codifica�
 * [Desabilitar desentrelaçamento automático](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 * [Predefinições somente de áudio](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 
-## <a name="<a-id="encoding_with_dotnet"></a>encoding-with-media-services-.net-sdk"></a><a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
+## <a name="a-idencodingwithdotnetaencoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
 O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para executar as seguintes tarefas:
 
 * Crie um trabalho de codificação.
@@ -230,7 +234,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
         }
 
 
-## <a name="<a-id="thumbnails"></a>generate-thumbnails"></a><a id="thumbnails"></a>Gerar miniaturas
+## <a name="a-idthumbnailsagenerate-thumbnails"></a><a id="thumbnails"></a>Gerar miniaturas
 Essa seção mostra como personalizar uma predefinição que gera miniaturas. A predefinição definida abaixo contém informações sobre como você deseja codificar seu arquivo, bem como as informações necessárias para gerar miniaturas. Você pode usar qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e adicionar o código que gera miniaturas.  
 
 > [!NOTE]
@@ -242,7 +246,7 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
 
 Certifique-se de examinar a seção [Considerações](media-services-custom-mes-presets-with-dotnet.md#considerations) .
 
-### <a name="<a-id="json"></a>json-preset"></a><a id="json"></a>Predefinição JSON
+### <a name="a-idjsonajson-preset"></a><a id="json"></a>Predefinição JSON
     {
       "Version": 1.0,
       "Codecs": [
@@ -342,7 +346,7 @@ Certifique-se de examinar a seção [Considerações](media-services-custom-mes-
     }
 
 
-### <a name="<a-id="xml"></a>xml-preset"></a><a id="xml"></a>Predefinição XML
+### <a name="a-idxmlaxml-preset"></a><a id="xml"></a>Predefinição XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -427,16 +431,16 @@ As seguintes considerações se aplicam:
     
     Você pode combinar as notações como desejar.
     
-    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" do conteúdo   OBSERVAÇÃO: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
+    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
   * Padrões: Start:{Best}
 * O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponderá JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
 
-## <a name="<a-id="trim_video"></a>trim-a-video-(clipping)"></a><a id="trim_video"></a>Cortar um vídeo (recorte)
+## <a name="a-idtrimvideoatrim-a-video-clipping"></a><a id="trim_video"></a>Cortar um vídeo (recorte)
 Essa seção fala sobre como modificar as predefinições do codificador para recortar ou cortar o vídeo de entrada no qual a entrada é um arquivo de mezanino ou arquivo sob demanda. O codificador também pode ser usado para recortar ou cortar um ativo que é capturado ou arquivado de uma transmissão. Os detalhes sobre isso estão disponíveis [neste blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas [aqui](https://msdn.microsoft.com/library/mt269960.aspx) e modifique o elemento **Fontes** (como mostrado abaixo). O valor da StartTime precisa corresponder aos carimbos de hora absolutos do vídeo de entrada. Por exemplo, se o primeiro quadro do vídeo de entrada tem um carimbo de data/hora de 12:00:10.000, então, a StartTime deve ser pelo menos 12:00:10.000 e mais. No exemplo abaixo, estamos supondo que o vídeo de entrada tenha um carimbo de data/hora inicial igual a zero. Observe que **Fontes** deve ser colocado na parte superior do esquema. 
 
-### <a name="<a-id="json"></a>json-preset"></a><a id="json"></a>Predefinição JSON
+### <a name="a-idjsonajson-preset"></a><a id="json"></a>Predefinição JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -673,7 +677,7 @@ Para cortar seus vídeos, use qualquer uma das predefinições MES documentadas 
       </Outputs>
     </Preset>
 
-## <a name="<a-id="overlay"></a>create-an-overlay"></a><a id="overlay"></a>Criar uma sobreposição
+## <a name="a-idoverlayacreate-an-overlay"></a><a id="overlay"></a>Criar uma sobreposição
 O Codificador de Mídia Padrão permite sobrepor uma imagem em um vídeo existente. Atualmente, há suporte para os seguintes formatos: png, jpg, gif e bmp. A predefinição definida abaixo é um exemplo básico de uma sobreposição de vídeo.
 
 Além de definir um arquivo de predefinição, você também precisa permitir que os Serviços de Mídia saibam qual arquivo no ativo é uma imagem de sobreposição e qual arquivo contém o vídeo de origem no qual você deseja fazer a sobreposição de imagem. O arquivo de vídeo precisa ser o arquivo **primário** . 
@@ -827,7 +831,7 @@ O exemplo do .NET acima define duas funções: **UploadMediaFilesFromFolder** e 
       </Outputs>
     </Preset>
 
-## <a name="<a-id="silent_audio"></a>insert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Inserir uma faixa de áudio silenciosa quando a entrada não tiver áudio
+## <a name="a-idsilentaudioainsert-a-silent-audio-track-when-input-has-no-audio"></a><a id="silent_audio"></a>Inserir uma faixa de áudio silenciosa quando a entrada não tiver áudio
 Por padrão, se você enviar uma entrada para o codificador que contenha apenas vídeo e sem áudio, o ativo de saída conterá os arquivos que contêm apenas dados de vídeo. Alguns reprodutores podem não ser capazes de lidar com tais fluxos de saída. Você pode usar essa configuração para forçar o codificador a adicionar uma faixa de áudio silenciosa à saída nesse cenário.
 
 Para forçar o codificador a produzir um ativo que contenha uma faixa de áudio silenciosa quando a entrada não tiver áudio, especifique o valor de "InsertSilenceIfNoAudio".
@@ -850,7 +854,7 @@ Você pode usar qualquer uma das predefinições MES documentadas [aqui](https:/
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-## <a name="<a-id="deinterlacing"></a>disable-auto-de-interlacing"></a><a id="deinterlacing"></a>Desabilitar desentrelaçamento automático
+## <a name="a-iddeinterlacingadisable-auto-de-interlacing"></a><a id="deinterlacing"></a>Desabilitar desentrelaçamento automático
 Os clientes não precisam fazer nada se desejarem que o conteúdo de entrelaçamento seja automaticamente desentrelaçado. Quando o desentrelaçamento automático está ativado (padrão), o MES faz a detecção automática de quadros entrelaçados e apenas desentrelaça quadros marcados como entrelaçados.
 
 Você pode desativar o desentrelaçamento automático. No entanto, isso não é recomendado.
@@ -878,7 +882,7 @@ Você pode desativar o desentrelaçamento automático. No entanto, isso não é 
     </Sources>
 
 
-## <a name="<a-id="audio_only"></a>audio-only-presets"></a><a id="audio_only"></a>Predefinições somente de áudio
+## <a name="a-idaudioonlyaaudio-only-presets"></a><a id="audio_only"></a>Predefinições somente de áudio
 Esta seção demonstra duas predefinições MES somente de áudio: áudio AAC e Áudio de Boa Qualidade AAC.
 
 ### <a name="aac-audio"></a>Áudio AAC
@@ -934,6 +938,9 @@ Esta seção demonstra duas predefinições MES somente de áudio: áudio AAC e 
 ## <a name="see-also"></a>Consulte também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

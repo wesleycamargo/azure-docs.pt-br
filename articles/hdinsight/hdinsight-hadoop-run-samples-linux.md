@@ -1,13 +1,13 @@
 ---
 title: Executar amostras de MapReduce do Hadoop no HDInsight baseado em Linux | Microsoft Docs
-description: Introdução ao uso de exemplos de MapReduce com HDInsight baseado em Linux. Utilize SSH para se conectar ao cluster e use o comando do Hadoop para executar trabalhos de exemplo.
+description: "Introdução ao uso de exemplos de MapReduce com HDInsight baseado em Linux. Utilize SSH para se conectar ao cluster e use o comando do Hadoop para executar trabalhos de exemplo."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d4b6db263becb722cabfab2160c0a460034eae72
+
 
 ---
 # <a name="run-the-hadoop-samples-in-hdinsight"></a>Executar amostras do Hadoop no HDInsight
@@ -153,7 +157,7 @@ Os resultados devem se semelhar ao seguinte:
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## <a name="pi-(π)"></a>Pi (π)
+## <a name="pi-"></a>Pi (π)
 O exemplo do pi usa um método estatístico (quasi-Monte Carlo) para estimar o valor de pi. Os pontos colocados aleatoriamente em um quadrado de unidade também caem dentro de um círculo inscrito nesse quadrado com uma probabilidade igual à área do círculo, pi/4. O valor de pi pode ser estimado do valor de 4R onde R é a proporção do número de pontos que estão dentro do círculo em relação ao número total de pontos que estão dentro do quadrado. Quanto maior a amostra de pontos usados, melhor será a estimativa.
 
 O mapeador para este exemplo gera um número de pontos colocados aleatoriamente em um quadrado de unidade e, em seguida, conta o número dos pontos que estão dentro do círculo.
@@ -220,6 +224,6 @@ Neste artigo, você aprendeu a executar os exemplos incluídos com os clusters d
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

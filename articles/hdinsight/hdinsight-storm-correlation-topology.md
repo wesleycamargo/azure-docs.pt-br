@@ -2,19 +2,23 @@
 title: Correlacionar eventos ao longo do tempo com o Storm e o HBase no HDInsight
 description: Saiba como correlacionar eventos que chegam em momentos diferentes usando o Storm e HBase no HDInsight.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 17d11479-2d02-4790-8d29-05fb38351479
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 10/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 477568c4e1da51928f3618ba13b670cd62791fb9
+
 
 ---
 # <a name="correlate-events-over-time-with-storm-and-hbase-on-hdinsight"></a>Correlacionar eventos ao longo do tempo com o Storm e o HBase no HDInsight
@@ -22,12 +26,15 @@ Usando um armazenamento de dados persistentes com o Apache Storm, você pode cor
 
 Neste documento, você aprenderá como criar uma topologia Storm C# básica que rastreie eventos de logon e logoff de sessões de usuário e calcule a duração da sessão. A topologia usa HBase como um repositório de dados persistentes. O HBase também permite executar consultas de lote nos dados históricos para produzir informações adicionais, como quantas sessões de usuário foram iniciadas ou encerradas durante um período específico.
 
-[!INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
-
 ## <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio e as ferramentas do HDInsight para Visual Studio: confira [Comece a usar as ferramentas do HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para obter informações de instalação.
 * Apache Storm em cluster HDInsight (baseado em Windows). Isso executa a topologia Storm, que processa os dados de entrada e os armazena no HBase.
-* Apache HBase em cluster HDInsight (baseado em Windows ou Linux). Esse é o repositório de dados para este exemplo.
+  
+  > [!IMPORTANT]
+  > Embora as topologias SCP.NET sejam compatíveis com clusters Storm baseados em Linux criados após 28/10/2016, o pacote SDK do HBase para .NET disponível a partir de 28/10/2016 não funciona corretamente no Linux.
+  > 
+  > 
+* Apache HBase no cluster HDInsight (baseado em Linux ou Windows). Esse é o repositório de dados para este exemplo.
 
 ## <a name="architecture"></a>Arquitetura
 ![Diagrama do fluxo de dados por meio da topologia](./media/hdinsight-storm-correlation-topology/correlationtopology.png)
@@ -176,6 +183,9 @@ Quando você estiver pronto para parar a topologia, volte para o projeto **Corre
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais exemplos de topologias Storm, consulte [Exemplo de topologias para Storm no HDInsight](hdinsight-storm-example-topology.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

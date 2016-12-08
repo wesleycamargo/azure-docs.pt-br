@@ -1,12 +1,12 @@
 ---
-title: Filtros e manifestos dinâmicos | Microsoft Docs
-description: Este tópico descreve como criar filtros para que seu cliente possa usá-los na transmissão de seções específicas de um fluxo. Os Serviços de Mídia criam manifestos dinâmicos para arquivar esse streaming seletivo.
+title: "Filtros e manifestos dinâmicos | Microsoft Docs"
+description: "Este tópico descreve como criar filtros para que seu cliente possa usá-los na transmissão de seções específicas de um fluxo. Os Serviços de Mídia criam manifestos dinâmicos para arquivar esse streaming seletivo."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: cenkdin
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: cenkdin;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6b322f69a1b4dec77a1c8c8bcd0e5f231f9617ff
+
 
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
@@ -32,7 +36,7 @@ Ao codificar um ativo para streaming de taxa de bits adaptável, um arquivo de *
 
 Aqui está um exemplo desse arquivo de manifesto: 
 
-    <?xml version="1.0" encoding="UTF-8"?>  
+    <?xml version="1.0" encoding="UTF-8"?>    
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="330187755" TimeScale="10000000">
 
     <StreamIndex Chunks="17" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="8">
@@ -88,7 +92,7 @@ Para obter mais informações sobre como fornecer seu conteúdo e criar URLs de 
 > 
 > 
 
-### <a name="<a-id="filters"></a>filters"></a><a id="filters"></a>Filtros
+### <a name="a-idfiltersafilters"></a><a id="filters"></a>Filtros
 Há dois tipos de filtros de ativo: 
 
 * Filtros globais (podem ser aplicados a qualquer ativo na conta de Serviços de Mídia do Azure, têm a vida útil da conta) e 
@@ -96,7 +100,7 @@ Há dois tipos de filtros de ativo:
 
 Os filtros globais e locais têm exatamente as mesmas propriedades. A principal diferença entre os dois é para quais cenários, que tipo de filtro é mais adequado. Os filtros globais geralmente são adequados para perfis de dispositivos (filtragem de representação) em que os filtros locais poderiam ser usados para cortar um ativo específico.
 
-## <a name="<a-id="scenarios"></a>common-scenarios"></a><a id="scenarios"></a>Cenários comuns
+## <a name="a-idscenariosacommon-scenarios"></a><a id="scenarios"></a>Cenários comuns
 Como foi mencionado anteriormente, ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda) sua meta é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Além disso, você pode ter outros requisitos que envolvem a filtragem dos ativos e uso de **manifestos dinâmicos**. As seções a seguir proporcionam uma breve visão geral dos diferentes cenários de filtragem.
 
 * Especifique apenas um subconjunto das representações de áudio e vídeos que podem tratar certos dispositivos (em vez de todas as representações que estão associadas ao ativo). 
@@ -124,7 +128,7 @@ Na maioria dos eventos de transmissão ao vivo, os operadores executam alguns te
 
 ![Corte do início][trim_filter]
 
-## <a name="creating-sub-clips-(views)-from-a-live-archive"></a>Criar subclipes (exibições) de um arquivo ao vivo
+## <a name="creating-sub-clips-views-from-a-live-archive"></a>Criar subclipes (exibições) de um arquivo ao vivo
 Muitos eventos ao vivo são de longa duração e o arquivamento dinâmico pode incluir vários eventos. Após o término do evento ao vivo, talvez os difusores queiram dividir o arquivo ao vivo em sequências lógicas de início e parada do programa. Em seguida, publicam esses programas virtuais separadamente sem pós-processamento do arquivo em tempo real e sem criar ativos separados (o que não obterá benefícios dos fragmentos de cache existentes nas CDNs). Exemplos desses programas virtuais (subclipes) são os tempos de um jogo de futebol ou de basquete, os innings no beisebol ou eventos individuais de uma tarde de programas Olímpicos.
 
 Com o manifesto dinâmico, é possível criar filtros usando os horários de início/término e criar modos de exibição virtuais que ultrapassam seu arquivo ao vivo. 
@@ -135,12 +139,12 @@ Ativos filtrados:
 
 ![Esqui][skiing]
 
-## <a name="adjusting-presentation-window-(dvr)"></a>Ajuste da janela de apresentação (DVR)
+## <a name="adjusting-presentation-window-dvr"></a>Ajuste da janela de apresentação (DVR)
 Atualmente, o Serviços de Mídia do Azure oferece arquivamento circular onde a duração pode ser configurada entre 5 minutos e 25 horas. A filtragem de manifesto pode ser usada para criar uma janela DVR com rolagem que ultrapassa o arquivo, sem excluir a mídia. Há muitos cenários em que os difusores podem desejar fornecer uma janela DVR limitada que se move com a borda ao vivo e, ao mesmo, tempo manter uma janela de arquivamento maior. Talvez o difusor queira usar os dados que estão fora da janela DVR para realçar clipes ou talvez ele queira fornecer janelas DVR diferentes para dispositivos diferentes. Por exemplo, a maioria dos dispositivos móveis não lida com janelas DVR grandes (você pode ter uma janela DVR de 2 minutos para dispositivos móveis e de 1 hora para os clientes de desktop).
 
 ![Janela DVR][dvr_filter]
 
-## <a name="adjusting-livebackoff-(live-position)"></a>Ajustar o LiveBackoff (posição ao vivo)
+## <a name="adjusting-livebackoff-live-position"></a>Ajustar o LiveBackoff (posição ao vivo)
 A filtragem de manifesto pode ser usada para remover vários segundos da borda ao vivo de um programa ao vivo. Isso permite que os difusores assistam à apresentação no ponto de publicação de visualização e criar pontos de inserção de anúncio antes que os visualizadores recebam o fluxo (normalmente retirado por 30 segundos). Os difusores, enviam esses anúncios para suas estruturas de cliente no horário para que eles recebam e processem as informações antes da oportunidade de anúncio.
 
 Além do suporte do anúncio, o LiveBackoff pode ser usado para ajustar a posição de download ao vivo do cliente para que, quando os clientes se deslocarem e alcançarem a borda ao vivo, ainda possam obter fragmentos do servidor em vez de obter erros HTTP 404 ou 412.
@@ -157,7 +161,7 @@ O tópico a seguir analisa as entidades dos Serviços de Mídia relacionadas aos
 
 [Criar filtros com APIs REST](media-services-rest-dynamic-manifest.md).
 
-## <a name="combining-multiple-filters-(filter-composition)"></a>Combinando vários filtros (composição de filtros)
+## <a name="combining-multiple-filters-filter-composition"></a>Combinando vários filtros (composição de filtros)
 Você também pode combinar vários filtros em uma única URL. 
 
 O seguinte cenário demonstra por que talvez seja conveniente combinar filtros:
@@ -209,6 +213,6 @@ Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-medi
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,90 +1,131 @@
 ---
-title: Introdução ao fornecimento de conteúdo sob demanda usando a REST | Microsoft Docs
-description: Este tutorial orienta você pelas etapas de implementação de um aplicativo de fornecimento de conteúdo sob demanda com os Serviços de Mídia do Azure usando API REST.
+title: "Introdução ao fornecimento de conteúdo sob demanda usando a REST | Microsoft Docs"
+description: "Este tutorial orienta você pelas etapas de implementação de um aplicativo de fornecimento de conteúdo sob demanda com os Serviços de Mídia do Azure usando API REST."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/07/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 5944facc37937f1c8369d919c99cad3b42b56840
+ms.openlocfilehash: 590e6cd71bc6c24a485f5270b8688819cb1e47da
+
 
 ---
-# Introdução ao fornecimento de conteúdo sob demanda usando a REST
+# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introdução ao fornecimento de conteúdo sob demanda usando a REST
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 > 
 > 
 
-Este início rápido orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de vídeo sob demanda (VoD) com as APIs REST dos Serviços de Mídia do Azure (AMS).
+Este início rápido orienta você pelas etapas de implementação de um aplicativo de entrega de conteúdo de vídeo sob demanda (VoD) com as APIs REST dos Serviços de Mídia do Azure (AMS). 
 
-O tutorial apresenta o fluxo de trabalho básico dos Serviços de Mídia e os objetos e as tarefas de programação mais comuns necessárias para o desenvolvimento dos Serviços de Mídia do Microsoft Azure. No final do tutorial, você poderá transmitir ou baixar progressivamente um arquivo de mídia de exemplo que você carregou, codificou e baixou.
+O tutorial apresenta o fluxo de trabalho básico dos Serviços de Mídia e os objetos e as tarefas de programação mais comuns necessárias para o desenvolvimento dos Serviços de Mídia do Microsoft Azure. No final do tutorial, você poderá transmitir ou baixar progressivamente um arquivo de mídia de exemplo que você carregou, codificou e baixou.  
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Os seguintes pré-requisitos são necessários para começar a desenvolver com os serviços de mídia com APIs REST.
 
-* Noções básicas sobre como desenvolver com API REST dos serviços de mídia. Para saber mais, consulte [media-services-rest-overview](http://msdn.microsoft.com/library/azure/hh973616.aspx).
-* Um aplicativo de sua escolha que pode enviar solicitações e respostas HTTP. Este tutorial usa o [Fiddler](http://www.telerik.com/download/fiddler).
+* Noções básicas sobre como desenvolver com API REST dos serviços de mídia. Para saber mais, consulte [Visão Geral da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
+* Um aplicativo de sua escolha que pode enviar solicitações e respostas HTTP. Este tutorial usa o [Fiddler](http://www.telerik.com/download/fiddler). 
 
 As tarefas a seguir são mostradas neste guia de início rápido.
 
-1. Criar uma conta dos Serviços de Mídia usando o Portal.
-2. Conectar à conta de serviços de mídia com a API REST.
-3. Criar um novo ativo e carregar um arquivo de vídeo com a API REST.
-4. Configurar unidades de streaming com API REST.
-5. Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável com a API REST.
-6. Publicar o ativo e obter URLs de download progressivo e streaming com API REST.
-7. Reproduzir o conteúdo.
+1. Criar uma conta de Serviços de Mídia (usando o portal do Azure).
+2. Configurar o ponto de extremidade de streaming (usando o portal do Azure).
+3. Conectar à conta de serviços de mídia com a API REST.
+4. Criar um novo ativo e carregar um arquivo de vídeo com a API REST.
+5. Configurar unidades de streaming com API REST.
+6. Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável com a API REST.
+7. Publicar o ativo e obter URLs de download progressivo e streaming com API REST. 
+8. Reproduzir o conteúdo. 
 
-## <a id="create_ams"></a>Criar uma conta de Serviços de Mídia usando o Portal
-1. No [Portal Clássico do Azure][Portal Clássico do Azure], clique em **Novo**, em **Serviço de Mídia** e em **Criação Rápida**.
+Para obter detalhes sobre as entidades do REST do AMS usadas neste tópico, consulte [Referência de API REST dos Serviços de Mídia do Azure](/rest/api/media/services/azure-media-services-rest-api-reference). Além disso, consulte [Conceitos dos Serviços de Mídia do Azure](media-services-concepts.md).
+
+## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Criar uma conta dos Serviços de Mídia do Azure usando o portal do Azure
+As etapas nesta seção mostram como criar uma conta do AMS.
+
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+2. Clique em **+Novo** > **Mídia + CDN** > **Serviços de Mídia**.
    
-    ![Criação Rápida dos Serviços de Mídia](./media/media-services-rest-get-started/wams-QuickCreate.png)
-2. Em **NOME**, insira o nome da nova conta. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3-24 caracteres de comprimento.
-3. Em **REGIÃO**, selecione a região geográfica que é usada para armazenar os registros de metadados da sua conta de Serviços de Mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na lista suspensa.
-4. Em **CONTA DE ARMAZENAMENTO**, selecione uma conta de armazenamento para fornecer armazenamento de blob do conteúdo de mídia de sua conta de Serviços de Mídia. Você pode selecionar uma conta de armazenamento existente na mesma região geográfica que sua conta de Serviços de Mídia ou criar uma nova conta de armazenamento. É criada uma nova conta de armazenamento na mesma região.
-5. Se você criou uma nova conta de armazenamento, em **NOME DA NOVA CONTA DE ARMAZENAMENTO**, insira um nome para a conta de armazenamento. As regras para nomes de contas de armazenamento são as mesmas que para contas de Serviços de Mídia.
-6. Clique em **Criação Rápida** na parte inferior do formulário.
+    ![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new1.png)
+3. Em **CRIAR CONTA DOS SERVIÇOS DE MÍDIA** , insira os valores necessários.
    
-    Você pode monitorar o status do processo na área de mensagem na parte inferior da janela.
+    ![Criar Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-new3.png)
    
-    Depois que a conta é criada com êxito, o status é alterado para Ativo.
+   1. Em **Nome da Conta**, insira o nome da nova conta AMS. Um nome de conta de Serviços de Mídia deve ser composto de letras minúsculas ou números, sem espaços, e deve ter de 3 a 24 caracteres de comprimento.
+   2. Em Assinatura, selecione uma das diferentes assinaturas do Azure às quais você tem acesso.
+   3. Em **Grupo de Recursos**, selecione o recurso novo ou existente.  Um grupo de recursos é uma coleção de recursos que compartilham o ciclo de vida, as permissões e as políticas. Saiba mais [aqui](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   4. Em **Localização**, selecione a região geográfica que é usada para armazenar os registros de mídia e metadados para sua conta de Serviços de Mídia. Essa região é usada para processar e transmitir a mídia. Somente as regiões de Serviços de Mídia disponíveis são exibidas na caixa da lista suspensa. 
+   5. Em **Conta de Armazenamento**, selecione uma conta de armazenamento para fornecer armazenamento de blobs do conteúdo de mídia de sua conta de Serviços de Mídia. Você pode selecionar uma conta de armazenamento existente na mesma região geográfica que sua conta de Serviços de Mídia ou criar uma conta de armazenamento. É criada uma nova conta de armazenamento na mesma região. As regras para nomes de contas de armazenamento são as mesmas que para contas de Serviços de Mídia.
+      
+       Saiba mais sobre o armazenamento [aqui](../storage/storage-introduction.md).
+   6. Selecione **Fixar no painel** para ver o progresso da implantação da conta.
+4. Clique em **Criar** na parte inferior do formulário.
    
-    Na parte inferior da página, o botão **GERENCIAR CHAVES** é exibido. Quando você clica nesse botão, é exibida uma caixa de diálogo com o nome da conta de Serviços de Mídia e as chaves primárias e secundárias. Será necessário o nome da conta e as informações da chave primária para acessar a conta de Serviços de Mídia de modo programático.
+    Quando a conta for criada com êxito, o status mudará para **Executando**. 
+   
+    ![Configurações dos Serviços de Mídia](./media/media-services-portal-vod-get-started/media-services-settings.png)
+   
+    Para gerenciar sua conta AMS (por exemplo, carregar vídeos, codificar ativos, monitorar o andamento do trabalho), use a janela **Configurações** .
 
-    ![Página Serviços de Mídia](./media/media-services-rest-get-started/wams-mediaservices-page.png)
+## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Configurar pontos de extremidade de streaming usando o portal do Azure
+Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer o vídeo via streaming de taxa de bits adaptável para seus clientes. Os Serviços de Mídia dão suporte às seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados Adobe PrimeTime/Access).
 
-    Quando você clica duas vezes no nome da conta, a página Início Rápido é exibida por padrão. Esta página permite que você execute algumas tarefas de gerenciamento que também estão disponíveis em outras páginas do portal. Por exemplo, você pode carregar um arquivo de vídeo nesta página ou na página CONTEÚDO.
+Os Serviços de Mídia fornecem um empacotamento dinâmico que permite a você enviar o conteúdo codificado para MP4 da taxa de bits adaptável nos formatos de transmissão suportados pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming, HDS) just-in-time, sem ter que armazenar as versões recolocadas de cada um dos formatos de transmissão.
 
+Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
-## <a id="connect"></a>Conectar-se à conta de Serviços de Mídia com a API REST
+* Codifique seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 da taxa de bits adaptável (as etapas de codificação serão demonstradas mais tarde neste tutorial).  
+* Crie pelo menos uma unidade de transmissão para o *ponto de extremidade de streaming* a partir da qual você planeja fornecer seu conteúdo. As etapas a seguir mostram como alterar o número de unidades da transmissão.
+
+Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia compilam e fornecem a resposta adequada com base nas solicitações de um cliente.
+
+Para criar e alterar o número de unidades reservadas de transmissão, faça o seguinte:
+
+1. Na janela **Configurações**, clique em **Pontos de extremidade de streaming**. 
+2. Clique no ponto de extremidade de streaming padrão. 
+   
+    A janela **DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO** é exibida.
+3. Para especificar o número de unidades de transmissão, deslize o controle **Unidades de transmissão** .
+   
+    ![Unidades de transmissão](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+4. Clique no botão **Salvar** para salvar as alterações.
+   
+   > [!NOTE]
+   > A alocação de quaisquer novas unidades leva cerca de 20 minutos para ser concluída.
+   > 
+   > 
+
+## <a name="a-idconnectaconnect-to-the-media-services-account-with-rest-api"></a><a id="connect"></a>Conectar-se à conta de Serviços de Mídia com a API REST
 Duas coisas são necessárias ao acessar os serviços de mídia do Azure: um token de acesso fornecido pelo Azure Access Control Services (ACS) e o URI dos serviços de mídia em si. Você pode usar os meios que desejar ao criar essas solicitações desde que especifique os valores de cabeçalho corretos e passar o token de acesso corretamente ao chamar nos serviços de mídia.
 
 As etapas a seguir descrevem o fluxo de trabalho mais comum ao usar a API REST dos serviços de mídia para se conectar aos serviços de mídia:
 
-1. Obtendo um token de acesso.
-2. Conectando o URI dos serviços de mídia.
+1. Obtendo um token de acesso. 
+2. Conectando o URI dos serviços de mídia.  
    
-    Lembre-se de que, depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI. Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
-3. Postando suas chamadas de API subsequentes para a nova URL.
+    Lembre-se de que depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI. Você também poderá receber uma resposta HTTP/1.1 200 que contém a descrição de metadados API ODATA.
+3. Postando suas chamadas de API subsequentes para a nova URL. 
    
     Por exemplo, se depois de tentar se conectar, você tem o seguinte:
    
         HTTP/1.1 301 Moved Permanently
         Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
    
-    Você deve postar suas chamadas à API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
+    Você deve postar suas chamadas de API subsequentes para https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
-### Obtendo um token de acesso
-Para acessar os serviços de mídia diretamente por meio da API REST, recupere um token de acesso do ACS e use-o durante todas as solicitações HTTP feitas no serviço. Esse token é semelhante aos outros tokens fornecidos pelo ACS com base nas declarações de acesso fornecidas no cabeçalho de uma solicitação HTTP e usando o protocolo OAuth v2. Não é necessário qualquer outro pré-requisito antes de conectar-se diretamente aos serviços de mídia.
+### <a name="getting-an-access-token"></a>Obtendo um token de acesso
+Para acessar os serviços de mídia diretamente por meio da API REST, recupere um token de acesso do ACS e use-o durante todas as solicitações HTTP feitas no serviço. Não é necessário qualquer outro pré-requisito antes de conectar-se diretamente aos serviços de mídia.
 
 O exemplo a seguir mostra o cabeçalho de solicitação HTTP e o corpo usado para recuperar um token.
 
@@ -101,14 +142,14 @@ O exemplo a seguir mostra o cabeçalho de solicitação HTTP e o corpo usado par
 
 **Corpo**:
 
-Você precisa provar os valores de client\_id e client\_secret no corpo dessa solicitação. O client\_id e client\_secret correspondem a valores AccountName e AccountKey, respectivamente. Esses valores são fornecidos a você pelos serviços de mídia ao configurar sua conta.
+Você precisa provar os valores de client_id e client_secret no corpo dessa solicitação. O client_id e client_secret correspondem a valores AccountName e AccountKey, respectivamente. Esses valores são fornecidos a você pelos serviços de mídia ao configurar sua conta. 
 
-Observe que o AccountKey da sua conta de serviços de mídia deve ser codificado de URL ao usá-lo como o valor de client\_secret na sua solicitação de token de acesso.
+A AccountKey da sua conta de serviços de mídia deve ser codificado de URL ao usá-lo como o valor de client_secret na sua solicitação de token de acesso.
 
     grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
 
-Por exemplo:
+Por exemplo: 
 
     grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
 
@@ -135,18 +176,18 @@ O exemplo a seguir mostra a resposta HTTP que contém o token de acesso no corpo
 
 
 > [!NOTE]
-> É recomendável armazenar em cache os valores "access\_token" e "expires\_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
+> É recomendável armazenar em cache os valores "access_token" e "expires_in" em um armazenamento externo. Os dados do token podem ser recuperados posteriormente a partir do armazenamento e reutilizados em suas chamadas de API REST dos serviços de mídia. Isso é especialmente útil para cenários em que o token pode ser compartilhado com segurança entre vários processos ou computadores.
 > 
 > 
 
-Certifique-se de monitorar o valor "expires\_in" do token de acesso e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
+Certifique-se de monitorar o valor "expires_in" do token de acesso e atualizar suas chamadas de API REST com novos tokens, conforme necessário.
 
-### Conectando o URI dos serviços de mídia
-O URI raiz para os Serviços de Mídia é https://media.windows.net/. Inicialmente, você deve se conectar a esse URI, e se obtiver um redirecionamento 301 em resposta, deverá fazer chamadas subsequentes para o novo URI. Além disso, não use nenhuma lógica de redirecionamento/acompanhamento automático nas solicitações. Verbos HTTP e corpos de solicitação não serão encaminhados para o novo URI.
+### <a name="connecting-to-the-media-services-uri"></a>Conectando o URI dos serviços de mídia
+O URI raiz para os serviços de mídia é https://media.windows.net/. Inicialmente, você deve se conectar a esse URI, e se obtiver um redirecionamento 301 em resposta, deverá fazer chamadas subsequentes para o novo URI. Além disso, não use nenhuma lógica de redirecionamento/acompanhamento automático nas solicitações. Verbos HTTP e corpos de solicitação não serão encaminhados para o novo URI.
 
-Observe que o URI raiz para carregar e baixar arquivos de ativo é https://yourstorageaccount.blob.core.windows.net/, em que o nome da conta de armazenamento é o mesmo usado durante a configuração da conta de Serviços de Mídia.
+O URI raiz para carregar e baixar arquivos de ativo é https://yourstorageaccount.blob.core.windows.net/ onde o nome da conta de armazenamento é o mesmo usado durante a configuração da conta de serviços de mídia.
 
-O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços de Mídia (https://media.windows.net/). A solicitação obtém um redirecionamento 301 em resposta. A solicitação subsequente está usando o novo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).
+O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços de Mídia (https://media.windows.net/). A solicitação obtém um redirecionamento 301 em resposta. A solicitação subsequente está usando o novo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
 
 **Solicitação HTTP**:
 
@@ -207,17 +248,19 @@ O exemplo a seguir demonstra a solicitação HTTP para o URI raiz dos Serviços 
 > 
 > 
 
-## <a id="upload"></a>Criar um novo ativo e carregar um arquivo de vídeo com a API REST
-Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais.
+## <a name="a-iduploadacreate-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>Criar um novo ativo e carregar um arquivo de vídeo com a API REST
+
+Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade **Asset** pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais. 
 
 Um dos valores que você precisa fornecer ao criar um ativo é opções de criação do ativo. A propriedade **Options** é um valor de enumeração que descreve as opções de criptografia em que um ativo pode ser criado. Um valor válido é um dos valores na lista abaixo, não uma combinação de valores desta lista:
 
-* **None** = **0** — nenhuma criptografia é usada. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento. Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
-* **StorageEncrypted** = **1** — criptografa o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, o carrega no Armazenamento do Azure, onde ele é armazenado criptografado e inativo. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
+* **Nenhuma** = **0** - nenhuma criptografia é usada. Ao usar essa opção, seu conteúdo não é protegido quando está em trânsito ou em repouso no armazenamento.
+    Se você pretende enviar um MP4 usando o download progressivo, use essa opção. 
+* **StorageEncrypted** = **1** - criptografa o conteúdo limpo localmente usando a criptografia AES de 256 bits e, em seguida, carrega-o para o armazenamento do Azure, onde ele é armazenado, criptografado em rest. Ativos protegidos pela criptografia de armazenamento são descriptografados automaticamente e posicionados em um sistema de arquivos criptografado antes da codificação, então opcionalmente criptografados novamente antes do carregamento como um novo ativo de saída. O caso de uso primário para criptografia de armazenamento é quando você deseja proteger seus arquivos de mídia de entrada de alta qualidade com criptografia forte em repouso no disco.
 * **CommonEncryptionProtected** = **2** — use esta opção se você estiver carregando conteúdo que já foi criptografado e protegido com criptografia comum ou DRM PlayReady (por exemplo, Smooth Streaming protegido com DRM PlayReady).
-* **EnvelopeEncryptionProtected** = **4** – use esta opção se você estiver carregando HLS criptografado com AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
+* **EnvelopeEncryptionProtected** = **4** – use esta opção se você estiver carregando HLS criptografado com AES. Os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
 
-### Criar um ativo
+### <a name="create-an-asset"></a>Criar um ativo
 Um ativo é um contêiner para múltiplos tipos ou conjuntos de objetos nos serviços de mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda codificada. Na API REST, criar um ativo requer enviar solicitação POST para serviços de mídia e colocar qualquer informação de propriedade sobre seus ativos no corpo da solicitação.
 
 O exemplo a seguir mostra como criar um ativo.
@@ -271,10 +314,10 @@ Se for bem-sucedido, será retornado o seguinte:
        "StorageAccountName":"storagetestaccount001"
     }
 
-### Criar um AssetFile
+### <a name="create-an-assetfile"></a>Criar um AssetFile
 A entidade [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo, e um ativo pode conter um ou vários AssetFiles. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
 
-Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usará a solicitação **MESCLAR** HTTP para atualizar o AssetFile com as informações sobre o arquivo de mídia (como mostrado posteriormente no tópico).
+Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usará a solicitação **MESCLAR** HTTP para atualizar o AssetFile com as informações sobre o arquivo de mídia (como mostrado posteriormente no tópico). 
 
 **Solicitação HTTP**
 
@@ -333,8 +376,8 @@ Depois de carregar o arquivo de mídia digital em um contêiner de blob, você u
     }
 
 
-### Criando o AccessPolicy com permissão de gravação.
-Antes de carregar todos os arquivos no armazenamento de blob, defina os direitos de política de acesso para gravar em um ativo. Para fazer isso, POSTE uma solicitação HTTP para o conjunto de entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para saber mais sobre AccessPolicies, consulte [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
+### <a name="creating-the-accesspolicy-with-write-permission"></a>Criando o AccessPolicy com permissão de gravação.
+Antes de carregar todos os arquivos no armazenamento de blobs, defina os direitos de política de acesso para gravar em um ativo. Para fazer isso, POSTE uma solicitação HTTP para o conjunto de entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para saber mais sobre AccessPolicies, consulte [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
 O exemplo a seguir mostra como criar um AccessPolicy:
 
@@ -381,8 +424,9 @@ O exemplo a seguir mostra como criar um AccessPolicy:
        "Permissions":2
     }
 
-### Obter a URL de carregamento
-Para receber a URL de carregamento real, crie um localizador de SAS. Os localizadores definem a hora de início e o tipo de ponto de extremidade de conexão para clientes que desejam acessar arquivos em um ativo. Você pode criar várias entidades de localizador para um determinado par de AccessPolicy e ativos para manipular solicitações e necessidades de clientes diferentes. Cada um destes localizadores usam o valor StartTime mais o valor de DurationInMinutes do AccessPolicy para determinar quanto tempo uma URL pode ser usada. Para saber mais, consulte [Localizador](http://msdn.microsoft.com/library/azure/hh974308.aspx).
+### <a name="get-the-upload-url"></a>Obter a URL de carregamento
+
+Para receber a URL de carregamento real, crie um localizador de SAS. Os localizadores definem a hora de início e o tipo de ponto de extremidade de conexão para clientes que desejam acessar arquivos em um ativo. Você pode criar várias entidades de localizador para um determinado par de AccessPolicy e ativos para manipular solicitações e necessidades de clientes diferentes. Cada um destes localizadores usa o valor StartTime mais o valor de DurationInMinutes do AccessPolicy para determinar quanto tempo uma URL pode ser usada. Para saber mais, consulte [Localizador](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
 Uma URL SAS tem o seguinte formato:
 
@@ -391,8 +435,10 @@ Uma URL SAS tem o seguinte formato:
 Algumas considerações se aplicam:
 
 * Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. Para saber mais, consulte Localizador.
-* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
+* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").    
 * Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso. Esse problema se aplica a URL SAS e localizadores de origem.
+
+Para saber mais sobre localizadores SAS, consulte [este](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
 O exemplo a seguir mostra como criar um localizador URL SAS, conforme definido pela propriedade Type no corpo da solicitação ("1" para um localizador SAS e "2" para um localizador de origem sob demanda). A propriedade **Path** retornada contém a URL que você deve usar para carregar seu arquivo.
 
@@ -449,17 +495,17 @@ Se for bem-sucedido, será retornada a seguinte resposta:
        "Name":null
     }
 
-### Carregar um arquivo em um contêiner de armazenamento de blob
-Depois de definir AccessPolicy e localizador, o arquivo real é carregado como um contêiner de armazenamento de blobs do Azure usando as APIs de REST do armazenamento do Azure. Você pode carregar na página ou em blobs de blocos.
+### <a name="upload-a-file-into-a-blob-storage-container"></a>Carregar um arquivo em um contêiner de armazenamento de blobs
+Depois de definir AccessPolicy e localizador, o arquivo real é carregado como um contêiner de armazenamento de blobs do Azure usando as APIs de REST do armazenamento do Azure. Você pode carregar na página ou em blobs de blocos. 
 
 > [!NOTE]
-> Você deve adicionar o nome do arquivo para o arquivo que você deseja carregar no valor **Path** do Localizador recebido na seção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Você deve adicionar o nome do arquivo para o arquivo que você deseja carregar no valor **Path** do Localizador recebido na seção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 > 
 > 
 
 Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-### Atualizar o AssetFile
+### <a name="update-the-assetfile"></a>Atualizar o AssetFile
 Agora que você carregou o arquivo, atualize as informações de tamanho do FileAsset (e outros). Por exemplo:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
@@ -483,10 +529,9 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 **Resposta HTTP**
 
-Se for bem-sucedido, será retornado o seguinte:
-    HTTP/1.1 204 No Content
+Se for bem-sucedido, será retornado o seguinte: HTTP/1.1 204 No Content
 
-## Excluir o AccessPolicy e localizador
+## <a name="delete-the-locator-and-accesspolicy"></a>Excluir o AccessPolicy e localizador
 **Solicitação HTTP**
 
     DELETE https://wamsbayclus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
@@ -525,17 +570,17 @@ Se for bem-sucedido, será retornado o seguinte:
     ...
 
 
-## <a id="configure_streaming_units"></a>Configurar unidades de streaming com a API REST
-Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Com streaming de taxa de bits adaptável, o cliente pode alternar para um fluxo de taxa de bits maior ou menor, já que o vídeo é exibido com base na largura de banda de rede atual, a utilização da CPU e outros fatores. Os Serviços de Mídia dão suporte às seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados Adobe PrimeTime/Access).
+## <a name="a-idconfigurestreamingunitsaconfigure-streaming-units-with-rest-api"></a><a id="configure_streaming_units"></a>Configurar unidades de streaming com a API REST
+Ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Com streaming de taxa de bits adaptável, o cliente pode alternar para um fluxo de taxa de bits maior ou menor, já que o vídeo é exibido com base na largura de banda de rede atual, a utilização da CPU e outros fatores. Os Serviços de Mídia dão suporte às seguintes tecnologias de streaming com taxa de bits adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados Adobe PrimeTime/Access). 
 
-Os Serviços de Mídia fornecem o empacotamento dinâmico, que permite a você distribuir o conteúdo de taxa de bits adaptável MP4 ou Smooth Streaming codificado em formatos de streaming com suporte pelos Serviços de Mídia (MPEG DASH, HLS, Smooth Streaming, HDS), sem a necessidade de empacotar novamente nesses formatos de fluxo contínuo.
+Os Serviços de Mídia fornecem empacotamento dinâmico, que permite a você distribuir o conteúdo de taxa de bits adaptável MP4 ou Smooth Streaming codificado em formatos de streaming com suporte pelo Media Services (MPEG DASH, HLS, Smooth Streaming, HDS), sem a necessidade de empacotar novamente nesses formatos de fluxo contínuo. 
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
-* obter pelo menos uma unidade de streaming para o **ponto de extremidade de streaming** por meio do qual você planeja fornecer seu conteúdo (descrito nesta seção).
-* codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial),
+* obter pelo menos uma unidade de streaming para o **ponto de extremidade de streaming **por meio do qual você planeja fornecer seu conteúdo (descrito nesta seção).
+* codificar ou transcodificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável (as etapas de codificação são demonstradas mais tarde neste tutorial),  
 
-Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
+Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente. 
 
 > [!NOTE]
 > Para saber mais sobre os detalhes de preços, consulte [Detalhes de preços dos Serviços de Mídia](http://go.microsoft.com/fwlink/?LinkId=275107).
@@ -544,8 +589,8 @@ Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivo
 
 Para alterar o número de unidades reservadas para streaming, faça o seguinte:
 
-### Obtenha o ponto de extremidade de streaming que deseja atualizar
-Por exemplo, vamos obter o primeiro ponto de extremidade de streaming em sua conta (você pode ter até 2 pontos de extremidade de streaming em estado de execução ao mesmo tempo).
+### <a name="get-the-streaming-endpoint-you-want-to-update"></a>Obtenha o ponto de extremidade de streaming que deseja atualizar
+Por exemplo, vamos obter o primeiro ponto de extremidade de streaming em sua conta (você pode ter até dois pontos de extremidade de streaming em estado de execução ao mesmo tempo).
 
 **Solicitação HTTP**:
 
@@ -565,7 +610,7 @@ Se for bem-sucedido, será retornado o seguinte:
     HTTP/1.1 200 OK
     . . . 
 
-### Dimensionar o ponto de extremidade de streaming
+### <a name="scale-the-streaming-endpoint"></a>Dimensionar o ponto de extremidade de streaming
 **Solicitação HTTP**:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints('nb:oid:UUID:cd57670d-cc1c-0f86-16d8-3ad478bf9486')/Scale HTTP/1.1
@@ -596,8 +641,8 @@ Se for bem-sucedido, será retornado o seguinte:
     Content-Length: 0
 
 
-### <a id="long_running_op_status"></a>Verificar o status de uma operação de execução longa
-A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos para ser concluída. Para verificar o status da operação, use o método **Operations** e especifique a ID da operação. A ID da operação foi retornada na resposta à solicitação **Scale**.
+### <a name="a-idlongrunningopstatusa-check-on-the-status-of-a-long-running-operation"></a><a id="long_running_op_status"></a> Verificar o status de uma operação de execução longa
+A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos para ser concluída. Para verificar o status da operação, use o método **Operations** e especifique a ID da operação. A ID da operação foi retornada na resposta à solicitação **Scale** .
 
     operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
 
@@ -642,22 +687,23 @@ A alocação de quaisquer novas unidades de streaming leva cerca de 20 minutos p
     }
 
 
-## <a id="encode"></a>Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável
-Após a inserção de Ativos nos Serviços de Mídia, a mídia poderá ser codificada, transmultiplexada, marcada com marca d'água e assim por diante, antes que seja entregue aos clientes. Essas atividades são agendadas e executadas em contraste com várias instâncias de função de plano de fundo para garantir a disponibilidade e desempenho elevados. Essas atividades são chamadas de Trabalhos, e cada [Trabalho](http://msdn.microsoft.com/library/azure/hh974289.aspx) é composto por Tarefas atômicas, que fazem o trabalho real no arquivo do Ativo.
+## <a name="a-idencodeaencode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Codificar o arquivo de origem em um conjunto de arquivos MP4 com taxa de bits adaptável
 
-Como foi mencionado anteriormente, ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os serviços de mídia podem empacotar dinamicamente um conjunto de arquivos MP4 com taxas de bit adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access).
+Após a inserção de Ativos nos Serviços de Mídia, a mídia poderá ser codificada, transmultiplexada, marcada com marca d'água e assim por diante, antes que seja entregue aos clientes. Essas atividades são agendadas e executadas em contraste com várias instâncias de função de plano de fundo para garantir a disponibilidade e desempenho elevados. Essas atividades são chamadas de Trabalhos, e cada Trabalho é composto por Tarefas atômicas, que fazem o trabalho real no arquivo do Ativo. (Para saber mais, consulte as descrições de [Trabalho](/rest/api/media/services/job), [Tarefa](/rest/api/media/services/task)). 
+
+Como foi mencionado anteriormente, ao trabalhar com os Serviços de Mídia do Azure, um dos cenários mais comuns é fornecer streaming com uma taxa de bits adaptável aos clientes dos Serviços de Mídia do Azure. Os serviços de mídia podem empacotar dinamicamente um conjunto de arquivos MP4 com taxas de bit adaptável: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH e HDS (apenas para licenciados do Adobe PrimeTime/Access). 
 
 Para aproveitar os benefícios do empacotamento dinâmico, você precisa fazer o seguinte:
 
-* codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável,
-* obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo.
+* codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável,  
+* obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. 
 
-A seção a seguir mostra como criar um trabalho que contém uma tarefa de codificação. A tarefa especifica a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Padrão**. A seção também mostra como monitorar o progresso de processamento de trabalho. Quando o trabalho for concluído, você poderá criar localizadores, que serão necessários para acessar seus ativos.
+A seção a seguir mostra como criar um trabalho que contém uma tarefa de codificação. A tarefa especifica a transcodificação do arquivo de mezanino em um conjunto de MP4s de taxa de bits adaptável usando o **Codificador de Mídia Padrão**. A seção também mostra como monitorar o progresso de processamento de trabalho. Quando o trabalho for concluído, você poderá criar localizadores, que serão necessários para acessar seus ativos. 
 
-### Obter um processador de mídia
+### <a name="get-a-media-processor"></a>Obter um processador de mídia
 Nos Serviços de Mídia, um processador de mídia é um componente que manipula uma tarefa de processamento específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia. Para a tarefa de codificação mostrada neste tutorial, usaremos o Codificador de Mídia Padrão.
 
-O código a seguir solicita a ID do codificador.
+O código a seguir solicita a ID do codificador. 
 
 **Solicitação HTTP**
 
@@ -700,10 +746,10 @@ O código a seguir solicita a ID do codificador.
        ]
     }
 
-### Criar um trabalho
-Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, você pode criar Trabalhos e as Tarefas relacionadas de uma destas duas maneiras: as Tarefas podem ser definidas embutidas por meio da propriedade de navegação Tarefas nas entidades de Trabalho ou por meio do processamento de lote OData. O SDK dos Serviços de Mídia usa processamento em lotes. No entanto, para fins de legibilidade dos exemplos de código neste tópico, as tarefas são definidas embutidas. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+### <a name="create-a-job"></a>Criar um trabalho
+Cada trabalho pode ter uma ou mais tarefas dependendo do tipo de processamento que você deseja realizar. Por meio da API REST, você pode criar Trabalhos e as Tarefas relacionadas de uma destas duas maneiras: as Tarefas podem ser definidas embutidas por meio da propriedade de navegação Tarefas nas entidades de Trabalho ou por meio do processamento de lote OData. O SDK dos Serviços de Mídia usa o processamento em lotes. No entanto, para fins de legibilidade dos exemplos de código neste tópico, as tarefas serão definidas em linha. Para obter informações sobre o processamento em lotes, consulte [Processamento em lote do protocolo OData (Open Data)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. A seção de documentação a seguir contém a lista de todas as [predefinições de tarefa](http://msdn.microsoft.com/library/mt269960) compatíveis com o processador do Codificador de Mídia Padrão.
+O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa definida para codificar um vídeo em uma determinada resolução e qualidade. A seção de documentação a seguir contém a lista de todas as [predefinições de tarefa](http://msdn.microsoft.com/library/mt269960) compatíveis com o processador do Codificador de Mídia Padrão.  
 
 **Solicitação HTTP**
 
@@ -731,7 +777,7 @@ O exemplo a seguir mostra como criar e publicar um trabalho com uma tarefa defin
           {  
              "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
              "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-             "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
+             "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
                 <outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
           }
        ]
@@ -802,23 +848,23 @@ Se for bem-sucedido, será retornada a seguinte resposta:
 Há algumas coisas importantes a observar em qualquer solicitação de trabalho:
 
 * As propriedades TaskBody DEVEM usar XML literal para definir o número de entradas ou os ativos de saída que serão usados pela Tarefa. O tópico Tarefa contém a Definição de Esquema XML para o XML.
-* Na definição de TaskBody, cada valor interno para <inputAsset> e <outputAsset> deve ser definido como JobInputAsset(valor) ou JobOutputAsset(valor).
+* Na definição de TaskBody, cada valor interno para <inputAsset> e <outputAsset> deve ser definido como JobInputAsset(value) ou JobOutputAsset(value).
 * Uma tarefa pode ter vários ativos de saída. Um JobOutputAsset(x) só pode ser usado uma vez como uma saída de uma tarefa em um trabalho.
 * Você pode especificar JobInputAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
 * As tarefas não devem formar um ciclo.
-* O parâmetro de valor passado para JobInputAsset ou JobOutputAsset representa o valor de índice para um ativo. Os ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição de entidade de tarefa.
+* O parâmetro de valor passado para JobInputAsset ou JobOutputAsset representa o valor de índice para um ativo. Os ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição de entidade de tarefa. 
 
 > [!NOTE]
-> Como os serviços de mídia são baseados no OData v3, os ativos individuais nas coleções de propriedade de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um par nome-valor "\_\_metadata : uri".
+> Como os serviços de mídia são baseados no OData v3, os ativos individuais nas coleções de propriedade de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um par nome-valor "__metadata : uri". 
 > 
 > 
 
 * Os InputMediaAssets mapeiam para um ou mais ativos que você criou nos serviços de mídia. Os OutputMediaAssets são criados pelo sistema. Eles não fazem referência a um ativo existente.
-* Os OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, o nome do OutputMediaAsset será tudo o que o valor de texto interno do elemento <outputAsset> representa, com um sufixo do valor Nome do Trabalho ou do valor ID do Trabalho (no caso em que a propriedade Nome não esteja definida). Por exemplo, se você definir um valor de assetName como "Amostra", a propriedade Nome de OutputMediaAsset deve ser definida como "Amostra". No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como "NewJob", o nome do OutputMediaAsset poderia ser "JobOutputAsset(value)\_NewJob".
+* Os OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, então o nome do OutputMediaAsset será tudo o que é o valor de texto interno do elemento <outputAsset> com um sufixo do valor do nome do trabalho ou o valor da ID de trabalho (no caso em que a propriedade Nome não esteja definida). Por exemplo, se você definir um valor de assetName como "Amostra", a propriedade Nome de OutputMediaAsset deve ser definida como "Amostra". No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como "NewJob", o nome do OutputMediaAsset poderia ser "JobOutputAsset(value)_NewJob". 
   
     O exemplo a seguir mostra como definir o atributo assetName:
   
-        "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"
+        "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
 * Para habilitar o encadeamento de tarefas:
   
   * Um trabalho deve ter, pelo menos, duas tarefas
@@ -826,8 +872,8 @@ Há algumas coisas importantes a observar em qualquer solicitação de trabalho:
 
 Para saber mais, consulte [Criar um trabalho de codificação com a API REST dos Serviços de Mídia.](http://msdn.microsoft.com/library/azure/jj129574.aspx)
 
-### Monitorar o progresso de processamento
-Você pode recuperar o status do trabalho, usando a propriedade State, conforme mostrado no exemplo a seguir.
+### <a name="monitor-processing-progress"></a>Monitorar o progresso de processamento
+Você pode recuperar o status do trabalho, usando a propriedade State, conforme mostrado no exemplo a seguir. 
 
 **Solicitação HTTP**
 
@@ -861,7 +907,7 @@ Se for bem-sucedido, será retornada a seguinte resposta:
     {"d":{"State":2}}
 
 
-### Cancelar um trabalho
+### <a name="cancel-a-job"></a>Cancelar um trabalho
 Os serviços de mídia permitem cancelar trabalhos em execução com a função CancelJob. Esta chamada retornará um código de erro 400 se você tentar cancelar um Trabalho quando seu estado estiver definido como Cancelado, Cancelando, Erro ou Concluído.
 
 O exemplo a seguir mostra como chamar a função CancelJob.
@@ -885,8 +931,8 @@ Se tiver êxito, uma resposta de código 204 é retornada sem corpo de mensagem.
 > 
 > 
 
-### Obtenha o ativo de saída
-O código a seguir mostra como solicitar a ID do ativo de saída.
+### <a name="get-the-output-asset"></a>Obtenha o ativo de saída
+O código a seguir mostra como solicitar a ID do ativo de saída. 
 
 **Solicitação HTTP**
 
@@ -935,10 +981,11 @@ O código a seguir mostra como solicitar a ID do ativo de saída.
 
 
 
-## <a id="publish_get_urls"></a>Publicar o ativo e obter URLs de download progressivo e streaming com API REST
-Para transmitir ou baixar um ativo, primeiro você precisa "publicá-lo" criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizador: OnDemandOrigin, usados para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e SAS (Assinatura de Acesso), usados para baixar arquivos de mídia.
+## <a name="a-idpublishgeturlsapublish-the-asset-and-get-streaming-and-progressive-download-urls-with-rest-api"></a><a id="publish_get_urls"></a>Publicar o ativo e obter URLs de download progressivo e streaming com API REST
 
-Depois de criar os localizadores, você pode criar as URLs usadas para transmitir ou baixar os arquivos.
+Para transmitir ou baixar um ativo, primeiro você precisa "publicá-lo" criando um localizador. Os localizadores fornecem acesso aos arquivos contidos no ativo. Os Serviços de Mídia oferecem suporte a dois tipos de localizador: OnDemandOrigin, usados para transmitir mídia por streaming (por exemplo, MPEG DASH, HLS ou Smooth Streaming) e SAS (Assinatura de Acesso), usados para baixar arquivos de mídia. Para saber mais sobre localizadores SAS, consulte [este](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
+
+Depois de criar os localizadores, você pode criar as URLs usadas para transmitir ou baixar os arquivos. 
 
 Uma URL de streaming para Smooth Streaming tem o seguinte formato:
 
@@ -957,13 +1004,13 @@ Uma URL SAS usada para baixar arquivos tem o seguinte formato:
 
     {blob container name}/{asset name}/{file name}/{SAS signature}
 
-Esta seção mostra como executar as seguintes tarefas necessárias para "publicar" seus ativos.
+Esta seção mostra como executar as seguintes tarefas necessárias para "publicar" seus ativos.  
 
-* Criando o AccessPolicy com permissão de leitura
-* Criando uma URL SAS para download de conteúdo
-* Criando uma URL de origem para conteúdo de streaming
+* Criando o AccessPolicy com permissão de leitura 
+* Criando uma URL SAS para download de conteúdo 
+* Criando uma URL de origem para conteúdo de streaming 
 
-### Criando o AccessPolicy com permissão de leitura
+### <a name="creating-the-accesspolicy-with-read-permission"></a>Criando o AccessPolicy com permissão de leitura
 Antes de baixar ou realizar streaming de qualquer conteúdo de mídia primeiro defina um AccessPolicy com permissões de leitura e crie a entidade do localizador apropriada que especifica o tipo de mecanismo de entrega que você deseja habilitar para seus clientes. Para saber mais sobre as propriedades disponíveis, consulte [Propriedades da entidade AccessPolicy](https://msdn.microsoft.com/library/azure/hh974297.aspx#accesspolicy_properties).
 
 O exemplo a seguir mostra como especificar o AccessPolicy para permissões de leitura para um determinado ativo.
@@ -988,7 +1035,7 @@ Se tiver êxito, um código de sucesso 201 é retornado descrevendo a entidade A
 > 
 > 
 
-### Criando uma URL SAS para download de conteúdo
+### <a name="creating-a-sas-url-for-downloading-content"></a>Criando uma URL SAS para download de conteúdo
 O código a seguir mostra como obter uma URL que pode ser usada para baixar um arquivo de mídia criado e carregado anteriormente. O AccessPolicy tem o conjunto de permissões de leitura e o caminho do localizador se refere a uma URL de download SAS.
 
     POST https://wamsbayclus001rest-hs.net/API/Locators HTTP/1.1
@@ -1054,17 +1101,17 @@ A propriedade **Path** retornada contém a URL de SAS.
 > 
 > 
 
-### Baixar arquivos
-Depois de definir AccessPolicy e localizador, você pode baixar arquivos usando as APIs de REST do armazenamento do Azure.
+### <a name="download-files"></a>Baixar arquivos
+Depois de definir AccessPolicy e localizador, você pode baixar arquivos usando as APIs de REST do armazenamento do Azure.  
 
 > [!NOTE]
-> Você deve adicionar o nome do arquivo para o arquivo que você deseja carregar no valor de **Path** do Localizador recebido na seção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Você deve adicionar o nome do arquivo para o arquivo que você deseja carregar no valor de **Path** do Localizador recebido na seção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 > 
 > 
 
 Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Como resultado do trabalho de codificação que você executou anteriormente (codificação no conjunto de MP4 adaptável), você tem vários arquivos MP4 que pode baixar progressivo. Por exemplo:
+Como resultado do trabalho de codificação que você executou anteriormente (codificação no conjunto de MP4 adaptável), você tem vários arquivos MP4 que pode baixar progressivo. Por exemplo:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
@@ -1083,7 +1130,7 @@ Como resultado do trabalho de codificação que você executou anteriormente (co
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-### Criando uma URL de streaming para conteúdo de streaming
+### <a name="creating-a-streaming-url-for-streaming-content"></a>Criando uma URL de streaming para conteúdo de streaming
 O código a seguir mostra como criar um localizador de URL de streaming:
 
     POST https://wamsbayclus001rest-hs/API/Locators HTTP/1.1
@@ -1154,21 +1201,23 @@ Para transmitir MPEG DASH, anexe (format=mpd-time-csf) após o "/manifest".
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-## <a id="play"></a>Reproduzir o conteúdo
+## <a name="a-idplayaplay-your-content"></a><a id="play"></a>Reproduzir o conteúdo
 Para o fluxo de vídeo, use [Player dos Serviços de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Para testar o download progressivo, cole uma URL em um navegador (por exemplo, IE, Chrome, Safari).
 
-## Próximas etapas: roteiros de aprendizagem dos Serviços de Mídia
+## <a name="next-steps-media-services-learning-paths"></a>Próximas etapas: roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornecer comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Procurando outra coisa?
+## <a name="looking-for-something-else"></a>Procurando outra coisa?
 Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
-<!-- URLs. -->
-[Portal Clássico do Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Azure and Linux VM Storage | Microsoft Docs
-description: Describes Azure Standard and Premium Storage with Linux virtual machines.
+title: Armazenamento de VM do Linux e do Azure | Microsoft Docs
+description: "Descreve os Armazenamentos Premium e Standard do Azure com máquinas virtuais do Linux."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: d364c69e-0bd1-4f80-9838-bbc0a95af48c
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,20 +14,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/04/2016
 ms.author: v-livech
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bc18d25044fb790ef85ce950a785259cc1204fe4
+
 
 ---
-# <a name="azure-and-linux-vm-storage"></a>Azure and Linux VM storage
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines.
+# <a name="azure-and-linux-vm-storage"></a>Armazenamento de VM do Linux e do Azure
+O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade para atender às necessidades dos clientes.  Além de permitir que os desenvolvedores criem aplicativos de grande escala para dar suporte a novos cenários, o Armazenamento do Azure também fornece a base do armazenamento das Máquinas Virtuais do Azure.
 
-## <a name="azure-storage:-standard-and-premium"></a>Azure Storage: Standard and Premium
-Azure VM's can be built upon standard storage disks or premium storage disks.  When using the Portal to choose your VM you must toggle a dropdown on the Basics screen to view both standard and premium disks.  The screenshot below highlights that toggle menu.  When toggled to SSD, only premium storage enabled VMs will be shown, all backed by SSD drives.  When toggled to HDD, standard storage enabled VMs backed spinning disk drives will be shown, along with premium storage VMs backed by SSD.
+## <a name="azure-storage-standard-and-premium"></a>Armazenamento do Azure: Standard e Premium
+As VMs do Azure podem ser criadas em discos de armazenamento standard ou discos de armazenamento premium.  Ao usar o Portal para escolher sua VM, você deve ativar uma lista suspensa na tela Noções básicas para exibir os discos standard e premium.  A captura de tela abaixo destaca esse menu de alternância.  Quando alternado para SSD, apenas as VMs habilitadas para o armazenamento premium serão exibidas, tudo com o apoio de unidades SSD.  Quando alternado para o HDD, serão mostradas VMs habilitadas para o armazenamento standard, com unidades de disco de rotação, juntamente com VMs de armazenamento premium apoiadas por SSD.
 
-  ![screen1](../virtual-machines/media/virtual-machines-linux-azure-vm-storage-overview/screen1.png)
+  ![tela1](../virtual-machines/media/virtual-machines-linux-azure-vm-storage-overview/screen1.png)
 
-When creating a VM from the `azure-cli` you can choose between standard and premium when choosing the VM size via the `-z` or `--vm-size` cli flag.
+Ao criar uma VM da `azure-cli` você pode escolher entre standard e premium ao escolher o tamanho da VM por meio do sinalizador de cli `-z` ou `--vm-size`.
 
-### <a name="create-a-vm-with-standard-storage-vm-on-the-cli"></a>Create a VM with standard storage VM on the cli
-The cli flag `-z` chooses Standard_A1 with A1 being a standard storage based Linux VM.
+### <a name="create-a-vm-with-standard-storage-vm-on-the-cli"></a>Criar uma VM com VM de armazenamento standard na cli
+O sinalizador de cli `-z` escolhe Standard_A1 com A1 sendo uma VM do Linux com base em armazenamento standard.
 
 ```bash
 azure vm quick-create -g rbg \
@@ -40,8 +44,8 @@ exampleVMname \
 -z Standard_A1
 ```
 
-### <a name="create-a-vm-with-premium-storage-on-the-cli"></a>Create a VM with premium storage on the cli
-The cli flag `-z` chooses Standard_DS1 with DS1 being a premium storage based Linux VM.
+### <a name="create-a-vm-with-premium-storage-on-the-cli"></a>Criar uma VM com armazenamento premium na cli
+O sinalizador de cli `-z` escolhe Standard_DS1 com DS1 sendo uma VM do Linux com base em armazenamento premium.
 
 ```bash
 azure vm quick-create -g rbg \
@@ -54,25 +58,25 @@ exampleVMname \
 -z Standard_DS1
 ```
 
-## <a name="standard-storage"></a>Standard storage
-Azure Standard Storage is the default type of storage.  Standard storage is cost effective while still being performant.  
+## <a name="standard-storage"></a>Armazenamento Standard
+O Armazenamento Standard do Azure é o tipo padrão de armazenamento.  O Armazenamento Standard é econômico e, ainda assim, eficaz.  
 
-## <a name="premium-storage"></a>Premium storage
-Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads. Virtual machine (VM) disks that use Premium Storage store data on solid state drives (SSDs). You can migrate your application's VM disks to Azure Premium Storage to take advantage of the speed and performance of these disks.
+## <a name="premium-storage"></a>Armazenamento Premium
+O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais executando cargas de trabalho intensivas para entradas e saídas. Discos de VM (máquina virtual) que usam o armazenamento Premium armazenam dados em SSDs (unidades de estado sólido). Você pode migrar os discos de VM do seu aplicativo para o Armazenamento Premium do Azure para aproveitar a velocidade e o desempenho desses discos.
 
-Premium storage features:
+Recursos de Armazenamento Premium:
 
-* Premium Storage Disks: Azure Premium Storage supports VM disks that can be attached to DS, DSv2, or GS series Azure VMs.
-* Premium Page Blob: Premium Storage supports Azure Page Blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs).
-* Premium Locally Redundant Storage: A Premium Storage account only supports Locally Redundant Storage (LRS) as the replication option and keeps three copies of the data within a single region.
-* [Premium Storage](../storage/storage-premium-storage.md)
+* Discos de Armazenamento Premium: o Armazenamento Premium do Azure dá suporte a discos de VM que podem ser anexados a VMs do Azure das séries DS, DSv2 ou GS.
+* Blob de Páginas Premium: o Armazenamento Premium dá suporte a Blobs de Páginas do Azure, que são usados para manter discos persistentes para VMs (Máquinas Virtuais) do Azure.
+* Armazenamento com Redundância Local Premium: uma conta de Armazenamento Premium só dá suporte ao LRS (Armazenamento com Redundância Local) como a opção de replicação e mantém três cópias de dados em uma única região.
+* [Armazenamento Premium](../storage/storage-premium-storage.md)
 
-## <a name="premium-storage-supported-vms"></a>Premium Storage supported VMs
-Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with Premium Storage supported of VMs. But you cannot use Premium Storage disks with VM series, which are not Premium Storage compatible.
+## <a name="premium-storage-supported-vms"></a>VMs com suporte do Armazenamento Premium
+O Armazenamento Premium oferece suporte às VMs (Máquinas Virtuais) do Azure das séries DS, DSv2, GS e Fs. Você pode usar discos de armazenamento Standard e Premium com VMs que têm suporte do Armazenamento Premium. Mas não é possível usar discos de Armazenamento Premium com séries de VM que não são compatíveis com o Armazenamento Premium.
 
-Following are the Linux Distributions that we validated with Premium Storage.
+A seguir estão as distribuições do Linux que são validadas com o Armazenamento Premium.
 
-| Distribution | Version | Supported Kernel |
+| Distribuição | Versão | Kernel com suporte |
 | --- | --- | --- |
 | Ubuntu |12.04 |3.2.0-75.110+ |
 | Ubuntu |14.04 |3.13.0-44.73+ |
@@ -83,102 +87,105 @@ Following are the Linux Distributions that we validated with Premium Storage.
 | Centos |6.5, 6.6, 6.7, 7.0, 7.1 |3.10.0-229.1.2.el7+ |
 | RHEL |6.8+, 7.2+ | |
 
-## <a name="file-storage"></a>File storage
-Azure File storage offers file shares in the cloud using the standard SMB protocol. With Azure Files, you can migrate enterprise applications that rely on file servers to Azure. Applications running in Azure can easily mount file shares from Azure virtual machines running Linux. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0.  Because file shares are SMB shares, you can access them via standard file system APIs.
+## <a name="file-storage"></a>Armazenamento de arquivos
+O armazenamento de arquivos do Azure oferece compartilhamentos de arquivos na nuvem usando o protocolo SMB padrão. Com os Arquivos do Azure, você pode migrar para o Azure os aplicativos empresariais que dependam de servidores de arquivos. Os aplicativos em execução no Azure podem facilmente montar compartilhamentos de arquivos a partir das máquinas virtuais do Azure executando o Linux. E com a versão mais recente do Armazenamento de arquivos, também é possível montar um compartilhamento de arquivos por meio de um aplicativo local que dá suporte ao SMB 3.0.  Como os compartilhamentos de arquivos são compartilhamentos do SMB, você pode acessá-los por meio de APIs standard do sistema de arquivos.
 
-File storage is built on the same technology as Blob, Table, and Queue storage, so File storage offers the availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform. For details about File storage performance targets and limits, see Azure Storage Scalability and Performance Targets.
+O armazenamento de arquivos baseia-se na mesma tecnologia de armazenamento de Blobs, Tabelas e Filas e, portanto, o Armazenamento de arquivos oferece a disponibilidade, a durabilidade, a escalabilidade e a redundância geográfica existentes e incorporadas à plataforma de armazenamento do Azure. Para obter detalhes os destinos e os limites do desempenho do Armazenamento de arquivos, veja Escalabilidade e metas de desempenho do Armazenamento do Azure.
 
-* [How to use Azure File Storage with Linux](../storage/storage-how-to-use-files-linux.md)
+* [Como utilizar o armazenamento de arquivos do Azure com Linux](../storage/storage-how-to-use-files-linux.md)
 
-## <a name="hot-storage"></a>Hot Storage
-The Azure hot storage tier is optimized for storing data that is accessed frequently.  Hot storage is the default storage type for blob stores.
+## <a name="hot-storage"></a>Armazenamento Dinâmico
+A camada de armazenamento dinâmica do Azure é otimizada para armazenar dados acessados com frequência.  O armazenamento dinâmico é o tipo de armazenamento padrão para repositórios de blob.
 
-## <a name="cool-storage"></a>Cool Storage
-The Azure cool storage tier is optimized for storing data that is infrequently accessed and long-lived. Example use cases for cool storage include backups, media content, scientific data, compliance, and archival data. In general, any data that is seldom accessed is a perfect candidate for cool storage.
+## <a name="cool-storage"></a>Armazenamento Estático
+A camada de armazenamento estática do Azure é otimizada para armazenar dados acessados com menos frequência e de longa duração. Alguns casos de uso de exemplo para armazenamento estático incluem backups, conteúdo de mídia, dados científicos, dados de conformidade e dados de arquivamento. Em geral, todos os dados raramente acessados serão candidatos perfeitos para o armazenamento estático.
 
-|  | Hot storage tier | Cool storage tier |
+|  | camada de armazenamento dinâmica | camada de armazenamento estática |
 |:--- |:---:|:---:|
-| Availability |99.9% |99% |
-| Availability (RA-GRS reads) |99.99% |99.9% |
-| Usage charges |Higher storage costs |Lower storage costs |
-| Lower access |Higher access | |
-| and transaction costs |and transaction costs | |
+| Disponibilidade |99,9% |99% |
+| Disponibilidade (leituras de RA-GRS) |99,99% |99,9% |
+| Encargos de uso |Custos de armazenamento maiores |Custos de armazenamento menores |
+| Menores custos |Maiores custos | |
+| de acesso e de transação |de acesso e de transação | |
 
-## <a name="redundancy"></a>Redundancy
-The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the Azure Storage SLA even in the face of transient hardware failures.
+## <a name="redundancy"></a>Redundância
+Os dados em sua conta de armazenamento do Microsoft Azure sempre são replicados para garantir durabilidade e alta disponibilidade, cumprindo o SLA do Armazenamento do Azure mesmo diante de falhas transitórias de hardware.
 
-When you create a storage account, you must select one of the following replication options:
+Quando você cria uma conta de armazenamento, deve selecionar uma das seguintes opções de replicação:
 
-* Locally redundant storage (LRS)
-* Zone-redundant storage (ZRS)
-* Geo-redundant storage (GRS)
-* Read-access geo-redundant storage (RA-GRS)
+* Armazenamento com redundância local (LRS)
+* Armazenamento com redundância de zona (ZRS)
+* Armazenamento com redundância geográfica (GRS)
+* Armazenamento com redundância geográfica com acesso de leitura (RA-GRS)
 
-### <a name="locally-redundant-storage"></a>Locally redundant storage
-Locally redundant storage (LRS) replicates your data within the region in which you created your storage account. To maximize durability, every request made against data in your storage account is replicated three times. These three replicas each reside in separate fault domains and upgrade domains.  A request returns successfully only once it has been written to all three replicas.
+### <a name="locally-redundant-storage"></a>Armazenamento com redundância local
+O LRS (armazenamento com redundância local) replica seus dados dentro da região em que você criou sua conta de armazenamento. Para maximizar a durabilidade, todas as solicitações feitas nos dados de sua conta de armazenamento são replicadas três vezes. Essas três réplicas residem em domínios de falha e domínios de atualização separados.  Uma solicitação retorna com êxito depois de ter sido gravada para todas as três réplicas.
 
-### <a name="zone-redundant-storage"></a>Zone-redundant storage
-Zone-redundant storage (ZRS) replicates your data across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. If your storage account has ZRS enabled, then your data is durable even in the case of failure at one of the facilities.
+### <a name="zone-redundant-storage"></a>Armazenamento com redundância de zona
+O ZRS (armazenamento com redundância de zona) é replicado três vezes por duas ou três instalações, em uma única região ou em duas regiões, proporcionando maior durabilidade que o LRS. Se sua conta de armazenamento tiver ZRS habilitado, seus dados são duráveis mesmo no caso de falha em uma das instalações.
 
-### <a name="geo-redundant-storage"></a>Geo-redundant storage
-Geo-redundant storage (GRS) replicates your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region is not recoverable.
+### <a name="geo-redundant-storage"></a>Armazenamento com redundância geográfica
+O GRS (armazenamento com redundância geográfica) replica seus dados para uma região secundária a centenas de quilômetros da região primária. Se sua conta de armazenamento tem GRS habilitado, seus dados serão duráveis mesmo no caso de uma interrupção regional completa ou um desastre no qual a região principal não possa ser recuperada.
 
-### <a name="read-access-geo-redundant-storage"></a>Read-access geo-redundant storage
-Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account, by providing read-only access to the data in the secondary location, in addition to the replication across two regions provided by GRS. In the event that data becomes unavailable in the primary region, your application can read data from the secondary region.
+### <a name="read-access-geo-redundant-storage"></a>Armazenamento com redundância geográfica com acesso de leitura
+O RA-GRS (armazenamento com redundância geográfica de acesso de leitura) maximiza a disponibilidade da sua conta de armazenamento, fornecendo acesso somente leitura aos dados no local secundário, além de replicação em duas regiões fornecido por GRS. No caso de os dados ficarem indisponíveis na região primária, seu aplicativo poderá ler os dados da região secundária.
 
-For a deep dive into Azure storage redundancy see:
+Para se aprofundar em redundância de armazenamento do Azure, consulte:
 
-* [Azure Storage replication](../storage/storage-redundancy.md)
+* [Replicação de Armazenamento do Azure](../storage/storage-redundancy.md)
 
-## <a name="scalability"></a>Scalability
-Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you’re storing. Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average.
+## <a name="scalability"></a>Escalabilidade
+O Armazenamento do Azure é extremamente escalonável para que você possa armazenar e processar centenas de terabytes de dados para oferecer suporte a cenários de big data, necessários para análise científica e financeira e aplicativos de mídia. Ou você pode armazenar pequenas quantidades de dados necessários para um site de pequena empresa. Quaisquer que sejam suas necessidades, você paga apenas pelos dados que está armazenando. O Armazenamento do Azure atualmente armazena dezenas de trilhões de objetos exclusivos de clientes e manipula milhões de solicitações por segundo em média.
 
-For standard storage accounts: A standard storage account has a maximum total request rate of 20,000 IOPS. The total IOPS across all of your virtual machine disks in a standard storage account should not exceed this limit.
+Para contas de armazenamento standard: uma conta de armazenamento standard tem uma taxa de solicitação total máxima de 20.000 IOPS. O total de IOPS em todos os discos da máquina virtual de uma conta de armazenamento padrão não deve exceder esse limite.
 
-For premium storage accounts: A premium storage account has a maximum total throughput rate of 50 Gbps. The total throughput across all of your VM disks should not exceed this limit.
+Para contas de armazenamento premium: uma conta de armazenamento premium tem uma taxa de transferência total máxima de 50 Gbps. A taxa de transferência total de todos os discos da VM não deve exceder esse limite.
 
-## <a name="availability"></a>Availability
-We guarantee that at least 99.99% (99.9% for Cool Access Tier) of the time, we will successfully process requests to read data from Read Access-Geo Redundant Storage (RA-GRS) Accounts, provided that failed attempts to read data from the primary region are retried on the secondary region.
+## <a name="availability"></a>Disponibilidade
+Asseguramos que, em pelo menos 99,99% (99,9% para a Camada de Acesso Estática) das vezes, processaremos com êxito as solicitações de leitura de dados em contas do RA-GRS (Armazenamento com Redundância Geográfica com Acesso de Leitura), desde que as tentativas com falha de leitura de dados da região primária sejam repetidas na região secundária.
 
-We guarantee that at least 99.9% (99% for Cool Access Tier) of the time, we will successfully process requests to read data from Locally Redundant Storage (LRS), Zone Redundant Storage (ZRS), and Geo Redundant Storage (GRS) Accounts.
+Asseguramos que, em pelo menos 99,9% (99% para a Camada de Acesso Estática) das vezes, processaremos com êxito as solicitações de leitura de dados em contas do LRS (Armazenamento com Redundância Local), do ZRS (Armazenamento com Redundância de Zona) e do GRS (Armazenamento com Redundância Geográfica).
 
-We guarantee that at least 99.9% (99% for Cool Access Tier) of the time, we will successfully process requests to write data to Locally Redundant Storage (LRS), Zone Redundant Storage (ZRS), and Geo Redundant Storage (GRS) Accounts and Read Access-Geo Redundant Storage (RA-GRS) Accounts.
+Asseguramos que, em pelo menos 99,9% (99% para a Camada de Acesso Estática) das vezes, processaremos com êxito as solicitações de gravação de dados em contas do LRS (Armazenamento com Redundância Local), do ZRS (Armazenamento com Redundância de Zona), do GRS (Armazenamento com Redundância Geográfica) e do RA-GRS (Armazenamento com Redundância Geográfica com Acesso de Leitura).
 
-* [Azure SLA for Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_1/)
+* [SLA do Azure para Armazenamento](https://azure.microsoft.com/support/legal/sla/storage/v1_1/)
 
-## <a name="regions"></a>Regions
-Azure is generally available in 30 regions around the world, and has announced plans for 4 additional regions. Geographic expansion is a priority for Azure because it enables our customers to achieve higher performance and it support their requirements and preferences regarding data location.  Azures latest region to launch is in Germany.
+## <a name="regions"></a>Regiões
+O Azure está disponível em 30 regiões do mundo e anunciou planos para outras 4 regiões. A expansão geográfica é uma prioridade para o Azure, porque ela permite que seus clientes alcancem maior desempenho e dá suporte aos seus requisitos e preferências em relação à localização de dados.  A Alemanha é a região mais recente a iniciar o Azure.
 
-The Microsoft Cloud Germany provides a differentiated option to the Microsoft Cloud services already available across Europe, creating increased opportunities for innovation and economic growth for highly regulated partners and customers in Germany, the European Union (EU) and the European Free Trade Association (EFTA).
+A Microsoft Cloud Alemanha fornece uma opção diferenciada para os serviços Microsoft Cloud já disponíveis na Europa, criando maiores oportunidades de inovação e crescimento econômico para os parceiros e clientes altamente regulamentados da Alemanha, da UE (União Europeia) e da EFTA (Associação Europeia de Livre Comércio).
 
-Customer data in these new datacenters, in Magdeburg and Frankfurt, is managed under the control of a data trustee, T-Systems International, an independent German company and subsidiary of Deutsche Telekom. Microsoft’s commercial cloud services in these datacenters adhere to German data handling regulations and give customers additional choices of how and where data is processed.
+Os dados de cliente nesses novos datacenters, em Magdeburg e Frankfurt, são gerenciados sob o controle de um administrador de dados, o T-Systems International, uma empresa Alemã independente e subsidiária da Deutsche Telekom. Os serviços de nuvem comercial da Microsoft nesses datacenters estão de acordo com as regulamentações de manipulação de dados da Alemanha e fornecem aos clientes opções adicionais de como e onde os dados são processados.
 
-* [Azure regions map](https://azure.microsoft.com/regions/)
+* [Mapa de Regiões do Azure](https://azure.microsoft.com/regions/)
 
-## <a name="security"></a>Security
-Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. Data can be secured in transit between an application and Azure by using Client-Side Encryption, HTTPS, or SMB 3.0. Data can be set to be automatically encrypted when written to Azure Storage using Storage Service Encryption (SSE). OS and Data disks used by virtual machines can be set to be encrypted using Azure Disk Encryption. Delegated access to the data objects in Azure Storage can be granted using Shared Access Signatures.
+## <a name="security"></a>Segurança
+O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. A conta de armazenamento pode ser protegida usando o Controle de Acesso Baseado em Função e o Azure Active Directory. Os dados podem ser protegidos em trânsito, entre um aplicativo e o Azure usando a Criptografia do cliente, HTTPs ou SMB 3.0. Os dados podem ser definidos para serem criptografados automaticamente quando gravados no Armazenamento do Azure usando a SSE (Criptografia do Serviço de Armazenamento). Os discos do SO e de dados usados pelas máquinas virtuais podem ser definidos para serem criptografados usando o Azure Disk Encryption. O acesso delegado aos objetos de dados no Armazenamento do Azure pode ser concedido usando Assinaturas de Acesso Compartilhado.
 
-### <a name="management-plane-security"></a>Management Plane Security
-The management plane consists of the resources used to manage your storage account. In this section, we’ll talk about the Azure Resource Manager deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. We will also talk about managing your storage account keys and how to regenerate them.
+### <a name="management-plane-security"></a>Segurança do plano de gerenciamento
+O plano de gerenciamento consiste em recursos usados para gerenciar a conta de armazenamento. Nesta seção, falaremos sobre o Modelo de implantação do Azure Resource Manager e como usar o RBAC (Controle de Acesso Baseado em Função) para controlar o acesso às contas de armazenamento. Também falaremos sobre como gerenciar as chaves da conta de armazenamento e como regenerá-las.
 
-### <a name="data-plane-security"></a>Data Plane Security
-In this section, we’ll look at allowing access to the actual data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We’ll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
+### <a name="data-plane-security"></a>Segurança do plano de dados
+Nesta seção, vamos examinar a permissão de acesso aos objetos de dados reais na sua conta de armazenamento, como blobs, arquivos, filas e tabelas, usando as Assinaturas de Acesso Compartilhado e as Políticas de Acesso Armazenado. Vamos abordar a SAS de nível de serviço e de nível de conta. Também veremos como limitar o acesso a um endereço IP específico (ou a um intervalo de endereços IP), como limitar o protocolo usado para HTTPS e como revogar uma Assinatura de Acesso Compartilhado sem esperar que ela expire.
 
-## <a name="encryption-in-transit"></a>Encryption in Transit
-This section discusses how to secure data when you transfer it into or out of Azure Storage. We’ll talk about the recommended use of HTTPS and the encryption used by SMB 3.0 for Azure File Shares. We will also take a look at Client-side Encryption, which enables you to encrypt the data before it is transferred into Storage in a client application, and to decrypt the data after it is transferred out of Storage.
+## <a name="encryption-in-transit"></a>Criptografia em trânsito
+Esta seção ensina a proteger os dados quando você os transfere para dentro ou para fora do Armazenamento do Azure. Falaremos sobre o uso recomendado de HTTPS e a criptografia usada pelo SMB 3.0 para Compartilhamentos de Arquivos do Azure. Também examinaremos a Criptografia do Cliente, que permite criptografar os dados antes que eles sejam transferidos para o Armazenamento em um aplicativo cliente e a descriptografá-los depois que eles são transferidos para fora do Armazenamento.
 
-## <a name="encryption-at-rest"></a>Encryption at Rest
-We will talk about Storage Service Encryption (SSE), and how you can enable it for a storage account, resulting in your block blobs, page blobs, and append blobs being automatically encrypted when written to Azure Storage. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
+## <a name="encryption-at-rest"></a>Criptografia em repouso
+Falaremos sobre a SSE (Criptografia do Serviço de Armazenamento) e como é possível habilitá-la em uma conta de armazenamento, resultando na criptografia automática dos blobs de blocos, dos blobs de páginas e dos blobs de acréscimo quando gravados no Armazenamento do Azure. Também veremos como você pode usar o Azure Disk Encryption e explorar as diferenças básicas e os casos do Disk Encryption em relação ao SSE e à Criptografia do cliente. Examinaremos rapidamente a compatibilidade de FIPS com os computadores do governo norte-americano.
 
-* [Azure Storage security guide](../storage/storage-security-guide.md)
+* [Guia de segurança do Armazenamento do Azure](../storage/storage-security-guide.md)
 
-## <a name="cost-savings"></a>Cost savings
-* [Storage cost](https://azure.microsoft.com/pricing/details/storage/)
-* [Storage cost calculator](https://azure.microsoft.com/pricing/calculator/?service=storage)
+## <a name="cost-savings"></a>Economia de custos
+* [Custo de armazenamento](https://azure.microsoft.com/pricing/details/storage/)
+* [Calculadora de custos de armazenamento](https://azure.microsoft.com/pricing/calculator/?service=storage)
 
-## <a name="storage-limits"></a>Storage limits
-* [Storage Service limits](../azure-subscription-service-limits.md#storage-limits)
+## <a name="storage-limits"></a>Limites de armazenamento
+* [Limites de Serviço de Armazenamento](../azure-subscription-service-limits.md#storage-limits)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

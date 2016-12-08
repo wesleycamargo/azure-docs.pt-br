@@ -1,12 +1,12 @@
 ---
-title: Configurar SSL para um serviço de nuvem | Microsoft Docs
-description: Saiba como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo. Esses exemplos usam o portal do Azure.
+title: "Configurar SSL para um serviço de nuvem | Microsoft Docs"
+description: "Saiba como especificar um ponto de extremidade HTTPS para uma função Web e como carregar um certificado SSL para proteger seu aplicativo. Esses exemplos usam o portal do Azure."
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5360387816cbbcd631114730fad8b7ce2c8c8aa6
+
 
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurando SSL para um aplicativo no Azure
@@ -36,7 +40,7 @@ Leia [isto](cloud-services-how-to-create-deploy-portal.md) primeiro se você ain
 
 [!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-## <a name="step-1:-get-an-ssl-certificate"></a>Etapa 1: Obter um certificado SSL
+## <a name="step-1-get-an-ssl-certificate"></a>Etapa 1: Obter um certificado SSL
 Para configurar SSL de um aplicativo, você deve primeiro obter um certificado SSL assinado por uma Autoridade de Certificação (CA), um terceiro confiável que emita certificados com essa finalidade. Se ainda não tiver um, você precisará obtê-lo junto a uma empresa que venda certificados SSL.
 
 O certificado deve atender aos seguintes requisitos para certificados SSL no Azure:
@@ -52,7 +56,7 @@ Em seguida, você deve incluir informações sobre o certificado nos arquivos de
 
 <a name="modify"> </a>
 
-## <a name="step-2:-modify-the-service-definition-and-configuration-files"></a>Etapa 2: Modificar a definição de serviço e arquivos de configuração
+## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Etapa 2: Modificar a definição de serviço e arquivos de configuração
 O aplicativo deve ser configurado para usar o certificado, e um ponto de extremidade HTTPS deve ser adicionado. Dessa forma, os arquivos de definição e configuração do serviço precisam ser atualizados.
 
 1. No ambiente de desenvolvimento, abra o arquivo de definição de serviço (CSDEF), adicione uma seção **Certificados** dentro da seção **WebRole** e inclua as seguintes informações sobre o certificado (e os certificados intermediários):
@@ -131,7 +135,7 @@ O aplicativo deve ser configurado para usar o certificado, e um ponto de extremi
 
 Agora que os arquivos de definição e configuração do serviço foram atualizados, empacote a implantação para carregamento no Azure. Se você está usando **cspack**, não use o sinalizador **/generateConfigurationFile**, pois ele substituirá as informações de certificado que você acabou de inserir.
 
-## <a name="step-3:-upload-a-certificate"></a>Etapa 3: Carregar um certificado
+## <a name="step-3-upload-a-certificate"></a>Etapa 3: Carregar um certificado
 Conecte-se ao portal e...
 
 1. Selecione seu serviço de nuvem no Portal, selecione seu **Serviço de nuvem**. (Que estará na seção **All resources**.) 
@@ -142,7 +146,7 @@ Conecte-se ao portal e...
     ![Clique no ícone de certificados](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 3. Forneça o **Arquivo**, a **Senha** e clique em **Carregar**.
 
-## <a name="step-4:-connect-to-the-role-instance-by-using-https"></a>Etapa 4: Conectar-se à instância da função usando HTTPS
+## <a name="step-4-connect-to-the-role-instance-by-using-https"></a>Etapa 4: Conectar-se à instância da função usando HTTPS
 Agora que sua implantação está ativa e em execução no Azure, você pode se conectar a ela usando HTTPS.
 
 1. Clique na **URL do Site** para abrir o navegador da Web.
@@ -170,6 +174,9 @@ Agora que sua implantação está ativa e em execução no Azure, você pode se 
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Gerenciar seu serviço de nuvem](cloud-services-how-to-manage-portal.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

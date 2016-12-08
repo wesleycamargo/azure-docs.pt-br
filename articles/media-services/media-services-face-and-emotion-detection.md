@@ -1,19 +1,23 @@
 ---
-title: Detectar o Rosto e a Emoção com o Azure Media Analytics | Microsoft Docs
-description: Este tópico demonstra como detectar os rostos e as emoções com o Azure Media Analytics.
+title: "Detectar o Rosto e a Emoção com o Azure Media Analytics | Microsoft Docs"
+description: "Este tópico demonstra como detectar os rostos e as emoções com o Azure Media Analytics."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/15/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 48a4cdf7d50e765ee42cb44d12d1dafd49c13795
+ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
+
 
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detectar a face e a emoção com o Azure Media Analytics
@@ -44,7 +48,7 @@ A API de detecção e acompanhamento facial fornece detecção e acompanhamento 
 
 As faces detectadas e acompanhadas retornam com coordenadas (esquerda, superior, largura e altura) que indicam o local das faces na imagem em pixels, bem como um número de identificação da face indicando o acompanhamento dessa pessoa. Os números de identificação de face estão sujeitos à redefinição em circunstâncias nas quais a face frontal é perdida ou sobreposta no quadro, resultando na atribuição de várias IDs às mesmas pessoas.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos do arquivo JSON de saída
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos do arquivo JSON de saída
 Para a operação de detecção e acompanhamento facial, o resultado de saída contém os metadados das faces dentro do arquivo especificado no formato JSON.
 
 O JSON de detecção e acompanhamento facial inclui os seguintes atributos:
@@ -70,18 +74,11 @@ O Face Detector usa técnicas de fragmentação (em que os metadados podem ser d
 * Início/Escala de tempo = 2,1 segundos
 * Segundos x (Taxa de quadros/Escala de tempo) = 63 quadros
 
-A seguir, um exemplo simples de como extrair o JSON em um formato por quadro para detecção e acompanhamento facial:
-
-    var faceDetectionResultJsonString = operationResult.ProcessingResult;
-    var faceDetecionTracking = 
-         JsonConvert.DeserializeObject<FaceDetectionResult>(faceDetectionResultJsonString, settings);
-
-
 ## <a name="face-detection-input-and-output-example"></a>Exemplo de entrada e saída da detecção facial
 ### <a name="input-video"></a>Vídeo de entrada
 [Vídeo de Entrada](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>Configuração de tarefa (predefinição)
+### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especificar uma predefinição de configuração. A predefinição de configuração a seguir serve apenas para detecção de face.
 
     {"version":"1.0"}
@@ -140,7 +137,7 @@ O exemplo de saída JSON a seguir foi truncado.
 ### <a name="input-video"></a>Vídeo de entrada
 [Vídeo de Entrada](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>Configuração de tarefa (predefinição)
+### <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Ao criar uma tarefa com o **Azure Media Face Detector**, é necessário especificar uma predefinição de configuração. A configuração de predefinição a seguir especifica a criação do JSON com base na detecção de emoção.
 
     {
@@ -514,6 +511,9 @@ O programa a seguir mostra como:
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

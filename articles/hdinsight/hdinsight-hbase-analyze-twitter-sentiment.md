@@ -1,12 +1,12 @@
 ---
-title: Analisar sentimento no Twitter em tempo real com HBase | Microsoft Docs
-description: Saiba como fazer a análise de sentimento de Big Data em tempo real, usando o HBase em um cluster HDInsight (Hadoop).
+title: Analisar o sentimento do Twitter em tempo real com HBase | Microsoft Docs
+description: "Saiba como fazer a análise de sentimento de Big Data em tempo real, usando o HBase em um cluster HDInsight (Hadoop)."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 5c798ad3-a20d-4385-a463-f4f7705f9566
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: afcbb8ef1e8ca6b688ed556ee67f2f3d3da5bd45
+
 
 ---
-# Analisar sentimento no Twitter em tempo real com HBase no HDInsight.
+# <a name="analyze-real-time-twitter-sentiment-with-hbase-in-hdinsight"></a>Analisar sentimento no Twitter em tempo real com HBase no HDInsight.
 Saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) de Big Data em tempo real, usando o HBase em um cluster HDInsight (Hadoop).
 
 Sites sociais são uma das principais forças motrizes para adoção de Big Data. APIs públicas fornecidas por sites, como o Twitter, são uma fonte útil de dados para analisar e compreender as tendências populares. Neste tutorial, você desenvolverá um aplicativo de serviço de streaming de console e um aplicativo Web ASP.NET para realizar o seguinte:
@@ -37,10 +41,10 @@ Sites sociais são uma das principais forças motrizes para adoção de Big Data
 
 Uma amostra da solução completa do Visual Studio pode ser encontrada em GitHub: [Aplicativo de análise de sentimento social em tempo real](https://github.com/maxluk/tweet-sentiment).
 
-### Pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
-* **Um cluster HBase no HDInsight**. Para obter instruções sobre como criar clusters, confira [Introdução ao uso do HBase com o Hadoop no HDInsight][hbase-get-started]. Você precisará dos seguintes dados para percorrer o tutorial:
+* **Um cluster HBase no HDInsight**. Para obter instruções sobre a criação de clusters, consulte  [Começar a usar o HBase com Hadoop no HDInsight][hbase-get-started]. Você precisará dos seguintes dados para percorrer o tutorial:
 
     <table border="1">
     <tr><th>Propriedade do cluster</th><th>Descrição</th></tr>
@@ -51,42 +55,42 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma estação de trabalho** com Visual Studio 2013 instalado. Para obter instruções, consulte [Instalação do Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
-## Criar ID e segredos do aplicativo Twitter
+## <a name="create-a-twitter-application-id-and-secrets"></a>Criar ID e segredos do aplicativo Twitter
 As API de streaming do Twitter usam [OAuth](http://oauth.net/) para autorizar solicitações. A primeira etapa para usar OAuth é criar um novo aplicativo no site do desenvolvedor do Twitter.
 
 **Para criar ID e segredos do aplicativo Twiiter**
 
 1. Entre nos [Aplicativos Twitter](https://apps.twitter.com/). Clique no link **Inscreva-se agora** se você não tem uma conta do Twitter.
 2. Clique em **Criar Novo Aplicativo**.
-3. Insira um **Nome**, **Descrição** e **Site**. O nome do aplicativo Twitter deve ser um nome exclusivo. O campo site da Web na verdade não é usado. Ele não precisa ser uma URL válida.
+3. Insira um **Nome**, **Descrição** e **Site**. O nome do aplicativo Twitter deve ser um nome exclusivo. O campo site da Web na verdade não é usado. Ele não precisa ser uma URL válida. 
 4. Marque **Sim, eu concordo** e, em seguida, clique em **Criar seu aplicativo do Twitter**.
-5. Clique na guia **Permissões**. A permissão padrão é **Somente leitura**. Isso é suficiente para este tutorial.
-6. Clique na guia **Chaves e Tokens de acesso**.
+5. Clique na guia **Permissões** . A permissão padrão é **Somente leitura**. Isso é suficiente para este tutorial. 
+6. Clique na guia **Chaves e Tokens de acesso** .
 7. Clique em **Criar meu token de acesso**.
 8. Clique em **OAuth de teste** no canto superior direito da página.
-9. Anote os valores de **Chave do consumidor**, **Segredo do consumidor**, **Token de acesso** e **Segredo do token de acesso**. Você precisará desses valores mais tarde no tutorial.
+9. Copie os valores **Chave do consumidor**, **Segredo do consumidor**, **Token de acesso** e **Segredo do token de acesso**. Você precisará desses valores mais tarde no tutorial.
    
     ![hdi.hbase.twitter.sentiment.twitter.app][img-twitter-app]
 
-## Criar um serviço de streaming do Twitter
+## <a name="create-twitter-streaming-service"></a>Criar um serviço de streaming do Twitter
 Você precisa criar um aplicativo para obter tweets, calcular pontuação de sentimento de tweet e enviar palavras de tweet processadas para o HBase.
 
 **Para criar o aplicativo de streaming**
 
-1. Abra o **Visual Studio** e crie um aplicativo de console em Visual C# chamado **TweetSentimentStreaming**.
+1. Abra o **Visual Studio** e crie um aplicativo de console do Visual C# denominado **TweetSentimentStreaming**. 
 2. Do **Console do Gerenciador de Pacotes**, execute os seguintes comandos:
    
         Install-Package Microsoft.HBase.Client -version 0.4.2.0
         Install-Package TweetinviAPI -version 1.0.0.0
    
-    Esses comandos instalam o pacote do [SDK .NET do HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/), que é a biblioteca de cliente para acessar o cluster HBase, e o pacote da [API Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/), que é usado para acessar a API do Twitter.
+    Esses comandos instalam o pacote do [SDK .NET do HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/), que é a biblioteca cliente para acessar o cluster HBase, e o pacote da [API Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/), que é usado para acessar a API do Twitter.
    
    > [!NOTE]
-   > O exemplo usado neste artigo foi testado usando a versão especificada acima. Você pode remover a opção -version para instalar a versão mais recente.
+   > O exemplo usado neste artigo foi testado usando a versão especificada acima.  Você pode remover a opção -version para instalar a versão mais recente.
    > 
    > 
-3. Do **Gerenciador de Soluções**, adicione **System.Configuration** à referência.
-4. Adicione um novo arquivo de classe ao projeto chamado **HBaseWriter.cs** e, em seguida, substitua o código por:
+3. No **Gerenciador de Soluções**, adicione **System.Configuration** à referência.
+4. Adicione um novo arquivo de classe ao projeto chamado **HBaseWriter.cs**e, em seguida, substitua o código por:
    
         using System;
         using System.Collections.Generic;
@@ -117,7 +121,7 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
                 // Sentiment dictionary file and the punctuation characters
                 const string DICTIONARYFILENAME = @"..\..\dictionary.tsv";
                 private static char[] _punctuationChars = new[] {
-            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
    
                 // For writting to HBase
@@ -144,7 +148,7 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
                         tableSchema.name = HBASETABLENAME;
                         tableSchema.columns.Add(new ColumnSchema { name = "d" });
                         client.CreateTableAsync(tableSchema).Wait();
-                        Console.WriteLine("Table "{0}" is created.", HBASETABLENAME);
+                        Console.WriteLine("Table \"{0}\" is created.", HBASETABLENAME);
                     }
    
                     // Read current row count cell
@@ -346,8 +350,8 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
                 public string Polarity { get; set; }
             }
         }
-5. Defina as constantes no código anterior, incluindo **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** e DICTIONARYFILENAME. O DICTIONARYFILENAME é o nome do arquivo e o local do direction.tsv. O arquivo pode ser baixado de **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Se quiser mudar o nome da tabela HBase, você deve mudar o nome da tabela de modo correspondente no aplicativo Web.
-6. Abra **Program.cs** e substitua o código pelo seguinte:
+5. Defina as constantes no código anterior, incluindo **CLUSTERNAME**, **HADOOPUSERNAME**, **HADOOPUSERPASSWORD** e DICTIONARYFILENAME. O DICTIONARYFILENAME é o nome do arquivo e o local do direction.tsv.  O arquivo pode ser baixado de **https://hditutorialdata.blob.core.windows.net/twittersentiment/dictionary.tsv**. Se quiser mudar o nome da tabela HBase, você deve mudar o nome da tabela de modo correspondente no aplicativo Web.
+6. Abra **Program.cs**e substitua o código pelo seguinte:
    
         using System;
         using System.Diagnostics;
@@ -418,7 +422,7 @@ Você precisa criar um aplicativo para obter tweets, calcular pontuação de sen
    
             }
         }
-7. Defina as constantes incluindo **TWITTERAPPACCESSTOKEN**, **TWITTERAPPACCESSTOKENSECRET**, **TWITTERAPPAPIKEY** e **TWITTERAPPAPISECRET**.
+7. Defina as constantes, incluindo**TWITTERAPPACCESSTOKEN**, **TWITTERAPPACCESSTOKENSECRET**, **TWITTERAPPAPIKEY** e **TWITTERAPPAPISECRET**. 
 
 Para executar o serviço de streaming, pressione **F5**. A seguir, uma captura de tela do aplicativo de console:
 
@@ -426,41 +430,41 @@ Para executar o serviço de streaming, pressione **F5**. A seguir, uma captura d
 
 Mantenha o aplicativo de console de streaming em execução enquanto desenvolve o aplicativo Web, para que você tenha mais dados para usar. Para examinar os dados inseridos na tabela, você pode usar o HBase Shell. Confira a [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
 
-## Visualizar o sentimento em tempo real
+## <a name="visualize-real-time-sentiment"></a>Visualizar o sentimento em tempo real
 Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de sentimento em tempo real do HBase e plotar os dados nos mapas Bing.
 
 **Para criar um aplicativo Web MVC ASP.NET**
 
 1. Abra o Visual Studio.
-2. Clique em **Arquivo**, em **Novo** e, em seguida, clique em **Projeto**.
+2. Clique em **Arquivo**, **Novo**, em seguida, clique em **Projeto**.
 3. Insira as seguintes informações:
    
    * Categoria de modelo: **Visual C#/Web**
    * Modelo: **aplicativo Web ASP.NET**
    * Nome: **TweetSentimentWeb**
-   * Local: **C:\\Tutorials**
+   * Local: **C:\Tutorials** 
 4. Clique em **OK**.
-5. Em **Selecionar um modelo**, clique em **MVC**.
+5. Em **Selecionar um modelo**, clique em **MVC**. 
 6. No **Microsoft Azure**, clique em **Gerenciar Assinaturas**.
 7. Em **Gerenciar Assinaturas do Microsoft Azure**, clique em **Entrar**.
-8. Insira suas credenciais do Azure. Suas informações de assinatura do Azure serão mostradas na guia **Contas**.
+8. Insira suas credenciais do Azure. Suas informações de assinatura do Azure serão mostradas na guia **Contas** .
 9. Clique em **Fechar** para fechar a janela **Gerenciar Assinaturas do Microsoft Azure**.
-10. Em **Novo Projeto ASP.NET - TweetSentimentWeb**, clique em **OK**.
-11. Em **Configurar Definições do Site do Microsoft Azure**, selecione a **Região** que está mais próxima de você. Não é necessário especificar um servidor do banco de dados.
+10. No **Novo Projeto ASP.NET - TweetSentimentWeb**, clique em **OK**.
+11. Em **Definir Configurações de Site do Microsoft Azure**, selecione a **Região** mais próxima de você. Não é necessário especificar um servidor do banco de dados. 
 12. Clique em **OK**.
 
 **Para instalar os pacotes NuGet**
 
-1. No menu **Ferramentas**, clique em **Gerenciador de Pacotes NuGet** e em **Console do Gerenciador de Pacotes**. O painel do console é aberto na parte interior da página.
-2. Use o seguinte comando para instalar o pacote [SDK .NET do HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/), que é a biblioteca de cliente para acessar o cluster HBase:
+1. No menu **Ferramentas**, clique em **Gerenciador de Pacotes Nuget**, em seguida, clique em **Console do Gerenciador de Pacotes**. O painel do console é aberto na parte interior da página.
+2. Use o seguinte comando para instalar o pacote [SDK .NET do HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/) , que é a biblioteca de cliente para acessar o cluster HBase:
    
         Install-Package Microsoft.HBase.Client 
 
 **Para adicionar a classe HBaseReader**
 
-1. A partir do **Gerenciador de Soluções**, expanda **TweetSentiment**.
-2. Clique com o botão direito do mouse em **Modelos**, clique em **Adicionar** e, em seguida, clique em **Classe**.
-3. No campo **Nome**, digite **HBaseReader.cs** e, em seguida, clique em **Adicionar**.
+1. No **Gerenciador de Soluções**, expanda **TweetSentiment**.
+2. Clique com botão direito em **Modelos**, clique em **Adicionar**, em seguida, clique em **Classe**.
+3. No campo **Nome**, digite **HBaseReader.cs**, em seguida, clique em **Adicionar**.
 4. Substitua o código pelo seguinte código:
    
         using System;
@@ -569,21 +573,21 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
                 public int Sentiment { get; set; }
             }
         }
-5. Dentro da classe **HBaseReader**, mude os valores constantes como mostrado a seguir:
+5. Dentro da classe **HBaseReader** , mude os valores constantes como mostrado a seguir:
    
-   * **CLUSTERNAME**: o nome do cluster HBase, por exemplo, *https://<HBaseClusterName>.azurehdinsight.net/*.
+   * **CLUSTERNAME**: o nome do cluster HBase, por exemplo, *https://<HBaseClusterName>.azurehdinsight.net/*. 
    * **HADOOPUSERNAME**: o nome de usuário do Hadoop do cluster HBase. O nome padrão é *admin*.
    * **HADOOPUSERPASSWORD**: a senha do usuário do Hadoop do cluster HBase.
-   * **HBASETABLENAME** = "tweets\_by\_words";
+   * **HBASETABLENAME** = "tweets_by_words";
      
-     O nome da tabela HBase é **"tweets\_by\_words";**. Os valores devem corresponder aos valores que você enviou no serviço de streaming, para que o aplicativo Web leia os dados por meio da tabela HBase.
+     O nome da tabela HBase é **"tweets_by_words";**. Os valores devem corresponder aos valores que você enviou no serviço de streaming, para que o aplicativo Web leia os dados por meio da tabela HBase.
 
 **Para adicionar o controlador TweetsController**
 
-1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**.
-2. Clique com o botão direito do mouse em **Controladores**, clique em **Adicionar** e, em seguida, clique em **Controlador**.
-3. Clique em **Controlador de API Web 2 - Vazio**, depois clique em **Adicionar**.
-4. No **Nome do controlador**, digite **TweetsController** e, em seguida, clique em **Adicionar**.
+1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**.
+2. Clique com botão direito em **Controladores**, clique em **Adicionar**, em seguida, clique em **Controlador**.
+3. Clique em **Controlador Web API 2 - Vazio**, em seguida, clique em **Adicionar**.
+4. No campo **Nome do controlador**, digite **TweetsController**, em seguida, clique em **Adicionar**.
 5. A partir do **Gerenciador de Soluções**, clique duas vezes com o mouse em TweetsController.cs para abrir o arquivo.
 6. Modifique o arquivo para que ele se assemelhe ao seguinte:
    
@@ -612,8 +616,8 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para adicionar heatmap.js**
 
-1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**.
-2. Clique com o botão direito do mouse em **Scripts**, clique em **Adicionar** e em **Arquivo JavaScript**.
+1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**.
+2. Clique com botão direito em **Scripts**, **Adicionar** e **Arquivo JavaScript**.
 3. No campo **Nome do Item**, digite **heatmap.js**.
 4. Cole o código a seguir no arquivo. O código foi escrito por Alaistair Aitchison. Para obter mais informações, consulte [Biblioteca HeatMap do Bing Maps AJAX v7](http://alastaira.wordpress.com/2011/04/15/bing-maps-ajax-v7-heatmap-library/).
    
@@ -867,9 +871,9 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para adicionar twitterStream.js**
 
-1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**.
-2. Clique com o botão direito do mouse em **Scripts**, clique em **Adicionar** e em **Arquivo JavaScript**.
-3. No campo **Nome do Item**, digite **twitterStream.js**.
+1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**.
+2. Clique com botão direito em **Scripts**, **Adicionar** e **Arquivo JavaScript**.
+3. No campo **Nome do item**, digite**twitterStream.js**.
 4. Copie e cole o seguinte código no arquivo:
    
         var liveTweetsPos = [];
@@ -1068,7 +1072,7 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para modificar o layout.cshtml**
 
-1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda**Compartilhado** e, em seguida, clique duas vezes com o mouse em **Layout.cshtml**.
+1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, **Exibições**, **Compartilhado**, em seguida, clique duas vezes em _**Layout.cshtml**.
 2. Substitua o conteúdo com o seguinte:
    
         <!DOCTYPE html>
@@ -1131,7 +1135,7 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para modificar o Index.cshtml**
 
-1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Exibições**, expanda**Página Inicial** e, em seguida, clique duas vezes com o mouse em **Index.cshtml**.
+1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, **Exibições**, **Início**, em seguida, clique duas vezes em **Index.cshtml**.
 2. Substitua o conteúdo com o seguinte:
    
         @{
@@ -1144,7 +1148,7 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para modificar o arquivo site.css**
 
-1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, expanda **Conteúdo**, e, em seguida, clique duas vezes com o mouse em **Site.css**.
+1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, **Conteúdo**, em seguida, clique duas vezes em **Site.css**.
 2. Acrescente o seguinte código ao arquivo:
    
         /* make container, and thus map, 100% width */
@@ -1167,11 +1171,11 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 
 **Para modificar o arquivo global.asax**
 
-1. A partir do **Gerenciador de Soluções**, expanda **TweetSentimentWeb** e, em seguida, clique duas vezes com o mouse em **Global.asax**.
-2. Adicione a seguinte instrução **using**:
+1. No **Gerenciador de Soluções**, expanda **TweetSentimentWeb**, em seguida, clique duas vezes em **Global.asax**.
+2. Adicione a seguinte instrução **using** :
    
         using System.Web.Http;
-3. E as seguintes linhas dentro da função **Application\_Start()**:
+3. Adicione as seguintes linhas dentro da função **Application_Start ()**:
    
         // Register API routes
         GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1184,20 +1188,20 @@ Nesta seção, você criará um aplicativo Web MVC ASP.NET para ler os dados de 
 2. Pressione **F5** para executar o aplicativo Web.
    
     ![hdinsight.hbase.twitter.sentiment.bing.map][img-bing-map]
-3. Na caixa de texto, insira uma palavra-chave e, em seguida, clique em **Ir**. Dependendo dos dados coletados na tabela HBase, algumas palavras-chave podem não ser encontradas. Tente algumas palavras-chave comuns, como “amor”, “xbox” e “playstation”.
-4. Alterne entre **Positivo**, **Neutro** e **Negativo** para comparar o sentimento no objeto.
+3. Na caixa de texto, insira uma palavra-chave e, em seguida, clique em **Ir**.  Dependendo dos dados coletados na tabela HBase, algumas palavras-chave podem não ser encontradas. Tente algumas palavras-chave comuns, como “amor”, “xbox” e “playstation”. 
+4. Alterne entre **Positivo**, **Neutro** e **Negativo** para comparar o sentimento sobre o assunto.
 5. Deixe o serviço de streaming executando por mais uma hora, então pesquise as mesmas palavras-chave e compare os resultados.
 
 Opcionalmente, é possível implantar o aplicativo em sites do Azure. Para obter instruções, consulte [Introdução aos sites do Azure e ASP.NET][website-get-started].
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos tweets, salvar os dados do sentimento para o HBase e apresentar os dados dos sentimentos do Twitter em tempo real para mapas Bing. Para obter mais informações, consulte:
 
 * [Introdução ao HDInsight][hdinsight-get-started]
-* [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-geo-replication.md)
+* [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-geo-replication.md) 
 * [Analisar dados do Twitter com Hadoop no HDInsight][hdinsight-analyze-twitter-data]
 * [Analisar dados de atraso de voo usando o HDInsight][hdinsight-analyze-flight-delay-data]
-* [Desenvolver programas MapReduce em Java para HDInsight][hdinsight-develop-mapreduce]
+* [Desenvolver programas Java MapReduce para o HDInsight][hdinsight-develop-mapreduce]
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [website-get-started]: ../app-service-web/web-sites-dotnet-get-started.md
@@ -1239,4 +1243,8 @@ Neste tutorial, você aprendeu como obter tweets, analisar o sentimento dos twee
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

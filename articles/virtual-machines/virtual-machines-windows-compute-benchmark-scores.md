@@ -1,13 +1,13 @@
 ---
-title: Pontuações de parâmetro de comparação de computação de VMs do Windows | Microsoft Docs
-description: Compare as pontuações de parâmetro de comparação de computação do SPECint de VMs do Linux que executam o Windows Server
+title: "Pontuações de parâmetro de comparação de computação de VMs do Windows | Microsoft Docs"
+description: "Compare as pontuações de parâmetro de comparação de computação do SPECint de VMs do Linux que executam o Windows Server"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: f7b13374650eb0050e5b0a8522722541c423e71d
+
 
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Pontuações de parâmetro de comparação de computação de VMs do Windows
-As pontuações de parâmetro de comparação SPECInt a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Windows Server. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Linux](virtual-machines-linux-compute-benchmark-scores.md).
+As pontuações de parâmetro de comparação SPECInt a seguir mostram o desempenho de computação de uma lista organizada de VMs de alto desempenho do Azure que executam o Windows Server. As pontuações de parâmetro de comparação de computação também estão disponíveis para [VMs do Linux](virtual-machines-linux-compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="a-series---compute-intensive"></a>Série A – computação intensiva
 | Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Taxa base média | StdDev |
@@ -41,7 +45,7 @@ As pontuações de parâmetro de comparação SPECInt a seguir mostram o desempe
 | Standard_D13_v2 |8 |1 |Intel Xeon E5-2673 v3 @ 2,4 GHz |17 |235.8 |3.8 |
 | Standard_D14_v2 |16 |2 |Intel Xeon E5-2673 v3 @ 2,4 GHz |15 |460.8 |6.5 |
 
-## <a name="g-series,-gs-series"></a>Série G, série GS
+## <a name="g-series-gs-series"></a>Série G, série GS
 | Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Taxa base média | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_G1, Standard_GS1 |2 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |31 |71.8 |6.5 |
@@ -64,8 +68,11 @@ As pontuações de parâmetro de comparação SPECInt a seguir mostram o desempe
 Os números do Windows foram calculados executando o [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) no Windows Server. O SPECint foi executado usando a opção de taxa base (SPECint_rate2006), com uma cópia por núcleo. O SPECint consiste em 12 testes separados, cada um deles executado três vezes, usando o valor mediano de cada teste e ponderando-os para formar uma pontuação composta. Em seguida, eles foram executados em várias VMs para fornecer as pontuações médias mostradas.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter capacidades de armazenamento, detalhes do disco e considerações adicionais sobre como escolher um dos diferentes tamanhos de VM, veja [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md).
+* Para obter capacidades de armazenamento, detalhes do disco e considerações adicionais sobre como escolher um dos diferentes tamanhos de VM, veja [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

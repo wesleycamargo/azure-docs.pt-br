@@ -1,12 +1,12 @@
 ---
-title: Usando vários arquivos de entrada e propriedades do componente com o Codificador Premium | Microsoft Docs
-description: Este tópico explica como usar setRuntimeProperties para usar vários arquivos de entrada e transmitir dados personalizados para o processador de mídia do Fluxo de Trabalho Premium do Codificador de Mídia.
+title: "Usando vários arquivos de entrada e propriedades do componente com o Codificador Premium | Microsoft Docs"
+description: "Este tópico explica como usar setRuntimeProperties para usar vários arquivos de entrada e transmitir dados personalizados para o processador de mídia do Fluxo de Trabalho Premium do Codificador de Mídia."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: xpouyat
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: xpouyat;anilmur;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
+ms.openlocfilehash: 1d7f5aeb5fcdb6b80289bbd77c12957148d03732
+
 
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Usando vários arquivos de entrada e propriedades do componente com o Codificador Premium
@@ -105,8 +109,8 @@ Exemplo:
 
 > [!NOTE]
 > Lembre-se de não colocar um retorno de carro logo após `<![CDATA[`.
-> 
-> 
+>
+>
 
 ### <a name="propertypath-value"></a>Valor de propertyPath
 Nos exemplos anteriores, propertyPath era “/Entrada de Arquivo de Mídia/nomearquivo”, “/inactiveTimeout” ou “clipListXml”.
@@ -262,8 +266,8 @@ No exemplo acima, o nome do arquivo de vídeo é enviado ao componente de Entrad
 
 > [!NOTE]
 > O nome do arquivo de vídeo é enviado à propriedade primarySourceFile. A razão disso é para que essa propriedade seja usada no fluxo de trabalho na criação do nome do arquivo de saída correto usando Expressões, por exemplo.
-> 
-> 
+>
+>
 
 ### <a name="step-by-step-workflow-creation-that-overlays-a-logo-on-top-of-the-video"></a>Criação de fluxo de trabalho passo a passo que sobrepõe um logotipo na parte superior do vídeo
 Estas são as etapas para criar um fluxo de trabalho que usa dois arquivos como entrada: um vídeo e uma imagem. Isto fará a sobreposição da imagem na parte superior do vídeo.
@@ -354,8 +358,8 @@ Este tutorial mostra como gerenciar ativos com o AMSE. Há duas maneiras de adic
 
 > [!NOTE]
 > Lembre-se de definir um arquivo primário no ativo (o arquivo de vídeo principal).
-> 
-> 
+>
+>
 
 ![Arquivos de ativo no AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
@@ -399,7 +403,7 @@ Você pode baixar o fluxo de trabalho de exemplo no [GitHub](https://github.com/
 ## <a name="see-also"></a>Consulte também
 * [Apresentando a codificação Premium nos Serviços de Mídia do Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [How to use Premium Encoding in Azure Media Services (Como usar a codificação Premium nos Serviços de Mídia do Azure)](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [Encoding on-demand content with Azure Media Services (Codificação do conteúdo sob demanda com os Serviços de Mídia do Azure)](media-services-encode-asset.md#media_encoder_premium_workflow)
+* [Encoding on-demand content with Azure Media Services (Codificação do conteúdo sob demanda com os Serviços de Mídia do Azure)](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Codecs e formatos de fluxo de trabalho do Media Encoder Premium](media-services-premium-workflow-encoder-formats.md)
 * [Exemplos de arquivos de fluxo de trabalho](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
 * [Ferramenta do Explorador dos Serviços de Mídia do Azure](http://aka.ms/amse)
@@ -410,6 +414,8 @@ Você pode baixar o fluxo de trabalho de exemplo no [GitHub](https://github.com/
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

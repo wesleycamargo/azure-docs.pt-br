@@ -1,13 +1,13 @@
 ---
-title: Comandos da CLI do Azure no modo de Gerenciamento de Serviços | Microsoft Docs
-description: Comandos da CLI (interface de linha de comando) do Azure no modo de Gerenciamento de Serviços para gerenciar implantações no modelo de implantação clássica
+title: "Comandos da CLI do Azure no modo de Gerenciamento de Serviços | Microsoft Docs"
+description: "Comandos da CLI (interface de linha de comando) do Azure no modo de Gerenciamento de Serviços para gerenciar implantações no modelo de implantação clássica"
 services: virtual-machines-linux,virtual-machines-windows,mobile-services, cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: b9ccdeed-0ab8-4de2-937f-4046c7918bd8
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 614adbd3536d6740e6a46895b36575f0f4c66a8c
+
 
 ---
-# <a name="azure-cli-commands-in-azure-service-management-(asm)-mode"></a>Comandos da CLI do Azure no modo ASM (Gerenciamento de Serviços do Azure)
+# <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>Comandos da CLI do Azure no modo ASM (Gerenciamento de Serviços do Azure)
 [!INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)]
 
 Você também pode [ler sobre todos os comandos de modelo do Resource Manager](virtual-machines/azure-cli-arm-commands.md) e usar a CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) do clássico para o modelo do Resource Manager.
@@ -45,7 +49,7 @@ Use o comando a seguir para habilitar os comandos de modo de Gerenciamento de Se
 ## <a name="manage-your-account-information-and-publish-settings"></a>Gerenciar suas informações de conta e configurações de publicação
 Uma maneira que a CLI pode se conectar à sua conta é usando as informações da assinatura do Azure. (Veja [Conectar-se a uma assinatura do Azure por meio da CLI do Azure](xplat-cli-connect.md) para obter outras opções.) Essas informações podem ser obtidas no portal clássico do Azure em um arquivo de configurações de publicação conforme descrito aqui. É possível importar o arquivo de configurações de publicação como uma definição de configuração local persistente usada pela CLI para operações posteriores. Você precisa importar as configurações de publicação apenas uma vez.
 
-**account download [opções]**
+**account download [options]**
 
 Esse comando inicia um navegador para baixar o arquivo .publishsettings do portal clássico do Azure.
 
@@ -196,7 +200,7 @@ O diagrama a seguir mostra como as máquinas virtuais clássicas do Azure são h
 
 **create-new** cria a unidade no armazenamento de blobs (isto é, e:\ no diagrama); **attach** anexa um disco já criado, mas desanexado, à máquina virtual.
 
-**vm create [opções] &lt;nome_dns> &lt;imagem> &lt;nome_de_usuário> [password]**
+**vm create [opções] &lt;nome_dns> &lt;imagem> &lt;nome_de_usuário> [senha]**
 
 Esse comando cria uma máquina virtual do Azure. Por padrão, cada máquina virtual (vm) é criada em seu próprio serviço de nuvem. Você pode especificar se uma máquina virtual deve ser adicionada a um serviço de nuvem existente por meio do uso da opção -c, conforme documentado aqui.
 
@@ -213,7 +217,7 @@ As máquinas virtuais do Windows podem habilitar RDP posteriormente adicionando 
 Os seguintes parâmetros opcionais são aceitos para esse comando:
 
 **-c, --connect** criar a máquina virtual dentro de uma implantação já criada em um serviço de hospedagem. Se -vmname não for usado com essa opção, o nome da nova máquina virtual será gerado automaticamente.<br />
-**-n, --vm-name** especifica o nome da máquina virtual. Por padrão, esse parâmetro usa o nome do serviço de hospedagem. Se -vmname não for especificado, o nome para a nova máquina virtual será gerado como &lt;service-name>&lt;id>, em que &lt;id> é o número de máquinas virtuais existentes no serviço mais 1. Por exemplo, se você usar esse comando para adicionar uma máquina virtual a um serviço de hospedagem MyService que tem uma máquina virtual existente, a nova máquina virtual será chamada de MyService2.<br />
+**-n, --vm-name** especifica o nome da máquina virtual. Por padrão, esse parâmetro usa o nome do serviço de hospedagem. Se -vmname não for especificado, o nome para a nova máquina virtual será gerado como &lt;service-name>&lt;id>, em que &lt;id> é o número de máquinas virtuais existentes no serviço mais 1. Por exemplo, se você usar esse comando para adicionar uma máquina virtual a um serviço de hospedagem MyService que tem uma máquina virtual existente, a nova máquina virtual é chamada de MyService2.<br />
 **-u, --blob-url** Especifique a URL de armazenamento de blobs de destino no qual criar o disco de sistema da máquina virtual. <br />
 **-z, --vm-size** Especifique o tamanho da máquina virtual. Os valores válidos são: "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic_A0", "Basic_A1", "Basic_A2", "Basic_A3", "Basic_A4", "Standard_D1", "Standard_D2", "Standard_D3", "Standard_D4", "Standard_D11", "Standard_D12", "Standard_D13", "Standard_D14", "Standard_DS1", "Standard_DS2", "Standard_DS3", "Standard_DS4", "Standard_DS11", "Standard_DS12", "Standard_DS13", "Standard_DS14", "Standard_G1", "Standard_G2", "Standard_G3", "Standard_G4", "Standard_G55". O valor padrão é "Small". <br />
 **-r** Adiciona conectividade RDP a uma máquina virtual do Windows. <br />
@@ -222,7 +226,7 @@ Os seguintes parâmetros opcionais são aceitos para esse comando:
 **-s** A assinatura <br />
 **-o, --community** A imagem especificada é uma imagem da comunidade <br />
 **-w** O nome da rede virtual <br/>
-**-l, --location** especifica a localização (por exemplo, "Centro-Norte dos EUA"). <br />
+**-l, --location** especifica a localização (por exemplo, "Centro Norte dos EUA"). <br />
 **-a, --affinity-group** especifica o grupo de afinidades.<br />
 **-w, --virtual-network-name** Especifique a rede virtual à qual adicionar a nova máquina virtual. As redes virtuais podem ser configuradas e gerenciadas no Portal Clássico do Azure.<br />
 **-b, --subnet-names** Especifica os nomes de sub-redes a atribuir à máquina virtual.
@@ -921,7 +925,7 @@ Esse comando exibe uma lista dos certificados do aplicativo Web.
     Web site name: mydemosite
     + Getting sites
     + Getting site information
-    data:    Subject                       Expiration Date                    Thumbprint
+    data:    Subject                       Expiration Date                      Thumbprint
     data:    ----------------------------  -----------------------------------------
     ----------------  ----------------------------------------
     data:    *.msopentech.com              Fri Nov 28 2014 09:49:57 GMT-0800 (Pacific Standard Time)  A40E82D3DC0286D1F58650E570ECF8224F69A148
@@ -932,7 +936,7 @@ Esse comando exibe uma lista dos certificados do aplicativo Web.
 
 **site cert delete [opções] &lt;impressão digital> [nome]**
 
-**site cert show [opções] &lt;impressão digital> [nome]**
+**site cert show [opções] &lt;impressão-digital> [nome]**
 
 Esse comando mostra os detalhes do certificado
 
@@ -1053,7 +1057,7 @@ Esse comando oferece suporte às seguintes opções adicionais:
 * **--slot** &lt;slot>: o nome do slot a reiniciar.
 
 ### <a name="commands-to-manage-your-web-jobs-history"></a>Comandos para gerenciar o Histórico dos Trabalhos Web
-**site job history list [opções] [nome do trabalho] [nome]**
+**site job history list [opções] [nome-do-trabalho] [nome]**
 
 Esse comando exibe um histórico das execuções do trabalho web específico.
 
@@ -1062,7 +1066,7 @@ Esse comando oferece suporte às seguintes opções adicionais:
 * **--job-name** &lt;nome-do-trabalho>: necessário. O nome do trabalho web.
 * **--slot** &lt;slot>: o nome do slot a reiniciar.
 
-**site job history show [opções] [nome do trabalho] [ID de execução] [nome]**
+**site job history show [opções] [nome-do-trabalho] [ID-de-execução] [nome]**
 
 Esse comando mostra os detalhes de uma execução do trabalho para o trabalho web específico.
 
@@ -1144,7 +1148,7 @@ As opções a seguir se aplicam à maioria dos comandos de Serviços Móveis:
 * **-v** ou **--verbose**: gravar saída detalhada.
 * **--json**: gravar uma saída JSON.
 
-### <a name="<a-name="mobile_services"></a>commands-to-manage-mobile-service-instances"></a><a name="Mobile_Services"></a>Comandos para gerenciar instância dos Serviços Móveis
+### <a name="a-namemobileservicesacommands-to-manage-mobile-service-instances"></a><a name="Mobile_Services"></a>Comandos para gerenciar instância dos Serviços Móveis
 **mobile locations [opções]**
 
 Esse comando lista os locais geográficos suportados pelos Serviços Móveis.
@@ -1300,7 +1304,7 @@ Os tipos de chave são`master` e `application`.
 
 Este comando define a chave do serviço móvel para um valor específico.
 
-### <a name="<a-name="mobile_configuration"></a>commands-to-manage-mobile-service-configuration"></a><a name="Mobile_Configuration"></a>Comandos para gerenciar a configuração do serviço móvel
+### <a name="a-namemobileconfigurationacommands-to-manage-mobile-service-configuration"></a><a name="Mobile_Configuration"></a>Comandos para gerenciar a configuração do serviço móvel
 **mobile config list [opções] [nome-do-serviço]**
 
 Esse comando lista as opções de configuração de um serviço móvel.
@@ -1341,7 +1345,7 @@ Esse comando define uma opção de configuração específica para um serviço m
     info:    mobile config set command OK
 
 
-### <a name="<a-name="mobile_tables"></a>commands-to-manage-mobile-service-tables"></a><a name="Mobile_Tables"></a>Comandos para gerenciar tabelas do serviço móvel
+### <a name="a-namemobiletablesacommands-to-manage-mobile-service-tables"></a><a name="Mobile_Tables"></a>Comandos para gerenciar tabelas do serviço móvel
 **mobile table list [opções] [nome-do-serviço]**
 
 Esse comando lista todas as tabelas em seu serviço móvel.
@@ -1453,8 +1457,8 @@ Esse comando remove todas as linhas de dados da tabela.
     info:    mobile data truncate command OK
 
 
-### <a name="<a-name="mobile_scripts"></a>commands-to-manage-scripts"></a><a name="Mobile_Scripts"></a>Comandos para gerenciar scripts
-Os comandos desta seção são utilizados para gerenciar os scripts de servidor que pertencem a um serviço móvel. Para obter mais informações, consulte [Trabalhar com scripts de servidor em Serviços Móveis](mobile-services/mobile-services-how-to-use-server-scripts.md).
+### <a name="a-namemobilescriptsacommands-to-manage-scripts"></a><a name="Mobile_Scripts"></a>Comandos para gerenciar scripts
+Os comandos desta seção são utilizados para gerenciar os scripts de servidor que pertencem a um serviço móvel. Para obter mais informações, consulte [Trabalhar com scripts de servidor em Serviços Móveis](https://github.com/Azure/azure-mobile-services/blob/master/docs/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [opções] [nome-do-serviço]**
 
@@ -1487,7 +1491,7 @@ Esse comando baixa o script de inserção da tabela TodoItem em um arquivo chama
 
 Esse comando oferece suporte às seguintes opções adicionais:
 
-* **-p `<path>`** ou **--path `<path>`**: o local no arquivo no qual salvar o script, em que o diretório de trabalho atual é o padrão.
+* **-p `<path>`** ou **--path `<path>`**: o local no arquivo no qual salvar o script, onde o diretório de trabalho atual é o padrão.
 * **-f `<file>`** ou **--file `<file>`**: o nome do arquivo no qual salvar o script.
 * **-o** ou **--override**: substituir um arquivo existente.
 * **-c** ou **--console**: gravar o script no console, em vez de em um arquivo.
@@ -1502,7 +1506,7 @@ Esse comando carrega um novo script chamado `todoitem.insert.js` do subdiretóri
 
 O nome do arquivo deve ser composto dos nomes da tabela e da operação. Ele deve estar localizado na subpasta tabela relativa ao local onde o comando é executado. Você também pode usar o parâmetro **-f `<file>`** ou **--file `<file>`** para especificar um nome de arquivo e caminho diferente que contém o script a ser registrado.
 
-**mobile script delete [opções] [nome do serviço] [nome do script]**
+**mobile script delete [opções] [nome-do-serviço] [nome-do-script]**
 
 Esse comando remove o script de inserção existente da tabela TodoItem.
 
@@ -1510,7 +1514,7 @@ Esse comando remove o script de inserção existente da tabela TodoItem.
     info:    Executing command mobile script delete
     info:    mobile script delete command OK
 
-### <a name="<a-name="mobile_jobs"></a>commands-to-manage-scheduled-jobs"></a><a name="Mobile_Jobs"></a>Comandos para gerenciar trabalhos agendados
+### <a name="a-namemobilejobsacommands-to-manage-scheduled-jobs"></a><a name="Mobile_Jobs"></a>Comandos para gerenciar trabalhos agendados
 Os comandos desta seção são utilizados para gerenciar trabalhos agendados que pertencem a um serviço móvel. Para obter mais informações, veja [Agendar trabalhos](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
 **mobile job list [opções] [nome-do-serviço]**
@@ -1539,7 +1543,7 @@ Esse comando cria um trabalho chamado `getUpdates` que está agendado para ser e
 Esse comando oferece suporte às seguintes opções adicionais:
 
 * **-i `<number>`** ou **--interval `<number>`**: o intervalo do trabalho como um número inteiro. O valor padrão é `15`.
-* **-u `<unit>`** ou **--intervalUnit `<unit>`**: a unidade de *interval*, que pode ser um dos seguintes valores:
+* **-u `<unit>`** or **--intervalUnit `<unit>`**: a unidade de *interval*, que pode ser um dos seguintes valores:
   * **minuto** (padrão)
   * **hora**
   * **dia**
@@ -1563,7 +1567,7 @@ O comando a seguir habilita o trabalho desabilitado `getUpdates`.
 Esse comando oferece suporte às seguintes opções adicionais:
 
 * **-i `<number>`** ou **--interval `<number>`**: o intervalo do trabalho como um número inteiro. O valor padrão é `15`.
-* **-u `<unit>`** ou **--intervalUnit `<unit>`**: a unidade de *interval*, que pode ser um dos seguintes valores:
+* **-u `<unit>`** or **--intervalUnit `<unit>`**: a unidade de *interval*, que pode ser um dos seguintes valores:
   * **minuto** (padrão)
   * **hora**
   * **dia**
@@ -1572,7 +1576,7 @@ Esse comando oferece suporte às seguintes opções adicionais:
 * **-t `<time>`** **--startTime `<time>`** A hora de início da primeira execução do script, no formato ISO. O valor padrão é `now`.
 * **-a `<status>`** ou **--status `<status>`**: o status do trabalho, que pode ser `enabled` ou `disabled`.
 
-**mobile job delete [opções] [nome do serviço] [nome do trabalho]**
+**mobile job delete [opções] [nome-do-serviço] [nome-do-trabalho]**
 
 Esse comando remove o trabalho agendado getUpdates do servidor TodoList.
 
@@ -1585,7 +1589,7 @@ Esse comando remove o trabalho agendado getUpdates do servidor TodoList.
 > 
 > 
 
-### <a name="<a-name="mobile_scale"></a>commands-to-scale-a-mobile-service"></a><a name="Mobile_Scale"></a>Comandos para dimensionar um serviço móvel
+### <a name="a-namemobilescaleacommands-to-scale-a-mobile-service"></a><a name="Mobile_Scale"></a>Comandos para dimensionar um serviço móvel
 Os comandos desta seção são usados para dimensionar um serviço móvel. Para obter mais informações, consulte [Dimensionando um serviço móvel](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [opções] [nome-do-serviço]**
@@ -1677,7 +1681,7 @@ Esse comando oferece suporte às seguintes opções adicionais:
 * **-p** ou **--permissions** &lt;permissões>: uma lista de pares &lt;método>=&lt;permissão> delimitada por vírgulas.
 * **-f** ou **--force**: substitui quaisquer alterações personalizadas para o arquivo de metadados de permissões.
 
-**mobile api delete [opções] [nome do serviço] [nome da api]**
+**mobile api delete [opções] [nome-do-serviço] [nome-da-api]**
 
     ~$ azure mobile api delete mysite myCustomRetrieveAPI
     info:    Executing command mobile api delete
@@ -1709,7 +1713,7 @@ Este comando adiciona uma configuração do apicativo personalizado para seu ser
     + Adding app setting
     info:    mobile appsetting add command OK
 
-**mobile appsetting delete [opções] [nome do serviço] [nome]**
+**mobile appsetting delete [opções] [nome-do-serviço] [nome]**
 
 Este comando remove a configuração do aplicativo específico para seu serviço móvel.
 
@@ -2019,7 +2023,7 @@ Esse comando oferece suporte às seguintes opções adicionais:
 * **-b** ou **--blob** &lt;nome-do-blob>: o nome do blob de armazenamento a ser carregado.
 * **-t** ou **--blobtype** &lt;tipo-de-blob>: o tipo de blob de armazenamento: Página ou Bloco.
 * **-p** ou **--properties** &lt;propriedades>: as propriedades do blob de armazenamento para o arquivo carregado. As propriedades são pares chave=valor e separados com ponto e vírgula (;). As propriedades disponíveis são contentType, contentEncoding, contentLanguage e cacheControl.
-* **-m** ou **--metadata** &lt;metadados>: os metadados do blob de armazenamento para o arquivo carregado. Os metadados são pares chave=valor e separados com ponto e vírgula (;).
+* **-m** or **--metadata** &lt;metadados>: os metadados do blob de armazenamento para o arquivo carregado. Os metadados são pares chave=valor e separados com ponto e vírgula (;).
 * **--concurrenttaskcount** &lt;contagem-de-tarefas-simultâneas> O número máximo de solicitações de upload simultâneas.
 * **-q** ou **--quiet**: substituir o blob de armazenamento específico sem confirmação.
 * **-a** ou **--account-name** &lt;nome-da-conta>: o nome da conta de armazenamento.
@@ -2047,7 +2051,7 @@ Esse comando oferece suporte às seguintes opções adicionais:
 ## <a name="commands-to-manage-sql-databases"></a>Comandos para gerenciar bancos de dados SQL
 Use estes comandos para gerenciar seus bancos de dados SQL do Azure
 
-### <a name="commands-to-manage-sql-servers."></a>Comandos para gerenciar servidores SQL.
+### <a name="commands-to-manage-sql-servers"></a>Comandos para gerenciar servidores SQL.
 Use estes comandos para gerenciar seus servidores SQL
 
 **sql server create &lt;login-do-administrador> &lt;senha-do-administrador> &lt;localização>**
@@ -2350,6 +2354,6 @@ Remove uma entrada de servidor DNS da configuração de rede.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

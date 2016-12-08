@@ -1,12 +1,12 @@
 ---
-title: Guia de solução de problemas da transmissão ao vivo | Microsoft Docs
-description: Este tópico fornece sugestões sobre como solucionar os problemas da transmissão ao vivo.
+title: "Guia de solução de problemas da transmissão ao vivo | Microsoft Docs"
+description: "Este tópico fornece sugestões sobre como solucionar os problemas da transmissão ao vivo."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c1e8a4befdf4d233bf00d1697ea3d9ff64cc6bbd
+
 
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guia de solução de problemas da transmissão ao vivo
@@ -22,19 +26,19 @@ Este tópico fornece sugestões sobre como solucionar alguns problemas da transm
 ## <a name="issues-related-to-on-premises-encoders"></a>Problemas relacionados aos codificadores locais
 Esta seção fornece sugestões sobre como solucionar problemas relacionados aos codificadores locais que estão configurados para enviar uma transmissão de taxa de bits única para canais do AMS habilitados para a codificação ativa.
 
-### <a name="problem:-would-like-to-see-logs"></a>Problema: gostaria de ver logs
+### <a name="problem-would-like-to-see-logs"></a>Problema: gostaria de ver logs
 * **Problema potencial**: não é possível localizar os logs do codificador que poderiam ajudar na depuração de problemas.
   
   * **Telestream Wirecast**: normalmente, você pode encontrar os logs em C:\Users\{nome_do_usuário\AppData\Roaming\Wirecast\ 
   * **Element Live**: você pode ver que há links para logs no portal de gerenciamento. Clique em **Estatísticas** e em **Logs**. Na página **Arquivos de Log** , você verá uma lista dos logs para todos os itens de LiveEvent; selecione o que corresponde à sua sessão atual. 
   * **Flash Media Live Encoder**: você pode encontrar o **Diretório de Log...** navegando para a guia **Log de Codificação**.
 
-### <a name="problem:-there-is-no-option-for-outputting-a-progressive-stream"></a>Problema: não há nenhuma opção para gerar uma transmissão progressiva
+### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>Problema: não há nenhuma opção para gerar uma transmissão progressiva
 * **Possível problema**: o codificador que está sendo usado não se desentrelaça automaticamente. 
   
     **Etapas de solução de problemas**: procure uma opção de desentrelaçamento na interface do codificador. Depois de habilitar o desentrelaçamento, verifique novamente as configurações de saída progressiva. 
 
-### <a name="problem:-tried-several-encoder-output-settings-and-still-unable-to-connect."></a>Problema: várias configurações de saída de codificador foram tentadas, mas ainda não é possível se conectar.
+### <a name="problem-tried-several-encoder-output-settings-and-still-unable-to-connect"></a>Problema: várias configurações de saída de codificador foram tentadas, mas ainda não é possível se conectar.
 * **Possível problema**: o canal de codificação do Azure não foi redefinido corretamente. 
   
     **Etapas de solução de problemas**: verifique se o codificador não está mais enviando para o AMS, pare-o e redefina o canal. Quando estiver em execução novamente, tente conectar seu codificador com as novas configurações. Se isso ainda não corrigir o problema, tente criar um novo canal, pois, às vezes, os canais podem ser corrompidos após várias tentativas com falha.  
@@ -45,7 +49,7 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
   
     **Etapas de solução de problemas**: ao transmitir por RTMP, verifique as configurações de firewall e/ou proxy para confirmar que as portas de saída 1935 e 1936 estão abertas. Ao usar a transmissão RTP, confirme que a porta de saída 2010 está aberta. 
 
-### <a name="problem:-when-configuring-the-encoder-to-stream-with-the-rtp-protocol,-there-is-no-place-to-enter-a-host-name."></a>Problema: ao configurar o codificador para a transmissão com o protocolo RTP, não há nenhum campo para inserir um nome de host.
+### <a name="problem-when-configuring-the-encoder-to-stream-with-the-rtp-protocol-there-is-no-place-to-enter-a-host-name"></a>Problema: ao configurar o codificador para a transmissão com o protocolo RTP, não há nenhum campo para inserir um nome de host.
 * **Possível problema**: muitos codificadores RTP não permitem nomes de host, e será necessário adquirir um endereço IP.  
   
     **Etapas de solução de problemas**: para localizar o endereço IP, abra um prompt de comando em qualquer computador. Para fazer isso no Windows, abra o inicializador de Execução (WIN + R) e digite “cmd” para abrir.  
@@ -58,7 +62,7 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
   
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
 
-### <a name="problem:-unable-to-playback-the-published-stream."></a>Problema: não é possível reproduzir a transmissão publicada.
+### <a name="problem-unable-to-playback-the-published-stream"></a>Problema: não é possível reproduzir a transmissão publicada.
 * **Possível problema**: não há nenhum Ponto de Extremidade de Transmissão em execução ou não há nenhuma unidade de transmissão (unidades de escala) alocada. 
   
     **Etapas de solução de problemas**: navegue até a guia “Ponto de Extremidade de Transmissão” na ferramenta AMSE e confirme se há um Ponto de Extremidade de Transmissão com uma unidade de transmissão. 
@@ -74,6 +78,9 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

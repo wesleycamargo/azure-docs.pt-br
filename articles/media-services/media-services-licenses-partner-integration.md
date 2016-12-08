@@ -1,12 +1,12 @@
 ---
-title: Usando parceiros para fornecer licenças Widevine para os Serviços de Mídia do Azure | Microsoft Docs
-description: Este artigo descreve como é possível usar os serviços de mídia do Azure (AMS) para oferecer um fluxo dinamicamente é criptografado pelo AMS com os DRMs do PlayReady e Widevine. A licença do PlayReady vem do servidor de licenças do PlayReady dos serviços de mídia e a licença do Widevine é fornecida pelo servidor de licenças do castLabs.
+title: "Como usar parceiros para fornecer licenças Widevine para os Serviços de Mídia do Azure | Microsoft Docs"
+description: "Este artigo descreve como é possível usar os serviços de mídia do Azure (AMS) para oferecer um fluxo dinamicamente é criptografado pelo AMS com os DRMs do PlayReady e Widevine. A licença do PlayReady vem do servidor de licenças do PlayReady dos serviços de mídia e a licença do Widevine é fornecida pelo servidor de licenças do castLabs."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5bcad5a4-c0bb-4871-9cce-808a913c53e6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b4211cef3b4f3ffa2c0c97fd7650606f3eef7008
+
 
 ---
 # <a name="using-partners-to-deliver-widevine-licenses-to-azure-media-services"></a>Usando parceiros  para fornecer licenças Widevine para os Serviços de Mídia do Azure
@@ -39,6 +43,9 @@ Você pode usar [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) para for
 
 [Blog do Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

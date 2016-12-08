@@ -1,24 +1,28 @@
 ---
 title: Sobre discos e VHDs para VMs do Windows | Microsoft Docs
-description: Conheça o básico sobre discos e VHDs para máquinas virtuais do Windows no Azure.
+description: "Conheça o básico sobre discos e VHDs para máquinas virtuais do Windows no Azure."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 0142c64d-5e8c-4d62-aa6f-06d6261f485a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 11/18/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: a800d23208c190a381689a2417bbe9952343bc16
+
 
 ---
 # <a name="about-disks-and-vhds-for-azure-virtual-machines"></a>Sobre discos e VHDs para máquinas virtuais do Azure
-Assim como qualquer outro computador, as máquinas virtuais do Azure usam os discos como locais onde armazenar um sistema operacional, aplicativos e dados. Todas as máquinas virtuais do Azure têm pelo menos dois discos – um disco do sistema operacional Windows e um disco temporário. O disco do sistema operacional é criado por meio de uma imagem, e o disco do sistema operacional e a imagem são VHDs (discos rígidos virtuais) armazenados em uma conta de armazenamento do Azure. Máquinas virtuais também podem ter um ou mais discos de dados que também são armazenados em VHDs. Este artigo também está disponível para [máquinas virtuais Linux](virtual-machines-linux-about-disks-vhds.md).
+Assim como qualquer outro computador, as máquinas virtuais do Azure usam os discos como locais onde armazenar um sistema operacional, aplicativos e dados. Todas as máquinas virtuais do Azure têm pelo menos dois discos – um disco do sistema operacional Windows e um disco temporário. O disco do sistema operacional é criado por meio de uma imagem, e o disco do sistema operacional e a imagem são VHDs (discos rígidos virtuais) armazenados em uma conta de armazenamento do Azure. Máquinas virtuais também podem ter um ou mais discos de dados que também são armazenados em VHDs. Este artigo também está disponível para [máquinas virtuais Linux](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -28,10 +32,10 @@ Cada máquina virtual tem um disco de sistema operacional anexado. Ele é regist
 ## <a name="temporary-disk"></a>Disco temporário
 O disco temporário é criado automaticamente para você. O disco temporário é rotulado como a unidade D: por padrão e é usado para armazenar o arquivo pagefile.sys. 
 
-O tamanho do disco temporário varia com base no tamanho da máquina virtual. Para obter mais informações, consulte [Tamanhos de máquinas virtuais do Windows](virtual-machines-windows-sizes.md).
+O tamanho do disco temporário varia com base no tamanho da máquina virtual. Para obter mais informações, consulte [Tamanhos de máquinas virtuais do Windows](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!WARNING]
-> Não armazene dados no disco temporário. Ele fornece armazenamento temporário para aplicativos e processos e destina-se apenas armazenar dados como arquivos de paginação ou de permuta. Para remapear este disco para uma letra de unidade diferente, consulte [Alterar a letra da unidade de disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md).
+> Não armazene dados no disco temporário. Ele fornece armazenamento temporário para aplicativos e processos e destina-se apenas armazenar dados como arquivos de paginação ou de permuta. Para remapear este disco para uma letra de unidade diferente, consulte [Alterar a letra da unidade de disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 > 
 > 
 
@@ -41,7 +45,7 @@ Para obter mais informações sobre como o Azure usa o disco temporário, consul
 Um disco de dados é um VHD anexado a uma máquina virtual para armazenar dados de aplicativo ou outros dados que você precisa manter. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher.  Cada disco de dados tem uma capacidade máxima de 1023 GB. O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
 
 > [!NOTE]
-> Para obter mais informações sobre as capacidades de máquinas virtuais, veja [Tamanhos das máquinas virtuais do Windows](virtual-machines-windows-sizes.md).
+> Para obter mais informações sobre as capacidades de máquinas virtuais, veja [Tamanhos das máquinas virtuais do Windows](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 
@@ -66,10 +70,13 @@ Antes de excluir um arquivo .vhd de origem, você precisará remover a concessã
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Anexar um disco](virtual-machines-windows-attach-disk-portal.md) para adicionar mais armazenamento à sua VM.
-* [Carregue uma imagem de VM do Windows no Azure](virtual-machines-windows-upload-image.md) para utilização durante a criação de uma nova VM.
-* [Altere a letra da unidade do disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md) para que seu aplicativo possa usar a unidade D: para dados.
+* [Anexar um disco](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para adicionar mais armazenamento à sua VM.
+* [Carregue uma imagem de VM do Windows no Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para utilização durante a criação de uma nova VM.
+* [Altere a letra da unidade do disco temporário do Windows](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para que seu aplicativo possa usar a unidade D: para dados.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

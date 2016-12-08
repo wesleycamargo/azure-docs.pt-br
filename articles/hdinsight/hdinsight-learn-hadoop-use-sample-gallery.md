@@ -1,23 +1,27 @@
 ---
-title: Saiba mais sobre o Hadoop no HDInsight usando a Galeria de Exemplos | Microsoft Docs
-description: Aprenda Hadoop rapidamente executando exemplos de aplicativos na galeria de introdução do HDInsight. Use dados de exemplo ou forneça seus próprios dados.
+title: Saiba mais sobre o Hadoop no HDInsight usando a Galeria de Modelos | Microsoft Docs
+description: "Aprenda Hadoop rapidamente executando exemplos de aplicativos na galeria de introdução do HDInsight. Use dados de exemplo ou forneça seus próprios dados."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3d391bf3-fcb2-4956-8a2c-7c142e952bbb
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 10/21/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0c5a9ee8d437a529c320f19a6f32c88bd38326e7
+
 
 ---
-# Saiba mais sobre o Hadoop usando a Galeria de Introdução do HDInsight do Azure
+# <a name="learn-hadoop-by-using-the-azure-hdinsight-getting-started-gallery"></a>Saiba mais sobre o Hadoop usando a Galeria de Introdução do HDInsight do Azure
 A Galeria de Introdução só está disponível para clusters HDInsight baseados em Windows. A galeria fornece uma maneira fácil e rápida de aprender a trabalhar com o Hadoop, executando aplicativos de exemplo no HDInsight. Alguns dos exemplos vêm com dados de exemplo. Você pode fornecer seus próprios dados para o restante dos exemplos. Atualmente, há os seguintes exemplos seis exemplos (com mais a caminho):
 
 * Soluções com os dados do Azure
@@ -35,12 +39,12 @@ O vídeo a seguir mostra como executar o exemplo de análise de tendência do Tw
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-Você pode acessar o Painel navegando até http://<YourHDInsightClusterName>.azurehdinsight.net/ ou no Portal do Azure.
+Você pode acessar o Painel navegando até http://<YourHDInsightClusterName>.azurehdinsight.net/ ou no portal do Azure.
 
 **Para executar um exemplo da Galeria de Introdução**
 
-1. Entre no [Portal do Azure][azure.portal].
-2. Clique em **Procurar** no menu à esquerda, clique em **Clusters HDInsight** e clique no nome do cluster.
+1. Entre no [portal do Azure][azure.portal].
+2. Clique em **Procurar** no menu esquerdo, clique em **Clusters HDInsight** e clique no nome do cluster.
 3. Clique em **Painel** no menu superior.
 4. Insira o nome de usuário e a senha para o usuário HTTP (também chamado de usuário de cluster).
 5. Clique em **Galeria de Introdução** no topo da página.
@@ -48,7 +52,7 @@ Você pode acessar o Painel navegando até http://<YourHDInsightClusterName>.azu
    
     ![Exemplo de análise de tendência de Twitter do HDInsight][hdinsight.twitter.sample]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Outras maneiras de saber mais sobre o HDInsight incluem:
 
 * [Mapa de aprendizado do HDInsight][hdinsight.learn.map]
@@ -61,6 +65,10 @@ Outras maneiras de saber mais sobre o HDInsight incluem:
 <!--Link references-->
 [hdinsight.learn.map]: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
-[azure.portal]: https://portal.azure.com
+[azure.portal]:https://portal.azure.com
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

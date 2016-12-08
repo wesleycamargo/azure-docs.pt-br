@@ -1,12 +1,12 @@
 ---
-title: Configurar um nome de domínio para seu ponto de extremidade de Armazenamento de Blobs | Microsoft Docs
-description: Saiba como mapear um domínio de usuário personalizado para o ponto de extremidade do Armazenamento de Blobs para uma conta de armazenamento do Azure no Portal Clássico do Azure.
+title: "Configurar um nome de domínio para seu ponto de extremidade de Armazenamento de Blobs | Microsoft Docs"
+description: "Saiba como mapear um domínio de usuário personalizado para o ponto de extremidade do Armazenamento de Blobs para uma conta de armazenamento do Azure no Portal Clássico do Azure."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: aaafd8c5-eacb-49dc-8c8b-3f7011ad5e92
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9e81c98e0da32e0ac432a1a4bae0fb771e35cff7
+
 
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurar um nome de domínio personalizado para seu ponto de extremidade de Armazenamento de Blobs
@@ -101,6 +105,9 @@ Para cancelar o registro de um domínio personalizado, siga estas etapas:
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Como mapear o domínio personalizado para o ponto de extremidade da CDN (Rede de Distribuição de Conteúdo)](../cdn/cdn-map-content-to-custom-domain.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Detectar movimentos com o Azure Media Analytics | Microsoft Docs
-description: O MP (processador de mídia) Azure Media Motion Detector permite a identificação eficiente de seções de interesse em um vídeo longo e rotineiro.
+description: "O MP (processador de mídia) Azure Media Motion Detector permite a identificação eficiente de seções de interesse em um vídeo longo e rotineiro."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d144f813-1a55-442f-a895-5c4cb6d0aeae
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b92e9290396009e59bfadb2eb3f75cf4952a45d
+
 
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detectar movimentos com o Azure Media Analytics
@@ -29,7 +33,7 @@ Este tópico fornece detalhes sobre o **Azure Media Motion Detector** e mostra c
 ## <a name="motion-detector-input-files"></a>Arquivos de entrada do Motion Detector
 Arquivos de vídeo. Atualmente, há suporte para os seguintes formatos: MP4, MOV e WMV.
 
-## <a name="task-configuration-(preset)"></a>Configuração de tarefa (predefinição)
+## <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Quando você criar uma tarefa com o **Azure Media Motion Detector**, deverá especificar uma predefinição de configuração. 
 
 ### <a name="parameters"></a>Parâmetros
@@ -78,7 +82,7 @@ Um trabalho de detecção de movimento retornará um arquivo JSON no ativo de sa
 
 A API do Motion Detector fornecerá indicadores quando houver objetos em movimento em um vídeo fixo em segundo plano (por exemplo, um vídeo de vigilância). O Motion Detector é treinado para reduzir alarmes falsos, como mudanças de iluminação e de sombra. As limitações atuais dos algoritmos incluem vídeos de visão noturna, objetos semitransparentes e objetos pequenos.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos do arquivo JSON de saída
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos do arquivo JSON de saída
 > [!NOTE]
 > Na versão mais recente, o formato JSON de saída foi alterado e pode representar uma alteração significativa para alguns clientes.
 > 
@@ -365,6 +369,9 @@ O programa a seguir mostra como:
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

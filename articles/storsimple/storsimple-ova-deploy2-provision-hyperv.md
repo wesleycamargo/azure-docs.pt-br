@@ -1,33 +1,37 @@
 ---
 title: Implantar o StorSimple Virtual Array - Provisionar no Hyper-V
-description: Esse segundo tutorial sobre a implantação do StorSimple Virtual Array envolve o provisionamento de um dispositivo virtual no Hyper-V.
+description: "Esse segundo tutorial sobre a implantação do StorSimple Virtual Array envolve o provisionamento de um dispositivo virtual no Hyper-V."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 38c440e7-81e9-4689-9ec3-c231a499c43e
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/14/2016
+ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4d8de51377c8aad73ebf71f83b44edb094635f32
+
 
 ---
-# Implantar o StorSimple Virtual Array – Provisionar um Virtual Array no Hyper-V
+# <a name="deploy-storsimple-virtual-array---provision-a-virtual-array-in-hyper-v"></a>Implantar o StorSimple Virtual Array – Provisionar um Virtual Array no Hyper-V
 ![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv4.png)
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 Este tutorial de provisionamento se aplica ao Microsoft Azure StorSimple Virtual Array (também conhecido como dispositivos virtuais locais StorSimple ou dispositivos virtuais StorSimple) que executa a versão GA (disponibilidade geral) de março de 2016. Este tutorial descreve como provisionar um StorSimple Virtual Array em um sistema de host que executa o Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. Este artigo se aplica à implantação de Matrizes virtuais do StorSimple no portal clássico do Azure, bem como na Nuvem de governo do Microsoft Azure.
 
 Você precisará de privilégios de administrador para provisionar e configurar um dispositivo virtual. O provisionamento e a configuração inicial podem levar cerca de 10 minutos para ser concluídos.
 
-## Pré-requisitos de provisionamento
+## <a name="provisioning-prerequisites"></a>Pré-requisitos de provisionamento
 Aqui você encontrará os pré-requisitos para provisionar um dispositivo virtual em um sistema de host que executa o Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2.
 
-### Para o serviço StorSimple Manager
+### <a name="for-the-storsimple-manager-service"></a>Para o serviço StorSimple Manager
 Antes de começar, verifique se:
 
 * Você concluiu todas as etapas em [Preparar o portal para o StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
@@ -38,7 +42,7 @@ Antes de começar, verifique se:
   > 
   > 
 
-### Para o dispositivo virtual StorSimple
+### <a name="for-the-storsimple-virtual-device"></a>Para o dispositivo virtual StorSimple
 Antes de implantar um dispositivo virtual, verifique se:
 
 * Você tem acesso a um sistema de host que executa o Hyper-V no Windows Server 2008 R2 ou superior que pode ser usado para provisionar um dispositivo.
@@ -49,10 +53,10 @@ Antes de implantar um dispositivo virtual, verifique se:
   * Uma interface de rede.
   * Um disco virtual de 500 GB para dados do sistema.
 
-### Para a rede no datacenter
+### <a name="for-the-network-in-the-datacenter"></a>Para a rede no datacenter
 Antes de começar, analise os requisitos de rede para implantar um dispositivo virtual StorSimple e configure a rede de datacenter de acordo com os eles. Para obter mais informações, consulte [Requisitos de rede do StorSimple Virtual Array](storsimple-ova-system-requirements.md#networking-requirements).
 
-## Provisionamento passo a passo
+## <a name="step-by-step-provisioning"></a>Provisionamento passo a passo
 Para provisionar e se conectar a um dispositivo virtual, você precisará executar as seguintes etapas:
 
 1. Verificar se o sistema de host tem recursos suficientes para cumprir os requisitos mínimos de dispositivos virtuais.
@@ -61,7 +65,7 @@ Para provisionar e se conectar a um dispositivo virtual, você precisará execut
 
 Cada uma das etapas acima é explicada nas seções a seguir.
 
-## Etapa 1: Verificar se o sistema de host cumpre os requisitos mínimos de dispositivo virtual
+## <a name="step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements"></a>Etapa 1: Verificar se o sistema de host cumpre os requisitos mínimos de dispositivo virtual
 Para criar um dispositivo virtual, você precisará de:
 
 * A função do Hyper-V instalada no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2 SP1.
@@ -74,10 +78,10 @@ Você deve garantir que o hardware subjacente (sistema de host) em que está cri
 * Uma interface de rede.
 * Um disco virtual de 500 GB para dados do sistema.
 
-## Etapa 2: provisionar um dispositivo virtual no hipervisor
+## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>Etapa 2: provisionar um dispositivo virtual no hipervisor
 Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 
-#### Para provisionar um dispositivo virtual
+#### <a name="to-provision-a-virtual-device"></a>Para provisionar um dispositivo virtual
 1. No seu host do Windows Server, copie a imagem do dispositivo virtual para uma unidade local. Esta é a imagem (VHD ou VHDX) que você baixou por meio do Portal do Azure. Anote o local em que você copiou a imagem, pois ela será usada posteriormente no procedimento.
 2. Abra o **Gerenciador do Servidor**. No canto superior direito, clique em **Ferramentas** e selecione **Gerenciador do Hyper-V**.
    
@@ -88,7 +92,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
    
    ![](./media/storsimple-ova-deploy2-provision-hyperv/image2.png)
 4. Na página **Antes de começar** do Assistente de Nova Máquina Virtual, clique em **Avançar**.
-5. Na página **Especificar nome e localização**, forneça um **Nome** para seu dispositivo virtual. Clique em **Avançar**.
+5. Na página **Especificar nome e localização**, forneça um **Nome** para seu dispositivo virtual. Clique em **Próximo**.
    
    ![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 6. Na página **Especificar geração**, escolha o tipo de imagem do dispositivo e clique em **Avançar**. Esta página não aparecerá se você estiver usando o Windows Server 2008 R2.
@@ -106,7 +110,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 9. Na página **Conectar disco rígido virtual**, escolha **Usar um disco rígido virtual existente**, especifique a localização da imagem do dispositivo virtual (.vhdx ou .vhd) e clique em **Avançar**.
    
    ![](./media/storsimple-ova-deploy2-provision-hyperv/image8m.png)
-10. Examine o **Resumo** e clique em **Concluir** para criar a máquina virtual. Mas não se precipite – você ainda precisa adicionar alguns núcleos de CPU e uma segunda unidade.
+10. Examine o **Resumo** e clique em **Concluir** para criar a máquina virtual. Mas não se precipite – você ainda precisa adicionar alguns núcleos de CPU e uma segunda unidade. 
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image9.png)
 11. Para cumprir os requisitos mínimos, você precisará de quatro núcleos. Para adicionar processadores virtuais, com o sistema host selecionado na janela **Gerenciador do Hyper-V**, no painel direito sob a lista de **Máquinas Virtuais**, localize a máquina virtual que você acabou de criar. Selecione e clique com o botão direito do mouse no nome do computador e selecione **Configurações**.
@@ -115,7 +119,7 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
 12. Na página **Configurações**, no painel à esquerda, clique em **Processador**. No painel à direita, defina o **número de processadores virtuais** como quatro (ou mais). Clique em **Aplicar**.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image11.png)
-13. Para cumprir os requisitos mínimos, você também precisa adicionar um disco de dados virtual de 500 GB. Na página de **Configurações**:
+13. Para cumprir os requisitos mínimos, você também precisa adicionar um disco de dados virtual de 500 GB. Na página de **Configurações** :
     
     1. No painel à esquerda, selecione **Controlador SCSI**.
     2. No painel à direita, selecione **Disco Rígido** e clique em **Adicionar**.
@@ -125,29 +129,29 @@ Execute as etapas a seguir para provisionar um dispositivo no seu hipervisor.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image13.png)
 15. Na página **Antes de começar** do Assistente de Novo Disco Rígido Virtual, clique em **Avançar**.
-16. Na **página Escolher Formato de Disco**, aceite a opção padrão de formato **VHDX**. Clique em **Avançar**. Você não verá esta tela se estiver executando o Windows Server 2012 R2 ou Windows Server 2008 R2.
+16. Na página **Escolher Formato de Disco**, aceite a opção padrão de formato **VHDX**. Clique em **Próximo**. Você não verá esta tela se estiver executando o Windows Server 2012 R2 ou Windows Server 2008 R2.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
-17. Na **página Escolher Tipo de Disco**, defina o tipo de disco rígido virtual como **Expansão dinâmica** (recomendado). Se escolher um disco de **Tamanho fixo**, também funcionará, mas talvez seja necessário esperar muito mais tempo. É recomendável que você não use a opção **Diferenciar**. Clique em **Próximo**. Observe que **Expansão dinâmica** é o padrão no Windows Server 2012 R2 e Windows Server 2012. No Windows Server 2008 R2, o padrão é **Tamanho fixo**.
+17. Na página **Escolher Tipo de Disco**, defina o tipo de disco rígido virtual como **Expansão dinâmica** (recomendado). Se escolher um disco de **Tamanho fixo** , também funcionará, mas talvez seja necessário esperar muito mais tempo. É recomendável que você não use a opção **Diferenciar** . Clique em **Avançar**. Observe que **Expansão dinâmica** é o padrão no Windows Server 2012 R2 e Windows Server 2012. No Windows Server 2008 R2, o padrão é **Tamanho fixo**.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image16.png)
 18. Na página **Especificar Nome e Localização**, forneça um **nome** e também uma **localização** (é possível navegar até um) para o disco de dados. Clique em **Próximo**.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image17.png)
-19. Na página **Configurar Disco**, selecione a opção **Criar um novo disco de rígido virtual em branco** e especifique o tamanho como **500 GB** (ou mais). Clique em **Próximo**.
+19. Na página **Configurar Disco**, selecione a opção **Criar um novo disco de rígido virtual em branco** e especifique o tamanho como **500 GB** (ou mais). Embora 500 GB seja o requisito mínimo, você sempre poderá provisionar um disco maior. Observe que, depois de provisionado, você não poderá expandir ou reduzir o disco. Para saber mais sobre o tamanho do disco a ser provisionado, examine a seção de dimensionamento no documentos de [práticas recomendadas](storsimple-ova-best-practices.md#configuration-best-practices). Clique em **Próximo**.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image18.png)
 20. Na página **Resumo**, examine os detalhes do disco de dados virtual e, se estiver satisfeito, clique em **Concluir** para criar o disco. O assistente será fechado e um disco rígido virtual será adicionado ao seu computador.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image19.png)
-21. Você retornará para a página **Configurações**. Clique em **OK** para fechar a página **Configurações** e retornar à janela do Gerenciador do Hyper-V.
+21. Você retornará para a página **Configurações** . Clique em **OK** para fechar a página **Configurações** e retornar à janela do Gerenciador do Hyper-V.
     
     ![](./media/storsimple-ova-deploy2-provision-hyperv/image20.png)
 
-## Etapa 3: iniciar o dispositivo virtual e obter o IP
+## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Etapa 3: iniciar o dispositivo virtual e obter o IP
 Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a ele.
 
-#### Para iniciar o dispositivo virtual
+#### <a name="to-start-the-virtual-device"></a>Para iniciar o dispositivo virtual
 1. Inicie o dispositivo virtual.
    
    ![](./media/storsimple-ova-deploy2-provision-hyperv/image21.png)
@@ -176,7 +180,7 @@ Execute as etapas a seguir para iniciar o dispositivo virtual e conectar-se a el
    ![](./media/storsimple-ova-deploy2-provision-hyperv/image28m.png)
    
     Agora, você precisará configurar a rede.
-7. Use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela será `Ethernet`.
+7. Use o comando `Get-HcsIpAddress` para listar as interfaces de rede habilitadas em seu dispositivo virtual. Se o dispositivo tiver uma única interface de rede habilitada, o nome padrão atribuído a ela é `Ethernet`.
    
    ![](./media/storsimple-ova-deploy2-provision-hyperv/image29m.png)
 8. Use o cmdlet `Set-HcsIpAddress` para configurar a rede. Um exemplo é mostrado abaixo:
@@ -216,8 +220,13 @@ Assista ao vídeo para ver como você pode provisionar um StorSimple Virtual Arr
 > 
 > 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * [Configurar sua StorSimple Virtual Array como um servidor de arquivos](storsimple-ova-deploy3-fs-setup.md)
 * [Configurar sua StorSimple Virtual Array como um servidor iSCSI](storsimple-ova-deploy3-iscsi-setup.md)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Implantar um aplicativo em Conjuntos de escala de máquina virtual | Microsoft Docs
-description: Implantar um aplicativo em Conjuntos de escala de máquina virtual
+title: "Implantar um aplicativo em conjuntos de dimensionamento de máquinas virtuais | Microsoft Docs"
+description: "Implantar um aplicativo em Conjuntos de escala de máquina virtual"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gbowerman
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,26 +15,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 611099e8c28584e091f9dc6c07eebf7e397092ea
+
 
 ---
-# Implantar um aplicativo em Conjuntos de escala de máquina virtual
+# <a name="deploy-an-app-on-virtual-machine-scale-sets"></a>Implantar um aplicativo em Conjuntos de escala de máquina virtual
 Um aplicativo em execução em um Conjunto de escala de VM normalmente é implantado usando uma destas três maneiras:
 
 * Instalando um novo software em uma imagem de plataforma no momento da implantação. Uma imagem de plataforma neste contexto é uma imagem de sistema operacional do Azure Marketplace, como o Ubuntu 16.04, o Windows Server 2012 R2 etc.
 
-Você pode instalar um novo software em uma imagem de plataforma usando uma [Extensão de VM](../virtual-machines/virtual-machines-windows-extensions-features.md). Uma Extensão de VM é um software que é executado no momento da implantação de uma VM. Execute o código que quiser no momento da implantação usando uma extensão de script personalizado. [Confira aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) um exemplo de modelo do Azure Resource Manager com duas extensões de VM: uma Extensão de Script Personalizado do Linux para instalar o Apache e PHP, e uma Extensão de Diagnóstico para a emissão de dados de desempenho usados pelo Dimensionamento Automático do Azure.
+Você pode instalar um novo software em uma imagem de plataforma usando uma [Extensão de VM](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Uma Extensão de VM é um software que é executado no momento da implantação de uma VM. Execute o código que quiser no momento da implantação usando uma extensão de script personalizado. [Confira aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) um exemplo de modelo do Azure Resource Manager com duas extensões de VM: uma Extensão de Script Personalizado do Linux para instalar o Apache e PHP, e uma Extensão de Diagnóstico para a emissão de dados de desempenho usados pelo Dimensionamento Automático do Azure.
 
 Uma vantagem dessa abordagem é ter um nível de separação entre o código do aplicativo e o sistema operacional, podendo manter seu aplicativo separadamente. Isso também significa que também há mais partes móveis, e o tempo de implantação da VM pode ser maior se o script precisar baixar e configurar muita coisa.
 
-**Se você passar informações confidenciais em seu comando da Extensão de Script Personalizado (como uma senha), especifique o `commandToExecute` no atributo `protectedSettings` da Extensão de Script Personalizado em vez do atributo `settings`.**
+**Se você passar informações confidenciais em seu comando da Extensão de Script Personalizado (como uma senha), especifique o `commandToExecute` no atributo `protectedSettings` da Extensão de Script Personalizado em vez do `settings`atributo.**
 
-* Crie uma imagem de VM personalizada que inclui o sistema operacional e o aplicativo em um único VHD. Aqui, o conjunto de escala é composto por um conjunto de VMs copiado de uma imagem criada por você, e que você precisa manter. Essa abordagem não exige configuração adicional no momento da implantação da VM. No entanto, na versão `2016-03-30` dos Conjuntos de escala de VM (e em versões anteriores), os discos do sistema operacional para as VMs no conjunto de escala são limitados a uma única conta de armazenamento. Assim, você pode ter no máximo 40 VMs em um conjunto de escala, em vez do limite de 100 VMs por conjunto de escala com imagens de plataforma. Consulte [Visão geral do design do Conjunto de escala](virtual-machine-scale-sets-design-overview.md) para obter mais detalhes.
+* Crie uma imagem de VM personalizada que inclui o sistema operacional e o aplicativo em um único VHD. Aqui, o conjunto de escala é composto por um conjunto de VMs copiado de uma imagem criada por você, e que você precisa manter. Essa abordagem não exige configuração adicional no momento da implantação da VM. No entanto, na versão `2016-03-30` dos Conjuntos de escala de VM (e em versões anteriores), os discos do sistema operacional para as VMs no conjunto de escala são limitados a uma única conta de armazenamento. Assim, você pode ter no máximo 40 VMs em um conjunto de escala, em vez do limite de 100 VMs por conjunto de escala com imagens de plataforma. Consulte [Visão geral do design do Conjunto de Dimensionamento](virtual-machine-scale-sets-design-overview.md) para obter mais detalhes.
 * Implantar uma imagem personalizada ou de plataforma, que é basicamente um host do contêiner, e instalar o aplicativo como um ou mais contêineres que você gerencia com um orquestrador ou uma ferramenta de gerenciamento de configuração. Uma ponto positivo dessa abordagem é que você abstrai sua infraestrutura de nuvem da camada do aplicativo e as mantêm separadamente.
 
-## O que acontece quando um Conjunto de escala de VM é escalado horizontalmente?
+## <a name="what-happens-when-a-vm-scale-set-scales-out"></a>O que acontece quando um Conjunto de escala de VM é escalado horizontalmente?
 Quando você adiciona uma ou mais VMs a um conjunto de escala aumentando a capacidade, manualmente ou por meio de dimensionamento automático, o aplicativo é instalado automaticamente. Por exemplo, se o conjunto de escala tiver extensões definidas, elas sempre serão executadas em uma nova VM no momento da criação. Se o conjunto de escala tiver base em uma imagem personalizada, qualquer VM nova será uma cópia da imagem personalizada de origem. Se as VMs do conjunto de escala forem hosts de contêiner, você poderá ter um código de inicialização para carregar os contêineres em uma Extensão de Script Personalizado, ou uma extensão pode instalar um agente registrado com um orquestrador de cluster (como o Serviço de Contêiner do Azure).
 
-## Como gerenciar atualizações de aplicativos em Conjuntos de escala de VM?
+## <a name="how-do-you-manage-application-updates-in-vm-scale-sets"></a>Como gerenciar atualizações de aplicativos em Conjuntos de escala de VM?
 Para atualizações de aplicativos em Conjuntos de escala de VM, três abordagens principais acompanham os três métodos de implantação de aplicativo descritos anteriormente:
 
 * Atualizando com extensões de VM. Quaisquer extensões de VM definidas para um Conjunto de escala de VM são executadas sempre que uma nova VM é implantada, uma VM existente tem sua imagem refeita ou uma extensão de VM é atualizada. Se você precisar atualizar seu aplicativo, a atualização direta de um aplicativo por meio de extensões será uma abordagem viável, basta atualizar a definição da extensão. Uma forma simples de fazer isso é alterando o fileUris a fim de apontar para o novo software.
@@ -46,9 +50,14 @@ Packer e Terraform também oferecem suporte ao Azure Resource Manager, assim tam
 
 As VMs do conjunto de escala se tornam um substrato estável para os contêineres e exigem apenas atualizações ocasionais de segurança e de sistema operacional. Conforme mencionado, o Serviço de Contêiner do Azure é um bom exemplo de como usar essa abordagem e criar um serviço em torno dele.
 
-## Como você implementa uma atualização de SO em domínios de atualização?
+## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>Como você implementa uma atualização de SO em domínios de atualização?
 Vamos supor que você deseja atualizar sua imagem de SO, mantendo o Conjunto de escala de VM em execução. Uma maneira de fazer isso é atualizando as imagens da VM, uma VM por vez. Faça isso com o PowerShell ou a CLI do Azure. Há comandos separados para atualizar o modelo do Conjunto de escala de VM (como a configuração é definida) e emitir chamadas de "atualização manual" em VMs individuais.
 
-[Este](https://github.com/gbowerman/vmsstools) é um exemplo de script de Python que automatiza o processo de atualização de um Conjunto de escala de VM, um domínio de atualização por vez. (Advertência: é mais uma prova de conceito do que uma solução pronta para produção. Convém adicionar alguma verificação de erro etc.).
+[Este](https://github.com/gbowerman/vmsstools) é um exemplo de script de Python que automatiza o processo de atualização de um Conjunto de Dimensionamento de VM, um domínio de atualização por vez. (Advertência: é mais uma prova de conceito do que uma solução pronta para produção. Convém adicionar alguma verificação de erro etc.).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
 title: Script do PowerShell para implantar o cluster HPC do Windows | Microsoft Docs
-description: Executar um script do PowerShell para implantar um cluster de Pacote HPC do Windows nas máquinas virtuais do Azure
+description: "Executar um script do PowerShell para implantar um cluster de Pacote HPC do Windows nas máquinas virtuais do Azure"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,hpc-pack
-
+ms.assetid: 286b2be8-2533-40df-b02a-26156b1f1133
 ms.service: virtual-machines-windows
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 07/07/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: f2c3121cf6fed47a5dd844c06de3dd9175fbcd5a
+
 
 ---
-# <a name="create-a-windows-high-performance-computing-(hpc)-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Criar um cluster HPC (computação de alto desempenho) do Windows usando o script de implantação IaaS do HPC Pack
-Execute o script do PowerShell de implantação do Pacote HPC IaaS para implantar um cluster HPC completo de cargas de trabalho do Windows nas máquinas virtuais do Azure. O cluster consiste em um nó principal associado do Active Directory que executa o Windows Server e o Pacote HPC da Microsoft, e os recursos de computação especificados. Se você desejar implantar um cluster de HPC Pack no Azure para cargas de trabalho do Linux, consulte [Criar um cluster de HPC Linux com o script de implantação do HPC Pack IaaS](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). Você também pode usar um modelo do Gerenciador de Recursos do Azure para implantar um cluster Pacote HPC. Para obter exemplos, confira [Criar um cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) e [Criar um cluster HPC com uma imagem do nó de computação personalizada](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+# <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Criar um cluster HPC (computação de alto desempenho) do Windows usando o script de implantação IaaS do HPC Pack
+Execute o script do PowerShell de implantação do Pacote HPC IaaS para implantar um cluster HPC completo de cargas de trabalho do Windows nas máquinas virtuais do Azure. O cluster consiste em um nó principal associado do Active Directory que executa o Windows Server e o Pacote HPC da Microsoft, e os recursos de computação especificados. Se você desejar implantar um cluster de HPC Pack no Azure para cargas de trabalho do Linux, consulte [Criar um cluster de HPC Linux com o script de implantação do HPC Pack IaaS](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json). Você também pode usar um modelo do Gerenciador de Recursos do Azure para implantar um cluster Pacote HPC. Para obter exemplos, confira [Criar um cluster HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) e [Criar um cluster HPC com uma imagem do nó de computação personalizada](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
@@ -263,10 +267,13 @@ O arquivo de configuração a seguir implanta um cluster Pacote HPC em uma flore
 
 ## <a name="next-steps"></a>Próximas etapas
 * Tente executar uma carga de trabalho de teste no cluster. Para obter um exemplo, consulte o [guia de Introdução](https://technet.microsoft.com/library/jj884144)do Pacote HPC.
-* Para ver um tutorial sobre como usar script para implantação de um cluster e executar uma carga de trabalho do HPC, veja [Introdução a um cluster de Pacote HPC no Azure para executar cargas de trabalho do Excel e da SOA](virtual-machines-windows-excel-cluster-hpcpack.md).
-* Experimente as ferramentas do Pacote HPC para iniciar, parar, adicionar e remover nós de computação de um cluster que você queira criar. Consulte [Gerenciar nós de computação em um cluster de Pacote HPC no Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md).
-* Para se preparar para enviar trabalhos para o cluster a partir de um computador local, confira [Enviar trabalhos HPC de um computador local para um cluster de Pacote HPC no Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md).
+* Para ver um tutorial sobre como usar script para implantação de um cluster e executar uma carga de trabalho do HPC, veja [Introdução a um cluster de Pacote HPC no Azure para executar cargas de trabalho do Excel e da SOA](virtual-machines-windows-excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Experimente as ferramentas do Pacote HPC para iniciar, parar, adicionar e remover nós de computação de um cluster que você queira criar. Consulte [Gerenciar nós de computação em um cluster de Pacote HPC no Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+* Para se preparar para enviar trabalhos para o cluster a partir de um computador local, confira [Enviar trabalhos HPC de um computador local para um cluster de Pacote HPC no Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

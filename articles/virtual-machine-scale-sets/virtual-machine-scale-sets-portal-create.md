@@ -1,14 +1,14 @@
 ---
-title: Criar um conjunto de dimensionamento de máquina virtual usando o Portal do Azure | Microsoft Docs
+title: "Criar um conjunto de dimensionamento de máquinas virtuais usando o Portal do Azure | Microsoft Docs"
 description: Implantar conjuntos de escala usando o portal do Azure.
-keywords: conjuntos de escala de máquina virtual
+keywords: "conjuntos de escala de máquina virtual"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gatneil
 manager: madhana
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 9c1583f0-bcc7-4b51-9d64-84da76de1fda
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
@@ -16,6 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: gatneil
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8c4248077626cba2f1ace3c119d301b99247e19f
+
 
 ---
 # <a name="create-a-virtual-machine-scale-set-using-the-azure-portal"></a>Criar um conjunto de dimensionamento de máquina virtual usando o Portal do Azure
@@ -64,6 +68,9 @@ Para ver a documentação geral, confira a [página de visão geral da documenta
 
 Para obter informações gerais, confira a [página de aterrissagem principal para conjuntos de escala](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

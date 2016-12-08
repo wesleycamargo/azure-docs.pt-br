@@ -1,14 +1,14 @@
 ---
 title: Alterar um conjunto de disponibilidade de VM | Microsoft Docs
-description: Saiba como alterar o conjunto de disponibilidade de suas máquinas virtuais usando o Azure PowerShell e o modelo de implantação do Resource Manager.
-keywords: ''
+description: "Saiba como alterar o conjunto de disponibilidade de suas máquinas virtuais usando o Azure PowerShell e o modelo de implantação do Resource Manager."
+keywords: 
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: Drewm3
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 44c90f90-bc9a-4260-a36f-5465e2a1ef94
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,12 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 947369fe8d93cb5a7ecf2624a0192d8aa1ea8524
+
 
 ---
-# Alterar a conjunto de disponibilidade para uma VM do Windows
-As etapas a seguir descrevem como alterar o conjunto de disponibilidade de uma VM usando o Azure PowerShell. Uma VM só pode ser adicionada a um conjunto de disponibilidade quando ela é criada. Para alterar o conjunto de disponibilidade, exclua e recrie a máquina virtual.
+# <a name="change-the-availability-set-for-a-windows-vm"></a>Alterar a conjunto de disponibilidade para uma VM do Windows
+As etapas a seguir descrevem como alterar o conjunto de disponibilidade de uma VM usando o Azure PowerShell. Uma VM só pode ser adicionada a um conjunto de disponibilidade quando ela é criada. Para alterar o conjunto de disponibilidade, exclua e recrie a máquina virtual. 
 
-## Alterar a conjunto de disponibilidade usando o PowerShell
+## <a name="change-the-availability-set-using-powershell"></a>Alterar a conjunto de disponibilidade usando o PowerShell
 1. Capture os detalhes importantes a seguir da VM quer será modificada.
    
     Nome da VM
@@ -51,14 +55,14 @@ As etapas a seguir descrevem como alterar o conjunto de disponibilidade de uma V
     $vm.StorageProfile.OsDisk.Vhd.Uri
     ```
    
-    Perfis de disco para cada disco de dados
+    Perfis de disco para cada disco de dados 
    
     ```powershell
     $vm.StorageProfile.DataDisks[<index>].Lun
     $vm.StorageProfile.DataDisks[<index>].Vhd.Uri
     ```
    
-    Extensões de VM instaladas
+    Extensões de VM instaladas 
    
     ```powershell
     $vm.Extensions
@@ -84,9 +88,9 @@ As etapas a seguir descrevem como alterar o conjunto de disponibilidade de uma V
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. Adicione extensões e discos de dados. Para saber mais, confira [Anexar disco de dados à VM](virtual-machines-windows-attach-disk-portal.md) e [Exemplos de configuração de extensão](virtual-machines-windows-extensions-configuration-samples.md). É possível adicionar extensões e discos de dados à VM usando o PowerShell ou a CLI do Azure.
+5. Adicione extensões e discos de dados. Para saber mais, confira [Anexar disco de dados à VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Exemplos de configuração de extensão](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). É possível adicionar extensões e discos de dados à VM usando o PowerShell ou a CLI do Azure.
 
-## Script de exemplo
+## <a name="example-script"></a>Script de exemplo
 O script a seguir fornece um exemplo de como coletar as informações necessárias, como excluir a VM original e como recriá-la em um novo conjunto de disponibilidade.
 
 ```powershell
@@ -150,7 +154,12 @@ O script a seguir fornece um exemplo de como coletar as informações necessári
     New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
 ```
 
-## Próximas etapas
-Adicione mais armazenamento à sua VM incluindo um [disco de dados](virtual-machines-windows-attach-disk-portal.md) adicional.
+## <a name="next-steps"></a>Próximas etapas
+Adicione armazenamento adicional à sua VM incluindo um [disco de dados](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)adicional.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

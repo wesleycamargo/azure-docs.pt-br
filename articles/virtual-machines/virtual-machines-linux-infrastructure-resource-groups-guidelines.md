@@ -1,13 +1,13 @@
 ---
 title: Diretrizes de Grupos de Recursos| Microsoft Docs
-description: Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de Grupos de Recursos em serviços de infraestrutura do Azure.
-documentationcenter: ''
+description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de Grupos de Recursos em serviços de infraestrutura do Azure."
+documentationcenter: 
 services: virtual-machines-linux
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 93ab9d93-965a-46b9-9c87-a10d652a6422
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ed79850fc238e4406e9525dfb1986a1e0e155799
+
 
 ---
-# Diretrizes de grupos de recursos do Azure
+# <a name="azure-resource-group-guidelines"></a>Diretrizes de grupos de recursos do Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Este artigo destaca as noções básicas sobre como criar seu ambiente logicamente e agrupar todos os componentes em Grupos de Recursos.
 
-## Diretrizes de implementação de Grupos de Recursos
+## <a name="implementation-guidelines-for-resource-groups"></a>Diretrizes de implementação de Grupos de Recursos
 Decisões:
 
 * Você vai criar Grupos de Recursos pelos componentes básicos da infraestrutura ou pela implantação completa do aplicativo?
@@ -35,8 +39,8 @@ Tarefas:
 * Definir quais funções de acesso de usuário serão necessárias para controlar o acesso aos Grupos de Recursos.
 * Criar o conjunto de Grupos de Recursos usando a convenção de nomenclatura. Você pode usar a CLI do Azure ou o portal.
 
-## Grupos de recursos
-No Azure, é possível agrupar logicamente recursos relacionados, como contas de armazenamento, redes virtuais e VMs (máquinas virtuais) para implantar, gerenciar e mantê-las como uma única entidade. Essa abordagem facilita a implantação de aplicativos, ao mesmo tempo que reúne todos os recursos relacionados de uma perspectiva de gerenciamento ou a concessão de acesso para outros usuários a esse grupo de recursos. Para obter um entendimento mais abrangente de Grupos de Recursos, leia a [Visão geral do Azure Resource Manager](../resource-group-overview.md).
+## <a name="resource-groups"></a>Grupos de recursos
+No Azure, é possível agrupar logicamente recursos relacionados, como contas de armazenamento, redes virtuais e VMs (máquinas virtuais) para implantar, gerenciar e mantê-las como uma única entidade. Essa abordagem facilita a implantação de aplicativos, ao mesmo tempo que reúne todos os recursos relacionados de uma perspectiva de gerenciamento ou a concessão de acesso para outros usuários a esse grupo de recursos. Para obter um entendimento mais abrangente de Grupos de Recursos, leia a [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 Um recurso importante para os Grupos de Recursos é a capacidade de criar seu ambiente usando um arquivo JSON que declara os recursos de armazenamento, de rede e de computação. Você também pode definir todas as configurações ou scripts personalizados relacionados a serem aplicados. Usando esses modelos JSON, é possível criar implantações consistentes e reproduzíveis para seus aplicativos. Essa abordagem permite que você crie um ambiente em desenvolvimento e use o mesmo modelo para criar uma implantação de produção ou vice-versa. Para obter um melhor entendimento sobre como usar modelos, leia o [passo a passo do modelo](../resource-manager-template-walkthrough.md) que explica cada etapa de criação de um modelo JSON.
 
@@ -45,9 +49,14 @@ Há duas abordagens diferentes que você pode adotar ao projetar seu ambiente co
 * Os Grupos de Recursos para cada implantação de aplicativo que combinam as contas de armazenamento, as redes virtuais e sub-redes, as VMs, os balanceadores de carga, etc.
 * Grupos de Recursos centralizados que contêm suas redes virtuais e sub-redes principais ou contas de armazenamento. Os aplicativos estão, em seguida, em seus próprios Grupos de Recursos que contêm apenas VMs, balanceadores de carga, interfaces de rede, etc.
 
-Conforme você escala horizontalmente, criando Grupos de Recursos centralizados para sua rede virtual e sub-redes, facilita a criação de conexões locais cruzadas para opções de conectividade híbrida. A abordagem alternativa é cada aplicativo ter sua própria rede virtual que requer configuração e manutenção. Os [Controles de Acesso Baseado em Função](../active-directory/role-based-access-control-what-is.md) fornecem uma maneira granular de controlar o acesso aos Grupos de Recursos. Para aplicativos de produção, é possível controlar os usuários que podem acessar esses recursos ou para os recursos de infraestrutura básica, você pode limitar apenas os engenheiros de infraestrutura a trabalhar com eles. Os proprietários do seu aplicativo só têm acesso aos componentes do aplicativo dentro de seu Grupo de Recursos e não o núcleo de infraestrutura do Azure do seu ambiente. Durante o projeto de seu ambiente, considere os usuários que precisam acessar os recursos e projete os Grupos de Recursos de forma condizente.
+Conforme você escala horizontalmente, criando Grupos de Recursos centralizados para sua rede virtual e subredes, facilita a criação de conexões locais cruzadas para opções de conectividade híbrida. A abordagem alternativa é cada aplicativo ter sua própria rede virtual que requer configuração e manutenção. [Controles de Acesso Baseado em Função](../active-directory/role-based-access-control-what-is.md) fornecem uma maneira granular de controlar o acesso aos Grupos de Recursos. Para aplicativos de produção, é possível controlar os usuários que podem acessar esses recursos ou para os recursos de infraestrutura básica, você pode limitar apenas os engenheiros de infraestrutura a trabalhar com eles. Os proprietários do seu aplicativo só têm acesso aos componentes do aplicativo dentro de seu Grupo de Recursos e não o núcleo de infraestrutura do Azure do seu ambiente. Durante o projeto de seu ambiente, considere os usuários que precisam acessar os recursos e projete os Grupos de Recursos de forma condizente. 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

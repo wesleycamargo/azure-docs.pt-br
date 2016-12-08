@@ -1,13 +1,13 @@
 ---
 title: Configurar automaticamente o grupo de disponibilidade Always On na VM do Azure - Resource Manager
-description: Crie um grupo de disponibilidade AlwaysOn com as máquinas virtuais do Azure no modo do Azure Resource Manager. Este tutorial usa principalmente a interface do usuário para criar a solução inteira automaticamente.
+description: "Crie um grupo de disponibilidade AlwaysOn com as máquinas virtuais do Azure no modo do Azure Resource Manager. Este tutorial usa principalmente a interface do usuário para criar a solução inteira automaticamente."
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 10/20/2016
 ms.author: MikeRayMSFT
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: fc8dd1f618d36ba8586d5130c579c9d59b8393e5
+
 
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-automatically---resource-manager"></a>Configurar automaticamente o grupo de disponibilidade Always On na VM do Azure - Resource Manager
 > [!div class="op_single_selector"]
-> * [Resource Manager: Modelo](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-> * [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
-> * [Clássico: Interface de usuário](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
-> * [Clássico: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
+> * [Resource Manager: Modelo](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [Clássico: Interface de usuário](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [Clássico: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 > 
 > 
 
@@ -47,7 +51,7 @@ Todos os recursos nesta solução pertencem a um único grupo de recursos.
 Este tutorial pressupõe o seguinte:
 
 * Você já tem uma conta do Azure. Se não tiver uma, [inscreva-se para uma conta de avaliação](http://azure.microsoft.com/pricing/free-trial/).
-* Você já sabe como provisionar uma VM do SQL Server da galeria de máquinas virtuais usando a GUI. Para obter mais informações, consulte [Provisionando uma máquina virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md)
+* Você já sabe como provisionar uma VM do SQL Server da galeria de máquinas virtuais usando a GUI. Para obter mais informações, consulte [Provisionando uma máquina virtual do SQL Server no Azure](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * Você já tem uma compreensão sólida dos grupos de disponibilidade. Para obter mais informações, confira [Grupos de disponibilidade Always On (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
 > [!NOTE]
@@ -123,10 +127,10 @@ Se necessário, você pode alterar esses valores. Neste tutorial, use os valores
 
 * Clique em **OK**.
 
-### <a name="vm-size,-storage-settings"></a>Tamanho da VM, configurações de armazenamento
+### <a name="vm-size-storage-settings"></a>Tamanho da VM, configurações de armazenamento
 Em **VM size, storage settings (Tamanho da VM, configurações de armazenamento)** , escolha um tamanho da máquina virtual do SQL Server e examine as outras configurações.
 
-* **SQL Server virtual machine size (Tamanho da máquina virtual do SQL Server)** é o tamanho da máquina virtual do Azure para ambos os servidores SQL. Escolha um tamanho de máquina virtual apropriado para sua carga de trabalho. Se você estiver criando esse ambiente para o tutorial, use **DS2**. Para cargas de trabalho de produção, escolha um tamanho de máquina virtual que dê suporte à carga de trabalho. Muitas cargas de trabalho de produção exigirão **DS4** ou maior. O modelo criará duas máquinas virtuais desse tamanho e instalará o SQL Server em cada uma delas. Para obter mais informações, confira [Tamanhos das máquinas virtuais](virtual-machines-linux-sizes.md).
+* **SQL Server virtual machine size (Tamanho da máquina virtual do SQL Server)** é o tamanho da máquina virtual do Azure para ambos os servidores SQL. Escolha um tamanho de máquina virtual apropriado para sua carga de trabalho. Se você estiver criando esse ambiente para o tutorial, use **DS2**. Para cargas de trabalho de produção, escolha um tamanho de máquina virtual que dê suporte à carga de trabalho. Muitas cargas de trabalho de produção exigirão **DS4** ou maior. O modelo criará duas máquinas virtuais desse tamanho e instalará o SQL Server em cada uma delas. Para obter mais informações, confira [Tamanhos das máquinas virtuais](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > O Azure instalará a Enterprise Edition do SQL Server. O custo depende da edição e do tamanho da máquina virtual. Para obter informações detalhadas sobre os custos atuais, confira [Máquinas virtuais - Preço](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
@@ -168,7 +172,7 @@ Para saber mais sobre o espaço de armazenamento e pools de armazenamento, confi
 * [Visão geral de Espaços de Armazenamento](http://technet.microsoft.com/library/hh831739.aspx).
 * [Backup do Windows Server e pools de armazenamento](http://technet.microsoft.com/library/dn390929.aspx)
 
-Para obter mais informações sobre as práticas recomendadas de configuração do SQL Server, confira [Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md)
+Para obter mais informações sobre as práticas recomendadas de configuração do SQL Server, confira [Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### <a name="sql-server-settings"></a>Configurações do SQL Server
 Em **Configurações do SQL Server** , examine e modifique o prefixo do nome da VM do SQL Server, a versão do SQL Server, a conta de serviço e senha do SQL Server e a agenda de manutenção de aplicação de patch automática do SQL.
@@ -224,6 +228,9 @@ Agora você está conectado ao controlador de domínio primário. Para usar o pr
 
 Agora você está conectado ao SQL Server com protocolo RDP. Você pode abrir o SQL Server Management Studio, conectar-se à instância padrão do SQL Server e verificar se o grupo de disponibilidade está configurado.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

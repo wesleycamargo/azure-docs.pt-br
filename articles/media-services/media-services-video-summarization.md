@@ -1,12 +1,12 @@
 ---
-title: Usar as Miniaturas de Vídeo de Mídia do Azure para Criar um Resumo de vídeo | Microsoft Docs
-description: O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração com a seleção automática de trechos interessantes do vídeo de origem. Isso será útil quando você desejar fornecer uma visão geral rápida do que esperar de um vídeo de longa duração.
+title: "Usar o Azure Media Video Thumbnails para Criar um Resumo de vídeo | Microsoft Docs"
+description: "O resumo de vídeo pode ajudá-lo a criar resumos de vídeos de longa duração com a seleção automática de trechos interessantes do vídeo de origem. Isso será útil quando você desejar fornecer uma visão geral rápida do que esperar de um vídeo de longa duração."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+
 
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar as Miniaturas de Vídeo de Mídia do Azure para criar um resumo de vídeo
@@ -33,7 +37,7 @@ Apresentamos abaixo alguns exemplos do que o processador de mídia das Miniatura
 ### <a name="video-thumbnail-result"></a>Resultado da miniatura de vídeo
 [Resultado da miniatura de vídeo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-## <a name="task-configuration-(preset)"></a>Configuração de tarefa (predefinição)
+## <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Ao criar uma tarefa de miniatura de vídeo com as **Miniaturas de Vídeo de Mídia do Azure**, é necessário especificar uma predefinição de configuração. O exemplo de miniatura acima foi criado com a seguinte configuração básica do JSON:
 
     {"version":"1.0"}
@@ -70,7 +74,7 @@ O programa a seguir mostra como:
 1. Criar um ativo e carregar um arquivo de mídia nesse ativo.
 2. Criar um trabalho com uma miniatura de vídeo baseada em um arquivo de configuração que contém a predefinição de JSON a seguir. 
    
-        {               
+        {                
             "version": "1.0",
             "options": {
                 "outputAudio": "true",
@@ -80,7 +84,7 @@ O programa a seguir mostra como:
         }
 3. Baixar os arquivos de saída. 
 
-### <a name=".net-code"></a>Código do .NET
+### <a name="net-code"></a>Código do .NET
     using System;
     using System.Configuration;
     using System.IO;
@@ -259,6 +263,9 @@ O programa a seguir mostra como:
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Solucionar problemas de implantação do RM de VM Linux | Microsoft Docs
-description: Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Linux no Azure
+title: "Solucionar problemas de implantação do RM de VM Linux | Microsoft Docs"
+description: "Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Linux no Azure"
 services: virtual-machines-linux, azure-resource-manager
-documentationcenter: ''
+documentationcenter: 
 author: JiangChen79
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue, azure-resource-manager
-
+ms.assetid: 906a9c89-6866-496b-b4a4-f07fb39f990c
 ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 3790c6108c151c30ca12feb4af19ad0fd4ae1f68
+
 
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solucionar problemas de implantação do Resource Manager com a criação de uma nova máquina virtual Linux no Azure
@@ -53,9 +57,9 @@ Para resolver ambos os erros, carregue o VHD original, disponível no local, com
 
 **Resolução:**
 
-Para resolver ambos os erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](virtual-machines-linux-capture-image.md) com a mesma configuração usada para o sistema operacional (generalizado/especializado).
+Para resolver ambos os erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) com a mesma configuração usada para o sistema operacional (generalizado/especializado).
 
-## <a name="issue:-custom/-gallery/-marketplace-image;-allocation-failure"></a>Problema: imagem personalizada/da galeria/do Marketplace; falha de alocação
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: imagem personalizada/da galeria/do Marketplace; falha de alocação
 Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada em um cluster que não tem suporte para o tamanho da VM sendo solicitado ou não tem espaço livre disponível para acomodar a solicitação.
 
 **Causa 1:** o cluster não dá suporte ao tamanho de VM solicitado.
@@ -79,8 +83,11 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
   * Adicione a nova VM à mesma rede virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você encontrar problemas ao iniciar uma VM do Linux parada ou redimensionar uma VM do Linux existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager ao reinicializar ou redimensionar uma máquina virtual Linux existente no Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).
+Se você encontrar problemas ao iniciar uma VM do Linux parada ou redimensionar uma VM do Linux existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager ao reinicializar ou redimensionar uma máquina virtual Linux existente no Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

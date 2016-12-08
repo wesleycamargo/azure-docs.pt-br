@@ -5,25 +5,29 @@ services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 10/24/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5b250358c44e699082c27803027a6a861e206a7d
+
 
 ---
-# Desembalar, montar em rack e cabear o dispositivo StorSimple 8600.
-## Visão geral
+# <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8600.
+## <a name="overview"></a>Visão geral
 Seu Microsoft Azure StorSimple 8600 é um dispositivo de compartimento duplo e consiste em um compartimento principal e um EBOD. Este tutorial explica como desempacotar, montar em rack e cabear o hardware do dispositivo StorSimple 8600 para que seja possível configurar o software StorSimple.
 
-## Desempacotar o dispositivo StorSimple 8600
+## <a name="unpack-your-storsimple-8600-device"></a>Desempacotar o dispositivo StorSimple 8600
 As etapas a seguir fornecem instruções claras e detalhadas sobre como desempacotar seu dispositivo de armazenamento StorSimple 8600. Este dispositivo é fornecido em duas caixas, uma para o compartimento principal e outra para o compartimento EBOD. Em seguida, essas duas caixas são colocadas em uma única caixa.
 
-### Preparar para desempacotar o dispositivo
+### <a name="prepare-to-unpack-your-device"></a>Preparar para desempacotar o dispositivo
 Antes de desempacotar o dispositivo, leia as informações a seguir.
 
 ![Ícone de aviso](./media/storsimple-safety/IC740879.png)![ícone de peso pesado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVISO!**
@@ -33,7 +37,7 @@ Antes de desempacotar o dispositivo, leia as informações a seguir.
 
 Conclua as etapas a seguir para desempacotar o dispositivo.
 
-#### Para desempacotar o dispositivo
+#### <a name="to-unpack-your-device"></a>Para desempacotar o dispositivo
 1. Inspecione a caixa e a espuma da embalagem para verificar se não há amassados, cortes, danos por água ou qualquer outro dano visível. Se a caixa ou a embalagem estiver muito danificada, não a abra. [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para receber ajuda e saber se o dispositivo está em boas condições de funcionamento.
 2. Abra a caixa externa e, em seguida, remova as duas caixas correspondentes aos compartimentos principal e EBOD. Agora você pode desempacotar os compartimentos principal e EBOD A figura a seguir mostra a visão desempacotada de um dos compartimentos.
    
@@ -62,11 +66,11 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
    * 2 kits de montagem em rack (4 trilhos laterais com hardware de montagem, 2 para o compartimento principal e 2 para o compartimento EBOD), 1 em cada caixa
    * Documentação de Introdução
      
-     Se você não recebeu algum dos itens listados acima, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
+     Se você não recebeu algum dos itens listados acima, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).  
 
 A próxima etapa é montar o dispositivo em rack.
 
-## Montar em rack o dispositivo StorSimple 8600
+## <a name="rack-mount-your-storsimple-8600-device"></a>Montar em rack o dispositivo StorSimple 8600
 Siga as próximas etapas para instalar o dispositivo de armazenamento StorSimple 8600 em um rack padrão de 19 polegadas (48 cm) com colunas frontal e traseira. Esse dispositivo é fornecido com dois compartimentos: um principal e um EBOD. Ambos precisam ser montados em rack.
 
 A instalação consiste em várias etapas, e cada uma delas é discutida nos procedimentos a seguir.
@@ -76,10 +80,10 @@ A instalação consiste em várias etapas, e cada uma delas é discutida nos pro
 > 
 > 
 
-### Preparação do local
+### <a name="site-preparation"></a>Preparação do local
 Os compartimentos devem ser instalados em um rack padrão de 19 polegadas (48 cm) com colunas frontal e traseira. Use o procedimento a seguir para preparar a instalação do rack.
 
-#### Para preparar o local para instalação do rack
+#### <a name="to-prepare-the-site-for-rack-installation"></a>Para preparar o local para instalação do rack
 1. Certifique-se de colocar os compartimentos principal e EBOD em uma superfície de trabalho plana, estável e nivelada (ou em local semelhante) de modo que fiquem seguros.
 2. Verifique se o local onde você pretende instalar tem energia de corrente alternada padrão de uma fonte independente ou uma PDU (Unidade de Distribuição de Energia) em rack com um no-break.
 3. Verifique se um slot de 4U (2 X 2U) está disponível no rack em que você pretende montar os compartimentos.
@@ -88,17 +92,17 @@ Os compartimentos devem ser instalados em um rack padrão de 19 polegadas (48 cm
 
  Se for instalar o dispositivo manualmente, assegure-se de que terá a ajuda de duas pessoas que possam aguentar o peso do dispositivo. Um compartimento totalmente configurado pode pesar até 32 kg (70 lbs.).
 
-### Pré-requisitos do rack
+### <a name="rack-prerequisites"></a>Pré-requisitos do rack
 Os compartimentos foram projetados para instalação em um gabinete de rack padrão de 19 polegadas (48 cm) com:
 
 * Profundidade mínima de 27,84 polegadas (71 cm) de uma coluna a outra do rack
 * Peso máximo de 32 kg para o dispositivo
 * Pressão de retorno máxima de 5 Pascal (medidor de água de 0,5 mm)
 
-### Kit do trilho de montagem em rack
+### <a name="rack-mounting-rail-kit"></a>Kit do trilho de montagem em rack
 Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete de rack de 19 polegadas. Os trilhos foram testados para suportar o peso máximo do compartimento. Esses trilhos também permitirão a instalação de vários compartimentos sem perda de espaço dentro do rack. Instale primeiro o compartimento EBOD.
 
-#### Para instalar o compartimento EBOD nos trilhos
+#### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>Para instalar o compartimento EBOD nos trilhos
 1. Execute esta etapa somente se não houver trilhos internos instalados em seu dispositivo. Normalmente, os trilhos internos são instalados na fábrica. Caso contrário, instale as corrediças do trilho esquerdo e direito nas laterais dos chassis do compartimento. Elas são presas por seis parafusos métricos em cada lado. Para ajudar com a orientação, as corrediças do trilho são marcadas com **LH – Frontal** e **RH – Frontal**, e a extremidade que é afixada na parte traseira do compartimento é afunilada.
    
     ![Fixando as corrediças do trilho nos chassis do compartimento](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
@@ -126,10 +130,10 @@ Um conjunto de trilhos de montagem será fornecido para ser usado com o gabinete
    |   4 |Parafuso de travamento |
    |   5 |Pinos de localização do trilho posterior esquerdo |
 
-### Montando o compartimento EBOD no rack
+### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Montando o compartimento EBOD no rack
 Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a seguir para montar o compartimento EBOD no rack.
 
-#### Para montar o compartimento EBOD
+#### <a name="to-mount-the-ebod-enclosure"></a>Para montar o compartimento EBOD
 1. Com um assistente, levante o compartimento e alinhe-o com os trilhos do rack.
 2. Com cuidado, insira o compartimento nos trilhos e empurre-o completamente para dentro do gabinete do rack.
    
@@ -148,7 +152,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
    | --- | --- |
    |   1 |Parafuso de fixação do compartimento |
 
-### Montando o compartimento principal no rack
+### <a name="mounting-the-primary-enclosure-in-the-rack"></a>Montando o compartimento principal no rack
 Depois de acabar de montar o compartimento EBOD, você precisará montar o compartimento principal seguindo as mesmas etapas.
 
 > [!NOTE]
@@ -160,10 +164,10 @@ Depois de acabar de montar o compartimento EBOD, você precisará montar o compa
 
 A próxima etapa é fazer o cabeamento do dispositivo para recebimento de energia, acesso à rede e acesso serial.
 
-## Cabear o dispositivo StorSimple 8600
+## <a name="cable-your-storsimple-8600-device"></a>Cabear o dispositivo StorSimple 8600
 Os procedimentos a seguir explicam como cabear o dispositivo StorSimple 8600 para conexões de energia, rede e serial.
 
-### Pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar a cabear o dispositivo, você precisará dos seguintes itens:
 
 * O compartimento principal e o compartimento EBOD completamente desempacotados
@@ -176,7 +180,7 @@ Antes de começar a cabear o dispositivo, você precisará dos seguintes itens:
 * Quatro adaptadores QSFP para SFP+ para serem usados com interfaces de rede de 10 GbE
 * [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Cabeamento de energia e SAS
+### <a name="sas-and-power-cabling"></a>Cabeamento de energia e SAS
 O dispositivo tem um compartimento principal e um compartimento EBOD. Isso requer que as unidades sejam conectadas juntas para a conectividade e energia do SAS (Serial Attached SCSI).
 
 Ao configurar este dispositivo pela primeira vez, execute as etapas para o cabeamento SAS primeiro e, em seguida, conclua as etapas do cabeamento de energia.
@@ -185,12 +189,12 @@ Ao configurar este dispositivo pela primeira vez, execute as etapas para o cabea
 
 [!INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
-### Cabeamento de rede
+### <a name="network-cabling"></a>Cabeamento de rede
 O dispositivo está em uma configuração ativa/em espera: em qualquer dado momento, um módulo do controlador está ativo e processando todas as operações de disco e rede, enquanto o outro módulo do controlador está em espera. Se ocorrer uma falha de controlador, o controlador em espera será imediatamente ativado e dará continuidade a todas as operações de disco e de rede.
 
 Para oferecer suporte a este failover de controlador redundante, você precisa cabear a rede do dispositivo, conforme mostrado nas etapas a seguir.
 
-#### Para cabear a conexão de rede
+#### <a name="to-cable-for-network-connection"></a>Para cabear a conexão de rede
 1. Seu dispositivo tem seis interfaces de rede em cada controlador: quatro de 1 Gbps e duas portas Ethernet de 10 Gbps. Consulte a ilustração a seguir para identificar as portas de dados no backplane do dispositivo.
    
      ![Backplane do dispositivo 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
@@ -237,17 +241,17 @@ Lembre-se disso no caso de alta disponibilidade e desempenho:
 > 
 > 
 
-### Cabeamento de porta serial
+### <a name="serial-port-cabling"></a>Cabeamento de porta serial
 Execute as etapas a seguir para cabear a porta serial.
 
-#### Para cabear a conexão serial
+#### <a name="to-cable-for-serial-connection"></a>Para cabear a conexão serial
 1. O dispositivo tem uma porta serial em cada controlador que é identificada por um ícone de chave inglesa. Para localizar as portas seriais, consulte a ilustração que mostra as portas de dados na parte traseira do dispositivo.
 2. Identifique o controlador ativo no backplane do dispositivo. Um LED azul piscante indica que o controlador está ativo.
 3. Use o cabo serial fornecido (se necessário, o conversor serial USB para seu laptop) e conecte o console ou o computador (com emulação de terminal para o dispositivo) com a porta serial do controlador ativo.
 4. Instale os drivers de USB seriais (fornecidos com o dispositivo) em seu computador.
 5. Configure a conexão serial como se segue:
    
-   * 115\.200 bauds
+   * 115.200 bauds
    * 8 bits de dados
    * 1 bit de parada
    * Sem paridade
@@ -261,7 +265,12 @@ Execute as etapas a seguir para cabear a porta serial.
 
 Você concluiu o cabeamento do dispositivo para conexão serial, de energia e acesso à rede. A próxima etapa é configurar o software no dispositivo.
 
-## Próximas etapas
-Agora você está pronto para [implantar e configurar seu dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+## <a name="next-steps"></a>Próximas etapas
+Agora você está pronto para [implantar e configurar seu dispositivo StorSimple no local](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

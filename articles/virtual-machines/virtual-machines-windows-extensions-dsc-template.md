@@ -1,14 +1,14 @@
 ---
-title: Modelo do Resource Manager para Configuração do Estado Desejado| Microsoft Docs
-description: Definição do modelo do Resource Manager para Configuração de Estado Desejado no Azure com exemplos e solução de problemas
+title: "Modelo do Resource Manager para Configuração do Estado Desejado| Microsoft Docs"
+description: "Definição do modelo do Resource Manager para Configuração de Estado Desejado no Azure com exemplos e solução de problemas"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: zjalexander
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,12 +16,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 ms.author: zachal
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 3f14531dfaac9cbe03d99fc45c98060d92232c5f
+
 
 ---
-# Windows VMSS e configuração de estado desejado com modelos do Azure Resource Manager
-Este artigo descreve o modelo do Resource Manager para o [manipulador de extensão da Configuração de Estado Desejado](virtual-machines-windows-extensions-dsc-overview.md).
+# <a name="windows-vmss-and-desired-state-configuration-with-azure-resource-manager-templates"></a>Windows VMSS e configuração de estado desejado com modelos do Azure Resource Manager
+Este artigo descreve o modelo do Resource Manager para o [manipulador de extensão da Configuração de Estado Desejado](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-## Exemplo de modelo para uma VM do Windows
+## <a name="template-example-for-a-windows-vm"></a>Exemplo de modelo para uma VM do Windows
 O trecho a seguir vai na seção Recursos do modelo.
 
 ```json
@@ -54,8 +58,8 @@ O trecho a seguir vai na seção Recursos do modelo.
 
 ```
 
-## Exemplo de modelo para VMSS do Windows
-Um nó VMSS tem uma seção "properties" com o atributo "VirtualMachineProfile", "extensionProfile". O DSC é adicionado sob "extensões".
+## <a name="template-example-for-windows-vmss"></a>Exemplo de modelo para VMSS do Windows
+Um nó VMSS tem uma seção "properties" com o atributo "VirtualMachineProfile", "extensionProfile". O DSC é adicionado sob "extensões". 
 
 ```json
 "extensionProfile": {
@@ -86,7 +90,7 @@ Um nó VMSS tem uma seção "properties" com o atributo "VirtualMachineProfile",
             ]
 ```
 
-## Informações de configuração detalhadas
+## <a name="detailed-settings-information"></a>Informações de configuração detalhadas
 O esquema a seguir serve para a parte das configurações da extensão DSC do Azure em um modelo do Azure Resource Manager.
 
 ```json
@@ -131,7 +135,7 @@ O esquema a seguir serve para a parte das configurações da extensão DSC do Az
 
 ```
 
-## Detalhes
+## <a name="details"></a>Detalhes
 | Nome da Propriedade | Tipo | Descrição |
 | --- | --- | --- |
 | settings.wmfVersion |string |Especifica a versão do Windows Management Framework que deve ser instalada em sua VM. Configurar essa propriedade como 'latest' instala a versão mais atualizada do WMF. Os únicos valores possíveis no momento para essa propriedade são **'4.0', '5.0', ' 5.0PP' e 'latest'**. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é 'latest'. |
@@ -146,8 +150,10 @@ O esquema a seguir serve para a parte das configurações da extensão DSC do Az
 | protectedSettings.configurationUrlSasToken |string |Especifica o token SAS para acessar a URL definida por configuration.url. Essa propriedade é criptografada. |
 | protectedSettings.configurationDataUrlSasToken |string |Especifica o token SAS para acessar a URL definida por configurationData.url. Essa propriedade é criptografada. |
 
-## Settings versus ProtectedSettings
-Todas as configurações foram salvas em um arquivo de texto de configurações na VM. Propriedades em 'settings' são propriedades públicas, pois não são criptografadas no arquivo de texto de configurações. Propriedades em 'protectedSettings' são criptografadas com um certificado e não são mostradas em texto sem formatação neste arquivo na VM.
+## <a name="settings-vs-protectedsettings"></a>Settings versus ProtectedSettings
+Todas as configurações foram salvas em um arquivo de texto de configurações na VM.
+Propriedades em 'settings' são propriedades públicas, pois não são criptografadas no arquivo de texto de configurações.
+Propriedades em 'protectedSettings' são criptografadas com um certificado e não são mostradas em texto sem formatação neste arquivo na VM.
 
 Se a configuração precisar de credenciais, elas poderão ser incluídas em protectedSettings:
 
@@ -162,8 +168,9 @@ Se a configuração precisar de credenciais, elas poderão ser incluídas em pro
 }
 ```
 
-## Exemplo
-O exemplo a seguir é derivado da seção "Introdução" da página [Visão geral do manipulador de extensão de DSC](virtual-machines-windows-extensions-dsc-overview.md). Este exemplo usa modelos do Resource Manager, em vez de cmdlets para implantar a extensão. Salve a configuração de "IisInstall.ps1", coloque-o em um arquivo .ZIP e carregue-o em uma URL acessível. Este exemplo usa o Armazenamento de Blobs do Azure, mas é possível baixar os arquivos .ZIP de qualquer local aleatório.
+## <a name="example"></a>Exemplo
+O exemplo a seguir é derivado da seção "Introdução" da página [Visão geral do manipulador de extensão de DSC](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Este exemplo usa modelos do Resource Manager, em vez de cmdlets para implantar a extensão. Salve a configuração de "IisInstall.ps1", coloque-o em um arquivo .ZIP e carregue-o em uma URL acessível. Este exemplo usa o Armazenamento de Blobs do Azure, mas é possível baixar os arquivos .ZIP de qualquer local aleatório.
 
 No modelo do Azure Resource Manager, o código a seguir instrui a VM a baixar o arquivo correto e executar a função apropriada do PowerShell:
 
@@ -181,7 +188,7 @@ No modelo do Azure Resource Manager, o código a seguir instrui a VM a baixar o 
 }
 ```
 
-## Atualização do formato anterior
+## <a name="updating-from-the-previous-format"></a>Atualização do formato anterior
 Todas as configurações no formato anterior (que contém as propriedades públicas ModulesUrl, ConfigurationFunction, SasToken ou Properties) serão automaticamente adaptadas ao formato atual e executadas exatamente como antes.
 
 O esquema de configurações a seguir se parece com o esquema de configurações anterior:
@@ -218,50 +225,52 @@ Veja como formato anterior se adapta ao formato atual:
 
 | Nome da Propriedade | Equivalente ao esquema anterior |
 | --- | --- |
-| settings.wmfVersion |settings.WMFVersion |
+| settings.wmfVersion |settings.wmfVersion |
 | settings.configuration.url |settings.ModulesUrl |
-| settings.configuration.script |Primeira parte de settings.ConfigurationFunction (antes de '\\\') |
-| settings.configuration.function |Segunda parte de settings.ConfigurationFunction (depois de '\\\') |
+| settings.configuration.script |Primeira parte de settings.ConfigurationFunction (antes de '\\\\') |
+| settings.configuration.function |Segunda parte de settings.ConfigurationFunction (depois de '\\\\') |
 | settings.configurationArguments |settings.Properties |
 | settings.configurationData.url |protectedSettings.DataBlobUri (sem token SAS) |
-| settings.privacy.dataEnabled |settings.Privacy.DataEnabled |
-| settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
+| settings.privacy.dataEnabled |settings.privacy.dataEnabled |
+| settings.advancedOptions.downloadMappings |settings.advancedOptions.downloadMappings |
 | protectedSettings.configurationArguments |protectedSettings.Properties |
 | protectedSettings.configurationUrlSasToken |settings.SasToken |
 | protectedSettings.configurationDataUrlSasToken |Token SAS de protectedSettings.DataBlobUri |
 
-## Solução de problemas - Código de erro 1100
-Código de erro 1100 indica que há um problema com a entrada do usuário para a extensão de DSC. O texto desses erros é variável e pode mudar. Confira alguns erros que você pode encontrar e como corrigi-los.
+## <a name="troubleshooting---error-code-1100"></a>Solução de problemas - Código de erro 1100
+Código de erro 1100 indica que há um problema com a entrada do usuário para a extensão de DSC.
+O texto desses erros é variável e pode mudar.
+Confira alguns erros que você pode encontrar e como corrigi-los.
 
-### Valores inválidos
+### <a name="invalid-values"></a>Valores inválidos
 "Privacy.dataCollection é '{0}'. Os únicos valores possíveis são '', 'Enable' e 'Disable'" "WmfVersion é '{0}'. Únicos valores possíveis são... e 'latest'"
 
 Problema: um valor fornecido não é permitido.
 
 Solução: altere o valor inválido para um valor válido. Consulte a tabela na seção Detalhes.
 
-### URL inválida
+### <a name="invalid-url"></a>URL inválida
 "ConfigurationData.url é '{0}'. Essa não é uma URL válida" "DataBlobUri é '{0}'. Essa não é uma URL válida" "Configuration.url é '{0}'. Essa não é uma URL válida"
 
 Problema: uma URL fornecida não é válida.
 
 Solução: verifique todas as URLs fornecidas. Certifique-se de que todas as URLs resolvem para locais válidos que a extensão pode acessar no computador remoto.
 
-### Tipo ConfigurationArgument inválido
+### <a name="invalid-configurationargument-type"></a>Tipo ConfigurationArgument inválido
 "Tipo configurationArguments inválido {0}"
 
-Problema: a propriedade ConfigurationArguments não pode resolver um objeto Hashtable.
+Problema: a propriedade ConfigurationArguments não pode resolver um objeto Hashtable. 
 
 Solução: torne sua propriedade ConfigurationArguments uma tabela de hash. Siga o formato fornecido no exemplo anterior. Fique atento às chaves, vírgulas e aspas.
 
-### ConfigurationArguments duplicado
+### <a name="duplicate-configurationarguments"></a>ConfigurationArguments duplicado
 "Argumentos '{0}' duplicados encontrados em configurationArguments públicos e protegidos"
 
 Problema: ConfigurationArguments nas configurações públicas, e ConfigurationArguments nas configurações protegidas contêm propriedades com o mesmo nome.
 
 Solução: remova uma das propriedades duplicadas.
 
-### Propriedades ausentes
+### <a name="missing-properties"></a>Propriedades ausentes
 "Configuration.function exige que configuration.url ou configuration.module seja especificado"
 
 "Configuration.url exige que configuration.script seja especificado"
@@ -276,18 +285,23 @@ Solução: remova uma das propriedades duplicadas.
 
 Problema: uma propriedade definida precisa de outra propriedade que não está presente.
 
-Soluções:
+Soluções: 
 
 * Forneça a propriedade ausente.
 * Remova a propriedade que precisa da propriedade ausente.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre DSC e conjuntos de escala de máquina virtual em [Uso de Conjuntos de Escala de Máquina Virtual com a Extensão de DSC do Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)
 
-Encontre mais detalhes sobre [Gerenciamento de credenciais seguras do DSC](virtual-machines-windows-extensions-dsc-credentials.md).
+Encontre mais detalhes sobre [Gerenciamento de credenciais seguras do DSC](virtual-machines-windows-extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Para saber mais sobre o manipulador de extensões DSC do Azure, confira [Introduction to the Azure Desired State Configuration extension handler (Introdução ao manipulador de extensões Configuração de Estado Desejado do Azure)](virtual-machines-windows-extensions-dsc-overview.md).
+Para saber mais sobre o manipulador de extensões DSC do Azure, confira [Introduction to the Azure Desired State Configuration extension handler (Introdução ao manipulador de extensões Configuração de Estado Desejado do Azure)](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Para saber mais sobre a DSC do PowerShell, [visite o centro de documentação do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview).
+Para saber mais sobre a DSC do PowerShell, [visite o centro de documentação do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Especificações técnicas do StorSimple | Microsoft Docs
-description: Descreve as especificações técnicas e as informações de conformidade de padrões normativos para os componentes de hardware do StorSimple.
+title: "Especificações técnicas do StorSimple | Microsoft Docs"
+description: "Descreve as especificações técnicas e as informações de conformidade de padrões normativos para os componentes de hardware do StorSimple."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 17ebf6b3-0872-4332-ac6e-074cc20a2b8e
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d82f352d714c0272296eb36782cbbcbac99a1bab
+
 
 ---
-# Especificações técnicas e conformidade para o dispositivo StorSimple
-## Visão geral
+# <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificações técnicas e conformidade para o dispositivo StorSimple
+## <a name="overview"></a>Visão geral
 Os componentes de hardware do dispositivo Microsoft Azure StorSimple aderem às especificações técnicas e aos padrões regulatórios descritos neste artigo. As especificações técnicas descrevem os PCMs (Módulos de Alimentação e de Refrigeração), as unidades de disco, a capacidade de armazenamento e os compartimentos. As informações de conformidade abrangem itens como padrões internacionais, segurança e emissões e cabeamento.
 
-## Especificações do Módulo de Alimentação e de Refrigeração
-O dispositivo StorSimple tem dois PCMs (Módulos de Alimentação e de Refrigeração) compatíveis com SBB e com ventilador duplo de 100-240V. Isso oferece uma configuração de alimentação redundante. Se um PCM falhar, o dispositivo continuará a funcionar normalmente em outro PCM até que o módulo com falha seja substituído.
+## <a name="power-and-cooling-module-specifications"></a>Especificações do Módulo de Alimentação e de Refrigeração
+O dispositivo StorSimple tem dois PCMs (Módulos de Alimentação e de Refrigeração) compatíveis com SBB e com ventilador duplo de 100-240V. Isso oferece uma configuração de alimentação redundante. Se um PCM falhar, o dispositivo continuará a funcionar normalmente em outro PCM até que o módulo com falha seja substituído.  
 
 O compartimento EBOD usa um PCM de 580 W e o compartimento principal usa um PCM de 764 W. As tabelas a seguir listam as especificações técnicas associadas aos PCMs.
 
@@ -40,8 +44,8 @@ O compartimento EBOD usa um PCM de 580 W e o compartimento principal usa um PCM 
 | Interruptores e LEDs |Interruptor LIGA/DESLIGA CA e quatro LEDs indicadores de status |Interruptor LIGA/DESLIGA CA e seis LEDs indicadores de status |
 | Refrigeração do compartimento |Ventiladores de refrigeração axial com controle de velocidade variável de ventilador |Ventiladores de refrigeração axial com controle de velocidade variável de ventilador |
 
-## Estatísticas de consumo de energia
-A tabela a seguir lista os dados de consumo de energia típicos (os valores reais podem variar desde a publicação) para os diversos modelos do dispositivo StorSimple.
+## <a name="power-consumption-statistics"></a>Estatísticas de consumo de energia
+A tabela a seguir lista os dados de consumo de energia típicos (os valores reais podem variar desde a publicação) para os diversos modelos do dispositivo StorSimple. 
 
 | Condições | 240 V AC | 240 V AC | 240 V AC | 110 V AC | 110 V AC | 110 V AC |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -52,10 +56,10 @@ A tabela a seguir lista os dados de consumo de energia típicos (os valores reai
 |  Ventiladores rápidos, unidades acessando, dois PSUs ligados |2,26 A |0,51 kW |1740,19 BTU/h |4,95 A |0,54 kW |1842,56 BTU/h |
 |  Ventiladores rápidos, unidades acessando, um PSU ligado um ocioso |2,14 A |0,49 kW |1671,95 BTU/h |4,81 A |0,53 kW |1808,44 BTU/h |
 
-## Especificações da unidade de disco
-Seu dispositivo StorSimple oferece suporte a até 12 unidades de disco SAS (Serial Attached SCSI) fator forma de 3,5 polegadas. As unidades reais podem ser uma combinação de unidades de estado sólido (SSDs) ou de unidades de disco rígido (HDDs), dependendo da configuração do produto. Os 12 slots de unidade de disco estão localizados em uma configuração de 3 a 4 na frente do compartimento. O compartimento EBOD permite armazenamento adicional para outras 12 unidades de disco. Elas sempre serão HDDs.
+## <a name="disk-drive-specifications"></a>Especificações da unidade de disco
+Seu dispositivo StorSimple oferece suporte a até 12 unidades de disco SAS (Serial Attached SCSI) fator forma de 3,5 polegadas. As unidades reais podem ser uma combinação de unidades de estado sólido (SSDs) ou de unidades de disco rígido (HDDs), dependendo da configuração do produto. Os 12 slots de unidade de disco estão localizados em uma configuração de 3 a 4 na frente do compartimento. O compartimento EBOD permite armazenamento adicional para outras 12 unidades de disco. Elas sempre serão HDDs.  
 
-## Especificações do armazenamento
+## <a name="storage-specifications"></a>Especificações do armazenamento
 Os dispositivos StorSimple têm uma mescla de unidades de disco rígido e de estado sólido para o 8100 e o 8600. A capacidade utilizável total para o 8100 e 8600 é cerca de 15 TB e 38 TB, respectivamente. A tabela a seguir documenta os detalhes da SSD, da HDD e da capacidade de nuvem no contexto da capacidade da solução StorSimple.
 
 | Modelo/capacidade do dispositivo | 8100 | 8600 |
@@ -72,10 +76,10 @@ Os dispositivos StorSimple têm uma mescla de unidades de disco rígido e de est
 
 <sup>* </sup>- *A capacidade útil total inclui a capacidade disponível para dados, metadados e buffers.*
 
-## Dimensões do compartimento e especificações de peso
-As tabelas a seguir listam as diversas especificações de compartimento para dimensões e peso.
+## <a name="enclosure-dimensions-and-weight-specifications"></a>Dimensões do compartimento e especificações de peso
+As tabelas a seguir listam as diversas especificações de compartimento para dimensões e peso.  
 
-### Dimensões do compartimento
+### <a name="enclosure-dimensions"></a>Dimensões do compartimento
 A tabela a seguir lista as dimensões do compartimento em milímetros e em polegadas.
 
 | Compartimento | Milímetros | Polegadas |
@@ -87,24 +91,24 @@ A tabela a seguir lista as dimensões do compartimento em milímetros e em poleg
 | Profundidade do painel de controle para a extremidade mais distante do compartimento |630,5 |24,82 |
 | Profundidade do flange de montagem até a extremidade mais distante do compartimento |603 |23,74 |
 
-### Peso do compartimento
-Dependendo da configuração, um compartimento primário totalmente carregado pode pesar de 21 a 33 kg e requer duas pessoas para carregá-lo.
+### <a name="enclosure-weight"></a>Peso do compartimento
+Dependendo da configuração, um compartimento primário totalmente carregado pode pesar de 21 a 33 kg e requer duas pessoas para carregá-lo. 
 
 | Compartimento | Peso |
 | --- | --- |
 | Peso máximo (depende da configuração) |30 kg – 33 kg |
 | Vazio (nenhuma unidade ajustada) |21 – 23 kg |
 
-## Especificações do ambiente de compartimento
-Esta seção lista as especificações relacionadas ao ambiente de compartimento. A temperatura, a umidade, a altitude, o choque, a vibração, a orientação, a segurança e a Compatibilidade Eletromagnética (EMC) estão incluídos nesta categoria.
+## <a name="enclosure-environment-specifications"></a>Especificações do ambiente de compartimento
+Esta seção lista as especificações relacionadas ao ambiente de compartimento. A temperatura, a umidade, a altitude, o choque, a vibração, a orientação, a segurança e a Compatibilidade Eletromagnética (EMC) estão incluídos nesta categoria.  
 
-### Temperatura e umidade
+### <a name="temperature-and-humidity"></a>Temperatura e umidade
 | Compartimento | Faixa de temperatura ambiente | Umidade relativa do ambiente | Umidade máxima da lâmpada |
 | --- | --- | --- | --- |
 | Operacional |5° C - 35° C (41° F - 95° F) |20-80% sem condensação- |28° C (82° F) |
 | Não operacional |-40° C - 70° C (40° F - 158° F) |5% - 100% sem condensação |29° C (84° F) |
 
-### Fluxo de ar, altitude, choque, vibração, orientação, segurança e EMC
+### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Fluxo de ar, altitude, choque, vibração, orientação, segurança e EMC
 | Compartimento | Especificações operacionais |
 | --- | --- |
 | Fluxo de ar |O ar do sistema flui da frente para a traseira. O sistema deve ser operado com uma instalação de exaustão traseira de baixa pressão. Pressão traseira criada por portas e obstáculos no rack não devem exceder 5 pascals (medidor de água de 0,5 mm). |
@@ -120,54 +124,59 @@ Esta seção lista as especificações relacionadas ao ambiente de compartimento
 | Segurança e aprovações |CE e UL EN 61000-3, IEC 61000-3, UL 61000-3 |
 | EMC |EN55022 (CISPR - A), FCC A |
 
-## Conformidade com padrões internacionais
-O dispositivo Microsoft Azure StorSimple está em conformidade com os seguintes padrões internacionais:
+## <a name="international-standards-compliance"></a>Conformidade com padrões internacionais
+O dispositivo Microsoft Azure StorSimple está em conformidade com os seguintes padrões internacionais:  
 
-* CE - EN 60950 - 1
-* Relatório CB para IEC 60950-1
-* UL e cUL para UL 60950-1
+* CE - EN 60950 - 1  
+* Relatório CB para IEC 60950-1  
+* UL e cUL para UL 60950-1  
 
-## Conformidade de segurança
-O dispositivo Microsoft Azure StorSimple atende às seguintes classificações de segurança:
+## <a name="safety-compliance"></a>Conformidade de segurança
+O dispositivo Microsoft Azure StorSimple atende às seguintes classificações de segurança:  
 
-* Aprovação do tipo de produto do sistema: UL, cUL, CE
-* Conformidade de segurança: UL 60950, IEC 60950, EN 60950
+* Aprovação do tipo de produto do sistema: UL, cUL, CE  
+* Conformidade de segurança: UL 60950, IEC 60950, EN 60950  
 
-## Conformidade com EMC
-O dispositivo Microsoft Azure StorSimple atende às classificações EMC a seguir.
+## <a name="emc-compliance"></a>Conformidade com EMC
+O dispositivo Microsoft Azure StorSimple atende às classificações EMC a seguir.  
 
-### Emissões
-O dispositivo é compatível com EMC em relação aos níveis de emissões conduzidas e irradiadas.
+### <a name="emissions"></a>Emissões
+O dispositivo é compatível com EMC em relação aos níveis de emissões conduzidas e irradiadas.  
 
-* Níveis de limite de emissões conduzidas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A
-* Níveis de limite de emissões irradiadas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A
+* Níveis de limite de emissões conduzidas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A  
+* Níveis de limite de emissões irradiadas: CFR 47 Parte 15B classe A EN55022 Classe A CISPR Classe A   
 
-### Harmônicas e cintilação
-O dispositivo é compatível com EN61000-3-2/3.
+### <a name="harmonics-and-flicker"></a>Harmônicas e cintilação
+O dispositivo é compatível com EN61000-3-2/3.  
 
-### Níveis de limite de imunidade
-O dispositivo é compatível com EN55024.
+### <a name="immunity-limit-levels"></a>Níveis de limite de imunidade
+O dispositivo é compatível com EN55024.  
 
-## Conformidade do cabo de alimentação de CA
-O plugue e o conjunto completo do cabo de alimentação devem atender aos padrões adequados ao país em que o dispositivo está sendo usado, e devem ter aprovações de segurança aceitáveis nesse país. As tabelas a seguir listam os padrões para os EUA e a Europa.
+## <a name="ac-power-cord-compliance"></a>Conformidade do cabo de alimentação de CA
+O plugue e o conjunto completo do cabo de alimentação devem atender aos padrões adequados ao país em que o dispositivo está sendo usado, e devem ter aprovações de segurança aceitáveis nesse país. As tabelas a seguir listam os padrões para os EUA e a Europa.  
 
-### Cabos de alimentação de CA - EUA (devem estar listados no NRTL)
+### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cabos de alimentação de CA - EUA (devem estar listados no NRTL)
 | Componente | Especificação |
 | --- | --- |
 | Tipo de cabo |SV ou SVT, 18 AWG (mínimo), 3 condutores, 2,0 metros de comprimento máximo |
 | Plugue |Plugue de conexão do tipo aterramento NEMA 5-15P com taxa de 120 V, 10 A ou IEC 320 C14, 250 V, 10 A |
 | Soquete |IEC 320 C-13, 250 V, 10 A |
 
-### Cabos de alimentação de CA - Europa
+### <a name="ac-power-cords---europe"></a>Cabos de alimentação de CA - Europa
 | Componente | Especificação |
 | --- | --- |
 | Tipo de cabo |Harmonizadas, H05-VVF-3G1.0 |
 | Soquete |IEC 320 C-13, 250 V, 10 A |
 
-## Cabos de rede com suporte
+## <a name="supported-network-cables"></a>Cabos de rede com suporte
 Para as interfaces de rede 10 GbE, DATA 2 e DATA 3, consulte a [lista de módulos e cabos de rede com suporte](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
-## Próximas etapas
-Agora, você está pronto para implantar um dispositivo StorSimple em seu datacenter. Para saber mais, confira [Implantando o dispositivo local](storsimple-deployment-walkthrough-u2.md).
+## <a name="next-steps"></a>Próximas etapas
+Agora, você está pronto para implantar um dispositivo StorSimple em seu datacenter. Para saber mais, confira [Implantando o dispositivo local](storsimple-deployment-walkthrough-u2.md).  
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

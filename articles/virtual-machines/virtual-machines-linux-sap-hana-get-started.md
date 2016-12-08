@@ -1,14 +1,14 @@
 ---
-title: Guia de início rápido para a instalação manual do SAP HANA em VMs do Azure | Microsoft Docs
-description: Guia de início rápido para a instalação manual do SAP HANA em VMs do Azure
+title: "Guia de início rápido para a instalação manual do SAP Hana em VMs do Azure | Microsoft Docs"
+description: "Guia de início rápido para a instalação manual do SAP HANA em VMs do Azure"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: hermanndms
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 751869985c231e216ff03c9ba6375c19fee4138e
+
 
 ---
 # <a name="quickstart-guide-for-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Guia de início rápido para a instalação manual do SAP HANA de instância única em VMs do Azure
@@ -106,7 +110,7 @@ Este capítulo sobre a preparação das VMs do Azure para a instalação manual 
 ### <a name="disk-setup"></a>Configuração de disco
 O sistema de arquivos raiz em uma VM Linux no Azure tem tamanho limitado. Portanto, é necessário anexar o espaço em disco adicional a uma VM para execução do SAP. No caso de uma VM de servidor de aplicativos SAP usada em um ambiente puro de protótipo/demonstração, é possível usar discos de armazenamento padrão do Azure. Enquanto para os arquivos de dados e de log de Banco de dados do SAP HANA, os discos de Armazenamento Premium do Azure devem ser usados mesmo em um cenário de não produção.
 
-Vejam alguns detalhes sobre como anexar discos a uma VM Linux [aqui](virtual-machines-linux-add-disk.md)
+Vejam alguns detalhes sobre como anexar discos a uma VM Linux [aqui](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Quando o assunto é cache de disco do Azure, é necessário usar "Nenhum" para discos que serão usados para armazenar os logs de transação do HANA. Para arquivos de dados do HANA, é possível usar o cache de leitura. Como HANA é um banco de dados na memória, ele depende do padrão de uso geral para saber a quantidade de cache de leitura no nível do disco do Azure melhorará o desempenho (por exemplo, iniciando HANA e lendo dados do disco na memória).
 
@@ -115,7 +119,7 @@ Veja detalhes sobre o Armazenamento Premium do Azure [aqui](../storage/storage-p
 [Aqui](https://github.com/Azure/azure-quickstart-templates) você encontrará exemplos de modelos de json para criar VMs.
 O "101-vm-simple-linux" mostra a aparência de um modelo básico, incluindo a seção de armazenamento, que adiciona um disco de dados de 100 GB.
 
-[Este artigo](virtual-machines-linux-sap-on-suse-quickstart.md) inclui algumas informações sobre como localizar uma imagem SUSE por meio do Powershell ou da CLI e sobre a importância de anexar um disco via UUID.
+[Este artigo](virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) inclui algumas informações sobre como localizar uma imagem SUSE por meio do Powershell ou da CLI e sobre a importância de anexar um disco via UUID.
 
 Dependendo do tamanho dos requisitos de sistema e de taxa de transferência, talvez seja necessário anexar vários discos em vez de um e, posteriormente, criar um conjunto de distribuição entre os discos no nível do sistema operacional. Estes são os dois aspectos com base nos quais uma pessoa criaria um conjunto de distribuição em vários discos do Azure:
 
@@ -124,13 +128,13 @@ Dependendo do tamanho dos requisitos de sistema e de taxa de transferência, tal
 
 Saiba mais sobre as duas ferramentas principais para configurar a distribuição aqui:
 
-[Artigo sobre como usar mdadm para configurar o software raid do Linux em uma VM do Azure](virtual-machines-linux-configure-raid.md)
+[Artigo sobre como usar mdadm para configurar o software raid do Linux em uma VM do Azure](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Artigo sobre como configurar o Gerenciador de Volume Lógico em uma VM Linux do Azure](virtual-machines-linux-configure-lvm.md)
+[Artigo sobre como configurar o Gerenciador de Volume Lógico em uma VM Linux do Azure](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image003.jpg)
 
-No ambiente de teste, dois discos de armazenamento padrão do Azure foram anexados à VM do servidor de aplicativos SAP. Um foi usado para armazenar todo o software SAP para instalação (por exemplo, NetWeaver 7.5, SAP GUI, SAP HANA... ) e o outro para ter espaço suficiente para o que for necessário (por exemplo, backup, dados de teste), bem como o diretório sapmnt (por exemplo, os perfis SAP) a ser compartilhado entre todas as VMs que pertencem ao mesmo cenário SAP.
+No ambiente de teste, dois discos de armazenamento padrão do Azure foram anexados à VM do servidor de aplicativos SAP. Um foi usado para armazenar todo o software SAP para instalação (por exemplo, GUI do SAP, NetWeaver 7.5, SAP HANA... ) e o outro para ter espaço suficiente para o que for necessário (por exemplo, backup, dados de teste), bem como o diretório sapmnt (por exemplo, os perfis SAP) a ser compartilhado entre todas as VMs que pertencem ao mesmo cenário SAP.
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image004.jpg)
 
@@ -184,14 +188,14 @@ Assim como antes, é fundamental evitar que o sistema de arquivos raiz fique sem
 
 Ao instalar o SAP NetWeaver em uma imagem padrão de SLES 12 da Galeria do Azure, uma mensagem avisando que não há nenhum espaço de permuta será exibida. Para eliminar essa mensagem é possível, por exemplo, adicionar manualmente um arquivo de permuta, conforme descrito neste documento, usando dd, mkswap e swapon. Basta procurar por "Adicionar um arquivo de permuta manualmente" [neste artigo](https://www.suse.com/documentation/sled-12/book_sle_deployment/data/sec_yast2_i_y2_part_expert.html)
 
-Outra opção é configurar o espaço de permuta por meio do agente de VM do Linux. Encontre mais informações [aqui](virtual-machines-linux-agent-user-guide.md)
+Outra opção é configurar o espaço de permuta por meio do agente de VM do Linux. Encontre mais informações [aqui](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-### <a name="/etc/hosts"></a>/etc/hosts
+### <a name="etchosts"></a>/etc/hosts
 ![](./media/virtual-machines-linux-sap-hana-get-started/image011.jpg)
 
 Outro aspecto importante antes de começar a instalar o SAP é incluir nomes de host e endereços IP das VMs SAP no arquivo /etc/hosts. Implante todas as VMs SAP em uma rede virtual do Azure e, em seguida, use os endereços IP internos.
 
-### <a name="/etc/fstab"></a>/etc/fstab
+### <a name="etcfstab"></a>/etc/fstab
 ![](./media/virtual-machines-linux-sap-hana-get-started/image000c.jpg)
 
 Durante a fase de teste, percebemos ser uma boa ideia adicionar o parâmetro nofail a fstab. Se algo der errado com os discos, a VM ainda funcionará e não travará durante o processo de inicialização. Mas, é preciso ficar atento, pois nesse caso talvez não haja espaço adicional em disco, e os processos podem preencher o sistema de arquivos raiz. No caso de /hana não estar presente, o SAP HANA não seria iniciado.
@@ -256,7 +260,7 @@ Um problema adicional que talvez surja é uma mensagem de erro sobre um arquivo 
 A versão do IBM Java por meio do Yast não inclui esse arquivo. A solução é um download de Java no site da Oracle.
 Confira [aqui](https://scn.sap.com/thread/3908306)
 
-## <a name="manual-sap-hana-installation-via-swpm-as-part-of-a-netweaver-7.5-installation"></a>Instalação manual do SAP HANA por meio de SWPM como parte de uma instalação do NetWeaver 7.5
+## <a name="manual-sap-hana-installation-via-swpm-as-part-of-a-netweaver-75-installation"></a>Instalação manual do SAP HANA por meio de SWPM como parte de uma instalação do NetWeaver 7.5
 A lista de capturas de tela a seguir mostra as principais etapas da instalação do SAP NetWeaver 7.5 e do SAP HANA SP12 via SWPM (sapinst). Como parte de uma instalação do NW 7.5, o SWPM também tem a capacidade de instalar o banco de dados HANA como uma única instância.
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image012.jpg)
@@ -373,23 +377,26 @@ Após a conclusão da instalação da instância do banco de dados SWPM, é poss
 
 E, finalmente, após a instalação do servidor de aplicativo SAP e do SAP GUI, deve ser possível verificar a instância de banco de dados do HANA com transação "dbacockpit".
 
-## <a name="general-information-related-to-sap-azure-certifications,-running-sap-hana-on-azure-and-sap-software-download"></a>Informações gerais relacionadas às certificações SAP do Azure, execução do SAP HANA no Azure e o download de software SAP
-* documentação geral do SAP Azure sobre como executar o SAP no Azure com o sistema operacional Windows no modo clássico: [Como usar o SAP em máquinas virtuais do Windows no Azure](virtual-machines-windows-classic-sap-get-started.md)
+## <a name="general-information-related-to-sap-azure-certifications-running-sap-hana-on-azure-and-sap-software-download"></a>Informações gerais relacionadas às certificações SAP do Azure, execução do SAP HANA no Azure e o download de software SAP
+* documentação geral do SAP Azure sobre como executar o SAP no Azure com o sistema operacional Windows no modo clássico: [Como usar o SAP em máquinas virtuais do Windows no Azure](virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * informações sobre modelos SAP existentes para uso dos clientes: [Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
-* documentação geral do SAP Azure sobre como executar o SAP no Azure com o sistema operacional Linux no modo do Azure Resource Manager: [Como usar o SAP em VMs (máquinas virtuais) do Linux](virtual-machines-linux-sap-get-started.md)
+* documentação geral do SAP Azure sobre como executar o SAP no Azure com o sistema operacional Linux no modo do Azure Resource Manager: [Como usar o SAP em VMs (máquinas virtuais) do Linux](virtual-machines-linux-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * diretório de hardware SAP HANA certificado que lista os tipos de VM do Azure com suporte para a produção: [Certified SAP HANA® Hardware Directory](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)
-* informações sobre tamanhos de máquina virtual, especialmente para cargas de trabalho Linux: [Tamanhos de máquinas virtuais no Azure](virtual-machines-linux-sizes.md)
+* informações sobre tamanhos de máquina virtual, especialmente para cargas de trabalho Linux: [Tamanhos de máquinas virtuais no Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * SAP Note que lista todos os produtos SAP com suporte no Azure e tipos de VM do Azure com suporte para SAP: [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533/E)
 * SAP Note sobre o SAP "monitoramento avançado" com VMs Linux no Azure: [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498/E)
 * Oferta do SAP HANA em "instâncias grandes"do Azure. É importante entender que isso não se trata da execução do SAP HANA em VMs do Azure, mas em um ambiente híbrido no qual os servidores de aplicativo SAP são executados em VMs do Azure, porém o SAP HANA é executado em servidores bare-metal: [SAP Note 2316233](https://launchpad.support.sap.com/#/notes/2316233/E)
 * SAP Note com informações sobre SAPOSCOL no Linux: [SAP Note 1102124](https://launchpad.support.sap.com/#/notes/1102124/E)
 * Principais métricas de monitoramento para SAP no Microsoft Azure: [SAP Note 2178632](https://launchpad.support.sap.com/#/notes/2178632/E)
-* Para saber mais sobre o Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md)
-* Informações sobre implantação de VMs Linux usando modelos: [Implantar e gerenciar máquinas virtuais usando modelos do Azure Resource Manager e a CLI do Azure](virtual-machines-linux-cli-deploy-templates.md)
+* Para saber mais sobre o Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+* Informações sobre implantação de VMs Linux usando modelos: [Implantar e gerenciar máquinas virtuais usando modelos do Azure Resource Manager e a CLI do Azure](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Comparação de modelos de implantação entre o Azure Resource Manager e o clássico: [Implantação do Azure Resource Manager versus clássica: compreenda os modelos de implantação e o estado de seus recursos](../resource-manager-deployment-model.md)
 * Baixe o NetWeaver 7.5 para Linux/HANA no SAP Service Marketplace: ![](./media/virtual-machines-linux-sap-hana-get-started/image001.jpg)
 * Baixe o HANA SP12 Platform Edition no SAP Service Marketplace: ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

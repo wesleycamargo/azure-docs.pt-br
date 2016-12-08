@@ -1,13 +1,13 @@
 ---
-title: Sobre imagens de máquinas virtuais do Windows | Microsoft Docs
-description: Saiba mais sobre como as imagens são usadas com máquinas virtuais do Windows no Azure.
+title: "Sobre imagens de máquinas virtuais do Windows | Microsoft Docs"
+description: "Saiba mais sobre como as imagens são usadas com máquinas virtuais do Windows no Azure."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 66ff3fab-8e7f-4dff-b8da-ab1c9c9c9af8
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,17 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 28720bcedb4df66c2f7434f25ed251d4e116c415
+
 
 ---
-# Sobre imagens de máquinas virtuais do Windows
+# <a name="about-images-for-windows-virtual-machines"></a>Sobre imagens de máquinas virtuais do Windows
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+
+Para obter informações sobre como localizar e usar imagens no modelo do Resource Manager, consulte [aqui](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-about-images](../../includes/virtual-machines-common-classic-about-images.md)]
 
-## Trabalhando com imagens
+## <a name="working-with-images"></a>Trabalhando com imagens
 Você pode usar o módulo do Azure PowerShell, para gerenciar as imagens disponíveis para sua assinatura do Azure. Você também pode usar o portal clássico do Azure para algumas tarefas de imagem, porém a linha de comando oferece mais opções.
 
-* **Obter todas as imagens**:`Get-AzureVMImage`retorna uma lista de todas as imagens disponíveis na sua assinatura atual: as imagens, incluindo aquelas fornecidos pelo Azure ou parceiros. Isso significa que você pode obter uma lista grande. Os exemplos a seguir mostram como obter uma lista menor.
+* **Obter todas as imagens**: `Get-AzureVMImage`retorna uma lista de todas as imagens disponíveis em sua assinatura atual: suas imagens, bem como as fornecidos pelo Azure ou por parceiros. Isso significa que você pode obter uma lista grande. Os exemplos a seguir mostram como obter uma lista menor.
 * **Obter as famílias de imagem**:`Get-AzureVMImage | select ImageFamily` obtém uma lista das famílias de imagem, mostrando as cadeias de caracteres da propriedade **ImageFamily**.
 * **Obtenha todas as imagens em uma família específica**: `Get-AzureVMImage | Where-Object {$_.ImageFamily -eq $family}`
 * **Localizar imagens da VM**: `Get-AzureVMImage | where {(gm –InputObject $_ -Name DataDiskConfigurations) -ne $null} | Select -Property Label, ImageName` isso funciona com a filtragem da propriedade DataDiskConfiguration, que só se aplica a imagens de VM. Este exemplo também filtra a saída para apenas o nome do rótulo e da imagem.
@@ -34,7 +40,12 @@ Você pode usar o módulo do Azure PowerShell, para gerenciar as imagens dispon�
   >[Azure.Tip] O parâmetro OSState é obrigatório se você quiser criar uma imagem VM, que inclui discos de dados e o disco do sistema operacional. Se você não usar o parâmetro, o cmdlet criará uma imagem do SO. O valor do parâmetro indica se a imagem é generalizada ou especializada, com base em se o disco do sistema operacional foi preparado para reutilização.
 * **Excluir uma imagem**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
 
-## Próximas etapas
-Você também pode [criar uma máquina Windows usando o portal clássico](virtual-machines-windows-classic-tutorial.md)
+## <a name="next-steps"></a>Próximas etapas
+Você também pode [criar um computador Windows usando o portal clássico](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

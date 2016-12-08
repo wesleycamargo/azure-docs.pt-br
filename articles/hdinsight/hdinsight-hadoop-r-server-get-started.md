@@ -1,29 +1,33 @@
 ---
-title: Introdução ao Servidor R no HDInsight (preview) | Microsoft Docs
-description: Saiba como criar um Apache Spark no cluster HDInsight (Hadoop) que inclui o Servidor R (visualização) e, então, enviar um script R no cluster.
+title: "Introdução ao Servidor R no HDInsight | Microsoft Docs"
+description: "Saiba como criar um Apache Spark no cluster HDInsight que inclui o Servidor R e, então, enviar um script R no cluster."
 services: HDInsight
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: HDInsight
 ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/19/2016
+ms.date: 11/15/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 608119a2fd335ea448a23ddda19534b25ddd6343
+ms.openlocfilehash: bf8e3de6c81dc73c7a640d3c0953595c02cff6d5
+
 
 ---
-# Introdução ao uso do Servidor R no HDInsight (preview)
-A oferta da camada premium do HDInsight inclui o Servidor R como parte do cluster HDInsight (visualização). Isso permite que os scripts R usem o MapReduce e o Spark para executar cálculos distribuídos. Neste documento, você aprenderá como criar um novo Servidor R no HDInsight e, então, executar um script R que demonstre o uso do Spark para cálculos R distribuídos.
+# <a name="get-started-using-r-server-on-hdinsight"></a>Aprenda a usar o Servidor R no HDInsight
+HDInsight inclui uma opção de R Server para ser integrada ao seu cluster HDInsight. Isso permite que os scripts R usem o MapReduce e o Spark para executar cálculos distribuídos. Neste documento, você aprenderá como criar um novo Servidor R no HDInsight e, então, executar um script R que demonstre o uso do Spark para cálculos R distribuídos.
 
 ![Diagrama de fluxo de trabalho para este documento](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * **Uma assinatura do Azure**: antes de começar este tutorial, você deve ter uma assinatura do Azure. Confira a seção [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) para obter mais informações.
-* **Um cliente Secure Shell (SSH)**: um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Os sistemas Linux, Unix e OS X fornecem um cliente SSH por meio do comando `ssh`. Para sistemas Windows, é recomendável [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* **Um cliente Secure Shell (SSH)**: um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Os sistemas Linux, Unix e OS X fornecem um cliente SSH por meio do comando `ssh` . Para sistemas Windows, é recomendável [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
   
   * **Chaves SSH (opcional)**: você pode proteger a conta SSH usada para se conectar ao cluster usando uma senha ou uma chave pública. Usar uma senha é mais fácil e permite que você comece sem precisar criar um par de chaves pública/privada; No entanto, usar uma chave é mais seguro.
     
@@ -32,32 +36,31 @@ A oferta da camada premium do HDInsight inclui o Servidor R como parte do cluste
     * [Usar SSH com HDInsight no Linux, Unix ou em clientes OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
     * [Usar SSH com o HDInsight em clientes Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-## Criar o cluster
+### <a name="access-control-requirements"></a>Requisitos de controle de acesso
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+## <a name="create-the-cluster"></a>Criar o cluster
 > [!NOTE]
-> As etapas neste documento criam um Servidor R no HDInsight usando as informações de configuração básica. Para outras definições de configuração do cluster (por exemplo, adicionar contas de armazenamento extras, usar uma Rede Virtual do Azure ou criar um metastore para o Hive), confira a seção [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md) (Criar clusters HDInsight baseados em Linux).
+> As etapas neste documento criam um Servidor R no HDInsight usando as informações de configuração básica. Para outras definições de configuração do cluster (por exemplo, adicionar contas de armazenamento extras, usar uma Rede Virtual do Azure ou criar um metastore para o Hive), confira a seção [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)(Criar clusters HDInsight baseados em Linux).
 > 
 > 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Selecione **NOVO**, **Dados + Análise** e, então, **HDInsight**.
+2. Selecione **NOVO**, **Dados + Análises** e **HDInsight**.
    
     ![Imagem da criação de um novo cluster](./media/hdinsight-getting-started-with-r/newcluster.png)
-3. Insira um nome para o cluster no campo **Nome do Cluster**. Se você tiver várias assinaturas do Azure, use a entrada **Assinatura** para selecionar aquela que deseja usar.
+3. Insira um nome para o cluster no campo **Nome do Cluster** . Se você tiver várias assinaturas do Azure, use a entrada **Assinatura** para selecionar aquela que deseja usar.
    
     ![Nome do cluster e seleções de assinatura](./media/hdinsight-getting-started-with-r/clustername.png)
-4. Escolha a opção **Selecionar tipo de Cluster**. Na folha **Tipo de Cluster**, selecione as seguintes opções:
+4. Escolha **Selecionar Configuração de Cluster**. Na folha **Configuração de Cluster** , selecione as seguintes opções:
    
-   * **Tipo de Cluster**: Servidor R no Spark
-   * **Camada do Cluster**: Premium
-     
+   * **Tipo de Cluster**: Servidor R
+   * **Versão**: selecione a versão do R Server a ser instalada no cluster. Selecione a versão mais recente para ter acesso aos recursos mais recentes. Outras versões estarão disponíveis se forem necessárias para compatibilidade. As notas de versão para cada uma das versões disponíveis podem ser encontradas [aqui](https://msdn.microsoft.com/en-us/microsoft-r/notes/r-server-notes).
+   * **Edição de comunidade RStudio para R Server**: o IDE e baseada em navegador é instalado por padrão no nó de borda.  Se você preferir não instalá-lo, desmarque a caixa de seleção. Se você optou por instalá-lo, encontrará a URL para acessar o logon do RStudio Server em uma folha de aplicativo do portal para o cluster após ele ter sido criado.
      Deixe as outras opções com os valores padrão e, então, use o botão **Selecionar** para salvar o tipo de cluster.
      
      ![Captura de tela do tipo de folha do cluster](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
-     
-     > [!NOTE]
-     > Você também pode adicionar o Servidor R em outros tipos de cluster HDInsight (como Hadoop ou HBase,) selecionando o tipo de cluster e, então, **Premium**.
-     > 
-     > 
+
 5. Selecione **Grupo de recursos** para ver uma lista de grupos de recursos existente e, em seguida, selecione um no qual o cluster será criado. Ou então, você pode selecionar **Criar Novo** e digitar o nome do novo grupo de recursos. Uma marca de seleção verde será exibida para indicar que o novo nome de grupo está disponível.
    
    > [!NOTE]
@@ -66,22 +69,22 @@ A oferta da camada premium do HDInsight inclui o Servidor R como parte do cluste
    > 
    
     Use o botão **Selecionar** para salvar o grupo de recursos.
-6. Selecione **Credenciais**, em seguida, digite um **Nome de usuário de logon de cluster** e **Senha de logon do Cluster**.
+6. Selecione **Credenciais**, digite um **Nome de Usuário de Logon de Cluster** e uma **Senha de Logon do Cluster**.
    
-    Insira um **nome de usuário SSH**. O SSH é usado para se conectar remotamente ao cluster usando um cliente **SSH (Secure Shell)**. Você pode especificar o usuário SSH nesta caixa de diálogo ou depois que o cluster foi criado (guia de configuração do cluster). O Servidor R está configurado para esperar um **nome de usuário SSH** de "remoteuser". Se você usar um nome de usuário diferente, precisará executar uma etapa adicional após a criação do cluster.
+    Insira um **Nome de Usuário SSH**.  O SSH é usado para se conectar remotamente ao cluster usando um cliente **SSH (Secure Shell)**. Você pode especificar o usuário SSH nesta caixa de diálogo ou depois que o cluster foi criado (guia de configuração do cluster). O Servidor R está configurado para esperar um **nome de usuário SSH** de "remoteuser".  Se você usar um nome de usuário diferente, precisará executar uma etapa adicional após a criação do cluster.
    
     ![Folha Credenciais](./media/hdinsight-getting-started-with-r/clustercredentials.png)
    
-    **Tipo de autenticação SSH**: selecione **PASSWORD** como o tipo de autenticação, a menos que você preferir o uso de uma chave pública. Você precisará de um par de chaves pública/privada se quiser acessar o Servidor R no cluster por meio de um cliente remoto, por exemplo, RTVS, RStudio ou outra área de trabalho IDE.
+    **Tipo de autenticação SSH**: selecione **PASSWORD** como o tipo de autenticação, a menos que você prefira o uso de uma chave pública.  Você precisará de um par de chaves pública/privada se quiser acessar o Servidor R no cluster por meio de um cliente remoto, por exemplo, RTVS, RStudio ou outra área de trabalho IDE. Observe que você precisará escolher uma senha SSH se instalar o RStudio Server Community Edition.     
    
-    Para criar e usar um par de chaves pública/privada, selecione “PUBLIC KEY” e faça o seguinte. Estas instruções pressupõem que você tenha o Cygwin com ssh-keygen ou equivalente instalado.
+    Para criar e usar um par de chaves pública/privada, selecione “PUBLIC KEY” e faça o seguinte.  Estas instruções pressupõem que você tenha o Cygwin com ssh-keygen ou equivalente instalado.
    
    * Gere um par de chaves pública/privada do prompt de comando em seu laptop:
      
         ssh-keygen -t rsa -b 2048 –f <private-key-filename>
-   * Isso criará um arquivo de chave privada e um arquivo de chave pública com o nome <private-key-filename>.pub, por exemplo, davec e davec.pub. Em seguida, especifique o arquivo de chave pública (*. pub) ao atribuir credenciais de cluster do HDI:
+   * Isso criará um arquivo de chave privada e um arquivo de chave pública com o nome <private-key-filename>.pub, por exemplo, davec e davec.pub.  Em seguida, especifique o arquivo de chave pública (*. pub) ao atribuir credenciais de cluster do HDI:
      
-     ![Folha Credenciais](./media/hdinsight-getting-started-with-r/publickeyfile.png)
+     ![Folha Credenciais](./media/hdinsight-getting-started-with-r/publickeyfile.png)  
    * Alterar permissões em keyfile particular em seu laptop
      
         chmod 600 <private-key-filename>
@@ -89,8 +92,8 @@ A oferta da camada premium do HDInsight inclui o Servidor R como parte do cluste
      
         ssh –i <private-key-filename> remoteuser@<hostname public ip>
      
-     ou como parte da definição de seu contexto de computação Hadoop Spark para Servidor R no cliente (consulte Using Microsoft R Server as a Hadoop Client (Usando o Microsoft R Server como um cliente Hadoop) na seção [Creating a Compute Context for Spark (Criando um contexto de computação para o Spark)](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) do guia online [RevoScaleR Hadoop Spark Getting Started (Introdução ao RevoScaleR no Hadoop Spark)](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).
-7. Selecione a opção **Fonte de Dados** para escolher uma fonte de dados para o cluster. Selecione uma conta de armazenamento existente ao escolher a opção **Selecionar conta de armazenamento** e, em seguida, selecionando a conta, ou crie uma nova conta usando o link **Novo** na seção **Selecionar conta de armazenamento**.
+     ou como parte da definição de seu contexto de computação Hadoop Spark para R Server no cliente (consulte Usando o Microsoft R Server como um cliente Hadoop na seção [Criando um contexto de computação para o Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) do [guia online Introdução ao RevoScaleR no Hadoop Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).
+7. Selecione a opção **Fonte de Dados** para escolher uma fonte de dados para o cluster. Selecione uma conta de armazenamento existente escolhendo a opção **Selecionar conta de armazenamento** e selecionando a conta, ou crie uma nova conta usando o link **Novo** na seção **Selecionar conta de armazenamento**.
    
     Se escolher **Novo**, você deverá digitar um nome para a nova conta de armazenamento. Uma marca de seleção verde será exibida se o nome for aceito.
    
@@ -109,16 +112,16 @@ A oferta da camada premium do HDInsight inclui o Servidor R como parte do cluste
 8. Selecione **Camadas de Preços de Nó** para exibir informações sobre os nós que serão criados para esse cluster. A menos que você saiba que precisará de um cluster maior, deixe o número de nós de trabalho com o padrão de `4`. O custo estimado do cluster será mostrado na folha.
    
    > [!NOTE]
-   > Se necessário, redimensione o cluster posteriormente por meio do Portal (Cluster -> Configurações -> Dimensionar Cluster) para aumentar ou diminuir o número de nós de trabalho. Isso pode ser útil para deixar o cluster ocioso quando não estiver em uso ou para adicionar capacidade para atender às necessidades das tarefas maiores.
+   > Se necessário, redimensione o cluster posteriormente por meio do Portal (Cluster -> Configurações -> Dimensionar Cluster) para aumentar ou diminuir o número de nós de trabalho.  Isso pode ser útil para deixar o cluster ocioso quando não estiver em uso ou para adicionar capacidade para atender às necessidades das tarefas maiores.
    > 
    > 
    
-    Alguns fatores para ter em mente ao dimensionar o cluster, os nós de dados e o nó de borda incluem:
+    Alguns fatores para ter em mente ao dimensionar o cluster, os nós de dados e o nó de borda incluem:  
    
-   * O desempenho da análise do Servidor R distribuída no Spark é proporcional ao número de nós de trabalho quando os dados são grandes.
-   * O desempenho da análise do Servidor R é linear ao tamanho dos dados que estão sendo analisados. Por exemplo:
+   * O desempenho da análise do Servidor R distribuída no Spark é proporcional ao número de nós de trabalho quando os dados são grandes.  
+   * O desempenho da análise do Servidor R é linear ao tamanho dos dados que estão sendo analisados. Por exemplo:  
      
-     * Para os tamanhos de dados pequenos e médios, o desempenho será melhor quando analisados em um contexto de computação local no nó de borda. Para saber mais sobre os cenários nos quais os contextos de computação local e Spark funcionam melhor, veja as opções de contexto de computação para Servidor R no HDInsight.<br>
+     * Para os tamanhos de dados pequenos e médios, o desempenho será melhor quando analisados em um contexto de computação local no nó de borda.  Para saber mais sobre os cenários nos quais os contextos de computação local e Spark funcionam melhor, veja as opções de contexto de computação para R Server no HDInsight.<br>
      * Se você fizer logon no nó de borda e executar seu script R, todas as funções, exceto as funções rx ScaleR, serão executadas <strong>localmente</strong> no nó de borda, de modo que a memória e o número de núcleos do nó de borda deverão ser dimensionados adequadamente. O mesmo se aplica se você usar o Servidor R no HDI como contexto de computação remota do seu laptop.
      
      ![Folha de camadas de preços de nó](./media/hdinsight-getting-started-with-r/pricingtier.png)
@@ -135,19 +138,34 @@ A oferta da camada premium do HDInsight inclui o Servidor R como parte do cluste
    > 
    > 
 
-## Conecte-se ao nó de borda do Servidor R
+## <a name="connect-to-rstudio-server"></a>Conectar-se ao RStudio Server
+
+Se você optou por incluir o RStudio Server Community Edition em sua instalação, poderá acessar o logon do RStudio por dois métodos diferentes.
+
+1. Acessando a URL abaixo (em que **CLUSTERNAME** é o nome do cluster que você criou): 
+
+    https://**CLUSTERNAME**.azurehdinsight.net/rstudio/
+
+2. Ou abrindo a entrada para o cluster no Portal do Azure, selecionando o link rápido para os Painéis do R Server e selecionando o Painel do RStudio:
+
+     ![Acessar o painel do RStudio](./media/hdinsight-getting-started-with-r/rstudiodashboard.png)
+
+   > [!IMPORTANT]
+   > Não importa o método: a primeira vez que fizer logon, você precisará autenticar duas vezes.  Na primeira autenticação, forneça a ID de usuário e senha de Administrador do cluster. Na segunda autenticação, forneça a ID de usuário e a senha do SSH. Os logons subsequentes exigirão apenas o a ID de usuário e a senha do SSH. 
+
+## <a name="connect-to-the-r-server-edge-node"></a>Conecte-se ao nó de borda do Servidor R
 Conecte-se ao nó de borda do Servidor R do cluster HDInsight usando o SSH:
 
-    ssh USERNAME@r-server.CLUSTERNAME-ssh.azurehdinsight.net
+    ssh USERNAME@r-server.CLUSTERNAME-ed-ssh.azurehdinsight.net
 
 > [!NOTE]
-> Você também pode encontrar o endereço do `R-Server.CLUSTERNAME-ssh.azurehdinsight.net` no portal do Azure ao selecionar seu cluster e, em seguida, **Todas as Configurações**, **Aplicativos** e **RServer**. Isso exibirá as informações do ponto de extremidade do SSH para o nó de borda.
+> Você também pode encontrar o endereço do `R-Server.CLUSTERNAME-ed-ssh.azurehdinsight.net` no portal do Azure ao selecionar seu cluster e, em seguida, **Todas as Configurações**, **Aplicativos** e **RServer**. Isso exibirá as informações do ponto de extremidade do SSH para o nó de borda.
 > 
 > ![Imagem do ponto de extremidade do SSH para o nó de borda](./media/hdinsight-getting-started-with-r/sshendpoint.png)
 > 
 > 
 
-Caso você tenha usado uma senha para proteger sua conta de usuário SSH, ela será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` para especificar a chave privada correspondente. Por exemplo: `ssh -i ~/.ssh/id_rsa USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net`.
+Caso você tenha usado uma senha para proteger sua conta de usuário SSH, ela será solicitada. Se você tiver usado uma chave pública, talvez precise usar o parâmetro `-i` para especificar a chave privada correspondente. Por exemplo: `ssh -i ~/.ssh/id_rsa USERNAME@R-Server.CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 Para obter mais informações sobre como usar SSH com o HDInsight baseado em Linux, confira os seguintes artigos:
 
@@ -158,7 +176,7 @@ Uma vez conectado, você chegará em um prompt semelhante ao seguinte.
 
     username@ed00-myrser:~$
 
-## Use o console R
+## <a name="use-the-r-console"></a>Use o console R
 1. Na sessão de SSH, use o seguinte comando para iniciar o console R.
    
         R
@@ -189,7 +207,7 @@ Uma vez conectado, você chegará em um prompt semelhante ao seguinte.
         Type 'readme()' for release notes.
    
         >
-2. No prompt `>`, você pode inserir o código R. O Servidor R inclui pacotes que permitem que você interaja com o Hadoop e execute cálculos distribuídos com facilidade. Por exemplo, use o seguinte comando para exibir a raiz do sistema de arquivos padrão para o cluster HDInsight.
+2. No prompt `>` , você pode inserir o código R. O Servidor R inclui pacotes que permitem que você interaja com o Hadoop e execute cálculos distribuídos com facilidade. Por exemplo, use o seguinte comando para exibir a raiz do sistema de arquivos padrão para o cluster HDInsight.
    
         rxHadoopListFiles("/")
    
@@ -197,13 +215,13 @@ Uma vez conectado, você chegará em um prompt semelhante ao seguinte.
    
         rxHadoopListFiles("wasbs:///")
 
-## Usando o Servidor R no HDI de uma instância remota do Microsoft R Server ou Microsoft R Client
-Na seção acima sobre uso de pares de chaves pública/privada para acessar o cluster, é possível configurar o acesso ao contexto de computação do HDI Hadoop Spark de uma instância remota do Microsoft R Server ou do Microsoft R Client em execução em um desktop ou um laptop (veja Using Microsoft R Server as a Hadoop Client (Usando o Microsoft R Server como um cliente Hadoop) na seção [Creating a Compute Context for Spark (Criando um contexto de computação para o Spartk)](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) do guia online [RevoScaleR Hadoop Spark Getting Started (Introdução ao RevoScaleR no Hadoop Spark)](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)). Para isso, você precisará especificar as seguintes opções ao definir o contexto de computação RxSpark em seu laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript. Por exemplo:
+## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Usando o Servidor R no HDI de uma instância remota do Microsoft R Server ou Microsoft R Client
+Na seção acima sobre uso de pares de chaves pública/privada para acessar o cluster, é possível configurar o acesso ao contexto de computação do HDI Hadoop Spark de uma instância remota do Microsoft R Server ou do Microsoft R Client em execução em um desktop ou um laptop (veja Usando o Microsoft R Server como um cliente Hadoop na seção [Criando um contexto de computação para o Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) do [guia online Introdução ao RevoScaleR no Hadoop Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).  Para isso, você precisará especificar as seguintes opções ao definir o contexto de computação RxSpark em seu laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript. Por exemplo:
 
     myNameNode <- "default"
     myPort <- 0 
 
-    mySshHostname  <- 'rkrrehdi1-ssh.azurehdinsight.net'  # HDI secure shell hostname
+    mySshHostname  <- 'rkrrehdi1-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
     mySshUsername  <- 'remoteuser'# HDI SSH username
     mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
 
@@ -224,7 +242,7 @@ Na seção acima sobre uso de pares de chaves pública/privada para acessar o cl
 
 
 
-## Use um contexto de computação
+## <a name="use-a-compute-context"></a>Use um contexto de computação
 Um contexto de computação permite que você controle se o cálculo será executado localmente no nó de borda, ou se ele será distribuído entre os nós no cluster HDInsight.
 
 1. No console R, use o seguinte para carregar dados de exemplo no armazenamento padrão do HDInsight.
@@ -330,7 +348,7 @@ Um contexto de computação permite que você controle se o cálculo será execu
    > 
    > 
 
-## Distribua o código R em vários nós
+## <a name="distribute-r-code-to-multiple-nodes"></a>Distribua o código R em vários nós
 Com o Servidor R, você pode facilmente usar o código R existente e executá-lo em vários nós no cluster usando o `rxExec`. Isso é útil ao fazer uma limpeza de parâmetro ou simulações. Veja a seguir um exemplo de como usar o `rxExec`.
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
@@ -353,7 +371,57 @@ Se você ainda estiver usando o contexto do Spark ou do MapReduce, o valor do no
         nodename
     "wn3-myrser"
 
-## Instalar pacotes R
+## <a name="accessing-data-in-hive-and-parquet"></a>Acessando dados no Hive e no Parquet
+Um novo recurso disponível no R Server 9.0 e versões superiores permite acesso direto a dados no Hive e no Parquet para serem usados pelas funções ScaleR no contexto de computação do Spark. Esses recursos estão disponíveis por meio de novas funções de fontes de dados ScalR chamadas RxHiveData e RxParquetData, que funcionam com o uso de Spark SQL para carregar dados diretamente em um DataFrame do Spark para serem analisados pelo ScaleR.  
+
+Veja a seguir alguns exemplos de código na utilização das novas funções: 
+
+myHadoopCluster <- rxSparkConnect(reset = TRUE)
+
+
+```
+#..create a Spark compute context
+
+myHadoopCluster <- rxSparkConnect(reset = TRUE)
+rxSetComputeContext(myHadoopCluster)
+```
+
+
+```
+#..retrieve some sample data from Hive and run a model 
+
+hiveData <- RxHiveData("select * from hivesampletable", 
+                 colInfo = list(devicemake = list(type = "factor")))
+rxGetInfo(hiveData, getVarInfo = TRUE)
+
+rxLinMod(querydwelltime ~ devicemake, data=hiveData)
+```
+
+
+```
+#..retrieve some sample data from Parquet and run a model 
+
+pqData <- RxParquetData("/share/SampleData/AirlineDemoSmallParquet",
+         colInfo = list(DayOfWeek = list(type = "factor")))
+rxGetInfo(pqData, getVarInfo = TRUE)
+
+rxLinMod(ArrDelay~CRSDepTime + DayOfWeek, data = pqData)   
+```
+
+
+``` 
+#..check on Spark data objects, cleanup, and close the Spark session 
+
+ls <- rxSparkListData() # two data objs are cached
+rxSparkRemoveData(ls)
+rxSparkListData() # it should show empty list
+rxSparkDisconnect(myHadoopCluster)
+```
+
+Para saber mais sobre o uso dessas novas funções, confira a ajuda online no R Server usando os comandos ?RxHivedata e ?RxParquetData.  
+
+
+## <a name="install-r-packages"></a>Instalar pacotes R
 Se desejar instalar pacotes R adicionais no nó de borda, você poderá usar o `install.packages()` diretamente do console R quando conectado ao nó de borda por meio do SSH. No entanto, se você precisar instalar pacotes R em nós de trabalho do cluster, você deverá usar uma Ação de Script.
 
 As Ações de Script são scripts de Bash que são usados para fazer alterações de configuração no cluster HDInsight ou para instalar um software adicional. Nesse caso, para instalar pacotes R adicionais. Para instalar pacotes adicionais usando uma Ação de Script, siga as etapas a seguir.
@@ -367,7 +435,7 @@ As Ações de Script são scripts de Bash que são usados para fazer alteraçõe
 2. Na folha do cluster, escolha **Todas as Configurações** e **Ações de Script**. Na folha **Ações de Script**, escolha **Enviar Novo** para enviar uma nova Ação de Script.
    
     ![Imagem da folha de ações do script](./media/hdinsight-getting-started-with-r/newscriptaction.png)
-3. Na folha **Enviar ação de script**, forneça as informações a seguir.
+3. Na folha **Enviar ação de script** , forneça as informações a seguir.
    
    * **Nome**: um nome amigável para identificar esse script
    * **URI do script Bash**: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
@@ -375,25 +443,26 @@ As Ações de Script são scripts de Bash que são usados para fazer alteraçõe
    * **Trabalho**: deve estar **marcado**
    * **Zookeeper**: deve estar **desmarcado**
    * **Parâmetros**: os pacotes R a serem instalados. Por exemplo, `bitops stringr arules`
-   * **Persistir esse script...**: deve estar **marcado**
+   * **Persistir esse script...**: deve estar **marcado**  
      
      > [!NOTE]
-     > 1. Por padrão, todos os pacotes R são instalados por meio de um instantâneo do repositório do Microsoft MRAN consistente com a versão do R Server que foi instalado. Se você quiser instalar versões mais recentes dos pacotes, haverá um risco de incompatibilidade. Porém, isso é possível com a especificação de `useCRAN` como o primeiro elemento do pacote de lista, por exemplo, `useCRAN bitops, stringr, arules`.
-     > 2. Alguns pacotes R exigirão outras bibliotecas do sistema do Linux. Para sua conveniência, pré-instalamos as dependências necessárias aos 100 pacotes R mais populares. No entanto, se os pacotes R que você instalar exigirem bibliotecas além dessas, você deverá baixar o script base usado aqui e adicionar etapas para instalar as bibliotecas do sistema. Em seguida, você deverá carregar o script modificado em um contêiner de blob público no armazenamento do Azure e usar o script modificado para instalar os pacotes. Para saber mais sobre como desenvolver as Ações de Script, confira [Desenvolvimento de ação de script](hdinsight-hadoop-script-actions-linux.md).
+     > 1. Por padrão, todos os pacotes R são instalados por meio de um instantâneo do repositório do Microsoft MRAN consistente com a versão do R Server que foi instalado.  Se você quiser instalar versões mais recentes dos pacotes, haverá um risco de incompatibilidade. Porém, isso é possível com a especificação de `useCRAN` como o primeiro elemento do pacote de lista, por exemplo, `useCRAN bitops, stringr, arules`.  
+     > 2. Alguns pacotes R exigirão outras bibliotecas do sistema do Linux. Para sua conveniência, pré-instalamos as dependências necessárias aos 100 pacotes R mais populares. No entanto, se os pacotes R que você instalar exigirem bibliotecas além dessas, você deverá baixar o script base usado aqui e adicionar etapas para instalar as bibliotecas do sistema. Em seguida, você deverá carregar o script modificado em um contêiner de blob público no armazenamento do Azure e usar o script modificado para instalar os pacotes.
+     >    Para saber mais sobre como desenvolver as Ações de Script, confira [Desenvolvimento de ação de script](hdinsight-hadoop-script-actions-linux.md).  
      > 
      > 
      
      ![Adicionando uma ação do script](./media/hdinsight-getting-started-with-r/scriptaction.png)
 4. Escolha **Criar** para executar o script. Quando o script for concluído, os pacotes R estarão disponíveis em todos os nós de trabalho.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora que você entende como criar um novo cluster HDInsight que inclui o Servidor R e as noções básicas sobre como usar o console R em uma sessão SSH, use o seguinte para descobrir outras maneiras de trabalhar com o Servidor R no HDInsight.
 
-* [Adicionar RStudio Server ao HDInsight Premium](hdinsight-hadoop-r-server-install-r-studio.md)
-* [Opções de contexto de computação para o Servidor R no HDInsight Premium](hdinsight-hadoop-r-server-compute-contexts.md)
-* [Opções de armazenamento do Azure para o Servidor R no HDInsight Premium](hdinsight-hadoop-r-server-storage.md)
+* [Adicionar RStudio Server ao HDInsight](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Opções de contexto de computação para o Servidor R no HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
+* [Opções de Armazenamento do Azure para o Servidor R no HDInsight](hdinsight-hadoop-r-server-storage.md)
 
-### Modelos do Gerenciador de Recursos do Azure
+### <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
 Se você estiver interessado em automatizar a criação de um Servidor R no HDInsight usando modelos do Azure Resource Manager, confira os seguintes modelos de exemplo.
 
 * [Crie um Servidor R no cluster HDInsight usando uma chave pública do SSH](http://go.microsoft.com/fwlink/p/?LinkID=780809)
@@ -403,4 +472,9 @@ Ambos os modelos criam um novo cluster HDInsight e uma conta de armazenamento as
 
 Para obter informações genéricas sobre como usar os modelos do Azure Resource Manager, confira [Criar clusters Hadoop baseados em Linux no HDInsight usando modelos do Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
