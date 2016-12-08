@@ -1,13 +1,13 @@
 ---
-title: Solucionar problemas de implantação do RM de VM Windows | Microsoft Docs
-description: Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Windows no Azure
+title: "Solucionar problemas de implantação do RM de VM Windows | Microsoft Docs"
+description: "Solucionar problemas de implantação do Resource Manager ao criar uma nova máquina virtual Windows no Azure"
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: ''
+documentationcenter: 
 author: JiangChen79
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue, azure-resource-manager
-
+ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: cjiang
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: bec8c8347b3e29e2d87d7565a29187f22bd10652
+
 
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-windows-virtual-machine-in-azure"></a>Solucionar problemas de implantação do Resource Manager com a criação de uma nova máquina virtual Windows no Azure
@@ -53,9 +57,9 @@ Para resolver ambos os erros, use o [Add-AzureRmVhd para carregar o VHD original
 
 **Resolução**
 
-Para resolver ambos os erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](virtual-machines-windows-vhd-copy.md) com a mesma configuração usada para o sistema operacional (generalizado/especializado).
+Para resolver ambos os erros, exclua a imagem atual do portal e [recapture-a dos VHDs atuais](virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) com a mesma configuração usada para o sistema operacional (generalizado/especializado).
 
-## <a name="issue:-custom/gallery/marketplace-image;-allocation-failure"></a>Problema: imagem personalizada/da galeria/do Marketplace; falha de alocação
+## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problema: imagem personalizada/da galeria/do Marketplace; falha de alocação
 Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada em um cluster que não tem suporte para o tamanho da VM sendo solicitado ou não tem espaço livre disponível para acomodar a solicitação.
 
 **Causa 1:** o cluster não dá suporte ao tamanho de VM solicitado.
@@ -79,8 +83,11 @@ Esse erro ocorre em situações nas quais a nova solicitação de VM é fixada e
   * Adicione a nova VM à mesma rede virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
-Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Windows no Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md).
+Se você encontrar problemas ao iniciar uma VM do Windows parada ou redimensionar uma VM do Windows existente no Azure, consulte [Solucionar problemas de implantação do Resource Manager com a reinicialização ou o redimensionamento de uma máquina virtual Windows no Azure](virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

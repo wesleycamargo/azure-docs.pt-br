@@ -1,12 +1,12 @@
 ---
-title: Configurar um projeto de serviço de nuvem do Azure com o Visual Studio | Microsoft Docs
-description: Saiba como configurar um projeto de serviço de nuvem do Azure no Visual Studio, dependendo dos requisitos para o projeto.
+title: "Configurar um projeto de serviço de nuvem do Azure com o Visual Studio | Microsoft Docs"
+description: "Saiba como configurar um projeto de serviço de nuvem do Azure no Visual Studio, dependendo dos requisitos para o projeto."
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 609d6965-05cc-47b1-82dc-c76a92d4f295
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 08/15/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 33d6b242c5562bd0aba4786ff70782c697ca7cd7
+
 
 ---
-# Configure um projeto de serviço de nuvem do Azure com o Visual Studio
+# <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Configure um projeto de serviço de nuvem do Azure com o Visual Studio
 Você pode configurar um projeto de serviço de nuvem do Azure, dependendo dos requisitos para o projeto. Você pode definir propriedades do projeto para as seguintes categorias:
 
 * **Publicar um serviço de nuvem no Azure**
@@ -33,24 +37,29 @@ A ilustração a seguir mostra como selecionar uma configuração a ser usada qu
 
 ![Configurar um projeto do Microsoft Azure](./media/vs-azure-tools-configuring-an-azure-project/IC713462.png)
 
-## Para configurar um projeto de serviço de nuvem do Azure
-1. Para configurar um projeto do serviço de nuvem **Gerenciador de Soluções**, abra o menu de atalho para o projeto de serviço de nuvem e, em seguida, escolha **Propriedades**.
+## <a name="to-configure-an-azure-cloud-service-project"></a>Para configurar um projeto de serviço de nuvem do Azure
+1. Para configurar um projeto do serviço de nuvem do **Gerenciador de Soluções**, abra o menu de atalho para o projeto de serviço de nuvem e, em seguida, escolha **Propriedades**.
    
    Uma página com o nome do projeto de serviço de nuvem aparece no editor do Visual Studio.
-2. Escolha a guia **Desenvolvimento**.
+2. Escolha a guia **Desenvolvimento** .
 3. Para certificar-se de não excluir acidentalmente uma implantação existente no Azure, no prompt antes de excluir uma lista de implantação existente, escolha **True**.
-4. Para selecionar a configuração de serviço que você deseja usar quando executa ou depura seu serviço de nuvem localmente, na lista **Configuração do Serviço**, escolha a configuração do serviço.
+4. Para selecionar a configuração de serviço que você deseja usar quando executa ou depura seu serviço de nuvem localmente, na lista **Configuração do Serviço** , escolha a configuração do serviço.
    
    > [!NOTE]
    > Se você deseja criar uma configuração de serviço para usar, consulte como: gerenciar configurações de serviço e perfis. Se você quiser modificar uma configuração de serviço para uma função, consulte [como configurar as funções para um serviço de nuvem do Azure com o Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
    > 
    > 
-5. Para iniciar o emulador de armazenamento do Azure, quando você executa ou depura seu serviço de nuvem localmente, no **Emulador de Armazenamento do Azure**, escolha **Verdadeiro**.
-6. Para certificar-se de que você não pode publicar se houver erros de validação de pacote, em **tratar avisos como erros**, escolha **Verdadeiro**.
-7. Para certificar-se de que sua função web usa a mesma porta cada vez que inicia localmente no IIS Express, em **Usar Portas de Projeto Web**, escolha **Verdadeiro**. Para usar uma porta específica para um projeto Web específico, abra o menu de atalho para o projeto Web, escolha a guia **Propriedades**, escolha a guia **Web** e altere o número da porta no **Url do projeto** definindo na seção **IIS Express**. Por exemplo, digite `http://localhost:14020` como a URL do projeto.
+5. Para iniciar o emulador de armazenamento do Azure, quando você executa ou depura seu serviço de nuvem localmente, em **Iniciar o emulador de armazenamento do Azure**, escolha **Verdadeiro**.
+6. Para certificar-se de que você não pode publicar se houver erros de validação de pacote, em **Tratar avisos como erros**, escolha **Verdadeiro**.
+7. Para certificar-se de que sua função web usa a mesma porta a cada vez que inicia localmente no IIS Express, em **Usar portas de projeto Web**, escolha **Verdadeiro**. Para usar uma porta específica para um projeto Web específico, abra o menu de atalho para o projeto Web, escolha a guia **Propriedades**, escolha a guia **Web** e altere o número da porta no **Url do projeto** definindo na seção **IIS Express**. Por exemplo, digite `http://localhost:14020` como a URL do projeto.
 8. Para salvar as alterações feitas nas propriedades do projeto de serviço de nuvem, escolha o botão **Salvar** na barra de ferramentas.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como configurar projetos de serviço de nuvem do Azure no Visual Studio, consulte [Configurando seu projeto do Azure usando várias configurações de serviço](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

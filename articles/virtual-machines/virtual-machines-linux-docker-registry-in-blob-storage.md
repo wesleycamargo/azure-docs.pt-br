@@ -1,13 +1,13 @@
 ---
-title: Implantando seu próprio Registro do Docker privado no Azure | Microsoft Docs
-description: Descreve como você pode usar o Registro do Docker para hospedar suas imagens de contêiner no serviço de Armazenamento de Blob do Azure.
+title: "Implantando seu próprio Registro do Docker privado no Azure | Microsoft Docs"
+description: "Descreve como você pode usar o Registro do Docker para hospedar suas imagens de contêiner no serviço de Armazenamento de Blob do Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: ahmetalpbalkan
 editor: squillace
 manager: timlt
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: d72c9425-4a52-4f6d-935f-70f28df529d8
 ms.service: virtual-machines-linux
 ms.devlang: multiple
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/27/2016
 ms.author: ahmetb
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4dee43f5cb5ce27831e2a56c9c31784317c22559
+
 
 ---
 # <a name="deploying-your-own-private-docker-registry-on-azure"></a>Implantando seu próprio Registro do Docker privado no Azure
@@ -27,7 +31,7 @@ Este documento supõe que:
 1. você sabe como usar o Docker e tem imagens Docker para armazenar. (Não concorda? [Saiba mais sobre o Docker](https://www.docker.com).
 2. Você tem um servidor com o mecanismo Docker instalado. (Não concorda? [Faça isso rapidamente no Azure.](https://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/))
 
-## <a name="what-is-a-private-docker-registry?"></a>O que é um Registro do Docker privado?
+## <a name="what-is-a-private-docker-registry"></a>O que é um Registro do Docker privado?
 Para enviar seus aplicativos em recipientes para a nuvem, você constrói uma imagem de contêiner do Docker e a armazena em algum lugar para que possa ser usada por você e por outras pessoas. 
 
 Embora a criação e entrega de uma imagem de contêiner para a nuvem seja fácil, é um desafio armazenar a imagem gerada de forma confiável. Por esse motivo, o Docker oferece um serviço centralizado chamado [Docker Hub][docker-hub], a fim de armazenar imagens de contêiner na nuvem e permitir que você crie contêineres a qualquer momento usando essas imagens.
@@ -35,7 +39,7 @@ Embora a criação e entrega de uma imagem de contêiner para a nuvem seja fáci
 Embora o [Docker Hub][docker-hub] seja um serviço pago para armazenamento de suas imagens de contêiner de aplicativo privado, o Docker respeita as necessidades do desenvolvedor e fornece um conjunto de ferramentas de código aberto para armazenar as imagens no seu próprio registro privado do Docker, atrás de um firewall ou localmente sem precisar acessar a Internet pública.
 Como o armazenamento de Blob do Azure é fácil de proteger, você pode usá-lo rapidamente para criar e utilizar um registro privado do Docker no Azure controlado por você mesmo.
 
-## <a name="why-should-you-host-a-docker-registry-on-azure?"></a>Por que você deveria hospedar um registro do Docker no Azure?
+## <a name="why-should-you-host-a-docker-registry-on-azure"></a>Por que você deveria hospedar um registro do Docker no Azure?
 Ao hospedar sua instância do Registro do Docker no Microsoft Azure e armazenar imagens no Armazenamento de Blob do Azure, você pode ter vários benefícios:
 
 **Segurança**: as imagens do Docker não saem dos datacenters do Azure, portanto, não cruzam a Internet pública como fariam se você estivesse usando o Docker Hub.
@@ -99,6 +103,6 @@ Depois de configurar o Registro, você o usará novamente. Comece com o [registr
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

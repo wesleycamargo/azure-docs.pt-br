@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 11/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 72347099d980f2ca73f39f984787197e1f87e45a
+ms.sourcegitcommit: b160a4f4ad4d1e383b460a3d17078908da1f4ef1
+ms.openlocfilehash: bcf8a709b9c457f517386b4a4baf9fdf5864cc65
 
 
 ---
-# <a name="choose-the-azure-multifactor-authentication-solution-for-you"></a>Escolha a solução Autenticação Multifator para você
+# <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Escolha a solução Autenticação Multifator para você
 Como há vários tipos de MFA (Autenticação Multifator do Azure), precisamos responder a algumas perguntas para descobrir qual versão é a correta para usar.  Essas perguntas são:
 
 * [O que estou tentando proteger](#what-am-i-trying-to-secure)
@@ -32,7 +32,7 @@ As seções a seguir fornecem orientações sobre como determinar a cada uma del
 ## <a name="what-am-i-trying-to-secure"></a>O que estou tentando proteger?
 Para determinar a solução de verificação em duas etapas correta, precisamos saber o que você está tentando proteger com um segundo método de autenticação.  É um aplicativo no Azure?  Ou um sistema de acesso remoto?  Ao determinar o que estamos tentando proteger, passaremos saber onde a Autenticação Multifator precisa ser habilitada.  
 
-| O que você está tentando proteger | Autenticação multifator na nuvem | Servidor Multi-Factor Authentication |
+| O que você está tentando proteger | MFA na nuvem | Servidor MFA |
 | --- |:---:|:---:|
 | Aplicativos primários da Microsoft |● |● |
 | Aplicativos SaaS da Galeria de Aplicativos |● |● |
@@ -43,7 +43,7 @@ Para determinar a solução de verificação em duas etapas correta, precisamos 
 ## <a name="where-are-the-users-located"></a>Onde os usuários estão localizados
 Em seguida, ver onde se encontram nossos usuários ajuda a determinar a solução correta a ser usada, seja na nuvem ou no local, usando o servidor MFA.
 
-| Local do usuário | Autenticação multifator na nuvem | Servidor Multi-Factor Authentication |
+| Local do usuário | MFA na nuvem | Servidor MFA |
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD e AD local usando federação com AD FS |● |● |
@@ -54,26 +54,26 @@ Em seguida, ver onde se encontram nossos usuários ajuda a determinar a soluçã
 ## <a name="what-features-do-i-need"></a>De quais recursos preciso?
 A tabela a seguir é uma comparação dos recursos que estão disponíveis com Autenticação Multifator na nuvem e com o Servidor de Autenticação Multifator.
 
-| Autenticação multifator na nuvem | Servidor Multi-Factor Authentication |
+| Recurso | MFA na nuvem | Servidor MFA |
 | --- |:---:|:---:|
-| Notificação de aplicativo móvel como um segundo fator |● |
-| Código de verificação de aplicativo móvel como um segundo fator |● |
-| Chamada telefônica como um segundo fator |● |
-| SMS unidirecional como segundo fator |● |
-| SMS bidirecional como segundo fator | |
-| Tokens de hardware como segundo fator | |
-| Senhas de aplicativos para clientes que não oferecem suporte a MFA |● |
-| Controle do administrador sobre métodos de autenticação |● |
-| Modo PIN | |
-| Alerta de fraude |● |
-| Relatórios de MFA |● |
-| Desvio único | |
-| Saudações personalizadas para chamadas telefônicas |● |
-| ID do chamador personalizável para chamadas telefônicas |● |
-| IPs confiáveis |● |
-| Lembrar MFA para dispositivos confiáveis |● |
-| Acesso condicional |● |
-| Cache | |
+| Notificação de aplicativo móvel como um segundo fator | ● | ● |
+| Código de verificação de aplicativo móvel como um segundo fator | ● | ● |
+| Chamada telefônica como um segundo fator | ● | ● |
+| SMS unidirecional como segundo fator | ● | ● |
+| SMS bidirecional como segundo fator | | ● |
+| Tokens de hardware como segundo fator | | ● |
+| Senhas de aplicativos para clientes que não oferecem suporte a MFA | ● | |
+| Controle do administrador sobre métodos de autenticação | | ● |
+| Modo PIN | | ● |
+| Alerta de fraude |● | ● |
+| Relatórios de MFA |● | ● |
+| Desvio único | ● | ● |
+| Saudações personalizadas para chamadas telefônicas | ● | ● |
+| ID do chamador personalizável para chamadas telefônicas | ● | ● |
+| IPs confiáveis | ● | ● |
+| Lembrar MFA para dispositivos confiáveis | ● | |
+| Acesso condicional | ● | ● |
+| Cache | ● | ● |
 
 Agora que determinamos se usar a autenticação multifator na nuvem ou o Servidor MFA local, podemos pode começar a configurar e usar o Azure Multi-Factor Authentication. **Selecione o ícone que representa seu cenário.**
 
@@ -87,6 +87,6 @@ Agora que determinamos se usar a autenticação multifator na nuvem ou o Servido
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,26 +1,30 @@
 ---
-title: Implantar recursos de computação com os modelos do Azure Resource Manager | Microsoft Docs
-description: Tutorial principal de DotNet da máquina virtual do Azure
+title: "Implantar recursos de computação com os modelos do Azure Resource Manager | Microsoft Docs"
+description: "Tutorial principal de DotNet da máquina virtual do Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 1c4d419e-ba0e-45e4-a9dd-7ee9975a86f9
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 17aa03a3fef2bf3b4d933e7653656d58994321e7
+
 
 ---
 # <a name="application-architecture-with-azure-resource-manager-templates"></a>Arquitetura de aplicativos com modelos do Azure Resource Manager
 Ao desenvolver uma implantação do Azure Resource Manager, os requisitos de computação precisam ser mapeados para os serviços e recursos do Azure. Se um aplicativo consistir em vários pontos de extremidade http, um banco de dados e um serviço de cache de dados, os recursos do Azure que hospedam cada desses componentes precisarão ser racionalizados. Por exemplo, o aplicativo de Loja de Música de exemplo inclui um aplicativo Web hospedado em uma máquina virtual e um banco de dados SQL, hospedado no banco de dados SQL do Azure. 
 
-Este documento fornece detalhes sobre como os recursos de computação da Loja de Música são configurados no modelo do Azure Resource Manager de exemplo. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Este documento fornece detalhes sobre como os recursos de computação da Loja de Música são configurados no modelo do Azure Resource Manager de exemplo. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux). 
 
 ## <a name="virtual-machine"></a>Máquina Virtual
 O aplicativo de Loja de Música inclui um aplicativo Web em que os clientes podem procurar e comprar músicas. Embora haja vários serviços do Azure que podem hospedar aplicativos Web, para este exemplo, uma máquina virtual é usada. Usando o modelo de Loja de Música de exemplo, uma máquina virtual é implantada, um servidor Web é instalado e o site da Loja de Música é instalado e configurado. Neste artigo, apenas a implantação de máquina virtual é detalhada. A configuração do servidor Web e do aplicativo é detalhada em um artigo posterior.
@@ -29,7 +33,7 @@ Uma máquina virtual pode ser adicionada a um modelo usando o Assistente para Ad
 
 Siga este link para ver o exemplo JSON no modelo do Resource Manager – [JSON de máquina virtual](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Compute/virtualMachines",
@@ -64,7 +68,7 @@ Contas de armazenamento têm muitos recursos e opções de armazenamento. Para o
 
 Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Conta de armazenamento](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Storage/storageAccounts",
@@ -76,14 +80,14 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Conta 
   "properties": {
     "accountType": "[variables('vhdStorageType')]"
   }
-},
+}
 ```
 
 Uma conta de armazenamento é associada uma máquina virtual dentro da declaração de modelo do Resource Manager da máquina virtual. 
 
 Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Associação de máquina virtual e conta de armazenamento](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341).
 
-```none
+```json
 "osDisk": {
   "name": "osdisk",
   "vhd": {
@@ -109,7 +113,7 @@ Se uma máquina virtual requer uma rede interna, como a capacidade de se comunic
 
 Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Rede virtual e sub-redes](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/virtualNetworks",
@@ -151,7 +155,7 @@ No portal do Azure, a rede virtual é semelhante à imagem a seguir. Observe que
 
  Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Adaptador de rede](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/networkInterfaces",
@@ -200,7 +204,7 @@ Cada recurso de máquina virtual inclui um perfil de rede. O adaptador de rede e
 
 Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Perfil de rede da máquina virtual](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350).
 
-```none
+```json
 "networkProfile": {
   "networkInterfaces": [
     {
@@ -221,9 +225,9 @@ Além de uma máquina virtual que hospeda o site de Loja de Música, um banco de
 
 Um banco de dados SQL do Azure pode ser adicionado usando o Assistente para Adicionar Novos Recursos do Visual Studio ou inserindo JSON válido no modelo. O recurso SQL Server inclui um nome de usuário e uma senha que tenha direitos administrativos na instância do SQL. Além disso, um recurso de firewall do SQL é adicionado. Por padrão, os aplicativos hospedados no Azure são capazes de se conectar com a instância do SQL. Para permitir que o aplicativo externo como um SQL Server Management Studio se conecte à instância do SQL, o firewall precisa ser configurado. Para fins de demonstração da Loja de Música, a configuração padrão é suficiente. 
 
-Siga este link para ver o exemplo JSON no modelo do Gerenciador de Recursos – [banco de dados SQL do Azure] (https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401.
+Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Banco de dados SQL do Azure](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
 
-```none
+```json
 {
   "apiVersion": "2014-04-01-preview",
   "type": "Microsoft.Sql/servers",
@@ -265,8 +269,11 @@ Para obter mais informações sobre como implantar o Banco de Dados SQL do Azure
 ## <a name="next-step"></a>Próxima etapa
 <hr>
 
-[Etapa 2 – Acesso e segurança em modelos do Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md)
+[Etapa 2 – Acesso e segurança em modelos do Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

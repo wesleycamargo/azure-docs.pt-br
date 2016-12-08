@@ -1,12 +1,12 @@
 ---
-title: Configurar aplicativos Web no Serviço de Aplicativo do Azure
-description: Como configurar um aplicativo Web nos Serviços de Aplicativos do Azure
+title: "Configurar aplicativos Web no Serviço de Aplicativo do Azure"
+description: "Como configurar um aplicativo Web nos Serviços de Aplicativos do Azure"
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8ee1f42cd54e191fa30813d972a664208124c971
+
 
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicativos Web no Serviço de Aplicativo do Azure
@@ -50,7 +54,7 @@ Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as
 
 **Versão do Pipeline Gerenciado**. Configurar o IIS [modo de pipeline]. Deixar este conjunto como Integrado (o padrão), a menos que você tenha um aplicativo herdado que exija uma versão anterior do IIS.
 
-**Troca Automática**. Se você habilitar a Troca Automática para um slot de implantação, o Serviço de Aplicativo alternará automaticamente o aplicativo Web em produção quando você enviar uma atualização por push para esse slot. Para obter mais informações, confira [Implantar em slots de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md).
+**Troca Automática**. Se você habilitar a Troca Automática para um slot de implantação, o Serviço de Aplicativo alternará automaticamente o aplicativo Web em produção quando você enviar uma atualização por push para esse slot. Para saber mais, consulte [Implantar em slots de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md).
 
 ### <a name="debugging"></a>Depurando
 **Depuração Remota**. Habilita a depuração remota. Quando habilitado, você pode usar o depurador remoto no Visual Studio para conectar-se diretamente com seu aplicativo Web. A depuração remota permanecerá habilitada por 48 horas. 
@@ -176,6 +180,6 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

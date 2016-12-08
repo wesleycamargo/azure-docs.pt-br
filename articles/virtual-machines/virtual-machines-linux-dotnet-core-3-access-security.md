@@ -1,26 +1,30 @@
 ---
-title: Acesso e segurança em modelos do Azure Resource Manager | Microsoft Docs
-description: Tutorial principal de DotNet da máquina virtual do Azure
+title: "Acesso e segurança em modelos do Azure Resource Manager | Microsoft Docs"
+description: "Tutorial principal de DotNet da máquina virtual do Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 07e47189-680e-4102-a8d4-5a8eb9c00213
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 25af19c208fb69d06ca74dec41f42a075eb22304
+
 
 ---
 # <a name="access-and-security-in-azure-resource-manager-templates"></a>Acesso e segurança em modelos do Azure Resource Manager
 Aplicativos hospedados no Azure provavelmente precisam ser acessados pela Internet ou por uma VPN/conexão de rota expressa com o Azure. Com o exemplo de aplicativo de Loja de Música, o site da Web é disponibilizado na Internet com um endereço IP público. Com acesso estabelecido, as conexões com o aplicativo e o acessa aos recursos de máquina virtual devem ser protegidos. Essa segurança de acesso é fornecida com um Grupo de Segurança de Rede. 
 
-Este documento fornece detalhes sobre como o aplicativo de Loja de Música é protegido no modelo do Azure Resource Manager de exemplo. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Este documento fornece detalhes sobre como o aplicativo de Loja de Música é protegido no modelo do Azure Resource Manager de exemplo. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux). 
 
 ## <a name="public-ip-address"></a>Endereço IP público
 Para fornecer acesso público a um recurso do Azure, um recurso de endereço IP público pode ser usado. O endereço IP público pode ser configurado com um endereço IP estático ou dinâmico. Se um endereço dinâmico for usado e a máquina virtual for interrompida e desalocada, os endereços serão removidos. Quando o computador for iniciado novamente, ele poderá ser atribuído um endereço IP público diferente. Para impedir a alteração de um endereço IP, um endereço IP reservado pode ser usado. 
@@ -29,7 +33,7 @@ Um endereço IP público pode ser adicionado a um modelo do Azure Resource Manag
 
 Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Endereço IP público](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L121).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/publicIPAddresses",
@@ -51,7 +55,7 @@ Um endereço IP público pode ser associado a um adaptador de rede virtual ou a 
 
 Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Associação de endereço IP público com balanceador de carga](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L208).
 
-```none
+```json
 "frontendIPConfigurations": [
   {
     "properties": {
@@ -75,7 +79,7 @@ Depois de estabelecer acesso aos recursos do Azure, esse acesso deve ser limitad
 
 Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Grupo de segurança de rede](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L68).
 
-```none
+```json
 {
   "apiVersion": "2015-05-01-preview",
   "type": "Microsoft.Network/networkSecurityGroups",
@@ -110,7 +114,7 @@ Neste exemplo, o grupo de segurança de rede é associado com o objeto de sub-re
 
 Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Associação de grupo de segurança de rede com Rede Virtual](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L158).
 
-```none
+```json
 "subnets": [
   {
     "name": "[variables('subnetName')]",
@@ -132,8 +136,11 @@ Para obter informações detalhadas sobre grupos de segurança de rede, leia [O 
 ## <a name="next-step"></a>Próxima etapa
 <hr>
 
-[Etapa 3 – Disponibilidade e escala em modelos do Azure Resource Manager](virtual-machines-linux-dotnet-core-4-avalibility-scale.md)
+[Etapa 3 – Disponibilidade e escala em modelos do Azure Resource Manager](virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
