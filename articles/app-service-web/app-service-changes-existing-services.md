@@ -1,12 +1,12 @@
 ---
-title: Serviço de Aplicativo do Azure e seu impacto sobre os serviços existentes do Azure
-description: Explica como o novo Serviço de Aplicativo do Azure e seus recursos afetam os serviços existentes no Azure.
+title: "Serviço de Aplicativo do Azure e seu impacto sobre os serviços existentes do Azure"
+description: "Explica como o novo Serviço de Aplicativo do Azure e seus recursos afetam os serviços existentes no Azure."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: yochay
 manager: nirma
-editor: ''
-
+editor: 
+ms.assetid: 86c6a292-3c33-49f4-890c-89cc0321b397
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
 ms.author: yochayk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 295ee5a3c067010059a0435a8867eb8f4137ccbb
+
 
 ---
-# Serviço de Aplicativo do Azure e serviços existentes do Azure
+# <a name="azure-app-service-and-existing-azure-services"></a>Serviço de Aplicativo do Azure e serviços existentes do Azure
 Este artigo descreve as alterações nos serviços existentes do Azure como parte da alteração para reunir vários serviços do Azure no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/), uma nova oferta integrada.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Visão geral
-O [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) é um serviço de nuvem novo e exclusivo que habilita os desenvolvedores a criar aplicativos Web e móveis para qualquer plataforma e qualquer dispositivo. O Serviço de Aplicativo é uma solução integrada criada para simplificar funções de codificação repetidas, integrar-se a sistemas corporativos e de SaaS e automatizar processos de negócios, além de atender às suas necessidades de segurança, confiabilidade e escalabilidade.
+## <a name="overview"></a>Visão geral
+[Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) é um serviço de nuvem novo e exclusivo que habilita os desenvolvedores a criar aplicativos Web e móveis para qualquer plataforma e qualquer dispositivo. O Serviço de Aplicativo é uma solução integrada criada para simplificar funções de codificação repetidas, integrar-se a sistemas corporativos e de SaaS e automatizar processos de negócios, além de atender às suas necessidades de segurança, confiabilidade e escalabilidade.
 
-O Serviço de Aplicativo reúne os seguintes serviços existentes do Azure - [Sites](https://azure.microsoft.com/services/websites/), [Serviços Móveis](https://azure.microsoft.com/services/mobile-services/), e [Serviços Biztalk](https://azure.microsoft.com/services/biztalk-services/) em um único serviço combinado, enquanto acrescenta novas capacidades avançadas. O Serviço de Aplicativo permite hospedar os seguintes tipos de aplicativo:
+O Serviço de Aplicativo reúne os seguintes serviços existentes do Azure - [Sites](https://azure.microsoft.com/services/websites/), [Serviços Móveis](https://azure.microsoft.com/services/mobile-services/) e [Serviços Biztalk](https://azure.microsoft.com/services/biztalk-services/) em um único serviço combinado, enquanto acrescenta novas capacidades avançadas.  O Serviço de Aplicativo permite hospedar os seguintes tipos de aplicativo:
 
 * Aplicativos Web
 * Aplicativos Móveis
@@ -45,7 +49,7 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 <tr class="odd">
 <td align="left">Websites do Azure</td>
 <td align="left">Aplicativos Web</td>
-<td align="left"><li>Para Sites do Azure, o Serviço de Aplicativo limita-se estritamente à alteração do nome Sites para Aplicativos Web.
+<td align="left"><li>Para os Sites do Azure, o Serviço de Aplicativo limita-se estritamente à alteração do nome Sites para Aplicativos Web.
 <p><li>Todas as suas instâncias existentes de Sites agora são Aplicativos Web no Serviço de Aplicativo.</p>
 <p><li>Você pode acessar os sites existentes pelo <a href="http://go.microsoft.com/fwlink/?LinkId=529715">Portal do Azure</a>, onde encontrará todos os sites existentes em <em>Aplicativos Web</em>.</p>
 <p><li><em>Plano de hospedagem da Web</em> agora é <em>Plano do Serviço de Aplicativo</em>. Um <em>Plano do Serviço de Aplicativo</em> pode hospedar qualquer tipo do Serviço de Aplicativo, como aplicativos Web, Móveis, Lógicos ou de API.</p>
@@ -57,8 +61,8 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 <td align="left">Aplicativos Móveis</td>
 <td align="left"><p><li>Os Serviços Móveis continuam disponíveis como um serviço autônomo e permanecem com suporte completo.</p>
 <p><li>Os Aplicativos Móveis são um tipo de aplicativo do Serviço de Aplicativo, que integram toda a funcionalidade dos Serviços Móveis e muito mais.</p>
-<p><li>É fácil <a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">migrar dos Serviços Móveis para Aplicativos Móveis</a>.</p>
-<p><li>Como parte do Serviço de Aplicativo, os Aplicativos Móveis obtêm novos recursos além de Serviços Móveis, como a integração com sistemas de SaaS e locais, slots de preparação, WebJobs, melhores opções de dimensionamento e muito mais.</p>
+<p><li>É fácil <a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">migrar dos Serviços Móveis para os Aplicativos Móveis</a>.</p>
+<p><li>Como parte do Serviço de Aplicativo, os Aplicativos Móveis obtêm novos recursos além de Serviços Móveis, como a integração com sistemas de SaaS e locais, slots de preparação, Trabalhos Web, melhores opções de dimensionamento e muito mais.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Saiba mais sobre os Aplicativos Móveis</a>.</p>
 </tr>
 <tr class="odd">
@@ -88,4 +92,9 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 
 Para saber mais, acesse a documentação do [Serviço de Aplicativo](https://azure.microsoft.com/documentation/services/app-service/).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

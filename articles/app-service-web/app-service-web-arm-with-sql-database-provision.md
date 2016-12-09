@@ -1,12 +1,12 @@
 ---
 title: Provisionar um aplicativo Web que usa um banco de dados SQL
-description: Use um modelo do Gerenciador de Recursos do Azure para implantar um aplicativo Web que inclui um banco de dados SQL.
+description: Use um modelo do Azure Resource Manager para implantar um aplicativo Web que inclui um banco de dados SQL.
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb9648e1-9bf2-4537-bc4a-ab8d4953168c
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 461b97b56058620202a5f7f69171ffa0f2cb25cb
+
 
 ---
-# Provisionar um aplicativo Web com um banco de dados SQL
-Neste tópico, você aprenderá como criar um modelo do Gerenciador de Recursos do Azure que implanta um aplicativo Web e um banco de dados SQL. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
+# <a name="provision-a-web-app-with-a-sql-database"></a>Provisionar um aplicativo Web com um banco de dados SQL
+Neste tópico, você aprenderá como criar um modelo do Azure Resource Manager que implanta um aplicativo Web e um banco de dados SQL. Você aprenderá como definir quais recursos são implantados e como definir os parâmetros que são especificados quando a implantação é executada. Você pode usar este modelo para suas próprias implantações ou personalizá-lo para atender às suas necessidades.
 
-Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+Para obter mais informações sobre a criação de modelos, consulte [Criação de Modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
 
 Para obter mais informações sobre a implantação de aplicativos, consulte [Implantar um aplicativo complexo de maneira previsível no Azure](app-service-deploy-complex-application-predictably.md).
 
@@ -27,7 +31,7 @@ Para obter o modelo completo, consulte [Modelo de aplicativo Web com banco de da
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## O que você implantará
+## <a name="what-you-will-deploy"></a>O que você implantará
 Neste modelo, você implantará:
 
 * um aplicativo Web
@@ -41,24 +45,24 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 
 [![Implantar no Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
-## Parâmetros para especificar
+## <a name="parameters-to-specify"></a>Parâmetros para especificar
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
-### administratorLogin
+### <a name="administratorlogin"></a>administratorLogin
 O nome da conta a ser usado para o administrador do servidor de banco de dados.
 
     "administratorLogin": {
       "type": "string"
     }
 
-### administratorLoginPassword
+### <a name="administratorloginpassword"></a>administratorLoginPassword
 A senha a ser usada para o administrador do servidor de banco de dados.
 
     "administratorLoginPassword": {
       "type": "securestring"
     }
 
-### databaseName
+### <a name="databasename"></a>databaseName
 O nome do novo banco de dados para criar.
 
     "databaseName": {
@@ -66,7 +70,7 @@ O nome do novo banco de dados para criar.
       "defaultValue": "sampledb"
     }
 
-### collation
+### <a name="collation"></a>collation
 O agrupamento de banco de dados a ser usado para controlar o uso adequado de caracteres.
 
     "collation": {
@@ -74,7 +78,7 @@ O agrupamento de banco de dados a ser usado para controlar o uso adequado de car
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     }
 
-### edition
+### <a name="edition"></a>edition
 O tipo de banco de dados para criar.
 
     "edition": {
@@ -90,7 +94,7 @@ O tipo de banco de dados para criar.
       }
     }
 
-### maxSizeBytes
+### <a name="maxsizebytes"></a>maxSizeBytes
 O tamanho máximo, em bytes, do banco de dados.
 
     "maxSizeBytes": {
@@ -98,8 +102,8 @@ O tamanho máximo, em bytes, do banco de dados.
       "defaultValue": "1073741824"
     }
 
-### requestedServiceObjectiveName
-O nome correspondente ao nível de desempenho para edição.
+### <a name="requestedserviceobjectivename"></a>requestedServiceObjectiveName
+O nome correspondente ao nível de desempenho para edição. 
 
     "requestedServiceObjectiveName": {
       "type": "string",
@@ -118,7 +122,7 @@ O nome correspondente ao nível de desempenho para edição.
       }
     }
 
-## Nomes de variáveis
+## <a name="variables-for-names"></a>Nomes de variáveis
 Esse modelo inclui variáveis que constroem nomes usados no modelo. Os valores da variável usam a função **uniqueString** para gerar um nome por meio da ID do grupo de recursos.
 
     "variables": {
@@ -128,9 +132,9 @@ Esse modelo inclui variáveis que constroem nomes usados no modelo. Os valores d
     },
 
 
-## Recursos a implantar
-### SQL Server e banco de dados
-Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no parâmetro **serverName** e o local é especificado no parâmetro **serverLocation**. Ao criar o novo servidor, você deve fornecer um nome de logon e senha para o administrador do servidor de banco de dados.
+## <a name="resources-to-deploy"></a>Recursos a implantar
+### <a name="sql-server-and-database"></a>SQL Server e banco de dados
+Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no parâmetro **serverName** e o local é especificado no parâmetro **serverLocation**. Ao criar o novo servidor, você deve fornecer um nome de logon e senha para o administrador do servidor de banco de dados. 
 
     {
       "name": "[variables('sqlserverName')]",
@@ -181,7 +185,7 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
 
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### Aplicativo Web
+### <a name="web-app"></a>Aplicativo Web
     {
       "apiVersion": "2015-08-01",
       "name": "[variables('webSiteName')]",
@@ -217,7 +221,7 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
     },
 
 
-### Autoescala
+### <a name="autoscale"></a>Autoescala
     {
       "apiVersion": "2014-04-01",
       "name": "[concat(variables('hostingPlanName'), '-', resourceGroup().name)]",
@@ -286,7 +290,7 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
     },
 
 
-### Regras de alerta para códigos de status 403 e 500, alta utilização da CPU e comprimento da fila de HTTP
+### <a name="alert-rules-for-status-codes-403-and-500s-high-cpu-and-http-queue-length"></a>Regras de alerta para códigos de status 403 e 500, alta utilização da CPU e comprimento da fila de HTTP
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('ServerErrors ', variables('webSiteName'))]",
@@ -424,7 +428,7 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
       }
     },
 
-### Insights de aplicativo
+### <a name="app-insights"></a>Insights de aplicativo
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('AppInsights', variables('webSiteName'))]",
@@ -442,16 +446,20 @@ Cria um novo SQL Server e banco de dados. O nome do servidor é especificado no 
       }
     }
 
-## Comandos para executar a implantação
+## <a name="commands-to-run-deployment"></a>Comandos para executar a implantação
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
-### CLI do Azure
+### <a name="azure-cli"></a>CLI do Azure
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Archive Azure Diagnostic Logs | Microsoft Docs
-description: Learn how to archive your Azure Diagnostic Logs for long-term retention in a storage account.
+title: "Arquivar Logs de Diagnóstico do Azure | Microsoft Docs"
+description: "Saiba como arquivar os Logs de Diagnóstico do Azure para retenção de longo prazo em uma conta de armazenamento."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 3a55c73f-2ef3-45f3-8956-bcf9c0cb7e05
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,80 +14,84 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 551074551f1a3ed21b5bc014c3affab9e5be1c1c
+
 
 ---
-# <a name="archive-azure-diagnostic-logs"></a>Archive Azure Diagnostic Logs
-In this article, we show how you can use the Azure portal, PowerShell Cmdlets, CLI, or REST API to archive your [Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md) in a storage account. This option is useful if you would like to retain your Diagnostic Logs with an optional retention policy for audit, static analysis, or backup.
+# <a name="archive-azure-diagnostic-logs"></a>Arquivar Logs de Diagnóstico do Azure
+Neste artigo, mostraremos como você pode usar o Portal do Azure, os cmdlets do PowerShell, CLI ou API REST para arquivar seu [Log de Diagnósticos do Azure](monitoring-overview-of-diagnostic-logs.md) em uma conta de armazenamento. Essa opção será útil se você quiser manter seu Log de Diagnósticos com uma política de retenção opcional para auditoria, análise estática ou backup.
 
-## <a name="prerequisites"></a>Prerequisites
-Before you begin, you need to [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to which you can archive your Diagnostic Logs. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving your Activity Log and diagnostic metrics to a storage account, it may make sense to use that storage account for your Diagnostic Logs as well to keep all monitoring data in a central location. The storage account you use must be a general purpose storage account, not a blob storage account.
+## <a name="prerequisites"></a>Pré-requisitos
+Antes de começar, você precisará [criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) na qual é possível arquivar o seu Logs de Diagnósticos. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Atividade e as métricas de diagnóstico em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o Log de Diagnósticos, bem como manter todos os dados de monitoramento em um local central. A conta de armazenamento usada deve ser uma conta de armazenamento de finalidade geral e não uma conta de armazenamento de blobs.
 
-## <a name="diagnostic-settings"></a>Diagnostic Settings
-To archive your Diagnostic Logs using any of the methods below, you set a **Diagnostic Setting** for a particular resource. A diagnostic setting for a resource defines the categories of logs that are that are stored or streamed and the outputs—storage account and/or event hub. It also defines the retention policy (number of days to retain) for events of each log category stored in a storage account. If a retention policy is set to zero, events for that log category are stored indefinitely (that is to say, forever). A retention policy can otherwise be any number of days between 1 and 2147483647. [You can read more about diagnostic settings here](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+## <a name="diagnostic-settings"></a>Configurações de Diagnóstico
+Para arquivar os Logs de Diagnóstico usando qualquer um dos métodos abaixo, defina uma **Configuração de Diagnóstico** para um determinado recurso. Uma configuração de diagnóstico para um recurso define as categorias de logs que são transmitidas ou armazenadas e as saídas—hub de eventos e/ou contas de armazenamento. Ela também define a política de retenção (número de dias para armazenamento) para eventos de cada categoria de log armazenados em uma conta de armazenamento. Se uma política de retenção for definida como zero, os eventos para essa categoria de log serão armazenados indefinidamente (ou seja, para sempre). Uma política de retenção pode ser qualquer quantidade de dias, entre 1 e 2147483647. [Leia mais sobre configurações de diagnóstico aqui](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 
-## <a name="archive-diagnostic-logs-using-the-portal"></a>Archive Diagnostic Logs using the portal
-1. In the portal, click into the resource blade for the resource on which you would like to enable archival of Diagnostic Logs.
-2. In the **Monitoring** section of the resource settings menu, select **Diagnostics**.
+## <a name="archive-diagnostic-logs-using-the-portal"></a>Arquivar logs de diagnóstico usando o portal
+1. No portal, clique na folha de recursos do recurso no qual você gostaria de habilitar o arquivamento de Logs de Diagnóstico.
+2. Na seção **Monitoramento** do menu de configurações de recursos, selecione **Diagnósticos**.
    
-    ![Monitoring section of resource menu](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-sec.png)
-3. Check the box for **Export to Storage Account**, then select a storage account. Optionally, set a number of days to retain these logs by using the **Retention (days)** sliders. A retention of zero days stores the logs indefinitely.
+    ![Seção de monitoramento do menu de recursos](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-sec.png)
+3. Marque a caixa **Exportar para Conta de Armazenamento**e, em seguida, selecione uma conta de armazenamento. Como opção, defina um número de dias para manter esses logs usando os controles deslizantes **Retenção (dias)** . Uma retenção de zero dias armazena os logs indefinidamente.
    
-    ![Diagnostic Logs blade](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-blade.png)
-4. Click **Save**.
+    ![Folha Logs de Diagnóstico](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-blade.png)
+4. Clique em **Salvar**.
 
-Diagnostic Logs are archived to that storage account as soon as new event data is generated.
+Os Logs de Diagnóstico são arquivados nessa conta de armazenamento, assim que novos dados de evento são gerados.
 
-## <a name="archive-diagnostic-logs-via-the-powershell-cmdlets"></a>Archive Diagnostic Logs via the PowerShell Cmdlets
+## <a name="archive-diagnostic-logs-via-the-powershell-cmdlets"></a>Arquivar Logs de Diagnóstico por meio de cmdlets do PowerShell
 ```
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-| Property | Required | Description |
+| Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
-| ResourceId |Yes |Resource ID of the resource on which you want to set a diagnostic setting. |
-| StorageAccountId |No |Resource ID of the Storage Account to which Diagnostic Logs should be saved. |
-| Categories |No |Comma-separated list of log categories to enable. |
-| Enabled |Yes |Boolean indicating whether diagnostics are enabled or disabled on this resource. |
-| RetentionEnabled |No |Boolean indicating if a retention policy are enabled on this resource. |
-| RetentionInDays |No |Number of days for which events should be retained between 1 and 2147483647. A value of zero stores the logs indefinitely. |
+| ResourceId |Sim |ID de Recurso do recurso no qual você deseja definir uma configuração de diagnóstico. |
+| StorageAccountId |Não |A ID de Recurso da Conta de Armazenamento na qual os Logs de Diagnóstico devem ser salvos. |
+| Categorias |Não |Lista separada por vírgulas de categorias de log para habilitar. |
+| Habilitado |Sim |Booliano indicando se os diagnósticos estão habilitados ou desabilitados nesse recurso. |
+| RetentionEnabled |Não |Booliano indicando se há uma política de retenção habilitada nesse recurso. |
+| RetentionInDays |Não |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente. |
 
-## <a name="archive-the-activity-log-via-the-cross-platform-cli"></a>Archive the Activity Log via the Cross-Platform CLI
+## <a name="archive-the-activity-log-via-the-cross-platform-cli"></a>Arquivar o Log de Atividades por meio da CLI de plataforma cruzada
 ```
 azure insights diagnostic set --resourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg --storageId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage –categories networksecuritygroupevent,networksecuritygrouprulecounter --enabled true
 ```
 
-| Property | Required | Description |
+| Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
-| resourceId |Yes |Resource ID of the resource on which you want to set a diagnostic setting. |
-| storageId |No |Resource ID of the Storage Account to which Diagnostic Logs should be saved. |
-| categories |No |Comma-separated list of log categories to enable. |
-| enabled |Yes |Boolean indicating whether diagnostics are enabled or disabled on this resource. |
+| ResourceId |Sim |ID de Recurso do recurso no qual você deseja definir uma configuração de diagnóstico. |
+| storageId |Não |A ID de Recurso da Conta de Armazenamento na qual os Logs de Diagnóstico devem ser salvos. |
+| Categorias |Não |Lista separada por vírgulas de categorias de log para habilitar. |
+| Habilitado |Sim |Booliano indicando se os diagnósticos estão habilitados ou desabilitados nesse recurso. |
 
-## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Archive Diagnostic Logs via the REST API
-[See this document](https://msdn.microsoft.com/library/azure/dn931931.aspx) for information on how you can set up a diagnostic setting using the Insights REST API.
+## <a name="archive-diagnostic-logs-via-the-rest-api"></a>Arquivar Logs de Diagnóstico por meio da API REST
+[Confira este documento](https://msdn.microsoft.com/library/azure/dn931931.aspx) para saber mais sobre como definir uma configuração de diagnóstico usando a API REST do Azure Monitor.
 
-## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Schema of Diagnostic Logs in the storage account
-Once you have set up archival, a storage container is created in the storage account as soon as an event occurs in one of the log categories you have enabled. The blobs within the container follow the same format across Diagnostic Logs and the Activity Log. The structure of these blobs is:
+## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Esquema de Logs de Diagnóstico na conta de armazenamento
+Após a configuração do arquivamento, um contêiner de armazenamento será criado na conta de armazenamento assim que ocorrer um evento em uma das categorias de log habilitadas. Os blobs no contêiner seguem o mesmo formato em todos os Logs de Diagnóstico e no Log de Atividades. A estrutura desses blobs é:
 
-> insights-logs-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/RESOURCEGROUPS/{resource group name}/PROVIDERS/{resource provider name}/{resource type}/{resource name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+> insights-logs-{nome da categoria de log}/resourceId=/SUBSCRIPTIONS/{ID da assinatura}/RESOURCEGROUPS/{nome do grupo de recursos}/PROVIDERS/{nome do provedor de recursos}/{tipo de recurso}/{nome do recurso}/y={ano com quatro dígitos numéricos}/m={mês com dois dígitos numéricos}/d={dia com dois dígitos numéricos}/h={horário com dois dígitos no formato 24 horas}/m=00/PT1H.json
 > 
 > 
 
-Or, more simply,
+Ou, mais simplesmente,
 
-> insights-logs-{log category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+> insights-logs-{nome da categoria de log}/resourceId=/{ID do recurso}/y={ano com quatro dígitos numéricos}/m={mês com dois dígitos numéricos}/d={dia com dois dígitos numéricos}/h={horário com dois dígitos no formato 24 horas}/m=00/PT1H.json
 > 
 > 
 
-For example, a blob name might be:
+Por exemplo, um nome de blob poderia ser:
 
 > insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUP/TESTNSG/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 > 
 > 
 
-Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL (for example, h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since Diagnostic Log events are broken into individual blobs per hour.
+Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro de uma hora especificada na URL do blob (por exemplo, h=12). Durante a hora presente, os eventos são acrescentados ao arquivo PT1H.json conforme eles ocorrem. O valor de minuto (m=00) é sempre 00, como eventos de Log de Diagnóstico são divididos em blobs individuais por hora.
 
-Within the PT1H.json file, each event is stored in the “records” array, following this format:
+No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguindo este formato:
 
 ```
 {
@@ -112,24 +116,27 @@ Within the PT1H.json file, each event is stored in the “records” array, foll
 }
 ```
 
-| Element name | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
-| time |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| resourceId |Resource ID of the impacted resource. |
-| operationName |Name of the operation. |
-| category |Log category of the event. |
-| properties |Set of `<Key, Value>` pairs (i.e. Dictionary) describing the details of the event. |
+| tempo real |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
+| ResourceId |ID de recurso do recurso afetado. |
+| operationName |Nome da operação. |
+| categoria |Categoria de log do evento. |
+| propriedades |Conjunto de pares de `<Key, Value>` (ou seja, Dicionário) que descreve os detalhes do evento. |
 
 > [!NOTE]
-> The properties and usage of those properties can vary depending on the resource.
+> As propriedades e o uso dessas propriedades podem variar dependendo do recurso.
 > 
 > 
 
-## <a name="next-steps"></a>Next Steps
-* [Download blobs for analysis](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
-* [Stream Diagnostic Logs to Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Read more about Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)
+## <a name="next-steps"></a>Próximas etapas
+* [Baixar blobs para análise](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [Transmitir Logs de Diagnóstico para os Hubs de Eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Saiba mais sobre Logs de Diagnóstico](monitoring-overview-of-diagnostic-logs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

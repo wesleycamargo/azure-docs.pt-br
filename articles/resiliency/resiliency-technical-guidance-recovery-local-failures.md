@@ -1,12 +1,12 @@
 ---
-title: 'Orientações técnicas: recuperação de falhas locais no Azure | Microsoft Docs'
-description: Artigo sobre compreensão e design de aplicativos resilientes, altamente disponíveis e tolerante a falhas, bem como planejamento de recuperação de desastre concentrado em falhas locais no Azure.
-services: ''
+title: "Orientações técnicas: recuperação de falhas locais no Azure | Microsoft Docs"
+description: "Artigo sobre compreensão e design de aplicativos resilientes, altamente disponíveis e tolerante a falhas, bem como planejamento de recuperação de desastre concentrado em falhas locais no Azure."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: 2e50f6c1-fa61-4c7d-ac26-566a142fbfc2
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: e3e07066d5fc8fd9ceb45cb4b397e7a1e2869c38
+
 
 ---
-# <a name="azure-resiliency-technical-guidance:-recovery-from-local-failures-in-azure"></a>Orientações técnicas de resiliência do Azure: recuperação de falhas locais no Azure
+# <a name="azure-resiliency-technical-guidance-recovery-from-local-failures-in-azure"></a>Orientações técnicas de resiliência do Azure: recuperação de falhas locais no Azure
 Há duas ameaças básicas à disponibilidade de aplicativos:
 
 * A falha de dispositivos, como unidades e servidores
@@ -72,7 +76,7 @@ O Azure compreende nativamente as camadas em um aplicativo de PaaS (função web
 No diagrama anterior, a camada de IIS (Serviços de Informações da Internet) (que funciona como uma camada de aplicativo Web) e a camada SQL (que funciona como uma camada de dados) são atribuídas a diferentes conjuntos de disponibilidade. Isso garante que todas as instâncias de cada camada tenham redundância de hardware na distribuição de máquinas virtuais entre domínios de falha e que as camadas inteiras não sejam desativadas durante uma atualização.
 
 ### <a name="load-balancing"></a>Balanceamento de carga
-Se as VMs devem ter tráfego distribuído entre elas, você deve agrupá-las em um aplicativo e realizar o balanceamento de carga por um ponto de extremidade TCP ou UDP específico. Para saber mais, confira [Balanceamento de carga de máquinas virtuais](../virtual-machines/virtual-machines-linux-load-balance.md). Se as VMs receberem entrada de outra fonte (por exemplo, um mecanismo de enfileiramento), não será necessário um balanceador de carga. O balanceador de carga usará uma verificação básica de integridade para determinar se o tráfego deve ser enviado para o nó. Também é possível criar suas próprias investigações para implementar as métricas de integridade específicas de aplicativo que determinam se a VM deve receber tráfego.
+Se as VMs devem ter tráfego distribuído entre elas, você deve agrupá-las em um aplicativo e realizar o balanceamento de carga por um ponto de extremidade TCP ou UDP específico. Para saber mais, confira [Balanceamento de carga de máquinas virtuais](../virtual-machines/virtual-machines-linux-load-balance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se as VMs receberem entrada de outra fonte (por exemplo, um mecanismo de enfileiramento), não será necessário um balanceador de carga. O balanceador de carga usará uma verificação básica de integridade para determinar se o tráfego deve ser enviado para o nó. Também é possível criar suas próprias investigações para implementar as métricas de integridade específicas de aplicativo que determinam se a VM deve receber tráfego.
 
 ## <a name="storage"></a>Armazenamento
 O Armazenamento do Azure é o serviço de dados durável de linha de base do Azure. Ele fornece blob, tabela, fila e armazenamento de VM em disco. Ele usa uma combinação de replicação e gerenciamento de recursos para fornecer alta disponibilidade em um único datacenter. O SLA de disponibilidade do Armazenamento do Azure garante que em pelo menos 99,9% do tempo:
@@ -121,16 +125,16 @@ Essa recomendação não se aplica integralmente ao envio de logs. Como um recur
 
 Para VMs de Serviços de Nuvem do Azure implantadas por meio do portal clássico para estarem no mesmo conjunto de disponibilidade, você deve implantá-las no mesmo Serviço de Nuvem. VMs implantadas por meio do Azure Resource Manager (o portal atual) não têm essa limitação. Para VMs implantadas do portal clássico no Serviço de Nuvem do Azure, apenas os nós no mesmo Serviço de Nuvem podem participar do mesmo conjunto de disponibilidade. Além disso, as VMs dos Serviços de Nuvem deve estar na mesma rede virtual para garantir que mantenham seus IPs mesmo após a recuperação do serviço. Isso evita interrupções de atualização de DNS.
 
-### <a name="azure-only:-high-availability-solutions"></a>Somente Azure: soluções de alta disponibilidade
+### <a name="azure-only-high-availability-solutions"></a>Somente Azure: soluções de alta disponibilidade
 Você pode ter uma solução de alta disponibilidade para seus bancos de dados do SQL Server no Azure usando Grupos de Disponibilidade AlwaysOn ou o espelhamento de banco de dados.
 
-O diagrama a seguir mostra a arquitetura dos Grupos de Disponibilidade AlwaysOn em execução em Máquinas Virtuais do Azure. Esse diagrama foi retirado do artigo detalhado sobre o assunto, [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+O diagrama a seguir mostra a arquitetura dos Grupos de Disponibilidade AlwaysOn em execução em Máquinas Virtuais do Azure. Esse diagrama foi retirado do artigo detalhado sobre o assunto, [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ![Grupos de disponibilidade AlwaysOn no Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
 Você também pode provisionar automaticamente a implantação de um Grupo de Disponibilidade AlwaysOn completo em VMs do Azure usando o modelo AlwaysOn no portal do Azure. Para obter mais informações, consulte [Oferta do AlwaysOn do SQL Server na Galeria do Portal do Microsoft Azure](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-O diagrama a seguir demonstra o uso de espelhamento de banco de dados em Máquinas Virtuais do Azure. Ele também foi extraído do tópico detalhado sobre [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+O diagrama a seguir demonstra o uso de espelhamento de banco de dados em Máquinas Virtuais do Azure. Ele também foi extraído do tópico detalhado sobre [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ![Espalhamento de banco de dados no Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
@@ -144,11 +148,6 @@ Os aplicativos criados no Azure se beneficiam dos recursos de plataforma para se
 
 ### <a name="service-bus"></a>Barramento de Serviço
 Para atenuar uma interrupção temporária do Barramento de Serviço do Azure, considere a criação de uma fila durável do lado do cliente. Isso usa temporariamente um mecanismo de armazenamento local alternativo para armazenar mensagens que não podem ser adicionadas à fila de Barramento de Serviço. O aplicativo pode decidir como lidar com as mensagens armazenadas temporariamente depois que o serviço for restaurado. Para saber mais, confira [Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço](../service-bus-messaging/service-bus-performance-improvements.md) e [Barramento de Serviço (recuperação de desastre)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
-
-### <a name="mobile-services"></a>Serviços Móveis
-Há duas considerações de disponibilidade para os Serviços Móveis do Azure. Em primeiro lugar, faça backup regularmente do banco de dados SQL que está associado ao seu serviço móvel. Em segundo, faça backup dos scripts do serviço móvel. Para saber mais, confira [Recuperar o serviço móvel em caso de desastre](../mobile-services/mobile-services-disaster-recovery.md).
-
-Se os Serviços Móveis apresentarem uma interrupção temporária, talvez você precise usar temporariamente um datacenter alternativo do Azure. Para saber mais, confira [Serviços móveis (recuperação de desastres)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ### <a name="hdinsight"></a>HDInsight
 Os dados associados ao HDInsight do Azure são armazenados por padrão no armazenamento de Blobs do Azure. O Armazenamento do Azure especifica as propriedades de durabilidade e alta disponibilidade para o armazenamento de Blobs. O processamento de vários nós associado aos trabalhos do Hadoop MapReduce ocorre em um HDFS (Sistema de Arquivos Distribuídos Hadoop) transitório que é provisionado quando necessário pelo HDInsight. Os resultados de um trabalho MapReduce também são armazenados por padrão no armazenamento de Blobs do Azure para que os dados processados sejam duráveis e permaneçam altamente disponíveis depois que o cluster Hadoop for desprovisionado. Para saber mais, confira [HDInsight (recuperação de desastre)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
@@ -195,6 +194,9 @@ Os dados associados ao HDInsight do Azure são armazenados por padrão no armaze
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo faz parte de uma série que tem como foco [Orientações técnicas de resiliência do Azure](resiliency-technical-guidance.md). O próximo artigo desta série se é [Recuperação de interrupção do serviço em toda uma região](resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

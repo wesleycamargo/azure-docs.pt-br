@@ -1,12 +1,12 @@
 ---
 title: Configurar um host do Docker com o VirtualBox | Microsoft Docs
-description: Instruções passo a passo para configurar uma instância de Docker padrão usando a máquina Docker e o VirtualBox
+description: "Instruções passo a passo para configurar uma instância de Docker padrão usando a máquina Docker e o VirtualBox"
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 0b1335a2-7720-42a8-8260-4e06fc00c9f6
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
@@ -14,18 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ea90d0179ef64ed2de56ff4933fe4d23a928b606
+
 
 ---
-# Configurar um host do Docker com o VirtualBox
-## Visão geral
+# <a name="configure-a-docker-host-with-virtualbox"></a>Configurar um host do Docker com o VirtualBox
+## <a name="overview"></a>Visão geral
 Este artigo orienta você pela configuração de uma instância de Docker padrão usando a máquina Docker e o VirtualBox. Se você estiver usando o [Docker para Windows beta](http://beta.docker.com/), essa configuração não é necessária.
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 As ferramentas a seguir precisam ser instaladas.
 
 * [Caixa de Ferramentas do Docker](https://www.docker.com/products/overview#/docker_toolbox)
 
-## Configurando o cliente Docker com o Windows PowerShell
+## <a name="configuring-the-docker-client-with-windows-powershell"></a>Configurando o cliente Docker com o Windows PowerShell
 Para configurar um cliente Docker, apenas abra o Windows PowerShell e execute as seguintes etapas:
 
 1. Crie uma instância de host do docker padrão.
@@ -54,11 +58,16 @@ Para configurar um cliente Docker, apenas abra o Windows PowerShell e execute as
     ![saída do docker ps][1]
 
 > [!NOTE]
-> Sempre que você reinicializar o computador de desenvolvimento, precisará reiniciar o host do Docker local. Para fazer isso, envie o seguinte comando em um prompt de comando: `docker-machine start default`.
+> Sempre que você reinicializar o computador de desenvolvimento, precisará reiniciar o host do Docker local.
+> Para fazer isso, envie o seguinte comando em um prompt de comando: `docker-machine start default`.
 > 
 > 
 
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

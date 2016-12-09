@@ -1,12 +1,12 @@
 ---
 title: Novidades do Kit de Ferramentas do Azure para IntelliJ | Microsoft Docs
 description: Saiba mais sobre os recursos mais recentes do Kit de Ferramentas do Azure para IntelliJ.
-services: ''
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 46ed791f-df59-416a-809e-f52345ad973c
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm;asirveda;martinsawicki
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3ed0ef3d245ff8b5cddc2e26bc8574bf4ae67bec
+
 
 ---
 # <a name="whats-new-in-the-azure-toolkit-for-intellij"></a>Novidades no Kit de Ferramentas do Azure para IntelliJ
@@ -84,6 +88,6 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
