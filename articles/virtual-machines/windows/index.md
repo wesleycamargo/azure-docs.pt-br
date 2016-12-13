@@ -120,7 +120,7 @@ VM (Máquinas Virtuais) do Azure é um dos vários tipos de recursos de computa�
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -135,7 +135,7 @@ VM (Máquinas Virtuais) do Azure é um dos vários tipos de recursos de computa�
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
