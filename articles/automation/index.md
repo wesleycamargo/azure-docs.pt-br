@@ -29,7 +29,7 @@ A Automação do Azure fornece uma maneira para os usuários automatizarem taref
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=automation">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=automation">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -139,7 +139,7 @@ A Automação do Azure fornece uma maneira para os usuários automatizarem taref
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -151,7 +151,7 @@ A Automação do Azure fornece uma maneira para os usuários automatizarem taref
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

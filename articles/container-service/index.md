@@ -66,7 +66,7 @@ O Serviço de Contêiner do Azure simplifica a criação, a configuração e o g
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -78,7 +78,7 @@ O Serviço de Contêiner do Azure simplifica a criação, a configuração e o g
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
