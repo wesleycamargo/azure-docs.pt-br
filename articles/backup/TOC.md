@@ -52,6 +52,10 @@
 ### [Falha no backup de VM do Azure: não foi possível se comunicar com o agente de VM para o status do instantâneo - a subtarefa da VM atingiu o tempo limite](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Lentidão de backup de arquivos e pastas no Backup do Azure](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Referência
+## [PowerShell](/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup)
+## [.NET](/dotnet/api/microsoft.azure.management.backupservices)
+
 # Recursos
 ## [Preços](https://azure.microsoft.com/pricing/details/backup/)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
@@ -59,6 +63,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

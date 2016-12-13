@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 54d90fa8d337b95a8bb03938ae6f3ce7c4e2de85
-ms.openlocfilehash: a7eda833f1bbaaa64ebfb1a26925dc42cbf6cb9c
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 877d92deebfda835eef37cdc8dc1bca21520d892
 
 ---
 # <a name="media-services-documentation"></a>Documentação de Serviços de Mídia
@@ -197,7 +197,7 @@ Você pode compilar fluxos de trabalho de ponta a ponta usando os Serviços de M
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referência da API REST dos Serviços de Mídia</p>
+                        <p>API REST dos Serviços de Mídia</p>
                     </div>
                 </div>
             </div>
@@ -216,6 +216,6 @@ Download da Documentação dos Serviços de Mídia </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

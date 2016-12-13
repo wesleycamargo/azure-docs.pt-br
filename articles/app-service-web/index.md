@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 38ae37f4892fb32422ca8d7880a7b38674f29610
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: d513f059bdf85bd727e9ec3e712a6a83698795bb
 
 ---
 # <a name="azure-web-apps-documentation"></a>Documentação dos Aplicativos Web do Azure
@@ -57,7 +57,7 @@ Aplicativos Web do Serviço de Aplicativo é uma plataforma de computação tota
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Biblioteca de Vídeos de Aplicativos da Web</h3>
+                        <h3>Biblioteca de Vídeos de Aplicativos Web</h3>
                     </div>
                 </div>
             </div>
@@ -178,67 +178,46 @@ Aplicativos Web do Serviço de Aplicativo é uma plataforma de computação tota
 
 ---
 
-## <a name="reference"></a>Referência
-
+<h2>Referência</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/appservice/web">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>CLI do Azure</h3>
-                        <p>Referência da CLI do Azure dos Aplicativos Web</p>
+                        <h3>Linha de comando</h3>
+                        <p><a href="/cli/azure/">CLI do Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api/">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Referência de API Java</p>
+                        <h3>Linguagens</h3>
+                        <p><a href="/dotnet/api">.NET</a></p>
+                        <p><a href="/java/api/">Java</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referência gerenciada do .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/rest/api/appservice">
-        <div class="cardSize">
+    <li>
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referência da API REST de Aplicativos Web</p>
+                        <p><a href="/rest/api/appservice">API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    </ul>
-    
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-web.pdf">
@@ -250,6 +229,6 @@ Baixar a documentação de Aplicativos Web </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

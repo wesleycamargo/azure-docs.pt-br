@@ -13,7 +13,7 @@
 ### [Portal](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
-# Como:
+# Como
 ## Gerenciar
 ### Gerenciar contas
 #### [PowerShell](media-services-manage-with-powershell.md)
@@ -110,7 +110,7 @@
 ### [Criptografando seu conteúdo com a Criptografia de Armazenamento usando a API REST do AMS](media-services-rest-storage-encryption.md)
 ### [Visão geral do modelo de licença do PlayReady dos Serviços de Mídia](media-services-playready-license-template-overview.md)
 ### [Entrega de licença do DRM](media-services-deliver-keys-and-licenses.md)
-### [Usando parceiros  para fornecer licenças Widevine para os Serviços de Mídia do Azure](media-services-licenses-partner-integration.md)
+### [Usando parceiros para fornecer licenças Widevine para os Serviços de Mídia do Azure](media-services-licenses-partner-integration.md)
 ### [Usando a PlayReady e/ou a criptografia comum dinâmica Widevine.](media-services-protect-with-drm.md)
 ### [Use os Serviços de Mídia do Azure para transmitir seu conteúdo de HLS protegido com o Apple FairPlay](media-services-protect-hls-with-fairplay.md)
 ### [CENC com vários DRM e Controle de Acesso: design e implementação de referência no Azure e nos Serviços de Mídia do Azure](media-services-cenc-with-multidrm-access-control.md)
@@ -195,16 +195,18 @@
 ### [Lógica de repetição](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Referência
-## [Notas de versão](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Gerenciador de Recursos)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (Gerenciamento de Serviços)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # Recursos
+## [Notas de versão](media-services-release-notes.md)
 ## [Preços](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Comunidade dos Serviços de Mídia do Azure](media-services-community.md)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

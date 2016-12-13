@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: 618c677ea675e6dc8f9dfb41f8e00b66f3f31886
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: d92df7e0291eb109c339c4de3bf5307b6e186194
 
 ---
 #<a name="service-bus-documentation"></a>Documentação do Barramento de Serviço
@@ -232,7 +232,7 @@ O Barramento de Serviço fornece a comunicação habilitada para nuvem com mensa
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referência da API REST do Barramento de Serviço</p>
+                        <p>API REST do Barramento de Serviço</p>
                     </div>
                 </div>
             </div>
@@ -251,6 +251,6 @@ Download da Documentação do Barramento de Serviço </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

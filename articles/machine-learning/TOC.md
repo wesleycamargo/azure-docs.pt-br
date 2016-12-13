@@ -1,6 +1,6 @@
 # Visão geral
 ## [O que é o Machine Learning?](machine-learning-what-is-machine-learning.md)
-## Estúdio de Aprendizado de Máquina
+## Machine Learning Studio
 ### [O que é o Studio?](machine-learning-what-is-ml-studio.md)
 ### [Funcionalidades do Studio](machine-learning-studio-overview-diagram.md)
 ### [Infográfico: noções básicas do AM](machine-learning-basics-infographic-with-algorithm-examples.md)
@@ -26,6 +26,10 @@
 ### [3: Fazer a pergunta certa](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4: Prever uma resposta](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Copiar o trabalho de outras pessoas](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
+
+## [Início rápido do R](machine-learning-r-quickstart.md)
+
+
 # Como
 ## Configurar ferramentas e utilitários
 ### [Configurar ambientes](machine-learning-data-science-environment-setup.md)
@@ -167,14 +171,15 @@
 #### [Pacote de distribuição normal](machine-learning-r-csharp-normal-distribution.md)
 #### [Pacote de distribuição binomial](machine-learning-r-csharp-binomial-distribution.md)
 #### [Perguntas frequentes sobre o Marketplace](machine-learning-marketplace-faq.md)
+
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell](/azure/machine-learning/machine-learning-powershell-module)
 ## [Módulo do PowerShell para o Machine Learning](machine-learning-powershell-module.md)
-## [Referência de algoritmo](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [Início rápido do R](machine-learning-r-quickstart.md)
-## [Linguagem de redes neurais Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
-## [APIs REST de gerenciamento](/rest/api/machinelearning/index)
+## [Referência de módulo e algoritmos](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+## [REST](/rest/api/machinelearning)
+
 # Relacionados
+
 ## Galeria do Cortana Intelligence
 ### [Visão geral](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [Indústrias](machine-learning-gallery-industries.md)
@@ -205,7 +210,10 @@
 ##### [Visão geral](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [Guia estratégico](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Configuração](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+
 # Recursos
+## [Códigos de Erro REST do Machine Learning](/machine-learning/machine-learning-web-service-error-codes)
+## [Linguagem de redes neurais Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Preços](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
@@ -214,6 +222,7 @@
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Obtenha ajuda do chat ao vivo](machine-learning-live-chat.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

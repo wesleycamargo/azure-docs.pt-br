@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: ca6b16a891f599135c193198b5b0acc7bbd6425e
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 7ac552010e41d59e07f2881750540206ffa24f5b
 
 ---
 # <a name="security-center-documentation"></a>Documentação da Central de Segurança
@@ -77,7 +77,7 @@ A Central de Segurança ajuda você a impedir, detectar e responder a ameaças c
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referência da API REST da Central de Segurança</p>
+                        <p>API REST da Central de Segurança</p>
                     </div>
                 </div>
             </div>
@@ -96,6 +96,6 @@ Baixar a Documentação da Central de Segurança </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

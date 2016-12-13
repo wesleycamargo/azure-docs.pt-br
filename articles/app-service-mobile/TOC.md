@@ -28,7 +28,7 @@
 ### [Aplicativo do Marketplace](../app-service-web/web-sites-php-web-site-gallery.md)
 ### [PHP](../app-service-web/app-service-web-php-get-started.md)    
 
-# Como:
+# Como
 
 ## Planejar e projetar
 ### [Autenticação e Autorização nos Aplicativos Móveis do Azure](app-service-mobile-auth.md)
@@ -207,10 +207,12 @@
 ### [Solucionar problemas usando o Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Referência
-## [API do .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-## [Portal do Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [Referência do Serviço de Aplicativo](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [.NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+
+# Relacionados
 ## [SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Referência do Serviço de Aplicativo](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Portal do Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Recursos
 ## [Preços](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
@@ -225,6 +227,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -83,18 +83,20 @@
 
 
 # Referência
-## [Java SDK](documentdb-sdk-java.md)
-## [SDK .NET](documentdb-sdk-dotnet.md)
-## [SDK do .NET Core](documentdb-sdk-dotnet-core.md)
-## [Amostras do .NET](documentdb-dotnet-samples.md)
-## [SDK do Node.js](documentdb-sdk-node.md)
-## [Exemplos do Node.js](documentdb-nodejs-samples.md)
-## [SDK do Python](documentdb-sdk-python.md)
-## [Exemplos em Python](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [Roteiro de gramática SQL](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
 ## [Provedor de recursos REST](/rest/api/documentdbresourceprovider/)
+
+# Relacionados
+## [Amostras do .NET](documentdb-dotnet-samples.md)
+## [Exemplos do Node.js](documentdb-nodejs-samples.md)
+## [Exemplos em Python](documentdb-python-samples.md)
+## [Sintaxe SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [Roteiro de gramática SQL](documentdb-sql-query-cheat-sheet.md)
 
 # Recursos
 ## [Preços](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +112,6 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

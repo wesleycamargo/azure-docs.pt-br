@@ -44,14 +44,17 @@
 ## [Configuração de DHCPv6 para VMs Linux](load-balancer-ipv6-for-linux.md)
 
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [CLI do Azure](/cli/azure/network/lb)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
+## [CLI do Azure 2.0 (Visualização)](/cli/azure/network/lb)
+## [.NET](/dotnet/api/microsoft.azure.management.network.models)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # Relacionados
-## [Application Gateway](/azure/application-gateway/)
+## [Gateway de Aplicativo](/azure/application-gateway/)
 ## [ExpressRoute](/azure/expressroute/)
 ## [Rede Virtual](/azure/virtual-network/)
 ## [Gateway de VPN](/azure/vpn-gateway/)
@@ -64,6 +67,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

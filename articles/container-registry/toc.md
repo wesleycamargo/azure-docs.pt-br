@@ -14,8 +14,8 @@
 
 # Referência
 
-## [CLI do Azure](/cli/azure/acr)
-## [API REST](/rest/api/containerregistry)
+## [Visualização da CLI do Azure 2.0](/cli/azure/acr)
+## [REST](/rest/api/containerregistry)
 
 # Relacionados
 
@@ -27,6 +27,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

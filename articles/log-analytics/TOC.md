@@ -9,7 +9,7 @@
 ## [Dados de uso](log-analytics-usage.md)
 ## [Perguntas frequentes do Log Analytics](log-analytics-faq.md)
 
-# Como:
+# Como
 ## Integração
 ### Fontes conectadas
 #### [Agentes do Windows](log-analytics-windows-agents.md)
@@ -40,7 +40,7 @@
 #### [Gerenciamento de Capacidade](log-analytics-capacity.md)
 #### [Controle de alterações](log-analytics-change-tracking.md)
 #### [Contêineres](log-analytics-containers.md)
-#### [Cofre da Chave](log-analytics-azure-key-vault.md)
+#### [Cofre de Chaves](log-analytics-azure-key-vault.md)
 #### [Avaliação de malware](log-analytics-malware.md)
 #### [Análise de Rede](log-analytics-azure-networking-analytics.md)
 #### [Monitor de Desempenho de Rede](log-analytics-network-performance-monitor.md)
@@ -61,12 +61,15 @@
 ### [API da Pesquisa de Log](log-analytics-log-search-api.md)
 ### [API de Alerta](log-analytics-api-alerts.md)
 
+# Referência
+## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+
 # Recursos
 ## [Atualizar análise](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Preços](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 
