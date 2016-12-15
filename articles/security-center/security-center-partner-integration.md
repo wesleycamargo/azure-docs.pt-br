@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 0c946ce6a96f2e3644b9890dad5d60a35ad4bcb7
-ms.openlocfilehash: 10184c52d532eb56e66212fafdea3d059b0c43e3
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
 
 
 ---
@@ -45,23 +45,19 @@ Ao longo do tempo, a Central de Segurança expandirá o número de parceiros den
 
 ## <a name="how-to-deploy-a-partner-solution"></a>Como implantar uma solução de parceiro?
 
-Soluções de parceiro que já foram implantadas na Central de Segurança podem ser acessadas facilmente do bloco de solução de parceiro no painel principal da Central de Segurança:
+Com base na configuração de seu ambiente do Azure e na política de segurança que você definiu, a Central de Segurança pode recomendar a implantação de uma solução de parceiro. A recomendação orientará você pelo processo de seleção e instalação de uma solução de parceiro. A experiência geral de implantação, a partir desse ponto, pode variar de acordo com a solução e o parceiro. Consulte os links abaixo para obter mais informações:
+
+- [Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md)
+- [Adicionar um Firewall de Última Geração](security-center-add-next-generation-firewall.md)
+- [Instalar proteção do ponto de extremidade](security-center-install-endpoint-protection.md)
+- [Avaliação de vulnerabilidade não instalada](security-center-vulnerability-assessment-recommendations.md)
+
+## <a name="how-to-manage-partner-solutions"></a>Como gerenciar soluções de parceiros?
+
+Após a implantação de uma solução de parceiro, você pode exibir informações sobre a integridade da solução e executar tarefas básicas de gerenciamento no bloco Solução de parceiro no painel principal da Central de Segurança. Para obter mais informações sobre o gerenciamento de soluções de parceiros na Central de Segurança, leia [Monitoramento de soluções de parceiro com a Central de Segurança do Azure](security-center-partner-solutions.md).
 
 ![Integração de Parceiros](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
 
-Para implantar uma nova solução de parceiro com base em uma recomendação da Central de Segurança, execute as seguintes etapas:
-
-> [!NOTE]
-> As etapas no exemplo a seguir pressupõem que você tem uma carga de trabalho que deseja proteger com um firewall do aplicativo Web.
-
-1. No painel da Central de Segurança, clique no bloco **Recomendações**.
-2. Na folha **recomendações**, clique em **Adicionar firewall do aplicativo Web**.
-3. Clique no nome do aplicativo na folha **Adicionar um Firewall do Aplicativo Web** será aberta.
-4. Na folha **Adicionar um Firewall do Aplicativo Web**, clique em **Criar Novo**.
-5. A folha **Criar um Novo Firewall do Aplicativo Web** mostra uma lista dos parceiros atuais que estão oferecendo a funcionalidade de firewall do aplicativo Web.
-6. Selecione a solução de parceiro apropriada e siga as etapas (que podem variar de acordo com o parceiro).
-
-A experiência de implantação geral agora pode variar de acordo com o parceiro. Para obter mais informações sobre o gerenciamento de soluções de parceiros na Central de segurança, leia [Monitoramento de soluções de parceiro](security-center-partner-solutions.md) com a Central de Segurança do Azure.
 
 ## <a name="see-also"></a>Consulte também
 Neste documento, você aprendeu como integrar a solução de parceiro à Central de Segurança do Azure. Para saber mais sobre a Central de Segurança, confira o seguinte:
@@ -76,6 +72,6 @@ Neste documento, você aprendeu como integrar a solução de parceiro à Central
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eb618aea1ee5aba24cebd4d8518e9c7f546f5f4f
-ms.openlocfilehash: ae1e750a5f97325df064a02ed156610b4576f1d3
+ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
+ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
 
 
 ---
@@ -76,7 +76,7 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **Nova Iorque** |Equinix, Megaport, Zayo Group |
-| **Newport(País de Gales)+** |Dados da Próxima Geração+ |
+| **Newport (País de Gales)** |Dados da Próxima Geração |
 | **Montreal** |Cologix+ |
 | **Mumbai** |Tata Communications |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
@@ -151,13 +151,13 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
-* Certifique-se que todos os pré-requisitos foram atendidos. Confira [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
+* Certifique-se que todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos da Rota Expressa](expressroute-prerequisites.md).
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Mapa de localização"
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

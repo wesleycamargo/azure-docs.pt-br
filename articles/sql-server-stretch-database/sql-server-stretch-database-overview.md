@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2fcea994b3de924f1170dae2d7a0a3b6d4786538
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f63900b0a4f32e1bc5a88c068091916bd96aafb8
 
 
 ---
@@ -28,13 +28,13 @@ Se você deseja começar com o Stretch Database imediatamente, consulte [Introdu
 ## <a name="what-are-the-benefits-of-stretch-database"></a>Quais são os benefícios do Stretch Database?
 O Stretch Database oferece os seguintes benefícios:
 
-### <a name="provides-costeffective-availability-for-cold-data"></a>Fornece disponibilidade econômica para dados frios
+### <a name="provides-cost-effective-availability-for-cold-data"></a>Fornece disponibilidade econômica para dados frios
 Estenda dinamicamente os dados transacionais ativos e frios do SQL Server para o Microsoft Azure usando o SQL Server Stretch Database. Ao contrário do armazenamento comum de dados frio, seus dados estão sempre online e disponíveis para consulta. Você pode fornecer uma retenção de dados mais longa, sem ir à falência, para tabelas grandes como o Histórico de Pedidos do Cliente. Beneficie-se do baixo custo do Azure em vez de dimensionar um armazenamento local caro. Escolha o tipo de preço e defina as configurações no Portal do Azure para manter controle sobre os custos. Escale vertical ou horizontalmente conforme o necessário. Visite a página [Preços do SQL Server Stretch Database](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) para obter detalhes.
 
 ### <a name="doesnt-require-changes-to-queries-or-applications"></a>Não requer alterações em consultas ou em aplicativos
 Acesse os dados do SQL Server de forma direta, não importa se eles são locais ou estendidos para a nuvem.  Defina a política que determina onde os dados são armazenados, e o SQL Server tratará da movimentação dos dados em segundo plano. A tabela inteira está sempre online e passível de consulta. Além disso, o Stretch Database não exige mudanças nos aplicativos ou consultas existentes. O local dos dados é completamente transparente ao aplicativo.
 
-### <a name="streamlines-onpremises-data-maintenance"></a>Simplifica a manutenção de dados locais
+### <a name="streamlines-on-premises-data-maintenance"></a>Simplifica a manutenção de dados locais
 Reduz a manutenção e o armazenamento local para seus dados. Os backups de seus dados locais são executados e concluídos com mais rapidez dentro da janela de manutenção. Os backups para a parte de seus dados que está na nuvem são executados automaticamente. Suas necessidades de armazenamento local reduzem bastante. O Armazenamento do Azure pode ser 80% mais barato do que adicionar SSD local.
 
 ### <a name="keeps-your-data-secure-even-during-migration"></a>Mantém seus dados seguros mesmo durante a migração
@@ -84,6 +84,6 @@ Use o Supervisor do Stretch Database, um recurso do Supervisor de Atualização 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

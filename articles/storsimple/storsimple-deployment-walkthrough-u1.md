@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 68f3736069a153e6de9a7ba5f11708a4eb648dbf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-1"></a>Implantar o dispositivo StorSimple no local (Atualização 1)
+# <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Implantar o dispositivo StorSimple no local (Atualização 1)
 > [!div class="op_single_selector"]
 > * [Atualização 2](storsimple-deployment-walkthrough-u2.md)
 > * [Atualização 1](storsimple-deployment-walkthrough-u1.md)
@@ -75,7 +75,7 @@ A lista de verificação de configuração da implantação a seguir descreve as
 | --- | --- | --- | --- |
 | **Cabear seu dispositivo** |Acesso serial |Configuração inicial do dispositivo |Sim/Não |
 |  | | | |
-| **Configurar e registrar o dispositivo** |Configurações de rede de Data 0 |Endereço IP de Data 0:</br>Máscara da sub-rede:</br>Gateway:</br>Servidor DNS primário:</br>Servidor NTP primário:</br>Servidor de proxy da Web IP/FQDN (opcional):</br>Porta proxy Web: | |
+| **Configurar e registrar o dispositivo** |Configurações de rede de Data 0 |Endereço IP de Data 0:</br>Máscara de sub-rede:</br>Gateway:</br>Servidor DNS primário:</br>Servidor NTP primário:</br>Servidor proxy da Web IP/FQDN (opcional):</br>Porta proxy Web: | |
 | &nbsp; |Senha do administrador do dispositivo |A senha deve conter entre 8 e 15 caracteres, incluindo letra minúscula, letra maiúscula caracteres numéricos e especiais. | |
 | &nbsp; |Senha do Gerenciador de instantâneos do StorSimple |A senha deve conter 14 ou 15 caracteres, incluindo letra minúscula, letra maiúscula caracteres numéricos e especiais. | |
 | &nbsp; |Chave de registro do serviço |Essa chave é gerada no portal clássico do Azure. | |
@@ -86,11 +86,11 @@ A lista de verificação de configuração da implantação a seguir descreve as
 | &nbsp; |Servidor DNS secundário |Essa é uma configuração obrigatória. | |
 | &nbsp; |Interface de rede: IPs fixos do controlador Data 0 |Esse IP deve ser roteável para a Internet.</br>Endereço IP fixo do controlador 0:</br>Endereço IP fixo do controlador 1: | |
 |  | | | |
-| **Configurações de interface de rede adicionais** |Interface de rede: Data 1</br>Se o iSCSI estiver habilitado, não configure o Gateway. |Finalidade: Nuvem/iSCSI/não usada</br>Endereço IP:</br>Máscara da sub-rede:</br>Gateway: | |
-| &nbsp; |Interface de rede: Data 2</br>Se o iSCSI estiver habilitado, não configure o Gateway. |Finalidade: Nuvem/iSCSI/não usada</br>Endereço IP:</br>Máscara da sub-rede:</br>Gateway: | |
-| &nbsp; |Interface de rede: Data 3</br>Se o iSCSI estiver habilitado, não configure o Gateway. |Finalidade: Nuvem/iSCSI/não usada</br>Endereço IP:</br>Máscara da sub-rede:</br>Gateway: | |
-| &nbsp; |Interface de rede: Data 4</br>Se o iSCSI estiver habilitado, não configure o Gateway. |Finalidade: Nuvem/iSCSI/não usada</br>Endereço IP:</br>Máscara da sub-rede:</br>Gateway: | |
-| &nbsp; |Interface de rede: Data 5</br>Se o iSCSI estiver habilitado, não configure o Gateway. |Finalidade: Nuvem/iSCSI/não usada</br>Endereço IP:</br>Máscara da sub-rede:</br>Gateway: | |
+| **Configurações de interface de rede adicionais** |Interface de rede: Data 1</br>Se o iSCSI estiver habilitado, não configure o Gateway. |Finalidade: Nuvem/iSCSI/não usada</br>Endereço IP:</br>Máscara de sub-rede:</br>Gateway: | |
+| &nbsp; |Interface de rede: Data 2</br>Se o iSCSI estiver habilitado, não configure o Gateway. |Finalidade: Nuvem/iSCSI/não usada</br>Endereço IP:</br>Máscara de sub-rede:</br>Gateway: | |
+| &nbsp; |Interface de rede: Data 3</br>Se o iSCSI estiver habilitado, não configure o Gateway. |Finalidade: Nuvem/iSCSI/não usada</br>Endereço IP:</br>Máscara de sub-rede:</br>Gateway: | |
+| &nbsp; |Interface de rede: Data 4</br>Se o iSCSI estiver habilitado, não configure o Gateway. |Finalidade: Nuvem/iSCSI/não usada</br>Endereço IP:</br>Máscara de sub-rede:</br>Gateway: | |
+| &nbsp; |Interface de rede: Data 5</br>Se o iSCSI estiver habilitado, não configure o Gateway. |Finalidade: Nuvem/iSCSI/não usada</br>Endereço IP:</br>Máscara de sub-rede:</br>Gateway: | |
 |  | | | |
 | **Criar um contêiner de volume** |Nome do contêiner de volume: |Nome do contêiner | |
 | &nbsp; |Conta de armazenamento do Azure: |Nome e chave de acesso da conta de armazenamento para associar a esse contêiner de volume | |
@@ -131,7 +131,7 @@ Antes de começar, verifique se:
 
 * As portas no firewall do seu datacenter são abertas para permitir tráfego de nuvem e iSCSI, conforme descrito em [Requisitos de rede para o dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="stepbystep-deployment"></a>IMPLANTAÇÃO PASSO A PASSO
+## <a name="step-by-step-deployment"></a>IMPLANTAÇÃO PASSO A PASSO
 Use as instruções passo a passo a seguir para implantar seu dispositivo StorSimple no datacenter.
 
 ## <a name="step-1-create-a-new-service"></a>Etapa 1: Criar um novo serviço
@@ -270,6 +270,6 @@ Para obter instruções de instalação do MPIO para um dispositivo do StorSimpl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

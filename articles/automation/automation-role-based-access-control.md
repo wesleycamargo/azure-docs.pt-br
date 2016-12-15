@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9fff24dfd2b20a785c6046b6c9700b583c309de4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 
 
 ---
-# <a name="rolebased-access-control-in-azure-automation"></a>Controle de acesso com base em função na Automação do Azure
-## <a name="rolebased-access-control"></a>Controle de acesso baseado em função
+# <a name="role-based-access-control-in-azure-automation"></a>Controle de acesso com base em função na Automação do Azure
+## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 O RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso aos recursos do Azure. Com o [RBAC](../active-directory/role-based-access-control-configure.md), você pode separar as tarefas dentro de sua equipe e conceder somente a quantidade de acesso que os usuários, os grupos e os aplicativos precisam para realizar seus trabalhos. O acesso baseado em função pode ser concedido aos usuários que usam o portal do Azure, as ferramentas de Linha de Comando do Azure ou as APIs de Gerenciamento do Azure.
 
 ## <a name="rbac-in-automation-accounts"></a>RBAC em Contas de Automação
@@ -233,6 +233,6 @@ Nos exemplos acima, substitua a **Id de entrada**, a **Id da assinatura**, o **n
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

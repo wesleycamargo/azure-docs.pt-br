@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
 
 
 ---
@@ -65,7 +66,7 @@ Para criar um banco de dados SQL com o C#, carregue as bibliotecas de gerenciame
 > 
 > 
 
-## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>Criar um servidor do Banco de Dados SQL, regra de firewall e banco de dados SQL - exemplo de C#
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database---c-example"></a>Criar um servidor do Banco de Dados SQL, regra de firewall e banco de dados SQL - exemplo de C#
 O exemplo a seguir cria um grupo de recursos, um servidor, uma regra de firewall e um banco de dados SQL. Confira [Criar uma entidade de serviço para acessar os recursos](#create-a-service-principal-to-access-resources) para obter as variáveis `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
 Substitua o conteúdo de **Program.cs** pelo seguinte e atualize `{variables}` com seus valores do aplicativo (sem incluir `{}`).
@@ -292,6 +293,6 @@ Agora que você já experimentou o Banco de Dados SQL e configurou um banco de d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

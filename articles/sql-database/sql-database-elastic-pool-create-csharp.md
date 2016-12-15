@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
 
 
 ---
@@ -59,7 +60,7 @@ Para criar um banco de dados SQL com o C#, carregue as bibliotecas de gerenciame
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool-c-example"></a>Criar um Pool de Banco de Dados Elástico do SQL - exemplo em C#
+## <a name="create-a-sql-elastic-database-pool---c-example"></a>Criar um Pool de Banco de Dados Elástico do SQL - exemplo em C#
 O exemplo a seguir cria um grupo de recursos, um servidor, uma regra de firewall e um pool elástico, em seguida cria um banco de dados SQL no pool. Confira [Criar uma entidade de serviço para acessar os recursos](#create-a-service-principal-to-access-resources) para obter as variáveis `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
 Substitua o conteúdo de **Program.cs** pelo seguinte e atualize `{variables}` com seus valores do aplicativo (sem incluir `{}`).
@@ -314,6 +315,6 @@ O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a e
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
 
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Introdução ao Apache Storm no HDInsight: análise em tempo real para o Hadoop
+# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>Introdução ao Apache Storm no HDInsight: análise em tempo real para o Hadoop
 O Apache Storm no HDInsight permite que você crie soluções de análise em tempo real distribuídas no ambiente do Azure usando o [Apache Hadoop](http://hadoop.apache.org).
 
 ## <a name="what-is-apache-storm"></a>O que é o Apache Storm?
@@ -47,13 +47,13 @@ O Apache Storm no HDInsight é um cluster gerenciado integrado ao ambiente do Az
 
 Para obter uma lista de empresas que estão usando o Apache Storm em suas soluções de análise em tempo real, consulte [Empresas que estão usando o Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-Para começar a usar o Storm, consulte [Introdução ao Storm no HDInsight][gettingstarted].
+Para começar a usar o Storm, consulte [Introdução ao uso do Storm no HDInsight][gettingstarted].
 
 ### <a name="ease-of-provisioning"></a>Facilidade de provisionamento
 Você pode provisionar um novo Storm no cluster HDInsight em minutos. Especifique o nome do cluster, o tamanho, a conta de administrador e a conta de armazenamento. O Azure vai criar o cluster com topologias de exemplo e um painel de gerenciamento da Web.
 
 > [!NOTE]
-> Você também pode provisionar os clusters Storm usando a [CLI do Azure](../xplat-cli-install.md) ou o [Azure PowerShell](../powershell-install-configure.md).
+> Você também pode provisionar os clusters Storm usando a [CLI do Azure](../xplat-cli-install.md) ou o [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 
@@ -107,7 +107,7 @@ Embora você possa especificar o número de nós no cluster durante a criação,
 ### <a name="support"></a>Suporte
 O Storm no HDInsight é fornecido com suporte completo de nível empresarial 24 horas por dia, 7 dias por semana. O Storm no HDInsight também tem um SLA de 99,9%. Isso significa que garantimos que o cluster terá conectividade externa em, no mínimo, 99,9% do tempo.
 
-## <a name="common-use-cases-for-realtime-analytics"></a>Casos de uso comuns de análise em tempo real
+## <a name="common-use-cases-for-real-time-analytics"></a>Casos de uso comuns de análise em tempo real
 Abaixo estão alguns cenários comuns em que você pode usar o Apache Storm no HDInsight. Para obter informações sobre cenários reais, leia [Como as empresas estão usando o Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 * Internet das coisas (IoT)
@@ -138,7 +138,7 @@ O Apache Storm processa **topologias** em vez dos trabalhos do MapReduce com que
   
   * **Nimbus** é um serviço do Thrift e uma **topologia** é uma definição do Thrift, portanto, é possível desenvolver topologias usando várias linguagens de programação.
 
-Para obter mais informações sobre os componentes do Storm, consulte o [tutorial do Storm][apachetutorial] em apache.org.
+Para obter mais informações sobre os componentes do Storm, consulte o [Tutorial do Storm][apachetutorial] em apache.org.
 
 ## <a name="what-programming-languages-can-i-use"></a>Quais linguagens de programação posso usar?
 O Storm no cluster HDInsight dá suporte para C#, Java e Python.
@@ -206,6 +206,6 @@ Saiba mais sobre as soluções de análise em tempo real com o Apache Storm no H
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
