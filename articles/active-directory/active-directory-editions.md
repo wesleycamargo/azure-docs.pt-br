@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 9bff89b6bb049e4a5ca1fa54950f67a7cb2eb150
-ms.openlocfilehash: a1b3dd4445ea1dd3ccecc2fd7cfc2d74bdfb0d4d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b241d70ab7c7e8468a3f358fef5af47a89d42e56
 
 
 ---
@@ -103,7 +103,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 |:---:|:---:|:---:|:---:|
 | Até 500 mil objetos |Não há limite de objeto |Não há limite de objeto |Nenhum limite de objeto para contas de usuário do Office 365 |
 
-#### <a name="usergroup-management-addupdatedelete-user-based-provisioning-device-registration"></a>Gerenciamento de usuário/grupo (adicionar/atualizar/excluir)/Provisionamento baseado em usuário, Registro de dispositivo
+#### <a name="usergroup-management-addupdatedelete-user-based-provisioning-device-registration"></a>Gerenciamento de usuário/grupo (adicionar/atualizar/excluir), Provisionamento baseado em usuário, Registro de dispositivo
 **Tipo:** recursos comuns
 
 **Disponibilidade:**
@@ -180,7 +180,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-| |![Verificação][12] | ![Verificação][12] | |
+| &nbsp; |![Verificação][12] | ![Verificação][12] | &nbsp; |
 
 **Mais detalhes:**
 
@@ -193,7 +193,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |![Verificação][12] |![Verificação][12] | ![Verificação][12] |
+| &nbsp; |![Verificação][12] |![Verificação][12] | ![Verificação][12] |
 
 **Mais detalhes:**
 
@@ -206,7 +206,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |![Verificação][12] |![Verificação][12] | ![Verificação][12] |
+| &nbsp; |![Verificação][12] |![Verificação][12] | ![Verificação][12] |
 
 **Mais detalhes:**
 
@@ -219,7 +219,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-| |![Verificação][12] | ![Verificação][12] | |
+| &nbsp; |![Verificação][12] | ![Verificação][12] | &nbsp; |
 
 **Mais detalhes:**
 
@@ -232,7 +232,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-| |![Verificação][12] |![Verificação][12] | ![Verificação][12] |
+| &nbsp; |![Verificação][12] |![Verificação][12] | ![Verificação][12] |
 
 **Mais detalhes:**
 
@@ -248,7 +248,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Verificação][12]|  |
+| &nbsp; | &nbsp; | ![Verificação][12]| &nbsp; |
 
 #### <a name="self-service-password-resetchangeunlock-with-on-premises-write-back"></a>Redefinição/Alteração/Desbloqueio de senha de autoatendimento com write-back local
 **Tipo:** recursos premium
@@ -257,7 +257,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Verificação][12] | |
+| &nbsp; | &nbsp; | ![Verificação][12] | &nbsp; |
 
 #### <a name="multi-factor-authentication-cloud-and-on-premises-mfa-server"></a>Multi-Factor Authentication (nuvem e local [Servidor MFA])
 **Tipo:** recursos premium
@@ -266,7 +266,7 @@ A cota de uso padrão é de 150 mil objetos. Um objeto é uma entrada no serviç
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-| | |![Verificação][12] |Limitado à nuvem somente para aplicativos do Office 365 |
+| &nbsp; | &nbsp; |![Verificação][12] |Limitado à nuvem somente para aplicativos do Office 365 |
 
 **Mais detalhes:**
 
@@ -282,7 +282,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-| | |![Verificação][12] | |
+| &nbsp; | &nbsp; |![Verificação][12] | &nbsp; |
 
 #### <a name="cloud-app-discovery"></a>Cloud App Discovery
 **Tipo:** recursos premium
@@ -291,7 +291,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Verificação][12] | |
+| &nbsp; | &nbsp; | ![Verificação][12] | &nbsp; |
 
 **Mais detalhes:**
 
@@ -304,7 +304,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Verificação][12] | |
+| &nbsp; | &nbsp; | ![Verificação][12] | &nbsp; |
 
 **Mais detalhes:**
 
@@ -317,21 +317,21 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Verificação][12] | |
+| &nbsp; | &nbsp; | ![Verificação][12] | &nbsp; |
 
 #### <a name="identity-protection"></a>Identity Protection
 **Tipo:** recursos premium
 
 | Edição Gratuita | Edição Básica | Edição Premium P2 | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Verificação][12] | |
+| &nbsp; | &nbsp; | ![Verificação][12] | &nbsp; |
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 **Tipo:** recursos premium
 
 | Edição Gratuita | Edição Básica | Edição Premium P2 | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Verificação][12] | |
+| &nbsp; | &nbsp; | ![Verificação][12] | &nbsp; |
 
 ## <a name="azure-active-directory-join-windows-10-only-related-features"></a>Ingresso do Azure Active Directory - apenas recursos relacionados ao Windows 10
 #### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Adicione um dispositivo para AD do Azure, Desktop SSO, Microsoft Passport para AD do Azure, recuperação do Administrator Bitlocker
@@ -351,7 +351,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Verificação][12] | |
+| &nbsp; | &nbsp; | ![Verificação][12] | &nbsp; |
 
 #### <a name="enterprise-state-roaming"></a>Enterprise State Roaming
 **Tipo:** ingresso do Azure Active Directory – apenas recursos relacionados ao Windows 10
@@ -360,7 +360,7 @@ Direitos de software de servidor Microsoft Identity Manager são concedidos com 
 
 | Edição Gratuita | Edição Básica | Edições Premium (P1 e P2) | Somente aplicativos do Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Verificação][12] | |
+| &nbsp; | &nbsp; | ![Verificação][12] | &nbsp; |
 
 **Mais detalhes:**
 
@@ -380,13 +380,13 @@ Além dos recursos disponíveis das edições Gratuita, Básica e Premium (P1 e 
 ## <a name="whats-next"></a>O que vem a seguir
 * [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
 * [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
-* [Exibir relatórios de acesso e uso](active-directory-view-access-usage-reports.md)
+* [Exibir relatórios de acesso e de uso](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [12]: ./media/active-directory-editions/ic195031.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
