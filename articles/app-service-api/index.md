@@ -121,8 +121,6 @@ Os Aplicativos de API são um dos quatro tipos de aplicativos oferecidos pelo Se
     </li>     
 </ul>
 
----
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>

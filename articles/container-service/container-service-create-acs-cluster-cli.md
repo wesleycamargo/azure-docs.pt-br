@@ -117,7 +117,7 @@ az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ![Escala do ACS de imagem](media/container-service-create-acs-cluster-cli/acs-scale.png)
 
 ## <a name="delete-a-container-service-cluster"></a>Exclui um cluster do serviço de contêiner
-```
+```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
 *Observe que esse comando de exclusão não exclui todos os recursos criados (rede e armazenamento) ao criar o contêiner de serviço. Para excluir todos os recursos, é recomendável que um único cluster ACS seja criado por grupo de recursos e, em seguida, o grupo de recursos seja excluído quando o cluster ACS não for mais necessário para garantir que todos os recursos relacionados sejam excluídos e que você não seja cobrado por eles.*
