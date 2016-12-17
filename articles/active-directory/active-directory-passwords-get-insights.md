@@ -1,12 +1,12 @@
 ---
-title: 'Obter percepções: relatórios de gerenciamento de senhas do AD do Azure | Microsoft Docs'
-description: Este artigo descreve como usar os relatórios para obter informações sobre operações de gerenciamento de senhas em sua organização.
+title: "Obter percepções: relatórios de gerenciamento de senhas do AD do Azure | Microsoft Docs"
+description: "Este artigo descreve como usar os relatórios para obter informações sobre operações de gerenciamento de senhas em sua organização."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: 1472b51d-53f4-4b0f-b1be-57f6fa88fa65
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 10aa33512fd1eaf6761f6de181e8619b390f564b
+
 
 ---
-# Como obter percepções operacionais com relatórios de gerenciamento de senhas
+# <a name="how-to-get-operational-insights-with-password-management-reports"></a>Como obter percepções operacionais com relatórios de gerenciamento de senhas
 > [!IMPORTANT]
 > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 > 
@@ -29,8 +33,8 @@ Esta seção descreve como você pode usar relatórios de gerenciamento de senha
 * [**Exibir atividade de registro de redefinição de senhas em sua organização**](#view-password-reset-registration-activity)
 * [**Exibir atividade de redefinição de senha em sua organização**](#view-password-reset-activity)
 
-## Visão geral dos relatórios de gerenciamento de senhas
-Após a implantação da redefinição de senhas, uma das próximas etapas mais comuns é ver como ela está sendo usada na organização. Por exemplo, talvez você queira obter uma visão de como os usuários estão s registrando para a redefinição de senha ou quantas redefinições de senha foram feitas nos últimos dias. Aqui estão algumas perguntas comuns que você poderá responder com os relatórios de gerenciamento de senhas que existem nos [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) hoje:
+## <a name="overview-of-password-management-reports"></a>Visão geral dos relatórios de gerenciamento de senhas
+Após a implantação da redefinição de senhas, uma das próximas etapas mais comuns é ver como ela está sendo usada na organização.  Por exemplo, talvez você queira obter uma visão de como os usuários estão s registrando para a redefinição de senha ou quantas redefinições de senha foram feitas nos últimos dias.  Aqui estão algumas perguntas comuns que você poderá responder com os relatórios de gerenciamento de senhas que existem nos [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) hoje:
 
 * Quantas pessoas foram registradas para a redefinição de senhas?
 * Quem se registrou para a redefinição de senhas?
@@ -41,18 +45,18 @@ Após a implantação da redefinição de senhas, uma das próximas etapas mais 
 * Quais administradores estão redefinindo suas próprias senhas com frequência?
 * Há qualquer atividade suspeita acontecendo na redefinição de senhas?
 
-## Como exibir relatórios de gerenciamento de senhas
+## <a name="how-to-view-password-management-reports"></a>Como exibir relatórios de gerenciamento de senhas
 Para localizar os relatórios de gerenciamento de senhas, siga as etapas abaixo:
 
 1. Clique na **Extensão do Active Directory** no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 2. Selecione o diretório na lista que aparece no portal.
-3. Clique na guia **Relatórios**.
-4. Procure na seção **Logs de Atividade**.
+3. Clique na guia **Relatórios** .
+4. Procure na seção **Logs de Atividade** .
 5. Selecione o relatório **Atividade de redefinição de senhas** ou **Atividade de registro de redefinição de senhas**.
    
    ![][001]
 
-## Como acessar os Relatórios de Gerenciamento de Senhas de uma API
+## <a name="how-to-access-password-management-reports-from-an-api"></a>Como acessar os Relatórios de Gerenciamento de Senhas de uma API
 A partir de agosto de 2015, os Eventos e os Relatórios do AD do Azure agora oferecem suporte ao recuperar todas as informações incluídas nos relatórios de Redefinição de Senhas e de Registro da Redefinição de Senhas.
 
 Para acessar esses dados, você precisará gravar um pequeno aplicativo ou script para recuperá-los de nossos servidores. [Saiba como começar com a API de Relatório do AD do Azure](active-directory-reporting-api-getting-started.md).
@@ -62,8 +66,8 @@ Quando você tiver um script de trabalho, em seguida desejará examinar os event
 * [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): lista as colunas disponíveis para os eventos de redefinição de senhas
 * [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): lista as colunas disponíveis para os eventos do registro de redefinição de senhas
 
-## Exibir atividade de registro de redefinição de senhas
-O relatório de atividade de registro de redefinição de senhas mostra todos os registros de redefinição de senhas que ocorreram na sua organização. Um registro de redefinição de senhas é exibido no relatório para qualquer usuário que registrou com êxito as informações de autenticação no portal de registro de senha de redefinição de senhas ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
+## <a name="view-password-reset-registration-activity"></a>Exibir atividade de registro de redefinição de senhas
+O relatório de atividade de registro de redefinição de senhas mostra todos os registros de redefinição de senhas que ocorreram na sua organização.  Um registro de redefinição de senhas é exibido no relatório para qualquer usuário que registrou com êxito as informações de autenticação no portal de registro de senha de redefinição de senhas ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
 * **Intervalo de tempo máximo**: um mês
 * **Número máximo de linhas**: ilimitado
@@ -71,7 +75,7 @@ O relatório de atividade de registro de redefinição de senhas mostra todos os
   
     ![][002]
 
-### Descrição das colunas do relatório
+### <a name="description-of-report-columns"></a>Descrição das colunas do relatório
 A lista a seguir explica cada uma das colunas do relatório em detalhes:
 
 * **Usuário** – o usuário que tentou uma operação de registro de redefinição de senha.
@@ -79,14 +83,14 @@ A lista a seguir explica cada uma das colunas do relatório em detalhes:
 * **Data e hora** – a data e a hora da tentativa.
 * **Dados Registrados** – os dados de autenticação fornecidos pelo usuário durante o registro de redefinição de senha.
 
-### Descrição dos valores de relatório
+### <a name="description-of-report-values"></a>Descrição dos valores de relatório
 A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 
 | Coluna | Valores permitidos e seus significados |
 | --- | --- |
-| Dados Registrados |**Email Alternativo** – email alternativo usado pelo usuário ou email de autenticação para autenticar<p><p>**Telefone Comercial** – telefone comercial usado pelo usuário para autenticar<p>**Celular** – celular usado pelo usuário ou telefone de autenticação para autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha. |
+| Dados Registrados |**Email Alternativo** – email alternativo ou email de autenticação usado pelo usuário para se autenticar<p><p>**Telefone Comercial**– telefone comercial usado pelo usuário para se autenticar<p>**Celular** - celular ou telefone de autenticação usado pelo usuário para se autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para se autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha. |
 
-## Exibir atividade de redefinição de senha
+## <a name="view-password-reset-activity"></a>Exibir atividade de redefinição de senha
 Esse relatório mostra todas as tentativas de redefinição de senha que ocorreram na sua organização.
 
 * **Intervalo de tempo máximo**: um mês
@@ -95,7 +99,7 @@ Esse relatório mostra todas as tentativas de redefinição de senha que ocorrer
   
     ![][003]
 
-### Descrição das colunas do relatório
+### <a name="description-of-report-columns"></a>Descrição das colunas do relatório
 A lista a seguir explica cada uma das colunas do relatório em detalhes:
 
 1. **Usuário** – o usuário que tentou uma operação de redefinição de senha (com base no campo ID de Usuário fornecido quando o usuário redefine uma senha).
@@ -103,18 +107,18 @@ A lista a seguir explica cada uma das colunas do relatório em detalhes:
 3. **Data e hora** – a data e a hora da tentativa.
 4. **Método(s) usado(s)** – os métodos de autenticação de usuário usados para essa operação de redefinição.
 5. **Resultado** – resultado final da operação de redefinição de senha.
-6. **Detalhes** – os detalhes do motivo pelo qual a redefinição de senha resultou no valor obtido. Também inclui as etapas de atenuação que você pode tomar para resolver um erro inesperado.
+6. **Detalhes** – os detalhes do motivo pelo qual a redefinição de senha resultou no valor obtido.  Também inclui as etapas de atenuação que você pode tomar para resolver um erro inesperado.
 
-### Descrição dos valores de relatório
+### <a name="description-of-report-values"></a>Descrição dos valores de relatório
 A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 
 | Coluna | Valores permitidos e seus significados |
 | --- | --- |
-| Métodos usados |**Email Alternativo** – email alternativo usado pelo usuário ou email de autenticação para autenticar<p>**Telefone Comercial** – telefone comercial usado pelo usuário para autenticar<p>**Celular** – celular usado pelo usuário ou telefone de autenticação para autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para autenticar<p>**Qualquer combinação dos itens acima (por exemplo, email alternativo + celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha. |
-| Resultado |**Abandonado** – o usuário iniciou a redefinição de senha mas, em seguida, parou na metade sem concluir<p>**Bloqueado** – a conta de usuário foi impedida de usar a redefinição de senha devido à tentativa de usar a página de redefinição de senha ou um acesso de redefinição de senha muitas vezes em um período de 24 horas<p>**Cancelado** – o usuário iniciou a redefinição de senha do usuário, mas, em seguida, clicou no botão Cancelar no meio do processo<p>**Administrador Contatado** – o usuário teve um problema durante a sessão que não foi possível resolver, então, ele clicou no link "Contate seu administrador" em vez de concluir o fluxo de redefinição de senha<p>**Falha** – o usuário não foi capaz de redefinir uma senha, provavelmente porque ele não foi configurado para usar o recurso (por exemplo, nenhuma licença, sem informações de autenticação, senha gerenciada localmente, mas o write-back está desativado).<p>**Bem-sucedida** – a redefinição de senha foi bem-sucedida. |
+| Métodos usados |**Email Alternativo** – email alternativo ou email de autenticação usado pelo usuário para se autenticar<p>**Telefone Comercial** – telefone comercial usado pelo usuário para se autenticar<p>**Celular** – celular ou telefone de autenticação usado pelo usuário para se autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para se autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Celular)** – ocorre quando uma política de 2 acessos é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar a solicitação de redefinição de sua senha. |
+| Result |**Abandonado** – redefinição de senha iniciada pelo usuário mas, em seguida, interrompida pela metade sem ser concluída<p>**Bloqueado** – a conta do usuário foi impedida de usar a redefinição de senha devido à tentativa de usar a página de redefinição de senha ou uma porta única de redefinição de senha muitas vezes em um período de 24 horas<p>**Cancelado** – redefinição de senha iniciada pelo usuário, mas o botão Cancelar foi clicado para cancelar a sessão pela metade <p>**Administrador Contatado** – o usuário teve um problema durante a sessão que ele não pôde resolver, assim, o usuário clicou no link "Entre em contato com seu administrador" em vez de concluir o fluxo de redefinição de senha<p>**Falha** – o usuário não pôde redefinir uma senha, provavelmente porque o usuário não foi configurado para usar o recurso (por exemplo, nenhuma licença, informações de autenticação ausentes, senha gerenciada no local, mas o write-back está desativado).<p>**Bem-sucedida** – a redefinição de senha foi bem-sucedida. |
 | Detalhes |Consulte a tabela abaixo. |
 
-### Valores permitidos para a coluna de detalhes
+### <a name="allowed-values-for-details-column"></a>Valores permitidos para a coluna de detalhes
 Abaixo está a lista de tipos de resultado que você pode esperar ao usar o relatório de atividade de redefinição de senha:
 
 | Detalhes | Tipo de resultado |
@@ -153,22 +157,26 @@ Abaixo está a lista de tipos de resultado que você pode esperar ao usar o rela
 | Encontramos um problema durante a redefinição de senha local do usuário. Verifique o log de eventos de seu computador de sincronização |Falha |
 | Este usuário não é membro do grupo de usuários de redefinição de senha. Adicione esse usuário ao grupo para resolver o problema. |Falha |
 | A redefinição de senha foi desabilitada inteiramente para este locatário. Confira [aqui](http://aka.ms/ssprtroubleshoot) para resolver isto. |Falha |
-| O usuário redefiniu a senha com êxito |Bem-sucedido |
+| O usuário redefiniu a senha com êxito |Bem-sucedida |
 
-## Links para a documentação de redefinição de senha
+## <a name="links-to-password-reset-documentation"></a>Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
 * **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-* [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
-* [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
-* [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Como funciona**](active-directory-passwords-how-it-works.md) – saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
+* [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
+* [**Personalizar **](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
 * [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
-* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - aprenda a solucionar rapidamente os problemas com o serviço
-* [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) – aprenda a solucionar rapidamente os problemas com o serviço
+* [**Saiba mais**](active-directory-passwords-learn-more.md) – aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

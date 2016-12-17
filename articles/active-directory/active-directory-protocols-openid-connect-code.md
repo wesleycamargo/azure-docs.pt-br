@@ -1,12 +1,12 @@
 ---
-title: Visão geral do protocolo .NET do Azure AD | Microsoft Docs
-description: Este artigo descreve como usar mensagens HTTP para autorizar o acesso a aplicativos Web e a APIs da Web em seu locatário usando o Azure Active Directory e o OpenID Connect.
+title: "Visão geral do protocolo .NET do Azure AD | Microsoft Docs"
+description: "Este artigo descreve como usar mensagens HTTP para autorizar o acesso a aplicativos Web e a APIs da Web em seu locatário usando o Azure Active Directory e o OpenID Connect."
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: c5b1305b71c5d4076cb22fb70be3d7904695715c
+
 
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso aos aplicativos Web usando o OpenID Connect e o Azure Active Directory
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) é uma camada de identidade simples criada sobre o protocolo OAuth 2.0. OAuth 2.0 define os mecanismos para obter e usar **tokens de acesso** para acessar recursos protegidos, mas eles não definem os métodos padrão para fornecer informações de identidade. O OpenID Connect implementa a autenticação como uma extensão para o processo de autorização do OAuth 2.0, fornecendo informações sobre o usuário final na forma de um `id_token` , que verifica a identidade do usuário e fornece informações de perfil básico sobre o usuário.
 
 O OpenID Connect é a nossa recomendação se você estiver criando um aplicativo Web hospedado em um servidor e acessado por meio de um navegador.
+
+[!INCLUDE [active-directory-protocols-getting-started](../../includes/active-directory-protocols-getting-started.md)]
 
 ## <a name="authentication-flow-using-openid-connect"></a>Fluxo de autenticação usando o OpenID Connect
 O fluxo de credenciais mais básico contém as seguintes etapas: cada um delas é descrita em detalhes abaixo.
@@ -108,7 +114,7 @@ A tabela a seguir descreve os vários códigos de erro que podem ser retornados 
 | temporarily_unavailable |O servidor está temporariamente muito ocupado para tratar da solicitação. |Tente novamente a solicitação. O aplicativo cliente pode explicar para o usuário que sua resposta está atrasada devido a uma condição temporária. |
 | invalid_resource |O recurso de destino é inválido porque não existe, o Azure AD não consegue encontrá-lo ou ele não está configurado corretamente. |Isso indica que o recurso, se ele existe, não foi configurado no locatário. O aplicativo pode solicitar que o usuário instale o aplicativo e o adicione ao Azure AD. |
 
-## <a name="validate-the-id_token"></a>Validar o id_token
+## <a name="validate-the-idtoken"></a>Validar o id_token
 Apenas receber um `id_token` não é suficiente para autenticar o usuário. Você deve validar a assinatura e verificar as declarações no `id_token`, de acordo com os requisitos do aplicativo. O ponto de extremidade do Azure AD usa JWTs (Tokens Web JSON) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
 
 Você pode escolher validar o `id_token` no código do cliente, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação nele. Após a validação da assinatura do `id_token`, haverá algumas declarações que você precisará verificar.
@@ -146,14 +152,14 @@ Para obter tokens de acesso, você precisará modificar a solicitação de entra
 // Line breaks for legibility only
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e      // Your registered Application Id
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application Id
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F       // Your registered Redirect Uri, url encoded
 &response_mode=form_post                              // form_post', or 'fragment'
 &scope=openid
-&resource=https%3A%2F%2Fservice.contoso.com%2F                                   
-&state=12345                                         // Any value, provided by your app
-&nonce=678910                                        // Any value, provided by your app
+&resource=https%3A%2F%2Fservice.contoso.com%2F                                     
+&state=12345                                          // Any value, provided by your app
+&nonce=678910                                         // Any value, provided by your app
 ```
 
 Ao incluir escopos de permissão na solicitação e usar `response_type=code+id_token`, o ponto de extremidade `authorize` terá certeza de que o usuário consentiu às permissões indicadas no parâmetro de consulta `scope` e retornará ao seu aplicativo um código de autorização para trocar por um token de acesso.
@@ -193,8 +199,10 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Para obter uma descrição dos possíveis códigos de erro e sua ação recomendada do cliente, veja [Códigos de erro para erros de ponto de extremidade de autorização](#error-codes-for-authorization-endpoint-errors).
 
-Após você conseguir uma autorização `code` e um `id_token`, poderá conectar o usuário e obter tokens de acesso em seu nome.  Para conectar o usuário, você deve validar o `id_token` exatamente como descrito acima. Para obter tokens de acesso, você pode seguir as etapas descritas em nossa [documentação do protocolo OAuth](active-directory-protocols-oauth-code.md#Use-the-Authorization-Code-to-Request-an-Access-Token).
+Após você conseguir uma autorização `code` e um `id_token`, poderá conectar o usuário e obter tokens de acesso em seu nome.  Para conectar o usuário, você deve validar o `id_token` exatamente como descrito acima. Para obter tokens de acesso, você pode seguir as etapas descritas na seção "Usar o código de autorização para solicitar um token de acesso" da nossa [documentação do protocolo OAuth](active-directory-protocols-oauth-code.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure ao Evidence.com | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Evidence.com.
+title: "Tutorial: integração do Azure Active Directory ao Evidence.com | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Evidence.com."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f9a7cb7c-ff67-40dc-872c-1fa35f9dd03b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d5183b136a0ceca939f754f67130d1179f6f4f7
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-evidence.com"></a>Tutorial: Integração do Active Directory do Azure ao Evidence.com
+# <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Tutorial: Integração do Active Directory do Azure ao Evidence.com
 O objetivo deste tutorial é mostrar como configurar o logon único entre o AAD (Active Directory do Azure) e o Evidence.com. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Microsoft Azure
@@ -24,7 +28,7 @@ O objetivo deste tutorial é mostrar como configurar o logon único entre o AAD 
 
 Depois de concluir este tutorial, os usuários do AAD aos quais você atribuiu acesso ao Evidence.com poderão fazer logon único no aplicativo usando o Painel de Acesso do AAD.
 
-## <a name="add-evidence.com-to-your-directory"></a>Adicionar o Evidence.com ao seu diretório
+## <a name="add-evidencecom-to-your-directory"></a>Adicionar o Evidence.com ao seu diretório
 Esta seção descreve como adicionar Evidence.com como um aplicativo integrado ao Active Directory do Azure.
 
 **Para habilitar a integração de aplicativos no Evidence.com:**
@@ -54,7 +58,7 @@ Esta seção descreve como permitir que os usuários autentiquem no Evidence.com
 11. No portal clássico do Azure, marque a caixa de seleção **Confirmar que você configurou o logon único conforme descrito acima**. A marcação dessa opção permitirá que o certificado atual comece a trabalhar para esse aplicativo.
 12. Na página de confirmação de logon único, clique em **Concluir**.  
 
-## <a name="creating-an-evidence.com-test-user"></a>Criação de um usuário de teste de Evidence.com
+## <a name="creating-an-evidencecom-test-user"></a>Criação de um usuário de teste de Evidence.com
 Para que os usuários do AD do Azure possam fazer logon, eles deverão receber a permissão de acesso dentro do aplicativo Evidence.com. Esta seção descreve como criar contas de usuário do AD do Azure no Evidence.com.
 
 **Para provisionar uma conta de usuário no Evidence.com:**
@@ -65,7 +69,7 @@ Para que os usuários do AD do Azure possam fazer logon, eles deverão receber a
 4. Clique no botão **Adicionar** .
 5. O **Endereço de Email** do usuário adicionado deverá coincidir com o nome de usuário dos usuários no AD do Azure aos quais você deseja conceder acesso. Se o nome de usuário e o endereço de email não tiverem o mesmo valor em sua organização, use a seção **Evidence.com > Atributos > Logon Único** do Portal clássico do Azure para alterar o identificador de nome enviado ao Evidence.com para ser o endereço de email.
 
-## <a name="assigning-users-to-evidence.com"></a>Atribuição de usuários ao Evidence.com
+## <a name="assigning-users-to-evidencecom"></a>Atribuição de usuários ao Evidence.com
 Para que os usuários provisionados do AAD possam ver o Evidence.com em seus Painéis de Acesso, deverão obter o acesso no portal clássico do Azure.
 
 **Para atribuir usuários ao Evidence.com:**
@@ -75,6 +79,9 @@ Para que os usuários provisionados do AAD possam ver o Evidence.com em seus Pai
 3. Na lista **Usuários** , escolha o usuário ou o grupo ao qual você deseja atribuir ao Evidence.com.
 4. No rodapé da página, clique no botão **Atribuir** .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

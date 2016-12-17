@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: atualização automática | Microsoft Docs'
-description: Este tópico descreve o recurso interno de atualização automática na sincronização do Azure AD Connect.
+title: "Azure AD Connect: atualização automática | Microsoft Docs"
+description: "Este tópico descreve o recurso interno de atualização automática na sincronização do Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/24/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bcf0d318f747d359229d1dc8161a952ad3e8ff47
+
 
 ---
-# <a name="azure-ad-connect:-automatic-upgrade"></a>Azure AD Connect: atualização automática
+# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
 
 ## <a name="overview"></a>Visão geral
@@ -89,13 +93,16 @@ Esta é uma lista das mensagens mais comuns que você encontrará. Ela não list
 | UpgradeNotSupportedMetaverseSizeExceeeded |Você tem mais de 100 mil objetos no metaverso. |
 | UpgradeNotSupportedMultiForestSetup |Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta. |
 | UpgradeNotSupportedNonLocalDbInstall |Você não está usando um banco de dados SQL Server Express LocalDB. |
-| UpgradeNotSupportedNonMsolAccount |A [conta do Conector AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) não é mais a conta MSOL_ padrão. |
+| UpgradeNotSupportedNonMsolAccount |A [conta do Conector AD](connect/active-directory-aadconnect-accounts-permissions.md#active-directory-account) não é mais a conta MSOL_ padrão. |
 | UpgradeNotSupportedStagingModeEnabled |O servidor está definido como em [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode). |
 | UpgradeNotSupportedUserWritebackEnabled |Você habilitou o recurso [write-back de usuário](active-directory-aadconnect-feature-preview.md#user-writeback) . |
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Serviço de mensagens assíncrono do Barramento de Serviço | Microsoft Docs
-description: Descrição do sistema de mensagens assíncrono do Barramento de Serviço.
-services: service-bus
+title: "Sistema de mensagens assíncronas do Barramento de Serviço | Microsoft Docs"
+description: "Descrição do sistema de mensagens assíncrono do Barramento de Serviço."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eb178caeb1ba3cdf8f4a85ac88502425532f86b3
+
 
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Padrões de mensagens assíncronas e alta disponibilidade
@@ -46,7 +50,7 @@ Há diversas maneiras de lidar com problemas de mensagens e entidades, e há dir
 O Barramento de Serviço contém várias mitigações para esses problemas. As seções a seguir discutem cada problema e as respectivas mitigações.
 
 ### <a name="throttling"></a>Limitação
-Com o Barramento de Serviço, a limitação possibilita o gerenciamento cooperativo de taxa de mensagens. Cada nó individual do Barramento de Serviço hospeda várias entidades. Cada uma dessas entidades faz demandas ao sistema em termos de CPU, memória, armazenamento e outros aspectos. Quando qualquer um desses aspectos detecta uso que excede os limites definidos, o Barramento de Serviço pode negar determinada solicitação. O chamador recebe um [ServerBusyException][ServerBusyException] e se recupera após 10 segundos.
+Com o Barramento de Serviço, a limitação possibilita o gerenciamento cooperativo de taxa de mensagens. Cada nó individual do Barramento de Serviço hospeda várias entidades. Cada uma dessas entidades faz demandas ao sistema em termos de CPU, memória, armazenamento e outros aspectos. Quando qualquer um desses aspectos detecta uso que excede os limites definidos, o Barramento de Serviço pode negar determinada solicitação. O chamador recebe uma [ServerBusyException][ServerBusyException] e se recupera após 10 segundos.
 
 Como uma mitigação, o código deve ler o erro e interromper repetições da mensagem por pelo menos 10 segundos. Como o erro pode ocorrer em partes do aplicativo cliente, espera-se que cada parte dele execute independentemente a lógica de repetição. O código pode reduzir a probabilidade de restrição, habilitando o particionamento em uma fila ou um tópico.
 
@@ -56,7 +60,7 @@ Ocasionalmente, outros componentes do Azure podem ter problemas de serviço. Por
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Falha do Barramento de Serviço em um único subsistema
 Com qualquer aplicativo, circunstâncias podem fazer com que um componente interno do Barramento de Serviço se torne inconsistente. Quando o Barramento de Serviço detecta isso, ele coleta dados do aplicativo para ajudar a diagnosticar o que aconteceu. Depois que os dados são coletados, o aplicativo é reiniciado em uma tentativa de retorná-lo a um estado consistente. Esse processo acontece rapidamente e resulta em uma entidade que parece estar disponível por alguns minutos, embora os tempos de inatividade típicos sejam mais curtos.
 
-Nesses casos, o aplicativo cliente gera uma exceção do tipo [System.TimeoutException][System.TimeoutException] ou [MessagingException][MessagingException]. O SDK do Barramento de Serviço contém uma mitigação para esse problema na forma de lógica de repetição de cliente automatizada. Depois que o período de repetição se esgota e a mensagem não é entregue, você pode explorar usando outros recursos, como [namespaces emparelhados][namespaces emparelhados]. Namespaces emparelhados têm outras restrições que são abordadas neste artigo.
+Nesses casos, o aplicativo cliente gera uma exceção do tipo [System.TimeoutException][System.TimeoutException] ou [MessagingException][MessagingException]. O SDK do Barramento de Serviço contém uma mitigação para esse problema na forma de lógica de repetição de cliente automatizada. Depois que o período de repetição for esgotado e a mensagem não for entregue, será possível explorar usando outros recursos, como [namespaces emparelhados][namespaces emparelhados]. Namespaces emparelhados têm outras restrições que são abordadas neste artigo.
 
 ### <a name="failure-of-service-bus-within-an-azure-datacenter"></a>Falha do Barramento de Serviço em um datacenter do Azure
 O motivo mais provável para uma falha em um datacenter do Azure é uma implantação de atualização com falha do Barramento de Serviço ou um sistema dependente. À medida que a plataforma amadureceu, a probabilidade desse tipo de falha foi reduzida. Uma falha do datacenter também pode acontecer por razões que incluem o seguinte:
@@ -64,7 +68,7 @@ O motivo mais provável para uma falha em um datacenter do Azure é uma implanta
 * Falta de energia (a fonte de energia e a geração de energia ficam indisponíveis).
 * Conectividade (interrupção da Internet entre o cliente e o Azure).
 
-Em ambos os casos, um desastre natural ou humano causou o problema. Para solucionar esse problema e garantir que ainda possa enviar mensagens, você pode usar [namespaces emparelhados][namespaces emparelhados] para possibilitar que as mensagens sejam enviadas a um segundo local enquanto o local principal se torna íntegro novamente. Para obter mais informações, consulte [Práticas recomendadas para isolar aplicativos de interrupções de serviço e desastres do Barramento de Serviço][].
+Em ambos os casos, um desastre natural ou humano causou o problema. Para solucionar esse problema e para que você ainda possa enviar mensagens, é possível usar [namespaces emparelhados][namespaces emparelhados] para possibilitar que as mensagens sejam enviadas a um segundo local assim que o local primário seja tornado íntegro novamente. Para obter mais informações, consulte [Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço][Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço].
 
 ## <a name="paired-namespaces"></a>Namespaces emparelhados
 O recurso de [namespaces emparelhados][namespaces emparelhados] dá suporte a cenários em que uma entidade do Barramento de Serviço ou uma implantação em um datacenter se torna indisponível. Embora esse evento ocorra raramente, sistemas distribuídos ainda devem estar preparados para lidar com os piores cenários. Normalmente, esse evento acontece porque algum elemento dos quais o Barramento de Serviço depende está enfrentando um problema de curto prazo. Para manter a disponibilidade do aplicativo durante uma interrupção, os usuários do Barramento de Serviço podem usar dois namespaces separados, preferencialmente em datacenters separados, para hospedar suas entidades de mensagens. O restante desta seção usa a seguinte terminologia:
@@ -84,14 +88,14 @@ Namespaces emparelhados dão suporte à *disponibilidade de envio*. A disponibil
 
 As seções a seguir discutem as APIs e como as APIs são implementadas e mostra um código de exemplo que usa o recurso. Observe que há implicações de cobranças associadas a esse recurso.
 
-### <a name="the-messagingfactory.pairnamespaceasync-api"></a>A API MessagingFactory.PairNamespaceAsync
+### <a name="the-messagingfactorypairnamespaceasync-api"></a>A API MessagingFactory.PairNamespaceAsync
 O recurso de namespaces emparelhados inclui o método [PairNamespaceAsync][PairNamespaceAsync] na classe [Microsoft.ServiceBus.Messaging.MessagingFactory][Microsoft.ServiceBus.Messaging.MessagingFactory]:
 
 ```
 public Task PairNamespaceAsync(PairedNamespaceOptions options);
 ```
 
-Quando a tarefa é concluída, o emparelhamento do namespace também é concluído e está pronto para atuar em qualquer [MessageReceiver][MessageReceiver], [QueueClient][QueueClient] ou [TopicClient][TopicClient] criado com a instância [MessagingFactory][MessagingFactory]. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] é a classe base para os diferentes tipos de emparelhamento que estão disponíveis com um objeto [MessagingFactory][MessagingFactory]. Atualmente, a única classe derivada é uma que se chama [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], que implementa os requisitos de disponibilidade de envio. [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] tem um conjunto de construtores que se baseiam uns nos outros. Observando o construtor com a maioria dos parâmetros, você pode compreender o comportamento de outros construtores.
+Quando a tarefa for concluída, o emparelhamento do namespace também será concluído e estará pronto para atuar em qualquer [MessageReceiver][MessageReceiver], [QueueClient][QueueClient] ou [TopicClient][TopicClient] criado com a instância [MessagingFactory][MessagingFactory]. [Microsoft.ServiceBus.Messaging.PairedNamespaceOptions][Microsoft.ServiceBus.Messaging.PairedNamespaceOptions] é a classe base para os diferentes tipos de emparelhamento disponíveis com um objeto [MessagingFactory][MessagingFactory]. Atualmente, a única classe derivada é uma denominada [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], que implementa os requisitos de disponibilidade de envio. [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] tem um conjunto de construtores que se baseiam uns nos outros. Observando o construtor com a maioria dos parâmetros, você pode compreender o comportamento de outros construtores.
 
 ```
 public SendAvailabilityPairedNamespaceOptions(
@@ -104,20 +108,20 @@ public SendAvailabilityPairedNamespaceOptions(
 
 Esses parâmetros têm os seguintes significados:
 
-* *secondaryNamespaceManager*: uma instância inicializada de [NamespaceManager][NamespaceManager] para o namespace secundário que o método [PairNamespaceAsync][PairNamespaceAsync] pode usar para configurar o namespace secundário. O gerenciador de namespace é usado para obter a lista de filas no namespace e garantir que as filas obrigatórias de lista de pendências existam. Se essas filas não existirem, elas serão criadas. [NamespaceManager][NamespaceManager] requer a capacidade de criar um token com a declaração **Manage**.
-* *messagingFactory*: a instância de [MessagingFactory][MessagingFactory] para o namespace secundário. O objeto [MessagingFactory][MessagingFactory] é usado para enviar e, se a propriedade [EnableSyphon][EnableSyphon] estiver definida como **true**, receber mensagens de filas de lista de pendências.
+* *secondaryNamespaceManager*: uma instância inicializada [NamespaceManager][NamespaceManager] para o namespace secundário que o método [PairNamespaceAsync][PairNamespaceAsync] pode usar para configurar o namespace secundário. O gerenciador de namespace é usado para obter a lista de filas no namespace e garantir que as filas obrigatórias de lista de pendências existam. Se essas filas não existirem, elas serão criadas. [NamespaceManager][NamespaceManager] requer a capacidade de criar um token com a declaração **Manage**.
+* *messagingFactory*: a instância [MessagingFactory][MessagingFactory] para o namespace secundário. O objeto [MessagingFactory][MessagingFactory] será usado para enviar e, se a propriedade [EnableSyphon][EnableSyphon] estiver definida como **true**, receber mensagens das filas da lista de pendências.
 * *backlogQueueCount*: o número de filas de lista de pendências a serem criadas. Esse valor deve ser pelo menos 1. Ao serem enviadas mensagens à lista de pendências, umas dessas filas é escolhida aleatoriamente. Se você definir o valor como 1, somente uma fila poderá ser usada. Quando isso acontece e a fila de lista de pendências gera erros, o cliente não pode tentar uma fila de lista de pendências diferente e pode não enviar a mensagem. É recomendável definir esse valor como algum valor maior e usar como padrão o valor de 10. Você pode alterar isso para um valor maior ou menor, dependendo de quantos dados seu aplicativo envia por dia. Cada fila de lista de pendências pode manter até 5 GB de mensagens.
-* *failoverInterval*: o tempo durante o qual você aceitará falhas no namespace principal antes de alternar qualquer entidade para o namespace secundário. Os failovers ocorrem em entidades individuais. Entidades em um único namespace frequentemente estão em nós diferentes no Barramento de Serviço. Uma falha em uma entidade não implica falha em outra. Você pode definir esse valor como [System.TimeSpan.Zero][System.TimeSpan.Zero] para realizar o failover para o secundário imediatamente após a primeira falha não transitória. Falhas que disparam o temporizador de failover são qualquer [MessagingException][MessagingException] em que a propriedade [IsTransient][IsTransient] é falsa ou um [System.TimeoutException][System.TimeoutException]. Outras exceções, como [UnauthorizedAccessException][UnauthorizedAccessException], não causam o failover, pois indicam que o cliente está configurado incorretamente. Um [ServerBusyException][ServerBusyException] não causa failover porque o padrão correto é esperar 10 segundos e, em seguida, enviar a mensagem novamente.
+* *failoverInterval*: o tempo durante o qual você aceitará falhas no namespace principal antes de alternar qualquer entidade para o namespace secundário. Os failovers ocorrem em entidades individuais. Entidades em um único namespace frequentemente estão em nós diferentes no Barramento de Serviço. Uma falha em uma entidade não implica falha em outra. É possível definir esse valor como [System.TimeSpan.Zero][System.TimeSpan.Zero] para realizar o failover para o secundário imediatamente após a primeira falha não transitória. Falhas que disparam o temporizador de failover são qualquer propriedade [MessagingException][MessagingException] in which the [IsTransient][IsTransient] é falsa ou um [System.TimeoutException][System.TimeoutException]. Outras exceções, como [UnauthorizedAccessException][UnauthorizedAccessException], não causam o failover, pois indicam que o cliente foi configurado incorretamente. Um [ServerBusyException][ServerBusyException] não causa failover, porque o padrão correto é aguardar 10 segundos e, em seguida, enviar a mensagem novamente.
 * *enableSyphon*: indica que esse emparelhamento específico também deve encaminhar mensagens do namespace secundário de volta ao namespace primário. Em geral, aplicativos que enviam mensagens devem definir esse valor como **false**; aplicativos que recebem mensagens devem definir esse valor como **true**. A razão disso é que, com frequência, há menos receptores de mensagens do que remetentes de mensagens. Dependendo do número de destinatários, você pode optar por ter uma única instância do aplicativo lidando com as tarefas de encaminhamento. Usar muitos receptores tem implicações de cobranças para cada fila de lista de pendências.
 
-Para usar o código, crie uma instância principal de [MessagingFactory][MessagingFactory], uma instância secundária de [MessagingFactory][MessagingFactory], uma instância secundária de [NamespaceManager][NamespaceManager] e uma instância de [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions]. A chamada pode ser tão simples quanto o seguinte exemplo:
+Para usar o código, crie uma instância primária de [MessagingFactory][MessagingFactory], uma instância secundária [MessagingFactory][MessagingFactory], uma instância secundária de [NamespaceManager][NamespaceManager] e uma instância [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions]. A chamada pode ser tão simples quanto o seguinte exemplo:
 
 ```
 SendAvailabilityPairedNamespaceOptions sendAvailabilityOptions = new SendAvailabilityPairedNamespaceOptions(secondaryNamespaceManager, secondary);
 primary.PairNamespaceAsync(sendAvailabilityOptions).Wait();
 ```
 
-Quando a tarefa retornada pelo método [PairNamespaceAsync][PairNamespaceAsync] for concluída, tudo está configurado e pronto para uso. Antes que a tarefa seja retornada, você pode não ter concluído todo o trabalho de segundo plano necessário para que o emparelhamento funcione corretamente. Como resultado, você não deve começar a enviar mensagens até que a tarefa seja retornada. Se alguma falha ocorrer, como credenciais inválidas ou falha ao criar filas de listas de pendências, essas exceções serão geradas quando a tarefa for concluída. Depois que a tarefa for retornada, verifique se as filas foram encontradas ou criadas examinando a propriedade [BacklogQueueCount][BacklogQueueCount] em sua instância de [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions]. No código anterior, essa operação aparece da seguinte maneira:
+Quando a tarefa retornada pelo método [PairNamespaceAsync][PairNamespaceAsync] for concluída, tudo estará configurado e pronto para uso. Antes que a tarefa seja retornada, você pode não ter concluído todo o trabalho de segundo plano necessário para que o emparelhamento funcione corretamente. Como resultado, você não deve começar a enviar mensagens até que a tarefa seja retornada. Se alguma falha ocorrer, como credenciais inválidas ou falha ao criar filas de listas de pendências, essas exceções serão geradas quando a tarefa for concluída. Depois que a tarefa for retornada, verifique se as filas foram encontradas ou criadas examinando a propriedade [BacklogQueueCount][BacklogQueueCount] em sua instância [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions]. No código anterior, essa operação aparece da seguinte maneira:
 
 ```
 if (sendAvailabilityOptions.BacklogQueueCount < 1)
@@ -127,7 +131,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu os conceitos básicos sobre mensagens assíncronas no Barramento de Serviço, leia mais detalhes sobre [namespaces emparelhados][namespaces emparelhados].
+Agora que você aprendeu os conceitos básicos sobre o sistema de mensagens assíncronas no Barramento de Serviço, leia mais detalhes sobre [namespaces emparelhados][namespaces emparelhados].
 
 [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
@@ -150,6 +154,7 @@ Agora que você aprendeu os conceitos básicos sobre mensagens assíncronas no B
 [namespaces emparelhados]: service-bus-paired-namespaces.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

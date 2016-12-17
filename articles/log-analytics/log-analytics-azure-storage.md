@@ -1,19 +1,23 @@
 ---
-title: Coletando dados de armazenamento do Azure na visão geral de Log Analytics | Microsoft Docs
-description: Os recursos do Azure podem gravar logs e métricas em uma conta de armazenamento do Azure usando, muitas vezes, o Diagnóstico do Azure. O Log Analytics pode indexar esses dados e torná-los pesquisáveis.
+title: "Visão geral da coleta de dados de armazenamento do Azure no Log Analytics | Microsoft Docs"
+description: "Os recursos do Azure podem gravar logs e métricas em uma conta de armazenamento do Azure usando, muitas vezes, o Diagnóstico do Azure. O Log Analytics pode indexar esses dados e torná-los pesquisáveis."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 10/31/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a160030ab51799199fc6df08133f811d4987feb
+
 
 ---
 # <a name="collecting-azure-storage-data-in-log-analytics-overview"></a>Coletando dados de armazenamento do Azure na visão geral de Log Analytics
@@ -40,7 +44,6 @@ O Log Analytics pode coletar dados para os seguintes recursos do Azure:
 | Tipo de recurso | Logs (Categorias de diagnóstico) | Solução do Log Analytics |
 | --- | --- | --- |
 | Application Insights |Disponibilidade <br> Eventos personalizados <br> Exceções <br> Solicitações <br> |Application Insights (Visualização) |
-| Gerenciamento da API | |*nenhum* (Visualização) |
 | Automação <br> Microsoft.Automation/AutomationAccounts |JobLogs <br> JobStreams |AzureAutomation (Visualização) |
 | Cofre da Chave <br> Microsoft.KeyVault/Vaults |AuditEvent |KeyVault (Visualização) |
 | Gateway de Aplicativo <br> Microsoft.Network/ApplicationGateways |ApplicationGatewayAccessLog <br> ApplicationGatewayPerformanceLog |AzureNetworking (Visualização) |
@@ -67,14 +70,15 @@ Você pode nos ajudar a priorizar logs adicionais para os OMS para análise vota
   * Funções de trabalho
   * Máquinas Virtuais
 
-Application Insights está no modo de visualização particular e usa a exportação contínua no armazenamento de blobs. Para ingressar na visualização particular, entre em contato com sua equipe da conta Microsoft ou consulte os detalhes sobre o [site de comentários](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
-
 ## <a name="next-steps"></a>Próximas etapas
 * [Analisar logs de diagnóstico do Azure usando o Log Analytics](log-analytics-azure-storage-json.md) para ler os logs de serviços do Azure que gravam diagnósticos no armazenamento de blobs no formato JSON.
 * [Use o armazenamento de blobs para IIS e armazenamento de tabelas para eventos](log-analytics-azure-storage-iis-table.md) para ler os logs de serviços do Azure que gravam diagnósticos em armazenamento de tabelas ou de logs do IIS gravados para armazenamento de blobs.
 * [Habilitar Soluções](log-analytics-add-solutions.md) para fornecer informações sobre os dados.
 * [Usar consultas de pesquisa](log-analytics-log-searches.md) para analisar os dados.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

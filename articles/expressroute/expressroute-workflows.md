@@ -1,12 +1,12 @@
 ---
-title: Fluxos de trabalho para a configuração de um circuito da Rota Expressa | Microsoft Docs
-description: Esta página fornece uma orientação pelos fluxos de trabalho de configuração de emparelhamentos e circuito de Rota Expressa
+title: "Fluxos de trabalho para a configuração de um circuito da ExpressRoute | Microsoft Docs"
+description: "Esta página fornece uma orientação pelos fluxos de trabalho de configuração de emparelhamentos e circuito de Rota Expressa"
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 570a98aafca6babc5a7089880d4120c2a8f4a0d8
+ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
+
 
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho da Rota Expressa para provisionamento e estados do circuito
@@ -53,21 +57,24 @@ O estado de provisionamento do provedor de conectividade representa o estado no 
 ### <a name="possible-states-of-an-expressroute-circuit"></a>Possíveis estados de um circuito da Rota Expressa
 Esta seção lista os possíveis estados de um circuito da Rota Expressa.
 
-#### <a name="at-creation-time"></a>No momento da criação
+**No momento da criação**
+
 Você verá o circuito da Rota Expressa no seguinte estado assim que executar o cmdlet do PowerShell para criar um circuito da Rota Expressa.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-is-in-the-process-of-provisioning-the-circuit"></a>Quando o provedor de conectividade estiver no processo de provisionamento do circuito
+**Quando o provedor de conectividade estiver no processo de provisionamento do circuito**
+
 Você verá o circuito da Rota Expressa no estado a seguir assim que passar a chave de serviço para o provedor de conectividade, e ele tiver iniciado o processo de provisionamento.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-has-completed-the-provisioning-process"></a>Quando o provedor de conectividade tiver concluído o processo de provisionamento
+**Quando o provedor de conectividade tiver concluído o processo de provisionamento**
+
 Você verá o circuito da Rota Expressa no seguinte estado assim que o provedor de conectividade tiver concluído o processo de provisionamento.
 
     ServiceProviderProvisioningState : Provisioned
@@ -75,7 +82,8 @@ Você verá o circuito da Rota Expressa no seguinte estado assim que o provedor 
 
 Provisionado e Habilitado são os únicos estados nos quais o circuito pode estar para você poder usá-lo. Se você estiver usando um provedor de camada 2, configure o roteamento para o circuito somente quando ele estiver nesse estado.
 
-#### <a name="when-connectivity-provider-is-deprovisioning-the-circuit"></a>Quando o provedor de conectividade estiver desprovisionando o circuito
+**Quando o provedor de conectividade estiver desprovisionando o circuito**
+
 Se você tiver solicitado ao provedor de serviços o desprovisionamento do circuito do ExpressRoute, verá o circuito definido com o estado a seguir, após o provedor de serviços ter concluído o processo de desprovisionamento.
 
     ServiceProviderProvisioningState : NotProvisioned
@@ -108,6 +116,9 @@ Se o estado de prefixo público anunciado for definido como *validação necess�
   * [Configurar o roteamento](expressroute-howto-routing-arm.md)
   * [Vincular uma Rede Virtual a um circuito de Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

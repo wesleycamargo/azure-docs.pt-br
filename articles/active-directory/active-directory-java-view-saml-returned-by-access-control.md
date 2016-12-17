@@ -1,48 +1,52 @@
 ---
-title: Exibir o SAML retornado pelo Serviço de Controle de Acesso (Java)
-description: Saiba como exibir o SAML retornado pelo serviço de controle de acesso em aplicativos Java hospedados no Azure.
+title: "Exibir o SAML retornado pelo Serviço de Controle de Acesso (Java)"
+description: "Saiba como exibir o SAML retornado pelo serviço de controle de acesso em aplicativos Java hospedados no Azure."
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 782b73f4a3d3bac5423412349a08edc5f60829da
+
 
 ---
-# Como exibir o SAML retornado pelo Access Control Service do Azure
-Este guia mostrará como exibir o SAML adjacente retornado a seu aplicativo pelo ACS (Serviço de Controle de Acesso) do Azure. O guia se baseia no tópico [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse][Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse], fornecendo um código que exibe as informações de SAML. O aplicativo concluído será semelhante ao seguinte.
+# <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Como exibir o SAML retornado pelo Access Control Service do Azure
+Este guia mostrará como exibir o SAML adjacente retornado a seu aplicativo pelo ACS (Serviço de Controle de Acesso) do Azure. O guia baseia-se no tópico [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md), fornecendo um código que exibe as informações de SAML. O aplicativo concluído será semelhante ao seguinte.
 
 ![Saída do SAML de exemplo][saml_output]
 
-Para obter mais informações sobre o ACS, consulte a seção [Próximas etapas](#next_steps).
+Para obter mais informações sobre o ACS, consulte a seção [Próximas etapas](#next_steps) .
 
 > [!NOTE]
 > O Filtro de Controle dos Serviços de Acesso do Azure é uma visualização de tecnologia da comunidade. Como software de pré-lançamento, a Microsoft não dá suporte formal a ele.
 > 
 > 
 
-## Pré-requisitos
-Para executar as tarefas deste guia, conclua o exemplo em [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse][Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse] e use-o como o ponto de partida deste tutorial.
+## <a name="prerequisites"></a>Pré-requisitos
+Para executar as tarefas deste guia, conclua o exemplo em [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) e use-o como ponto de partida deste tutorial.
 
-## Adicionar a biblioteca JspWriter a seu caminho de compilação e assembly de implantação
+## <a name="add-the-jspwriter-library-to-your-build-path-and-deployment-assembly"></a>Adicionar a biblioteca JspWriter a seu caminho de compilação e assembly de implantação
 Adicione a biblioteca que contém a classe **javax.servlet.jsp.JspWriter** ao caminho de compilação e ao assembly de implantação. Se você estiver usando o Tomcat, a biblioteca será **jsp-api.jar**, localizada na pasta **lib** do Apache.
 
 1. No Explorador de Projeto do Eclipse, clique com o botão direito em **MyACSHelloWorld**, clique em **Caminho de Compilação**, clique em **Configurar Caminho de Compilação**, clique na guia **Bibliotecas** e, em seguida, clique em **Adicionar JARs Externos**.
-2. Na caixa de diálogo **Seleção de JAR**, navegue até o JAR necessário, selecione-o e, em seguida, clique em **Abrir**.
-3. Com a caixa de diálogo **Propriedades de MyACSHelloWorld** ainda aberta, clique em **Assembly de Implantação**.
+2. No diálogo **Seleção de JAR**, navegue até o JAR necessário, selecione-o e, em seguida, clique em **Abrir**.
+3. Com o diálogo **Propriedades de MyACSHelloWorld** ainda aberto, clique em **Assembly de Implantação**.
 4. Na caixa de diálogo **Assembly de Implantação Web**, clique em **Adicionar**.
-5. Na caixa de diálogo **Nova Diretiva de Assembly**, clique em **Entradas do Caminho de Compilação Java** e, em seguida, clique em **Avançar**.
+5. No diálogo **Nova Diretiva de Assembly**, clique em **Entradas do Caminho de Compilação Java** e, em seguida, clique em **Avançar**.
 6. Selecione a biblioteca apropriada e clique em **Concluir**.
-7. Clique em **OK** para fechar a caixa de diálogo **Propriedades de MyACSHelloWorld**.
+7. Clique em **OK** para fechar o diálogo **Propriedades de MyACSHelloWorld**.
 
-## Modificar o arquivo JSP para exibir o XAML
+## <a name="modify-the-jsp-file-to-display-saml"></a>Modificar o arquivo JSP para exibir o XAML
 Modifique o **index.jsp** para usar o código a seguir.
 
     <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -127,7 +131,7 @@ Modifique o **index.jsp** para usar o código a seguir.
                                      for (i=0; i < nChild; i++)
                                      {
                                         Node temp = list.item(i);
-                                        displaySAMLInfo(temp, parent + nodeName + "\", out);
+                                        displaySAMLInfo(temp, parent + nodeName + "\\", out);
                                      }
                                }
                           }
@@ -142,7 +146,7 @@ Modifique o **index.jsp** para usar o código a seguir.
         %>
 
         <%
-        try 
+        try
         {
             String data  = (String) request.getAttribute("ACSSAML");
 
@@ -153,7 +157,7 @@ Modifique o **index.jsp** para usar o código a seguir.
             docBuilder = docBuilderFactory.newDocumentBuilder();
             byte[] xmlDATA = data.getBytes();
 
-            ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA); 
+            ByteArrayInputStream in = new ByteArrayInputStream(xmlDATA);
             doc = docBuilder.parse(in);
             doc.getDocumentElement().normalize();
 
@@ -165,7 +169,7 @@ Modifique o **index.jsp** para usar o código a seguir.
                 displaySAMLInfo(list.item(i), "", out);
             }
         }
-        catch (Exception e) 
+        catch (Exception e)
         {
             out.println("Exception encountered.");
             e.printStackTrace();
@@ -175,21 +179,24 @@ Modifique o **index.jsp** para usar o código a seguir.
     </body>
     </html>
 
-## Executar o aplicativo
-1. Execute o aplicativo no emulador do computador ou implante no Azure, usando as etapas documentadas em [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse][Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse].
+## <a name="run-the-application"></a>Executar o aplicativo
+1. Execute o aplicativo no emulador do computador ou implante no Azure, usando as etapas documentadas em [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md).
 2. Inicie um navegador e abra o aplicativo web. Depois de fazer logon em seu aplicativo, você verá informações de SAML, incluindo a declaração de segurança fornecida pelo provedor de identidade.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para explorar melhor a funcionalidade do ACS e experimentar mais cenários sofisticados, consulte [Serviço de Controle de Acesso 2.0][Serviço de Controle de Acesso 2.0].
 
-[Prerequisites]: #pre
-[Modify the JSP file to display SAML]: #modify_jsp
-[Add the JspWriter library to your build path and deployment assembly]: #add_library
-[Run the application]: #run_application
-[Next steps]: #next_steps
+[Pré-requisitos]: #pre
+[Modificar o arquivo JSP para exibir o XAML]: #modify_jsp
+[Adicionar a biblioteca JspWriter a seu caminho de compilação e assembly de implantação]: #add_library
+[Executar o aplicativo]: #run_application
+[Próximas etapas]: #next_steps
 [Serviço de Controle de Acesso 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
 
 
-<!---HONumber=AcomDC_0817_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Visão geral do modelo de autenticação e de segurança dos Hubs de Eventos | Microsoft Docs
-description: Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
+title: "Visão geral do modelo de autenticação e de segurança dos Hubs de Eventos | Microsoft Docs"
+description: "Visão geral do modelo de autenticação e segurança dos Hubs de Eventos"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: sethm;clemensv
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9447b863b62fc71d2619591f78be0494711dc6a3
+
 
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
@@ -24,7 +28,7 @@ O modelo de segurança dos Hubs de Eventos atende aos seguintes requisitos:
 * Um dispositivo não autorizado pode ser impedido de enviar dados para um Hub de Eventos.
 
 ## <a name="device-authentication"></a>Autenticação de dispositivo
-O modelo de segurança dos Hubs de Eventos se baseia em uma combinação de tokens [SAS (Assinatura de Acesso Compartilhado)](../service-bus/service-bus-shared-access-signature-authentication.md) e de *editores de eventos*. Um editor de eventos define um ponto de extremidade virtual para um Hub de Eventos. O editor só pode ser usado para enviar mensagens a um Hub de Eventos. Não é possível receber mensagens de um editor.
+O modelo de segurança dos Hubs de Eventos se baseia em uma combinação de tokens [SAS (Assinatura de Acesso Compartilhado)](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) e de *editores de eventos*. Um editor de eventos define um ponto de extremidade virtual para um Hub de Eventos. O editor só pode ser usado para enviar mensagens a um Hub de Eventos. Não é possível receber mensagens de um editor.
 
 Normalmente, um Hub de Eventos emprega um editor por dispositivo. Todas as mensagens enviadas a qualquer um dos editores de um Hub de Eventos são enfileiradas nesse Hub de Eventos. Os editores habilitam o controle de acesso detalhado e a limitação.
 
@@ -39,7 +43,7 @@ Ao criar um namespace de Hubs de Eventos, os Hubs de Eventos do Azure geram uma 
 
 O exemplo a seguir cria uma chave somente de envio ao criar o Hub de Eventos:
 
-```
+```csharp
 // Create namespace manager.
 string serviceNamespace = "YOUR_NAMESPACE";
 string namespaceManageKeyName = "RootManageSharedAccessKey";
@@ -60,7 +64,7 @@ nm.CreateEventHub(ed);
 ### <a name="generate-tokens"></a>Gerar tokens
 Você pode gerar tokens usando a chave SAS. Você deve criar somente um token por dispositivo. Tokens podem ser criados usando o seguinte método. Todos os tokens são gerados usando a chave **EventHubSendKey** . A cada token é atribuído um URI exclusivo.
 
-```
+```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
@@ -68,13 +72,13 @@ Ao chamar esse método, o URI deve ser especificado como `//<NAMESPACE>.serviceb
 
 Esse método gera um token com a seguinte estrutura:
 
-```
+```csharp
 SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
 ```
 
 O tempo de expiração do token é especificado em segundos desde 1º de janeiro de 1970. Segue um exemplo de um token:
 
-```
+```csharp
 SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
 ```
 
@@ -109,6 +113,6 @@ Para saber mais sobre os Hubs de Eventos, veja os tópicos a seguir:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao SAP Business ByDesign | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o SAP Business ByDesign.
+title: "Tutorial: Integração do Azure Active Directory ao SAP Business ByDesign | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o SAP Business ByDesign."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 82938920-33ba-47cb-b141-511b46d19e66
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6aef2489e8097e467ccca10fe8026b962786b4b9
+
 
 ---
-# Tutorial: integração do Azure Active Directory ao SAP Business ByDesign
+# <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Tutorial: integração do Azure Active Directory ao SAP Business ByDesign
 Neste tutorial, você aprenderá a integrar o SAP Business ByDesign ao Azure AD (Azure Active Directory).
 
 A integração do SAP Business ByDesign ao Azure AD oferece os seguintes benefícios:
@@ -27,7 +31,7 @@ A integração do SAP Business ByDesign ao Azure AD oferece os seguintes benefí
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para configurar a integração do Azure AD ao SAP Business ByDesign, você precisará dos seguintes itens:
 
 * Uma assinatura do AD do Azure
@@ -43,7 +47,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 * Não use o ambiente de produção, a menos que seja necessário.
 * Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
-## Descrição do cenário
+## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
@@ -51,7 +55,7 @@ O cenário descrito neste tutorial consiste em dois blocos de construção princ
 1. Adicionar o SAP Business ByDesign da galeria
 2. Configurar e testar o logon único do AD do Azure
 
-## Adicionar o SAP Business ByDesign da galeria
+## <a name="adding-sap-business-bydesign-from-the-gallery"></a>Adicionar o SAP Business ByDesign da galeria
 Para configurar a integração do SAP Business ByDesign ao Azure AD, você precisará adicionar o SAP Business ByDesign da galeria à lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o SAP Business ByDesign da galeria, execute as seguintes etapas:**
@@ -59,7 +63,7 @@ Para configurar a integração do SAP Business ByDesign ao Azure AD, você preci
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Active Directory][1]
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
     ![Aplicativos][2]
@@ -76,61 +80,62 @@ Para configurar a integração do SAP Business ByDesign ao Azure AD, você preci
    
     ![Active Directory](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_02.png)
 
-## Configurar e testar o logon único do AD do Azure
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o SAP Business ByDesign, com base em uma usuária de teste chamada "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do SAP Business ByDesign é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado no SAP Business ByDesign.
 
-Essa relação de vínculo é estabelecida com a atribuição do valor de **nome de usuário** no Azure AD como o valor de **Nome de usuário** no SAP Business ByDesign.
+Essa relação de vínculo é estabelecida com a atribuição do valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** no SAP Business ByDesign.
 
 Para configurar e testar o logon único do Azure AD com o SAP Business ByDesign, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Logon único do AD do Azure](#configuring-azure-ad-single-sign-on)**: para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)**: para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criação de um usuário de teste do SAP Business ByDesign](#creating-an-sap-business-bydesign-test-user)** - para ter um equivalente de Brenda Fernandes no SAP Business ByDesign que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)**: para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)**: para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
-### Configuração do logon único do Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 Nesta seção, você habilitará o logon único do Azure AD no portal clássico e configurará o logon único no aplicativo do SAP Business ByDesign.
 
-O aplicativo SAP Business ByDesign espera as declarações SAML em um formato específico. Configure as seguintes declarações para o aplicativo. Você pode gerenciar o valor dos atributos na guia **"Atributo"** do aplicativo. A captura de tela a seguir mostra um exemplo disso.
+O aplicativo SAP Business ByDesign espera as declarações SAML em um formato específico. Configure as seguintes declarações para o aplicativo. Você pode gerenciar o valor dos atributos na guia **"Atributo"** do aplicativo. A captura de tela a seguir mostra um exemplo disso. 
 
 **Para configurar o logon único do Azure AD com o SAP Business ByDesign, execute as seguintes etapas:**
 
-1. No portal clássico do Azure, na página de integração de aplicativo do **SAP Business ByDesign**, no menu superior, clique em **Atributos**.
+1. No portal clássico do Azure, na página de integração do aplicativo **SAP Business ByDesign**, no menu superior, clique em **Atributos**.
    
-    ![Configurar o logon único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_80.png)
+    ![Configurar Logon Único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_80.png) 
 2. Na lista de atributos de token SAML de atributos, selecione o atributo nameidentifier e clique em **Editar**.
    
-    ![Configurar o logon único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_84.png)
+    ![Configurar Logon Único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_84.png) 
 3. Na caixa de diálogo Editar Atributo de Usuário, execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_85.png)
+    ![Configurar Logon Único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_85.png) 
    
     a. Na lista de Valores de Atributo, selecione a função **ExtractMailPrefix()**
    
-    b. Na lista de Email, selecione o atributo de usuário que você deseja usar na implementação. Por exemplo, se você quiser usar EmployeeID como identificador exclusivo de usuário e tiver armazenado o valor do atributo em ExtensionAttribute2, selecione **user.extensionattribute2**.
+    b. Na lista de Email, selecione o atributo de usuário que você deseja usar na implementação. 
+    Por exemplo, se você quiser usar EmployeeID como identificador exclusivo de usuário e tiver armazenado o valor do atributo em ExtensionAttribute2, selecione **user.extensionattribute2**. 
    
-    c. Clique em **Concluído**.
-4. No portal clássico, na página de integração de aplicativo do **SAP Business ByDesign**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
+    c. Clique em **Concluído**. 
+4. No portal clássico, na página de integração do aplicativo **SAP Business ByDesign**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
-    ![Configurar o logon único][6]
-5. Na página **Como você deseja que os usuários façam logon no SAP Business ByDesign**, selecione **Logon único do Azure AD** e clique em **Avançar**.
+    ![Configurar Logon Único][6] 
+5. Na página **Como você deseja que os usuários façam logon no SAP Business ByDesign**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
    
-    ![Configurar o logon único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_03.png)
-6. Na página de diálogo **Definir Configurações de Aplicativo**, execute as seguintes etapas:
+    ![Configurar Logon Único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_03.png) 
+6. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_04.png)
+    ![Configurar Logon Único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_04.png) 
    
-    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo do SAP Business ByDesign usando o seguinte padrão: `https://<servername>.sapbydesign.com`
+    a. Na caixa de texto **URL de Entrada**, digite a URL usada pelos usuários para entrar no aplicativo SAP Business ByDesign usando o seguinte padrão: `https://<servername>.sapbydesign.com`
    
     b. clique em **Avançar**
-7. Na página **Configurar logon único no SAP Business ByDesign**, execute as seguintes etapas:
+7. Na página **Configurar logon único no SAP Business ByDesign** , execute as seguintes etapas:
    
-    ![Configurar o logon único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_05.png)
+    ![Configurar Logon Único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_05.png)
    
-    a. Clique em **Baixar metadados** e salve o arquivo no computador.
+    a. Clique em **Baixar metadados**e salve o arquivo no computador.
    
     b. Clique em **Próximo**.
 8. Para que o SSO seja configurado para o aplicativo, execute as seguintes etapas:
@@ -141,7 +146,7 @@ O aplicativo SAP Business ByDesign espera as declarações SAML em um formato es
    
     c. Clique em **Novo Provedor de Identidade** e selecione o arquivo XML de metadados que você baixou do portal clássico do Azure. Com a importação dos metadados, o sistema carrega automaticamente o certificado de assinatura e o certificado de criptografia necessários.
    
-    ![Configurar o logon único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
+    ![Configurar Logon Único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
    
     d. Para incluir a **URL de Serviço de Consumidor de Declaração** na solicitação SAML, selecione **Incluir URL de Serviço de Consumidor de Declaração**.
    
@@ -149,23 +154,24 @@ O aplicativo SAP Business ByDesign espera as declarações SAML em um formato es
    
     f. Salve suas alterações.
    
-    g. Clique na guia **Meu Sistema**.
+    g. Clique na guia **Meu Sistema** .
    
-    ![Configurar o logon único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
+    ![Configurar Logon Único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
    
     h. Copie a **URL de SSO** e cole-a na caixa de texto **URL de Logon Único do Azure AD**.
    
-    ![Configurar o logon único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_53.png)
+    ![Configurar Logon Único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_53.png)
    
     i. Especifique se o funcionário pode escolher manualmente entre fazer logon com uma ID de usuário e senha ou SSO, selecionando **Seleção de Provedor de Identidade Manual**.
    
-    j. Na seção **URL de SSO**, especifique a URL que deve ser usada pelo funcionário para fazer logon no sistema. Na lista suspensa URL Enviada ao Funcionário, você pode escolher entre as seguintes opções:
+    j. Na seção **URL de SSO** , especifique a URL que deve ser usada pelo funcionário para fazer logon no sistema. 
+    Na lista suspensa URL Enviada ao Funcionário, você pode escolher entre as seguintes opções:
    
     **URL não SSO**
    
     O sistema envia apenas a URL normal do sistema ao funcionário. O funcionário não pode fazer logon usando o SSO e deve usar uma senha ou um certificado em vez disso.
    
-    **URL de SSO**
+    **URL de SSO** 
    
     O sistema envia apenas a URL de SSO ao funcionário. O funcionário pode fazer logon usando o SSO. A solicitação de autenticação é redirecionada por meio do IdP.
    
@@ -176,12 +182,12 @@ O aplicativo SAP Business ByDesign espera as declarações SAML em um formato es
     k. Salve suas alterações.
 9. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
-    ![Logon único do AD do Azure][10]
-10. Na página **Confirmação de logon único**, clique em **Concluir**.
+    ![Logon Único do AD do Azure][10]
+10. Na página **Confirmação de logon único**, clique em **Concluir**.  
     
-    ![Logon único do AD do Azure][11]
+    ![Logon Único do AD do Azure][11]
 
-### Criação de um usuário de teste do AD do Azure
+### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 Nesta seção, você criará uma usuária de teste no portal clássico chamada Brenda Fernandes.
 
 ![Criar um usuário do AD do Azure][20]
@@ -190,68 +196,68 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_09.png)
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_09.png) 
+2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_03.png)
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_03.png) 
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_04.png)
-5. Na página do diálogo **Conte-nos sobre este usuário**, execute as seguintes etapas:
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_04.png) 
+5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_05.png)
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_05.png) 
    
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
    
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
-    c. Clique em **Avançar**.
-6. Na página da caixa de diálogo **Perfil do Usuário**, execute as seguintes etapas:
+    c. Clique em **Próximo**.
+6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_06.png)
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.
+   a. Na caixa de texto **Nome**, digite **Brenda**.  
    
    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
+   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
    d. Na lista **Função**, selecione **Usuário**.
    
-   e. Clique em **Avançar**.
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
+   e. Clique em **Próximo**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_07.png)
-8. Na página de caixa de diálogo **Obter senha temporária**, execute as seguintes etapas:
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_07.png) 
+8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_08.png)
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sapbusinessbydesign-tutorial/create_aaduser_08.png) 
    
     a. Anote o valor da **Nova Senha**.
    
-    b. Clique em **Concluído**.
+    b. Clique em **Concluído**.   
 
-### Criação de um usuário de teste do SAP Business ByDesign
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no SAP Business ByDesign. Trabalhe com a equipe de suporte do SAP Business ByDesign para adicionar os usuários à plataforma SAP Business ByDesign.
+### <a name="creating-an-sap-business-bydesign-test-user"></a>Criação de um usuário de teste do SAP Business ByDesign
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no SAP Business ByDesign. Trabalhe com a equipe de suporte do SAP Business ByDesign para adicionar os usuários à plataforma SAP Business ByDesign. 
 
 > [!NOTE]
 > Verifique se o valor de NameID corresponde ao campo de nome de usuário na plataforma SAP Business ByDesign.
 > 
 > 
 
-### Atribuição do usuário de teste do AD do Azure
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure concedendo-lhe acesso ao SAP Business ByDesign.
 
-![Atribuir usuário][200]
+![Atribuir usuário][200] 
 
 **Para atribuir Brenda Fernandes ao SAP Business ByDesign, execute as seguintes etapas:**
 
 1. No portal clássico, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
    
-    ![Atribuir usuário][201]
+    ![Atribuir usuário][201] 
 2. Na lista de aplicativos, selecione **SAP Business ByDesign**.
    
-    ![Configurar o logon único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_50.png)
+    ![Configurar Logon Único](./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_50.png) 
 3. No menu na parte superior, clique em **Usuários**.
    
     ![Atribuir usuário][203]
@@ -260,12 +266,12 @@ Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure
    
     ![Atribuir usuário][205]
 
-### Teste do logon único
+### <a name="testing-single-sign-on"></a>Teste do logon único
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
 Ao clicar no bloco do SAP Business ByDesign no Painel de Acesso, você deve ser conectado automaticamente ao aplicativo SAP Business ByDesign.
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
@@ -287,4 +293,8 @@ Ao clicar no bloco do SAP Business ByDesign no Painel de Acesso, você deve ser 
 [204]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-sapbusinessbydesign-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Adicionar o conector do Informix ao seus Aplicativos Lógicos | Microsoft Docs
-description: Visão geral do Conector do Informix com os parâmetros da API REST
-services: ''
-documentationcenter: ''
+title: "Adicionar o conector Informix a seus Aplicativos Lógicos | Microsoft Docs"
+description: "Visão geral do Conector do Informix com os parâmetros da API REST"
+services: 
+documentationcenter: 
 author: gplarsen
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1b9ea0593e0ae6dc9e1b6b07665fc3b3fad264bf
+
 
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introdução ao conector do Informix
@@ -402,6 +406,9 @@ Este conector dá suporte às versões do IBM Informix à seguir quando configur
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
