@@ -1,12 +1,12 @@
 ---
-title: Readaptar os modelos de Aprendizado de Máquina de forma programática | Microsoft Docs
-description: Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Machine Learning do Azure.
+title: "Readaptar os modelos de Machine Learning de forma programática | Microsoft Docs"
+description: "Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Aprendizado de Máquina do Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: raymondlaghaeian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: raymondl;garye;v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 70004ff5c59427dfd5c58e5633cae95a08a18a3a
+
 
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Readaptar os modelos de Aprendizado de Máquina de forma programática
@@ -26,7 +30,7 @@ Depois de você ter readaptado o modelo, as instruções a seguir mostram como a
 
 Para obter uma visão geral do processo de readaptação, confira [Readaptar um Modelo do Machine Learning](machine-learning-retrain-machine-learning-model.md).
 
-Se você deseja iniciar com o seu serviço Web baseado no Novo Azure Resource Manager, confira [Readaptar um serviço Web preditivo existente](machine-learning-retrain-existing-resource-manager-based-web-service.md).
+Se você quiser começar a usar o seu novo serviço Web baseado no Azure Resource Manager existente, confira [Readaptar um serviço Web preditivo existente](machine-learning-retrain-existing-resource-manager-based-web-service.md).
 
 ## <a name="create-a-training-experiment"></a>Criar um teste de treinamento
 Para este exemplo, você usará "Amostra 5: Treinar, testar, avaliar para classificação binária: conjunto de dados adulto" das amostras do Aprendizado de Máquina do Microsoft Azure. 
@@ -160,11 +164,11 @@ Examine os resultados para determinar se o modelo treinado recentemente executa 
 Copie *BaseLocation*, *RelativeLocation* e *SasBlobToken* dos resultados de saída e use-os durante o processo de readaptação.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Readaptar um serviço Web Clássico](machine-learning-retrain-a-classic-web-service.md)
+Se você tiver implantado o serviço Web de previsão clicando em **implantar o serviço Web [clássico]**, consulte [treinar novamente um serviço web clássico](machine-learning-retrain-a-classic-web-service.md).
 
-[Readaptar um Novo serviço Web usando os cmdlets de Gerenciamento do Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md)
+Se você tiver implantado um Novo serviço Web clicando em **Implantar o Serviço Web [Novo]**, consulte [treinar novamente um serviço web novo usando os cmdlets de gerenciamento do Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md).
 
-<!-- Retrain a New Web service using the Machine Learning Management REST API -->
+<!-- Retrain a New web service using the Machine Learning Management REST API -->
 
 
 [1]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
@@ -180,6 +184,7 @@ Copie *BaseLocation*, *RelativeLocation* e *SasBlobToken* dos resultados de saí
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

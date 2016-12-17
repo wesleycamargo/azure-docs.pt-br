@@ -1,13 +1,13 @@
 ---
-title: 'Plataformas de análise: comparação do Apache Storm com o Stream Analytics | Microsoft Docs'
-description: Obtenha diretrizes ao escolher uma plataforma de análise de nuvem, usando a comparação entre o Apache Storm e o Stream Analytics. Compreender os recursos e diferenças.
-keywords: plataforma de análise, plataformas de análise, plataforma de análise de nuvem, comparação com o storm
+title: "Plataformas de análise: comparação do Apache Storm com o Stream Analytics | Microsoft Docs"
+description: "Obtenha diretrizes ao escolher uma plataforma de análise de nuvem, usando a comparação entre o Apache Storm e o Stream Analytics. Compreender os recursos e diferenças."
+keywords: "plataforma de análise, plataformas de análise, plataforma de análise de nuvem, comparação com o storm"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 528266346733fff72113104d585540d75512b3a6
+
 
 ---
-# <a name="help-choosing-a-streaming-analytics-platform:-apache-storm-comparison-to-azure-stream-analytics"></a>Ajudar a escolher uma plataforma de análise de streaming: comparação do Apache Storm com o Stream Analytics do Azure
+# <a name="help-choosing-a-streaming-analytics-platform-apache-storm-comparison-to-azure-stream-analytics"></a>Ajudar a escolher uma plataforma de análise de streaming: comparação do Apache Storm com o Stream Analytics do Azure
 Obtenha diretrizes ao escolher uma plataforma de análise de nuvem, usando a comparação entre o Apache Storm e o Stream Analytics do Azure. Compreenda as propostas de valor do Stream Analytics versus o Apache Storm como um serviço gerenciado no Azure HDInsight, para que você possa escolher a solução certa para os casos de uso da sua empresa.
 
 As duas plataformas de análise fornecem benefícios de uma solução PaaS, mas há alguns recursos importantes que as diferenciam. Os recursos, bem como as limitações desses serviços, estão listados abaixo para ajudar você a chegar à solução de que precisa para alcançar seus objetivos.
 
-## <a name="storm-comparison-to-stream-analytics:-general-features"></a>Comparação com o Stream Analytics: recursos gerais
+## <a name="storm-comparison-to-stream-analytics-general-features"></a>Comparação com o Stream Analytics: recursos gerais
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -584,6 +588,6 @@ Disponível por meio de bolts do Storm.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

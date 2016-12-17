@@ -1,12 +1,12 @@
 ---
 title: Relatar e verificar a integridade com o Service Fabric do Azure| Microsoft Docs
-description: Saiba como enviar relatórios de integridade do seu código de serviço e como verificar a integridade do serviço usando as ferramentas de monitoramento de integridade fornecidas pelo Azure Service Fabric.
+description: "Saiba como enviar relatórios de integridade do seu código de serviço e como verificar a integridade do serviço usando as ferramentas de monitoramento de integridade fornecidas pelo Azure Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: toddabel
 manager: mfussell
-editor: ''
-
+editor: 
+ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,32 +14,38 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2016
 ms.author: toddabel
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e3c63c8f92c860ed28bfc4dac395c1d5abf131ae
+
 
 ---
-# Relatar e verificar a integridade de serviço
+# <a name="report-and-check-service-health"></a>Relatar e verificar a integridade de serviço
 Quando seus serviços enfrentam problemas, sua capacidade de reagir e corrigir os incidentes e as interrupções depende da sua capacidade de detectar os problemas rapidamente. Se relatar problemas e falhas ao gerenciador de integridade do Azure Service Fabric usando seu código de serviço, você pode usar ferramentas padrão de monitoramento de integridade fornecidas pelo Service Fabric para verificar o status de integridade.
 
 Há duas maneiras de relatar a integridade no serviço:
 
-* Usar os objetos [Partition](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.aspx) ou [CodePackageActivationContext](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.aspx). Você pode usar os objetos `Partition` e `CodePackageActivationContext` para relatar a integridade de elementos que fazem parte do contexto atual. Por exemplo, o código que é executado como parte de uma réplica pode relatar a integridade apenas dessa réplica, da partição a qual pertence e do aplicativo do qual faz parte.
-* Usar o `FabricClient`. Você poderá usar o `FabricClient` para relatar a integridade do código do serviço se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o serviço estiver sendo executado com privilégios de administrador. Isso não acontecerá na maioria dos cenários reais. Com o `FabricClient`, você poderá relatar a integridade de qualquer entidade que faz parte do cluster. No entanto, o ideal é que o código do serviço envie apenas relatórios relacionados à sua própria integridade.
+* Usar os objetos [Partition](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.aspx) ou [CodePackageActivationContext](https://msdn.microsoft.com/library/system.fabric.codepackageactivationcontext.aspx).  
+  Você pode usar os objetos `Partition` e `CodePackageActivationContext` para relatar a integridade de elementos que fazem parte do contexto atual. Por exemplo, o código que é executado como parte de uma réplica pode relatar a integridade apenas dessa réplica, da partição a qual pertence e do aplicativo do qual faz parte.
+* Usar o `FabricClient`.   
+  Você poderá usar o `FabricClient` para relatar a integridade do código do serviço se o cluster não for [seguro](service-fabric-cluster-security.md) ou se o serviço estiver sendo executado com privilégios de administrador. Isso não acontecerá na maioria dos cenários reais. Com o `FabricClient`, você poderá relatar a integridade de qualquer entidade que faz parte do cluster. No entanto, o ideal é que o código do serviço envie apenas relatórios relacionados à sua própria integridade.
 
 Este artigo apresenta um exemplo que relata a integridade do código de serviço. O exemplo também mostra como as ferramentas fornecidas pelo Service Fabric podem ser usadas para verificar o status de integridade. Este artigo é uma rápida introdução aos recursos de monitoramento de integridade do Service Fabric. Para obter informações mais detalhadas, você pode ler a série de artigos explicativos sobre integridade, começando com o link no fim deste artigo.
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Você deve ter o seguinte instalado:
 
 * Visual Studio 2015
 * SDK da Malha do Serviço
 
-## Para criar um cluster de desenvolvimento local seguro
+## <a name="to-create-a-local-secure-dev-cluster"></a>Para criar um cluster de desenvolvimento local seguro
 * Abra o PowerShell com privilégios de administrador e execute os comandos a seguir.
 
 ![Comandos que mostram como criar um cluster de desenvolvimento seguro](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-secure-dev-cluster.png)
 
-## Para implantar um aplicativo e verificar sua integridade
+## <a name="to-deploy-an-application-and-check-its-health"></a>Para implantar um aplicativo e verificar sua integridade
 1. Abra o Visual Studio como administrador.
-2. Crie um projeto usando o modelo **Serviço com Estado**.
+2. Crie um projeto usando o modelo **Serviço com Estado** .
    
     ![Criar um aplicativo do Service Fabric com serviço com estado](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application-dialog.png)
 3. Pressione **F5** para executar o aplicativo no modo de depuração. O aplicativo será implantado no cluster local.
@@ -53,7 +59,7 @@ Você deve ter o seguinte instalado:
    
     ![Aplicativo de integridade no PowerShell](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/ps-healthy-app-report.png)
 
-## Para adicionar eventos de integridade personalizados ao seu código de serviço
+## <a name="to-add-custom-health-events-to-your-service-code"></a>Para adicionar eventos de integridade personalizados ao seu código de serviço
 Os modelos de projeto do Service Fabric no Visual Studio contêm código de exemplo. As etapas a seguir mostram como você pode relatar eventos de integridade personalizados do seu código de serviço. Esses relatórios serão exibidos automaticamente nas ferramentas padrão para monitoramento de integridade fornecidas pelo Service Fabric, como o Service Fabric Explorer, a exibição de integridade do Portal do Azure e o PowerShell.
 
 1. Abra novamente o aplicativo que você criou anteriormente no Visual Studio ou crie um novo usando o modelo de **Serviço com Estado** do Visual Studio.
@@ -86,7 +92,7 @@ Os modelos de projeto do Service Fabric no Visual Studio contêm código de exem
         this.Partition.ReportInstanceHealth(healthInformation);
     }
     ```
-4. Se o serviço estiver sendo executado com privilégios de administrador ou se o cluster não for [seguro](service-fabric-cluster-security.md), também será possível usar `FabricClient` para relatar a integridade, conforme nas etapas a seguir.
+4. Se o serviço estiver sendo executado com privilégios de administrador ou se o cluster não for [seguro](service-fabric-cluster-security.md), também será possível usar `FabricClient` para relatar a integridade conforme mostrado nas etapas a seguir.  
    
     a. Crie a instância do `var myDictionary` após a declaração `FabricClient`.
    
@@ -94,7 +100,7 @@ Os modelos de projeto do Service Fabric no Visual Studio contêm código de exem
     var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });
     ```
    
-    b. Adicione o seguinte código após a chamada `myDictionary.TryGetValueAsync`:
+    b. Adicione o seguinte código após a chamada `myDictionary.TryGetValueAsync` :
    
     ```csharp
     if (!result.HasValue)
@@ -140,7 +146,12 @@ var activationContext = FabricRuntime.GetActivationContext();
 activationContext.ReportApplicationHealth(healthInformation);
 ```
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Aprofunde-se na integridade do Service Fabric](service-fabric-health-introduction.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

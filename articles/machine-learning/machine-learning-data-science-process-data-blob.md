@@ -1,12 +1,12 @@
 ---
-title: Processar dados de blob do Azure com análises avançadas | Microsoft Docs
+title: "Processar dados de blob do Azure com análises avançadas | Microsoft Docs"
 description: Processar dados no Armazenamento de Blob do Azure.
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: fashah;garye;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3a8bf79ca39effaa19518ade7ff392530ef29475
+
 
 ---
-# <a name="heading"></a>Processar dados de blob do Azure com análises avançadas
-Este documento aborda a exploração de dados e a geração de recursos por meio dos dados armazenados no Armazenamento de Blob do Azure.
+# <a name="a-nameheadingaprocess-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Processar dados de blob do Azure com análises avançadas
+Este documento aborda a exploração de dados e a geração de recursos por meio dos dados armazenados no Armazenamento de Blob do Azure. 
 
-## Carregar os dados em um quadro de dados Pandas
+## <a name="load-the-data-into-a-pandas-data-frame"></a>Carregar os dados em um quadro de dados Pandas
 Para explorar e manipular um conjunto de dados, ele deve ser baixado da fonte de blob para um arquivo local, que pode então ser carregado em um quadro de dados Pandas. Aqui estão as etapas para este procedimento:
 
-1. Baixe os dados do Blob do Azure com o seguinte código de Python de exemplo e usando o serviço blob a seguir. Substitua a variável no código abaixo pelos valores específicos:
+1. Baixe os dados do Blob do Azure com o seguinte código de Python de exemplo e usando o serviço blob a seguir. Substitua a variável no código abaixo pelos valores específicos: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -46,10 +50,10 @@ Para explorar e manipular um conjunto de dados, ele deve ser baixado da fonte de
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
-## <a name="blob-dataexploration"></a>Exploração de Dados
+## <a name="a-nameblob-dataexplorationadata-exploration"></a><a name="blob-dataexploration"></a>Exploração de Dados
 Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
-1. Verificar o número de linhas e colunas
+1. Verificar o número de linhas e colunas 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 2. Inspecione as primeira ou últimas linhas no conjunto de dados, conforme mostrado a seguir:
@@ -73,13 +77,12 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
         print miss_num
 7. Se você tiver valores ausentes para uma coluna específica nos dados, poderá removê-los da seguinte maneira:
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-     dataframe_blobdata_noNA.shape
+     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
    
    Outra maneira de substituir valores ausentes é com a função de modo:
    
      dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
-8. Crie um gráfico de histograma usando um número variável de compartimentos para plotar a distribuição de uma variável
+8. Crie um gráfico de histograma usando um número variável de compartimentos para plotar a distribuição de uma variável    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
@@ -92,10 +95,10 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="blob-featuregen"></a>Geração de Recursos
+## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Geração de Recursos
 Podemos gerar recursos usando o Python da seguinte maneira:
 
-### <a name="blob-countfeature"></a>Geração de Recursos baseada no valor do indicador
+### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Geração de Recursos baseada no valor do indicador
 Recursos categóricos podem ser criados da seguinte maneira:
 
 1. Inspecionar a distribuição da coluna categórica:
@@ -105,7 +108,7 @@ Recursos categóricos podem ser criados da seguinte maneira:
    
         #generate the indicator column
         dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
-3. Unir a coluna de indicador com o quadro de dados original
+3. Unir a coluna de indicador com o quadro de dados original 
    
             #Join the dummy variables back to the original data frame
             dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
@@ -114,7 +117,7 @@ Recursos categóricos podem ser criados da seguinte maneira:
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="blob-binningfeature"></a>Agrupamento da Geração de Recursos
+### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Agrupamento da Geração de Recursos
 Para gerar recursos compartimentalizados, faça o seguinte:
 
 1. Adicione uma sequência de colunas a ser compartimentalizada a coluna numérica
@@ -128,8 +131,8 @@ Para gerar recursos compartimentalizados, faça o seguinte:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Aprendizado de Máquina do Azure
-Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Aprendizado de Máquina do Azure usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Estúdio de Aprendizado de Máquina do Azure também.
+## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Aprendizado de Máquina do Azure
+Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Aprendizado de Máquina do Azure usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Estúdio de Aprendizado de Máquina do Azure também. 
 
 1. Grave o quadro de dados no arquivo local
    
@@ -155,7 +158,7 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Agora, os dados podem ser lidos do blob usando o módulo [Importar Dados][import-data] do Aprendizado de Máquina do Azure, como mostra a tela abaixo:
+3. Agora, os dados podem ser lidos do blob usando o módulo [Importar dados][import-data] do Azure Machine Learning, conforme mostrado na tela abaixo:
 
 ![blob de leitor][1]
 
@@ -166,4 +169,8 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

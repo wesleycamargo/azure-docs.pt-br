@@ -1,12 +1,12 @@
 ---
 title: Personalizando mapeamentos de atributo | Microsoft Docs
-description: Saiba quais são os mapeamentos de atributo para aplicativos SaaS no Active Directory do Azure e como você pode modificá-los para atender às necessidades de negócios.
+description: "Saiba quais são os mapeamentos de atributo para aplicativos SaaS no Active Directory do Azure e como você pode modificá-los para atender às necessidades de negócios."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markusvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f555547fb3e30b1a68387232de60395b615bfa19
+
 
 ---
 # <a name="customizing-attribute-mappings"></a>Personalizando mapeamentos de atributo
@@ -54,7 +58,8 @@ Com mapeamentos de atributo, você controla como os atributos são preenchidos e
 
 * **Direto** – o atributo de destino é preenchido com o valor de um atributo do objeto vinculado no AD do Azure.
 * **Constante** – o atributo de destino é preenchido com uma cadeia de caracteres especificada por você.
-* **Expressão** – o atributo de destino é preenchido com base no resultado de uma expressão de script. Para obter mais detalhes, consulte [Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure](active-directory-saas-writing-expressions-for-attribute-mappings.md).
+* **Expressão** – o atributo de destino é preenchido com base no resultado de uma expressão de script. 
+  Para obter mais detalhes, consulte [Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 * **Nenhum** – o atributo de destino é deixado inalterado. No entanto, se o atributo de destino estiver vazio, ele será preenchido com o valor padrão que você especificar.
 
 Além desses quatro tipos de mapeamentos de atributo básicos, os mapeamentos de atributo personalizados dão suporte ao conceito de uma atribuição de valor **padrão** . A atribuição do valor padrão assegura que um atributo de destino seja preenchido com um valor, se não houver um valor no AD do Azure nem no objeto de destino.
@@ -78,6 +83,6 @@ O AD do Microsoft Azure fornece uma implementação muito eficiente de um proces
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

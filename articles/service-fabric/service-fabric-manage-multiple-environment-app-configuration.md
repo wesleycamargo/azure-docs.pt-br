@@ -1,30 +1,34 @@
 ---
-title: Gerenciar vários ambientes no Service Fabric | Microsoft Docs
-description: Os aplicativos do Service Fabric podem ser executados em clusters que variam de tamanho de um computador para milhares de computadores. Em alguns casos, você desejará configurar seu aplicativo de forma diferente para esses ambientes variados. Este artigo aborda como definir parâmetros de aplicativo diferentes por ambiente.
+title: "Gerenciar vários ambientes no Service Fabric | Microsoft Docs"
+description: "Os aplicativos do Service Fabric podem ser executados em clusters que variam de tamanho de um computador para milhares de computadores. Em alguns casos, você desejará configurar seu aplicativo de forma diferente para esses ambientes variados. Este artigo aborda como definir parâmetros de aplicativo diferentes por ambiente."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2016
+ms.date: 11/01/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8cbeaaf6bfba41bbf52f26aa0e408b7b1ac9405e
+
 
 ---
-# Gerenciar parâmetros do aplicativo para vários ambientes
+# <a name="manage-application-parameters-for-multiple-environments"></a>Gerenciar parâmetros do aplicativo para vários ambientes
 Você pode criar clusters do Service Fabric usando em qualquer lugar de um a milhares de computadores. Embora os binários de aplicativo possam ser executados sem modificação em um amplo espectro de ambientes, com frequência você desejará configurar o aplicativo de forma diferente, dependendo do número de computadores em que ele estiver sendo implantado.
 
-Como um exemplo simples, considere a `InstanceCount` para um serviço sem estado. Quando você estiver executando aplicativos no Azure, geralmente desejará definir esse parâmetro como o valor especial "-1". Isso garante que o serviço esteja em execução em todos os nós no cluster. No entanto, essa configuração não é adequada para um cluster de um computador, uma vez que você não pode ter vários processos escutando no mesmo ponto de extremidade em um único computador. Em vez disso, normalmente você definirá `InstanceCount` como “1”.
+Como um exemplo simples, considere a `InstanceCount` para um serviço sem estado. Quando você estiver executando aplicativos no Azure, geralmente desejará definir esse parâmetro como o valor especial "-1". Isso garante que o serviço esteja em execução em cada nó no cluster (ou em todos os nós no tipo de nó se você tiver definido uma restrição de posicionamento). No entanto, essa configuração não é adequada para um cluster de um computador, uma vez que você não pode ter vários processos escutando no mesmo ponto de extremidade em um único computador. Em vez disso, normalmente você definirá `InstanceCount` como “1”.
 
-## Especificando parâmetros específicos do ambiente
-A solução para esse problema de configuração é um conjunto de serviços padrão parametrizados e arquivos de parâmetros do aplicativo que preencham os valores de parâmetro para um determinado ambiente. Os parâmetros padrão dos serviços e do aplicativo são configurados nos manifestos do aplicativo e do serviço. A definição de esquema dos arquivos ServiceManifest.xml e ApplicationManifest.xml é instalada com o SDK e as ferramentas do Service Fabric em *C:\\Arquivos de Programas\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
+## <a name="specifying-environment-specific-parameters"></a>Especificando parâmetros específicos do ambiente
+A solução para esse problema de configuração é um conjunto de serviços padrão parametrizados e arquivos de parâmetros do aplicativo que preencham os valores de parâmetro para um determinado ambiente. Os parâmetros padrão dos serviços e do aplicativo são configurados nos manifestos do aplicativo e do serviço. A definição de esquema dos arquivos ServiceManifest.xml e ApplicationManifest.xml é instalada com o SDK do e as ferramentas do Service Fabric em *C:\Arquivos de Programas\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-### Serviços padrão
+### <a name="default-services"></a>Serviços padrão
 Os aplicativos do Service Fabric são compostos de uma coleção de instâncias de serviço. Embora seja possível para você criar um aplicativo vazio e, em seguida, criar dinamicamente todas as instâncias de serviço, a maioria dos aplicativos tem um conjunto de serviços principais que sempre deverá ser criado quando o aplicativo for instanciado. Eles são chamados de "serviços padrão". Eles são especificados no manifesto do aplicativo, com espaços reservados para configuração por ambiente incluídos entre colchetes adicionais:
 
     <DefaultServices>
@@ -58,10 +62,10 @@ O atributo DefaultValue especifica o valor a ser usado na ausência de um parâm
 > 
 > 
 
-### Definições de configuração de serviço por ambiente
+### <a name="per-environment-service-configuration-settings"></a>Definições de configuração de serviço por ambiente
 O [modelo de aplicativo do Service Fabric](service-fabric-application-model.md) permite que os serviços incluam pacotes de configuração com pares de chave e valor personalizados legíveis em tempo de execução. Os valores dessas configurações também podem ser diferenciados pelo ambiente por meio da especificação de uma `ConfigOverride` no manifesto do aplicativo.
 
-Suponha que você tenha a seguinte configuração no arquivo Config\\Settings.xml para o serviço `Stateful1`:
+Suponha que você tenha a seguinte configuração no arquivo Config\Settings.xml para o serviço `Stateful1`:
 
     <Section Name="MyConfigSection">
       <Parameter Name="MaxQueueSize" Value="25" />
@@ -86,7 +90,7 @@ Esse parâmetro pode então ser configurado pelo ambiente como mostrado acima. V
 > 
 > 
 
-### Arquivos de parâmetros de aplicativo
+### <a name="application-parameter-files"></a>Arquivos de parâmetros de aplicativo
 O projeto de aplicativo do Service Fabric pode incluir um ou mais arquivos de parâmetro de aplicativo. Cada um deles define os valores específicos para os parâmetros definidos no manifesto do aplicativo:
 
     <!-- ApplicationParameters\Local.xml -->
@@ -99,33 +103,37 @@ O projeto de aplicativo do Service Fabric pode incluir um ou mais arquivos de pa
         </Parameters>
     </Application>
 
-Por padrão, um novo aplicativo inclui dois arquivos de parâmetro de aplicativo, chamados Local.xml e Cloud.xml:
+Por padrão, um novo aplicativo inclui três arquivos de parâmetro de aplicativo, chamados Local.1Node.xml, Local.5Node.xml e Cloud.xml:
 
 ![Arquivos de parâmetros de aplicativo no Gerenciador de Soluções][app-parameters-solution-explorer]
 
 Para criar um novo arquivo de parâmetro, bastará copiar e colar um existente e dar um novo nome a ele.
 
-## Identificando parâmetros específicos do ambiente durante a implantação
+## <a name="identifying-environment-specific-parameters-during-deployment"></a>Identificando parâmetros específicos do ambiente durante a implantação
 No momento da implantação, você precisa escolher o arquivo de parâmetro adequado para aplicar ao seu aplicativo. Você pode fazer isso por meio da caixa de diálogo Publicar no Visual Studio ou por meio do PowerShell.
 
-### Implantar com o Visual Studio
+### <a name="deploy-from-visual-studio"></a>Implantar com o Visual Studio
 Você pode escolher na lista de arquivos de parâmetro disponíveis ao publicar seu aplicativo no Visual Studio.
 
 ![Escolher um arquivo de parâmetro na caixa de diálogo Publicar][publishdialog]
 
-### Implantar do PowerShell
+### <a name="deploy-from-powershell"></a>Implantar do PowerShell
 O script `Deploy-FabricApplication.ps1` do PowerShell incluído no modelo de projeto de aplicativo aceita um perfil de publicação como parâmetro, e o PublishProfile contém uma referência para o arquivo de parâmetros do aplicativo.
 
   ```PowerShell
     ./Deploy-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
   ```
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre alguns dos principais conceitos discutidos neste tópico, confira a [visão geral técnica do Service Fabric](service-fabric-technical-overview.md). Para obter informações sobre outras funcionalidades de gerenciamento de aplicativo disponíveis no Visual Studio, confira [Gerenciar seus aplicativos do Service Fabric no Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
-[app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
+[app-parameters-solution-explorer]:./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

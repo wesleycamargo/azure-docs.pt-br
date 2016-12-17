@@ -1,22 +1,27 @@
 ---
-title: Regras de firewall no nível de servidor e no nível de banco de dados do Banco de Dados SQL do Azure usando o T-SQL | Microsoft Docs
-description: Saiba como configurar o firewall para endereços IP que acessam bancos de dados SQL do Azure.
+title: "Regras de firewall no nível de servidor e no nível de banco de dados do Banco de Dados SQL do Azure usando o T-SQL | Microsoft Docs"
+description: "Saiba como configurar o firewall para endereços IP que acessam bancos de dados SQL do Azure."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: BYHAM
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 71e692a1-5e2f-4a18-a6d6-527b849cf68e
 ms.service: sql-database
+ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8afac684b5c4588d84ec4070e99470664ec47ff3
+
 
 ---
-# Configurar regras de firewall no nível do servidor e do banco de dados do Banco de Dados SQL usando o T-SQL
+# <a name="configure-azure-sql-database-server-level-and-database-level-firewall-rules-using-t-sql"></a>Configurar regras de firewall no nível do servidor e do banco de dados do Banco de Dados SQL usando o T-SQL
 > [!div class="op_single_selector"]
 > * [Visão geral](sql-database-firewall-configure.md)
 > * [Portal do Azure](sql-database-configure-firewall-settings.md)
@@ -33,12 +38,12 @@ O Banco de Dados SQL do Microsoft Azure usa regras de firewall para permitir con
 > 
 > 
 
-## Regras de firewall no nível do servidor
+## <a name="server-level-firewall-rules"></a>Regras de firewall no nível do servidor
 Somente o logon da entidade de segurança no nível do servidor ou o administrador do Azure Active Directory pode criar uma regra de firewall de nível de servidor usando o Transact-SQL.
 
 1. Inicie uma janela de consulta e conecte-se ao banco de dados mestre virtual usando o SQL Server Management Studio.
 2. As regras de firewall no nível de servidor podem ser selecionadas, criadas, atualizadas ou excluídas de dentro da janela de consulta.
-3. Para criar ou atualizar regras de firewall no nível de servidor, execute o procedimento armazenado `sp_set_firewall_rule`. O exemplo a seguir habilita um intervalo de endereços IP no servidor Contoso.<br/>Comece vendo quais regras já existem.
+3. Para criar ou atualizar regras de firewall no nível de servidor, execute o procedimento armazenado `sp_set_firewall_rule` . O exemplo a seguir habilita um intervalo de endereços IP no servidor Contoso.<br/>Comece vendo quais regras já existem.
    
         SELECT * FROM sys.firewall_rules ORDER BY name;
    
@@ -47,38 +52,48 @@ Somente o logon da entidade de segurança no nível do servidor ou o administrad
         EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
             @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
    
-    Para excluir uma regra de firewall no nível de servidor, execute o procedimento armazenado sp\_delete\_firewall\_rule. O exemplo a seguir exclui a regra denominada ContosoFirewallRule.
+    Para excluir uma regra de firewall no nível de servidor, execute o procedimento armazenado sp_delete_firewall_rule. O exemplo a seguir exclui a regra denominada ContosoFirewallRule.
    
         EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
    
-   Para saber mais sobre esses procedimentos armazenados, confira [sp\_set\_firewall\_rule](https://msdn.microsoft.com/library/dn270017.aspx) e [sp\_delete\_firewall\_rule](https://msdn.microsoft.com/library/dn270024.aspx).
+   Para saber mais sobre esses procedimentos armazenados, confira [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) e [sp_delete_firewall_rule](https://msdn.microsoft.com/library/dn270024.aspx).
 
-## Regras de firewall no nível de banco de dados
+## <a name="database-level-firewall-rules"></a>Regras de firewall no nível de banco de dados
 Somente um usuário de banco de dados com a permissão **CONTROL** no banco de dados (como o proprietário do banco de dados) pode criar uma regra de firewall no nível de banco de dados.
 
 1. Depois de criar um firewall no nível de servidor para seu endereço IP, inicie uma janela de consulta por meio do Portal Clássico ou SQL Server Management Studio.
 2. Conecte-se ao banco de dados para o qual você deseja criar uma regra de firewall no nível de banco de dados.
    
-    Para criar uma nova regra ou atualizar uma regra de firewall existente no nível de banco de dados, execute o procedimento armazenado `sp_set_database_firewall_rule`. O exemplo a seguir cria uma nova regra de firewall denominada ContosoFirewallRule.
+    Para criar uma nova regra ou atualizar uma regra de firewall existente no nível de banco de dados, execute o procedimento armazenado `sp_set_database_firewall_rule` . O exemplo a seguir cria uma nova regra de firewall denominada ContosoFirewallRule.
    
         EXEC sp_set_database_firewall_rule @name = N'ContosoFirewallRule', 
             @start_ip_address = '192.168.1.11', @end_ip_address = '192.168.1.11'
    
-    Para excluir uma regra de firewall no nível do banco de dados, execute o procedimento armazenado `sp_delete_database_firewall_rule`. O exemplo a seguir exclui a regra denominada ContosoFirewallRule. ` EXEC sp\_delete\_database\_firewall\_rule @name = N'ContosoFirewallRule'
+    Para excluir uma regra de firewall no nível do banco de dados, execute o procedimento armazenado `sp_delete_database_firewall_rule` . O exemplo a seguir exclui a regra denominada ContosoFirewallRule.
+   `
+   
+        EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
-Para obter mais informações sobre esses procedimentos armazenados, consulte [sp\_set\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270010.aspx) e [sp\_delete\_database\_firewall\_rule](https://msdn.microsoft.com/library/dn270030.aspx).
+Para saber mais sobre esses procedimentos armazenados, veja [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) e [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
-## Próximas etapas
-Para ver artigos sobre como criar regras de firewall no nível de servidor usando outros métodos, confira:
+## <a name="next-steps"></a>Próximas etapas
+Para ver artigos sobre como criar regras de firewall no nível de servidor usando outros métodos, confira: 
 
 * [Configurar regras de firewall no nível de servidor do Banco de Dados SQL do Azure usando o Portal do Azure](sql-database-configure-firewall-settings.md)
 * [Configurar regras de firewall no nível de servidor do Banco de Dados SQL do Azure usando o PowerShell](sql-database-configure-firewall-settings-powershell.md)
 * [Configurar regras de firewall no nível de servidor do Banco de Dados SQL do Azure usando a API REST](sql-database-configure-firewall-settings-rest.md)
 
-Para ver um tutorial sobre como criar um banco de dados, confira [Criar um banco de dados SQL em alguns minutos usando o Portal do Azure](sql-database-get-started.md). Para obter ajuda com a conexão de um Banco de Dados SQL do Azure a partir de aplicativos de fonte aberta ou de terceiros, consulte [Exemplos de código do cliente de início rápido para o Banco de Dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para entender como navegar para os bancos de dados, consulte [Gerenciar o acesso ao banco de dados e a segurança de logon](https://msdn.microsoft.com/library/azure/ee336235.aspx).
+Para ver um tutorial sobre como criar um banco de dados, confira [Criar um banco de dados SQL em alguns minutos usando o Portal do Azure](sql-database-get-started.md).
+Para obter ajuda com a conexão de um Banco de Dados SQL do Azure a partir de aplicativos de fonte aberta ou de terceiros, consulte [Exemplos de código do cliente de início rápido para o Banco de Dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+Para entender como navegar para os bancos de dados, consulte [Gerenciar o acesso ao banco de dados e a segurança de logon](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 * [Protegendo o banco de dados](sql-database-security.md)
 * [Central de segurança do mecanismo de banco de dados do SQL Server e banco de dados SQL do Azure](https://msdn.microsoft.com/library/bb510589)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
