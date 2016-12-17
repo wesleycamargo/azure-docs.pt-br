@@ -1,12 +1,12 @@
 ---
-title: Integração do SDK do Android do Azure Mobile Engagement
-description: Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement
+title: "Integração do SDK do Android do Azure Mobile Engagement"
+description: "Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 9ec3fab3-35ec-458e-bf41-6cdd69e3fa44
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,15 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd8ba95ee1fb2703926fb35cdb49e6a503637a7d
+
 
 ---
-# Como integrar o Engagement Reach ao Android
+# <a name="how-to-integrate-engagement-reach-on-android"></a>Como integrar o Engagement Reach ao Android
 > [!IMPORTANT]
 > Você deve seguir o procedimento de integração descrito no documento Como Integrar o Engagement, antes de seguir este guia.
 > 
 > 
 
-## Integração padrão
+## <a name="standard-integration"></a>Integração padrão
 O SDK do Reach requer a **biblioteca de Suporte do Android (v4)**.
 
 A maneira mais rápida para adicionar a biblioteca ao seu projeto no **Eclipse** é `Right click on your project -> Android Tools -> Add Support Library...`.
@@ -91,23 +95,23 @@ Edite seu arquivo `AndroidManifest.xml`:
 > 
 > 
 
-* Se você criar campanhas com notificações de sistema usando a visão global, você precisa adicionar as seguintes permissões (após a marca `</application>`) se estiverem faltando:
+* Se você criar campanhas com notificações de sistema usando a visão global, você precisa adicionar as seguintes permissões (após a marca `</application>` ) se estiverem faltando:
   
           <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
           <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
   
   * No Android M e se seu aplicativo direciona o nível de API de 23 do Android ou maior, a permissão do ``WRITE_EXTERNAL_STORAGE`` requer aprovação do usuário. Leia [esta seção](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
-* Para notificações de sistema, você também pode especificar na campanha do Reach se o dispositivo deve tocar e/ou vibrar. Para que isso funcione, você deve certificar-se de ter declarado a permissão a seguir (após a marca `</application>`):
+* Para notificações de sistema, você também pode especificar na campanha do Reach se o dispositivo deve tocar e/ou vibrar. Para que isso funcione, você deve certificar-se de ter declarado a permissão a seguir (após a marca `</application>` ):
   
           <uses-permission android:name="android.permission.VIBRATE" />
   
   Sem essa permissão, o Android impede que as notificações de sistema seja mostradas se você marcou a opção para tocar ou vibrar Gerenciador de Campanha do Reach.
-* Se você compilar seu aplicativo usando **ProGuard** e tiver erros relacionados à biblioteca de Suporte do Android ou o jar do Engagement, adicione as seguintes linhas ao seu arquivo `proguard.cfg`:
+* Se você compilar seu aplicativo usando **ProGuard** e tiver erros relacionados à biblioteca de Suporte do Android ou o jar do Engagement, adicione as seguintes linhas ao arquivo `proguard.cfg`:
   
           -dontwarn android.**
           -keep class android.support.v4.** { *; }
 
-## Push nativo
+## <a name="native-push"></a>Push nativo
 Agora que você configurou o módulo Reach, você precisa fazer a configuração nativa por push para poder receber as campanhas no dispositivo.
 
 Oferecemos suporte a dois serviços no Android:
@@ -121,8 +125,8 @@ Nesse caso, você deve usar múltiplos APKs.
 
 **Seu aplicativo agora está pronto para receber e exibir as campanhas de alcance!**
 
-## Como lidar com o envio de dados
-### Integração
+## <a name="how-to-handle-data-push"></a>Como lidar com o envio de dados
+### <a name="integration"></a>Integração
 Se desejar que seu aplicativo seja capaz de receber push de dados d Reach, você precisa criar uma subclasse de `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` e fazer referência a ela no arquivo `AndroidManifest.xml` (entre as marcas `<application>` e/ou `</application>`):
 
             <receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
@@ -152,10 +156,10 @@ Em seguida, você pode substituir os retornos de chamada `onDataPushStringReceiv
               }
             }
 
-### Categoria
+### <a name="category"></a>Categoria
 O parâmetro de categoria é opcional quando você criar uma campanha de envio de dados e permitir que você filtre o envio de dados. Isso é útil se você tiver vários receptores de difusão lidando com tipos diferentes de push de dados, ou se você deseja enviar por push diferentes tipos de dados `Base64` e deseja identificar o tipo dos mesmos antes de analisá-los.
 
-### Parâmetro de retorno dos retornos de chamada
+### <a name="callbacks-return-parameter"></a>Parâmetro de retorno dos retornos de chamada
 Aqui estão algumas diretrizes para lidar corretamente com o parâmetro de retorno de `onDataPushStringReceived` e `onDataPushBase64Received`:
 
 * Um receptor de difusão deve retornar `null` no retorno de chamada se ele não souber como lidar com um push de dados. Você deve usar a categoria para determinar se seu receptor de difusão deve lidar com o push de dados ou não.
@@ -168,18 +172,18 @@ O tipo de retorno é usado apenas para as estatísticas do Reach:
 * `Replied` será incrementado se um dos receptores de difusão tiver retornado um `true` ou `false`.
 * `Actioned` será incrementado apenas se um dos receptores de difusão tiver retornado `true`.
 
-## Como personalizar campanhas
+## <a name="how-to-customize-campaigns"></a>Como personalizar campanhas
 Para personalizar campanhas, você pode modificar os layouts fornecidos no SDK do Reach.
 
 Você deve manter todos os identificadores usados nos layouts e manter os tipos de modos de exibição que usam um identificador, especialmente para modos de exibição de texto e modos de exibição de imagem. Alguns modos de exibição são usados apenas para ocultar ou exibir determinadas áreas, para que seu tipo possa ser alterado. Se você pretende alterar o tipo de uma exibição nos layouts fornecidos, verifique o código-fonte.
 
-### Notificações
+### <a name="notifications"></a>Notificações
 Há dois tipos de notificações: as de sistema e aquelas contidas no aplicativo, que usam arquivos de layout diferentes.
 
-#### Notificações de sistema
+#### <a name="system-notifications"></a>Notificações de sistema
 Para personalizar as notificações de sistema, você precisa usar as **categorias**. Você pode ir para [Categorias](#categories).
 
-#### Notificações no aplicativo
+#### <a name="in-app-notifications"></a>Notificações no aplicativo
 Por padrão, uma notificação no aplicativo é um modo de exibição que é adicionado dinamicamente à interface do usuário da atividade atual graças ao método Android `addContentView()`. Isso é chamado uma sobreposição de notificação. Sobreposições de notificação são ótimas para uma integração rápida, porque elas não exigem que você modifique nenhum layout em seu aplicativo.
 
 Para modificar a aparência de suas sobreposições de notificação, você pode simplesmente modificar o arquivo `engagement_notification_area.xml` segundo as suas necessidades.
@@ -189,7 +193,7 @@ Para modificar a aparência de suas sobreposições de notificação, você pode
 > 
 > 
 
-##### Incluir um layout de notificação como parte de um layout de atividade
+##### <a name="include-notification-layout-as-part-of-an-activity-layout"></a>Incluir um layout de notificação como parte de um layout de atividade
 As sobreposições são ótimas para uma integração rápida, mas podem ser inconvenientes ou ter efeitos colaterais em casos especiais. O sistema de sobreposição pode ser personalizado em nível de atividade, tornando fácil evitar efeitos colaterais para atividades especiais.
 
 Você pode optar por incluir o layout de notificação ao seu layout existente graças à instrução **include** do Android. A seguir, temos um exemplo de um layout `ListActivity` modificado que contém apenas um `ListView`.
@@ -231,14 +235,14 @@ O SDK do Engagement Reach detecta automaticamente que o layout de notificação 
 > 
 > 
 
-##### Desabilitando a notificação de aplicativo por atividade
+##### <a name="disabling-application-notification-per-activity"></a>Desabilitando a notificação de aplicativo por atividade
 Se você não desejar que a sobreposição seja adicionada à sua atividade e se não incluir o layout de notificação em seu próprio layout, você pode desabilitar a sobreposição para essa atividade no `AndroidManifest.xml` pela adição de uma seção `meta-data`, como no exemplo a seguir:
 
             <activity android:name="SplashScreenActivity">
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="categories"></a> Categorias
+#### <a name="a-namecategoriesa-categories"></a><a name="categories"></a> Categorias
 Quando você modifica os layouts fornecidos, pode modificar também a aparência de todas as notificações. As categorias permitem que você defina várias aparências direcionadas (possíveis comportamentos) para as notificações. Uma categoria pode ser especificada quando você cria uma campanha de Reach. Tenha em mente que categorias também permitem personalizar anúncios e pesquisas, como está descrito mais adiante neste documento.
 
 Para registrar um manipulador de categorias para suas notificações, você precisa adicionar uma chamada quando o aplicativo é inicializado.
@@ -286,7 +290,7 @@ Ela é passada como um parâmetro `String` ou indiretamente em um objeto `Engage
 
 Você pode alterar a maior parte do processo de criação de notificação redefinindo métodos em `EngagementDefaultNotifier`. Para uma personalização mais avançada, fique à vontade para dar uma olhada na documentação técnica e no código-fonte.
 
-##### Notificações no aplicativo
+##### <a name="in-app-notifications"></a>Notificações no aplicativo
 Se você quiser apenas usar layouts alternativos para uma categoria específica, você pode implementar isso como no exemplo a seguir:
 
             public class MyNotifier extends EngagementDefaultNotifier
@@ -415,9 +419,9 @@ Como você pode ver, o identificador de exibição da área de notificação é 
 
 Esse exemplo simples de categoria faz com que as notificações de aplicativos (ou contidas em aplicativos) sejam exibidas na parte superior da tela. Não alteramos os identificadores padrão usados na área de notificação em si.
 
-Se desejar alterá-los, você precisará redefinir o método `EngagementDefaultNotifier.prepareInAppArea`. Se quiser esse nível de personalização avançada, recomenda-se examinar a documentação técnica e o código-fonte de `EngagementNotifier` e `EngagementDefaultNotifier`.
+Se desejar alterá-los, você precisará redefinir o método `EngagementDefaultNotifier.prepareInAppArea` . Se quiser esse nível de personalização avançada, recomenda-se examinar a documentação técnica e o código-fonte de `EngagementNotifier` e `EngagementDefaultNotifier`.
 
-##### Notificações de sistema
+##### <a name="system-notifications"></a>Notificações de sistema
 Estendendo `EngagementDefaultNotifier`, você pode substituir `onNotificationPrepared` para alterar a notificação que foi preparada pela implementação padrão.
 
 Por exemplo:
@@ -462,10 +466,10 @@ Aqui está um exemplo correto de tal implementação:
               return false;
             }
 
-##### Anúncios exclusivamente de notificação
+##### <a name="notification-only-announcements"></a>Anúncios exclusivamente de notificação
 O gerenciamento do clique em um comunicado exclusivamente de notificação só pode ser personalizado substituindo-se `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` para modificar o preparado `Intent`. Usar esse método permite ajustar os sinalizadores facilmente.
 
-Por exemplo, para adicionar o sinalizador `SINGLE_TOP`:
+Por exemplo, para adicionar o sinalizador `SINGLE_TOP` :
 
             @Override
             protected Intent onNotifAnnouncementIntentPrepared(EngagementNotifAnnouncement notifAnnouncement,
@@ -479,7 +483,7 @@ Para usuários herdados do Engagement, observe que as notificações do sistema 
 
 Você também pode implementar o `EngagementNotifier.executeNotifAnnouncementAction` do zero.
 
-##### Ciclo de vida de notificação
+##### <a name="notification-life-cycle"></a>Ciclo de vida de notificação
 Ao usar a categoria padrão, alguns métodos de ciclo de vida são chamados no objeto `EngagementReachInteractiveContent` para relatar estatísticas e atualizar o estado de campanha:
 
 * Quando a notificação é exibida no aplicativo ou colocada na barra de status, o método `displayNotification` (o qual reporta estatísticas) será chamado por `EngagementReachAgent` se `handleNotification` retornar `true`.
@@ -497,16 +501,16 @@ Se sua implementação de `EngagementNotifier` ignora o comportamento padrão, v
 > 
 > 
 
-### Anúncios e pesquisas
-#### Layouts
+### <a name="announcements-and-polls"></a>Anúncios e pesquisas
+#### <a name="layouts"></a>Layouts
 Você pode modificar os arquivos `engagement_text_announcement.xml`, `engagement_web_announcement.xml` e `engagement_poll.xml` para personalizar os anúncios de texto, anúncios da Web e pesquisas.
 
 Esses arquivos compartilham dois layouts comuns para a área de título e a área do botão. O layout para o título é `engagement_content_title.xml` e usa o arquivo epônimo emitível para a tela de fundo. O layout dos botões de ação e de saída é `engagement_button_bar.xml` e usa o arquivo epônimo emitível para a tela de fundo.
 
 Em uma pesquisa, o layout de pergunta e suas opções são dinamicamente infladas usando várias vezes o arquivo de layout `engagement_question.xml` para as perguntas e o arquivo `engagement_choice.xml` para as opções.
 
-#### Categorias
-##### Layouts alternativos
+#### <a name="categories"></a>Categorias
+##### <a name="alternate-layouts"></a>Layouts alternativos
 Como as notificações, a categoria de campanha pode ser usada com layouts alternativos para seus anúncios e pesquisas.
 
 Por exemplo, para criar uma categoria para um comunicado de texto, você pode estender `EngagementTextAnnouncementActivity` e fazer referência a ela no arquivo `AndroidManifest.xml`:
@@ -557,7 +561,7 @@ Para pesquisas, você pode estender `EngagementPollActivity` e declarar sua ativ
               </intent-filter>
             </activity>
 
-##### Implementação do zero
+##### <a name="implementation-from-scratch"></a>Implementação do zero
 Você pode implementar categorias para suas atividades de comunicado (e pesquisa) sem estender uma das classes `Engagement*Activity` fornecidas pelo SDK do Reach. Isso é útil, por exemplo, se desejar definir um layout que não use as mesmas exibições que os layouts padrão.
 
 Como para personalização da notificação avançada, é recomendável examinar o código-fonte da implementação do padrão.
@@ -631,8 +635,12 @@ Aqui está a parte interessante da implementação:
 
 Como você pode ver, se tiver chamado `actionContent(this)` e então terminado a atividade, `exitContent(this)` pode ser chamado com segurança sem ter qualquer efeito.
 
-[aqui]: http://developer.android.com/tools/extras/support-library.html#Downloading
-[Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
-[Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
+[aqui]:http://developer.android.com/tools/extras/support-library.html#Downloading
+[Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
+[Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

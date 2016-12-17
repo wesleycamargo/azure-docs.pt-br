@@ -1,60 +1,64 @@
 ---
 title: Mover dados do Teradata | Microsoft Docs
-description: Saiba mais sobre o conector do Teradata para o serviço do Data Factory que permite mover dados do banco de dados Teradata
+description: "Saiba mais sobre o conector do Teradata para o serviço do Data Factory que permite mover dados do banco de dados Teradata"
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 98eb76d8-5f3d-4667-b76e-e59ed3eea3ae
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 11/01/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
+ms.openlocfilehash: 6ba9579860f0117a5d15fe0ea54dec22a6d37c9b
+
 
 ---
-# Mover dados do Teradata usando o Azure Data Factory
-Este artigo descreve como você pode usar a atividade de cópia em um Azure Data Factory para mover dados do Teradata para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md), que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
+# <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados do Teradata usando o Azure Data Factory
+Este artigo descreve como você pode usar a atividade de cópia em um Azure Data Factory para mover dados do Teradata para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral de movimentação de dados com a atividade de cópia e combinações de armazenamento de dados com suporte.
 
 O data factory dá suporte à conexão a fontes Teradata locais por meio do Gateway de Gerenciamento de Dados. Consulte o artigo [movendo dados entre pontos locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para saber mais sobre o Gateway de gerenciamento de dados e obter instruções passo a passo de como configurar o gateway.
 
 > [!NOTE]
 > O gateway é requerido mesmo que o banco de dados Teradata esteja hospedado em uma VM IaaS do Azure. Você pode instalar o gateway na mesma VM IaaS do armazenamento de dados ou em uma VM diferente, desde que o gateway possa conectar o banco de dados.
-> 
-> 
+>
+>
 
 O data factory dá suporte apenas para a movimentação de dados do Teradata para outros armazenamentos de dados, não de outros armazenamentos de dados para o Teradata.
 
-## Instalação
-Para o Gateway de Gerenciamento de Dados para se conectar ao banco de dados Teradata, você precisa instalar o [Provedor de dados .NET para Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) no mesmo sistema que o Gateway de Gerenciamento de Dados.
+## <a name="supported-versions-and-installation"></a>Instalação e versões com suporte
+Para o Gateway de Gerenciamento de Dados se conectar ao banco de dados Teradata, você precisa instalar o [Provedor de dados .NET para Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) versão 14 ou mais recente no mesmo sistema que o Gateway de Gerenciamento de Dados. Há suporte para o Teradata versão 12 e mais recente.
 
 > [!NOTE]
-> Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
-> 
-> 
+> Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
+>
+>
 
-## Assistente de cópia de dados
+## <a name="copy-data-wizard"></a>Assistente de cópia de dados
 A maneira mais fácil de criar um pipeline que copia dados do Teradata para qualquer um dos armazenamentos de dados do coletor suportados é usar o Assistente para Copiar Dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do Teradata para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
+O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do Teradata para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.   
 
-### Exemplo: copiar dados do Teradata para Blob do Azure
-Este exemplo mostra como copiar dados de um banco de dados Teradata para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.
+### <a name="sample-copy-data-from-teradata-to-azure-blob"></a>Exemplo: copiar dados do Teradata para Blob do Azure
+Este exemplo mostra como copiar dados de um banco de dados Teradata para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  
 
 O exemplo tem as seguintes entidades de data factory:
 
 1. Um serviço vinculado do tipo [OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties).
-2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [RelationalTable](data-factory-onprem-teradata-connector.md#teradata-dataset-type-properties).
-4. Um [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. O [pipeline](data-factory-create-pipelines.md) com atividade de cópia que usa [RelationalSource](data-factory-onprem-teradata-connector.md#teradata-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+5. O [pipeline](data-factory-create-pipelines.md) com a Atividade de Cópia que usa [RelationalSource](data-factory-onprem-teradata-connector.md#teradata-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 O exemplo copia dados de um resultado de consulta no banco de dados Teradata para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-Como uma primeira etapa, configure o gateway de gerenciamento de dados. As instruções estão no artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md).
+Como uma primeira etapa, configure o gateway de gerenciamento de dados. As instruções estão no artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) .
 
 **Serviço Teradata vinculado:**
 
@@ -225,7 +229,7 @@ O pipeline contém uma Atividade de Cópia configurada para usar os conjuntos de
     }
 
 
-## Propriedades do serviço vinculado Teradata
+## <a name="teradata-linked-service-properties"></a>Propriedades do serviço vinculado Teradata
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado Teradata.
 
 | Propriedade | Descrição | Obrigatório |
@@ -237,15 +241,15 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 | Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. |Não |
 | gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados Teradata local. |Sim |
 
-Consulte [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados do Teradata local.
+Confira [Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre como configurar as credenciais de uma fonte de dados Teradata local.
 
-## Propriedades de tipo de conjunto de dados Teradata
-Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
+## <a name="teradata-dataset-type-properties"></a>Propriedades de tipo de conjunto de dados Teradata
+Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. Atualmente, não há nenhuma propriedade do tipo com suporte para o conjunto de dados Teradata.
 
-## Propriedades de tipo de atividade de cópia do Teradata
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e políticas, estão disponíveis para todos os tipos de atividade.
+## <a name="teradata-copy-activity-type-properties"></a>Propriedades de tipo de atividade de cópia do Teradata
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e políticas, estão disponíveis para todos os tipos de atividade.
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
 
@@ -257,8 +261,8 @@ Quando a fonte é do tipo **RelationalSource** (que inclui o Teradata), as segui
 
 [!INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
-## Mapeamento de tipo para Teradata
-Conforme mencionado no artigo sobre [atividades de movimentação de dados](data-factory-data-movement-activities.md), a Atividade de Cópia executa conversões automáticas de tipos de fonte em tipos de coletor com a abordagem de duas etapas:
+## <a name="type-mapping-for-teradata"></a>Mapeamento de tipo para Teradata
+Conforme mencionado no artigo sobre [atividades de movimentação de dados](data-factory-data-movement-activities.md) , a Atividade de Cópia executa conversões automáticas de tipos de fonte em tipos de coletor com a abordagem de duas etapas:
 
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
@@ -272,9 +276,9 @@ Ao mover os dados para o Teradata, os seguintes mapeamentos são usados do tipo 
 | Graphic |Cadeia de caracteres |
 | VarChar |Cadeia de caracteres |
 | VarGraphic |Cadeia de caracteres |
-| Blob |Byte |
-| Byte |Byte |
-| VarByte |Byte |
+| Blob |Byte[] |
+| Byte |Byte[] |
+| VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Decimal |Decimal |
@@ -311,7 +315,11 @@ Ao mover os dados para o Teradata, os seguintes mapeamentos são usados do tipo 
 
 [!INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-## Desempenho e Ajuste
-Veja o [Guia de Desempenho e Ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
+## <a name="performance-and-tuning"></a>Desempenho e Ajuste
+Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

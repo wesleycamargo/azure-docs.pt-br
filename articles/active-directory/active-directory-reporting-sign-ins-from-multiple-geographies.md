@@ -1,12 +1,12 @@
 ---
-title: Entradas de várias regiões geográficas
-description: Um relatório que indica aos usuários quando duas entradas parecem ter sido originadas de diferentes regiões e a diferença de tempo entre as duas entradas torna impossível para o usuário ter viajado entre tais regiões.
+title: "Entradas de várias regiões geográficas"
+description: "Um relatório que indica aos usuários quando duas entradas parecem ter sido originadas de diferentes regiões e a diferença de tempo entre as duas entradas torna impossível para o usuário ter viajado entre tais regiões."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: SSalahAhmed
 manager: gchander
-editor: ''
-
+editor: 
+ms.assetid: 79259c8a-2388-4747-b41e-c07434ea9a02
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1de57f64692ade442f9ef8d1e3b587ffee35d7cf
+
 
 ---
-# Entradas de várias geografias
+# <a name="sign-ins-from-multiple-geographies"></a>Entradas de várias geografias
 Este relatório inclui entradas bem-sucedidas de um usuário, em que duas entradas parecem ter sido originadas de diferentes regiões e a diferença de tempo entre as duas entradas torna impossível para o usuário ter viajado entre tais regiões. Entre as possíveis causas estão:
 
 * O usuário está compartilhando sua senha com outros usuários
@@ -29,4 +33,9 @@ Os resultados desse relatório mostrarão os eventos de entrada bem-sucedida, ju
 
 ![Entradas de várias regiões geográficas](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=AcomDC_0309_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

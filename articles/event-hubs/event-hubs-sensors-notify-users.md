@@ -1,12 +1,12 @@
 ---
-title: Notificar os usuários de dados recebidos de sensores ou outros sistemas | Microsoft Docs
-description: Descreve como usar os Hubs de Eventos para notificar os usuários sobre dados de sensor.
+title: "Notificar os usuários de dados recebidos de sensores ou de outros sistemas | Microsoft Docs"
+description: "Descreve como usar os Hubs de Eventos para notificar os usuários sobre dados de sensor."
 services: event-hubs
 documentationcenter: na
 author: spyrossak
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: a4c0d679-2cac-4ac6-ad48-26cf9a6d8627
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
 ms.author: spyros;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8de8710d3de16c9b239af6c07c4f73e60e5a182b
+
 
 ---
 # <a name="notify-users-of-data-received-from-sensors-or-other-systems"></a>Notificar os usuários de dados recebidos de sensores ou outros sistemas
@@ -25,14 +29,14 @@ Em outro cenário, imagine que você executa uma instalação de embarque animai
 
 ![][2]
 
-O problema é como obter informações críticas quando determinadas condições são atendidas, e não quando você realiza a verificação de um relatório estático. Se você estiver usando um [Hub de Eventos do Azure][Hub de Eventos do Azure] ou o [Hub IoT do Azure][Hub IoT do Azure] para receber dados de dispositivos ou aplicativos corporativos, como [Dynamics AX][Dynamics AX], há várias opções para processá-los. Você pode exibi-los em um site, analisá-los, armazená-los e usá-los para disparar comandos para fazer algo. Para fazer isso, você pode usar ferramentas avançadas como [Sites do Azure][Sites do Azure], [SQL Azure][SQL Azure], [HDInsight][HDInsight], [Cortana Intelligence Suite][Cortana Intelligence Suite], [IoT Suite][IoT Suite], [Aplicativos Lógicos][Aplicativos Lógicos] ou [Hubs de Notificação do Azure][Hubs de Notificação do Azure]. Mas, às vezes, tudo o que você deseja fazer é enviar esses dados para alguém com um mínimo de sobrecarga. Para mostrar como fazer isso com apenas um pouco de código, apresentamos uma nova amostra, [AppToNotifyUsers][AppToNotifyUsers]. As opções incluídas são email (SMTP), SMS e telefone.
+O problema é como obter informações críticas quando determinadas condições são atendidas, e não quando você realiza a verificação de um relatório estático. Se você estiver usando um [Hub de Eventos do Azure][Hub de Eventos do Azure] ou o [Hub IoT do Azure][Hub IoT do Azure] para receber dados de dispositivos ou de aplicativos corporativos, como [Dynamics AX][Dynamics AX], haverá várias opções para processá-los. Você pode exibi-los em um site, analisá-los, armazená-los e usá-los para disparar comandos para fazer algo. Para fazer isso, use ferramentas avançadas como [Sites do Azure][Sites do Azure], [SQL Azure][SQL Azure], [HDInsight][HDInsight], [Cortana Intelligence Suite][Cortana Intelligence Suite], [IoT Suite][IoT Suite], [Aplicativos Lógicos][Aplicativos Lógicos] ou [Hubs de Notificação do Azure][Hubs de Notificação do Azure]. Mas, às vezes, tudo o que você deseja fazer é enviar esses dados para alguém com um mínimo de sobrecarga. Para mostrar como fazer isso com pouco código, apresentamos uma nova amostra, [AppToNotifyUsers][AppToNotifyUsers]. As opções incluídas são email (SMTP), SMS e telefone.
 
 ## <a name="application-structure"></a>Estrutura de aplicativo
 O aplicativo é escrito em C# e o arquivo Leiame no exemplo contém todas as informações necessárias para modificar, criar e publicar o aplicativo. As seções a seguir fornecem uma visão geral do que o aplicativo faz.
 
 Vamos começar com a suposição de que você tenha eventos críticos sendo enviados por push a um Hub de eventos do Azure ou ao Hub IoT. Qualquer hub serve, desde que você tenha acesso a ele e conheça a cadeia de conexão.
 
-Se você ainda não tiver um Hub IoT ou um Hub de Eventos, você pode configurar facilmente um ambiente de teste com um escudo Arduino e um Raspberry Pi seguindo as instruções no projeto [Conectar os Pontos](https://github.com/Azure/connectthedots) . O sensor de luz no escudo Arduino envia os níveis de luz por meio de Pi para um [Hub de Eventos do Azure][Hub de Eventos do Azure] (**ehdevices**) e um trabalho do [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) envia alertas para um segundo hub de eventos (**ehalerts**) se os níveis de luz recebidos caírem abaixo de um determinado nível.
+Se você ainda não tiver um Hub IoT ou um Hub de Eventos, você pode configurar facilmente um ambiente de teste com um escudo Arduino e um Raspberry Pi seguindo as instruções no projeto [Conectar os Pontos](https://github.com/Azure/connectthedots) . O sensor de luz no escudo Arduino envia os níveis de luz por meio de Pi para um [Hub de Eventos do Azure][Hub de Eventos do Azure] (**ehdevices**) e um trabalho do [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) envia alertas para um segundo hub de eventos (**ehalerts**) se os níveis de luz recebidos ficam abaixo de determinado nível.
 
 Quando **AppToNotify** é iniciado, ele lê um arquivo de configuração (App.config) para obter a URL e as credenciais para o Hub de Eventos que está recebendo os alertas. Em seguida, ele gera um processo para monitorar continuamente esse Hub de Eventos para qualquer mensagem que chegue – desde que você tenha acesso à URL para o Hub de Eventos ou Hub IoT e credenciais válidas, esse código de leitor de Hubs de eventos lerá continuamente o que chega. Durante a inicialização, o aplicativo também lê a URL e credenciais para o serviço de mensagens (email, SMS, telefone) que você deseja usar e o nome/endereço do remetente e uma lista de destinatários.
 
@@ -62,7 +66,7 @@ Para implantar a solução para notificar usuários com base nos dados recebidos
 [Hub IoT do Azure]: https://azure.microsoft.com/services/iot-hub/
 [Hubs de eventos do Azure]: https://azure.microsoft.com/services/event-hubs/
 [Hub de Eventos do Azure]: https://azure.microsoft.com/services/event-hubs/
-[aplicativo de exemplo completo que usa Hub de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [AppToNotifyUsers]: https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications
 [Dynamics AX]: http://www.microsoft.com/dynamics/erp-ax-overview.aspx
 [Sites do Azure]: https://azure.microsoft.com/services/app-service/web/
@@ -78,6 +82,7 @@ Para implantar a solução para notificar usuários com base nos dados recebidos
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

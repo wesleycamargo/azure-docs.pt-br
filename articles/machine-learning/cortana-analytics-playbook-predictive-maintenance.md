@@ -1,19 +1,23 @@
 ---
-title: Guia Estratégico do Modelo de Solução do Cortana Intelligence para a manutenção preditiva no setor aeroespacial e em outros setores | Microsoft Docs
-description: Modelo de Solução com o Microsoft Cortana Intelligence para a manutenção preditiva no setor aeroespacial, de serviços públicos e de transporte.
+title: "Guia Estratégico do Modelo de Solução do Cortana Intelligence para a manutenção preditiva no setor aeroespacial e em outros setores | Microsoft Docs"
+description: "Modelo de Solução com o Microsoft Cortana Intelligence para a manutenção preditiva no setor aeroespacial, de serviços públicos e de transporte."
 services: cortana-analytics
-documentationcenter: ''
+documentationcenter: 
 author: fboylu
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: cortana-analytics
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/07/2016
 ms.author: fboylu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce34066c808b378b7f73cb8e782db3d2da7b536b
+
 
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia Estratégico do Modelo de Solução do Cortana Intelligence para a manutenção preditiva no setor aeroespacial e outras indústrias.
@@ -79,62 +83,62 @@ Uma pergunta comum normalmente feita sobre dados históricos de falha é "quanto
 Esta seção se concentra em um conjunto de casos de uso de manutenção preditiva de vários setores, como Aeroespacial, Utilidades e Transporte. Cada subseção detalha os casos de uso coletados dessas áreas e discute o problema de negócios, os dados sobre o problema de negócios e as vantagens de uma solução de manutenção preditiva.
 
 ### <a name="aerospace"></a>Aeroespacial
-#### <a name="use-case-1:-flight-delay-and-cancellations"></a>Caso de uso 1: atraso de voo e cancelamentos
-##### <a name="*business-problem-and-data-sources*"></a>*Problema de negócios e fontes de dados*
+#### <a name="use-case-1-flight-delay-and-cancellations"></a>Caso de uso 1: atraso de voo e cancelamentos
+##### <a name="business-problem-and-data-sources"></a>*Problema de negócios e fontes de dados*
 Um dos grandes problemas de negócios que as companhias aéreas enfrentam é o custo significativo associado a atrasos nos voos devido a problemas mecânicos. Se as falhas mecânicas não puderem ser reparadas, os voos ainda podem ser cancelados. Isso é extremamente dispendioso, já que atrasos podem criar problemas de planejamento e de operações, criam uma má reputação e levam à insatisfação do cliente, além de muitos outros problemas. As companhias aéreas tem interesse especial em prever essas falhas mecânicas com antecedência para que possam reduzir os atrasos ou cancelamentos dos voos. O objetivo da solução de manutenção preditiva para esses casos é prever a probabilidade de atrasos ou cancelamento de voos com base em fontes de dados relevantes, como o histórico de manutenção e as informações de rota de voo. As duas principais fontes de dados para esse caso de uso são os trechos de voo e os logs de página. Os dados sobre trechos de voo incluem dados sobre os detalhes de rota do voo, como a data e a hora de pouso e decolagem, aeroportos de partida e chegada, etc. Os dados de log de página incluem uma série de códigos de erro e de manutenção que são registrados pela equipe de manutenção.
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valor comercial do modelo preditivo*
+##### <a name="business-value-of-the-predictive-model"></a>*Valor comercial do modelo preditivo*
 Usando os dados históricos disponíveis, um modelo preditivo foi criado usando um algoritmo de várias classificações para prever o tipo de problema mecânico que resultará em um atraso ou cancelamento de um voo nas próximas 24 horas. Fazendo essa previsão, as ações de manutenção necessárias podem ser realizadas para reduzir o risco durante os reparos a uma aeronave, evitando possíveis atrasos ou cancelamentos. Usando o serviço Web Aprendizado de Máquina do Azure, os modelos preditivos podem ser integrados perfeita e facilmente às plataformas operacionais existentes das companhias aéreas. 
 
-#### <a name="use-case-2:-aircraft-component-failure"></a>Caso de uso 2: falha de componente de aeronave
-##### <a name="*business-problem-and-data-sources*"></a>*Problema de negócios e fontes de dados*
+#### <a name="use-case-2-aircraft-component-failure"></a>Caso de uso 2: falha de componente de aeronave
+##### <a name="business-problem-and-data-sources"></a>*Problema de negócios e fontes de dados*
 Os motores de aeronave são equipamentos muito sensíveis e caros, e a substituição de peças do motor está entre as tarefas de manutenção mais comuns no setor aéreo. As soluções de manutenção para companhias aéreas exigem o gerenciamento cuidadoso de disponibilidade, entrega e planejamento de estoque dos componentes. A capacidade de reunir inteligência sobre confiabilidade do componente leva a uma significativa redução nos custos de investimento. A fonte de dados principal desse caso de uso é os dados de telemetria coletados de uma quantidade de sensores na aeronave que fornecem informações sobre as condições dela. Registros de manutenção também foram usados para identificar quando ocorreram falhas de componente e substituições.
 
 ##### <a name="business-value-of-the-predictive-model"></a>Valor comercial do modelo preditivo
 Foi criado um modelo de classificação multiclasse que prevê a probabilidade de uma falha devido a um determinado componente no próximo mês. Empregando essas soluções, as companhias aéreas podem reduzir os custos de reparo do componente, aprimorar a disponibilidade de estoque do componente, reduzir os níveis de estoque de ativos relacionados e melhorar o planejamento de manutenção.
 
 ### <a name="utilities"></a>Utilidades
-#### <a name="use-case-1:-atm-cash-dispense-failure"></a>Caso de uso 1: falha do caixa eletrônico
-##### <a name="*business-problem-and-data-sources*"></a>*Problema de negócios e fontes de dados*
+#### <a name="use-case-1-atm-cash-dispense-failure"></a>Caso de uso 1: falha do caixa eletrônico
+##### <a name="business-problem-and-data-sources"></a>*Problema de negócios e fontes de dados*
 Executivos em setores com uso intensivo de ativos geralmente dizem que o principal risco operacional de seus negócios é falha inesperada dos ativos. Por exemplo, falha de máquinas, como caixas eletrônicos no setor bancário, é um problema muito comum que ocorre com frequência. Esses tipos de problemas tornam as soluções de manutenção preditiva muito interessantes para os operadores de tais máquinas. Nesse caso de uso, o problema de previsão é calcular a probabilidade de uma transação de saque no caixa eletrônico ser interrompida devido a uma falha na saída do dinheiro, como papel preso ou falha de alguma peça. As principais fontes de dados para esse caso são leituras de sensor que coletam medidas durante a liberação das notas e também os registros de manutenção coletados ao longo do tempo. Os dados de sensor incluíam as leituras do sensor de cada transação concluída e também as leituras do sensor para cada nota liberada. As leituras de sensor forneceram medidas como a folga entre as notas, a espessura, a distância de chegada da nota, etc. Os dados de manutenção incluíam códigos de erro e informações de reparo. Eles foram usados para identificar casos de falha.
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valor comercial do modelo preditivo*
+##### <a name="business-value-of-the-predictive-model"></a>*Valor comercial do modelo preditivo*
 Dois modelos preditivos foram criados para prever falhas nas transações de saque de dinheiro e nas notas individuais liberadas durante uma transação. Ao ser capaz de prever falhas de transação com antecedência, os caixas eletrônicos podem ser mantidos proativamente para impedir a ocorrência de falhas. Além disso, com a previsão de falha de nota, se uma transação tiver probabilidade de falha antes da conclusão devido a uma falha de geração de nota, pode ser melhor parar o processo e avisar ao cliente que a transação ficou incompleta em vez de aguardar a chegada do serviço de manutenção após a ocorrência do erro, o que pode levar a uma maior insatisfação do cliente.
 
-#### <a name="use-case-2:-wind-turbine-failures"></a>Caso de uso 2: falhas de turbinas eólicas
-##### <a name="*business-problem-and-data-sources*"></a>*Problema de negócios e fontes de dados*
+#### <a name="use-case-2-wind-turbine-failures"></a>Caso de uso 2: falhas de turbinas eólicas
+##### <a name="business-problem-and-data-sources"></a>*Problema de negócios e fontes de dados*
 Com o aumento da consciência ambiental, as turbinas eólicas tornaram-se uma das principais fontes de geração de energia e normalmente custam milhões de dólares. Um dos principais componentes das turbinas eólicas é o motor do gerador, que é equipado com vários sensores que ajudam a monitorar o status e as condições da turbina. As leituras de sensor contêm informações importantes que podem ser usadas para criar um modelo preditivo para prever KPIs (indicadores-chave de desempenho), como tempo médio de falha para os componentes da turbina eólica. Os dados deste caso de uso vêm de várias turbinas eólicas situadas em três fazendas diferentes. Medidas de aproximadamente uma centena de sensores em cada turbina foram registradas por um ano a cada dez segundos. Essas leituras incluem medidas como temperatura, velocidade de gerador, potência da turbina e rotação do gerador.
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valor comercial do modelo preditivo*
+##### <a name="business-value-of-the-predictive-model"></a>*Valor comercial do modelo preditivo*
 Os modelos preditivos foram criados para estimar a vida útil restante para geradores e sensores de temperatura. Ao prever a probabilidade de falha, os técnicos de manutenção podem se concentrar em turbinas com suspeita de falha em breve e complementar os regimes de manutenção baseada em tempo.
 Além disso, os modelos preditivos trazem percepções para o nível de contribuição de diferentes fatores para a probabilidade de uma falha que ajuda empresas a entender melhor a causa dos problemas.
 
-#### <a name="use-case-3:-circuit-breaker-failures"></a>Caso de uso 3: falhas de disjuntor
-##### <a name="*business-problem-and-data-sources*"></a>*Problema de negócios e fontes de dados*
+#### <a name="use-case-3-circuit-breaker-failures"></a>Caso de uso 3: falhas de disjuntor
+##### <a name="business-problem-and-data-sources"></a>*Problema de negócios e fontes de dados*
 As operações de luz e gás que incluem a geração, a distribuição e a venda de energia elétrica exigem uma quantidade significativa de manutenção para garantir que as linhas de energia estejam funcionando o tempo todo para garantir o fornecimento de energia nas residências. A falha dessas operações é essencial, já que quase todas as entidades são afetadas por problemas de energia nas regiões em que ocorrem. Os disjuntores são essenciais para essas operações, já que são uma peça do equipamento que interrompe a corrente elétrica em caso de problemas e curto-circuitos para prevenir danos às linhas de energia. O problema de negócios desse caso de uso é prever falhas no disjuntor com logs de manutenção, histórico de comandos e especificações técnicas.
 
 As três principais fontes de dados para esse caso são logs de manutenção que incluem ações corretivas, preventivas e sistemáticas, dados operacionais que incluem comandos automáticos e manuais enviados a disjuntores, como para ações abertas e fechadas, e dados de especificação técnica sobre as propriedades de cada disjuntor, como ano de fabricação, localização, modelo, etc.
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valor comercial do modelo preditivo*
+##### <a name="business-value-of-the-predictive-model"></a>*Valor comercial do modelo preditivo*
 As soluções de manutenção preditiva ajudam a reduzir os custos de reparo e a aumentar o ciclo de vida de equipamentos como disjuntores. Esses modelos também ajudam a melhorar a qualidade da rede de energia, já que os modelos dão indicações antes do tempo, o que irá reduzir a quantidade de falhas inesperadas e levar a menos interrupções ao serviço.
 
-#### <a name="use-case-4:-elevator-door-failures"></a>Caso de uso 4: falhas de porta de elevador
-##### <a name="*business-problem-and-data-sources*"></a>*Problema de negócios e fontes de dados*
+#### <a name="use-case-4-elevator-door-failures"></a>Caso de uso 4: falhas de porta de elevador
+##### <a name="business-problem-and-data-sources"></a>*Problema de negócios e fontes de dados*
 A maioria das grandes empresas de elevador normalmente têm milhões de elevadores em funcionamento no mundo todo. Para obter uma vantagem competitiva, eles se concentram na confiabilidade, que é o que mais importa para seus clientes. Com a ajuda do potencial da Internet das Coisas, ao conectar seus elevadores à nuvem e coletar dados de sensores e sistemas do elevador, eles podem transformar dados em business intelligence valioso, o que aprimora as operações com a oferta de manutenção preditiva e preemptiva que ainda não é disponibilizada pela concorrência. O requisito de negócios para esse caso é fornecer um aplicativo preditivo da base de conhecimento que irá prever as possíveis causas de falhas de porta. Os dados necessários para essa implementação consistem em três partes, que são recursos estáticos do elevador (por exemplo, identificadores, frequência de manutenção do contrato, tipo de construção, etc.), informações de uso (por exemplo, número de ciclos de porta, tempo médio de fechamento das portas, etc.) e histórico de falha (ou seja, registros do histórico de falha e suas causas).
 
 Um modelo de regressão logística de multiclasse foi criado no Aprendizado de Máquina do Azure para solucionar o problema de previsão, com recursos estáticos integrados e dados de uso como recursos, e as causas dos registros históricos de falha como rótulos de classe. Esse modelo de previsão é consumido por um aplicativo em um dispositivo móvel usado por técnicos de campo para ajudar a melhorar a eficiência do trabalho. Quando um técnico vai ao local reparar um elevador, ele pode consultar esse aplicativo para obter causas recomendadas e melhores ações de manutenção para corrigir as portas do elevador o mais rapidamente possível.
 
 ### <a name="transportation-and-logistics"></a>Transporte e logística
-#### <a name="use-case-1:-brake-disc-failures"></a>Caso de Uso 1: falhas do disco de freio
-##### <a name="*business-problem-and-data-sources*"></a>*Problema de negócios e fontes de dados*
+#### <a name="use-case-1-brake-disc-failures"></a>Caso de Uso 1: falhas do disco de freio
+##### <a name="business-problem-and-data-sources"></a>*Problema de negócios e fontes de dados*
 As políticas de manutenção típicas para veículos incluem manutenção corretiva e preventiva. A manutenção corretiva implica que o veículo é reparado após uma falha que poderia causar uma grave inconveniência para o motorista como resultado de uma falha inesperada e do tempo gasto em uma visita à oficina. A maioria dos veículos também está sujeita a uma política de manutenção preventiva, que requer a execução de determinadas inspeções em uma agenda que não leva em conta a condição real dos subsistemas do carro. Nenhuma dessas abordagens é bem-sucedida na eliminação total dos problemas. O caso de uso específico aqui é a previsão de falha do disco de freio baseada nos dados coletados por meio de sensores instalados no sistema de pneus de um carro que controla os padrões de condução históricos e outras condições às quais o carro está exposto. A fonte de dados mais importante para esse caso são os dados do sensor que medem, por exemplo, as acelerações, padrões de frenagem, distâncias de deslocamento, velocidade etc. Essas informações, juntamente com outras informações estáticas como recursos de carro, ajudam a criar um bom conjunto de previsores que podem ser usados em um modelo preditivo. Outro conjunto de informações essenciais é os dados de falha que são inferidos do banco de dados de pedido da peça (usado para manter as datas e quantidades das peças de reposição durante o cuidado com os carros nas concessionárias).
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valor comercial do modelo preditivo*
+##### <a name="business-value-of-the-predictive-model"></a>*Valor comercial do modelo preditivo*
 O valor comercial de uma abordagem preditiva aqui é significativo. Um sistema de manutenção preditiva pode agendar uma visita ao revendedor com base em um modelo preditivo. O modelo pode se basear nas informações de sensores que estão representando a condição atual do carro e no histórico do carro. Essa abordagem pode minimizar o risco de falhas inesperadas, que também podem ocorrer antes da próxima manutenção periódica.
 Ela também pode reduzir a quantidade de manutenção preventiva desnecessária. O motorista pode ser proativamente informado de que é necessário mudar algumas peças em poucas semanas e repassar a informação ao revendedor. O revendedor poderia preparar um pacote de manutenção individual para o motorista com antecedência.
 
-#### <a name="use-case-2:-subway-train-door-failures"></a>Caso de uso 2: falhas de porta do vagão do metrô
-##### <a name="*business-problem-and-data-sources*"></a>*Problema de negócios e fontes de dados*
+#### <a name="use-case-2-subway-train-door-failures"></a>Caso de uso 2: falhas de porta do vagão do metrô
+##### <a name="business-problem-and-data-sources"></a>*Problema de negócios e fontes de dados*
 Um dos principais motivos de atrasos e problemas nas operações de metrô é a falha nas portas dos vagões. Prever se um vagão pode ter falha nas portas, ou ser capaz de prever a quantidade de dias até a próxima falha nas portas, é uma antecipação importante. Isso dá a oportunidade de otimizar a manutenção das portas dos vagões e de reduzir o tempo de inatividade da composição.
 
 #### <a name="data-sources"></a>Fontes de dados
@@ -144,7 +148,7 @@ São três fontes de dados neste caso de uso
 * **dados de manutenção** , como tipos de manutenção, tipos de ordem de trabalho e códigos de prioridade,  
 * **registros de falhas**.
 
-##### <a name="*business-value-of-the-predictive-model*"></a>*Valor comercial do modelo preditivo*
+##### <a name="business-value-of-the-predictive-model"></a>*Valor comercial do modelo preditivo*
 Dois modelos foram criados para prever a probabilidade de falha no dia seguinte usando classificação binária, e os dias até a falha usando regressão Semelhante aos casos anteriores, os modelos criam uma enorme oportunidade de melhorar a qualidade do serviço e aumentar a satisfação do cliente complementando os regimes de manutenção regular.
 
 ## <a name="data-preparation"></a>Preparação dos dados
@@ -195,7 +199,7 @@ A primeira etapa na modelagem é a engenharia de recursos. A ideia da geração 
 #### <a name="lag-features"></a>Recursos de retardo
 Como mencionado anteriormente, na manutenção preditiva, os dados históricos geralmente são fornecidos com os carimbos de data/hora que indicam a hora da coleta de cada dado. Há várias maneiras de criar recursos usando os dados fornecidos com os dados com carimbo de data/hora. Nesta seção, discutiremos alguns desses métodos usados para manutenção preditiva. No entanto, não estamos limitados somente por esses métodos. Uma vez que a engenharia de recursos é considerada uma das áreas mais criativas de modelagem preditiva, pode haver muitas outras maneiras de se criar recursos. Eis algumas técnicas gerais.
 
-##### <a name="*rolling-aggregates*"></a>*Agregações sem interrupção*
+##### <a name="rolling-aggregates"></a>*Agregações sem interrupção*
 Para cada registro de um ativo, podemos escolher uma janela de tamanho "W” que é o número de unidades de tempo para o qual gostaríamos de calcular agregados históricos. Em seguida, calculamos recursos de agregação sem interrupção usando os períodos W antes da data de registro. Alguns exemplos de agregações sem interrupção podem ser contagem sem interrupção, média, desvios padrão, número de exceções baseado em desvio padrão, medidas CUMSUM, valores mínimo e máximo para a janela. Outra técnica interessante é capturar alterações de tendência, picos e alterações de nível usando algoritmos que detectam anomalias nos dados usando algoritmos de detecção de anomalias.
 
 Para a demonstração, consulte a Figura 1 em que representamos valores de sensor registrados para um ativo para cada unidade de tempo com as linhas azuis e marcamos o cálculo de média do recurso sem interrupção como W = 3 para os registros em t<sub>1</sub> e t<sub>2</sub>, que são indicados por agrupamentos laranja e verde, respectivamente.
@@ -210,7 +214,7 @@ Para previsão de atraso de voo, as contagens de erro da última semana os códi
 
 Além disso, ao selecionar um W que é muito grande (por exemplo, anos), será possível examinar todo o histórico de um ativo, como a contagem de todos os registros de manutenção, falhas, etc. até o momento do registro. Esse método foi usado para a contagem de falhas do disjuntor nos últimos três anos. Também para falhas da composição, todos os eventos de manutenção foram contados criar um recurso a fim de capturar os efeitos de manutenção de longo prazo.
 
-##### <a name="*tumbling-aggregates*"></a>*Agregações em cascata*
+##### <a name="tumbling-aggregates"></a>*Agregações em cascata*
 Para cada registro rotulado de um ativo, podemos escolher uma janela do tamanho "W-<sub>k</sub>", sendo que k é o número ou as janelas do tamanho "W" para os quais desejamos criar recursos de retardo. "k" pode ser selecionado como um número grande para capturar os padrões de degradação de longo prazo ou um número pequeno para capturar efeitos de curto prazo. Em seguida, usamos as janelas em cascata W -<sub>k</sub> , W -<sub>(k-1)</sub>, ..., W -<sub>2</sub> , W -<sub>1</sub> para criar recursos de agregação para os períodos antes da data e da hora do registro (veja a Figura 2). Também são janelas sem interrupção no nível de registro para uma unidade de tempo que não é capturada na Figura 2, mas a ideia é a mesma da Figura 1, em que t<sub>2</sub> também é usado para demonstrar o efeito sem interrupção.
 
 ![Figura 2. Recursos de agregação em cascata](media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
@@ -292,7 +296,7 @@ O modelo atribui uma probabilidade de falha devido a cada P<sub>i</sub> e també
 
 Para recomendar ações de manutenção após falhas, o rotulamento não exige a seleção de um horizonte específico. Isso ocorre porque o modelo não está prevendo falha no futuro, somente prevendo a causa mais provável depois que a falha ocorrer. As falhas de porta do elevador se encaixam na terceira hipótese, em que o objetivo é prever a causa da falha levando em conta dados históricos sobre as condições operacionais. Em seguida, esse modelo será usado para prever as causas mais prováveis após uma falha. Um benefício importante desse modelo é que ele ajuda os técnicos sem experiência a diagnosticar e a corrigir facilmente problemas que exigiriam anos de experiência.
 
-## <a name="training,-validation-and-testing-methods-in-predictive-maintenance"></a>Métodos de treinamento, validação e teste na manutenção preditiva
+## <a name="training-validation-and-testing-methods-in-predictive-maintenance"></a>Métodos de treinamento, validação e teste na manutenção preditiva
 Na manutenção preditiva, semelhante a qualquer outra solução que contém dados de data/hora, a rotina comum de treinamento e teste precisa considerar os aspectos de variação de tempo para generalizar melhor sobre dados futuros não vistos.
 
 ### <a name="cross-validation"></a>Validação cruzada
@@ -365,6 +369,9 @@ Figura 8. Arquitetura de solução de exemplo para manutenção preditiva
 
 Para saber mais sobre cada um dos componentes da arquitetura, consulte a documentação do [Azure](https://azure.microsoft.com/) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

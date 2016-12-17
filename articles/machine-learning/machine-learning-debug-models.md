@@ -1,12 +1,12 @@
 ---
-title: Depurar seu modelo no aprendizado de máquina do Azure | Microsoft Docs
-description: Explica como depurar seu modelo no aprendizado de máquina do Azure.
+title: Depurar seu modelo no Machine Learning do Azure | Microsoft Docs
+description: "Explica como depurar seu modelo no aprendizado de máquina do Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: bradsev;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4f2b0dc14f887d9b3a9bffaa579a56954ba32204
+
 
 ---
-# Depurar seu modelo no aprendizado de máquina do Azure
+# <a name="debug-your-model-in-azure-machine-learning"></a>Depurar seu modelo no aprendizado de máquina do Azure
 Este artigo explica como depurar seus modelos no Aprendizado de Máquina do Microsoft Azure. Especificamente, ele aborda os motivos possíveis do porquê que qualquer um dos dois cenários de falha a seguir pode ser encontrado durante a execução de um modelo:
 
-* o módulo [Modelo de Treinamento][train-model] gera um erro
-* o módulo [Modelo de Pontuação][score-model] produz resultados incorretos
+* o módulo [Modelo de Treinamento] [train-model] gera um erro 
+* o módulo [Modelo de Pontuação][score-model] produz resultados incorretos 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## O módulo Modelo de Treinamento gera um erro
+## <a name="train-model-module-throws-an-error"></a>O módulo Modelo de Treinamento gera um erro
 ![image1](./media/machine-learning-debug-models/train_model-1.png)
 
 O módulo [Modelo de Treinamento][train-model] espera as 2 entradas a seguir:
@@ -38,7 +42,7 @@ Este módulo gera um erro nos seguintes casos:
 2. O conjunto de dados não contém nenhuma coluna de Recurso. Por exemplo, se o conjunto de dados de entrada tem apenas uma coluna, que é marcada como a coluna Rótulo, não haveria nenhum recurso com o qual compilar o modelo. Nesse caso, o módulo [Modelo de Treinamento][train-model] gerará um erro.
 3. O conjunto de dados de entrada (Recursos ou Rótulo) contém Infinito como um valor.
 
-## Módulo Modelo de Pontuação não produz resultados corretos
+## <a name="score-model-module-does-not-produce-correct-results"></a>Módulo Modelo de Pontuação não produz resultados corretos
 ![image2](./media/machine-learning-debug-models/train_test-2.png)
 
 Em um gráfico típico do treinamento/teste de aprendizado supervisionado, o módulo [Dividir dados][split] divide o conjunto de dados original em duas partes: aquela usada para treinar o modelo e aquela reservada para pontuar o desempenho do modelo treinado em dados para os quais ele não foi treinado. O modelo treinado, em seguida, é usado para pontuar os dados de teste e, depois, os resultados são avaliados para determinar a precisão do modelo.
@@ -50,7 +54,7 @@ O módulo [Modelo de Pontuação][score-model] requer duas entradas:
 
 Isso pode ocorrer mesmo que o teste tenha sido bem-sucedido, o módulo [Modelo de Pontuação][score-model] produz resultados incorretos. Vários cenários podem causar isso:
 
-1. Se o rótulo especificado for categórico e um modelo de regressão for treinado nos dados, uma saída incorreta poderá ser produzida pelo módulo [Modelo de Pontuação][score-model]. Isso ocorre porque a regressão requer uma variável de resposta contínua. Nesse caso, deve ser mais adequado usar um modelo de classificação.
+1. Se o rótulo especificado for categórico e um modelo de regressão for treinado nos dados, uma saída incorreta poderá ser produzida pelo módulo [Modelo de Pontuação][score-model]. Isso ocorre porque a regressão requer uma variável de resposta contínua. Nesse caso, deve ser mais adequado usar um modelo de classificação. 
 2. Da mesma forma, se um modelo de classificação for treinado em um conjunto de dados com números de ponto flutuante na coluna Rótulo, ele pode produzir resultados indesejáveis. Isso ocorre porque a classificação exige uma variável de resposta discreta que permite somente valores que variam em um conjunto finito e normalmente um pouco pequeno de classes.
 3. Se o conjunto de dados de pontuação não contiver todos os recursos usados para treinar o modelo, o [Modelo de Pontuação][score-model] produzirá um erro.
 4. O [Modelo de Pontuação][score-model] não produzirá nenhuma saída correspondente a uma linha no conjunto de dados de pontuação que contenha um valor ausente ou um valor infinito para qualquer um dos seus recursos.
@@ -62,4 +66,8 @@ Isso pode ocorrer mesmo que o teste tenha sido bem-sucedido, o módulo [Modelo d
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

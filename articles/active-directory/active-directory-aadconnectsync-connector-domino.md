@@ -2,18 +2,22 @@
 title: Conector Lotus Domino | Microsoft Docs
 description: Este artigo descreve como configurar o conector Lotus Domino da Microsoft.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e07fd469-d862-470f-a3c6-3ed2a8d745bf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 11/01/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f7b22fdacfebe98bde5dd74028561e18393ab7e3
+
 
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Referência técnica do conector Lotus Domino
@@ -32,7 +36,7 @@ Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na v
 
 | Recurso | Suporte |
 | --- | --- |
-| Fonte de dados conectada |Servidor:  <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Notes 9.x</li> |
+| Fonte de dados conectada |Servidor:  <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Cliente:<li>Lotus Domino 8.5.x</li><li>Lotus Notes 9.x</li> |
 | Cenários |<li>Gerenciamento de ciclo de vida do objeto</li><li>Gerenciamento de grupos</li><li>Gerenciamento de senha</li> |
 | Operações |<li>Importação completa e Delta</li><li>Exportação</li><li>Definir e alterar a senha em senha HTTP</li> |
 | Esquema |<li>Pessoa (Roaming do usuário, Contato (pessoas sem certificado))</li><li>Agrupar</li><li>Recurso (Recurso, Reunião online, Sala)</li><li>Banco de dados Entrada de Email</li><li>Descoberta dinâmica de atributos para objetos com suporte</li> |
@@ -143,7 +147,7 @@ O parâmetro **Fuso Horário do Servidor Domino** define o local do seu servidor
 
 Essa opção de configuração é necessária para oferecer suporte às operações **importação delta** , pois ela permite que o serviço de sincronização determine as alterações entre as duas últimas importações.
 
-#### <a name="import-settings,-method"></a>Configurações de importação, método
+#### <a name="import-settings-method"></a>Configurações de importação, método
 O recurso **Executar Importação Completa por** possui as seguintes opções:
 
 * Pesquisar
@@ -172,7 +176,7 @@ Com a união dos atributos corretos, os objetos \_Contact podem ser unidos ao ob
 
 Esses objetos têm VC=\_Contact adicionado à respectiva DN.
 
-#### <a name="import-settings,-conflict-object"></a>Configurações de importação, objeto de conflito
+#### <a name="import-settings-conflict-object"></a>Configurações de importação, objeto de conflito
 **Excluir Objeto de Conflito**
 
 Em uma ampla implementação do Domino, é possível que vários objetos tenham a mesma DN devido a problemas de replicação. Nesses casos, o conector verá dois objetos com UniversalIDs diferentes, mas mesma DN. Esse conflito faria com que um objeto transitório fosse criado no espaço do conector. O conector pode ignorar os objetos que foram selecionados no Domino como vítimas da replicação. A recomendação é manter essa caixa de seleção marcada.
@@ -486,6 +490,9 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parece um 
 ## <a name="troubleshooting"></a>Solucionar problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

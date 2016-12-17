@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Trello | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Trello.
+title: "Tutorial: integração do Azure Active Directory ao Trello | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Trello."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cd5ae365-9ed6-43a6-920b-f7814b993949
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5af430daa609f1838c640949f535f1d84cbe5f13
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-trello"></a>Tutorial: integração do Azure Active Directory ao Trello
+# <a name="tutorial-azure-active-directory-integration-with-trello"></a>Tutorial: integração do Azure Active Directory ao Trello
 Neste tutorial, você aprenderá a integrar o Trello ao Azure AD (Azure Active Directory).
 
 A integração do Trello ao Azure AD oferece os seguintes benefícios:
@@ -100,11 +104,11 @@ O aplicativo Trello espera que as asserções SAML contenham atributos específi
     ![Configurar Logon Único][5]
 2. Na caixa de diálogo **Atributos de token SAML** , para cada linha mostrada na tabela a seguir, execute as seguintes etapas:
 
-      | Nome do atributo | Valor do atributo |
-      | --- | --- |    
-      | User.Email | user.mail |
-      | User.FirstName | user.givenname |
-      | User.LastName | user.surname |
+    | Nome do atributo | Valor do atributo |
+    | --- | --- |    
+    | User.Email | user.mail |
+    | User.FirstName | user.givenname |
+    | User.LastName | user.surname |
 
     a. Clique em **adicionar atributo de usuário** para abrir a caixa de diálogo **Adicionar Atributo de Usuário**.
 
@@ -262,6 +266,6 @@ Ao clicar no bloco do Trello no Painel de Acesso, você deverá ser conectado au
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

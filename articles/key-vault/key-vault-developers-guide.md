@@ -1,12 +1,12 @@
 ---
-title: Guia do desenvolvedor do Cofre da Chave | Microsoft Docs
+title: Guia do desenvolvedor do Cofre de Chaves | Microsoft Docs
 description: 'Os desenvolvedores podem usar o Cofre da Chave do Azure para gerenciar chaves de criptografia no ambiente do Microsoft Azure. '
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: BrucePerlerMS
 manager: mbaldwin
 editor: bruceper
-
+ms.assetid: b2b1bd28-e149-4d69-b08b-97f6c50ebe30
 ms.service: key-vault
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2016
 ms.author: bruceper
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3b4664cdfebad63307c0e964527fc5ecf6500348
+
 
 ---
-# <a name="azure-key-vault-developer's-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
+# <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 Usando o Cofre da Chave, você poderá acessar informações confidenciais em seus aplicativos com segurança, de modo que:
 
 * As chaves e os segredos serão protegidos, sem que você precise escrever o código e será possível utilizá-los facilmente de seus aplicativos.
@@ -102,6 +106,9 @@ Estes artigos abordam outros cenários e serviços que usam ou se integram ao Co
 * [Blog do Cofre de Chaves](http://aka.ms/kvblog)
 * [Fórum do Cofre de Chaves](http://aka.ms/kvforum)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
