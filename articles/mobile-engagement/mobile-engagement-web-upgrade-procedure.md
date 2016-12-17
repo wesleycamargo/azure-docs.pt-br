@@ -1,12 +1,12 @@
 ---
-title: Procedimentos de atualização do SDK para Web do Azure Mobile Engagement | Microsoft Docs
-description: As atualizações e procedimentos mais recentes do SDK para Web do Azure Mobile Engagement
+title: "Procedimentos de atualização do SDK para Web do Azure Mobile Engagement | Microsoft Docs"
+description: "As atualizações e procedimentos mais recentes do SDK para Web do Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a20529b4-ec8d-4503-8ae9-09b5f0846d5b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: web
@@ -14,16 +14,20 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: afa8037dcb7a53042fa606e2c4014b442d4be326
+
 
 ---
-# Procedimentos de atualização do SDK para Web do Azure Mobile Engagement
+# <a name="azure-mobile-engagement-web-sdk-upgrade-procedures"></a>Procedimentos de atualização do SDK para Web do Azure Mobile Engagement
 Se você já tiver integrado uma versão anterior do SDK para Web do Azure Mobile Engagement em seu aplicativo Web, precisará considerar os seguintes pontos ao atualizar o SDK.
 
 Se você tiver ignorado várias versões do SDK para Web do Mobile Engagement, talvez seja necessário concluir vários procedimentos durante o processo de atualização. Por exemplo, se você migrar da 1.4.0 para a 1.6.0, primeiro siga os procedimentos para atualizar da 1.4.0 para a 1.5.0. Em seguida, siga os procedimentos para atualizar da 1.5.0 para a 1.6.0.
 
 Seja qual for a versão da qual você está realizando a atualização, substitua qualquer versão anterior do arquivo azure-engagement.js pela versão mais recente dele.
 
-## Atualizar da 1.2.1 para a 2.0.0
+## <a name="upgrade-from-121-to-200"></a>Atualizar da 1.2.1 para a 2.0.0
 Esta seção descreve como migrar uma integração do SDK para Web do Mobile Engagement do serviço Capptain, oferecido pelo Capptain SAS, para um aplicativo do Azure Mobile Engagement. Se você estiver migrando de uma versão anterior, consulte o site do Capptain para migrar primeiro para 1.2.1 e depois aplicar os procedimentos a seguir.
 
 Essa versão do SDK para Web do Mobile Engagement não dá suporte para Samsung Smart TV, Opera TV, webOS ou com o recurso Reach.
@@ -33,10 +37,10 @@ Essa versão do SDK para Web do Mobile Engagement não dá suporte para Samsung 
 > 
 > 
 
-### Arquivos JavaScript
+### <a name="javascript-files"></a>Arquivos JavaScript
 Substitua o arquivo capptain-sdk.js pelo arquivo azure-engagement.js e atualize suas importações de script adequadamente.
 
-### Remover o Capptain Reach
+### <a name="remove-capptain-reach"></a>Remover o Capptain Reach
 Essa versão do SDK para Web do Mobile Engagement não dá suporte ao recurso Reach. Se você tiver integrado o Capptain Reach ao aplicativo, será necessário removê-lo.
 
 Remova a importação de CSS do Reach da sua página e exclua o arquivo .css relacionado (capptain-reach.css, por padrão).
@@ -84,14 +88,14 @@ Remova o objeto `reach` da sua configuração, se ele existir. Ele tem esta apar
 
 Remova qualquer outra personalização do Reach, como categorias.
 
-### Remover APIs substituídas
+### <a name="remove-deprecated-apis"></a>Remover APIs substituídas
 Algumas das APIs do Capptain foram preteridas na versão do SDK para Web do Mobile Engagement.
 
 Remova todas as chamadas para as seguintes APIs: `agent.connect`, `agent.disconnect`, `agent.pause` e `agent.sendMessageToDevice`.
 
-Remova todas as instâncias dos seguintes retornos de chamada da sua configuração do Capptain: `onConnected`, `onDisconnected`, `onDeviceMessageReceived` e `onPushMessageReceived`.
+Remova as instâncias dos seguintes retornos de chamada da sua configuração do Capptain: `onConnected`, `onDisconnected`, `onDeviceMessageReceived` e `onPushMessageReceived`.
 
-### Configuração
+### <a name="configuration"></a>Configuração
 O Mobile Engagement usa uma cadeia de conexão para configurar os identificadores do SDK, por exemplo, o identificador do aplicativo.
 
 Substitua a ID do aplicativo pela cadeia de conexão. Observe que o objeto global para a configuração do SDK muda de `capptain` para `azureEngagement`.
@@ -112,9 +116,14 @@ Após a migração:
 
 A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
 
-### APIs do JavaScript
+### <a name="javascript-apis"></a>APIs do JavaScript
 O objeto `window.capptain` global do JavaScript foi renomeado para `window.azureEngagement`, mas você pode usar o alias `window.engagement` para chamadas à API. Você não pode usar o alias para definir a configuração do SDK.
 
 Por exemplo: `capptain.deviceId` se torna `engagement.deviceId`, `capptain.agent.startActivity` se torna `engagement.agent.startActivity` e assim por diante.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

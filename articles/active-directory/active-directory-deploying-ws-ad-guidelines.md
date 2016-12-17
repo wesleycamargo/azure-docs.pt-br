@@ -1,12 +1,12 @@
 ---
-title: Diretrizes para implantação do Active Directory do Windows Server em Máquinas Virtuais do Azure | Microsoft Docs
-description: Se você sabe como implantar serviços de domínio do AD e serviços de federação do AD no local, saiba como eles funcionam em máquinas virtuais do Azure.
+title: "Diretrizes para implantação do Active Directory do Windows Server em Máquinas Virtuais do Azure | Microsoft Docs"
+description: "Se você sabe como implantar serviços de domínio do AD e serviços de federação do AD no local, saiba como eles funcionam em máquinas virtuais do Azure."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: stevenpo
-editor: ''
-
+editor: 
+ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 497d8b17fe29328008fd2d13cf61432a913aa898
+
 
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Diretrizes para implantar o Active Directory do Windows Server em máquinas virtuais do Azure
@@ -57,7 +61,7 @@ Recomendamos que você examine primeiro os tutoriais, guias e vídeos que abrang
 ## <a name="introduction"></a>Introdução
 Os requisitos fundamentais para a implantação do Active Directory do Windows Server em máquinas virtuais do Azure diferem muito pouco de implantá-lo em máquinas virtuais locais (e, até certo ponto, máquinas físicas). Por exemplo, no caso do AD DS do Windows Server, se os controladores de domínio que você implantar em máquinas virtuais do Azure forem réplicas em um domínio corporativo/floresta local, a implantação do Azure poderá ser tratada em grande parte da mesma maneira que qualquer outro site adicional do Active Directory do Windows Server. Isto é, as sub-redes devem ser definidas no AD DS do Windows Server, um site deve ser criado, as sub-redes devem ser vinculadas a esse site e conectadas a outros sites usando links de site apropriados. No entanto, existem algumas diferenças que são comuns a todas as implantações do Azure e algumas que variam de acordo com o cenário de implantação específico. Duas diferenças fundamentais são demonstradas abaixo:
 
-### <a name="azure-virtual-machines-may-need-connectivity-to-the-on-premises-corporate-network."></a>As máquinas virtuais do Azure podem precisar de conectividade com a rede corporativa local.
+### <a name="azure-virtual-machines-may-need-connectivity-to-the-on-premises-corporate-network"></a>As máquinas virtuais do Azure podem precisar de conectividade com a rede corporativa local.
 A conexão de máquinas virtuais do Azure a uma rede corporativa local requer a rede virtual do Azure, que inclui um componente VPN (rede virtual privada) site a site ou ponto a site capaz de conectar perfeitamente às máquinas virtuais do Azure e às máquinas locais. Esse componente VPN também pode permitir que computadores de membro de domínio local acessem um domínio do Active Directory do Windows Server cujos controladores de domínio estejam hospedados exclusivamente em máquinas virtuais do Azure. É importante observar, porém, que se a VPN falhar, a autenticação e outras operações que dependem do Active Directory do Windows Server também falharão. Embora os usuários possam conseguir entrar usando credenciais existentes armazenadas em cache, todas as tentativas de autenticação ponto a ponto ou cliente-servidor, para as quais tíquetes ainda precisam ser emitidos ou se tornaram obsoletos, falharão.
 
 Confira [Rede Virtual](http://azure.microsoft.com/documentation/services/virtual-network/) para ver uma demonstração em vídeo e uma lista de tutoriais passo a passo, incluindo [Configurar uma VPN Site a Site no portal do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
@@ -67,10 +71,10 @@ Confira [Rede Virtual](http://azure.microsoft.com/documentation/services/virtual
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell."></a>Os endereços IP estáticos devem ser configurados com o Azure PowerShell.
+### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>Os endereços IP estáticos devem ser configurados com o Azure PowerShell.
 Os endereços dinâmicos são alocados por padrão, mas usam o cmdlet Set-AzureStaticVNetIP para atribuir um endereço IP estático em vez disso. Que define um endereço IP que será mantido por meio da recuperação de serviço e desligamento/reinício da VM. Para saber mais, confira [Endereço IP interno estático para máquinas virtuais](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
 
-## <a name="<a-name="bkmk_glossary"></a>terms-and-definitions"></a><a name="BKMK_Glossary"></a>Termos e definições
+## <a name="a-namebkmkglossaryaterms-and-definitions"></a><a name="BKMK_Glossary"></a>Termos e definições
 A seguir temos uma lista parcial dos termos de várias tecnologias do Azure que serão referenciados neste artigo.
 
 * **Máquinas virtuais do azure**: a oferta IaaS no Azure que permite que os clientes implantem VMs que executam praticamente qualquer carga de trabalho tradicionalmente no servidor local.
@@ -86,7 +90,7 @@ A seguir temos uma lista parcial dos termos de várias tecnologias do Azure que 
   
   Nenhum desses comportamentos afetam o Active Directory do Windows Server porque ele não tem dependências em endereço MAC ou ID de processador/CPU. Além disso, todas as implantações do Active Directory do Windows Server no Azure são recomendadas para execução em uma rede virtual do Azure, conforme descrito acima.
 
-## <a name="is-it-safe-to-virtualize-windows-server-active-directory-domain-controllers?"></a>É seguro virtualizar os controladores de domínio do Active Directory do Windows Server?
+## <a name="is-it-safe-to-virtualize-windows-server-active-directory-domain-controllers"></a>É seguro virtualizar os controladores de domínio do Active Directory do Windows Server?
 A implantação de controladores de domínio do Active Directory do Windows Server em máquinas virtuais do Azure está sujeito às mesmas diretrizes da execução de controladores de domínio locais em uma máquina virtual. Executar controladores de domínio virtualizados é uma prática de segurança desde que sejam seguidas as diretrizes para fazer backup e restaurar controladores de domínio. Para saber mais sobre restrições e diretrizes para a execução de controladores de domínio virtualizados, confira [Executando Controladores de Domínio no Hyper-V](https://technet.microsoft.com/library/dd363553).
 
 Os hipervisores fornecem ou banalizam tecnologias que podem causar problemas para muitos sistemas distribuídos, incluindo o Active Directory do Windows Server. Por exemplo, em um servidor físico, você pode clonar um disco ou usar métodos sem suporte para reverter o estado de um servidor, inclusive usar SANs e outros, mas fazer isso em um servidor físico é muito mais difícil do que restaurar um instantâneo de máquina virtual em um hipervisor. O Azure oferece funcionalidades que podem resultar na mesma condição indesejável. Por exemplo, você não deve copiar arquivos VHD de controladores de domínio em vez de executar backups regulares porque restaurá-los pode resultar em uma situação semelhante ao uso dos recursos de restauração de instantâneo.
@@ -107,7 +111,7 @@ A partir do Windows Server 2012, [mais proteções adicionais são incorporadas 
 > 
 > 
 
-## <a name="why-deploy-windows-server-ad-ds-on-azure-virtual-machines?"></a>Por que implantar o AD DS do Windows Server em Máquinas Virtuais do Azure?
+## <a name="why-deploy-windows-server-ad-ds-on-azure-virtual-machines"></a>Por que implantar o AD DS do Windows Server em Máquinas Virtuais do Azure?
 Muitos cenários de implantação do AD DS do Windows Server são apropriados para implantação como máquinas virtuais no Azure. Por exemplo, suponha que você tenha uma empresa na Europa que precisa autenticar usuários em um local remoto na Ásia. A empresa não implantou controladores de domínio do Active Directory do Windows Server anteriormente na Ásia devido a custos para implantá-los e conhecimento limitado para gerenciar a pós-implantação de servidores. Como resultado, as solicitações de autenticação da Ásia são atendidas pelos controladores de domínio na Europa com resultados de qualidade inferiores. Nesse caso, é possível implantar um controlador de domínio em uma máquina virtual que você especificou que deve ser executada no datacenter do Azure na Ásia. A anexação do controlador de domínio a uma rede virtual do Azure que está conectada diretamente ao local remoto melhorará o desempenho da autenticação.
 
 O Azure também é adequado como um substituto para sites de DR (recuperação de desastres) dispendiosos. O custo relativamente baixo de hospedar um pequeno número de controladores de domínio e uma única rede virtual no Azure representa uma alternativa atraente.
@@ -132,7 +136,7 @@ Finalmente, talvez seja bom implantar um aplicativo de rede no Azure, como o Sha
 * Independentemente de criar uma rede virtual ou não, o Azure cobra pelo tráfego de saída, mas não pelo de entrada. Várias opções de design do Active Directory do Windows Server podem afetar a quantidade de tráfego de saída gerada por uma implantação. Por exemplo, a implantação de um RODC (controlador de domínio somente leitura) limita o tráfego de saída porque ele não replica a saída. Mas a decisão de implantar um RODC precisa ser avaliada em relação à necessidade de executar operações de gravação no controlador de domínio e a [compatibilidade](https://technet.microsoft.com/library/cc755190) dos aplicativos e serviços no site com RODCs. Para saber mais sobre encargos de tráfego, confira [Visão geral de preços do Azure](http://azure.microsoft.com/pricing/).
 * Embora você tenha controle total sobre qual servidor de recursos usar para VMs locais, por exemplo, RAM, tamanho do disco e afins, no Azure, deverá escolher em uma lista de tamanhos de servidor predefinidos. Para um controlador de domínio, um disco de dados é necessário além do disco do sistema operacional para armazenar o banco de dados do Active Directory do Windows Server.
 
-## <a name="can-you-deploy-windows-server-ad-fs-on-azure-virtual-machines?"></a>É possível implantar o AD FS do Windows Server em máquinas virtuais do Azure?
+## <a name="can-you-deploy-windows-server-ad-fs-on-azure-virtual-machines"></a>É possível implantar o AD FS do Windows Server em máquinas virtuais do Azure?
 Sim, você pode implantar o AD FS do Windows Server em máquinas virtuais do Azure e as [práticas recomendadas para implantação do AD FS](https://technet.microsoft.com/library/dn151324.aspx) local aplicam-se igualmente à implantação do AD FS no Azure. Mas algumas das práticas recomendadas, como o balanceamento de carga e a alta disponibilidade, exigem tecnologias além das que o AD FS oferece. Elas devem ser fornecidas pela infraestrutura subjacente. Vamos examinar algumas dessas práticas recomendadas e ver como elas podem ser alcançadas usando VMs do Azure e uma rede virtual do Azure.
 
 1. **Nunca exponha servidores STSs (serviço de token de segurança) diretamente na Internet.**
@@ -250,7 +254,7 @@ A seção a seguir descreve os cenários comuns de implantação para chamar a a
    
     Por exemplo, um aplicativo com reconhecimento de LDAP que dá suporte à autenticação integrada do Windows e usa o AD DS do Windows Server como um repositório de dados de configuração e perfil do usuário é implantado em uma máquina virtual do Azure. É desejável que o aplicativo aproveite o AD DS do Windows Server corporativo existente e forneça logon único. O aplicativo não reconhece declarações.
 
-### <a name="<a-name="bkmk_cloudonly"></a>1.-ad-ds:-deploy-an-ad-ds-aware-application-with-no-requirement-for-corporate-network-connectivity"></a><a name="BKMK_CloudOnly"></a>1. AD DS: implantar um aplicativo com reconhecimento de AD DS sem precisar conectar-se à rede corporativa
+### <a name="a-namebkmkcloudonlya1-ad-ds-deploy-an-ad-ds-aware-application-with-no-requirement-for-corporate-network-connectivity"></a><a name="BKMK_CloudOnly"></a>1. AD DS: implantar um aplicativo com reconhecimento de AD DS sem precisar conectar-se à rede corporativa
 ![Implantação do AD DS somente na nuvem](media/active-directory-deploying-ws-ad-guidelines/ADDS_cloud.png)
 **Figura 1**
 
@@ -270,7 +274,7 @@ O SharePoint é implantado em uma máquina virtual do Azure e o aplicativo não 
 * [Colocação do banco de dados do AD DS do Windows Server e SYSVOL](#BKMK_PlaceDB): adicionar um disco de dados a controladores de domínio em execução como VMs do Azure para armazenar o banco de dados, logs e SYSVOL do Active Directory do Windows Server.
 * [Backup e restauração](#BKMK_BUR): determine onde você deseja armazenar os backups de estado do sistema. Se necessário, adicione outro disco de dados à VM do controlador de domínio para armazenar backups.
 
-### <a name="<a-name="bkmk_cloudonlyfed"></a>2-ad-fs:-extend-a-claims-aware-on-premises-front-end-application-to-the-internet"></a><a name="BKMK_CloudOnlyFed"></a>2 AD FS: estender um aplicativo front-end de reconhecimento de local para a Internet
+### <a name="a-namebkmkcloudonlyfeda2-ad-fs-extend-a-claims-aware-on-premises-front-end-application-to-the-internet"></a><a name="BKMK_CloudOnlyFed"></a>2 AD FS: estender um aplicativo front-end de reconhecimento de local para a Internet
 ![Federação com conectividade entre locais](media/active-directory-deploying-ws-ad-guidelines/Federation_xprem.png)
 **Figura 2**
 
@@ -294,7 +298,7 @@ Na tentativa de simplificar e atender às necessidades de implantação e config
 
 Para saber mais, confira o [Guia de implantação do AD DS](https://technet.microsoft.com/library/cc753963).
 
-### <a name="<a-name="bkmk_hybridext"></a>3.-ad-ds:-deploy-a-windows-server-ad-ds-aware-application-that-requires-connectivity-to-the-corporate-network"></a><a name="BKMK_HybridExt"></a>3. AD DS: implantar um aplicativo com reconhecimento do AD DS do Windows Server que exige conectividade com a rede corporativa
+### <a name="a-namebkmkhybridexta3-ad-ds-deploy-a-windows-server-ad-ds-aware-application-that-requires-connectivity-to-the-corporate-network"></a><a name="BKMK_HybridExt"></a>3. AD DS: implantar um aplicativo com reconhecimento do AD DS do Windows Server que exige conectividade com a rede corporativa
 ![Implantação do AD DS entre instalações](media/active-directory-deploying-ws-ad-guidelines/ADDS_xprem.png)
 **Figura 3**
 
@@ -340,12 +344,12 @@ Por exemplo, se você implantar uma controlador de domínio de réplica em uma r
 | [Requisitos do servidor de federação para endereçamento IP público e privado (IP dinâmico versus IP virtual)](#BKMK_FedReqVIPDIP) |<li>A instância do AD FS do Windows Server precisa ser acessada diretamente pela Internet?</li> <li>O aplicativo que está sendo implantado na nuvem requer seu próprio endereço IP para a Internet e a porta?</li> |Criar um serviço de nuvem para cada endereço IP virtual que é exigido pela sua implantação |
 | [Configuração de alta disponibilidade do AD FS do Windows Server](#BKMK_ADFSHighAvail) |<li>Quantos nós em meu farm de servidores do AD FS do Windows Server?</li> <li>Quantos nós implantar em meu farm de proxy do AD FS do Windows Server?</li> |Resiliência e tolerância a falhas |
 
-### <a name="<a-name="bkmk_networktopology"></a>network-topology"></a><a name="BKMK_NetworkTopology"></a>Topologia de rede
+### <a name="a-namebkmknetworktopologyanetwork-topology"></a><a name="BKMK_NetworkTopology"></a>Topologia de rede
 Para atender aos requisitos de consistência de endereço IP e de DNS do AD DS do Windows Server, primeiro é necessário criar uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) e conectar as máquinas virtuais a ela. Durante a criação, você deve decidir se deseja opcionalmente estender a conectividade à rede corporativa local, que conecta de maneira transparente máquinas virtuais do Azure a computadores locais. Isso é obtido usando tecnologias de VPN tradicionais e exige que um ponto de extremidade VPN seja exposto na borda da rede corporativa. Ou seja, a VPN é iniciada do Azure para a rede corporativa, e não o contrário.
 
 Observe que encargos adicionais se aplicam ao estender uma rede virtual à sua rede local, além dos encargos padrão que se aplicam a cada máquina virtual. Especificamente, há encargos para o tempo de CPU do gateway de Rede Virtual do Azure e para o tráfego de saída gerado por cada VM que se comunica com computadores locais pela VPN. Para saber mais sobre encargos de tráfego de rede, confira [Visão geral de preços do Azure](http://azure.microsoft.com/pricing/).
 
-### <a name="<a-name="bkmk_deploymentconfig"></a>dc-deployment-configuration"></a><a name="BKMK_DeploymentConfig"></a>Configuração de implantação do controlador de domínio
+### <a name="a-namebkmkdeploymentconfigadc-deployment-configuration"></a><a name="BKMK_DeploymentConfig"></a>Configuração de implantação do controlador de domínio
 A maneira como você configura o controlador de domínio depende dos requisitos do serviço que deseja executar no Azure. Por exemplo, você pode implantar uma nova floresta, isolada de sua própria floresta corporativa, para testar uma prova de conceito, um novo aplicativo ou outro projeto de curto prazo que requer serviços de diretório, mas não o acesso específico aos recursos corporativos internos.
 
 Como benefício, um controlador de domínio de floresta isolado não replica com controladores de domínios locais, resultando em menor tráfego de rede de saída gerado pelo sistema em si e reduzindo custos diretamente. Para saber mais sobre encargos de tráfego de rede, confira [Visão geral de preços do Azure](http://azure.microsoft.com/pricing/).
@@ -356,7 +360,7 @@ Se você criar uma nova floresta, escolha se deseja usar [relações de confian�
 
 Os requisitos de disponibilidade e tolerância a falhas também afetam sua escolha. Por exemplo, se o link for interrompido, aplicativos que usam uma relação de confiança de Kerberos ou de federação serão todos totalmente descontinuados, a menos que você tenha implantado infraestrutura suficiente no Azure. Configurações de implantação alternativas, como controladores de domínio de réplica (graváveis ou RODCs) aumentam a capacidade de tolerância a interrupções de link.
 
-### <a name="<a-name="bkmk_adsitetopology"></a>windows-server-active-directory-site-topology"></a><a name="BKMK_ADSiteTopology"></a>Topologia do site do Active Directory do Windows Server
+### <a name="a-namebkmkadsitetopologyawindows-server-active-directory-site-topology"></a><a name="BKMK_ADSiteTopology"></a>Topologia do site do Active Directory do Windows Server
 Você precisa definir corretamente os sites e links de sites para otimizar o tráfego e minimizar os custos. Sites, links de sites e sub-redes afetam a topologia de replicação entre controladores de domínio e o fluxo de tráfego de autenticação. Considere os seguintes encargos de tráfego e implante e configure controladores de domínio de acordo com os requisitos de seu cenário de implantação:
 
 * Há uma taxa nominal por hora para o próprio gateway:
@@ -372,7 +376,7 @@ Você precisa definir corretamente os sites e links de sites para otimizar o tr�
 * Se a minimização de custos for uma prioridade, verifique se a replicação está agendada e se a notificação de alteração não está habilitada. Essa é a configuração padrão na replicação entre sites. Isso não é importante se você estiver implantando um RODC em uma rede virtual porque o RODC não replicará alterações de saída. Mas, se você implantar um CD gravável, deverá verificar se que o link de site não está configurado para replicar atualizações com frequência desnecessária. Se você implantar um servidor de CG (catálogo global), verifique se todos os outros sites que contêm um CG replicam as partições de domínio de um CD de origem em um site que está conectado a um ou mais links de site que têm um custo menor do que o CG no site do Azure.
 * É possível reduzir ainda mais o tráfego de rede gerado pela replicação entre sites alterando o algoritmo de compactação de replicação. O algoritmo de compactação é controlado pelo algoritmo de compactação de HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Replicator de entrada do registro REG_DWORD. O valor padrão é 3, que se relaciona com o algoritmo de compactação Xpress. Você pode alterar o valor para 2, que altera o algoritmo para MSZip. Na maioria dos casos, isso aumentará a compactação, mas ele faz isso às custas da utilização da CPU. Para saber mais, confira [Como funciona a topologia de replicação do Active Directory](https://technet.microsoft.com/library/cc755994).
 
-### <a name="<a-name="bkmk_ipaddressdns"></a>ip-addressing-and-dns"></a><a name="BKMK_IPAddressDNS"></a>Endereçamento IP e DNS
+### <a name="a-namebkmkipaddressdnsaip-addressing-and-dns"></a><a name="BKMK_IPAddressDNS"></a>Endereçamento IP e DNS
 As máquinas virtuais do Azure recebem "endereços arrendados para DHCP" por padrão. Como os endereços dinâmicos de rede virtual do Azure persistem com uma máquina virtual pelo tempo de vida da máquina virtual, os requisitos do AD DS do Windows Server são atendidos.
 
 Como resultado, quando você usa um endereço dinâmico no Azure, está de fato usando um endereço IP estático, pois ele é roteável pelo período da concessão e o período da concessão é igual ao tempo de vida do serviço de nuvem.
@@ -391,7 +395,7 @@ As máquinas virtuais registram automaticamente seu nome DNS na inicialização 
 
 Para saber mais sobre este exemplo e outro exemplo que mostra como provisionar a primeira VM e instalar o AD DS, confira [Instalar uma nova floresta do Active Directory no Microsoft Azure](active-directory-new-forest-virtual-machine.md). Para saber mais sobre como usar o Windows PowerShell, confira [Instalar o Azure PowerShell](../powershell-install-configure.md) e [Cmdlets de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/jj152841).
 
-### <a name="<a-name="bkmk_distributeddcs"></a>geo-distributed-dcs"></a><a name="BKMK_DistributedDCs"></a>Controladores de domínio distribuídos geograficamente
+### <a name="a-namebkmkdistributeddcsageo-distributed-dcs"></a><a name="BKMK_DistributedDCs"></a>Controladores de domínio distribuídos geograficamente
 O Azure oferece vantagens ao hospedar vários controladores de domínio em redes virtuais diferentes:
 
 * Tolerância a falhas de vários sites
@@ -399,7 +403,7 @@ O Azure oferece vantagens ao hospedar vários controladores de domínio em redes
 
 Para obter informações sobre como configurar a comunicação direta entre redes virtuais, confira [Configurar rede virtual para conectividade de rede virtual](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
-### <a name="<a-name="bkmk_rodc"></a>read-only-dcs"></a><a name="BKMK_RODC"></a>Controladores de domínio somente leitura
+### <a name="a-namebkmkrodcaread-only-dcs"></a><a name="BKMK_RODC"></a>Controladores de domínio somente leitura
 Você precisa optar entre implantar controladores de domínio somente leitura ou graváveis. Talvez você queira implantar RODCs porque não terá controle físico sobre eles, mas os RODCs são projetados para serem implantados nos locais onde a segurança física está em risco, como nas filiais.
 
 O Azure não apresenta o risco de segurança física de uma filial, mas os RODCs podem ser ainda mais econômicos porque os recursos que eles fornecem são apropriados para esses ambientes, mas por razões muito diferentes. Por exemplo, os RODCs não têm replicações de saída e podem preencher segredos (senhas) de forma seletiva. Por outro lado, a falta desses segredos pode exigir que o tráfego de saída sob demanda valide-os como um usuário ou o computador autentica. Mas os segredos podem ser seletivamente preenchidos previamente e armazenados em cache.
@@ -408,14 +412,14 @@ Os RODCs fornecem uma vantagem adicional em relação a questões de HBI e PII p
 
 Verifique se os aplicativos serão compatíveis com os RODCs que você planeja usar. Muitos aplicativos habilitados para o Active Directory do Windows Server funcionam bem com RODCs, mas alguns aplicativos poderão ser executados de maneira ineficiente ou falhar se não tiverem acesso a um controlador de domínio gravável. Para saber mais, confira [Guia de compatibilidade de aplicativos de controladores de domínio somente leitura](https://technet.microsoft.com/library/cc755190).
 
-### <a name="<a-name="bkmk_gc"></a>global-catalog"></a><a name="BKMK_GC"></a>Catálogo global
+### <a name="a-namebkmkgcaglobal-catalog"></a><a name="BKMK_GC"></a>Catálogo global
 Você precisa escolher se deseja instalar um CG (catálogo global). Em uma floresta de domínio único, você deve configurar todos os controladores de domínio como servidores de catálogo global. Ele não aumentará o custo porque não haverá tráfego de replicação adicional.
 
 Em uma floresta de vários domínios, os CGs são necessários para expandir as associações ao Grupo Universal durante o processo de autenticação. Se você não implantar um CG, as cargas de trabalho na rede virtual que autentica em um controlador de domínio no Azure gerarão tráfego de autenticação de saída indiretamente para consultar CGs locais durante cada tentativa de autenticação.
 
 Os custos associados aos CGs serão menos previsíveis porque eles hospedam todos os domínios (parcialmente). Se a carga de trabalho hospeda um serviço de acesso à Internet e autentica usuários no AD DS do Windows Server, os custos podem ser completamente imprevisíveis. Para ajudar a reduzir as consultas de GC fora do site de nuvem durante a autenticação, você pode [habilitar o Cache de Associação ao Grupo Universal](https://technet.microsoft.com/library/cc816928).
 
-### <a name="<a-name="bkmk_installmethod"></a>installation-method"></a><a name="BKMK_InstallMethod"></a>Método de instalação
+### <a name="a-namebkmkinstallmethodainstallation-method"></a><a name="BKMK_InstallMethod"></a>Método de instalação
 Você precisa escolher como instalar os controladores de domínio na rede virtual:
 
 * Promova novos controladores de domínio. Para saber mais, confira [Instalar uma nova floresta do Active Directory em uma rede virtual do Azure](active-directory-new-forest-virtual-machine.md).
@@ -425,7 +429,7 @@ Use somente máquinas virtuais do Azure para controladores de domínio (em vez d
 
 Não use SYSPREP para implantar ou clonar controladores de domínio. A capacidade de clonar controladores de domínio está disponível somente a partir do Windows Server 2012. O recurso de clonagem exige suporte para VMGenerationID no hipervisor subjacente. O Hyper-V no Windows Server 2012 e as redes virtuais do Azure dão suporte a VMGenerationID, como fornecedores de software de virtualização de terceiros.
 
-### <a name="<a-name="bkmk_placedb"></a>placement-of-the-windows-server-ad-ds-database-and-sysvol"></a><a name="BKMK_PlaceDB"></a>Posicionamento do SYSVOL e do banco de dados do AD DS do Windows Server
+### <a name="a-namebkmkplacedbaplacement-of-the-windows-server-ad-ds-database-and-sysvol"></a><a name="BKMK_PlaceDB"></a>Posicionamento do SYSVOL e do banco de dados do AD DS do Windows Server
 Escolha onde localizar o banco de dados, logs e SYSVOL do AD DS do Windows Server. Eles devem ser implantados em discos de dados do Azure.
 
 > [!NOTE]
@@ -442,14 +446,14 @@ Como prática recomendada para controladores de domínio virtuais, faça o segui
 * Defina a configuração de Preferência de Cache do Host no disco de dados do Azure para NONE. Isso evita problemas com o cache de gravação para operações do AD DS.
 * Armazene banco de dados, logs e SYSVOL no mesmo disco de dados ou em discos de dados separados. Normalmente, isso é um disco separado do disco usado para o próprio sistema operacional. A principal vantagem é que o SYSVOL e o banco de dados do AD DS do Windows Server não devem ser armazenados em um tipo de disco do Sistema Operacional do Azure. Por padrão, o processo de instalação do AD DS instala esses componentes na pasta %systemroot%, que NÃO é recomendável para o Azure.
 
-### <a name="<a-name="bkmk_bur"></a>backup-and-restore"></a><a name="BKMK_BUR"></a>Backup e restauração
+### <a name="a-namebkmkburabackup-and-restore"></a><a name="BKMK_BUR"></a>Backup e restauração
 Lembre-se do que tem ou não suporte para backup e restauração de um controlador de domínio em geral e, mais especificamente, aqueles em execução em uma VM. Confira [Considerações de Backup e Restauração para Controladores de Domínio Virtualizados](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv#backup_and_restore_considerations_for_virtualized_domain_controllers).
 
 Crie backups do estado de sistema usando apenas o software de backup que está especificamente ciente dos requisitos de backup do AD DS do Windows Server, como o Backup do Windows Server.
 
 Não copie nem clone arquivos VHD de controladores de domínio em vez de executar backups regulares. Se houver a necessidade de restauração, faça-a usando VHDs clonados ou copiados sem o Windows Server 2012 e um hipervisor com suporte introduzirá bolhas de USN.
 
-### <a name="<a-name="bkmk_fedsrvconfig"></a>federation-server-configuration"></a><a name="BKMK_FedSrvConfig"></a>Configuração do servidor de federação
+### <a name="a-namebkmkfedsrvconfigafederation-server-configuration"></a><a name="BKMK_FedSrvConfig"></a>Configuração do servidor de federação
 A configuração dos STSs (servidores de federação do AD FS do Windows Server) depende em parte da necessidade ou não dos aplicativos que você deseja implantar no Azure acessarem recursos em sua rede local.
 
 Se os aplicativos atendem aos critérios a seguir, você pode implantar os aplicativos isoladamente a partir de sua rede local.
@@ -475,15 +479,15 @@ Essa configuração tem a vantagem de reduzir a exposição de recursos locais, 
 
 Observe que, em qualquer cenário, você pode estabelecer relações de confiança com mais provedores de identidade se houver necessidade de colaboração entre empresas.
 
-### <a name="<a-name="bkmk_cloudsvcconfig"></a>cloud-services-configuration"></a><a name="BKMK_CloudSvcConfig"></a>Configuração de serviços de nuvem
+### <a name="a-namebkmkcloudsvcconfigacloud-services-configuration"></a><a name="BKMK_CloudSvcConfig"></a>Configuração de serviços de nuvem
 Os serviços de nuvem são necessários se você quer expor uma VM diretamente na Internet ou expor um aplicativo de balanceamento de carga na Internet. Isso é possível porque cada serviço de nuvem oferece um único endereço IP virtual configurável.
 
-### <a name="<a-name="bkmk_fedreqvipdip"></a>federation-server-requirements-for-public-and-private-ip-addressing-(dynamic-ip-vs.-virtual-ip)"></a><a name="BKMK_FedReqVIPDIP"></a>Requisitos do servidor de federação para endereçamento IP público e privado (IP dinâmico versus IP virtual)
+### <a name="a-namebkmkfedreqvipdipafederation-server-requirements-for-public-and-private-ip-addressing-dynamic-ip-vs-virtual-ip"></a><a name="BKMK_FedReqVIPDIP"></a>Requisitos do servidor de federação para endereçamento IP público e privado (IP dinâmico versus IP virtual)
 Cada máquina virtual do Azure recebe um endereço IP dinâmico. Um endereço IP dinâmico é um endereço privado que só pode ser acessado dentro do Azure. Na maioria dos casos, no entanto, será necessário configurar um endereço IP virtual para suas implantações do AD FS do Windows Server. O IP virtual é necessário para expor pontos de extremidade do AD FS do Windows Server na Internet e será usado por clientes e parceiros federados para autenticação e gerenciamento contínuo. Um endereço IP virtual é uma propriedade de um serviço de nuvem que contém uma ou mais máquinas virtuais do Azure. Se os aplicativos com reconhecimento de declaração implantados no Azure e no AD FS do Windows Server estiverem voltados para a Internet e compartilharem portas comuns, cada um exigirá um endereço IP virtual próprio e, portanto, será necessário criar um serviço de nuvem para o aplicativo e um segundo para o AD FS do Windows Server.
 
 Para obter definições dos termos endereço IP virtual e endereço IP dinâmico, confira [Termos e definições](#BKMK_Glossary).
 
-### <a name="<a-name="bkmk_adfshighavail"></a>windows-server-ad-fs-high-availability-configuration"></a><a name="BKMK_ADFSHighAvail"></a>Configuração de alta disponibilidade do AD FS do Windows Server
+### <a name="a-namebkmkadfshighavailawindows-server-ad-fs-high-availability-configuration"></a><a name="BKMK_ADFSHighAvail"></a>Configuração de alta disponibilidade do AD FS do Windows Server
 Embora seja possível implantar serviços de federação AD FS do Windows Server autônomos, é recomendável implantar um farm com pelo menos dois nós para STS do AD FS e proxies para ambientes de produção.
 
 Confira [Considerações de topologia da implantação do AD FS 2.0](https://technet.microsoft.com/library/gg982489) no [Guia de Design do AD FS 2.0](https://technet.microsoft.com/library/dd807036) para decidir quais opções de configuração de implantação atendem melhor às suas necessidades específicas.
@@ -494,6 +498,9 @@ Confira [Considerações de topologia da implantação do AD FS 2.0](https://tec
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o GaggleAMP | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o GaggleAMP.
+title: "Tutorial: integração do Azure Active Directory com o GaggleAMP | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o GaggleAMP."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 9cc1a4b7-964b-406b-9e0c-05cb1a7c9856
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 50b4b23f4cbf8503fb6115f516df7ae88bf15d30
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-gaggleamp"></a>Tutorial: Integração do Active Directory do Azure com o GaggleAMP
+# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Tutorial: Integração do Active Directory do Azure com o GaggleAMP
 O objetivo desse tutorial é mostrar como integrar o GaggleAMP ao Azure AD (Azure Active Directory).
 
 A integração do GaggleAMP ao Azure AD oferece os seguintes benefícios:
@@ -242,6 +246,6 @@ Ao clicar no bloco GaggleAMP no Painel de Acesso, você deve ser automaticamente
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

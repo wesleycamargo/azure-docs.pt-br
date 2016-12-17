@@ -1,22 +1,26 @@
 ---
-title: Central de Confiança da Microsoft | Microsoft Docs
-description: A Central de Confiança da Microsoft fornece as informações de que você precisa para ter certeza de que a plataforma do Azure na qual executa seus serviços é segura.
+title: "Central de Confiança da Microsoft | Microsoft Docs"
+description: "A Central de Confiança da Microsoft fornece as informações de que você precisa para ter certeza de que a plataforma do Azure na qual executa seus serviços é segura."
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 0b94f9a3-8648-4860-812c-be689b0b327b
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8da0e117c206bfcec2f343c6d250de74fd886b02
+
 
 ---
-# Central de Confiabilidade da Microsoft
+# <a name="microsoft-trust-center"></a>Central de Confiabilidade da Microsoft
 O site de Informações de Segurança do Azure em Azure.com fornece as informações que você precisa para planejar, projetar, implantar, configurar e gerenciar suas soluções de nuvem com segurança. Com a Central de Confiança da Microsoft, você também tem as informações necessárias para ter certeza de que a plataforma do Azure na qual executa seus serviços é segura.
 
 Sabemos que, quando entregar seus aplicativos e seus dados ao Azure, você terá dúvidas. Onde estão? Quem pode acessá-los? O que a Microsoft está fazendo para protegê-los? Como você pode verificar que a Microsoft está fazendo o que diz?
@@ -36,4 +40,8 @@ Veja o que você encontrará na Central de Confiabilidade da Microsoft:
 
 A [Central de Confiança da Microsoft](https://www.microsoft.com/trustcenter) tem o que você precisa para entender o que podemos fazer para proteger o Microsoft Cloud.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

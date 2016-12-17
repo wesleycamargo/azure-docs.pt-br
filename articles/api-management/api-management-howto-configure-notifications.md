@@ -1,32 +1,35 @@
 ---
-title: Como configurar notificações e modelos de email no Gerenciamento de API do Azure
-description: Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure.
+title: "Como configurar notificações e modelos de email no Gerenciamento de API do Azure"
+description: "Saiba como configurar notificações e modelos de email no Gerenciamento de API do Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: d99e2d885d56e3752a3b1caf51e52c801acaab52
+ms.openlocfilehash: 8e3c98108672dcd2ae48da7b2a9eeb174cee76e1
+
 
 ---
-# Como configurar notificações e modelos de email no Gerenciamento de API do Azure
+# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Como configurar notificações e modelos de email no Gerenciamento de API do Azure
 O Gerenciamento de API possibilita configurar notificações de eventos específicos e modelos dos emails que são usados para se comunicar com os administradores e desenvolvedores de uma instância do Gerenciamento de API. Este tópico mostra como configurar notificações de eventos disponíveis e fornece uma visão geral da configuração dos modelos dos emails usados desses eventos.
 
 ## <a name="publisher-notifications"> </a>Configurar notificações do editor
-Para configurar as notificações, clique em **Gerenciar** no Portal Clássico do Azure para seu serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
+Para configurar notificações, clique no **portal do Editor** no Portal do Azure para seu serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
-> Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][Criar uma instância de serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
-> 
-> 
+> [!NOTE] 
+> Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
 
 Clique em **Notificações** no menu **Gerenciamento de API** à esquerda para ver as notificações disponíveis.
 
@@ -50,15 +53,15 @@ Para especificar os endereços de email a serem notificados, insira-os na caixa 
 
 Para especificar os usuários a serem notificados, clique em **adicionar destinatário**, marque as caixas de seleção ao lado dos usuários a serem notificados e clique em **OK**.
 
-> Observe que somente administradores são exibidos na lista.
-> 
-> 
+> [!NOTE] 
+> Somente os administradores são exibidos na lista.
+
 
 Após configurar os destinatários da notificação, clique em **Salvar** para aplicar a atualização dos destinatários da notificação.
 
-> Se você navegar para fora da guia **Notificações do editor**, o Portal do editor o alertará se houver alterações não salvas.
-> 
-> 
+> [!NOTE] 
+> Se você navegar para fora da guia **Notificações do editor** , o Portal do editor o alertará se houver alterações não salvas.
+
 
 ## <a name="email-templates"> </a>Configurar modelos de email
 O Gerenciamento de API fornece modelos de email para mensagens de email que são enviadas no decorrer da administração e da utilização do serviço. Os seguintes modelos de email são fornecidos.
@@ -76,11 +79,11 @@ O Gerenciamento de API fornece modelos de email para mensagens de email que são
 
 Esses modelos podem ser modificados da forma desejada.
 
-Para ver e configurar os modelos de email para sua instância do Gerenciamento de API, clique em **Notificações** no menu **Gerenciamento da API** à esquerda e selecione a guia **Modelos de email**.
+Para ver e configurar os modelos de email para sua instância do Gerenciamento de API, clique em **Notificações** no menu **Gerenciamento de API** à esquerda e selecione a guia **Modelos de email**.
 
 ![Modelos de email][api-management-email-templates]
 
-Para ver ou modificar um modelo específico, selecione-o na lista suspensa **Modelos**.
+Para ver ou modificar um modelo específico, selecione-o na lista suspensa **Modelos** .
 
 ![Lista de modelos de email][api-management-email-templates-list]
 
@@ -92,11 +95,11 @@ A lista **Parâmetros** contém parâmetros que, quando inseridos no assunto ou 
 
 Clique em **Visualização** ou **Enviar um teste** para ver como o email ficará ou enviar um email de teste.
 
-> Observe que os parâmetros não são substituídos por valores reais ao visualizar ou enviar um teste.
-> 
-> Para salvar as alterações feitas no modelo de email, clique em **Salvar**, e para cancelar as alterações clique em **Cancelar**.
-> 
-> 
+> [!NOTE] 
+> Os parâmetros não são substituídos por valores reais ao visualizar ou enviar um teste.
+
+Para salvar as alterações feitas no modelo de email, clique em **Salvar** ou, para cancelar as alterações, clique em **Cancelar**.
+ 
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png
@@ -108,13 +111,17 @@ Clique em **Visualização** ou **Enviar um teste** para ver como o email ficar�
 [api-management-email-template]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
 
 
-[Configure publisher notifications]: #publisher-notifications
-[Configure email templates]: #email-templates
+[Configurar notificações do editor]: #publisher-notifications
+[Configurar modelos de email]: #email-templates
 
-[How to create and use groups]: api-management-howto-create-groups.md
-[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[Como criar e utilizar grupos]: api-management-howto-create-groups.md
+[Como associar grupos a desenvolvedores]: api-management-howto-create-groups.md#associate-group-developer
 
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
+[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

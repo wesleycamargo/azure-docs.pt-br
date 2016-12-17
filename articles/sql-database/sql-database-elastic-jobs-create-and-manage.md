@@ -1,48 +1,52 @@
 ---
-title: Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal usando trabalhos elásticos (visualização) | Microsoft Docs
-description: Explore a criação e o gerenciamento de um trabalho de banco de dados elástico.
+title: "Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal usando trabalhos elásticos | Microsoft Docs"
+description: "Explore a criação e o gerenciamento de um trabalho de banco de dados elástico."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 manager: jhubbard
 author: ddove
-editor: ''
-
+editor: 
+ms.assetid: f858344d-085b-4022-935e-1b5fa20adbac
 ms.service: sql-database
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2016
+ms.date: 10/24/2016
 ms.author: ddove
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 923bc7102e5cc506307da25ee8125780076167ab
+
 
 ---
-# Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal usando trabalhos elásticos (preview)
+# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Criar e gerenciar Bancos de Dados SQL do Azure com escala horizontal usando trabalhos elásticos (preview)
 > [!div class="op_single_selector"]
 > * [Portal do Azure](sql-database-elastic-jobs-create-and-manage.md)
 > * [PowerShell](sql-database-elastic-jobs-powershell.md)
 > 
 > 
 
-**Trabalhos de Banco de Dados Elástico** simplificam o gerenciamento de grupos de bancos de dados executando operações administrativas como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, coleta dados de desempenho ou de telemetria do locatário (cliente). Trabalhos de Banco de Dados Elástico está disponível atualmente por meio de cmdlets do PowerShell e do Portal do Azure. No entanto, o portal do Azure revela funcionalidade reduzida limitada a execução em todos os bancos de dados em um [Pool de Banco de Dados Elástico (visualização)](sql-database-elastic-pool.md). Para acessar recursos adicionais e execução de scripts em um grupo de bancos de dados, incluindo uma coleção definida de modo personalizado ou um conjunto de fragmentos (criado usando a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md)), consulte [Criando e gerenciando trabalhos usando o PowerShell](sql-database-elastic-jobs-powershell.md). Para saber mais, confira [Visão geral de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md).
+**Trabalhos de Banco de Dados Elástico** simplificam o gerenciamento de grupos de bancos de dados executando operações administrativas como alterações de esquema, gerenciamento de credenciais, atualizações de dados de referência, coleta dados de desempenho ou de telemetria do locatário (cliente). Trabalhos de Banco de Dados Elástico está disponível atualmente por meio de cmdlets do PowerShell e do Portal do Azure. No entanto, o portal do Azure revela funcionalidade reduzida limitada a execução em todos os bancos de dados em um [Pool de Banco de Dados Elástico (visualização)](sql-database-elastic-pool.md). Para acessar recursos adicionais e execução de scripts em um grupo de bancos de dados, incluindo uma coleção definida de modo personalizado ou um conjunto de fragmentos (criado usando a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md)), consulte [Criando e gerenciando trabalhos usando o PowerShell](sql-database-elastic-jobs-powershell.md). Para saber mais, confira [Visão geral de trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-overview.md). 
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Para obter uma avaliação gratuita, confira [Um mês de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Um pool de bancos de dados elásticos. Consulte [Sobre os pools de bancos de dados elásticos](sql-database-elastic-pool.md)
 * Instalação dos componentes de serviço do trabalho de banco de dados elástico. Consulte [Instalando o serviço do trabalho de banco de dados elástico](sql-database-elastic-jobs-service-installation.md).
 
-## Criando trabalhos
+## <a name="creating-jobs"></a>Criando trabalhos
 1. Usando o [Portal do Azure](https://portal.azure.com), de um pool de trabalho de banco de dados elástico existente, clique em **Criar trabalho**.
 2. Digite o nome de usuário e a senha do administrador do banco de dados (criado na instalação dos Trabalhos) para o banco de dados de controle de trabalhos (armazenamento de metadados para trabalhos).
    
     ![Nomeie o trabalho, digite ou cole o código e clique em Executar][1]
-3. Na folha **Criar trabalho**, digite um nome para o trabalho.
+3. Na folha **Criar trabalho** , digite um nome para o trabalho.
 4. Digite o nome de usuário e a senha para se conectar aos bancos de dados de destino com permissões suficientes para que a execução do script seja bem-sucedida.
 5. Cole ou digite o script T-SQL.
 6. Clique em **Salvar** e em **Executar**.
    
     ![Criar trabalhos e executar][5]
 
-## Executar trabalhos idempotentes
+## <a name="run-idempotent-jobs"></a>Executar trabalhos idempotentes
 Quando você executa um script em um conjunto de bancos de dados, certifique-se de que o script seja idempotente. Ou seja, o script deve ser capaz de executar várias vezes, mesmo se tiver falhado antes em um estado incompleto. Por exemplo, quando um script falha, o trabalho é repetido automaticamente até obter êxito (dentro dos limites, uma vez que lógica de nova tentativa eventualmente deixará de tentar novamente). A maneira de fazer isso é usar a cláusula "IF EXISTS" e excluir qualquer instância encontrada antes de criar um novo objeto. Veja um exemplo aqui:
 
     IF EXISTS (SELECT name FROM sys.indexes
@@ -81,7 +85,7 @@ Em seguida, esse script atualiza a tabela criada anteriormente.
     GO
 
 
-## Verificando o status do trabalho
+## <a name="checking-job-status"></a>Verificando o status do trabalho
 Após o início de um trabalho, você pode verificar seu andamento.
 
 1. Na página do pool de bancos de dados elásticos, clique em **Gerenciar trabalhos**.
@@ -91,7 +95,7 @@ Após o início de um trabalho, você pode verificar seu andamento.
    
     ![Verificando um trabalho concluído][3]
 
-## Verificação de trabalhos com falha
+## <a name="checking-failed-jobs"></a>Verificação de trabalhos com falha
 Se um trabalho falhar, será possível encontrar um log de sua execução. Clique no nome do trabalho com falha para ver seus detalhes.
 
 ![Verificar um trabalho com falha][4]
@@ -107,4 +111,8 @@ Se um trabalho falhar, será possível encontrar um log de sua execução. Cliqu
 
 
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

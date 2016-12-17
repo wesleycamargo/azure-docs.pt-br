@@ -1,12 +1,12 @@
 ---
-title: Integração do SDK do Windows Phone Silverlight para o Reach
+title: "Integração do SDK do Windows Phone Silverlight para o Reach"
 description: Como integrar o Mobile Engagement do Azure com aplicativos do Windows Phone Silverlight
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: d3516a6b-db9f-4cdb-a475-4148edf81af1
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,20 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 39ebfe20f957b6e211eb5caebe4e064432876d20
+
 
 ---
-# Integração do SDK do Windows Phone Silverlight para o Reach
-Você deve seguir o procedimento de integração descrito na [Integração do SDK do Engagement do Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md), antes de seguir este guia.
+# <a name="windows-phone-silverlight-reach-sdk-integration"></a>Integração do SDK do Windows Phone Silverlight para o Reach
+Você deve seguir o procedimento de integração descrito na [Integração do SDK do Engagement do Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) , antes de seguir este guia.
 
-## Incorpore o SDK do Engagement Reach em seu projeto do Windows Phone Silverlight
-Você não tem nada a adicionar. As referências e recursos de `EngagementReach` já estão em seu projeto.
+## <a name="embed-the-engagement-reach-sdk-into-your-windows-phone-silverlight-project"></a>Incorpore o SDK do Engagement Reach em seu projeto do Windows Phone Silverlight
+Você não tem nada a adicionar. `EngagementReach` já estão em seu projeto.
 
 > [!TIP]
 > Você pode personalizar imagens localizadas na pasta `Resources` do seu projeto, especialmente o ícone de marca (esse padrão para o ícone do Engagement).
 > 
 > 
 
-## Adicione recursos
+## <a name="add-the-capabilities"></a>Adicione recursos
 O SDK do Engagement Reach precisa de alguns recursos adicionais.
 
 Abra o seu arquivo `WMAppManifest.xml` e certifique-se de que os seguintes recursos estão declarados:
@@ -42,17 +46,17 @@ Editar o arquivo `WMAppManifest.xml` e adicione dentro da marca `<Capabilities /
     <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
     <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
 
-## Habilitar o serviço de notificação por push da Microsoft
-Para usar o **Serviço de notificação por push da Microsoft** (chamado MPNS) seu arquivo `WMAppManifest.xml` deve ter uma marca `<App />` com um atributo `Publisher` definido como o nome do seu projeto.
+## <a name="enable-the-microsoft-push-notification-service"></a>Habilitar o serviço de notificação por push da Microsoft
+Para usar o **Serviço de Notificação por Push da Microsoft** (chamado MPNS), seu arquivo `WMAppManifest.xml` deverá ter uma marca `<App />` com um atributo `Publisher` definido como o nome do seu projeto.
 
-## Inicializar o SDK do Engagement Reach
-### Configuração do Engagement
+## <a name="initialize-the-engagement-reach-sdk"></a>Inicializar o SDK do Engagement Reach
+### <a name="engagement-configuration"></a>Configuração do Engagement
 A configuração do Engagement está centralizada no arquivo `Resources\EngagementConfiguration.xml` do seu projeto.
 
 Edite esse arquivo para especificar a configuração de alcance:
 
-* *Opcional*, indique se o envio nativo (MPNS) está ativado ou não entre as marcas `<enableNativePush>` e `</enableNativePush>`, (`true` por padrão).
-* *Opcional*, indique o nome do canal push entre as marcas `<channelName>` e `</channelName>`, coloque o mesmo que seu aplicativo possa usar no momento ou deixo-o vazio.
+* *Opcional*, indique se o push nativo (MPNS) está ativado ou não entre as marcas `<enableNativePush>` e `</enableNativePush>`, (`true` por padrão).
+* *Opcional*, indique o nome do canal push entre as marcas `<channelName>` e `</channelName>`, forneça o mesmo que seu aplicativo possa usar no momento ou deixo-o vazio.
 
 Se você quiser especificá-lo em tempo de execução, você pode chamar o método a seguir antes da inicialização do agente do Engagement:
 
@@ -75,7 +79,7 @@ Se você quiser especificá-lo em tempo de execução, você pode chamar o méto
 > 
 > 
 
-### Inicialização do Engagement
+### <a name="engagement-initialization"></a>Inicialização do Engagement
 Modifique o `App.xaml.cs`:
 
 * Adicione às suas instruções `using`:
@@ -101,36 +105,36 @@ Modifique o `App.xaml.cs`:
 > 
 > 
 
-## Considerações de envio de armazenamento de aplicativo
+## <a name="app-store-submission-considerations"></a>Considerações de envio de armazenamento de aplicativo
 A Microsoft impõe algumas regras ao usar as notificações de push:
 
 Na documentação de [Políticas de aplicativo] da Microsoft, seção 2.9:
 
-1) Você deve perguntar ao usuário se o mesmo aceita receber notificações por push. Em seguida, em suas configurações, adicione uma forma de desativar as notificações de envio.
+1) Você deve perguntar ao usuário para aceitar para receber notificações por push. Em seguida, em suas configurações, adicione uma forma de desativar as notificações de envio.
 
 O objeto EngagementReach fornece dois métodos para gerenciar o opt-in/opt-out, `EnableNativePush()` e `DisableNativePush()`. Você pode, por exemplo, criar uma opção nas configurações com uma alternância para desabilitar ou habilitar o MPNS.
 
-Você também pode decidir desativar MPNS por meio da configuração do Engagement <--sdk-alcance-configuração do windows phone >.
+Também é possível decidir desativar o MPNS por meio da configuração do Engagement \<windows-phone-sdk-reach-configuration\>..
 
-> 2\.9.1) O aplicativo deve primeiro descrever as notificações a serem fornecidas e **obter a permissão do usuário express (opt-in)** e **deve fornecer um mecanismo pelo qual o usuário pode optar por receber notificações por push**. Todas as notificações fornecidas usando o Serviço de notificação por push da Microsoft devem ser consistentes com a descrição fornecida ao usuário e devem estar em conformidade com todas as [Políticas de aplicativo][Content Policies] e [Requisitos adicionais para tipos específicos de aplicativo] aplicáveis.
+> 2.9.1) O aplicativo deve primeiro descrever as notificações a serem fornecidas e **obter a permissão expressa do usuário (opt-in)** e **deve fornecer um mecanismo pelo qual o usuário pode optar por parar de receber notificações por push**. Todas as notificações fornecidas usando o Serviço de Notificação por Push do Windows devem ser consistentes com a descrição fornecida ao usuário e devem estar em conformidade com todas as [Políticas de Aplicativo][Políticas de conteúdo] aplicáveis e com os [Requisitos Adicionais para Tipos Específicos de Aplicativo].
 > 
 > 
 
 2) Você não deve usar muitas notificações por push. O Engagement manipulará notificações para você.
 
-> 2\.9.2) O aplicativo e o uso do Serviço de notificação por push da Microsoft não devem usar excessivamente a capacidade de rede ou de largura de banda do serviço de notificação por push da Microsoft, ou caso contrário indevidamente sobrecarregam o Windows Phone ou outros dispositivos Microsoft ou serviço com notificações por push excessivo, conforme determinado pela Microsoft a seu critério lógico e não devem prejudicar ou interferir com nenhuma rede Microsoft ou servidores ou quaisquer servidores de terceiros ou redes conectadas ao do serviço de notificação por push da Microsoft.
+> 2.9.2) O aplicativo e o uso do Serviço de notificação por push da Microsoft não devem usar excessivamente a capacidade de rede ou de largura de banda do serviço de notificação por push da Microsoft, ou caso contrário indevidamente sobrecarregam o Windows Phone ou outros dispositivos Microsoft ou serviço com notificações por push excessivo, conforme determinado pela Microsoft a seu critério lógico e não devem prejudicar ou interferir com nenhuma rede Microsoft ou servidores ou quaisquer servidores de terceiros ou redes conectadas ao do serviço de notificação por push da Microsoft.
 > 
 > 
 
-3) Não confie totalmente no MPNS para enviar informações muito sérias. O Engagement usa o MPNS, portanto, essa regra também se aplica para campanhas criadas dentro do projeto front-end.
+3) Não confie no MPNS para enviar informações muito sérias. O Engagement usa o MPNS, portanto, essa regra também se aplica para campanhas criadas dentro do projeto front-end.
 
-> 2\.9.3) O serviço de notificação por push da Microsoft não pode ser usado para enviar notificações que são de missão crítica ou que poderiam afetar assuntos de vida ou morte, incluindo, sem limitação, relacionadas a um dispositivo médico ou condição de notificações críticas. A MICROSOFT EXPRESSAMENTE SE ISENTA DE QUAISQUER GARANTIAS DE QUE O USO DO SERVIÇO DE NOTIFICAÇÃO POR PUSH OU ENVIO DE NOTIFICAÇÕES DO SERVIÇO DE NOTIFICAÇÃO POR PUSH DA MICROSOFT SERÁ ININTERRUPTO, SEM ERRO, OU CASO CONTRÁRIO GARANTIDO QUE OCORRA EM TEMPO REAL.
+> 2.9.3) O serviço de notificação por push da Microsoft não pode ser usado para enviar notificações que são de missão crítica ou que poderiam afetar assuntos de vida ou morte, incluindo, sem limitação, relacionadas a um dispositivo médico ou condição de notificações críticas. A MICROSOFT EXPRESSAMENTE SE ISENTA DE QUAISQUER GARANTIAS DE QUE O USO DO SERVIÇO DE NOTIFICAÇÃO POR PUSH OU ENVIO DE NOTIFICAÇÕES DO SERVIÇO DE NOTIFICAÇÃO POR PUSH DA MICROSOFT SERÁ ININTERRUPTO, SEM ERRO, OU CASO CONTRÁRIO GARANTIDO QUE OCORRA EM TEMPO REAL.
 > 
 > 
 
 **Não podemos garantir que seu aplicativo passará o processo de validação se você não respeita essas recomendações.**
 
-## Manipular o push de dados (opcional)
+## <a name="handle-data-push-optional"></a>Manipular o push de dados (opcional)
 Se desejar que o aplicativo seja capaz de receber push de dados do Reach, você precisa implementar dois eventos da classe EngagementReach:
 
     EngagementReach.Instance.DataPushStringReceived += (body) =>
@@ -153,11 +157,11 @@ Você pode ver que o retorno de chamada de cada método retorna um valor boolean
 > 
 > 
 
-## Personalizar a interface do usuário (opcional)
-### Primeira etapa
+## <a name="customize-ui-optional"></a>Personalizar a interface do usuário (opcional)
+### <a name="first-step"></a>Primeira etapa
 Permitir que você personalize a interface do usuário do reach.
 
-Para fazer isso, você precisa criar uma subclasse da classe `EngagementReachHandler`.
+Para fazer isso, você precisa criar uma subclasse da classe `EngagementReachHandler` .
 
 **Exemplo de código :**
 
@@ -187,7 +191,7 @@ Depois, defina o conteúdo do campo `EngagementReach.Instance.Handler` com seu o
 > 
 > 
 
-### Layouts
+### <a name="layouts"></a>Layouts
 Por padrão, o Reach usará os recursos incorporados da DLL para exibir as notificações e páginas.
 
 No entanto, você pode optar por usar seus próprios recursos para refletir sua marca desses componentes.
@@ -230,7 +234,7 @@ Para simplificar a implementação de layout, também fornecemos nossa própria 
 > 
 > 
 
-### Posição de notificação
+### <a name="notification-position"></a>Posição de notificação
 Por padrão, uma notificação no aplicativo é exibida na parte inferior esquerda do aplicativo. Você pode alterar esse comportamento, substituindo o método `GetNotificationPosition` do objeto `EngagementReachHandler`.
 
     // In your subclass of EngagementReachHandler
@@ -242,7 +246,7 @@ Por padrão, uma notificação no aplicativo é exibida na parte inferior esquer
 
 No momento, você pode escolher entre as posições `BOTTOM`(padrão) e `TOP`.
 
-### Iniciar mensagem
+### <a name="launch-message"></a>Iniciar mensagem
 Quando um usuário clica em um sistema de notificação (um toast), o Engagement inicia o aplicativo, carrega o conteúdo das mensagens de envio por push e exibe a página da campanha correspondente.
 
 Há um atraso entre a inicialização do aplicativo e a exibição da página (dependendo da velocidade da sua rede).
@@ -275,9 +279,13 @@ Você pode definir o retorno de chamada em seu método `Application_Launching` d
 > 
 > 
 
-[Políticas de aplicativo]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
-[Content Policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
-[Requisitos adicionais para tipos específicos de aplicativo]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
+[Políticas de aplicativo]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
+[Políticas de conteúdo]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
+[Requisitos Adicionais para Tipos Específicos de Aplicativo]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

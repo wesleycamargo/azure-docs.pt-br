@@ -1,12 +1,12 @@
 ---
-title: How to Deploy the Access Panel Extension for Internet Explorer using Group Policy | Microsoft Docs
-description: How to use group policy to deploy the Internet Explorer add-on for the My Apps portal.
+title: "Como implantar a Extensão do Painel de Acesso no Internet Explorer usando a Política de Grupo | Microsoft Docs"
+description: "Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal de meus aplicativos."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,152 +14,159 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b312e1a37b15e170847fae02e40bae26103b6d6d
+
 
 ---
-# <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
-This tutorial shows how to use group policy to remotely install the Access Panel extension for Internet Explorer on your users' machines. This extension is required for Internet Explorer users who need to sign into apps that are configured using [password-based single sign-on](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+# <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implantar a Extensão do Painel de Acesso no Internet Explorer usando a Política de Grupo
+Este tutorial mostra como usar a política de grupo para instalar remotamente a extensão do Painel de Acesso para o Internet Explorer nos computadores dos usuários. Essa extensão é necessária para os usuários do Internet Explorer que precisam entrar em aplicativos configurados usando o [logon único baseado em senha](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
 
-It is recommended that admins automate the deployment of this extension. Otherwise, users will have to download and install the extension themselves, which is prone to user error and requires administrator permissions. This tutorial covers one method of automating software deployments by using group policy. [Learn more about group policy.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
+É recomendável que administradores automatizem a implantação dessa extensão. Caso contrário, os usuários terão de baixar e instalar a extensão por conta própria, o que poderá causar erros do usuário e que exigirá permissões de administrador. Este tutorial apresenta um método de automatização de implantações de software usando a política de grupo. [Saiba mais sobre a política de grupo.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
-The Access Panel extension is also available for [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) and [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998), neither of which require administrator permissions to install.
+A extensão do Painel de Acesso também está disponível para o [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) e o [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998) e nenhum deles exige permissões de administrador para instalar.
 
-## <a name="prerequisites"></a>Prerequisites
-* You have set up [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), and you have joined your users' machines to your domain.
-* You must have the "Edit settings" permission in order to edit Group Policy Objects (GPOs). By default, members of the following security groups have this permission: Domain Administrators, Enterprise Administrators, and Group Policy Creator Owners. [Learn more.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+## <a name="prerequisites"></a>Pré-requisitos
+* Você configurou os [Serviços de Domínio do Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)e os computadores dos usuários ingressaram no domínio.
+* Você deve ter a permissão "Editar configurações" para editar os Objetos de Política de Grupo (GPOs). Por padrão, os membros dos grupos de segurança a seguir têm esta permissão: Administradores de Domínio, Administradores de Empresa e Proprietários Criadores de Política de Grupo. [Saiba mais.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
-## <a name="step-1-create-the-distribution-point"></a>Step 1: Create the Distribution Point
-First, you must place the installer package on a network location that can be accessed from all of the machines that you wish to remotely install the extension on. To do this, follow these steps:
+## <a name="step-1-create-the-distribution-point"></a>Etapa 1: Criar o ponto de distribuição
+Primeiro, você deve colocar o pacote do instalador em um local de rede que possa ser acessado de todos os computadores em que você deseja instalar remotamente a extensão. Para fazer isso, siga estas etapas:
 
-1. Log on to the server as an administrator
-2. In the **Server Manager** window, go to **Files and Storage Services**.
+1. Faça logon no servidor como um administrador
+2. Na janela **Gerenciador do Servidor**, vá para **Arquivos e Serviços de Armazenamento**.
    
-    ![Open Files and Storage Services](./media/active-directory-saas-ie-group-policy/files-services.png)
-3. Go to the **Shares** tab. Then click on **Tasks** > **New Share...**
+    ![Abrir Serviços de Arquivo e Armazenamento](./media/active-directory-saas-ie-group-policy/files-services.png)
+3. Vá para a guia **Compartilhamentos** . Em seguida, clique em **Tarefas** > **Novo Compartilhamento...**
    
-    ![Open Files and Storage Services](./media/active-directory-saas-ie-group-policy/shares.png)
-4. Complete the **New Share Wizard** and set permissions to ensure that it can be accessed from your users' machines. [Learn more about shares.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Download the following Microsoft Windows Installer package (.msi file): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
-6. Copy the installer package to a desired location on the share.
+    ![Abrir Serviços de Arquivo e Armazenamento](./media/active-directory-saas-ie-group-policy/shares.png)
+4. Conclua o **Assistente de Novo Compartilhamento** e defina permissões para garantir que ele possa ser acessado dos computadores dos usuários. [Saiba mais sobre compartilhamentos.](https://technet.microsoft.com/library/cc753175.aspx)
+5. Baixe o seguinte pacote do Microsoft Windows Installer (arquivo .msi): [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
+6. Copie o pacote do instalador para um local desejado no compartilhamento.
    
-    ![Copy the .msi file to your the share.](./media/active-directory-saas-ie-group-policy/copy-package.png)
-7. Verify that your client machines are able to access the installer package from the share. 
+    ![Copie o arquivo .msi para o seu compartilhamento.](./media/active-directory-saas-ie-group-policy/copy-package.png)
+7. Verifique se os computadores do cliente podem acessar o pacote do instalador desde o compartilhamento. 
 
-## <a name="step-2-create-the-group-policy-object"></a>Step 2: Create the Group Policy Object
-1. Log on to the server that hosts your Active Directory Domain Services (AD DS) installation.
-2. In the Server Manager, go to **Tools** > **Group Policy Management**.
+## <a name="step-2-create-the-group-policy-object"></a>Etapa 2: Criar o Objeto de Política de Grupo
+1. Faça logon no servidor que hospeda sua instalação dos Serviços de Domínio do Active Directory (AD DS).
+2. No Gerenciador do Servidor, vá para **Ferramentas** > **Gerenciamento de Política de Grupo**.
    
-    ![Go to Tools > Group Policy Managment](./media/active-directory-saas-ie-group-policy/tools-gpm.png)
-3. In the left pane of the **Group Policy Management** window, view your Organizational Unit (OU) hierarchy and determine at which scope you would like to apply the group policy. For instance, you may decide to pick a small OU to deploy to a few users for testing, or you may pick a top-level OU to deploy to your entire organization.
+    ![Vá para Ferramentas > Gerenciamento de Política de Grupo](./media/active-directory-saas-ie-group-policy/tools-gpm.png)
+3. No painel esquerdo da janela **Gerenciamento de Política de Grupo** , exiba sua hierarquia de UO (unidade organizacional) e determine em qual escopo você gostaria de aplicar a política de grupo. Por exemplo, você poderá optar por escolher uma UO pequena a ser implantada para alguns usuários para teste ou poderá escolher uma UO de nível superior a ser implantada em toda a sua organização.
    
    > [!NOTE]
-   > If you would like to create or edit your Organization Units (OUs), switch back to the Server Manager and go to **Tools** > **Active Directory Users and Computers**.
+   > Se você quiser criar ou editar suas Unidades Organizacionais (UOs), volte para o Gerenciador do Servidor e vá para **Ferramentas** > **Usuários e Computadores do Active Directory**.
    > 
    > 
-4. Once you have selected an OU, right-click on it and select **Create a GPO in this domain, and Link it here...**
+4. Depois de selecionar uma UO, clique com o botão direito do mouse nela e selecione **Criar um GPO neste domínio e vinculá-lo aqui...**
    
-    ![Create a new GPO](./media/active-directory-saas-ie-group-policy/create-gpo.png)
-5. In the **New GPO** prompt, type in a name for the new Group Policy Object.
+    ![Criar um novo GPO](./media/active-directory-saas-ie-group-policy/create-gpo.png)
+5. No prompt **Novo GPO** , digite um nome para o novo Objeto de Política de Grupo.
    
-    ![Name the new GPO](./media/active-directory-saas-ie-group-policy/name-gpo.png)
-6. Right-click on the Group Policy Object that you just created, and select **Edit**.
+    ![Dar um nome ao novo GPO](./media/active-directory-saas-ie-group-policy/name-gpo.png)
+6. Clique com o botão direito do mouse no Objeto de Política de Grupo recém-criado e selecione **Editar**.
    
-    ![Edit the new GPO](./media/active-directory-saas-ie-group-policy/edit-gpo.png)
+    ![Editar o novo GPO](./media/active-directory-saas-ie-group-policy/edit-gpo.png)
 
-## <a name="step-3-assign-the-installation-package"></a>Step 3: Assign the Installation Package
-1. Determine whether you would like to deploy the extension based on **Computer Configuration** or **User Configuration**. When using [computer configuration](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), the extension will be installed on the computer regardless of which users log on to it. On the other hand, with [user configuration](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), users will have the extension installed for them regardless of which computers they log on to.
-2. In the left pane of the **Group Policy Management Editor** window, go to either of the following folder paths, depending on which type of configuration you chose:
+## <a name="step-3-assign-the-installation-package"></a>Etapa 3: Atribuir o pacote de instalação
+1. Determine se você deseja implantar a extensão com base na **Configuração do Computador** ou na **Configuração do Usuário**. Ao usar a [configuração do computador](https://technet.microsoft.com/library/cc736413%28v=ws.10%29.aspx), a extensão será instalada no computador, independentemente dos usuários que fizerem logon. Por outro lado, com a [configuração do usuário](https://technet.microsoft.com/library/cc781953%28v=ws.10%29.aspx), os usuários terão a extensão instalada para eles, independentemente dos computadores em que eles fizerem logon.
+2. No painel esquerdo da janela **Editor de Gerenciamento de Política de Grupo** , vá para qualquer um dos seguintes caminhos de pasta, dependendo do tipo de configuração escolhida:
    
    * `Computer Configuration/Policies/Software Settings/`
    * `User Configuration/Policies/Software Settings/`
-3. Right-click on **Software installation**, then select **New** > **Package...**
+3. Clique com o botão direito do mouse em **Instalação do software** e selecione **Novo** > **Pacote...**
    
-    ![Create a new software installation package](./media/active-directory-saas-ie-group-policy/new-package.png)
-4. Go to the shared folder that contains the installer package from [Step 1: Create the Distribution Point](#step-1-create-the-distribution-point), select the .msi file, and click **Open**.
+    ![Criar um novo pacote de instalação de software](./media/active-directory-saas-ie-group-policy/new-package.png)
+4. Vá para a pasta compartilhada que contém o pacote do instalador da [Etapa 1: Criar o ponto de distribuição](#step-1-create-the-distribution-point), selecione o arquivo .msi e clique em **Abrir**.
    
    > [!IMPORTANT]
-   > If the share is located on this same server, verify that you are accessing the .msi through the network file path, rather than the local file path.
+   > Se o compartilhamento estiver localizado no mesmo servidor, verifique se você está acessando o .msi por meio do caminho do arquivo de rede, em vez do caminho do arquivo local.
    > 
    > 
    
-    ![Select the installation package from the shared folder.](./media/active-directory-saas-ie-group-policy/select-package.png)
-5. In the **Deploy Software** prompt, select **Assigned** for your deployment method. Then click **OK**.
+    ![Selecione o pacote de instalação na pasta compartilhada.](./media/active-directory-saas-ie-group-policy/select-package.png)
+5. No prompt **Implantar Software**, selecione **Atribuído** para o método de implantação. Em seguida, clique em **OK**.
    
-    ![Select Assigned, then click OK.](./media/active-directory-saas-ie-group-policy/deployment-method.png)
+    ![Selecione Atribuído e clique em OK.](./media/active-directory-saas-ie-group-policy/deployment-method.png)
 
-The extension is now deployed to the OU that you selected. [Learn more about Group Policy Software Installation.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
+Agora a extensão está implantada na UO que você selecionou. [Saiba mais sobre a instalação do Software de Política de Grupo.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
 
-## <a name="step-4-autoenable-the-extension-for-internet-explorer"></a>Step 4: Auto-Enable the Extension for Internet Explorer
-In addition to running the installer, every extension for Internet Explorer must be explicitly enabled before it can be used. Follow the steps below to enable the Access Panel Extension using group policy:
+## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Etapa 4: Habilitar automaticamente a extensão do Internet Explorer
+Além da execução do instalador, todas as extensões do Internet Explorer deverão ser habilitadas explicitamente antes de serem usadas. Siga as etapas abaixo para habilitar a Extensão do Painel de Acesso usando a política de grupo:
 
-1. In the **Group Policy Management Editor** window, go to either of the following paths, depending on which type of configuration you chose in [Step 3: Assign the Installation Package](#step-3-assign-the-installation-package):
+1. Na janela **Editor de Gerenciamento de Política de Grupo** , vá para um dos caminhos a seguir, dependendo do tipo de configuração escolhida na [Etapa 3: Atribuir o pacote de instalação](#step-3-assign-the-installation-package):
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
-2. Right-click on **Add-on List**, and select **Edit**.
-    ![Edit Add-on List.](./media/active-directory-saas-ie-group-policy/edit-add-on-list.png)
-3. In the **Add-on List** window, select **Enabled**. Then, under the **Options** section, click **Show...**.
+2. Clique com o botão direito do mouse em **Lista de Complementos** e selecione **Editar**.
+    ![Edite a Lista de Complementos.](./media/active-directory-saas-ie-group-policy/edit-add-on-list.png)
+3. Na janela **Lista de Complementos**, selecione **Habilitado**. Em seguida, na seção **Opções**, clique em **Mostrar...**.
    
-    ![Click Enable, then click Show...](./media/active-directory-saas-ie-group-policy/edit-add-on-list-window.png)
-4. In the **Show Contents** window, perform the following steps:
+    ![Clique em Habilitar e clique em Mostrar...](./media/active-directory-saas-ie-group-policy/edit-add-on-list-window.png)
+4. Na janela **Mostrar Conteúdo** , execute as seguintes etapas:
    
-   1. For the first column (the **Value Name** field), copy and paste the following Class ID: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   2. For the second column (the **Value** field), type in the following value: `1`
-   3. Click **OK** to close the **Show Contents** window.
+   1. Na primeira coluna (o campo **Nome do Valor**), copie e cole a seguinte ID de Classe: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
+   2. Na segunda coluna (o campo **Valor**), digite o seguinte valor: `1`
+   3. Clique em **OK** para fechar a janela **Mostrar Conteúdo**.
       
-      ![Fill out the values as specified above.](./media/active-directory-saas-ie-group-policy/show-contents.png)
-5. Click **OK** to apply your changes and close the **Add-on List** window.
+      ![Preencha os valores como especificado acima.](./media/active-directory-saas-ie-group-policy/show-contents.png)
+5. Clique em **OK** para aplicar as alterações e fechar a janela **Lista de Complementos**.
 
-The extension should now be enabled for the machines in the selected OU. [Learn more about using group policy to enable or disable Internet Explorer add-ons.](https://technet.microsoft.com/library/dn454941.aspx)
+Agora a extensão deverá estar habilitada para os computadores na UO selecionada. [Saiba mais sobre como usar a política de grupo para habilitar ou desabilitar complementos do Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
-## <a name="step-5-optional-disable-remember-password-prompt"></a>Step 5 (Optional): Disable "Remember Password" Prompt
-When users sign-in to websites using the Access Panel Extension, Internet Explorer may show the following prompt asking "Would you like to store your password?"
+## <a name="step-5-optional-disable-remember-password-prompt"></a>Etapa 5 (opcional): Desabilitar o prompt "Lembrar senha"
+Quando os usuários entram em sites que usam a extensão do painel de acesso, o Internet Explorer mostra o seguinte prompt perguntando "Deseja armazenar sua senha?"
 
 ![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
 
-If you wish to prevent your users from seeing this prompt, then follow the steps below to prevent auto-complete from remembering passwords:
+Se você quiser impedir que os usuários vejam esse prompt, siga as etapas abaixo para impedir o preenchimento automático de lembrar senhas:
 
-1. In the **Group Policy Management Editor** window, go to the path listed below. Note that this configuration setting is only available under **User Configuration**.
+1. Na janela **Editor de gerenciamento de política de grupo** , vá para o caminho listado abaixo. Observe que essa configuração só está disponível em **Configuração do usuário**.
    
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
-2. Find the setting named **Turn on the auto-complete feature for user names and passwords on forms**.
+2. Localize a configuração denominada **Ativar o recurso de preenchimento automático para nomes de usuário e senhas em formulários**.
    
    > [!NOTE]
-   > Previous versions of Active Directory may list this setting with the name **Do not allow auto-complete to save passwords**. The configuration for that setting differs from the setting described in this tutorial.
+   > Versões anteriores do Active Directory podem listar essa configuração com o nome **Não permitir o preenchimento automático para salvar senhas**. Essa configuração é diferente da configuração descrita neste tutorial.
    > 
    > 
    
-    ![Remember to look for this under User Settings.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
-3. Right click on the above setting, and select **Edit**.
-4. In the window titled **Turn on the auto-complete feature for user names and passwords on forms**, select **Disabled**.
+    ![Lembre-se de examinar isso em Configurações do usuário.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
+3. Clique com o botão direito na configuração acima e selecione **Editar**.
+4. Na janela **Ativar o recurso de preenchimento automático para nomes de usuário e senhas em formulários**, selecione **Desabilitado**.
    
-    ![Select Disable](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
-5. Click **OK** to apply these changes and close the window.
+    ![Selecione Desabilitar](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
+5. Clique em **OK** para aplicar essas alterações e fechar a janela.
 
-Users will no longer be able to store their credentials or use auto-complete to access previously stored credentials. However, this policy does allow users to continue to use auto-complete for other types of form fields, such as search fields.
+Os usuários não poderão mais armazenar suas credenciais ou usar o preenchimento automático para acessar as credenciais armazenadas anteriormente. No entanto, essa política permite que os usuários continuem a usar o preenchimento automático para outros tipos de campos de formulário, como campos de pesquisa.
 
 > [!WARNING]
-> If this policy is enabled after users have chosen to store some credentials, this policy will *not* clear the credentials that have already been stored.
+> Se essa política for ativada depois que os usuários tiverem escolhido armazenar algumas credenciais, essa política *não* limpará as credenciais que já foram armazenadas.
 > 
 > 
 
-## <a name="step-6-testing-the-deployment"></a>Step 6: Testing the Deployment
-Follow the steps below to verify if the extension deployment was successful:
+## <a name="step-6-testing-the-deployment"></a>Etapa 6: Testar a implantação
+Siga as etapas abaixo para verificar se a implantação da extensão obteve êxito:
 
-1. If you deployed using **Computer Configuration**, sign into a client machine that belongs to the OU that you selected in [Step 2: Create the Group Policy Object](#step-2-create-the-group-policy-object). If you deployed using **User Configuration**, make sure to sign in as a user who belongs to that OU.
-2. It may take a couple sign ins for the group policy changes to fully update with this machine. To force the update, open a **Command Prompt** window and run the following command: `gpupdate /force`
-3. You will need to restart the machine for the installation to take place. Bootup may take significantly more time than usual while the extension installs.
-4. After restarting, open **Internet Explorer**. On the upper-right corner of the window, click on **Tools** (the gear icon), and then select **Manage add-ons**.
+1. Se você implantou usando **Configuração do computador**, faça logon em um computador cliente que pertence à UO que você selecionou na [Etapa 2: Criar o objeto de política de grupo](#step-2-create-the-group-policy-object). Se você implantou usando **Configuração do usuário**, certifique-se de conectar-se como um usuário que pertence a essa UO.
+2. As alterações da política de grupo podem demorar algumas entradas para serem totalmente atualizadas no computador. Para forçar a atualização, abra um **Prompt de comando** e execute o seguinte comando: `gpupdate /force`
+3. Será necessário reiniciar o computador para que a instalação ocorra. A inicialização poderá demorar consideravelmente mais do que o normal durante a instalação da extensão.
+4. Depois de reiniciar, abra o **Internet Explorer**. No canto superior direito da janela, clique em **Ferramentas** (ícone de engrenagem) e, em seguida, selecione **Gerenciar complementos**.
    
-    ![Go to Tools > Manage Add-Ons](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
-5. In the **Manage Add-ons** window, verify that the **Access Panel Extension** has been installed and that its **Status** has been set to **Enabled**.
+    ![Vá para Ferramentas > Gerenciar Complementos](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
+5. Na janela **Gerenciar Complementos**, verifique se a **Extensão do Painel de Acesso** foi instalada e se seu **Status** foi definido como **Habilitado**.
    
-    ![Verify that the Access Panel Extension is installed and enabled.](./media/active-directory-saas-ie-group-policy/verify-install.png)
+    ![Verifique se a Extensão do Painel de Acesso está instalada e habilitada.](./media/active-directory-saas-ie-group-policy/verify-install.png)
 
-## <a name="related-articles"></a>Related Articles
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-* [Application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md)
-* [Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md)
+## <a name="related-articles"></a>Artigos relacionados
+* [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
+* [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
+* [Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

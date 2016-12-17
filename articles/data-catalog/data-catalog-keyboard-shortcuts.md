@@ -1,13 +1,13 @@
 ---
-title: Catálogo de Dados do Azure | Microsoft Docs
-description: Este artigo mostra os atalhos de teclado para o Catálogo de Dados do Azure.
+title: "Catálogo de Dados do Azure | Microsoft Docs"
+description: "Este artigo mostra os atalhos de teclado para o Catálogo de Dados do Azure."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/13/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 190f46f9994be1a0699488eb813955070070ee51
+
 
 ---
-# Atalhos de teclado do Catálogo de Dados do Azure
-## Atalhos de teclado para a ferramenta de registro de fonte de dados do Catálogo de Dados
-### Atalhos de teclado gerais
+# <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Atalhos de teclado do Catálogo de Dados do Azure
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Atalhos de teclado para a ferramenta de registro de fonte de dados do Catálogo de Dados
+### <a name="general-keyboard-shortcuts"></a>Atalhos de teclado gerais
 | Operação | Pressione |
 | --- | --- |
 | Guia para cada controle em uma página |Tab |
@@ -28,24 +32,24 @@ ms.author: spelluru
 | Restaurar/minimizar página |WIN+SETA PARA BAIXO |
 | Abrir o menu da página |ALT+BARRA DE ESPAÇOS |
 
-### Página de autenticação
+### <a name="authentication-page"></a>Página de autenticação
 | Operação | Pressione |
 | --- | --- |
 | Entrar no serviço |ALT+S |
 
-### Página de seleção de fonte de dados
+### <a name="data-source-selection-page"></a>Página de seleção de fonte de dados
 | Operação | Pressione |
 | --- | --- |
 | Ir para a próxima página (se estiver habilitado) |ALT+N |
 | Alterar o tipo selecionado quando o foco estiver em um bloco |SETA PARA A ESQUERDA, PARA CIMA, PARA A DIREITA ou PARA BAIXO |
 
-### Página de conexão de fonte de dados
+### <a name="data-source-connection-page"></a>Página de conexão de fonte de dados
 | Operação | Pressione |
 | --- | --- |
 | Ir para a página anterior (se estiver habilitado) |ALT+P |
 | Escolher o botão Conectar. |ALT+C |
 
-### Página de contexto da conexão
+### <a name="connection-context-page"></a>Página de contexto da conexão
 | Operação | Pressione |
 | --- | --- |
 | Botão Registrar (se estiver habilitado) |ALT+R |
@@ -53,22 +57,22 @@ ms.author: spelluru
 | Incluir a caixa de seleção Perfil de Dados (se estiver disponível) |ALT+D |
 | Navegar até cada item de lista |SETA PARA CIMA ou PARA BAIXO |
 | Hierarquia do Servidor, expandir o nó do modo de exibição de árvore |SETA PARA A DIREITA |
-| Mover os itens selecionados para **Objetos Disponíveis** ou **Objetos a serem registrados** |BARRA DE ESPAÇOS |
+| Mover os itens selecionados para **Objetos Disponíveis** ou **Objetos a ser registrados** |BARRA DE ESPAÇOS |
 
-### Página progresso da publicação
+### <a name="publish-progress-page"></a>Página progresso da publicação
 | Operação | Pressione |
 | --- | --- |
 | Botão Cancelar |ALT+C |
 | Botão Registrar Mais Objetos |ALT+R |
 | Botão Exibir Portal |ALT+V |
 
-### Página progresso da publicação
+### <a name="publish-progress-page"></a>Página progresso da publicação
 | Operação | Pressione |
 | --- | --- |
 | Botão Salvar (se estiver habilitado) |ALT+S |
 | Botão Cancelar |ALT+C |
 
-## Atalhos de teclado para o portal do Catálogo de Dados
+## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Atalhos de teclado para o portal do Catálogo de Dados
 | Operação | Pressione |
 | --- | --- |
 | Navegar |TAB e SHIFT+ TAB |
@@ -82,4 +86,9 @@ ms.author: spelluru
 | Ativar/desativar o menu **Abrir em** |ALT+O |
 | Explorar o contêiner, se o ativo for um contêiner |ALT + L |
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

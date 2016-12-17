@@ -1,22 +1,26 @@
 ---
-title: Como delegar o registro de usuário e a assinatura do produto
-description: Saiba como delegar a assinatura de produto e registro de usuário a um terceiro no Gerenciamento de API do Azure.
+title: "Como delegar o registro de usuário e a assinatura do produto"
+description: "Saiba como delegar a assinatura de produto e registro de usuário a um terceiro no Gerenciamento de API do Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: antonba
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8b7ad5ee-a873-4966-a400-7e508bbbe158
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: antonba
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3522d157e19b5202efc61ce38bce216252fbe2e7
+
 
 ---
-# Como delegar o registro de usuário e a assinatura do produto
+# <a name="how-to-delegate-user-registration-and-product-subscription"></a>Como delegar o registro de usuário e a assinatura do produto
 A delegação permite usar seu site existente para gerenciar a entrada/inscrição e assinatura de produtos feitas por desenvolvedores em vez de usar a funcionalidade integrada no portal do desenvolvedor. Isso permite que seu site tenha os dados dos usuários e realize a validação dessas etapas de forma personalizada.
 
 ## <a name="delegate-signin-up"> </a>Delegando a entrada e inscrição de desenvolvedores
@@ -33,14 +37,14 @@ Para começar, vamos configurar o Gerenciamento de API para encaminhar as solici
 
 ![Página de delegação][api-management-delegation-signin-up]
 
-* Decida qual será o URL do seu ponto de extremidade de delegação especial e insira-o no campo **URL do ponto de extremidade de delegação**.
-* No campo **Chave de autenticação de delegação**, insira um segredo que será usado para calcular uma assinatura fornecida a você para verificação, para garantir que a solicitação realmente venha do Gerenciamento de API do Azure. Você pode clicar no botão **Gerar** para o Gerenciamento de API gerar aleatoriamente uma chave para você.
+* Decida qual será o URL do seu ponto de extremidade de delegação especial e insira-o no campo **URL do ponto de extremidade de delegação** . 
+* No campo **Chave de autenticação de delegação** , insira um segredo que será usado para calcular uma assinatura fornecida a você para verificação, para garantir que a solicitação realmente venha do Gerenciamento de API do Azure. Você pode clicar no botão **Gerar** para o Gerenciamento de API gerar aleatoriamente uma chave para você.
 
 Agora, você precisa criar o **ponto de extremidade de delegação**. Ele precisa realizar uma série de ações:
 
 1. Receba uma solicitação com a seguinte forma:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL da página de fonte}&salt={string}&sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL da página de origem}&salt={string}&sig={string}*
    > 
    > 
    
@@ -54,7 +58,7 @@ Agora, você precisa criar o **ponto de extremidade de delegação**. Ele precis
    
    * Calcule um hash HMAC-SHA512 de uma cadeia de caracteres baseada nos parâmetros de consulta **returnUrl** e **salt** ([código de exemplo fornecido abaixo]):
      
-     > HMAC(**salt**+ '\\n' +**returnUrl**)
+     > HMAC(**salt**+ '\n' +**returnUrl**)
      > 
      > 
    * Compare o hash calculado acima ao valor do parâmetro de consulta **sig**. Se os dois hashes forem correspondentes, prossiga para a próxima etapa. Caso contrário, recuse as solicitações.
@@ -66,12 +70,12 @@ Agora, você precisa criar o **ponto de extremidade de delegação**. Ele precis
    * [solicite um token de logon único (SSO)] por meio da API REST do Gerenciamento de API
    * anexe um parâmetro de consulta returnUrl ao URL SSO que você recebeu da chamada à API acima:
      
-     > Por exemplo https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url
+     > por exemplo: https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
    * redirecione o usuário à URL produzida acima
 
-Além da operação **SignIn**, você também pode executar o gerenciamento de conta seguindo as etapas anteriores e usando uma das seguintes operações.
+Além da operação **SignIn** , você também pode executar o gerenciamento de conta seguindo as etapas anteriores e usando uma das seguintes operações.
 
 * **ChangePassword**
 * **ChangeProfile**
@@ -91,13 +95,13 @@ A delegação de uma assinatura de produto funciona de forma semelhante à deleg
 2. O navegador é redirecionado ao ponto de extremidade de delegação
 3. O ponto de extremidade de delegação realiza as etapas de assinatura de produto necessária - isso depende de você e pode envolver o redirecionamento para outra página para solicitar informações de cobrança, fazer perguntas adicionais ou simplesmente armazenar as informações sem precisar de ações do usuário
 
-Para habilitar a funcionalidade, na página **Delegação** clique em **Delegar assinatura do produto**.
+Para habilitar a funcionalidade, na página **Delegação**, clique em **Delegar assinatura do produto**.
 
 Depois, certifique-se de que o ponto de extremidade de delegação realize as ações a seguir:
 
 1. Receba uma solicitação com a seguinte forma:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
+   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={produto a ser assinado}&userId={usuário que faz a solicitação}&salt={string}&sig={string}*
    > 
    > 
    
@@ -115,7 +119,7 @@ Depois, certifique-se de que o ponto de extremidade de delegação realize as a�
    
    * Calcule um hash HMAC-SHA512 de uma cadeia baseada nos parâmetros de consulta **productId**, **userId** e **salt**:
      
-     > HMAC(**salt**+ '\\n' +**productId**+ '\\n' +**userId**)
+     > HMAC(**salt**+ '\n' +**productId**+ '\n' +**userId**)
      > 
      > 
    * Compare o hash calculado acima ao valor do parâmetro de consulta **sig**. Se os dois hashes forem correspondentes, prossiga para a próxima etapa. Caso contrário, recuse as solicitações.
@@ -156,21 +160,25 @@ Estes códigos de exemplo mostram como usar a *chave de validação de delegaç�
 
     var signature = digest.toString('base64');
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre delegação, consulte o vídeo a seguir.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
 > 
 > 
 
-[Delegating developer sign-in and sign-up]: #delegate-signin-up
-[Delegating product subscription]: #delegate-product-subscription
+[Delegando a entrada e inscrição de desenvolvedores]: #delegate-signin-up
+[Delegando a assinatura de produtos]: #delegate-product-subscription
 [solicite um token de logon único (SSO)]: http://go.microsoft.com/fwlink/?LinkId=507409
-[Crie um usuário]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
+[create a user]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
 [chamando a API REST para assinatura do produto]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
-[Next steps]: #next-steps
+[Próximas etapas]: #next-steps
 [código de exemplo fornecido abaixo]: #delegate-example-code
 
-[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
+[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

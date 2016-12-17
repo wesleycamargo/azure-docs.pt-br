@@ -1,19 +1,23 @@
 ---
-title: Como instalar o Proton-C Qpid do Apache em uma VM do Linux | Microsoft Docs
-description: Como criar uma VM CentOS Linux usando as Máquinas Virtuais do Azure e como compilar e instalar a biblioteca Proton-C Qpid do Apache.
-services: service-bus
+title: Como instalar o Apache Qpid Proton-C em uma VM Linux | Microsoft Docs
+description: "Como criar uma VM CentOS Linux usando as Máquinas Virtuais do Azure e como compilar e instalar a biblioteca Proton-C Qpid do Apache."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 3158d69f-c409-494d-9a6c-32613c1a3c74
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 226703f9b4a4b295231ecd48d719638321ae55ef
+
 
 ---
 # <a name="install-apache-qpid-proton-c-on-an-azure-linux-vm"></a>Instalar o Apache Qpid Proton-C em uma VM Linux do Azure
@@ -29,7 +33,7 @@ Após o provisionamento, o portal exibirá o seguinte:
 
 ![Proton em uma VM Linux do Azure][1]
 
-Para fazer logon no computador, você deverá saber qual é a porta do ponto de extremidade para o SSH. É possível obter esse valor no [Portal clássico do Azure][Portal clássico do Azure] selecionando a VM recém-criada e clicando na guia **Pontos de extremidade**. A captura de tela a seguir mostra que a porta SSH pública para este computador é a 57146.
+Para fazer logon no computador, você deverá saber qual é a porta do ponto de extremidade para o SSH. É possível obter esse valor no [Portal clássico do Azure][Portal clássico do Azure] selecionando a VM recém-criada e clicando na guia **Pontos de Extremidade**. A captura de tela a seguir mostra que a porta SSH pública para este computador é a 57146.
 
 ![Proton em uma VM Linux do Azure][2]
 
@@ -84,15 +88,15 @@ Para os aplicativos Python e PHP, este exemplo usa as bibliotecas cliente Proton
    
    mkdir build cd build
    
-   # Set the install prefix. You may need to adjust depending on your      
-   # system.       
+   # Set the install prefix. You may need to adjust depending on your        
+   # system.        
    cmake -DCMAKE\_INSTALL\_PREFIX=/usr ..
    
-   # Omit the docs target if you do not wish to build or install       
+   # Omit the docs target if you do not wish to build or install        
    # documentation.        
    make all docs
    
-   # Note that this step will require root privileges.     
+   # Note that this step will require root privileges.        
    make install
    ```
 
@@ -101,9 +105,9 @@ Após a realização destas etapas, o Proton estará instalado no computador e p
 ## <a name="next-steps"></a>Próximas etapas
 Está pronto(a) para saber mais? Visite o link a seguir:
 
-* [Visão geral do Barramento de Serviço para AMQP][]
+* [Visão geral do Barramento de Serviço para AMQP][Visão geral do Barramento de Serviço para AMQP]
 
-[Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
+[Visão geral do Barramento de Serviço para AMQP]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
 [1]: ./media/service-bus-amqp-apache/amqp-apache-2.png
 [2]: ./media/service-bus-amqp-apache/amqp-apache-3.png
@@ -115,6 +119,6 @@ Está pronto(a) para saber mais? Visite o link a seguir:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

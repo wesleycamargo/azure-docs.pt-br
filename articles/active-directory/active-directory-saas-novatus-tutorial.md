@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Novatus | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Novatus.
+title: "Tutorial: integração do Azure Active Directory com o Novatus | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Novatus."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d2f13779-bdb7-4408-9738-be67ed3de4e5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 270d1a62d3522e154ba63192f11dc4394532c529
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-novatus"></a>Tutorial: Integração do Active Directory do Azure com o Novatus
+# <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Tutorial: Integração do Active Directory do Azure com o Novatus
 O objetivo desse tutorial é mostrar como integrar o Novatus ao Azure AD (Azure Active Directory).
 
 A integração do Novatus ao Azure AD oferece os seguintes benefícios:
@@ -163,7 +167,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-novatus-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -234,6 +238,6 @@ Ao clicar no bloco Novatus no Painel de Acesso, você deverá ser conectado auto
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
