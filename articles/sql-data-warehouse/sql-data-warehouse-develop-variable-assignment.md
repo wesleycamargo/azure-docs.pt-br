@@ -1,27 +1,31 @@
 ---
-title: Atribução de variáveis no SQL Data Warehouse | Microsoft Docs
-description: Dicas para atribuir variáveis de Transact-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções.
+title: "Atribuição de variáveis no SQL Data Warehouse | Microsoft Docs"
+description: "Dicas para atribuir variáveis de Transact-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 81ddc7cf-a6ba-4585-91a3-b6ea50f49227
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5ec9f7ad24dad833758d3b981fd4d8735119d813
+
 
 ---
-# Atribuir variáveis no SQL Data Warehouse
+# <a name="assign-variables-in-sql-data-warehouse"></a>Atribuir variáveis no SQL Data Warehouse
 As variáveis no SQL Data Warehouse são definidas usando a instrução `DECLARE` ou a instrução `SET`.
 
 Todos os itens a seguir são maneiras perfeitamente válidas de definir um valor de variável:
 
-## Definição de variáveis com DECLARE
+## <a name="setting-variables-with-declare"></a>Definição de variáveis com DECLARE
 A inicialização de variáveis com DECLARE é uma das maneiras mais flexíveis de definir um valor de variável no SQL Data Warehouse.
 
 ```sql
@@ -37,7 +41,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Você não pode inicializar e usar uma variável na mesma instrução DECLARE. Para ilustrar esse ponto, o exemplo a seguir **não** é permitido já que @p1 foi inicializado e usado na mesma instrução DECLARE. Isso resultará em um erro.
+Você não pode inicializar e usar uma variável na mesma instrução DECLARE. Para ilustrar esse ponto, o exemplo a seguir **não** é permitido, já que @p1 foi inicializado e usado na mesma instrução DECLARE. Isso resultará em um erro.
 
 ```sql
 DECLARE @p1 int = 0
@@ -45,7 +49,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## Definição de valores com SET
+## <a name="setting-values-with-set"></a>Definição de valores com SET
 O SET é um método muito comum para definir uma variável.
 
 Todos os exemplos abaixo são maneiras válidas de definir uma variável com SET:
@@ -59,19 +63,23 @@ SET     @v +=1;
 
 Você só pode definir uma variável por vez com SET. No entanto, como pode ser visto acima, são permitidos operadores compostos.
 
-## Limitações
+## <a name="limitations"></a>Limitações
 Você não pode usar SELECT ou UPDATE para atribuição de variáveis.
 
-## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][Visão geral do desenvolvimento].
+## <a name="next-steps"></a>Próximas etapas
+Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvimento][visão geral de desenvolvimento].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
+[visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Preparar o mapeamento de rede para a proteção de uma máquina virtual do Hyper-V com VMM no Azure Site Recovery | Microsoft Docs
-description: Configure o mapeamento de rede para a replicação de máquinas virtuais do Hyper-V de um datacenter local para o Azure, ou para um site secundário.
+title: "Preparar o mapeamento de rede para a proteção de uma máquina virtual do Hyper-V com VMM no Azure Site Recovery | Microsoft Docs"
+description: "Configure o mapeamento de rede para a replicação de máquinas virtuais do Hyper-V de um datacenter local para o Azure, ou para um site secundário."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: a798580b-b166-426b-bdca-573167b0e451
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8023643345812a9bc18dcca43cfc0ecff31a5007
+
 
 ---
 # <a name="prepare-network-mapping-for-hyper-v-virtual-machine-protection-with-vmm-in-azure-site-recovery"></a>Preparar o mapeamento de rede para a proteção de uma máquina virtual do Hyper-V com VMM no Azure Site Recovery
@@ -106,6 +110,9 @@ Com essas configurações, vamos analisar o que acontece em alguns cenários pos
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você compreende melhor o mapeamento de rede, [obtenha uma introdução à implantação do Site Recovery](site-recovery-best-practices.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Adicionar relatórios de integridade personalizados do Service Fabric | Microsoft Docs
-description: Descreve como enviar relatórios de integridade personalizados para entidades de integridade da Malha de Serviço do Azure. Fornece recomendações para projetar e implementar relatórios de integridade de qualidade.
+title: "Adicionar relatórios de integridade personalizados do Service Fabric | Microsoft Docs"
+description: "Descreve como enviar relatórios de integridade personalizados para entidades de integridade da Malha de Serviço do Azure. Fornece recomendações para projetar e implementar relatórios de integridade de qualidade."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d986275612b3e5c97636936a5e448dd6d0fcfc4e
+
 
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Adicionar relatórios de integridade personalizados do Service Fabric
@@ -156,7 +160,7 @@ A condição monitorada poderá ser traduzida como um aviso se a tarefa não for
 
 No entanto, o relatório será gerado nos casos descritos acima; eles serão capturados na integridade do aplicativo quando a integridade for avaliada.
 
-## <a name="report-periodically-vs.-on-transition"></a>Relatar periodicamente x na transição
+## <a name="report-periodically-vs-on-transition"></a>Relatar periodicamente x na transição
 Usando o modelo de relatório de integridade, os watchdogs podem enviar relatórios periodicamente ou nas transições. A forma recomendada para relatórios watchdog é periodicamente, pois o código é muito mais simples e menos sujeito a erros. Os watchdogs devem ser sempre buscar ser o mais simples possível para evitar bugs que disparem relatórios incorretos. Relatórios *não íntegro* incorretos afetam as avaliações de integridade e os cenários com base na integridade, incluindo atualizações. Os relatórios incorretos de *integridade* ocultam problemas no cluster, o que não é desejado.
 
 Para relatórios periódicos, o watchdog pode ser implementado com um temporizador. Em um retorno de chamada do temporizador, o watchdog pode verificar o estado e enviar um relatório com base no estado atual. Não é necessário ver qual relatório foi enviado anteriormente nem fazer qualquer otimização em termos de mensagens. O cliente de integridade tem lógica de envio em lote para ajudar com o desempenho. Enquanto o cliente de integridade for mantido em atividade, ele fará novas tentativas até que o relatório seja confirmado pelo Repositório de Integridade ou até que o watchdog gere um relatório mais recente com a mesma entidade, propriedade e origem.
@@ -303,6 +307,9 @@ Com base nos dados de integridade, os criadores de serviço e administradores de
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

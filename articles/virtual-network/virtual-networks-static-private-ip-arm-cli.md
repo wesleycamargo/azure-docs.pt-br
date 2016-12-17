@@ -1,13 +1,13 @@
 ---
-title: Como definir um IP estático e privado no modo ARM usando o CLI | Microsoft Docs
-description: Noções básicas sobre DIPs (IPs estáticos) e como gerenciá-los no modo ARM usando o CLI
+title: "Como definir um IP estático e privado no modo ARM usando a CLI | Microsoft Docs"
+description: "Noções básicas sobre DIPs (IPs estáticos) e como gerenciá-los no modo ARM usando o CLI"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 782f4260b00fed11921da97fed8a98452f91ba08
+
 
 ---
-# Como definir um endereço IP privado estático no CLI do Azure
+# <a name="how-to-set-a-static-private-ip-address-in-azure-cli"></a>Como definir um endereço IP privado estático no CLI do Azure
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -30,8 +34,8 @@ Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você t
 
 Os exemplos de comando abaixo do CLI do Azure esperam um ambiente simples já criado. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste descrito em [criar uma vnet](virtual-networks-create-vnet-arm-cli.md).
 
-## Como especificar um endereço IP privado estático ao criar uma VM
-Para criar uma VM denominada *DNS01* na sub-rede *Front-end* de uma VNet chamada *TestVNet* com o endereço IP privado estático *192.168.1.101*, execute as etapas abaixo:
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Como especificar um endereço IP privado estático ao criar uma VM
+Para criar uma VM denominada *DNS01* na sub-rede *FrontEnd* de uma VNet chamada *TestVNet* com o endereço IP privado estático *192.168.1.101*, execute as etapas abaixo:
 
 1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 2. Execute o comando **azure config mode** para alternar para o modo do Gerenciador de Recursos, como mostrado abaixo.
@@ -115,13 +119,13 @@ Para criar uma VM denominada *DNS01* na sub-rede *Front-end* de uma VNet chamada
         + Creating VM "DNS01"
         info:    vm create command OK
    
-   * **-y (ou --os-type)**. Tipo de sistema operacional para a VM, que deve ser *Windows* ou *Linux*.
+   * **-y (ou --os-type)**. Tipo de sistema operacional para a VM, *Windows* ou *Linux*.
    * **-f (ou --nic-name)**. Nome da NIC que a VM usará.
    * **-i (ou --public-ip-name)**. Nome do IP público que a VM usará.
    * **-F (ou --vnet-name)**. Nome da VNet na qual a VM será criada.
    * **-j (ou --vnet-subnet-name)**. Nome da sub-rede em que a VM será criada.
 
-## Como recuperar informações do endereço IP privado estático de uma VM
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Como recuperar informações do endereço IP privado estático de uma VM
 Para exibir as informações do endereço IP privado estático da VM criada com o script acima, execute o seguinte comando da CLI do Azure e observe os valores de *Private IP alloc-method* e *Private IP address*:
 
     azure vm show -g TestRG -n DNS01
@@ -174,7 +178,7 @@ Saída esperada:
     data:            Public IP address       :40.122.213.159
     info:    vm show command OK
 
-## Como remover um endereço IP privado estático de uma VM
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Como remover um endereço IP privado estático de uma VM
 Você não pode remover um endereço IP privado estático de uma NIC no CLI do Azure para o Gerenciador de Recursos. Você deve criar uma nova NIC que usa um IP dinâmico, remover a NIC anterior da VM e, em seguida, adicionar a nova NIC à VM. Para alterar a NIC para a VM usada nos comandos acima, siga as etapas abaixo.
 
 1. Execute o comando **azure network nic create** para criar uma nova NIC usando alocação de IP dinâmico. Observe que você não precisa especificar o endereço IP neste momento.
@@ -224,7 +228,7 @@ Você não pode remover um endereço IP privado estático de uma NIC no CLI do A
         + Deleting network interface "TestNIC"
         info:    network nic delete command OK
 
-## Como adicionar um endereço IP privado estático a uma VM existente
+## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Como adicionar um endereço IP privado estático a uma VM existente
 Para adicionar um endereço IP privado estático à NIC usada pela VM criada com o script acima, execute o comando a seguir:
 
     azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
@@ -252,9 +256,14 @@ Saída esperada:
     data:
     info:    network nic set command OK
 
-## Próximas etapas
-* Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md).
-* Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](virtual-networks-instance-level-public-ip.md).
+## <a name="next-steps"></a>Próximas etapas
+* Saiba mais sobre endereços [IP públicos reservados](virtual-networks-reserved-public-ip.md) .
+* Saiba mais sobre endereços [ILPIP (IP público em nível de instância)](virtual-networks-instance-level-public-ip.md) .
 * Consulte as [APIs REST de IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

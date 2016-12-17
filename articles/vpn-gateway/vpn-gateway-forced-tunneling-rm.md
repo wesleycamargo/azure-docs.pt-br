@@ -1,13 +1,13 @@
 ---
-title: Configurar o túnel forçado para conexões Site a Site usando o modelo de implantação do Resource Manager | Microsoft Docs
-description: Como redirecionar ou 'forçar' todo o tráfego direcionado à Internet para sua localização local.
+title: "Configurar o túnel forçado para conexões Site a Site usando o modelo de implantação do Gerenciador de Recursos | Microsoft Docs"
+description: "Como redirecionar ou &quot;forçar&quot; todo o tráfego direcionado à Internet para sua localização local."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: cbe58db8-b598-4c9f-ac88-62c865eb8721
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4159001eff9010e126a1f0a0f9d9eb06b8397eb3
+
 
 ---
-# Configurar o túnel forçado usando o modelo de implantação do Azure Resource Manager
+# <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configurar o túnel forçado usando o modelo de implantação do Azure Resource Manager
 > [!div class="op_single_selector"]
 > * [PowerShell - clássico](vpn-gateway-about-forced-tunneling.md)
 > * [PowerShell – Resource Manager](vpn-gateway-forced-tunneling-rm.md)
@@ -40,8 +44,8 @@ Uma conexão de túnel forçada pode ser configurada para o modelo de implantaç
 
 [!INCLUDE [vpn-gateway-table-forced-tunneling](../../includes/vpn-gateway-table-forcedtunnel-include.md)]
 
-## Sobre túnel forçado
-O diagrama a seguir ilustra o funcionamento do túnel forçado.
+## <a name="about-forced-tunneling"></a>Sobre túnel forçado
+O diagrama a seguir ilustra o funcionamento do túnel forçado. 
 
 ![Túnel forçado](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
 
@@ -49,8 +53,8 @@ No exemplo acima, a sub-rede Front-end não é um túnel forçado. As cargas de 
 
 Isso permite que você restrinja e inspecione o acesso à Internet de suas máquinas virtuais ou serviços de nuvem no Azure, continuando a habilitar a arquitetura de serviço de várias camadas necessária. Você também pode aplicar o túnel forçado às redes virtuais inteiras se não houver nenhuma carga de trabalho voltada para a Internet em suas redes virtuais.
 
-## Requisitos e considerações
-O túnel forçado no Azure é configurado por meio de rotas de rede virtual definidas pelo usuário. Redirecionar o tráfego para um site local é expressado como uma Rota Padrão para o gateway de VPN do Azure. Para saber mais sobre rotas definidas pelo usuário e redes virtuais, confira [User defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md) (Rotas definidas pelo usuário e Encaminhamento de IP).
+## <a name="requirements-and-considerations"></a>Requisitos e considerações
+O túnel forçado no Azure é configurado por meio de rotas de rede virtual definidas pelo usuário. Redirecionar o tráfego para um site local é expressado como uma Rota Padrão para o gateway de VPN do Azure. Para saber mais sobre rotas definidas pelo usuário e redes virtuais, confira [User defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md)(Rotas definidas pelo usuário e Encaminhamento de IP).
 
 * Cada sub-rede de rede virtual tem uma tabela de roteamento interna do sistema. A tabela de roteamento do sistema tem estes três grupos de rotas:
   
@@ -61,31 +65,31 @@ O túnel forçado no Azure é configurado por meio de rotas de rede virtual defi
 * O túnel forçado deve ser associado a uma Rede Virtual que tenha um Gateway de VPN de roteamento. Você precisa definir um "site padrão" entre sites locais entre locais conectado à rede virtual.
 * O túnel forçado da Rota Expressa não é configurado por meio deste mecanismo, mas é habilitado por meio do anúncio de uma rota padrão por meio de sessões de emparelhamento via protocolo BGP da Rota Expressa. Confira a [Documentação da Rota Expressa](https://azure.microsoft.com/documentation/services/expressroute/) para saber mais.
 
-## Visão geral de configuração
-O procedimento a seguir o ajudará a criar um grupo de recursos e uma rede virtual. Em seguida, você criará um gateway de VPN e configurará um túnel forçado. Neste procedimento, a rede virtual “MultiTier-VNet” tem 3 sub-redes: *Front-end*, *Midtier* e *Back-end*, com 4 conexões entre locais: *DefaultSiteHQ* e 3 *Ramificações*.
+## <a name="configuration-overview"></a>Visão geral de configuração
+O procedimento a seguir o ajudará a criar um grupo de recursos e uma rede virtual. Em seguida, você criará um gateway de VPN e configurará um túnel forçado. Neste procedimento, a rede virtual “MultiTier-VNet” tem 3 sub-redes: *Frontend*, *Midtier* e *Backend*, com 4 conexões entre locais: *DefaultSiteHQ* e 3 *Ramificações*.
 
 As etapas do procedimento definem *DefaultSiteHQ* como a conexão de site padrão para o túnel forçado e configuram as sub-redes Midtier e Back-end para usarem túnel forçado.
 
-## Antes de começar
+## <a name="before-you-begin"></a>Antes de começar
 Antes de começar a configurar, verifique se você tem os itens a seguir.
 
 * Uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager (1.0 ou posterior). Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter mais informações sobre como instalar os cmdlets do PowerShell.
 
-## Configurar o túnel forçado
+## <a name="configure-forced-tunneling"></a>Configurar o túnel forçado
 1. No console do PowerShell, faça logon na conta do Azure. O cmdlet solicita as credenciais de logon dessa conta. Depois de entrar, ele baixa as configurações da conta para que elas estejam disponíveis para o Azure PowerShell.
    
         Login-AzureRmAccount 
 2. Obtenha uma lista das assinaturas do Azure.
    
         Get-AzureRmSubscription
-3. Especifique a assinatura que você deseja usar.
+3. Especifique a assinatura que você deseja usar. 
    
         Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 4. Crie um grupos de recursos.
    
         New-AzureRmResourceGroup -Name "ForcedTunneling" -Location "North Europe"
-5. Crie uma rede virtual e especifique as sub-redes.
+5. Crie uma rede virtual e especifique as sub-redes. 
    
         $s1 = New-AzureRmVirtualNetworkSubnetConfig -Name "Frontend" -AddressPrefix "10.1.0.0/24"
         $s2 = New-AzureRmVirtualNetworkSubnetConfig -Name "Midtier" -AddressPrefix "10.1.1.0/24"
@@ -131,4 +135,9 @@ Antes de começar a configurar, verifique se você tem os itens a seguir.
     
          Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

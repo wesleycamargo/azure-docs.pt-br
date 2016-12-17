@@ -5,8 +5,8 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6877a54f77a4c0137e4f6a8b2b2fcff41664a4b5
+
 
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitore sua carga de trabalho usando DMVs
@@ -67,9 +71,9 @@ WHERE   [label] = 'My Query';
 
 Nos resultados da consulta anterior, **observe a ID da Solicitação** da consulta que você deseja investigar.
 
-As consultas no estado **Suspenso** estão sendo enfileiradas devido aos limites de simultaneidade. Essas consultas também aparecem na consulta de esperas sys.dm_pdw_waits com um tipo de UserConcurrencyResourceType. Confira [Concurrency and workload management][Concurrency and workload management] (Gerenciamento de simultaneidade e carga de trabalho) para obter mais detalhes sobre os limites de simultaneidade. As consultas também podem esperar por motivos, como bloqueios.  Se sua consulta estiver aguardando um recurso, confira [Investigar consultas aguardando recursos][Investigar consultas aguardando recursos] mais adiante neste artigo.
+As consultas no estado **Suspenso** estão sendo enfileiradas devido aos limites de simultaneidade. Essas consultas também aparecem na consulta de esperas sys.dm_pdw_waits com um tipo de UserConcurrencyResourceType. Consulte [Concurrency and workload management][Concurrency and workload management] para obter mais detalhes sobre os limites de simultaneidade. As consultas também podem esperar por motivos, como bloqueios.  Se sua consulta estiver aguardando um recurso, consulte [Investigar consultas aguardando recursos][Investigar consultas aguardando recursos] mais adiante neste artigo.
 
-Para simplificar a pesquisa de uma consulta na tabela sys.dm_pdw_exec_requests, use o [RÓTULO][RÓTULO] para atribuir um comentário à consulta que pode ser pesquisada no modo de exibição sys.dm_pdw_exec_requests.
+Para simplificar a pesquisa de uma consulta na tabela sys.dm_pdw_exec_requests, use [RÓTULO][RÓTULO] para atribuir um comentário à consulta que possa ser pesquisado na exibição sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -80,7 +84,7 @@ OPTION (LABEL = 'My Query')
 ```
 
 ### <a name="step-2-investigate-the-query-plan"></a>ETAPA 2: investigar o plano de consulta
-Use a ID de solicitação para recuperar o DSQL (plano de SQL distribuído) da consulta de [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
+Use a ID de Solicitação para recuperar o plano DSQL (SQL distribuído) da consulta de [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -119,7 +123,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
 ### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>ETAPA 3b: investigar a movimentação de dados em bancos de dados distribuídos
-Use a ID da Solicitação e o Índice da Etapa para recuperar as informações sobre a etapa de movimentação dos dados em execução em cada distribuição em [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
+Use a ID da Solicitação e o Índice da Etapa para recuperar as informações sobre uma etapa de movimentação de dados em execução em cada distribuição de [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql
 -- Find the information about all the workers completing a Data Movement Step.
@@ -169,8 +173,8 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Se a consulta estiver ativamente aguardando recursos de outra consulta, o estado será **AcquireResources**.  Se a consulta tiver todos os recursos necessários, o estado será **Concedido**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira [Exibições do sistema][Exibições do sistema] para obter mais informações sobre DMVs.
-Consulte [Práticas Recomendadas do SQL Data Warehouse][Práticas Recomendadas do SQL Data Warehouse] para saber mais sobre as práticas recomendadas
+Consulte [Exibições do sistema][Exibições do sistema] para obter mais informações sobre DMVs.
+Consulte [Práticas recomendadas do SQL Data Warehouse][Práticas recomendadas do SQL Data Warehouse] para saber mais sobre as práticas recomendadas
 
 <!--Image references-->
 
@@ -194,6 +198,6 @@ Consulte [Práticas Recomendadas do SQL Data Warehouse][Práticas Recomendadas d
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

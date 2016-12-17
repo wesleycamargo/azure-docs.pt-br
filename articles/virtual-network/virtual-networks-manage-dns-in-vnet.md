@@ -6,7 +6,7 @@ documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: b582be7d-dc78-4cfe-a766-185bd7e5dc68
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3416cf13180e124dab1c74b9c7254390ac5e49c4
+
 
 ---
-# Gerenciar servidores DNS usados por uma rede virtual (VNet)
+# <a name="manage-dns-servers-used-by-a-virtual-network-vnet"></a>Gerenciar servidores DNS usados por uma rede virtual (VNet)
 Você pode gerenciar a lista de servidores DNS usados em uma VNet no Portal de Gerenciamento ou no arquivo de configuração de rede. Você pode adicionar até 12 servidores DNS para cada VNet. Ao especificar servidores DNS, é importante verificar se os servidores DNS estão listados na ordem correta para seu ambiente. As listas de servidores DNS não funcionam em round robin. Elas são usadas na ordem em que foram especificadas. Se o primeiro servidor DNS na lista puder ser alcançado, o cliente usará esse servidor DNS independentemente de ele estar funcionando corretamente. Para alterar a ordem de servidor DNS para sua rede virtual, remova os servidores DNS da lista e adicione-as na ordem em que desejar.
 
 > [!WARNING]
@@ -24,7 +28,7 @@ Você pode gerenciar a lista de servidores DNS usados em uma VNet no Portal de G
 > 
 > 
 
-## Editar uma lista de servidores DNS para uma rede virtual usando o Portal de Gerenciamento
+## <a name="edit-a-dns-server-list-for-a-virtual-network-using-the-management-portal"></a>Editar uma lista de servidores DNS para uma rede virtual usando o Portal de Gerenciamento
 1. Faça logon no **Portal de Gerenciamento**.
 2. No painel de navegação, clique em **Redes** e no nome da sua rede virtual na coluna **Nome**.
 3. Clique em **Configurar**.
@@ -38,7 +42,7 @@ Você pode gerenciar a lista de servidores DNS usados em uma VNet no Portal de G
 5. Clique em **Salvar** na parte inferior da página para salvar a nova configuração de servidores DNS.
 6. Reinicie as máquinas virtuais localizadas na rede virtual para permitir que elas obtenham as novas configurações de DNS.
 
-## Editar uma lista de servidores DNS usando um arquivo de configuração de rede
+## <a name="edit-a-dns-server-list-using-a-network-configuration-file"></a>Editar uma lista de servidores DNS usando um arquivo de configuração de rede
 Para editar uma lista de servidores DNS usando um arquivo de configuração de rede, você primeiro deve exportar as configurações do Portal de Gerenciamento. Em seguida, deve editar o arquivo de configuração de rede e importá-lo novamente pelo Portal de Gerenciamento. Abaixo está uma lista de alto nível das etapas para concluir esse processo.
 
 1. Exporte as configurações de rede virtual para um arquivo de configuração de rede. Para saber mais e obter mais etapas para exportar as configurações de rede, confira [Exportar configurações de rede virtual para um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md).
@@ -46,4 +50,9 @@ Para editar uma lista de servidores DNS usando um arquivo de configuração de r
 3. Importe o arquivo de configuração de rede. Para saber mais e obter mais etapas para importar o arquivo de configuração de rede, confira [Importar um arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md).
 4. Reinicie as máquinas virtuais localizadas na rede virtual para permitir que elas obtenham as novas configurações de DNS.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

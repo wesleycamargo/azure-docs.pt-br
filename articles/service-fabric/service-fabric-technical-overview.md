@@ -1,12 +1,12 @@
 ---
-title: Visão geral da terminologia do Service Fabric | Microsoft Docs
-description: Uma visão geral da terminologia do Service Fabric. Aborda os principais conceitos de terminologia e os termos usados no restante da documentação.
+title: "Visão geral da terminologia do Service Fabric | Microsoft Docs"
+description: "Uma visão geral da terminologia do Service Fabric. Aborda os principais conceitos de terminologia e os termos usados no restante da documentação."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
 editor: chackdan;subramar
-
+ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,24 +14,28 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/25/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b68945157d7b4a5d418c766188ad49229c6f4ab5
+
 
 ---
-# Visão geral da terminologia do Service Fabric
+# <a name="service-fabric-terminology-overview"></a>Visão geral da terminologia do Service Fabric
 Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis. Este tópico fornece detalhes da terminologia usada no Service Fabric para entender os termos usados na documentação.
 
-## Conceitos de infraestrutura
-**Cluster**: um conjunto de máquinas físicas ou virtuais conectadas em rede, no qual os microsserviços são implantados e gerenciados. Os clusters podem ser dimensionados para milhares de máquinas.
+## <a name="infrastructure-concepts"></a>Conceitos de infraestrutura
+**Cluster**: um conjunto de máquinas físicas ou virtuais conectadas em rede, no qual os microsserviços são implantados e gerenciados.  Os clusters podem ser dimensionados para milhares de máquinas.
 
 **Nó**: uma máquina ou VM que faz parte de um cluster é chamado de nó. Cada nó recebe um nome de nó (uma cadeia de caracteres). Os nós têm características como propriedades de posicionamento. Cada máquina ou VM tem um serviço do Windows de início automático, `FabricHost.exe` que começa a ser executado na inicialização e então inicia dois executáveis: `Fabric.exe` e `FabricGateway.exe`. Esses dois executáveis compõem o nó. Para cenários de teste, você pode hospedar vários nós em um único computador ou VM, executando várias instâncias do `Fabric.exe` e do `FabricGateway.exe`.
 
-## Conceitos de aplicativo
-**Tipo de Aplicativo**: o nome/versão atribuído a uma coleção de tipos de serviço. São definidas em um arquivo `ApplicationManifest.xml`, inserido em um diretório de pacote de aplicativos que é então copiado para o repositório de imagens do cluster do Service Fabric. Assim, você pode criar um aplicativo nomeado desse tipo de aplicativo dentro do cluster.
+## <a name="application-concepts"></a>Conceitos de aplicativo
+**Tipo de Aplicativo**: o nome/versão atribuído a uma coleção de tipos de serviço. São definidas em um arquivo `ApplicationManifest.xml` , inserido em um diretório de pacote de aplicativos que é então copiado para o repositório de imagens do cluster do Service Fabric. Assim, você pode criar um aplicativo nomeado desse tipo de aplicativo dentro do cluster.
 
 Leia o artigo [Modelo de aplicativo](service-fabric-application-model.md) para saber mais.
 
-**Pacote de Aplicativos**: um diretório de disco contendo o arquivo `ApplicationManifest.xml` do tipo de aplicativo. Faz referência aos pacotes de serviço de cada tipo de serviço que compõe o tipo de aplicativo. Os arquivos no diretório do pacote de aplicativos são copiados no armazenamento de imagens do cluster do Service Fabric. Por exemplo, um pacote de aplicativos para um tipo de aplicativo de email pode conter referências a um pacote de serviços Fila, um pacote de serviços front-end e um pacote de serviços de banco de dados.
+**Pacote de Aplicativos`ApplicationManifest.xml`: um diretório de disco contendo o arquivo ** do tipo de aplicativo. Faz referência aos pacotes de serviço de cada tipo de serviço que compõe o tipo de aplicativo. Os arquivos no diretório do pacote de aplicativos são copiados no armazenamento de imagens do cluster do Service Fabric. Por exemplo, um pacote de aplicativos para um tipo de aplicativo de email pode conter referências a um pacote de serviços Fila, um pacote de serviços front-end e um pacote de serviços de banco de dados.
 
-**Aplicativo Nomeado**: depois de copiar um pacote de aplicativos para o repositório de imagens, você cria uma instância do aplicativo no cluster, especificando o tipo de aplicativo do pacote de aplicativos (usando seu nome/versão). Cada instância do tipo de aplicativo recebe um nome URI com esta aparência: `"fabric:/MyNamedApp"`. Em um cluster, você pode criar vários aplicativos nomeados a partir de um tipo de aplicativo único. Você também pode criar aplicativos nomeados a partir de diferentes tipos de aplicativos. Cada aplicativo nomeado é gerenciado e possui controle de versão independente.
+**Aplicativo Nomeado**: depois de copiar um pacote de aplicativos para o repositório de imagens, você cria uma instância do aplicativo no cluster, especificando o tipo de aplicativo do pacote de aplicativos (usando seu nome/versão). Cada instância do tipo de aplicativo recebe um nome URI com esta aparência: `"fabric:/MyNamedApp"`. Em um cluster, você pode criar vários aplicativos nomeados a partir de um tipo de aplicativo único. Você também pode criar aplicativos nomeados a partir de diferentes tipos de aplicativos. Cada aplicativo nomeado é gerenciado e possui controle de versão independente.      
 
 **Tipo de Serviço**: o nome/versão atribuída aos pacotes de códigos, pacotes de dados e pacotes de configuração de um serviço. São definidas em um arquivo `ServiceManifest.xml`, inserido em um diretório de pacote de serviços, e o diretório de pacote de serviços é referenciado pelo arquivo `ApplicationManifest.xml` de um pacote de aplicativos. Dentro do cluster, depois de criar um aplicativo nomeado, você pode criar um serviço nomeado a partir de um dos tipos de serviço do tipo de aplicativo. O arquivo `ServiceManifest.xml` do tipo de serviço descreve o serviço.
 
@@ -40,18 +44,18 @@ Leia o artigo [Modelo de aplicativo](service-fabric-application-model.md) para s
 Há dois tipos de serviço:
 
 * **Sem estado:** use um serviço sem estado quando o estado persistente do serviço for armazenado em um serviço de armazenamento externo, como o Armazenamento do Azure, Banco de Dados SQL do Azure ou Banco de Dados de Documentos do Azure. Use um serviço sem estado quando o serviço não tiver nenhum armazenamento persistente. Por exemplo, um serviço de calculadora no qual os valores são passados para o serviço, um cálculo é realizado usando esses valores e um resultado é retornado.
-* **Com estado:** use um serviço com estado quando quiser que o Service Fabric gerencie o estado de seu serviço por meio de seus modelos de programação Reliable Collections ou Reliable Actors. Especifique quantas partições você deseja distribuir pelo seu estado (para fins de escalabilidade) ao criar um serviço nomeado. Especifique também quantas vezes deve replicar o estado entre os nós (para fins de confiabilidade). Cada serviço nomeado tem uma única réplica primária e várias réplicas secundárias. Modifique o estado do serviço nomeado escrevendo para a réplica primária. O Service Fabric replica então esse estado para todas as réplicas secundárias, mantendo seu estado em sincronia. O Service Fabric detecta automaticamente quando uma réplica primaria falha e promove uma réplica secundária existente a réplica primária. O Service Fabric cria então uma nova réplica secundária.
+* **Com estado:** use um serviço com estado quando quiser que o Service Fabric gerencie o estado de seu serviço por meio de seus modelos de programação Reliable Collections ou Reliable Actors. Especifique quantas partições você deseja distribuir pelo seu estado (para fins de escalabilidade) ao criar um serviço nomeado. Especifique também quantas vezes deve replicar o estado entre os nós (para fins de confiabilidade). Cada serviço nomeado tem uma única réplica primária e várias réplicas secundárias. Modifique o estado do serviço nomeado escrevendo para a réplica primária. O Service Fabric replica então esse estado para todas as réplicas secundárias, mantendo seu estado em sincronia. O Service Fabric detecta automaticamente quando uma réplica primaria falha e promove uma réplica secundária existente a réplica primária. O Service Fabric cria então uma nova réplica secundária.  
 
-**Pacote de Serviços**: um diretório de disco contendo o arquivo `ServiceManifest.xml` do tipo de serviço. Este arquivo faz referência ao código, aos dados estáticos e a pacotes de configuração para o tipo de serviço. Os arquivos no diretório do pacote de serviços são referenciados pelo arquivo `ApplicationManifest.xml` do tipo de aplicativo. Por exemplo, um pacote de serviços pode fazer referência ao código, aos dados estáticos e aos pacotes de configuração que compõem um serviço de banco de dados.
+**Pacote de Serviços`ServiceManifest.xml`: um diretório de disco contendo o arquivo ** do tipo de serviço. Este arquivo faz referência ao código, aos dados estáticos e a pacotes de configuração para o tipo de serviço. Os arquivos no diretório do pacote de serviços são referenciados pelo arquivo `ApplicationManifest.xml` do tipo de aplicativo. Por exemplo, um pacote de serviços pode fazer referência ao código, aos dados estáticos e aos pacotes de configuração que compõem um serviço de banco de dados.
 
 **Serviço Nomeado**: depois de criar um aplicativo nomeado, você pode criar uma instância de um de seus tipos de serviço no cluster, especificando o tipo de serviço (usando seu nome/versão). Cada instância de tipo de serviço recebe um nome de URI com escopo dentro do URI de seu aplicativo nomeado. Por exemplo, se você criar um serviço chamado "MyDatabase" dentro de um aplicativo chamado "MyNamedApp", o URI terá esta aparência: `"fabric:/MyNamedApp/MyDatabase"`. Dentro de um aplicativo nomeado, você pode criar vários serviços nomeados. Cada serviço nomeado pode ter seu próprio esquema de partição e contagens de instância/réplica.
 
 **Pacote de Códigos**: um diretório de disco contendo arquivos executáveis do tipo de serviço (normalmente, arquivos EXE/DLL). Os arquivos no diretório do pacote de códigos são referenciados pelo arquivo `ServiceManifest.xml` do tipo de serviço. Quando um serviço nomeado é criado, o pacote de códigos é copiado para um ou mais nós selecionados para executar o serviço nomeado. Em seguida, o código começa a ser executado. Há dois tipos de arquivos executáveis de pacote de códigos:
 
 * **Executáveis convidados**: executáveis que são executados “como são” no sistema operacional host (Windows ou Linux). Ou seja, esses executáveis não criam um vínculo com, ou fazem referência a, arquivos de tempo de execução do Service Fabric e, portanto, não usam qualquer um dos modelos de programação do Service Fabric. Esses executáveis não conseguem usar alguns recursos do Service Fabric, como o serviço de nomenclatura para descoberta de ponto de extremidade. Executáveis de convidado não podem relatar métricas de carga específicas para cada instância de serviço.
-* **Executáveis do Host de Serviço**: são executáveis que usam modelos de programação do Service Fabric criando vínculos com arquivos de tempo de execução do Service Fabric, habilitando os recursos deste. Por exemplo, uma instância de serviço nomeada pode registrar pontos de extremidade com o Serviço de Nomenclatura do Service Fabric, e também pode relatar métricas de carga.
+* **Executáveis do Host de Serviço**: são executáveis que usam modelos de programação do Service Fabric criando vínculos com arquivos de tempo de execução do Service Fabric, habilitando os recursos deste. Por exemplo, uma instância de serviço nomeada pode registrar pontos de extremidade com o Serviço de Nomenclatura do Service Fabric, e também pode relatar métricas de carga.      
 
-**Pacote de Dados**: um diretório de disco contendo os arquivos de dados estáticos e somente leitura do tipo de serviço (normalmente arquivos de foto, som e vídeo). Os arquivos no diretório do pacote de dados são referenciados pelo arquivo `ServiceManifest.xml` do tipo de serviço. Quando um serviço nomeado é criado, o pacote de dados é copiado para um ou mais nós selecionados para executar o serviço nomeado. O código começa a ser executado e agora pode acessar os arquivos de dados.
+**Pacote de Dados**: um diretório de disco contendo os arquivos de dados estáticos e somente leitura do tipo de serviço (normalmente arquivos de foto, som e vídeo). Os arquivos no diretório do pacote de dados são referenciados pelo arquivo `ServiceManifest.xml` do tipo de serviço. Quando um serviço nomeado é criado, o pacote de dados é copiado para um ou mais nós selecionados para executar o serviço nomeado.  O código começa a ser executado e agora pode acessar os arquivos de dados.
 
 **Pacote de Configuração**: um diretório de disco contendo os arquivos de configuração estáticos e somente leitura do tipo de serviço (normalmente arquivos de texto). Os arquivos no diretório do pacote de configuração são referenciados pelo arquivo `ServiceManifest.xml` do tipo de serviço. Quando um serviço nomeado é criado, os arquivos no pacote de configuração é copiado para um ou mais nós selecionados para executar o serviço nomeado. O código começa a ser executado e agora pode acessar os arquivos de configuração.
 
@@ -59,10 +63,10 @@ Há dois tipos de serviço:
 
 Leia o artigo [Particionar os Reliable Services do Service Fabric](service-fabric-concepts-partitioning.md) para saber mais.
 
-## Serviços do sistema
+## <a name="system-services"></a>Serviços do sistema
 Há serviços do sistema que são criados em cada cluster que fornece os recursos de plataforma do Service Fabric.
 
-**Serviço de Nomenclatura**: cada cluster do Service Fabric tem um serviço de nomenclatura que resolve nomes de serviço para uma localização no cluster. Gerencie os nomes de serviço e propriedades, semelhante a um DNS (Serviço de Nomes de Domínio ) da Internet para o cluster. Os clientes podem comunicar-se com segurança com qualquer nó no cluster usando o Serviço de Nomenclatura para resolver um nome de serviço e sua localização. Os clientes obtêm o endereço IP do computador real e a porta em que ele está sendo executado. Você pode desenvolver serviços e clientes capazes de resolver a localização da rede atual, apesar de os aplicativos serem movidos dentro do cluster, por exemplo, devido a falhas, balanceamento de recursos ou redimensionamento do cluster.
+**Serviço de Nomenclatura**: cada cluster do Service Fabric tem um serviço de nomenclatura que resolve nomes de serviço para uma localização no cluster. Gerencie os nomes de serviço e propriedades, semelhante a um DNS (Serviço de Nomes de Domínio ) da Internet para o cluster. Os clientes podem comunicar-se com segurança com qualquer nó no cluster usando o Serviço de Nomenclatura para resolver um nome de serviço e sua localização.  Os clientes obtêm o endereço IP do computador real e a porta em que ele está sendo executado. Você pode desenvolver serviços e clientes capazes de resolver a localização da rede atual, apesar de os aplicativos serem movidos dentro do cluster, por exemplo, devido a falhas, balanceamento de recursos ou redimensionamento do cluster.
 
 Leia [Comunicar-se com os serviços](service-fabric-connect-and-communicate-with-services.md) para obter mais informações sobre como usar as APIs de comunicação do serviço e do cliente que funciona com o serviço de Nomenclatura.
 
@@ -70,7 +74,7 @@ Leia [Comunicar-se com os serviços](service-fabric-connect-and-communicate-with
 
 Leia o artigo [Implantar um aplicativo](service-fabric-deploy-remove-applications.md) para saber mais sobre como implantar aplicativos no repositório de imagens.
 
-## Modelos de programação internos
+## <a name="built-in-programming-models"></a>Modelos de programação internos
 Há dois modelos de programação do .NET Framework disponíveis para compilação de serviços do Service Fabric:
 
 **Reliable Services**: uma API para criar serviços com e sem estado. O serviço com estado armazena seu estado em Reliable Collections (como um dicionário ou uma fila). Você também pode conectar várias pilhas de comunicação, como API Web e Windows Communication Foundation (WCF).
@@ -80,11 +84,16 @@ Há dois modelos de programação do .NET Framework disponíveis para compilaç�
 Leia o artigo [Escolher um modelo de programação para o serviço](service-fabric-choose-framework.md) para saber mais.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o Service Fabric:
 
 * [Visão geral da Malha do Serviço](service-fabric-overview.md)
 * [Por que usar uma abordagem de microsserviço para construir aplicativos?](service-fabric-overview-microservices.md)
 * [Cenários de aplicativos](service-fabric-application-scenarios.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -7,7 +7,7 @@ author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d740926f6e372e46001b5a093c7fb25b47bc4f36
+
 
 ---
-# Como criar NSGs na CLI do Azure
+# <a name="how-to-create-nsgs-in-the-azure-cli"></a>Como criar NSGs na CLI do Azure
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -30,7 +34,7 @@ Este artigo aborda o modelo de implantação do Gerenciador de Recursos. Você t
 
 Os comandos da CLI do Azure de exemplo abaixo esperam um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos conforme eles são exibidos neste documento, primeiro crie o ambiente de teste ao implantar [esse modelo](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
 
-## Como criar o NSG para a sub-rede front-end
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Como criar o NSG para a sub-rede front-end
 Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as etapas abaixo.
 
 1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
@@ -109,7 +113,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
    * **-f (or --source-address-prefix)**. Prefixo do endereço de origem no CIDR ou uso de marcas padrão.
    * **-o (or --source-port-range)**. Porta de origem ou intervalo de porta.
    * **-e (or --destination-address-prefix)**. Prefixo do endereço de destino no CIDR ou uso de marcas padrão.
-   * **-u (or --destination-port-range)**. Porta de destino ou intervalo de porta.
+   * **-u (or --destination-port-range)**. Porta de destino ou intervalo de porta.    
 5. Execute o comando **azure network nsg rule create** para criar uma regra que permite o acesso à porta 80 (HTTP) por meio da Internet.
    
         azure network nsg rule create -g TestRG -a NSG-FrontEnd -n web-rule -c Allow -p Tcp -r Inbound -y 200 -f Internet -o * -e * -u 80
@@ -160,7 +164,7 @@ Para criar um NSG chamado *NSG-FrontEnd* com base no cenário acima, siga as eta
         data:    
         info:    network vnet subnet set command OK
 
-## Como criar o NSG para a sub-rede back-end
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Como criar o NSG para a sub-rede back-end
 Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etapas abaixo.
 
 1. Execute o comando **azure network nsg create** para criar um NSG.
@@ -263,4 +267,9 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
         data:    
         info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

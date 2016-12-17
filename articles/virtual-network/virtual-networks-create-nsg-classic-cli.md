@@ -1,13 +1,13 @@
 ---
-title: Como criar NSGs no modo clássico usando a CLI do Azure | Microsoft Docs
-description: Aprenda a criar e implantar NSGs no modo clássico usando a CLI do Azure
+title: "Como criar NSGs no modo clássico usando a CLI do Azure | Microsoft Docs"
+description: "Aprenda a criar e implantar NSGs no modo clássico usando a CLI do Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 17d98950-5fbb-4653-bef6-d822ab37541e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d3ea05a1f98dbec4adc9ceea17ece00b19200107
+
 
 ---
-# Como criar NSGs (clássicos) na CLI do Azure
+# <a name="how-to-create-nsgs-classic-in-the-azure-cli"></a>Como criar NSGs (clássicos) na CLI do Azure
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -30,7 +34,7 @@ Este artigo aborda o modelo de implantação clássico. Também é possível [cr
 
 Os comandos da CLI do Azure de exemplo abaixo esperam um ambiente simples já criado com base no cenário acima. Se você quiser executar os comandos da forma como eles aparecem neste documento, primeiro crie o ambiente de teste [criando uma VNet](virtual-networks-create-vnet-classic-cli.md).
 
-## Como criar o NSG para a sub-rede front-end
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Como criar o NSG para a sub-rede front-end
 Para criar um NSG chamado **NSG-FrontEnd** com base no cenário acima, siga as etapas abaixo.
 
 1. Se você nunca usou a CLI do Azure, consulte [Instalar e configurar a CLI do Azure](../xplat-cli-install.md) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
@@ -141,7 +145,7 @@ Para criar um NSG chamado **NSG-FrontEnd** com base no cenário acima, siga as e
         info:    Creating a network security group "NSG-FrontEnd"
         info:    network nsg subnet add command OK
 
-## Como criar o NSG para a sub-rede back-end
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Como criar o NSG para a sub-rede back-end
 Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etapas abaixo.
 
 1. Execute o comando **`azure network nsg create`** para criar um NSG.
@@ -231,4 +235,9 @@ Para criar um NSG chamado *NSG-BackEnd* com base no cenário acima, siga as etap
         info:    Creating a network security group "NSG-BackEndX"
         info:    network nsg subnet add command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

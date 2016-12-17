@@ -1,13 +1,13 @@
 ---
-title: Implantar uma VM com um IP público estático usando o portal do Azure no Gerenciador de Recursos | Microsoft Docs
-description: Saiba como implantar VMs com um IP público estático usando o portal do Azure no Gerenciador de Recursos
+title: "Criar uma VM com um IP público estático usando o Portal do Azure | Microsoft Docs"
+description: "Saiba como criar uma VM com um endereço IP público estático pelo Azure Resource Manager usando o Portal do Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,23 +15,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 80b452bd96e3a328899ed455b71cf68da8bfde54
+ms.openlocfilehash: c2d0230550249c5f8ca406b61225822b7e19db2e
+
 
 ---
-# Implantar uma VM com um IP público estático usando o Portal do Azure
-[!INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
+# <a name="create-a-vm-with-a-static-public-ip-using-the-azure-portal"></a>Criar uma VM com um IP público estático usando o Portal do Azure
+
+> [!div class="op_single_selector"]
+- [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
+- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+- [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
+- [Modelo](virtual-network-deploy-static-pip-arm-template.md)
+- [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-modelo de implantação clássica.
+> [!NOTE]
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md). Este artigo aborda usando o modelo de implantação do Gerenciador de Recursos, que a Microsoft recomenda para a maioria das novas implantações em vez de do modelo de implantação clássico.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 
-## Criar uma VM com um IP público estático
-Para criar uma VM com um endereço IP público estático no Portal do Azure, siga as etapas abaixo.
+## <a name="create-a-vm-with-a-static-public-ip"></a>Criar uma VM com um IP público estático
 
-1. Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e, se necessário, entre com sua conta do Azure.
+Para criar uma VM com um endereço IP público estático no Portal do Azure, siga as seguintes etapas:
+
+1. Em um navegador, navegue até o [portal do Azure](https://portal.azure.com) e, se necessário, entre com sua conta do Azure.
 2. No canto superior esquerdo do portal, clique em **Novo**>>**Computação**>**Windows Server 2012 R2 Datacenter**.
 3. Na lista **Selecionar um modelo de implantação**, selecione **Gerenciador de Recursos** e clique em **Criar**.
 4. Na folha **Noções Básicas**, insira as informações da VM conforme mostrado abaixo e, em seguida, clique em **OK**.
@@ -40,7 +50,7 @@ Para criar uma VM com um endereço IP público estático no Portal do Azure, sig
 5. Na folha **Escolha um tamanho**, clique em **A1 Standard** conforme mostrado abaixo e, em seguida, clique em **Selecionar**.
    
     ![Portal do Azure - Escolha um tamanho](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. Na folha **Configurações**, clique em **Endereço IP público**; então, na folha **Criar endereço IP público**, em **Atribuição**, clique em **Estático** conforme mostrado abaixo. E em seguida, clique em **OK**.
+6. Na folha **Configurações**, clique em **Endereço IP público**, em seguida na folha **Criar endereço IP público** em **Atribuição**, clique em **Estático** conforme mostrado abaixo. E em seguida, clique em **OK**.
    
     ![Portal do Azure - Criar endereço IP público](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 7. Na folha **Configurações**, clique em **OK**.
@@ -54,4 +64,9 @@ Para criar uma VM com um endereço IP público estático no Portal do Azure, sig
     
     ![Portal do Azure - Criar endereço IP público](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

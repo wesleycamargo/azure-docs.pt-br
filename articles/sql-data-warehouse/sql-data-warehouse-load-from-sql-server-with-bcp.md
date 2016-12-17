@@ -3,20 +3,24 @@ title: Carregar dados do SQL Server no Azure SQL Data Warehouse (bcp) | Microsof
 description: Para um tamanho de dados pequeno, use bcp para exportar dados do SQL Server para arquivos simples e importar os dados diretamente no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: f87d8d7c-8276-43c5-90e7-d4ccc0e3a224
 ms.service: sql-data-warehouse
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/30/2016
-ms.author: lodipalm;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e61865c903f168e35cff6a7ce8ccd27dbaaff104
+
 
 ---
-# Carregar dados do SQL Server no Azure SQL Data Warehouse (arquivos simples)
+# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-flat-files"></a>Carregar dados do SQL Server no Azure SQL Data Warehouse (arquivos simples)
 > [!div class="op_single_selector"]
 > * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 > * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
@@ -36,8 +40,8 @@ Neste tutorial, você usará o bcp para:
 > 
 > 
 
-## Antes de começar
-### Pré-requisitos
+## <a name="before-you-begin"></a>Antes de começar
+### <a name="prerequisites"></a>Pré-requisitos
 Para acompanhar este tutorial, você precisará:
 
 * Um banco de dados do SQL Data Warehouse.
@@ -46,12 +50,12 @@ Para acompanhar este tutorial, você precisará:
 
 Você pode baixar os utilitários bcp e sqlcmd do [Centro de Download da Microsoft][Centro de Download da Microsoft].
 
-### Dados em formato ASCII ou UTF-16
-Se você estiver experimentando este tutorial com seus próprios dados, eles precisarão usar a codificação ASCII ou UTF-16, já que bcp não oferece suporte a UTF-8.
+### <a name="data-in-ascii-or-utf-16-format"></a>Dados em formato ASCII ou UTF-16
+Se você estiver experimentando este tutorial com seus próprios dados, eles precisarão usar a codificação ASCII ou UTF-16, já que bcp não oferece suporte a UTF-8. 
 
-O PolyBase oferece suporte a UTF-8, mas ainda não oferece suporte a UTF-16. Observe que se você quiser combinar bcp com o PolyBase, será necessário transformar os dados em UTF-8 após a exportação do SQL Server.
+O PolyBase oferece suporte a UTF-8, mas ainda não oferece suporte a UTF-16. Observe que se você quiser combinar bcp com o PolyBase, será necessário transformar os dados em UTF-8 após a exportação do SQL Server. 
 
-## 1\. Criar uma tabela de destino
+## <a name="1-create-a-destination-table"></a>1. Criar uma tabela de destino
 Defina uma tabela no SQL Data Warehouse que será a tabela de destino para a carga. As colunas na tabela devem corresponder aos dados em cada linha do arquivo de dados.
 
 Para criar uma tabela, abra um prompt de comando e use sqlcmd.exe para executar o comando a seguir:
@@ -73,8 +77,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## 2\. Criar um arquivo de dados de origem
-Abra o Bloco de Notas e copie as seguintes linhas de dados em um novo arquivo de texto. Em seguida, salve esse arquivo em seu diretório temporário local, c:\\Temp\\DimDate2.txt. Esses dados estão no formato ASCII.
+## <a name="2-create-a-source-data-file"></a>2. Criar um arquivo de dados de origem
+Abra o Bloco de Notas e copie as seguintes linhas de dados em um novo arquivo de texto. Em seguida, salve esse arquivo em seu diretório temporário local, c:\Temp\DimDate2.txt. Esses dados estão no formato ASCII.
 
 ```
 20150301,1,3
@@ -99,7 +103,7 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 
 
 
-## 3\. Carregar os dados
+## <a name="3-load-the-data"></a>3. Carregar os dados
 Para carregar os dados, abra um prompt de comando e execute o comando a seguir, substituindo os valores de Nome do Servidor, Nome do Banco de Dados, Nome de Usuário e Senha por suas próprias informações.
 
 ```sql
@@ -129,8 +133,8 @@ O resultado deve parecer com o seguinte:
 | 20151101 |4 |2 |
 | 20151201 |4 |2 |
 
-## 4\. Criar estatísticas
-O SQL Data Warehouse ainda não dá suporte à criação automática ou atualização automática de estatísticas. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento, ou após uma alteração significativa nos dados. Para obter uma explicação detalhada das estatísticas, confira [Estatísticas][Estatísticas].
+## <a name="4-create-statistics"></a>4. Criar estatísticas
+O SQL Data Warehouse ainda não dá suporte à criação automática ou atualização automática de estatísticas. Para obter o melhor desempenho de suas consultas, é importante que as estatísticas sejam criadas em todas as colunas de todas as tabelas após o primeiro carregamento, ou após uma alteração significativa nos dados. Para obter uma explicação detalhada das estatísticas, confira [Estatísticas][Estatísticas]. 
 
 Execute o seguinte comando para criar estatísticas em sua tabela recém-carregada.
 
@@ -142,12 +146,12 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## 5\. Exportar dados do SQL Data Warehouse
-Por diversão, você pode exportar os dados recém-carregados para fora do SQL Data Warehouse. O comando para exportar é exatamente o mesmo usado para a exportação do SQL Server.
+## <a name="5-export-data-from-sql-data-warehouse"></a>5. Exportar dados do SQL Data Warehouse
+Por diversão, você pode exportar os dados recém-carregados para fora do SQL Data Warehouse.  O comando para exportar é exatamente o mesmo usado para a exportação do SQL Server.
 
 No entanto, há uma diferença nos resultados. Como os dados são armazenados em locais distribuídos no SQL Data Warehouse, quando você exporta os dados, cada nó de Computação grava seus dados no arquivo de saída. A ordem dos dados no arquivo de saída provavelmente será diferente da ordem dos dados no arquivo de entrada.
 
-### Exportar uma tabela e comparar os resultados exportados
+### <a name="export-a-table-and-compare-exported-results"></a>Exportar uma tabela e comparar os resultados exportados
 Para ver os dados exportados, abra um prompt de comando e execute este comando usando seus próprios parâmetros. ServerName é o nome do SQL Server lógico do Azure.
 
 ```sql
@@ -170,11 +174,13 @@ Você pode verificar se os dados foram exportados corretamente abrindo o novo ar
 20150101,1,3
 ```
 
-### Exportar os resultados de uma consulta
-Você pode usar a função **queryout** do bcp para exportar os resultados de uma consulta em vez de exportar toda a tabela.
+### <a name="export-the-results-of-a-query"></a>Exportar os resultados de uma consulta
+Você pode usar a função **queryout** do bcp para exportar os resultados de uma consulta em vez de exportar toda a tabela. 
 
-## Próximas etapas
-Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Data Warehouse][Carregar dados no SQL Data Warehouse]. Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][Visão geral de desenvolvimento do SQL Data Warehouse]. Confira [Visão geral da tabela][Visão geral da tabela] ou [Sintaxe CREATE TABLE][Sintaxe CREATE TABLE] para saber mais sobre como criar uma tabela no SQL Data Warehouse.
+## <a name="next-steps"></a>Próximas etapas
+Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Data Warehouse][Carregar dados no SQL Data Warehouse].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][Visão geral de desenvolvimento do SQL Data Warehouse].
+Consulte [Visão Geral da Tabela][Visão Geral da Tabela] ou [Sintaxe CREATE TABLE][Sintaxe CREATE TABLE] para saber mais sobre como criar uma tabela no SQL Data Warehouse.
 
 <!--Image references-->
 
@@ -182,7 +188,7 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 
 [Carregar dados no SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
 [Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Visão geral da tabela]: ./sql-data-warehouse-tables-overview.md
+[Visão Geral da Tabela]: ./sql-data-warehouse-tables-overview.md
 [Estatísticas]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
@@ -192,4 +198,8 @@ Para obter uma visão geral do carregamento, consulte [Carregar dados no SQL Dat
 <!--Other Web references-->
 [Centro de Download da Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

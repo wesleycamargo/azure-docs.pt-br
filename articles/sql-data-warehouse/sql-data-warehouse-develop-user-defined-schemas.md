@@ -1,22 +1,26 @@
 ---
-title: Esquemas definidos pelo usuário no SQL Data Warehouse | Microsoft Docs
-description: Dicas para usar esquemas de Transact-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções.
+title: "Esquemas definidos pelo usuário no SQL Data Warehouse | Microsoft Docs"
+description: "Dicas para usar esquemas de Transact-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 52af5bd5-d5d3-4f9b-8704-06829fb924e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9d59ffe4b0f0d858af18f30f848a63a28ac5f9b8
+
 
 ---
-# Esquemas definidos pelo usuário no SQL Data Warehouse
+# <a name="user-defined-schemas-in-sql-data-warehouse"></a>Esquemas definidos pelo usuário no SQL Data Warehouse
 Os data warehouses tradicionais normalmente usam bancos de dados separados para criar limites de aplicativo com base na carga de trabalho, domínio ou segurança. Por exemplo, um data warehouse tradicional do SQL Server pode incluir um banco de dados de preparo, um banco de dados do data warehouse e alguns bancos de dados do data mart. Nesta topologia, cada banco de dados funciona como uma carga de trabalho e limite de segurança na arquitetura.
 
 Por outro lado, o SQL Data Warehouse executa toda a carga de trabalho do data warehouse em um só banco de dados. Uniões cruzadas de banco de dados não são permitidas. Portanto, o SQL Data Warehouse espera que todas as tabelas usadas pelo warehouse sejam armazenadas em um só banco de dados.
@@ -26,7 +30,7 @@ Por outro lado, o SQL Data Warehouse executa toda a carga de trabalho do data wa
 > 
 > 
 
-## Recomendações
+## <a name="recommendations"></a>Recomendações
 Estas são recomendações para consolidar limites funcionais, de carga de trabalho, segurança e domínio usando esquemas definidos pelo usuário
 
 1. Use um banco de dados do SQL Data Warehouse para executar toda a carga de trabalho do data warehouse
@@ -46,7 +50,7 @@ Se já tiverem sido usados esquemas, então você tem algumas opções:
 > 
 > 
 
-### Exemplos:
+### <a name="examples"></a>Exemplos:
 Implementar esquemas definidos pelo usuário com base em nomes de banco de dados
 
 ```sql
@@ -115,16 +119,20 @@ FROM    [edw].customer
 > 
 > 
 
-## Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral do desenvolvimento][Visão geral do desenvolvimento].
+## <a name="next-steps"></a>Próximas etapas
+Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvimento][visão geral de desenvolvimento].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral do desenvolvimento]: sql-data-warehouse-overview-develop.md
+[visão geral de desenvolvimento]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

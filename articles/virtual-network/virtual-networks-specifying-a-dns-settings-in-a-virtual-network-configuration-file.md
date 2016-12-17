@@ -1,13 +1,13 @@
 ---
-title: Especificando as configurações DNS em um arquivo de configuração de Rede Virtual | Microsoft Docs
-description: Como alterar as configurações do servidor DNS em uma rede virtual usando um arquivo de configuração de rede virtual no modelo de implantação clássica
+title: "Especificando as configurações DNS em um arquivo de configuração de Rede Virtual | Microsoft Docs"
+description: "Como alterar as configurações do servidor DNS em uma rede virtual usando um arquivo de configuração de rede virtual no modelo de implantação clássica"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: a8905927-92ac-42b5-8c33-8e42c000692c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec33268915a1888509834ce6a5b2bc782a12ce4a
+
 
 ---
-# Especificando as configurações de DNS em um arquivo de configuração de rede virtual
-Um arquivo de configuração de rede tem dois elementos que você pode usar para especificar as configurações do Sistema de Nome de Domínio (DNS): **DnsServers** e **DnsServerRef**. Você pode adicionar uma lista de servidores DNS especificando seus endereços IP e fazendo referência a nomes para o elemento **DnsServers**. Você pode usar um elemento **DnsServerRef** para especificar quais entradas do servidor DNS do elemento DnsServers serão usadas para sites de rede diferentes dentro da sua rede virtual.
+# <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Especificando as configurações de DNS em um arquivo de configuração de rede virtual
+Um arquivo de configuração de rede tem dois elementos que você pode usar para especificar as configurações do Sistema de Nome de Domínio (DNS): **DnsServers** e **DnsServerRef**. Você pode adicionar uma lista de servidores DNS especificando seus endereços IP e fazendo referência a nomes para o elemento **DnsServers** . Você pode usar um elemento **DnsServerRef** para especificar quais entradas do servidor DNS do elemento DnsServers serão usadas para sites de rede diferentes dentro da sua rede virtual.
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
@@ -42,7 +46,7 @@ O arquivo de configuração de rede pode conter os seguintes elementos. O títul
     </Dns>
 
 > [!WARNING]
-> O atributo **nome** no elemento **DnsServer** é usado apenas como uma referência para o elemento **DnsServerRef**. Ele não representa o nome do host para o servidor DNS. Cada valor do atributo **DnsServer** deve ser exclusivo a toda a assinatura do Microsoft Azure
+> O atributo **nome** no elemento **DnsServer** é usado apenas como uma referência para o elemento**DnsServerRef**. Ele não representa o nome do host para o servidor DNS. Cada valor do atributo **DnsServer** deve ser exclusivo a toda a assinatura do Microsoft Azure
 > 
 > 
 
@@ -59,9 +63,14 @@ O arquivo de configuração de rede pode conter os seguintes elementos. O títul
 > 
 > 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Entenda o [Esquema de configuração da Rede Virtual do Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
 * Entenda o [Esquema de configuração do Serviço do Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
 * [Configure uma rede virtual usando os arquivos de configuração de Rede](virtual-networks-using-network-configuration-file.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

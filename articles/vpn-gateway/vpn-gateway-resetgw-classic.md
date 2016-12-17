@@ -1,13 +1,13 @@
 ---
 title: Redefinir um Gateway de VPN do Azure | Microsoft Docs
-description: Este artigo o orienta sobre como redefinir o Gateway de VPN do Azure. O artigo se aplica a gateways de VPN tanto nos modelos de implantação clássicos quanto nos modelos de implantação do Resource Manager.
+description: "Este artigo o orienta sobre como redefinir o Gateway de VPN do Azure. O artigo se aplica a gateways de VPN tanto nos modelos de implantação clássicos quanto nos modelos de implantação do Resource Manager."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97ee3599f2eded9800dbb441af7299547c502397
+
 
 ---
 # <a name="reset-an-azure-vpn-gateway-using-powershell"></a>Redefinir um Gateway de VPN do Azure usando o PowerShell
@@ -63,6 +67,9 @@ Resultado:
 ## <a name="next-steps"></a>Próximas etapas
 Confira a [Referência de cmdlet do Gerenciamento de Serviços do PowerShell](https://msdn.microsoft.com/library/azure/mt617104.aspx) e a [Referência de cmdlet do PowerShell Resource Manager](http://go.microsoft.com/fwlink/?LinkId=828732) para obter mais informações.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
