@@ -1,12 +1,12 @@
 ---
-title: Gerenciar um espaço de trabalho de Aprendizado de Máquina | Microsoft Docs
-description: Gerencie o acesso aos espaços de trabalho de aprendizado de máquina do Azure e implante e gerencie serviços Web da API ML
+title: "Gerenciar um espaço de trabalho do Machine Learning | Microsoft Docs"
+description: "Gerencie o acesso aos espaços de trabalho de aprendizado de máquina do Azure e implante e gerencie serviços Web da API ML"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a5d98d804697a9b5c745d4fa236cb0ee5b7c456b
+
 
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gerenciar um espaço de trabalho de Aprendizado de Máquina do Azure
@@ -48,7 +52,7 @@ A página do espaço de trabalho tem três guias:
 
 * **PAINEL** - permite que você exiba o uso e as informações do espaço de trabalho
 * **CONFIGURAR** - permite que você gerencie o acesso ao espaço de trabalho
-* **SERVIÇOS WEB** – permite que você gerencie serviços Web que foram publicados deste espaço de trabalho
+* **SERVIÇOS WEB** - permite que você gerencie serviços Web que foram publicados deste espaço de trabalho
 
 ## <a name="to-monitor-how-the-workspace-is-being-used"></a>Para monitorar como o espaço de trabalho está sendo usado
 Clique na guia **PAINEL** .
@@ -104,7 +108,7 @@ No painel, você pode exibir o uso geral do serviço Web em um período de tempo
 Na página Configurar, você pode atualizar as seguintes propriedades:
 
 * **Descrição** permite inserir uma descrição para o serviço Web. Descrição é um campo obrigatório.
-* **Registrar em log** permite habilitar ou desabilitar o registro de erros em log no ponto de extremidade. Para obter mais informações sobre Registro em Log, veja [Habilitar o log de serviços Web de Machine Learning](machine-learning-web-services-logging.md).
+* **Registrar em log** permite habilitar ou desabilitar o registro de erros em log no ponto de extremidade. Para obter mais informações sobre Registrar em Log, veja Habilitar [registro em log de serviços Web do Machine Learning](machine-learning-web-services-logging.md).
 * **Habilitar dados de Exemplo** permite que você forneça dados de exemplo que podem ser usados para testar o seu serviço de Solicitação-Resposta. Se você criou o serviço Web no Estúdio de Aprendizado de Máquina, os dados de exemplo são retirados dos dados usados para treinar seu modelo. Se você criou o serviço programaticamente, os dados foram extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
 
 [consumir]: machine-learning-consume-web-services.md
@@ -112,6 +116,6 @@ Na página Configurar, você pode atualizar as seguintes propriedades:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -2,11 +2,11 @@
 title: Mover dados de e para o Armazenamento de Blobs do Azure usando Python | Microsoft Docs
 description: Mover dados de e para o Armazenamento de Blobs do Azure usando Python
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 24276252-b3dd-4edf-9e5d-f6803f8ccccc
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: a67f2e77d3bc7da35a03b68d7f32fd3a2a42bfcd
+ms.openlocfilehash: 8ae64aa0cfe3774cfa288cc3eea18b1b2f56ad90
+
 
 ---
-# Mover dados de e para o Armazenamento de Blobs do Azure usando Python
+# <a name="move-data-to-and-from-azure-blob-storage-using-python"></a>Mover dados de e para o Armazenamento de Blobs do Azure usando Python
 Este tópico descreve como listar, carregar e baixar blobs usando a API Python. Com a API do Python fornecida no SDK do Azure, você pode:
 
 * Criar um contêiner
@@ -27,25 +31,23 @@ Este tópico descreve como listar, carregar e baixar blobs usando a API Python. 
 
 Para obter mais informações sobre como usar a API Python, consulte [Como usar o serviço de armazenamento de blob do Python](../storage/storage-python-how-to-use-blob-storage.md).
 
-Orientações sobre as tecnologias usadas para mover dados para e/ou do armazenamento de blobs do Azure estão vinculadas aqui:
-
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 > [!NOTE]
 > Se você estiver usando a VM que foi configurada com os scripts fornecidos pelas [Máquinas virtuais de ciência de dados no Azure](machine-learning-data-science-virtual-machines.md), o AzCopy já estará instalado na VM.
 > 
 > [!NOTE]
-> Para obter uma introdução completa ao Armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Para obter uma introdução completa ao Armazenamento de Blobs do Azure, consulte [Noções básicas do Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este documento pressupõe que você tenha uma assinatura, uma conta de armazenamento do Azure e a chave de armazenamento correspondente dessa conta. Antes de carregar/baixar os dados, você deve conhecer o nome e a chave da sua conta do Armazenamento do Azure.
 
 * Para configurar uma assinatura do Azure, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
 * Para obter instruções sobre como criar uma conta de armazenamento e obter informações sobre conta e chave, consulte [Sobre contas do armazenamento do Azure](../storage/storage-create-storage-account.md).
 
-## Carregar dados para Blob
+## <a name="upload-data-to-blob"></a>Carregar dados para Blob
 Adicione o trecho de código a seguir à parte superior de qualquer código Python no qual você deseja acessar programaticamente o Armazenamento do Azure:
 
     from azure.storage.blob import BlobService
@@ -57,7 +59,7 @@ O objeto **serviço Blob** permite que você trabalhe com contêineres e blobs. 
 Use os seguintes métodos para carregar dados para um blob:
 
 1. put\_block\_blob\_from\_path (carrega o conteúdo de um arquivo do caminho especificado)
-2. put\_block\_blob\_from\_file (carrega o conteúdo de um arquivo/fluxo já aberto)
+2. put\_block_blob\_from\_file (carrega o conteúdo de um arquivo/fluxo já aberto)
 3. put\_block\_blob\_from\_bytes (carrega uma matriz de bytes)
 4. put\_block\_blob\_from\_text (carrega o valor de texto especificado usando a codificação especificada)
 
@@ -91,7 +93,7 @@ O código de exemplo a seguir carrega todos os arquivos (exceto diretórios) em 
             print "something wrong happened when uploading the data %s"%blob_name
 
 
-## Baixar Dados de Blob
+## <a name="download-data-from-blob"></a>Baixar Dados de Blob
 Use os métodos a seguir para baixar dados de um blob:
 
 1. get\_blob\_to\_path
@@ -127,4 +129,8 @@ O código de exemplo a seguir baixa todos os blobs de um contêiner. Ele usa lis
         except:
             print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

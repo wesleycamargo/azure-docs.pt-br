@@ -1,12 +1,12 @@
 ---
 title: Logs personalizados no Log Analytics | Microsoft Docs
-description: O Log Analytics pode coletar eventos de arquivos de texto em computadores com Windows e Linux.  Este artigo descreve como definir um novo log personalizado e os detalhes dos registros que ele cria no repositório do OMS.
+description: "O Log Analytics pode coletar eventos de arquivos de texto em computadores com Windows e Linux.  Este artigo descreve como definir um novo log personalizado e os detalhes dos registros que ele cria no repositório do OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25c63021160e5259bc72a4f7bbfc248b7ac717aa
+
 
 ---
 # <a name="custom-logs-in-log-analytics"></a>Logs personalizados no Log Analytics
@@ -33,7 +37,7 @@ Os arquivos de log a serem coletados devem corresponder aos critérios a seguir.
 ## <a name="defining-a-custom-log"></a>Definindo um log personalizado
 Use o procedimento a seguir para definir um arquivo de log personalizado.  Role até o final deste artigo para encontrar um passo a passo de um exemplo de adição de um log personalizado.
 
-### <a name="step-1.-open-the-custom-log-wizard"></a>Etapa 1. Abrir o Custom Log Wizard (Assistente de Log Personalizado)
+### <a name="step-1-open-the-custom-log-wizard"></a>Etapa 1. Abrir o Custom Log Wizard (Assistente de Log Personalizado)
 O Custom Log Wizard (Assistente de Log Personalizado) é executado no portal do OMS e permite que você defina um novo log personalizado para coletar.
 
 1. No portal do OMS, vá para **Configurações**.
@@ -41,7 +45,7 @@ O Custom Log Wizard (Assistente de Log Personalizado) é executado no portal do 
 3. Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes.  Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.  Se você quiser modificar esse arquivo manualmente em cada agente do Linux, desmarque a caixa *Apply below configuration to my Linux machines*(Aplicar as configurações abaixo aos computadores Linux).
 4. Clique e **Adicionar+** para abrir o Custom Log Wizard (Assistente de Log Personalizado).
 
-### <a name="step-2.-upload-and-parse-a-sample-log"></a>Etapa 2. Carregar e analisar um log de exemplo
+### <a name="step-2-upload-and-parse-a-sample-log"></a>Etapa 2. Carregar e analisar um log de exemplo
 Inicie carregando um exemplo de log personalizado.  O assistente analisará e exibirá as entradas nesse arquivo para validação.  O Log Analytics usará o delimitador que você especificar para identificar cada registro.
 
 **Nova Linha** é o delimitador padrão e é usado para arquivos de log que têm uma única entrada por linha.  Se a linha começar com uma data e hora em um dos formatos disponíveis, você poderá especificar um delimitador **Carimbo de data/hora** , que dá suporte a entradas que se estendem por mais de uma linha. 
@@ -59,7 +63,7 @@ Se for usado um delimitador de carimbo de data/hora, a propriedade TimeGenerated
 4. Altere o delimitador usado para identificar um novo registro e selecione o delimitador que melhor identifica os registros no arquivo de log.
 5. Clique em **Próximo**.
 
-### <a name="step-3.-add-log-collection-paths"></a>Etapa 3. Adicionar caminhos de coleta de log
+### <a name="step-3-add-log-collection-paths"></a>Etapa 3. Adicionar caminhos de coleta de log
 Você deve definir um ou mais caminhos no agente no qual ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log ou pode especificar um caminho com um caractere curinga para o nome.  Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho.  Você também pode fornecer vários caminhos para um único arquivo de log.
 
 Por exemplo, um aplicativo pode criar um arquivo de log por dia com a data incluída no nome, como log20100316.txt. Um padrão para tal log pode ser *log\*.txt*, que se aplica a qualquer arquivo de log após o esquema de nomenclatura do aplicativo.
@@ -77,14 +81,14 @@ A tabela a seguir fornece exemplos de padrões válidos para especificar diferen
 2. Digite o caminho e clique no botão **+** .
 3. Repita o processo para todos os caminhos adicionais.
 
-### <a name="step-4.-provide-a-name-and-description-for-the-log"></a>Etapa 4. Fornecer um nome e descrição para o log
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Etapa 4. Fornecer um nome e descrição para o log
 O nome especificado será usado para o tipo de log, conforme descrito acima.  Ele sempre terminará com _CL para distingui-lo como um log personalizado.
 
 1. Digite um nome para o log.  O sufixo **\_CL** é fornecido automaticamente.
 2. Adicione uma **Descrição**opcional.
 3. Clique em **Próximo** para salvar a definição do log personalizado.
 
-### <a name="step-5.-validate-that-the-custom-logs-are-being-collected"></a>Etapa 5. Validar que os logs personalizados estão sendo coletados
+### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Etapa 5. Validar que os logs personalizados estão sendo coletados
 Pode demorar até uma hora para os dados iniciais de um novo log personalizado aparecerem no Log Analytics.  Ele começará a coletar entradas dos logs encontrados no caminho especificado do ponto que você definiu o log personalizado.  Ele não manterá as entradas que você carregou durante a criação de log personalizado, mas coletará as entradas já existentes nos arquivos de log que localizar.
 
 Depois que o Log Analytics iniciar a coleta de log personalizado, seus registros estarão disponíveis com uma Pesquisa de Log.  Use o nome que você atribuiu ao log personalizado como o **Tipo** em sua consulta.
@@ -94,7 +98,7 @@ Depois que o Log Analytics iniciar a coleta de log personalizado, seus registros
 > 
 > 
 
-### <a name="step-6.-parse-the-custom-log-entries"></a>Etapa 6. Analisar as entradas do log personalizado
+### <a name="step-6-parse-the-custom-log-entries"></a>Etapa 6. Analisar as entradas do log personalizado
 A entrada de log inteira será armazenada em uma única propriedade chamada **RawData**.  Você provavelmente desejará separar as diferentes partes de informações em cada entrada em propriedades individuais armazenados no registro.  Você faz isso usando a funcionalidade [Campos Personalizados](log-analytics-custom-fields.md) do Log Analytics.
 
 As etapas detalhadas para analisar a entrada de log personalizado não são fornecidas aqui.  Consulte a documentação dos [Campos Personalizados](log-analytics-custom-fields.md) para encontrar essas informações.
@@ -170,6 +174,9 @@ Usamos campos personalizados para definir os campos *EventTime*, *Code*, *Status
 * Use [campos personalizados](log-analytics-custom-fields.md) para analisar as entradas no log personalizado em campos personalizados.
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

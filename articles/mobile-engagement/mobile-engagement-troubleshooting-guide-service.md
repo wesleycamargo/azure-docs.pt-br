@@ -1,12 +1,12 @@
 ---
-title: Guia de solução de problemas do Mobile Engagement do Azure - serviço
-description: Guias de solução de problemas para o Mobile Engagement do Azure
+title: "Guia de solução de problemas do Mobile Engagement do Azure - serviço"
+description: "Guias de solução de problemas para o Mobile Engagement do Azure"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 8b4275da-c0b4-4690-824a-48e9d7a1fc6e
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
+
 
 ---
-# Guia de solução de problemas de serviço
+# <a name="troubleshooting-guide-for-service-issues"></a>Guia de solução de problemas de serviço
 A seguir, possíveis problemas que podem ser encontrados na execução do Mobile Engagement do Azure.
 
-## Interrupções de serviço
-### Problema
+## <a name="service-outages"></a>Interrupções de serviço
+### <a name="issue"></a>Problema
 * Problemas que parecem ser provocados por interrupções de serviços do Mobile Engagement do Azure.
 
-### Causas
+### <a name="causes"></a>Causas
 * Os problemas que parecem ser provocados por interrupções de serviços do Mobile Engagement do Azure podem ser causados por vários problemas diferentes:
   * Problemas isolados que originalmente parecem sistêmicos para o Mobile Engagement do Azure
   * Problemas conhecidos causados por interrupções de servidor (nem sempre são mostrados no status do servidor):
@@ -51,23 +55,23 @@ A seguir, possíveis problemas que podem ser encontrados na execução do Mobile
 * Teste tanto quando estiver conectado à Internet via WIFI quanto conectado via rede de celular 3G.
 * Confirme se o firewall não está bloqueando algum endereço IP ou porta do Mobile Engagement do Azure.
 
-4) Para testar se o problema é com o Dispositivo:
+4) Para testar se o problema é com o dispositivo:
 
 * Teste se o dispositivo é capaz de se conectar ao Mobile Engagement do Azure com outro aplicativo integrado Mobile Engagement do Azure.
-* Verifique se você pode gerar eventos, trabalhos e travamentos de seu telefone que podem ser vistos na interface do usuário do Mobile Engagement do Azure
-* Teste se você pode enviar notificações por push da IU do Mobile Engagement do Azure para o seu dispositivo com base em sua identificação do dispositivo.
+* Verifique se você pode gerar eventos, trabalhos e travamentos de seu telefone que podem ser vistos na interface do usuário do Mobile Engagement do Azure 
+* Teste se você pode enviar notificações por push da IU do Mobile Engagement do Azure para o seu dispositivo com base em sua identificação do dispositivo. 
 
-5) Para testar se o problema é com o seu aplicativo:
+5) Para testar se o problema é com seu aplicativo:
 
 * Instale e teste seu aplicativo de um emulador em vez de um dispositivo físico:
 
-6) Para testar se o problema é com as atualizações de sistema operacional para Dispositivos do usuário final, que exigem uma atualização do SDK para resolver:
+6) Para testar se o problema é com as atualizações do sistema operacional para dispositivos do usuário final, que exigem uma atualização do SDK para resolver:
 
 * Teste seu aplicativo em diferentes dispositivos com diferentes versões do sistema operacional.
 * Confirme que você está usando a versão mais recente do SDK.
 
-## Conectividade e problemas de informações incorretas
-### Problema
+## <a name="connectivity-and-incorrect-information-issues"></a>Conectividade e problemas de informações incorretas
+### <a name="issue"></a>Problema
 * Problemas de logon na interface do usuário do Mobile Engagement do Azure.
 * Erros de conexão com as APIs do Mobile Engagement do Azure.
 * Problemas ao carregar marcas de informações de aplicativo por meio da API do dispositivo.
@@ -75,7 +79,7 @@ A seguir, possíveis problemas que podem ser encontrados na execução do Mobile
 * Informações incorretas mostradas na interface do usuário do Mobile Engagement do Azure.
 * Informações incorretas mostradas nos logs do Mobile Engagement do Azure.
 
-### Causas
+### <a name="causes"></a>Causas
 * Confirme se sua conta de usuário tem permissões suficientes para executar a tarefa.
 * Confirme se o problema não está restrito a um computador ou à sua rede local.
 * Confirme se o serviço do Mobile Engagement do Azure não tem nenhuma interrupção relatada.
@@ -85,4 +89,9 @@ A seguir, possíveis problemas que podem ser encontrados na execução do Mobile
   * Usam letras maiúsculas para valores boolianos “verdadeiro” e “falso”.
   * Usam um arquivo menor do que o tamanho máximo de 35 MB.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

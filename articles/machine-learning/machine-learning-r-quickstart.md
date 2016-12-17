@@ -1,13 +1,13 @@
 ---
-title: Tutorial de início rápido para a linguagem R para Aprendizado de Máquina | Microsoft Docs
-description: Use este tutorial de programação R para começar a usar rapidamente a linguagem R com Studio de Aprendizado de Máquina do Azure para criar uma solução de previsão.
-keywords: guia de início rápido, linguagem r, linguagem de programação r, tutorial de programação r
+title: "Tutorial de início rápido para a linguagem R para Machine Learning | Microsoft Docs"
+description: "Use este tutorial de programação R para começar a usar rapidamente a linguagem R com Studio de Aprendizado de Máquina do Azure para criar uma solução de previsão."
+keywords: "guia de início rápido, linguagem r, linguagem de programação r, tutorial de programação r"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 120e7819535dca314ae9bc8cc266ec8771516735
+
 
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Tutorial de início rápido para a linguagem de programação R para o Aprendizado de Máquina do Azure
@@ -45,7 +49,7 @@ Passaremos por várias etapas enquanto você aprende a criar, testar e executar 
 * Com nossos dados preparados, executaremos uma análise das correlações entre diversas variáveis de nosso conjunto de dados.
 * Por fim, criaremos um modelo de previsão de série de tempos sazonais da produção de leite.
 
-## <a name="<a-id="mlstudio"></a>interact-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>Interagir com a linguagem R no Studio de Aprendizado de Máquina
+## <a name="a-idmlstudioainteract-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>Interagir com a linguagem R no Studio de Aprendizado de Máquina
 Esta seção apresenta algumas noções básicas de interagir com a linguagem de programação R no ambiente do Studio de Aprendizado de Máquina. A linguagem R fornece uma ferramenta poderosa para a criação de análises personalizadas e módulos de manipulação de dados no ambiente do Aprendizado de Máquina do Azure.
 
 Usarei o RStudio para desenvolver, testar e depurar o código R em pequena escala. Esse código é então recortado e colado em um módulo [Executar Script R][execute-r-script] no Machine Learning Studio pronto para execução.  
@@ -126,13 +130,13 @@ Uma tutorial de introdução no RStudio está disponível em https://support.rst
 
 Forneço algumas informações adicionais sobre como usar o RStudio no [Apêndice A][appendixa].  
 
-## <a name="<a-id="scriptmodule"></a>get-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Obter dados de entrada e saída no módulo Executar Script R
+## <a name="a-idscriptmoduleaget-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Obter dados de entrada e saída no módulo Executar Script R
 Nesta seção, discutiremos como inserir e extrair dados do módulo [Executar Script R][execute-r-script]. Analisaremos como lidar com vários tipos de dados de leitura de entrada e saída do módulo [Executar Script R][execute-r-script].
 
 O código completo para esta seção está no arquivo zip baixado anteriormente.
 
 ### <a name="load-and-check-data-in-machine-learning-studio"></a>Carregar e verificar dados no Studio de Aprendizado de Máquina
-#### <a name="<a-id="loading"></a>load-the-dataset"></a><a id="loading"></a>Carregar o conjunto de dados
+#### <a name="a-idloadingaload-the-dataset"></a><a id="loading"></a>Carregar o conjunto de dados
 Vamos começar carregando o arquivo **csdairydata.csv** no Estúdio de Aprendizado de Máquina do Azure.
 
 * Inicie seu ambiente do Estúdio de Aprendizado de Máquina do Azure.
@@ -309,7 +313,7 @@ Rolando para baixo podemos ver a saída de gráficos do nosso script R na Figura
 
 *Figura 8. Saída de gráficos da porta do Dispositivo R.*  
 
-## <a name="<a-id="filtering"></a>data-filtering-and-transformation"></a><a id="filtering"></a>Filtragem de dados e transformação
+## <a name="a-idfilteringadata-filtering-and-transformation"></a><a id="filtering"></a>Filtragem de dados e transformação
 Nesta seção, vamos executar alguns dados básicos de filtragem e operações de transformação nos dados de produtos derivados de leite da Califórnia. No final desta seção, teremos dados em um formato adequado para a criação de um modelo de análise.  
 
 Mais especificamente, nesta seção vamos executar várias tarefas de transformação e de limpeza de dados comuns: transformação de tipo, filtragem por dataframes, adição de novas colunas computadas e transformações de valor. Este histórioco deve ajudá-lo a lidar com as diversas variações encontradas em problemas do mundo real.
@@ -592,7 +596,7 @@ Vemos que os valores foram transformados. Agora, a produção de leite excede ba
 
 Neste momento, os dados são limpos e estamos prontos para a modelagem. Observando o resumo da visualização da saída Conjunto de dados de resultado do módulo [Executar Script R][execute-r-script], você verá que a coluna “Month” é “Categorical” com 12 valores exclusivos, novamente, como desejávamos.
 
-## <a name="<a-id="timeseries"></a>time-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>Análise de correlação e objetos de série temporal
+## <a name="a-idtimeseriesatime-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>Análise de correlação e objetos de série temporal
 Nesta seção vamos explorar alguns objetos básicos de série de tempo de R e vamos analisar as correlações entre algumas das variáveis. Nosso objetivo é obter um dataframe de saída que contenha as informações de correlação de pares em várias defasagens.
 
 O código R completo para esta seção está disponível no arquivo zip baixado anteriormente.
@@ -709,7 +713,7 @@ A função `ts.detrend()` abaixo executa ambas essas operações. As duas linhas
                     'ERROR: ts.detrend has encountered a Time argument not of class POSIXct',
                     'ERROR: Detrend regression has failed in ts.detrend',
                     'ERROR: Exception occurred in ts.detrend while standardizing time series in function ts.detrend'
-    )
+      )
       # Create a vector of zeros to return as a default in some cases
       zerovec  <- rep(length(ts), 0.0)
 
@@ -873,7 +877,7 @@ A execução do código produz o resultado mostrado na Figura 19 quando eu **Vis
 
 *Figura 19. Saída de resultados da análise de correlação.*
 
-## <a name="<a-id="seasonalforecasting"></a>time-series-example:-seasonal-forecasting"></a><a id="seasonalforecasting"></a>Exemplo de série temporal: previsão sazonal
+## <a name="a-idseasonalforecastingatime-series-example-seasonal-forecasting"></a><a id="seasonalforecasting"></a>Exemplo de série temporal: previsão sazonal
 Nossos dados agora estão em um formato adequado para análise, e determinamos que não há correlação significativa entre as variáveis. Vamos continuar e criar um modelo de previsão de série de tempo. Usando esse modelo vamos prever a produção de leite da Califórnia para os 12 meses de 2013.
 
 Nosso modelo de previsão terá dois componentes, um componente de tendência e um componente sazonal. A previsão concluída é o produto desses dois componentes. Esse tipo de modelo é conhecido como modelo de multiplicação. A alternativa é um modelo de adição. Já aplicamos uma transformação logarítmica às variáveis de interesse, o que torna essa análise manejável.
@@ -981,7 +985,7 @@ Isso gera o resultado a seguir.
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ##
     ## Residual standard error: 0.0418 on 212 degrees of freedom
-    ## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
+    ## Multiple R-squared:  0.941,    Adjusted R-squared:  0.94
     ## F-statistic: 1.12e+03 on 3 and 212 DF,  p-value: <2e-16
 
 Dos valores de P (Pr(>|t|)) nessa saída, podemos ver que o termo ao quadrado pode não ser significativo. Vou usar a função `update()` para modificar esse modelo eliminado o termo ao quadrado.
@@ -1065,7 +1069,7 @@ Isso gera o resultado a seguir.
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ##
     ## Residual standard error: 0.0263 on 202 degrees of freedom
-    ## Multiple R-squared:     1,   Adjusted R-squared:     1
+    ## Multiple R-squared:     1,    Adjusted R-squared:     1
     ## F-statistic: 1.42e+06 on 14 and 202 DF,  p-value: <2e-16
 
 Vemos que o modelo não tem um termo de interceptação e tem 12 fatores mês significativos. Isso é exatamente o que queremos.
@@ -1148,7 +1152,7 @@ Um número de métricas é usado para medir o desempenho dos modelos de série d
         return(NA)}
 
       if((length(series1) != length(series2))) {
-        warning(messages[3])
+           warning(messages[3])
         return(NA)}
 
       ## If is.log is TRUE exponentiate the values, else just copy
@@ -1203,7 +1207,7 @@ Executar esse código produz a saída mostrada na Figura 27 na porta de saída d
 
 Com base nesses resultados, podemos ver que a adição dos fatores sazonais ao modelo reduz o erro RMS significativamente. Não é muito surpreendente, o erro RMS para os dados de treinamento é um pouco menor que para a previsão.
 
-## <a name="<a-id="appendixa"></a>appendix-a:-guide-to-rstudio"></a><a id="appendixa"></a>APÊNDICE A: Guia do RStudio
+## <a name="a-idappendixaaappendix-a-guide-to-rstudio"></a><a id="appendixa"></a>APÊNDICE A: Guia do RStudio
 O RStudio é muito bem documentado, portanto neste apêndice fornecerei alguns links para as seções principais da documentação RStudio para você começar.
 
 1. Criando projetos
@@ -1220,7 +1224,7 @@ O RStudio é muito bem documentado, portanto neste apêndice fornecerei alguns l
    
    Os recursos de solução de problemas do ponto de interrupção estão em https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
-## <a name="<a-id="appendixb"></a>appendix-b:-further-reading"></a><a id="appendixb"></a>APÊNDICE B: Leitura adicional
+## <a name="a-idappendixbaappendix-b-further-reading"></a><a id="appendixb"></a>APÊNDICE B: Leitura adicional
 Este tutorial de programação R aborda os conceitos básicos de que você precisa para usar a linguagem R com o Studio de Aprendizado de Máquina do Azure. Se você não estiver familiarizado com R, duas introduções estão disponíveis no CRAN:
 
 * R para iniciantes de Emmanuel Paradis é um bom ponto de partida em http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
@@ -1280,6 +1284,6 @@ Alguns ótimos recursos na Internet:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

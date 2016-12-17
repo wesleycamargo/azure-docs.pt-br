@@ -1,19 +1,23 @@
 ---
-title: Agendamento e execução com o Data Factory | Microsoft Docs
-description: Aprenda sobre os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory.
+title: "Agendamento e execução com o Data Factory | Microsoft Docs"
+description: "Aprenda sobre os aspectos de agendamento e execução do modelo de aplicativo do Azure Data Factory."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 088a83df-4d1b-4ac1-afb3-0787a9bd1ca5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/15/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: febc8fef864f88fa07accf91efc9b87727a48b32
+ms.openlocfilehash: 8b1029075178fbc591645a5fd6a112ad0a7f8b86
+
 
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Agendamento e execução com o Data Factory
@@ -182,9 +186,9 @@ A **frequência** é definida como **Hora** e o **intervalo** é definido como *
                             "name": "AzureBlobOutput"
                         }
                     ],
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
+                       "scheduler": {
+                          "frequency": "Hour",
+                          "interval": 1
                     }
                 }
             ],
@@ -204,9 +208,9 @@ Após o pipeline ser implantado, o blob do Azure é populado da seguinte maneira
 
 * Arquivo mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt com dados
   
-          10002345,334,2,2015-01-01 08:24:00.3130000
-          10002345,347,15,2015-01-01 08:24:00.6570000
-          10991568,2,7,2015-01-01 08:56:34.5300000
+         10002345,334,2,2015-01-01 08:24:00.3130000
+         10002345,347,15,2015-01-01 08:24:00.6570000
+         10991568,2,7,2015-01-01 08:56:34.5300000
   
   > [!NOTE]
   > &lt;Guid&gt;; é substituído por um guid real. Exemplo de nome de arquivo: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
@@ -214,9 +218,9 @@ Após o pipeline ser implantado, o blob do Azure é populado da seguinte maneira
   > 
 * Arquivo mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt com dados:
   
-          10002345,334,1,2015-01-01 09:13:00.3900000
-          24379245,569,23,2015-01-01 09:25:00.3130000
-          16777799,21,115,2015-01-01 09:47:34.3130000
+         10002345,334,1,2015-01-01 09:13:00.3900000
+         24379245,569,23,2015-01-01 09:25:00.3130000
+         16777799,21,115,2015-01-01 09:47:34.3130000
 * Arquivo mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt sem dados.
 
 ## <a name="active-period-for-pipeline"></a>Período ativo do pipeline
@@ -453,7 +457,7 @@ Observe que no exemplo, dois conjuntos de dados de entrada são especificados pa
 ## <a name="model-datasets-with-different-frequencies"></a>Modelar conjuntos de dados com frequências diferentes
 Nos exemplos, as frequências de conjuntos de dados de entrada e saída e a janela de agendamento de atividade foram iguais. Alguns cenários exigem a capacidade de produzir saída em uma frequência diferente de frequências de uma ou mais entradas. O Data Factory dá suporte à modelagem desses cenários.
 
-### <a name="sample-1:-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Exemplo 1: gerar um relatório diário de saída para dados de entrada que estão disponíveis de hora em hora
+### <a name="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Exemplo 1: gerar um relatório diário de saída para dados de entrada que estão disponíveis de hora em hora
 Considere um cenário em que temos dados de medição de entrada de sensores disponíveis a cada hora no armazenamento de Blobs do Azure. Você deseja produzir um relatório diário de agregação com estatísticas, como média, máximo e mínimo para o dia com a [Atividade hive do Data Factory](data-factory-hive-activity.md).
 
 Veja como você pode modelar esse cenário com o Data Factory:
@@ -550,7 +554,7 @@ O script do hive recebe as informações de *DateTime* apropriadas como parâmet
                     "scheduler": {
                         "frequency": "Day",
                         "interval": 1
-                    },          
+                    },            
                     "policy": {
                         "concurrency": 1,
                         "executionPriorityOrder": "OldestFirst",
@@ -568,7 +572,7 @@ O diagrama a seguir mostra o cenário de um ponto de vista de dependência de da
 
 A fatia de saída para cada dia depende de 24 fatias horárias do conjunto de dados de entrada. O Data Factory calcula essas dependências automaticamente descobrindo as fatias de dados de entrada que equivalem ao mesmo período de tempo utilizado para a produção da fatia de saída. Se qualquer uma das 24 fatias de entrada não estiver disponível, o Data Factory aguardará até que a fatia de entrada esteja pronta antes de iniciar a execução da atividade diária.
 
-### <a name="sample-2:-specify-dependency-with-expressions-and-data-factory-functions"></a>Exemplo 2: especificar dependência com expressões e funções do Data Factory
+### <a name="sample-2-specify-dependency-with-expressions-and-data-factory-functions"></a>Exemplo 2: especificar dependência com expressões e funções do Data Factory
 Vamos considerar outro cenário. Suponha que você tenha uma atividade de hive que processa dois conjuntos de dados de entrada. Um deles tem novos dados diariamente, mas o outro obtém novos dados toda semana. Suponha que você queira fazer uma associação entre as duas entradas e produzir uma saída diariamente.
 
 A abordagem simples, na qual o Data Factory detecta automaticamente as fatias de entrada certas a serem processadas alinhando-se ao período de tempo da fatia de dados de saída, não funciona.
@@ -700,7 +704,7 @@ A atividade de hive usa as duas entradas e produz uma fatia de saída todos os d
             "scheduler": {
               "frequency": "Day",
               "interval": 1
-            },          
+            },            
             "policy": {
               "concurrency": 1,
               "executionPriorityOrder": "OldestFirst",
@@ -823,6 +827,9 @@ Observe o seguinte:
 * A exibição de diagrama não mostra pipelines únicos. Este comportamento ocorre por design.
 * Pipelines avulsos não podem ser atualizados. É possível clonar um pipeline único, renomeá-lo, atualizar suas propriedades e implantá-lo para criar outro.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

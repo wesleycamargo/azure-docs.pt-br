@@ -1,23 +1,29 @@
 ---
-title: Solução de Monitoramento de VMware no Log Analytics | Microsoft Docs
-description: Saiba mais sobre como a solução de Monitoramento de VMware pode ajudar a gerenciar logs e monitorar hosts ESXi.
+title: "Solução de Monitoramento de VMware no Log Analytics | Microsoft Docs"
+description: "Saiba mais sobre como a solução de Monitoramento de VMware pode ajudar a gerenciar logs e monitorar hosts ESXi."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 813120692232096275f3a7500c3b54e16af26b77
 
 ---
-# <a name="vmware-monitoring-(preview)-solution-in-log-analytics"></a>Solução de Monitoramento de VMware (visualização) no Log Analytics
+
+# <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de Monitoramento de VMware (visualização) no Log Analytics
 A solução de monitoramento de VMware no Log Analytics é uma solução que ajuda você a criar uma abordagem centralizada de registro em log e monitoramento para logs do VMware de tamanho grande. Este artigo descreve como você pode solucionar problemas, capturar e gerenciar os hosts ESXi em uma única localização usando a solução. Com a solução, você pode ver os dados detalhados de todos os seus hosts ESXi em uma única localização. Você pode ver os principais eventos contagens, status e tendências de VM e hosts ESXi fornecidos por meio dos logs de host ESXi. Você pode solucionar problemas exibindo e pesquisando logs de host ESXi centralizados. Além disso, você pode criar alertas com base em consultas de pesquisa de log.
+
+A solução usa a funcionalidade de syslog nativo do host ESXi para enviar dados por push para um destino de VM, que tem o agente do OMS. No entanto, a solução não grava arquivos no syslog dentro da VM de destino. O agente do OMS abre a porta 1514 e escuta isso. Uma vez que recebe os dados, o agente do OMS envia os dados para OMS.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 Use as informações a seguir para instalar e configurar a solução.
@@ -37,29 +43,30 @@ Crie um sistema operacional do Linux VM para receber todos os dados syslog de ho
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
 2. No campo *Syslog.global.logHost*, adicione o servidor Linux e o número da porta *1514*. Por exemplo, `tcp://hostname:1514` ou `tcp://123.456.789.101:1514`
 3. Abra o firewall do host ESXi para syslog. **Configuração do Host ESXi** > **Software** > **Perfil de Segurança** > **Firewall** e abra **Propriedades**.  
-   
+
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
-   
+
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
 4. Marque o Console vSphere para confirmar que esse syslog está configurado corretamente. Confirme no host ESXI que a porta **1514** está configurada.
-5. Teste a conectividade entre o servidor Linux e o host ESXi usando o comando `nc` no Host ESXi. Por exemplo:
-   
-    ```
-    [root@ESXiHost:~] nc -z 123.456.789.101 1514
-    Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
-    ```
-6. Baixe e instale o agente do OMS para Linux no servidor Linux. Veja a [Documentação do Agente do OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para obter mais informações.
-7. Depois que o agente do OMS para Linux estiver instalado, vá para o diretório /etc/opt/microsoft/omsagent/sysconf/omsagent.d directory and copy the vmware_esxi.conf file to the /etc/opt/microsoft/omsagent/conf/omsagent.d e altere o proprietário/grupo e as permissões do arquivo. Por exemplo:
-   
+5. Baixe e instale o agente do OMS para Linux no servidor Linux. Veja a [Documentação do Agente do OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para obter mais informações.
+6. Depois que o agente do OMS para Linux estiver instalado, vá para o diretório /etc/opt/microsoft/omsagent/sysconf/omsagent.d directory and copy the vmware_esxi.conf file to the /etc/opt/microsoft/omsagent/conf/omsagent.d e altere o proprietário/grupo e as permissões do arquivo. Por exemplo:
+
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
-8. Reinicie o Agente do OMS para Linux executando `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+7. Reinicie o Agente do OMS para Linux executando `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+8. Teste a conectividade entre o servidor Linux e o host ESXi usando o comando `nc` no Host ESXi. Por exemplo:
+
+    ```
+    [root@ESXiHost:~] nc -z 123.456.789.101 1514
+    Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
+    ```
+
 9. No Portal do OMS, execute uma pesquisa de log de `Type=VMware_CL`. Quando o OMS coleta os dados syslog, ele retém o formato syslog. No portal, alguns campos específicos são capturados, como *Hostname* e *ProcessName*.  
-   
+
     ![type](./media/log-analytics-vmware/type.png)  
-   
+
     Se seus resultados da pesquisa de log de exibição forem semelhantes àqueles da imagem acima, você estará pronto para usar o painel de solução de Monitoramento de VMWare do OMS.  
 
 ## <a name="vmware-data-collection-details"></a>Detalhes da coleta de dados do VMware
@@ -69,7 +76,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 | plataforma | Agente do OMS para Linux | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |![Sim](./media/log-analytics-vmware/oms-bullet-green.png) |![Não](./media/log-analytics-vmware/oms-bullet-red.png) |![Não](./media/log-analytics-vmware/oms-bullet-red.png) |![Não](./media/log-analytics-containers/oms-bullet-red.png) |![Não](./media/log-analytics-vmware/oms-bullet-red.png) |a cada 3 minutos |
+|  Linux |![Sim](./media/log-analytics-vmware/oms-bullet-green.png) |![Não](./media/log-analytics-vmware/oms-bullet-red.png) |![Não](./media/log-analytics-vmware/oms-bullet-red.png) |![Não](./media/log-analytics-containers/oms-bullet-red.png) |![Não](./media/log-analytics-vmware/oms-bullet-red.png) |a cada 3 minutos |
 
 A tabela a seguir mostram exemplos de campos de dados coletados pela solução de Monitoramento de VMware:
 
@@ -149,11 +156,50 @@ Salvar consultas de pesquisa é um recurso padrão do OMS e pode lhe ajudar a ma
 #### <a name="create-alerts-from-queries"></a>Criar alertas com base em consultas
 Depois de criar as consultas, talvez você queira usá-las para alertá-lo quando eventos específicos ocorrem. Veja [Alertas no Log Analytics](log-analytics-alerts.md) para obter informações sobre como criar alertas. Para obter exemplos de consultas de alertas e outros exemplos de consultas, veja a postagem de blog [Monitorar VMware usando o OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics).
 
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
+### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>O que é necessário na configuração do host de ESXi? Que impacto terá no meu ambiente atual?
+A solução usa o mecanismo de encaminhamento do Syslog de Host de ESXi nativo. Não é necessário qualquer software adicional da Microsoft no Host de ESXi para capturar os logs. Ele deve ter um impacto baixo em seu ambiente existente. No entanto, você precisa definir o encaminhamento de syslog, que é a funcionalidade de ESXI.
+
+### <a name="do-i-need-to-restart-my-esxi-host"></a>É necessário reiniciar o meu host de ESXi?
+Não. Esse processo não requer uma reinicialização. Às vezes, vSphere não atualiza corretamente o syslog. Nesse caso, faça logon para o host de ESXi e recarregue o syslog. Novamente, você não precisa reiniciar o host, então esse processo não é perturbador para seu ambiente.
+
+### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-oms"></a>Posso aumentar ou diminuir o volume de dados de log enviado ao OMS?
+Sim, pode. Você pode usar as configurações de nível de Log do Host de ESXi no vSphere. Coleta de log se baseia no nível de *informações*. Portanto, se você deseja auditar a criação da VM ou exclusão, você precisa manter o nível de *informações* em Hostd. Para obter mais informações, consulte a [Base de dados de conhecimento do VMware](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).
+
+### <a name="why-is-hostd-not-providing-data-to-oms-my-log-setting-is-set-to-info"></a>Por que o Hostd não está fornecendo dados de OMS? Minha configuração de log está definida como informações.
+Havia um bug do host de ESXi para o carimbo de data/hora do syslog. Para obter mais informações, consulte a [Base de dados de conhecimento do VMware](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202). Depois de aplicar a solução alternativa, Hostd deve funcionar normalmente.
+
+### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>Posso ter vários dados syslog de encaminhamento dos hosts de ESXi para uma única VM com omsagent?
+Sim. Você pode ter vários encaminhamento dos hosts de ESXi para uma única VM com omsagent.
+
+### <a name="why-dont-i-see-data-flowing-into-oms"></a>Por que não vejo dados que fluem para OMS?
+Pode haver vários motivos:
+
+* O host de ESXi não está corretamente enviando dados para a VM executando o omsagent. Para testar, execute as seguintes etapas:
+
+  1. Para confirmar, faça logon no host de ESXi usando ssh e execute o seguinte comando: `nc -z ipaddressofVM 1514`
+
+      Se não for bem-sucedido, as configurações do vSphere na Configuração Avançada não estão provavelmente corretas. Consulte [Configurar a coleta de syslog](#configure-syslog-collection) para obter informações sobre como configurar o host de ESXi para encaminhamento de syslog.
+  2. Se a conectividade da porta de syslog foi bem-sucedida, mas os dados ainda não aparecem, recarregue o syslog no host de ESXi usando ssh para executar o comando a seguir: ` esxcli system syslog reload`
+* VM com o agente de OMS não está definido corretamente. Para corrigir isso, execute as seguintes etapas:
+
+  1. OMS escuta a porta 1514 e envia dados para OMS. Use o seguinte comando para verificar se ele está em execução: `netstat -a | grep 1514`
+  2. Você deve ver a porta `1514/tcp` abrir. Se você não fizer isso, verifique se o omsagent está instalado corretamente. Se você não ver as informações da porta, a porta de syslog não está aberta no VM.
+
+     1. Verifique se o agente de OMS está sendo executado usando `ps -ef | grep oms`. Se ele não está em execução, inicie o processo executando o comando ` sudo /opt/microsoft/omsagent/bin/service_control start`
+     2. Abra o arquivo `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
+
+         Verifique se o usuário apropriado e a configuração do grupo são válidos, semelhante a: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+
+         Se o arquivo não existe ou o usuário e a configuração de grupo estão errados, tome uma ação corretiva ao [Preparar um servidor Linux](#prepare-a-linux-server).
+
 ## <a name="next-steps"></a>Próximas etapas
 * Usar [Pesquisas de Log](log-analytics-log-searches.md) no Log Analytics para exibir dados detalhados de hosts do VMware.
 * [Criar seus próprios painéis](log-analytics-dashboards.md) mostrando os dados de host do VMware.
 * [Criar alertas](log-analytics-alerts.md) quando ocorrem eventos específicos de host do VMware.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

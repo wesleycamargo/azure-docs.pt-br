@@ -1,19 +1,24 @@
 ---
 title: Estudo de caso sobre o Banco de Dados SQL do Azure - Umbraco | Microsoft Docs
-description: Saiba como a Umbraco usa o Banco de Dados SQL para provisionar e dimensionar serviços rapidamente a milhares de locatários na nuvem
+description: "Saiba como a Umbraco usa o Banco de Dados SQL para provisionar e dimensionar serviços rapidamente a milhares de locatários na nuvem"
 services: sql-database
-documentationcenter: ''
-author: carlrabeler
+documentationcenter: 
+author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/22/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0800f04034410c3734ef0a97afd9d41cf850381b
+
 
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco usa o Banco de Dados SQL do Azure para provisionar e dimensionar serviços rapidamente a milhares de locatários na nuvem
@@ -113,18 +118,21 @@ Morten também está satisfeito com os recursos de dimensionamento fornecidos pe
 
 Mikkel Madsen resume da seguinte maneira: "Adotamos o potente algoritmo do Azure que conecta um cenário comum de SaaS (integrando novos clientes em tempo real em escala) ao nosso padrão de aplicativo (pré-provisionando bancos de dados, tanto de desenvolvimento quanto ativos) sobre a tecnologia subjacente (usando as filas do Barramento de Serviço do Azure em conjunto com o Banco de Dados SQL do Azure)".
 
-## <a name="with-azure,-uaas-is-exceeding-customer-expectations"></a>Com o Azure, a UaaS está superando as expectativas dos clientes
+## <a name="with-azure-uaas-is-exceeding-customer-expectations"></a>Com o Azure, a UaaS está superando as expectativas dos clientes
 Desde que escolheu o Azure como seu parceiro de nuvem, a Umbraco tem sido capaz de fornecer aos clientes da UaaS desempenho otimizado de gerenciamento de conteúdo, sem o investimento em recursos de TI exigido por uma solução auto-hospedada. Como Morten afirma, "Adoramos a conveniência e a escalabilidade de desenvolvedor que o Azure nos proporciona, e nossos clientes estão empolgados com os recursos e a confiabilidade. De modo geral, tem sido uma grande vitória para nós!"
 
 ## <a name="more-information"></a>Mais informações
 * Para saber mais sobre os pools de bancos de dados elásticos do Azure, confira os [pools de bancos de dados elásticos](sql-database-elastic-pool.md).
 * Para saber mais sobre o Barramento de Serviço, confira [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/).
-* Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute). 
+* Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute).    
 * Para saber mais sobre redes virtuais, confira [redes virtuais](https://azure.microsoft.com/documentation/services/virtual-network/).    
-* Para saber mais sobre backup e recuperação, confira [continuidade de negócios](sql-database-business-continuity.md).  
-* Para saber mais sobre o monitoramento de pools, confira [monitoramento de pools](sql-database-elastic-pool-manage-portal.md). 
+* Para saber mais sobre backup e recuperação, confira [continuidade de negócios](sql-database-business-continuity.md).    
+* Para saber mais sobre o monitoramento de pools, confira [monitoramento de pools](sql-database-elastic-pool-manage-portal.md).    
 * Para saber mais sobre a Umbraco como serviço, confira [Umbraco](https://umbraco.com/cloud).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
