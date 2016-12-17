@@ -1,12 +1,12 @@
 ---
-title: Relatórios HTTP Avançados na CDN do Azure | Microsoft Docs
-description: Relatórios HTTP avançados na CDN do Microsoft Azure. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN.
+title: "Relatórios HTTP Avançados da CDN do Azure | Microsoft Docs"
+description: "Relatórios HTTP avançados na CDN do Microsoft Azure. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN."
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,27 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 91cafe744e07416426da6ca5a5785a21e7874f6d
+
 
 ---
-# Relatórios HTTP avançados na CDN do Microsoft Azure
-## Visão geral
+# <a name="advanced-http-reports-in-microsoft-azure-cdn"></a>Relatórios HTTP avançados na CDN do Microsoft Azure
+## <a name="overview"></a>Visão geral
 Este documento explica os relatórios HTTP avançados na CDN do Microsoft Azure. Esses relatórios fornecem informações detalhadas sobre a atividade da CDN.
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## Acessando relatórios HTTP avançados
-1. Na folha do perfil do CDN, clique no botão **Gerenciar**.
+## <a name="accessing-advanced-http-reports"></a>Acessando relatórios HTTP avançados
+1. Na folha do perfil do CDN, clique no botão **Gerenciar** .
    
     ![botão gerenciar da folha Perfil CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     O portal de gerenciamento da CDN é aberto.
-2. Passe o mouse sobre a guia **Análise** e sobre o submenu **Relatórios HTTP avançados**. Clique em **Plataforma Grande HTTP**.
+2. Passe o mouse sobre a guia **Análise**, em seguida, passe o mouse sobre o submenu **Relatórios HTTP Avançados**.  Clique em **Plataforma Grande HTTP**.
    
     ![Portal de gerenciamento da CDN - menu Relatórios Avançados](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
     As opções de relatório são exibidas.
 
-## Relatórios de Geografia (baseados em mapa)
+## <a name="geography-reports-map-based"></a>Relatórios de Geografia (baseados em mapa)
 Há cinco relatórios que tiram proveito de um mapa para indicar as regiões de onde o conteúdo está sendo solicitado. Esses relatórios são Mapa mundial, Mapa dos Estados Unidos, Mapa do Canadá, Mapa da Europa e Mapa do Pacífico Asiático.
 
 Cada relatório baseado em mapa classifica as entidades geográficas (ou seja, países, estados e províncias) de acordo com a porcentagem de ocorrências originadas da região. Além disso, um mapa é fornecido para ajudá-lo a visualizar os locais de onde o conteúdo está sendo solicitado. É possível fazer isso codificando por cores cada região de acordo com a quantidade da demanda percebida nelas. As regiões com cores mais claras indicam menor demanda por seu conteúdo, enquanto regiões mais escuras indicam altos níveis de demanda por seu conteúdo.
@@ -51,12 +55,12 @@ Uma breve descrição abaixo é apresentada abaixo para cada tipo de relatório 
 | Mapa da Europa |Esse relatório permite que você exiba a demanda por seu conteúdo CDN na Europa. Cada país é codificado por cores nesse mapa para indicar a porcentagem de ocorrências originadas da região. |
 | Mapa do Pacífico Asiático |Esse relatório permite que você exiba a demanda por seu conteúdo CDN na Ásia. Cada país é codificado por cores nesse mapa para indicar a porcentagem de ocorrências originadas da região. |
 
-## Relatórios de geografia (gráficos de barras)
+## <a name="geography-reports-bar-charts"></a>Relatórios de geografia (gráficos de barras)
 Há dois relatórios adicionais que fornecem informações estatísticas de acordo com a geografia, que são Principais cidades e Principais países. Esses relatórios classificam cidades e países, respectivamente, de acordo com o número de ocorrências originadas dessas regiões. Ao gerar esse tipo de relatório, um gráfico de barras indicará as dez principais cidades ou países que solicitaram o conteúdo em uma plataforma específica. Esse gráfico de barras permite avaliar rapidamente as regiões que geram o maior número de solicitações de seu conteúdo.
 
 O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na região especificada. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo para cada uma das dez regiões principais.
 
-### Usando gráficos de barras
+### <a name="using-the-bar-charts"></a>Usando gráficos de barras
 * Se você passar o mouse sobre uma barra, o nome e o número total de ocorrências na região serão exibidos como uma dica de ferramenta.
 * A dica de ferramenta para o relatório Principais cidades identifica uma cidade pelo nome, pelo estado/província e pela abreviação do país.
 * Se a cidade ou região (ou seja, estado/província) de onde se originou uma solicitação não puder ser determinada, ela será indicada como desconhecida. Se o país for desconhecido, dois pontos de interrogação (isto é, ??) serão exibidos.
@@ -71,7 +75,7 @@ Uma breve descrição é apresentada para ambos os tipos de relatórios abaixo.
 | Principais cidades |Este relatório classifica cidades de acordo com o número de ocorrências originadas dessa região. |
 | Principais países |Este relatório classifica países de acordo com o número de ocorrências originadas dessa região. |
 
-## Resumo diário
+## <a name="daily-summary"></a>Resumo diário
 O relatório Resumo diário permite exibir o número total de ocorrências e de dados transferidos por uma plataforma específica diariamente. Essas informações podem ser usadas de discernir rapidamente padrões de atividade da CDN. Por exemplo, esse relatório pode ajudá-lo a detectar quais dias tiveram tráfego maior ou menor que o esperado.
 
 Ao gerar esse tipo de relatório, um gráfico de barras fornece uma indicação visual da quantidade de demanda específica da plataforma percebida diariamente ao longo do período coberto pelo relatório. Ele fará isso exibindo uma barra para cada dia no relatório. Por exemplo, a seleção do período de tempo "Semana Passada" irá gerar um gráfico de barras com sete barras. Cada barra indica o número total de ocorrências percebidas naquele dia.
@@ -85,7 +89,7 @@ O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na data es
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total de ocorrências e a quantidade de dados transferidos (em gigabytes) para cada dia coberto pelo relatório.
 
-## Por hora
+## <a name="by-hour"></a>Por hora
 O relatório Por hora permite exibir o número total de ocorrências e de dados transferidos por uma plataforma específica por hora. Essas informações podem ser usadas de discernir rapidamente padrões de atividade da CDN. Por exemplo, esse relatório pode ajudá-lo a detectar os períodos de tempo durante o dia que tiveram tráfego maior ou menor que o esperado.
 
 Ao gerar esse tipo de relatório, um gráfico de barras fornece uma indicação visual da quantidade de demanda específica da plataforma percebida por hora ao longo do período coberto pelo relatório. Ele fará isso exibindo uma barra para cada hora coberta pelo relatório. Por exemplo, a seleção de um período de 24 horas irá gerar um gráfico de barras com vinte e quatro barras. Cada barra indica o número total de ocorrências percebidas naquela hora.
@@ -99,7 +103,7 @@ O lado esquerdo do gráfico (eixo y) indica o número de ocorrências na hora es
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total de ocorrências e a quantidade de dados transferidos (em gigabytes) para cada hora coberta pelo relatório.
 
-## Por arquivo
+## <a name="by-file"></a>Por arquivo
 O relatório Por arquivo permite que você exiba a quantidade de demanda e o tráfego ocorridos em uma plataforma específica para os ativos mais solicitados. Ao gerar este tipo de relatório, um gráfico de barras será gerado sobre os dez ativos mais solicitados durante o período de tempo especificado.
 
 > [!NOTE]
@@ -111,14 +115,14 @@ O lado esquerdo do gráfico (eixo y) indica o número de solicitações para cad
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará as seguintes informações sobre cada um dos 250 ativos mais solicitados: o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos.
 
-## Por detalhes do arquivo
+## <a name="by-file-detail"></a>Por detalhes do arquivo
 O relatório Por detalhes do arquivo permite que você exiba a quantidade de demanda e o tráfego ocorridos em uma plataforma específica para um ativo específico. A opção Por detalhes do arquivo está na parte superior deste relatório. Essa opção fornece uma lista de seus ativos mais solicitados na plataforma selecionada. Para gerar um relatório Por detalhes do arquivo, você precisa selecionar o ativo desejado na opção Detalhes do Arquivo Para. Depois disso, um gráfico de barras indicará a quantidade de demanda diária que ele gerou durante o período de tempo especificado.
 
-O lado esquerdo do gráfico (eixo y) indica o número total de solicitações recebidas por um ativo em um dia específico. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica a data (formato: DD-MM-AAAA) na qual a demanda da CDN foi relatada para o ativo.
+O lado esquerdo do gráfico (eixo y) indica o número total de solicitações recebidas por um ativo em um dia específico. Diretamente abaixo do gráfico (eixo x), você encontrará um rótulo que indica a data (formato: DD-MM-AAAA)  na qual a demanda da CDN foi relatada para o ativo.
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará o número total de ocorrências e a quantidade de dados transferidos (em gigabytes) para cada dia coberto pelo relatório.
 
-## Por tipo de arquivo
+## <a name="by-file-type"></a>Por tipo de arquivo
 O relatório Por tipo de arquivo permite que você exiba a quantidade de demanda e o tráfego gerados por tipo de arquivo. Ao gerar este tipo de relatório, um gráfico de rosca indica a porcentagem de ocorrências geradas pelos dez principais tipos de arquivo.
 
 > [!TIP]
@@ -128,10 +132,10 @@ O relatório Por tipo de arquivo permite que você exiba a quantidade de demanda
 
 Os dados usados para gerar o gráfico de rosca podem ser exibidos abaixo dele. Lá, você encontrará o tipo de mídia de Internet/extensão de nome de arquivo, o número total de acessos, a porcentagem de ocorrências, a quantidade de dados transferidos (em gigabytes) e a porcentagem de dados transferidos para cada um dos 250 principais tipos de arquivo.
 
-## Por diretório
+## <a name="by-directory"></a>Por diretório
 O relatório Por diretório permite que você exiba a quantidade de demanda e o tráfego ocorridos em uma plataforma específica relativo a conteúdo de um diretório específico. Ao gerar este tipo de relatório, um gráfico de barras indica o número total de ocorrências geradas pelo conteúdo nos dez diretórios principais.
 
-### Usando o gráfico de barras
+### <a name="using-the-bar-chart"></a>Usando o gráfico de barras
 * Passe o mouse sobre uma barra para exibir o caminho relativo para o diretório correspondente.
 * O conteúdo armazenado em uma subpasta de um diretório não será contado no cálculo da demanda por diretório. Esse cálculo depende exclusivamente do número de solicitações gerado para o conteúdo armazenado no diretório real.
 * Para os fins deste relatório, as URLs da borda CNAME são convertidas nas URLs equivalentes da CDN. Isso permite uma contagem precisa de todas as estatísticas associadas a um ativo, independentemente da URL da CDN ou da borda CNAME URL usada para solicitá-las.
@@ -140,24 +144,24 @@ O lado esquerdo do gráfico (eixo y) indica o número total de solicitações pa
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá, você encontrará as seguintes informações sobre cada um dos principais 250 diretórios: o número total e a porcentagem de ocorrências, a quantidade total de dados transferidos (em gigabytes) e a porcentagem dos dados transferidos.
 
-## Por navegador
+## <a name="by-browser"></a>Por navegador
 O relatório Por navegador permite que você veja quais navegadores foram usados para solicitar o conteúdo. Ao gerar este tipo de relatório, um gráfico de pizza indica a porcentagem de solicitações tratadas pelos dez principais navegadores.
 
-### Usando o gráfico de pizza
+### <a name="using-the-pie-chart"></a>Usando o gráfico de pizza
 * Passe o mouse sobre uma fatia no gráfico de pizza para exibir o nome e a versão do navegador.
 * Para fins de relatório, cada combinação exclusiva navegador/versão é considerada um navegador diferente.
 * A fatia chamada "Outros" indica a porcentagem de solicitações tratadas por todos os outros navegadores e versões.
 
 Os dados usados para gerar o gráfico de pizza podem ser exibidos abaixo dele. Lá, você encontrará o tipo/número de versão do navegador, o número total de ocorrências e a porcentagem de ocorrências para cada um dos 250 principais navegadores.
 
-## Por referenciador
+## <a name="by-referrer"></a>Por referenciador
 O relatório Por referenciador permite exibir os principais referenciadores de conteúdo na plataforma selecionada. Um referenciador indica o nome do host do qual uma solicitação foi gerada. Ao gerar este tipo de relatório, um gráfico de barras indica a quantidade de demanda (isto é, ocorrências) gerada pelos dez principais referenciadores.
 
 O lado esquerdo do gráfico (eixo y) indica o número total de solicitações recebidas por um ativo para cada referenciador. Cada barra no gráfico representa um referenciador. Use o esquema de codificação de cores para fazer a correspondência entre uma barra e um referenciador listado na seção 250 principais referenciadores.
 
 Os dados usados para gerar o gráfico de barras podem ser exibidos abaixo dele. Lá você encontrará a URL, o número total e a porcentagem de ocorrências geradas por cada um dos 250 principais referenciadores.
 
-## Por download
+## <a name="by-download"></a>Por download
 O relatório Por download permite analisar padrões de download para o conteúdo mais solicitado. A parte superior do relatório contém um gráfico de barras que compara tentativas de downloads com downloads concluídos para os dez ativos mais solicitados. Cada barra é codificada por cores separando as tentativas de download (azul) dos downloads concluídos (verde).
 
 > [!NOTE]
@@ -179,7 +183,7 @@ Diretamente abaixo do gráfico de barras, as informações a seguir serão lista
 > 
 > 
 
-## Por erros 404
+## <a name="by-404-errors"></a>Por erros 404
 O relatório de erros 404 permite que você identifique o tipo de conteúdo que gera o maior número de códigos de status 404 Não encontrado. A parte superior do relatório contém um gráfico de barras para os dez principais ativos para os quais foi retornado um código de status 404 Não encontrado. Esse gráfico de barras compara o número total de solicitações com solicitações que resultaram em código de status 404 Não encontrado para esses ativos. Cada barra é codificada por cor. Uma barra amarela é usada para indicar que a solicitação resultou em um código de status 404 Não encontrado. Uma barra vermelha é usada para indicar o número total de solicitações do ativo.
 
 > [!NOTE]
@@ -194,10 +198,15 @@ O lado esquerdo do gráfico (eixo y) indica o nome do arquivo para cada um dos d
 
 Diretamente abaixo do gráfico de barras, as informações a seguir serão listadas para os 250 ativos mais solicitados: caminho relativo (incluindo nome do arquivo), número de solicitações que resultaram em código de status 404 Não encontrado, número de vezes que o ativo foi solicitado e a porcentagem de solicitações que resultaram em código de status 404 Não encontrado.
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
 * [Visão geral da CDN do Azure](cdn-overview.md)
 * [Estatísticas em tempo real na CDN do Microsoft Azure](cdn-real-time-stats.md)
 * [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Analisar o desempenho de borda](cdn-edge-performance.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

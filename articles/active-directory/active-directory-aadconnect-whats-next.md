@@ -1,19 +1,23 @@
 ---
-title: 'Azure AD Connect: próximas etapas e como gerenciar o Azure AD Connect | Microsoft Docs'
-description: Aprenda a estender configuração padrão e tarefas operacionais para o Azure AD Connect.
+title: "Azure AD Connect: próximas etapas e como gerenciar o Azure AD Connect | Microsoft Docs"
+description: "Aprenda a estender configuração padrão e tarefas operacionais para o Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: c18bee36-aebf-4281-b8fc-3fe14116f1a5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 11/01/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 20195cb0d653cf0b1dc87af0fedbf9e49f259737
+
 
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Próximas etapas e como gerenciar o Azure AD Connect
@@ -70,6 +74,9 @@ A tabela a seguir fornece um resumo dessas tarefas e uma breve descrição de ca
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

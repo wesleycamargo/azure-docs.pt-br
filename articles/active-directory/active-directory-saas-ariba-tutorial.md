@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure ao Ariba | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Ariba.
+title: "Tutorial: integração do Azure Active Directory ao Ariba | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Ariba."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4c264854aaac29489bb70e1c0fa52be456a598e9
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-ariba"></a>Tutorial: Integração do Active Directory do Azure ao Ariba
+# <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Tutorial: Integração do Active Directory do Azure ao Ariba
 O objetivo deste tutorial é mostrar como integrar o Ariba ao Azure AD (Azure Active Directory).
 
 A integração do Ariba ao Azure AD oferece os seguintes benefícios:
@@ -138,7 +142,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ariba-tutorial/create_aaduser_09.png) 
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -170,7 +174,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-ariba-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -239,6 +243,6 @@ Ao clicar no bloco do Ariba no Painel de Acesso, você deverá ser conectado aut
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,26 +1,30 @@
 ---
-title: Como usar as filas do Barramento de Serviço (Java) | Microsoft Docs
-description: Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Java.
-services: service-bus
+title: "Como usar as filas do Barramento de Serviço (Java) | Microsoft Docs"
+description: "Aprenda a usar as filas do barramento de serviço no Azure. Exemplos de códigos escritos em Java."
+services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-
-ms.service: service-bus
+ms.assetid: f701439c-553e-402c-94a7-64400f997d59
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 29cab1dff7ffc0f42ee8c605e3817b855967eb53
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Como usar filas do Barramento de Serviço
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artigo descreve como usar as filas do Barramento de Serviço. As amostras são gravadas em Java e usam o [SDK do Azure para Java][SDK do Azure para Java]. Os cenários cobertos incluem **criar filas**, **enviar e receber mensagens** e **excluir filas**.
+Este artigo descreve como usar as filas do Barramento de Serviço. As amostras são escritas em Java e usam o [SDK do Azure para Java][SDK do Azure para Java]. Os cenários cobertos incluem **criar filas**, **enviar e receber mensagens** e **excluir filas**.
 
-## <a name="what-are-service-bus-queues?"></a>O que são as filas do Barramento de Serviço?
+## <a name="what-are-service-bus-queues"></a>O que são as filas do Barramento de Serviço?
 Filas do Barramento de Serviço dão suporte a um modelo de comunicação de **sistema de mensagens agenciado** . Ao usar filas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, mas trocam mensagens por meio de uma fila, que atua como um intermediário (agente). Um produtor de mensagem (remetente) transmite uma mensagem para a fila e, em seguida, continua o processamento.
 De forma assíncrona, um consumidor de mensagem (receptor) recebe a mensagem da fila e a processa. O produtor não precisa esperar por uma resposta do consumidor a fim de continuar a processar e enviar mais mensagens. As filas oferecem entrega de mensagem do tipo **FIFO (primeiro a entrar, primeiro a sair)** para um ou mais consumidores concorrentes. Ou seja, as mensagens são normalmente recebidas e processadas pelos receptores na ordem em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
 
@@ -112,7 +116,7 @@ catch (ServiceException e)
 }
 ```
 
-As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage] . Os objetos [BrokeredMessage][BrokeredMessage] têm um conjunto de propriedades padrão (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor do [BrokeredMessage][BrokeredMessage] e o serializador adequado então será usado para serializar o objeto. Como alternativa, você pode fornecer um objeto **java.IO.InputStream**.
+As mensagens enviadas para (e recebidas de) filas de Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage]. Os objetos [BrokeredMessage][BrokeredMessage] têm um conjunto de propriedades padrão (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) e [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), um dicionário usado para manter as propriedades personalizadas específicas do aplicativo e um corpo de dados de aplicativo arbitrários. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor do [BrokeredMessage][BrokeredMessage] e o serializador adequado então será usado para serializar o objeto. Como alternativa, você pode fornecer um objeto **java.IO.InputStream**.
 
 O exemplo a seguir demonstra como enviar cinco mensagens de teste para o objeto `TestQueue`**MessageSender** obtido no trecho de código anterior:
 
@@ -148,7 +152,7 @@ try
 
     while(true)  {
          ReceiveQueueMessageResult resultQM =
-                service.receiveQueueMessage("TestQueue", opts);
+                 service.receiveQueueMessage("TestQueue", opts);
         BrokeredMessage message = resultQM.getValue();
         if (message != null && message.getMessageId() != null)
         {
@@ -201,7 +205,7 @@ Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o a
 Se houver falha do aplicativo após o processamento da mensagem, mas antes da solicitação **deleteMessage** ser emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é feito com o método **getMessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, veja [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas] para saber mais.
+Agora que você aprendeu as noções básicas sobre filas do Barramento de Serviço, confira [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas] para obter mais informações.
 
 Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
@@ -213,6 +217,6 @@ Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/d
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Encontrando aplicativos em nuvem não gerenciados com o Cloud App Discovery | Microsoft Docs
-description: Fornece informações sobre a localização e o gerenciamento de aplicativos com o Cloud App Discovery, quais são seus benefícios e como ele funciona.
+title: "Encontrando aplicativos em nuvem não gerenciados com o Cloud App Discovery | Microsoft Docs"
+description: "Fornece informações sobre a localização e o gerenciamento de aplicativos com o Cloud App Discovery, quais são seus benefícios e como ele funciona."
 services: active-directory
 keywords: cloud app discovery, gerenciamento de aplicativos
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 011cdf5f1e1b78832a8e4f18f4eef0f376860c45
+
 
 ---
 # <a name="finding-unmanaged-cloud-applications-with-cloud-app-discovery"></a>Encontrando aplicativos em nuvem não gerenciados com o Cloud App Discovery
@@ -48,6 +52,9 @@ Para iniciar com o Cloud App Discovery, confira [Introdução ao Cloud App Disco
 * [Cloud App Discovery - Perguntas Frequentes](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

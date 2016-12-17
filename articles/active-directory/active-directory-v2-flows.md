@@ -1,12 +1,12 @@
 ---
-title: Tipos do ponto de extremidade v2.0 | Microsoft Docs
-description: Os tipos de aplicativos e cenários com suporte no ponto de extremidade v2.0 do Azure AD.
+title: Tipos de aplicativo para o ponto de extremidade v2.0 do Azure Active Directory | Microsoft Docs
+description: "Os tipos de aplicativos e cenários com suporte no ponto de extremidade v2.0 do Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,24 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 45c2f23fef0039b678795cde232367cd841ba05f
+
 
 ---
-# <a name="types-of-apps-for-the-v2.0-endpoint"></a>Tipos de aplicativos para o ponto de extremidade v2.0
-O ponto de extremidade v2.0 oferece suporte à autenticação para diversas arquiteturas de aplicativos modernos, que se baseiam nos protocolos padrão da indústria [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) e/ou [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  Esse documento descreve brevemente os tipos de aplicativos que você pode criar, independentemente do idioma ou da plataforma que você preferir.  Ele ajudará você a compreender os cenários de alto níveis antes de [ir diretamente ao código](active-directory-appmodel-v2-overview.md#getting-started).
+# <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Tipos de aplicativo para o ponto de extremidade v2.0 do Azure Active Directory
+O ponto de extremidade v2.0 do Azure AD (Azure Active Directory) oferece suporte à autenticação para diversas arquiteturas de aplicativos modernos, que se baseiam nos protocolos padrão da indústria [OAuth 2.0 ou OpenID Connect](active-directory-v2-protocols.md). Este artigo descreve os tipos de aplicativos que você pode criar usando o Azure AD v2.0, independentemente de seu idioma ou plataforma. As informações neste artigo foram projetadas para ajudá-lo a entender os cenários de alto nível antes que você [comece a trabalhar com o código](active-directory-appmodel-v2-overview.md#getting-started).
 
 > [!NOTE]
-> Nem todos os recursos e cenários do Azure Active Directory têm suporte no ponto de extremidade v2.0.  Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
+> O ponto de extremidade v2.0 não dá suporte a todos os cenários e recursos do Azure Active Directory. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
 ## <a name="the-basics"></a>Noções básicas
-Todo aplicativo que usar o ponto de extremidade v2.0 precisará ser registrado em [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
+Você deve registrar cada aplicativo que usa o ponto de extremidade v2.0 no [Portal de Registro de Aplicativo da Microsoft](https://apps.dev.microsoft.com). O processo de registro do aplicativo coleta e atribui estes valores para seu aplicativo:
 
-* Uma **Id de Aplicativo** que identifica exclusivamente o aplicativo
+* Uma **ID de Aplicativo** que identifica exclusivamente o aplicativo
 * Um **URI de Redirecionamento** que pode ser usado para direcionar as respostas de volta ao aplicativo
-* Alguns outros valores específicos de cenário.  Para obter mais detalhes, saiba como [registrar um aplicativo](active-directory-v2-app-registration.md).
+* Alguns outros valores específicos de cenário
 
-Depois de registrado, o aplicativo se comunica com o Azure AD enviando solicitações ao ponto de extremidade v2.0 do Azure Active Directory.  Fornecemos bibliotecas e estruturas de software livre que cuidam dos detalhes dessas solicitações, ou então você pode implementar a lógica de autenticação por conta própria criando solicitações para esses pontos de extremidade:
+Para obter detalhes, saiba como [registrar um aplicativo](active-directory-v2-app-registration.md).
+
+Depois de registrado, o aplicativo se comunica com o Azure AD enviando solicitações ao ponto de extremidade v2.0 do Azure AD. Fornecemos as estruturas e as bibliotecas de software livre que lidam com os detalhes dessas solicitações. Você também tem a opção de implementar a lógica de autenticação ao criar solicitações para esses pontos de extremidade:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
@@ -40,13 +46,13 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 <!-- TODO: Need a page for libraries to link to -->
 
 ## <a name="web-apps"></a>Aplicativos Web
-Para aplicativos Web (.NET, PHP, Java, Ruby, Python, Node, etc.) que são acessados por meio de um navegador, você pode realizar a entrada do usuário usando [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  No OpenID Connect, o aplicativo Web recebe um `id_token`, um token de segurança que verifica a identidade do usuário e fornece informações sobre o usuário na forma de declarações:
+Para os aplicativos Web (.NET, PHP, Java, Ruby, Python, Node) que o usuário acessa por meio de um navegador, você pode usar o [OpenID Connect](active-directory-v2-protocols.md) para entrada do usuário. No OpenID Connect, o aplicativo Web recebe um token de ID. Um token de ID é um token de segurança que verifica a identidade do usuário e fornece informações sobre o usuário na forma de declarações:
 
 ```
-// Partial raw id_token
+// Partial raw ID token
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
-// Partial content of a decoded id_token
+// Partial content of a decoded ID token
 {
     "name": "John Smith",
     "email": "john.smith@gmail.com",
@@ -55,20 +61,20 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-É possível aprender sobre todos os tipos de tokens e declarações disponíveis para um aplicativo na [referência de token v2.0](active-directory-v2-tokens.md).
+É possível aprender sobre todos os tipos de tokens e declarações disponíveis para um aplicativo na [referência de tokens v2.0](active-directory-v2-tokens.md).
 
 Em aplicativos de servidor Web, o fluxo de autenticação de entrada usa estas etapas de alto nível:
 
-![Imagem de raias do aplicativo Web](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
+![Fluxo de autenticação do aplicativo Web](../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
-A validação do id_token usando uma chave de assinatura pública recebida do ponto de extremidade v2.0 é suficiente para garantir a identidade do usuário e definir um cookie de sessão que pode ser usado para identificar o usuário nas solicitações de página subsequentes.
+Você pode verificar a identidade do usuário ao validar o token de ID com uma chave pública de assinatura que é recebida do ponto de extremidade v2.0. Um cookie de sessão é definido e pode ser usado para identificar o usuário nas solicitações de página subsequentes.
 
-Para ver esse cenário em ação, experimente um destes exemplos de código de entrada de aplicativo Web em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started) .
+Para ver esse cenário em ação, experimente um destes exemplos de código de entrada de aplicativo Web em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started) da v.2.0.
 
-Além de entrada simples, um aplicativo de servidor Web talvez precise acessar algum outro serviço Web como uma API REST.  Nesse caso, o aplicativo de servidor Web pode participar de um fluxo OpenID Connect e OAuth 2.0 combinado, usando o [fluxo do Código de Autorização do OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow). Esse cenário é abordado abaixo no [tópico Introdução ao WebApp-WebAPI](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+Além de entrada simples, um aplicativo de servidor Web talvez precise acessar outro serviço Web como uma API REST. Nesse caso, o aplicativo de servidor Web participa de um fluxo do OpenID Connect e do OAuth 2.0 combinados, usando o [fluxo do código de autorização do OAuth 2.0](active-directory-v2-protocols.md). Para saber mais sobre esse cenário, leia sobre a [Introdução aos aplicativos Web e APIs Web](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
 
 ## <a name="web-apis"></a>APIs da Web
-É possível usar o ponto de extremidade v2.0 para proteger serviços Web, bem como a API Web RESTful do seu aplicativo.  Em vez de cookies de sessão e id_tokens, as APIs da Web usam access_tokens do OAuth 2.0 para proteger os dados e autenticar as solicitações de entrada.  O chamador de uma API da Web acrescenta um access_token no cabeçalho de autorização de uma solicitação HTTP:
+É possível usar o ponto de extremidade v2.0 para proteger serviços Web, como a API Web RESTful do seu aplicativo. Em vez de tokens de ID e de cookies de sessão, uma API Web usa um token de acesso OAuth 2.0 para proteger seus dados e para autenticar solicitações de entrada. O chamador de uma API da Web acrescenta um token de acesso no cabeçalho de autorização de uma solicitação HTTP, como esta:
 
 ```
 GET /api/items HTTP/1.1
@@ -78,51 +84,54 @@ Accept: application/json
 ...
 ```
 
-A API da Web pode usar o access_token para verificar a identidade do chamador da API e extrair informações sobre o chamador a partir de declarações que são codificadas no access_token.  É possível aprender sobre todos os tipos de tokens e declarações disponíveis para um aplicativo na [referência de token v2.0](active-directory-v2-tokens.md).
+A API Web usa o token de acesso para verificar a identidade do chamador da API e para extrair informações sobre o chamador a partir de declarações que são codificadas no token de acesso. Para saber mais sobre todos os tipos de tokens e declarações que estão disponíveis para um aplicativo, veja a [referência de tokens v2.0](active-directory-v2-tokens.md).
 
-Uma API da Web pode oferecer aos usuários o poder de aceitar/recusar determinadas funcionalidades ou dados expondo permissões, também conhecidas como [escopos](active-directory-v2-scopes.md).  Para um aplicativo de chamada obter permissão para um escopo, o usuário deve concordar com o escopo durante um fluxo.  O ponto de extremidade v2.0 se encarregará de pedir permissão ao usuário e gravar essas permissões em todos os access_tokens que a API da Web receber.  A API da Web só precisa se preocupar em validar os access_tokens recebidos em cada chamada e executar as verificações de autorização adequadas.
+Uma API Web pode oferecer aos usuários o poder de aceitar/recusar uma funcionalidade ou dados específicos ao expor permissões, também conhecidas como [escopos](active-directory-v2-scopes.md). Para um aplicativo de chamada obter permissão para um escopo, o usuário deve concordar com o escopo durante um fluxo. O ponto de extremidade v2.0 solicita a permissão do usuário e registra as permissões em todos os tokens de acesso recebidos pela API Web. A API Web valida os tokens de acesso que recebe em cada chamada e executa verificações de autorização.
 
-Uma API da Web pode receber access_tokens de todos os tipos de aplicativos, incluindo aplicativos de servidor Web, aplicativos móveis e de desktop, aplicativos de página única, daemons do lado do servidor e até outras APIs da Web.  O fluxo de alto nível de autenticação da Api Web é o seguinte:
+Uma API da Web pode receber tokens de acesso de todos os tipos de aplicativos, incluindo aplicativos de servidor Web, aplicativos móveis e de desktop, aplicativos de página única, daemons do lado do servidor e até outras APIs da Web. O fluxo de alto nível para uma API Web tem esta aparência:
 
-![Imagem de Raias da API Web](../media/active-directory-v2-flows/convergence_scenarios_webapi.png)
+![Fluxo de autenticação da API Web](../media/active-directory-v2-flows/convergence_scenarios_webapi.png)
 
-Para saber mais sobre authorization_codes, refresh_tokens e as etapas detalhadas de obtenção de access_tokens, leia sobre o [protocolo OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
+Para saber mais sobre códigos de autorização, tokens de atualização e as etapas detalhadas de obtenção de tokens de acesso, leia sobre o [protocolo OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
-Para saber como proteger uma API Web com access_tokens do OAuth2, confira os exemplos de código da API Web em nossa [seção Introdução](active-directory-appmodel-v2-overview.md#getting-started).
+Para saber como proteger uma API Web com tokens de acesso do OAuth2, confira os exemplos de código da API Web em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
 
 ## <a name="mobile-and-native-apps"></a>Aplicativos móveis e nativos
-Os aplicativos que são instalados em um dispositivo, como aplicativos móveis e de desktop, geralmente precisam acessar serviços de back-end ou APIs da Web que armazenam dados e executam várias funções em nome de um usuário.  Esses aplicativos podem adicionar credenciais e autorização a serviços de back-end usando o [fluxo de Código de Autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md).  
+Os aplicativos instalados no dispositivo, como os aplicativos móveis e de desktop, geralmente precisam acessar serviços de back-end ou APIs da Web que armazenam dados e executam funções em nome de um usuário. Esses aplicativos podem adicionar credenciais e autorização a serviços de back-end usando o [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
-Nesse fluxo, um aplicativo recebe um authorization_code do ponto de extremidade v2.0 na entrada do usuário, o que representa a permissão do aplicativo para chamar serviços de back-end em nome do usuário conectado no momento.  O aplicativo pode trocar o authoriztion_code em segundo plano por um refresh_token e um access_token do OAuth 2.0.  O aplicativo pode usar o access_token para se autenticar em APIs da Web em solicitações HTTP, e pode usar o refresh_token para obter novos access_tokens quando os antigos expirarem.
+Nesse fluxo, o aplicativo recebe um código de autorização do ponto de extremidade v2.0, quando o usuário faz logon. O código de autorização representa a permissão do aplicativo para chamar serviços de back-end em nome do usuário conectado. O aplicativo pode trocar o código de autorização em segundo plano por um token de acesso e um token de atualização do OAuth 2.0. O aplicativo pode usar o token de acesso para se autenticar em APIs da Web em solicitações HTTP, e usar o token de atualização para obter novos tokens de acesso quando os antigos expirarem.
 
-![Imagem de raias do aplicativo Nativo](../media/active-directory-v2-flows/convergence_scenarios_native.png)
+![Fluxo de autenticação do aplicativo nativo](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-## <a name="single-page-apps-(javascript)"></a>Aplicativos de página única (javascript)
-Muitos aplicativos modernos têm um front-end de SPA (Aplicativo de Página Única) escrito principalmente em javascript e que muitas vezes usa estruturas como AngularJS, Ember.js e Durandal, entre outras.  O ponto de extremidade v2.0 do Azure AD dá suporte a esses aplicativos usando o [Fluxo Implícito do OAuth 2.0](active-directory-v2-protocols-implicit.md).
+## <a name="single-page-apps-javascript"></a>Aplicativos de página única (JavaScript)
+Muitos aplicativos modernos têm um aplicativo de página única front-end que é escrito principalmente em JavaScript. Geralmente, ele é escrito usando uma estrutura como AngularJS, Ember.js ou Durandal.js. O ponto de extremidade v2.0 do Azure AD dá suporte a esses aplicativos usando o [fluxo implícito do OAuth 2.0](active-directory-v2-protocols-implicit.md).
 
-Nesse fluxo, o aplicativo recebe tokens do v2.0 para autorizar o ponto de extremidade diretamente, sem executar qualquer troca entre servidores de back-end.  Isso permite que todo o manuseio de lógica de autenticação e de sessão ocorra inteiramente no cliente javascript, sem executar redirecionamentos adicionais de página.
+Nesse fluxo, o aplicativo recebe tokens diretamente do ponto de extremidade de autorização v2.0, sem executar qualquer troca entre servidores de back-end. Todo o manuseio de lógica de autenticação e de sessão ocorra inteiramente no cliente JavaScript, sem redirecionamentos adicionais de página.
 
-![Imagem de Raias de Fluxo Implícito](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Fluxo de autenticação implícita](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
-Para ver esse cenário em ação, experimente um destes exemplos de código de aplicativo de página única em nossa seção de [Introdução](active-directory-appmodel-v2-overview.md#getting-started) .
+Para ver esse cenário em ação, experimente um destes exemplos de código de aplicativo de página única em nossa seção de [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
 
-### <a name="daemons/server-side-apps"></a>Aplicativos do lado do servidor/daemons
-Os aplicativos que contêm processos de longa duração ou que operem sem a presença de um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs da Web.  Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) usando o fluxo de credenciais do cliente OAuth 2.0.
+### <a name="daemons-and-server-side-apps"></a>Daemons e aplicativos do lado do servidor
+Os aplicativos com processos de longa duração ou que operem sem interação com um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs Web. Esses aplicativos podem se autenticar e obter tokens usando a identidade do aplicativo (em vez de a identidade delegada de um usuário) com o fluxo de credenciais do cliente OAuth 2.0.
 
-Nesse fluxo, o aplicativo obtém tokens interagindo diretamente com o ponto de extremidade de `/token`:
+Nesse fluxo, o aplicativo interage diretamente com o ponto de extremidade do `/token` para obter pontos de extremidade:
 
-![Imagem de raias do aplicativo daemon](../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
+![Fluxo de autenticação de aplicativo de daemon](../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-Para criar um aplicativo daemon, consulte o a documentação sobre credenciais do cliente em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started) seção ou consulte [Este aplicativo de exemplo .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Para criar um aplicativo daemon, consulte o a documentação sobre credenciais do cliente em nossa seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started) seção ou experimente um [aplicativo de exemplo .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
 
 ## <a name="current-limitations"></a>Limitações atuais
-Esses tipos de aplicativos não têm suporte no momento no ponto de extremidade v2.0, mas estão no roteiro.  Restrições e limitações adicionais do ponto de extremidade v2.0 são descritas no [artigo de limitações da v2.0](active-directory-v2-limitations.md).
+Atualmente, não há suporte para os tipos de aplicativos nesta seção pelo ponto de extremidade v2.0, mas eles estão no roteiro para desenvolvimento futuro. Para limitações adicionais e restrições para o ponto de extremidade v2.0, veja [Devo usar o ponto de extremidade v2.0?](active-directory-v2-limitations.md).
 
-### <a name="chained-web-apis-(on-behalf-of)"></a>APIs Web Encadeadas (em nome de)
-Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo ponto de extremidade v2.0.  Este cenário é comum em clientes nativos que têm um back-end de API da Web que, por sua vez, chama um serviço Microsoft Online, como o Office 365 ou o Graph API.
+### <a name="chained-web-apis-on-behalf-of"></a>APIs Web encadeadas (em nome de)
+Muitas arquiteturas incluem uma API Web que precisa chamar outra API Web downstream, ambas protegidas pelo ponto de extremidade v2.0. Este cenário é comum em clientes nativos que têm um back-end de API da Web que, por sua vez, chama uma instância dos Microsoft Online Services, como o Office 365 ou a API do Graph.
 
-Este cenário de API da Web encadeado pode ter suporte com o uso da concessão OAuth 2.0 Jwt Bearer Credential, também conhecida como [Fluxo Em Nome De](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow).  No entanto, o fluxo Em Nome De não está implementado atualmente no ponto de extremidade v2.0.  Para ver como esse fluxo funciona no serviço do AD do Azure disponível ao público geral, confira o [exemplo de código Em Nome De no GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
+Esse cenário de API Web encadeado pode ter suporte usando a concessão de credencial de portador JWT (Token Web JSON) do OAuth 2.0, também conhecida como [fluxo em nome de](active-directory-v2-protocols.md). No momento, o fluxo em nome de não está implementado no ponto de extremidade v2.0. Para ver como esse fluxo funciona no serviço do Azure AD disponível ao público geral, confira o [exemplo de código em nome de no GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

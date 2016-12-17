@@ -1,27 +1,31 @@
 ---
-title: Barramento de Serviço e Java com AMQP 1.0 | Microsoft Docs
-description: Usando o Barramento de Serviço do Java com AMQP
-services: service-bus
+title: "Barramento de Serviço e Java com AMQP 1.0 | Microsoft Docs"
+description: "Usando o Barramento de Serviço do Java com AMQP"
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 1848f58d-1b40-43e0-89c4-ab14ba34c032
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: eb41df70551bc327473caea4fab95cd269bc0175
+
 
 ---
-# <a name="use-service-bus-from-java-with-amqp-1.0"></a>Usar o barramento de serviço do Java com AMQP 1.0
+# <a name="use-service-bus-from-java-with-amqp-10"></a>Usar o barramento de serviço do Java com AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
-O Java Message Service (JMS) é uma API padrão para trabalhar com middleware orientado a mensagens na plataforma Java. O Barramento de Serviço do Microsoft Azure foi testado com o AMQP 1.0 com base na biblioteca de cliente do JMS desenvolvida pelo projeto Apache Qpid. Esta biblioteca oferece suporte à API JMS 1.1 completa e pode ser usada com qualquer serviço de mensagens compatível com AMQP 1.0. Este cenário também tem suporte no [Barramento de Serviço para o Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (Barramento de Serviço local). Para obter mais informações, confira [AMQP no Barramento de Serviço para Windows Server][AMQP no Barramento de Serviço para Windows Server].
+O Java Message Service (JMS) é uma API padrão para trabalhar com middleware orientado a mensagens na plataforma Java. O Barramento de Serviço do Microsoft Azure foi testado com o AMQP 1.0 com base na biblioteca de cliente do JMS desenvolvida pelo projeto Apache Qpid. Esta biblioteca oferece suporte à API JMS 1.1 completa e pode ser usada com qualquer serviço de mensagens compatível com AMQP 1.0. Este cenário também tem suporte no [Barramento de Serviço para o Windows Server](https://msdn.microsoft.com/library/dn282144.aspx) (Barramento de Serviço local). Para obter mais informações, consulte [AMQP no Barramento de Serviço para Windows Server][AMQP no Barramento de Serviço para Windows Server].
 
-## <a name="download-the-apache-qpid-amqp-1.0-jms-client-library"></a>Baixar a biblioteca de cliente do Apache Qpid JMS do AMQP 1.0
+## <a name="download-the-apache-qpid-amqp-10-jms-client-library"></a>Baixar a biblioteca de cliente do Apache Qpid JMS do AMQP 1.0
 Para obter informações sobre onde baixar a versão mais recente da biblioteca do cliente Apache Qpid JMS do AMQP 1.0, acesse [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
 Você deve adicionar os seguintes quatro arquivos JAR do arquivamento de distribuição do Apache Qpid JMS do AMQP 1.0 ao CLASSPATH do Java ao criar e executar aplicativos do JMS com o Barramento de Serviço:
@@ -31,8 +35,8 @@ Você deve adicionar os seguintes quatro arquivos JAR do arquivamento de distrib
 * qpid-amqp-1-0-client-jms-[version].jar
 * qpid-amqp-1-0-common-[version].jar
 
-## <a name="work-with-service-bus-queues,-topics,-and-subscriptions-from-jms"></a>Trabalhar com filas do Barramento de Serviço, tópicos e assinaturas do JMS
-### <a name="java-naming-and-directory-interface-(jndi)"></a>Java Naming and Directory Interface (JNDI)
+## <a name="work-with-service-bus-queues-topics-and-subscriptions-from-jms"></a>Trabalhar com filas do Barramento de Serviço, tópicos e assinaturas do JMS
+### <a name="java-naming-and-directory-interface-jndi"></a>Java Naming and Directory Interface (JNDI)
 O JMS usa a Java Naming and Directory Interface (JNDI) para criar uma separação entre nomes lógicos e físicos. Dois tipos de objetos JMS são resolvidos usando a JNDI: **ConnectionFactory** e **Destino**. A JNDI usa um modelo de provedor no qual você pode conectar diferentes serviços de diretório para lidar com tarefas de resolução de nome. A biblioteca Apache Qpid JMS do AMQP 1.0 vem com um Provedor JNDI simples baseado em arquivo de propriedades que é configurado usando um arquivo de texto:
 
 O provedor de JNDI do arquivo de propriedades Qpid é configurado usando um arquivo de propriedades do seguinte formato:
@@ -75,9 +79,9 @@ Onde os parâmetros `[namespace]`, `[username]` e `[password]` têm os seguintes
 
 | Nome | Significado |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
-| `[namespace]` |O namespace do Barramento de Serviço é obtido no [portal do Azure][portal do Azure]. | | | | |
-| `[username]` |O nome da chave SAS do Barramento de Serviço é obtido no [portal do Azure][portal do Azure]. | | | | |
-| `[password]` |A forma codificada da URL da chave SAS do Barramento de Serviço é obtida no [Portal do Azure][Portal do Azure]. | | | | |
+| `[namespace]` |O namespace do Barramento de Serviço obtido no [Portal do Azure][Portal do Azure]. | | | | |
+| `[username]` |O nome da chave SAS do Barramento de Serviço obtida no [Portal do Azure][Portal do Azure]. | | | | |
+| `[password]` |O formato codificado de URL da chave SAS do Barramento de Serviço obtido no [Portal do Azure][Portal do Azure]. | | | | |
 
 > [!NOTE]
 > você deve executar uma codificação de URL da senha manualmente. Um utilitário útil de codificação de URL está disponível em [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
@@ -174,11 +178,11 @@ A especificação JMS define como o contrato de exceção dos métodos de API e 
   1. Se o problema é devido ao Barramento de Serviço rejeitar a mensagem específica que está sendo enviada, então uma exceção **MessageRejectedException** será gerada. Esse erro é transitório ou devido a algum problema com a mensagem. O curso de ação recomendado é fazer várias tentativas para repetir a operação com alguma lógica de retirada. Se o problema persistir, a mensagem deve ser abandonada com um erro registrado localmente. Não é necessário recriar os objetos **Conexão JMS**, **Sessão** ou **MessageProducer** nessa situação. 
   2. Se o problema se deve ao fato do Barramento de Serviço fechar o Link AMQP, então uma exceção **InvalidDestinationException** será gerada. Isso pode ser devido a um problema transitório ou devido à entidade de mensagem que está sendo excluída. Em ambos os casos, os objetos **Conexão JMS**, **Sessão** e **MessageProducer** devem ser recriados. Se a condição de erro era transitória, essa operação eventualmente será bem-sucedida. Se a entidade tiver sido excluída, a falha será permanente.
 
-## <a name="messaging-between-.net-and-jms"></a>Mensagens entre .NET e JMS
+## <a name="messaging-between-net-and-jms"></a>Mensagens entre .NET e JMS
 ### <a name="message-bodies"></a>Corpos de mensagens
 O JMS define cinco tipos diferentes de mensagens: **BytesMessage**, **MapMessage**, **ObjectMessage**, **StreamMessage** e **TextMessage**. A API .NET do Barramento de Serviço tem um tipo único de mensagem, [BrokeredMessage][BrokeredMessage].
 
-#### <a name="jms-to-service-bus-.net-api"></a>JMS para API .NET do Barramento de Serviço
+#### <a name="jms-to-service-bus-net-api"></a>JMS para API .NET do Barramento de Serviço
 As seções a seguir mostram como utilizar mensagens de cada um dos tipos de mensagem JMS do .NET. Um exemplo de **ObjectMessage** não foi incluído, já que o corpo de um **ObjectMessage** contém um objeto serializável na linguagem de programação Java, que não pode ser interpretado por um aplicativo .NET.
 
 ##### <a name="bytesmessage"></a>BytesMessage
@@ -233,11 +237,11 @@ O código a seguir mostra como utilizar o corpo de um objeto **TextMessage** usa
 Console.WriteLine("Text: " + message.GetBody<String>());
 ```
 
-#### <a name="service-bus-.net-apis-to-jms"></a>APIs .NET do Barramento de Serviço para JMS
+#### <a name="service-bus-net-apis-to-jms"></a>APIs .NET do Barramento de Serviço para JMS
 As seções a seguir mostram como um aplicativo .NET pode criar uma mensagem que é recebida no JMS em cada um dos diferentes tipos de mensagem JMS. Um exemplo de **ObjectMessage** não foi incluído, já que o corpo de um **ObjectMessage** contém um objeto serializável na linguagem de programação Java, que não pode ser interpretado por um aplicativo .NET.
 
 ##### <a name="bytesmessage"></a>BytesMessage
-O código a seguir mostra como criar um objeto [BrokeredMessage][BrokeredMessage] no .NET que é recebido por um cliente JMS como um **BytesMessage**.
+O código a seguir mostra como criar um objeto [BrokeredMessage][BrokeredMessage] no .NET recebido por um cliente JMS como um **BytesMessage**.
 
 ```
 byte[] bytes = { 33, 12, 45, 33, 12, 45, 33, 12, 45, 33, 12, 45 };
@@ -245,7 +249,7 @@ message = new BrokeredMessage(bytes);
 ```
 
 ##### <a name="streammessage"></a>StreamMessage
-O código a seguir mostra como criar um objeto [BrokeredMessage][BrokeredMessage] no .NET que é recebido por um cliente JMS como um **StreamMessage**.
+O código a seguir mostra como criar um objeto [BrokeredMessage][BrokeredMessage] no .NET recebido por um cliente JMS como um **StreamMessage**.
 
 ```
 List<Object> list = new List<Object>();
@@ -264,7 +268,7 @@ message = new BrokeredMessage("this is a text string");
 ```
 
 ### <a name="application-properties"></a>Propriedades do aplicativo
-#### <a name="jms-to-service-bus-.net-apis"></a>JMS para APIs .NET do Barramento de Serviço
+#### <a name="jms-to-service-bus-net-apis"></a>JMS para APIs .NET do Barramento de Serviço
 As mensagens JMS oferecem suporte às propriedades de aplicativo dos seguintes tipos: **boolean**, **byte**, **short**, **int**, **long**, **float**, **double** e **String**. O código Java a seguir mostra como definir propriedades de uma mensagem usando cada um desses tipos de propriedade.
 
 ```
@@ -276,7 +280,7 @@ message.setIntProperty("TestInt", 100);
 message.setStringProperty("TestString", "Service Bus");
 ```
 
-Nas APIs .NET do Barramento de Serviço, as propriedades do aplicativo de mensagens entram na coleação **Propriedades** de [BrokeredMessage][BrokeredMessage]. O código a seguir mostra como ler as propriedades do aplicativo de uma mensagem recebida de um cliente JMS.
+Nas APIs .NET do Barramento de Serviço, as propriedades do aplicativo de mensagens entram na coleção **Propriedades** de [BrokeredMessage][BrokeredMessage]. O código a seguir mostra como ler as propriedades do aplicativo de uma mensagem recebida de um cliente JMS.
 
 ```
 if (message.Properties.Keys.Count > 0)
@@ -362,9 +366,9 @@ A tabela a seguir mostra como os tipos de propriedades JMS são mapeados para os
 | Uri |DescribedType |Uri.AbsoluteUri mapeado para o tipo AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### <a name="standard-headers"></a>Cabeçalhos padrões
-As tabelas a seguir mostram como os cabeçalhos JMS padrões e as propriedades padrões de [BrokeredMessage][BrokeredMessage] são mapeadas usando AMQP 1.0.
+As tabelas a seguir mostram como os cabeçalhos JMS padrão e as propriedades padrão de [BrokeredMessage][BrokeredMessage] são mapeadas usando o AMQP 1.0.
 
-#### <a name="jms-to-service-bus-.net-apis"></a>JMS para APIs .NET do Barramento de Serviço
+#### <a name="jms-to-service-bus-net-apis"></a>JMS para APIs .NET do Barramento de Serviço
 | JMS | Barramento de Serviço do .NET | Observações |
 | --- | --- | --- |
 | JMSCorrelationID |Message.CorrelationID |- |
@@ -378,7 +382,7 @@ As tabelas a seguir mostram como os cabeçalhos JMS padrões e as propriedades p
 | JMSTimestamp |Message.EnqueuedTimeUtc |Conversão |
 | JMSType |Message.Properties[“jms-type”] |- |
 
-#### <a name="service-bus-.net-apis-to-jms"></a>APIs .NET do Barramento de Serviço para JMS
+#### <a name="service-bus-net-apis-to-jms"></a>APIs .NET do Barramento de Serviço para JMS
 | Barramento de Serviço do .NET | JMS | Observações |
 | --- | --- | --- |
 | ContentType |- |Não disponível no momento |
@@ -406,17 +410,17 @@ As restrições a seguir ocorrem durante o uso do JMS sobre o AMQP 1.0 com o Bar
 ## <a name="next-steps"></a>Próximas etapas
 Está pronto(a) para saber mais? Visite os links a seguir:
 
-* [Visão geral do AMQP do Barramento de Serviço]
+* [Visão geral do Barramento de Serviço para AMQP]
 * [AMQP no Barramento de Serviço para Windows Server]
 
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-[Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
+[Visão geral do Barramento de Serviço para AMQP]: service-bus-amqp-overview.md
 [Portal do Azure]: https://portal.azure.com
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

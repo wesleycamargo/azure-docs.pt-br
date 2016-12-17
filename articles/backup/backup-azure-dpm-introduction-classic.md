@@ -1,13 +1,13 @@
 ---
-title: Introdução ao backup do DPM do Azure | Microsoft Docs
-description: Uma introdução ao backup de servidores de DPM usando o serviço de Backup do Azure
+title: "Introdução ao backup do DPM do Azure | Microsoft Docs"
+description: "Uma introdução ao backup de servidores de DPM usando o serviço de Backup do Azure"
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: Nkolli1
 manager: shreeshd
-editor: ''
-keywords: Gerenciador de proteção de dados do System Center, gerenciador de proteção de dados, backup do dpm
-
+editor: 
+keywords: "Gerenciador de proteção de dados do System Center, gerenciador de proteção de dados, backup do dpm"
+ms.assetid: 8f23972b-d167-4231-b331-e198db3b18b4
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2016
 ms.author: trinadhk;giridham;jimpark;markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f34bdb66a201c84ae340460e9e496adaa4c15eb7
+
 
 ---
-# Preparando-se para fazer backup de cargas de trabalho no Azure com o DPM
+# <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>Preparando-se para fazer backup de cargas de trabalho no Azure com o DPM
 > [!div class="op_single_selector"]
 > * [Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
@@ -35,26 +39,26 @@ Este artigo fornece uma introdução ao uso do Backup do Microsoft Azure para pr
 
 O System Center DPM faz backup dos dados de arquivos e aplicativos. O backup dos dados no DPM pode ser feito em fita, em disco, ou no Azure com o Backup do Microsoft Azure. O DPM interage com o Backup do Azure da seguinte maneira:
 
-* **DPM implantado como servidor físico ou máquina virtual local** — Se o DPM for implantado como servidor físico ou máquina virtual local Hyper-V, é possível fazer backup dos dados em um cofre de Backup do Azure além do backup em disco e em fita.
+* **DPM implantado como servidor físico ou  máquina virtual local** — Se o DPM for implantado como servidor físico ou máquina virtual local Hyper-V, é possível fazer backup dos dados em um cofre de Backup do Azure além do backup em disco e em fita.
 * **DPM implantado como máquina virtual do Azure** — No System Center 2012 R2 com atualização 3, o DPM pode ser implantado como máquina virtual do Azure. Se o DPM for implantado como máquina virtual do Azure, é possível fazer backup de dados em discos do Azure anexados à máquina virtual do Azure do DPM, ou descarregar o armazenamento de dados por meio de backup em um cofre de Backup do Azure.
 
-## Por que fazer backup de seus servidores DPM?
+## <a name="why-backup-your-dpm-servers"></a>Por que fazer backup de seus servidores DPM?
 Os benefícios comerciais do uso do Backup do Azure para backup de servidores DPM são:
 
 * Para a implantação do DPM local, é possível usar o backup do Azure como alternativa para a implantação de longo prazo em fita.
 * Para implantações do DPM no Azure, o Backup do Azure possibilita descarregar o armazenamento do disco do Azure, permitindo escalar verticalmente ao armazenar os dados mais antigos no Backup do Azure e os dados novos em disco.
 
-## Como funciona o backup do servidor DPM?
+## <a name="how-does-dpm-server-backup-work"></a>Como funciona o backup do servidor DPM?
 Para fazer backup de uma máquina virtual, primeiro é necessário um instantâneo pontual dos dados. O serviço de Backup do Azure inicia o trabalho de backup no horário agendado e dispara a extensão de backup para obter um instantâneo. A extensão de backup é coordenada com o serviço VSS no convidado para obter consistência e chama a API de instantâneo de blob do serviço de Armazenamento do Azure depois que a consistência é atingida. Isso é feito para obter um instantâneo consistente dos discos da máquina virtual, sem a necessidade de desligá-la.
 
-Depois que o instantâneo é criado, os dados são transferidos pelo serviço do Backup do Azure para o cofre de backup. O serviço se encarrega de identificar e transferir somente os blocos que foram alterados desde o último backup, tornando o armazenamento e a rede de backups eficientes. Quando a transferência de dados é concluída, o instantâneo é removido e um ponto de recuperação é criado. Esse ponto de recuperação pode ser visto no Portal Clássico do Azure.
+Depois que o instantâneo é criado, os dados são transferidos pelo serviço do Backup do Azure para o cofre de backup. O serviço se encarrega de identificar e transferir somente os blocos que foram alterados desde o último backup, tornando o armazenamento e a rede de backups eficientes. Quando a transferência de dados é concluída, o instantâneo é removido e um ponto de recuperação é criado. Esse ponto de recuperação pode ser visto no portal clássico do Azure.
 
 > [!NOTE]
 > Para máquinas virtuais do Linux, é possível apenas o backup consistente com arquivos.
 > 
 > 
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Prepare o Backup do Azure para fazer backup dos dados do DPM da seguinte maneira:
 
 1. **Crie um cofre de Backup** — Crie um cofre no console do Backup do Azure.
@@ -67,7 +71,7 @@ Prepare o Backup do Azure para fazer backup dos dados do DPM da seguinte maneira
 
 [!INCLUDE [backup-install-agent](../../includes/backup-install-agent.md)]
 
-## Requisitos (e limitações)
+## <a name="requirements-and-limitations"></a>Requisitos (e limitações)
 * O DPM pode ser executado como servidor físico ou máquina virtual Hyper-V instalado no System Center 2012 SP1 ou System Center 2012 R2. Também pode ser executado como máquina virtual do Azure em execução no System Center 2012 R2 com pelo menos Pacote cumulativo de atualizações 3 do DPM 2012 R2 ou máquina virtual do Windows em VMWare em execução no System Center 2012 R2 com pelo menos Pacote cumulativo de atualizações 5.
 * Se você estiver executando o DPM com o System Center 2012 SP1, instale o Rollup de atualização 2 do System Center Data Protection Manager SP1. Isso é necessário antes da instalação do Agente de Backup do Azure.
 * O servidor DPM deve ter o Windows PowerShell e o .net Framework 4.5 instalados.
@@ -99,4 +103,9 @@ E os seguintes não têm suporte:
 > 
 > 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

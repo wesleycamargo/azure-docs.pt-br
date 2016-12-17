@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Domo | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Domo.
+title: "Tutorial: integração do Azure Active Directory ao Domo | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Domo."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0b3eea4df3728b54554014eed99a911ec8770161
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-domo"></a>Tutorial: Integração do Azure Active Directory ao Domo
+# <a name="tutorial-azure-active-directory-integration-with-domo"></a>Tutorial: Integração do Azure Active Directory ao Domo
 O objetivo deste tutorial é mostrar como integrar o Domo ao Azure AD (Azure Active Directory).  
 A integração do Domo ao Azure AD oferece os seguintes benefícios:
 
@@ -115,7 +119,7 @@ O aplicativo Domo espera que as declarações SAML estejam em um formato especí
    
     c. Na lista **Valor do Atributo** , selecione o valor do atributo mostrado nessa linha.
    
-    d. Clique em **Concluído**.  
+    d. Clique em **Concluído**.    
 3. No portal clássico do Azure, na página de integração do aplicativo **Domo**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Configurar Logon Único][6] 
@@ -254,6 +258,6 @@ Quando você clicar no bloco Domo no Painel de Acesso, deverá fazer logon autom
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

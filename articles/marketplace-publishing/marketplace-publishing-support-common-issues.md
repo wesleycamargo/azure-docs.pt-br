@@ -1,12 +1,12 @@
 ---
-title: Como solucionar problemas comuns de suporte à editora | Microsoft Docs
-description: Entenda como solucionar problemas comuns de suporte à editora e como obter suporte
+title: "Como solucionar problemas comuns de suporte à editora | Microsoft Docs"
+description: "Entenda como solucionar problemas comuns de suporte à editora e como obter suporte"
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f8465448-8328-41f3-8288-48c1c4098134
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
+
 
 ---
-# Como solucionar problemas comuns de editora do Azure Marketplace
+# <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>Como solucionar problemas comuns de editora do Azure Marketplace
 Este artigo explica como resolver ou obter suporte para alguns cenários comuns do Marketplace.
 
-## Créditos e reembolsos
-Em algumas circunstâncias, talvez seja necessário solicitar um crédito ou reembolso em nome de um cliente. O Suporte da Microsoft pode ajudar a garantir que as solicitações de crédito e reembolso do cliente sejam consideradas e recebam uma resposta em tempo hábil.
+## <a name="credits-and-refunds"></a>Créditos e reembolsos
+Em algumas circunstâncias, talvez seja necessário solicitar um crédito ou reembolso em nome de um cliente.  O Suporte da Microsoft pode ajudar a garantir que as solicitações de crédito e reembolso do cliente sejam consideradas e recebam uma resposta em tempo hábil.
 
 O exemplo a seguir mostra como solicitar um crédito ou reembolso em nome de um cliente.
 
@@ -29,17 +33,17 @@ O exemplo a seguir mostra como solicitar um crédito ou reembolso em nome de um 
 > 
 > 
 
-  ![1\_RequestRefund][1]
+  ![1_RequestRefund][1]
 
-1. Navegue até as páginas de suporte aqui: [https://support.microsoft.com/pt-BR/getsupport?tenant=ClassicCommercial&locale=pt-BR&supportregion=pt-BR&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/pt-BR/getsupport?tenant=ClassicCommercial&locale=pt-BR&supportregion=pt-BR&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
+1. Navegue até estas páginas de suporte: [https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
 2. Na caixa **Tipo de problema** selecione **Gerenciando Clientes**.
 3. Na caixa **Categoria**, selecione **Aprovar ou solicitar reembolso de um cliente**.
 4. Clique em **Iniciar solicitação**.
    
-   ![2\_RequestRefund][2]
+   ![2_RequestRefund][2]
 
 1. Fornecer informações de contato.
-2. Na caixa **Qual é o problema?**, digite as seguintes informações:
+2. Na caixa **Qual é o problema?** , digite as seguintes informações:
    
    * A ID da assinatura do cliente afetado
    * O nome do cliente
@@ -50,7 +54,7 @@ O exemplo a seguir mostra como solicitar um crédito ou reembolso em nome de um 
 
 Em até 24 horas você receberá um email confirmando que recebemos suas informações. Depois que uma decisão for tomada em relação à solicitação, você será informado sobre o resultado.
 
-## Validação da assinatura do cliente
+## <a name="customer-subscription-validation"></a>Validação da assinatura do cliente
 Em algumas circunstâncias, talvez seja necessário validar os detalhes da assinatura para um de seus clientes. Entre em contato com o Suporte da Microsoft para obter ajuda. O Suporte da Microsoft ajudará a confirmar que uma ID da assinatura e endereço de cobrança pertencem a um cliente conhecido.
 
   ![subscriptionvalidation][3]
@@ -61,7 +65,7 @@ Em algumas circunstâncias, talvez seja necessário validar os detalhes da assin
 * Será necessário fornecer uma ID de assinatura de cliente e o endereço de cobrança.
 * A Microsoft entrará em contato com você para confirmar que o endereço de cobrança e a ID de assinatura são conhecidos.
 
-## Como faço para atualizar meu perfil de editora?
+## <a name="how-do-i-update-my-publisher-profile"></a>Como faço para atualizar meu perfil de editora?
 Se você quiser atualizar seu perfil de editor, faça isso usando o Centro de Desenvolvimento da Microsoft:
 
 **1. Entre no Centro de Desenvolvimento do Windows**.
@@ -88,7 +92,7 @@ Se você quiser atualizar seu perfil de editor, faça isso usando o Centro de De
 
 ![acctdetails][7]
 
-## Como adicionar ou excluir um administrador de minha conta de publicação?
+## <a name="how-do-i-add-or-delete-an-administrator-from-my-publishing-account"></a>Como adicionar ou excluir um administrador de minha conta de publicação?
 ![manageadmins][8]
 
 1. Navegue até o Portal de Publicação.
@@ -97,7 +101,7 @@ Se você quiser atualizar seu perfil de editor, faça isso usando o Centro de De
 4. Adicione o endereço de email do coadministrador você deseja adicionar ou remover.
 5. Selecione **Salvar**.
 
-## Próximas etapas: outras consultas de suporte
+## <a name="next-steps-other-support-queries"></a>Próximas etapas: Outras consultas de suporte
 Para os seguintes problemas, registre um problema em [https://portal.azure.com](https://portal.azure.com):
 
 * Como faço para relatar um erro de cobrança?
@@ -118,4 +122,8 @@ Para os problemas a seguir, crie uma solicitação de suporte em [http://go.micr
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Cenários para o Processo e Tecnologia de Análise Avançada no Aprendizado de Máquina do Azure | Microsoft Docs
-description: Escolha os cenários apropriados para realizar a análise preditiva avançada com o Processo de Ciência de Dados de Equipe.
+title: "Cenários para o Processo e Tecnologia de Análise Avançada no Machine Learning do Azure | Microsoft Docs"
+description: "Escolha os cenários apropriados para realizar a análise preditiva avançada com o Processo de Ciência de Dados de Equipe."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 286dfa2ca12ec937b57472444612cff64b3608d3
+
 
 ---
-# Cenários para análises avançadas no Aprendizado de Máquina do Azure
+# <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Cenários para análises avançadas no Aprendizado de Máquina do Azure
 Este artigo descreve as diversas fontes de dados de exemplo e os cenários de destino que podem ser manipulados pelo [TDSP (Processo de Ciência de Dados de Equipe)](data-science-process-overview.md). O TDSP fornece uma abordagem sistemática para que as equipes colaborem na criação de aplicativos inteligentes. Os cenários apresentados aqui ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem das características de dados, de locais de origem e de repositórios de destino no Azure.
 
 A **árvore de decisão** para selecionar os cenários de exemplo apropriados para seus dados e objetivo é apresentada na seção anterior.
@@ -28,25 +32,27 @@ A **árvore de decisão** para selecionar os cenários de exemplo apropriados pa
 Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cenário, são listados uma possível ciência de dados ou fluxo de análise avançada e os recursos de suporte do Azure.
 
 > [!NOTE]
-> **Para todos os cenários a seguir, você precisa:** <br/>
+> **Para todos os cenários a seguir, você precisa:**
+> <br/>
 > 
-> * [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md) <br/>
+> * [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md)
+>   <br/>
 > * [Criar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-create-workspace.md)
 > 
 > 
 
-## <a name="smalllocal"></a>Cenário 1: conjunto de dados tabular pequeno a médio em arquivos locais
+## <a name="a-namesmalllocalascenario-1-small-to-medium-tabular-dataset-in-a-local-files"></a><a name="smalllocal"></a>Cenário\#1: conjunto de dados tabular pequeno a médio em arquivos locais
 ![Arquivos locais pequenos a médios][1]
 
-#### Recursos adicionais do Azure: nenhum
+#### <a name="additional-azure-resources-none"></a>Recursos adicionais do Azure: nenhum
 1. Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/).
 2. Carregue um conjunto de dados.
 3. Crie um fluxo experimental do Aprendizado de Máquina do Azure começando com os conjuntos de dados carregados.
 
-## <a name="smalllocalprocess"></a>Cenário 2: conjunto de dados pequeno a médio em arquivos locais, que exige processamento
+## <a name="a-namesmalllocalprocessascenario-2-small-to-medium-dataset-of-local-files-that-require-processing"></a><a name="smalllocalprocess"></a>Cenário \#2: conjunto de dados pequeno a médio em arquivos locais, que exige processamento
 ![Arquivos locais pequenos a médios com processamento][2]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure (servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionais do Azure: Máquina Virtual do Azure (servidor IPython Notebook)
 1. Crie uma Máquina Virtual do Azure que executa o IPython Notebook.
 2. Carregue dados para um contêiner de armazenamento do Azure.
 3. Pré-processe e limpe dados no IPython Notebook, acessando dados no contêiner de armazenamento do Azure.
@@ -56,10 +62,10 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 7. Leia os dados dos blobs do Azure usando o módulo [Importar Dados][import-data].
 8. Crie um fluxo experimental do Aprendizado de Máquina do Azure começando com os conjuntos de dados ingeridos.
 
-## <a name="largelocal"></a>Cenário 3: conjunto de dados grande em arquivos locais, com blobs do Azure como destino
+## <a name="a-namelargelocalascenario-3-large-dataset-of-local-files-targeting-azure-blobs"></a><a name="largelocal"></a>Cenário \#3: conjunto de dados grande em arquivos locais, com blobs do Azure como destino
 ![Arquivos locais grandes][3]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure (servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionais do Azure: Máquina Virtual do Azure (servidor IPython Notebook)
 1. Crie uma Máquina Virtual do Azure que executa o IPython Notebook.
 2. Carregue dados para um contêiner de armazenamento do Azure.
 3. Pré-processe e limpe dados no IPython Notebook, acessando dados nos blobs do Azure.
@@ -71,10 +77,10 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 9. Leia os dados dos blobs do Azure usando o módulo [Importar Dados][import-data].
 10. Crie um fluxo experimental do Azure Machine Learning, começando com os conjuntos de dados ingeridos.
 
-## <a name="smalllocaltodb"></a>Cenário 4: conjunto de dados pequeno a médio em arquivos locais, com o SQL Server na Máquina Virtual do Azure como destino
+## <a name="a-namesmalllocaltodbascenario-4-small-to-medium-dataset-of-local-files-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="smalllocaltodb"></a>Cenário \#4: conjunto de dados pequeno a médio em arquivos locais, com o SQL Server na Máquina Virtual do Azure como destino
 ![Arquivos locais pequenos a médios para o Banco de Dados SQL no Azure][4]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
 1. Crie uma Máquina Virtual do Azure que executa SQL Server + IPython Notebook.
 2. Carregue dados para um contêiner de armazenamento do Azure.
 3. Pré-processe e limpe dados no contêiner de armazenamento do Azure usando o IPython Notebook.
@@ -82,14 +88,14 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 5. Salve dados em arquivos locais da VM (o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM).
 6. Carregue dados para o banco de dados do SQL Server em execução em uma VM do Azure.
    
-   Opção 1: usar o SQL Server Management Studio.
+   Opção \#1: usar o SQL Server Management Studio.
    
    * Faça logon na VM do SQL Server
    * Execute o SQL Server Management Studio.
    * Crie o banco de dados e as tabelas de destino.
    * Use um dos métodos de importação em massa para carregar os dados dos arquivos locais da VM.
    
-   Opção 2: usar o IPython Notebook – não é aconselhável para conjuntos de dados médios e maiores
+   Opção \#2: usar o IPython Notebook – não é aconselhável para conjuntos de dados médios e maiores
    
    <!-- -->    
    * Use uma cadeia de conexão ODBC para acessar o SQL Server na VM.
@@ -101,32 +107,36 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 10. Leia os dados diretamente do SQL Server usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 11. Crie um fluxo experimental do Azure Machine Learning, começando com os conjuntos de dados ingeridos.
 
-## <a name="largelocaltodb"></a>Cenário 5: conjunto de dados grande em arquivos locais, com o SQL Server na VM do Azure
+## <a name="a-namelargelocaltodbascenario-5-large-dataset-in-a-local-files-target-sql-server-in-azure-vm"></a><a name="largelocaltodb"></a>Cenário \#5: conjunto de dados grande em arquivos locais, com o SQL Server na VM do Azure
 ![Arquivos locais grandes para o Banco de Dados SQL no Azure][5]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
 1. Crie uma Máquina Virtual do Azure que executa SQL Server e o servidor IPython Notebook.
 2. Carregue dados para um contêiner de armazenamento do Azure.
 3. (Opcional) Pré-processe e limpe os dados.
    
-   a. Pré-processe e limpe dados no IPython Notebook, acessando dados nos blobs do Azure.
+   a.  Pré-processe e limpe dados no IPython Notebook, acessando dados do Azure
    
-   b. Transforme os dados para o formato limpo e em tabela, se necessário.
+       blobs.
    
-   c. Salve dados em arquivos locais da VM (o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM).
+   b.  Transforme os dados para o formato limpo e em tabela, se necessário.
+   
+   c.  Salve dados em arquivos locais da VM (o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM).
 4. Carregue dados para o banco de dados do SQL Server em execução em uma VM do Azure.
    
-   a. Faça logon na VM do SQL Server.
+   a.  Faça logon na VM do SQL Server.
    
-   b. Se os dados já não estiverem salvos, baixe arquivos de dados do contêiner de armazenamento do Azure para a pasta da VM local.
+   b.  Se os dados já não estiverem salvos, baixe arquivos de dados do Azure
    
-   c. Execute o SQL Server Management Studio.
+       storage container to local-VM folder.
    
-   d. Crie o banco de dados e as tabelas de destino.
+   c.  Execute o SQL Server Management Studio.
    
-   e. Use um dos métodos de importação em massa para carregar os dados.
+   d.  Crie o banco de dados e as tabelas de destino.
    
-   f. Se junções de tabelas forem necessárias, crie índices para agilizá-las.
+   e.  Use um dos métodos de importação em massa para carregar os dados.
+   
+   f.  Se junções de tabelas forem necessárias, crie índices para agilizá-las.
    
    > [!NOTE]
    > Para um carregamento mais rápido de grandes quantidades de dados, é recomendável criar tabelas particionadas e importar em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
@@ -138,10 +148,10 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 8. Leia os dados diretamente do SQL Server usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 9. Fluxo experimental simples do Azure Machine Learning começando com o conjunto de dados carregado
 
-## <a name="largedbtodb"></a>Cenário 6: conjunto de dados grande em um banco de dados do SQL Server local, com o SQL Server em uma Máquina Virtual do Azure como destino
+## <a name="a-namelargedbtodbascenario-6-large-dataset-in-a-sql-server-database-on-prem-targeting-sql-server-in-an-azure-virtual-machine"></a><a name="largedbtodb"></a>Cenário \#6: conjunto de dados grande em um banco de dados do SQL Server local, com o SQL Server em uma Máquina Virtual do Azure como destino
 ![Banco de Dados SQL local grande para o Banco de Dados SQL no Azure][6]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
 1. Crie uma Máquina Virtual do Azure que executa SQL Server e o servidor IPython Notebook.
 2. Use um dos métodos de exportação de dados para exportar os dados do SQL Server para arquivos de despejo.
    
@@ -152,17 +162,17 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 3. Carregue os arquivos de despejo no contêiner de armazenamento do Azure.
 4. Carregue os dados para um banco de dados do SQL Server em execução em uma Máquina Virtual do Azure.
    
-   a. Faça logon na VM do SQL Server.
+   a.  Faça logon na VM do SQL Server.
    
-   b. Baixe os arquivos de dados de um contêiner de armazenamento do Azure para a pasta da VM local.
+   b.  Baixe os arquivos de dados de um contêiner de armazenamento do Azure para a pasta da VM local.
    
-   c. Execute o SQL Server Management Studio.
+   c.  Execute o SQL Server Management Studio.
    
-   d. Crie o banco de dados e as tabelas de destino.
+   d.  Crie o banco de dados e as tabelas de destino.
    
-   e. Use um dos métodos de importação em massa para carregar os dados.
+   e.  Use um dos métodos de importação em massa para carregar os dados.
    
-   f. Se junções de tabelas forem necessárias, crie índices para agilizá-las.
+   f.  Se junções de tabelas forem necessárias, crie índices para agilizá-las.
    
    > [!NOTE]
    > Para um carregamento mais rápido de grandes quantidades de dados, crie tabelas particionadas e importe em massa os dados em paralelo. Para saber mais, consulte [Importação de Dados em Paralelo para Tabelas Particionadas do SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
@@ -174,41 +184,43 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 8. Leia os dados diretamente do SQL Server usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 9. Fluxo experimental simples do Azure Machine Learning começando com o conjunto de dados carregado.
 
-### Método alternativo para copiar um banco de dados completo de um SQL Server local para o Banco de Dados SQL do Azure
+### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises-sql-server-to-azure-sql-database"></a>Método alternativo para copiar um banco de dados completo de um SQL Server local para o Banco de Dados SQL do Azure
 ![Desanexar o banco de dados local e anexar ao Banco de Dados SQL no Azure][7]
 
-#### Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-virtual-machine-sql-server-ipython-notebook-server"></a>Recursos adicionais do Azure: Máquina Virtual do Azure (SQL Server/ servidor IPython Notebook)
 Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você deve copiar um banco de dados de um local/servidor para outro, supondo que o banco de dados possa ficar offline temporariamente. Você pode fazer isso no Pesquisador de Objetos do SQL Server Management Studio ou usando os comandos Transact-SQL equivalentes.
 
-1. Desanexe o banco de dados no local de origem. Para saber mais, consulte [Desanexar um banco de dados](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
+1. Desanexe o banco de dados no local de origem. Para saber mais, veja [Desanexar um banco de dados](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
 2. Na janela de prompt de comando do Windows Explorer ou Windows, copie os arquivos do banco de dados e os arquivos de log desanexados para o local de destino na VM do SQL Server no Azure.
-3. Anexe os arquivos copiados à instância de destino do SQL Server. Para saber mais, consulte [Anexar um banco de dados](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
+3. Anexe os arquivos copiados à instância de destino do SQL Server. Para saber mais, veja [Anexar um banco de dados](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
 
 [Mover um Banco de Dados utilizando Desanexar e Anexar (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
-## <a name="largedbtohive"></a>Cenário 7: Big Data em arquivos locais, com um banco de dados Hive em clusters Hadoop do Azure HDInsight como destino
+## <a name="a-namelargedbtohiveascenario-7-big-data-in-local-files-target-hive-database-in-azure-hdinsight-hadoop-clusters"></a><a name="largedbtohive"></a>Cenário \#7: Big Data em arquivos locais, com um banco de dados Hive em clusters Hadoop do Azure HDInsight como destino
 ![Big Data no Hive local de destino][9]
 
-#### Recursos adicionais do Azure: cluster Hadoop do Azure HDInsight e Máquina Virtual do Azure (servidor IPython Notebook)
+#### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>Recursos adicionais do Azure: cluster Hadoop do Azure HDInsight e Máquina Virtual do Azure (servidor IPython Notebook)
 1. Crie uma Máquina Virtual do Azure que executa o servidor IPython Notebook.
 2. Personalize um cluster Hadoop do Azure HDInsight.
 3. (Opcional) Pré-processe e limpe os dados.
    
-   a. Pré-processe e limpe dados no IPython Notebook, acessando dados nos blobs do Azure.
+   a.  Pré-processe e limpe dados no IPython Notebook, acessando dados do Azure
    
-   b. Transforme os dados para o formato limpo e em tabela, se necessário.
+       blobs.
    
-   c. Salve dados em arquivos locais da VM (o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM).
+   b.  Transforme os dados para o formato limpo e em tabela, se necessário.
+   
+   c.  Salve dados em arquivos locais da VM (o IPython Notebook está em execução na VM, as unidades locais se referem às unidades da VM).
 4. Carregue dados no contêiner padrão do cluster Hadoop selecionado na etapa 2.
 5. Carregue dados para o banco de dados Hive no cluster Hadoop do Azure HDInsight.
    
-   a. Faça logon no nó principal do cluster Hadoop
+   a.  Faça logon no nó principal do cluster Hadoop
    
-   b. Abra a linha de comando do Hadoop.
+   b.  Abra a linha de comando do Hadoop.
    
-   c. Insira o diretório raiz do Hive pelo comando `cd %hive_home%\bin` na linha de comando do Hadoop.
+   c.  Insira o diretório raiz do Hive pelo comando `cd %hive_home%\bin` na linha de comando do Hadoop.
    
-   d. Execute as consultas do Hive para criar o banco de dados e tabelas e carregue dados do armazenamento de blob para as tabelas do Hive.
+   d.  Execute as consultas do Hive para criar o banco de dados e tabelas e carregue dados do armazenamento de blob para as tabelas do Hive.
    
    > [!NOTE]
    > Se o volume de dados for grande, os usuários podem criar a tabela do Hive com partições. Em seguida, os usuários podem usar um loop `for` na linha de comando do Hadoop no nó principal para carregar dados na tabela do Hive particionada, por partição.
@@ -216,25 +228,25 @@ Para replicar todo o banco de dados do SQL Server na sua VM do SQL Server, você
    > 
 6. Explore dados e crie recursos conforme necessário na linha de comando do Hadoop. Observe que os recursos não precisam ser materializado nas tabelas do banco de dados. Anote somente a consulta necessária para criá-los.
    
-   a. Faça logon no nó principal do cluster Hadoop
+   a.  Faça logon no nó principal do cluster Hadoop
    
-   b. Abra a linha de comando do Hadoop.
+   b.  Abra a linha de comando do Hadoop.
    
-   c. Insira o diretório raiz do Hive pelo comando `cd %hive_home%\bin` na linha de comando do Hadoop.
+   c.  Insira o diretório raiz do Hive pelo comando `cd %hive_home%\bin` na linha de comando do Hadoop.
    
-   d. Execute as consultas do Hive na linha de comando do Hadoop no nó principal do cluster do Hadoop para explorar os dados e criar recursos conforme necessário.
+   d.  Execute as consultas do Hive na linha de comando do Hadoop no nó principal do cluster do Hadoop para explorar os dados e criar recursos conforme necessário.
 7. Se necessário e/ou desejado, faça amostras dos dados para que eles caibam no Estúdio de Aprendizado de Máquina do Azure.
 8. Faça logon no [Estúdio de Aprendizado de Máquina do Azure](https://studio.azureml.net/).
 9. Leia os dados diretamente do `Hive Queries` usando o módulo [Importar Dados][import-data]. Cole a consulta necessária que extrai os campos, cria recursos e amostras de dados, se necessário, diretamente na consulta [Importar Dados][import-data].
 10. Fluxo experimental simples do Azure Machine Learning começando com o conjunto de dados carregado.
 
-## <a name="decisiontree"></a>Árvore de decisão para a seleção do cenário
+## <a name="a-namedecisiontreeadecision-tree-for-scenario-selection"></a><a name="decisiontree"></a>Árvore de decisão para a seleção do cenário
 - - -
 O diagrama a seguir resume os cenários descritos acima e as opções do Processo e Tecnologia de Análise Avançada selecionadas que o levam a cada um dos cenários detalhados. Observe que o processamento de dados, exploração, engenharia de recursos e amostragem podem ocorrer em um ou mais métodos/ambientes – nos ambientes de origem, intermediário e/ou de destino – e podem continuar iterativamente conforme necessário. O diagrama só serve para ilustrar alguns dos fluxos de possíveis e não fornece uma enumeração completa.
 
 ![Cenários de passo a passo de exemplo do processo de Ciência de Dados][8]
 
-### Exemplos de análise avançada em ação
+### <a name="advanced-analytics-in-action-examples"></a>Exemplos de análise avançada em ação
 Para obter um passo a passo do Aprendizado de Máquina do Azure que emprega o Processo e Tecnologia de Análise Avançada usando conjuntos de dados públicos, consulte:
 
 * [Processo de Ciência de Dados de Equipe em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
@@ -254,4 +266,8 @@ Para obter um passo a passo do Aprendizado de Máquina do Azure que emprega o Pr
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

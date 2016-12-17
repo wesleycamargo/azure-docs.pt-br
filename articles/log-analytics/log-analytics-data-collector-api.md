@@ -1,23 +1,27 @@
 ---
 title: API do coletor de dados HTTP do Log Analytics | Microsoft Docs
-description: Você pode usar a API do coletor de dados HTTP do Log Analytics para adicionar dados JSON de POST ao repositório do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como usar a API e tem exemplos de como publicar dados usando diferentes linguagens de programação.
+description: "Você pode usar a API do coletor de dados HTTP do Log Analytics para adicionar dados JSON de POST ao repositório do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como usar a API e tem exemplos de como publicar dados usando diferentes linguagens de programação."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 10/26/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f574a3cd837e4fc9cf292d672432a7960cae177b
+
 
 ---
 # <a name="log-analytics-http-data-collector-api"></a>API do coletor de dados HTTP do Log Analytics
-Quando você usa a API do coletor de dados HTTP do Azure Log Analytics, pode adicionar dados do JSON (JavaScript Object Notation) de POST ao repositório do Log Analytics de qualquer cliente que possa chamar a API REST. Usando esse método, você pode enviar dados de aplicativos de terceiros ou de scripts, como de um runbook na Automação do Azure.  
+Quando você usa a API do coletor de dados HTTP do Azure Log Analytics, pode adicionar dados do JSON (JavaScript Object Notation) de POST ao repositório do Log Analytics de qualquer cliente que possa chamar a API REST. Usando esse método, você pode enviar dados de aplicativos de terceiros ou de scripts, como de um runbook no Azure Automation.  
 
 ## <a name="create-a-request"></a>Criar uma solicitação
 As próximas duas tabelas listam os atributos que são necessários para cada solicitação para a API do coletor de dados HTTP do Log Analytics. Descrevemos cada atributo em mais detalhes posteriormente neste artigo.
@@ -26,7 +30,7 @@ As próximas duas tabelas listam os atributos que são necessários para cada so
 | Atributo | Propriedade |
 |:--- |:--- |
 | Método |POST |
-| URI |https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Tipo de conteúdo |aplicativo/json |
 
 ### <a name="request-uri-parameters"></a>Solicitar parâmetros de URI (Uniform Resource Identifier)
@@ -53,16 +57,16 @@ Aqui está o formato do cabeçalho de autorização:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* é o identificador exclusivo para o espaço de trabalho do Operations Management Suite. *Signature* é um [HMAC (Message Authentication Code baseado em Hash)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) que é construído por meio da solicitação e, em seguida, calculado usando o [algoritmo SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Em seguida, você o codifica usando a codificação Base64.
+*WorkspaceID* é o identificador exclusivo para o espaço de trabalho do Operations Management Suite. *Signature* é um [HMAC (Código de Autenticação de Mensagem Baseado em Hash)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) que é construído a partir da solicitação e, em seguida, calculado usando o [algoritmo SHA256](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Em seguida, você o codifica usando a codificação Base64.
 
 Use este formato para codificar a cadeia de caracteres de assinatura **SharedKey**:
 
 ```
 StringToSign = VERB + "\n" +
-               Content-Length + "\n" +
+                  Content-Length + "\n" +
                Content-Type + "\n" +
-               x-ms-date + "\n" +
-               "/api/logs";
+                  x-ms-date + "\n" +
+                  "/api/logs";
 ```
 
 Aqui está um exemplo de uma cadeia de caracteres de assinatura:
@@ -125,8 +129,8 @@ Para identificar o tipo de dados de uma propriedade, o Log Analytics adiciona um
 
 O tipo de dados que o Log Analytics usa para cada propriedade depende de se o tipo de registro do novo registro já existe.
 
-* Se o tipo de registro não existir, o Log Analytics criará um novo. O Log Analytics usa a inferência de tipos JSON para determinar o tipo de dados de cada propriedade para o novo registro.
-* Se o tipo de registro existir, o Log Analytics tentará criar um novo registro com base nas propriedades existentes. Se o tipo de dados de uma propriedade no novo registro não corresponder e não puder ser convertida para o tipo existente, ou se o registro incluir uma propriedade que não existe, o Log Analytics criará uma nova propriedade que tenha o sufixo relevante.
+* Se o tipo de registro não existir, o Log Analytics cria um novo. O Log Analytics usa a interferência de tipo JSON para determinar o tipo de dados de cada propriedade para o novo registro.
+* Se o tipo de registro existir, o Log Analytics tenta criar um novo registro com base nas propriedades existentes. Se o tipo de dados de uma propriedade no novo registro não corresponder e não puder ser convertida para o tipo existente, ou se o registro incluir uma propriedade que não existe, o Log Analytics criará uma nova propriedade que tenha o sufixo relevante.
 
 Por exemplo, esta entrada de envio criaria um registro com três propriedades, **number_d**, **boolean_b** e **string_s**:
 
@@ -143,6 +147,13 @@ Mas, se você fizesse esse próximo envio, o Log Analytics criaria as novas prop
 Se você enviasse a entrada a seguir, antes de o tipo de registro ter sido criado, o Log Analytics criaria um registro com três propriedades, **number_s**, **boolean_s** e **string_s**. Nesta entrada, cada um dos valores iniciais é formatado como uma cadeia de caracteres:
 
 ![Registro de exemplo 4](media/log-analytics-data-collector-api/record-04.png)
+
+## <a name="data-limits"></a>Limites de dados
+Há algumas restrições sobre os dados publicados na API de coleta de dados do Log Analytics.
+
+* Máximo de 30 MB por post na API do coletor de dados do Log Analytics. Este é um limite de tamanho para um único post. Se os dados de uma única postagem excederem 30 MB, será necessário dividi-los em partes menores e enviá-los simultaneamente. 
+* Limite máximo de 32 KB para valores de campo. Se o valor do campo for maior do que 32 KB, os dados serão truncados. 
+* O número máximo recomendado de campos para um determinado tipo é 50. Este é um limite prático de uma perspectiva de experiência de pesquisa e usabilidade.  
 
 ## <a name="return-codes"></a>Códigos de retorno
 O código de status HTTP 202 significa que a solicitação foi aceita para processamento, mas o processamento ainda não foi concluído. Isso indica que a operação foi concluída com êxito.
@@ -166,7 +177,7 @@ Esta tabela lista o conjunto completo de códigos de status que o serviço pode 
 | 503 |Serviço indisponível |ServiceUnavailable |No momento, o serviço está indisponível para receber solicitações. Tente novamente a sua solicitação. |
 
 ## <a name="query-data"></a>Consultar dados
-Para consultar os dados enviados pela API do coletor de dados HTTP do Log Analytics, procure registros com **Tipo** que é igual ao valor **LogType** valor que você especificou, acrescido com **_CL**. Por exemplo, se você usou **MyCustomLog**, você pode retornar todos os registros com **Type=MyCustomLog_CL**.
+Para consultar os dados enviados pela API do coletor de dados HTTP do Log Analytics, procure registros com **Tipo** que é igual ao valor **LogType** valor que você especificou, acrescido com **_CL**. Por exemplo, se você usou **MyCustomLog**, você poderia retornar todos os registros com **Type=MyCustomLog_CL**.
 
 ## <a name="sample-requests"></a>Solicitações de exemplo
 Nas seções a seguir, você encontrará exemplos de como enviar dados para a AAPI do coletor de dados HTTP do Log Analytics usando diferentes linguagens de programação.
@@ -263,7 +274,7 @@ Function Post-OMSData($customerId, $sharedKey, $body, $logType)
 Post-OMSData -customerId $customerId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType  
 ```
 
-### <a name="c#-sample"></a>Exemplo de C
+### <a name="c-sample"></a>Exemplo de C#
 ```
 using System;
 using System.Net;
@@ -383,7 +394,7 @@ def build_signature(customer_id, shared_key, date, content_length, method, conte
     string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
     bytes_to_hash = bytes(string_to_hash).encode('utf-8')  
     decoded_key = base64.b64decode(shared_key)
-    encoded_hash = base64.b64encode(hmac.new(decoded_key, string_to_hash, digestmod=hashlib.sha256).digest())
+    encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest())
     authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
     return authorization
 
@@ -414,8 +425,11 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use o [Designer de modos de exibição](log-analytics-view-designer.md) para criar exibições personalizadas nos dados que você envia.
+* Use o [Criador de Modos de Exibição](log-analytics-view-designer.md) para criar exibições personalizadas nos dados que você envia.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
