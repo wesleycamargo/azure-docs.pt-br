@@ -1,29 +1,33 @@
 ---
-title: Práticas recomendadas de segurança de IoT | Microsoft Docs
-description: Práticas recomendadas de segurança para proteger sua infraestrutura de IoT
-services: ''
+title: "Práticas recomendadas de segurança de IoT | Microsoft Docs"
+description: "Práticas recomendadas de segurança para proteger sua infraestrutura de IoT"
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: YuriDio
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 24e7bda2-5f7b-44e3-b8af-761abd3276ff
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2016
+ms.date: 10/17/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 92a0988e32270b6d6d58841e67ff545d07fa311a
+
 
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
-## Próximas etapas
+## <a name="see-also"></a>Consulte também
 Para saber mais sobre como proteger sua solução IoT, confira:
 
 * [Arquitetura de segurança IoT][lnk-security-architecture]
-* [Proteger sua implantação de IoT][lnk-security-deployment]
+* [Proteger sua implantação IoT][lnk-security-deployment]
 
 Você também pode explorar alguns dos outros recursos das soluções pré-configuradas do IoT Suite:
 
@@ -36,4 +40,8 @@ Você também pode explorar alguns dos outros recursos das soluções pré-confi
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

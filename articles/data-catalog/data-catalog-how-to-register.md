@@ -1,13 +1,13 @@
 ---
 title: Como registrar as fontes de dados | Microsoft Docs
-description: Artigo de instruções destacando como registrar fontes de dados ao Catálogo de Dados do Azure, incluindo os campos de metadados extraídos durante o registro.
+description: "Artigo de instruções destacando como registrar fontes de dados ao Catálogo de Dados do Azure, incluindo os campos de metadados extraídos durante o registro."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/04/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 25c2b279487f099a0e688621e63faaa4ed265e6e
+
 
 ---
 # <a name="how-to-register-data-sources"></a>Como registrar fontes de dados
@@ -81,6 +85,9 @@ Registrar uma fonte de dados no **Catálogo de Dados do Azure** facilita a desco
 ## <a name="see-also"></a>Consulte também
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como registrar fontes de dados.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Considerações de privacidade e segurança no Cloud App Discovery | Microsoft Docs
-description: Este tópico descreve as considerações de segurança e privacidade relacionadas ao Cloud App Discovery.
+title: "Considerações de privacidade e segurança no Cloud App Discovery | Microsoft Docs"
+description: "Este tópico descreve as considerações de segurança e privacidade relacionadas ao Cloud App Discovery."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2fce5c82-d3de-4097-808f-40214768df9e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: markusvi
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f03d933f2f02c6c5309b32f41f3d318a3cfb22fd
+
 
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>Considerações de privacidade e segurança no Cloud App Discovery
@@ -166,6 +170,9 @@ Em um esforço para proteger os metadados coletados seguros, por padrão somente
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

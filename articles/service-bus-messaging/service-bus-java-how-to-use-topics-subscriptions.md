@@ -1,27 +1,31 @@
 ---
-title: Como usar os tópicos de Barramento de Serviço com Java | Microsoft Docs
-description: Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure. Exemplos de código são escritos para aplicativos Java.
-services: service-bus
+title: "Como usar os tópicos de Barramento de Serviço com Java | Microsoft Docs"
+description: "Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure. Exemplos de código são escritos para aplicativos Java."
+services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8d49567f5efe212852d6f9dc4008d616b8191184
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Como usar tópicos e assinaturas do Barramento de Serviço
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Este guia descreve como usar assinaturas e tópicos do Barramento de Serviço. As amostras são gravadas em Java e usam o [SDK do Azure para Java][SDK do Azure para Java]. Os cenários abordados incluem a **criação de tópicos e assinaturas**, a **criação de filtros de assinatura**, o **envio de mensagens para um tópico**, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**.
+Este guia descreve como usar assinaturas e tópicos do Barramento de Serviço. Os exemplos são escritos em Java e usam o [SDK do Azure para Java][SDK do Azure para Java]. Os cenários abordados incluem a **criação de tópicos e assinaturas**, a **criação de filtros de assinatura**, o **envio de mensagens para um tópico**, o **recebimento de mensagens de uma assinatura** e a **exclusão de tópicos e assinaturas**.
 
-## <a name="what-are-service-bus-topics-and-subscriptions?"></a>O que são os tópicos e as assinaturas do Barramento de Serviço?
+## <a name="what-are-service-bus-topics-and-subscriptions"></a>O que são os tópicos e as assinaturas do Barramento de Serviço?
 Os tópicos e assinaturas do Barramento de Serviço dão suporte a um modelo de comunicação de mensagens de *publicação/assinatura* . Durante o uso de tópicos e assinaturas, os componentes de um aplicativo distribuído não se comunicam diretamente uns com os outros, eles trocam mensagens por meio de um tópico, que atua como um intermediário.
 
 ![Conceitos de tópico](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
@@ -40,7 +44,7 @@ Para criar um namespace:
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
-Verifique se você instalou o [SDK do Azure para Java][SDK do Azure para Java] antes de compilar este exemplo. Se você estiver usando o Eclipse, instale o [Kit de ferramentas do Azure para Eclipse][Kit de ferramentas do Azure para Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:
+Verifique se você instalou o [SDK do Azure para Java][SDK do Azure para Java] antes de compilar este exemplo. Se você estiver usando o Eclipse, instale o [Kit de Ferramentas do Azure para Eclipse][Kit de Ferramentas do Azure para Eclipse], que inclui o SDK do Azure para Java. Você pode adicionar as **Bibliotecas do Microsoft Azure para Java** ao seu projeto:
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
@@ -92,7 +96,7 @@ Observe que você pode usar o método **listTopics** nos objetos **ServiceBusCon
 ## <a name="create-subscriptions"></a>Criar assinaturas
 As assinaturas de tópicos também são criadas com a classe **ServiceBusService**. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens passadas para a fila virtual da assinatura.
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
 O filtro **MatchAll** será o padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada “AllMessages” e usa o filtro padrão **MatchAll**.
 
     SubscriptionInfo subInfo = new SubscriptionInfo("AllMessages");
@@ -102,7 +106,7 @@ O filtro **MatchAll** será o padrão usado se nenhum filtro for especificado qu
 ### <a name="create-subscriptions-with-filters"></a>Criar assinaturas com os filtros
 Você também pode configurar filtros que permitem definir um escopo de quais mensagens enviadas a um tópico devem aparecer dentro de uma assinatura específica do tópico.
 
-O tipo de filtro mais flexível compatível com as assinaturas é o [SqlFilter][SqlFilter], que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais detalhes sobre as expressões que podem ser usadas com um filtro SQL, examine a sintaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+O tipo de filtro mais flexível com suporte das assinaturas é [SqlFilter][SqlFilter], que implementa um subconjunto do SQL92. Os filtros SQL operam nas propriedades das mensagens que são publicadas no tópico. Para obter mais detalhes sobre as expressões que podem ser usadas com um filtro SQL, examine a sintaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 O exemplo a seguir cria uma assinatura denominada `HighMessages` com um objeto [SqlFilter][SqlFilter] que seleciona apenas as mensagens que tenham uma propriedade **MessageNumber** personalizada maior do que 3:
 
@@ -140,7 +144,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-As mensagens enviadas aos tópicos de Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage]. Os objetos [BrokeredMessage][BrokeredMessage]* têm um conjunto de métodos padrão (como **setLabel** e **TimeToLive**), um dicionário usado para manter propriedades específicas do aplicativo personalizado e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor da [BrokeredMessage][BrokeredMessage], assim o **DataContractSerializer** adequado será usado para serializar o objeto. Como alternativa, um **java.io.InputStream** pode ser fornecido.
+As mensagens enviadas aos tópicos de Barramento de Serviço são instâncias da classe [BrokeredMessage][BrokeredMessage]. Os objetos [BrokeredMessage][BrokeredMessage]* possuem um conjunto de métodos padrão (como **setLabel** and **TimeToLive**), um dicionário usado para manter propriedades específicas do aplicativo personalizado e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor da [BrokeredMessage][BrokeredMessage]. Assim, o **DataContractSerializer** adequado será usado para serializar o objeto. Como alternativa, um **java.io.InputStream** pode ser fornecido.
 
 O exemplo a seguir demonstra como enviar cinco mensagens de teste para `TestTopic` **MessageSender** que obtivemos no trecho de código acima.
 Observe como o valor da propriedade **MessageNumber** de cada mensagem varia de acordo com a iteração do loop (isso determinará quais assinaturas o receberá):
@@ -241,7 +245,7 @@ service.deleteTopic("TestTopic");
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, confira [Filas, tópicos e assinaturas do Barramento de Serviço][Filas, tópicos e assinaturas do Barramento de Serviço] para saber mais.
+Agora que você aprendeu as noções básicas sobre as filas do Barramento de Serviço, consulte [Filas, tópicos e assinaturas do Barramento de Serviço][Filas, tópicos e assinaturas do Barramento de Serviço] para obter mais informações.
 
 [SDK do Azure para Java]: http://azure.microsoft.com/develop/java/
 [Kit de Ferramentas do Azure para Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
@@ -257,6 +261,6 @@ Agora que você aprendeu as noções básicas sobre as filas do Barramento de Se
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

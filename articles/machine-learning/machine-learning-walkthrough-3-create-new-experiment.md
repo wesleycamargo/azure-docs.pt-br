@@ -1,12 +1,12 @@
 ---
-title: 'Etapa 3: Criar um novo teste de Aprendizado de Máquina | Microsoft Docs'
-description: 'Etapa 3 do desenvolvimento de um passo a passo de solução de previsão: criar um novo teste de treinamento no Estúdio de Aprendizado de Máquina do Azure.'
+title: 'Etapa 3: Criar um novo teste de Machine Learning | Microsoft Docs'
+description: "Etapa 3 do desenvolvimento de um passo a passo de solução de previsão: criar um novo teste de treinamento no Estúdio de Aprendizado de Máquina do Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec6ca6b1f06223b1ce3d38e22117e63f438859ce
+
 
 ---
-# <a name="walkthrough-step-3:-create-a-new-azure-machine-learning-experiment"></a>Passo a passo Etapa 3: Criar um novo teste de Aprendizado de Máquina do Azure
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Passo a passo Etapa 3: Criar um novo teste de Aprendizado de Máquina do Azure
 Esta é a terceira etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Criar um espaço de trabalho do Aprendizado de Máquina](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -69,7 +73,7 @@ Usar [Editar metadados][edit-metadata], você deve determinar quais colunas dese
 6. Clique na marca de seleção **OK** .
 7. Volte ao painel **Propriedades**, procure o parâmetro **Novos nomes de coluna**. Neste campo, insira uma lista de nomes para as 21 colunas no conjunto de dados, separadas por vírgulas e na ordem da coluna. Você pode obter os nomes de colunas na documentação do conjunto de dados no site UCI ou, por conveniência, você pode copiar e colar a seguinte lista:  
    
-         Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+       Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
    
    O painel de Propriedades ficará semelhante a este:
    
@@ -104,11 +108,11 @@ Podemos fazer essa replicação usando o código R:
 2. Clique duas vezes no módulo [Executar Script R][execute-r-script] e insira o comentário "Definir ajuste de custo".
 3. No painel **Propriedades**, exclua o texto padrão no parâmetro** Script R** e insira esse script:
    
-         dataset1 <- maml.mapInputPort(1)
-         data.set<-dataset1[dataset1[,21]==1,]
-         pos<-dataset1[dataset1[,21]==2,]
-         for (i in 1:5) data.set<-rbind(data.set,pos)
-         maml.mapOutputPort("data.set")
+       dataset1 <- maml.mapInputPort(1)
+       data.set<-dataset1[dataset1[,21]==1,]
+       pos<-dataset1[dataset1[,21]==2,]
+       for (i in 1:5) data.set<-rbind(data.set,pos)
+       maml.mapOutputPort("data.set")
 
 Precisamos fazer essa mesma operação de replicação para cada saída do módulo [Dividir Dados][split] de forma que os dados de treinamento e teste tenham os mesmos ajustes de custo.
 
@@ -143,6 +147,6 @@ Para obter mais informações sobre como usar scripts R em seus testes, consulte
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

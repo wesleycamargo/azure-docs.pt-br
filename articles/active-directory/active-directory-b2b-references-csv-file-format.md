@@ -1,13 +1,13 @@
 ---
-title: Formato de arquivo CSV para a visualização da colaboração B2B do Active Directory do Azure | Microsoft Docs
-description: A B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos
+title: "Formato de arquivo CSV para a visualização de colaboração do Azure Active Directory B2B | Microsoft Docs"
+description: "A B2B do Active Directory do Azure dá suporte a relações entre empresas, permitindo que os parceiros de negócios acessem de maneira seletiva seus aplicativos corporativos"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: viv-liu
 manager: cliffdi
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bd2c5364-4164-407d-ac25-34088c175c4a
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/09/2016
 ms.author: viviali
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ed32c23b8c69664dd75eae9c831341c93e57ebb3
+
 
 ---
-# Visualização da colaboração B2B do AD do Azure: formato de arquivo CSV
+# <a name="azure-ad-b2b-collaboration-preview-csv-file-format"></a>Visualização da colaboração B2B do AD do Azure: formato de arquivo CSV
 A versão de visualização da colaboração B2B do AD do Azure requer um arquivo CSV especificando as informações do usuário do parceiro a serem carregadas por meio do portal do AD do Azure. O arquivo CSV deve conter os rótulos necessários abaixo e campos opcionais, conforme necessário. Modifique o arquivo CSV de exemplo (abaixo) sem alterar a ortografia dos rótulos na primeira linha.
 
 > [!NOTE]
@@ -25,11 +29,17 @@ A versão de visualização da colaboração B2B do AD do Azure requer um arquiv
 > 
 > 
 
-## Campos obrigatórios: <br/>
-**Email:** endereço de email do usuário convidado. <br/> **DisplayName:** nome de exibição para o usuário convidado (normalmente, nome e sobrenome).<br/>
+## <a name="required-fields-br"></a>Campos obrigatórios:  <br/>
+**Email:** endereço de email do usuário convidado. <br/>
+**DisplayName:** o nome de exibição do usuário convidado (normalmente, nome e sobrenome).<br/>
 
-## Campos opcionais: <br/>
-**InvitationText:** personalize o texto do email de convite após a identidade visual do aplicativo e antes do link de resgate.<br/> **InvitedToApplications:** AppIDs de aplicativos corporativos para atribuir aos usuários. As AppIDs são recuperáveis no PowerShell por meio da chamada de `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/> **InvitedToGroups:** ObjectIDs dos grupos aos quais o usuário será adicionado. As ObjectIDs são recuperáveis no PowerShell por meio da chamada de `Get-MsolGroup | fl DisplayName, ObjectId`<br/> **InviteRedirectURL:** URL para direcionar um usuário convidado após a aceitação do convite. Deve ser uma URL específica da empresa (como [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). Se esse campo opcional não for especificado, o usuário convidado será direcionado para o Painel de Acesso do Aplicativo, em que ele poderá navegar para seus aplicativos corporativos escolhidos. A URL do Painel de Acesso do Aplicativo está no formato `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`.<br/> **CcEmailAddress**: endereço de email para copiar o convite por email. Se o campo CcEmailAddress for usado, este convite não poderá ser usado para criação de locatário ou usuário verificado por email.<br/> **Language:** idioma do email de convite e da experiência de resgate, com “en” (inglês) como padrão quando não especificado. Os outros 10 códigos de idioma com suporte são:<br/>
+## <a name="optional-fields-br"></a>Campos opcionais:  <br/>
+**InvitationText:** personaliza o texto do email de convite após a identidade visual do aplicativo e antes do link de resgate.<br/>
+**InvitedToApplications:** as IDs do aplicativo para atribuir usuários aos aplicativos corporativos. As AppIDs são recuperáveis no PowerShell por meio da chamada de `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/>
+**InvitedToGroups:** as IDs do objeto dos grupos aos quais adicionar o usuário. As ObjectIDs são recuperáveis no PowerShell por meio da chamada de `Get-MsolGroup | fl DisplayName, ObjectId`<br/>
+**InviteRedirectURL:** a URL para direcionar um usuário convidado após aceitar o convite. Isso deve ser uma URL específica da empresa (como [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/)). Se esse campo opcional não for especificado, o usuário convidado será direcionado para o Painel de Acesso do Aplicativo, em que ele poderá navegar para seus aplicativos corporativos escolhidos. A URL do Painel de Acesso do Aplicativo tem o formato `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>`.<br/>
+**CcEmailAddress**: o endereço de email para copiar o convite enviado por email. Se o campo CcEmailAddress for usado, este convite não poderá ser usado para criação de locatário ou usuário verificado por email.<br/>
+**Language:** o idioma do email de convite e da experiência de resgate, com "en" (inglês) como o padrão quando não especificado. Os outros 10 códigos de idioma com suporte são:<br/>
 
 1. de: alemão<br/>
 2. es: espanhol<br/>
@@ -42,7 +52,7 @@ A versão de visualização da colaboração B2B do AD do Azure requer um arquiv
 9. zh-HANS: chinês simplificado<br/>
 10. zh-HANT: chinês tradicional<br/>
 
-## Arquivo CSV de exemplo
+## <a name="sample-csv-file"></a>Arquivo CSV de exemplo
 Veja um CSV de exemplo que você pode modificar.
 
 > [!NOTE]
@@ -60,7 +70,7 @@ bsmith@contoso.com,Ben Smith,Hi Ben! I hope you’ve been doing well.,,cd3ed3de-
 
 ```
 
-## Artigos relacionados
+## <a name="related-articles"></a>Artigos relacionados
 Navegue por nossos outros artigos sobre colaboração B2B no Azure AD
 
 * [O que é a colaboração B2B do AD do Azure?](active-directory-b2b-what-is-azure-ad-b2b.md)
@@ -71,4 +81,9 @@ Navegue por nossos outros artigos sobre colaboração B2B no Azure AD
 * [Limitações atuais da visualização](active-directory-b2b-current-preview-limitations.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

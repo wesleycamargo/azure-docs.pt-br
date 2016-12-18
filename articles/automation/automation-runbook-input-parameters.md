@@ -1,12 +1,12 @@
 ---
-title: Parâmetros de entrada de runbook| Microsoft Docs
-description: Os parâmetros de entrada do runbook aumentam a flexibilidade dos runbooks permitindo transmitir dados para um runbook quando ele é iniciado. Este artigo descreve os diferentes cenários em que os parâmetros de entrada são usados em runbooks.
+title: "Parâmetros de entrada de runbook| Microsoft Docs"
+description: "Os parâmetros de entrada do runbook aumentam a flexibilidade dos runbooks permitindo transmitir dados para um runbook quando ele é iniciado. Este artigo descreve os diferentes cenários em que os parâmetros de entrada são usados em runbooks."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 4d3dff2c-1f55-498d-9a0e-eee497e5bedb
 ms.service: automation
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
+
 
 ---
 # <a name="runbook-input-parameters"></a>Parâmetros de entrada do Runbook
@@ -264,6 +268,9 @@ Quando você executa um runbook usando um webhook, o parâmetro de entrada prede
 * Para editar um runbook textual, consulte [Como editar runbooks textuais](automation-edit-textual-runbook.md).
 * Para editar um runbook gráfico, consulte [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

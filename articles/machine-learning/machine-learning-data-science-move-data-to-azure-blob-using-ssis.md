@@ -1,12 +1,12 @@
 ---
-title: Mover dados do Armazenamento de Blob do Azure usando conectores SSIS | Microsoft Docs
+title: Mover dados para ou do Armazenamento de Blobs do Azure usando conectores SSIS | Microsoft Docs
 description: Mover dados do Armazenamento de Blob do Azure usando conectores SSIS.
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,12 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: a67f2e77d3bc7da35a03b68d7f32fd3a2a42bfcd
+ms.openlocfilehash: f650555f5ca00ca44426e4d863dd2cf01f14d89c
+
 
 ---
-# Mover dados do Armazenamento de Blobs do Azure usando conectores SSIS
+# <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Mover dados do Armazenamento de Blobs do Azure usando conectores SSIS
 O [Feature Pack dos Serviços de Integração do SQL Server para Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornece componentes para se conectar ao Azure, transferir dados entre o Azure e fontes de dados locais e processar os dados armazenados no Azure.
-
-Orientações sobre as tecnologias usadas para mover dados para e/ou do armazenamento de blobs do Azure estão vinculadas aqui:
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -27,14 +29,14 @@ Depois de transferirem dados locais para a nuvem, os clientes poderão acessá-l
 
 Normalmente, essa é a primeira etapa das instruções passo a passo para o [SQL](machine-learning-data-science-process-sql-walkthrough.md) e o [HDInsight](machine-learning-data-science-process-hive-walkthrough.md).
 
-Para conferir uma discussão de cenários canônicos que usam o SSIS para atender às necessidades comerciais comuns em cenários de integração de dados híbridos, consulte o blog [Realizando mais com o Feature Pack dos serviços de integração do SQL Server para o Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx).
+Para conferir uma discussão de cenários canônicos que usam o SSIS para atender às necessidades comerciais comuns em cenários de integração de dados híbridos, consulte o blog [Realizando mais com o Feature Pack dos serviços de integração do SQL Server para o Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) .
 
 > [!NOTE]
-> Para obter uma introdução completa ao Armazenamento de Blobs do Azure, consulte [Noções básicas do Serviço Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Para obter uma introdução completa ao Armazenamento de Blobs do Azure, consulte [Noções básicas do Blob do Azure](../storage/storage-dotnet-how-to-use-blobs.md) e [Serviço de Blob do Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para realizar as tarefas descritas neste artigo, você deve ter uma assinatura do Azure e configurar uma conta de armazenamento do Azure. Você precisa saber o nome da conta e a chave da conta do Armazenamento do Azure para carregar ou baixar dados.
 
 * Para configurar uma **assinatura do Azure**, consulte [Avaliação gratuita de um mês](https://azure.microsoft.com/pricing/free-trial/).
@@ -46,7 +48,7 @@ Para usar os **conectores SSIS**, você deverá baixar:
 * **Feature Pack dos Serviços de Integração do Microsoft SQL Server 2014 ou 2016 para Azure**: eles podem ser baixados, respectivamente, nas páginas dos [Serviços de Integração do SQL Server 2014](http://www.microsoft.com/download/details.aspx?id=47366) e [Serviços de Integração do SQL Server 2016](https://www.microsoft.com/download/details.aspx?id=49492).
 
 > [!NOTE]
-> O SSIS é instalado com o SQL Server, mas não está incluído na versão Express. Para obter informações sobre quais aplicativos estão incluídos nas várias edições do SQL Server, veja [Edições do SQL Server](http://www.microsoft.com/pt-BR/server-cloud/products/sql-server-editions/)
+> O SSIS é instalado com o SQL Server, mas não está incluído na versão Express. Para obter informações sobre quais aplicativos estão incluídos nas várias edições do SQL Server, veja [Edições do SQL Server](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
 > 
 > 
 
@@ -54,11 +56,11 @@ Para obter os materiais de treinamento sobre o SSIS, veja [Treinamento prático 
 
 Para obter informações sobre como começar a usar o SISS para compilar pacotes ETL (extração, transformação e carregamento) simples, veja [Tutorial do SSIS: criando um pacote ETL simples](https://msdn.microsoft.com/library/ms169917.aspx).
 
-## Baixar o conjunto de dados NYC Taxi
-O exemplo descrito aqui usa um conjunto de dados disponível publicamente, o conjunto de dados [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). O conjunto de dados é formado por cerca de 173 milhões de corridas de táxi em NYC no ano de 2013. Há dois tipos de dados: dados sobre detalhes da corrida e dados sobre tarifas. Como há um arquivo para cada mês, temos 24 arquivos no total, cada um deles com aproximadamente 2 GB descompactados.
+## <a name="download-nyc-taxi-dataset"></a>Baixar o conjunto de dados NYC Taxi
+O exemplo descrito aqui usa um conjunto de dados disponível publicamente, o conjunto de dados [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . O conjunto de dados é formado por cerca de 173 milhões de corridas de táxi em NYC no ano de 2013. Há dois tipos de dados: dados sobre detalhes da corrida e dados sobre tarifas. Como há um arquivo para cada mês, temos 24 arquivos no total, cada um deles com aproximadamente 2 GB descompactados.
 
-## Carregar dados no armazenamento de blob do Azure
-Para mover dados do local para o Armazenamento de Blobs do Azure usando o pacote de recursos do SSIS, podemos usar uma instância da [**Tarefa de Upload de Blobs do Azure**](https://msdn.microsoft.com/library/mt146776.aspx), como mostrado aqui:
+## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados no armazenamento de blob do Azure
+Para mover dados do local para o Armazenamento de Blobs do Azure usando o pacote de recursos do SSIS, podemos usar uma instância da [**Tarefa de Carregamento de Blob do Azure**](https://msdn.microsoft.com/library/mt146776.aspx), como mostrado aqui:
 
 ![configure-data-science-vm](./media/machine-learning-data-science-move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
 
@@ -70,7 +72,7 @@ Os parâmetros usados pela tarefa são descritos aqui:
 | **BlobContainer** |Especifica o nome do contêiner de blob que contém os arquivos carregados como blobs. |
 | **BlobDirectory** |Especifica o diretório de blob no qual o arquivo carregado será armazenado como um blob de blocos. O diretório de blob é uma estrutura hierárquica virtual. Se o blob já existir, ele será substituído. |
 | **LocalDirectory** |Especifica o diretório local que contém os arquivos a serem carregados. |
-| **FileName** |Especifica um filtro de nome para selecionar arquivos com o padrão de nome especificado. Por exemplo, MySheet*.xls* inclui arquivos como MySheet001.xls e MySheetABC.xlsx |
+| **FileName** |Especifica um filtro de nome para selecionar arquivos com o padrão de nome especificado. Por exemplo, MySheet\*.xls\* inclui arquivos como MySheet001.xls e MySheetABC.xlsx |
 | **TimeRangeFrom/TimeRangeTo** |Especifica um filtro de intervalo de tempo. Os arquivos modificados após *TimeRangeFrom* e antes de *TimeRangeTo* são incluídos. |
 
 > [!NOTE]
@@ -78,13 +80,18 @@ Os parâmetros usados pela tarefa são descritos aqui:
 > 
 > 
 
-## Baixar dados do armazenamento de blob do Azure
+## <a name="download-data-from-azure-blob-storage"></a>Baixar dados do armazenamento de blob do Azure
 Para baixar dados do armazenamento de blob do Azure no armazenamento local com SSIS, use uma instância da [Tarefa de Carregamento de Blob do Azure](https://msdn.microsoft.com/library/mt146779.aspx).
 
-## Cenários mais avançados de SSIS-Azure
+## <a name="more-advanced-ssis-azure-scenarios"></a>Cenários mais avançados de SSIS-Azure
 Podemos observar aqui que o pacote de recursos do SSIS permite que fluxos mais complexos sejam tratados em conjunto por tarefas de empacotamento. Por exemplo, os dados de blob poderiam ser inseridos diretamente em um cluster do HDInsight cuja saída pode ser baixada em um blob e em um armazenamento local. O SSIS pode executar trabalhos de Hive e Pig em um cluster HDInsight usando conectores adicionais do SSIS:
 
 * Para executar um script Hive em um cluster HDInsight do Azure com SSIS, use a [Tarefa Hive de HDInsight do Azure](https://msdn.microsoft.com/library/mt146771.aspx).
 * Para executar um script Pig em um cluster HDInsight do Azure com SSIS, use a [Tarefa Pig de HDInsight do Azure](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

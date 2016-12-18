@@ -1,13 +1,13 @@
 ---
-title: Adicionar o conector do DB2 aos seus Aplicativos Lógicos | Microsoft Docs
-description: Visão geral do conector do DB2 com parâmetros da API REST
-services: ''
-documentationcenter: ''
+title: "Adicionar o conector do DB2 nos Aplicativos Lógicos | Microsoft Docs"
+description: "Visão geral do conector do DB2 com parâmetros da API REST"
+services: 
+documentationcenter: 
 author: gplarsen
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d9b00d1db69951ce183f05c8237db02cd046931b
+
 
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introdução ao Conector do DB2
@@ -62,10 +66,10 @@ No aplicativo lógico, você pode adicionar uma ação para listar tabelas em um
 2. Na lista de **gatilhos**, selecione **Recorrência**. 
 3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**.  
 4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite `db2` na caixa de edição **Procurar mais ações** e selecione **DB2 – Obter tabelas (Visualização)**.
+5. Na lista de **ações**, digite `db2` na caixa de edição **Procurar mais ações** e selecione **DB2 - Obter tabelas (Visualização)**.
    
    ![](./media/connectors-create-api-db2/Db2connectorActions.png)  
-6. No painel de configuração **DB2 – Obter tabelas**, selecione **caixa de seleção** para habilitar **Conectar via gateway de dados local**. Observe que as configurações mudam de nuvem para local.
+6. No painel de configuração **DB2 - Obter tabelas**, selecione **caixa de seleção** para habilitar **Conectar via gateway de dados local**. Observe que as configurações mudam de nuvem para local.
    
    * Digite o valor para **Servidor**, na forma de número da porta com dois pontos para o endereço ou alias. Por exemplo, digite `ibmserver01:50000`.
    * Digite o valor para o **Banco de Dados**. Por exemplo, digite `nwind`.
@@ -91,7 +95,7 @@ Este conector dá suporte às conexões com os bancos de dados hospedados no loc
 | Autenticação |Opcional. Aceita um valor de item de lista, Básica ou Windows (kerberos). |
 | Nome de Usuário |Obrigatório. Aceita um valor de cadeia de caracteres. O DB2 para z/OS aceita uma cadeia de caracteres de 8 bytes. O DB2 para i aceita uma cadeia de caracteres de 10 bytes. O DB2 para Linux ou UNIX aceita uma cadeia de caracteres de 8 bytes. O DB2 para Windows aceita uma cadeia de caracteres de 30 bytes. |
 | Senha |Obrigatório. Aceita um valor de cadeia de caracteres. |
-| Gateway |Obrigatório. Aceita um valor de item de lista, que representa o gateway de dados local definido para os Aplicativos Lógicos no grupo de armazenamento. |
+| Gateway |Obrigatório. Aceita um valor de item da lista, que representa o gateway de dados local definido para os Aplicativos Lógicos no grupo de armazenamento. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Criar a conexão de gateway local
 Este conector pode acessar um banco de dados DB2 local usando o gateway local. Consulte os tópicos do gateway para obter mais informações. 
@@ -132,7 +136,7 @@ Você pode definir uma ação de aplicativo lógico para buscar todas as linhas 
 2. Na lista de **gatilhos**, selecione **Recorrência**. 
 3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
 4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite `db2` na caixa de edição **Procurar mais ações** e então selecione **DB2 – Obter linhas (Visualização)**.
+5. Na lista de **ações**, digite `db2` na caixa de edição **Procurar mais ações** e então selecione **DB2 - Obter linhas (Visualização)**.
 6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**.
 7. No painel de configuração **Conexões**, selecione **Criar novo**. 
    
@@ -169,8 +173,8 @@ Você pode definir uma ação de aplicativo lógico para adicionar uma linha a u
 2. Na lista de **gatilhos**, selecione **Recorrência**. 
 3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
 4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 – Inserir linha (Visualização)**.
-6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**. 
+5. Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 - Inserir linha (Visualização)**.
+6. Na ação **DB2 - Inserir linha (Visualização)**, selecione **Alterar conexão**. 
 7. No painel de configuração **Conexões** , clique para selecionar uma conexão. Por exemplo, selecione **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -189,14 +193,14 @@ Você pode definir uma ação de aplicativo lógico para buscar uma linha em uma
 
 ### <a name="create-a-logic-app"></a>Criar um aplicativo lógico
 1. Na **tela inicial do Azure**, selecione **+** (sinal de mais), **Web + Móvel**, e então, **Aplicativo Lógico**.
-2. Insira o **Nome** (por exemplo, "**Db2getRow**"), **Assinatura**, **Grupo de recursos**, **Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
+2. Insira o **Nome** (por exemplo, "**Db2getRow**"), **Assinatura**, **Grupo de recursos**,**Local** e **Plano do Serviço de Aplicativo**. Escolha **Fixar no painel** e selecione **Criar**.
 
 ### <a name="add-a-trigger-and-action"></a>Adicionar um gatilho e uma ação
 1. No **Designer de Aplicativos Lógicos**, selecione **Aplicativo Lógico em Branco** na lista **Modelos**. 
 2. Na lista de **gatilhos**, selecione **Recorrência**. 
 3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
 4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 – Obter linhas (Visualização)**.
+5. Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 - Obter linhas (Visualização)**.
 6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**. 
 7. No painel de configurações de **Conexões** , selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
    
@@ -224,8 +228,8 @@ Você pode definir uma ação de aplicativo lógico para alterar uma linha em um
 2. Na lista de **gatilhos**, selecione **Recorrência**. 
 3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
 4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 – Atualizar linha (Visualização)**.
-6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**. 
+5. Na lista de **ações**, digite **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 - Atualizar linha (Visualização)**.
+6. Na ação **DB2 - Atualizar linha (Visualização)**, selecione **Alterar conexão**. 
 7. No painel de configurações de **Conexões** , selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -251,8 +255,8 @@ Você pode definir uma ação de aplicativo lógico para remover uma linha de um
 2. Na lista de **gatilhos**, selecione **Recorrência**. 
 3. No gatilho **Recorrência**, clique em **Editar**, escolha a lista suspensa **Frequência** para selecionar **Dia** e defina o **Intervalo** como **7**. 
 4. Selecione a caixa **+ Nova etapa** e escolha **Adicionar uma ação**.
-5. Na lista de **ações**, selecione **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 – Excluir linha (Visualização)**.
-6. Na ação **Obter linhas (Visualização)**, selecione **Alterar conexão**. 
+5. Na lista de **ações**, selecione **db2** na caixa de edição **Procurar mais ações** e selecione **DB2 - Excluir linha (Visualização)**.
+6. Na ação **DB2 - Excluir linha (Visualização)**, selecione **Alterar conexão**. 
 7. No painel de configurações de **Conexões** , selecione uma conexão existente. Por exemplo, selecione **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -407,6 +411,9 @@ Este conector dá suporte às plataformas e versões do IBM DB2 a seguir, bem co
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
