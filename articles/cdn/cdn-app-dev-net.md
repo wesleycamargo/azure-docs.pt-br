@@ -1,12 +1,12 @@
 ---
-title: Introdução à biblioteca do Azure CDN para .NET | Microsoft Docs
+title: "Introdução à biblioteca do Azure CDN para .NET | Microsoft Docs"
 description: Aprenda a gravar aplicativos .NET para gerenciar o Azure CDN usando o Visual Studio.
 services: cdn
 documentationcenter: .net
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d2d7b2f5feefc4d25c36a5fd30ca1d666b904f58
+
 
 ---
-# Introdução ao desenvolvimento de CDN do Azure
+# <a name="get-started-with-azure-cdn-development"></a>Introdução ao desenvolvimento de CDN do Azure
 > [!div class="op_single_selector"]
 > * [Node.js](cdn-app-dev-node.md)
 > * [.NET](cdn-app-dev-net.md)
 > 
 > 
 
-Você pode usar a [Biblioteca do Azure CDN para .NET](https://msdn.microsoft.com/library/mt657769.aspx) para automatizar a criação e o gerenciamento de perfis CDN e de pontos de extremidade. Este tutorial o orientará na criação de um aplicativo de console simples do .NET, que demonstra várias operações disponíveis. Este tutorial não pretende descrever todos os aspectos da biblioteca do Azure CDN para o .NET em detalhes.
+Você pode usar a [Biblioteca do Azure CDN para .NET](https://msdn.microsoft.com/library/mt657769.aspx) para automatizar a criação e o gerenciamento de perfis CDN e de pontos de extremidade.  Este tutorial o orientará na criação de um aplicativo de console simples do .NET, que demonstra várias operações disponíveis.  Este tutorial não pretende descrever todos os aspectos da biblioteca do Azure CDN para o .NET em detalhes.
 
-Você precisa do Visual Studio 2015 para concluir este tutorial. O [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) está disponível gratuitamente para download.
+Você precisa do Visual Studio 2015 para concluir este tutorial.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) está disponível gratuitamente para download.
 
 > [!TIP]
 > O [projeto concluído deste tutorial](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) está disponível para download no MSDN.
@@ -34,16 +38,16 @@ Você precisa do Visual Studio 2015 para concluir este tutorial. O [Visual Studi
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
-## Crie seu projeto e adicione pacotes NuGet
+## <a name="create-your-project-and-add-nuget-packages"></a>Crie seu projeto e adicione pacotes NuGet
 Agora que criamos um grupo de recursos para nossos perfis CDN e demos permissão para o nosso aplicativo Azure AD gerenciar os perfis CDN e os pontos de extremidade neste grupo, podemos começar a criação do nosso aplicativo.
 
-Do Visual Studio 2015, clique em **Arquivo**, **Novo**, **Projeto...** para abrir a caixa de diálogo do novo projeto. Expanda **Visual C#** e, em seguida, selecione **Windows** no painel à esquerda. Clique em **Aplicativo de Console** no painel central. Nomeie o projeto e clique em **OK**.
+No Visual Studio 2015, clique em **Arquivo**, **Novo**, **Projeto...** para abrir a caixa de diálogo do novo projeto.  Expanda **Visual C#** e, em seguida, selecione **Windows** no painel à esquerda.  Clique em **Aplicativo de Console** no painel central.  Nomeie o projeto e clique em **OK**.  
 
 ![Novo Projeto](./media/cdn-app-dev-net/cdn-new-project.png)
 
-Nosso projeto usará algumas bibliotecas do Azure contidas em pacotes NuGet. Vamos adicioná-las ao projeto.
+Nosso projeto usará algumas bibliotecas do Azure contidas em pacotes NuGet.  Vamos adicioná-las ao projeto.
 
-1. Clique no menu **Ferramentas**, em **Gerenciador de Pacotes Nuget** e em **Console do Gerenciador de Pacotes**.
+1. Clique no menu **Ferramentas**, **Gerenciador de Pacotes Nuget** e, em seguida, **Console do Gerenciador de Pacotes**.
    
     ![Gerenciar pacotes NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
 2. No Console do Gerenciador de Pacotes, execute o seguinte comando para instalar a **ADAL (Biblioteca de Autenticação do Active Directory)**:
@@ -53,7 +57,7 @@ Nosso projeto usará algumas bibliotecas do Azure contidas em pacotes NuGet. Vam
    
     `Install-Package Microsoft.Azure.Management.Cdn`
 
-## Diretivas, constantes, método principal e métodos auxiliares
+## <a name="directives-constants-main-method-and-helper-methods"></a>Diretivas, constantes, método principal e métodos auxiliares
 Vejamos a estrutura básica do nosso programa gravado.
 
 1. De volta à guia Program.cs, substitua as diretivas `using` na parte superior com o seguinte:
@@ -68,7 +72,7 @@ Vejamos a estrutura básica do nosso programa gravado.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Precisamos definir algumas constantes que serão usadas nos nossos métodos. Na classe `Program`, mas antes do método `Main`, adicione o seguinte. Substitua os espaços reservados, inclusive os **&lt;colchetes angulares&gt;**, por seus próprios valores, conforme necessário.
+2. Precisamos definir algumas constantes que serão usadas nos nossos métodos.  Na classe `Program`, mas antes do método `Main`, adicione o seguinte.  Certifique-se de substituir os espaços reservados, inclusive os **&lt;colchetes angulares&gt;**, por seus próprios valores, conforme necessário.
    
     ```csharp
     //Tenant app constants
@@ -83,7 +87,7 @@ Vejamos a estrutura básica do nosso programa gravado.
     private const string resourceGroupName = "CdnConsoleTutorial";
     private const string resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
     ```
-3. Também no nível de classe, defina essas duas variáveis. Nós as usaremos posteriormente para determinar se o perfil e o ponto de extremidade já existem.
+3. Também no nível de classe, defina essas duas variáveis.  Nós as usaremos posteriormente para determinar se o perfil e o ponto de extremidade já existem.
    
     ```csharp
     static bool profileAlreadyExists = false;
@@ -124,7 +128,7 @@ Vejamos a estrutura básica do nosso programa gravado.
        Console.ReadLine();
    }
    ```
-5. Alguns dos nossos outros métodos solicitarão que o usuário responda perguntas do tipo "Sim/Não". Adicione o seguinte método para tornar esse processo um pouco mais fácil:
+5. Alguns dos nossos outros métodos solicitarão que o usuário responda perguntas do tipo "Sim/Não".  Adicione o seguinte método para tornar esse processo um pouco mais fácil:
    
     ```csharp
     private static bool PromptUser(string Question)
@@ -148,10 +152,10 @@ Vejamos a estrutura básica do nosso programa gravado.
     }
     ```
 
-Agora que a estrutura básica do nosso programa está gravada, devemos criar métodos chamados pelo método `Main`.
+Agora que a estrutura básica do nosso programa está gravada, devemos criar métodos chamados pelo método `Main` .
 
-## Autenticação
-Para que possamos usar a biblioteca de gerenciamento do Azure CDN, é necessário autenticar nossa entidade de serviço e obter um token de autenticação. Esse método usa a ADAL para recuperar o token.
+## <a name="authentication"></a>Autenticação
+Para que possamos usar a biblioteca de gerenciamento do Azure CDN, é necessário autenticar nossa entidade de serviço e obter um token de autenticação.  Esse método usa a ADAL para recuperar o token.
 
 ```csharp
 private static AuthenticationResult GetAccessToken()
@@ -185,8 +189,8 @@ private static AuthenticationResult GetAccessToken()
 
 Certifique-se de substituir `<redirect URI>` com o URI de redirecionamento que você inseriu quando registrou o aplicativo no Azure AD.
 
-## Relacione os perfis CDN e os pontos de extremidade
-Agora estamos prontos para executar as operações de CDN. A primeira tarefa que nosso método faz é relacionar todos os perfis e pontos de extremidade em nosso grupo de recursos e, se ele encontrar uma correspondência para os nomes de perfis e de pontos de extremidade especificados em nossas constantes, ele fará uma observação a respeito posteriormente. Portanto, não tentaremos criar duplicatas.
+## <a name="list-cdn-profiles-and-endpoints"></a>Relacione os perfis CDN e os pontos de extremidade
+Agora estamos prontos para executar as operações de CDN.  A primeira tarefa que nosso método faz é relacionar todos os perfis e pontos de extremidade em nosso grupo de recursos e, se ele encontrar uma correspondência para os nomes de perfis e de pontos de extremidade especificados em nossas constantes, ele fará uma observação a respeito posteriormente. Portanto, não tentaremos criar duplicatas.
 
 ```csharp
 private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
@@ -219,7 +223,7 @@ private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 }
 ```
 
-## Criar perfis CDN e pontos de extremidade
+## <a name="create-cdn-profiles-and-endpoints"></a>Criar perfis CDN e pontos de extremidade
 Em seguida, criaremos um perfil.
 
 ```csharp
@@ -265,11 +269,11 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> O exemplo acima atribui ao ponto de extremidade uma origem denominada *Contoso*, com um nome de host `www.contoso.com`. Você deve alterá-la para apontar para o nome de host de sua própria origem.
+> O exemplo acima atribui ao ponto de extremidade uma origem denominada *Contoso*, com um nome de host `www.contoso.com`.  Você deve alterá-la para apontar para o nome de host de sua própria origem.
 > 
 > 
 
-## Limpar um ponto de extremidade
+## <a name="purge-an-endpoint"></a>Limpar um ponto de extremidade
 Supondo que o ponto de extremidade tenha sido criado, uma tarefa comum que talvez desejemos executar em nosso programa está limpando o conteúdo no ponto de extremidade.
 
 ```csharp
@@ -286,11 +290,11 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> No exemplo acima, a cadeia de caracteres `/*` indica que eu quero limpar tudo na raiz do caminho do ponto de extremidade. Isso é equivalente a marcar **Limpar Tudo** na caixa de diálogo "limpeza" do portal do Azure. No método `CreateCdnProfile`, criei nosso perfil como um perfil **Azure CDN da Verizon** usando o código `Sku = new Sku(SkuName.StandardVerizon)`; assim, ele será bem-sucedido. No entanto, o perfil **Azure CDN do Akamai** não dá suporte para a ação **Limpar Tudo**. Portanto, se eu estivesse usando um perfil do Akamai neste tutorial, eu precisaria incluir caminhos específicos para limpar.
+> No exemplo acima, a cadeia de caracteres `/*` indica que eu quero limpar tudo na raiz do caminho do ponto de extremidade.  Isso é equivalente a marcar **Limpar Tudo** na caixa de diálogo "limpeza" do portal do Azure. No método `CreateCdnProfile`, criei nosso perfil como perfil **Azure CDN da Verizon** usando o código `Sku = new Sku(SkuName.StandardVerizon)`; assim, ele será bem-sucedido.  No entanto, os perfis **Azure CDN do Akamai** não dá suporte para a ação **Limpar Tudo**. Portanto, se eu estivesse usando um perfil do Akamai neste tutorial, eu precisaria incluir caminhos específicos para limpar.
 > 
 > 
 
-## Excluir perfis CDN e pontos de extremidade
+## <a name="delete-cdn-profiles-and-endpoints"></a>Excluir perfis CDN e pontos de extremidade
 Os últimos métodos excluirão nosso ponto de extremidade e perfil.
 
 ```csharp
@@ -317,7 +321,7 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 }
 ```
 
-## Executando o programa
+## <a name="running-the-program"></a>Executando o programa
 Agora podemos compilar e executar o programa clicando no botão **Iniciar** no Visual Studio.
 
 ![Programa em execução](./media/cdn-app-dev-net/cdn-program-running-1.png)
@@ -330,11 +334,16 @@ Em seguida, podemos confirmar as solicitações para executar o restante do prog
 
 ![Programa em conclusão](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para ver o projeto concluído desse passo a passo, [baixe o exemplo](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
 Para localizar documentação adicional sobre a biblioteca de gerenciamento do Azure CDN para .NET, confira a [referência no MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
 
 Gerencie seus recursos CDN com o [PowerShell](cdn-manage-powershell.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

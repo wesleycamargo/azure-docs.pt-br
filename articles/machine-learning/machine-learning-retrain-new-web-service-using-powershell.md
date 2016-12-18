@@ -1,12 +1,12 @@
 ---
-title: Readaptar um Novo serviço Web usando os cmdlets do PowerShell de Gerenciamento do Machine Learning | Microsoft Docs
-description: Saiba como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Machine Learning do Azure usando os cmdlets do PowerShell de Gerenciamento do Machine Learning.
+title: "Readaptar um novo serviço Web usando os cmdlets do PowerShell de Gerenciamento do Machine Learning | Microsoft Docs"
+description: "Saiba como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Machine Learning do Azure usando os cmdlets do PowerShell de Gerenciamento do Machine Learning."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondlaghaeian
-editor: ''
-
+editor: 
+ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,13 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f6747a80773cd76b0821edfd2ebcd6af84bed233
+
 
 ---
 # <a name="retrain-a-new-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Readaptar um Novo serviço Web usando os cmdlets do PowerShell de Gerenciamento do Machine Learning
-Quando você readapta um Novo serviço Web, atualiza a definição do serviço Web de previsão para referenciar o novo modelo treinado.  
+Quando você readapta um novo serviço Web, também atualiza a definição do serviço Web de previsão para fazer referenciar ao novo modelo treinado.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Você deve ter configurado um Teste de Treinamento e um Experimento de Previsão, como mostrado em Readaptar os modelos do Machine Learning de forma programática. Para obter informações sobre como criar Testes de Treinamento e Previsão, consulte [Retrain Machine Learning models programmatically](machine-learning-retrain-models-programmatically.md) (Readaptar os modelos de Machine Learning de forma programática).
+Você deve ter configurado um Teste de Treinamento e um Experimento de Previsão, como mostrado em [Readaptar os modelos do Machine Learning de forma programática](machine-learning-retrain-models-programmatically.md). 
+
+> [!IMPORTANT]
+> O experimento de previsão deve ser implantado como um serviço Web do Machine Learning do Azure Resource Manager (novo). 
+> 
+> 
+
+Para obter mais informações sobre como implantar os serviços Web, veja [Implantar um serviço Web do Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Esse processo exige que você tenha instalado os Cmdlets do Machine Learning do Azure. Para obter informações sobre como instalar os cmdlets do Machine Learning, consulte a referência [Cmdlets do Machine Learning do Azure](https://msdn.microsoft.com/library/azure/mt767952.aspx) no MSDN.
 
@@ -42,7 +53,7 @@ As etapas são:
 Primeiro, você deve entrar em sua conta do Azure no ambiente do PowerShell usando o cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) .
 
 ## <a name="get-the-web-service-definition"></a>Obter a definição do serviço Web
-Em seguida, obtenha o Serviço Web chamando o cmdlet [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) . A Definição do Serviço Web é uma representação interna do modelo treinado do serviço Web e não pode ser modificada diretamente. Verifique se você está recuperando a Definição do Serviço da Web para seu experimento de Previsão, e não seu Teste de Treinamento.
+Em seguida, obtenha o Serviço Web chamando o cmdlet [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) . A definição do serviço Web é uma representação interna do modelo treinado do serviço Web e não pode ser modificada diretamente. Verifique se você está recuperando a definição do serviço Web para seu experimento de previsão, e não seu teste de treinamento.
 
     $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
@@ -65,7 +76,7 @@ Para modificar a definição para o modelo treinado usar o Modelo Treinado recen
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
-## <a name="update-the-reference-to-the-ilearner-blob-in-the-json."></a>Atualize a referência para o blob ilearner no JSON.
+## <a name="update-the-reference-to-the-ilearner-blob-in-the-json"></a>Atualize a referência para o blob ilearner no JSON.
 Nos ativos, localize o [modelo treinado] e atualize o valor *uri* no nó *locationInfo* com o URI do blob ilearner. O URI é gerado combinando *BaseLocation* e *RelativeLocation* na saída da chamada de readaptação BES.
 
      "asset3": {
@@ -98,6 +109,9 @@ Usando os cmdlets de gerenciamento do PowerShell de Machine Learning, você pode
 * Readaptação de modelo periódico com novos dados.
 * A distribuição de um modelo para os clientes com o objetivo de permitir que eles recuperem o modelo usando seus próprios dados.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

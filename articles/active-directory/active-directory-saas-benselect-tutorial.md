@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o BenSelect | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o BenSelect.
+title: "Tutorial: Integração do Azure Active Directory com o BenSelect | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o BenSelect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ffa17478-3ea1-4356-a289-545b5b9a4494
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 296a7ce8f84c226dfa899788bd4e0581f0a80eae
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-benselect"></a>Tutorial: Integração do Azure Active Directory ao BenSelect
+# <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Tutorial: Integração do Azure Active Directory ao BenSelect
 Neste tutorial, você aprenderá a integrar o BenSelect ao Azure AD (Azure Active Directory).
 
 A integração do BenSelect ao Azure AD oferece os seguintes benefícios:
@@ -262,6 +266,6 @@ Ao clicar no bloco BenSelect no Painel de Acesso, você deverá ser conectado au
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

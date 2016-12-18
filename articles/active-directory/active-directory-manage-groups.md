@@ -1,22 +1,26 @@
 ---
-title: Gerenciamento de acesso a recursos com grupos do Active Directory do Azure | Microsoft Docs
-description: Como usar grupos no Azure Active Directory para gerenciar o acesso de usuário a aplicativos e recursos locais e na nuvem.
+title: Gerenciando o acesso a recursos com grupos do Azure Active Directory | Microsoft Docs
+description: "Como usar grupos no Azure Active Directory para gerenciar o acesso de usuário a aplicativos e recursos locais e na nuvem."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 714120d0-cdf9-465d-afee-39bef591c6b3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bda882273b6aeddcfa9ed7ba272bc08e620b666e
+
 
 ---
-# Gerenciamento de acesso a recursos com grupos do Active Directory do Azure
+# <a name="managing-access-to-resources-with-azure-active-directory-groups"></a>Gerenciamento de acesso a recursos com grupos do Active Directory do Azure
 O AD do Azure (Active Directory do Azure) é uma solução abrangente de gerenciamento de acesso e identidades que oferece um conjunto robusto de recursos para gerenciar o acesso aos recursos e aplicativos na nuvem e locais, incluindo serviços online da Microsoft como o Office 365 e uma infinidade de aplicativos SaaS que não são da Microsoft. Este artigo fornece uma visão geral, mas se você deseja começar a usar os grupos do Azure AD agora, siga as instruções em [Gerenciamento de grupos de segurança no Azure AD](active-directory-accessmanagement-manage-groups.md). Para ver como você pode usar o PowerShell para gerenciar grupos no Azure Active Directory, você pode ler mais em [Cmdlets de visualização do Azure Active Directory para gerenciamento de grupo](active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 > [!NOTE]
@@ -41,7 +45,7 @@ No Azure AD, um dos principais recursos é a capacidade de gerenciar o acesso ao
    
    ![Visão geral do diagrama de gerenciamento de acesso](./media/active-directory-access-management-groups/access-management-overview.png)
 
-## Assista a um vídeo que explica o gerenciamento de acesso
+## <a name="watch-a-video-that-explains-access-management"></a>Assista a um vídeo que explica o gerenciamento de acesso
 Você pode assistir a um breve vídeo que explica mais sobre isso:
 
 **Azure AD: introdução a associações dinâmicas para grupos**
@@ -50,14 +54,14 @@ Você pode assistir a um breve vídeo que explica mais sobre isso:
 > 
 > 
 
-## Como funciona o gerenciamento de acesso no Azure Active Directory?
+## <a name="how-does-access-management-in-azure-active-directory-work"></a>Como funciona o gerenciamento de acesso no Azure Active Directory?
 No centro da solução de gerenciamento de acesso do Azure AD está o grupo de segurança. Usar um grupo de segurança para gerenciar o acesso aos recursos é um paradigma conhecido, que possibilita uma maneira fácil de entender e flexível de fornecer acesso a um recurso para o grupo de usuários em questão. O proprietário do recurso (ou o administrador do diretório) pode atribuir um grupo para fornecer um determinado acesso aos recursos que possui. Os membros do grupo receberão o acesso, e o proprietário do recurso pode delegar o direito de gerenciar a lista de membros de um grupo a outra pessoa, como um gerente de departamento ou um administrador de assistência técnica.
 
 ![Diagrama de gerenciamento de acesso do Active Directory do Azure](./media/active-directory-access-management-groups/active-directory-access-management-works.png)
 
 O proprietário de um grupo também pode disponibilizar esse grupo para solicitações de autoatendimento. Dessa forma, um usuário final pode pesquisar e localizar o grupo e fazer uma solicitação para ingressar nele, buscando efetivamente permissão para acessar os recursos que são gerenciados por meio do grupo. O proprietário do grupo pode configurar o grupo para que as solicitações de ingresso sejam aprovadas automaticamente ou exijam a aprovação do proprietário do grupo. Quando um usuário faz uma solicitação para ingressar em um grupo, ela é encaminhada aos proprietários do grupo. Se um dos proprietários aprovar a solicitação, o usuário solicitante será notificado e o usuário será ingressado ao grupo. Se um dos proprietários recusar a solicitação, o usuário solicitante será notificado, mas não será ingressado ao grupo.
 
-## Introdução ao gerenciamento de acesso
+## <a name="getting-started-with-access-management"></a>Introdução ao gerenciamento de acesso
 Pronto para começar? Você deve experimentar algumas das tarefas básicas que pode fazer com grupos do AD do Azure. Use esses recursos para fornecer acesso especializado a diferentes grupos de pessoas para recursos diferentes em sua organização. Uma lista das primeiras etapas básicas é exibida abaixo.
 
 * [Criação de uma regra simples para configurar associações dinâmicas para um grupo](active-directory-accessmanagement-manage-groups.md#how-can-i-manage-the-membership-of-a-group-dynamically)
@@ -66,7 +70,7 @@ Pronto para começar? Você deve experimentar algumas das tarefas básicas que p
 * [Sincronização de um grupo local para o Azure usando o Azure AD Connect](active-directory-aadconnect.md)
 * [Gerenciando proprietários de um grupo](active-directory-accessmanagement-managing-group-owners.md)
 
-## Próximas etapas para o gerenciamento de acesso
+## <a name="next-steps-for-access-management"></a>Próximas etapas para o gerenciamento de acesso
 Agora que você compreendeu as noções básicas do gerenciamento de acesso, aqui estão alguns recursos avançados adicionais disponíveis no Active Directory do Azure para gerenciar o acesso aos seus aplicativos e recursos.
 
 * [Usar atributos para criar regras avançadas](active-directory-accessmanagement-groups-with-advanced-rules.md)
@@ -75,4 +79,9 @@ Agora que você compreendeu as noções básicas do gerenciamento de acesso, aqu
 * [Referência de API do Graph para grupos](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 * [Cmdlets do Azure Active Directory para definir configurações de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

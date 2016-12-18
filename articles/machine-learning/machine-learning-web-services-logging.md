@@ -1,12 +1,12 @@
 ---
-title: Registro em log de serviços Web de Aprendizado de Máquina | Microsoft Docs
-description: Saiba como habilitar o registro em log de serviços Web de Aprendizado de Máquina. O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs.
+title: "Registro em log de serviços Web do Machine Learning | Microsoft Azure"
+description: "Saiba como habilitar o registro em log de serviços Web de Aprendizado de Máquina. O registro em log fornece informações adicionais para ajudar a solucionar problemas com as APIs."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: raymondlaghaeian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/05/2016
 ms.author: raymondl;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f307a26bfbb55b395f4073f4368432ae69b867ae
+
 
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>Habilitar o log de serviços Web de Aprendizado de Máquina
@@ -60,6 +64,9 @@ Sendo que Tipo de log assume um dos seguintes valores:
 * pontuação/solicitações  
 * pontuação/init  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

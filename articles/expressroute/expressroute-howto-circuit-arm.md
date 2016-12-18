@@ -1,13 +1,13 @@
 ---
-title: Criar e modificar um circuito da Rota Expressa usando o Gerenciador de Recursos e o PowerShell | Microsoft Docs
+title: Criar e modificar um circuito do ExpressRoute usando o Gerenciador de Recursos e o PowerShell | Microsoft Docs
 description: Este artigo descreve como criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito da Rota Expressa.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: a68481073ea07b4c7775da6682e1753b32f0793c
+
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito da Rota Expressa
 > [!div class="op_single_selector"]
-> [Portal do Azure - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> [PowerShell - Clássico](expressroute-howto-circuit-classic.md)
+> * [Portal do Azure - Gerenciador de Recursos](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell – Resource Manager](expressroute-howto-circuit-arm.md)
+> * [PowerShell - clássico](expressroute-howto-circuit-classic.md)
 > 
 > 
 
@@ -36,7 +40,7 @@ Este artigo descreve como criar um circuito da Rota Expressa do azure usando os 
 * Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Criar e provisionar um circuito da Rota Expressa
-### <a name="1.-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Entre na sua conta do Azure e selecione sua assinatura
+### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Entre na sua conta do Azure e selecione sua assinatura
 Para iniciar sua configuração, entrar na sua conta do Azure. Para obter mais informações sobre o PowerShell, consulte [Usando o Windows PowerShell com o Resource Manager](../powershell-azure-resource-manager.md). Use o exemplo a seguir para ajudar a conectar:
 
     Login-AzureRmAccount
@@ -49,7 +53,7 @@ Selecione a assinatura para a qual você deseja criar um circuito do ExpressRout
 
     Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
-### <a name="2.-get-the-list-of-supported-providers,-locations,-and-bandwidths"></a>2. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Obtenha a lista de provedores, de locais e de larguras de banda com suporte
 Antes de criar um circuito de Rota Expressa você precisará de uma lista de provedores de conectividade com suporte, dos locais e de opções de largura de banda.
 
 O cmdlet do PowerShell `Get-AzureRmExpressRouteServiceProvider` retornará estas informações, que você usará em etapas posteriores:
@@ -64,7 +68,7 @@ Verifique se o provedor de conectividade está listado. Anote as informações a
 
 Agora você está pronto para criar um circuito da Rota Expressa.   
 
-### <a name="3.-create-an-expressroute-circuit"></a>3. Criar um circuito da Rota Expressa
+### <a name="3-create-an-expressroute-circuit"></a>3. Criar um circuito da Rota Expressa
 Se você ainda não tiver um grupo de recursos, deverá criar um antes de criar o circuito da Rota Expressa. Faça isso ao executar o seguinte comando:
 
     New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
@@ -89,7 +93,7 @@ A resposta conterá a chave de serviço. Você pode obter descrições detalhada
     get-help New-AzureRmExpressRouteCircuit -detailed
 
 
-### <a name="4.-list-all-expressroute-circuits"></a>4. Listar todos os circuitos da Rota Expressa
+### <a name="4-list-all-expressroute-circuits"></a>4. Listar todos os circuitos da Rota Expressa
 Para obter uma lista de todos os circuitos da Rota Expressa criados, execute o comando `Get-AzureRmExpressRouteCircuit`:
 
     Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -106,7 +110,7 @@ A resposta será semelhante ao seguinte exemplo:
                                          "Name": "Standard_MeteredData",
                                          "Tier": "Standard",
                                          "Family": "MeteredData"
-                                       }
+                                          }
     CircuitProvisioningState          : Enabled
     ServiceProviderProvisioningState  : NotProvisioned
     ServiceProviderNotes              :
@@ -135,7 +139,7 @@ A resposta será semelhante ao seguinte exemplo:
                                          "Name": "Standard_MeteredData",
                                          "Tier": "Standard",
                                          "Family": "MeteredData"
-                                       }
+                                          }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : NotProvisioned
     ServiceProviderNotes             :
@@ -143,7 +147,7 @@ A resposta será semelhante ao seguinte exemplo:
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                       }
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -152,7 +156,7 @@ Você pode obter descrições detalhadas de todos os parâmetros executando o se
 
     get-help Get-AzureRmExpressRouteCircuit -detailed
 
-### <a name="5.-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
 *ServiceProviderProvisioningState* fornece informações sobre o estado atual de provisionamento no lado do provedor de serviço. Status fornece o estado no lado da Microsoft. Para saber mais sobre estados de provisionamento do circuito, confira o artigo [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
 Quando você criar um novo circuito da Rota Expressa, ele estará no seguinte estado:
@@ -172,7 +176,7 @@ Para que você consiga usar um circuito da Rota Expressa, ele deverá estar no s
     ServiceProviderProvisioningState : Provisioned
     CircuitProvisioningState         : Enabled
 
-### <a name="6.-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o status e o estado da chave do circuito
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Verifique periodicamente o status e o estado da chave do circuito
 A verificação do status e o estado da chave do circuito informará quando o provedor tiver habilitado seu circuito. Após a configuração do circuito, o *ServiceProviderProvisioningState* será exibido como *Provisioned*, como mostrado neste exemplo:
 
     Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -198,11 +202,11 @@ A resposta será semelhante ao seguinte exemplo:
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                    }
+                                       }
     ServiceKey                       : **************************************
     Peerings                         : []
 
-### <a name="7.-create-your-routing-configuration"></a>7. Criar sua configuração de roteamento
+### <a name="7-create-your-routing-configuration"></a>7. Criar sua configuração de roteamento
 Para obter instruções passo a passo, confira o artigo [configuração do roteamento de circuito da Rota Expressa](expressroute-howto-routing-arm.md) para criar e modificar os emparelhamentos de circuito.
 
 > [!IMPORTANT]
@@ -210,7 +214,7 @@ Para obter instruções passo a passo, confira o artigo [configuração do rotea
 > 
 > 
 
-### <a name="8.-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vincular uma rede virtual a um circuito de Rota Expressa
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vincular uma rede virtual a um circuito de Rota Expressa
 Em seguida, vincule uma rede virtual a seu circuito da Rota Expressa. Use o artigo [Vincular redes virtuais a circuitos da Rota Expressa](expressroute-howto-linkvnet-arm.md) ao trabalhar com o modelo de implantação do Gerenciador de Recursos.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtendo o status de um circuito da Rota Expressa
@@ -236,10 +240,10 @@ A resposta será semelhante ao seguinte exemplo:
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
-                                         "BandwidthInMbps": 200
-                                       }
+                                            "ServiceProviderName": "Equinix",
+                                            "PeeringLocation": "Silicon Valley",
+                                            "BandwidthInMbps": 200
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -259,9 +263,9 @@ A resposta será semelhante ao seguinte exemplo:
     ProvisioningState                : Succeeded
     Sku                              : {
                                          "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                       }
+                                            "Tier": "Standard",
+                                            "Family": "MeteredData"
+                                          }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
@@ -269,7 +273,7 @@ A resposta será semelhante ao seguinte exemplo:
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                       }
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -279,7 +283,7 @@ Você pode obter descrições detalhadas de todos os parâmetros executando o se
     get-help get-azurededicatedcircuit -detailed
 
 
-## <a name="<a-name="modify"></a>modifying-an-expressroute-circuit"></a><a name="modify"></a>Modificar um circuito da Rota Expressa
+## <a name="a-namemodifyamodifying-an-expressroute-circuit"></a><a name="modify"></a>Modificar um circuito da Rota Expressa
 Você pode modificar certas propriedades de um circuito da Rota Expressa sem afetar a conectividade.
 
 Você pode fazer o seguinte sem tempo de inatividade:
@@ -377,6 +381,9 @@ Depois de criar seu circuito, faça o seguinte:
 * [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-arm.md)
 * [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

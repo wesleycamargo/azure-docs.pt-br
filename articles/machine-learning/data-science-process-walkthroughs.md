@@ -1,12 +1,12 @@
 ---
-title: Instruções passo a passo do Processo de Ciência de Dados de Equipe | Microsoft Docs
-description: O passo a passo mostra como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
+title: "Instruções passo a passo do Processo de Ciência de Dados de Equipe | Microsoft Docs"
+description: "O passo a passo mostra como combinar ferramentas e serviços de nuvem e locais em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fde069560d53c5b5010bbb59b52d60a6971d8dac
+
 
 ---
 # <a name="team-data-science-process-walkthroughs"></a>Passo a passo do Processo de Ciência de Dados de Equipe
@@ -46,9 +50,12 @@ O artigo [Passo a passo de ponta a ponta de ciência de dados usando os Serviço
 ## <a name="use-t-sql-with-sql-server-r-services"></a>Usar o T-SQL com os serviços de R do SQL Server
 O passo a passo [Análise avançada no banco de dados para desenvolvedores do SQL](https://msdn.microsoft.com/library/mt683480.aspx) proporciona aos programadores de SQL uma experiência de criar uma solução de análise avançada com o Transact-SQL usando os Serviços de R do SQL Server para operacionalizar uma solução de R.
 
-## <a name="what's-next?"></a>O que vem a seguir?
+## <a name="whats-next"></a>O que vem a seguir?
 Para obter uma visão geral dos tópicos que orientam as tarefas que compõem o processo de ciência de dados no Azure, veja [Processo de Ciência de Dados](http://aka.ms/datascienceprocess). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
