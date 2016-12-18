@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure ao RightAnswers | Microsoft Docs'
-description: Saiba como usar o RightAnswers com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!
+title: "Tutorial: integração do Azure Active Directory ao RightAnswers | Microsoft Docs"
+description: "Saiba como usar o RightAnswers com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 7f09e25a-a716-41e1-8ca3-fd00e3d1b8cc
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6c08e0b1349a3eb1bb4876958e36172e87729330
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integração do Active Directory do Azure ao RightAnswers
+# <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integração do Active Directory do Azure ao RightAnswers
 O objetivo deste tutorial é mostrar a integração do Azure com o RightAnswers. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Azure
@@ -35,7 +39,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 ## <a name="enabling-the-application-integration-for-rightanswers"></a>Habilitando a integração de aplicativos com o RightAnswers
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o RightAnswers.
 
-### <a name="to-enable-the-application-integration-for-rightanswers,-perform-the-following-steps:"></a>Para habilitar a integração de aplicativos com o RightAnswers, execute as seguintes etapas:
+### <a name="to-enable-the-application-integration-for-rightanswers-perform-the-following-steps"></a>Para habilitar a integração de aplicativos com o RightAnswers, execute as seguintes etapas:
 1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-rightanswers-tutorial/IC700993.png "Active Directory")
@@ -58,7 +62,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no RightAnswers com sua conta do AD do Azure usando federação baseada em protocolo SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Para configurar o logon único, execute as seguintes etapas:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
 1. No Portal clássico do Azure, na página de integração de aplicativos do **RightAnswers**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
    ![Configurar o logon único](./media/active-directory-saas-rightanswers-tutorial/IC802927.png "Configure Single Sign-On")
@@ -80,7 +84,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
    > 
 6. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
-   ![Configurar o logon único](./media/active-directory-saas-rightanswers-tutorial/IC802931.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-rightanswers-tutorial/IC802931.png "Configure Single Sign-On")
    
    ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
 
@@ -98,17 +102,20 @@ Os usuários são criados automaticamente, se necessário, durante a primeira te
 ## <a name="assigning-users"></a>Atribuindo usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
-### <a name="to-assign-users-to-rightanswers,-perform-the-following-steps:"></a>Para atribuir usuários ao RightAnswers, execute as seguintes etapas:
+### <a name="to-assign-users-to-rightanswers-perform-the-following-steps"></a>Para atribuir usuários ao RightAnswers, execute as seguintes etapas:
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração de aplicativos do **RightAnswers **, clique em **Atribuir usuários**.
    
    ![Atribuir usuários](./media/active-directory-saas-rightanswers-tutorial/IC802932.png "Assign Users")
-3. Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
    
    ![Sim](./media/active-directory-saas-rightanswers-tutorial/IC767830.png "Yes")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

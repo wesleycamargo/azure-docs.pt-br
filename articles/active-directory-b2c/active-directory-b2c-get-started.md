@@ -1,28 +1,32 @@
 ---
-title: 'Azure Active Directory B2C: criar um locatário do Azure Active Directory B2C | Microsoft Docs'
-description: Um tópico sobre como criar um locatário zure Active Directory B2C
+title: "Azure Active Directory B2C: criar um locatário do Azure Active Directory B2C | Microsoft Docs"
+description: "Um tópico sobre como criar um locatário zure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: bryanla
-
+ms.assetid: eec4d418-453f-4755-8b30-5ed997841b56
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 08/30/2016
+ms.date: 12/06/2016
 ms.author: swkrish
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 36268d0153f4f61d6e6132f4e6a878b11cf7f6c2
+
 
 ---
-# Azure Active Directory B2C: criar um locatário do Azure AD B2C
+# <a name="azure-active-directory-b2c-create-an-azure-ad-b2c-tenant"></a>Azure Active Directory B2C: criar um locatário do Azure AD B2C
 Para começar a usar o Azure AD (Microsoft Azure Active Directory) B2C, siga as três etapas descritas neste artigo.
 
-## Etapa 1: inscrever-se para uma assinatura do Azure
+## <a name="step-1-sign-up-for-an-azure-subscription"></a>Etapa 1: inscrever-se para uma assinatura do Azure
 Se você já tiver uma assinatura do Azure, ignore esta etapa. Se não tiver, inscreva-se para obter uma [assinatura do Azure](../active-directory/sign-up-organization.md) e receber acesso ao Azure AD B2C.
 
-## Etapa 2: criar um locatário do Azure AD B2C
+## <a name="step-2-create-an-azure-ad-b2c-tenant"></a>Etapa 2: criar um locatário do Azure AD B2C
 Use as seguintes etapas para criar um novo locatário B2C do AD do Azure. Atualmente, os recursos de B2C não podem ser ativados em seus locatários existentes.
 
 1. Entre no [portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura. Essa é a mesma conta corporativa, de estudante ou da Microsoft que você usou para se inscrever no Azure.
@@ -41,10 +45,10 @@ Use as seguintes etapas para criar um novo locatário B2C do AD do Azure. Atualm
    > 
    > 
 
-## Etapa 3: navegar até a folha de Recursos do B2C no Portal do Azure
+## <a name="step-3-navigate-to-the-b2c-features-blade-on-the-azure-portal"></a>Etapa 3: navegar até a folha de Recursos do B2C no Portal do Azure
 1. Navegue até a extensão do Active Directory na barra de navegação do lado esquerdo.
 2. Localize o locatário na guia **Diretório** e clique nele.
-3. Clique na guia **Configurar**.
+3. Clique na guia **Configurar** .
 4. Clique no link **Gerenciar configurações de B2C** na seção **Administração de B2C**.
    
     ![Captura de tela da configuração do diretório do B2C](./media/active-directory-b2c-get-started/b2c-directory-configure-tab.png)
@@ -63,7 +67,7 @@ Use as seguintes etapas para criar um novo locatário B2C do AD do Azure. Atualm
    > 
    > 
 
-## Acesso fácil à folha de recursos do B2C no portal do Azure
+## <a name="easy-access-to-the-b2c-features-blade-on-the-azure-portal"></a>Acesso fácil à folha de recursos do B2C no portal do Azure
 Para melhorar a capacidade de descoberta, adicionamos um atalho para a folha de recursos do B2C no portal do Azure.
 
 1. Entre no portal do Azure como Administrador Global de seu locatário do B2C. Se você já entrou em um locatário diferente, alterne os locatários (no canto superior direito).
@@ -72,7 +76,12 @@ Para melhorar a capacidade de descoberta, adicionamos um atalho para a folha de 
    
     ![Captura de tela de Navegar para a folha de recursos do B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Saiba como registrar um aplicativo com o Azure AD B2C e compilar um aplicativo de Início Rápido lendo [Azure Active Directory B2C: registrar seu aplicativo](active-directory-b2c-app-registration.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

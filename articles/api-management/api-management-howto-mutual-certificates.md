@@ -1,35 +1,39 @@
 ---
-title: Como garantir serviços de back-end usando autenticação de certificado do cliente no Gerenciamento de API do Azure
-description: Saiba como garantir serviços de back-end usando autenticação de certificado do cliente no Gerenciamento de API do Azure.
+title: "Como garantir serviços de back-end usando autenticação de certificado do cliente no Gerenciamento de API do Azure"
+description: "Saiba como garantir serviços de back-end usando autenticação de certificado do cliente no Gerenciamento de API do Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 43453331-39b2-4672-80b8-0a87e4fde3c6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ad14ed8b36d6d0a2121c32fd9a54de97e8b02342
+
 
 ---
-# Como garantir serviços de back-end usando autenticação de certificado do cliente no Gerenciamento de API do Azure
+# <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como garantir serviços de back-end usando autenticação de certificado do cliente no Gerenciamento de API do Azure
 O Gerenciamento de API fornece a capacidade para garantir acesso ao serviço back-end de uma API usando certificados do cliente. Este guia mostra como gerenciar certificados no Portal do editor de API e como configurar uma API para usar um certificado para acessar seu serviço back-end.
 
-Para obter mais informações sobre gerenciamento de certificados usando a API REST de gerenciamento de API, consulte [Entidade de certificado da API REST de Gerenciamento de API do Azure][Entidade de certificado da API REST de Gerenciamento de API do Azure].
+Para obter informações sobre gerenciamento de certificados usando API REST de Gerenciamento de API, consulte [Entidade de Certificado da API REST de Gerenciamento de API do Azure][Entidade de certificado da API REST de Gerenciamento de API do Azure].
 
 ## <a name="prerequisites"> </a>Pré-requisitos
 Este guia mostra como configurar sua instância de serviço de Gerenciamento de API para usar a autenticação de certificado do cliente para acessar o serviço back-end para uma API. Antes de seguir as etapas descritas neste tópico, é necessário configurar seu serviço back-end para a autenticação de certificado do cliente ([para configurar a autenticação de certificado nos Sites do Azure, consulte este artigo][para configurar a autenticação de certificado nos Sites do Azure, consulte este artigo]) e ter acesso ao certificado e à senha do certificado para carregar no portal do publicador do Gerenciamento de API.
 
 ## <a name="step1"> </a>Carregar um certificado do cliente
-Para começar, clique em **Gerenciar** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
+Para começar, clique em **Portal do Editor** no Portal do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
 
 ![Portal do editor de API][api-management-management-console]
 
-> Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][Criar uma instância de serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+> Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
 > 
 > 
 
@@ -43,7 +47,7 @@ Para carregar um novo certificado, clique em **Carregar um certificado**.
 
 Navegue para o seu certificado e digite a senha para o certificado.
 
-> O certificado deve estar no formato **.pfx**. Os certificados autoassinados são permitidos.
+> O certificado deve estar no formato **.pfx** . Os certificados autoassinados são permitidos.
 > 
 > 
 
@@ -57,7 +61,11 @@ Clique em **Carregar** para carregar o certificado.
 
 ![Certificado carregado][api-management-certificate-uploaded]
 
-Uma vez que o certificado é carregado, ele aparece na guia **Certificados do cliente**. Se você tiver vários certificados, anote a entidade, ou os últimos quatro caracteres da impressão digital, que são usados para selecionar o certificado ao configurar uma API para usar certificados, como abordado na seção [Configurar uma API para usar um certificado do cliente para a autenticação de gateway][Configurar uma API para usar um certificado do cliente para a autenticação de gateway] a seguir.
+Uma vez que o certificado é carregado, ele aparece na guia **Certificados do cliente** . Se você tiver vários certificados, anote a entidade, ou os últimos quatro caracteres da impressão digital, que são usados para selecionar o certificado ao configurar uma API para usar certificados, como abordado na seção [Configurar uma API para usar um certificado do cliente para a autenticação de gateway][Configurar uma API para usar um certificado do cliente para a autenticação de gateway] a seguir.
+
+> Para desabilitar a validação da cadeia de certificados ao usar, por exemplo, um certificado autoassinado, siga as etapas descritas neste [item](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end) das Perguntas frequentes.
+> 
+> 
 
 ## <a name="step1a"> </a>Excluir um certificado do cliente
 Para excluir um certificado, clique em **Excluir** ao lado do certificado desejado.
@@ -81,7 +89,7 @@ Selecione **Certificados do cliente** na lista suspensa **Com credenciais**.
 
 ![Certificados do cliente][api-management-mutual-certificates]
 
-Selecione o certificado desejado da lista suspensa **Certificado do cliente**. Se houver certificados múltiplos, você pode olhar no assunto ou nos últimos quatro caracteres da impressão digital como observado na seção anterior para determinar o certificado correto.
+Selecione o certificado desejado da lista suspensa **Certificado do cliente** . Se houver certificados múltiplos, você pode olhar no assunto ou nos últimos quatro caracteres da impressão digital como observado na seção anterior para determinar o certificado correto.
 
 ![Selecionar certificado][api-management-select-certificate]
 
@@ -99,7 +107,7 @@ Clique em **Salvar** para salvar as alterações de configuração para a API.
 
 ![Política do certificado][api-management-certificate-policy]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre outras maneiras de proteger seu serviço de back-end, como HTTP básica ou autenticação secreta compartilhada, consulte o vídeo a seguir.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Last-mile-Security/player]
@@ -122,28 +130,32 @@ Para obter mais informações sobre outras maneiras de proteger seu serviço de 
 
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: ../api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
+[Como adicionar operações a uma API]: api-management-howto-add-operations.md
+[Como adicionar e publicar um produto]: api-management-howto-add-products.md
+[Monitoramento e análise]: ../api-management-monitoring.md
+[Adicionar APIs a um produto]: api-management-howto-add-products.md#add-apis
+[Publicar um produto]: api-management-howto-add-products.md#publish-product
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
-[Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
+[referência de política de Gerenciamento de API]: api-management-policy-reference.md
+[Políticas de cache]: api-management-policy-reference.md#caching-policies
+[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 
 [Entidade de certificado da API REST de Gerenciamento de API do Azure]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[para configurar a autenticação de certificado nos Sites do Azure, consulte este artigo]: https://azure.microsoft.com/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[para configurar a autenticação de certificado nos Sites do Azure, consulte este artigo]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
-[Prerequisites]: #prerequisites
-[Upload a client certificate]: #step1
-[Delete a client certificate]: #step1a
+[Pré-requisitos]: #prerequisites
+[Carregar um certificado do cliente]: #step1
+[Excluir um certificado do cliente]: #step1a
 [Configurar uma API para usar um certificado do cliente para a autenticação de gateway]: #step2
-[Test the configuration by calling an operation in the Developer Portal]: #step3
-[Next steps]: #next-steps
+[Testar a configuração chamando uma operação no Portal do Desenvolvedor]: #step3
+[Próximas etapas]: #next-steps
 
 
 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,75 +1,147 @@
 ---
-title: Gatilhos e associações do Barramento de Serviço do Azure Functions | Microsoft Docs
-description: Entenda como usar gatilhos e associações do Barramento de Serviço do Azure no Azure Functions.
+title: "Gatilhos e associações do Barramento de Serviço do Azure Functions | Microsoft Docs"
+description: "Entenda como usar gatilhos e associações do Barramento de Serviço do Azure no Azure Functions."
 services: functions
 documentationcenter: na
 author: christopheranderson
 manager: erikre
-editor: ''
-tags: ''
-keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
-
+editor: 
+tags: 
+keywords: "azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor"
+ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/22/2016
+ms.date: 10/31/2016
 ms.author: chrande; glenga
+translationtype: Human Translation
+ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
+ms.openlocfilehash: f5ea64ffc044faceec08e9a2b756a414e446a1b1
+
 
 ---
-# Gatilhos e associações do Barramento de Serviço do Azure Functions para filas e tópicos
+# <a name="azure-functions-service-bus-bindings"></a>Associações do Barramento de Serviço do Azure Functions
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Este artigo explica como configurar e codificar gatilhos e associações do Barramento de Serviço do Azure no Azure Functions.
+Este artigo explica como configurar e codificar associações do Barramento de Serviço do Azure no Azure Functions. O Azure Functions dá suporte a gatilhos e a associações de saída para filas e tópicos dos Hubs de Notificação.
 
-[!INCLUDE [introdução](../../includes/functions-bindings-intro.md)]
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a id="sbtrigger"></a> Gatilho de fila ou de tópico do Barramento de Serviço
-#### function.json
-O arquivo *function.json* especifica as propriedades a seguir.
+<a name="trigger"></a>
 
-* `name`: o nome da variável usada no código de função para a fila ou tópico, ou a mensagens de tópico ou fila.
-* `queueName`: para gatilho de fila somente, o nome da fila a ser sondada.
-* `topicName`: para gatilho de tópico somente, o nome do tópico a ser sondado.
-* `subscriptionName`: para gatilho de tópico somente, o nome da assinatura.
-* `connection`: o nome de uma configuração de aplicativo que contém uma cadeia de conexão do Barramento de Serviço. A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico. Se a cadeia de conexão não gerenciar direitos, defina a propriedade `accessRights`. Se você deixar `connection` vazio, o gatilho ou a associação funcionará com a cadeia de conexão do Barramento de Serviço padrão para o aplicativo de funções, que é especificado pela configuração do aplicativo AzureWebJobsServiceBus.
-* `accessRights`: especifica os direitos de acesso disponíveis para a cadeia de conexão. O valor padrão é `manage`. Defina como `listen` se você estiver usando uma cadeia de conexão que não fornece permissões de gerenciamento. Caso contrário, o tempo de execução do Functions pode tentar e falha ao executar operações que exigem gerenciamento de direitos.
-* `type`: deve ser definido como *serviceBusTrigger*.
-* `direction`: deve ser definido como *in*.
+## <a name="service-bus-trigger"></a>Gatilho do Barramento de Serviço
+Use o gatilho do Barramento de Serviço para responder às mensagens de uma fila ou tópico do Barramento de Serviço. 
 
-Exemplo do *function.json* para um gatilho de fila do Barramento de Serviço:
+Os gatilhos de fila e de tópico dos Hubs de Notificação para uma função usam os seguintes objetos JSON na matriz `bindings` de function.json:
+
+* Gatilho de *fila*:
+
+    ```json
+    {
+        "name" : "<Name of input parameter in function signature>",
+        "queueName" : "<Name of the queue>",
+        "connection" : "<Name of app setting that has your queue's connection string - see below>",
+        "accessRights" : "<Access rights for the connection string - see below>"
+        "type" : "serviceBusTrigger",
+        "direction" : "in"
+    }
+    ```
+
+* Gatilho de *tópico*:
+
+    ```json
+    {
+        "name" : "<Name of input parameter in function signature>",
+        "topicName" : "<Name of the topic>",
+        "subscriptionName" : "<Name of the subscription>",
+        "connection" : "<Name of app setting that has your topic's connection string - see below>",
+        "accessRights" : "<Access rights for the connection string - see below>"
+        "type" : "serviceBusTrigger",
+        "direction" : "in"
+    }
+    ```
+
+Observe o seguinte:
+
+* Para `connection`, [crie uma configuração de aplicativo em seu aplicativo de função]() que contenha a cadeia de conexão até o namespace de seu Hub de Serviço, depois especifique o nome da configuração de aplicativo na propriedade `connection` em seu gatilho. Obtenha a cadeia de conexão, seguindo as etapas mostradas em [Obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+  A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico.
+  Se você deixar `connection` vazio, o gatilho assumirá que uma cadeia de conexão do Barramento de Serviço padrão foi especificada em uma configuração de aplicativo chamada `AzureWebJobsServiceBus`.
+* Para `accessRights`, os valores disponíveis são `manage` e `listen`. O padrão é `manage`, que indica que o `connection` tem a permissão **Gerenciar**. Se você usar uma cadeia de conexão que não tenha a permissão **Gerenciar**, defina `accessRights` como `listen`. Caso contrário, o tempo de execução do Functions talvez tente e falhe na execução de operações que exigem o gerenciamento de direitos.
+
+## <a name="trigger-behavior"></a>Comportamento do gatilho
+* **Threading simples** - por padrão, o tempo de execução do Functions processa várias mensagens simultaneamente. Para direcionar o tempo de execução para processar uma única fila ou mensagem de tópico de cada vez, defina `serviceBus.maxConcurrrentCalls` como 1 em *host.json* . 
+  Para saber mais sobre *host.json*, consulte [Estrutura de Pastas](functions-reference.md#folder-structure) e [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+* **Manipulação de mensagens suspeitas** - o Barramento de Serviço faz seu próprio tratamento de mensagens suspeitas que não pode ser controlado ou definido na configuração ou código do Azure Functions. 
+* **Comportamento PeekLock** - o tempo de execução do Functions recebe uma mensagem no modo [`PeekLock` ](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode) e chama `Complete` na mensagem se a função for concluída com êxito, ou chama `Abandon` se a função falhar. 
+  Se a função for executada por mais tempo que o limite `PeekLock` , o bloqueio é renovado automaticamente.
+
+<a name="triggerusage"></a>
+
+## <a name="trigger-usage"></a>Uso de gatilho
+Esta seção mostra como usar o gatilho do Hub de Serviço no código de sua função. 
+
+Em C# e F#, a mensagem do gatilho do Barramento de Serviço pode ser desserializada para qualquer um destes tipos de entrada:
+
+* `string` - útil para mensagens de cadeia de caracteres
+* `byte[]` - útil para dados binários
+* Qualquer [Objeto](https://msdn.microsoft.com/library/system.object.aspx) - útil para dados JSON serializados.
+  Se você declarar um tipo de entrada personalizado (por exemplo, `FooType`), o Azure Functions tenta desserializar os dados JSON para o tipo especificado.
+* `BrokeredMessage` -fornece a você a mensagem desserializada com o método [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx).
+
+No Node.js, a mensagem de gatilho do Barramento de Serviço é passada em uma função como uma cadeia de caracteres ou, no caso da mensagem JSON, um objeto JavaScript.
+
+<a name="triggersample"></a>
+
+## <a name="trigger-sample"></a>Exemplo de gatilho
+Vamos supor que você tenha o seguinte function.json:
 
 ```json
 {
-  "bindings": [
+"bindings": [
     {
-      "queueName": "testqueue",
-      "connection": "MyServiceBusConnection",
-      "name": "myQueueItem",
-      "type": "serviceBusTrigger",
-      "direction": "in"
+    "queueName": "testqueue",
+    "connection": "MyServiceBusConnection",
+    "name": "myQueueItem",
+    "type": "serviceBusTrigger",
+    "direction": "in"
     }
-  ],
-  "disabled": false
+],
+"disabled": false
 }
 ```
 
-#### Exemplo de código C# que processa uma mensagem de fila do Barramento de Serviço
-```csharp
+Veja o exemplo específico à linguagem que processa uma mensagem de fila do Barramento de Serviço.
+
+* [C#](#triggercsharp)
+* [F#](#triggerfsharp)
+* [Node.js](#triggernodejs)
+
+<a name="triggercsharp"></a>
+
+### <a name="trigger-sample-in-c"></a>Exemplo de gatilho em C# #
+
+```cs
 public static void Run(string myQueueItem, TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 }
 ```
 
-#### Exemplo de código F# que processa uma mensagem de fila do Barramento de Serviço
+<a name="triggerfsharp"></a>
+
+### <a name="trigger-sample-in-f"></a>Exemplo de gatilho em F# #
+
 ```fsharp
 let Run(myQueueItem: string, log: TraceWriter) =
     log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
-#### Exemplo de código Node.js que processa uma mensagem de fila do Barramento de Serviço
+<a name="triggernodejs"></a>
+
+### <a name="trigger-sample-in-nodejs"></a>Exemplo de gatilho em Node.js
+
 ```javascript
 module.exports = function(context, myQueueItem) {
     context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
@@ -77,72 +149,97 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-#### Tipos com suporte
-A mensagem da fila do Barramento de Serviço pode ser desserializada para qualquer um destes tipos:
+<a name="output"></a>
 
-* Objeto (de JSON)
-* string
-* matriz de bytes
-* `BrokeredMessage` (C#)
+## <a name="service-bus-output-binding"></a>Associação de saída do Barramento de Serviço
+A saída da fila e do tópico dos Hubs de Notificação para uma função usa os seguintes objetos JSON na matriz `bindings` de function.json:
 
-#### <a id="sbpeeklock"></a> Comportamento de PeekLock
-O tempo de execução do Functions receberá uma mensagem no modo `PeekLock` e chamadas `Complete` na mensagem se a função for concluída com êxito, ou chamadas `Abandon` se a função falhar. Se a função for executada por mais tempo que o limite `PeekLock`, o bloqueio é renovado automaticamente.
+* Saída da *fila*:
 
-#### <a id="sbpoison"></a> Manipulação de mensagens suspeitas
-O Barramento de Serviço faz seu próprio tratamento de mensagens suspeitas que não pode ser controlado ou definido na configuração ou código do Azure Functions.
-
-#### <a id="sbsinglethread"></a> Threading único
-Por padrão, o tempo de execução do Functions processa várias mensagens da fila simultaneamente. Para direcionar o tempo de execução para processar uma única fila ou mensagem de tópico de cada vez, defina `serviceBus.maxConcurrrentCalls` como 1 no arquivo *host.json*. Para obter informações sobre o arquivo *host.json*, consulte [Estrutura da Pastas](functions-reference.md#folder-structure) no artigo de referência do Desenvolvedor e [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) no wiki do repositório WebJobs.Script.
-
-## <a id="sboutput"></a> Associação de saída de fila ou de tópico do Barramento de Serviço do Azure
-#### function.json
-O arquivo *function.json* especifica as propriedades a seguir.
-
-* `name`: o nome da variável usada no código de função para a fila ou mensagem da fila.
-* `queueName`: para gatilho de fila somente, o nome da fila a ser sondada.
-* `topicName`: para gatilho de tópico somente, o nome do tópico a ser sondado.
-* `subscriptionName`: para gatilho de tópico somente, o nome da assinatura.
-* `connection`: mesmo para o gatilho do Barramento de Serviço.
-* `accessRights`: especifica os direitos de acesso disponíveis para a cadeia de conexão. O valor padrão é `manage`. Defina como `send` se você estiver usando uma cadeia de conexão que não fornece permissões de gerenciamento. Caso contrário, o tempo de execução do Functions pode tentar e falha ao executar operações que exigem gerenciamento de direitos, tais como da criação de filas.
-* `type`: deve ser definido como *serviceBus*.
-* `direction`: deve ser definido como *out*.
-
-*function.json* de exemplo para usar um gatilho de temporizador para gravar mensagens de fila do Barramento de Serviço:
-
-```JSON
-{
-  "bindings": [
+    ```json
     {
-      "schedule": "0/15 * * * * *",
-      "name": "myTimer",
-      "runsOnStartup": true,
-      "type": "timerTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "outputSbQueue",
-      "type": "serviceBus",
-      "queueName": "testqueue",
-      "connection": "MyServiceBusConnection",
-      "direction": "out"
+        "name" : "<Name of output parameter in function signature>",
+        "queueName" : "<Name of the queue>",
+        "connection" : "<Name of app setting that has your queue's connection string - see below>",
+        "accessRights" : "<Access rights for the connection string - see below>"
+        "type" : "serviceBus",
+        "direction" : "out"
     }
-  ],
-  "disabled": false
+    ```
+* Saída do *tópico*:
+
+    ```json
+    {
+        "name" : "<Name of output parameter in function signature>",
+        "topicName" : "<Name of the topic>",
+        "subscriptionName" : "<Name of the subscription>",
+        "connection" : "<Name of app setting that has your topic's connection string - see below>",
+        "accessRights" : "<Access rights for the connection string - see below>"
+        "type" : "serviceBus",
+        "direction" : "out"
+    }
+    ```
+
+Observe o seguinte:
+
+* Para `connection`, [crie uma configuração de aplicativo em seu aplicativo de função]() que contenha a cadeia de conexão até o namespace de seu Hub de Serviço, depois especifique o nome da configuração de aplicativo na propriedade `connection` em sua associação de saída. Obtenha a cadeia de conexão, seguindo as etapas mostradas em [Obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials).
+  A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico.
+  Se você deixar `connection` vazio, a associação da saída assumirá que uma cadeia de conexão do Barramento de Serviço padrão foi especificada em uma configuração de aplicativo chamada `AzureWebJobsServiceBus`.
+* Para `accessRights`, os valores disponíveis são `manage` e `listen`. O padrão é `manage`, que indica que o `connection` tem a permissão **Gerenciar**. Se você usar uma cadeia de conexão que não tenha a permissão **Gerenciar**, defina `accessRights` como `listen`. Caso contrário, o tempo de execução do Functions talvez tente e falhe na execução de operações que exigem o gerenciamento de direitos.
+
+<a name="outputusage"></a>
+
+## <a name="output-usage"></a>Uso de saída
+Em C# e F#, o Azure Functions pode criar uma mensagem de fila do Barramento de Serviço a partir de qualquer um dos tipos a seguir:
+
+* Qualquer [Objeto](https://msdn.microsoft.com/library/system.object.aspx) - A definição do parâmetro se parece com `out T paramName` (C#).
+  O Functions desserializa o objeto em uma mensagem JSON. Se o valor de saída for nulo quando a função existir, o Functions cria a mensagem com um objeto nulo.
+* `string` - A definição de parâmetro se parece com `out string paraName` (C#). Se o valor de parâmetro não for nulo quando a função existir, o Functions criará uma mensagem.
+* `byte[]` - A definição de parâmetro se parece com `out byte[] paraName` (C#). Se o valor de parâmetro não for nulo quando a função existir, o Functions criará uma mensagem.
+* `BrokeredMessage` A definição de parâmetro se parece com `out byte[] paraName` (C#). Se o valor de parâmetro não for nulo quando a função existir, o Functions criará uma mensagem.
+
+Para criar várias mensagens em uma função C#, você pode usar `ICollector<T>` ou `IAsyncCollector<T>`. Uma mensagem é criada quando você chama o método `Add` .
+
+No Node.js, você pode atribuir uma cadeia de caracteres, uma matriz de bytes ou um objeto Javascript (desserializado em JSON) para `context.binding.<paramName>`.
+
+<a name="outputsample"></a>
+
+## <a name="output-sample"></a>Amostra de saída
+Vamos supor que você tenha o seguinte function.json, que define uma saída de fila do Barramento de Serviço:
+
+```json
+{
+    "bindings": [
+        {
+            "schedule": "0/15 * * * * *",
+            "name": "myTimer",
+            "runsOnStartup": true,
+            "type": "timerTrigger",
+            "direction": "in"
+        },
+        {
+            "name": "outputSbQueue",
+            "type": "serviceBus",
+            "queueName": "testqueue",
+            "connection": "MyServiceBusConnection",
+            "direction": "out"
+        }
+    ],
+    "disabled": false
 }
-``` 
+```
 
-#### Tipos com suporte
-O Azure Functions pode criar uma mensagem de fila do Barramento de Serviço de qualquer um dos tipos a seguir.
+Veja o exemplo específico à linguagem que envia uma mensagem à fila do barramento de serviço.
 
-* Objeto (sempre cria uma mensagem JSON, criará a mensagem com um objeto nulo se o valor for nulo quando a função terminar)
-* cadeia de caracteres (criará uma mensagem se o valor não for nulo quando a função terminar)
-* matriz de bytes (funciona como uma cadeia de caracteres)
-* `BrokeredMessage` (C#, funciona como uma cadeia de caracteres)
+* [C#](#outcsharp)
+* [F#](#outfsharp)
+* [Node.js](#outnodejs)
 
-Para criar várias mensagens em uma função C#, você pode usar `ICollector<T>` ou `IAsyncCollector<T>`. Uma mensagem é criada quando você chama o método `Add`.
+<a name="outcsharp"></a>
 
-#### Exemplos de código C# que cria mensagens de fila do Barramento de Serviço
-```csharp
+### <a name="output-sample-in-c"></a>Amostra de saída no C# #
+
+```cs
 public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
 {
     string message = $"Service Bus queue message created at: {DateTime.Now}";
@@ -151,7 +248,9 @@ public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQu
 }
 ```
 
-```csharp
+Ou, para criar várias mensagens:
+
+```cs
 public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
 {
     string message = $"Service Bus queue message created at: {DateTime.Now}";
@@ -161,7 +260,10 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
 }
 ```
 
-#### Exemplo de código F# que cria uma mensagem de fila do Barramento de Serviço
+<a name="outfsharp"></a>
+
+### <a name="output-sample-in-f"></a>Amostra de saída no F# #
+
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
     let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
@@ -169,15 +271,12 @@ let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
     outputSbQueue = message
 ```
 
-#### Exemplo de código Node.js que cria uma mensagem de fila do Barramento de Serviço
+<a name="outnodejs"></a>
+
+### <a name="output-sample-in-nodejs"></a>Amostra de saída no Node.js
+
 ```javascript
 module.exports = function (context, myTimer) {
-    var timeStamp = new Date().toISOString();
-
-    if(myTimer.isPastDue)
-    {
-        context.log('Node.js is running late!');
-    }
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
     context.bindings.outputSbQueueMsg = message;
@@ -185,7 +284,25 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-## Próximas etapas
-[!INCLUDE [próximas etapas](../../includes/functions-bindings-next-steps.md)]
+Ou, para criar várias mensagens:
 
-<!---HONumber=AcomDC_0921_2016-->
+```javascript
+module.exports = function (context, myTimer) {
+    var message = 'Service Bus queue message created at ' + timeStamp;
+    context.log(message);   
+    context.bindings.outputSbQueueMsg = [];
+    context.bindings.outputSbQueueMsg.push("1 " + message);
+    context.bindings.outputSbQueueMsg.push("2 " + message);
+    context.done();
+};
+```
+
+## <a name="next-steps"></a>Próximas etapas
+[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

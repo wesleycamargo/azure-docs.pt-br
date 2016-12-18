@@ -1,13 +1,13 @@
 ---
-title: Dimensionando serviço Web | Microsoft Docs
-description: Saiba como dimensionar um serviço Web, aumentando a simultaneidade e adicionando novos pontos de extremidade.
+title: "Dimensionamento de serviço Web | Microsoft Docs"
+description: "Saiba como dimensionar um serviço Web, aumentando a simultaneidade e adicionando novos pontos de extremidade."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: neerajkh
 manager: srikants
 editor: cgronlun
-keywords: aprendizado de máquina do azure, serviços Web, operacionalização, dimensionamento, ponto de extremidade, simultaneidade
-
+keywords: "aprendizado de máquina do azure, serviços Web, operacionalização, dimensionamento, ponto de extremidade, simultaneidade"
+ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
 ms.service: machine-learning
 ms.devlang: NA
 ms.workload: data-services
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: neerajkh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 559db01d2c9f44af17b86f99031a8827dfeb5ab3
+
 
 ---
 # <a name="scaling-a-web-service"></a>Dimensionando um serviço Web
@@ -42,6 +46,6 @@ As APIs síncronas são normalmente usadas em situações onde uma baixa latênc
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

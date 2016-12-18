@@ -1,12 +1,12 @@
 ---
-title: Autenticação de serviço para serviço do Azure AD usando OAuth 2.0 | Microsoft Docs
-description: Este artigo descreve como usar mensagens HTTP para implementar a autenticação de serviço para serviço usando o fluxo de concessão de credenciais de cliente OAuth 2.0.
+title: "Serviço do Azure AD para Autenticação de Serviço usando OAuth 2.0 | Microsoft Docs"
+description: "Este artigo descreve como usar mensagens HTTP para implementar a autenticação de serviço para serviço usando o fluxo de concessão de credenciais de cliente OAuth 2.0."
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: 9d9ddbddb1039f56c420cb8f10dfa9bb82788b72
+
 
 ---
 # <a name="service-to-service-calls-using-client-credentials"></a>Chamadas de serviço para serviço que usam credenciais do cliente
@@ -30,7 +34,7 @@ O diagrama a seguir explica o funcionamento do fluxo de concessão de credenciai
 4. Os dados do recurso protegido são retornados ao aplicativo Web.
 
 ## <a name="register-the-services-in-azure-ad"></a>Registrar os serviços no Azure AD
-Registre o serviço de chamada e o serviço de recebimento no Azure AD (Azure Active Directory). Para obter instruções detalhadas, confira [Adicionar, atualizar e remover um aplicativo](active-directory-integrating-applications.md#BKMK_Native)
+Registre o serviço de chamada e o serviço de recebimento no Azure AD (Azure Active Directory). Para obter instruções detalhadas, consulte [Integrando aplicativos com o Azure Active Directory](active-directory-integrating-applications.md).
 
 ## <a name="request-an-access-token"></a>Solicitar um token de acesso
 Para solicitar um token de acesso, use um HTTP POST para o ponto de extremidade do Azure AD específico do locatário.
@@ -87,6 +91,8 @@ O exemplo a seguir mostra uma resposta bem-sucedida a uma solicitação de um to
 ## <a name="see-also"></a>Consulte também
 * [OAuth 2.0 no Azure AD](active-directory-protocols-oauth-code.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

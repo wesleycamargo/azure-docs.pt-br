@@ -1,12 +1,12 @@
 ---
-title: Readaptar um serviço Web Clássico | Microsoft Docs
-description: Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Machine Learning do Azure.
+title: "Readaptar um serviço Web Clássico | Microsoft Docs"
+description: "Aprenda como readaptar um modelo de forma programática e atualizar o serviço Web para usar o modelo treinado recentemente no Aprendizado de Máquina do Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondlaghaeian
-editor: ''
-
+editor: 
+ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 139980b62aee440ac5f4160e83c7a5eafb32eec2
+
 
 ---
-# <a name="retrain-a-classic-web-service"></a>Readaptar um serviço Web Clássico
+# <a name="retrain-a-classic-web-service"></a>Treinar novamente um serviço Web Clássico
 O Serviço Web Preditivo implantado é o ponto de extremidade de pontuação padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e os experimentos de pontuação; portanto, o modelo treinado para o ponto de extremidade padrão não pode ser substituído. Para adaptar novamente o serviço Web, você deve adicionar um novo ponto de extremidade ao serviço Web. 
 
-> [!NOTE]
-> As etapas neste passo a passo presumem que você tenha criado o serviço Web usando as etapas descritas em [Readaptar os modelos de Aprendizado de Máquina de forma programática](machine-learning-retrain-models-programmatically.md).
+## <a name="prerequisites"></a>Pré-requisitos
+Você deve ter configurado um Teste de Treinamento e um Experimento de Previsão, como mostrado em [Readaptar os modelos do Machine Learning de forma programática](machine-learning-retrain-models-programmatically.md). 
+
+> [!IMPORTANT]
+> O experimento de previsão deve ser implantado como um serviço Web do Machine Learning clássico. 
 > 
 > 
+
+Para obter mais informações sobre como implantar os serviços Web, veja [Implantar um serviço Web do Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Adicionar um novo ponto de extremidade
 O serviço Web de previsão implantado contém um padrão de pontuação de ponto de extremidade que é mantido sincronizado com o treinamento original e com o modelo de treinamento de experimentos de pontuação. Para atualizar seu serviço Web com um novo modelo de treinamento, você deve criar um novo ponto de extremidade de pontuação. 
@@ -56,7 +65,7 @@ Você pode adicionar pontos de extremidade de pontuação usando o código de ex
 4. Em Nome, clique em **Modelo de Censo [exp. preditivo]**.
 5. Na parte inferior da página, clique em **Adicionar Ponto de Extremidade**. Para saber mais sobre a adição de pontos de extremidade, veja [Criação de pontos de extremidade](machine-learning-create-endpoint.md). 
 
-## <a name="update-the-added-endpoint’s-trained-model"></a>Atualizar modelo treinado do ponto de extremidade adicionado
+## <a name="update-the-added-endpoints-trained-model"></a>Atualizar modelo treinado do ponto de extremidade adicionado
 Para concluir o processo de novos treinamentos, você deve atualizar o modelo treinado do novo ponto de extremidade que você adicionou.
 
 * Se tiver adicionado um novo ponto de extremidade usando o portal do Azure, você poderá clicar no nome do novo do ponto de extremidade no portal do Azure e, em seguida, no link **UpdateResource** para obter a URL de que precisa para atualizar o modelo do ponto de extremidade.
@@ -68,7 +77,7 @@ Para recuperar a URL do caminho:
 2. Clique no link Atualizar Recurso.
 3. Copie a URL POST da solicitação PATCH. Por exemplo:
    
-       PATCH URL: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
+     URL DO PATCH: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
 Agora você pode usar o modelo treinado para atualizar o ponto de extremidade de pontuação criado anteriormente.
 
@@ -134,10 +143,12 @@ Usando as APIs de Readaptação, você pode atualizar o modelo treinado de um Se
 * Readaptação de modelo periódico com novos dados.
 * A distribuição de um modelo para os clientes com o objetivo de permitir que eles recuperem o modelo usando seus próprios dados.
 
-Próximas etapas
-
+## <a name="next-steps"></a>Próximas etapas
 [Solução de problemas de readaptação de um serviço Web clássico de Aprendizado de Máquina do Azure](machine-learning-troubleshooting-retraining-models.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
