@@ -1,19 +1,23 @@
 ---
-title: Gerencias senhas no Active Directory do Azure | Microsoft Docs
+title: Gerencias senhas no Azure Active Directory | Microsoft Docs
 description: Como gerenciar senhas no Active Directory do Azure.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a7679724-0ed5-4973-92e2-bd1285a6ef93
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: 0006818063724e50e2febb02e5ebaa0e2f688ea1
+
 
 ---
 # <a name="manage-passwords-in-azure-active-directory"></a>Gerenciar senhas no Active Directory do Azure
@@ -29,8 +33,8 @@ O restante deste tópico aborda o conjunto completo de recursos de gerenciamento
 
 > [!NOTE]
 > O AD Premium do Azure está disponível para clientes chineses usando a instância do AD do Azure que abrange todo o mundo. O Azure AD Premium não tem suporte atualmente no serviço Microsoft Azure operado pela 21Vianet na China. Para obter mais informações, entre em contato conosco no [Fórum do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 Use os links a seguir para ir para a documentação na qual você está mais interessado:
 
@@ -43,11 +47,13 @@ Use os links a seguir para ir para a documentação na qual você está mais int
 * [Solucionando problemas de gerenciamento de senha do AD do Azure](active-directory-passwords-troubleshoot.md)
 * [Perguntas frequentes sobre o gerenciamento de senha do AD do Azure](active-directory-passwords-faq.md)
 
-## <a name="what's-next"></a>O que vem a seguir
+## <a name="whats-next"></a>O que vem a seguir
 * [Administrando o AD do Azure](active-directory-administer.md)
 * [Criar ou editar usuários no AD do Azure](active-directory-create-users.md)
 * [Gerenciar grupos no AD do Azure](active-directory-manage-groups.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

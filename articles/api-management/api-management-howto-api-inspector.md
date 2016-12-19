@@ -2,40 +2,44 @@
 title: Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure
 description: Saiba como rastrear chamadas usando o Inspetor de API no Gerenciamento de API do Azure.
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4b222327-c8a4-4f33-9a06-adff2a9834d9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dd806a187d1ac2c34020325753ac4f68b44064de
+
 
 ---
-# Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure
-O Gerenciamento de API oferece uma ferramenta de Inspetor de API para ajudá-lo a depurar e solucionar problemas de suas APIs. O Inspetor de API pode ser usado de forma programática e pode também ser usado diretamente do portal do desenvolvedor.
+# <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure
+O Gerenciamento de API oferece uma ferramenta de Inspetor de API para ajudá-lo a depurar e solucionar problemas de suas APIs. O Inspetor de API pode ser usado de forma programática e pode também ser usado diretamente do portal do desenvolvedor. 
 
-Além das operações de rastreamento, o Inspetor de API também rastreia as avaliações de [expressão de política](https://msdn.microsoft.com/library/azure/dn910913.aspx). Para assistir a uma demonstração, confira o [Episódio 177 do Cloud Cover: mais recursos de Gerenciamento de API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance até 21:00.
+Além das operações de rastreamento, o Inspetor de API também rastreia as avaliações de [expressão de política](https://msdn.microsoft.com/library/azure/dn910913.aspx) . Para assistir a uma demonstração, confira o [Episódio 177 do Cloud Cover: mais recursos de Gerenciamento de API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e avance até 21:00.
 
 Este guia fornece uma explicação da utilização do Inspetor de API.
 
 > [!NOTE]
-> Os rastreamentos de um Inspetor de API são gerados e disponibilizados somente para solicitações que contêm chaves de assinatura que pertencem à conta de [administrador](api-management-howto-create-groups.md).
+> Os rastreamentos de um Inspetor de API são gerados e disponibilizados somente para solicitações que contêm chaves de assinatura que pertencem à conta de [administrador](api-management-howto-create-groups.md) .
 > 
 > 
 
 ## <a name="trace-call"> </a> Usar o Inspetor de API para rastrear uma chamada
 Para usar o Inspetor de API, adicione um cabeçalho de solicitação **ocp-apim-trace: true** à sua chamada de operação, baixe e inspecione o rastreamento utilizando a URL indicada pelo cabeçalho de resposta **ocp-apim-trace-location**. Isso pode ser feito de forma programática ou diretamente a partir do portal do desenvolvedor.
 
-Este tutorial mostra como usar o Inspetor de API para operações de rastreamento usando a API de Calculadora Básica configurada no tutorial de introdução [Gerenciar sua primeira API](api-management-get-started.md). Se você ainda não concluiu esse tutorial, leva apenas alguns minutos para importar a API de Calculadora Básica; outra opção é usar outra API de sua escolha, como a API de Eco. Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de ECO que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. A API de ECO retorna qualquer entrada enviada a ela. Para usá-la, você pode invocar qualquer verbo HTTP e o valor retornado será simplesmente o que você tiver enviado.
+Este tutorial mostra como usar o Inspetor de API para operações de rastreamento usando a API de Calculadora Básica configurada no tutorial de introdução [Gerenciar sua primeira API](api-management-get-started.md) . Se você ainda não concluiu esse tutorial, leva apenas alguns minutos para importar a API de Calculadora Básica; outra opção é usar outra API de sua escolha, como a API de Eco. Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de ECO que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. A API de ECO retorna qualquer entrada enviada a ela. Para usá-la, você pode invocar qualquer verbo HTTP e o valor retornado será simplesmente o que você tiver enviado. 
 
-Para começar, clique em **portal do desenvolvedor** no Portal Clássico do Azure para acessar o serviço de Gerenciamento de API. As operações podem ser chamadas diretamente do portal do desenvolvedor, que fornece uma maneira conveniente de exibir e testar as operações de uma API.
+Para começar, clique no **Portal do desenvolvedor** no Portal do Azure para seu serviço de Gerenciamento de API. As operações podem ser chamadas diretamente do portal do desenvolvedor, que fornece uma maneira conveniente de exibir e testar as operações de uma API.
 
-> Se você ainda não criou uma instância do serviço de Gerenciamento de API, veja [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+> Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
 > 
 > 
 
@@ -49,7 +53,7 @@ Clique em **Experimentar** para experimentar a operação **Adicionar dois intei
 
 ![Experimente][api-management-open-console]
 
-Mantenha os valores de parâmetros padrão e selecione a chave de assinatura do produto que deseja usar no menu suspenso **subscription-key**.
+Mantenha os valores de parâmetros padrão e selecione a chave de assinatura do produto que deseja usar no menu suspenso **subscription-key** .
 
 Por padrão, no portal do desenvolvedor, o cabeçalho **Ocp-Apim-Trace** já está definido como **true**. Esse cabeçalho define se um rastreamento é gerado ou não.
 
@@ -66,7 +70,7 @@ Nos cabeçalhos de resposta, haverá um **ocp-apim-trace-location** com um valor
 O rastreamento pode ser baixado do local especificado e revisado, conforme demonstrado na etapa a seguir.
 
 ## <a name="inspect-trace"> </a>Inspecionar o rastreamento
-Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL **ocp-apim-trace-location**. Trata-se de um texto no formato JSON que contém entradas semelhantes ao exemplo a seguir.
+Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL **ocp-apim-trace-location** . Trata-se de um texto no formato JSON que contém entradas semelhantes ao exemplo a seguir.
 
     {
         "traceId": "abcd8ea63d134c1fabe6371566c7cbea",
@@ -234,17 +238,17 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 > 
 > 
 
-[Use API Inspector to trace a call]: #trace-call
-[Inspect the trace]: #inspect-trace
-[Next steps]: #next-steps
+[Usar o Inspetor de API para rastrear uma chamada]: #trace-call
+[Inspecionar o rastreamento]: #inspect-trace
+[Próximas etapas]: #next-steps
 
-[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
-[Responses]: api-management-howto-add-operations.md#responses
-[How create and publish a product]: api-management-howto-add-products.md
+[Definir configurações de API]: api-management-howto-create-apis.md#configure-api-settings
+[Respostas]: api-management-howto-add-operations.md#responses
+[Como criar e publicar um produto]: api-management-howto-add-products.md
 
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
 [Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
-[Azure Classic Portal]: https://manage.windowsazure.com/
+[Portal Clássico do Azure]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
@@ -260,4 +264,7 @@ Para revisar os valores no rastreamento, baixe o arquivo de rastreamento da URL 
 
 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

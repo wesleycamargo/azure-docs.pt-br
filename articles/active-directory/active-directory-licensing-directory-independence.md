@@ -1,19 +1,23 @@
 ---
-title: Adicione e gerencie vários diretórios do Active Directory do Azure | Microsoft Docs
-description: Instruções e práticas recomendadas para adicionar e gerenciar diretórios do Active Directory do Azure, explicando os diretórios como recursos totalmente independentes
+title: "Adicionar e gerenciar vários diretórios do Azure Active Directory | Microsoft Docs"
+description: "Instruções e práticas recomendadas para adicionar e gerenciar diretórios do Active Directory do Azure, explicando os diretórios como recursos totalmente independentes"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2b862b75-14df-45f2-a8ab-2a3ff1e2eb08
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: fff714765508285f4c074b3a7287701a538fbf95
+
 
 ---
 # <a name="add-and-manage-multiple-azure-active-directory-directories"></a>Adicionar e gerenciar vários diretórios do Active Directory do Azure
@@ -40,11 +44,13 @@ Para adicionar um diretório do Active Directory do Azure no portal de clássico
 
 > [!NOTE]
 > Observe também que, ao contrário de outros recursos do Azure, seus diretórios não são recursos filho de uma assinatura do Azure. Se você cancelar ou permitir que a assinatura do Azure expire, ainda poderá acessar os dados de diretório usando o Azure PowerShell, a API do Graph do Azure ou outras interfaces, como o Centro de Administração do Office 365. Você também pode associar outra assinatura ao diretório.
-> 
-> 
+>
+>
 
 Para obter uma visão geral dos problemas de licenciamento do AD do Azure e as práticas recomendadas, consulte [O que é o licenciamento do Active Directory do Azure?](active-directory-licensing-what-is.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

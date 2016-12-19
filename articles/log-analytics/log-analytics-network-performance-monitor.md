@@ -1,26 +1,30 @@
 ---
-title: Solução de Monitor de Desempenho de Rede de OMS | Microsoft Docs
+title: "Solução de Monitor de Desempenho de Rede no OMS | Microsoft Docs"
 description: O Monitor de Desempenho de Rede ajuda a monitorar o desempenho de suas redes quase em tempo real para detectar e localizar afunilamentos de desempenho de rede.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
+
 
 ---
-# <a name="network-performance-monitor-(preview)-solution-in-oms"></a>Solução de Monitor de Desempenho de Rede (Visualização) no OMS
+# <a name="network-performance-monitor-preview-solution-in-oms"></a>Solução de Monitor de Desempenho de Rede (Visualização) no OMS
 > [!NOTE]
 > Esta é uma [solução de visualização](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
-> 
-> 
+>
+>
 
 Este documento descreve como configurar e usar a solução de Monitor de Desempenho de Rede no OMS, que ajuda a monitorar o desempenho de suas redes quase em tempo real para detectar e localizar afunilamentos de desempenho de rede. Com a solução de Monitor de Desempenho de Rede, você pode monitorar a perda e a latência entre duas redes, servidores ou sub-redes. O Monitor de Desempenho de Rede detecta problemas de tráfego de rede, como blackholing, erros de roteamento e problemas que os métodos de monitoramento de rede convencionais não são capazes de detectar. O Monitor de Desempenho de Rede gera alertas e notifica como e quando um limite é ultrapassado para um link de rede. Esses limites podem ser aprendidos automaticamente pelo sistema ou você pode configurá-los para usar regras de alerta personalizadas. O Monitor de Desempenho de Rede garante a detecção oportuna de problemas de desempenho de rede e localiza a origem do problema para determinado segmento de rede ou dispositivo.
 
@@ -48,8 +52,8 @@ Use os processos básicos para instalar agentes em [Conectar computadores com Wi
 
 > [!NOTE]
 > Você precisará instalar pelo menos dois agentes para ter dados suficientes para descobrir e monitorar os recursos de rede. Caso contrário, a solução permanecerá em um estado de configuração até você instalar e configurar agentes adicionais.
-> 
-> 
+>
+>
 
 ### <a name="where-to-install-the-agents"></a>Onde instalar os agentes
 Antes de instalar agentes, considere a topologia da rede e quais partes da rede você deseja monitorar. Recomendamos que você instale mais de um agente para cada sub-rede que deseja monitorar. Em outras palavras, para cada sub-rede que você deseja monitorar, escolha dois ou mais servidores ou máquinas virtuais e instale o agente neles.
@@ -67,8 +71,8 @@ A porta aberta por padrão é 8084. Você pode usar uma porta personalizada forn
 
 > [!NOTE]
 > O script EnableRules.ps1 configura regras de firewall do Windows somente no computador em que o script é executado. Se tiver um firewall de rede, você deverá verificar se ele permite o tráfego destinado à porta TCP usada pelo Monitor de Desempenho de Rede.
-> 
-> 
+>
+>
 
 ## <a name="configuring-the-solution"></a>Configurar a solução
 Use as informações a seguir para instalar e configurar a solução.
@@ -158,8 +162,8 @@ A solução usa transações sintéticas para avaliar a integridade da rede. Age
 
 > [!NOTE]
 > Embora os agentes se comuniquem uns com os outros com frequência, não geram muito tráfego de rede durante a realização de testes. Os agentes utilizam somente pacotes de handshake TCP SYN-SYNACK-ACK para determinar a perda e latência. Não são trocados pacotes de dados. Durante esse processo, os agentes se comunicam entre si somente quando necessário, e a topologia de comunicação de agente é otimizada para reduzir o tráfego de rede.
-> 
-> 
+>
+>
 
 ## <a name="using-the-solution"></a>Usando a solução
 Esta seção explica todas as funções do painel e como usá-las.
@@ -233,13 +237,15 @@ Agora que você leu sobre o Monitor de Desempenho de Rede, vejamos uma investiga
 5. Todos os caminhos entre os dois nós selecionados são plotados no mapa de topologia. Você pode visualizar a topologia de salto a salto das rotas entre dois nós no mapa de topologia. Isso lhe dá uma visão clara de quantas rotas existem entre os dois nós e quais caminhos os pacotes de dados estão adotando. Os afunilamentos de desempenho de rede são marcados em vermelho. Você pode localizar uma conexão de rede ou um dispositivo de rede com defeito observando elementos em vermelho no mapa de topologia.  
    ![exemplo de modo de exibição de topologia não íntegra](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
 6. A perda, a latência e o número de saltos em cada caminho podem ser analisados no painel **Detalhes do Caminho**. Neste exemplo, você pode ver que há três caminhos íntegros, conforme mencionado no painel. Use a barra de rolagem para exibir os detalhes dos caminhos não íntegros.  Use as caixas de seleção para marcar um dos caminhos, de forma que seja plotada apenas a topologia de um caminho. Você pode usar a roda do mouse para ampliar ou reduzir o mapa de topologia.
-   
+
    Na imagem abaixo, você pode ver claramente a causa das áreas problemáticas da seção específica da rede, observando os caminhos e saltos na cor vermelha. Clicar em um nó no mapa de topologia revela as propriedades do nó, incluindo o FQDN e o endereço IP. Clicar em um salto mostra o endereço IP do nó.  
    ![topologia não íntegra - exemplo de detalhes do caminho](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquisar logs](log-analytics-log-searches.md) para exibir registros de dados de desempenho de rede detalhados.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

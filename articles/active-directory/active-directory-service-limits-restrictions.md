@@ -1,19 +1,23 @@
 ---
-title: Restrições e limites de serviços do Active Directory do Azure
-description: Restrições de uso e outros limites de serviço para o serviço Active Directory do Azure.
+title: "Restrições e limites de serviços do Active Directory do Azure"
+description: "Restrições de uso e outros limites de serviço para o serviço Active Directory do Azure."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e4166a30-eb45-43b8-a466-6254b664fd1a
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: ed2f15550626dc030733214564f7c9fa6da38d1c
+
 
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Restrições e limites de serviço do AD do Azure
@@ -21,10 +25,12 @@ Este artigo contém as restrições de uso e outros limites de serviço para o s
 
 [!INCLUDE [AAD-service-limits](../../includes/active-directory-service-limits-include.md)]
 
-## <a name="what's-next"></a>O que vem a seguir
+## <a name="whats-next"></a>O que vem a seguir
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 * [Como as assinaturas do Azure estão associadas ao Azure AD](active-directory-how-subscriptions-associated-directory.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

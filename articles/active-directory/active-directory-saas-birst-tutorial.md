@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure ao Birst Agile Business Analytics | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Birst Agile Business Analytics.
+title: "Tutorial: Integração do Azure Active Directory ao Birst Agile Business Analytics | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Birst Agile Business Analytics."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 677183b1-5348-4302-88cc-5c8ab63a3c6c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0f68cab69ea97dc6eaf08d03bc30783de9e7259e
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Tutorial: Integração do Active Directory do Azure ao Birst Agile Business Analytics
+# <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Tutorial: Integração do Active Directory do Azure ao Birst Agile Business Analytics
 O objetivo deste tutorial é mostrar como integrar o Birst Agile Business Analytics ao Azure AD (Azure Active Directory).
 
 A integração do Birst Agile Business Analytics ao Azure AD oferece os seguintes benefícios:
@@ -174,7 +178,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-birst-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -243,6 +247,6 @@ Ao clicar no bloco do Birst Agile Business Analytics no Painel de Acesso, você 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

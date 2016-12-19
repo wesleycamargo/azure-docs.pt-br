@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: recursos em visualização | Microsoft Docs'
-description: Este tópico descreve em mais detalhes os recursos que estão na visualização no Azure AD Connect.
+title: "Azure AD Connect: recursos em visualização | Microsoft Docs"
+description: "Este tópico descreve em mais detalhes os recursos que estão na visualização no Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5351a2c6a662ea9b25be1fb2a8644b98e80ddadf
+
 
 ---
 # <a name="more-details-about-features-in-preview"></a>Mais detalhes sobre os recursos no modo de visualização
@@ -45,10 +49,13 @@ Esse grupo será representado como um grupo de distribuição no AD DS local. Se
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Continuar a [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+Continuar a [Instalação personalizada do Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
 
 Saiba mais sobre a [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

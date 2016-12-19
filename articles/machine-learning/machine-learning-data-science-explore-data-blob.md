@@ -1,38 +1,42 @@
 ---
-title: Explorar dados no repositório de blob do Azure com o Pandas | Microsoft Docs
-description: Como explorar dados armazenados no contêiner de blob do Azure usando o Pandas.
+title: Explorar dados no armazenamento de blobs do Azure com o Pandas | Microsoft Docs
+description: "Como explorar dados armazenados no contêiner de blob do Azure usando o Pandas."
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: feaa9e54-01e0-48c8-a917-1eba0f9d9ec7
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/09/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b663a9df7e8cb692f4156f2609fb515265526868
+
 
 ---
-# Explorar dados no repositório de blob do Azure com o Pandas
-Este documento aborda como explorar dados armazenados no contêiner de blob do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/).
+# <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorar dados no repositório de blob do Azure com o Pandas
+Este documento aborda como explorar dados armazenados no contêiner de blob do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/) .
 
 Os links do **menu** a seguir levam a tópicos que descrevem como usar as ferramentas para explorar dados de vários ambientes de armazenamento. Essa tarefa é uma etapa no [Processo de Ciência de Dados]().
 
 [!INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo supõe que você:
 
-* Criou uma conta de armazenamento do Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento do Azure](../storage/storage-create-storage-account.md)
+* Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../storage/storage-create-storage-account.md#create-a-storage-account)
 * Armazenar seus dados em uma conta de armazenamento de blob do Azure. Se você precisar de instruções, consulte [Movimentação de dados de e para o Armazenamento do Azure](../storage/storage-moving-data.md)
 
-## Carregar os dados em um DataFrame Pandas
+## <a name="load-the-data-into-a-pandas-dataframe"></a>Carregar os dados em um DataFrame Pandas
 Para explorar e manipular um conjunto de dados, primeiro eles devem ser baixados da fonte de blob para um arquivo local, que pode então ser carregado em um DataFrame Pandas. Aqui estão as etapas para este procedimento:
 
-1. Baixe os dados do blob do Azure com o seguinte código Python de exemplo usando o serviço blob. Substitua a variável no código abaixo por seus valores específicos:
+1. Baixe os dados do blob do Azure com o seguinte código Python de exemplo usando o serviço blob. Substitua a variável no código abaixo por seus valores específicos: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -56,13 +60,13 @@ Para explorar e manipular um conjunto de dados, primeiro eles devem ser baixados
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
-## <a name="blob-dataexploration"></a>Exemplos de exploração de dados usando o Pandas
+## <a name="a-nameblob-dataexplorationaexamples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Exemplos de exploração de dados usando o Pandas
 Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
 
-1. Inspecionar o **número de linhas e colunas**
+1. Inspecionar o **número de linhas e colunas** 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
-2. **Inspecione** as primeira ou últimas **linhas** no conjunto de dados a seguir:
+2. **Inspecione** as primeiras ou últimas **linhas** no conjunto de dados a seguir:
    
         dataframe_blobdata.head(10)
    
@@ -83,13 +87,12 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
         print miss_num
 7. Se você tiver **valores ausentes** para uma coluna específica nos dados, poderá removê-los da seguinte maneira:
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-     dataframe_blobdata_noNA.shape
+     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
    
    Outra maneira de substituir valores ausentes é com a função de modo:
    
      dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
-8. Crie um gráfico de **histograma** usando um número variável de compartimentos para plotar a distribuição de uma variável
+8. Crie um gráfico de **histograma** usando um número variável de compartimentos para plotar a distribuição de uma variável    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
@@ -102,4 +105,9 @@ Veja estão alguns exemplos de maneiras de explorar dados usando Pandas:
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,19 +1,23 @@
 ---
-title: Otimizar seu ambiente com a solução de Avaliação de SQL da Log Analytics | Microsoft Docs
-description: Você pode usar a solução de Avaliação de SQL para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares.
+title: "Otimizar seu ambiente com a solução de Avaliação de SQL de Log Analytics | Microsoft Docs"
+description: "Você pode usar a solução de Avaliação de SQL para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 0b0c739f1d89b83c43314d8ace794d26abf10054
+
 
 ---
 # <a name="optimize-your-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Otimizar seu ambiente com a solução de Avaliação de SQL da Log Analytics
@@ -39,17 +43,17 @@ Use as informações a seguir para instalar e configurar a solução.
 * Agentes devem ser instalados em servidores que têm o SQL Server instalado.
 * A solução de Avaliação do SQL requer o .NET Framework 4 instalado em cada computador que tem um agente do OMS.
 * Ao usar o agente do Operations Manager com a Avaliação do SQL, você precisará usar uma conta Executar como do Operations Manager. Consulte [Contas Executar como do Operations Manager para OMS](#operations-manager-run-as-accounts-for-oms) , abaixo, para obter mais informações.
-  
+
   > [!NOTE]
   > O agente MMA não dá suporte a contas Executar como do Operations Manager.
-  > 
-  > 
+  >
+  >
 * Adicionar a solução da Avaliação do SQL ao seu espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md). Não é necessária nenhuma configuração.
 
 > [!NOTE]
 > Depois de adicionar a solução, o arquivo AdvisorAssessment.exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e, em seguida, enviados para o serviço OMS na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados.
-> 
-> 
+>
+>
 
 ## <a name="sql-assessment-data-collection-details"></a>Detalhes de coleta de dados da Avaliação de SQL
 A Avaliação do SQL coletará dados WMI, dados de registro, dados de desempenho e resultados de exibição do gerenciamento dinâmico do SQL Server que estiverem usand os agentes que você tiver habilitado.
@@ -71,18 +75,18 @@ Use as informações a seguir para definir a conta Executar como do Operations M
 #### <a name="to-configure-the-sql-run-as-account-in-the-operations-console"></a>Para configurar a conta Executar como do SQL no console Operações
 > [!NOTE]
 > Se você estiver usando o agente direto do OMS em vez do agente do SCOM, o pacote de gerenciamento será sempre executado no contexto de segurança da conta de Sistema Local. Ignore as etapas 1 a 5 abaixo e execute o exemplo do T-SQL ou Powershell, especificando NT AUTHORITY\SYSTEM como o nome de usuário.
-> 
-> 
+>
+>
 
 1. No Operations Manager, abra o console Operações e clique em **Administração**.
 2. Em **Configuração Executar como**, clique em **Perfis** e abra **Perfil Executar como da Avaliação SQL do OMS**.
 3. Na página **Contas Executar como**, clique em **Adicionar**.
 4. Selecione uma conta Executar como do Windows que contenha as credenciais necessárias para o SQL Server ou clique em **Nova** para criar uma.
-   
+
    > [!NOTE]
    > O tipo de conta Executar Como deve ser Windows. A conta Executar como também deve fazer parte do grupo de administradores locais em todos os servidores Windows que hospedam instâncias do SQL Server.
-   > 
-   > 
+   >
+   >
 5. Clique em **Salvar**.
 6. Modifique e, em seguida, execute o seguinte exemplo de T-SQL em cada instância do SQL Server para conceder as permissões mínimas necessárias para a conta Executar como para realizar uma avaliação de SQL. No entanto, você não precisa fazer isso se uma conta Executar como já fizer parte da função de servidor sysadmin em instâncias do SQL Server.
 
@@ -142,7 +146,7 @@ A importância de cada recomendação é expressa como um percentual da pontuaç
 
 **Gerenciamento de alterações e configuração** - essa área de foco mostra as recomendações para ajudar a proteger as operações diárias, garantir que as alterações não afetem sua infraestrutura negativamente, estabelecer procedimentos de controle de alterações, bem como para controlar e auditar as configurações do sistema.
 
-### <a name="should-you-aim-to-score-100%-in-every-focus-area?"></a>Você deve visar à pontuação de 100% em cada área de foco?
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Você deve visar à pontuação de 100% em cada área de foco?
 Não necessariamente. As recomendações baseiam-se no conhecimento e nas experiências adquiridas pelos engenheiros da Microsoft em milhares de visitas a clientes. No entanto, nenhuma infraestrutura de servidor é igual à outra, assim, recomendações específicas podem ser mais ou menos relevantes para você. Por exemplo, algumas recomendações de segurança poderão ser menos relevantes se as máquinas virtuais não estiverem expostas à Internet. Algumas recomendações de disponibilidade podem ser menos relevantes para os serviços que fornecem relatórios e coleta de dados ad hoc de baixa prioridade. Problemas importantes para empresas maduras podem ser menos importantes para uma empresa start-up. Você pode preferir identificar quais áreas de foco são suas prioridades e depois examinar como suas pontuações mudam ao longo do tempo.
 
 Cada recomendação inclui diretrizes sobre sua importância. Você deve usar essas diretrizes para avaliar se é adequado implementar a recomendação considerando a natureza de seus serviços de TI e as necessidades comerciais da sua organização.
@@ -164,15 +168,15 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que serão ignoradas
 1. Entre em seu espaço de trabalho e abra a Pesquisa de Log. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
-   
+
    ```
    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-   
+
    Esta é uma captura de tela mostrando a consulta da Pesquisa de Log: ![recomendações com falha](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
 2. Escolha as recomendações que você deseja ignorar. Você usará os valores para RecommendationId no próximo procedimento.
 
-### <a name="to-create-and-use-an-ignorerecommendations.txt-text-file"></a>Criar e usar um arquivo de texto IgnoreRecommendations.txt
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Criar e usar um arquivo de texto IgnoreRecommendations.txt
 1. Crie um arquivo chamado IgnoreRecommendations.txt.
 2. Cole ou digite cada RecommendationId para cada recomendação que você deseja que o OMS ignore em uma linha separada, salve e feche o arquivo.
 3. Coloque o arquivo na pasta a seguir em cada computador no qual você deseja que o OMS ignore as recomendações.
@@ -182,7 +186,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Para verificar se as recomendações são ignoradas
 1. Após a execução da próxima avaliação agendada, por padrão a cada 7 dias, as recomendações especificadas são marcadas como Ignoradas e não aparecerão no painel de avaliação.
 2. É possível usar as consultas da Pesquisa de Log a seguir para listar todas as recomendações ignoradas.
-   
+
    ```
    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
@@ -240,6 +244,8 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquise nos logs](log-analytics-log-searches.md) para exibir dados detalhados de Avaliação do SQL e recomendações.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

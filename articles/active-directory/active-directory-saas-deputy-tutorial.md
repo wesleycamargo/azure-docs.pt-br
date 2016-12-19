@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Deputy | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Deputy.
+title: "Tutorial: integração do Azure Active Directory ao Deputy | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Deputy."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f0db022251b16c2c3fe1ca93c25d8550a2b899d8
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-deputy"></a>Tutorial: integração do Azure Active Directory ao Deputy
+# <a name="tutorial-azure-active-directory-integration-with-deputy"></a>Tutorial: integração do Azure Active Directory ao Deputy
 O objetivo deste tutorial é mostrar como integrar o Deputy ao Azure AD (Azure Active Directory).
 
 A integração do Deputy ao Azure AD oferece os seguintes benefícios:
@@ -207,7 +211,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 ### <a name="creating-a-deputy-test-user"></a>Criando um usuário de teste do Deputy
 Para permitir que os usuários do Azure AD façam logon no Deputy, eles deverão ser provisionados no Deputy. No caso do Deputy, o provisionamento é uma tarefa manual.
 
-#### <a name="to-provision-a-user-account,-perform-the-following-steps:"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
+#### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
 1. Faça logon em seu site de empresa Deputy como um administrador.
 2. No painel de navegação superior, clique em **Pessoas**.
    
@@ -282,6 +286,6 @@ Quando você clicar no bloco Deputy no Painel de Acesso, deverá ser automaticam
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
