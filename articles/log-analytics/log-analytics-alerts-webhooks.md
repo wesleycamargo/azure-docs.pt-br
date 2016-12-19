@@ -1,12 +1,12 @@
 ---
 title: Exemplo de webhook de alerta no Log Analytics
-description: Uma das ações que você pode executar em resposta a um alerta do Log Analytics é um *webhook*, que permite invocar um processo externo por meio de uma única solicitação HTTP. Neste artigo, vamos examinar um exemplo de como criar uma ação de webhook em um alerta do Log Analytics usando o Slack.
+description: "Uma das ações que você pode executar em resposta a um alerta do Log Analytics é um *webhook*, que permite invocar um processo externo por meio de uma única solicitação HTTP. Neste artigo, vamos examinar um exemplo de como criar uma ação de webhook em um alerta do Log Analytics usando o Slack."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 13c39f0f-fd3c-472d-8324-ddf7538be45e
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 001f8abfc5862aeb1914f6e93b68cadeed42eba0
+
 
 ---
 # <a name="webhooks-in-log-analytics-alerts"></a>Webhooks nos alertas do Log Analytics
@@ -108,6 +112,9 @@ Esse é apenas um exemplo de uma ação que você pode criar em resposta a um al
 * Saiba mais sobre [alertas no Log Analytics](log-analytics-alerts.md) , incluindo outras ações.
 * [Crie runbooks na Automação do Azure](../automation/automation-webhooks.md) que podem ser chamados de um webhook.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Iniciando e parando máquinas virtuais com a Automação do Azure — fluxo de trabalho do PowerShell | Microsoft Docs
-description: Versão gráfica do cenário da Automação do Azure, incluindo runbooks para iniciar e parar máquinas virtuais clássicas.
+title: "Iniciando e parando máquinas virtuais com a Automação do Azure - Fluxo de Trabalho do PowerShell | Microsoft Docs"
+description: "Versão gráfica do cenário da Automação do Azure, incluindo runbooks para iniciar e parar máquinas virtuais clássicas."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
 editor: tysonn
-
+ms.assetid: d380bd43-d45d-45af-a5b2-78e7f66263c3
 ms.service: automation
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 820ef7238593cd99d41cc3fe5d1d7a29699397fc
+
 
 ---
 # <a name="azure-automation-scenario---starting-and-stopping-virtual-machines"></a>Cenário de Automação do Azure — iniciando e parando máquinas virtuais
 Esse cenário de Automação do Azure inclui runbooks para iniciar e parar máquinas virtuais clássicas.  Você pode usar esse cenário para qualquer um destes objetivos:  
 
-* Usar os runbooks sem modificação em seu próprio ambiente. 
+* Usar os runbooks sem modificação em seu próprio ambiente.
 * Modificar os runbooks para executar funcionalidade personalizada.  
-* Chamar os runbooks de outro runbook como parte de uma solução geral. 
-* Usar os runbooks como tutoriais para saber sobre os conceitos de criação do runbook. 
+* Chamar os runbooks de outro runbook como parte de uma solução geral.
+* Usar os runbooks como tutoriais para saber sobre os conceitos de criação do runbook.
 
 > [!div class="op_single_selector"]
 > * [Gráfico](automation-solution-startstopvm-graphical.md)
@@ -41,13 +45,13 @@ Esse cenário é formado por dois runbooks de Fluxo de Trabalho do PowerShell, q
 | Stop-AzureVMs |[Parar VMs clássicas do Azure](https://gallery.technet.microsoft.com/Stop-Azure-Classic-VMs-7a4ae43e) |Fluxo de Trabalho do PowerShell |Para todas as máquinas virtuais em uma conta de automação ou todas as máquinas virtuais com um nome de serviço específico. |
 
 ## <a name="installing-and-configuring-the-scenario"></a>Instalando e configurando o cenário
-### <a name="1.-install-the-runbooks"></a>1. Instalar os runbooks
+### <a name="1-install-the-runbooks"></a>1. Instalar os runbooks
 Depois de baixar os runbooks, você poderá importá-los usando o procedimento em [Importando um runbook](http://msdn.microsoft.com/library/dn643637.aspx#ImportRunbook).
 
-### <a name="2.-review-the-description-and-requirements"></a>2. Analisar a descrição e os requisitos
-Os runbooks incluem um texto de ajuda comentado que apresenta uma descrição e os ativos necessários.  Também é possível obter as mesmas informações neste artigo. 
+### <a name="2-review-the-description-and-requirements"></a>2. Analisar a descrição e os requisitos
+Os runbooks incluem um texto de ajuda comentado que apresenta uma descrição e os ativos necessários.  Também é possível obter as mesmas informações neste artigo.
 
-### <a name="3.-configure-assets"></a>3. Configurar ativos
+### <a name="3-configure-assets"></a>3. Configurar ativos
 Os runbooks exigem os ativos a seguir, que você deverá criar e preencher com os valores apropriados.
 
 | Tipo de Ativo | Nome do ativo | Descrição |
@@ -85,7 +89,7 @@ Os runbooks [emitirão uma mensagem](automation-runbook-output-and-messages.md) 
 | Stop-AzureVMs |Solicitação de parada da máquina virtual enviada com êxito |MyVM foi parada |
 | Stop-AzureVMs |Falha na solicitação de parada da máquina virtual |Falha ao para a MyVM |
 
-Por exemplo, o trecho de código a seguir de um runbook tenta iniciar todas as máquinas virtuais com o nome de serviço *MyServiceName*.  Se algumas das solicitações de inicialização falhar, as ações de erro poderão ser executadas. 
+Por exemplo, o trecho de código a seguir de um runbook tenta iniciar todas as máquinas virtuais com o nome de serviço *MyServiceName*.  Se algumas das solicitações de inicialização falhar, as ações de erro poderão ser executadas.
 
     $results = Start-AzureVMs -ServiceName "MyServiceName"
     foreach ($result in $results) {
@@ -103,13 +107,13 @@ Veja a seguir uma divisão detalhada dos runbooks nesse cenário.  Você pode us
 
 ### <a name="parameters"></a>Parâmetros
     param (
-        [Parameter(Mandatory=$false)] 
+        [Parameter(Mandatory=$false)]
         [String]  $AzureCredentialAssetName = 'AzureCredential',
 
         [Parameter(Mandatory=$false)]
         [String] $AzureSubscriptionIdAssetName = 'AzureSubscriptionId',
 
-        [Parameter(Mandatory=$false)] 
+        [Parameter(Mandatory=$false)]
         [String] $ServiceName
     )
 
@@ -128,7 +132,7 @@ Essa linha declara que a saída do runbook será uma cadeia de caracteres.  Ela 
     $SubId = Get-AutomationVariable -Name $AzureSubscriptionIdAssetName
     $null = Select-AzureSubscription -SubscriptionId $SubId -ErrorAction Stop
 
-As próximas linhas definem as [credenciais](automation-configuring.md#configuring-authentication-to-azure-resources) e a assinatura do Azure que serão usadas para o restante do runbook.
+As próximas linhas definem as [credenciais](automation-credentials.md) e a assinatura do Azure que serão usadas para o restante do runbook.
 Primeiro, usamos **Get-AutomationPSCredential** para obter o ativo que mantém as credenciais com acesso para iniciar e parar máquinas virtuais na assinatura do Azure. **Add-AzureAccount** usa esse ativo para definir as credenciais.  A saída é atribuída a uma variável fictícia para que ela não seja incluída na saída do runbook.  
 
 O ativo variável com a ID da assinatura é recuperado com **Get-AutomationVariable** e a assinatura definida com **Select-AzureSubscription**.
@@ -136,18 +140,18 @@ O ativo variável com a ID da assinatura é recuperado com **Get-AutomationVaria
 ### <a name="get-vms"></a>Obter VMs
     # If there is a specific cloud service, then get all VMs in the service,
     # otherwise get all VMs in the subscription.
-    if ($ServiceName) 
-    { 
+    if ($ServiceName)
+    {
         $VMs = Get-AzureVM -ServiceName $ServiceName
     }
-    else 
-    { 
+    else
+    {
         $VMs = Get-AzureVM
     }
 
 **Get-AzureVM** é usado para recuperar as máquinas virtuais com as quais o runbook trabalhará.  Se um valor for fornecido na variável de entrada **ServiceName** , apenas as máquinas virtuais com esse nome de serviço serão recuperadas.  Se **ServiceName** estiver vazia, todas as máquinas virtuais serão recuperadas.
 
-### <a name="start/stop-virtual-machines-and-send-output"></a>Iniciar/parar as máquinas virtuais e enviar a saída
+### <a name="startstop-virtual-machines-and-send-output"></a>Iniciar/parar as máquinas virtuais e enviar a saída
     # Start each of the stopped VMs
     foreach ($VM in $VMs)
     {
@@ -177,9 +181,12 @@ O ativo variável com a ID da assinatura é recuperado com **Get-AutomationVaria
 As próximas linhas exploram cada máquina virtual.  Primeiro o **PowerState** da máquina virtual é verificado para confirmar se ela já está em execução ou está parada, dependendo do runbook.  Se já estiver no estado desejado, uma mensagem será enviada para a saída e o runbook será encerrado.  Caso contrário, **Start-AzureVM** ou **Stop-AzureVM** será usado para tentar iniciar ou parar a máquina virtual com o resultado da solicitação armazenado em uma variável.  Uma mensagem é enviada para a saída especificando se a solicitação para iniciar ou parar foi enviada com êxito.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre como trabalhar com runbooks filho, consulte [Runbooks filho na Automação do Azure](automation-child-runbooks.md) 
+* Para saber mais sobre como trabalhar com runbooks filho, consulte [Runbooks filho na Automação do Azure](automation-child-runbooks.md)
 * Para saber mais sobre mensagens de saída durante a execução de runbook e registro em log para ajudar a solucionar problemas, consulte [Saída e mensagens de runbook na Automação do Azure](automation-runbook-output-and-messages.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

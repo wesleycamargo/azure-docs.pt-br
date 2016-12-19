@@ -1,22 +1,26 @@
 ---
-title: 'Azure Active Directory B2C: personalização de IU (interface do usuário) | Microsoft Docs'
-description: Um tópico sobre os recursos de personalização de IU (interface do usuário) no Azure Active Directory B2C
+title: "Azure Active Directory B2C: personalização de IU (interface do usuário) | Microsoft Docs"
+description: "Um tópico sobre os recursos de personalização de IU (interface do usuário) no Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: swkrish
 manager: mbaldwin
 editor: bryanla
-
+ms.assetid: 99f5a391-5328-471d-a15c-a2fafafe233d
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 12/06/2016
 ms.author: swkrish
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c3b7c3524ad14b585906c6cebb5a7546c4776c43
+
 
 ---
-# Azure Active Directory B2C: Personalizar a IU (interface do usuário) do Azure AD B2C
+# <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Personalizar a IU (interface do usuário) do Azure AD B2C
 A experiência do usuário é fundamental em um aplicativo voltado ao consumidor. É a diferença entre um bom aplicativo e um aplicativo ótimo e também a diferença entre consumidores simplesmente ativos e aqueles realmente comprometidos. O Azure AD (Azure Active Directory) B2C permite personalizar as páginas de inscrição de consumidores, entrada (*consulte a observação abaixo*) edição de perfil e páginas de redefinição de senha com controle perfeito.
 
 > [!NOTE]
@@ -31,7 +35,7 @@ Neste artigo, você lerá sobre:
 * Os elementos principais da interface do usuário em cada tipo de página.
 * Práticas recomendadas ao exercitar esse recurso.
 
-## O recurso de personalização da interface do usuário da página
+## <a name="the-page-ui-customization-feature"></a>O recurso de personalização da interface do usuário da página
 Com o recurso de personalização da interface do usuário de página, você pode personalizar a aparência das páginas de inscrição, entrada, redefinição de senha e edição de perfil do consumidor (com a configuração de [políticas](active-directory-b2c-reference-policies.md)). Seus consumidores terão experiências ininterruptas ao navegar entre seu aplicativo e as páginas atendidas pelo Azure AD B2C.
 
 Ao contrário de outros serviços nos quais as opções de interface do usuário são limitadas ou só estão disponíveis por meio de APIs, o Azure AD B2C usa uma abordagem moderna (e mais simples) para a personalização da interface do usuário da página.
@@ -42,7 +46,7 @@ Eis aqui como ele funciona: o AD B2C do Azure executa o código no navegador do 
 2. Hospede seu conteúdo em um ponto de extremidade HTTPS (com CORS permitido).
 3. Crie um estilo para os elementos de interface do usuário inseridos pelo Azure AD B2C.
 
-## Experimentar o recurso de personalização da interface do usuário
+## <a name="test-out-the-ui-customization-feature"></a>Experimentar o recurso de personalização da interface do usuário
 Se você quiser testar o recurso de personalização da interface do usuário usando nosso conteúdo HTML e CSS de exemplo, nós fornecemos [uma ferramenta auxiliar simples](active-directory-b2c-reference-ui-customization-helper-tool.md) para carregar e configurar o conteúdo de exemplo no seu armazenamento de Blobs do Azure.
 
 > [!NOTE]
@@ -50,7 +54,7 @@ Se você quiser testar o recurso de personalização da interface do usuário us
 > 
 > 
 
-### O conteúdo HTML mais básico para teste
+### <a name="the-most-basic-html-content-for-testing"></a>O conteúdo HTML mais básico para teste
 A seguir, o conteúdo HTML mais básico que você pode usar para testar esse recurso. Use a mesma ferramenta auxiliar fornecida anteriormente para carregar e configurar esse conteúdo em seu armazenamento de Blobs do Azure. Em seguida, você poderá verificar que os botões e campos de formulário básicos e não estilizados em cada página são exibidos e funcionam.
 
 ```HTML
@@ -67,10 +71,10 @@ A seguir, o conteúdo HTML mais básico que você pode usar para testar esse rec
 
 ```
 
-## Os elementos principais da interface do usuário em cada tipo de página
-Nas seções abaixo, você encontrará exemplos dos fragmentos de HTML5 que o Azure AD B2C mescla ao elemento `<div id="api"></div>` localizado no seu conteúdo. **Não insira esses fragmentos em seu conteúdo HTML 5.** O serviço Azure AD B2C os insere em tempo de execução. Use estes exemplos para projetar suas próprias folhas de estilo.
+## <a name="the-core-ui-elements-in-each-type-of-page"></a>Os elementos principais da interface do usuário em cada tipo de página
+Nas seções abaixo, você encontrará exemplos dos fragmentos de HTML5 que o Azure AD B2C mescla ao elemento `<div id="api"></div>` localizado no seu conteúdo. **Não insira esses fragmentos em seu conteúdo HTML 5.**  O serviço Azure AD B2C os insere em tempo de execução. Use estes exemplos para projetar suas próprias folhas de estilo.
 
-### O conteúdo do Azure AD B2C inserido na "página Seleção do provedor de identidade"
+### <a name="azure-ad-b2c-content-inserted-into-the-identity-provider-selection-page"></a>O conteúdo do Azure AD B2C inserido na "página Seleção do provedor de identidade"
 Esta página contém uma lista de provedores de identidade que o usuário pode escolher durante a inscrição ou entrada. Esses são os provedores de identidade social, como Facebook e Google+, ou então contas locais (baseadas em endereço de email ou nome de usuário).
 
 ```HTML
@@ -97,7 +101,7 @@ Esta página contém uma lista de provedores de identidade que o usuário pode e
 
 ```
 
-### Conteúdo do Azure AD B2C inserido na "página Inscrição de conta local"
+### <a name="azure-ad-b2c-content-inserted-into-the-local-account-sign-up-page"></a>Conteúdo do Azure AD B2C inserido na "página Inscrição de conta local"
 Esta página contém um formulário de inscrição que o usuário deve preencher ao inscrever-se usando uma conta local baseada em endereço de email ou nome de usuário. O formulário pode conter diferentes controles de entrada como caixa de entrada de texto, caixa de entrada de senha, botão de opção, caixas de lista suspensa de seleção única e caixas de seleção múltipla.
 
 ```HTML
@@ -146,14 +150,14 @@ Esta página contém um formulário de inscrição que o usuário deve preencher
                     <div class="attrEntry">
                         <div class="helpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .This information is required</div>
                         <label>Enter password</label>
-                        <input id="password" class="textInput" type="password" placeholder="Enter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title="8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ "; ( ) ; ." required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Enter password');" class="tiny">What is this?</a>
+                        <input id="password" class="textInput" type="password" placeholder="Enter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*\-_+=[\]{}|\\:',?/`~&quot;();!]|\.(?!@)){8,16}$" title="8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ &quot; ( ) ; ." required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Enter password');" class="tiny">What is this?</a>
                     </div>
                 </li>
                 <li>
                     <div class="attrEntry">
                         <div class="helpText"> This information is required</div>
                         <label>Reenter password</label>
-                        <input id="reenterPassword" class="textInput" type="password" placeholder="Reenter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*-_+=[]{}|\\:',?/`~";();!]|\.(?!@)){8,16}$" title=" " required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Reenter password');" class="tiny">What is this?</a>
+                        <input id="reenterPassword" class="textInput" type="password" placeholder="Reenter password" pattern="^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)|(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])|(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])|(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]))([A-Za-z\d@#$%^&amp;*\-_+=[\]{}|\\:',?/`~&quot;();!]|\.(?!@)){8,16}$" title=" " required=""><a href="javascript:void(0)" onclick="selfAssertedClient.showHelp('Reenter password');" class="tiny">What is this?</a>
                     </div>
                 </li>
                 <li>
@@ -213,10 +217,10 @@ Esta página contém um formulário de inscrição que o usuário deve preencher
 
 ```
 
-### Conteúdo do Azure AD B2C inserido na "página Inscrição de conta social"
+### <a name="azure-ad-b2c-content-inserted-into-the-social-account-sign-up-page"></a>Conteúdo do Azure AD B2C inserido na "página Inscrição de conta social"
 Esta página contém um formulário de inscrição que o consumidor precisa preencher ao se inscrever usando uma conta existente de um provedor de identidade social, como o Facebook ou Google+. Esta página é semelhante à página de inscrição de conta local (mostrada na seção anterior) com exceção dos campos de entrada de senha.
 
-### Conteúdo do Azure AD B2C inserido na "página Inscrição ou entrada unificada"
+### <a name="azure-ad-b2c-content-inserted-into-the-unified-sign-up-or-sign-in-page"></a>Conteúdo do Azure AD B2C inserido na "página Inscrição ou entrada unificada"
 Esta página controla tanto inscrição como entrada de consumidores, que podem usar provedores de identidade social como Facebook ou Google+ ou contas locais.
 
 ```HTML
@@ -270,7 +274,7 @@ Esta página controla tanto inscrição como entrada de consumidores, que podem 
 
 ```
 
-### Conteúdo do Azure AD B2C inserido na "página Autenticação multifator"
+### <a name="azure-ad-b2c-content-inserted-into-the-multi-factor-authentication-page"></a>Conteúdo do Azure AD B2C inserido na "página Autenticação multifator"
 Nesta página, os usuários pode verificar seus números de telefone (usando mensagem de texto ou por voz) durante a inscrição ou entrada.
 
 ```HTML
@@ -315,7 +319,7 @@ Nesta página, os usuários pode verificar seus números de telefone (usando men
 
 ```
 
-### Conteúdo do AD B2C do Azure inserido na "página Erro"
+### <a name="azure-ad-b2c-content-inserted-into-the-error-page"></a>Conteúdo do AD B2C do Azure inserido na "página Erro"
 ```HTML
 
 <div id="api" class="error-page-content" data-name="GlobalException">
@@ -331,11 +335,11 @@ Nesta página, os usuários pode verificar seus números de telefone (usando men
 
 ```
 
-## O que lembrar ao criar seu próprio conteúdo
+## <a name="things-to-remember-when-building-your-own-content"></a>O que lembrar ao criar seu próprio conteúdo
 Se você estiver planejando usar o recurso de personalização de interface do usuário da página, examine as práticas recomendadas a seguir:
 
 * Não copie o conteúdo padrão do Azure AD B2C nem tente modificá-lo. É melhor criar seu conteúdo HTML5 do zero e usar o conteúdo padrão como referência.
-* Em todas as páginas (exceto nas páginas Erro) atendidas pelas políticas de Entrada, de Inscrição e de Edição de perfil, as folhas de estilo que você fornecer terão de substituir as folhas de estilo padrão que adicionamos a essas páginas nos fragmentos do <head>. Em todas as páginas atendidas pelas políticas de Inscrição ou entrada e de Redefinição de senha, além de nas páginas Erros em todas as políticas, você deverá fornecer a definição de estilo por conta própria.
+* Em todas as páginas (exceto nas páginas Erro) atendidas pelas políticas de Entrada, de Inscrição e de Edição de perfil, as folhas de estilo que você fornecer terão de substituir as folhas de estilo padrão que adicionamos a essas páginas nos fragmentos do <head> . Em todas as páginas atendidas pelas políticas de Inscrição ou entrada e de Redefinição de senha, além de nas páginas Erros em todas as políticas, você deverá fornecer a definição de estilo por conta própria.
 * Por motivos de segurança, não permitimos incluir nenhum JavaScript em seu conteúdo. A maior parte do que você precisa já deve estar disponível imediatamente. Caso contrário, use a [Voz do Usuário](http://feedback.azure.com/forums/169401-azure-active-directory) para solicitar novas funcionalidades.
 * Versões do navegador para as quais há suporte:
   * Internet Explorer 11
@@ -347,4 +351,9 @@ Se você estiver planejando usar o recurso de personalização de interface do u
   * Mozilla Firefox 38.0
   * Mozilla Firefox 37.0
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Referência da API de relatório de atividade de entrada do Azure Active Directory | Microsoft Docs
-description: Referência para a API de relatório de atividade de entrada do Azure Active Directory
+title: "Referência da API de relatório da atividade de entrada do Azure Active Directory | Microsoft Docs"
+description: "Referência para a API de relatório de atividade de entrada do Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4c60c0fd364400c881f1b8b96598725f6bd11d26
+
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Referência da API de relatório de atividade de entrada do Azure Active Directory
@@ -28,7 +32,7 @@ Consulte:
 
 Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relatório do AAD](mailto:aadreportinghelp@microsoft.com).
 
-## <a name="who-can-access-the-api-data?"></a>Quem pode acessar os dados da API?
+## <a name="who-can-access-the-api-data"></a>Quem pode acessar os dados da API?
 * Usuários na função de Administrador de segurança ou Leitor de segurança
 * Administradores globais
 * Qualquer aplicativo que tenha autorização para acessar a API (a autorização do aplicativo pode ser definida somente com base na permissão de Administrador Global)
@@ -94,7 +98,7 @@ Para restringir o escopo dos dados retornados, você pode compilar combinações
 
 Como usar uma data específica
 
-    $filter=signinDateTime+eq+2016-04-25T23:59:00Z  
+    $filter=signinDateTime+eq+2016-04-25T23:59:00Z    
 
 
 
@@ -177,6 +181,9 @@ Há duas opções para o loginStatus: 0 – êxito, 1 – Falha
 * Quer ver exemplos para atividades de entrada filtradas? Confira [Exemplos de API de relatório de atividade de entrada do Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
 * Quer saber mais sobre a API de relatório do Azure AD? Confira [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

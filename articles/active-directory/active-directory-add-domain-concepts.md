@@ -1,12 +1,12 @@
 ---
-title: Visão geral conceitual dos nomes de domínio personalizados no Azure Active Directory | Microsoft Docs
-description: Explica a estrutura conceitual para usar nomes de domínio personalizados no Azure Active Directory, incluindo federação para logon único
+title: "Visão geral conceitual dos nomes de domínio personalizados no Azure Active Directory | Microsoft Docs"
+description: "Explica a estrutura conceitual para usar nomes de domínio personalizados no Azure Active Directory, incluindo federação para logon único"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeffsta
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: curtand;jeffsta
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 12d41a77655c4892a9dc20979ef98b1bd39f94c5
+
 
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Visão geral conceitual dos nomes de domínio personalizados no Azure Active Directory
@@ -58,6 +62,9 @@ Tarefas de gerenciamento de domínio podem ser realizadas no portal clássico do
 * [Como usar o PowerShell para gerenciar nomes de domínio no Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
 * [Usando a API do Graph do Azure AD para gerenciar nomes de domínio no Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure ao SimpleNexus | Microsoft Docs'
-description: Saiba como usar o SimpleNexus com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!
+title: "Tutorial: Integração do Azure Active Directory com o SimpleNexus | Microsoft Docs"
+description: "Saiba como usar o SimpleNexus com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 89821a05-88e2-4579-b144-0123b2b9cb95
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,10 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4226d82ac8f0b5e0d8806df2c93f1a1a73162316
+
 
 ---
-# Tutorial: Integração do Active Directory do Azure com o SimpleNexus
-O objetivo deste tutorial é mostrar a integração do Azure com o SimpleNexus. O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+# <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Tutorial: Integração do Active Directory do Azure com o SimpleNexus
+O objetivo deste tutorial é mostrar a integração do Azure com o SimpleNexus.  
+O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
 * Uma assinatura válida do Azure
 * Uma assinatura habilitada para logon único do SimpleNexus
@@ -30,79 +35,85 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 3. Configurando o provisionamento de usuários
 4. Atribuindo usuários
 
-![Cenário](./media/active-directory-saas-simplenexus-tutorial/IC785893.png "Cenário")
+![Cenário](./media/active-directory-saas-simplenexus-tutorial/IC785893.png "Scenario")
 
-## Habilitando a integração de aplicativos para o SimpleNexus
+## <a name="enabling-the-application-integration-for-simplenexus"></a>Habilitando a integração de aplicativos para o SimpleNexus
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o SimpleNexus.
 
-### Para habilitar a integração de aplicativos com o SimpleNexus, execute as seguintes etapas:
+### <a name="to-enable-the-application-integration-for-simplenexus-perform-the-following-steps"></a>Para habilitar a integração de aplicativos com o SimpleNexus, execute as seguintes etapas:
 1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-simplenexus-tutorial/IC700993.png "Active Directory")
-2. Na lista **Diretório**, selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
-   ![Aplicativos](./media/active-directory-saas-simplenexus-tutorial/IC700994.png "Aplicativos")
+   ![Aplicativos](./media/active-directory-saas-simplenexus-tutorial/IC700994.png "Applications")
 4. Clique em **Adicionar** na parte inferior da página.
    
-   ![Adicionar aplicativo](./media/active-directory-saas-simplenexus-tutorial/IC749321.png "Adicionar aplicativo")
+   ![Adicionar aplicativo](./media/active-directory-saas-simplenexus-tutorial/IC749321.png "Add application")
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-simplenexus-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
+   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-simplenexus-tutorial/IC749322.png "Add an application from gallerry")
 6. Na **caixa de pesquisa**, digite **Simple Nexus**.
    
-   ![Galeria de Aplicativos](./media/active-directory-saas-simplenexus-tutorial/IC785894.png "Galeria de Aplicativos")
+   ![Galeria de Aplicativos](./media/active-directory-saas-simplenexus-tutorial/IC785894.png "Application Gallery")
 7. No painel de resultados, selecione **SimpleNexus** e clique em **Concluir** para adicionar o aplicativo.
    
    ![Simple Nexus](./media/active-directory-saas-simplenexus-tutorial/IC809578.png "Simple Nexus")
    
-   ## Configurando o logon único
+   ## <a name="configuring-single-sign-on"></a>Configurando o logon único
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no SimpleNexus com sua conta do AD do Azure usando federação baseada em protocolo SAML.
 
-### Para configurar o logon único, execute as seguintes etapas:
-1. No Portal clássico do Azure, na página de integração do aplicativo **SimpleNexus**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
+1. No portal clássico do Azure, na página de integração de aplicativos **SimpleNexus**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
-   ![Configurar o logon único](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Configurar o logon único")
-2. Na página **Como você deseja que os usuários façam logon no SimpleNexus**, selecione **Logon Único do AD do Microsoft Azure** e clique em **Avançar**.
+   ![Configurar Logon Único](./media/active-directory-saas-simplenexus-tutorial/IC785896.png "Configure Single Sign-On")
+2. Na página **Como você deseja que os usuários façam logon no SimpleNexus**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
-   ![Configurar o logon único](./media/active-directory-saas-simplenexus-tutorial/IC785897.png "Configurar o logon único")
-3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Entrada do SimpleNexus**, digite a URL usando o padrão "*https://simplenexus.com/CompanyName\_login*" e clique em **Avançar**.
+   ![Configurar Logon Único](./media/active-directory-saas-simplenexus-tutorial/IC785897.png "Configure Single Sign-On")
+3. Na página **Configurar a URL do Aplicativo**, na caixa de texto **URL de Entrada do SimpleNexus**, digite a URL usando o padrão “*https://simplenexus.com/CompanyName\_login*” e clique em **Avançar**.
    
-   ![Configurar a URL do Aplicativo](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "Configurar a URL do Aplicativo")
+   ![Configurar a URL do Aplicativo](./media/active-directory-saas-simplenexus-tutorial/IC786904.png "Configure App URL")
 4. Na página **Configurar logon único no SimpleNexus**, clique em **Baixar metadados** e encaminhe o arquivo de metadados para a equipe de suporte do SimpleNexus.
    
-   ![Configurar o logon único](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Configurar o logon único")
+   ![Configurar Logon Único](./media/active-directory-saas-simplenexus-tutorial/IC785899.png "Configure Single Sign-On")
    
    > [!NOTE]
    > O logon único precisa ser habilitado pela equipe de suporte do SimpleNexus.
    > 
    > 
-5. No Portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
+5. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
    
-   ![Configurar o logon único](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Configurar o logon único")
+   ![Configurar Logon Único](./media/active-directory-saas-simplenexus-tutorial/IC785900.png "Configure Single Sign-On")
    
-   ## Configurando o provisionamento de usuários
+   ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
 
-Para permitir que os usuários do AD do Azure façam logon no SimpleNexus, eles deverão ser provisionados no SimpleNexus. No caso do SimpleNexus, o provisionamento será uma tarefa manual executada pelo administrador do locatário.
+Para permitir que os usuários do AD do Azure façam logon no SimpleNexus, eles deverão ser provisionados no SimpleNexus.  
+No caso do SimpleNexus, o provisionamento será uma tarefa manual executada pelo administrador do locatário.
 
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação da conta de usuário do SimpleNexus ou as APIs fornecidas pelo SimpleNexus para provisionar as contas de usuário do AAD.
 > 
 > 
 
-## Atribuindo usuários
+## <a name="assigning-users"></a>Atribuindo usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
-### Para atribuir usuários ao SimpleNexus, execute as seguintes etapas:
+### <a name="to-assign-users-to-simplenexus-perform-the-following-steps"></a>Para atribuir usuários ao SimpleNexus, execute as seguintes etapas:
 1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração do aplicativo **SimpleNexus**, clique em **Atribuir usuários**.
+2. Na página de integração de aplicativos do **SimpleNexus**, clique em **Atribuir usuários**.
    
-   ![Atribuir Usuários](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Atribuir Usuários")
+   ![Atribuir usuários](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Assign Users")
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
    
-   ![Sim](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "Sim")
+   ![Sim](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "Yes")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
