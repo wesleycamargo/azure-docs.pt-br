@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/30/2016
+ms.date: 12/13/2016
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -84,26 +84,30 @@ Desinstalar o pacote NuGet de Serviço de Cache Gerenciado remove os assemblies 
 
 Verifique se a entrada `dataCacheClients` é removida do elemento `configSections`. Não remova todo o elemento `configSections`; remova apenas a entrada `dataCacheClients`, se estiver presente.
 
-    <configSections>
-      <!-- Existing sections omitted for clarity. -->
-      <section name="dataCacheClients"type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection, Microsoft.ApplicationServer.Caching.Core" allowLocation="true" allowDefinition="Everywhere"/>
-    </configSections>
+```xml
+<configSections>
+  <!-- Existing sections omitted for clarity. -->
+  <section name="dataCacheClients"type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection, Microsoft.ApplicationServer.Caching.Core" allowLocation="true" allowDefinition="Everywhere"/>
+</configSections>
+```
 
 Verifique se a seção `dataCacheClients` é removida. A seção `dataCacheClients` será semelhante ao exemplo a seguir.
 
-    <dataCacheClients>
-      <dataCacheClientname="default">
-        <!--To use the in-role flavor of Azure Cache, set identifier to be the cache cluster role name -->
-        <!--To use the Azure Managed Cache Service, set identifier to be the endpoint of the cache cluster -->
-        <autoDiscoverisEnabled="true"identifier="[Cache role name or Service Endpoint]"/>
+```xml
+<dataCacheClients>
+  <dataCacheClientname="default">
+    <!--To use the in-role flavor of Azure Cache, set identifier to be the cache cluster role name -->
+    <!--To use the Azure Managed Cache Service, set identifier to be the endpoint of the cache cluster -->
+    <autoDiscoverisEnabled="true"identifier="[Cache role name or Service Endpoint]"/>
 
-        <!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />-->
-        <!--Use this section to specify security settings for connecting to your cache. This section is not required if your cache is hosted on a role that is a part of your cloud service. -->
-        <!--<securityProperties mode="Message" sslEnabled="true">
-          <messageSecurity authorizationInfo="[Authentication Key]" />
-        </securityProperties>-->
-      </dataCacheClient>
-    </dataCacheClients>
+    <!--<localCache isEnabled="true" sync="TimeoutBased" objectCount="100000" ttlValue="300" />-->
+    <!--Use this section to specify security settings for connecting to your cache. This section is not required if your cache is hosted on a role that is a part of your cloud service. -->
+    <!--<securityProperties mode="Message" sslEnabled="true">
+      <messageSecurity authorizationInfo="[Authentication Key]" />
+    </securityProperties>-->
+  </dataCacheClient>
+</dataCacheClients>
+```
 
 Depois que a configuração do Serviço de Cache Gerenciado é removida, você pode configurar o cliente de cache conforme descrito na seção a seguir.
 
@@ -118,7 +122,9 @@ No Serviço de Cache Gerenciado, as conexões com o cache eram manipuladas pelas
 
 Adicione o seguinte usando a instrução na parte superior de qualquer arquivo do qual você deseja acessar o cache.
 
-    using StackExchange.Redis
+```c#
+using StackExchange.Redis
+```
 
 Se esse namespace não for resolvido, certifique-se de que você tenha adicionado o pacote NuGet StackExchange.Redis conforme descrito em [Configurar os clientes de cache](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
@@ -129,33 +135,37 @@ Se esse namespace não for resolvido, certifique-se de que você tenha adicionad
 
 Para se conectar a uma instância de Cache Redis do Azure, chame o método estático `ConnectionMultiplexer.Connect` e passe-o na chave e no ponto de extremidade. Uma abordagem para compartilhar uma instância do `ConnectionMultiplexer` em seu aplicativo deve ter uma propriedade estática que retorna uma instância conectada, semelhante ao exemplo a seguir. Isso oferece uma maneira segura para o thread para inicializar somente uma única instância conectada do `ConnectionMultiplexer` . Neste exemplo, `abortConnect` é definido como false, o que significa que a chamada terá êxito mesmo que não seja possível estabelecer uma conexão com o cache. Um recurso chave do `ConnectionMultiplexer` é que ele vai restaurar automaticamente a conectividade ao cache assim que o problema de rede ou outras causas sejam resolvidos.
 
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-    });
+```c#
+private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+{
+    return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+});
 
-    public static ConnectionMultiplexer Connection
+public static ConnectionMultiplexer Connection
+{
+    get
     {
-        get
-        {
-            return lazyConnection.Value;
-        }
+        return lazyConnection.Value;
     }
+}
+```
 
 O ponto de extremidade do cache, as chaves e portas podem ser obtidos na folha **Cache Redis** de sua instância de cache. Para obter mais informações, consulte as [Propriedades do Cache Redis](cache-configure.md#properties).
 
 Quando a conexão for estabelecida, retorne uma referência para o banco de dados do redis cache chamando o método `ConnectionMultiplexer.GetDatabase` . O objeto retornado pelo método `GetDatabase` é um objeto leve de passagem e não precisa ser armazenado.
 
-    IDatabase cache = Connection.GetDatabase();
+```c#
+IDatabase cache = Connection.GetDatabase();
 
-    // Perform cache operations using the cache object...
-    // Simple put of integral data types into the cache
-    cache.StringSet("key1", "value");
-    cache.StringSet("key2", 25);
+// Perform cache operations using the cache object...
+// Simple put of integral data types into the cache
+cache.StringSet("key1", "value");
+cache.StringSet("key2", 25);
 
-    // Simple get of data types from the cache
-    string key1 = cache.StringGet("key1");
-    int key2 = (int)cache.StringGet("key2");
+// Simple get of data types from the cache
+string key1 = cache.StringGet("key1");
+int key2 = (int)cache.StringGet("key2");
+```
 
 O cliente StackExchange.Redis usa os tipos `RedisKey` e `RedisValue` tipos para acessar e armazenar itens no cache. Esses tipos mapeiam para tipos de linguagem mais primitivos, incluindo a cadeia de caracteres e geralmente não são usados diretamente. As Cadeias de caracteres Redis são o tipo mais básico de valor do Redis e podem conter muitos tipos de dados, incluindo fluxos de binários serializados e apesar de você não poderá usar o tipo diretamente, você usará métodos que contêm `String` no nome. Para a maioria dos tipos de dados primitivos você armazena e recupera itens do cache usando os métodos `StringSet` e `StringGet`, a menos que você pretenda armazenar coleções ou outros tipos de dados Redis no cache. 
 
@@ -165,7 +175,9 @@ Ao se chamar `StringGet`, se o objeto existir, ele será retornado e, se não ex
 
 Para especificar a expiração de um item no cache, use o parâmetro `TimeSpan` de `StringSet`.
 
-    cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
+```c#
+cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
+```
 
 O Cache Redis do Azure pode trabalhar com objetos .NET, bem como tipos de dados primitivos, mas antes que um objeto .NET possa ser armazenado em cache, ele deve ser serializado. Isso é responsabilidade do desenvolvedor do aplicativo. Isso oferece flexibilidade ao desenvolvedor na escolha do serializador. Para obter mais informações e um código de exemplo, consulte [Trabalhar com objetos .NET no cache](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 

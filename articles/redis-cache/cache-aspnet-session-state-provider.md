@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/01/2016
+ms.date: 12/13/2016
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -43,25 +43,27 @@ O pacote NuGet do Provedor de estado de sessão Redis tem uma dependência do pa
 
 Os downloads de pacote NuGet acrescentam as referências de assembly necessárias e adicionam a seguinte seção dentro de seu arquivo web.config que contém a configuração solicitada para seu aplicativo ASP.NET a fim de usar o provedor de estado de sessão de cache Redis do Azure.
 
-    <sessionState mode="Custom" customProvider="MySessionStateStore">
-        <providers>
-        <!--
-        <add name="MySessionStateStore"
-               host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-        />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-        </providers>
-    </sessionState>
+```xml
+<sessionState mode="Custom" customProvider="MySessionStateStore">
+    <providers>
+    <!--
+    <add name="MySessionStateStore"
+           host = "127.0.0.1" [String]
+        port = "" [number]
+        accessKey = "" [String]
+        ssl = "false" [true|false]
+        throwOnError = "true" [true|false]
+        retryTimeoutInMilliseconds = "0" [number]
+        databaseId = "0" [number]
+        applicationName = "" [String]
+        connectionTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "5000" [number]
+    />
+    -->
+    <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
+    </providers>
+</sessionState>
+```
 
 A seção comentada fornece um exemplo dos atributos e exemplos de configurações para cada atributo.
 
@@ -83,16 +85,18 @@ Para saber mais sobre essas propriedades, consulte o anúncio original da postag
 
 Não se esqueça de comentar a seção do provedor de estado de sessão InProc padrão em seu Web.config.
 
-    <!-- <sessionState mode="InProc"
-         customProvider="DefaultSessionProvider">
-         <providers>
-            <add name="DefaultSessionProvider"
-                  type="System.Web.Providers.DefaultSessionStateProvider,
-                        System.Web.Providers, Version=1.0.0.0, Culture=neutral,
-                        PublicKeyToken=31bf3856ad364e35"
-                  connectionStringName="DefaultConnection" />
-          </providers>
-    </sessionState> -->
+```xml
+<!-- <sessionState mode="InProc"
+     customProvider="DefaultSessionProvider">
+     <providers>
+        <add name="DefaultSessionProvider"
+              type="System.Web.Providers.DefaultSessionStateProvider,
+                    System.Web.Providers, Version=1.0.0.0, Culture=neutral,
+                    PublicKeyToken=31bf3856ad364e35"
+              connectionStringName="DefaultConnection" />
+      </providers>
+</sessionState> -->
+```
 
 Após a execução dessas etapas, seu aplicativo será configurado para usar o Provedor de estado de sessão de cache Redis. Quando você usa o estado de sessão em seu aplicativo, ele é armazenado em uma instância do Cache Redis do Azure.
 

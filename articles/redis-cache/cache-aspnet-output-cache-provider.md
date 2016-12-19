@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/27/2016
+ms.date: 12/13/2016
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -38,25 +38,27 @@ O pacote NuGet do Provedor de Cache de Saída Redis tem uma dependência do paco
 
 Os downloads de pacote NuGet acrescentam as referências de assembly necessárias e adicionam a seguinte seção dentro de seu arquivo web.config que contém a configuração solicitada para seu aplicativo ASP.NET a fim de usar o Provedor de Cache de Saída Redis.
 
-    <caching>
-      <outputCachedefault Provider="MyRedisOutputCache">
-        <providers>
-          <!--
-          <add name="MyRedisOutputCache"
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-          -->
-          <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-        </providers>
-      </outputCache>
-    </caching>
+```xml
+<caching>
+  <outputCachedefault Provider="MyRedisOutputCache">
+    <providers>
+      <!--
+      <add name="MyRedisOutputCache"
+        host = "127.0.0.1" [String]
+        port = "" [number]
+        accessKey = "" [String]
+        ssl = "false" [true|false]
+        databaseId = "0" [number]
+        applicationName = "" [String]
+        connectionTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "5000" [number]
+      />
+      -->
+      <add name="MyRedisOutputCache" type="Microsoft.Web.Redis.RedisOutputCacheProvider" host="127.0.0.1" accessKey="" ssl="false"/>
+    </providers>
+  </outputCache>
+</caching>
+```
 
 A seção comentada fornece um exemplo dos atributos e exemplos de configurações para cada atributo.
 
@@ -74,7 +76,9 @@ Configure os atributos com os valores de sua folha de cache no Portal do Microso
 
 Adicione uma diretiva OutputCache a cada página da qual você deseja armazenar a saída em cache.
 
-    <%@ OutputCache Duration="60" VaryByParam="*" %>
+```
+<%@ OutputCache Duration="60" VaryByParam="*" %>
+```
 
 Neste exemplo, os dados da página em cache permanecerão no cache por 60 segundos, e outra versão da página será armazenada em cache para cada combinação de parâmetros. Para saber mais sobre a diretiva OutputCache, consulte [@OutputCache](http://go.microsoft.com/fwlink/?linkid=320837).
 
