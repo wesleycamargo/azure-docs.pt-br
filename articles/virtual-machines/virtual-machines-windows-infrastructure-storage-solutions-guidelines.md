@@ -1,13 +1,13 @@
 ---
-title: Diretrizes de soluções de armazenamento | Microsoft Docs
-description: Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de soluções de armazenamento em serviços de infraestrutura do Azure.
-documentationcenter: ''
+title: "Diretrizes de soluções de armazenamento | Microsoft Docs"
+description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de soluções de armazenamento em serviços de infraestrutura do Azure."
+documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 4ceb7d32-7a0d-4004-b701-c2bbcaff6b0b
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 589c79b9caba359ce8063c051ebe80dcbc68456c
+
 
 ---
-# Diretrizes de infraestrutura de armazenamento
+# <a name="storage-infrastructure-guidelines"></a>Diretrizes de infraestrutura de armazenamento
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artigo destaca as noções básicas sobre as necessidades de armazenamento e considerações de design para atingir o desempenho de VM (máquina virtual) ideal.
 
-## Diretrizes de implementação de armazenamento
+## <a name="implementation-guidelines-for-storage"></a>Diretrizes de implementação de armazenamento
 Decisões:
 
 * Você precisa usar o armazenamento Standard ou Premium para sua carga de trabalho?
@@ -35,13 +39,13 @@ Tarefas:
 * Examinar as demandas de E/S dos aplicativos que serão implantados e planejar a quantidade e o tipo apropriados de contas de armazenamento.
 * Crie o conjunto de contas de armazenamento usando a sua convenção de nomenclatura. Você pode usar o Azure PowerShell ou o Portal.
 
-## Armazenamento
+## <a name="storage"></a>Armazenamento
 O Armazenamento do Azure é uma parte fundamental de implantação e gerenciamento de aplicativos e VMs (máquinas virtuais). O Armazenamento do Azure fornece serviços para armazenar dados de arquivo, dados não estruturados e mensagens, além de fazer parte da infraestrutura que dá suporte às VMs.
 
 Há dois tipos de conta de armazenamento disponíveis para dar suporte às VMs:
 
 * Contas de armazenamento Standard fornece acesso ao armazenamento de blobs (usado para armazenar discos da VM do Azure), armazenamento de tabelas, armazenamento de filas e armazenamento de arquivos.
-* Contas de [armazenamento premium](../storage/storage-premium-storage.md) dão suporte de disco de alto desempenho e baixa latência para cargas de trabalho com uso intensivo de E/S, como SQL Servers em um cluster AlwaysOn. Um armazenamento premium dá suporte no momento somente a discos de VM do Azure.
+* [armazenamento premium](../storage/storage-premium-storage.md) dão suporte de disco de alto desempenho e baixa latência para cargas de trabalho com uso intensivo de E/S, como SQL Servers em um cluster AlwaysOn. Um armazenamento premium dá suporte no momento somente a discos de VM do Azure.
 
 O Azure cria VMs com um disco do sistema operacional, um disco temporário e zero ou mais discos de dados opcionais. O disco do sistema operacional e os discos de dados são blobs de página do Azure, enquanto o disco temporário é armazenado localmente no nó em que a máquina reside. Tome cuidado ao projetar aplicativos para usar somente este disco temporário para dados não persistentes, pois a VM poderá ser migrada entre hosts durante um evento de manutenção. Todos os dados armazenados no disco temporário seriam perdidos.
 
@@ -59,10 +63,10 @@ Há alguns limites de escalabilidade ao projetar suas implantações do Armazena
 
 Para armazenamento de aplicativos, é possível armazenar dados de objeto não estruturados, como documentos, imagens, backups, dados de configuração, logs etc. usando o armazenamento de blobs. Em vez de seu aplicativo gravar em um disco virtual anexado à VM, o aplicativo poderá gravar diretamente no armazenamento de blobs do Azure. O armazenamento de blobs também oferece a opção de [camadas de armazenamento quentes e frias](../storage/storage-blob-storage-tiers.md) dependendo de suas necessidades de disponibilidade e restrições de custo.
 
-## Discos distribuídos
+## <a name="striped-disks"></a>Discos distribuídos
 Além de permitir que você crie discos com mais de 1023 GB, em muitos casos, o uso da distribuição para discos de dados pode melhorar o desempenho, permitindo que vários blobs façam o armazenamento de um único volume. Com a distribuição, a E/S necessária para gravar e ler dados de um único disco lógico continua em paralelo.
 
-O Azure impõe limites no número de discos de dados e na quantidade de largura de banda disponíveis, dependendo do tamanho da VM. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md).
+O Azure impõe limites no número de discos de dados e na quantidade de largura de banda disponíveis, dependendo do tamanho da VM. Para obter detalhes, consulte [Tamanhos das máquinas virtuais](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Se você estiver usando a distribuição de disco para os discos de dados do Azure, considere as seguintes diretrizes:
 
@@ -73,12 +77,17 @@ Se você estiver usando a distribuição de disco para os discos de dados do Azu
 
 Para saber mais, consulte [Espaços de armazenamento: design para desempenho](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
-## Várias contas de armazenamento
+## <a name="multiple-storage-accounts"></a>Várias contas de armazenamento
 Durante a criação do ambiente do Armazenamento do Azure, você poderá usar várias contas de armazenamento conforme o número de VMs implantadas aumentar. Isso ajuda a distribuir a E/S em toda a infraestrutura subjacente do Armazenamento do Azure, para manter o desempenho ideal para suas VMs e aplicativos. Ao projetar os aplicativos que serão implantados, considere os requisitos de E/S que cada VM terá e faça um balanceamento dessas VMs entre as contas do Armazenamento do Azure. Tente evitar agrupar todas as VMs que exigem E/S alta em apenas uma ou duas contas de armazenamento.
 
 Para saber mais sobre as funcionalidades de E/S das diferentes opções do Armazenamento do Azure e de alguns limites máximos recomendáveis, veja [Metas de desempenho e escalabilidade do armazenamento do Azure](../storage/storage-scalability-targets.md).
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Adicionar atraso a aplicativos lógicos | Microsoft Docs
-description: Visão geral das ações atrasar e atrasar até, e como usá-las como um aplicativo lógico do Azure.
-services: ''
-documentationcenter: ''
+title: "Adicionar atraso a aplicativos lógicos | Microsoft Docs"
+description: "Visão geral das ações atrasar e atrasar até, e como usá-las como um aplicativo lógico do Azure."
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 915f48bf-3bd8-4656-be73-91a941d0afcd
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e4281c70dc0edd45ff485c64a499291b23ad51b7
+
 
 ---
-# Introdução às ações atrasar e atrasar até
+# <a name="get-started-with-the-delay-and-delay-until-actions"></a>Introdução às ações atrasar e atrasar até
 Usando as ações atrasar e “atrasar até”, você pode concluir cenários de fluxo de trabalho.
 
 Por exemplo, você pode:
@@ -27,7 +31,7 @@ Por exemplo, você pode:
 
 Para começar a usar a ação atrasar em um aplicativo lógico, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Usar as ações atrasar
+## <a name="use-the-delay-actions"></a>Usar as ações atrasar
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](connectors-overview.md).
 
 Veja uma sequência de exemplos de como usar uma etapa de atraso em um aplicativo lógico:
@@ -41,11 +45,12 @@ Veja uma sequência de exemplos de como usar uma etapa de atraso em um aplicativ
     ![Configuração de atraso](./media/connectors-native-delay/using-action-2.png)
 4. Clique em **Salvar** para publicar e ativar o aplicativo lógico.
 
-## Detalhes da ação
+## <a name="action-details"></a>Detalhes da ação
 O gatilho de recorrência tem as propriedades a seguir que podem ser configuradas.
 
-### Ação atrasar
-Essa ação atrasa a execução por um determinado intervalo de tempo. Um * significa que é um campo obrigatório.
+### <a name="delay-action"></a>Ação atrasar
+Essa ação atrasa a execução por um determinado intervalo de tempo.
+Um * significa que é um campo obrigatório.
 
 | Nome de exibição | Nome da propriedade | Descrição |
 | --- | --- | --- |
@@ -54,8 +59,9 @@ Essa ação atrasa a execução por um determinado intervalo de tempo. Um * sign
 
 <br>
 
-### Ação atrasar até
-Essa ação atrasa a execução até uma data/hora especificada. Um * significa que é um campo obrigatório.
+### <a name="delay-until-action"></a>Ação atrasar até
+Essa ação atrasa a execução até uma data/hora especificada.
+Um * significa que é um campo obrigatório.
 
 | Nome de exibição | Nome da propriedade | Descrição |
 | --- | --- | --- |
@@ -65,7 +71,12 @@ Essa ação atrasa a execução até uma data/hora especificada. Um * significa 
 
 <br>
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora, experimente a plataforma e [crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

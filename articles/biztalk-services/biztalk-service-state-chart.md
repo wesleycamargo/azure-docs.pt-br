@@ -1,265 +1,65 @@
 ---
-title: Tarefas permitidas em estados ou status diferentes nos Serviços BizTalk | Microsoft Docs
-description: 'As ações/operações permitidas no status diferente de MABS: parar, iniciar, reiniciar, suspender, continuar, excluir, dimensionar, atualizar o backup e configuração de backup'
+title: "Tarefas permitidas em estados ou status diferentes nos Serviços BizTalk | Microsoft Docs"
+description: "As ações/operações permitidas no status diferente de MABS: parar, iniciar, reiniciar, suspender, continuar, excluir, dimensionar, atualizar o backup e configuração de backup"
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
-manager: erikre
-editor: ''
-
+manager: anneta
+editor: 
+ms.assetid: aea738f3-ec76-4099-a41b-e17fea9e252f
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/08/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 331c03cd0819aa4935f9b486ff38f54d23d6a7fd
+ms.openlocfilehash: e3d5f89b1c8525f791e73667d6f7cd6a999ab971
+
 
 ---
-# Serviços BizTalk: gráfico de estado do serviço
+# <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>O que você pode e não pode fazer usando o estado do Serviço BizTalk
 Dependendo do estado atual do Serviço BizTalk, há operações que podem ou não serem executadas no Serviço BizTalk.
 
-Por exemplo, você pode provisionar um novo Serviço BizTalk no portal clássico do Azure. Quando for concluído com êxito, o serviço BizTalk estará no estado Ativo. No estado Ativo, você pode parar o serviço BizTalk. Se a parada for bem-sucedida, o Serviço BizTalk irá para o estado de Parado. Se houver falha na parada, o Serviço BizTalk irá para o estado StopFailed. No estado StopFailed, você pode reiniciar o Serviço BizTalk. Se você tentar uma operação que não é permitida, como retomar o Serviço BizTalk, ocorrerá o seguinte erro:
+Por exemplo, você pode provisionar um novo Serviço BizTalk no portal clássico do Azure. Quando for concluído com êxito, o serviço BizTalk estará no estado `active`. No estado ativo, você pode parar, suspender e excluir o serviço BizTalk. Se você parar o serviço BizTalk e a interrupção falhar, o serviço BizTalk irá para um estado `StopFailed`. No estado `StopFailed`, você pode reiniciar o Serviço BizTalk. Se você tentar uma operação que não é permitida, como retomar, ocorrerá o seguinte erro:
 
-**Operação não permitida**
+`Operation not allowed`
 
-Para provisionar o Serviço BizTalk, acesse [Serviços BizTalk: provisionamento usando o portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280).
+## <a name="view-the-possible-states"></a>Exibir os possíveis estados
 
 As tabelas a seguir listam as operações ou ações que podem ser executadas quando o Serviço BizTalk está em um estado específico. Um ✔ significa que a operação tem permissão enquanto estiver nesse estado. Uma entrada em branco significa que a operação não pode ser executada enquanto estiver nesse estado.
 
-## Operações Iniciar, Parar, Reiniciar, Suspender, Continuar e Excluir
-<table border="1">
-<tr>
-        <th colspan="15">Operação ou ação</th>
-</tr>
+| Estado do serviço | Iniciar | Parar | Reiniciar | Suspender | Continuar | Excluir | Escala | Atualização <br/> Configuração | Backup |
+| --- | --- | --- | --- | --- | --- | --- |--- | --- | --- |
+| Ativo |  | ✔ | ✔ | ✔ |  | ✔ |✔ |✔ |✔ |
+| Desabilitado |  |  |  |  |  | ✔ | |  |  | 
+| Suspenso |  |  |  |  | ✔ | ✔ | |  | ✔ |
+| Parada | ✔ |  | ✔ |  |  | ✔ | |  | ✔ |
+| Falha na atualização do serviço |  |  |  |  |  | ✔ | |  |  | 
+| DisableFailed |  |  |  |  |  | ✔ | |  |  | 
+| EnableFailed |  |  |  |  |  | ✔ | |  |  | 
+| StartFailed <br/> StopFailed <br/> RestartFailed | ✔ | ✔ | ✔ |  |  | ✔ | | ✔ | |
+| SuspendedFailed <br/> ResumeFailed|  |  |  | ✔ | ✔ | ✔ | |  |  | 
+| CreatedFailed <br/> RestoreFailed |  |  |  |  |  | ✔ | |  |  | 
+| ConfigUpdateFailed  |  |  | ✔ |  |  | ✔ | |✔ | |
+| ScaleFailed |  |  |  |  |  | ✔ |✔ | |  |  | 
 
-<tr>
-        <th rowspan="18">Estado do Serviço BizTalk</th>
-</tr>
-<tr bgcolor="FAF9F9">
-        <th> </th>
-        <th>Iniciar</th>
-        <th>Parar</th>
-        <th>Reiniciar</th>
-        <th>Suspender</th>
-        <th>Continuar</th>
-        <th>Exclusão</th>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>Ativo</b></td>
-<td> </td>
-<td><center>✔</center></td>
-<td><center>✔</center></td>
-<td><center>✔</center></td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>Desabilitado</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>Suspenso</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>Interrompido</b></td>
-<td><center>✔</center></td>
-<td> </td>
-<td><center>✔</center></td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>Falha na atualização do serviço</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>DisableFailed</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>EnableFailed</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>StartFailed<br/>
-StopFailed<br/>
-RestartFailed</b></td>
-<td><center>✔</center></td>
-<td><center>✔</center></td>
-<td><center>✔</center></td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>SuspendedFailed<br/>
-ResumeFailed</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-<td><center>✔</center></td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>CreatedFailed<br/>
-RestoreFailed<br/></b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>ConfigUpdateFailed</b></td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>ScaleFailed</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-</table>
-<br/>
 
-## Operações de Escala, Atualização, Configuração e Backup
-<table border="1">
-<tr>
-        <th colspan="15">Operação ou ação</th>
-</tr>
 
-<tr>
-        <th rowspan="18">Estado do Serviço BizTalk</th>
-</tr>
-<tr bgcolor="FAF9F9">
-        <th> </th>
-        <th>Escala</th>
-        <th>Atualizar a configuração</th>
-        <th>Backup</th>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>Ativo</b></td>
-<td><center>✔</center></td>
-<td><center>✔</center></td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>Desabilitado</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>Suspenso</b></td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>Interrompido</b></td>
-<td> </td>
-<td> </td>
-<td><center>✔</center></td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>Falha na atualização do serviço</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>DisableFailed</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>EnableFailed</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>StartFailed<br/>
-StopFailed<br/>
-RestartFailed</b></td>
-<td> </td>
-<td><center>✔</center></td>
-<td> </td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>SuspendedFailed<br/>
-ResumeFailed</b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>CreatedFailed<br/>
-RestoreFailed<br/></b></td>
-<td> </td>
-<td> </td>
-<td> </td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>ConfigUpdateFailed</b></td>
-<td> </td>
-<td><center>✔</center></td>
-<td> </td>
-</tr>
-<tr>
-<td bgcolor="FAF9F9"><b>ScaleFailed</b></td>
-<td><center>✔</center></td>
-<td> </td>
-<td> </td>
-</tr>
-</table>
-
-## Consulte também
-* [Serviços BizTalk: provisionamento usando o portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [Serviços BizTalk: guias Painel, Monitor e Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Serviços BizTalk: backup e restauração](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Serviços BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-* [Serviços BizTalk: nome e chave do emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+## <a name="see-also"></a>Consulte também
+* [Criar um Serviço BizTalk usando o Portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [O que você pode fazer nas guias painel, monitor e escala nos Serviços BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [O que você obtém com as edições Developer, Básico, Standard e Premium nos Serviços BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Como fazer backup e restaurar um Serviço BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Limitação explicada nos Serviços BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Recuperar os valores de nome e chave do emissor do Controle de Acesso e do Barramento de Serviços para o Serviço BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 * [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

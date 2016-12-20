@@ -1,118 +1,129 @@
 ---
-title: Overview of the Azure Activity Log | Microsoft Docs
-description: Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription.
+title: "Visão geral do Log de Atividades do Azure | Microsoft Docs"
+description: "Saiba o que é o Log de Atividades do Azure e como usá-lo para compreender os eventos que ocorrem dentro de sua assinatura do Azure."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 10/25/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fc01f4dd55e1f933243bc23424b54767870374d1
+
 
 ---
-# <a name="overview-of-the-azure-activity-log"></a>Overview of the Azure Activity Log
-The **Azure Activity Log** is a log that provides insight into the operations that were performed on resources in your subscription. The Activity Log was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions. Using the Activity Log, you can determine the ‘what, who, and when’ for any write (PUT, POST, DELETE) operations taken on the resources in your subscription, plus understand the status of the operation and other relevant properties. The Activity Log does not include read (GET) operations.
+# <a name="overview-of-the-azure-activity-log"></a>Visão geral do Log de Atividades do Azure
+O **Log de Atividades do Azure** é um log que fornece informações sobre as operações executadas em recursos em sua assinatura. O Log de Atividades era conhecido como "Logs de Auditoria" ou "Logs Operacionais", pois ele relata eventos de plano de controle de suas assinaturas. Usando o Log de Atividades, você pode determinar 'o que, quem e quando' para quaisquer operações de gravação (PUT, POST, DELETE) executadas nos recursos em sua assinatura. Também é possível compreender o status da operação e outras propriedades relevantes. O Log de Atividades não inclui operações de leitura (GET).
 
-The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md), which are all logs emitted by a resource. These logs provide data about the operation of that resource, rather than operations on that resource. 
+O Log de Atividades difere dos [Logs de Diagnóstico](monitoring-overview-of-diagnostic-logs.md), que são todos os logs emitidos por um recurso. Esses logs fornecem dados sobre a operação desse recurso, em vez de operações nesse recurso.
 
-You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Insights REST API.
+Você pode recuperar os eventos de seu Log de Atividade usando o Portal do Azure, a CLI, cmdlets do PowerShell e a API REST do Azure Monitor.
 
-## <a name="what-you-can-do-with-the-activity-log"></a>What you can do with the Activity Log
-Here are some of the things you can do with the Activity Log:
+Veja este [vídeo de introdução ao Log de Atividades](https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz).  
 
-* Query and view it in the **Azure portal**.
-* Query it via REST API, PowerShell Cmdlet, or CLI.
-* [Create an email or webhook alert that triggers off an Activity Log event.](insights-auditlog-to-webhook-email.md)
-* [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
-* Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
-* [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third party service or custom analytics solution such as PowerBI.
+## <a name="what-you-can-do-with-the-activity-log"></a>O que você pode fazer com o Log de Atividades
+Veja algumas coisas que você pode fazer com o Log de Atividades:
 
-## <a name="export-the-activity-log-with-log-profiles"></a>Export the Activity Log with Log Profiles
-A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
+* Consultar e exibi-lo no **Portal do Azure**.
+* Consultá-lo por meio da API REST, do Cmdlet do PowerShell ou da CLI.
+* [Criar um alerta de email ou webhook que dispara um evento do Log de Atividades.](insights-auditlog-to-webhook-email.md)
+* [Salvá-lo em uma **Conta de Armazenamento** para inspeção manual ou arquivamento](monitoring-archive-activity-log.md). Você pode especificar o tempo de retenção (em dias) usando os **Perfis de Log**.
+* Analisá-lo no PowerBI usando o [**Pacote de conteúdo do PowerBI**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Transmiti-lo para um **Hub de Eventos**](monitoring-stream-activity-logs-event-hubs.md) para ingestão por um serviço de terceiro ou solução de análise personalizada, como o PowerBI.
 
-* Where the Activity Log should be sent (Storage Account or Event Hubs)
-* Which event categories (eg. Write, Delete, Action) should be sent
-* Which regions (locations) should be exported
-* How long the Activity Log should be retained in a Storage Account – a retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (eg. if only Event Hubs or OMS options are selected), the retention policies have no effect.
+## <a name="export-the-activity-log-with-log-profiles"></a>Exportar o Log de Atividades com Perfis de Log
+Um **Perfil de Log** controla o modo de exportação de seu Log de Atividades. Com um Perfil de Log, você pode configurar:
 
-These settings can be configured via the “Export” option in the Activity Log blade in the portal, or programmatically [using the REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
+* Aonde o Log de Atividades deve ser enviado (Conta de Armazenamento ou Hubs de Eventos)
+* Quais categorias de evento (Gravação, Exclusão, Ação) devem ser enviadas
+* Quais regiões (locais) devem ser exportados
+* Por quanto tempo o Log de Atividades deve ser mantido em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs serão mantidos para sempre. O valor pode ser qualquer quantidade de dias, entre 1 e 2147483647. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito.
 
-### <a name="configure-log-profiles-using-the-azure-portal"></a>Configure log profiles using the Azure portal
-You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
+Essas configurações podem ser definidas por meio da opção "Exportar" na folha do Log de Atividades no portal. Elas também podem ser definidas por meio de programação [usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), de cmdlets do PowerShell ou da CLI. Uma assinatura pode ter somente um perfil de log.
 
-1. Navigate to the **Activity Log** blade using the menu on the left side of the portal.
+### <a name="configure-log-profiles-using-the-azure-portal"></a>Configurar os perfis de log usando o Portal do Azure
+Você pode transmitir o Log de Atividades para um Hub de Eventos ou armazená-lo em uma Conta de Armazenamento usando a opção "Exportar" no Portal do Azure.
+
+1. Navegue até a folha **Log de Atividades** usando o menu no lado esquerdo do portal.
    
-    ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Click the **Export** button at the top of the blade.
+    ![Navegue até o Log de Atividades no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
+2. Clique no botão **Exportar** na parte superior da folha.
    
-    ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. In the blade that appears, you can select the regions for which you would like to export events, the Storage Account to which you would like to save events (as well as the number of days you want to retain these events in storage--0 days will retain the logs forever), and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+    ![Botão Exportar no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+3. Na folha que aparece, você pode selecionar:  
    
-    ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
+   * regiões para as quais você deseja exportar eventos
+   * a conta de armazenamento na qual você deseja salvar os eventos
+   * o número de dias para manter esses eventos no armazenamento. Uma configuração de 0 dias retém os logs para sempre.
+   * o namespace do Barramento de Serviço no qual você deseja que um Hub de Eventos seja criado para transmitir esses eventos.
+     
+     ![Folha Exportar Log de Atividades](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
+4. Clique em **Salvar** para salvar as configurações. As configurações serão aplicadas imediatamente à sua assinatura.
 
-### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configure log profiles using the Azure PowerShell Cmdlets
-#### <a name="get-existing-log-profile"></a>Get existing log profile
+### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configurar os perfis de log usando Cmdlets do Azure PowerShell
+#### <a name="get-existing-log-profile"></a>Obter o perfil de log existente
 ```
 Get-AzureRmLogProfile
 ```
 
-#### <a name="add-a-log-profile"></a>Add a log profile
+#### <a name="add-a-log-profile"></a>Adicionar um perfil de log
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
-| Name |Yes |Name of your log profile. |
-| StorageAccountId |No |Resource ID of the Storage Account to which the Activity Log should be saved. |
-| serviceBusRuleId |No |Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Will be a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. |
-| RetentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero will store the logs indefinitely (forever). |
-| Categories |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| Nome |Sim |Nome de seu perfil de log. |
+| StorageAccountId |Não |ID de recursos da Conta de Armazenamento na qual o Log de Atividades deve ser salvo. |
+| serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+| Locais |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
+| RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
+| Categorias |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
-#### <a name="remove-a-log-profile"></a>Remove a log profile
+#### <a name="remove-a-log-profile"></a>Remover um perfil de log
 ```
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Configure log profiles Using the Azure Cross-Platform CLI
-#### <a name="get-existing-log-profile"></a>Get existing log profile
+### <a name="configure-log-profiles-using-the-azure-cross-platform-cli"></a>Configurar os perfis de log usando a CLI de plataforma cruzada do Azure
+#### <a name="get-existing-log-profile"></a>Obter o perfil de log existente
 ```
 azure insights logprofile list
 ```
 ```
 azure insights logprofile get --name my_log_profile
 ```
-The `name` property should be the name of your log profile.
+A propriedade `name` deve ser o nome de seu perfil de log.
 
-#### <a name="add-a-log-profile"></a>Add a log profile
-``` 
+#### <a name="add-a-log-profile"></a>Adicionar um perfil de log
+```
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
-| name |Yes |Name of your log profile. |
-| storageId |No |Resource ID of the Storage Account to which the Activity Log should be saved. |
-| serviceBusRuleId |No |Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Will be a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
-| locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. |
-| retentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
-| categories |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| name |Sim |Nome de seu perfil de log. |
+| storageId |Não |ID de recursos da Conta de Armazenamento na qual o Log de Atividades deve ser salvo. |
+| serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. É uma cadeia de caracteres com este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+| locais |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
+| RetentionInDays |Sim |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente (para sempre). |
+| Categorias |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação. |
 
-#### <a name="remove-a-log-profile"></a>Remove a log profile
+#### <a name="remove-a-log-profile"></a>Remover um perfil de log
 ```
 azure insights logprofile delete --name my_log_profile
 ```
 
-## <a name="event-schema"></a>Event schema
-Each event in the Activity Log has a JSON blob like this one:
+## <a name="event-schema"></a>Esquema do evento
+Cada evento no Log de Atividades tem um blob JSON semelhante a este exemplo:
 
 ```
 {
@@ -195,34 +206,37 @@ Each event in the Activity Log has a JSON blob like this one:
 }
 ```
 
-| Element Name | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
-| authorization |Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
-| caller |Email address of the user who has performed the operation, UPN claim, or SPN claim based on availability. |
-| channels |One of the following values: “Admin”, “Operation” |
-| correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
-| description |Static text description of an event. |
-| eventDataId |Unique identifier of an event. |
-| eventSource |Name of the Azure service or infrastructure that has generated this event. |
-| httpRequest |Blob describing the Http Request. Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method e.g. PUT). |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose” |
-| resourceGroupName |Name of the resource group for the impacted resource. |
-| resourceProviderName |Name of the resource provider for the impacted resource |
-| resourceUri |Resource id of the impacted resource. |
-| operationId |A GUID shared among the events that correspond to a single operation. |
-| operationName |Name of the operation. |
-| properties |Set of `<Key, Value>` pairs (i.e. Dictionary) describing the details of the event. |
-| status |String describing the status of the operation. Some common values are: Started, In Progress, Succeeded, Failed, Active, Resolved. |
-| subStatus |Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus, such as these common values: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504). |
-| eventTimestamp |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| submissionTimestamp |Timestamp when the event became available for querying. |
-| subscriptionId |Azure Subscription Id. |
-| nextLink |Continuation token to fetch the next set of results when they are broken up into multiple responses. This is usually the case if there are more than 200 records. |
+| authorization |Blob de propriedades RBAC do evento. Geralmente, inclui as propriedades "action", "role" e "scope". |
+| chamador |Endereço de email do usuário que realizou a operação, declaração UPN ou declaração SPN com base na disponibilidade. |
+| canais |Um dos seguintes valores: "Admin", "Operação" |
+| correlationId |Geralmente, um GUID no formato de cadeia de caracteres. Os eventos que compartilham um correlationId pertencem à mesma ação superior. |
+| Descrição |Descrição de texto estático de um evento. |
+| eventDataId |Identificador exclusivo de um evento. |
+| eventSource |Nome do serviço ou infraestrutura do Azure que gerou esse evento. |
+| httpRequest |Blob que descreve a solicitação Http. Geralmente inclui a “clientRequestId”, o “clientIpAddress” e o “método” (método HTTP. Por exemplo, PUT). |
+| level |Nível do evento. Um dos seguintes valores: “Crítico”, “Erro”, “Aviso”, “Informativo” e “Detalhado” |
+| resourceGroupName |Nome do grupo de recursos do recurso afetado. |
+| resourceProviderName |Nome do provedor de recursos do recurso afetado |
+| resourceUri |Id de recurso do recurso afetado. |
+| operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
+| operationName |Nome da operação. |
+| propriedades |Conjunto de pares de `<Key, Value>` (ou seja, um Dicionário) que descreve os detalhes do evento. |
+| status |Cadeia de caracteres que descreve o status da operação. Alguns valores comuns são: Iniciado, Em Andamento, Êxito, Falha, Ativo, Resolvido. |
+| subStatus |Geralmente, o código de status HTTP da chamada REST correspondente, mas também pode incluir outras cadeias de caracteres que descrevam um substatus, como estes valores comuns: OK (Código de Status HTTP: 200), Criado (Código de Status HTTP: 201), Aceito (Código de Status HTTP: 202), Sem Conteúdo (Código de Status HTTP: 204), Solicitação Incorreta (Código de Status HTTP: 400), Não Encontrado (Código de Status HTTP: 404), Conflito (Código de Status HTTP: 409), Erro de Servidor Interno (Código de Status HTTP: 500), Serviço Indisponível (Código de Status HTTP: 503), Tempo Limite do Gateway (Código de Status HTTP: 504). |
+| eventTimestamp |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
+| submissionTimestamp |Carimbo de hora quando o evento tornou-se disponível para consulta. |
+| subscriptionId |ID de Assinatura do Azure. |
+| nextLink |Token de continuação para buscar o próximo conjunto de resultados quando eles forem divididos em várias respostas. Normalmente necessário quando há mais de 200 registros. |
 
-## <a name="next-steps"></a>Next Steps
-* [Learn more about the Activity Log (formerly Audit Logs)](../resource-group-audit.md)
-* [Stream the Azure Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
+## <a name="next-steps"></a>Próximas etapas
+* [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](../resource-group-audit.md)
+* [Transmissão do Log de Atividades do Azure para os Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

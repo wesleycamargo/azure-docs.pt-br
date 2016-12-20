@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
 
 
 ---
@@ -44,7 +44,7 @@ Em *Serviço de Aplicativo do Azure*, o código de back-end *Aplicativo Móvel* 
 * (Para .NET) Utilizar qualquer recurso do ASP.NET, inclusive MVC
 * (Para Node.js) Utilizar qualquer biblioteca JavaScript pura do ecossistema Node, incluindo bibliotecas comuns do MVC.
 
-## <a name="access-onpremises-data-using-vnet"></a>Acessar dados locais usando VNet
+## <a name="access-on-premises-data-using-vnet"></a>Acessar dados locais usando VNet
 Com os serviços móveis, hoje, você já pode usar conexões híbridas para acessar os recursos locais. No entanto, há situações em que uma solução VPN é preferível. Com o *Serviço de Aplicativo do Azure* você pode usar o Azure VNet para seu código de back-end de aplicativo móvel.
 
 ## <a name="use-your-favorite-backend-language"></a>Use sua linguagem de back-end favorita
@@ -67,6 +67,6 @@ Você pode começar aproveitando o *Serviço de Aplicativo* de seu Serviço Móv
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

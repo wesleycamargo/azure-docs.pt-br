@@ -1,12 +1,12 @@
 ---
-title: 'Solução de problemas: Gerenciamento de senha do Azure AD | Microsoft Docs'
-description: Etapas de solução de problemas comuns para o gerenciamento de senha do Azure AD, incluindo redefinição, alteração, write-back, registro e quais informações devem ser incluídas ao procurar ajuda.
+title: "Solução de problemas: Gerenciamento de senhas do Azure AD | Microsoft Docs"
+description: "Etapas de solução de problemas comuns para o gerenciamento de senha do Azure AD, incluindo redefinição, alteração, write-back, registro e quais informações devem ser incluídas ao procurar ajuda."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: 18f3dcf7-9314-4a2b-8fed-54b00c0026dd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ad322aed5e2e6a42a2600a3995be28a99ee14f3a
+
 
 ---
-# Como solucionar problemas de gerenciamento de senha
+# <a name="how-to-troubleshoot-password-management"></a>Como solucionar problemas de gerenciamento de senha
 > [!IMPORTANT]
 > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 > 
@@ -27,32 +31,32 @@ Se você estiver tendo problemas com o gerenciamento de senhas, estamos aqui par
 * [**Informações a serem incluídas quando precisar de ajuda**](#information-to-include-when-you-need-help)
 * [**Problemas de configuração de gerenciamento de senhas no Portal de Gerenciamento do Azure**](#troubleshoot-password-reset-configuration-in-the-azure-management-portal)
 * [**Problemas com relatórios de gerenciamento de senha no Portal de Gerenciamento do Azure**](#troubleshoot-password-management-reports-in-the-azure-management-portal)
-* [**Problemas com o Portal de registro de redefinição de senha**](#troubleshoot-the-password-reset-registration-portal)
-* [**Problemas com o Portal de redefinição de senha**](#troubleshoot-the-password-reset-portal)
+* [**Problemas com o Portal de Registro de Redefinição de Senha**](#troubleshoot-the-password-reset-registration-portal)
+* [**Problemas com o Portal de Redefinição de Senha**](#troubleshoot-the-password-reset-portal)
 * [**Problemas com o write-back de senha**](#troubleshoot-password-writeback)
   * [Códigos de erro de log de eventos de write-back de senha](#password-writeback-event-log-error-codes)
   * [Problemas de conectividade de write-back de senha](#troubleshoot-password-writeback-connectivity)
 
 Se você tentou as etapas de solução de problemas abaixo e ainda está com problemas, pode postar uma pergunta nos [Fóruns do Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) ou contatar o suporte; daremos uma olhada no seu problema assim que possível.
 
-## Informações a serem incluídas quando precisar de ajuda
+## <a name="information-to-include-when-you-need-help"></a>Informações a serem incluídas quando precisar de ajuda
 Se você não conseguir solucionar seu problema com as orientações abaixo, pode entrar em contato com nossos engenheiros de suporte. Quando você entrar em contato com eles, é recomendável incluir as seguintes informações:
 
-* **Descrição geral do erro**: que mensagem de erro exatamente o usuário viu? Se não havia nenhuma mensagem de erro, descreva o comportamento inesperado observado em detalhes.
-* **Página**: que página você estava quando viu o erro? (Inclua a URL.)
-* **Data/ hora/Fuso horário**: qual era a exata data e hora em que você viu o erro? (Inclua o fuso horário.)
-* **Código de suporte**: qual foi o código de suporte gerado quando o usuário viu o erro (para encontrá-lo, reproduza o erro, clique no link do Código de suporte na parte inferior da tela e envie ao engenheiro de suporte a GUID resultante).
+* **Descrição geral do erro** : que mensagem de erro exatamente o usuário viu?  Se não havia nenhuma mensagem de erro, descreva o comportamento inesperado observado em detalhes.
+* **Página** - em que página você estava quando viu o erro (inclua a URL)?
+* **Data/hora/fuso horário** - qual era a exata data e hora em que você viu o erro (inclua o fuso horário)?
+* **Código de suporte** : qual foi o código de suporte gerado quando o usuário viu o erro (para encontrá-lo, reproduza o erro, clique no link do Código de suporte na parte inferior da tela e envie ao engenheiro de suporte a GUID resultante).
   
   * Se você estiver em uma página sem um código de suporte na parte inferior, pressione F12 para o SID e o CID e envie esses dois resultados para o engenheiro de suporte.
     
     ![][001]
 * **ID de Usuário** – qual foi a ID do usuário que viu o erro (por exemplo, user@contoso.com)?
-* **Informações sobre o usuário**: o usuário era federado, a senha era sincronizada com hash, somente na nuvem? O usuário tinha uma licença AAD Premium ou AAD básica atribuída?
-* **Log de eventos do aplicativo**: se você estiver usando o write-back de senha e o erro estiver em sua infraestrutura local, compacte uma cópia do log e eventos do aplicativo do servidor do seu servidor Azure AD Connect AD e envie junto com sua solicitação.
+* **Informações sobre o usuário** : o usuário era federado, a senha era sincronizada com hash, somente na nuvem?  O usuário tinha uma licença AAD Premium ou AAD básica atribuída?
+* **Log de eventos do aplicativo** : se você estiver usando o write-back de senha e o erro estiver em sua infraestrutura local, compacte uma cópia do log e eventos do aplicativo do servidor do seu servidor Azure AD Connect AD e envie junto com sua solicitação.
 
 A inclusão dessas informações nos ajudará a resolver o problema o mais rápido possível.
 
-## Solucionar problemas de configuração de redefinição de senha no Portal de Gerenciamento do Azure
+## <a name="troubleshoot-password-reset-configuration-in-the-azure-management-portal"></a>Solucionar problemas de configuração de redefinição de senha no Portal de Gerenciamento do Azure
 Se você encontrar um erro ao configurar a redefinição de senha, pode solucioná-lo seguindo as etapas de solução de problemas abaixo:
 
 <table>
@@ -75,25 +79,25 @@ Se você encontrar um erro ao configurar a redefinição de senha, pode solucion
           </tr>
           <tr>
             <td>
-              <p>Não vejo a seção <strong>Política de redefinição de senha do usuário </strong>seção na guia <strong>Configurar</strong> no portal de gerenciamento do Azure</p>
+              <p>Não vejo a seção <strong>Política de redefinição de senha do usuário</strong> na guia <strong>Configurar</strong> no portal de gerenciamento do Azure</p>
             </td>
             <td>
-              <p>A seção <strong>Política de redefinição de senha do usuário </strong> não está visível na guia <strong>Configurar</strong> no Portal de Gerenciamento do Azure.</p>
+              <p>A seção <strong>Política de redefinição de senha do usuário</strong> não está visível na guia <strong>Configurar</strong> no Portal de Gerenciamento do Azure.</p>
             </td>
             <td>
               <p>Isso pode ocorrer se você não tiver uma licença AAD Premium ou AAD básica atribuída ao administrador para realizar essa operação. </p>
-              <p>Para corrigir isso, atribua uma licença AAD Premium ou AAD básica para a conta de administrador em questão, navegando até a guia <strong>licenças</strong>, e tente novamente.</p>
+              <p>Para corrigir isso, atribua uma licença AAD Premium ou AAD básica para a conta de administrador em questão ao navegar até a guia <strong>Licenças</strong>, e tente novamente.</p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Não vejo nenhuma das opções de configuração na seção <strong>Política de redefinição de senha do usuário</strong> descritas na documentação.</p>
+              <p>Não vejo nenhuma das opções de configuração na seção <strong>Política de redefinição de senha</strong> do usuário descritas na documentação.</p>
             </td>
             <td>
-              <p>A seção <strong>Política de redefinição de senha do usuário </strong> está visível, mas o único sinalizador que aparece nela é o sinalizador<strong>Usuários habilitados para redefinição de senha</strong>.</p>
+              <p>A seção <strong>Política de Redefinição de Senha</strong> do usuário está visível, mas o único sinalizador que aparece nela é o sinalizador <strong>Usuários Habilitados para Redefinição de Senha</strong>.</p>
             </td>
             <td>
-              <p>O restante da interface do usuário aparecerá quando você alternar o sinalizador <strong>Usuários habilitados para redefinição de senha</strong> para <strong>Sim.</strong></p>
+              <p>O restante da interface do usuário aparecerá quando você alternar o sinalizador <strong>Usuários Habilitados para Redefinição de Senha</strong> para <strong>Sim.</strong></p>
             </td>
           </tr>
           <tr>
@@ -101,7 +105,7 @@ Se você encontrar um erro ao configurar a redefinição de senha, pode solucion
               <p>Não vejo uma opção de configuração específica.</p>
             </td>
             <td>
-              <p>Por exemplo, não vejo a opção <strong>Número de dias antes que um usuário precise confirmar seus dados de contato</strong> opção quando percorro a seção <strong>Política de redefinição de senha do usuário</strong> (ou outros exemplos do mesmo problema).</p>
+              <p>Por exemplo, não vejo a opção <strong>Número de dias antes que um usuário precise confirmar seus dados de contato</strong> quando percorro a seção <strong>Política de Redefinição de Senha do Usuário</strong> (ou outros exemplos do mesmo problema).</p>
             </td>
             <td>
               <p>Muitos elementos da interface do usuário ficam ocultos até que sejam necessários. Tente habilitar todas as opções na página, se quiser vê-las.</p>
@@ -110,10 +114,10 @@ Se você encontrar um erro ao configurar a redefinição de senha, pode solucion
           </tr>
           <tr>
             <td>
-              <p>Não vejo a opção de configuração <strong>Gravar as senhas de volta para o local</strong></p>
+              <p>Não vejo a opção de configuração <strong>Write-back de Senhas no Local</strong></p>
             </td>
             <td>
-              <p>A opção <strong>Gravar as senhas de volta para o loca</strong> não fica visível na guia <strong>Configurar</strong> no Portal de Gerenciamento do Azure</p>
+              <p>A opção <strong>Write-back de Senhas no Local</strong> não fica visível na guia <strong>Configurar</strong> no Portal de Gerenciamento do Azure</p>
             </td>
             <td>
               <p>Essa opção só é visível se você tiver baixado o Azure AD Connect e configurado o write-back de senha. Quando tiver feito isso, essa opção é exibida e permite habilitar ou desabilitar o write-back da nuvem.</p>
@@ -122,7 +126,7 @@ Se você encontrar um erro ao configurar a redefinição de senha, pode solucion
           </tr>
         </tbody></table>
 
-## Solucionar problemas de relatórios de gerenciamento de senha no Portal de Gerenciamento do Azure
+## <a name="troubleshoot-password-management-reports-in-the-azure-management-portal"></a>Solucionar problemas de relatórios de gerenciamento de senha no Portal de Gerenciamento do Azure
 Se você encontrar um erro ao usar os relatórios de gerenciamento de senha, pode solucioná-lo seguindo as etapas de solução de problemas abaixo:
 
 <table>
@@ -148,11 +152,11 @@ Se você encontrar um erro ao usar os relatórios de gerenciamento de senha, pod
               <p>Não vejo os relatórios de gerenciamento de senha</p>
             </td>
             <td>
-              <p>Os relatórios de <strong>Atividade de redefinição de senha</strong> e de <strong>Atividade de registro de redefinição de senha</strong> não ficam visíveis nos relatórios de <strong>Log de atividades</strong> na guia <strong>Relatórios</strong>.</p>
+              <p>Os relatórios <strong>Atividade de redefinição de senha</strong> e <strong>Atividade de registro de redefinição de senha</strong> não ficam visíveis nos relatórios do <strong>Log de Atividades</strong> na guia <strong>Relatórios</strong>.</p>
             </td>
             <td>
               <p>Isso pode ocorrer se você não tiver uma licença AAD Premium ou AAD básica atribuída ao administrador para realizar essa operação. </p>
-              <p>Para corrigir isso, atribua uma licença AAD Premium ou AAD básica para a conta de administrador em questão, navegando até a guia <strong>licenças</strong>, e tente novamente.</p>
+              <p>Para corrigir isso, atribua uma licença AAD Premium ou AAD básica para a conta de administrador em questão ao navegar até a guia <strong>Licenças</strong>, e tente novamente.</p>
             </td>
           </tr>
           <tr>
@@ -169,7 +173,7 @@ Se você encontrar um erro ao usar os relatórios de gerenciamento de senha, pod
           </tr>
         </tbody></table>
 
-## Solucionar problemas do portal de registro de redefinição de senha
+## <a name="troubleshoot-the-password-reset-registration-portal"></a>Solucionar problemas do portal de registro de redefinição de senha
 Se você encontrar um erro ao registrar um usuário para redefinição de senha, pode solucioná-lo seguindo as etapas de solução de problemas abaixo:
 
 <table>
@@ -198,7 +202,7 @@ Se você encontrar um erro ao registrar um usuário para redefinição de senha,
               <p>O administrador não habilitou você para usar esse recurso.</p>
             </td>
             <td>
-              <p>Alterne o sinalizador <strong>Usuários habilitados para redefinição de senha</strong> para <strong>Sim</strong> e clique em <strong>Salvar</strong> na guia de configuração de diretório do Portal de Gerenciamento do Azure. Você deve ter uma licença Azure AD Premium ou Básica atribuída ao administrador que está realizando essa operação.</p>
+              <p>Alterne o sinalizador <strong>Usuários Habilitados para Redefinição de Senha</strong> para <strong>Sim</strong> e clique em <strong>Salvar</strong> na guia de configuração de diretório do Portal de Gerenciamento do Azure. Você deve ter uma licença Azure AD Premium ou Básica atribuída ao administrador que está realizando essa operação.</p>
             </td>
           </tr>
           <tr>
@@ -226,12 +230,12 @@ Se você encontrar um erro ao registrar um usuário para redefinição de senha,
             </td>
             <td>
               <p>Isso pode ser causado por vários problemas, mas, em geral, esse erro é causado por uma paralisação do serviço ou problema de configuração que não pode ser resolvido. </p>
-              <p>Se você vir esse erro e ele estiver afetando seus negócios, entre em contato com o suporte e iremos ajudá-lo urgentemente. Confira <a href="#information-to-include-when-you-need-help">Informações a serem incluídas quando precisar de Ajuda</a> para ver o que você deve fornecer ao engenheiro de suporte para auxiliá-lo em uma rápida resolução.</p>
+              <p>Se você vir esse erro e ele estiver afetando seus negócios, entre em contato com o suporte e iremos ajudá-lo urgentemente. Confira <a href="#information-to-include-when-you-need-help">Informações a serem incluídas quando precisar de ajuda</a> para ver o que você deve fornecer ao engenheiro de suporte para auxiliá-lo em uma rápida resolução.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Solucionar problemas do portal de redefinição de senha
+## <a name="troubleshoot-the-password-reset-portal"></a>Solucionar problemas do portal de redefinição de senha
 Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucioná-lo seguindo as etapas de solução de problemas abaixo:
 
 <table>
@@ -265,7 +269,7 @@ Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucio
               <p>Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você.</p>
             </td>
             <td>
-              <p>Alterne o sinalizador <strong>Usuários habilitados para redefinição de senha</strong> para <strong>Sim</strong> e clique em <strong>Salvar</strong> na guia de configuração de diretório do Portal de Gerenciamento do Azure. Você deve ter uma licença Azure AD Premium ou Básica atribuída ao administrador que está realizando essa operação.</p>
+              <p>Alterne o sinalizador <strong>Usuários Habilitados para Redefinição de Senha</strong> para <strong>Sim</strong> e clique em <strong>Salvar</strong> na guia de configuração de diretório do Portal de Gerenciamento do Azure. Você deve ter uma licença Azure AD Premium ou Básica atribuída ao administrador que está realizando essa operação.</p>
             </td>
           </tr>
           <tr>
@@ -316,7 +320,7 @@ Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucio
               <p>O diretório está habilitado para redefinição de senha e o usuário está configurado corretamente, mas não pode ser contatado </p>
             </td>
             <td>
-              <p>Algo deu errado! Encontramos um erro inesperado ao entrar em contato com você.</p>
+              <p>Algo deu errado!  Encontramos um erro inesperado ao entrar em contato com você.</p>
             </td>
             <td>
               <p>Isso pode ser o resultado de um erro de serviço temporário ou dados de contato configurados incorretamente que não pudemos detectar corretamente. Se o usuário aguardar 10 segundos, aparecerá um link tente novamente e "entre em contato com seu administrador". Clicar em tentar novamente enviará novamente a chamada, enquanto clicar em "entre em contato com seu administrador" enviará um formulário de email aos administradores de usuário, senha ou globais (nessa ordem) solicitando uma redefinição de senha para ser executada para essa conta de usuário.</p>
@@ -375,11 +379,11 @@ Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucio
               <p>Implementamos um mecanismo de limitação automático para impedir que os usuários tentem redefinir suas senhas muitas vezes em um curto período de tempo. Isso ocorre quando:</p>
               <ol class="ordered">
                 <li>
-                                        O usuário tenta validar um número de telefone cinco vezes em uma hora.<br\><br\></li>
+O usuário tenta validar um número de telefone cinco vezes em uma hora.<br\><br\></li>
                 <li>
-                                        O usuário tenta usar o portão de perguntas de segurança cinco vezes em uma hora.<br\><br\></li>
+O usuário tenta usar o portão de perguntas de segurança cinco vezes em uma hora.<br\><br\></li>
                 <li>
-                                        O usuário tenta redefinir uma senha para a mesma conta de usuário cinco vezes em uma hora.<br\><br\></li>
+O usuário tenta redefinir uma senha para a mesma conta de usuário cinco vezes em uma hora.<br\><br\></li>
               </ol>
               <p>Para corrigir isso, instrua o usuário a aguardar 24 horas após a última tentativa para poder redefinir a senha.</p>
             </td>
@@ -414,12 +418,12 @@ Se você encontrar um erro ao redefinir uma senha para um usuário, pode solucio
             </td>
             <td>
               <p>Isso pode ser causado por vários problemas, mas, em geral, esse erro é causado por uma paralisação do serviço ou problema de configuração que não pode ser resolvido. </p>
-              <p>Se você vir esse erro e ele estiver afetando seus negócios, entre em contato com o suporte e iremos ajudá-lo urgentemente. Confira <a href="#information-to-include-when-you-need-help">Informações a serem incluídas quando precisar de Ajuda</a> para ver o que você deve fornecer ao engenheiro de suporte para auxiliá-lo em uma rápida resolução.</p>
+              <p>Se você vir esse erro e ele estiver afetando seus negócios, entre em contato com o suporte e iremos ajudá-lo urgentemente. Confira <a href="#information-to-include-when-you-need-help">Informações a serem incluídas quando precisar de ajuda</a> para ver o que você deve fornecer ao engenheiro de suporte para auxiliá-lo em uma rápida resolução.</p>
             </td>
           </tr>
         </tbody></table>
 
-## Solucionar problemas de write-back de senha
+## <a name="troubleshoot-password-writeback"></a>Solucionar problemas de write-back de senha
 Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha, pode solucioná-lo seguindo as etapas de solução de problemas abaixo:
 
 <table>
@@ -466,7 +470,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
                             </p>
             </td>
             <td>
-              <p>[Localize a conta do Active Directory](active-directory-aadconnect-accounts-permissions.md#active-directory-account) para o Azure AD Connect e redefina a senha com no máximo 127 caracteres. Abra **Serviço de Sincronização** no menu Iniciar. Navegue até **Conectores** e localize o **Active Directory Connector**. Selecione-o e clique em **Propriedades**. Navegue até a página **Credenciais** e insira a nova senha. Selecione **OK** para fechar a página.
+              <p>[Localize a conta do Active Directory](connect/active-directory-aadconnect-accounts-permissions.md#active-directory-account) para o Azure AD Connect e redefina a senha com até 127 caracteres. Abra **Serviço de Sincronização** no menu Iniciar. Navegue até **Conectores** e localize o **Active Directory Connector**. Selecione-o e clique em **Propriedades**. Navegue até a página **Credenciais** e insira a nova senha. Selecione **OK** para fechar a página.
                             </p>
             </td>
           </tr>
@@ -485,11 +489,11 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Esse erro ocorre nos seguintes casos:</p>
               <ul>
                 <li class="unordered">
-                                        Você especificou uma senha incorreta para a conta de administrador global indicada no início do processo de instalação do Azure AD Connect.<br\><br\></li>
+Você especificou uma senha incorreta para a conta de administrador global indicada no início do processo de instalação do Azure AD Connect.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Você tentou usar um usuário federado para a conta de administrador global especificada no início do processo de instalação do Azure AD Connect <br\><br\></li>
+Você tentou usar um usuário federado para a conta de administrador global especificada no início do processo de instalação do Azure AD Connect.<br\><br\></li>
               </ul>
               <p>Para corrigir esse erro, verifique se você não está usando uma conta federada para o administrador global que você indicou no início do processo de instalação do Azure AD Connect e se a senha especificada está correta.</p>
             </td>
@@ -516,11 +520,11 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Verifique se o firewall permite conexões de saída para o seguinte:</p>
               <ul>
                 <li class="unordered">
-                                        Todo o tráfego sobre TCP 443 (HTTPS)<br\><br\></li>
+Todo o tráfego sobre TCP 443 (HTTPS)<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Conexões de saída para <br\><br\></li>
+Conexões de saída para <br\><br\></li>
               </ul>
               <p>
 
@@ -536,7 +540,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Depois de trabalhar por algum tempo, os usuários federados com senha de sincronização de hash não conseguem redefinir as suas senhas.</p>
             </td>
             <td>
-              <p>Em alguns casos raros, o serviço de write-back de senha pode falhar ao iniciar novamente quando o Azure AD Connect for iniciado novamente. Nesses casos, primeiro verifique se o write-back de senha parece estar habilitado no local. Isso pode ser feito usando o Assistente do Azure AD Connect ou o PowerShell (confira a seção de tutoriais acima). Se o recurso parece estar habilitado, tente habilitar ou desabilitar o recurso novamente por meio da interface do usuário ou do PowerShell. Confira "Etapa 2: habilitar write-back de senha no seu computador de sincronização de diretórios e configurar regras de firewall" em <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Como habilitar/desabilitar write-back de senha</a> para saber mais sobre como fazer isso.</p>
+              <p>Em alguns casos raros, o serviço de write-back de senha pode falhar ao iniciar novamente quando o Azure AD Connect for iniciado novamente. Nesses casos, primeiro verifique se o write-back de senha parece estar habilitado no local. Isso pode ser feito usando o Assistente do Azure AD Connect ou o PowerShell (confira a seção de tutoriais acima). Se o recurso parece estar habilitado, tente habilitar ou desabilitar o recurso novamente por meio da interface do usuário ou do PowerShell. Confira "Etapa 2: Habilitar write-back de senha no seu computador de sincronização de diretórios &amp; configurar regras de firewall" em <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Como habilitar/desabilitar write-back de senha</a> para saber mais sobre como fazer isso.</p>
               <p>
 
               </p>
@@ -574,13 +578,13 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Há um bug conhecido na versão lançada do Azure AD Connect que se manifesta na seguinte situação:</p>
               <ol class="ordered">
                 <li>
-                                        Você configura o Azure AD Connect para o locatário abc.com (domínio verificado) usando credenciais. Isso resulta na criação do conector AAD com o nome "abc.com – AAD".<br\><br\></li>
+Você configura o Azure AD Connect para o locatário abc.com (domínio verificado) usando credenciais. Isso resulta na criação do conector AAD com o nome "abc.com – AAD".<br\><br\></li>
                 <li>
-                                        Você então altera as credenciais AAD para o conector (usando a IU antiga) para (observe que é o mesmo locatário, mas com nome de domínio diferente).<br\><br\></li>
+Você então altera as credenciais AAD para o conector (usando a IU antiga) para (observe que é o mesmo locatário, mas com nome de domínio diferente). <br\><br\></li>
                 <li>
-                                        Agora você tenta habilitar/desabilitar o write-back de senha. O assistente construirá o nome do conector usando as credenciais como "abc.onmicrosoft.com – AAD" e passar para o cmdlet de write-back de senha. Isso irá falhar porque não há nenhum conector criado com esse nome.<br\><br\></li>
+Agora você tenta habilitar/desabilitar o write-back de senha. O assistente construirá o nome do conector usando as credenciais como "abc.onmicrosoft.com – AAD" e passar para o cmdlet de write-back de senha. Isso irá falhar porque não há nenhum conector criado com esse nome.<br\><br\></li>
               </ol>
-              <p>Esse problema foi corrigido em nossas compilações mais recentes. Se você tiver uma compilação mais antiga, uma solução é usar o cmdlet do PowerShell para habilitar/desabilitar o recurso. Confira "Etapa 2: habilitar write-back de senha no seu computador de sincronização de diretórios e configurar regras de firewall" em <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Como habilitar/desabilitar write-back de senha</a> para saber mais sobre como fazer isso.</p>
+              <p>Esse problema foi corrigido em nossas compilações mais recentes. Se você tiver uma compilação mais antiga, uma solução é usar o cmdlet do PowerShell para habilitar/desabilitar o recurso. Confira "Etapa 2: Habilitar write-back de senha no seu computador de sincronização de diretórios &amp; configurar regras de firewall" em <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Como habilitar/desabilitar write-back de senha</a> para saber mais sobre como fazer isso.</p>
             </td>
           </tr>
           <tr>
@@ -644,7 +648,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Falha nas operações de senha com um erro de configuração. O log de eventos do aplicativo contém o erro Azure AD Connect 6329 com texto: 0x8023061f (a operação falhou porque a sincronização de senha não está habilitada nesse agente de gerenciamento.)</p>
             </td>
             <td>
-              <p>Isso ocorre se a configuração de conexão do AD do Azure é alterada para adicionar uma nova floresta do AD (ou para remover e adicionar novamente uma floresta existente) <strong>após</strong> o recurso de write-back de senha já ter sido habilitado. As operações de senha para usuários em tais florestas recém-adicionadas falharão. Para corrigir o problema, desabilite e reabilite o recurso de write-back de senha após a conclusão das alterações de configuração da floresta.</p>
+              <p>Isso ocorre se a configuração de conexão do AD do Azure é alterada para adiciona&nbsp; uma nova floresta do AD (ou para remover e adicionar novamente uma floresta existente) <strong>após</strong> o recurso de write-back de senha já ter sido habilitado. As operações de senha para usuários em tais florestas recém-adicionadas falharão. Para corrigir o problema, desabilite e reabilite o recurso de write-back de senha após a conclusão das alterações de configuração da floresta.</p>
             </td>
           </tr>
           <tr>
@@ -655,13 +659,13 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Durante a tentativa de redefinir uma senha em nome de um usuário do Portal de Gerenciamento do Azure, você vê uma mensagem dizendo: "o serviço de redefinição de senha em execução no seu ambiente local não dá suporte a administradores redefinindo senhas de usuário. Atualize para a versão mais recente do Azure AD Connect para resolver o problema."</p>
             </td>
             <td>
-              <p>Isso ocorre quando a versão do mecanismo de sincronização não dá suporte para a operação de write-back de senha específica que foi usada. As versões do Azure AD Connect posteriores a 1.0.0419.0911 dão suporte a todas as operações de gerenciamento de senha, incluindo write-back de redefinição de senha, write-back de alteração de senha e write-back de redefinição de senha iniciadas pelo administrador do Portal de Gerenciamento do Azure.&#160; As versões do DirSync mais recentes que 1.0.6862 dão suporte somente a write-back de redefinição de senha. Para resolver esse problema, recomendamos que você instale a versão mais recente do Azure AD Connect ou Connect do Active Directory do Azure (para saber mais, confira <a href="active-directory-aadconnect">Ferramentas de integração de diretório</a>) para resolver esse problema e obter o máximo proveito do write-back de senha na sua organização.</p>
+              <p>Isso ocorre quando a versão do mecanismo de sincronização não dá suporte para a operação de write-back de senha específica que foi usada. As versões do Azure AD Connect posteriores a 1.0.0419.0911 dão suporte a todas as operações de gerenciamento de senha, incluindo write-back de redefinição de senha, write-back de alteração de senha e write-back de redefinição de senha iniciadas pelo administrador do Portal de Gerenciamento do Azure.&nbsp; As versões do DirSync mais recentes que 1.0.6862 dão suporte somente a write-back de redefinição de senha. Para resolver esse problema, é altamente recomendável que você instale a versão mais recente do Azure AD Connect ou Azure Active Directory Connect. Para saber mais, veja [Integrando suas identidades locais](active-directory-aadconnect.md) para resolver esse problema e obter o máximo proveito de write-back de senha na sua organização.</p>
             </td>
           </tr>
         </tbody></table>
 
 
-## Códigos de erro do log de eventos de write-back de senha
+## <a name="password-writeback-event-log-error-codes"></a>Códigos de erro de log de eventos de write-back de senha
 É uma prática recomendada para solucionar problemas com write-back de senha inspecionar esse Log de eventos do aplicativo no computador do Azure AD Connect. Esse log de eventos contém eventos de duas fontes de interesse para write-back de senha. A fonte PasswordResetService descreve operações e problemas relacionados à operação de write-back de senha. A fonte ADSync descreve operações e problemas relacionados à configuração de senhas em seu ambiente do AD.
 
 <table>
@@ -678,7 +682,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
             </td>
             <td>
               <p>
-                <strong>Fonte</strong>
+                <strong>Origem</strong>
               </p>
             </td>
             <td>
@@ -701,19 +705,19 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Esse evento ocorre quando o serviço de write-back de senha tenta definir uma senha em seu diretório local que não atende à idade, ao histórico, à complexidade da senha ou a requisitos de filtragem do domínio.</p>
               <ul>
                 <li class="unordered">
-                                        Se você tiver um tempo de vida mínimo da senha e tiver alterado recentemente a senha dentro desse intervalo de tempo, não poderá alterar a senha novamente até atingir a data especificada em seu domínio. Para fins de teste, a idade mínima deve ser definida como 0.<br\><br\></li>
+Se você tiver um tempo de vida mínimo da senha e tiver alterado recentemente a senha dentro desse intervalo de tempo, não poderá alterar a senha novamente até atingir a data especificada em seu domínio. Para fins de teste, a idade mínima deve ser definida como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas X vezes, onde X é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas X vezes, você verá uma falha. Para fins de teste, o histórico deve ser definido como 0.<br\><br\></li>
+Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas X vezes, onde X é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas X vezes, você verá uma falha. Para fins de teste, o histórico deve ser definido como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se você tiver requisitos de complexidade de senha, todos eles serão aplicados quando o usuário tentar alterar ou redefinir uma senha.<br\><br\></li>
+Se você tiver requisitos de complexidade de senha, todos eles serão aplicados quando o usuário tentar alterar ou redefinir uma senha.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se você tiver filtros de senha ativados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.<br\><br\></li>
+Se você tiver filtros de senha ativados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -728,7 +732,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>ADSync</p>
             </td>
             <td>
-              <p>Esse evento ocorre quando a mesma ID de usuário está habilitada em vários domínios. Por exemplo, se você estiver sincronizando florestas de Contas/Recursos e tiver a mesma ID de usuário presente e habilitada em cada uma delas, esse erro poderá ocorrer.  </p>
+              <p>Esse evento ocorre quando a mesma ID de usuário está habilitada em vários domínios.  Por exemplo, se você estiver sincronizando florestas de Contas/Recursos e tiver a mesma ID de usuário presente e habilitada em cada uma delas, esse erro poderá ocorrer.  </p>
               <p>Esse erro também pode ocorrer se você estiver usando um atributo de âncora não exclusivo (como alias ou UPN) e dois usuários compartilharem o mesmo atributo de âncora.</p>
               <p>Para resolver esse problema, certifique-se de que você não tem nenhum usuário duplicado em seus domínios e de que você está usando um atributo de âncora exclusivo para cada usuário.</p>
             </td>
@@ -775,15 +779,15 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Esse evento indica que um usuário selecionou uma senha e que a senha chegou com sucesso ao ambiente local, mas, quando tentamos definir a senha no ambiente do AD local, ocorreu uma falha. Isso pode ocorrer por diversos motivos:</p>
               <ul>
                 <li class="unordered">
-                                        A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
+A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
+A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
+A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
               </ul>
               <p>Confira <a href="#troubleshoot-password-writeback">Solucionar problemas de write-back de senha</a> para saber mais sobre outros situações que podem causar esse erro.</p>
             </td>
@@ -858,15 +862,15 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Esse evento indica que um usuário selecionou uma senha e que a senha chegou com sucesso ao ambiente local, mas, quando tentamos definir a senha no ambiente do AD local, ocorreu uma falha. Isso pode ocorrer por diversos motivos:</p>
               <ul>
                 <li class="unordered">
-                                        A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
+A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
+A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
+A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
               </ul>
               <p>Confira <a href="#troubleshoot-password-writeback">Solucionar problemas de write-back de senha</a> para saber mais sobre outras situações que podem causar esse erro.</p>
             </td>
@@ -913,15 +917,15 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>O administrador selecionou uma senha em nome de um usuário e a senha chegou com sucesso no ambiente local, mas, quando tentamos definir a senha no ambiente do AD local, ocorreu uma falha. Isso pode ocorrer por diversos motivos:</p>
               <ul>
                 <li class="unordered">
-                                        A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
+A senha do usuário não atende aos requisitos de idade, histórico, complexidade ou de filtragem para o domínio. Tente uma senha totalmente nova para resolver esse problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
+A conta de serviço MA não tem as permissões apropriadas para definir a nova senha da conta de usuário em questão.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
+A conta do usuário está em um grupo protegido, como administradores corporativos ou de domínio, que não permite operações de conjunto de senha.<br\><br\></li>
               </ul>
               <p>Confira <a href="#troubleshoot-password-writeback">Solucionar problemas de write-back de senha</a> para saber mais sobre outros situações que podem causar esse erro.</p>
             </td>
@@ -1063,7 +1067,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Esse evento indica que houve um erro ao conectar-se a instância do barramento de serviço do seu locatário. Isso pode acontecer porque você está bloqueando as conexões de saída no seu ambiente local. Verifique o seu firewall para que permita conexões sobre TCP 443 e para <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a>, e tente novamente. Se você ainda estiver tendo problemas, tente desabilitar e reabilitar o write-back de senha.</p>
+              <p>Esse evento indica que houve um erro ao conectar-se a instância do barramento de serviço do seu locatário. Isso pode acontecer porque você está bloqueando as conexões de saída no seu ambiente local. Verifique o seu firewall para que permita conexões sobre TCP 443 e para <a href="https://ssprsbprodncu-sb.accesscontrol.windows.net/">https://ssprsbprodncu-sb.accesscontrol.windows.net/</a> e tente novamente. Se você ainda estiver tendo problemas, tente desabilitar e reabilitar o write-back de senha.</p>
             </td>
           </tr>
           <tr>
@@ -1301,7 +1305,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>PasswordResetService</p>
             </td>
             <td>
-              <p>Esse evento indica que a conta de serviço do Agente de Gerenciamento não tem as permissões apropriadas na conta em questão para definir uma nova senha. Verifique se a conta MA na floresta do usuário tem permissões para Redefinir e Alterar senha em todos os objetos na floresta. Para saber mais sobre como fazer isso, confira <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">Etapa 4: configurar as permissões apropriadas do Active Directory</a>.</p>
+              <p>Esse evento indica que a conta de serviço do Agente de Gerenciamento não tem as permissões apropriadas na conta em questão para definir uma nova senha. Verifique se a conta MA na floresta do usuário tem permissões para Redefinir e Alterar senha em todos os objetos na floresta.  Para saber mais sobre como fazer isso, confira <a href="active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions">Etapa 4: Configurar as permissões apropriadas do Active Directory</a>.</p>
             </td>
           </tr>
           <tr>
@@ -1360,19 +1364,19 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
               <p>Esse evento ocorre quando o serviço de write-back de senha tenta definir uma senha em seu diretório local que não atende à idade, ao histórico, à complexidade da senha ou a requisitos de filtragem do domínio.</p>
               <ul>
                 <li class="unordered">
-                                        Se você tiver um tempo de vida mínimo da senha e tiver alterado recentemente a senha dentro desse intervalo de tempo, não poderá alterar a senha novamente até atingir a data especificada em seu domínio. Para fins de teste, a idade mínima deve ser definida como 0.<br\><br\></li>
+Se você tiver um tempo de vida mínimo da senha e tiver alterado recentemente a senha dentro desse intervalo de tempo, não poderá alterar a senha novamente até atingir a data especificada em seu domínio. Para fins de teste, a idade mínima deve ser definida como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas X vezes, onde X é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas X vezes, você verá uma falha. Para fins de teste, o histórico deve ser definido como 0.<br\><br\></li>
+Se você tiver requisitos de histórico de senha habilitados, deve selecionar uma senha que não foi usada nas últimas X vezes, onde X é a configuração de histórico de senha. Se você selecionar uma senha que foi usada nas últimas X vezes, você verá uma falha. Para fins de teste, o histórico deve ser definido como 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se você tiver requisitos de complexidade de senha, todos eles serão aplicados quando o usuário tentar alterar ou redefinir uma senha.<br\><br\></li>
+Se você tiver requisitos de complexidade de senha, todos eles serão aplicados quando o usuário tentar alterar ou redefinir uma senha.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-                                        Se você tiver filtros de senha ativados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.<br\><br\></li>
+Se você tiver filtros de senha ativados e um usuário selecionar uma senha que não atende aos critérios de filtragem, a operação de redefinição ou de alteração falhará.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -1434,7 +1438,7 @@ Se você encontrar um erro ao habilitar, desabilitar ou usar write-back de senha
           </tr>
         </tbody></table>
 
-## Solucionar problemas de conectividade de write-back de senha
+## <a name="troubleshoot-password-writeback-connectivity"></a>Solucionar problemas de conectividade de write-back de senha
 Se você estiver enfrentando interrupções de serviço com o componente de write-back de senha do Azure AD Connect, abaixo estão algumas etapas rápidas que você pode seguir para resolver esse problema:
 
 * [Reiniciar o serviço de sincronização do Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
@@ -1444,33 +1448,33 @@ Se você estiver enfrentando interrupções de serviço com o componente de writ
 
 Em geral, recomendamos que você execute essas etapas na ordem acima para recuperar o serviço da maneira mais rápida.
 
-### Reiniciar o serviço de sincronização do Azure AD Connect
+### <a name="restart-the-azure-ad-connect-sync-service"></a>Reiniciar o serviço de sincronização do Azure AD Connect
 A reinicialização do serviço de sincronização do Azure AD Connect pode ajudar a resolver problemas de conectividade ou outros problemas temporários com o serviço.
 
 1. Como administrador, clique em **Iniciar** no servidor que executa o **Azure AD Connect**.
-2. Digite **"Services.msc"** na caixa de pesquisa e pressione **Enter**.
-3. Procure a entrada do **Microsoft Azure AD Connect**.
-4. Com o botão direito do mouse na entrada do serviço, clique em **Reiniciar** e aguarde a conclusão da operação.
+2. Digite **“services.msc”** na caixa de pesquisa e pressione **Enter**.
+3. Procure a entrada do **Microsoft Azure AD Connect** .
+4. Com o botão direito do mouse na entrada do serviço, clique em **Reiniciar**e aguarde a conclusão da operação.
    
    ![][002]
 
-Essas etapas irão restabelecer a conexão com o serviço em nuvem e resolver qualquer interrupção que você esteja enfrentando. Se a reinicialização do serviço de sincronização não resolver o seu problema, recomendamos que você tente desabilitar e reabilitar o recurso de write-back de senha como uma próxima etapa.
+Essas etapas irão restabelecer a conexão com o serviço em nuvem e resolver qualquer interrupção que você esteja enfrentando.  Se a reinicialização do serviço de sincronização não resolver o seu problema, recomendamos que você tente desabilitar e reabilitar o recurso de write-back de senha como uma próxima etapa.
 
-### Desabilitar e reabilitar o recurso de write-back de senha
+### <a name="disable-and-re-enable-the-password-writeback-feature"></a>Desabilitar e reabilitar o recurso de write-back de senha
 Desabilitar e reabilitar o recurso de write-back de senha podem ajudar a resolver problemas de conectividade.
 
 1. Como administrador, abra o **Assistente de configuração do Azure AD Connect**.
 2. No diálogo **Conectar ao Azure AD**, insira suas **credenciais de administrador global do Azure AD**
-3. No diálogo **Conectar-se ao AD DS**, insira suas **credenciais de administrador de serviços de domínio do AD**.
-4. No diálogo **Identificar exclusivamente os seus usuários**, clique no botão **Próximo**.
-5. No diálogo **Recursos opcionais**, desmarque a caixa de seleção **Write-back de senha**.
+3. No diálogo **Conectar-se ao AD DS**, insira suas **credenciais de administrador de Serviços de Domínio do AD**.
+4. No diálogo **Identificar exclusivamente os seus usuários**, clique no botão **Avançar**.
+5. No diálogo **Funcionalidades opcionais**, desmarque a caixa de seleção **Write-back de senha**.
    
    ![][003]
-6. Clique em **Próximo** nas páginas de diálogo restantes sem alterar nada até chegar à página **Pronto para configurar**.
+6. Clique em **Avançar** nas páginas de diálogo restantes sem alterar nada até chegar à página **Pronto para configurar**.
 7. Verifique se a página de configuração mostra a **Opção de write-back de senha como desabilitada** e clique no botão verde **Configurar** para confirmar as suas alterações.
 8. No diálogo **Concluído**, desmarque a opção **Sincronizar agora** e clique em **Concluir** para fechar o assistente.
 9. Abra novamente o **Assistente de configuração do Azure AD Connect**.
-10. **Repita as etapas de 2 a 8**, mas confirme que você **marcou a opção de write-back de senha** na tela **Recursos opcionais** para reabilitar o serviço.
+10. **Repita as etapas de 2 a 8**, mas confirme que você **marcou a opção Write-back de senha** na tela **Funcionalidades opcionais** para reabilitar o serviço.
     
     ![][004]
 
@@ -1478,36 +1482,43 @@ Essas etapas irão restabelecer a conexão com o serviço em nuvem e resolver qu
 
 Se desabilitar e reabilitar o recurso de write-back de senha não resolver o seu problema, recomendamos que você tente instalar novamente o Azure AD Connect como uma próxima etapa.
 
-### Instalar a versão mais recente do Azure AD Connect
-A reinstalação do pacote do Azure AD Connect resolverá qualquer problema de configuração que possa estar afetando a sua capacidade de se conectar aos nossos serviços em nuvem ou de gerenciar senhas em seu ambiente AD local. Recomendamos que você execute esta etapa somente após tentar as duas primeiras etapas descritas acima.
+### <a name="install-the-latest-azure-ad-connect-release"></a>Instalar a versão mais recente do Azure AD Connect
+A reinstalação do pacote do Azure AD Connect resolverá qualquer problema de configuração que possa estar afetando a sua capacidade de se conectar aos nossos serviços em nuvem ou de gerenciar senhas em seu ambiente AD local.
+Recomendamos que você execute esta etapa somente após tentar as duas primeiras etapas descritas acima.
 
 1. Baixe a versão mais recente do Azure AD Connect [aqui](active-directory-aadconnect.md#install-azure-ad-connect).
 2. Uma vez que você já tenha instalado o Azure AD Connect, só precisará realizar uma atualização in-loco para atualizar sua instalação do Azure AD na versão mais recente.
-3. Execute o pacote baixado e siga as instruções na tela para atualizar o computador do Azure AD Connect. Não há etapas manuais adicionais necessárias, a menos que você tenha personalizado as regras para sincronização fora da caixa; nesse caso, você deve **fazer o backup antes de prosseguir com a atualização e reimplantá-lo novamente depois de terminar**.
+3. Execute o pacote baixado e siga as instruções na tela para atualizar o computador do Azure AD Connect.  Não há etapas manuais adicionais necessárias, a menos que você tenha personalizado as regras para sincronização fora da caixa; nesse caso, você deve **fazer o backup antes de prosseguir com a atualização e reimplantá-lo novamente depois de terminar**.
 
 Essas etapas irão restabelecer a conexão com o serviço em nuvem e resolver qualquer interrupção que você esteja enfrentando.
 
 Se a instalação da versão mais recente do servidor Azure AD Connect não resolver o seu problema, recomendamos que você tente desabilitar e reabilitar o write-back de senha como uma etapa final depois de instalar a QFE de sincronização mais recente.
 
-Se isso não resolver o problema, recomendamos que você dê uma olhada em [Solucionar problemas de write-back de senha](#troubleshoot-password-writeback) e [Perguntas frequentes sobre o gerenciamento de senhas do Azure AD](active-directory-passwords-faq.md) para ver se o problema pode ter sido discutido ali.
+Se isso não resolver o problema, recomendamos que você dê uma olhada em [Solucionar problemas de write-back de senha](#troubleshoot-password-writeback) e nas [Perguntas frequentes sobre o gerenciamento de senhas do Azure AD](active-directory-passwords-faq.md) para ver se o problema pode ter sido discutido ali.
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
 
-## Links para a documentação de redefinição de senha
+## <a name="links-to-password-reset-documentation"></a>Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
 * **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-* [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
-* [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
-* [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Como funciona**](active-directory-passwords-how-it-works.md) – saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
+* [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
+* [**Personalizar **](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
-* [**Obter percepções**](active-directory-passwords-get-insights.md) - saiba mais sobre nossos recursos integrados de relatórios
+* [**Obter percepções**](active-directory-passwords-get-insights.md) – saiba mais sobre nossos recursos integrados de relatórios
 * [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
-* [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
+* [**Saiba mais**](active-directory-passwords-learn-more.md) – aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
 [001]: ./media/active-directory-passwords-troubleshoot/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

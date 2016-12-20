@@ -1,12 +1,12 @@
 ---
-title: Comunicação para funções nos Serviços de Nuvem | Microsoft Docs
-description: As instâncias de função nos Serviços de Nuvem podem ter pontos de extremidade (http, https, tcp, udp) definidos que se comunicam com a parte externa ou entre outras instâncias de função.
+title: "Comunicação para funções nos Serviços de Nuvem | Microsoft Docs"
+description: "As instâncias de função nos Serviços de Nuvem podem ter pontos de extremidade (http, https, tcp, udp) definidos que se comunicam com a parte externa ou entre outras instâncias de função."
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fe034613c537ce0940f7220e4695727bdc2277c2
+
 
 ---
-# Habilitar a comunicação para instâncias de função no Azure
+# <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar a comunicação para instâncias de função no Azure
 As funções de serviço de nuvem se comunicam por meio de conexões internas e externas. As conexões externas são chamadas de **pontos de extremidade de entrada**, enquanto as conexões internas são chamadas de **pontos de extremidade internos**. Este tópico descreve como modificar a [definição de serviço](cloud-services-model-and-package.md#csdef) para criar pontos de extremidade.
 
-## Ponto de extremidade de entrada
-O ponto de extremidade de entrada é usado quando você deseja expor uma porta para o exterior. Você especifica o tipo de protocolo e a porta do ponto de extremidade e então o aplica às portas externa e interna do ponto de extremidade. Se desejar, você pode especificar uma porta interna diferente para o ponto de extremidade com o atributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint).
+## <a name="input-endpoint"></a>Ponto de extremidade de entrada
+O ponto de extremidade de entrada é usado quando você deseja expor uma porta para o exterior. Você especifica o tipo de protocolo e a porta do ponto de extremidade e então o aplica às portas externa e interna do ponto de extremidade. Se desejar, você pode especificar uma porta interna diferente para o ponto de extremidade com o atributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) .
 
 O ponto de extremidade de entrada pode usar os seguintes protocolos: **http, https, tcp, udp**.
 
@@ -32,7 +36,7 @@ Para criar um ponto de extremidade de entrada, adicione o elemento filho **Input
 </Endpoints> 
 ```
 
-## Ponto de extremidade de entrada de instância
+## <a name="instance-input-endpoint"></a>Ponto de extremidade de entrada de instância
 Os pontos de extremidade de entrada de instância são semelhantes aos pontos de extremidade de entrada, mas permitem que você mapeie portas voltadas para o público específicas para cada instância de função individual usando o encaminhamento de porta no balanceador de carga. Você pode especificar uma única porta voltada para o público ou um intervalo de portas.
 
 O ponto de extremidade de entrada de instância só pode usar **tcp** ou **udp** como o protocolo.
@@ -49,7 +53,7 @@ Para criar um ponto de extremidade de entrada de instância, adicione o elemento
 </Endpoints>
 ```
 
-## Ponto de extremidade interno
+## <a name="internal-endpoint"></a>Ponto de extremidade interno
 Os pontos de extremidade internos estão disponíveis para a comunicação entre instâncias. A porta é opcional e, se for omitida, uma porta dinâmica será atribuída ao ponto de extremidade. Um intervalo de portas pode ser usado. Há um limite de cinco pontos de extremidade internos por função.
 
 O ponto de extremidade interno pode usar os seguintes protocolos: **http, tcp, udp, any**.
@@ -73,8 +77,8 @@ Você também pode usar um intervalo de portas.
 ```
 
 
-## Funções de trabalho versus Funções da Web
-Há uma diferença mínima em relação aos pontos de extremidade quando você trabalha com as funções Web e de trabalho. A função Web deve ter pelo menos um ponto de extremidade de entrada único usando o protocolo **HTTP**.
+## <a name="worker-roles-vs-web-roles"></a>Funções de trabalho versus Funções da Web
+Há uma diferença mínima em relação aos pontos de extremidade quando você trabalha com as funções Web e de trabalho. A função Web deve ter pelo menos um ponto de extremidade de entrada único usando o protocolo **HTTP** .
 
 ```xml
 <Endpoints>
@@ -83,7 +87,7 @@ Há uma diferença mínima em relação aos pontos de extremidade quando você t
 </Endpoints>
 ```
 
-## Usando o SDK do .NET para acessar um ponto de extremidade
+## <a name="using-the-net-sdk-to-access-an-endpoint"></a>Usando o SDK do .NET para acessar um ponto de extremidade
 A Biblioteca Gerenciada do Azure fornece métodos para que instâncias de função se comuniquem no tempo de execução. A partir da execução de código em uma instância de função, você poderá recuperar informações sobre a existência de outras instâncias de função e de seus pontos de extremidade, bem como informações sobre a instância de função atual.
 
 > [!NOTE]
@@ -91,7 +95,7 @@ A Biblioteca Gerenciada do Azure fornece métodos para que instâncias de funç�
 > 
 > 
 
-Você pode usar a propriedade [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) para recuperar instâncias de uma função. Primeiro use [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) para retornar uma referência à instância da função atual e use a propriedade [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) para retornar uma referência à função propriamente dita.
+Você pode usar a propriedade [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) para recuperar instâncias de uma função. Primeiro use [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) para retornar uma referência à instância de função atual e use a propriedade [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) para retornar uma referência à função propriamente dita.
 
 Quando você se conecta a uma instância de função programaticamente por meio do SDK do .NET, é relativamente fácil de acessar as informações do ponto de extremidade. Por exemplo, depois que você tiver se conectado a um ambiente de função específico, poderá obter a porta de um ponto de extremidade específico com este código:
 
@@ -102,7 +106,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 A propriedade **Instances** retorna uma coleção de objetos **RoleInstance**. Esta coleção sempre contém a instância atual. Se a função não definir um ponto de extremidade interno, a coleção incluirá a instância atual, mas nenhuma outra instância. O número de instâncias de função na coleção sempre será 1 quando nenhum ponto de extremidade interno for definido para a função. Se a função definir um ponto de extremidade interno, suas instâncias serão descobríveis no tempo de execução e o número de instâncias na coleção corresponderá ao número de instâncias especificadas para a função no arquivo de configuração de serviço.
 
 > [!NOTE]
-> A Biblioteca Gerenciada do Azure não oferece um meio de determinar a integridade de outras instâncias de função, mas você pode implementar essas avaliações de integridade caso o serviço precise dessa funcionalidade. Você pode usar o [Diagnóstico do Azure](cloud-services-dotnet-diagnostics.md) para obter informações sobre as instâncias de função em execução.
+> A Biblioteca Gerenciada do Azure não oferece um meio de determinar a integridade de outras instâncias de função, mas você pode implementar essas avaliações de integridade caso o serviço precise dessa funcionalidade. Você pode usar o [Diagnóstico do Azure](cloud-services-dotnet-diagnostics.md) para obter informações sobre  as instâncias de função em execução.
 > 
 > 
 
@@ -124,7 +128,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 Veja um exemplo de função de trabalho que expõe o ponto de extremidade por meio da definição de serviço e começa a escutar conexões.
 
 > [!WARNING]
-> Este código só funcionará para um serviço implantado. Quando executados no Emulador de Computação do Azure, os elementos de configuração de serviço que criam pontos de extremidade de porta direta (elementos **InstanceInputEndpoint**) são ignorados.
+> Este código só funcionará para um serviço implantado. Quando executados no Emulador de Computação do Azure, os elementos de configuração de serviço que criam pontos de extremidade de porta direta (elementos**InstanceInputEndpoint** ) são ignorados.
 > 
 > 
 
@@ -212,10 +216,10 @@ namespace WorkerRole1
 }
 ```
 
-## Regras de tráfego de rede para controlar a comunicação de função
+## <a name="network-traffic-rules-to-control-role-communication"></a>Regras de tráfego de rede para controlar a comunicação de função
 Depois de definir pontos de extremidade internos, você poderá adicionar regras de tráfego de rede (com base nos pontos de extremidade que você criou) para controlar como as instâncias de função podem se comunicar umas com os outras. O diagrama a seguir mostra alguns cenários comuns para o controle da comunicação de função:
 
-![Cenários de regras de tráfego de rede](./media/cloud-services-enable-communication-role-instances/scenarios.png "Cenários de regras de tráfego de rede")
+![Cenários de regras de tráfego de rede](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
 
 O exemplo de código a seguir mostra as definições de função das funções mostradas no diagrama anterior. Cada definição de função inclui pelo menos um ponto de extremidade interno definido:
 
@@ -255,7 +259,7 @@ O exemplo de código a seguir mostra as definições de função das funções m
 
 Por padrão, após a definição de um ponto de extremidade interno, a comunicação poderá fluir de qualquer função para o ponto de extremidade interno de uma função sem qualquer restrição. Para restringir a comunicação, você deverá adicionar um elemento **NetworkTrafficRules** ao elemento **ServiceDefinition** no arquivo de definição de serviço.
 
-### Cenário 1
+### <a name="scenario-1"></a>Cenário 1
 Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1**.
 
 ```xml
@@ -274,7 +278,7 @@ Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1**.
 </ServiceDefinition>
 ```
 
-### Cenário 2
+### <a name="scenario-2"></a>Cenário 2
 Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1** e **WorkerRole2**.
 
 ```xml
@@ -293,7 +297,7 @@ Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1** e **Worke
 </ServiceDefinition>
 ```
 
-### Cenário 3
+### <a name="scenario-3"></a>Cenário 3
 Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1** e de **WorkerRole1** para **WorkerRole2**.
 
 ```xml
@@ -322,7 +326,7 @@ Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1** e de **Wo
 </ServiceDefinition>
 ```
 
-### Cenário 4
+### <a name="scenario-4"></a>Cenário 4
 Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1**, de **WebRole1** para **WorkerRole2** e de **WorkerRole1** para **WorkerRole2**.
 
 ```xml
@@ -365,7 +369,12 @@ Permita apenas o tráfego de rede de **WebRole1** para **WorkerRole1**, de **Web
 
 Veja uma referência de esquema XML para os elementos usados acima [aqui](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## Próximas etapas
-Leia mais sobre o [modelo](cloud-services-model-and-package.md) de Serviço de Nuvem.
+## <a name="next-steps"></a>Próximas etapas
+Leia mais sobre o [modelo](cloud-services-model-and-package.md)de Serviço de Nuvem.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

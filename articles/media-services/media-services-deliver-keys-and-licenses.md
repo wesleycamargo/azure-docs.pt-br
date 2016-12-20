@@ -1,12 +1,12 @@
 ---
-title: Usar os Serviços de Mídia do Azure para fornecer licenças DRM ou chaves AES
-description: Este artigo descreve como você pode usar o AMS (Serviços de Mídia do Azure) para entregar licenças do PlayReady e/ou Widevine e chaves AES, mas fazer o restante (codificação, criptografia, transmissão) usando os servidores locais.
+title: "Usar os Serviços de Mídia do Azure para fornecer licenças DRM ou chaves AES"
+description: "Este artigo descreve como você pode usar o AMS (Serviços de Mídia do Azure) para entregar licenças do PlayReady e/ou Widevine e chaves AES, mas fazer o restante (codificação, criptografia, transmissão) usando os servidores locais."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 02bf743d310519477bb87a2930a2afe687c62c4e
+
 
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usar os Serviços de Mídia do Azure para fornecer licenças DRM ou chaves AES
@@ -31,7 +35,7 @@ O diagrama a seguir mostra as principais etapas necessárias para usar o AMS par
 ## <a name="download-sample"></a>Baixar exemplo
 Você pode baixar o exemplo descrito neste artigo [aqui](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
 
-## <a name=".net-code-example"></a>Exemplo de código do .NET
+## <a name="net-code-example"></a>Exemplo de código do .NET
 O exemplo de código neste tópico mostra como criar uma chave de conteúdo comum e obter URLs de aquisição de licença do PlayReady ou Widevine. Você precisa obter as seguintes informações do AMS e configurar o servidor local: **chave de conteúdo**, **id da chave** e **URL de aquisição de licença**. Após configurar seu servidor local, você poderá transmitir a partir de seu próprio servidor de transmissão. Já que os pontos de fluxo criptografados apontam para o servidor de licença do AMS, o player solicitará uma licença do AMS. Se você escolher autenticação de token, o servidor de licença do AMS validará o token que é enviado por meio de HTTPS e (caso ela seja válida) retornará a licença para o player. (O exemplo de código apenas mostra como criar uma chave de conteúdo comum e obter URLs de aquisição de licença PlayReady ou Widevine. Se quiser entregar chaves AES-128, você precisará criar uma chave de conteúdo de envelope e obter uma URL de aquisição de chave. [Este](media-services-protect-with-aes128.md) artigo mostra como fazer isso).
 
     using System;
@@ -339,6 +343,9 @@ O exemplo de código neste tópico mostra como criar uma chave de conteúdo comu
 
 [Usando parceiros  para fornecer licenças Widevine para os Serviços de Mídia do Azure](media-services-licenses-partner-integration.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

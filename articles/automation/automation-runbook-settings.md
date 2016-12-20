@@ -1,56 +1,67 @@
 ---
-title: Configurações de runbook
-description: Descreve as definições de configuração de um runbook na Automação do Azure e como alterá-las usando o Portal de Gerenciamento do Azure e o Windows PowerShell.
+title: "Configurações de runbook | Microsoft Docs"
+description: "Descreve as definições de configuração de um runbook na Automação do Azure e como alterá-las usando o Portal de Gerenciamento do Azure e o Windows PowerShell."
 services: automation
-documentationcenter: ''
-author: bwren
+documentationcenter: 
+author: mgoedtel
 manager: stevenka
 editor: tysonn
-
+ms.assetid: a726f20c-a952-48b8-88ee-36d76aa3ac61
 ms.service: automation
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
+ms.date: 11/11/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: ac8b5372aa06eac8c9a701f0621dbb675fbb565c
+ms.openlocfilehash: 20ecbc270e61d234e026e6ba2634c7aad63b3355
+
 
 ---
-# Configurações de runbook
+# <a name="runbook-settings"></a>Configurações de runbook
 Cada runbook na Automação do Azure tem várias configurações que ajudam a identificá-lo e a alterar seu comportamento de log. Cada uma dessas configurações é descrita abaixo seguida de procedimentos sobre como modificá-las.
 
-## Configurações
-### Nome e descrição
+## <a name="settings"></a>Configurações
+### <a name="name-and-description"></a>Nome e descrição
 Você não pode alterar o nome de um runbook após ele ter sido criado. A descrição é opcional e pode ter até 512 caracteres.
 
-### Marcas
-Os rótulos permitem que você atribua diferentes palavras e frases para ajudar a identificar um runbook. Por exemplo, quando você envia um runbook para a [Galeria de Runbook](https://msdn.microsoft.com/library/dn781422.aspx), também define rótulos específicos para identificar em quais categorias o runbook deve estar listado. Você pode especificar vários rótulos para um runbook separando-os com vírgulas.
+### <a name="tags"></a>Marcas
+Os rótulos permitem que você atribua diferentes palavras e frases para ajudar a identificar um runbook. Por exemplo, quando você envia um runbook para a [Galeria do PowerShell](https://www.powershellgallery.com/), também define rótulos específicos para identificar em quais categorias o runbook deve estar listado. Você pode especificar vários rótulos para um runbook separando-os com vírgulas.
 
-### Registro em log
-Por padrão, os registros Detalhado e Progresso não são gravados no histórico do trabalho. Você pode alterar as configurações de um runbook específico para registrar logs. Para saber mais sobre esses registros, confira [Saída de Runbook e Mensagens](https://msdn.microsoft.com/library/dn879148.aspx).
+### <a name="logging"></a>Registro em log
+Por padrão, os registros Detalhado e Progresso não são gravados no histórico do trabalho. Você pode alterar as configurações de um runbook específico para registrar logs. Para saber mais sobre esses registros, confira [Saída de Runbook e Mensagens](automation-runbook-output-and-messages.md).
 
-## Alterando as configurações de runbook
-### Alterando as configurações de runbook com o Portal de Gerenciamento do Azure
-Você pode alterar as configurações de um runbook no Portal de Gerenciamento do Azure na página **Configurar** para o runbook.
+## <a name="changing-runbook-settings"></a>Alterando as configurações de runbook
 
-1. No Portal de Gerenciamento do Azure, selecione **Automação** e clique no nome de uma conta de automação.
-2. Selecione a guia **Runbooks**.
-3. Clique no nome de um runbook.
-4. Selecione a guia **Configurar**.
+### <a name="changing-runbook-settings-with-the-azure-portal"></a>Alterando as configurações de runbook com o portal do Azure
+Você pode alterar as configurações de um runbook no portal do Azure na folha **Configurações** para o runbook.
 
-### Alterando as configurações de runbook com o Windows PowerShell
-Você pode usar o cmdlet [Set-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690275.aspx) para alterar as configurações de um runbook. Se você quiser especificar várias marcas, pode fornecer uma matriz ou uma única cadeia de caracteres com valores delimitados por vírgula para o parâmetro dos Rótulos. Você pode obter as marcas atuais com o [Get-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690278.aspx).
+1. No portal do Azure, selecione **Automação** e clique no nome de uma conta de automação.
+2. Selecione a guia **Runbooks** .
+3. Clique no nome de um runbook e você será direcionado para a folha de configurações do runbook. Aqui, você pode especificar ou modificar marcas e a descrição do runbook, configurar definições de rastreamento e registro em log e acessar ferramentas de suporte para ajudar a resolver problemas.     
+
+### <a name="changing-runbook-settings-with-windows-powershell"></a>Alterando as configurações de runbook com o Windows PowerShell
+Você pode usar o cmdlet [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) para alterar as configurações de um runbook. Se você quiser especificar várias marcas, pode fornecer uma matriz ou uma única cadeia de caracteres com valores delimitados por vírgula para o parâmetro dos Rótulos. Você pode obter as marcas atuais com o [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
 
 Os comandos de exemplo a seguir mostram como definir as propriedades de um runbook. Este exemplo adiciona três rótulos aos rótulos existentes e especifica que registros detalhados devem ser registrados em log.
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
-    $tags = (Get-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName).Tags
+    $tags = (Get-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName $automationAccountName –Name $runbookName).Tags
     $tags += "Tag1,Tag2,Tag3"
-    Set-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
+    Set-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName $automationAccountName –Name $runbookName –LogVerbose $true –Tags $tags
 
-## Artigos relacionados
-* [Saída de Runbook e Mensagens](automation-runbook-output-and-messages.md) 
-* [Criando ou Importando um Runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
+## <a name="next-steps"></a>Próximas etapas
+* Para aprender a criar e recuperar mensagens de erro e de saída de runbooks, confira [Saída e mensagens de Runbook](automation-runbook-output-and-messages.md) 
+* Para entender como adicionar um runbook que já foi desenvolvido pela comunidade ou de outra fonte, ou criar seu próprio runbook, confira [Criando ou importando um runbook](automation-creating-importing-runbook.md) 
 
-<!---HONumber=AcomDC_0211_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

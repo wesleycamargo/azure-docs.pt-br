@@ -1,13 +1,13 @@
 ---
-title: Importar dados no Estúdio de Aprendizado de Máquina de um arquivo local | Microsoft Docs
-description: Como importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de um arquivo local.
+title: Importar dados no Machine Learning Studio de um arquivo local | Microsoft Docs
+description: "Como importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de um arquivo local."
 keywords: importar dados, formato de dados, tipos de dados, fontes de dados, dados de treinamento
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: c0dd9e90-23c4-4f64-8b8f-489ad79f047b
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,24 +15,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: garye;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d4ab1fd19d0c865e8920ae3079df1683aaa4be7d
+
 
 ---
-# Importe os seus dados de treinamento no Estúdio de Aprendizado de Máquina do Azure de um arquivo local
+# <a name="import-your-training-data-into-azure-machine-learning-studio-from-a-local-file"></a>Importe os seus dados de treinamento no Estúdio de Aprendizado de Máquina do Azure de um arquivo local
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Para usar seus próprios dados no Estúdio de Aprendizado de Máquina, você pode antes carregar antecipadamente um arquivo de dados do disco rígido local para criar um módulo de conjunto de dados em seu espaço de trabalho.
+Para usar seus próprios dados no Estúdio de Aprendizado de Máquina, você pode antes carregar antecipadamente um arquivo de dados do disco rígido local para criar um módulo de conjunto de dados em seu espaço de trabalho. 
 
-## Importar dados de um arquivo local
+## <a name="import-data-from-a-local-file"></a>Importar dados de um arquivo local
 Você pode importar dados de um disco rígido local fazendo o seguinte:
 
 1. clique em **+NOVO** na parte inferior da janela do Estúdio de Aprendizado de Máquina.
 2. Selecione **CONJUNTO DE DADOS** e **DO ARQUIVO LOCAL**.
-3. Na caixa de diálogo **Carregar um novo conjunto de dados**, navegue até o arquivo que deseja carregar
+3. Na caixa de diálogo **Carregar um novo conjunto de dados** , navegue até o arquivo que deseja carregar
 4. Digite um nome, identifique o tipo de dados e, opcionalmente, insira uma descrição. Uma descrição é recomendada - ela permite que você registre quaisquer características sobre os dados que você desejará lembrar ao usar os dados no futuro.
 5. A caixa de seleção **Esta é a nova versão de um conjunto de dados existente** permite que você atualize um conjunto de dados existente com novos dados. Basta clicar nesta caixa de seleção e digitar o nome de um conjunto de dados existente.
 
-Durante o carregamento, você verá uma mensagem de que seu arquivo está sendo carregado. O tempo de carregamento depende do tamanho de seus dados e da velocidade da sua conexão com o serviço. Se souber que o arquivo levará muito tempo, você pode fazer outras coisas dentro do Estúdio de Aprendizado de Máquina enquanto espera. No entanto, fechar o navegador fará com que o carregamento de dados falhe.
+Durante o carregamento, você verá uma mensagem de que seu arquivo está sendo carregado. O tempo de carregamento depende do tamanho de seus dados e da velocidade da sua conexão com o serviço.
+Se souber que o arquivo levará muito tempo, você pode fazer outras coisas dentro do Estúdio de Aprendizado de Máquina enquanto espera. No entanto, fechar o navegador fará com que o carregamento de dados falhe.
 
-Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dados e ficam disponíveis para qualquer experimento em seu espaço de trabalho. Quando estiver editando um experimento, você pode encontrar o conjunto de dados criados na lista **Meus Conjuntos de Dados**, na lista **Conjuntos de Dados Salvos** na paleta de módulos. Você pode arrastar e soltar o conjunto de dados na tela do experimento quando quiser usar esse conjunto de dados para outras análises e aprendizado de máquina.
+Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dados e ficam disponíveis para qualquer experimento em seu espaço de trabalho.
+Quando estiver editando um experimento, você pode encontrar os conjuntos de dados criados na lista **Meus Conjuntos de Dados**, na lista **Conjuntos de Dados Salvos** na paleta de módulos. Você pode arrastar e soltar o conjunto de dados na tela do experimento quando quiser usar esse conjunto de dados para outras análises e aprendizado de máquina.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

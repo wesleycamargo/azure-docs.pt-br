@@ -2,11 +2,11 @@
 title: Processar eventos de Hubs de Eventos com o Storm no HDInsight usando o Java | Microsoft Docs
 description: Saiba como processar dados de Hubs de Eventos com uma topologia Storm Java criada com o Maven.
 services: hdinsight,notification hubs
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 453fa7b0-c8a6-413e-8747-3ac3b71bed86
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eaa86b706a538543816b59d8cd09ee54df43b26d
+
 
 ---
-# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-(java)"></a>Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (Java)
+# <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (Java)
 Os Hubs de Eventos do Azure permitem processar grandes quantidades de dados de sites, aplicativos e dispositivos. O spout dos Hubs de Eventos facilita o uso do Apache Storm no HDInsight para analisar esses dados em tempo real. Você pode também gravar dados no Hub de Eventos usando o bolt dos Hubs de Eventos.
 
 Neste tutorial, você aprenderá a usar o spout e bolt dos Hubs de Eventos para ler e gravar dados em uma topologia Storm baseada em Java.
@@ -429,6 +433,9 @@ Para saber mais sobre como usar a interface do usuário Storm, consulte estes t�
 ## <a name="next-steps"></a>Próximas etapas
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

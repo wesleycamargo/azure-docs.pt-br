@@ -1,12 +1,12 @@
 ---
-title: Copiando um Blob Existente para um Ativo dos Serviços de Mídia | Microsoft Docs
-description: Este tópico mostra como copiar um blob existente para um Ativo dos Serviços de Mídia.
+title: "Copiando um Blob Existente para um Ativo dos Serviços de Mídia | Microsoft Docs"
+description: "Este tópico mostra como copiar um blob existente para um Ativo dos Serviços de Mídia."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6a63823f-f3c9-424c-91b8-566f70bec346
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 10/13/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 62e675d3e87e40a09d67eb5d00b58ea8857e9610
+
 
 ---
 # <a name="copying-an-existing-blob-into-a-media-services-asset"></a>Copiar um Blob existente em um ativo dos Serviços de Mídia
@@ -317,6 +321,9 @@ O exemplo de código a seguir executa as seguintes tarefas:
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

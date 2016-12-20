@@ -1,12 +1,12 @@
 ---
-title: Acesso a aplicativo de autoatendimento e gerenciamento delegado com o Active Directory do Azure| Microsoft Docs
+title: Acesso a aplicativo de autoatendimento e gerenciamento delegado com o Azure Active Directory| Microsoft Docs
 description: Este artigo descreve como habilitar acesso a aplicativo de autoatendimento e gerenciamento delegado com o Active Directory do Azure.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 448a7fe8-a162-475e-9ba2-2e3ab59302bc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c14be0292b08419ebaf4270d7e451e930d43810b
+
 
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Acesso a aplicativos de autoatendimento e gerenciamento delegado com o Active Directory do Azure
@@ -83,7 +87,7 @@ O bloco **Adicionar Usuários** permite que os aprovadores concedam diretamente 
 ### <a name="manage-users"></a>Gerenciar Usuários
 O bloco **Gerenciar Usuários** permite aos aprovadores atualizar ou remover diretamente os usuários que têm acesso ao aplicativo. 
 
-### <a name="configure-password-sso-credentials-(if-applicable)"></a>Configurar credenciais de SSO de senha (se aplicável)
+### <a name="configure-password-sso-credentials-if-applicable"></a>Configurar credenciais de SSO de senha (se aplicável)
 O bloco **Configurar** só será mostrado se o aplicativo foi configurado pelo administrador de TI para usar logon único baseado em senha, e o administrador garantiu ao aprovador a capacidade de definir credenciais SSO de senha, conforme descrito anteriormente. Quando selecionado, são apresentadas várias opções ao aprovador sobre como as credenciais serão propagadas aos usuários atribuídos:
 
 ![][3]
@@ -102,6 +106,6 @@ O bloco **Configurar** só será mostrado se o aplicativo foi configurado pelo a
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Interface do usuário do Azure Mobile Engagement - Monitor
+title: "Interface do usuário do Azure Mobile Engagement - Monitor"
 description: Saiba como monitorar dados em tempo real sobre seu aplicativo usando o Azure Mobile Engagement
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 838079ed1317aca19ee8e5c5721efb0d93dd97e6
+
 
 ---
-# Como monitorar dados em tempo real sobre o seu aplicativo
-Este artigo descreve a guia **MONITORAR** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement**.
+# <a name="how-to-monitor-real-time-data-about-your-application"></a>Como monitorar dados em tempo real sobre o seu aplicativo
+Este artigo descreve a guia **MONITORAR** do portal do **Mobile Engagement**. Você usa o portal do **Mobile Engagement** para monitorar e gerenciar seus aplicativos móveis. Observe que, para começar a usar o portal, primeiro é preciso criar uma conta do **Azure Mobile Engagement** . 
 
 A seção Monitorar da interface do usuário fornece informações de análise em tempo real e permite que você defina alertas quando os limites são atingidos para a maior parte das mesmas informações que estão disponíveis historicamente na seção [ANÁLISE](mobile-engagement-user-interface-analytics.md) da interface do usuário. Veja a seção **Glossário** no tópico [Conceitos](http://go.microsoft.com/fwlink/?LinkId=525555) para ver as definições de termos e abreviaturas na Análise e no Monitoramento (como os seguintes: Usuário Ativo, Novo Usuário, Usuário Retido, Sessão, Gráfico de Trajetória do Usuário, Mapa de Usuários, URLs de Acompanhamento, Tendências, Atividade, Eventos, Trabalho, Erro, Informações Adicionais, Falha e Informações do Aplicativo).
 
@@ -26,33 +30,33 @@ A seção Monitorar da interface do usuário fornece informações de análise e
 > 
 > 
 
-## Monitorar - sessões, trabalhos, eventos, erros e falhas
-Você pode ver quantos usuários estão atualmente na sessão e em telas específicas ou executando ações específicas. Você pode exibir atividades de usuário divididas em sessões, trabalhos, eventos, erros e falhas. Você pode ver as informações atuais e mostrar as informações da última hora, dia ou semana. Você pode ver todas as informações em cada categoria ou classificação especificamente segundo a sessão, trabalho, evento, erro e falha. Monitoramento em tempo real é útil para uso durante eventos como uma campanha de envio por push para ver se há um aumento na ação à direita após enviar sua notificação de Push.
+## <a name="monitor---sessions-jobs-events-errors-and-crashes"></a>Monitorar - sessões, trabalhos, eventos, erros e falhas
+Você pode ver quantos usuários estão atualmente na sessão e em telas específicas ou executando ações específicas. Você pode exibir atividades de usuário divididas em sessões, trabalhos, eventos, erros e falhas. Você pode ver as informações atuais e mostrar as informações da última hora, dia ou semana. Você pode ver todas as informações em cada categoria ou classificação especificamente segundo a sessão, trabalho, evento, erro e falha.  Monitoramento em tempo real é útil para uso durante eventos como uma campanha de envio por push para ver se há um aumento na ação à direita após enviar sua notificação de Push.
 
-![Monitor1][14]
+![Monitor1][14]  
 
-## Solucionando problemas com o Monitor - Eventos - Detalhes
+## <a name="troubleshooting-with-monitor---events---details"></a>Solucionando problemas com o Monitor - Eventos - Detalhes
 Gerar um evento em seu aplicativo do dispositivo de teste e encontrá-lo em Monitor - Eventos - Detalhes é uma das maneiras mais fáceis de encontrar a ID do dispositivo para o dispositivo de teste e confirmar que a integração de Segmentos, Monitoramento e Análise do Azure Mobile Engagement está funcionando em seu aplicativo. Uma vez que você tenha a ID de dispositivo do seu dispositivo de teste, você poderá adicioná-la a seus dispositivos de teste em "Minha conta – dispositivos". Se você não pode gerar um evento, certifique-se de que o Azure Mobile Engagement esteja corretamente integrado em seu aplicativo do Android/iOS/Web/Windows/Windows Phone com o SDK.
 
-Para obter mais informações, veja: [Documentação do SDK][Link 5]
+Para obter mais informações, consulte: [SDK Documentation (Documentação do SDK)][Link 5]
 
-![Monitor2][15]
+![Monitor2][15]  
 
-## Solucionando problemas com Monitor - Falhas - Detalhes
+## <a name="troubleshooting-with-monitor---crashes---details"></a>Solucionando problemas com Monitor - Falhas - Detalhes
 Você pode examinar informações de falhas sobre seu aplicativo em Monitor - Falhas - Detalhes para ajudar a determinar por que seu aplicativo está falhando. Você também deve procurar problemas conhecidos com cada versão do SDK nas notas de versão para cada versão do SDK para Android/iOS/Web/Windows/Windows Phone.
 
-Para obter mais informações, veja: [Documentação do SDK - Notas de versão][Link 5]
+Para obter mais informações, consulte: [SDK Documentation - Release notes (Documentação do SDK – Notas de versão)][Link 5]
 
 ![Monitor3][16]
 
-## Monitor - Alertas
-Você também pode especificar condições para alertas que serão enviados automaticamente para você por email ou mensagem instantânea. (Quaisquer serviços compatíveis com XMPP, como GTalk do Google ou iChat da Apple, têm suporte). Os alertas são baseados em um limite de detecção predefinido maior que (>) ou menor que (<) um número específico de sessões, trabalhos, eventos, erros ou falhas por hora, minuto ou segundo. Alertas podem monitorar todas as atividades de um determinado tipo, ou apenas para monitorar uma atividade de um trabalho, evento ou erro específico.
+## <a name="monitor---alerts"></a>Monitor - Alertas
+Você também pode especificar condições para alertas que serão enviados automaticamente para você por email ou mensagem instantânea. (Quaisquer serviços compatíveis com XMPP, como GTalk do Google ou iChat da Apple, têm suporte). Os alertas são baseados em um limite de detecção predefinido maior que (>) ou menor que (<) um número específico de sessões, trabalhos, eventos, erros ou falhas por hora, minuto ou segundo. Alertas podem monitorar todas as atividades de um determinado tipo, ou apenas para monitorar uma atividade de um trabalho, evento ou erro específico. 
 
 Você também pode especificar uma taxa de detecção mínima, que é a quantidade mínima de minutos que vai separar duas notificações para o mesmo alerta para assegurar que quando o alerta for disparado, você nunca receberá mais de 1 notificação por intervalo especificado.
 
 ![Monitor4][17]
 
-## Confira também
+## <a name="see-also"></a>Confira também
 * [Conceitos][Link 6]
 * [Serviço do Guia de Solução de Problemas][Link 24]
 
@@ -151,4 +155,8 @@ Você também pode especificar uma taxa de detecção mínima, que é a quantida
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

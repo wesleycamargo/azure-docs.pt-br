@@ -1,26 +1,30 @@
 ---
-title: Criar aplicativos que usam os tópicos e as assinaturas do Barramento de Serviço | Microsoft Docs
-description: Introdução às funcionalidades de publicação/assinatura oferecidas pelos tópicos e pelas assinaturas do Barramento de Serviço.
-services: service-bus
+title: "Criar aplicativos que usam os tópicos e as assinaturas do Barramento de Serviço | Microsoft Docs"
+description: "Introdução às funcionalidades de publicação/assinatura oferecidas pelos tópicos e pelas assinaturas do Barramento de Serviço."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a48fc9b0-b7b0-464e-8187-a517bf8b4eb4
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 75f2cddad471c89fd826097831362d9d51a6dccf
+
 
 ---
 # <a name="create-applications-that-use-service-bus-topics-and-subscriptions"></a>Criar aplicativos que usam os tópicos e as assinaturas do Barramento de Serviço
 O Barramento de Serviço do Azure oferece suporte a um conjunto de tecnologias middleware orientado a mensagens, baseado em nuvem, incluindo o serviço de enfileiramento de mensagens confiável e o sistema de mensagens de publicação/assinatura durável. Este artigo baseia-se nas informações fornecidas em [Criar aplicativos que usam as filas do Barramento de Serviço](service-bus-create-queues.md) e oferece uma introdução às funcionalidades de publicação/assinatura oferecidas pelos tópicos do Barramento de Serviço.
 
 ## <a name="evolving-retail-scenario"></a>Cenário de varejo em evolução
-Este artigo continua o cenário de varejo usado em [Criar aplicativos que usem filas do Barramento de Serviço](service-bus-create-queues.md). Relembre os dados de vendas de terminais de Ponto de Venda (PDV) individuais devem ser roteados para um sistema de gerenciamento de estoque que usa esses dados para determinar quando o estoque deverá ser reposto. Cada terminal de PDV relata seus dados de vendas enviando mensagens para a fila **DataCollectionQueue**, na qual permanecem até que sejam recebidas pelo sistema de gerenciamento de estoque, como mostrado aqui:
+Este artigo continua o cenário de varejo usado em [Criar aplicativos que usem filas do Barramento de Serviço](service-bus-create-queues.md). Relembre os dados de vendas de terminais de Ponto de Venda (PDV) individuais devem ser roteados para um sistema de gerenciamento de estoque que usa esses dados para determinar quando o estoque deverá ser reposto. Cada terminal de PDV relata seus dados de vendas enviando mensagens para a fila **DataCollectionQueue**, onde permanecem até que sejam recebidas pelo sistema de gerenciamento de estoque, como mostrado aqui:
 
 ![Barramento de Serviço 1](./media/service-bus-create-topics-subscriptions/IC657161.gif)
 
@@ -48,7 +52,7 @@ Com essa configuração, cada mensagem dos terminais de PDV será disponibilizad
 O artigo [Criar aplicativos que usem as filas do Barramento de Serviço](service-bus-create-queues.md) descreve como se inscrever em uma conta do Azure e criar um namespace de serviço. Para usar o namespace do Barramento de Serviço, um aplicativo deverá referenciar o assembly do Barramento de Serviço, especificamente o Microsoft.ServiceBus.dll. A maneira mais fácil de referenciar as dependências do Barramento de Serviço é instalar o [pacote NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) do Barramento de Serviço. Você também pode encontrar o assembly como parte do SDK do Azure. O download está disponível na [página de download do SDK do Azure](https://azure.microsoft.com/downloads/).
 
 ### <a name="create-the-topic-and-subscriptions"></a>Criar o tópico e as assinaturas
-As operações de gerenciamento para as entidades do sistema de mensagens do Barramento de Serviço (filas e tópicos de publicação/assinatura) são executadas por meio da classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). As credenciais apropriadas são necessárias para criar uma instância do [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para um namespace específico. O Barramento de Serviço usa um modelo de segurança baseado na [Assinatura de Acesso Compartilhado (SAS)](../service-bus/service-bus-sas-overview.md). A classe [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa um provedor de token de segurança com métodos de fábrica internos que retornam alguns provedores de token conhecidos. Usaremos um método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para armazenar as credenciais SAS. Assim, a instância de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) é construída com o endereço básico do namespace do Barramento de Serviço e do provedor de token.
+As operações de gerenciamento para as entidades do sistema de mensagens do Barramento de Serviço (filas e tópicos de publicação/assinatura) são executadas por meio da classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). As credenciais apropriadas são necessárias para criar uma instância do [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para um namespace específico. O Barramento de Serviço usa um modelo de segurança baseado na [Assinatura de Acesso Compartilhado (SAS)](service-bus-sas-overview.md). A classe [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa um provedor de token de segurança com métodos de fábrica internos que retornam alguns provedores de token conhecidos. Usaremos um método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para armazenar as credenciais SAS. Assim, a instância de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) é construída com o endereço base do namespace do Barramento de Serviço e do provedor de token.
 
 A classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) oferece métodos para criar, enumerar e excluir entidades do sistema de mensagens. O código exibido aqui mostra como a instância de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) é criada e usada para criar o tópico **DataCollectionTopic**.
 
@@ -71,7 +75,7 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard");
 ```
 
 ### <a name="send-messages-to-the-topic"></a>Enviar mensagens para o tópico
-Para operações de tempo de execução em entidades do Barramento de Serviço; por exemplo, para enviar e receber mensagens, primeiro um aplicativo deverá criar um objeto [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx). Semelhante à classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), a instância [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) será criada do endereço básico do namespace de serviço e do provedor de token.
+Para operações de tempo de execução em entidades do Barramento de Serviço; por exemplo, para enviar e receber mensagens, primeiro um aplicativo deverá criar um objeto [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx). Semelhante à classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), a instância [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) será criada do endereço base do namespace de serviço e do provedor de token.
 
 ```
 MessagingFactory factory = MessagingFactory.Create(uri, tokenProvider);
@@ -96,7 +100,7 @@ sender.Send(bm);
 ### <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
 Semelhante ao uso de filas, para receber mensagens de uma assinatura, você poderá usar um objeto [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx), que pode ser criado diretamente de [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) usando [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Você pode usar um de dois modos de recebimento diferentes (**ReceiveAndDelete** e **PeekLock**), como discutido em [Criar aplicativos que usam filas do Barramento de Serviço](service-bus-create-queues.md).
 
-Observe que quando você cria um [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) para assinaturas, o parâmetro *entityPath* fica no formato `topicPath/subscriptions/subscriptionName`. Portanto, para criar um [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) para a assinatura de **Estoque** do tópico **DataCollectionTopic**, *entityPath* deverá ser definido como `DataCollectionTopic/subscriptions/Inventory`. O código aparece da seguinte maneira:
+Observe que quando você cria um [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) para assinaturas, o parâmetro *entityPath* fica no formato`topicPath/subscriptions/subscriptionName`. Portanto, para criar um [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) para a assinatura de **Estoque** do tópico **DataCollectionTopic**, *entityPath* deverá ser definido como `DataCollectionTopic/subscriptions/Inventory`. O código aparece da seguinte maneira:
 
 ```
 MessageReceiver receiver = factory.CreateMessageReceiver("DataCollectionTopic/subscriptions/Inventory");
@@ -139,6 +143,9 @@ Todos os motivos para usar o enfileiramento de mensagens descrito em [Criar apli
 ## <a name="next-steps"></a>Próximas etapas
 Consulte [Criar aplicativos que usem as filas do Barramento de Serviço](service-bus-create-queues.md) para informações sobre como usar as filas no cenário de varejo de PDV.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,14 +1,14 @@
 ---
-title: Implantação do S/4 HANA ou BW/4 HANA na VM do Azure | Microsoft Docs
-description: Implantação do S/4 HANA ou BW/4 HANA na VM do Azure
+title: "Implantação do S/4 HANA ou BW/4 HANA na VM do Azure | Microsoft Docs"
+description: "Implantação do S/4 HANA ou BW/4 HANA na VM do Azure"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: hermanndms
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -16,9 +16,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f653e69590ee15d272543dc58840b1ee6983e953
+
 
 ---
-# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Implantando S/4 HANA ou BW/4 HANA no Microsoft Azure
+# <a name="deploying-s4-hana-or-bw4-hana-on-microsoft-azure"></a>Implantando S/4 HANA ou BW/4 HANA no Microsoft Azure
 Este artigo descreve como implantar o S/4 HANA no Microsoft Azure via SAP Cloud Appliance Library 3.0.
 As capturas de tela mostram o processo passo a passo. Implantar outras soluções baseadas no SAP HANA, como BW/4 HANA, funciona da mesma maneira da perspectiva do processo. Basta selecionar uma solução diferente.
 
@@ -89,6 +93,9 @@ Agora, é possível conectar a solução por meio do botão Conectar no portal d
 
 Uma opção é fazer logon na VM Windows do cliente e iniciar, por exemplo, a GUI do SAP pré-configurada.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

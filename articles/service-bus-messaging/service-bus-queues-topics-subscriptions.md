@@ -1,22 +1,26 @@
 ---
-title: Filas, tópicos e assinaturas do Barramento de Serviço | Microsoft Docs
-description: Visão geral de entidades do sistema de mensagens do Barramento de Serviço.
-services: service-bus
+title: "Filas, tópicos e assinaturas do Barramento de Serviço | Microsoft Docs"
+description: "Visão geral de entidades do sistema de mensagens do Barramento de Serviço."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/14/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: edee84938bddf28ac4dbf4152ccf9d7ab6afe6c3
+
 
 ---
-# <a name="service-bus-queues,-topics,-and-subscriptions"></a>Filas, tópicos e assinaturas do Barramento de Serviço
+# <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e assinaturas do Barramento de Serviço
 O Barramento de Serviço do Microsoft Azure oferece suporte a um conjunto de tecnologias middleware orientado a mensagens, baseado em nuvem, incluindo o serviço de enfileiramento de mensagens confiável e o sistema de mensagens de publicação/assinatura durável. Esses recursos do sistema de mensagens agenciado podem ser considerados como recursos do sistema de mensagens separados que dão suporte a cenários de assinatura de publicação, de desacoplamento temporal e de balanceamento de carga usando a malha do sistema de mensagens do Barramento de Serviço. A comunicação desacoplada tem diversas vantagens; por exemplo, clientes e servidores podem se conectar como necessário e executar as operações deles de forma assíncrona.
 
 As entidades de mensagens que formam o núcleo dos recursos do sistema de mensagens agenciado no Barramento de Serviço são filas, tópicos/assinaturas e regras/ações.
@@ -162,6 +166,9 @@ Consulte os seguintes tópicos avançados para saber mais e obter exemplos do us
 * [Exemplo de filtros do tópico](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 * [Sistema de mensagens agenciado: filtros avançados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

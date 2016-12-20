@@ -2,21 +2,25 @@
 title: Usar os cmdlets do PowerShell com o Azure RemoteApp | Microsoft Docs
 description: Saiba como usar os cmdlets do Windows PowerShell com o Azure RemoteApp.
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: guscatalano
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 7d3d5ded-6f73-4de6-a8ac-c1d622e842a2
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dcd220da143b518bf28cc1169ab68d20256c07ba
+
 
 ---
-# Usar os cmdlets do Windows PowerShell com o Azure RemoteApp
+# <a name="use-windows-powershell-cmdlets-with-azure-remoteapp"></a>Usar os cmdlets do Windows PowerShell com o Azure RemoteApp
 > [!IMPORTANT]
 > O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
@@ -24,13 +28,13 @@ ms.author: elizapo
 
  Você pode usar os cmdlets do Azure RemoteApp PowerShell para administrar e manter suas coleções. Use as informações a seguir para começar.
 
-## Obtenha os cmdlets
+## <a name="get-the-cmdlets"></a>Obtenha os cmdlets
 - - -
-Baixe primeiro os cmdlets do Azure PowerShell [aqui](http://go.microsoft.com/?linkid=9811175), os do RemoteApp estão incluídos nele.
+Baixe primeiro os cmdlets do Azure PowerShell [aqui](http://go.microsoft.com/?linkid=9811175), os do RemoteApp estão incluídos nele. 
 
 Confira a [ajuda do cmdlet do Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx).
 
-## Configurar os cmdlets do Azure para usar sua assinatura
+## <a name="configure-azure-cmdlets-to-use-your-subscription"></a>Configurar os cmdlets do Azure para usar sua assinatura
 - - -
 Siga [este guia](../powershell-install-configure.md) para que possa usar os cmdlets em relação à sua assinatura do Azure.
 
@@ -38,13 +42,13 @@ Você pode usar estas etapas para começar rapidamente:
 
 1. Baixe e instale os [cmdlets do Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
 2. Inicie o Microsoft Azure PowerShell.
-3. Execute **Add-AzureAccount** para autenticar sua assinatura do Azure. Quando solicitado, insira o mesmo nome de usuário e a senha que você usa para entrar no Portal do Azure.
-4. Execute **Get-AzureSubscription** para listar as assinaturas associadas à sua conta de usuário.
+3. Execute **Add-AzureAccount** para autenticar sua assinatura do Azure. Quando solicitado, insira o mesmo nome de usuário e a senha que você usa para entrar no Portal do Azure.  
+4. Execute **Get-AzureSubscription** para listar as assinaturas associadas à sua conta de usuário. 
 5. Execute **Select-AzureSubscription** e especifique o nome da assinatura ou a ID a ser usada no console do PowerShell.
 
-Parabéns, seu console do Azure PowerShell está configurado e pronto para usar. Lembre-se de que você precisará repetir as etapas 2 a 5 sempre que iniciar o console do Azure PowerShell.
+Parabéns, seu console do Azure PowerShell está configurado e pronto para usar. Lembre-se de que você precisará repetir as etapas 2 a 5 sempre que iniciar o console do Azure PowerShell.  
 
-## Criar uma coleção na nuvem
+## <a name="create-a-cloud-collection"></a>Criar uma coleção na nuvem
 - - -
 É simples, execute o seguinte comando:
 
@@ -62,10 +66,10 @@ Após a coleta ser feita, você pode adicionar usuários à coleção com o segu
 
 E pronto! Esse usuário deve ser capaz de se conectar ao aplicativo usando o cliente do Azure RemoteApp encontrado [aqui](https://www.remoteapp.windowsazure.com/).
 
-## Cmdlets disponíveis
+## <a name="available-cmdlets"></a>Cmdlets disponíveis
 Há muitos outros comandos que temos, a documentação para eles será lançada em breve:
 
-Cmdlets de coleção de RemoteApp básicos:
+Cmdlets de coleção de RemoteApp básicos: 
 
 * New-AzureRemoteAppCollection
 * Get-AzureRemoteAppCollection
@@ -111,4 +115,9 @@ Outros cmdlets do RemoteApp:
 * Set-AzureRemoteAppWorkspace
 * Get-AzureRemoteAppOperationResult
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

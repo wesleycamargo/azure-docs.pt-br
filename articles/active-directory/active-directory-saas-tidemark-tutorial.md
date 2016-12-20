@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Tidemark | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Tidemark.
+title: "Tutorial: integração do Azure Active Directory ao Tidemark | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Tidemark."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5cf80d4e-6e8b-48ec-81c8-27872af5e5d5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6436ad4fb14728457bb80cc79dad4b35985b6676
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-tidemark"></a>Tutorial: integração do Active Directory do Azure com o Tidemark
+# <a name="tutorial-azure-active-directory-integration-with-tidemark"></a>Tutorial: integração do Active Directory do Azure com o Tidemark
 O objetivo desse tutorial é mostrar como integrar o Tidemark ao Azure AD (Azure Active Directory).
 
 A integração do Tidemark ao Azure AD oferece os seguintes benefícios:
@@ -163,7 +167,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-tidemark-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -232,6 +236,6 @@ Quando você clicar no bloco Tidemark no Painel de Acesso, deverá ser conectado
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Conexão híbrida com o aplicativo de 2 camadas | Microsoft Docs
-description: Aprenda a implantar dispositivos virtuais e UDR para criar um ambiente de aplicativo de várias camadas no Azure
+title: "Conexão híbrida com o aplicativo de 2 camadas | Microsoft Docs"
+description: "Aprenda a implantar dispositivos virtuais e UDR para criar um ambiente de aplicativo de várias camadas no Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fb8d59469eadad51dcf269ec8ff2829b2f8ef922
+
 
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de dispositivo virtual
@@ -65,7 +69,7 @@ Neste exemplo, há uma assinatura que contém o seguinte:
   * **AZF2**. Firewall interno usado para controlar o tráfego entre **azsn2** e **azsn3**. Isso também é um dispositivo virtual de 3 NICs.
   * **AZF3**. O firewall de gerenciamento acessível aos administradores do datacenter local e conectado a uma sub-rede de gerenciamento usada para gerenciar todos os dispositivos de firewall. Você pode encontrar modelos de dispositivo virtual de 2 NICs no Marketplace ou solicitar uma diretamente do seu fornecedor de dispositivo.
 
-## <a name="user-defined-routing-(udr)"></a>Roteamento definido pelo usuário (UDR)
+## <a name="user-defined-routing-udr"></a>Roteamento definido pelo usuário (UDR)
 Cada sub-rede no Azure pode ser vinculada a uma tabela UDR usada para definir como o tráfego iniciado na sub-rede é roteado. Se nenhum UDR for definido, o Azure usará as rotas padrão para permitir que o tráfego flua de uma sub-rede para outra. Para entender melhor os UDRs, visite [O que são Rotas Definidas pelo Usuário e Encaminhamento de IP](virtual-networks-udr-overview.md#ip-forwarding).
 
 Para garantir a comunicação seja feita por meio do dispositivo de firewall correto, com base no último requisito acima, você precisará criar a seguinte tabela de rotas contendo UDRs em **azurevnet**.
@@ -143,7 +147,7 @@ O AZF2 representa um dispositivo virtual do Azure que contém as seguintes regra
 * **Rota**: todo o tráfego para 10.0.0.0/16 (**onpremvnet**) deve ser enviado para o endereço IP do gateway do Azure (ou seja, 10.0.0.1) por meio de **port1**.
 * **Política**: permitir todo o tráfego bidirecional entre **port1** e **port2**.
 
-## <a name="network-security-groups-(nsgs)"></a>Grupos de segurança de rede (NSG)
+## <a name="network-security-groups-nsgs"></a>Grupos de segurança de rede (NSG)
 Nesse cenário, os NSGs não estão sendo usados. No entanto, você pode aplicar NSGs a cada sub-rede para restringir o tráfego de entrada e saído. Por exemplo, você pode aplicar as seguintes regras de NSG à sub-rede FW externa.
 
 **Entrada**
@@ -164,6 +168,9 @@ Para implantar este cenário, siga as etapas de alto nível abaixo.
 4. Provisionar o túnel de **onpremvnet** para **azurevnet**.
 5. Depois que todos os recursos forem provisionados, faça logon em **onpremvm2** e faça ping do 10.0.3.101 para testar a conectividade entre **onpremsn2** e **azsn3**.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

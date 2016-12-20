@@ -1,13 +1,13 @@
 ---
-title: Como adicionar ou alterar funções de administrador do Azure | Microsoft Docs
-description: 'Descreve como adicionar ou alterar o Coadministrador, Administrador de Serviços e Administrador da Conta do Azure '
-services: ''
-documentationcenter: ''
+title: "Como adicionar ou alterar funções de administrador do Azure | Microsoft Docs"
+description: "Descreve como adicionar ou alterar o Coadministrador, Administrador de Serviços e Administrador da Conta do Azure "
+services: 
+documentationcenter: 
 author: genlin
-manager: msmbaldwin
-editor: ''
+manager: mbaldwin
+editor: 
 tags: billing
-
+ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: genli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: abc3d4119cfde69ed24f7390dc99e65614a7f489
+
 
 ---
-# Como adicionar ou alterar funções de administrador do Azure
+# <a name="how-to-add-or-change-azure-administrator-roles"></a>Como adicionar ou alterar funções de administrador do Azure
 Há três tipos de funções de administrador no Microsoft Azure:
 
 | Função administrativa | Limite | Descrição |
@@ -34,7 +38,7 @@ Há três tipos de funções de administrador no Microsoft Azure:
 > 
 > 
 
-## Como adicionar um administrador para uma assinatura
+## <a name="how-to-add-an-admin-for-a-subscription"></a>Como adicionar um administrador para uma assinatura
 **Portal do Azure**
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
@@ -51,7 +55,7 @@ Há três tipos de funções de administrador no Microsoft Azure:
     **Observação**
    
    * A função Proprietário tem os mesmos privilégios de acesso da função Coadministrador. Essa função não tem privilégios de acesso ao [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions).
-   * Os proprietários adicionados por meio de [Portal do Azure](https://portal.azure.com) não podem gerenciar serviços no [portal clássico do Azure](https://manage.windowsazure.com).
+   * Os proprietários adicionados por meio do [Portal do Azure](https://portal.azure.com) não podem gerenciar serviços no [Portal clássico do Azure](https://manage.windowsazure.com).  
 5. Digite o endereço de email do usuário que deseja adicionar como proprietário, clique no usuário e, em seguida, clique em **Selecionar**.
    
     ![newadduser](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
@@ -68,11 +72,13 @@ Há três tipos de funções de administrador no Microsoft Azure:
 
 O seguinte endereço de email pode ser adicionado como Coadministrador:
 
-* **Conta da Microsoft** (anteriormente Windows Live ID) </br>: você pode usar uma Conta da Microsoft para entrar em todos os produtos e serviços de nuvem da Microsoft orientados ao consumidor, como Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone e Xbox LIVE.
-* **Conta organizacional**</br>: uma conta organizacional é uma conta criada no Active Directory do Azure. O endereço de conta organizacional é semelhante ao seguinte: usuário@seudomínio.com.onmicrosoft.com
+* **Conta da Microsoft** (anteriormente Windows Live Id) </br>
+  : você pode usar uma Conta da Microsoft para entrar em todos os produtos e serviços de nuvem da Microsoft orientados ao consumidor, como Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone e Xbox LIVE.
+* **Organizational account**</br>
+  : uma conta organizacional é uma conta criada no Active Directory do Azure. O endereço de conta organizacional será semelhante ao seguinte: user@&lt;seu domínio&gt;.onmicrosoft.com
 
-### Limitações e restrições
-* Cada assinatura é associada a um diretório do Azure AD (também conhecido como Diretório Padrão). Para localizar o Diretório Padrão ao qual a assinatura está associada, acesse o [Portal clássico do Azure](https://manage.windowsazure.com/), selecione **Configurações** > **Assinaturas**. Verifique a ID da assinatura para localizar o Diretório Padrão.
+### <a name="limitations-and-restrictions"></a>Limitações e restrições
+* Cada assinatura é associada a um diretório do Azure AD (também conhecido como Diretório Padrão). Para localizar o Diretório Standard ao qual a assinatura está associada, acesse o [Portal clássico do Azure](https://manage.windowsazure.com/), selecione **Configurações** > **Assinaturas**. Verifique a ID da assinatura para localizar o Diretório Padrão.
 * Se estiver conectado com uma Conta da Microsoft, você poderá apenas adicionar outras Contas da Microsoft ou usuários no Diretório Padrão como Coadministrador.
 * Se você estiver conectado a uma conta organizacional, você pode adicionar outras contas institucionais em sua organização como Coadministrador. Por exemplo, abby@contoso.com pode adicionar bob@contoso.com como Administrador de Serviços ou Coadministrador, mas não pode adicionar john@notcontoso.com, a menos que john@noncontoso.com seja o usuário no Diretório Padrão. Usuários conectados usando contas da organização podem continuar adicionando usuários da Conta da Microsoft como Coadministradores ou Administradores de Serviços.
 * Agora que é possível fazer logon no Azure com uma conta organizacional, estas são as alterações de requisitos de conta de administrador de serviço e coadministrador:
@@ -82,22 +88,22 @@ O seguinte endereço de email pode ser adicionado como Coadministrador:
   |  Conta da Microsoft |Sim |Não |Não |
   |  Conta organizacional |Sim |Sim |Não |
 
-## Como alterar o Administrador de Serviços de uma assinatura
+## <a name="how-to-change-service-administrator-for-a-subscription"></a>Como alterar o Administrador de Serviços de uma assinatura
 Somente o Administrador da Conta pode alterar o Administrador de Serviços de uma assinatura.
 
 1. Faça logon na [Centro de Contas do Azure](https://account.windowsazure.com/subscriptions) usando o Administrador da Conta.
 2. Selecione a assinatura que deseja alterar.
-3. No lado direito, clique em **Editar detalhes da assinatura**. </br>
+3. No lado direito, clique em **Editar detalhes da assinatura** . </br>
    
     ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
-4. Na caixa **ADMINISTRADOR DE SERVIÇOS**, insira o endereço de email do novo administrador de serviços. </br>
+4. Na caixa **ADMINISTRADOR DE SERVIÇOS** , insira o endereço de email do novo administrador de serviços. </br>
    
     ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-## Como alterar o Administrador da Conta
+## <a name="how-to-change-the-account-administrator"></a>Como alterar o Administrador da Conta
 Para transferir a propriedade da conta do Azure para outra conta, confira [Transferindo a propriedade de uma assinatura do Azure](billing-subscription-transfer.md).
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso aos recursos do Azure](active-directory/active-directory-understanding-resource-access.md)
 * Para saber mais sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, confira [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
 * Para obter mais informações sobre como o Azure Active Directory está relacionado à sua assinatura do Azure, confira [Atribuindo funções de administrador no Azure Active Directory](active-directory/active-directory-assign-admin-roles.md)
@@ -107,4 +113,9 @@ Para transferir a propriedade da conta do Azure para outra conta, confira [Trans
 > 
 > 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

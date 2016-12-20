@@ -1,22 +1,26 @@
 ---
-title: O que são Laboratórios de Desenvolvimento/Teste? | Microsoft Docs
-description: Saiba como os Laboratórios de Desenvolvimento/Teste podem facilitar criar, gerenciar e monitorar as máquinas virtuais do Azure
+title: "O que são os Laboratórios de Desenvolvimento/Teste? | Microsoft Docs"
+description: "Saiba como os Laboratórios de Desenvolvimento/Teste podem facilitar criar, gerenciar e monitorar as máquinas virtuais do Azure"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 1b9eed3b-c69a-4c49-a36e-f388efea6f39
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/25/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 668cd65309eefee8094103686734f12a8db52715
+
 
 ---
-# O que são os Laboratórios de Desenvolvimento/Teste?
+# <a name="what-is-devtest-labs"></a>O que são os Laboratórios de Desenvolvimento/Teste?
 > [!NOTE]
 > Este artigo é a 1ª parte de uma série de 3 partes:
 > 
@@ -26,8 +30,8 @@ ms.author: tarcher
 > 
 > 
 
-## Visão geral
-Os desenvolvedores e testadores estão tentando resolver os atrasos na criação e gerenciamento de seus ambientes indo para a nuvem. O Azure resolve o problema de atrasos de ambiente e permite autoatendimento dentro de uma nova estrutura com boa relação custo-benefício. No entanto, os desenvolvedores e testadores ainda precisam gastar um tempo considerável configurando seus ambientes de autoatendimento. Além disso, os tomadores de decisão não estão certos sobre como utilizar a nuvem para maximizar suas economias sem acrescentar muita sobrecarga de processo.
+## <a name="overview"></a>Visão geral
+Os desenvolvedores e testadores estão tentando resolver os atrasos na criação e gerenciamento de seus ambientes indo para a nuvem.  O Azure resolve o problema de atrasos de ambiente e permite autoatendimento dentro de uma nova estrutura com boa relação custo-benefício.  No entanto, os desenvolvedores e testadores ainda precisam gastar um tempo considerável configurando seus ambientes de autoatendimento. Além disso, os tomadores de decisão não estão certos sobre como utilizar a nuvem para maximizar suas economias sem acrescentar muita sobrecarga de processo.
 
 Os Laboratórios de Desenvolvimento/Teste do Azure são um serviço que ajuda os desenvolvedores e testadores a rapidamente criar ambientes no Azure, minimizando o desperdício e o controle de custos. Você pode testar a versão mais recente do seu aplicativo, provisionamento ambientes Windows e Linux rapidamente usando modelos reutilizáveis e artefatos. Integre facilmente seu pipeline de implantação dos Laboratórios de Teste/Desenvolvimento para provisionar ambientes sob demanda. Dimensione seu teste de carga provisionando vários agentes de teste e crie ambientes previamente provisionados para treinamento e demonstrações.
 
@@ -37,7 +41,12 @@ Os Laboratórios de Desenvolvimento/Teste do Azure são um serviço que ajuda os
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Por que os Laboratórios de Desenvolvimento/Teste?](devtest-lab-why.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

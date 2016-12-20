@@ -1,12 +1,12 @@
 ---
 title: Gerenciando o acesso a aplicativos que usam o Azure AD | Microsoft Docs
-description: Descreve como o Active Directory do Azure permite que as organizações especifiquem os aplicativos aos quais cada usuário tem acesso.
+description: "Descreve como o Active Directory do Azure permite que as organizações especifiquem os aplicativos aos quais cada usuário tem acesso."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b0829f18-9e57-4107-925d-5f0457d81671
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d08131936f856ed671a2358867918d5ba40a5897
+
 
 ---
 # <a name="managing-access-to-apps"></a>Gerenciando o acesso a aplicativos
 Gerenciamento de acesso contínuo, avaliação de uso e relatórios continuam a ser um desafio depois que um aplicativo é integrado ao sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou a assistência técnica deve ter uma função ativa contínua no gerenciamento de acesso aos seus aplicativos. Às vezes, a atribuição é executada por uma equipe de TI geral ou de divisão. Frequentemente, a decisão de atribuição deve ser delegada ao tomador de decisões comerciais, exigindo sua aprovação antes de a TI fazer a atribuição.  Outras organizações investem na integração com um sistema de gerenciamento automatizado de identidade e acesso existente, como RBAC (controle de acesso baseado em função) ou ABAC (controle de acesso baseado em atributos). A integração e o desenvolvimento de regras tendem a ser especializados e caros. Em cada abordagem de gerenciamento, monitoramento e relatórios exigem um investimento separado, caro e complexo.
 
-## <a name="how-does-azure-active-directory-help?"></a>Como o Active Directory do Azure ajuda?
+## <a name="how-does-azure-active-directory-help"></a>Como o Active Directory do Azure ajuda?
  O AD do Azure oferece suporte a gerenciamento de acesso abrangente para aplicativos configurados, permitindo que as organizações obtenham facilmente as políticas de acesso corretas desde a atribuição automática, com base em atributo (cenários de ABAC ou RBAC) por meio da delegação e incluindo gerenciamento de administradores. Com o AD do Azure, você pode facilmente obter políticas complexas, combinando vários modelos de gerenciamento de um único aplicativo e pode até reutilizar regras de gerenciamento entre aplicativos com o mesmo público.
 
 * [Adicionando aplicativos novos ou existentes](active-directory-sso-integrate-saas-apps.md)
@@ -48,7 +52,7 @@ Nesse caso, todos os usuários atribuídos poderiam ser provisionados automatica
 
 Os administradores podem empregar o [acesso condicional do AD do Azure](active-directory-conditional-access.md) para definir políticas de acesso para funções específicas. Essas políticas podem incluir se o acesso é permitido fora do ambiente corporativo e até mesmo requisitos de autenticação multifator ou dispositivo para obter acesso em vários casos.
 
-## <a name="how-can-i-get-started?"></a>Como posso começar?
+## <a name="how-can-i-get-started"></a>Como posso começar?
 Primeiro, se você ainda não estiver usando o AD do Azure e for um administrador de TI:
 
 * [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/)  - você pode se inscrever em uma avaliação gratuita de 30 dias hoje mesmo e implantar sua primeira solução de nuvem em menos de 5 minutos usando este link
@@ -61,11 +65,14 @@ Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 * Perguntas frequentes sobre a atribuição de aplicativo
 * [Painel/relatórios de uso de aplicativo](active-directory-passwords-get-insights.md)
 
-## <a name="where-can-i-learn-more?"></a>Onde posso saber mais?
+## <a name="where-can-i-learn-more"></a>Onde posso saber mais?
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Proteger aplicativos com acesso condicional](active-directory-conditional-access.md)
 * [Gerenciamento de grupo de autoatendimento/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

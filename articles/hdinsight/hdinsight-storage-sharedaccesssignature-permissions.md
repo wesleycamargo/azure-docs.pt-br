@@ -2,11 +2,11 @@
 title: Restringir o acesso a dados do HDInsight usando Assinaturas de Acesso Compartilhado
 description: Saiba como usar Assinaturas de Acesso Compartilhado para restringir o acesso do HDInsight a dados armazenados em blobs de armazenamento do Azure.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f2e5bbd2516c0f697084a802d6963c3d1023914
+
 
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-with-hdinsight"></a>Usar Assinaturas de Acesso Compartilhado do Armazenamento do Azure para restringir o acesso a dados com o HDInsight
@@ -59,7 +63,7 @@ Para saber mais sobre as Assinaturas de Acesso Compartilhado, consulte [Noções
 ## <a name="create-a-stored-policy-and-generate-a-sas"></a>Criar uma política armazenada e gerar uma SAS
 No momento, você deve criar uma política armazenada programaticamente. Você pode encontrar o exemplo em C# e em Python de criação de uma política armazenada e de SAS em [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature).
 
-### <a name="create-a-stored-policy-and-sas-using-c\#"></a>Criar uma política armazenada e uma SAS usando C\
+### <a name="create-a-stored-policy-and-sas-using-c"></a>Criar uma política armazenada e uma SAS usando C\
 1. Abra a solução no Visual Studio.
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **SASToken** e selecione **Propriedades**.
 3. Escolha **Configurações** e adicione valores às seguintes entradas:
@@ -249,6 +253,6 @@ Agora que você aprendeu a adicionar armazenamento de acesso limitado ao seu clu
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

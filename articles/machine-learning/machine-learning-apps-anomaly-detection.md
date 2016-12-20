@@ -1,22 +1,26 @@
 ---
-title: 'Aplicativo do Aprendizado de Máquina: Serviço de Detecção de Anomalias | Microsoft Docs'
-description: A API de detecção de anomalias é um exemplo criado com o Aprendizado de Máquina do Microsoft Azure que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo.
+title: "Aplicativo do Machine Learning: Serviço de Detecção de Anomalias | Microsoft Docs"
+description: "A API de detecção de anomalias é um exemplo criado com o Aprendizado de Máquina do Microsoft Azure que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
 ms.devlang: na
-ms.topic: reference
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/11/2016
 ms.author: alokkirpal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9b900e3febd3ba945250b52ff4b878f22eae33f3
+
 
 ---
-# <a name="machine-learning-anomaly-detection-service#"></a>Serviço de Detecção de Anomalias do Aprendizado de Máquina
+# <a name="machine-learning-anomaly-detection-service"></a>Serviço de Detecção de Anomalias do Aprendizado de Máquina
 ## <a name="overview"></a>Visão geral
 A [API de detecção de anomalias](https://datamarket.azure.com/dataset/aml_labs/anomalydetection) é um exemplo criado com o Azure Machine Learning que detecta anomalias nos dados de série temporal com valores numéricos que são espaçados uniformemente no tempo. 
 
@@ -139,10 +143,10 @@ A resposta para isso será:
         "odata.metadata": "https://api.datamarket.azure.com/data.ashx/aml_labs/anomalydetection/v2/$metadata#AnomalyDetection.FrontEndService.Models.AnomalyDetectionResult",
         "ADOutput": "{
             "ColumnNames":["Time","OriginalData","ProcessedData","TSpike","ZSpike","PScore","PAlert","RPScore","RPAlert","TScore","TAlert"],
-            "ColumnTypes":["DateTime","Double","Double","Double","Double","Double","Int32","Double","Int32","Double","Int32"],
-            "Values":[
+              "ColumnTypes":["DateTime","Double","Double","Double","Double","Double","Int32","Double","Int32","Double","Int32"],
+              "Values":[
                 ["9/21/201411: 20: 00AM","10","10","0","0","-1.30229513613974","0","-1.30229513613974","0","-1.173800281031","0"]
-            ]
+              ]
         }"
     }
 
@@ -189,7 +193,7 @@ A API executa esses detectores em seus dados da série temporal e retorna as pon
 | Pscore |Um número flutuante que representa a pontuação de anomalias na alteração de aumento no nível |
 | Palert |Valor 1/0 indicando que há uma anomalia na alteração de aumento no nível baseada na sensibilidade de entrada |
 | RPScore |Um número flutuante que representa a pontuação de anomalias na alteração bidirecional no nível |
-| RPAlert |Valor 1/0 indicando que há uma anomalia na alteração bidirecional no nível baseada na sensibilidade de entrada |
+| RPAlert |Valor 1/0 indicando que há uma anomalia na alteração de nível bidirecional baseada na sensibilidade de entrada |
 | TScore |um número flutuante que representa a pontuação de anomalias na tendência positiva |
 | TAlert |Valor 1/0 indicando que há uma anomalia de tendência positiva baseada na sensibilidade de entrada |
 
@@ -204,6 +208,6 @@ Esta saída pode ser analisada usando um [Analisador simples](https://adresultpa
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

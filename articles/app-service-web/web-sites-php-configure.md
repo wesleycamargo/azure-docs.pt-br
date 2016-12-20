@@ -1,12 +1,12 @@
 ---
-title: Configurar o PHP em Aplicativos Web do Serviço de Aplicativo do Azure | Microsoft Docs
-description: Saiba como configurar a instalação padrão do PHP ou adicione uma instalação de PHP personalizada para aplicativos Web no Serviço de Aplicativo do Azure.
+title: "Configurar o PHP em Aplicativos Web do Serviço de Aplicativo do Azure | Microsoft Docs"
+description: "Saiba como configurar a instalação padrão do PHP ou adicione uma instalação de PHP personalizada para aplicativos Web no Serviço de Aplicativo do Azure."
 services: app-service
 documentationcenter: php
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ece7ee4f0235f5677e03526cef8935809770cd93
+
 
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurar o PHP em aplicativos Web do Serviço de Aplicativo do Azure
@@ -22,7 +26,7 @@ Este guia mostrará como configurar o tempo de execução do PHP interno para ap
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to-change-the-builtin-php-version"></a>Como: alterar a versão interna do PHP
+## <a name="how-to-change-the-built-in-php-version"></a>Como: alterar a versão interna do PHP
 Por padrão, quando você cria um aplicativo Web do Serviço de Aplicativo, o PHP 5.4 é instalado e fica imediatamente disponível para uso. A melhor forma de visualizar a revisão da versão, sua configuração padrão e as extensões habilitadas é implantar um script que chame a função [phpinfo()] .
 
 Versões 5.5 e 5.6 do PHP também estão disponíveis, mas não são habilitadas por padrão. Para atualizar a versão do PHP, execute um destes métodos:
@@ -49,7 +53,7 @@ Versões 5.5 e 5.6 do PHP também estão disponíveis, mas não são habilitadas
    
         PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
-### <a name="azure-commandline-interface-linux-mac-windows"></a>Interface de linha de comando do Azure (Linux, Mac, Windows)
+### <a name="azure-command-line-interface-linux-mac-windows"></a>Interface de linha de comando do Azure (Linux, Mac, Windows)
 Para usar a Interface de Linha de Comando do Azure, é necessário ter **Node.js** instalado no computador.
 
 1. Abra o Terminal e faça logon em sua conta.
@@ -62,7 +66,7 @@ Para usar a Interface de Linha de Comando do Azure, é necessário ter **Node.js
    
         azure site show {site-name}
 
-## <a name="how-to-change-the-builtin-php-configurations"></a>Como: alterar as configurações internas do PHP
+## <a name="how-to-change-the-built-in-php-configurations"></a>Como: alterar as configurações internas do PHP
 Para qualquer tempo de execução interno do PHP, é possível alterar qualquer uma das opções de configuração seguindo as etapas abaixo. (Para obter informações sobre diretrizes de php. ini, consulte [Lista de diretrizes de php. ini].)
 
 ### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>Alterando as configurações de PHP\_INI\_USER, PHP\_INI\_PERDIR e PHP\_INI\_ALL
@@ -126,7 +130,7 @@ Também há suporte para extensões Zend usando uma chave **PHP_ZENDEXTENSIONS**
 Em vez do tempo de execução padrão do PHP, os aplicativos Web do Serviço de Aplicativo podem usar um tempo de execução de PHP fornecido por você para executar scripts PHP. O tempo de execução que você fornece pode ser configurado por um arquivo `php.ini` também fornecido por você. Para usar um tempo de execução personalizado do PHP com aplicativos Web, siga as etapas abaixo.
 
 1. Obtenha uma versão do PHP ou VC11 para Windows que seja não thread safe e compatível com a versão VC9. Versões recentes do PHP para Windows podem ser encontradas aqui: [http://windows.php.net/download/]. Versões mais antigas podem ser encontradas neste arquivo morto: [http://windows.php.net/downloads/releases/archives/].
-2. Modifique o arquivo `php.ini` para o seu tempo de execução. Observe que quaisquer definições de configuração que forem diretrizes exclusivamente de nível de sistema serão ignoradas por Aplicativos Web. (Para informações sobre diretrizes de nível de sistema apenas, consulte [Lista de diretrizes php.ini].)
+2. Modifique o arquivo `php.ini` para o seu tempo de execução. Observe que quaisquer definições de configuração que forem diretrizes exclusivamente de nível de sistema serão ignoradas por Aplicativos Web. (Para informações sobre diretrizes de nível de sistema apenas, consulte [Lista de diretrizes de php. ini].)
 3. Opcionalmente, adicione extensões para o seu tempo de execução do PHP e habilite-as no arquivo `php.ini` .
 4. Adicione o diretório `bin` ao seu diretório raiz e coloque lá o diretório que contém o seu tempo de execução do PHP (por exemplo, `bin\php`).
 5. Implante seu aplicativo Web.
@@ -175,7 +179,7 @@ Para obter mais informações, veja o [Centro de Desenvolvimento PHP](/develop/p
 [avaliação gratuita]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[Lista de diretrizes php.ini]: http://www.php.net/manual/en/ini.list.php
+[Lista de diretrizes de php. ini]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
 [ini_set()]: http://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
@@ -193,6 +197,6 @@ Para obter mais informações, veja o [Centro de Desenvolvimento PHP](/develop/p
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

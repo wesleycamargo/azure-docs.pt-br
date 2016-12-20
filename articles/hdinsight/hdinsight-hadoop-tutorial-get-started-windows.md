@@ -1,14 +1,14 @@
 ---
-title: 'Tutorial do Hadoop: Introdução ao Hadoop no Windows | Microsoft Docs'
-description: Introdução ao Hadoop no HDInsight. Saiba como criar clusters Hadoop no Windows, executar uma consulta de Hive nos dados e analisar a saída no Excel.
+title: "Tutorial do Hadoop: Introdução ao Hadoop no Windows | Microsoft Docs"
+description: "Introdução ao Hadoop no HDInsight. Saiba como criar clusters Hadoop no Windows, executar uma consulta de Hive nos dados e analisar a saída no Excel."
 keywords: tutorial do hadoop, hadoop no windows, cluster hadoop, aprender o hadoop, consulta do hive
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 51a83082-f6e7-4ed5-8d3e-949f302c4d04
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -16,9 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/07/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 231044047e53b64f0d4f083ec6aec2b0687f3f2b
+
 
 ---
-# Tutorial de hadoop: Introdução ao uso do Hadoop no HDInsight no Windows
+# <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight-on-windows"></a>Tutorial de hadoop: Introdução ao uso do Hadoop no HDInsight no Windows
 > [!div class="op_single_selector"]
 > * [Baseado em Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Baseado no Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
@@ -46,24 +50,27 @@ Em conjunto com a disponibilidade geral do Azure HDInsight, a Microsoft também 
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-### Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial para Hadoop no Windows, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Um computador estação de trabalho** com Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone ou Office 2010 Professional Plus.
 
-## Criar clusters do Hadoop
+### <a name="access-control-requirements"></a>Requisitos de controle de acesso
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+## <a name="create-hadoop-clusters"></a>Criar clusters do Hadoop
 Quando cria um cluster, você cria recursos de computação do Azure que contêm o Hadoop e os aplicativos relacionados. Nesta seção, você criará um cluster do HDInsight versão 3.2. Você também pode criar clusters de Hadoop para outras versões. Para obter instruções, consulte [Criar clusters HDInsight usando opções personalizadas][hdinsight-provision]. Para obter informações sobre as versões do HDInsight e seus SLAs, consulte [Controle de versão de componentes do HDInsight](hdinsight-component-versioning.md).
 
 **Para criar um cluster Hadoop**
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
-2. Clique em **NOVO**, em **Análises de Dados** e em **HDInsight**. O portal abre uma folha **Novo Cluster HDInsight**.
+2. Clique em **NOVO**, em **Análises de Dados** e em **HDInsight**. O portal abre uma folha **Novo Cluster HDInsight** .
    
-    ![Criar um novo cluster no Portal do Azure](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Criar um novo cluster no Portal do Azure")
+    ![Criar um novo cluster no Portal do Azure](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Create a new cluster in the Azure Portal")
 3. Digite ou selecione o seguinte:
    
-    ![Digite o tipo e o nome do cluster](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.2.png "Digite o tipo e o nome do cluster")
+    ![Digite o tipo e o nome do cluster](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.2.png "Enter cluster name and type")
    
    | Nome do campo | Valor |
    | --- | --- |
@@ -72,9 +79,9 @@ Quando cria um cluster, você cria recursos de computação do Azure que contêm
    | Sistema operacional do cluster |Selecione **Windows Server 2012 R2 Datacenter** para este tutorial. |
    | Versão do HDInsight |Selecione a versão mais recente para este tutorial. |
    | Assinatura |Selecione a assinatura do Azure que será usada para o cluster. |
-   | Grupo de recursos |Selecione um grupo de recursos do Azure existente ou crie um novo. Um cluster HDInsight básico contém um cluster e sua conta de armazenamento padrão. Você pode agrupar os dois em um grupo de recursos para facilitar o gerenciamento. |
-   | Credenciais |Insira o nome de logon do usuário do cluster e a senha. O cluster baseado em Windows pode ter duas contas de usuário. O usuário do cluster (ou o usuário HTTP) é usado para gerenciar o cluster e para enviar trabalhos. Opcionalmente, você pode criar uma conta de usuário de área de trabalho remota (RDP) para se conectar ao cluster remotamente. Se você optar por habilitar a área de trabalho remota, criará a conta de usuário RDP. |
-   | Fonte de dados |Clique em Criar Nova para criar uma nova conta de armazenamento padrão do Azure. Use o nome do cluster como o nome de contêiner padrão. Todos os clusters HDinsight têm um contêiner de Blob padrão em uma conta de armazenamento do Azure. O local da conta de armazenamento do Azure padrão determina o local do cluster HDInsight. |
+   | Grupo de recursos |Selecione um grupo de recursos do Azure existente ou crie um novo. Um cluster HDInsight básico contém um cluster e sua conta de armazenamento padrão.  Você pode agrupar os dois em um grupo de recursos para facilitar o gerenciamento. |
+   | Credenciais |Insira o nome de logon do usuário do cluster e a senha. O cluster baseado em Windows pode ter duas contas de usuário.  O usuário do cluster (ou o usuário HTTP) é usado para gerenciar o cluster e para enviar trabalhos.  Opcionalmente, você pode criar uma conta de usuário de área de trabalho remota (RDP) para se conectar ao cluster remotamente. Se você optar por habilitar a área de trabalho remota, criará a conta de usuário RDP. |
+   | Fonte de dados |Clique em Criar Nova para criar uma nova conta de armazenamento padrão do Azure. Use o nome do cluster como o nome de contêiner padrão. Todos os clusters HDinsight têm um contêiner de Blob padrão em uma conta de armazenamento do Azure.  O local da conta de armazenamento do Azure padrão determina o local do cluster HDInsight. |
    | Tipos de preço de nó |Use um ou dois nós de trabalho com tipo de preço de nó de trabalho e de nó de cabeçalho padrão para este tutorial. |
    | Configuração opcional |Ignore esta parte. |
 4. Na folha **Novo Cluster HDInsight**, certifique-se de que a opção **Fixar no Quadro Inicial** está marcada e clique em **Criar**. Isso criará o cluster e adicionará um bloco para o mesmo para o quadro inicial do seu Portal do Azure. O ícone indica que o cluster está sendo criado e que será alterado para exibir o ícone do HDInsight após a conclusão da criação.
@@ -89,7 +96,7 @@ Quando cria um cluster, você cria recursos de computação do Azure que contêm
    > 
 5. Quando a criação for concluída, clique no bloco para o cluster no quadro inicial para iniciar a folha de cluster.
 
-## Executar uma consulta do Hive do portal
+## <a name="run-a-hive-query-from-the-portal"></a>Executar uma consulta do Hive do portal
 Agora que você criou um cluster HDInsight, a próxima etapa é executar um trabalho do Hive para consultar uma tabela Hive de exemplo. Vamos usar *hivesampletable*, que vem com o HDInsight. A tabela contém dados sobre fabricantes, plataformas e modelos de dispositivos móveis. Uma consulta de Hive nessa tabela recupera dados para dispositivos móveis de um fabricante específico.
 
 > [!NOTE]
@@ -103,17 +110,17 @@ Agora que você criou um cluster HDInsight, a próxima etapa é executar um trab
 2. Clique em **PROCURAR TUDO** e em **Clusters HDInsight** para ver uma lista de clusters, incluindo o cluster que você criou na seção anterior.
 3. Clique no nome do cluster que deseja usar para executar o trabalho do Hive e clique em **Painel** na parte superior da folha.
 4. Uma página da Web é aberta em uma guia diferente do navegador. Insira a conta e a senha do usuário do Hadoop. O nome de usuário padrão é **admin**; a senha é a que você inseriu durante a criação do cluster.
-5. No painel, clique na guia **Editor do Hive**. A página da Web mostrada abaixo é aberta.
+5. No painel, clique na guia **Editor do Hive** . A página da Web mostrada abaixo é aberta.
    
     ![Guia Editor do Hive no painel do cluster HDInsight.][img-hdi-dashboard]
    
     Há várias guias na parte superior da página. A guia padrão é **Editor do Hive** e as outras guias são **Histórico de Trabalhos** e **Navegador de Arquivos**. Usando o painel, você pode enviar consultas Hive, conferir os logs de trabalho do Hadoop e procurar arquivos no armazenamento.
    
    > [!NOTE]
-   > Observe que a URL da página da Web é *&lt;NomeDoCluster&gt;.azurehdinsight.net*. Então, em vez de abrir o painel pelo portal, você pode usar a URL para abrir o painel em um navegador da Web.
+   > Observe que a URL da página da Web é *&lt;ClusterName&gt;.azurehdinsight.net*. Então, em vez de abrir o painel pelo portal, você pode usar a URL para abrir o painel em um navegador da Web.
    > 
    > 
-6. Na guia **Editor do Hive**, de **Nome da Consulta**, insira **HTC20**. O nome da consulta é o cargo. No painel de consulta, insira a consulta de Hive, conforme mostrado na imagem:
+6. Na guia **Editor do Hive**, de **Nome da Consulta**, insira **HTC20**.  O nome da consulta é o cargo. No painel de consulta, insira a consulta de Hive, conforme mostrado na imagem:
    
     ![Consulta de Hive inserida no painel de consulta do Editor do Hive.][img-hdi-dashboard-query-select]
 7. Clique em **Enviar**. Demora alguns minutos para obter os resultados. A tela é atualizada a cada 30 segundos. Você também pode clicar em **Atualizar** para atualizar a tela.
@@ -123,7 +130,7 @@ Agora que você criou um cluster HDInsight, a próxima etapa é executar um trab
    
     ![Hora de Início do Trabalho listada na guia Histórico de Trabalhos do painel do cluster HDInsight.][img-hdi-dashboard-query-select-result-output]
    
-    A página também mostra a **Saída do Trabalho** e o **Log do Trabalho**. Além disso, você tem a opção de baixar o arquivo de saída (\_stdout) e o arquivo de log (\_stderr).
+    A página também mostra a **Saída do Trabalho** e o **Log do Trabalho**. Além disso, você tem a opção de baixar o arquivo de saída (\_stdout) e o arquivo de log \(_stderr).
 
 **Para navegar até o arquivo de saída**
 
@@ -131,10 +138,10 @@ Agora que você criou um cluster HDInsight, a próxima etapa é executar um trab
 2. Clique no nome da conta de armazenamento, clique no nome do contêiner (que é o mesmo que o nome do cluster) e clique em **usuário**.
 3. Clique em **admin** e clique na GUID que apresenta a hora da última modificação (um pouco depois da hora de início do trabalho que você anotou anteriormente). Copie esse GUID. Você precisará dele na próxima seção.
 
-       ![O GUID do arquivo de saída da consulta de Hive listado na guia Navegador de Arquivos.][img-hdi-dashboard-query-browse-output]
+       ![The Hive query output file GUID listed in the File Browser tab.][img-hdi-dashboard-query-browse-output]
 
 
-## Conectar-se às ferramentas de business intelligence da Microsoft para Excel
+## <a name="connect-to-microsoft-business-intelligence-tools-for-excel"></a>Conectar-se às ferramentas de business intelligence da Microsoft para Excel
 Você pode usar o suplemento Power Query para importar a saída de trabalho do HDInsight para o Microsoft Excel, onde as ferramentas de business intelligence da Microsoft podem ser usadas para analisar os resultados mais detalhadamente.
 
 Você deve ter o Excel 2013 ou 2010 instalado para concluir esta parte do tutorial.
@@ -150,14 +157,14 @@ Você deve ter o Excel 2013 ou 2010 instalado para concluir esta parte do tutori
    
     ![Menu Importar do Excel PowerQuery aberto para o Azure HDInsight.][image-hdi-gettingstarted-powerquery-importdata]
 3. Insira o **Nome da Conta** da conta de armazenamento de Blob do Azure que está associada ao cluster e clique em **OK**. (É a conta de armazenamento que você criou no tutorial.)
-4. Insira a **Chave de Conta** da conta de armazenamento de Blob do Azure e clique em **Salvar**.
+4. Insira a **Chave de Conta** da conta de armazenamento de Blobs do Azure e clique em **Salvar**.
 5. No painel direito, clique duas vezes no nome do blob. Por padrão, o nome do blob é idêntico ao nome do cluster.
 6. Localize **stdout** na coluna **Nome**. Verifique se o GUID na coluna **Caminho da Pasta** correspondente coincide com o GUID que você copiou anteriormente. Valores correspondentes sugerem que os dados de saída correspondem ao trabalho enviado. Clique em **Binário** na coluna à esquerda de **stdout**.
    
     ![Localizar a saída de dados pelo GUID na lista de conteúdo.][image-hdi-gettingstarted-powerquery-importdata2]
-7. Clique em **Fechar e Carregar**, no canto superior esquerdo, para importar a saída de trabalho para o Excel.
+7. Clique em **Fechar e Carregar**, no canto superior esquerdo, para importar a saída de trabalho de Hive para o Excel.
 
-## Executar amostras
+## <a name="run-samples"></a>Executar amostras
 Um cluster de HDInsight fornece um console de consulta que inclui uma Galeria de Introdução para executar os exemplos diretamente do portal. Você pode usar os exemplos para saber como trabalhar com o HDInsight analisando alguns cenários básicos. Esses exemplos vêm com todos os componentes necessários, como os dados para analisar e as consultas para executar nos dados. Para saber mais sobre os exemplos na Galeria de Introdução, consulte [Saiba mais sobre Hadoop no HDInsight usando a Galeria de Introdução do HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md).
 
 **Para executar a amostra**
@@ -165,8 +172,8 @@ Um cluster de HDInsight fornece um console de consulta que inclui uma Galeria de
 1. No quadro inicial do Portal do Azure, clique no bloco para o cluster que você acabou de criar.
 2. Na folha do novo cluster, clique em **Painel**. Quando solicitado, insira o nome de usuário e a senha de administrador para o cluster.
    
-    ![Iniciar painel do cluster](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.Cluster.Dashboard.png "Iniciar painel do cluster")
-3. Na página da Web aberta, clique na guia **Galeria de Introdução** e, na categoria **Soluções com dados de exemplo**, clique no exemplo que deseja executar. Siga as instruções na página da Web para concluir o exemplo. A tabela a seguir lista alguns exemplos e fornece mais informações sobre o que cada exemplo faz.
+    ![Iniciar painel do cluster](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.Cluster.Dashboard.png "Launch cluster dashboard")
+3. Na página da Web aberta, clique na guia **Galeria de Introdução** e, na categoria **Soluções com os dados de exemplo**, clique no exemplo que deseja executar. Siga as instruções na página da Web para concluir o exemplo. A tabela a seguir lista alguns exemplos e fornece mais informações sobre o que cada exemplo faz.
 
 | Amostra | O que ela faz? |
 | --- | --- |
@@ -174,22 +181,22 @@ Um cluster de HDInsight fornece um console de consulta que inclui uma Galeria de
 | [Análise de log do site][hdinsight-weblogs-sample] |Aprenda a usar o HDInsight para analisar arquivos de log de um site para obter informações sobre a frequência de visitas provenientes de sites externos e um resumo dos erros que os usuários enfrentam no site. |
 | [Análise de tendências do Twitter](hdinsight-analyze-twitter-data.md) |Aprenda a usar o HDInsight para analisar tendências no Twitter. |
 
-## Excluir o cluster
+## <a name="delete-the-cluster"></a>Excluir o cluster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Neste tutorial do Hadoop, você aprendeu a criar um cluster Hadoop no Windows em HDInsight, executar uma consulta de Hive nos dados e importar os resultados para o Excel, onde eles podem ser processados e exibidos graficamente usando ferramentas de business intelligence. Para saber mais, consulte os seguintes tutoriais:
 
-* [Introdução ao uso das Ferramentas do HDInsight Hadoop para Visual Studio][1]
+* [Introdução ao uso das ferramentas de Hadoop do HDInsight para Visual Studio][1]
 * [Introdução ao Emulador do HDInsight][hdinsight-emulator]
-* [Usar o armazenamento de Blob do Azure com o HDInsight][hdinsight-storage]
+* [Usar o armazenamento de blobs do Azure com o HDInsight][hdinsight-storage]
 * [Administrar o HDInsight usando o PowerShell][hdinsight-admin-powershell]
 * [Carregar dados no HDInsight][hdinsight-upload-data]
-* [Usar o MapReduce com o HDInsight][hdinsight-use-mapreduce]
-* [Usar o Hive com o HDInsight][hdinsight-use-hive]
+* [Usar o MapReduce com HDInsight][hdinsight-use-mapreduce]
+* [Usar o hive com o HDInsight][hdinsight-use-hive]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
 * [Usar o Oozie com o HDInsight][hdinsight-use-oozie]
-* [Desenvolver programas MapReduce em Java para HDInsight][hdinsight-develop-mapreduce]
+* [Desenvolver programas Java MapReduce para o HDInsight][hdinsight-develop-mapreduce]
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
@@ -246,4 +253,8 @@ Neste tutorial do Hadoop, você aprendeu a criar um cluster Hadoop no Windows em
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

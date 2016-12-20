@@ -1,12 +1,12 @@
 ---
-title: Visão geral do Provedor de recursos de rede | Microsoft Docs
+title: "Visão geral do Provedor de recursos de rede | Microsoft Docs"
 description: Saiba mais sobre o novo Provedor de recursos de rede no Gerenciador de Recursos do Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 79bf09da-4809-45cb-8d21-705616ef24dc
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 18234ad720d4e85b50d1871dacf243c65f45be33
+
 
 ---
-# Provedor de recursos de rede
+# <a name="network-resource-provider"></a>Provedor de recursos de rede
 Uma necessidade básica para sucesso nos negócios de hoje é a capacidade de compilar e gerenciar aplicativos com reconhecimento de rede de grande escala de uma maneira ágil, flexível, segura e repetível. O ARM (Gerenciador de Recursos do Azure) permite que você crie aplicativos como um único conjunto de recursos em grupos de recursos. Esses recursos são gerenciados por meio de vários provedores de recursos no ARM.
 
 O Gerenciador de Recursos do Azure utiliza diferentes provedores de recursos para fornecer acesso a seus recursos. Existem três provedores de recurso principais: Rede, Armazenamento e Computação. Este documento aborda as características e os benefícios do Provedor de Recursos de Rede, incluindo:
@@ -38,7 +42,7 @@ O Gerenciador de Recursos do Azure utiliza diferentes provedores de recursos par
   * Portal de Visualização
   * Idioma do modelo ARM
 
-## Recursos de rede
+## <a name="network-resources"></a>Recursos de rede
 Agora você pode gerenciar recursos de rede de modo independente, em vez de ter todos eles gerenciados por meio de um recurso de computação único (uma máquina virtual). Isso garante um maior grau de flexibilidade e agilidade em redigir uma infraestrutura complexa e em grande escala em um grupo de recursos.
 
 Uma exibição conceitual de uma implantação de exemplo envolvendo um aplicativo de várias camadas é apresentado a seguir. Cada recurso que você vê, como NICs, endereços IP públicos e VMs, pode ser gerenciado independentemente.
@@ -75,10 +79,10 @@ Você pode verificar as propriedades individuais de recursos nas seções abaixo
 
 [!INCLUDE [virtual-networks-nrp-tm-include](../../includes/virtual-networks-nrp-tm-include.md)]
 
-## Interfaces de gerenciamento
+## <a name="management-interfaces"></a>Interfaces de gerenciamento
 Você pode gerenciar os recursos de rede do Azure usando interfaces diferentes. Neste documento, vamos nos concentrar em duas dessas interfaces: API REST e modelos.
 
-### API REST
+### <a name="rest-api"></a>API REST
 Como mencionado anteriormente, os recursos de rede podem ser gerenciados por meio de uma variedade de interfaces, inclusive API REST, o SDK do .NET, SDK do Node.JS, Java SDK, PowerShell, CLI, Portal do Azure e modelos.
 
 A API Rest está de acordo com a especificação do protocolo HTTP 1.1. A estrutura geral do URI da API é apresentada abaixo:
@@ -99,7 +103,7 @@ Os métodos HTTP a seguir têm suporte ao fazer chamadas para a API REST:
 
 Ambas a solicitação e a resposta têm conformidade com um formato de carga JSON. Para obter mais detalhes, consulte [APIs de Gerenciamento de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
-### Idioma do modelo ARM
+### <a name="arm-template-language"></a>Idioma do modelo ARM
 Além de gerenciar recursos de modo imperativo (via APIs ou SDK), você também pode usar um estilo de programação declarativo para criar e gerenciar recursos de rede usando o idioma do modelo de ARM.
 
 Uma representação de um modelo de exemplo é fornecida abaixo -
@@ -240,11 +244,11 @@ Para obter mais informações sobre a linguagem de modelo do ARM, consulte [Ling
 
 O modelo de exemplo acima usa a rede virtual e recursos de sub-rede. Há outros recursos de rede, que você pode usar, conforme listado abaixo:
 
-### Criação de um modelo
+### <a name="using-a-template"></a>Criação de um modelo
 Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureCLI ou apenas clicando para implantar no GitHub. Para implantar os serviços de um modelo no GitHub, execute as etapas a seguir:
 
-1. Abra o arquivo template3 no GitHub. Por exemplo, abra a rede Virtual do [ com duas sub-redes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
-2. Clique em **implantar no Azure** e entre no portal do Azure com suas credenciais.
+1. Abra o arquivo template3 no GitHub. Por exemplo, abra a rede Virtual do [com duas sub-redes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
+2. Clique em **implantar no Azure**e entre no portal do Azure com suas credenciais.
 3. Verifique o modelo e, em seguida, clique em **Salvar**.
 4. Clique em **Editar parâmetros** e selecione um local, como *Oeste dos EUA*, para o vnet e sub-redes.
 5. Se necessário, altere os parâmetros **ADDRESSPREFIX** e **SUBNETPREFIX** e clique em **OK**.
@@ -253,13 +257,18 @@ Você pode implantar serviços no Azure de um modelo usando o PowerShell, AzureC
 
 ![Implantação do modelo de exemplo](./media/resource-groups-networking/Figure6.png)
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Idioma de modelo do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
 
 [Rede do Azure - modelos usados frequentemente](https://github.com/Azure/azure-quickstart-templates)
 
-[Provedor de recursos de computação](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
+[Azure Resource Manager vs implantação clássica](../resource-manager-deployment-model.md)
 
-[Visão Geral do Gerenciador de Recursos do Azure](../resource-group-overview.md)
+[Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Fuse | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Fuse.
+title: "Tutorial: integração do Azure Active Directory ao Fuse | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Fuse."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 5ef34f58-863a-4b37-875c-e8efa3e18bb3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7183f3c93b991d3ed350be7c32564d9acaa7da51
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-fuse"></a>Tutorial: Integração do Active Directory do Azure ao Fuse
+# <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Tutorial: Integração do Active Directory do Azure ao Fuse
 O objetivo desse tutorial é mostrar como integrar o Fuse ao Azure AD (Azure Active Directory).
 
 A integração do Fuse ao Azure AD oferece os seguintes benefícios:
@@ -138,7 +142,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuse-tutorial/create_aaduser_09.png) 
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -170,7 +174,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-fuse-tutorial/create_aaduser_07.png)
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -236,6 +240,6 @@ Ao clicar no bloco do Fuse no Painel de Acesso, você deverá ser conectado auto
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

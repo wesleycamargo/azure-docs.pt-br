@@ -1,12 +1,12 @@
 ---
-title: Usar componentes do Python em uma topologia do Storm no HDinsight | Microsoft Docs
-description: Saiba como você pode usar componentes do Python com o Apache Storm no Azure HDInsight. Você aprenderá a usar componentes do Python de uma topologia do Storm baseada em Java e de uma baseada em Clojure.
+title: Usar componentes do Python em uma topologia do Storm no HDInsight | Microsoft Docs
+description: "Saiba como você pode usar componentes do Python com o Apache Storm no Azure HDInsight. Você aprenderá a usar componentes do Python de uma topologia do Storm baseada em Java e de uma baseada em Clojure."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.devlang: python
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4b667dda33c61c44090cf89ebeebece0b19c84ea
+
 
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm usando o Python no HDInsight
@@ -39,7 +43,7 @@ Usando o módulo **storm.py**, você pode criar spouts do Python que consomem da
 
 Além disso, como os clusters do Storm são executados em modo distribuído, você deve garantir que os módulos necessários para os componentes do Python estejam disponíveis em todos os nós de trabalhador no cluster. O Storm não fornece uma forma fácil de fazer isso para recursos de várias linguagens. Você precisa incluir todas as dependências como parte do arquivo jar para a topologia ou instalar manualmente as dependências em cada nó de trabalhador no cluster.
 
-### <a name="java-vs.-clojure-topology-definition"></a>Java vs. Definição de topologia Clojure
+### <a name="java-vs-clojure-topology-definition"></a>Java vs. Definição de topologia Clojure
 Dos dois métodos de definição de uma topologia, o Clojure é, de longe, o mais fácil/claro, pois você pode referenciar diretamente os componentes do Python na definição da topologia. Para definições de topologia baseadas em Java, você também deve definir componentes do Java que lidam com itens como declarar os campos nas tuplas retornadas dos componentes do Python.
 
 Ambos os métodos são descritos neste documento, juntamente com projetos de exemplo.
@@ -174,6 +178,9 @@ Neste documento, você aprendeu a usar componentes do Python de uma topologia do
 * [Como usar o Python para trabalhos de MapReduce de streaming](hdinsight-hadoop-streaming-python.md)
 * [Como usar UDF (Funções Definidas pelo Usuário) do Python no Pig e Hive](hdinsight-python.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -22,6 +22,7 @@
 ## Segurança
 ### [Central de Segurança do Azure para o Banco de Dados SQL do Azure](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [Central de Segurança do SQL](https://msdn.microsoft.com/library/azure/bb510589)
+
 # Introdução
 ## Bancos de dados e servidores
 ### Bancos de dados únicos
@@ -189,6 +190,7 @@
 #### [Atualizar usando o portal do Azure](sql-database-upgrade-server-portal.md)
 #### [Atualizar usando o PowerShell](sql-database-upgrade-server-powershell.md)
 #### [Recomendações do tipo de preços](sql-database-service-tier-advisor.md)
+
 # Como
 ## Criar e gerenciar
 ### Servidores e bancos de dados
@@ -315,7 +317,6 @@
 #### [portal do Azure](sql-database-geo-replication-failover-portal.md)
 #### [PowerShell](sql-database-geo-replication-failover-powershell.md)
 #### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-
 ## Solucionar problemas
 ### [Problemas de conexão](sql-database-troubleshoot-common-connection-issues.md)
 ### [Erro de conexão transitório](sql-database-troubleshoot-connection.md)
@@ -325,26 +326,26 @@
 
 
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
-## [Implantação clássica do PowerShell](/powershell/servicemanagement/)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
+## [PowerShell (Banco de dados Elástico)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [.NET](https://docs.microsoft.com)
+## [Java](/java/api/com.microsoft.azure.management.sql)
+## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+## [Python](https://msdn.microsoft.com/library/mt652092.aspx)
+## [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Cmdlets do Banco de Dados SQL do Azure](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
-## [Cmdlets do SQL Server](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST](/rest/api/sql/)
 
+# Relacionados
 ## Biblioteca de Gerenciamento do Banco de Dados SQL
-### [Referência de Biblioteca de Gerenciamento de Banco de Dados SQL](https://msdn.microsoft.com/library/azure/mt349017.aspx)
 ### [Obtenha o pacote de Biblioteca de Gerenciamento de Banco de Dados SQL](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 ## [Drivers do SQL Server](https://msdn.microsoft.com/library/mt654049.aspx)
 ### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
 ### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+
 ### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-### [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
-### [Python](https://msdn.microsoft.com/library/mt652092.aspx)
-### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+
 
 # Recursos
 ## [Preços](https://azure.microsoft.com/pricing/details/sql-database/)
@@ -360,6 +361,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

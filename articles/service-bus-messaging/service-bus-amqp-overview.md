@@ -1,25 +1,29 @@
 ---
-title: Visão geral do Barramento de Serviço AMQP| Microsoft Docs
+title: "Visão geral do Barramento de Serviço AMQP| Microsoft Docs"
 description: Saiba como usar o Advanced Message Queuing Protocol (AMQP) 1.0 no Azure.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 687ee1a49017b8b4d0c1f0a06f7c7038a0031dba
+
 
 ---
-# <a name="amqp-1.0-support-in-service-bus"></a>Suporte ao AMQP 1.0 no Barramento de Serviço
+# <a name="amqp-10-support-in-service-bus"></a>Suporte ao AMQP 1.0 no Barramento de Serviço
 O serviço de nuvem do Barramento de Serviço do Azure e o [Barramento de Serviço para o Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) local oferecem suporte ao AMQP (Advanced Message Queueing Protocol) 1.0. O AMQP permite que você crie várias plataformas, aplicativos híbridos usando um protocolo de padrão aberto. Você pode criar aplicativos que usam componentes que são criados usando estruturas e linguagens diferentes e que são executados em sistemas operacionais diferentes. Todos esses componentes podem se conectar ao Service Bus e perfeitamente trocam mensagens de negócios estruturados com eficiência e fidelidade total.
 
-## <a name="introduction:-what-is-amqp-1.0-and-why-is-it-important?"></a>Introdução: O que é AMQP 1.0 e por que é importante?
+## <a name="introduction-what-is-amqp-10-and-why-is-it-important"></a>Introdução: O que é AMQP 1.0 e por que é importante?
 Tradicionalmente, os produtos de middleware orientados à mensagens têm usado protocolos proprietários para comunicação entre os aplicativos cliente e os agentes. Isso significa que, depois que você selecionou agente de mensagens de um determinado fornecedor, é necessário usar bibliotecas do fornecedor para conectar os aplicativos de cliente para esse agente. Isso resulta em um grau de dependência desse fornecedor, uma vez que a portabilidade de um aplicativo para um produto diferente exige a recodificação de todos os aplicativos conectados. 
 
 Além disso, é complicado conectar agentes de mensagens de diferentes fornecedores. Isso geralmente requer uma ponte no nível de aplicativo para mover as mensagens de um sistema para outro e para converter entre os formatos de mensagem proprietários. Esse é um requisito comum. Por exemplo, quando você deve fornecer uma nova interface unificada diferentes sistemas mais antigos para ou integrar sistemas de TI após uma fusão.
@@ -28,7 +32,7 @@ A indústria de software é uma empresa de avanço rápido. Novas linguagens de 
 
 O desenvolvimento do AMQP (Advanced Message Queueing Protocol) 1.0 foi motivado por tais problemas. Ela se originou no JP Morgan Chase, que, como as empresas de serviços financeiras mais, são usuários pesados de middleware orientado a mensagens. O objetivo era simples: criar um protocolo de mensagens de padrão livre que torna possível a criação de aplicativos com base em mensagem de uso dos componentes incorporados usando diferentes linguagens, estruturas e sistemas operacionais, tudo isso usando componentes de ponta em uma variedade de fornecedores.
 
-## <a name="amqp-1.0-technical-features"></a>Recursos técnicos do AMQP 1.0
+## <a name="amqp-10-technical-features"></a>Recursos técnicos do AMQP 1.0
 O AMQP (Advanced Message Queuing Protocol) 1.0 é um protocolo de mensagens eficiente, confiável e conectado que pode ser usado para criar aplicativos de mensagens avançados entre plataformas. O protocolo tem um simples objetivo: definir a mecânica da transferência segura, confiável e eficiente de mensagens entre duas partes. As mensagens em si são codificadas usando uma representação de dados portáteis que permite heterogêneos remetentes e receptores trocar mensagens comerciais estruturados com fidelidade total. A seguir está um resumo dos recursos mais importantes:
 
 * **Eficiente**: o AMQP 1.0 é um protocolo orientado para conexão que usa uma codificação binária para as instruções de protocolo e as mensagens de negócios transferidas por ele. Ele incorpora esquemas sofisticadas de controle de fluxo para maximizar a utilização da rede e os componentes conectados. Dito isso, o protocolo foi projetado para obter um equilíbrio entre a eficiência, a flexibilidade e a interoperabilidade.
@@ -36,7 +40,7 @@ O AMQP (Advanced Message Queuing Protocol) 1.0 é um protocolo de mensagens efic
 * **Flexível**: o AMQP 1.0 é um protocolo flexível que pode ser usado para oferecer suporte a topologias diferentes. O mesmo protocolo pode ser usado para comunicações de cliente a cliente, agente de cliente e agente de agente.
 * **Independente do modelo de agente**: a especificação do AMQP 1.0 não faz quaisquer requisitos no modelo de mensagens usado por um agente. Isso significa que é possível adicionar facilmente suporte AMQP 1.0 para corretores de mensagens existentes.
 
-## <a name="amqp-1.0-is-a-standard-(with-a-capital-'s')"></a>AMQP 1.0 é um padrão (com um capital')
+## <a name="amqp-10-is-a-standard-with-a-capital-s"></a>AMQP 1.0 é um padrão (com um capital')
 O AMQP 1.0 é um padrão internacional aprovado pela ISO e IEC como ISO/IEC 19464:2014.
 
 AMQP 1.0 foi desenvolvida desde 2008 por um grupo central de mais de 20 empresas, fornecedores de tecnologia e empresas de usuário final. Durante esse tempo, empresas de usuário contribuíram suas necessidades de negócios reais e os fornecedores de tecnologia se desenvolveram o protocolo para atender a esses requisitos. Durante todo o processo, fornecedores participaram workshops colaboraram para validar a interoperabilidade entre suas implementações.
@@ -55,7 +59,7 @@ Alguns dos benefícios de padrões abertos citados com frequência incluem:
 * Disponibilidade de equipe capacitada
 * Risco menor e gerenciável
 
-## <a name="amqp-1.0-and-service-bus"></a>AMQP 1.0 e Service Bus
+## <a name="amqp-10-and-service-bus"></a>AMQP 1.0 e Service Bus
 O suporte ao AMQP 1.0 no Barramento de Serviço do Azure significa que agora você pode aproveitar os recursos de enfileiramento e publicação/inscrição do sistema de mensagens agenciado do Barramento de Serviço em uma variedade de plataformas usando um protocolo binário eficiente. Além disso, você pode criar aplicativos formados por componentes criados com o uso de uma mistura de linguagens, estruturas e sistemas operacionais.
 
 O diagrama a seguir ilustra um exemplo de implantação no qual clientes Java em execução no Linux, escrito usando a API JMS (Java Message Service) padrão e clientes .NET em execução no Windows, trocam mensagens por meio do Barramento de Serviço usando o AMQP 1.0.
@@ -99,6 +103,7 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Gerenciar servidores e cofres de Backup do Azure usando o modelo de implantação clássico | Microsoft Docs
+title: "Gerenciar servidores e cofres de Backup do Azure usando o modelo de implantação clássico | Microsoft Docs"
 description: Use este tutorial para aprender a gerenciar servidores e cofres de Backup do Azure.
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: jwhit
 editor: tysonn
-
+ms.assetid: f175eb12-0905-437f-91fd-eaee03ab6e81
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
+
 
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Gerenciar servidores e cofres de Backup do Azure usando o modelo de implantação clássico
@@ -26,8 +30,6 @@ ms.author: jimpark;markgal
 Neste artigo, você encontra uma visão geral das tarefas de gerenciamento de backup disponíveis no portal clássico do Azure e o agente de Backup do Microsoft Azure.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Modelo de implantação do Gerenciador de Recursos.
 
 ## <a name="management-portal-tasks"></a>Tarefas do portal de gerenciamento
 1. Entre no [Portal de Gerenciamento](https://manage.windowsazure.com).
@@ -190,6 +192,9 @@ Para habilitar a limitação:
 * Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
 * Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

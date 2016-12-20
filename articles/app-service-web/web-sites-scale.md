@@ -1,12 +1,12 @@
 ---
-title: Dimensionar um aplicativo no Azure | Microsoft Docs
-description: Saiba como escalar verticalmente um aplicativo no Serviço de Aplicativo do Azure a fim de adicionar capacidade e recursos.
+title: Escalar verticalmente um aplicativo no Azure | Microsoft Docs
+description: "Saiba como escalar verticalmente um aplicativo no Serviço de Aplicativo do Azure a fim de adicionar capacidade e recursos."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
 editor: mollybos
-
+ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,27 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf8e6564e861a8753b6bfa45fc7fdd9d72fd2ba8
+
 
 ---
-# Dimensionar um aplicativo no Azure
+# <a name="scale-up-an-app-in-azure"></a>Dimensionar um aplicativo no Azure
 Este artigo mostra como dimensionar seu aplicativo no Serviço de Aplicativo do Azure. Há dois fluxos de trabalho para dimensionamento, escalar verticalmente e escalar horizontalmente, e este artigo explica o fluxo de trabalho de escala vertical.
 
 * [Escalar verticalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): obtenha mais CPU, memória, espaço em disco e recursos adicionais como VMs (máquinas virtuais) dedicadas, domínios e certificados personalizados, slots de preparação, dimensionamento automático e muito mais. Você escala verticalmente alterando o tipo de preço do plano do Serviço de Aplicativo ao qual seu aplicativo pertence.
-* [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumenta o número de instâncias de VM que executam seu aplicativo. Você pode escalar horizontalmente até 20 instâncias, dependendo de seu tipo de preço. [Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md) na camada **Premium** aumentará ainda mais sua contagem de expansão para 50 instâncias. Para saber mais sobre a escala vertical, consulte [Escalar a contagem de instâncias manualmente ou automaticamente](../azure-portal/insights-how-to-scale.md). Lá você encontrará como usar o dimensionamento automático, que serve para dimensionar automaticamente a contagem de instâncias com base em regras e programações predefinidas.
+* [Escalar horizontalmente](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumenta o número de instâncias de VM que executam seu aplicativo.
+  Você pode escalar horizontalmente até 20 instâncias, dependendo de seu tipo de preço. [Ambientes do Serviço de Aplicativo](../app-service/app-service-app-service-environments-readme.md) na camada **Premium** aumentará ainda mais sua contagem de expansão para 50 instâncias. Para saber mais sobre a escala horizontal, consulte [Escalar a contagem de instâncias manualmente ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md). Lá você encontrará como usar o dimensionamento automático, que serve para dimensionar automaticamente a contagem de instâncias com base em regras e programações predefinidas.
 
-As configurações de escala terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos em seu [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Elas não exigem a alteração de seu código ou a reimplantação de seu aplicativo.
+As configurações de escala terão apenas alguns segundos para serem aplicadas e afetam todos os aplicativos em seu [plano do Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+Elas não exigem a alteração de seu código ou a reimplantação de seu aplicativo.
 
-Para obter informações sobre os preços e recursos de planos individuais do Serviço de Aplicativo, consulte [Detalhes de Preços dos Serviços de Aplicativo](/pricing/details/web-sites/).
+Para obter informações sobre os preços e recursos de planos individuais do Serviço de Aplicativo, consulte [Detalhes de Preços dos Serviços de Aplicativo](/pricing/details/web-sites/).  
 
 > [!NOTE]
-> Antes de mudar um Plano do Serviço de Aplicativo do tipo **Gratuito**, é necessário remover os [limites de gastos](/pricing/spending-limits/) em vigor para sua Assinatura do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
+> Antes de mudar um Plano do Serviço de Aplicativo do tipo **Gratuito** , é necessário remover os [limites de gastos](/pricing/spending-limits/) em vigor para sua Assinatura do Azure. Para exibir ou alterar as opções para a sua assinatura do Serviço de Aplicativo do Microsoft Azure, consulte [Assinaturas do Microsoft Azure][azuresubscriptions].
 > 
 > 
 
-<a name="scalingsharedorbasic"></a> <a name="scalingstandard"></a>
+<a name="scalingsharedorbasic"></a>
+<a name="scalingstandard"></a>
 
-## Escale verticalmente seu tipo de preço
-1. Em seu navegador, abra o [Portal do Azure][portal].
+## <a name="scale-up-your-pricing-tier"></a>Escale verticalmente seu tipo de preço
+1. No seu navegador, abra o [Portal do Azure][portal].
 2. Na folha do aplicativo, clique em **Todas as configurações** e em **Escalar Verticalmente**.
    
     ![Navegue para escalar verticalmente seu aplicativo do Azure.][ChooseWHP]
@@ -44,7 +51,7 @@ Para obter informações sobre os preços e recursos de planos individuais do Se
 
 <a name="ScalingSQLServer"></a>
 
-## Escalar recursos relacionados
+## <a name="scale-related-resources"></a>Escalar recursos relacionados
 Se o seu aplicativo depender de outros serviços, como o Banco de Dados SQL do Azure ou o Armazenamento do Azure, você também poderá escalar verticalmente esses recursos com base em suas necessidades. Esses recursos não são dimensionados com o Plano do Serviço de Aplicativo e devem ser dimensionados separadamente.
 
 1. Em **Essentials**, clique no link **Grupo de recursos**.
@@ -59,36 +66,36 @@ Se o seu aplicativo depender de outros serviços, como o Banco de Dados SQL do A
    
     Você também pode ativar a [replicação geográfica](../sql-database/sql-database-geo-replication-overview.md) de sua instância do Banco de Dados SQL.
    
-    Para um recurso de Armazenamento do Azure, clique em **Configurações** > **Configuração** para expandir suas opções de armazenamento.
+    Para um recurso de Armazenamento do Azure, clique em **Configurações** > **Configuração** para escalar verticalmente suas opções de armazenamento.
    
     ![Escalar verticalmente a conta do Armazenamento do Azure usada por seu aplicativo do Azure](./media/web-sites-scale/ScaleStorage.png)
 
 <a name="devfeatures"></a>
 
-## Saiba mais sobre os recursos de desenvolvedor
+## <a name="learn-about-developer-features"></a>Saiba mais sobre os recursos de desenvolvedor
 Dependendo da camada de preços, os seguintes recursos para desenvolvedores estarão disponíveis:
 
-### Número de bits
-* Os modos **Básico**, **Padrão** e **Premium** dão suporte a aplicativos de 32 e 64 bits.
-* O modos dos tipos de planos **Gratuito** e **Compartilhado** dão suporte apenas a aplicativos de 32 bits.
+### <a name="bitness"></a>Número de bits
+* Os modos **Básico**, **Standard** e **Premium** dão suporte a aplicativos de 32 e 64 bits.
+* As camadas dos planos **Gratuito** e **Compartilhado** dão suporte apenas a aplicativos de 32 bits.
 
-### Suporte ao depurador
-* Suporte ao depurador está disponível para os modos **Gratuito**, **Compartilhado** e **Básico** em uma conexão por Plano do Serviço de Aplicativo.
-* O suporte ao depurador está disponível para os modos **Standard** e **Premium** em cinco conexões simultâneas por plano de Serviço de Aplicativo.
+### <a name="debugger-support"></a>Suporte ao depurador
+* O suporte ao depurador está disponível para os modos **Gratuito**, **Compartilhado** e **Básico** em uma conexão por Plano do Serviço de Aplicativo.
+* O suporte ao depurador está disponível para os modos **Standard** e **Premium** em cinco conexões simultâneas por Plano do Serviço de Aplicativo.
 
 <a name="OtherFeatures"></a>
 
-## Saiba mais sobre outros recursos
+## <a name="learn-about-other-features"></a>Saiba mais sobre outros recursos
 * Para obter informações detalhadas sobre todos os recursos restantes nos planos do Serviço de Aplicativo, incluindo preços e recursos de interesse para todos os usuários (incluindo desenvolvedores), consulte [Detalhes de preços do Serviço de Aplicativo](/pricing/details/web-sites/).
 
 > [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751) , em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido e não há compromissos.
 > 
 > 
 
 <a name="Next Steps"></a>
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Para começar a usar o Azure, consulte [Avaliação Gratuita do Microsoft Azure](/pricing/free-trial/).
 * Para saber mais sobre preços, suporte e SLA, visite os links a seguir.
   
@@ -100,7 +107,7 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
   
     [Detalhes de preços do banco de dados SQL](/pricing/details/sql-database/)
   
-    [Tamanhos de máquina virtual e de serviço de nuvem do Microsoft Azure][vmsizes]
+    [Tamanhos de máquina virtual e de serviço de nuvem para o Microsoft Azure][vmsizes]
   
     [Detalhes de Preços do Serviço de Aplicativo](/pricing/details/app-service/)
   
@@ -113,9 +120,9 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
   * [Como dimensionar sites do Azure - com Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
 <!-- LINKS -->
-[vmsizes]: /pricing/details/app-service/
-[SQLaccountsbilling]: http://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]: http://go.microsoft.com/fwlink/?LinkID=235288
+[vmsizes]:/pricing/details/app-service/
+[SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
+[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
 [portal]: https://portal.azure.com/
 
 <!-- IMAGES -->
@@ -124,7 +131,7 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 [SaveButton]: ./media/web-sites-scale/05SaveButton.png
 [BasicComplete]: ./media/web-sites-scale/06BasicComplete.png
 [ScaleStandard]: ./media/web-sites-scale/scale3InstancesStandard.png
-[Autoscale]: ./media/web-sites-scale/scale4AutoScale.png
+[Autoescala]: ./media/web-sites-scale/scale4AutoScale.png
 [SetTargetMetrics]: ./media/web-sites-scale/scale5AutoScaleTargetMetrics.png
 [SetFirstRule]: ./media/web-sites-scale/scale6AutoScaleFirstRule.png
 [SetSecondRule]: ./media/web-sites-scale/scale7AutoScaleSecondRule.png
@@ -134,4 +141,8 @@ Dependendo da camada de preços, os seguintes recursos para desenvolvedores esta
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

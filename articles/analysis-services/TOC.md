@@ -11,9 +11,13 @@
 ## Integração
 ###[Gateway de dados local](analysis-services-gateway.md)
 
-# Referências
+# Referência
+##[PowerShell](/powershell/resourcemanager)
+##[REST](/rest/api/analysisservices/)
+
+# Relacionados
 ##[Conexões de fonte de dados](analysis-services-datasource.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

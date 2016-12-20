@@ -1,19 +1,23 @@
 ---
-title: Como usar os tópicos de Barramento de Serviço com Node.js | Microsoft Docs
-description: Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure por meio de um aplicativo Node.js.
-services: service-bus
+title: "Como usar os tópicos de Barramento de Serviço com Node.js | Microsoft Docs"
+description: "Aprenda a usar assinaturas e tópicos do Barramento de Serviço no Azure por meio de um aplicativo Node.js."
+services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d956c392a209522dd6535297316f9ed695207b00
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Como usar tópicos do Barramento de Serviço e assinaturas
@@ -23,16 +27,16 @@ Este guia descreve como usar tópicos do Barramento de Serviço e assinaturas de
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-## <a name="create-a-node.js-application"></a>Criar um aplicativo do Node.js
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site do Azure], [Serviço de Nuvem do Node.js][Serviço de Nuvem do Node.js] usando o Windows PowerShell ou Site com o WebMatrix.
+## <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Create and deploy a Node.js application to an Azure Web Site (Criar e implantar um aplicativo Node.js em um site do Azure)], [Serviço de Nuvem do Node.js][Serviço de Nuvem do Node.js] usando o Windows PowerShell ou o site com WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
 Para usar o Barramento de Serviço, baixe o pacote do Node.js do Azure. Este pacote inclui um conjunto de bibliotecas que se comunicam com os serviços REST do barramento de serviço.
 
-### <a name="use-node-package-manager-(npm)-to-obtain-the-package"></a>Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
 1. Use uma interface de linha de comando, como **PowerShell** (Windows), **Terminal** (Mac,) ou **Bash** (Unix), e navegue até a pasta onde você criou o aplicativo de exemplo.
 2. Digite **npm install azure** na janela de comando, que deve resultar na seguinte saída:
-   
+
    ```
        azure@0.7.5 node_modules\azure
    ├── dateformat@1.0.2-1.2.3
@@ -60,7 +64,7 @@ O módulo Azure lê as variáveis de ambiente AZURE\_SERVICEBUS\_NAMESPACE e AZU
 
 Para obter um exemplo de como definir as variáveis de ambiente em um arquivo de configuração para um Serviço de Nuvem do Azure, consulte [Serviço de Nuvem do Node.js com Armazenamento][Serviço de Nuvem do Node.js com Armazenamento].
 
-Para ver um exemplo de como definir variáveis de ambiente no [portal clássico do Azure][portal clássico do Azure] para um Site do Azure, veja [Aplicativo Web do Node.js com Armazenamento][].
+Para ver um exemplo de como definir variáveis de ambiente no [Portal clássico do Azure][Portal clássico do Azure] para um site do Azure, consulte [Aplicativo Web Node.js com Armazenamento][Aplicativo Web Node.js com Armazenamento].
 
 ## <a name="create-a-topic"></a>Criar um tópico
 O objeto **ServiceBusService** permite que você trabalhe com tópicos. O código a seguir cria um objeto **ServiceBusService**. Adicione-o próximo ao início do arquivo **server.js** , após a instrução de importação do módulo Azure:
@@ -120,10 +124,10 @@ As assinaturas do tópico também são criadas com o objeto **ServiceBusService*
 
 > [!NOTE]
 > As assinaturas são persistentes e continuarão existindo até que elas ou o tópico ao qual estão associadas sejam excluídos. Se seu aplicativo contiver a lógica para criar uma assinatura, ele deve primeiro verificar se a assinatura já existe usando o método **getSubscription**.
-> 
-> 
+>
+>
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
 O filtro **MatchAll** será o padrão usado se nenhum filtro for especificado quando uma nova assinatura for criada. Quando o filtro **MatchAll** é usado, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada “AllMessages” e usa o filtro padrão **MatchAll**.
 
 ```
@@ -143,8 +147,8 @@ Os filtros podem ser adicionados a uma assinatura usando o método **createRule*
 
 > [!NOTE]
 > Como o filtro padrão é aplicado automaticamente em todas as assinaturas novas, você deve primeiro remover o filtro padrão, senão o filtro **MatchAll** substituirá todos os outros filtros que você possa especificar. Você pode remover a regra padrão usando o método **deleteRule** do objeto **ServiceBusService**.
-> 
-> 
+>
+>
 
 O exemplo a seguir cria uma assinatura denominada `HighMessages` com um **SqlFilter** que seleciona apenas as mensagens que tenham uma propriedade **messagenumber** personalizada maior do que 3:
 
@@ -158,8 +162,8 @@ serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error)
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'HighMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'HighMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -167,10 +171,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber > 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'HighMessages', 
-            'HighMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'HighMessages',
+            'HighMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -193,8 +197,8 @@ serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
 var rule={
     deleteDefault: function(){
         serviceBusService.deleteRule('MyTopic',
-            'LowMessages', 
-            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME, 
+            'LowMessages',
+            azure.Constants.ServiceBusConstants.DEFAULT_RULE_NAME,
             rule.handleError);
     },
     create: function(){
@@ -202,10 +206,10 @@ var rule={
             sqlExpressionFilter: 'messagenumber <= 3'
         };
         rule.deleteDefault();
-        serviceBusService.createRule('MyTopic', 
-            'LowMessages', 
-            'LowMessageFilter', 
-            ruleOptions, 
+        serviceBusService.createRule('MyTopic',
+            'LowMessages',
+            'LowMessageFilter',
+            ruleOptions,
             rule.handleError);
     },
     handleError: function(error){
@@ -285,7 +289,7 @@ Também há um tempo limite associado a uma mensagem bloqueada na assinatura e, 
 Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método **deleteMessage** seja chamado, a mensagem será fornecida novamente ao aplicativo quando reiniciar. Isso é frequentemente chamado de **Processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez mas, em algumas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não tolerar o processamento duplicado, os desenvolvedores de aplicativos deverão adicionar lógica extra ao aplicativo para tratar a entrega de mensagem duplicada. Isso geralmente é obtido com a propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas da entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
-Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [portal clássico do Azure][portal clássico do Azure] ou de forma programática.
+Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [Portal clássico do Azure][Portal clássico do Azure] ou de forma programática.
 O exemplo a seguir demonstra como excluir o tópico denominado `MyTopic`:
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
@@ -307,7 +311,7 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 
 * Consulte [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas].
 * Referência da API para [SqlFilter][SqlFilter].
-* Visite o repositório [SDK do Azure para o nó][SDK do Azure para o nó] no GitHub.
+* Acesse o repositório do [SDK do Azure para nó ][SDK do Azure para o nó] no GitHub.
 
 [SDK do Azure para o nó]: https://github.com/Azure/azure-sdk-for-node
 [Portal clássico do Azure]: https://manage.windowsazure.com
@@ -315,13 +319,12 @@ Agora que você já sabe os princípios dos tópicos do Barramento de Serviço, 
 [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
 [Serviço de Nuvem do Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Criar e implantar um aplicativo Node.js em um site do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[Create and deploy a Node.js application to an Azure Web Site (Criar e implantar um aplicativo Node.js em um site do Azure)]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [Serviço de Nuvem do Node.js com Armazenamento]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-[Aplicativo Web Node.js com Armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Aplicativo Web Node.js com Armazenamento]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

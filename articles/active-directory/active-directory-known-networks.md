@@ -1,12 +1,12 @@
 ---
 title: Redes conhecidas | Microsoft Docs
-description: Configurando redes conhecidas, você pode evitar ter endereços IP que pertencem à sua organização incluídos nos relatórios Entradas de várias regiões geográficas e Entradas de endereços IP com atividade suspeita.
+description: "Configurando redes conhecidas, você pode evitar ter endereços IP que pertencem à sua organização incluídos nos relatórios Entradas de várias regiões geográficas e Entradas de endereços IP com atividade suspeita."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9911945ae36fc00c9be5092dd040b67adf537ec3
+
 
 ---
 # <a name="known-networks"></a>Redes conhecidas
@@ -43,6 +47,9 @@ Para impedir que esses casos gerem relatórios de segurança enganadores, você 
 * [Entradas de endereços IP com atividade suspeita](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Entradas de várias regiões geográficas](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

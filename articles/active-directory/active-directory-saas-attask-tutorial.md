@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com @Task| Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o @Task.
+title: "Tutorial: integração do Azure Active Directory ao @Task| Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o @Task."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: aab8bd2f-f9dd-42da-a18e-d707865687d7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d729d0859a3cdd0e676507c4fa772b7b8d3ed181
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-@task"></a>Tutorial: Integração do Active Directory do Azure com @Task
+# <a name="tutorial-azure-active-directory-integration-with-task"></a>Tutorial: Integração do Active Directory do Azure com @Task
 O objetivo desse tutorial é mostrar como integrar @Task ao Azure Active Directory (AD do Azure).  
 A integração de @Task ao AD do Azure oferece os seguintes benefícios: 
 
@@ -49,7 +53,7 @@ O cenário descrito neste tutorial consiste em três blocos de construção prin
 1. Adicionar @Task da galeria 
 2. Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-@task-from-the-gallery"></a>Adicionar @Task da galeria
+## <a name="adding-task-from-the-gallery"></a>Adicionar @Task da galeria
 Para configurar a integração de @Task ao AD do Azure, você precisa adicionar @Task por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar @Task por meio da galeria, execute as seguintes etapas:**
@@ -129,7 +133,7 @@ O objetivo desta seção é habilitar o logon único do AD do Azure no portal cl
 8. No portal clássico do Azure, selecione a confirmação de configuração de logon único e clique em **Avançar**. 
    
     ![O que é o Azure AD Connect][10]
-9. Na página de **confirmação de logon único**, clique em **Concluir**.  
+9. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![O que é o Azure AD Connect][11]
 
@@ -140,7 +144,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_02.png) 
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -163,15 +167,15 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome** , digite **Brenda**.  
+   a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-   b. Na caixa de texto **Sobrenome** , digite **Fernandes**.
+   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. Na caixa de texto **Nome de exibição**, digite **Brenda Fernandes**.
+   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
    d. Na lista **Função**, selecione **Usuário**.
    e. Clique em **Próximo**.
-7. Na página de caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -182,7 +186,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
     b. Clique em **Concluído**.   
 
-### <a name="creating-an-@task-test-user"></a>Criando um usuário de teste de @Task
+### <a name="creating-an-task-test-user"></a>Criando um usuário de teste de @Task
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no @Task.
 
 **Para criar um usuário chamado Brenda Fernandes em @Task,, realize as seguintes etapas:**
@@ -268,6 +272,6 @@ Ao clicar no bloco de @Task no Painel de Acesso, você deverá ser conectado aut
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

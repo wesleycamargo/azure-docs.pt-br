@@ -4,7 +4,7 @@
 > 
 > 
 
-Este artigo fornece uma passo a passo detalhado do [código de exemplo do Hello World][lnk-helloworld-sample] para ilustrar os componentes fundamentais da arquitetura do [SDK do Gateway IoT do Azure][lnk-gateway-sdk]. A amostra usa o SDK do Gateway do Hub IoT para criar um gateway simples que registra uma mensagem “hello world” em um arquivo a cada cinco segundos.
+Este artigo fornece uma passo a passo detalhado do [código de exemplo do Hello World][lnk-helloworld-sample] para ilustrar os componentes fundamentais da arquitetura do [SDK do Gateway IoT do Azure][lnk-gateway-sdk]. A amostra usa o SDK do Gateway do Azure IoT para criar um gateway simples que registra uma mensagem “hello world” em um arquivo a cada cinco segundos.
 
 Este passo a passo aborda:
 
@@ -36,7 +36,7 @@ O SDK fornece uma camada de abstração que permite criar gateways para serem ex
 ### <a name="messages"></a>Mensagens
 Mesmo que pensar sobre os módulos que transmitem mensagens entre si seja uma maneira conveniente de conceitualizar o funcionamento de um gateway, ela não reflete com precisão o que acontece. Os módulos usam um agente para se comunicar entre si, publicar mensagens no agente (barramento, pubsub ou outro padrão de mensagens) e permitir que o agente faça o roteamento da mensagem para os módulos conectados a ele.
 
-Um módulo usa a função **Broker_Publish** para publicar uma mensagem no agente. O agente entrega as mensagens para um módulo, invocando uma função de retorno de chamada. Uma mensagem consiste em um conjunto de propriedades de chave/valor e no conteúdo transmitido como um bloco de memória.
+Um módulo usa a função **Broker_Publish** para publicar uma mensagem para o agente. O agente entrega as mensagens para um módulo, invocando uma função de retorno de chamada. Uma mensagem consiste em um conjunto de propriedades de chave/valor e no conteúdo transmitido como um bloco de memória.
 
 ![A função do Agente no SDK do Gateway do Azure IoT][3]
 
@@ -72,6 +72,6 @@ A figura acima mostra a arquitetura da amostra do Hello World e os caminhos rela
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

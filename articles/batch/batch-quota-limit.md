@@ -1,12 +1,12 @@
 ---
-title: Cotas de serviço e limites do Lote | Microsoft Docs
-description: Saiba mais sobre as restrições, limites e cotas padrão do Lote do Azure e como aumentar a cota da solicitação
+title: "Cotas do serviço de lote e limites | Microsoft Docs"
+description: "Saiba mais sobre as restrições, limites e cotas padrão do Lote do Azure e como aumentar a cota da solicitação"
 services: batch
-documentationcenter: ''
+documentationcenter: 
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3433ce8b664fb02c5c267ea4b21e678fdc1accfe
+
 
 ---
-# Cotas e limites para o serviço do Lote do Azure
+# <a name="quotas-and-limits-for-the-azure-batch-service"></a>Cotas e limites para o serviço do Lote do Azure
 Como com outros serviços do Azure, há limites em determinados recursos associados ao serviço de Lote. Muitos desses limites são cotas padrão aplicadas pelo Azure no nível da assinatura ou da conta. Este artigo discute esses padrões e como você pode solicitar aumentos de cotas.
 
 Se você planeja executar cargas de trabalho de produção em Lote, talvez seja necessário aumentar uma ou mais cotas para acima do padrão. Se desejar aumentar a cota, você poderá abrir uma [solicitação de atendimento ao cliente](#increase-a-quota) online gratuitamente.
@@ -26,15 +30,15 @@ Se você planeja executar cargas de trabalho de produção em Lote, talvez seja 
 > 
 > 
 
-## Cotas de assinatura
+## <a name="subscription-quotas"></a>Cotas de assinatura
 | **Recurso** | **Limite padrão** | **Limite máximo** |
 | --- | --- | --- |
 | Contas do Lote por região e assinatura |1 |50 |
 
-## Cotas para conta do Lote
+## <a name="batch-account-quotas"></a>Cotas para conta do Lote
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
-## Outros limites
+## <a name="other-limits"></a>Outros limites
 | **Recurso** | **Limite máximo** |
 | --- | --- |
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação |4 vezes o número de núcleos de nó |
@@ -44,8 +48,8 @@ Se você planeja executar cargas de trabalho de produção em Lote, talvez seja 
 
 <sup>1</sup> O limite do Armazenamento do Azure para o tamanho máximo do blob de blocos
 
-## Exibir cotas do Lote
-Exibir suas cotas de conta do Lote no [portal do Azure][portal].
+## <a name="view-batch-quotas"></a>Exibir cotas do Lote
+Exiba suas cotas da conta do Lote no [portal do Azure][portal].
 
 1. Selecione **Contas do Lote** no portal e selecione a conta do Lote na qual você está interessado.
 2. Selecione **Propriedades** na folha de menu da conta do Lote
@@ -53,30 +57,30 @@ Exibir suas cotas de conta do Lote no [portal do Azure][portal].
    
     ![Cotas para conta do Lote][account_quotas]
 
-## Aumentar uma cota
-Siga as etapas abaixo para solicitar um aumento de cota usando o [Portal do Azure][portal].
+## <a name="increase-a-quota"></a>Aumentar uma cota
+Siga as etapas abaixo para solicitar um aumento de cota usando o [portal do Azure][portal].
 
-1. Selecione o bloco **Ajuda + suporte** em seu painel do portal ou o ponto de interrogação (**?**) no canto superior direito do portal.
-2. Selecione **Nova solicitação de suporte** > **Básico**.
-3. Na folha **Fundamentos**:
+1. Selecione o bloco **Ajuda + suporte** no painel do portal ou o ponto de interrogação (**?**) no canto superior direito do portal.
+2. Selecione **Nova solicitação de suporte** > **Fundamentos**.
+3. Na folha **Fundamentos** :
    
-    a. **Tipo de problema** > **Cota**
+    a. **Tipo de Problema** > **Cota**
    
     b. Selecione sua assinatura.
    
     c. **Tipo de cota** > **Lote**
    
-    d. **Plano de suporte** > **Suporte de cota - Incluído**
+    d. **Plano de suporte** > **Suporte da cota - Incluído**
    
     Clique em **Próximo**.
-4. Na folha **Problema**:
+4. Na folha **Problema** :
    
-    a. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
+    a. Selecione uma **Severidade** de acordo com seu [impacto nos negócios][support_sev].
    
     b. Em **Detalhes**, especifique cada cota que você deseja alterar, o nome da conta do Lote e o novo limite.
    
     Clique em **Próximo**.
-5. Na folha **Informações de contato**:
+5. Na folha **Informações de contato** :
    
     a. Selecione um **método de contato preferencial**.
    
@@ -86,7 +90,7 @@ Siga as etapas abaixo para solicitar um aumento de cota usando o [Portal do Azur
 
 Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará em contato com você. Observe que a conclusão do pedido pode levar até dois dias úteis.
 
-## Tópicos relacionados
+## <a name="related-topics"></a>Tópicos relacionados
 * [Criar uma conta do Lote do Azure usando o portal do Azure](batch-account-create-portal.md)
 * [Visão geral dos recursos do Lote do Azure](batch-api-basics.md)
 * [Assinatura do Azure e limite de serviços, cotas e restrições](../azure-subscription-service-limits.md)
@@ -97,4 +101,8 @@ Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará e
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao eDigitalResearch | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o eDigitalResearch.
+title: "Tutorial: integração do Azure Active Directory ao eDigitalResearch | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o eDigitalResearch."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c6b66ea0-16ba-45b4-b550-e81c56262b1f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce449d6a64b4ef9022939f0487a30157f7014673
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-edigitalresearch"></a>Tutorial: integração do Azure Active Directory ao eDigitalResearch
+# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Tutorial: integração do Azure Active Directory ao eDigitalResearch
 O objetivo desse tutorial é mostrar como integrar o eDigitalResearch ao Azure AD (Azure Active Directory).
 
 A integração do eDigitalResearch ao Azure AD oferece os seguintes benefícios:
@@ -102,9 +106,9 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no portal 
 2. Na página **Como você deseja que os usuários façam logon no eDigitalResearch**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
     ![Configurar Logon Único](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_03.png) 
-3. Na página da caixa de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
+3. Na página de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
    
-    ![Configurar Logon Único](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_04.png)
+    ![Configurar o logon único](./media/active-directory-saas-edigitalresearch-tutorial/tutorial_edigitalresearch_04.png)
    
     a. Na caixa de texto **URL de resposta** , digite uma URL no seguinte padrão:
    
@@ -125,9 +129,11 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no portal 
     b. Clique em **Avançar**.
 5. Para que o SSO seja configurado para seu aplicativo, entre em contato com a equipe de suporte do eDigitalResearch e forneça o seguinte: 
    
-   * O arquivo **Certificado baixado**
-   * A **ID da Entidade**
-   * A **URL do Serviço de Logoff Único**
+      - O arquivo **Certificado baixado**
+   
+      - A **ID da Entidade**
+   
+      - A **URL do Serviço de Logoff Único**
 6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
@@ -174,7 +180,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-edigitalresearch-tutorial/create_aaduser_07.png)
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -240,6 +246,6 @@ Quando você clica no bloco eDigitalResearch no Painel de Acesso, você deve ser
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,25 +1,29 @@
 ---
-title: Usar o Túnel SSH para acessar a interface do usuário do Ambari Web, ResourceManager, JobHistory, NameNode, Oozie, entre outras
-description: Saiba como usar um túnel SSH para navegar com segurança em recursos da Web hospedados em seus nós HDInsight baseados em Linux.
+title: "Usar o Túnel SSH para acessar a interface do usuário do Ambari Web, ResourceManager, JobHistory, NameNode, Oozie, entre outras"
+description: "Saiba como usar um túnel SSH para navegar com segurança em recursos da Web hospedados em seus nós HDInsight baseados em Linux."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 10/17/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 446212192829cc55fefe4b1a1954e64e123c2c44
+
 
 ---
-# <a name="use-ssh-tunneling-to-access-ambari-web-ui,-jobhistory,-namenode,-oozie,-and-other-web-ui's"></a>Usar o Túnel SSH para acessar a interface do usuário do Ambari na Web, JobHistory, NameNode, Oozie, entre outras
+# <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Usar o Túnel SSH para acessar a interface do usuário do Ambari na Web, JobHistory, NameNode, Oozie, entre outras
 Os clusters do HDInsight baseados em Linux oferecem acesso à interface do usuário do Ambari Web pela Internet, mas alguns recursos da interface do usuário não são acessados. Por exemplo, a interface do usuário da Web para outros serviços exibidos por meio do Ambari. Para obter a funcionalidade completa da interface do usuário do Ambari Web, você deverá usar um túnel SSH para o início do cluster.
 
-## <a name="what-requires-an-ssh-tunnel?"></a>O que requer um túnel SSH?
+## <a name="what-requires-an-ssh-tunnel"></a>O que requer um túnel SSH?
 Vários dos menus do Ambari não serão totalmente preenchidos sem um túnel SSH porque se baseiam em sites e em serviços expostos a outros serviços do Hadoop em execução no cluster. Geralmente, esses sites não são protegidos e, portanto, não é seguro expô-los diretamente na Internet. Às vezes, o serviço executa o site em outro nó de cluster, como um nó do Zookeeper.
 
 A seguir, os serviços usados pela interface do usuário do Ambari Web que não podem ser acessados sem um túnel SSH:
@@ -32,7 +36,7 @@ A seguir, os serviços usados pela interface do usuário do Ambari Web que não 
 
 Se você usar as Ações de Script para personalizar seu cluster, todos os serviços ou utilitários que forem instalados e que expuserem a interface do usuário da Web exigirão um túnel SSH. Por exemplo, se você instalar o Hue usando uma Ação de Script, deverá usar um túnel SSH para acessar a interface do usuário da Web do Hue.
 
-## <a name="what-is-an-ssh-tunnel?"></a>O que é um túnel SSH?
+## <a name="what-is-an-ssh-tunnel"></a>O que é um túnel SSH?
 [Túnel SSH](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) roteia o tráfego enviado para uma porta em sua estação de trabalho local por meio de uma conexão SSH com o nó de cabeçalho do cluster HDInsight, onde a solicitação é resolvida como se tivesse sido originada no nó de cabeçalho. A resposta é então roteada de volta pelo túnel até a sua estação de trabalho.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -45,14 +49,8 @@ Ao usar um túnel SSH para o tráfego da Web, você deverá ter o seguinte:
   > 
   > 
 * Um navegador da Web que pode ser configurado para usar um proxy SOCKS
-* **(opcional)**: um plug-in como o [FoxyProxy](http://getfoxyproxy.org/,) que pode aplicar regras que só roteiam solicitações específicas pelo túnel.
-  
-  > [!WARNING]
-  > Sem um plug-in como o FoxyProxy, todas as solicitações feitas por meio do navegador poderão ser roteadas pelo túnel. Isso pode resultar em um carregamento mais lento de páginas da Web em seu navegador.
-  > 
-  > 
 
-## <a name="<a-name="usessh"></a>create-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>Criar um túnel usando o comando SSH
+## <a name="a-nameusesshacreate-a-tunnel-using-the-ssh-command"></a><a name="usessh"></a>Criar um túnel usando o comando SSH
 Use o comando a seguir para criar um túnel SSH usando o comando `ssh` . Substitua **USERNAME** por um usuário SSH para seu cluster HDInsight e substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight
 
     ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -72,7 +70,7 @@ Se você tiver configurado o cluster com uma chave SSH, talvez seja necessário 
 
 Quando o comando terminar, o tráfego enviado para a porta 9876 no computador local será roteado pelo protocolo SSL para o nó de cabeçalho do cluster e parecerá originar-se de lá .
 
-## <a name="<a-name="useputty"></a>create-a-tunnel-using-putty"></a><a name="useputty"></a>Criar um túnel usando o PuTTY
+## <a name="a-nameuseputtyacreate-a-tunnel-using-putty"></a><a name="useputty"></a>Criar um túnel usando o PuTTY
 Use as etapas a seguir para criar um túnel SSH usando o PuTTY.
 
 1. Abra o PuTTY e insira as informações da sua conexão. Se você não estiver familiarizado com o PuTTY, confira [Usar SSH com Hadoop baseado em Linux no HDInsight do Windows](hdinsight-hadoop-linux-use-ssh-windows.md) para obter informações sobre como usá-lo com o HDInsight.
@@ -89,7 +87,7 @@ Use as etapas a seguir para criar um túnel SSH usando o PuTTY.
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Usar o túnel de seu navegador
 > [!NOTE]
-> As etapas desta seção usam o navegador Firefox, pois ele está disponível gratuitamente para os sistemas Linux, Unix, Macintosh OS X e Windows. Outros navegadores modernos, como o Google Chrome, o Microsoft Edge ou o Apple Safari também devem funcionar; no entanto, é possível que o plug-in FoxyProxy usado em algumas etapas não esteja disponível para todos os navegadores.
+> As etapas desta seção usam o navegador Firefox, pois ele está disponível gratuitamente para os sistemas Linux, Unix, Macintosh OS X e Windows. Outros navegadores modernos que sejam compatíveis com o uso do proxy SOCKS também funcionarão.
 > 
 > 
 
@@ -102,44 +100,6 @@ Use as etapas a seguir para criar um túnel SSH usando o PuTTY.
    > 
    > 
 2. Verifique se o tráfego está sendo roteado pelo túnel visitando um site como [http://www.whatismyip.com/](http://www.whatismyip.com/) com as configurações de proxy habilitadas e desabilitadas no Firefox. Embora as configurações estejam habilitadas, o endereço IP será de um computador no datacenter do Microsoft Azure.
-
-### <a name="browser-extensions"></a>Extensões do navegador
-Embora configurar o navegador para usar o túnel funcione, geralmente não deseja encaminhar todo o tráfego através do túnel. As extensões de navegador, como o [FoxyProxy](http://getfoxyproxy.org/) , aceitam a correspondência de padrão para solicitações de URL (somente o FoxyProxy Standard ou Plus) e, portanto, apenas as solicitações de URLs específicas serão enviadas pelo túnel.
-
-Se você tiver instalado o FoxyProxy Standard, use as seguintes etapas para configurá-lo para encaminhar o tráfego apenas para HDInsight pelo túnel.
-
-1. Abra a extensão FoxyProxy no seu navegador. Por exemplo, no Firefox, selecione o ícone FoxyProxy ao lado do campo de endereço.
-   
-    ![ícone do foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxyproxy.png)
-2. Selecione **Adicionar Novo Proxy**, clique na guia **Geral** e insira um nome de proxy de **HDInsightProxy**.
-   
-    ![foxyproxy geral](./media/hdinsight-linux-ambari-ssh-tunnel/foxygeneral.png)
-3. Selecione a guia **Detalhes de Proxy** e preencha os campos a seguir:
-   
-   * **Host ou Endereço IP** : é localhost, já que estamos usando um túnel SSH no computador local.
-   * **Porta** : é a porta usada para o túnel SSH.
-   * **Proxy SOCKS** : selecione esta opção para habilitar o navegador a usar o túnel como proxy.
-   * **SOCKS v5** : selecione esta opção para definir a versão necessária do proxy.
-     
-     ![proxy do foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxyproxyproxy.png)
-4. Clique na guia **Padrões de URL** e selecione **Adicionar Novo Padrão**. Use o seguinte para definir o padrão e clique em **OK**:
-   
-   * **Nome do Padrão** - **clusternodes** – Apenas um nome amigável para o padrão.
-   * **Padrão da URL** - **\*internal.cloudapp.net\*** – Isso define um padrão que corresponde ao nome de domínio totalmente qualificado interno de nós do cluster.
-     
-     ![padrão do foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-     
-     Adicione outro padrão, usando as seguintes informações para as configurações:
-   * **Nome do Padrão** -headnode
-   * **Padrão de URL** - \*headnodehost\*
-     
-     Selecione OK para salvar esse padrão.
-5. Clique em **OK** para adicionar o proxy e fechar **Configurações de Proxy**.
-6. Na parte superior da caixa de diálogo FoxyProxy, altere **Modo de Seleção** para **Usar proxies com base em seus padrões e prioridades predefinidos** e clique em **Fechar**.
-   
-    ![modo de seleção do foxyproxy](./media/hdinsight-linux-ambari-ssh-tunnel/selectmode.png)
-
-Após a execução destas etapas, somente solicitações de URLs que contêm a cadeia de caracteres **internal.cloudapp.net** serão roteadas pelo túnel SSL.
 
 ## <a name="verify-with-ambari-web-ui"></a>Verifique com a interface do usuário do Ambari Web
 Assim que o cluster tiver sido estabelecido, use as etapas a seguir para verificar se você pode acessar as interfaces do usuário da Web do serviço Ambari Web:
@@ -182,6 +142,9 @@ Para obter mais informações sobre como usar SSH com o HDInsight, consulte o se
 * [Usar SSH com Hadoop baseado em Linux no HDInsight no Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Usar SSH com Hadoop baseado em Linux no HDInsight no Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

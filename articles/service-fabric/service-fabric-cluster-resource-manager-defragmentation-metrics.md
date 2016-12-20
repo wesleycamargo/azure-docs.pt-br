@@ -1,12 +1,12 @@
 ---
-title: Desfragmentação de Métricas no Azure Service Fabric | Microsoft Docs
-description: Uma visão geral do uso de desfragmentação ou como uma estratégia de métricas no Service Fabric
+title: "Desfragmentação de métricas no Azure Service Fabric | Microsoft Docs"
+description: "Uma visão geral do uso de desfragmentação ou como uma estratégia de métricas no Service Fabric"
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/19/2016
 ms.author: masnider
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 68183597e19347f10a0ffe24a418dbcac409cb14
+
 
 ---
-# Desfragmentação de métricas e carga no Service Fabric
+# <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentação de métricas e carga no Service Fabric
 O Resource Manager de Cluster do Service Fabric está basicamente relacionado ao balanceamento em termos de distribuição da carga, garantindo que todos os nós no cluster sejam igualmente utilizados. Normalmente, esse é o layout mais seguro e inteligente em termos de sobrevivência a falhas, já que ele assegura que uma determinada falha não destrua grande parte de uma dada carga de trabalho. O Resource Manager do Service Fabric Cluster também dá suporte a uma estratégia diferente, que é a desfragmentação. Em geral, a desfragmentação significa que, em vez de tentar distribuir a utilização de uma métrica em todo o cluster, devemos, de fato, tentar consolidá-la. Esta é uma inversão favorável de nossa estratégia normal – em vez de otimizar o cluster com base na minimização do desvio padrão médio da carga de métrica de uma determinada métrica, começaremos otimizando os aumentos no desvio. Mas por que você usaria essa estratégia?
 
 Bem, caso tenha distribuído a carga de maneira uniforme entre os nós no cluster, você já terá consumido alguns dos recursos que os nós têm a oferecer. Normalmente, isso não é um problema, mas, às vezes, algumas cargas de trabalho criam serviços que são excepcionalmente grandes e que consomem grande parte de um nó – digamos que 75% a 95% dos recursos de um nó acabariam sendo dedicados a um único serviço ou réplica. Isso não é um problema: o Gerenciador de Recursos de Cluster detectará no momento da criação do serviço que ele precisa reorganizar o cluster a fim de liberar espaço para essa carga de trabalho grande e definir como fará com que isso aconteça. Contudo, enquanto isso, a carga de trabalho deverá esperar para ser agendada no cluster.
@@ -29,7 +33,7 @@ O diagrama a seguir fornece uma representação visual de dois clusters diferent
 
 ![Comparando clusters balanceados e desfragmentados][Image1]
 
-## Prós e contras da desfragmentação
+## <a name="defragmentation-pros-and-cons"></a>Prós e contras da desfragmentação
 Quais são as outras compensações conceituais? Recomendamos fazer uma medição completa das cargas de trabalho antes de ativar as métricas de desfragmentação. Aqui está uma tabela rápida de itens a ser considerados:
 
 | Vantagens da desfragmentação | Desvantagens da desfragmentação |
@@ -40,7 +44,7 @@ Quais são as outras compensações conceituais? Recomendamos fazer uma mediçã
 
 É possível combinar métricas desfragmentadas e normais no mesmo cluster, e o Gerenciador de Recursos fará o melhor para garantir que você obtenha um layout que consolide o máximo das métricas de desfragmentação possível, ao mesmo tempo que ele tentará distribuir as restantes. Os resultados exatos que você obterá dependerão do número de métricas de balanceamento em comparação ao número de métricas de desfragmentação, seus pesos, cargas atuais, etc.
 
-## Configurando métricas de desfragmentação
+## <a name="configuring-defragmentation-metrics"></a>Configurando métricas de desfragmentação
 Configurar métricas de desfragmentação é uma decisão global no cluster, e métricas individuais podem ser selecionadas para desfragmentação:
 
 ClusterManifest.xml:
@@ -52,10 +56,14 @@ ClusterManifest.xml:
 </Section>
 ```
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * O Gerenciador de Recursos de Cluster tem muitas opções para descrever o cluster. Para saber mais sobre elas, confira este artigo sobre a [descrição de um cluster do Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
-* As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre elas e como configurá-las, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
+* As métricas são como o Gerenciador de Recursos de Cluster do Service Fabric gerencia o consumo e a capacidade no cluster. Para saber mais sobre eles e como configurá-los, confira [este artigo](service-fabric-cluster-resource-manager-metrics.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
+[Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

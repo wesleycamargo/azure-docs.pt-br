@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory com Sciforma | Microsoft Docs'
-description: Saiba como usar o Sciforma com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!
+title: "Tutorial: integração do Azure Active Directory com Sciforma | Microsoft Docs"
+description: "Saiba como usar o Sciforma com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: abbfb5ac-7687-4153-b263-8090102dae37
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a61552f3275aa58aca9c014d24ae69d91ce59d5
+
 
 ---
-# <a name="tutorial:-azure-ad-integration-with-sciforma"></a>Tutorial: Integração do AD do Azure com o Sciforma
+# <a name="tutorial-azure-ad-integration-with-sciforma"></a>Tutorial: Integração do AD do Azure com o Sciforma
 O objetivo deste tutorial é mostrar a integração do Azure ao Sciforma.  
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -36,7 +40,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 ## <a name="enabling-the-application-integration-for-sciforma"></a>Habilitando a integração de aplicativos para o Sciforma
 O objetivo desta seção é descrever como habilitar a integração de aplicativos para o Sciforma.
 
-### <a name="to-enable-the-application-integration-for-sciforma,-perform-the-following-steps:"></a>Para habilitar a integração de aplicativos com o Sciforma, execute as seguintes etapas:
+### <a name="to-enable-the-application-integration-for-sciforma-perform-the-following-steps"></a>Para habilitar a integração de aplicativos com o Sciforma, execute as seguintes etapas:
 1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-sciforma-tutorial/IC700993.png "Active Directory")
@@ -61,7 +65,7 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 
 O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Sciforma com a respectiva conta do AD do Azure usando federação baseada no protocolo SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Para configurar o logon único, execute as seguintes etapas:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
 1. No Portal clássico do Azure, na página de integração de aplicativos do **Sciforma**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
    ![Configurar o logon único](./media/active-directory-saas-sciforma-tutorial/IC777372.png "Configure single sign-on")
@@ -88,17 +92,20 @@ Se ainda não houver uma conta de usuário disponível, ela será automaticament
 ## <a name="assigning-users"></a>Atribuindo usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
-### <a name="to-assign-users-to-sciforma,-perform-the-following-steps:"></a>Para atribuir usuários ao Sciforma, execute as seguintes etapas:
+### <a name="to-assign-users-to-sciforma-perform-the-following-steps"></a>Para atribuir usuários ao Sciforma, execute as seguintes etapas:
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração de aplicativos do **Sciforma**, clique em **Atribuir usuários**.
    
    ![Atribuir usuários](./media/active-directory-saas-sciforma-tutorial/IC777377.png "Assign users")
-3. Selecione seu usuário de teste, clique em **Atribuir** e em **Sim** para confirmar a atribuição.
+3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
    
    ![Sim](./media/active-directory-saas-sciforma-tutorial/IC767830.png "Yes")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

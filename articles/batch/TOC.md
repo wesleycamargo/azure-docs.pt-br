@@ -14,7 +14,7 @@
 ### [Consultas de lista eficientes](batch-efficient-list-queries.md)
 ### [Tarefas de preparação e conclusão de trabalho](batch-job-prep-release.md)
 ### [Nós de computação do Linux](batch-linux-nodes.md)
-### [Gerenciar contas do Lote com o Batch Management .NET](batch-management-dotnet.md)
+### [Gerenciar contas do Lote com o Lote Management .NET](batch-management-dotnet.md)
 ### [Persistir saída de tarefa e de trabalho](batch-task-output.md)
 ### [Executar trabalhos MPI em Lote](batch-mpi.md)
 ### [Dependências da tarefa](batch-task-dependencies.md)
@@ -25,12 +25,12 @@
 ### [Logs de diagnóstico do Lote](batch-diagnostics.md)
 
 # Referência
-## [Cmdlets do PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
-## [Java](https://docs.microsoft.com/java/api)
-## [API do .NET](https://docs.microsoft.com/dotnet/api)
-## [SDK do Python](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [REST](https://docs.microsoft.com/rest/api/batchservice/)
+## [PowerShell](/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch)
+## [.NET](/dotnet/api/microsoft.azure.batch)
+## [Java](/java/api/com.microsoft.azure.batch)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest)
+## [SDK do Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch)
+## [REST](/rest/api/batchservice)
 
 # Relacionados
 ## [Shipyard de lote](https://github.com/Azure/batch-shipyard)
@@ -48,6 +48,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

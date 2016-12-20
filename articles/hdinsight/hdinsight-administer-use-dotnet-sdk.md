@@ -6,8 +6,8 @@ editor: cgronlun
 manager: jhubbard
 tags: azure-portal
 author: mumian
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
+
 
 ---
-# Gerenciar clusters Hadoop no HDInsight usando o SDK do .NET
-[!INCLUDE [seletor](../../includes/hdinsight-portal-management-selector.md)]
+# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerenciar clusters Hadoop no HDInsight usando o SDK do .NET
+[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Saiba como gerenciar clusters HDInsight usando o [SDK do .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx).
 
@@ -28,7 +32,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## Conectar-se ao Azure HDInsight
+## <a name="connect-to-azure-hdinsight"></a>Conectar-se ao Azure HDInsight
 Você precisará dos seguintes pacotes Nuget:
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
@@ -106,12 +110,12 @@ O exemplo de código a seguir mostra como se conectar ao Azure antes que você p
         }
     }
 
-Você deverá ver um aviso ao executar este programa. Se não desejar ver o aviso, confira [Criar aplicativos .NET do HDInsight com autenticação não interativa](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+Você deverá ver um aviso ao executar este programa.  Se não desejar ver o aviso, confira [Criar aplicativos .NET do HDInsight com autenticação não interativa](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
-## Criar clusters
+## <a name="create-clusters"></a>Criar clusters
 Veja [Criar clusters baseados em Linux no HDInsight usando o SDK do .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
-## Listar clusters
+## <a name="list-clusters"></a>Listar clusters
 O trecho de código a seguir lista os clusters e algumas propriedades:
 
     var results = _hdiManagementClient.Clusters.List();
@@ -122,17 +126,17 @@ O trecho de código a seguir lista os clusters e algumas propriedades:
         Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
     }
 
-## Excluir clusters
-Use o seguinte trecho de código para excluir um cluster de forma síncrona ou assíncrona:
+## <a name="delete-clusters"></a>Excluir clusters
+Use o seguinte trecho de código para excluir um cluster de forma síncrona ou assíncrona: 
 
     _hdiManagementClient.Clusters.Delete("<Resource Group Name>", "<Cluster Name>");
     _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Name>");
 
-## Dimensionar clusters
+## <a name="scale-clusters"></a>Dimensionar clusters
 O recurso de dimensionamento de clusters permite que você altere o número de nós de trabalhador usados por um cluster em execução no Azure HDInsight sem precisar recriar o cluster.
 
 > [!NOTE]
-> Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades. Consulte [Listar e mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades.  Consulte [Listar e mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 > 
 > 
 
@@ -167,9 +171,9 @@ O impacto da alteração do número de nós de dados em cada tipo de cluster com
     
     Aqui está um exemplo de como usar o comando CLI para reequilibrar a topologia do Storm:
     
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
+    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigurar a topologia "mytopology" para usar 5 processos de trabalho,
+    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>o spout "blue-spout" usar 3 executores e
+    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>o bolt "yellow-bolt" usar 10 executores
       $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 O trecho de código a seguir mostra como redimensionar um cluster de forma síncrona ou assíncrona:
@@ -178,7 +182,7 @@ O trecho de código a seguir mostra como redimensionar um cluster de forma sínc
     _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Name>", <New Size>);   
 
 
-## Conceder/revogar acesso
+## <a name="grantrevoke-access"></a>Conceder/revogar acesso
 Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviços têm pontos de extremidade RESTful):
 
 * ODBC
@@ -213,12 +217,12 @@ Para conceder:
 > 
 > 
 
-Isso também pode ser feito por meio do Portal. Consulte [Administrar o HDInsight usando o portal do Azure][hdinsight-admin-portal].
+Isso também pode ser feito por meio do Portal. Consulte [Administrar o HDInsight usando o Portal do Azure][hdinsight-admin-portal].
 
-## Atualizar credenciais de usuário HTTP
-É o mesmo procedimento para acessar [HTTP Conveder/Revogar](#grant/revoke-access). Se o cluster recebeu o acesso HTTP, você deverá revogá-lo. E, em seguida, conceder acesso com novas credenciais de usuário HTTP.
+## <a name="update-http-user-credentials"></a>Atualizar credenciais de usuário HTTP
+É o mesmo procedimento para [acessar Conceder/Revogar HTTP](#grant/revoke-access). Se o cluster recebeu o acesso HTTP, você deverá revogá-lo.  E, em seguida, conceder acesso com novas credenciais de usuário HTTP.
 
-## Encontrar a conta de armazenamento padrão
+## <a name="find-the-default-storage-account"></a>Encontrar a conta de armazenamento padrão
 O trecho de código a seguir demonstra como obter o nome da conta de armazenamento padrão e a chave da conta de armazenamento padrão de um cluster.
 
     var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
@@ -228,12 +232,12 @@ O trecho de código a seguir demonstra como obter o nome da conta de armazenamen
     }
 
 
-## Enviar trabalhos
+## <a name="submit-jobs"></a>Enviar trabalhos
 **Enviar trabalhos MapReduce**
 
 Veja [Executar amostras de MapReduce do Hadoop no HDInsight](hdinsight-hadoop-run-samples-linux.md).
 
-**Enviar trabalhos Hive**
+**Enviar trabalhos Hive** 
 
 Veja [Executar consultas do Hive usando o SDK do .NET](hdinsight-hadoop-use-hive-dotnet-sdk.md).
 
@@ -249,14 +253,14 @@ Consulte [Usar o Sqoop com o HDInsight](hdinsight-hadoop-use-sqoop-dotnet-sdk.md
 
 Consulte [Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho no HDInsight](hdinsight-use-oozie-linux-mac.md).
 
-## Carregar dados no armazenamento de Blob do Azure
-Consulte [Carregar dados no HDInsight][hdinsight-upload-data].
+## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados no armazenamento de Blob do Azure
+Consulte [Carregar dados no HDInsighthd][hdinsight-upload-data].
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
 * [Documentação de referência do SDK do .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Administrar o HDInsight usando o Portal do Azure][hdinsight-admin-portal]
 * [Administrar o HDInsight usando uma interface de linha de comando][hdinsight-admin-cli]
-* [Criar clusters HDInsight][hdinsight-provision]
+* [Criar clusters do HDInsight][hdinsight-provision]
 * [Carregar dados no HDInsight][hdinsight-upload-data]
 * [Introdução ao Azure HDInsight][hdinsight-get-started]
 
@@ -277,4 +281,10 @@ Consulte [Carregar dados no HDInsight][hdinsight-upload-data].
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

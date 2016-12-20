@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Mixpanel | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Mixpanel.
+title: "Tutorial: integração do Azure Active Directory ao Mixpanel | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Mixpanel."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a2df26ef-d441-44ac-a9f3-b37bf9709bcb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f76b0f17eecaa6f86e67810296df14decf459153
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-mixpanel"></a>Tutorial: Integração do Active Directory do Azure com o Mixpanel
+# <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Tutorial: Integração do Active Directory do Azure com o Mixpanel
 O objetivo desse tutorial é mostrar como integrar o Mixpanel ao Azure AD (Azure Active Directory).
 
 A integração do Mixpanel ao Azure AD oferece os seguintes benefícios:
@@ -254,6 +258,6 @@ Ao clicar no bloco do Mixpanel no Painel de Acesso, você deverá ser conectado 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

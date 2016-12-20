@@ -2,11 +2,11 @@
 title: Clonagem de Aplicativo Web usando o Portal do Azure
 description: Saiba como clonar seus Aplicativos Web em novos Aplicativos Web usando o Portal do Azure.
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: ahmedelnably
 manager: stefsch
-editor: ''
-
+editor: 
+ms.assetid: 20b0ae4e-67e8-4bae-9d74-8a24dc445cce
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2016
 ms.author: ahmedelnably
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7b0daaee1f9017ade049909341100a4d0e5f4a59
+
 
 ---
-# Clonagem de aplicativo do Serviço de Aplicativo do Azure usando o Portal do Azure
+# <a name="azure-app-service-app-cloning-using-azure-portal"></a>Clonagem de aplicativo do Serviço de Aplicativo do Azure usando o Portal do Azure
 O recurso de clonagem nos [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) permite a clonagem fácil de aplicativos Web existentes em um aplicativo recém-criado, em uma região diferente ou na mesma região. Isso permitirá que os clientes implantem vários aplicativos em diferentes regiões de forma rápida e fácil.
 
 A clonagem de aplicativo atualmente só tem suporte para planos de serviço de aplicativos de camada Premium. O novo recurso usa as mesmas limitações que o recurso de Backup dos Aplicativos Web; veja [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Clonagem de um aplicativo existente
+## <a name="cloning-an-existing-app"></a>Clonagem de um aplicativo existente
 O aplicativo Web deve estar sendo executado no modo **Premium** para que você crie um clone do aplicativo Web.
 
 1. No [Portal do Azure](https://portal.azure.com/), abra a folha de seu aplicativo Web.
@@ -32,18 +36,18 @@ O aplicativo Web deve estar sendo executado no modo **Premium** para que você c
     ![][1]
    
    > [!NOTE]
-   > Se o aplicativo Web ainda não estiver no modo **Premium**, você receberá uma mensagem indicando os modos com suporte para a clonagem de aplicativo. Neste ponto, você tem a opção de selecionar **Atualizar**.
+   > Se o aplicativo Web ainda não estiver no modo **Premium** , você receberá uma mensagem indicando os modos com suporte para a clonagem de aplicativo. Neste ponto, você tem a opção de selecionar **Atualizar**.
    > 
    > 
-3. Na folha **Clonar Aplicativo**, forneça um nome do novo aplicativo Web, um Grupo de Recursos e um Plano do Serviço de Aplicativo. Além disso, o usuário poderá optar por clonar ou não várias configurações do aplicativo Web de origem.
+3. Na folha **Clonar Aplicativo** , forneça um nome do novo aplicativo Web, um Grupo de Recursos e um Plano do Serviço de Aplicativo. Além disso, o usuário poderá optar por clonar ou não várias configurações do aplicativo Web de origem.
    
     ![][2]
-4. Depois de clicar em **criar**, a plataforma iniciará o trabalho de criação de um clone do aplicativo Web de origem.
+4. Depois de clicar em **criar** , a plataforma iniciará o trabalho de criação de um clone do aplicativo Web de origem.
 
-## Clonagem de um aplicativo existente como um Ambiente do Serviço de Aplicativo
-Na folha **Clonar Aplicativo**, o cliente terá a opção de escolher um pool de aplicativos em um Ambiente do Serviço de Aplicativo existente.
+## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonagem de um aplicativo existente como um Ambiente do Serviço de Aplicativo
+Na folha **Clonar Aplicativo** , o cliente terá a opção de escolher um pool de aplicativos em um Ambiente do Serviço de Aplicativo existente.
 
-## Restrições atuais
+## <a name="current-restrictions"></a>Restrições atuais
 Atualmente, esse recurso está em preview. Estamos trabalhando para adicionar novas funcionalidades com o tempo. A lista abaixo mostra as restrições conhecidas no suporte atual da clonagem de aplicativo no Portal do Azure:
 
 * As configurações do Gerenciador de Tráfego do Azure não são clonadas
@@ -56,7 +60,7 @@ Atualmente, esse recurso está em preview. Estamos trabalhando para adicionar no
 * As regras de TiP não são clonadas
 * O conteúdo do banco de dados não é clonado
 
-### Referências
+### <a name="references"></a>Referências
 * [Clonagem de Aplicativo Web usando o PowerShell](app-service-web-app-cloning.md)
 * [Fazer backup de um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-backup.md)
 * [Como Criar um Ambiente do Serviço de Aplicativo](app-service-web-how-to-create-an-app-service-environment.md)
@@ -67,4 +71,8 @@ Atualmente, esse recurso está em preview. Estamos trabalhando para adicionar no
 [1]: ./media/app-service-web-app-cloning-portal/CloningBlade.png
 [2]: ./media/app-service-web-app-cloning-portal/CloneSettings.png
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: 'Perguntas Frequentes: Gerenciamento de senha do AD do Azure | Microsoft Docs'
-description: Perguntas frequentes (FAQ) sobre o gerenciamento de senhas no Azure AD, incluindo redefinição de senha, registro, relatórios e Write-back para o Active Directory local.
+title: 'Perguntas Frequentes: gerenciamento de senha do Azure AD | Microsoft Docs'
+description: "Perguntas frequentes (FAQ) sobre o gerenciamento de senhas no Azure AD, incluindo redefinição de senha, registro, relatórios e Write-back para o Active Directory local."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: 3a157d27-a410-4371-bcbf-8312941ae9d1
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e0d114ac84c9df7ea15abbf424ac8e882872163b
+
 
 ---
-# Perguntas frequentes sobre gerenciamento de senhas
+# <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 > [!IMPORTANT]
 > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 > 
@@ -24,7 +28,7 @@ ms.author: asteen
 
 Abaixo estão algumas perguntas frequentes sobre tudo relativo ao gerenciamento de senhas.
 
-Caso tenha dúvidas ou esteja procurando ajuda para um problema específico que está enfrentando, leia abaixo para verificar se já não abordamos esse tópico. Se nós ainda não fizemos isso, não se preocupe! Fique à vontade para fazer perguntas que não foram abordadas aqui nos [fóruns do Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD) e entraremos em contato assim que possível.
+Caso tenha dúvidas ou esteja procurando ajuda para um problema específico que está enfrentando, leia abaixo para verificar se já não abordamos esse tópico.  Se nós ainda não fizemos isso, não se preocupe! Fique à vontade para fazer perguntas que não foram abordadas aqui nos [fóruns do Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD) e entraremos em contato assim que possível.
 
 Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
@@ -33,7 +37,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * [**Perguntas sobre relatórios de gerenciamento de senha**](#password-management-reports)
 * [**Perguntas sobre o write-back de senha**](#password-writeback)
 
-## Registro de redefinição de senha
+## <a name="password-reset-registration"></a>Registro de redefinição de senha
 * **P: meus usuários podem registrar seus próprios dados de redefinição de senha?**
   
   > **R:** sim, desde que a redefinição de senha esteja habilitada e eles estejam licenciados, eles podem ir para o portal de Registro de Redefinição de Senha em http://aka.ms/ssprsetup para registrar as informações de autenticação que serão usadas na redefinição de senha. Os usuários também podem se registrar se conectando ao painel de acesso em http://myapps.microsoft.com, clicando na guia perfil e clicando na opção Registrar-se para a redefinição de senha. Saiba mais sobre como ter os seus usuários configurados para a redefinição de senha lendo Como ter os usuários configurados para a redefinição de senha.
@@ -41,7 +45,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > 
 * **P: posso definir dados de redefinição de senha em nome dos meus usuários?**
   
-  > **R:** sim, você pode fazer isso com o DirSync ou o PowerShell, ou pelo [Portal de Gerenciamento do Azure](https://manage.windowsazure.com), ou Portal de administração do Office. Saiba mais sobre esse recurso na postagem do blog Privacidade Melhorada para o MFA do AD do Azure e Números de Telefone de Reposição de Senha e lendo Saiba como os dados são usados pela redefinição de senha.
+  > **R:** sim, você pode fazer isso com o DirSync ou o PowerShell, ou pelo [Portal de Gerenciamento do Azure](https://manage.windowsazure.com) , ou Portal de administração do Office. Saiba mais sobre esse recurso na postagem do blog Privacidade Melhorada para o MFA do AD do Azure e Números de Telefone de Reposição de Senha e lendo Saiba como os dados são usados pela redefinição de senha.
   > 
   > 
 * **P: posso sincronizar dados de perguntas de segurança do local?**
@@ -75,7 +79,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > 
   > 
 
-## Redefinição de senha
+## <a name="password-reset"></a>Redefinição de senha
 * **P: quanto tempo deve levar até que eu receba uma chamada telefônica, um SMS ou um email de redefinição de senha?**
   
   > **R:** emails, mensagens SMS e chamadas telefônicas devem levar menos de 1 minuto, normalmente de 5 a 20 segundos. Se você não receber a notificação nesse período de tempo, verifique a pasta Lixo eletrônico, se o número/email de contato é o esperado e se os dados de autenticação no diretório estão formatados corretamente. Para saber mais sobre a formatação de números de telefone e de endereços de email para a redefinição de senha, confira Saiba como os dados são usados na redefinição de senha.
@@ -164,7 +168,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > 
   > 
 
-## Relatórios de gerenciamento de senha
+## <a name="password-management-reports"></a>Relatórios de gerenciamento de senha
 * **P: quanto tempo leva para que os dados sejam exibidos nos relatórios de gerenciamento de senha?**
   
   > **R:** os dados devem ser exibidos nos relatórios de gerenciamento de senha entre 5 e 10 minutos. Em algumas instâncias, pode levar até uma hora para que sejam exibidos.
@@ -179,7 +183,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   ![][002]
 * **P: Qual é o número máximo de eventos armazenados nos relatórios de gerenciamento de senha?**
   
-  > **R:** até 1.000 redefinições de senha ou eventos de registro de redefinição de senha são armazenados nos relatórios de gerenciamento de senha. Estamos trabalhando para expandir esse número e incluir mais eventos.
+  > **R:** até 1.000 redefinições de senha ou eventos de registro de redefinição de senha são armazenados nos relatórios de gerenciamento de senha.  Estamos trabalhando para expandir esse número e incluir mais eventos.
   > 
   > 
 * **P: qual o período mais antigo coberto pelos relatórios de gerenciamento de senha?**
@@ -194,17 +198,17 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > 
 * **P: Existe uma API para acessar os dados do relatório de redefinição de senha ou de registro de redefinição de senha?**
   
-  > **R:** sim, consulte a documentação a seguir para saber como você pode acessar o fluxo de dados do relatório de redefinição de senha. [Saiba como acessar programaticamente os eventos de relatório de redefinição de senha](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **R:** sim, consulte a documentação a seguir para saber como você pode acessar o fluxo de dados do relatório de redefinição de senha.  [Saiba como acessar programaticamente os eventos de relatório de redefinição de senha](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
   > 
   > 
 
-## Write-back de senha
+## <a name="password-writeback"></a>Write-back de senha
 * **P: como funciona os bastidores do Write-back de senha?**
   
   > **R:** confira [Como funciona o Write-back de senha](active-directory-passwords-learn-more.md#how-password-writeback-works) para obter uma explicação detalhada do que acontece quando você habilita o Write-back de Senha e como os dados fluem pelo sistema de volta ao seu ambiente local. Veja [Modelo de segurança de write-back de senha](active-directory-passwords-learn-more.md#password-writeback-security-model) em Como funciona o write-back de senha para saber como garantimos que o Write-back de Senha seja um serviço altamente seguro.
   > 
   > 
-* **P: quanto tempo demora para o write-back de senha funcionar? Há um atraso de sincronização como com a sincronização com hash de senha?**
+* **P: quanto tempo demora para o write-back de senha funcionar?  Há um atraso de sincronização como com a sincronização com hash de senha?**
   
   > **R:** o Write-back de Senha é instantâneo. É um pipeline síncrono que funciona de forma essencialmente diferente da sincronização com hash de senha. O write-back de senha permite aos usuários obter comentários em tempo real sobre o sucesso da operação de redefinição ou de alteração de senha. O tempo médio para um write-back bem-sucedido de uma senha é abaixo de 500 ms.
   > 
@@ -219,25 +223,29 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** sim, o Write-back de Senha impõe a duração da senha, o histórico, a complexidade, os filtros e qualquer outra restrição que você possa ter sobre as senhas no domínio local.
   > 
   > 
-* **P: o Write-back de senha é seguro? Como posso ter certeza de que não serei invadido por um hacker?**
+* **P: o Write-back de senha é seguro?  Como posso ter certeza de que não serei invadido por um hacker?**
   
   > **R:** sim, o Write-back de Senha é muito seguro. Para ler mais sobre as quatro camadas de segurança implementadas pelo serviço de Write-back de Senha, confira o [Modelo de segurança de Write-back de Senha](active-directory-passwords-learn-more.md#password-writeback-security-model) em Como funciona o Write-back de Senha.
   > 
   > 
 
-## Links para a documentação de redefinição de senha
+## <a name="links-to-password-reset-documentation"></a>Links para a documentação de redefinição de senha
 Veja abaixo links para todas as páginas de documentação sobre Redefinição de Senha do AD do Azure:
 
 * **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
-* [**Como funciona**](active-directory-passwords-how-it-works.md) - saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
-* [**Introdução**](active-directory-passwords-getting-started.md) - saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
-* [**Personalizar**](active-directory-passwords-customize.md) - aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
+* [**Como funciona**](active-directory-passwords-how-it-works.md) – saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
+* [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
+* [**Personalizar **](active-directory-passwords-customize.md)- aprenda a personalizar a aparência e o comportamento do serviço de acordo com as necessidades de sua organização
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md) - aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
-* [**Obter percepções**](active-directory-passwords-get-insights.md) - saiba mais sobre nossos recursos integrados de relatórios
-* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - aprenda a solucionar rapidamente os problemas com o serviço
-* [**Saiba mais**](active-directory-passwords-learn-more.md) - aprofunde-se nos detalhes técnicos do funcionamento do serviço
+* [**Obter percepções**](active-directory-passwords-get-insights.md) – saiba mais sobre nossos recursos integrados de relatórios
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) – aprenda a solucionar rapidamente os problemas com o serviço
+* [**Saiba mais**](active-directory-passwords-learn-more.md) – aprofunde-se nos detalhes técnicos do funcionamento do serviço
 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

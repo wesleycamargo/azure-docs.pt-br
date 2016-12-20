@@ -1,12 +1,12 @@
 ---
-title: Proteger o conteúdo do HLS com o Apple FairPlay e/ou Microsoft PlayReady | Microsoft Docs
-description: Este tópico fornece uma visão geral e mostra como usar os Serviços de Mídia do Azure para criptografar de forma dinâmica o seu conteúdo de HLS (HTTP Live Streaming) com o Apple FairPlay. Ele também mostra como usar o serviço de distribuição de licença dos Serviços de Mídia para entregar licenças do FairPlay aos clientes.
+title: "Proteger o conteúdo do HLS com o Apple FairPlay e/ou Microsoft PlayReady | Microsoft Docs"
+description: "Este tópico fornece uma visão geral e mostra como usar os Serviços de Mídia do Azure para criptografar de forma dinâmica o seu conteúdo de HLS (HTTP Live Streaming) com o Apple FairPlay. Ele também mostra como usar o serviço de distribuição de licença dos Serviços de Mídia para entregar licenças do FairPlay aos clientes."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
+ms.openlocfilehash: 7ee42899d1f50d562a8e776c840f0cbde12b13fe
+
 
 ---
-# <a name="protect-your-hls-content-with-apple-fairplay-and/or-microsoft-playready"></a>Proteger o conteúdo do HLS com o Apple FairPlay e/ou Microsoft PlayReady
+# <a name="protect-your-hls-content-with-apple-fairplay-andor-microsoft-playready"></a>Proteger o conteúdo do HLS com o Apple FairPlay e/ou Microsoft PlayReady
 Os Serviços de Mídia do Azure permitem que você criptografe seu conteúdo de HLS (HTTP Live Streaming) de maneira dinâmica, usando os seguintes formatos:  
 
-* **Chave de limpeza do envelope AES-128** 
-  
+* **Chave de limpeza do envelope AES-128**
+
     A parte inteira é criptografada usando o modo **AES-128 CBC** . A descriptografia da transmissão tem suporte pelo iOS e pelo player OSX de forma nativa. Para obter mais informações, consulte [este artigo](media-services-protect-with-aes128.md).
-* **Apple FairPlay** 
-  
+* **Apple FairPlay**
+
     Os exemplos de áudio e vídeo individuais são criptografadas usando o modo **AES-128 CBC** . **FPS** (FairPlay Streaming) é integrado aos sistemas operacionais de dispositivos, com suporte nativo no iOS e na Apple TV. O Safari no OS X habilita o FPS usando o suporte à interface de EME (Extensões de Mídia Criptografada).
 * **Microsoft PlayReady**
 
@@ -35,89 +39,90 @@ Este tópico demonstra como usar os Serviços de Mídia do Azure para criptograf
 
 > [!NOTE]
 > Se quiser criptografar o conteúdo do HLS com o PlayReady, você precisará criar uma chave de conteúdo comum e associá-la ao seu ativo. Você também precisa configurar a política de autorização da chave de conteúdo, como descrito no tópico [sando a criptografia comum e dinâmica do PlayReady](media-services-protect-with-drm.md) .
-> 
-> 
+>
+>
 
 ## <a name="requirements-and-considerations"></a>Requisitos e considerações
 * O seguinte é necessário ao usar o AMS para fornecer o HLS criptografado com o FairPlay e para entregar as licenças do FairPlay.
-  
+
   * Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
   * Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, confira [Criar Conta](media-services-portal-create-account.md).
   * Inscreva-se no [Programa de Desenvolvimento da Apple](https://developer.apple.com/).
-  * A Apple exige que o proprietário do conteúdo obtenha o [pacote de implantação](https://developer.apple.com/contact/fps/). Informe a solicitação na qual você já implementou o KSM (Módulo de Segurança de Chave) com os Serviços de Mídia do Azure e que você está solicitando o pacote FPS final. Haverá instruções no pacote FPS final para gerar a certificação e obter o ASK, que você usará para configurar o FairPlay. 
+  * A Apple exige que o proprietário do conteúdo obtenha o [pacote de implantação](https://developer.apple.com/contact/fps/). Informe a solicitação na qual você já implementou o KSM (Módulo de Segurança de Chave) com os Serviços de Mídia do Azure e que você está solicitando o pacote FPS final. Haverá instruções no pacote FPS final para gerar a certificação e obter o ASK, que você usará para configurar o FairPlay.
   * SDK do .NET dos Serviços de Mídia do Azure na versão **3.6.0** ou posterior.
 * Os seguintes itens devem ser definidos no lado de distribuição de chaves do AMS:
-  
-  * **Certificado de Aplicativo (AC)** – o arquivo.pfx que contém a chave privada. Esse arquivo é criado pelo cliente e criptografado com uma senha pelo mesmo cliente. 
-    
-      Ao configurar a política de distribuição de chaves, o cliente deverá fornecer essa senha e o .pfx no formato base64.
-    
+
+  * **Certificado de Aplicativo (AC)** – o arquivo.pfx que contém a chave privada. Esse arquivo é criado pelo cliente e criptografado com uma senha pelo mesmo cliente.
+
+       Ao configurar a política de distribuição de chaves, o cliente deverá fornecer essa senha e o .pfx no formato base64.
+
       As etapas a seguir descrevem como gerar um certificado pfx para FairPlay.
-    
+
     1. Instale o OpenSSL de https://slproweb.com/products/Win32OpenSSL.html
-       
+
         Vá para a pasta onde se encontram o certificado FairPlay e outros arquivos enviados pela Apple.
     2. Linha de comando para converter o cer em pem:
-       
+
         "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
     3. Linha de comando para converter o pem em pfx com a chave privada (a senha para o arquivo pfx será solicitada pelo OpenSSL).
-       
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt 
+
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
   * **Senha do Certificado de Aplicativo** – a senha do cliente para criar o arquivo.pfx.
   * **ID da senha do Certificado de Aplicativo** – o cliente deverá carregar a senha de maneira semelhante a como carrega outras chaves do AMS e usando o valor de enumeração **ContentKeyType.FairPlayPfxPassword**. Como resultado, o cliente obterá a ID do AMS. Isso é o que ele precisa para usar na opção de política de distribuição de chaves.
-  * **iv** – um valor aleatório de 16 bytes que deve coincidir com o iv na política de distribuição de ativos. O cliente gera o IV e o coloca em dois locais: na política de distribuição de ativos e na opção de política de distribuição de chaves. 
-  * **ASK** – a ASK (Chave Secreta do Aplicativo) é recebida quando você gera a certificação usando o portal do desenvolvedor da Apple. Cada equipe de desenvolvimento receberá uma ASK exclusiva. Salve uma cópia da ASK e armazene-a em um local seguro. Você precisará configurar a ASK como FairPlayAsk nos Serviços de Mídia do Azure posteriormente. 
+  * **iv** – um valor aleatório de 16 bytes que deve coincidir com o iv na política de distribuição de ativos. O cliente gera o IV e o coloca em dois locais: na política de distribuição de ativos e na opção de política de distribuição de chaves.
+  * **ASK** – a ASK (Chave Secreta do Aplicativo) é recebida quando você gera a certificação usando o portal do desenvolvedor da Apple. Cada equipe de desenvolvimento receberá uma ASK exclusiva. Salve uma cópia da ASK e armazene-a em um local seguro. Você precisará configurar a ASK como FairPlayAsk nos Serviços de Mídia do Azure posteriormente.
   * **ID da ASK** – é obtida quando o cliente carrega a ASK no AMS. O cliente deve carregar a ASK usando o valor de enumeração **ContentKeyType.FairPlayASk** . Como resultado, a ID do AMS retorna, e ela que deve ser usada ao configurar a opção de política de distribuição de chaves.
 * Os seguintes itens devem ser definidos pelo lado do cliente FPS:
-  
+
   * **Certificado de Aplicativo (AC)** – o arquivo .cer/.der contendo a chave pública que o sistema operacional usa para criptografar uma carga. O AMS precisa dessa informação porque ela é necessária para o player. O serviço de distribuição de chaves descriptografa-o usando a chave privada correspondente.
 * Para reproduzir uma transmissão criptografada do FairPlay, você precisa obter a ASK real primeiro e, em seguida, gerar um certificado real. Este processo cria todas as três partes:
-  
-  * .der, 
-  * .pfx e 
+
+  * .der,
+  * .pfx e
   * a senha para o .pfx.
 * Clientes compatíveis com o HLS com criptografia **AES-128 CBC** : Safari no OS X, Apple TV, iOS.
 
 ## <a name="steps-for-configuring-fairplay-dynamic-encryption-and-license-delivery-services"></a>Etapas para configurar a criptografia dinâmica do FairPlay e os serviços de distribuição de licenças
 A seguir estão as etapas gerais que você precisará executar ao proteger seus ativos com o FairPlay, usando o serviço de distribuição de licenças dos Serviços de Mídia e também a criptografia dinâmica.
 
-1. Criar um ativo e carregar arquivos no ativo. 
+1. Criar um ativo e carregar arquivos no ativo.
 2. Codificar o ativo contendo o arquivo para o conjunto de MP4 de taxa de bits adaptável.
 3. Criar uma chave de conteúdo e associá-la ao ativo codificado.  
-4. Configurar a política de autorização da chave de conteúdo. Ao criar a política de autorização de chave de conteúdo, você precisará especificar o seguinte: 
-   
-   * o método de entrega (nesse caso, o FairPlay), 
+4. Configurar a política de autorização da chave de conteúdo. Ao criar a política de autorização de chave de conteúdo, você precisará especificar o seguinte:
+
+   * o método de entrega (nesse caso, o FairPlay),
    * a configuração de opções de política do FairPlay. Para obter detalhes sobre como configurar o FairPlay, confira o método ConfigureFairPlayPolicyOptions() no exemplo abaixo.
-     
+
      > [!NOTE]
      > Normalmente, convém configurar as opções de política do FairPlay apenas uma vez, visto que você terá apenas um conjunto de certificação e ASK.
-     > — restrições (abertas ou de token) — e informações específicas ao tipo de distribuição de chave que define como a chave é entregue ao cliente. 
-     > 
-     > 
-5. Configurar política de entrega de ativos. A configuração da política de entrega inclui: 
-   
-   * protocolo de entrega (HLS), 
-   * o tipo de criptografia dinâmica (criptografia CBC comum), 
-   * URL de aquisição de licença. 
-     
+     >
+     >
+   * restrições (abertas ou token),
+   * e informações específicas sobre o tipo de distribuição de chave que define como a chave é entregue ao cliente.
+5. Configurar política de entrega de ativos. A configuração da política de entrega inclui:
+
+   * protocolo de entrega (HLS),
+   * o tipo de criptografia dinâmica (criptografia CBC comum),
+   * URL de aquisição de licença.
+
      > [!NOTE]
-     > Se você quiser oferecer uma transmissão que seja criptografada com o FairPlay + outro DRM, você precisará configurar políticas de entrega separadas 
-     > 
-     > * Um IAssetDeliveryPolicy para configurar o DASH com CENC (PlayReady + WideVine) e o Smooth com o PlayReady. 
+     > Se você quiser oferecer uma transmissão que seja criptografada com o FairPlay + outro DRM, você precisará configurar políticas de entrega separadas
+     >
+     > * Um IAssetDeliveryPolicy para configurar o DASH com CENC (PlayReady + WideVine) e o Smooth com o PlayReady.
      > * Outro IAssetDeliveryPolicy para configurar o FairPlay para o HLS
-     > 
-     > 
+     >
+     >
 6. Criar um localizador OnDemand para obter uma URL de streaming.
 
-## <a name="using-fairplay-key-delivery-by-player/client-apps"></a>Usando a entrega de chaves do FairPlay por aplicativos de player/cliente
-Os clientes podem desenvolver aplicativos de player usando o SDK do iOS. Para conseguir reproduzir conteúdo do FairPlay, os clientes precisam implementar o protocolo de troca de licenças. O protocolo de troca de licença não é especificado pela Apple. Depende de cada aplicativo o modo de enviar solicitações de distribuição de chaves. Os serviços de entrega de chaves do FairPlay do AMS espera que o SPC seja recebido como um mensagem de postagem codificada como www-form-url da seguinte forma: 
+## <a name="using-fairplay-key-delivery-by-playerclient-apps"></a>Usando a entrega de chaves do FairPlay por aplicativos de player/cliente
+Os clientes podem desenvolver aplicativos de player usando o SDK do iOS. Para conseguir reproduzir conteúdo do FairPlay, os clientes precisam implementar o protocolo de troca de licenças. O protocolo de troca de licença não é especificado pela Apple. Depende de cada aplicativo o modo de enviar solicitações de distribuição de chaves. Os serviços de entrega de chaves do FairPlay do AMS espera que o SPC seja recebido como um mensagem de postagem codificada como www-form-url da seguinte forma:
 
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> O Azure Media Player não dá suporte para a reprodução do FairPlay pronto para uso. Os clientes precisam obter o player de exemplo da conta de desenvolvedor da Apple para obter a reprodução do FairPlay no MAC OSX. 
-> 
-> 
+> O Azure Media Player não dá suporte para a reprodução do FairPlay pronto para uso. Os clientes precisam obter o player de exemplo da conta de desenvolvedor da Apple para obter a reprodução do FairPlay no MAC OSX.
+>
+>
 
 ## <a name="streaming-urls"></a>URLs de streaming
 Se o ativo foi criptografado com mais de um DRM, você deve usar uma marcação de criptografia na URL de streaming: (formato='m3u8-aapl' criptografia='xxx').
@@ -132,7 +137,7 @@ As seguintes considerações se aplicam:
   * **cbcs-aapl**: Fairplay
   * **cbc**: criptografia de envelope AES.
 
-## <a name=".net-example"></a>Exemplo de .NET
+## <a name="net-example"></a>Exemplo de .NET
 O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Serviços de Mídia do Azure para o .Net -Versão 3.6.0 (a capacidade de usar os Serviços de Mídia do Azure para distribuir o conteúdo criptografado com o FairPlay). O seguinte comando do pacote do Nuget foi usado para instalar o pacote:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.6.0
@@ -142,22 +147,22 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 2. Use o NuGet para instalar e adicionar o SDK do .NET dos Serviços de Mídia do Azure.
 3. Adicione outras referências: System.Configuration.
 4. Adicione o arquivo de configuração que contém o nome da conta e as informações de chave:
-   
+
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
-            <startup> 
+            <startup>
                 <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
             </startup>
               <appSettings>
-   
+
                 <add key="MediaServicesAccountName" value="AccountName"/>
                 <add key="MediaServicesAccountKey" value="AccountKey"/>
-   
+
                 <add key="Issuer" value="http://testacs.com"/>
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [configurar pontos de extremidade de transmissão](media-services-dotnet-get-started.md#configure-streaming-endpoint-using-the-portal).
+5. Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [configurar pontos de extremidade de transmissão](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
 6. Substitua o código no seu arquivo Program.cs pelo código mostrado nesta seção.
 
         using System;
@@ -241,7 +246,7 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
                             TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
                         // Generate a test token based on the the data in the given TokenRestrictionTemplate.
-                        // Note, you need to pass the key id Guid because we specified 
+                        // Note, you need to pass the key id Guid because we specified
                         // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
                         Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
                         string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
@@ -305,7 +310,7 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 
                     ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
                     encodeTask.InputAssets.Add(inputAsset);
-                    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),    AssetCreationOptions.StorageEncrypted);
+                    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),     AssetCreationOptions.StorageEncrypted);
 
                     job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
                     job.Submit();
@@ -335,7 +340,7 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 
                 static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
                 {
-                    // Create ContentKeyAuthorizationPolicy with Open restrictions 
+                    // Create ContentKeyAuthorizationPolicy with Open restrictions
                     // and create authorization policy          
 
                     List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
@@ -411,7 +416,7 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 
                 private static string ConfigureFairPlayPolicyOptions()
                 {
-                    // For testing you can provide all zeroes for ASK bytes together with the cert from Apple FPS SDK. 
+                    // For testing you can provide all zeroes for ASK bytes together with the cert from Apple FPS SDK.
                     // However, for production you must use a real ASK from Apple bound to a real prod certificate.
                     byte[] askBytes = Guid.NewGuid().ToByteArray();
                     var askId = Guid.NewGuid();
@@ -475,11 +480,11 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
                     Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.FairPlay);
 
                     // The reason the below code replaces "https://" with "skd://" is because
-                    // in the IOS player sample code which you obtained in Apple developer account, 
-                    // the player only recognizes a Key URL that starts with skd://. 
-                    // However, if you are using a customized player, 
-                    // you can choose whatever protocol you want. 
-                    // For example, "https". 
+                    // in the IOS player sample code which you obtained in Apple developer account,
+                    // the player only recognizes a Key URL that starts with skd://.
+                    // However, if you are using a customized player,
+                    // you can choose whatever protocol you want.
+                    // For example, "https".
 
                     Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
                         new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
@@ -509,23 +514,23 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
                 {
 
                     // Get a reference to the streaming manifest file from the  
-                    // collection of files in the asset. 
+                    // collection of files in the asset.
 
                     var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                                                  EndsWith(".ism")).
                                                  FirstOrDefault();
 
-                    // Create a 30-day readonly access policy. 
+                    // Create a 30-day readonly access policy.
                     IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
                         TimeSpan.FromDays(30),
                         AccessPermissions.Read);
 
-                    // Create a locator to the streaming content on an origin. 
+                    // Create a locator to the streaming content on an origin.
                     ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
                         policy,
                         DateTime.UtcNow.AddMinutes(-5));
 
-                    // Create a URL to the manifest file. 
+                    // Create a URL to the manifest file.
                     return originLocator.Path + assetFile.Name;
                 }
 
@@ -553,12 +558,14 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
         }
 
 
-## <a name="next-steps:-media-services-learning-paths"></a>Próximas etapas: roteiros de aprendizagem dos Serviços de Mídia
+## <a name="next-steps-media-services-learning-paths"></a>Próximas etapas: roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

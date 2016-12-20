@@ -1,23 +1,27 @@
 ---
-title: Assinatura do Microsoft Azure e limites de serviços, cotas e restrições
-description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Isso inclui informações sobre como aumentar os limites junto com os valores máximos.
-services: ''
-documentationcenter: ''
+title: "Assinatura do Microsoft Azure e limites de serviços, cotas e restrições"
+description: "Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Isso inclui informações sobre como aumentar os limites junto com os valores máximos."
+services: 
+documentationcenter: 
 author: rothja
 manager: jeffreyg
-editor: ''
+editor: 
 tags: billing
-
+ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: btardif
+ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: c98484a754943ad0ea5b1098a9a6c06cbf5f8814
+
 
 ---
-# <a name="azure-subscription-and-service-limits,-quotas,-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 ## <a name="overview"></a>Visão geral
 Este documento especifica alguns dos limites mais comuns do Microsoft Azure. Isso não cobre atualmente todos os serviços do Azure. Com o tempo, esses limites serão ampliados e atualizados para uma maior cobertura da plataforma.
 
@@ -29,7 +33,7 @@ Visite [Visão geral de preços do Azure](https://azure.microsoft.com/pricing/) 
 > 
 
 ## <a name="limits-and-the-azure-resource-manager"></a>Limites e o Gerenciador de Recursos do Azure
-Agora é possível combinar vários recursos do Azure em um único Grupo de Recursos do Azure. Ao usar os Grupos de Recursos, limites que antes eram globais passam a ser gerenciados em nível regional com o Gerenciador de Recursos do Azure. Para saber mais sobre os Grupos de Recursos do Azure, confira [Visão geral do Azure Resource Manager](resource-group-overview.md).
+Agora é possível combinar vários recursos do Azure em um único Grupo de Recursos do Azure. Ao usar os Grupos de Recursos, limites que antes eram globais passam a ser gerenciados em nível regional com o Gerenciador de Recursos do Azure. Para saber mais sobre os Grupos de Recursos do Azure, confira [Visão geral do Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
 
 Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer diferenças nos limites ao usar o Gerenciador de Recursos do Azure. Por exemplo, há uma tabela de **Limites de Assinatura** e uma tabela de **Limites de Assinatura – Azure Resource Manager**. Quando um limite se aplica a ambos os cenários, ele é mostrado apenas na primeira tabela. A menos que indicado de outro modo, os limites são globais em todas as regiões.
 
@@ -44,6 +48,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Active Directory](#active-directory-limits)
 * [Gerenciamento da API](#api-management-limits)
 * [Serviço de Aplicativo](#app-service-limits)
+* [Application Gateway](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automação](#automation-limits)
 * [Cache Redis do Azure](#azure-redis-cache-limits)
@@ -114,6 +119,9 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 #### <a name="networking-limits"></a>Limites de rede
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
+#### <a name="application-gateway-limits"></a>Limites do Gateway de Aplicativo
+[!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
+
 #### <a name="traffic-manager-limits"></a>Limites do Gerenciador de Tráfego
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
@@ -129,7 +137,7 @@ Para obter mais detalhes sobre os limites da conta de armazenamento, veja [Metas
 #### <a name="virtual-machine-disk-limits"></a>Limites de Disco de Máquina Virtual
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-Consulte [Tamanhos de máquina virtual](virtual-machines/virtual-machines-linux-sizes.md) para saber mais detalhes.
+Consulte [Tamanhos de máquina virtual](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para saber mais detalhes.
 
 **Contas de armazenamento padrão**
 
@@ -174,7 +182,7 @@ Os tipos de preço determinam a capacidade e os limites de seu serviço de pesqu
 
 * *Gratuito* serviço multilocatário, compartilhado com outros assinantes do Azure, destinado à avaliação e a pequenos projetos de desenvolvimento.
 * *Básico* fornece recursos de computação dedicados para cargas de trabalho de produção em uma escala menor, com até três réplicas para cargas de trabalho de consulta altamente disponíveis.
-* *Standard (S1, S2, S3, S3 de alta densidade)* para cargas de trabalho de produção maiores. Há vários níveis dentro da camada Standard para que você possa escolher uma configuração de recursos para cenários específicos.
+* *Standard (S1, S2, S3, S3 de alta densidade)* para cargas de trabalho de produção maiores. Há vários níveis dentro da camada Standard para que você possa escolher uma configuração de recursos que corresponda ao seu perfil de carga de trabalho.
 
 **Limites por assinatura**
 
@@ -184,7 +192,7 @@ Os tipos de preço determinam a capacidade e os limites de seu serviço de pesqu
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-Para obter informações mais detalhadas sobre outros limites, incluindo o tamanho do documento, consultas por segundo, chaves, solicitações e respostas, confira [Limites de serviço na Pesquisa do Azure](search/search-limits-quotas-capacity.md).
+Para saber mais sobre limites em um nível mais granular, como o tamanho do documento, consultas por segundo, chaves, solicitações e respostas, confira [Limites de serviço no Azure Search](search/search-limits-quotas-capacity.md).
 
 ### <a name="media-services-limits"></a>Limites de Serviços de Mídia
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
@@ -261,10 +269,13 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 ## <a name="see-also"></a>Confira também
 [Entendendo os limites e aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Tamanhos de máquinas virtuais e serviços de nuvem do Azure](virtual-machines/virtual-machines-linux-sizes.md)
+[Tamanhos de máquinas virtuais e serviços de nuvem do Azure](virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

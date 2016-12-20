@@ -1,21 +1,25 @@
 ---
 title: Criar uma imagem do RemoteApp do Azure | Microsoft Docs
-description: Saiba mais sobre as opções disponíveis para a criação de imagens para o RemoteApp do Azure
+description: "Saiba mais sobre as opções disponíveis para a criação de imagens para o RemoteApp do Azure"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: cb0f9424-6185-45a1-abe9-c23f1edf34f2
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 12f27315348040ac897c1ff286b54d38e9950c7d
+
 
 ---
-# Criar uma imagem de RemoteApp do Azure
+# <a name="create-an-azure-remoteapp-image"></a>Criar uma imagem de RemoteApp do Azure
 > [!IMPORTANT]
 > O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
@@ -33,4 +37,9 @@ Você tem as seguintes opções quando se trata de imagens:
 
 Independentemente de onde obter sua imagem ou como criá-la, convém certificar-se de que você entende os [requisitos de aplicativo](remoteapp-appreqs.md) para garantir que seu aplicativo funcione bem no RemoteApp. Em seguida, a próxima etapa é criar uma coleção de [nuvem](remoteapp-create-cloud-deployment.md) ou [híbrida](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Indexando os Arquivos de Mídia com a Visualização do Indexador de Mídia do Azure 2 | Microsoft Docs
-description: O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar a Visualização do Indexador de Mídia 2 .
+title: "Indexando os Arquivos de Mídia com a Visualização do Azure Media Indexer 2 | Microsoft Docs"
+description: "O Indexador de Mídia do Azure permite que você torne o conteúdo de seus arquivos de mídia pesquisável e gere uma transcrição de texto completo para legendas codificadas e palavras-chave. Este tópico mostra como usar a Visualização do Indexador de Mídia 2 ."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 85d25525-a498-44eb-ae3a-2ca5ceb8e53d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: adsolank;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 17571acfab870974186af9849d030e9702f3be76
+
 
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexando arquivos de mídia com a Preview do Indexador de Mídia do Azure 2
@@ -50,7 +54,7 @@ Um trabalho de indexação pode gerar arquivos de legenda oculta nos seguintes f
 
 Arquivos de CC (Legenda Oculta) nesses formatos podem ser usados para tornar os arquivos de áudio e vídeo acessíveis para pessoas com deficiência auditiva.
 
-## <a name="task-configuration-(preset)"></a>Configuração de tarefa (predefinição)
+## <a name="task-configuration-preset"></a>Configuração de tarefa (predefinição)
 Ao criar uma tarefa de indexação com a **Preview do Indexador de Mídia do Azure 2**, é necessário especificar uma predefinição de configuração.
 
 O JSON a seguir define os parâmetros disponíveis.
@@ -275,6 +279,9 @@ O programa a seguir mostra como:
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

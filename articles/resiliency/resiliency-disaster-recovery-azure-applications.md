@@ -1,12 +1,12 @@
 ---
-title: Recuperação de desastre para aplicativos do Azure | Microsoft Docs
-description: Visão geral técnica e informações detalhadas sobre como projetar aplicativos para recuperação de desastre no Microsoft Azure.
-services: ''
+title: "Recuperação de desastre para aplicativos do Azure | Microsoft Docs"
+description: "Visão geral técnica e informações detalhadas sobre como projetar aplicativos para recuperação de desastre no Microsoft Azure."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: f9e0cbdc-ec82-46dc-bee6-558b35518252
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 416ec840c60bf7446e37aeda241fc2646f83a52f
+
 
 ---
 # <a name="disaster-recovery-for-applications-built-on-microsoft-azure"></a>Recuperação de desastre para aplicativos criados no Microsoft Azure
@@ -148,7 +152,7 @@ O maior desafio para implementar essa arquitetura é a estratégia de replicaç�
 Uma implementação potencial pode fazer uso da fila intermediária no exemplo anterior. A função de trabalho que processa os dados para o destino de armazenamento final pode fazer a alteração nas regiões primária e secundária. Essas tarefas não são triviais e uma orientação completa para o código de replicação vai além do escopo deste artigo. A questão importante é que grande parte do seu tempo e seus testes deve se concentrar em como você replica seus dados para a região secundária. Processamento e testes adicionais podem ajudar a garantir que os processos de failover e recuperação tratem corretamente quaisquer inconsistências de dados ou transações duplicadas possíveis.
 
 > [!NOTE]
-> A maior parte deste documento se concentra na PaaS (plataforma como serviço). No entanto, opções adicionais de replicação e disponibilidade para aplicativos híbridos usam as Máquinas Virtuais do Azure. Esses aplicativos híbridos usam IaaS (infraestrutura como serviço) para hospedar o SQL Server em máquinas virtuais no Azure. Isso permite abordagens tradicionais de disponibilidade no SQL Server, como Grupos de Disponibilidade AlwaysOn ou Envio de Logs. Algumas técnicas, como o AlwaysOn, funcionam apenas entre instâncias locais do SQL Server e máquinas virtuais do Azure. Para saber mais, confira [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+> A maior parte deste documento se concentra na PaaS (plataforma como serviço). No entanto, opções adicionais de replicação e disponibilidade para aplicativos híbridos usam as Máquinas Virtuais do Azure. Esses aplicativos híbridos usam IaaS (infraestrutura como serviço) para hospedar o SQL Server em máquinas virtuais no Azure. Isso permite abordagens tradicionais de disponibilidade no SQL Server, como Grupos de Disponibilidade AlwaysOn ou Envio de Logs. Algumas técnicas, como o AlwaysOn, funcionam apenas entre instâncias locais do SQL Server e máquinas virtuais do Azure. Para saber mais, confira [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 
@@ -242,7 +246,7 @@ Uma estratégia adicional para a recuperação de desastres é criar um aplicati
 
 Há alguns desafios nessas arquiteturas híbridas. Em primeiro lugar, a maior parte deste artigo abordou padrões da arquitetura PaaS. Aplicativos típicos de PaaS no Azure dependem de construções específicas do Azure, como funções, serviços de nuvem e Gerenciador de Tráfego. Criar uma solução local para esse tipo de aplicativo PaaS exigiria uma arquitetura consideravelmente diferente. Isso pode não ser viável do ponto de vista do gerenciamento ou do custo.
 
-No entanto, uma solução híbrida para recuperação de desastre tem menos desafios para arquiteturas tradicionais que simplesmente foram movidas para a nuvem. Essa é a verdade das arquiteturas que usam IaaS. Aplicativos de IaaS usam máquinas virtuais na nuvem que podem ter equivalentes diretos locais. Você também pode usar redes virtuais para conectar computadores na nuvem com os recursos de rede locais. Isso abre várias possibilidades que não são possíveis com aplicativos somente PaaS. Por exemplo, o SQL Server aproveitar soluções de recuperação de desastre como os Grupos de Disponibilidade AlwaysOn e o espelhamento de banco de dados. Para obter detalhes, confira [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+No entanto, uma solução híbrida para recuperação de desastre tem menos desafios para arquiteturas tradicionais que simplesmente foram movidas para a nuvem. Essa é a verdade das arquiteturas que usam IaaS. Aplicativos de IaaS usam máquinas virtuais na nuvem que podem ter equivalentes diretos locais. Você também pode usar redes virtuais para conectar computadores na nuvem com os recursos de rede locais. Isso abre várias possibilidades que não são possíveis com aplicativos somente PaaS. Por exemplo, o SQL Server aproveitar soluções de recuperação de desastre como os Grupos de Disponibilidade AlwaysOn e o espelhamento de banco de dados. Para obter detalhes, confira [Alta disponibilidade e recuperação de desastre para SQL Server nas Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Soluções de IaaS também oferecem um caminho mais fácil para aplicativos locais usarem o Azure como a opção de failover. Você pode ter um aplicativo totalmente funcional em uma região local existente. No entanto, o que acontecerá se você não tiver os recursos para manter uma região separada geograficamente para failover? Você pode optar por usar redes virtuais e máquinas virtuais para executar seu aplicativo no Azure. Nesse caso, defina processos que sincronizem os dados com a nuvem. A implantação do Azure se torna a região secundária a ser usada para failover. A região primária permanece como o aplicativo local. Para saber mais sobre os recursos e arquiteturas de IaaS, confira a [documentação das Máquinas Virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
@@ -281,6 +285,9 @@ Há várias outras técnicas que você pode usar para testar planos de recupera�
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo faz parte de uma série de artigos com foco na [recuperação de desastres e alta disponibilidade para aplicativos criados no Microsoft Azure](resiliency-disaster-recovery-high-availability-azure-applications.md). O artigo anterior dessa série é [Alta disponibilidade para aplicativos baseados no Microsoft Azure](resiliency-high-availability-azure-applications.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

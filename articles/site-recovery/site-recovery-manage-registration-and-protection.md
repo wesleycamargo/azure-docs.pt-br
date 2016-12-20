@@ -1,12 +1,12 @@
 ---
-title: Remover os servidores e desabilitar a proteção | Microsoft Docs
-description: Este artigo descreve como cancelar o registro de servidores de um cofre de Recuperação de Site e desabilitar a proteção para máquinas virtuais e servidores físicos.
+title: "Remover os servidores e desabilitar a proteção | Microsoft Docs"
+description: "Este artigo descreve como cancelar o registro de servidores de um cofre de Recuperação de Site e desabilitar a proteção para máquinas virtuais e servidores físicos."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ef1f31d5-285b-4a0f-89b5-0123cd422d80
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 08dcf342c122dd1ca119bcfec405bbef2171a0e1
+
 
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover os servidores e desabilitar a proteção
@@ -96,7 +100,7 @@ Quando o Azure Site Recovery é implantado para proteger as máquinas virtuais l
             {
                 if (Test-Path $registrationPath)
                 {
-                    "Removing registration related registry keys."  
+                    "Removing registration related registry keys."    
                     Remove-Item -Recurse -Path $registrationPath
                 }
    
@@ -127,7 +131,7 @@ Quando o Azure Site Recovery é implantado para proteger as máquinas virtuais l
                 $store.Remove($cert)
             }
         }catch
-        {   
+        {    
             [system.exception]
             Write-Host "Error occured" -ForegroundColor "Red"
             $error[0] 
@@ -147,7 +151,7 @@ Se você quiser interromper a proteção de uma máquina virtual Hyper-V, será 
 
 Se você optar por excluir a máquina virtual e seus discos rígidos, eles serão removidos do local de destino.
 
-### <a name="clean-up-protection-settings-manually-(between-vmm-sites)"></a>Limpar as configurações de proteção manualmente (entre sites do VMM)
+### <a name="clean-up-protection-settings-manually-between-vmm-sites"></a>Limpar as configurações de proteção manualmente (entre sites do VMM)
 Se você selecionou **Parar de gerenciar a máquina virtual**, limpe manualmente as configurações:
 
 1. No servidor primário, execute este script no console do VMM para limpar as configurações da máquina virtual primária. No console do VMM, clique no botão do PowerShell para abrir o console do PowerShell do VMM. Substitua SQLVM1 pelo nome da máquina virtual.
@@ -163,7 +167,7 @@ Se você selecionou **Parar de gerenciar a máquina virtual**, limpe manualmente
    
         Remove-VMReplication –VMName “SQLVM1”
 
-### <a name="clean-up-protection-settings-manually-(between-on-premises-vmm-sites-and-azure)"></a>Limpar as configurações de proteção manualmente (entre sites VMM locais e no Azure)
+### <a name="clean-up-protection-settings-manually-between-on-premises-vmm-sites-and-azure"></a>Limpar as configurações de proteção manualmente (entre sites VMM locais e no Azure)
 1. No servidor VMM de origem, execute este script para limpar as configurações da máquina virtual primária:
    
         $vm = get-scvirtualmachine -Name "SQLVM1"
@@ -176,7 +180,7 @@ Se você selecionou **Parar de gerenciar a máquina virtual**, limpe manualmente
         $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
         $replicationService.RemoveReplicationRelationship($vm.__PATH)
 
-### <a name="clean-up-protection-settings-manually-(between-hyper-v-sites-and-azure)"></a>Limpar as configurações de proteção manualmente (entre sites do Hyper-V e o Azure)
+### <a name="clean-up-protection-settings-manually-between-hyper-v-sites-and-azure"></a>Limpar as configurações de proteção manualmente (entre sites do Hyper-V e o Azure)
 1. No servidor de host do Hyper-V de origem, use esse script para remover a replicação para a máquina virtual. Substitua SQLVM1 pelo nome da máquina virtual.
    
         $vmName = "SQLVM1"
@@ -202,6 +206,9 @@ Se você quiser interromper a proteção de uma máquina virtual VMware ou de um
      
        ![Opções de remoção](./media/site-recovery-manage-registration-and-protection/remove-vm.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

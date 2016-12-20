@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Connect: instâncias do serviço de sincronização | Microsoft Docs'
-description: Esta página documenta considerações especiais para instâncias do Azure AD.
+title: "Azure AD Connect: instâncias do serviço de sincronização | Microsoft Docs"
+description: "Esta página documenta considerações especiais para instâncias do Azure AD."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f340ea11-8ff5-4ae6-b09d-e939c76355a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9eae913bfe26a2e395658462352a92bd16eebb65
+
 
 ---
-# <a name="azure-ad-connect:-special-considerations-for-instances"></a>Azure AD Connect: considerações especiais para instâncias
+# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: considerações especiais para instâncias
 O Azure AD Connect é mais comumente usado com a instância mundial do Azure AD e o Office 365. Mas também existem outras instâncias que têm requisitos diferentes para URLs e outras considerações especiais.
 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Alemanha
@@ -65,6 +69,9 @@ Recursos atualmente indisponíveis na nuvem do Microsoft Azure Governamental:
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

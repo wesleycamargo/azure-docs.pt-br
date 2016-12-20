@@ -1,13 +1,13 @@
 ---
 title: Diretrizes da infraestrutura de rede | Microsoft Docs
-description: Saiba mais sobre as principais diretrizes de design e implementação para a implantação de rede virtual nos serviços de infraestrutura do Azure.
-documentationcenter: ''
+description: "Saiba mais sobre as principais diretrizes de design e implementação para a implantação de rede virtual nos serviços de infraestrutura do Azure."
+documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e2d45973-5eba-4904-8ba0-1821f64feed7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,14 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4e1f3e1a79321683337d155c5f575cb3f8905913
+
 
 ---
-# Diretrizes da infraestrutura de rede
+# <a name="networking-infrastructure-guidelines"></a>Diretrizes da infraestrutura de rede
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artigo se concentra em compreender as etapas de planejamento necessárias para a rede virtual no Azure, e a conectividade entre ambientes locais existentes.
 
-## Diretrizes de implementação de redes virtuais
+## <a name="implementation-guidelines-for-virtual-networks"></a>Diretrizes de implementação de redes virtuais
 Decisões:
 
 * Que tipo de rede virtual é necessário para hospedar sua infraestrutura ou carga de trabalho de TI (somente em nuvem ou entre instalações)?
@@ -37,13 +41,13 @@ Tarefas:
 * Trabalhe com uma equipe local de rede para garantir a configuração do roteamento apropriado ao criar redes virtuais entre instalações.
 * Crie a rede virtual usando a sua convenção de nomenclatura.
 
-## Redes virtuais
-Redes virtuais são necessárias para oferecer suporte a comunicações entre VMs (máquinas virtuais). Você pode definir sub-redes, endereços IP personalizados, configurações de DNS, filtragem de segurança e balanceamento de carga, assim como em redes físicas. Com o uso de uma [VPN Site a Site](../vpn-gateway/vpn-gateway-topology.md) ou [Circuito de Rota Expressa](../expressroute/expressroute-introduction.md), você pode conectar redes virtuais do Azure com suas redes locais. Leia mais sobre [redes virtuais e seus componentes](../virtual-network/virtual-networks-overview.md).
+## <a name="virtual-networks"></a>Redes virtuais
+Redes virtuais são necessárias para oferecer suporte a comunicações entre VMs (máquinas virtuais). Você pode definir sub-redes, endereços IP personalizados, configurações de DNS, filtragem de segurança e balanceamento de carga, assim como em redes físicas. Com o uso de uma [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [Circuito do ExpressRoute](../expressroute/expressroute-introduction.md), você pode conectar redes virtuais do Azure a suas redes locais. Leia mais sobre [redes virtuais e seus componentes](../virtual-network/virtual-networks-overview.md).
 
 Com o uso de Grupos de Recursos, você tem flexibilidade para projetar os componentes da rede virtual. As VMs podem se conectar às redes virtuais de fora de seu próprio grupo de recursos. Uma abordagem de design comum seria criar grupos de recursos centralizados contendo sua infraestrutura de rede central, que possam ser gerenciados por uma equipe comum e, depois, implantar as VMs e seus aplicativos nos grupos de recursos separados. Essa abordagem permite que proprietários do aplicativo acessem o grupo de recursos que contém suas VMs, sem abrir o acesso à configuração dos recursos rede virtual mais amplos.
 
-## Conectividade de site
-### Redes virtuais somente na nuvem
+## <a name="site-connectivity"></a>Conectividade de site
+### <a name="cloud-only-virtual-networks"></a>Redes virtuais somente na nuvem
 Se os computadores e usuários locais não exigirem conectividade contínua com as VMs em uma rede virtual do Azure, o design de sua rede virtual será bastante simples:
 
 ![Diagrama básico de rede virtual somente na nuvem](./media/virtual-machines-common-infrastructure-service-guidelines/vnet01.png)
@@ -52,8 +56,8 @@ Essa abordagem costuma ser usada para cargas de trabalho para a Internet, como u
 
 Como elas não se conectam à sua rede local, as redes virtuais somente do Azure podem usar qualquer parte do espaço de endereço IP privado, mesmo se o espaço privado estiver sendo usado localmente.
 
-### Redes virtuais entre instalações
-Se os computadores e usuários locais exigem conectividade contínua com as VMs em uma rede virtual do Azure, crie uma rede virtual entre instalações. Conecte-a à sua rede local com uma conexão da ExpressRoute ou de VPN de site a site.
+### <a name="cross-premises-virtual-networks"></a>Redes virtuais entre instalações
+Se os computadores e usuários locais exigem conectividade contínua com as VMs em uma rede virtual do Azure, crie uma rede virtual entre instalações.  Conecte-a à sua rede local com uma conexão da ExpressRoute ou de VPN de site a site.
 
 ![Diagrama de rede virtual entre instalações](./media/virtual-machines-common-infrastructure-service-guidelines/vnet02.png)
 
@@ -65,7 +69,7 @@ Para permitir que os pacotes viajem da sua rede virtual entre instalações para
 
 Você pode converter uma rede virtual somente em nuvem em uma rede virtual entre instalações, mas provavelmente será necessário renumerar o IP de seu espaço de endereço de rede virtual e recursos do Azure. Portanto, considere cuidadosamente se uma rede virtual precisará estar conectada à sua rede local quando você atribuir uma sub-rede IP.
 
-## Sub-redes
+## <a name="subnets"></a>Sub-redes
 As sub-redes permitem organizar os recursos que estão relacionados, seja logicamente (por exemplo, uma sub-rede para VMs associadas ao mesmo aplicativo) ou fisicamente (por exemplo, uma sub-rede por grupo de recursos). Você também pode usar técnicas de isolamento de sub-rede para aumentar a segurança.
 
 Para redes virtuais entre instalações, você deve criar sub-redes com as mesmas convenções que você usa para recursos locais. **O Azure sempre usa os três primeiros endereços IP do espaço de endereço para cada sub-rede**. Para determinar o número de endereços necessários para a sub-rede, comece pela contagem do número de VMs que você precisa agora. Faça a estimativa do crescimento futuro e, em seguida, use a tabela a seguir para determinar o tamanho da sub-rede.
@@ -85,18 +89,23 @@ Para redes virtuais entre instalações, você deve criar sub-redes com as mesma
 
 Se você escolher um tamanho de sub-rede que seja muito pequeno, precisará renumerar o IP e reimplantar as VMs na sub-rede.
 
-## Grupos de segurança de rede
-Você pode aplicar regras de filtragem no tráfego que flui através de suas redes virtuais usando Grupos de Segurança de Rede. Você pode criar regras de filtragem granulares para proteger seu ambiente de rede virtual, controlar o tráfego de entrada e saída, intervalos de IP de origem e destino, portas permitidas etc. Grupos de Segurança de Rede podem ser aplicados a sub-redes de uma rede virtual ou diretamente em uma determinada interface de rede virtual. Recomendamos algum nível de filtragem de tráfego no Grupo de Segurança de Rede em suas redes virtuais. Você pode ler mais sobre[Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md).
+## <a name="network-security-groups"></a>Grupos de segurança de rede
+Você pode aplicar regras de filtragem no tráfego que flui através de suas redes virtuais usando Grupos de Segurança de Rede. Você pode criar regras de filtragem granulares para proteger seu ambiente de rede virtual, controlar o tráfego de entrada e saída, intervalos de IP de origem e destino, portas permitidas etc. Grupos de Segurança de Rede podem ser aplicados a sub-redes de uma rede virtual ou diretamente em uma determinada interface de rede virtual. Recomendamos algum nível de filtragem de tráfego no Grupo de Segurança de Rede em suas redes virtuais. Leia mais sobre [Grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
-## Componentes de rede adicionais
+## <a name="additional-network-components"></a>Componentes de rede adicionais
 Assim como acontece com uma infraestrutura de rede física local, a rede virtual do Azure pode conter mais do que sub-redes e endereçamento IP. Ao projetar a infraestrutura de seu aplicativo, convém incorporar alguns desses componentes adicionais:
 
 * [Gateways de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) - conecte redes virtuais do Azure a outras redes virtuais do Azure ou conecte-se a redes locais por meio de uma conexão VPN Site a Site. Implementar conexões de Rota Expressa para conexões seguras e dedicadas. Você também pode fornecer acesso direto aos usuários com conexões VPN Ponto a Site.
 * [Balanceador de carga](../load-balancer/load-balancer-overview.md) - fornece balanceamento de carga de tráfego para o tráfego interno e externo, conforme o desejado.
-* [Gateway de Aplicativo ](../application-gateway/application-gateway-introduction.md) – balanceamento de carga HTTP na camada do aplicativo, fornecendo alguns benefícios adicionais para aplicativos Web do que simplesmente implantar o Azure Load Balancer.
+* [Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md) – balanceamento de carga HTTP na camada do aplicativo, fornecendo alguns benefícios adicionais para aplicativos Web do que simplesmente implantar o Azure Load Balancer.
 * [Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md) - distribuição de tráfego baseado em DNS apara s usuários finais diretos para o ponto de extremidade do aplicativo disponível mais próximo, permitindo que você hospede seu aplicativo fora dos datacenters do Azure em regiões diferentes de tráfego.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Análise de sentimento usando o Stream Analytics do Azure e o Aprendizado de Máquina do Azure | Microsoft Docs
-description: Como usar uma função definida pelo usuário e o Aprendizado de Máquina em um trabalho do Stream Analytics
-keywords: ''
-documentationcenter: ''
+title: "Análise de Sentimento usando o Azure Stream Analytics e o Azure Machine Learning | Microsoft Docs"
+description: "Como usar uma função definida pelo usuário e o Aprendizado de Máquina em um trabalho do Stream Analytics"
+keywords: 
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cfced01f-ccaa-4bc6-81e2-c03d1470a7a2
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 10/04/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fd5d7e2bf8d9cf68f1c3e9fe98656a8cfe0d1f15
+
 
 ---
 # <a name="sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Análise de sentimento usando o Stream Analytics do Azure e o Aprendizado de Máquina do Azure
@@ -96,7 +100,7 @@ Observe a URL do serviço Web e a tecla de acesso do arquivo Excel baixado, como
     
     ```
     WITH subquery AS (  
-        SELECT text, sentiment(text) as result from input  
+      SELECT text, sentiment(text) as result from input  
     )  
     
     Select text, result.[Scored Labels]  
@@ -127,6 +131,9 @@ Você também pode exibir as métricas relacionadas à função de Aprendizado d
   
     ![Aprendizado de Máquina do Stream Analytics, exibição de monitor do Aprendizado de Máquina](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

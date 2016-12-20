@@ -1,12 +1,12 @@
 ---
-title: Execute o failback de máquinas virtuais VMware e servidores físicos do Azure para o VMware (herdado) | Microsoft Docs
-description: Este artigo descreve como executar o failback de uma máquina virtual VMware que foi replicada no Azure com o Azure Site Recovery.
+title: "Failback de máquinas virtuais VMware e servidores físicos do Azure para o VMware (herdado) | Microsoft Docs"
+description: "Este artigo descreve como executar o failback de uma máquina virtual VMware que foi replicada no Azure com o Azure Site Recovery."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: ruturaj
 manager: mkjain
-editor: ''
-
+editor: 
+ms.assetid: a63524bf-990c-42ee-8554-e017e6e67e68
 ms.service: site-recovery
 ms.devlang: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: ruturajd@microsoft.com
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45695926bce3ec3460a572c0c01ffa4038f73ea5
+
 
 ---
-# <a name="fail-back-vmware-virtual-machines-and-physical-servers-from-azure-to-vmware-with-azure-site-recovery-(legacy)"></a>Executar o failback de máquinas virtuais VMware e servidores físicos do Azure para o VMware com o Azure Site Recovery (herdado)
+# <a name="fail-back-vmware-virtual-machines-and-physical-servers-from-azure-to-vmware-with-azure-site-recovery-legacy"></a>Executar o failback de máquinas virtuais VMware e servidores físicos do Azure para o VMware com o Azure Site Recovery (herdado)
 > [!div class="op_single_selector"]
 > * [Portal do Azure](site-recovery-failback-azure-to-vmware.md)
 > * [Portal Clássico do Azure](site-recovery-failback-azure-to-vmware-classic.md)
@@ -48,7 +52,7 @@ Veja como configurar o failback:
 1. **Configurar componentes de failback**: você precisará configurar um servidor vContinuum localmente e apontar para a VM do servidor de configuração no Azure. Você também configurará um servidor de processo como uma VM do Azure para enviar dados de volta ao servidor de destino mestre local. Registre o servidor de processo com o servidor de configuração que tratou do failover. Instale um servidor de destino mestre local. Se você precisar de um servidor de destino mestre Windows, ele será configurado automaticamente quando o vContinuum for instalado. Se você precisar de Linux, deverá defini-lo manualmente em um servidor separado.
 2. **Habilitar proteção e failback**: depois de configurar os componentes, no vContinuum, você precisará habilitar a proteção de failover de máquinas virtuais do Azure. Você executará uma verificação de preparação nas máquinas virtuais e executará um failover do Azure para o site local. Após a conclusão do failback, proteja as máquinas locais novamente para que iniciem replicando no Azure.
 
-## <a name="step-1:-install-vcontinuum-on-premises"></a>Etapa 1: Instalar o vContinuum no local
+## <a name="step-1-install-vcontinuum-on-premises"></a>Etapa 1: Instalar o vContinuum no local
 Será necessário instalar um servidor vContinuum no local e apontá-lo para o servidor de configuração.
 
 1. [Baixar o vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
@@ -72,7 +76,7 @@ Será necessário instalar um servidor vContinuum no local e apontá-lo para o s
 9. Após a conclusão da instalação, inicie o vContinuum.
     ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
-## <a name="step-2:-install-a-process-server-in-azure"></a>Etapa 2: Instalar um servidor de processo no Azure
+## <a name="step-2-install-a-process-server-in-azure"></a>Etapa 2: Instalar um servidor de processo no Azure
 É necessário instalar um servidor de processo no Azure para que as VMs no Azure possam enviar os dados de volta para um servidor de destino mestre local. 
 
 1. Na página **Servidores de Configuração** no Azure, selecione para adicionar um novo servidor de processo.
@@ -94,7 +98,7 @@ Será necessário instalar um servidor vContinuum no local e apontá-lo para o s
 > 
 > 
 
-## <a name="step-3:-install-a-master-target-server-on-premises"></a>Etapa 3: Instalar um servidor de destino mestre no local
+## <a name="step-3-install-a-master-target-server-on-premises"></a>Etapa 3: Instalar um servidor de destino mestre no local
 Dependendo do sistema operacional das máquinas virtuais de origem, talvez seja necessário instalar um servidor de destino mestre com Windows ou Linux no local.
 
 ### <a name="deploy-a-windows-master-target-server"></a>Implantar um servidor de destino mestre com Windows
@@ -221,7 +225,7 @@ Você pode validar se o servidor de destino mestre foi registrado com êxito no 
 > 
 > 
 
-## <a name="step-4:-protect-the-virtual-machines-to-the-on-premises-site"></a>Etapa 4: Proteger as máquinas virtuais no site local
+## <a name="step-4-protect-the-virtual-machines-to-the-on-premises-site"></a>Etapa 4: Proteger as máquinas virtuais no site local
 Você precisa proteger as VMs no site local antes de realizar o failback.
 
 ### <a name="before-you-begin"></a>Antes de começar
@@ -357,6 +361,9 @@ Após a conclusão do failback, convém provavelmente proteger mais uma vez as m
 ## <a name="next-steps"></a>Próximas etapas
 * [Leia sobre](site-recovery-vmware-to-azure-classic.md) como replicar máquinas virtuais VMware e servidores físicos no Azure usando a implantação avançada.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

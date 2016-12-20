@@ -1,12 +1,12 @@
 ---
-title: Gerenciamento de provisionamento de usuário para aplicativos empresariais na visualização do Azure Active Directory | Microsoft Docs
-description: Saiba como gerenciar o provisionamento de contas de usuário para aplicativos empresariais usando a visualização do Azure Active Directory
+title: "Gerenciamento de provisionamento do usuário para aplicativos empresariais na visualização do Azure Active Directory | Microsoft Docs"
+description: "Saiba como gerenciar o provisionamento de contas de usuário para aplicativos empresariais usando a visualização do Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9cecfdee4af934e68412699ce3166514c5521bb0
+
 
 ---
-# <a name="preview:-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>Visualização: gerenciamento de conta de usuário para aplicativos da empresa no novo portal do Azure
+# <a name="preview-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>Visualização: gerenciamento de conta de usuário para aplicativos da empresa no novo portal do Azure
 Este artigo descreve como usar o [Portal do Azure](https://portal.azure.com) para gerenciar o provisionamento de conta de usuário automático e o desprovisionamento para aplicativos que oferecem suporte a ele, especialmente aqueles que foram adicionados da categoria "em destaque" da [Galeria de aplicativos do Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Essa experiência de gerenciamento no novo portal do Azure está atualmente em visualização pública, e este artigo descreve os novos recursos, bem como algumas limitações temporárias que estão em vigor durante o período de visualização. [O que há na visualização?](active-directory-preview-explainer.md)
 
 Para saber mais sobre o provisionamento de contas de usuário automático e como ele funciona, confira [Automatizar o provisionamento e o desprovisionamento de usuário para aplicativos SaaS com o Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -81,6 +85,6 @@ São fornecidos links para o **Relatório de atividade de provisionamento**, que
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

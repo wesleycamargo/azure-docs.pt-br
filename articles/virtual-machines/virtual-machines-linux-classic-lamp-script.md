@@ -1,13 +1,13 @@
 ---
-title: Usar a extensão de Script Personalizado em uma VM do Linux | Microsoft Docs
-description: Saiba como usar a extensão CustomScript para implantar aplicativos em Máquinas Virtuais do Linux no Azure criadas com o modelo de implantação clássico.
+title: "Usar a extensão CustomScript em uma VM do Linux | Microsoft Docs"
+description: "Saiba como usar a extensão CustomScript para implantar aplicativos em Máquinas Virtuais do Linux no Azure criadas com o modelo de implantação clássico."
 editor: tysonn
 manager: timlt
-documentationcenter: ''
+documentationcenter: 
 services: virtual-machines-linux
 author: gbowerman
 tags: azure-service-management
-
+ms.assetid: e535241d-feca-4412-b07a-67c936ba88a0
 ms.service: virtual-machines-linux
 ms.workload: multiple
 ms.tgt_pltfrm: linux
@@ -15,10 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 391411a8ab5d6ebb46710f290ecf5c12e28aa151
+
 
 ---
-# Implantar um aplicativo LAMP usando a extensão CustomScript do Azure para Linux
+# <a name="deploy-a-lamp-app-using-the-azure-customscript-extension-for-linux"></a>Implantar um aplicativo LAMP usando a extensão CustomScript do Azure para Linux
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+
+Para obter informações sobre como implantar uma pilha LAMP usando o modelo do Resource Manager, veja [aqui](virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 A Extensão de Script Personalizado do Microsoft Azure para Linux é uma maneira de personalizar VMs (máquinas virtuais) executando código arbitrário escrito em qualquer linguagem de script com suporte da VM (por exemplo, Python e Bash). Isso fornece uma maneira muito flexível para automatizar a implantação de aplicativos em várias máquinas.
 
@@ -26,21 +32,21 @@ Você pode implantar a extensão CustomScript usando o portal clássico do Azure
 
 Neste artigo, usaremos a CLI do Azure para implantar um aplicativo simples da LAMP em uma VM do Ubuntu criada com o modelo de implantação clássico.
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para este exemplo, primeiro crie duas VMs do Azure executando o Ubuntu 14.04 ou posterior. As VMs são chamadas *script-vm* e *lamp-vm*. Use nomes exclusivos ao criar as VMs. Uma é usada para executar os comandos da CLI e a outra para implantar o aplicativo LAMP.
 
 Você também precisa de uma conta de armazenamento do Azure e uma chave para acessá-la (você pode obtê-la no portal clássico do Azure).
 
-Se precisar de ajuda para criar VMs do Linux no Azure, confira [Criar uma máquina virtual executando Linux](virtual-machines-linux-classic-createportal.md).
+Se precisar de ajuda para criar VMs do Linux no Azure, confira [Criar uma máquina virtual executando Linux](virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 Os comandos install reconhecem o Ubuntu, mas você pode adaptar a instalação para qualquer distribuição Linux com suporte.
 
 A VM script-vm precisa ter a CLI do Azure instalada e uma conexão ativa com o Azure. Para obter ajuda sobre isso, confira [Instalar e configurar a Interface de linha de comando do Azure](../xplat-cli-install.md).
 
-## Carregar um script
+## <a name="upload-a-script"></a>Carregar um script
 Usaremos a Extensão de Script Personalizado para executar um script em uma VM remota para instalar a pilha LAMP e criar uma página PHP. Para acessar o script em qualquer lugar, vou carregá-lo como um blob do Azure.
 
-### Visão geral do script
+### <a name="script-overview"></a>Visão geral do script
 O próximo script de exemplo instala uma pilha LAMP no Ubuntu (incluindo a configuração de uma instalação silenciosa do MySQL), grava um arquivo PHP simples e inicia o Apache.
 
     #!/bin/bash
@@ -55,42 +61,42 @@ O próximo script de exemplo instala uma pilha LAMP no Ubuntu (incluindo a confi
     apt-get -y install apache2 mysql-server php5 php5-mysql  
 
     # write some PHP
-    echo <center><h1>My Demo App</h1><br/></center> > /var/www/html/phpinfo.php
-    echo <\?php phpinfo()\; \?> >> /var/www/html/phpinfo.php
+    echo \<center\>\<h1\>My Demo App\</h1\>\<br/\>\</center\> > /var/www/html/phpinfo.php
+    echo \<\?php phpinfo\(\)\; \?\> >> /var/www/html/phpinfo.php
 
     # restart Apache
     apachectl restart
 
-### Carregar o script
-Salve o script como um arquivo de texto, por exemplo *install\_lamp.sh*, e carregue-o no Armazenamento do Azure. Você pode fazer isso facilmente com o Azure CLI. O exemplo a seguir carrega o arquivo em um contêiner de armazenamento chamado "scripts". Se o contêiner não existir, você precisará criá-lo primeiro.
+### <a name="upload-script"></a>Carregar o script
+Salve o script como um arquivo de texto, por exemplo *install_lamp.sh* e carregue-o no Armazenamento do Azure. Você pode fazer isso facilmente com o Azure CLI. O exemplo a seguir carrega o arquivo em um contêiner de armazenamento chamado "scripts". Se o contêiner não existir, você precisará criá-lo primeiro.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-Crie também um arquivo JSON que descreva como baixar o script do Armazenamento do Azure. Salve isso como *public\_config.json* (substituindo "mystorage" com o nome da sua conta de armazenamento):
+Crie também um arquivo JSON que descreva como baixar o script do Armazenamento do Azure. Salve isso como *public_config.json* (substituindo "mystorage" com o nome da sua conta de armazenamento):
 
     {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
 
-## Implantar a extensão
+## <a name="deploy-the-extension"></a>Implantar a extensão
 Agora, você pode usar o próximo comando para implantar a Extensão de Script Personalizado do Linux na VM remota usando a CLI do Azure.
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScript Microsoft.Azure.Extensions 2.0
 
-O comando anterior baixa e executa o script *install\_lamp.sh* na VM chamada *lamp-vm*.
+O comando anterior baixa e executa o script *install_lamp.sh* na VM chamada *lamp-vm*.
 
 Como o aplicativo inclui um servidor Web, lembre-se de abrir uma porta de escuta HTTP na VM remota com o próximo comando.
 
     azure vm endpoint create -n Apache -o tcp lamp-vm 80 80
 
-## Monitoramento e solução de problemas
+## <a name="monitoring-and-troubleshooting"></a>Monitoramento e solução de problemas
 Você pode verificar a execução do script personalizado analisando o arquivo de log na VM remota. SSH para *lamp-vm* e parte final do arquivo de log com o próximo comando.
 
     cd /var/log/azure/customscript
     tail -f handler.log
 
-Depois de executar a Extensão de Script Personalizado, você pode navegar até a página PHP que criou para obter informações. A página PHP para o exemplo deste artigo é *http://lamp-vm.cloudapp.net/phpinfo.php*.
+Depois de executar a Extensão de Script Personalizado, você pode navegar até a página PHP que criou para obter informações. A página PHP para o exemplo neste artigo é a *http://lamp-vm.cloudapp.net/phpinfo.php*.
 
-## Recursos adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 Você pode usar as mesmas etapas básicas para implantar aplicativos mais complexos. Neste exemplo, o script de instalação foi salvo como um blob público no armazenamento do Azure. Uma opção mais segura seria armazenar o script de instalação como um blob seguro com uma [Assinatura de Acesso Seguro](https://msdn.microsoft.com/library/azure/ee395415.aspx) (SAS).
 
 Recursos adicionais da CLI do Azure, do Linux e da Extensão de Script Personalizado são listados a seguir.
@@ -99,6 +105,11 @@ Recursos adicionais da CLI do Azure, do Linux e da Extensão de Script Personali
 
 [Extensões Linux do Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
-[Computação Linux e Software Livre no Azure](virtual-machines-linux-opensource-links.md)
+[Computação Linux e Software Livre no Azure](virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

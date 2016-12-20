@@ -2,33 +2,36 @@
 title: Criar farms de servidores do SharePoint | Microsoft Docs
 description: Criar rapidamente um novo farm do SharePoint 2013 ou SharePoint 2016 no Azure.
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: JoeDavies-MSFT
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 89b124da-019d-4179-86dd-ad418d05a4f2
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 09/30/2016
 ms.author: josephd
+translationtype: Human Translation
+ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
+ms.openlocfilehash: 7c0746840dd45229dac491b03925349e6d9a44de
+
 
 ---
-# Criar farm do SharePoint Server
+# <a name="create-sharepoint-server-farms"></a>Criar farm do SharePoint Server
+
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-modelo clássico.
-
-## Farms do SharePoint 2013
+## <a name="sharepoint-2013-farms"></a>Farms do SharePoint 2013
 Com o Marketplace do portal do Microsoft Azure, você pode criar rapidamente farms pré-configurados do SharePoint Server 2013. Isso pode economizar muito tempo quando você precisar de um farm do SharePoint básico ou de alta disponibilidade para um ambiente de desenvolvimento/teste, ou se estiver avaliando o SharePoint Server 2013 como uma solução de colaboração para a sua organização.
 
 > [!NOTE]
 > O item **Farm do SharePoint Server** no Azure Marketplace do portal do Azure foi removido. Ele foi substituído pelos itens **Farm de não HA do SharePoint 2013** e **Farm HA do SharePoint 2013**.
-> 
-> 
+>
+>
 
 O farm do SharePoint básico consiste em três máquinas virtuais nesta configuração.
 
@@ -58,22 +61,31 @@ Para criar o farm de alta disponibilidade (nove servidores) do SharePoint:
 
 > [!NOTE]
 > Não é possível criar o **Farm de não HA do SharePoint 2013** ou o **Farm de HA do SharePoint 2013** com uma Avaliação Gratuita do Azure.
-> 
-> 
+>
+>
 
 O portal do Azure cria ambos os farms em uma rede virtual somente em nuvem com a presença da web voltada para a Internet. Não há nenhuma conexão de VPN site a site ou de Rota Expressa para a rede da sua organização.
 
-## Farms do SharePoint 2016
-Confira [este artigo](https://technet.microsoft.com/library/mt723354.aspx) para obter instruções sobre como criar o farm a seguir de servidor único do SharePoint 2016.
+> [!NOTE]
+> Quando você cria farms básicos ou de alta disponibilidade do SharePoint usando o portal do Azure, não é possível especificar um grupo de recursos existente. Para contornar essa limitação, crie esses farms com o Azure PowerShell. Para obter mais informações, consulte [Criar farms de desenvolvimento/teste do SharePoint 2013 com o Azure PowerShell](https://technet.microsoft.com/library/mt743093.aspx#powershell).
+>
+>
+
+## <a name="sharepoint-2016-farms"></a>Farms do SharePoint 2016
+Confira [este artigo](https://technet.microsoft.com/library/mt723354.aspx) para obter instruções sobre como criar o seguinte farm de servidor único do SharePoint Server 2016.
 
 ![sharepointfarm](./media/virtual-machines-windows-sharepoint-farm/SP2016Farm.png)
 
-## Gerenciando os farms do SharePoint
-É possível administrar os servidores desses farms por meio de conexões da Área de Trabalho Remota. Para saber mais, veja [Fazer logon na máquina virtual](virtual-machines-windows-hero-tutorial.md#log-on-to-the-virtual-machine).
+## <a name="managing-the-sharepoint-farms"></a>Gerenciando os farms do SharePoint
+É possível administrar os servidores desses farms por meio de conexões da Área de Trabalho Remota. Para saber mais, veja [Fazer logon na máquina virtual](virtual-machines-windows-hero-tutorial.md#connect-to-the-virtual-machine-and-sign-on).
 
 No site Administração central do SharePoint, é possível configurar o My sites, os aplicativos SharePoint e outra funcionalidade. Para saber mais, confira [Configurar o SharePoint](http://technet.microsoft.com/library/ee836142.aspx).
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Descubra as [configurações do SharePoint](https://technet.microsoft.com/library/dn635309.aspx) adicionais nos serviços de infraestrutura do Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

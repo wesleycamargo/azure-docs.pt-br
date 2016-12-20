@@ -1,32 +1,36 @@
 ---
-title: Uso de Azure Functions com Aplicativos Lógicos | Microsoft Docs
-description: Veja como usar Azure Functions com Aplicativos Lógicos
+title: "Usando Azure Functions com Aplicativos Lógicos | Microsoft Docs"
+description: "Veja como usar Azure Functions com Aplicativos Lógicos"
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 09/01/2016
+ms.date: 10/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 37e246ddb362c3b19db988224a5e6df4e41bd1e7
+
 
 ---
-# Usando Azure Functions com Aplicativos Lógicos
-Você pode executar trechos personalizados do C# ou do node.js utilizando as Azure Functions de um aplicativo lógico. As [Azure Functions](../azure-functions/functions-overview.md) oferecem uma computação sem servidor no Microsoft Azure. Isso é útil para executar as seguintes tarefas:
+# <a name="using-azure-functions-with-logic-apps"></a>Usando Azure Functions com Aplicativos Lógicos
+Você pode executar trechos personalizados do C# ou do node.js utilizando as Azure Functions de um aplicativo lógico.  [Azure Functions](../azure-functions/functions-overview.md) oferecem uma computação sem servidor no Microsoft Azure. Isso é útil para executar as seguintes tarefas:
 
-* Formatar o valor de uma ação (por exemplo, converter de DateTime em uma cadeia de caracteres de data)
+* Formatação avançada ou computação de campos em um Aplicativo lógico
 * Executar cálculos em um fluxo de trabalho
 * Estender a funcionalidade dos Aplicativos Lógicos com funções com suporte no C# ou no node.js
 
-## Criar uma função para os Aplicativos Lógicos
-É recomendável que você crie uma nova função no portal das Azure Functions usando os modelos **Webhook Genérico - Nó** ou **Webhook Genérico - C# **. Isso preenche automaticamente um modelo que aceita `application/json` de um aplicativo lógico. As funções que usam esses modelos são automaticamente detectadas e listadas no designer dos Aplicativos Lógicos em **Azure Functions em minha região.**
+## <a name="create-a-function-for-logic-apps"></a>Criar uma função para os Aplicativos Lógicos
+É recomendável que você crie uma nova função no portal das Azure Functions usando os modelos **Webhook Genérico – Nó** ou **Webhook Genérico – C#**. Isso preenche automaticamente um modelo que aceita `application/json` de um aplicativo lógico.  Se você selecionar a guia **Integrar** em Azure Functions, ela deve ter o **Modo** definido como **Webhook** e **tipo Webhook** de **JSON genérico**.  As funções que usam esses modelos são automaticamente detectadas e listadas no designer dos Aplicativos Lógicos em **Azure Functions em minha região.**
 
-As funções do Webhook aceitam uma solicitação e passam-na para o método por meio de uma variável `data`. Você pode acessar as propriedades do conteúdo usando uma notação de ponto como `data.foo`. Por exemplo, uma função Javascript simples, que converte um valor DateTime em uma cadeia de caracteres de data, terá a seguinte aparência:
+As funções do Webhook aceitam uma solicitação e passam-na para o método por meio de uma variável `data` . Você pode acessar as propriedades do conteúdo usando uma notação de ponto como `data.foo`.  Por exemplo, uma função Javascript simples, que converte um valor DateTime em uma cadeia de caracteres de data, terá a seguinte aparência:
 
 ```
 function start(req, res){
@@ -37,18 +41,18 @@ function start(req, res){
 }
 ```
 
-## Chamar Azure Functions a partir de um aplicativo lógico
-No designer, se você clicar no menu **Ações**, poderá selecionar **Azure Functions em minha Região**. Isso lista os contêineres em sua assinatura e permitirá que você escolha a função que deseja chamar.
+## <a name="call-azure-functions-from-a-logic-app"></a>Chamar Azure Functions a partir de um aplicativo lógico
+No designer, se você clicar no menu **Ações**, poderá selecionar **Azure Functions em minha Região**.  Isso lista os contêineres em sua assinatura e permitirá que você escolha a função que deseja chamar.  
 
 Depois de escolher a função, você será solicitado a especificar um objeto de conteúdo de entrada. Esta é a mensagem que o aplicativo lógico envia para a função e deve ser um objeto JSON. Por exemplo, se você quiser passar a data da **Última Modificação** do gatilho Salesforce, o conteúdo da função poderá ser assim:
 
 ![Data da última modificação][1]
 
-## Disparar aplicativos lógicos a partir de uma função
-Também é possível disparar um aplicativo lógico de dentro de uma função. Para fazer isso, basta criar um aplicativo lógico com um gatilho manual. Para obter mais informações, consulte [Aplicativos lógicos como pontos de extremidade chamados](app-service-logic-http-endpoint.md). Em seguida, em sua função, gere um POST HTTP para a URL do gatilho manual com o conteúdo que você deseja enviar para o aplicativo lógico.
+## <a name="trigger-logic-apps-from-a-function"></a>Disparar aplicativos lógicos a partir de uma função
+Também é possível disparar um aplicativo lógico de dentro de uma função.  Para fazer isso, basta criar um aplicativo lógico com um gatilho manual. Para obter mais informações, consulte [Aplicativos lógicos como pontos de extremidade chamados](app-service-logic-http-endpoint.md).  Em seguida, em sua função, gere um POST HTTP para a URL do gatilho manual com o conteúdo que você deseja enviar para o aplicativo lógico.
 
-### Criar uma função no designer
-Você também pode criar uma função de webhook do node.js de dentro do designer. Primeiro, selecione **Azure Functions em minha região**, em seguida, escolha um contêiner de sua função. Se você ainda não tiver um contêiner, precisará criar um a partir do [portal das Azure Functions](https://functions.azure.com/signin). Em seguida, selecione **Criar Novo**.
+### <a name="create-a-function-from-the-designer"></a>Criar uma função no designer
+Você também pode criar uma função de webhook do node.js de dentro do designer. Primeiro, selecione **Azure Functions em minha região** , em seguida, escolha um contêiner de sua função.  Se você ainda não tiver um contêiner, precisará criar um a partir do [portal das Azure Functions](https://functions.azure.com/signin). Em seguida, selecione **Criar Novo**.  
 
 Para gerar um modelo com base nos dados que você deseja calcular, especifique o objeto de contexto que planeja passar para uma função. Ele deve ser um objeto JSON. Por exemplo, se você passar o conteúdo do arquivo a partir de uma ação FTP, o conteúdo do contexto ficará assim:
 
@@ -65,4 +69,8 @@ Então, o designer irá gerar um modelo de função que você poderá criar embu
 [1]: ./media/app-service-logic-azure-functions/callFunction.png
 [2]: ./media/app-service-logic-azure-functions/createFunction.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

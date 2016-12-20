@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure ao UserEcho | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o UserEcho.
+title: "Tutorial: integração do Azure Active Directory ao UserEcho | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o UserEcho."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bedd916b-8f69-4b50-9b8d-56f4ee3bd3ed
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a59878b0cb6f33af27f5008faf828cd4eb0eb537
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-userecho"></a>Tutorial: Integração do Active Directory do Azure com o UserEcho
+# <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Tutorial: Integração do Active Directory do Azure com o UserEcho
 O objetivo deste tutorial é mostrar como integrar o UserEcho ao Azure AD (Azure Active Directory).  
 A integração do UserEcho ao Azure AD oferece os seguintes benefícios: 
 
@@ -277,6 +281,6 @@ Quando você clicar no bloco UserEcho no Painel de Acesso, deverá ser conectado
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

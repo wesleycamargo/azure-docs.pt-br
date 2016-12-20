@@ -1,12 +1,12 @@
 ---
-title: Implante seu serviço do StorSimple Manager | Microsoft Docs
-description: Explica como criar e excluir o serviço StorSimple Manager no portal clássico do Azure, além de descrever como gerenciar a chave de registro de serviço.
+title: "Implantar o serviço do StorSimple Manager | Microsoft Docs"
+description: "Explica como criar e excluir o serviço StorSimple Manager no portal clássico do Azure, além de descrever como gerenciar a chave de registro de serviço."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: SharS
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: bc1d5650-275c-42ed-bc77-cdb596f85943
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,18 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2016
 ms.author: v-sharos
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
+ms.openlocfilehash: 51c414bacb825dd51bcd76a06e1f9e0f0c001b93
+
 
 ---
-# Implantar o serviço StorSimple Manager
-## Visão geral
+# <a name="deploy-the-storsimple-manager-service"></a>Implantar o serviço StorSimple Manager
+## <a name="overview"></a>Visão geral
 O serviço StorSimple Manager é executado no Microsoft Azure e se conecta a vários dispositivos StorSimple. Depois de criar o serviço, você pode usá-lo para gerenciar os dispositivos no portal clássico do Microsoft Azure em execução em um navegador. Isso permite monitorar todos os dispositivos que estão conectados ao serviço StorSimple Manager de um local único e central, minimizando a sobrecarga administrativa.
 
 A página de aterrissagem do StorSimple Manager lista todos os serviços StorSimple Manager que você pode usar para gerenciar os dispositivos de armazenamento do StorSimple. Para cada serviço StorSimple Manager, as informações a seguir são apresentadas na página do StorSimple Manager:
 
-* **Nome**: o nome que foi atribuído ao serviço StorSimple Manager quando ele foi criado. O nome do serviço não pode ser alterado depois que o serviço é criado.
+* **Nome** : o nome que foi atribuído ao serviço StorSimple Manager quando ele foi criado. O nome do serviço não pode ser alterado depois que o serviço é criado.
 * **Status**: o status do serviço, que pode ser **Ativo**, **Criando** ou **Online**.
-* **Local**: a localização geográfica em que o dispositivo StorSimple será implantado.
-* **Assinatura**: a assinatura de cobrança associada ao seu serviço.
+* **Local** : a localização geográfica em que o dispositivo StorSimple será implantado.
+* **Assinatura** : a assinatura de cobrança associada ao seu serviço.
 
 As tarefas comuns que podem ser executadas pela página do StorSimple Manager são:
 
@@ -36,7 +40,7 @@ As tarefas comuns que podem ser executadas pela página do StorSimple Manager s�
 
 Este tutorial descreve como executar cada uma dessas tarefas.
 
-## Criar um serviço
+## <a name="create-a-service"></a>Criar um serviço
 Use a opção **Criação Rápida** para criar um serviço StorSimple Manager se deseja implantar seu dispositivo StorSimple. Para criar um serviço, você precisa ter:
 
 * Uma assinatura com um Enterprise Agreement
@@ -51,20 +55,20 @@ Execute as etapas a seguir para criar um serviço.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
 
-## Excluir um serviço
+## <a name="delete-a-service"></a>Excluir um serviço
 Antes de excluir um serviço, verifique se nenhum dispositivo conectado está usando ele. Se o serviço estiver em uso, desative os dispositivos conectados. A operação de desativação desfaz a conexão entre o dispositivo e o serviço, mas preserva os dados do dispositivo na nuvem.
 
 [AZURE.IMPORTANT] Depois que um serviço é excluído, a operação não pode ser revertida. Qualquer dispositivo que estava usando o serviço precisará ser redefinida para as configurações de fábrica para que possa ser usado com outro serviço. Nesse cenário, os dados locais no dispositivo, bem como a configuração, serão perdidos.
 
 Execute as etapas a seguir para excluir um serviço.
 
-### Para excluir um serviço
-1. Na página **Serviço StorSimple Manager**, selecione o serviço que deseja excluir.
+### <a name="to-delete-a-service"></a>Para excluir um serviço
+1. Na página **Serviço StorSimple Manager** , selecione o serviço que deseja excluir.
 2. Clique em **Excluir** na parte inferior da página.
 3. Clique em **Sim** na notificação de confirmação. Pode levar alguns minutos para que o serviço seja excluído.
 
-## Obtenha a chave de registro do serviço
-Depois de ter criado um serviço com êxito, você precisará registrar o dispositivo StorSimple no serviço. Para registrar seu primeiro dispositivo StorSimple, será necessária a chave de registro do serviço. Para registrar dispositivos adicionais em um serviço StorSimple existente, serão necessárias a chave de registro e a chave de criptografia dos dados de serviço (que é gerada durante o registro do primeiro dispositivo). Para obter mais informações sobre a chave de criptografia dos dados de serviço, consulte [Segurança do StorSimple](storsimple-security.md). Você pode obter a chave de registro acessando **Chave de Registro** na página **Serviços**.
+## <a name="get-the-service-registration-key"></a>Obtenha a chave de registro do serviço
+Depois de ter criado um serviço com êxito, você precisará registrar o dispositivo StorSimple no serviço. Para registrar seu primeiro dispositivo StorSimple, será necessária a chave de registro do serviço. Para registrar dispositivos adicionais em um serviço StorSimple existente, serão necessárias a chave de registro e a chave de criptografia dos dados de serviço (que é gerada durante o registro do primeiro dispositivo). Para obter mais informações sobre a chave de criptografia dos dados de serviço, consulte [Segurança do StorSimple](storsimple-security.md). Você pode obter a chave de registro acessando **Chave de Registro** on the **Serviços** .
 
 Execute as etapas a seguir para obter a chave de registro do serviço.
 
@@ -72,24 +76,28 @@ Execute as etapas a seguir para obter a chave de registro do serviço.
 
 Mantenha a chave de registro do serviço em local seguro. Você precisará dessa chave, bem como da chave de criptografia dos dados de serviço, para registrar dispositivos adicionais nesse serviço. Depois de obter a chave de registro do serviço, você precisará configurar o dispositivo usando o Windows PowerShell para interface do StorSimple.
 
-Para obter detalhes sobre como usar essa chave de registro, consulte [Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-deployment-walkthrough.md#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Para obter detalhes sobre como usar essa chave de registro, consulte [Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
-## Regenerar a chave de registro do serviço
+## <a name="regenerate-the-service-registration-key"></a>Regenerar a chave de registro do serviço
 Você precisará regenerar uma chave de registro de serviço se tiver que executar a rotação de chave ou se a lista de administradores de serviço tiver mudado. Quando você regenera a chave, a nova chave é usada somente para registrar dispositivos subsequentes. Os dispositivos que já foram registrados não serão afetados por esse processo.
 
 Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 
-### Para regenerar a chave de registro de serviço
+### <a name="to-regenerate-the-service-registration-key"></a>Para regenerar a chave de registro de serviço
 1. Na página **Serviço StorSimple Manager**, clique em **Chave de Registro**.
 2. Na caixa de diálogo **Chave de Registro de Serviço**, clique em **Regenerar**.
 3. Você verá uma mensagem de confirmação. Clique em **OK** para continuar com a regeneração.
 4. Uma nova chave de registro de serviço será exibida.
 5. Copie essa chave e salve-a para registrar todos os novos dispositivos nesse serviço.
-6. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-manage-service/HCS_CheckIcon.png) para fechar essa caixa de diálogo.
+6. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-service/HCS_CheckIcon.png)  para fechar essa caixa de diálogo.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre o [processo de implantação do StorSimple](storsimple-deployment-walkthrough.md).
 * [Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-manage-storage-accounts.md).
 * Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

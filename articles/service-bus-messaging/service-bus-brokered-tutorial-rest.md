@@ -1,22 +1,22 @@
 ---
 title: "Tutorial REST do sistema de mensagens agenciado do Barramento de Serviço | Microsoft Docs"
 description: Tutorial REST do sistema de mensagens agenciado.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2016
+ms.date: 12/12/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: b2cd9e5db765aa2ffbb00063ae193e39ffe9de4e
 
 
 ---
@@ -50,7 +50,7 @@ Depois de obter o namespace e as credenciais na primeira etapa, você cria em se
 2. Crie um novo projeto de aplicativo de console. Clique no menu **Arquivo**, depois em **Novo** e, em seguida, clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**), selecione o modelo **Aplicativo de Console** e chame-o de **Microsoft.ServiceBus.Samples**. Use o Local padrão. Clique em **OK** para criar o projeto.
 3. Em Program.cs, certifique-se de que as suas instruções `using` apareçam da seguinte maneira:
    
-    ```
+    ```csharp
     using System;
     using System.Globalization;
     using System.IO;
@@ -62,7 +62,7 @@ Depois de obter o namespace e as credenciais na primeira etapa, você cria em se
 4. Se necessário, renomeie o namespace para o programa do padrão do Visual Studio para `Microsoft.ServiceBus.Samples`.
 5. Dentro da classe `Program`, adicione as seguintes variáveis globais:
    
-    ```
+    ```csharp
     static string serviceNamespace;
     static string baseAddress;
     static string token;
@@ -70,7 +70,7 @@ Depois de obter o namespace e as credenciais na primeira etapa, você cria em se
     ```
 6. Dentro de `Main()`, cole o seguinte código:
    
-    ```
+    ```csharp
     Console.Write("Enter your service namespace: ");
     serviceNamespace = Console.ReadLine();
    
@@ -146,7 +146,7 @@ A próxima etapa é escrever um método que processa o namespace e a chave SAS q
 ### <a name="create-a-getsastoken-method"></a>Criar um método GetSASToken()
 Cole o código a seguir após o método `Main()`, na classe `Program`:
 
-```
+```csharp
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
 {
   TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
@@ -165,7 +165,7 @@ A próxima etapa é escrever um método que usa o comando HTTP PUT estilo REST p
 
 Cole o código a seguir diretamente após o código `GetSASToken()` adicionado na etapa anterior:
 
-```
+```csharp
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
@@ -193,7 +193,7 @@ Nesta etapa, você adiciona um método que usa o comando HTTP POST estilo REST p
 
 1. Cole o código a seguir diretamente após o código `CreateQueue()` adicionado na etapa anterior:
    
-    ```
+    ```csharp
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
     // Uses an HTTP POST request.
     private static void SendMessage(string queueName, string body)
@@ -208,7 +208,7 @@ Nesta etapa, você adiciona um método que usa o comando HTTP POST estilo REST p
     ```
 2. As propriedades de mensagens agenciadas padrão são colocadas em um cabeçalho HTTP `BrokerProperties`. As propriedades do agente devem ser serializadas em formato JSON. Para especificar um valor **TimeToLive** de 30 segundos e adicionar um rótulo de mensagem "M1" à mensagem, adicione o código a seguir imediatamente antes da chamada `webClient.UploadData()` mostrada no exemplo anterior:
    
-    ```
+    ```csharp
     // Add brokered message properties "TimeToLive" and "Label"
     webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
     ```
@@ -216,7 +216,7 @@ Nesta etapa, você adiciona um método que usa o comando HTTP POST estilo REST p
     Observe que as propriedades de mensagens agenciadas foram e serão adicionadas. Portanto, a solicitação de envio deve especificar uma versão de API que dá suporte a todas as propriedades de mensagens agenciadas que fazem parte da solicitação. Se a versão de API especificada não oferece suporte a uma propriedade de mensagens agenciadas, essa propriedade será ignorada.
 3. Propriedades de mensagens personalizadas são definidas como um conjunto de pares chave-valor. Cada propriedade personalizada é armazenada em seu próprio cabeçalho TPPT. Para adicionar as propriedades personalizadas "Priority" e "Customer", adicione o seguinte código imediatamente antes da chamada `webClient.UploadData()` mostrada no exemplo anterior:
    
-    ```
+    ```csharp
     // Add custom properties "Priority" and "Customer".
     webClient.Headers.Add("Priority", "High");
     webClient.Headers.Add("Customer", "12345");
@@ -227,7 +227,7 @@ A próxima etapa é adicionar um método que usa o comando HTTP DELETE estilo RE
 
 Cole o código a seguir diretamente após o código `SendMessage()` adicionado na etapa anterior:
 
-```
+```csharp
 // Receives and deletes the next message from the given resource (queue, topic, or subscription)
 // using the resourceName and an HTTP DELETE request
 private static string ReceiveAndDeleteMessage(string resourceName)
@@ -251,7 +251,7 @@ A próxima etapa é escrever um método que usa o comando HTTP PUT estilo REST p
 ### <a name="create-a-topic"></a>Criar um tópico
 Cole o código a seguir diretamente após o código `ReceiveAndDeleteMessage()` adicionado na etapa anterior:
 
-```
+```csharp
 // Using an HTTP PUT request.
 private static string CreateTopic(string topicName)
 {
@@ -276,7 +276,7 @@ private static string CreateTopic(string topicName)
 ### <a name="create-a-subscription"></a>Criar uma assinatura
 O código a seguir cria uma assinatura para o tópico que você criou na etapa anterior. Adicione o código a seguir diretamente após a definição `CreateTopic()`:
 
-```
+```csharp
 private static string CreateSubscription(string topicName, string subscriptionName)
 {
     var subscriptionAddress = baseAddress + topicName + "/Subscriptions/" + subscriptionName;
@@ -303,7 +303,7 @@ Nesta etapa, você deve adicionar código que recupera as propriedades da mensag
 ### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Recuperar um feed Atom com os recursos especificados
 Adicione o código a seguir diretamente após o método `CreateSubscription()` adicionado na etapa anterior:
 
-```
+```csharp
 private static string GetResources(string resourceAddress)
 {
     string fullAddress = baseAddress + resourceAddress;
@@ -317,7 +317,7 @@ private static string GetResources(string resourceAddress)
 ### <a name="delete-messaging-entities"></a>Excluir entidades do sistema de mensagens
 Adicione o código a seguir diretamente após o código adicionado na etapa anterior:
 
-```
+```csharp
 private static string DeleteResource(string resourceName)
 {
     string fullAddress = baseAddress + resourceName;
@@ -333,7 +333,7 @@ private static string DeleteResource(string resourceName)
 ### <a name="format-the-atom-feed"></a>Formatar o feed Atom
 O método `GetResources()` contém uma chamada para um método `FormatXml()` que reformata o feed Atom recuperado para que este seja mais legível. A seguir está a definição de `FormatXml()`; adicione esse código diretamente após o código `DeleteResource()` adicionado na seção anterior:
 
-```
+```csharp
 // Formats the XML string to be more human-readable; intended for display purposes
 private static string FormatXml(string inputXml)
 {
@@ -360,7 +360,7 @@ Se não há erros, pressione F5 para executar o aplicativo. Quando solicitado, i
 ### <a name="example"></a>Exemplo
 O exemplo a seguir é o código completo, como deve aparecer após seguir todas as etapas neste tutorial.
 
-```
+```csharp
 using System;
 using System.Globalization;
 using System.IO;
@@ -604,6 +604,6 @@ Para saber mais, consulte os seguintes artigos:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

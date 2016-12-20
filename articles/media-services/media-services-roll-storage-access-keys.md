@@ -1,12 +1,12 @@
 ---
-title: Atualizar os Serviços de Mídia após implantar as chaves de acesso de armazenamento | Microsoft Docs
-description: Este artigo fornece diretrizes sobre como atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento.
+title: "Atualizar os Serviços de Mídia após implantar as chaves de acesso de armazenamento | Microsoft Docs"
+description: "Este artigo fornece diretrizes sobre como atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: milangada;cenkdin;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
+ms.openlocfilehash: a979519dc617f40e6f090a412d17aa7778cbcf69
+
 
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar os Serviços de Mídia após implantar chaves de acesso de armazenamento
@@ -25,15 +29,15 @@ Os Serviços de Mídia dependem de uma chave de armazenamento fornecida a eles. 
 
 > [!NOTE]
 > Se tiver várias contas de armazenamento, você deverá executar esse procedimento com cada conta de armazenamento.
-> 
+>
 > Antes de executar as etapas descritas neste tópico em uma conta de produção, teste-as em uma conta de pré-produção.
-> 
-> 
+>
+>
 
-## <a name="step-1:-regenerate-secondary-storage-access-key"></a>Etapa 1: Regenerar a chave de acesso de armazenamento secundária
-Comece com a regeneração da chave de armazenamento secundária. Por padrão, a chave secundária não é usada pelos Serviços de Mídia.  Para obter informações sobre chaves de acesso do armazenamento, consulte [Como exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+## <a name="step-1-regenerate-secondary-storage-access-key"></a>Etapa 1: Regenerar a chave de acesso de armazenamento secundária
+Comece com a regeneração da chave de armazenamento secundária. Por padrão, a chave secundária não é usada pelos Serviços de Mídia.  Para obter informações sobre chaves de acesso do armazenamento, consulte [Como exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-## <a name="<a-id="step2"></a>step-2:-update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Etapa 2: Atualizar os Serviços de Mídia para usar a nova chave de armazenamento secundária
+## <a name="a-idstep2astep-2-update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Etapa 2: Atualizar os Serviços de Mídia para usar a nova chave de armazenamento secundária
 Atualize os Serviços de Mídia para usar a chave de acesso de armazenamento secundária. Você pode usar um dos dois métodos a seguir para sincronizar a chave de armazenamento regenerada com os Serviços de Mídia.
 
 * Use o portal do Azure: Para localizar os valores de Nome e Chave, vá para o portal do Azure e selecione sua conta. A janela Configurações aparece à direita. Na janela Configurações, selecione Chaves. Dependendo de qual chave de armazenamento você desejar sincronizar com os Serviços de Mídia, selecione o botão para sincronizar a chave primária ou sincronizar a chave secundária. Nesse caso, use a chave secundária.
@@ -79,14 +83,14 @@ Após essa etapa, atualize os localizadores existentes (que têm dependência em
 
 > [!NOTE]
 > Aguarde 30 minutos antes de executar quaisquer operações com os Serviços de Mídia (por exemplo, criar novos localizadores) para impedir que haja impacto em relação a trabalhos pendentes.
-> 
-> 
+>
+>
 
-## <a name="step-3:-update-locators"></a>Etapa 3: Atualizar localizadores
+## <a name="step-3-update-locators"></a>Etapa 3: Atualizar localizadores
 > [!NOTE]
 > Durante a implantação de chaves de acesso de armazenamento, você precisa atualizar seus localizadores existentes para que não haja interrupção do serviço de streaming.
-> 
-> 
+>
+>
 
 Aguarde pelo menos 30 minutos após a sincronização a nova chave de armazenamento com o AMS. Então, é possível atualizar os localizadores OnDemand para que eles tenham dependência em relação à chave de armazenamento especificada e mantenham a URL existente.
 
@@ -94,8 +98,8 @@ Observe que ao atualizar (ou recriar) um localizador SAS, a URL sempre vai mudar
 
 > [!NOTE]
 > Para certificar-se de preservar as URLs existentes de seus localizadores OnDemand, você precisa excluir o localizador existente e criar um novo com a mesma ID.
-> 
-> 
+>
+>
 
 O exemplo .NET a seguir mostra como recriar um localizador com a mesma ID.
 
@@ -122,18 +126,18 @@ se (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.
     }
 
 
-## <a name="step-5:-regenerate-primary-storage-access-key"></a>Etapa 5: Regenerar a chave de acesso de armazenamento primária
-Regenere a chave de acesso de armazenamento primária. Para obter informações sobre chaves de acesso do armazenamento, consulte [Como exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+## <a name="step-5-regenerate-primary-storage-access-key"></a>Etapa 5: Regenerar a chave de acesso de armazenamento primária
+Regenere a chave de acesso de armazenamento primária. Para obter informações sobre chaves de acesso do armazenamento, consulte [Como exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-## <a name="step-6:-update-media-services-to-use-the-new-primary-storage-key"></a>Etapa 6: Atualizar os Serviços de Mídia para usar a nova chave de armazenamento primária
+## <a name="step-6-update-media-services-to-use-the-new-primary-storage-key"></a>Etapa 6: Atualizar os Serviços de Mídia para usar a nova chave de armazenamento primária
 Use o mesmo procedimento, conforme descrito na [etapa 2](media-services-roll-storage-access-keys.md#step2) , mas, desta vez, sincronize a nova chave de acesso de armazenamento primária com a conta dos Serviços de Mídia.
 
 > [!NOTE]
 > Aguarde 30 minutos antes de executar quaisquer operações com os Serviços de Mídia (por exemplo, criar novos localizadores) para impedir que haja impacto em relação a trabalhos pendentes.
-> 
-> 
+>
+>
 
-## <a name="step-7:-update-locators"></a>Etapa 7: Atualizar localizadores
+## <a name="step-7-update-locators"></a>Etapa 7: Atualizar localizadores
 Após 30 minutos, é possível atualizar os localizadores OnDemand para que eles tenham dependência em relação à nova chave de armazenamento primária e mantenham a URL existente.
 
 Use o mesmo procedimento, conforme descrito na [etapa 3](media-services-roll-storage-access-keys.md#step-3-update-locators).
@@ -147,6 +151,8 @@ Use o mesmo procedimento, conforme descrito na [etapa 3](media-services-roll-sto
 ### <a name="acknowledgments"></a>Agradecimentos
 Gostaríamos de agradecer às pessoas que contribuíram para a criação deste documento: Cenk Dingiloglu, Milan Gada, Seva Titov.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

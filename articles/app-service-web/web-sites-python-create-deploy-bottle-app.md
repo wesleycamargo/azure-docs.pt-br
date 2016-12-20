@@ -1,13 +1,13 @@
 ---
 title: Aplicativos Web do Python com Bottle no Azure
-description: Um tutorial que apresenta a execução de um aplicativo Web do Python em aplicativos Web do Serviço de Aplicativo do Azure.
+description: "Um tutorial que apresenta a execução de um aplicativo Web do Python em aplicativos Web do Serviço de Aplicativo do Azure."
 services: app-service\web
 documentationcenter: python
 tags: python
 author: huguesv
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 84f043b8-9d05-479f-a9d0-d0d9a32a0bb9
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2016
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2be2e66c035ec90991f71c6632e7bcf056003a08
+
 
 ---
-# Criando aplicativos Web com Bottle no Azure
+# <a name="creating-web-apps-with-bottle-in-azure"></a>Criando aplicativos Web com Bottle no Azure
 Este tutorial descreve como começar a execução de Python em Aplicativos Web do Serviço de Aplicativo do Azure. Os Aplicativos Web fornecem hospedagem gratuita limitada e implantação rápida, além permitirem a você usar o Python! Conforme o aplicativo cresce, você pode alternar para hospedagem paga e também integrar-se com todos os outros serviços do Azure.
 
-Você criará um aplicativo Web usando a estrutura da Web Bottle (consulte versões alternativas deste tutorial para [Django](web-sites-python-create-deploy-django-app.md) e [Flask](web-sites-python-create-deploy-flask-app.md)). Você criará o aplicativo Web no Azure Marketplace, configurará a implantação do Git e clonará o repositório localmente. Em seguida, você vai executar o aplicativo localmente, fazer alterações, confirmá-las e enviá-las por push para os [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). O tutorial mostra como fazer isso por meio do Windows ou Mac/Linux.
+Você criará um aplicativo Web usando a estrutura da Web Bottle (veja as versões alternativas deste tutorial para [Django](web-sites-python-create-deploy-django-app.md) e [Flask](web-sites-python-create-deploy-flask-app.md)). Você criará o aplicativo Web no Azure Marketplace, configurará a implantação do Git e clonará o repositório localmente. Em seguida, você vai executar o aplicativo localmente, fazer alterações, confirmá-las e enviá-las por push para os [Aplicativos Web do Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). O tutorial mostra como fazer isso por meio do Windows ou Mac/Linux.
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -29,36 +33,36 @@ Você criará um aplicativo Web usando a estrutura da Web Bottle (consulte vers�
 > 
 > 
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Windows, Mac ou Linux
 * Python 2.7 ou 3.4
 * setuptools, pip, virtualenv (somente Python 2.7)
 * Git
-* [Ferramentas Python 2.2 para Visual Studio][Ferramentas Python 2.2 para Visual Studio] \(PTVS) Observação: isso é opcional
+* [Ferramentas Python 2.2 para Visual Studio][Ferramentas Python 2.2 para Visual Studio] (PTVS) — Observação: isso é opcional
 
 **Observação**: atualmente não há suporte à a publicação do TFS em projetos de Python.
 
-### Windows
-Se você ainda não tiver o Python 2.7 ou 3.4 instalado (32 bits), recomendamos instalar o [SDK do Azure para Python 2.7] ou [SDK do Azure para Python 3.4] usando o Web Platform Installer. Isso instala a versão de 32 bits do Python, setuptools, pip, virtualenv, etc (Python de 32 bits é o que está instalado nos computadores host do Azure). Como alternativa, você pode obter o Python por meio de [python.org].
+### <a name="windows"></a>Windows
+Caso você ainda não tenha o Python 2.7 ou 3.4 instalado (32 bits), recomendamos instalar o [SDK do Azure para Python 2.7] ou [SDK do Azure para Python 3.4] usando o Web Platform Installer. Isso instala a versão de 32 bits do Python, setuptools, pip, virtualenv, etc (Python de 32 bits é o que está instalado nos computadores host do Azure). Como alternativa, você pode obter o Python por meio de [python.org].
 
 Para Git, recomendamos [Git para Windows] ou [GitHub para Windows]. Se você usar o Visual Studio, você pode usar o suporte integrado a Git.
 
 Também recomendamos a instalação das [Ferramentas Python 2.2 para Visual Studio]. Isso é opcional, mas se você tiver o [Visual Studio], incluindo o Visual Studio Community 2013 ou o Visual Studio Express 2013 para Web gratuitos, isso lhe dará um excelente IDE (ambiente de desenvolvimento integrado) do Python.
 
-### Mac/Linux
+### <a name="maclinux"></a>Mac/Linux
 Você deve ter o Python e Git já instalados, mas certifique-se de ter uma das versões 2.7 ou 3.4 do Python.
 
-## Criação de aplicativo Web no Portal do Azure
-A primeira etapa na criação de seu aplicativo é criar o aplicativo Web por meio do [Portal do Azure](https://portal.azure.com).
+## <a name="web-app-creation-on-the-azure-portal"></a>Criação de aplicativo Web no Portal do Azure
+A primeira etapa na criação de seu aplicativo é criar o aplicativo Web por meio do [Portal do Azure](https://portal.azure.com).  
 
-1. Faça logon no Portal do Azure e clique no botão **Novo** no canto inferior esquerdo.
+1. Faça logon no Portal do Azure e clique no botão **Novo** no canto inferior esquerdo. 
 2. Na caixa de pesquisa, digite "python".
 3. Nos resultados da pesquisa, selecione **Bottle** e clique em **Criar**.
 4. Configure o novo aplicativo Bottle, como a criação de um novo plano de Serviço de Aplicativo e um novo grupo de recursos para ele. Em seguida, clique em **Criar**.
 5. Configure a publicação de Git para seu aplicativo Web recém-criado seguindo as instruções em [Implantação de GIT local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
 
-## Visão geral do aplicativo
-### Conteúdos do repositório Git
+## <a name="application-overview"></a>Visão geral do aplicativo
+### <a name="git-repository-contents"></a>Conteúdos do repositório Git
 Eis aqui uma visão geral dos arquivos que você encontrará no repositório Git inicial, o qual iremos clonar na próxima seção.
 
     \routes.py
@@ -70,7 +74,7 @@ Eis aqui uma visão geral dos arquivos que você encontrará no repositório Git
     \views\index.tpl
     \views\layout.tpl
 
-Fontes principais para o aplicativo. Consiste em 3 páginas (índice, sobre, contato) com um layout mestre. Scripts e conteúdo estático incluem bootstrap, jquery, modernizr e respond.
+Fontes principais para o aplicativo. Consiste em 3 páginas (índice, sobre, contato) com um layout mestre.  Scripts e conteúdo estático incluem bootstrap, jquery, modernizr e respond.
 
     \app.py
 
@@ -94,13 +98,13 @@ Pacotes externos requeridos por este aplicativo. O script de implantação fará
 
 Arquivos de configuração do IIS. O script de implantação usará o web.x.y.config apropriado e o copiará como web.config.
 
-### Arquivos opcionais - personalizando a implantação
+### <a name="optional-files---customizing-deployment"></a>Arquivos opcionais - personalizando a implantação
 [!INCLUDE [web-sites-python-customizing-deployment](../../includes/web-sites-python-customizing-deployment.md)]
 
-### Arquivos opcionais - tempo de execução do Python
+### <a name="optional-files---python-runtime"></a>Arquivos opcionais - tempo de execução do Python
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
-### Arquivos adicionais no servidor
+### <a name="additional-files-on-server"></a>Arquivos adicionais no servidor
 Alguns arquivos existem no servidor, mas não são adicionados ao repositório git. Eles são criados pelo script de implantação.
 
     \web.config
@@ -109,7 +113,7 @@ Arquivo de configuração do IIS. Criado por meio de web.x.y.config em toda impl
 
     \env\
 
-Ambiente virtual do Python. Criado durante a implantação, se ainda não existir um ambiente virtual compatível no aplicativo Web. Pacotes listados em requirements.txt são instalados por pip, mas o pip ignorará a instalação se os pacotes já estiverem instalados.
+Ambiente virtual do Python. Criado durante a implantação, se ainda não existir um ambiente virtual compatível no aplicativo Web.  Pacotes listados em requirements.txt são instalados por pip, mas o pip ignorará a instalação se os pacotes já estiverem instalados.
 
 As próximas três seções descrevem como prosseguir com o desenvolvimento de aplicativo Web em três ambientes diferentes:
 
@@ -117,15 +121,15 @@ As próximas três seções descrevem como prosseguir com o desenvolvimento de a
 * Windows, com linha de comando
 * Mac/Linux, com linha de comando
 
-## Desenvolvimento de aplicativo Web - Windows - Python Tools para Visual Studio
-### Clonar o repositório
+## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>Desenvolvimento de aplicativo Web - Windows - Python Tools para Visual Studio
+### <a name="clone-the-repository"></a>Clonar o repositório
 Primeiro, clone o repositório usando a URL fornecida no Portal do Azure. Para saber mais, consulte a [Implantação de Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
 
 Abra o arquivo da solução (.sln) que está incluído na raiz do repositório.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-solution-bottle.png)
 
-### Criar um ambiente virtual
+### <a name="create-virtual-environment"></a>Criar um ambiente virtual
 Agora vamos criar um ambiente virtual para desenvolvimento local. Clique com o botão direito do mouse em **Ambientes Python** e selecione **Adicionar ambiente virtual...**.
 
 * Verifique se o nome do ambiente é `env`.
@@ -136,21 +140,21 @@ Agora vamos criar um ambiente virtual para desenvolvimento local. Clique com o b
 
 Clique em **Criar**. Isso criará o ambiente virtual e instalar dependências listadas em requirements.txt.
 
-### Executar usando o servidor de desenvolvimento
+### <a name="run-using-development-server"></a>Executar usando o servidor de desenvolvimento
 Pressione F5 para iniciar a depuração e o navegador da Web abrirá automaticamente na página sendo executada localmente.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-Você pode definir pontos de interrupção nas fontes, usar as janelas de observação etc. Consulte [Ferramentas Python para Documentação do Visual Studio] para obter mais informações sobre os vários recursos.
+Você pode definir pontos de interrupção nas fontes, usar as janelas de observação etc. Consulte [Ferramentas Python para Documentação] do Visual Studio para obter mais informações sobre os vários recursos.
 
-### Fazer alterações
+### <a name="make-changes"></a>Fazer alterações
 Agora você pode experimentar, fazendo alterações às fontes e/ou modelos de aplicativos.
 
 Após ter testado as alterações, confirme-as no repositório do Git:
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-commit-bottle.png)
 
-### Instalar mais pacotes
+### <a name="install-more-packages"></a>Instalar mais pacotes
 Seu aplicativo pode ter dependências além de Python e Bottle.
 
 Você pode instalar pacotes adicionais usando pip. Para instalar um pacote, clique no ambiente virtual e selecione **Instalar pacote Python**.
@@ -163,7 +167,7 @@ Clique com o botão direito do mouse em no ambiente virtual e selecione **Gerar 
 
 Em seguida, confirme as alterações a requirements.txt no repositório Git.
 
-### Implantar no Azure
+### <a name="deploy-to-azure"></a>Implantar no Azure
 Para disparar uma implantação, clique em **Sincronização** ou **Push**. A opção Sincronização faz um envio por push e a extração.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/ptvs-git-push.png)
@@ -174,15 +178,15 @@ O Visual Studio não mostra o progresso da implantação. Se você quiser revisa
 
 Navegue até a URL do Azure para exibir suas alterações.
 
-## Desenvolvimento de aplicativos Web - Windows - linha de comando
-### Clonar o repositório
+## <a name="web-app-development---windows---command-line"></a>Desenvolvimento de aplicativos Web - Windows - linha de comando
+### <a name="clone-the-repository"></a>Clonar o repositório
 Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adicione o repositório do Azure como um remoto. Para saber mais, consulte a [Implantação de Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
     git remote add azure <repo-url> 
 
-### Criar um ambiente virtual
+### <a name="create-virtual-environment"></a>Criar um ambiente virtual
 Criaremos um novo ambiente virtual para fins de desenvolvimento (não o adicione ao repositório). Ambientes virtuais em Python não são relocáveis, portanto, todo desenvolvedor trabalhando no aplicativo criará seu próprio ambiente virtual localmente.
 
 Use a mesma versão do Python selecionada para seu aplicativo Web (em runtime.txt ou na folha Configurações do Aplicativo de seu aplicativo Web no Portal do Azure).
@@ -199,7 +203,7 @@ Instale quaisquer pacotes externos exigidos pelo seu aplicativo. Você pode usar
 
     env\scripts\pip install -r requirements.txt
 
-### Executar usando o servidor de desenvolvimento
+### <a name="run-using-development-server"></a>Executar usando o servidor de desenvolvimento
 Você pode iniciar o aplicativo em um servidor de desenvolvimento com o seguinte comando:
 
     env\scripts\python app.py
@@ -212,7 +216,7 @@ Em seguida, abra o navegador da Web para essa URL.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-### Fazer alterações
+### <a name="make-changes"></a>Fazer alterações
 Agora você pode experimentar, fazendo alterações às fontes e/ou modelos de aplicativos.
 
 Após ter testado as alterações, confirme-as no repositório do Git:
@@ -220,7 +224,7 @@ Após ter testado as alterações, confirme-as no repositório do Git:
     git add <modified-file>
     git commit -m "<commit-comment>"
 
-### Instalar mais pacotes
+### <a name="install-more-packages"></a>Instalar mais pacotes
 Seu aplicativo pode ter dependências além de Python e Bottle.
 
 Você pode instalar pacotes adicionais usando pip. Por exemplo, para instalar o SDK do Azure para Python, que fornece acesso ao armazenamento do Azure, ao barramento de serviço e a outros serviços do Azure, digite:
@@ -236,7 +240,7 @@ Confirme as alterações:
     git add requirements.txt
     git commit -m "Added azure package"
 
-### Implantar no Azure
+### <a name="deploy-to-azure"></a>Implantar no Azure
 Para disparar uma implantação, envie as alterações por push para o Azure:
 
     git push azure master
@@ -245,15 +249,15 @@ Você verá a saída do script de implantação, incluindo a criação do ambien
 
 Navegue até a URL do Azure para exibir suas alterações.
 
-## Desenvolvimento de aplicativos Web - Mac/Linux - linha de comando
-### Clonar o repositório
+## <a name="web-app-development---maclinux---command-line"></a>Desenvolvimento de aplicativos Web - Mac/Linux - linha de comando
+### <a name="clone-the-repository"></a>Clonar o repositório
 Primeiro, clone o repositório usando a URL fornecida no Portal do Azure e adicione o repositório do Azure como um remoto. Para saber mais, consulte a [Implantação de Git local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
     git remote add azure <repo-url> 
 
-### Criar um ambiente virtual
+### <a name="create-virtual-environment"></a>Criar um ambiente virtual
 Criaremos um novo ambiente virtual para fins de desenvolvimento (não o adicione ao repositório). Ambientes virtuais em Python não são relocáveis, portanto, todo desenvolvedor trabalhando no aplicativo criará seu próprio ambiente virtual localmente.
 
 Use a mesma versão do Python selecionada para seu aplicativo Web (em runtime.txt ou na folha Configurações do Aplicativo de seu aplicativo Web no Portal do Azure).
@@ -271,7 +275,7 @@ Instale quaisquer pacotes externos exigidos pelo seu aplicativo. Você pode usar
 
     env/bin/pip install -r requirements.txt
 
-### Executar usando o servidor de desenvolvimento
+### <a name="run-using-development-server"></a>Executar usando o servidor de desenvolvimento
 Você pode iniciar o aplicativo em um servidor de desenvolvimento com o seguinte comando:
 
     env/bin/python app.py
@@ -284,7 +288,7 @@ Em seguida, abra o navegador da Web para essa URL.
 
 ![](./media/web-sites-python-create-deploy-bottle-app/mac-browser-bottle.png)
 
-### Fazer alterações
+### <a name="make-changes"></a>Fazer alterações
 Agora você pode experimentar, fazendo alterações às fontes e/ou modelos de aplicativos.
 
 Após ter testado as alterações, confirme-as no repositório do Git:
@@ -292,7 +296,7 @@ Após ter testado as alterações, confirme-as no repositório do Git:
     git add <modified-file>
     git commit -m "<commit-comment>"
 
-### Instalar mais pacotes
+### <a name="install-more-packages"></a>Instalar mais pacotes
 Seu aplicativo pode ter dependências além de Python e Bottle.
 
 Você pode instalar pacotes adicionais usando pip. Por exemplo, para instalar o SDK do Azure para Python, que fornece acesso ao armazenamento do Azure, ao barramento de serviço e a outros serviços do Azure, digite:
@@ -308,7 +312,7 @@ Confirme as alterações:
     git add requirements.txt
     git commit -m "Added azure package"
 
-### Implantar no Azure
+### <a name="deploy-to-azure"></a>Implantar no Azure
 Para disparar uma implantação, envie as alterações por push para o Azure:
 
     git push azure master
@@ -317,24 +321,24 @@ Você verá a saída do script de implantação, incluindo a criação do ambien
 
 Navegue até a URL do Azure para exibir suas alterações.
 
-## Solução de problemas - Instalação de pacotes
+## <a name="troubleshooting---package-installation"></a>Solução de problemas - Instalação de pacotes
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## Solução de problemas - Ambiente virtual
+## <a name="troubleshooting---virtual-environment"></a>Solução de problemas - Ambiente virtual
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## Próximas etapas
-Siga esses links para saber mais sobre Bottle e Python Tools para o Visual Studio:
+## <a name="next-steps"></a>Próximas etapas
+Siga esses links para saber mais sobre Bottle e Python Tools para o Visual Studio: 
 
 * [Documentação do Bottle]
-* [Ferramentas Python para documentação do Visual Studio]
+* [Ferramentas Python para Documentação]
 
 Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o MongoDB:
 
 * [Bottle e MongoDB no Azure com Ferramentas Python 2.1 para Visual Studio]
 * [Bottle e Armazenamento de Tabela do Azure com Ferramentas Python 2.1 para Visual Studio]
 
-## O que mudou
+## <a name="whats-changed"></a>O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!--Link references-->
@@ -350,8 +354,12 @@ Para obter informações sobre como usar o Armazenamento de Tabela do Azure e o 
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
 [Ferramentas Python 2.2 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[Ferramentas Python para Documentação do Visual Studio]: http://aka.ms/ptvsdocs
+[Ferramentas Python para Documentação]: http://aka.ms/ptvsdocs 
 [Documentação do Bottle]: http://bottlepy.org/docs/dev/index.html
 
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

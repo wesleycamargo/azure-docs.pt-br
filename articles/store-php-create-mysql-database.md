@@ -4,17 +4,21 @@ description: Saiba como usar o Portal do Azure para criar um banco de dados MySQ
 documentationcenter: php
 services: app-service\web
 author: cephalin
-manager: wpickett
-editor: ''
+manager: erikre
+editor: 
 tags: mysql
-
+ms.assetid: 55465a9a-7e65-4fd9-8a65-dd83ee41f3e5
 ms.service: multiple
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm;cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b5f828f90c73f5fd0356fde4e71c11d4d27ec794
+
 
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Criar e conectar-se a um banco de dados MySQL no Azure
@@ -37,7 +41,7 @@ Para criar um banco de dados MySQL no Portal do Azure, faça o seguinte:
    * **Nome do Banco de Dados**: digite um nome que possa ser identificado de forma exclusiva
    * **Assinatura**: escolha a assinatura a ser usada
    * **Tipo de Banco de Dados**: escolha **Compartilhado** para os tipos de baixo custo ou gratuito, ou **Dedicado** para obter recursos dedicados. 
-   * **Grupo de recursos**: adicione o banco de dados MySQL a um [grupo de recursos](resource-group-overview.md) existente ou coloque-o em um novo. Os recursos no mesmo grupo podem ser gerenciados juntos com facilidade.
+   * **Grupo de recursos**: adicione o banco de dados MySQL a um [grupo de recursos](azure-resource-manager/resource-group-overview.md) existente ou coloque-o em um novo. Os recursos no mesmo grupo podem ser gerenciados juntos com facilidade.
    * **Local**: escolha um local perto de você. Ao adicionar a um grupo de recursos existente, você fica bloqueado no local do grupo de recursos.
    * **Tipo de Preço**: clique em **Tipo de Preço** e escolha uma opção de preço (o tipo **Mercury** é gratuito) e clique em **Selecionar**. 
    * **Termos Legais**: clique em **Termos Legais**, examine os detalhes da compra e clique em **Comprar**.
@@ -64,7 +68,7 @@ Para ver as informações de conexão do novo banco de dados MySQL, basta clicar
 
 Agora você pode usar essas informações de conexão em qualquer aplicativo Web. Um exemplo que mostra como usar as informações de conexão de um aplicativo PHP simples está disponível [aqui](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql).
 
-## <a name="connect-a-laravel-web-app-(from-the-php-get-started-tutorial)"></a>Conectar um aplicativo Web Laravel (a partir do tutorial de Introdução de PHP)
+## <a name="connect-a-laravel-web-app-from-the-php-get-started-tutorial"></a>Conectar um aplicativo Web Laravel (a partir do tutorial de Introdução de PHP)
 Vamos supor que você concluiu o tutorial [Criar, configurar e implantar um aplicativo Web PHP no Azure](app-service-web/app-service-web-php-get-started.md) e tem um aplicativo Web [Laravel](https://www.laravel.com/) em execução no Azure. Você pode adicionar facilmente recursos de banco de dados ao seu aplicativo Laravel. Basta executar as etapas abaixo:
 
 > [!NOTE]
@@ -82,12 +86,13 @@ Vamos supor que você concluiu o tutorial [Criar, configurar e implantar um apli
         DB_PASSWORD=<PASSWORD_from_properties_blade>
    
    > [!NOTE]
-   > Na folha **Propriedades**, o nome do banco de dados MySQL pode ou não ser aquele mostrado no campo **NOME DO BANCO DE DADOS**. É melhor verificar o parâmetro Banco de dados no campo **CADEIA DE CONEXÃO** campo. 
+   > Na folha **Propriedades**, o nome do banco de dados MySQL pode ou não ser aquele mostrado no campo **NOME DO BANCO DE DADOS**. É melhor verificar o parâmetro Banco de dados no campo **CADEIA DE CONEXÃO** campo.    
    > 
    > ![Criar um banco de dados MySQL no Azure - em andamento](./media/store-php-create-mysql-database/connect-db-1-database-name.png)
    > 
    > 
-2. A maneira mais rápida de verificar se você tem acesso ao MySQL é usar [scaffolding de autenticação padrão do Laravel](https://laravel.com/docs/5.2/authentication#authentication-quickstart). No terminal de linha de comando, execute os seguintes comandos do diretório raiz de seu aplicativo Laravel:
+2. A maneira mais rápida de verificar se você tem acesso ao MySQL é usar [scaffolding de autenticação padrão do Laravel](https://laravel.com/docs/5.2/authentication#authentication-quickstart). 
+   No terminal de linha de comando, execute os seguintes comandos do diretório raiz de seu aplicativo Laravel:
    
          php artisan migrate
          php artisan make:auth
@@ -136,6 +141,9 @@ Vamos supor que você concluiu o tutorial [Criar, configurar e implantar um apli
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

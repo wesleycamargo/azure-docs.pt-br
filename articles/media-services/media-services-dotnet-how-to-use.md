@@ -1,22 +1,26 @@
 ---
-title: Como configurar o computador para desenvolvimento dos serviços de mídia com o .NET
-description: Conheça os pré-requisitos para os Serviços de Mídia usando o SDK dos Serviços de Mídia para .NET. Saiba também como criar um aplicativo do Visual Studio.
+title: "Como configurar o computador para desenvolvimento dos serviços de mídia com o .NET"
+description: "Conheça os pré-requisitos para os Serviços de Mídia usando o SDK dos Serviços de Mídia para .NET. Saiba também como criar um aplicativo do Visual Studio."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
+
 
 ---
-# <a name="media-services-development-with-.net"></a>Desenvolvimento de serviços de mídia com o .NET
+# <a name="media-services-development-with-net"></a>Desenvolvimento de serviços de mídia com o .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 Este tópico discute como começar a desenvolver aplicativos de serviços de mídia usando o .NET.
@@ -36,30 +40,25 @@ Esta seção mostra como usar **NuGet** para adicionar o SDK do .NET dos Serviç
 
 Como alternativa, você pode obter os bits mais recentes do SDK do .NET dos Serviços de Mídia no GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) e [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), criar a solução e adicionar as referências ao projeto do cliente. Observe que todas as dependências necessárias obtém por download e são extraídas automaticamente.
 
-1. Crie um novo Aplicativo de Console C# no Visual Studio 2013, no Visual Studio 2012 ou no Visual Studio 2010 SP1. Digite o **Nome**, o **Local** e o **Nome da solução** e clique em OK.
+1. Crie um novo Aplicativo de Console C# no Visual Studio 2010 SP1 ou versões posteriores do VS. Digite o **Nome**, o **Local** e o **Nome da solução** e clique em OK.
 2. Compilar a solução.
 3. Use o **NuGet** para instalar e adicionar **extensões do SDK do .NET dos Serviços de Mídia do Azure**. Instalar esse pacote também instala o **SDK do .NET dos Serviços de Mídia** e adiciona todas as outras dependências necessárias.
-4. Certifique-se de que você tenha a versão mais recente do NuGet instalada. Para obter mais informações e instruções de instalação, consulte [NuGet](http://nuget.codeplex.com/).
-5. No Gerenciador de Solução, clique o nome do projeto e escolha gerenciar pacotes NuGet...
-
-A caixa de diálogo Gerenciar Pacotes NuGet será exibida.
-
-1. Na Galeria Online, procure por extensões de serviços de mídia do Azure, escolha extensões do SDK do .NET dos Serviços de Mídia e, em seguida, clique no botão Instalar.
-
-O projeto é modificado e faz referência às extensões do SDK do .NET dos Serviços de Mídia, ao SDK do .NET dos Serviços de Mídia e a outros assemblies dependentes adicionados.
-
-1. Para promover um ambiente de desenvolvimento mais limpo, considere a ativação da restauração de pacote do NuGet. Para obter mais informações, consulte [Restauração do pacote NuGet"](http://docs.nuget.org/consume/package-restore).
-2. Adicionar uma referência ao assembly **System.Configuration** . Este assembly contém a classe System.Configuration.**ConfigurationManager** que é utilizada para acessar arquivos de configuração (por exemplo, App.config).
-
-Para adicionar referências usando a caixa de diálogo Gerenciar Referências, proceda da maneira a seguir:
-
-1. No Gerenciador de Solução, clique no nome do projeto. Em seguida, selecione Adicionar e Referências.
-
-Aparece a caixa de diálogo Gerenciar referências.
-
-1. Em assemblies do .NET Framework, localize e selecione o assembly System. Configuration.
-2. Pressione OK.
-3. Abra o arquivo App.config (adicione o arquivo ao seu projeto se ele não foi adicionado por padrão) e adicione uma seção *appSettings* ao arquivo.     
+   
+    Certifique-se de que você tenha a versão mais recente do NuGet instalada. Para obter mais informações e instruções de instalação, consulte [NuGet](http://nuget.codeplex.com/).
+4. No Gerenciador de Solução, clique o nome do projeto e escolha gerenciar pacotes NuGet...
+   
+    A caixa de diálogo Gerenciar Pacotes NuGet será exibida.
+5. Na Galeria Online, procure por extensões de serviços de mídia do Azure, escolha extensões do SDK do .NET dos Serviços de Mídia e, em seguida, clique no botão Instalar.
+   
+    O projeto é modificado e faz referência às extensões do SDK do .NET dos Serviços de Mídia, ao SDK do .NET dos Serviços de Mídia e a outros assemblies dependentes adicionados.
+6. Para promover um ambiente de desenvolvimento mais limpo, considere a ativação da restauração de pacote do NuGet. Para obter mais informações, consulte [Restauração do pacote NuGet"](http://docs.nuget.org/consume/package-restore).
+7. Adicionar uma referência ao assembly **System.Configuration** . Este assembly contém a classe System.Configuration.**ConfigurationManager** que é utilizada para acessar arquivos de configuração (por exemplo, App.config).
+   
+    Para adicionar referências usando a caixa de diálogo Gerenciar referências, clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções. Em seguida, selecione Adicionar e Referências.
+   
+    Aparece a caixa de diálogo Gerenciar referências.
+8. Em assemblies do .NET Framework, localize e selecione o assembly System.Configuration e pressione OK.
+9. Abra o arquivo App.config (adicione o arquivo ao seu projeto se ele não foi adicionado por padrão) e adicione uma seção *appSettings* ao arquivo.     
    Defina os valores para o nome e chave de conta de seus Serviços de Mídia do Azure, conforme mostrado no exemplo a seguir.
    
     Para localizar os valores de Nome e Chave, vá para o Portal do Azure e selecione sua conta. A janela Configurações aparece à direita. Na janela Configurações, selecione Chaves. Clicando no ícone ao lado de cada caixa de texto, o valor é copiado para a área de transferência do sistema.
@@ -73,7 +72,7 @@ Aparece a caixa de diálogo Gerenciar referências.
 
         </configuration>
 
-1. Substitua a instruções using existentes no início do arquivo Program.cs pelo código a seguir.
+1. Substitua as instruções **using** existentes no início do arquivo Program.cs pelo código a seguir.
    
         using System;
         using System.Collections.Generic;
@@ -93,6 +92,9 @@ Neste ponto, você está pronto para começar a desenvolver um aplicativo de Ser
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

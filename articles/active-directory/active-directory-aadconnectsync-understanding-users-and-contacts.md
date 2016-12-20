@@ -1,19 +1,23 @@
 ---
-title: 'Sincronização do Azure AD Connect: noções básicas sobre usuários e contatos | Microsoft Docs'
-description: Explica usuários e contatos na sincronização do Azure AD Connect.
+title: "Sincronização do Azure AD Connect: Noções Básicas sobre Usuários e Contatos | Microsoft Docs"
+description: "Explica usuários e contatos na sincronização do Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8d204647-213a-4519-bd62-49563c421602
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: markusvi;andkjell
+ms.author: markvi;andkjell
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 133535646c579de78bfe9ef4bc132899723770ff
+
 
 ---
 # <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect Sync: noções básicas sobre usuários e contatos
@@ -51,6 +55,9 @@ Quando um objeto é exportado para o AD do Azure, não é mais permitido alterar
 * [Azure AD Connect Sync: personalizando opções de sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

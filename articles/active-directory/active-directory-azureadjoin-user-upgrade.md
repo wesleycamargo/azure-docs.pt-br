@@ -1,13 +1,13 @@
 ---
 title: Configurar um dispositivo Windows 10 com o Azure AD de Settings| Microsoft Docs
-description: Explica como os usuários podem unir-se ao Azure AD por meio do menu Configurações.
+description: "Explica como os usuários podem unir-se ao Azure AD por meio do menu Configurações."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: b844e1d9-ad43-4e4a-a398-5c4a43bf2f5c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 70610ec2c5a056d63ed854b33d84e29951940c2f
+
 
 ---
 # <a name="set-up-a-windows-10-device-with-azure-ad-from-settings"></a>Configurar um dispositivo Windows 10 com o Azure AD nas Configurações
@@ -43,6 +47,9 @@ Se já estiver usando o Windows 7 ou Windows 8 e o computador ou dispositivo tiv
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 * [Autenticando identidades sem senhas com o Microsoft Passport](active-directory-azureadjoin-passport.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

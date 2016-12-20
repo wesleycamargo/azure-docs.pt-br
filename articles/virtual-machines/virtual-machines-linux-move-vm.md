@@ -1,13 +1,13 @@
 ---
 title: Mover uma VM Linux | Microsoft Docs
-description: Mova uma VM Linux para outro grupo de recursos ou outra assinatura do Azure no modelo de implantação do Resource Manager.
+description: "Mova uma VM Linux para outro grupo de recursos ou outra assinatura do Azure no modelo de implantação do Resource Manager."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,22 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3e22b8173e7b0a470c5c45ed6027a717b90aca23
+
 
 ---
-# Mover uma VM Linux para outro grupo de recursos ou outra assinatura
+# <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Mover uma VM Linux para outro grupo de recursos ou outra assinatura
 Este artigo explica como mover uma VM Linux entre grupos de recursos ou assinaturas. Mover uma VM entre assinaturas poderá ser útil se você tiver criado uma VM em uma assinatura pessoal e agora quiser movê-la para a assinatura da sua empresa.
 
 > [!NOTE]
-> Novas IDs de recurso são criadas como parte da mudança. Após a mudança da VM, você precisa atualizar ferramentas e scripts para usar as novas IDs de recurso.
+> Novas IDs de recurso são criadas como parte da mudança. Após a mudança da VM, você precisa atualizar ferramentas e scripts para usar as novas IDs de recurso. 
 > 
 > 
 
-## Usar a CLI do Azure para mover uma VM
+## <a name="use-the-azure-cli-to-move-a-vm"></a>Usar a CLI do Azure para mover uma VM
 Para mover uma VM com êxito, você precisa mover a VM e todos os seus recursos de suporte. Use o comando **azure group show** para listar todos os recursos em um grupo de recursos e suas IDs. Ele ajuda a direcionar a saída desse comando para um arquivo de modo que seja possível copiar e colar as IDs em comandos posteriores.
 
     azure group show <resourceGroupName>
 
-Para mover uma VM e seus recursos para outro grupo de recursos, use o comando da CLI **azure resource move**. O exemplo a seguir mostra como mover uma VM e os recursos mais comuns que ela exige. Usamos o parâmetro **-i** e o passamos em uma lista de IDs separadas por vírgulas (sem espaços) para os recursos a serem movidos.
+Para mover uma VM e seus recursos para outro grupo de recursos, use o comando da CLI **azure resource move** . O exemplo a seguir mostra como mover uma VM e os recursos mais comuns que ela exige. Usamos o parâmetro **-i** e o passamos em uma lista de IDs separadas por vírgulas (sem espaços) para os recursos a serem movidos.
 
     vm=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Compute/virtualMachines/<vmName>
     nic=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkInterfaces/<nicName>
@@ -50,7 +54,12 @@ Será solicitado que você confirme que deseja mover o recurso especificado. Dig
 
 [!INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
 
-## Próximas etapas
-Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../resource-group-move-resources.md).
+## <a name="next-steps"></a>Próximas etapas
+Você pode mover vários tipos diferentes de recursos entre grupos de recursos e assinaturas. Para saber mais, confira [Mover recursos para um novo grupo de recursos ou assinatura](../resource-group-move-resources.md).    
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

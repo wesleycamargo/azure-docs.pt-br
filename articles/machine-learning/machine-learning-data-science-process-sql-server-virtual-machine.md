@@ -2,11 +2,11 @@
 title: Processar dados do SQL Azure | Microsoft Docs
 description: Processar dados do SQL Azure
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: fashah;garye;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dac57c04453c071279534795464907a67d88a3b0
+
 
 ---
-# <a name="heading"></a>Processar dados na Máquina Virtual do SQL Server no Azure
+# <a name="a-nameheadingaprocess-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>Processar dados na Máquina Virtual do SQL Server no Azure
 Este documento aborda como explorar dados e gerar recursos dados armazenados em uma VM do SQL Server no Azure. Isso pode ser feito por disputa de dados usando SQL ou usando uma linguagem de programação como Python.
 
 > [!NOTE]
@@ -24,46 +28,46 @@ Este documento aborda como explorar dados e gerar recursos dados armazenados em 
 > 
 > 
 
-## <a name="SQL"></a>Usando o SQL
+## <a name="a-namesqlausing-sql"></a><a name="SQL"></a>Usando o SQL
 Descrevemos as seguintes tarefas wrangling de dados nesta seção usando SQL:
 
 1. [Exploração de Dados](#sql-dataexploration)
 2. [Geração de Recursos](#sql-featuregen)
 
-### <a name="sql-dataexploration"></a>Exploração de Dados
+### <a name="a-namesql-dataexplorationadata-exploration"></a><a name="sql-dataexploration"></a>Exploração de Dados
 Aqui estão alguns scripts de SQL de exemplo que podem ser usados para explorar armazenamentos de dados no SQL Server.
 
 > [!NOTE]
-> Para ver um exemplo prático, você pode usar o [conjunto de dados de Táxis de NYC](http://www.andresmh.com/nyctaxitrips/) e ver o IPNB intitulado [Realizar o wrangling de dados de NYC usando o IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para obter um treinamento de ponta a ponta.
+> Para ver um exemplo prático, é possível usar o [conjunto de dados de Táxis de NYC](http://www.andresmh.com/nyctaxitrips/) e consultar o IPNB intitulado[NYC Data wrangling using IPython Notebook and SQL Server (Realizar o wrangling de dados de NYC usando o IPython Notebook e SQL Server)](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para obter um passo a passo de ponta a ponta.
 > 
 > 
 
 1. Obter a contagem de observações por dia
    
-    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)`
+    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
 2. Obter os níveis em uma coluna categórica
    
     `select  distinct <column_name> from <databasename>`
-3. Obter o número de níveis na combinação de duas colunas categóricas
+3. Obter o número de níveis na combinação de duas colunas categóricas 
    
     `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
 4. Obter a distribuição de colunas numéricas
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
-### <a name="sql-featuregen"></a>Geração de Recursos
-Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:
+### <a name="a-namesql-featuregenafeature-generation"></a><a name="sql-featuregen"></a>Geração de Recursos
+Nesta seção, descrevemos as maneiras de gerar recursos usando SQL:  
 
 1. [Geração de recursos baseada em contagem](#sql-countfeature)
 2. [Agrupamento da Geração de Recursos](#sql-binningfeature)
 3. [Propagar os recursos de uma única coluna](#sql-featurerollout)
 
 > [!NOTE]
-> Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser unida com a tabela original.
+> Depois de gerar recursos adicionais, você pode adicioná-los como colunas à tabela existente ou criar uma nova tabela com os recursos adicionais e a chave primária, que pode ser unida com a tabela original. 
 > 
 > 
 
-### <a name="sql-countfeature"></a>Geração de recursos baseada em contagem
+### <a name="a-namesql-countfeatureacount-based-feature-generation"></a><a name="sql-countfeature"></a>Geração de recursos baseada em contagem
 Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro método usa a soma condicional e o segundo usa a cláusula 'where'. Eles podem então ser unidos à tabela original (usando colunas de chave primária) para que os recursos de contagem fiquem junto com os dados originais.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
@@ -71,16 +75,16 @@ Este documento demonstra duas maneiras de gerar recursos de contagem. O primeiro
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename> 
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2> 
 
-### <a name="sql-binningfeature"></a>Agrupamento da Geração de Recursos
+### <a name="a-namesql-binningfeatureabinning-feature-generation"></a><a name="sql-binningfeature"></a>Agrupamento da Geração de Recursos
 O exemplo a seguir mostra como gerar recursos compartimentalizados guardando (usando 5 compartimentos) uma coluna numérica que poderá ser usada como um recurso:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
-### <a name="sql-featurerollout"></a>Propagar os recursos de uma única coluna
+### <a name="a-namesql-featurerolloutarolling-out-the-features-from-a-single-column"></a><a name="sql-featurerollout"></a>Propagar os recursos de uma única coluna
 Nesta seção, demonstraremos como propagar uma única coluna em uma tabela para gerar recursos adicionais. O exemplo presume que há uma coluna de latitude ou longitude na tabela da qual você está tentando gerar recursos.
 
-Apresentamos aqui uma breve cartilha sobre dados de localização de latitude/longitude (extraídos de [How to measure the accuracy of latitude and longitude?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude) [Como medir a precisão de latitude e longitude?] do StackOverflow). É útil entender isso antes de destacar o campo local:
+Apresentamos aqui uma breve cartilha sobre dados de localização de latitude/longitude (extraídos de [How to measure the accuracy of latitude and longitude?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)[Como medir a precisão de latitude e longitude?] do StackOverflow). É útil entender isso antes de destacar o campo local:
 
 * O sinal nos informa se estamos na parte norte ou sul, leste ou oeste do globo.
 * Um dígito em centenas diferente de zero informa que estamos usando longitude, não latitude!
@@ -106,19 +110,19 @@ As informações de local podem ser destacadas da maneira indicada a seguir, sep
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Os recursos baseados em local indicados acima podem ser usados ainda para gerar recursos adicionais de contagem, como descrito anteriormente.
+Os recursos baseados em local indicados acima podem ser usados ainda para gerar recursos adicionais de contagem, como descrito anteriormente. 
 
 > [!TIP]
-> É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação (para obter um exemplo de como fazer isso usando o pyodbc, veja [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python) [Uma amostra do HelloWorld para acessar o SQL Server com o Python]). Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx).
+> É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação (para obter um exemplo de como fazer isso usando o pyodbc, veja [A HelloWorld sample to access SQLServer with python](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python)[Uma amostra do HelloWorld para acessar o SQL Server com o Python]). Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx).
 > 
 > 
 
-### <a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
-O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Os recursos podem ser gerados ou acessados se já foram criados, usando o módulo [Importar dados][import-data] no Aprendizado de Máquina do Azure, conforme mostrado abaixo:
+### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
+O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Os recursos podem ser gerados ou acessados se já tiverem sido criados, usando o módulo [Importar dados][import-data] no Azure Machine Learning, conforme mostrado abaixo:
 
-![leitores de azureml][1]
+![leitores de azureml][1] 
 
-## <a name="python"></a>Usando uma linguagem de programação como Python
+## <a name="a-namepythonausing-a-programming-language-like-python"></a><a name="python"></a>Usando uma linguagem de programação como Python
 Usar o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados no blob do Azure usando o Python conforme documentado em [Processar dados de Blob do Azure em seu ambiente de ciência de dados](machine-learning-data-science-process-data-blob.md). Os dados precisam ser carregados do banco de dados para um quadro de dados pandas, quando então poderão ser processados. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um quadro de dados nesta seção.
 
 O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados do SQL Server do Python usando pyodbc (substitua servername, dbname, nome de usuário e senha pelos seus valores específicos):
@@ -134,7 +138,7 @@ A [Biblioteca Pandas](http://pandas.pydata.org/) no Python fornece um conjunto a
 
 Agora, você pode trabalhar com o quadro de dados do Pandas, como abordamos no artigo [Processar dados do Blob do Azure em seu ambiente de ciência de dados](machine-learning-data-science-process-data-blob.md).
 
-## Exemplo da Ciência de Dados do Azure em Ação
+## <a name="azure-data-science-in-action-example"></a>Exemplo da Ciência de Dados do Azure em Ação
 Para obter um exemplo passo a passo e ponta a ponta do Processo de Ciência de Dados do Azure usando um conjunto de dados público, consulte [Processo de Ciência de Dados do Azure em Ação](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png
@@ -144,4 +148,8 @@ Para obter um exemplo passo a passo e ponta a ponta do Processo de Ciência de D
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

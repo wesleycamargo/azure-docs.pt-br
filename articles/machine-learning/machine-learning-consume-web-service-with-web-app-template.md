@@ -1,25 +1,29 @@
 ---
-title: Consumir um serviço Web de Aprendizado de Máquina com um modelo de aplicativo Web | Microsoft Docs
-description: Use um modelo de aplicativo Web no Azure Marketplace para consumir um serviço Web preditivo no Aprendizado de Máquina do Azure.
-keywords: serviço Web, operacionalização, API REST, aprendizado de máquina
+title: "Consumir um serviço Web do Machine Learning com um modelo de aplicativo Web | Microsoft Docs"
+description: "Use um modelo de aplicativo Web no Azure Marketplace para consumir um serviço Web preditivo no Aprendizado de Máquina do Azure."
+keywords: "serviço Web, operacionalização, API REST, aprendizado de máquina"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2016
+ms.date: 10/10/2016
 ms.author: garye;raymondl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c115ba524a8a87a3ba5349a668079d8bc817f794
+
 
 ---
-# Consumir um serviço Web de Aprendizado de Máquina do Azure com um modelo de aplicativo Web
+# <a name="consume-an-azure-machine-learning-web-service-with-a-web-app-template"></a>Consumir um serviço Web de Aprendizado de Máquina do Azure com um modelo de aplicativo Web
 > [!NOTE]
-> Este tópico descreve técnicas aplicáveis a um serviço Web clássico.
+> Este tópico descreve técnicas aplicáveis a um serviço Web clássico. 
 > 
 > 
 
@@ -31,7 +35,7 @@ Mas a maneira mais rápida e fácil de acessar o serviço Web é por meio dos mo
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Os Modelos de Aplicativos Web do Aprendizado de Máquina do Azure
+## <a name="the-azure-machine-learning-web-app-templates"></a>Os Modelos de Aplicativos Web do Aprendizado de Máquina do Azure
 Os modelos de aplicativo Web disponíveis no Azure Marketplace podem compilar um aplicativo Web personalizado que conhece os dados de entrada do seu serviço Web e os resultados esperados. Basta fornecer ao aplicativo Web o acesso ao serviço e aos dados da Web para que o modelo faça o resto.
 
 Dois modelos estão disponíveis:
@@ -43,7 +47,7 @@ Cada modelo cria um aplicativo ASP.NET de exemplo, usando o URI da API e a Chave
 
 Nenhuma codificação é necessária para usar esses modelos. Basta fornecer o URI da API e a Chave para que o modelo compile o aplicativo para você.
 
-## Como usar o modelo RRS (Serviço de Solicitação-Resposta)
+## <a name="how-to-use-the-request-response-service-rrs-template"></a>Como usar o modelo RRS (Serviço de Solicitação-Resposta)
 Depois de implantar o serviço Web, você pode seguir as etapas abaixo para usar o modelo de aplicativo Web de RRS, como mostrado no diagrama a seguir.
 
 ![Processo para usar o modelo da Web RRS][image1]
@@ -51,22 +55,23 @@ Depois de implantar o serviço Web, você pode seguir as etapas abaixo para usar
 1. No Estúdio de Aprendizado de Máquina, abra a guia **Serviços Web** e, em seguida, abra o serviço Web que deseja acessar. Copie a chave listada em **Chave de API** e salve-a.
    
     ![Chave de API][image3]
-2. Abra a Página de Ajuda da API **REQUEST/RESPONSE**. Na parte superior da Página de Ajuda, em **Solicitar**, copie o valor do **URI de Solicitação** e salve-o. Esse valor terá esta aparência:
+2. Abra a Página de Ajuda da API **REQUEST/RESPONSE** . Na parte superior da página de ajuda, em **Solicitar**, copie o valor do **URI de Solicitação** e salve-o. Esse valor terá esta aparência:
    
         https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
    
     ![URI da solicitação][image4]
-3. Vá para o [portal do Azure](https://portal.azure.com), **Logon**, clique em **Novo**, Pesquisar e selecione **Aplicativo Web do Serviço de Solicitação-Resposta do AM do Azure** e clique em **Criar**.
+3. Vá para o [portal do Azure](https://portal.azure.com), **Logon**, clique em **Novo**, Pesquisar e selecione **Aplicativo Web do Serviço de Solicitação-Resposta do ML do Azure** e clique em **Criar**. 
    
    * Dê um nome exclusivo ao seu aplicativo Web. A URL do aplicativo Web será esse nome seguido de `.azurewebsites.net.` Por exemplo, `http://carprediction.azurewebsites.net.`
    * Selecione a assinatura do Azure e os serviços nos quais seu serviço Web está sendo executado.
    * Clique em **Criar**.
      
-     ![Criar um aplicativo Web][image5]
+     ![Criar Aplicativo Web][image5]
 4. Quando o Azure concluir a implantação do aplicativo Web, clique na **URL** na página de configurações do aplicativo Web no Azure, ou insira a URL em um navegador da Web. Por exemplo, `http://carprediction.azurewebsites.net.`
-5. Quando o aplicativo Web é executado pela primeira vez, ele solicita a **URL de Postagem da API** e a **Chave de API**. Digite os valores que você salvou anteriormente:
+5. Quando o aplicativo Web é executado pela primeira vez, ele solicita a **URL de Postagem da API** e a **Chave de API**.
+   Digite os valores que você salvou anteriormente:
    
-   * **URI de Solicitação** da Página de Ajuda da API para a **URL da Postagem da API**
+   * **URI de Solicitação** da Página de Ajuda da API para a **URL de Postagem da API**
    * **Chave de API** no painel do serviço Web para a **Chave de API**.
      
      Clique em **Enviar**.
@@ -79,17 +84,18 @@ Depois de implantar o serviço Web, você pode seguir as etapas abaixo para usar
    > 
    > 
    
-    Quando terminar, clique em **Salvar alterações** e clique em **Ir para a Página Inicial**.
-7. Na página inicial, é possível inserir valores para enviar para o serviço Web e clicar em **Enviar** para que o resultado seja retornado.
+    Quando terminar, clique em **Salvar Alterações** e clique em **Ir para a Página Inicial**.
+7. Na página inicial, é possível inserir valores para enviar para o serviço Web e clicar em **Enviar**para que o resultado seja retornado.
 
 Para retornar à página **Configuração**, vá para a página `setting.aspx` do aplicativo Web. Por exemplo: `http://carprediction.azurewebsites.net/setting.aspx.` Você será solicitado a digitar a chave de API novamente – você precisa dela para acessar a página e atualizar as configurações.
 
 Você pode parar, reiniciar ou excluir o aplicativo Web no portal do Azure como qualquer outro aplicativo Web. Enquanto ele estiver em execução, você poderá navegar até o endereço web da página inicial e inserir novos valores.
 
-## Como usar o modelo BES (Serviço de Execução em Lote)
+## <a name="how-to-use-the-batch-execution-service-bes-template"></a>Como usar o modelo BES (Serviço de Execução em Lote)
 É possível usar o modelo de aplicativo Web BES da mesma forma que o modelo RRS, exceto que o aplicativo Web criado permitirá que você envie várias linhas de dados e receba vários resultados.
 
-Os resultados de um serviço Web de execução em lotes são armazenados em um contêiner de armazenamento do Azure; os valores de entrada podem ter como origem um arquivo local ou o armazenamento do Azure. Assim, você precisará de um contêiner de armazenamento do Azure para armazenar os resultados retornados pelo aplicativo Web e precisará preparar os dados de entrada.
+Os resultados de um serviço Web de execução em lotes são armazenados em um contêiner de armazenamento do Azure; os valores de entrada podem ter como origem um arquivo local ou o armazenamento do Azure.
+Assim, você precisará de um contêiner de armazenamento do Azure para armazenar os resultados retornados pelo aplicativo Web e precisará preparar os dados de entrada.
 
 ![Processo para usar o modelo da Web BES][image2]
 
@@ -97,13 +103,15 @@ Os resultados de um serviço Web de execução em lotes são armazenados em um c
    
    * Obtenha o **URI de Solicitação** da Página de Ajuda da API **BATCH EXECUTION** do serviço Web.
    * Vá para [Modelo do Aplicativo Web do Serviço de Execução em Lote do Aprendizado de Máquina do Azure](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) para abrir o modelo BES no Azure Marketplace e clique em **Criar Aplicativo Web**.
-2. Para especificar onde você deseja que os resultados sejam armazenados, insira as informações do contêiner de destino na home page do aplicativo Web. Especifique também onde o aplicativo Web pode obter os valores de entrada, em um arquivo local ou em um contêiner de armazenamento do Azure. Clique em **Enviar**.
+2. Para especificar onde você deseja que os resultados sejam armazenados, insira as informações do contêiner de destino na home page do aplicativo Web. Especifique também onde o aplicativo Web pode obter os valores de entrada, em um arquivo local ou em um contêiner de armazenamento do Azure.
+   Clique em **Enviar**.
    
     ![Informações de armazenamento][image7]
 
-O aplicativo Web exibirá uma página com o status do trabalho. Quando tiver concluído o trabalho, você receberá o local dos resultados no armazenamento de blob do Azure. Você também tem a opção de baixar os resultados em um arquivo local.
+O aplicativo Web exibirá uma página com o status do trabalho.
+Quando tiver concluído o trabalho, você receberá o local dos resultados no armazenamento de blob do Azure. Você também tem a opção de baixar os resultados em um arquivo local.
 
-## Para obter mais informações
+## <a name="for-more-information"></a>Para obter mais informações
 Para saber mais sobre...
 
 * como criar uma experiência de aprendizado de máquina com o Estúdio de Aprendizado de Máquina, veja [Criar seu primeiro teste no Estúdio de Aprendizado de Máquina do Azure](machine-learning-create-experiment.md)
@@ -118,4 +126,8 @@ Para saber mais sobre...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

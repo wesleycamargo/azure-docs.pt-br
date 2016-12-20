@@ -1,12 +1,12 @@
 ---
-title: Recursos e configurações do serviço de sincronização do Azure AD Connect | Microsoft Docs
-description: Descreve os recursos do serviço de sincronização do Azure AD Connect.
+title: "Recursos e configurações do serviço de sincronização do Azure AD Connect | Microsoft Docs"
+description: "Descreve os recursos do serviço de sincronização do Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: andkjell;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 70f6596ec85f8662efecd99679fde6b7e9a29aae
+
 
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Recursos do serviço de sincronização do Azure AD Connect
@@ -104,6 +108,9 @@ Depois de habilitar esse recurso, os valores existentes de userPrincipalName per
 * [Sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

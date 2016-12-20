@@ -1,12 +1,12 @@
 ---
-title: Azure Role Properties
-description: Learn how to use the Azure Toolkit for Eclipse to configure Azure role settings.
-services: ''
+title: "Propriedades da função do Azure"
+description: "Saiba como usar o Kit de Ferramentas do Azure para Eclipse para definir as configurações de função do Azure."
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5c0ec412-5702-465a-8f47-87a8ce99a267
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,418 +14,422 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6b65a0c306ec9316fd8a86f8ebb2808cce65200a
+
 
 ---
-# <a name="azure-role-properties"></a>Azure Role Properties
-Various configuration settings for your Azure role can be set within the Azure Toolkit for Eclipse.
+# <a name="azure-role-properties"></a>Propriedades da função do Azure
+É possível definir várias configurações para sua função do Azure dentro do Kit de Ferramentas do Azure para Eclipse.
 
-## <a name="configuring-azure-role-properties"></a>Configuring Azure Role Properties
-Configuring your Azure Role Properties is accomplished through the property dialogs for your worker role. Open the context menu for the role in Eclipse's Project Explorer pane and select the **Azure** sub-menu. (If you don't see the role in the Eclipse Project Explorer, expand your Azure project in Project Explorer.)
+## <a name="configuring-azure-role-properties"></a>Configuração das propriedades da função do Azure
+A configuração das propriedades de função do Azure é feita por meio de caixas de diálogo de propriedade para sua função de trabalho. Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse e selecione o submenu **Azure** . (Se você não vir a função no Gerenciador de Projeto do Eclipse, expanda seu projeto do Azure no Gerenciador de Projeto.)
 
 ![][ic789599]
 
-The various properties that can be set from the **Properties** dialogs are described in this topic. Note that many properties are filled in automatically when you create a new Azure deployment project.
+Este tópico descreve as diversas propriedades que podem ser definidas nas caixas de diálogo **Propriedades** . Observe que muitas propriedades são preenchidas automaticamente quando você cria um novo projeto de implantação do Azure.
 
-The following property pages are available for Azure roles.
+As páginas de propriedade a seguir estão disponíveis para funções do Azure.
 
-* [Virtual machine properties](#virtual_machine_properties)
-* [Caching properties](#caching_properties)
-* [Certificates properties](#certificates_properties)
-* [Components properties](#components_properties)
-* [Debugging properties](#debugging_properties)
-* [Endpoints properties](#endpoints_properties)
-* [Environment variables properties](#environment_variables_properties)
-* [Load balancing / session affinity (a.k.a "sticky sessions") properties](#session_affinity_properties)
-* [Local storage properties](#local_storage_properties)
-* [Server configuration properties](#server_configuration_properties)
-* [SSL offloading properties](#ssl_offloading_properties)
+* [Propriedades de máquina virtual](#virtual_machine_properties)
+* [Propriedades de caching](#caching_properties)
+* [Propriedades de certificados](#certificates_properties)
+* [Propriedades de componentes](#components_properties)
+* [Propriedades de depuração](#debugging_properties)
+* [Propriedades de pontos de extremidade](#endpoints_properties)
+* [Propriedades de variáveis do ambiente](#environment_variables_properties)
+* [Propriedades de balanceamento de carga/afinidade (também conhecidas como "sessões temporárias")](#session_affinity_properties)
+* [Propriedades de armazenamento local](#local_storage_properties)
+* [Propriedades de configuração do servidor](#server_configuration_properties)
+* [Propriedades de descarregamento de SSL](#ssl_offloading_properties)
 
 <a name="virtual_machine_properties"></a>
 
-### <a name="virtual-machine-properties"></a>Virtual machine properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Properties**, and you will have the ability to change the virtual machine size, and also change the number of instances, as shown in the following image.
+### <a name="virtual-machine-properties"></a>Propriedades de máquina virtual
+Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse, clique em **Azure** e clique em **Propriedades**, e você terá a capacidade de alterar o tamanho da máquina virtual e também de alterar o número de instâncias, conforme mostra a imagem a seguir.
 
 ![][ic719499]
 
 > [!NOTE]
-> Windows only: when you set the number of instances to a value greater than 1 and you also configure an application server, the toolkit will allow only 1 role instance to run in the emulator, regardless of this setting. This is to avoid port binding conflicts between the different server instances (for example, all trying to bind to port 8080) when they run on the same computer. Your desired instance count setting is preserved, but it goes into effect only when you deploy to the cloud.
+> Somente Windows: quando você define o número de instâncias como um valor superior a um e também configura um servidor de aplicativos, o kit de ferramentas permite que apenas uma instância da função seja executada no emulador, independentemente dessa configuração. Isso serve para evitar conflitos de associação de porta entre as instâncias de servidor diferentes (por exemplo, todas tentando associar-se à porta 8080) quando executam no mesmo computador. A configuração de contagem de instância desejada é preservada, mas entra em vigor somente quando você implanta na nuvem.
 > 
 > 
 
 <a name="caching_properties"></a> 
 
-### <a name="caching-properties"></a>Caching properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Caching**. Within this dialog, you can enable named co-located memcache-compatible caches, allowing you to help speed up your web applications.
+### <a name="caching-properties"></a>Propriedades de caching
+Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse, clique em **Azure** e clique em **Caching**. Nessa caixa de diálogo, você pode habilitar caches nomeados e colocalizados compatíveis com o memcache, permitindo que você acelere seus aplicativos Web.
 
 ![][ic719483]
 
-Within the **Caching** property page, you can specify global settings for the following:
+Dentro da página de propriedades de **Caching** , você pode especificar configurações globais para as seguintes opções:
 
-* whether co-located caching is enabled.
-* the cache size as a percent of memory.
-* the storage account name for saving the cache state when your application runs as a cloud service, or none if you do not want to save the cache state. (The storage account name is not used when you run your application in the compute emulator.) If you set the storage account name to **(auto)** (which is the default), your caching configuration will automatically use the same storage account as the one you select in the **Publish to Azure** dialog.
+* se o cache colocalizado está habilitado.
+* o tamanho do cache como uma porcentagem da memória.
+* o nome da conta de armazenamento para salvar o estado do cache quando seu aplicativo é executado como um serviço de nuvem, ou nenhum se você não quiser salvar o estado do cache. (O nome da conta de armazenamento não é usado quando você executa o aplicativo no emulador de computação.) Se você definir o nome da conta de armazenamento como **(automático)** (que é o padrão), sua configuração de cache usará automaticamente a mesma conta de armazenamento selecionada por você na caixa de diálogo **Publicar no Azure**.
 
 > [!NOTE]
-> The **(auto)** setting will have the desired effect only if you publish your deployment using the Eclipse toolkit's publish wizard. If instead you publish the .cspkg file manually using an external mechanism, such as the [Azure Management Portal][Azure Management Portal], the deployment will not function properly.
+> A configuração **(automático)** terá o efeito desejado somente se você publicar sua implantação usando o assistente de publicação do kit de ferramentas do Eclipse. Se, em vez disso, você publicar o arquivo .cspkg manualmente usando um mecanismo externo, como o [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure], a implantação não funcionará corretamente.
 > 
 > 
 
-The following dialog shows the properties for a cache.
+A caixa de diálogo a seguir mostra as propriedades de um cache.
 
 ![][ic719501]
 
-* **Name:** The name of the co-located cache.
-* **Port number:** The port number to use for the cache.
-* **Expiration policy:** One of the following values that specifies when a key in the cache expires.
-  * **Absolute:** The key expires when the time specified by **Minutes to live** is reached.
-  * **NeverExpires:** The key does not have an expiration time.
-  * **SlidingWindow:** The key expires if it has not been accessed for the amount of time specified by **Minutes to live**; each time it is accessed, the expiration clock is reset.
-* **Minutes to live:** Maximum number of minutes for a memcached key to live, subject to the expiration policy.
-* **High availability with replicated backups on different role instances:** If enabled, helps provide high availability utilizing replicated backups on different role instances. Note that at least two role instances must be in effect for your deployment for this feature to work.
+* **Nome:** o nome do cache colocalizado.
+* **Número da porta:** o número da porta a ser usado para o cache.
+* **Política de expiração:** um dos valores a seguir, que especifica quando uma chave no cache expira.
+  * **Absoluto:** a chave expira quando o tempo especificado por **Minutos de vida** for atingido.
+  * **Nunca Expira:** a chave não tem um tempo de expiração.
+  * **Janela Deslizante:** a chave expira se não for acessada durante o período especificado por **Minutos de vida**; cada vez que ela é acessada, o relógio de expiração reinicia.
+* **Minutos ativa:** o número máximo de minutos de vida de uma chave memcached, sujeita à política de expiração.
+* **Alta disponibilidade com backups replicados em diferentes instâncias de função:** se esta opção estiver habilitada, ajuda a fornecer alta disponibilidade utilizando backups replicados em diferentes instâncias de função. Observe que pelo menos duas instâncias de função devem estar em vigor em sua implantação para que esse recurso funcione.
 
-To add a new cache, click the **Add** button in the **Caching** property page, and a **Configure Named Cache** dialog will be opened. Provide values for the properties which are described above.
+Para adicionar um novo cache, clique no botão **Adicionar** na página de propriedades de **Caching** e uma caixa de diálogo **Configurar Cache Nomeado** será aberta. Forneça valores para as propriedades descritas acima.
 
-To modify a named cache, select the cache and click the **Edit** button in the **Caching** property page. A dialog will be opened allowing you to modify the cache properties. Press **OK** to save the cache values.
+Para modificar um cache nomeado, selecione-o e clique no botão **Editar** na página de propriedades de **Caching**. Uma caixa de diálogo será exibida permitindo a modificação das propriedades do cache. Pressione **OK** para salvar os valores do cache.
 
-To delete a cache, select the cache and click the **Remove** button in the **Caching** property page, and then click **Yes** to confirm the deletion.
+Para excluir um cache, escolha o cache, clique no botão **Remover** na página de propriedades de **Caching** e clique em **Sim** para confirmar a exclusão.
 
-For more information on how to use caching, see [How to Use Co-located Caching][How to Use Co-located Caching].
+Para saber mais sobre como usar o caching, consulte [Como usar caching colocalizado][Como usar caching colocalizado].
 
 <a name="certificates_properties"></a> 
 
-### <a name="certificates-properties"></a>Certificates properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Certificates**.
+### <a name="certificates-properties"></a>Propriedades de certificados
+Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse, clique em **Azure** e clique em **Certificados**.
 
 ![][ic710964]
 
-Within this dialog, you can add or remove certificates referenced by your Eclipse project. Note that the certificates listed here are not automatically stored inside any Java keystore, and therefore are not automatically available for any use from within a Java application. They are only registered with Azure so that they can be preloaded into the Windows certificate store on the virtual machines running your deployment and subsequently used by other Windows software. Currently, the only feature of the toolkit that uses the certificates referenced this way in the **Certificates** dialog is [SSL Offloading][SSL Offloading], due to its reliance on Internet Information Services (IIS) and Application Request Routing (ARR), which require the proper certificate to be made available in this manner.
+Na caixa de diálogo, você pode adicionar ou remover certificados referenciados pelo seu projeto do Eclipse. Observe que os certificados listados aqui não são armazenados automaticamente em qualquer repositório de chaves Java e, portanto, não ficam automaticamente disponíveis para qualquer uso de um aplicativo Java. Eles são registrados no Azure apenas para que possam ser pré-carregados no repositório de certificados do Windows nas máquinas virtuais que executam sua implantação e, subsequentemente, usados por outros softwares do Windows. Atualmente, o único recurso do kit de ferramentas que usa os certificados referenciados dessa maneira na caixa de diálogo **Certificados** é o [Descarregamento de SSL][Descarregamento de SSL], devido à sua dependência dos IIS (Serviços de informações da Internet) e do ARR (Roteamento de solicitação de aplicativo), que exige o certificado apropriado para ser disponibilizado dessa maneira.
 
-When you deploy your project to Azure using the Publish wizard, you will be prompted to point at the Personal Information Exchange (PFX) files corresponding to these certificates, along with their passwords, in order to automatically upload them to the Azure service, but only if they have not been uploaded there previously.
+Ao implantar seu projeto no Azure usando o assistente de publicação, você recebe uma solicitação para apontar para os arquivos PFX (Troca de informações pessoais) que correspondem a esses certificados, junto com suas senhas, a fim de carregá-los automaticamente no serviço do Azure, mas apenas se eles não tiverem sido carregados anteriormente.
 
 <a name="components_properties"></a> 
 
-### <a name="components-properties"></a>Components properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Components**. Within this dialog, you have the ability to add, modify, or remove the components of your role, as well as change the order in which they are processed.
+### <a name="components-properties"></a>Propriedades de componentes
+Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse, clique em **Azure** e clique em **Componentes**. Nessa caixa de diálogo, você pode adicionar, modificar ou remover os componentes de sua função, bem como alterar a ordem de processamento.
 
 ![][ic719502]
 
-The components feature enables you to add dependencies to your Azure deployment project, such as Java application projects, special files, and executable command line statements that are needed by your deployment.
+O recurso de componentes permite que você adicione dependências ao seu projeto de implantação do Azure, como projetos de aplicativos Java, arquivos especiais e instruções de linha de comando executáveis necessárias para sua implantação.
 
-For each component, you can specify:
+Para cada componente, você pode especificar:
 
-* The step to be taken when importing the component into your Azure deployment project when it is built.
-* The step to be taken when deploying that component in the Azure cloud.
+* A etapa a ser executada ao importar o componente no projeto de implantação do Azure durante sua criação.
+* A etapa a ser executada ao implantar esse componente na nuvem do Azure.
 
 > [!NOTE]
-> When specifying component files or command lines, keep in mind that your deployment will be published to a Windows virtual machine, so your custom steps must be valid for a Windows-based operating system. 
+> Ao especificar arquivos de componentes ou linhas de comando, lembre-se de que sua implantação será publicada em uma máquina virtual do Windows, portanto suas etapas personalizadas devem ser válidas para um sistema operacional Windows. 
 > 
 > 
 
-Components have the following properties:
+Os componentes têm as seguintes propriedades:
 
-* **Import:** Method that indicates how the component will be imported into the project when the project is built. This can be one of the following values:
-  * **copy:** The component is copied from the local path specified by the **From** property into the role's **approot** directory.
-  * **EAR:** The component is a Java enterprise archive (EAR) imported from an Enterprise Application Project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
-  * **JAR:** The component is a Java archive (JAR) and is imported from a Java project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
-  * **none:** No action is taken to import the component. This is applicable when the component is assumed to already be present in the role's **approot** directory, or when the component is merely an executable command line statement, as specified in the **As** property when the **Deploy** method is **exec**.
-  * **WAR:** The component is a Java web application archive (WAR) and is imported from a Dynamic Web Project at the local path specified by the **From** property. (This is detected automatically by the toolkit based on the nature of the project at that location).
-  * **zip:** The component is a zip file and is imported by zipping the directory or file specified by the **From** property.
-* **From:** Source path on your local machine to the folder or file that represents the item(s) to import to your deployment. Windows environment variables can be used in this property. All importable components will be imported into the role's **approot** directory when the project is built.
+* **Importar:** método que indica como o componente será importado no projeto durante sua criação. Ele pode assumir um dos seguintes valores:
+  * **copy:** o componente é copiado do caminho local especificado pela propriedade **From** para o diretório **approot** da função.
+  * **EAR:** o componente é um EAR(arquivo morto corporativo Java) importado de um projeto de aplicativo corporativo no caminho local especificado pela propriedade **De**. (Isso é detectado automaticamente pelo kit de ferramentas com base na natureza do projeto nesse local).
+  * **JAR:** o componente é um JAR (arquivo morto Java) importado de um projeto Java no caminho local especificado pela propriedade **From**. (Isso é detectado automaticamente pelo kit de ferramentas com base na natureza do projeto nesse local).
+  * **nenhum:** nenhuma ação é executada para importar o componente. Isso é aplicável quando o componente é considerado presente no diretório **approot** da função, ou quando o componente é simplesmente uma instrução executável de linha de comando executável, conforme especificado na propriedade **As** quando o método de **Implantação** for **exec**.
+  * **WAR:** o componente é um WAR (arquivo morto de aplicativo Web Java) importado de um Projeto Web Dinâmico no caminho local especificado pela propriedade **From**. (Isso é detectado automaticamente pelo kit de ferramentas com base na natureza do projeto nesse local).
+  * **zip:** o componente é um arquivo zip importado pela compactação do diretório ou arquivo especificado pela propriedade **From**.
+* **De:** caminho de origem no computador local até a pasta ou arquivo que representa os itens a serem importados em sua implantação. É possível usar variáveis de ambiente do Windows nessa propriedade. Todos os componentes passíveis de importação serão importados no diretório **approot** da função durante a criação do projeto.
   
-    Note that you have the ability to deploy a component from a download when deploying to the cloud (not the compute emulator). See related information below about adding a component.    
-* **As:** File name under which the component will be imported into the role's **approot** directory and ultimately deployed in the Azure cloud. Leave this property blank to keep the name the same as it is on the local machine. (For executable components, that is, those whose **Deploy** method is set to **exec**, this can be an arbitrary Windows command line statement.)
+    Observe que você pode implantar um componente a partir de um download durante a implantação na nuvem (não no emulador de computação). Confira as informações relacionadas abaixo sobre como adicionar um componente.    
+* **As:** nome do arquivo no qual o componente será importado no diretório **approot** da função e, por fim, implantado na nuvem do Azure. Deixe essa propriedade em branco para manter o mesmo nome que está na máquina local. (Para componentes executáveis, ou seja, aqueles cujo método **Deploy** está definido como **exec**, isso pode ser uma instrução de linha de comando aleatória do Windows).
   
   > [!IMPORTANT]
-  > If you use space characters for this value, they will be handled differently depending on the deploy method. If the deploy method is **exec**, spaces will be interpreted as command line argument separators and not as part of the file name. For all other deploy methods, spaces will be interpreted as part of the file name.
+  > Se você usar caracteres de espaço para esse valor, eles serão tratados de maneira diferente dependendo do método de implantação. Se o método de implantação for **exec**, os espaços serão interpretados como separadores de argumentos de linha de comando e não como parte do nome do arquivo. Para todos os outros métodos de implantação, os espaços serão interpretados como parte do nome do arquivo.
   > 
   > 
-* **Deploy:** Method that indicates the action applied to the component when the deployment is started. This can be one of the following values:
+* **Implantação:** método que indica a ação aplicada ao componente no início da implantação. Ele pode assumir um dos seguintes valores:
   
-  * **copy:** The component is copied to the destination path specified by the **To** property.
-  * **exec:** The component is an executable Windows command line statement executed in the context of the path specified by the **To** property, at the time the deployment starts.
-  * **none:** No action is applied to the component when the deployment starts.
-  * **zip:** The component is unzipped to the destination path specified by the **To** property. This method is available only when the **Import** property is **zip**.
-* **To:** Destination path on the virtual machine where the component will be deployed. Windows environment variables can be used in this property, and file paths are relative to **approot**.
+  * **copy:** o componente é copiado no caminho de destino especificado pela propriedade **To**.
+  * **exec:** o componente é uma instrução de linha de comando executável do Windows que é executada no contexto do caminho especificado pela propriedade **To** no início da implantação.
+  * **none:** nenhuma ação é aplicada ao componente quando a implantação começa.
+  * **zip:** o componente é descompactado no caminho de destino especificado pela propriedade **To**. Esse método fica disponível apenas quando a propriedade **Import** é **zip**.
+* **Para:** caminho de destino na máquina virtual onde o componente será implantado. É possível usar variáveis de ambiente do Windows nessa propriedade, e os caminhos de arquivo são relativos a **approot**.
 
-To add a new component, click the **Add** button in the **Components** property page, and an **Azure Role Component** dialog will be opened. Provide values for the properties which are described above. 
+Para adicionar um novo componente, clique no botão **Adicionar** na página de propriedades **Componentes**, e uma caixa de diálogo **Componente da Função do Azure** será exibida. Forneça valores para as propriedades descritas acima. 
 
-The following shows an example for adding a new WAR component.
+Veja a seguir um exemplo de como adicionar um novo componente WAR.
 
 ![][ic719503]
 
-When deploying to the cloud (not the compute emulator), if you want to deploy the component from a download, ensure that **When in cloud, instead of including in the package, deploy from** is checked. If you want to download from your Azure storage account, select the storage account from the **Storage account** drop-down list (you can click the **Accounts** link to modify what is in the list), which will partially fill in the **URL** field, and then fill in the remaining portion of the URL. If you do not want to use Azure storage, select **(none)** from the **Storage account** drop-down list, and enter the URL to your component in the **URL** field. Specify one of the following methods:
+Ao implantar na nuvem (não no emulador de computação), se você quiser implantar o componente de um download, certifique-se de que a opção **Na nuvem, em vez de incluir no pacote, implantar de** esteja marcada. Se você quiser baixar de sua conta de armazenamento do Azure, selecione a conta de armazenamento na lista suspensa **Conta de armazenamento** (clique no link **Contas** para modificar o conteúdo da lista) e isso preencherá parcialmente o campo **URL**. Em seguida, preencha o restante da URL. Se você não quiser usar o armazenamento do Azure, selecione **(nenhum)** na lista suspensa **Conta de armazenamento** e digite a URL até seu componente no campo **URL**. Especifique um dos seguintes métodos:
 
-* **copy:** The download component is copied to the destination path specified by the **To Directory** path.
-* **same:** The same method used for **Deploy from download** as for **Deploy from package**.
-* **zip:** The download component is unzipped to the destination path specified by the **To Directory** path.
+* **copy:** o componente baixado é copiado no caminho de destino especificado pelo caminho **Diretório de Destino**.
+* **same:** o mesmo método usado para **Implantar do download** e para **Implantar do pacote**.
+* **zip:** o componente baixado é descompactado no caminho de destino especificado pelo caminho do **Diretório de Destino**.
 
-To modify a component, select the component and click the **Edit** button in the **Components** property page. A dialog will be opened allowing you to modify the component properties. Press **OK** to save the component values.
+Para modificar um componente, selecione o componente e clique no botão **Editar** na página de propriedades de **Componentes**. Uma caixa de diálogo será exibida permitindo a modificação das propriedades do componente. Pressione **OK** para salvar os valores do componente.
 
-To delete a component, select the component and click the **Remove** button in the **Components** property page, and then click **Yes** to confirm the deletion.
+Para excluir um componente, escolha o componente, clique no botão **Remover** na página de propriedades de **Componentes** e clique em **Sim** para confirmar a exclusão.
 
-Components are processed in the order listed. Use the **Move Up** and **Move Down** buttons to arrange the order.
+Os componentes são processados na ordem listada. Use os botões **Mover para Cima** e **Mover para Baixo** para organizar a ordem.
 
 > [!NOTE]
-> The server configuration feature relies on components as well. Those components cannot be removed or edited without removing the corresponding server configuration. You will be prompted about that when attempting to make changes to such components.
+> O recurso de configuração do servidor também depende dos componentes. Esses componentes não podem ser removidos ou editados sem a remoção da configuração do servidor correspondente. Você será questionado sobre isso ao tentar fazer alterações nesses componentes.
 > 
 > 
 
 <a name="debugging_properties"></a> 
 
-### <a name="debugging-properties"></a>Debugging properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Debugging**. Within this dialog, you have the ability to enable or disable remote debugging, as well as create debug configurations, as shown in the following image.
+### <a name="debugging-properties"></a>Propriedades de depuração
+Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse, clique em **Azure** e clique em **Depuração**. Nessa caixa de diálogo, você pode habilitar ou desabilitar a depuração remota, bem como criar configurações de depuração, conforme mostra a imagem a seguir.
 
 ![][ic719504]
 
-For related information about debugging, see [Debugging Azure Applications in Eclipse][Debugging Azure Applications in Eclipse].
+Para saber mais sobre depuração, veja [Depuração de aplicativos do Azure no Eclipse][Depuração de aplicativos do Azure no Eclipse].
 
 <a name="endpoints_properties"></a> 
 
-### <a name="endpoints-properties"></a>Endpoints properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Endpoints**. Within this dialog, you have the ability to create an endpoint, as well as edit or remove an endpoint, as shown in the following image.
+### <a name="endpoints-properties"></a>Propriedades de pontos de extremidade
+Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse, clique em **Azure** e clique em **Pontos de extremidade**. Nessa caixa de diálogo, você pode criar um ponto de extremidade, bem como editar ou remover um ponto de extremidade, conforme mostra a imagem a seguir.
 
 ![][ic719505]
 
-To add an endpoint, click the **Add** button in the **Endpoints** property page, and an **Add Endpoint** dialog will be opened.
+Para adicionar um ponto de extremidade, clique no botão **Adicionar** na página de propriedades **Pontos de extremidade**, e uma caixa de diálogo **Adicionar Ponto de Extremidade** será exibida.
 
 ![][ic710897]
 
-Enter a name for the endpoint, select the type (either **Input**, **Internal**, or **InstanceInput**), and specify the public and private port. Press **OK** to save the new endpoint values.
+Insira um nome para o ponto de extremidade, selecione o tipo (**Input**, **Internal** ou **InstanceInput**) e especifique as portas pública e privada. Pressione **OK** para salvar os novos valores de ponto de extremidade.
 
-Depending on the type of endpoint, you may use port ranges as follows:
+Dependendo do tipo de ponto de extremidade, você pode usar os intervalos de porta da seguinte maneira:
 
-* For an input instance endpoint, the public port can be a range of ports (for example **2000-2010**) and the private port is a fixed value.
-* For an internal endpoint, the public port is not used, and the private port can be a range, or left blank or set to an asterisk to indicate it is automatically set by Azure.
-* For input endpoints, the public port can only be a fixed value, and the private port can be a fixed value, or left blank or set to an asterisk to indicate it is automatically set by Azure.
+* Para um ponto de extremidade de instância de entrada, a porta pública pode ser um intervalo de portas (por exemplo **2000 a 2010**) e a porta privada ser um valor fixo.
+* Para um ponto de extremidade interno, a porta pública não é usada, e a porta privada pode ser um intervalo, pode ser deixada em branco ou ser definida como um asterisco, a fim de indicar que ela será definida automaticamente pelo Azure.
+* Para pontos de extremidade de entrada, a porta pública pode ser apenas um valor fixo e a porta privada pode ser um valor fixo, pode ser deixada em branco ou ser definida como um asterisco, a fim de indicar que ela será definida automaticamente pelo Azure.
 
-If you want to use a single port number instead of a range, leave the text box for the end of the range blank.
+Se você quiser usar um único número de porta em vez de um intervalo, deixe a caixa de texto do final do intervalo em branco.
 
-For ports that are set to automatic, if you need to determine which port is actually used during runtime, your application can use the Azure Service Runtime API, which is documented in the [com.microsoft.windowsazure.serviceruntime package summary][com.microsoft.windowsazure.serviceruntime package summary].
+Para as portas definidas como automáticas, se você precisar determinar a porta que será realmente usada durante a execução, seu aplicativo poderá usar a API de Tempo de Execução do Serviço do Azure, documentada no [com.microsoft.windowsazure.serviceruntime][com.microsoft.windowsazure.serviceruntime].
 
-To see how instance input endpoints can be used to help with debugging a multi-instance deployment, see [Debugging a specific role instance in a multi-instance deployment][Debugging a specific role instance in a multi-instance deployment].
+Para ver como os pontos de extremidade de entrada de instância podem ser usados para ajudar na depuração de uma implantação com várias instâncias, consulte [Depuração de uma instância de função específica em uma implantação com várias instâncias][Depuração de uma instância de função específica em uma implantação com várias instâncias].
 
-To modify an endpoint, select the endpoint and click the **Edit** button in the **Endpoints** property page. A dialog will be opened allowing you to modify the endpoint name, type, and public and private ports. Press **OK** to save the modified endpoint values.
+Para modificar um ponto de extremidade, selecione o ponto de extremidade e clique no botão **Editar** na página de propriedades de **Pontos de extremidade**. Uma caixa de diálogo será aberta permitindo que você modifique o nome, tipo e as portas públicas e privadas do ponto de extremidade. Pressione **OK** para salvar os novos valores de ponto de extremidade modificados.
 
-To delete an endpoint, select the endpoint and click the **Remove** button in the **Endpoints** property page, and then click **Yes** to confirm the deletion.
+Para excluir um ponto de extremidade, escolha o ponto de extremidade, clique no botão **Remover** na página de propriedades de **Pontos de extremidade** e clique em **Sim** para confirmar a exclusão.
 
-In order to properly configure some of the features (such as Caching, Remote Debugging, Session Affinity, or SSL offloading) enabled by the user on a role, the toolkit may automatically configure special endpoints that will be listed along with user-defined endpoints. The toolkit prevents the user from editing or deleting such automatically generated endpoints as long as the associated feature is enabled.
+Para configurar corretamente alguns dos recursos (como Caching, Depuração Remota, Afinidade de Sessão ou Descarregamento de SSL) habilitados pelo usuário em uma função, o kit de ferramentas pode configurar automaticamente os pontos de extremidade especiais que serão listados juntamente com os pontos de extremidade definidos pelo usuário. O kit de ferramentas impede que o usuário edite ou exclua esses pontos de extremidade gerados automaticamente, desde que o recurso associado esteja habilitado.
 
 <a name="environment_variables_properties"></a> 
 
-### <a name="environment-variables-properties"></a>Environment variables properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Environment Variables**. Within this dialog, you have the ability to create an environment variable, as well as modify or remove an environment variable, as shown in the following image.
+### <a name="environment-variables-properties"></a>Propriedades de variáveis do ambiente
+Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse, clique em **Azure** e clique em **Variáveis do Ambiente**. Nessa caixa de diálogo, você pode criar uma variável do ambiente, bem como modificar ou remover uma variável do ambiente, conforme mostra a imagem a seguir.
 
 ![][ic719506]
 
-Environment variables are available to your startup script when the role starts.
+As variáveis do ambiente ficam disponíveis para o seu script de inicialização quando a função é iniciada.
 
 > [!NOTE]
-> When specifying environment variables, keep in mind that your deployment will be published to a Windows virtual machine, so your environment variables must be valid for a Windows-based operating system.
+> Ao especificar variáveis do ambiente, lembre-se de que sua implantação será publicada em uma máquina virtual do Windows, portanto as variáveis do ambiente devem ser válidas para um sistema operacional Windows.
 > 
 > 
 
-As an example of an environment variable being available when the role starts, create a new environment variable by clicking the **Add** button. The following shows an environment variable named **MyRoleVersion** being created and assigned the value **1.0**.
+Como exemplo de uma variável de ambiente disponibilizada quando a função é iniciada, crie uma nova variável do ambiente clicando no botão **Adicionar** . Veja a seguir uma variável do ambiente chamada **MyRoleVersion** sendo criada e recebendo o valor **1.0**.
 
 ![][ic659268]
 
-Within your jsp code, you could display the value using the `System.getenv` method:
+Dentro do código jsp, você pode exibir o valor usando o método `System.getenv` :
 
     <body>
       <b> Hello World!</b>
       <p>Running role version: <%= System.getenv("MyRoleVersion") %></p>
     </body>
 
-Resulting in this output when your application runs:
+Quando o aplicativo é executado está é a saída:
 
 ![][ic552233]
 
-To modify an environment variable, select the environment variable and click the **Edit** button in the **Environment Variables** property page. A dialog will be opened allowing you to modify the environment variable properties. Press **OK** to save the environment variable values.
+Para modificar uma variável do ambiente, selecione a variável do ambiente e clique no botão **Editar** na página de propriedades de **Variáveis do Ambiente**. Uma caixa de diálogo será exibida permitindo a modificação das variáveis do ambiente. Pressione **OK** para salvar os da variável do ambiente.
 
-To delete an environment variable, select the environment variable and click the **Remove** button in the **Environment Variables** property page, and then click **Yes** to confirm the deletion.
+Para excluir uma variável do ambiente, selecione a variável do ambiente e clique no botão **Remover** na página de propriedades de **Variáveis do Ambiente** e clique em **Sim** para confirmar a exclusão.
 
-In order to properly configure some of the features (such as Server Configuration, Remote Debugging or Local Storage) enabled by the user on a role, the toolkit may automatically configure special environment variables that will be listed along with user-defined environment variables. The toolkit prevents the user from editing or deleting such automatically generated environment variables as long as the associated feature is enabled.
+Para configurar corretamente alguns dos recursos (como Configuração do Servidor, Depuração Remota ou Armazenamento Local) habilitados pelo usuário em uma função, o kit de ferramentas pode configurar automaticamente as variáveis do ambiente especiais que serão listadas juntamente com as variáveis do ambiente definidas pelo usuário. O kit de ferramentas impede que o usuário edite ou exclua essas variáveis do ambiente geradas automaticamente, desde que o recurso associado esteja habilitado.
 
 <a name="session_affinity_properties"></a> 
 
-### <a name="load-balancing-session-affinity-aka-sticky-sessions-properties"></a>Load balancing / session affinity (a.k.a "sticky sessions") properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Load Balancing**. Within this dialog, you have the ability to enable or disable session affinity, as shown in the following image.
+### <a name="load-balancing-session-affinity-aka-sticky-sessions-properties"></a>Propriedades de balanceamento de carga/afinidade (também conhecidas como "sessões temporárias")
+Abra o menu de contexto da função no painel Gerenciador de Projetos do Eclipse, clique em **Azure** e clique em **Balanceamento de Carga**. Nessa caixa de diálogo, você pode habilitar ou desabilitar a afinidade da sessão, conforme mostra a imagem a seguir.
 
 ![][ic719492]
 
-For related information, see [Session Affinity][Session Affinity]. Also, note this feature's behavior in the context of SSL offloading, as described at [SSL Offloading][SSL Offloading].
+Para saber mais relacionadas, confira [Afinidade da sessão][Afinidade da sessão]. Além disso, observe o comportamento desse recurso no contexto de descarregamento de SSL, conforme descrito em [Descarregamento de SSL][Descarregamento de SSL].
 
 <a name="local_storage_properties"></a> 
 
-### <a name="local-storage-properties"></a>Local storage properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Local Storage**. Within this dialog, you have the ability to create, modify or remove temporary local storage for the virtual machine that is running your application. Specific values can be set for the size of the local storage, as well as whether the contents are preserved when the role is recycled, as shown in the following image.
+### <a name="local-storage-properties"></a>Propriedades de armazenamento local
+Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse, clique em **Azure** e clique em **Armazenamento Local**. Nessa caixa de diálogo, você pode criar, modificar ou remover o armazenamento local temporário da máquina virtual que está executando o aplicativo. É possível definir valores específicos para o tamanho do armazenamento local, bem como se o conteúdo é preservado quando a função é reciclada, conforme mostra a imagem a seguir.
 
 ![][ic719508]
 
-You can also optionally specify an environment variable that corresponds to the local storage.
+Como opção, você também pode especificar uma variável do ambiente que corresponde ao armazenamento local.
 
-By default, everything that you deploy into Azure is placed (and unzipped) in the **approot** folder of the role instance. While most simple deployments will fit there even after unzipping, the space allocated for the **approot** directory is limited and not well-defined (less than 1 GB is a reasonable rule of thumb). Therefore, to ensure Azure allocates sufficient disk space for larger deployments that might not fit in the **approot** folder, you should set up a local storage resource using the **Local Storage** dialog. For an easy way to do this, see [Deploying Large Deployments][Deploying Large Deployments].
+Por padrão, tudo o que você implanta no Azure é colocado (e descompactado) na pasta **approot** da instância de função. Embora a maioria das implantações simples caibam nesse local mesmo após descompactá-las, o espaço alocado para o diretório **approot** é limitado e não é bem definido (menos de 1 GB é uma regra prática razoável). Portanto, para garantir que o Azure reserva espaço em disco suficiente para implantações maiores que talvez não caibam na pasta **approot**, você deve configurar um recurso de armazenamento local usando a caixa de diálogo **Armazenamento Local**. Para uma maneira fácil de fazer isso, veja [Deploying Large Deployments][Deploying Large Deployments].
 
-You can easily reference the storage resource from startup scripts (for example, your **startup.cmd**) using the environment variable automatically associated by the Eclipse toolkit with the resource, as shown in the **Local Storage** dialog. That environment variable will contain the full path of the local resource you've configured at the time your startup script is executed. 
+Você pode facilmente fazer referência ao recurso de armazenamento nos scripts de inicialização (por exemplo, o **startup.cmd**) usando a variável de ambiente associada automaticamente pelo kit de ferramentas do Eclipse com o recurso, conforme exibido na caixa de diálogo **Armazenamento Local**. Essa variável de ambiente contem o caminho completo até o recurso local configurado no momento de execução de seu script de inicialização. 
 
-To modify a local storage resource, select the local storage resource and click the **Edit** button in the **Local Storage** property page. A dialog will be opened allowing you to modify the local storage resource properties. Press **OK** to save the local storage resource values.
+Para modificar um recurso de armazenamento local, selecione o recurso de armazenamento local e clique no botão **Editar** na página de propriedades de **Armazenamento Local**. Uma caixa de diálogo será exibida permitindo a modificação das propriedades de recurso de armazenamento local. Pressione **OK** para salvar os valores de recursos de armazenamento local.
 
-To delete a local storage resource, select the local storage resource and click the **Remove** button in the **Local Storage** property page, and then click **Yes** to confirm the deletion.
+Para excluir um recurso de armazenamento local, selecione o recurso de armazenamento local e clique no botão **Remover** na página de propriedades de **Armazenamento Local** e clique em **Sim** para confirmar a exclusão.
 
 <a name="server_configuration_properties"></a> 
 
-### <a name="server-configuration-properties"></a>Server configuration properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **Server Configuration**. Within this dialog, you have the ability to add, remove, and modify the JDK and Java application server used by your deployment, as well as add or remove the applications (such as WAR, JAR or EAR files) used by your deployment.
+### <a name="server-configuration-properties"></a>Propriedades de configuração do servidor
+Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse, clique em **Azure** e clique em **Configuração de Servidor**. Nessa caixa de diálogo, você pode adicionar, remover e modificar o JDK e o servidor de aplicativos Java usados por sua implantação, bem como adicionar ou remover os aplicativos (como arquivos WAR, JAR ou EAR) usados por sua implantação.
 
-### <a name="jdk-configuration"></a>JDK configuration
-This dialog allows you to specify the JDK package to use for your deployment. If you are using Eclipse on Windows, you can specify the JDK package to use locally when running in the Azure emulator and you have the option to deploy that local installation to Azure. On non-Windows operating systems, the emulator JDK setting is not applicable and you cannot deploy the locally installed JDK since it is not compatible with Windows. However, regardless of the operating system that you are using, you can always choose among the 3rd party JDK packages to deploy to Azure, or point at your own Windows-compatible JDK package from an alternate download location.
+### <a name="jdk-configuration"></a>Configuração de JDK
+Essa caixa de diálogo permite que você especifique o pacote JDK que será usado para a implantação. Se você estiver usando o Eclipse no Windows, poderá especificar o pacote JDK a ser usado localmente durante a execução no emulador do Azure, e você tem a opção de implantar essa instalação local no Azure. Em sistemas operacionais diferentes do Windows, a configuração de JDK do emulador não é aplicável, e não é possível implantar o JDK instalado localmente, pois ele não é compatível com o Windows. No entanto, independentemente do sistema operacional usando, você sempre pode escolher entre pacotes JDK de terceiros para implantação no Azure ou apontar para seu próprio pacote JDK compatível com Windows em um local de download alternativo.
 
-The following is an example of how you can specify a JDK on Windows:
+Veja a seguir um exemplo de como você pode especificar um JDK no Windows.
 
 ![][ic780647]
 
-If you are using Eclipse on Windows, you can specify a JDK to use with the compute emulator; to do so, ensure **Use the JDK from this file path for testing locally** is checked in the **Emulator deployment** section. Then, specify the local path to your JDK; you can browse to different JDK if the one you want to use is not selected automatically. You also have the option to deploy your JDK to your Azure cloud service; to do so, select the **Deploy my local JDK (auto-upload to cloud storage)** option in the **Cloud deployment** section.
+Se você estiver usando o Eclipse no Windows, poderá especificar um JDK a ser usado com o emulador de computação. Para fazer isso, certifique-se de que a opção** Usar o JDK deste caminho de arquivo para testar localmente** esteja marcada na seção **Implantação no emulador**. Em seguida, especifique o caminho local até o JDK; você pode navegar até um JDK diferente se o que você deseja usar não estiver selecionado automaticamente. Você também tem a opção de implantar o JDK em seu serviço de nuvem do Azure. Para fazer isso, escolha a opção **Implantar meu JDK local (carregamento automático no armazenamento em nuvem)** na seção **Implantação de nuvem**.
 
-Note: On non-Windows operating systems, the **Emulator deployment** settings and the **Deploy my local JDK** option are not available. The following example illustrates specifying a JDK on a Mac or other supported non-Windows operating system:
+Observação: em sistemas operacionais diferentes do Windows, as configurações da **Implantação no emulador** e a opção **Implantar meu JDK local** não estão disponíveis. O exemplo a seguir ilustra a especificação de um JDK em um Mac ou em outro sistema operacional diferente do Windows que tenha suporte:
 
 ![][ic789643]
 
-Regardless of the operating system you are on, you have the following two **Cloud deployment** options for the source and type of your JDK package:
+Independentemente do sistema operacional usado, você tem as duas opções de **Implantação de nuvem** a seguir para a origem e o tipo do pacote JDK:
 
-* **Deploy a 3rd party JDK package available on Azure** 
-* **Deploy from a custom download** 
+* **Implantar um pacote JDK de terceiros disponível no Azure** 
+* **Implantar de um download personalizado** 
 
-If you are using the **Deploy a 3rd party JDK package available from Azure** option:
+Se você estiver usando a opção **Implantar um pacote JDK de terceiros disponível no Azure** :
 
-1. Check the checkbox named **Deploy a 3rd party JDK package available from Azure**.
-2. From the drop-down list, select the 3rd party JDK package that is available on Azure.
-3. Your **JDK** tab will look similar to the following on Windows:  ![][ic780648]
-    And it will look similar to the following on Mac OS or other supported non-Windows operating systems:  ![][ic789643]
-4. Click **OK** to save your changes.
-5. When prompted to accept the license agreement from the 3rd party JDK package provider, review the license terms. Assuming you accept the terms, click **Yes** to close the **Accept license agreement** dialog.
-    Note that the underlying logic for which items appear in the drop-down list for the **Deploy a 3rd party JDK package available from Azure** option can be customized. To customize the items, in the **JDK** dialog, click the **Customize** link. This will close the **JDK** property page and open the **componentsets.xml** file in Eclipse, which you can then modify as needed. Documentation for **componentsets.xml** is included in the **componentsets.xml** file itself.
+1. Marque a caixa de seleção **Implantar um pacote JDK de terceiros disponível no Azure**.
+2. Na lista suspensa, selecione o pacote JDK de terceiros disponível no Azure.
+3. A guia **JDK** será semelhante ao seguinte no Windows:  ![][ic780648]
+   e será semelhante ao seguinte no Mac OS ou em outros sistemas operacionais diferentes do Windows que tenham suporte:  ![][ic789643]
+4. Clique em **OK** para salvar as alterações.
+5. Quando receber uma solicitação para aceitar o contrato de licença do provedor do pacote JDK de terceiros, revise os termos da licença. Se você aceitar os termos, clique em **Sim** para fechar a caixa de diálogo **Aceitar contrato de licença**.
+    Observe que a lógica subjacente para exibição dos itens na lista suspensa da opção **Implantar um pacote JDK de terceiros disponível no Azure** pode ser personalizada. Para personalizar os itens, na caixa de diálogo **JDK**, clique no link **Personalizar**. Isso fechará a página de propriedades **JDK** e abrirá o arquivo **componentsets.xml** no Eclipse, que pode ser modificado conforme o necessário. A documentação do **componentsets.xml** está incluída no próprio arquivo **componentsets.xml**.
 
-If you are using the **Deploy a JDK from a custom download** option:
+Se você estiver usando a opção **Implantar um JDK de um download personalizado** :
 
-1. Create a ZIP of your JDK installation directory, ensuring that the directory node itself is the child of the ZIP structure, and not its contents. Take note of the name of the directory, as you will need it later, and keep in mind this JDK installation will be deployed to a Windows virtual machine.
-2. Upload the ZIP into your Azure storage account as a blob. You can do this using an externally available tool for uploading blobs to Azure storage. It is recommended to use a private blob. Take note of the blob URL of the ZIP contents.
-3. Check the checkbox named **Deploy a JDK from a custom download**.
-    If you want to download from your Azure storage account, select the storage account from the **Storage account** drop-down list (you can click the **Accounts** link to modify what is in the list), which will partially fill in the **URL** field, and then fill in the remaining portion of the URL. If you do not want to use Azure storage, select **(none)** from the **Storage account** drop-down list, and enter the URL to your JDK download in the **URL** field. If using Azure storage, blob names in the URL must be lowercase.
-4. Ensure that the **JAVA_HOME** textbox refers to the correct directory name. By default, it will reference the same JDK directory name as the value you chose for your local use. But if the directory contained in the ZIP has a different name (for example, due to using a different version), update the directory name in the **JAVA_HOME** textbox accordingly, since this setting will be used in the cloud (not in the compute emulator).
-5. Click **OK** to save your changes.
+1. Crie um ZIP de seu diretório de instalação do JDK, garantindo que o próprio nó do diretório seja o filho da estrutura ZIP, e não seu conteúdo. Anote o nome do diretório, pois precisará dele mais tarde, e lembre-se de que esta instalação do JDK será implantada em uma máquina virtual do Windows.
+2. Carregue o ZIP em sua conta de armazenamento do Azure como um blob. Você pode fazer isso usando uma ferramenta disponível externamente para carregar blobs no armazenamento do Azure. Recomendamos o uso de um blob privado. Anote a URL do blob do conteúdo do ZIP.
+3. Marque a caixa de seleção **Implantar um JDK de um download personalizado**.
+    Se você quiser baixar de sua conta de armazenamento do Azure, selecione a conta de armazenamento na lista suspensa **Conta de armazenamento** (clique no link **Contas** para modificar o conteúdo da lista) e isso preencherá parcialmente o campo **URL**. Em seguida, preencha o restante da URL. Se você não quiser usar o armazenamento do Azure, selecione **(nenhum)** na lista suspensa **Conta de armazenamento** e digite a URL até o download de seu JDK no campo **URL**. Se você estiver usando o armazenamento do Azure, os nomes de blob na URL deverão estar em letra minúscula.
+4. Verifique se a caixa de texto **JAVA_HOME** faz referência ao nome do diretório correto. Por padrão, ela fará referência ao mesmo nome de diretório do JDK que o valor escolhido para uso local. Porém, se o diretório dentro do ZIP tiver um nome diferente (por exemplo, devido ao uso de uma versão diferente), atualize adequadamente o nome do diretório na caixa de texto **JAVA_HOME**, já que essa configuração será usada na nuvem (não no emulador de computação).
+5. Clique em **OK** para salvar as alterações.
 
-That's it. Now, when you build for the cloud, you will notice the package size will be much smaller, the build process should typically take less time, and the deployment itself when you publish to the cloud should also take less time. Note that the **Deploy my local JDK (auto-upload to cloud storage)** or **Deploy a JDK from a custom download** options are in effect only when your application is deployed in the cloud. They have no effect on your compute emulator experience; the local version of the components will still be used when you deploy to the compute emulator. 
+É isso. Agora, quando você compilar para a nuvem, perceberá que o tamanho do pacote será muito menor, o processo de build normalmente deverá demorar menos tempo e a própria implantação, quando você publicá-la na nuvem, também deverá demorar menos tempo. Observe que as opções **Implantar meu JDK local (carregamento automático no armazenamento em nuvem)** ou **Implantar um JDK de um download personalizado** entram em vigor somente quando o aplicativo é implantado na nuvem. As opções não têm qualquer efeito em sua experiência no emulador de computação; a versão local dos componentes ainda será usada quando você implantar no emulador de computação. 
 
-### <a name="server-configuration"></a>Server configuration
-The following is an example of how you can specify an application server.
+### <a name="server-configuration"></a>Configuração de Servidor
+Veja a seguir um exemplo de como você pode especificar um servidor de aplicativos.
 
 ![][ic796926]
 
-Verify that the **Deploy a server of this type** checkbox is selected, and then choose the type of application server you want to use.
+Verifique se a caixa de seleção **Implantar um servidor desse tipo** está marcada e, em seguida, escolha o tipo de servidor de aplicativos que você deseja usar.
 
-For specifying a server to use for cloud deployment, you can take advantage of the following options:
+Para especificar um servidor a ser usado para implantação na nuvem, você pode aproveitar as seguintes opções:
 
-1. **Deploy a 3rd party server available on Azure** - this is especially applicable in dev/test scenarios where deployment efficiency and simplicity is a priority and the server does not require a custom configuration. Or when you want to use one of those servers as the starting point but you include appropriate server customization steps in your deployment's startup logic.
-2. **Deploy from a custom download** - this is especially applicable in production scenarios when you have a specially prepared and configured server that you want to use in the cloud.
-3. **Deploy my local server installation** - this is especially applicable in if your local server installation is already custom-configured for your use. If you choose this option, you must also specify your local server's path in the **Local server path** text box below.
+1. **Implantar um servidor de terceiros disponível no Azure** : essa opção é aplicável principalmente em cenários de desenvolvimento/teste nos quais a simplicidade e a eficiência da implantação são prioridades, e o servidor não exige uma configuração personalizada. Ou quando você quiser usar um desses servidores como ponto de partida, mas quiser incluir etapas de personalização de servidor apropriadas na lógica de inicialização da implantação.
+2. **Implantar de um download personalizado** : essa opção é aplicável principalmente em cenários de produção, quando você tem um servidor especialmente configurado e preparado para uso na nuvem.
+3. **Implantar a instalação de meu servidor local** : essa opção é aplicável principalmente se a instalação do servidor local já estiver configurada de forma personalizada para uso. Se você escolher essa opção, deverá especificar também o caminho de seu servidor local na caixa de texto **Caminho do servidor local** abaixo.
 
-If you are using the **Deploy a 3rd party server available on Azure** option:
+Se você estiver usando a opção **Implantar um servidor de terceiros disponível no Azure** :
 
-1. Check the checkbox named **Deploy a 3rd party server available on Azure**.
-2. From the dropdown menu, select the desired server software to use with your deployment in the cloud. Note, if you already specified a type of server to use earlier, you will be limited to choosing only a cloud server that is in the same family as that server type. But if you did not choose a server type, you can choose from any of the servers that are currently available on Azure and the server type will be automatically selected for you.
-3. Click **OK** to save your changes.
+1. Marque a caixa de seleção **Implantar um servidor de terceiros disponível no Azure**.
+2. No menu suspenso, selecione o software de servidor desejado a ser usado com sua implantação na nuvem. Observe que se você tiver especificado anteriormente um tipo de servidor a ser usado, você poderá escolher apenas um servidor de nuvem que esteja na mesma família do tipo de servidor. Porém, se você não escolheu um tipo de servidor, poderá escolher qualquer um dos servidores disponíveis atualmente no Azure, e o tipo de servidor será selecionado automaticamente para você.
+3. Clique em **OK** para salvar as alterações.
 
-If using the **Deploy from a custom download** option:
+Se usar a opção **Implantar de um download personalizado** :
 
-1. Make sure that you have already selected a server type according to the preceding steps. This tells the plugin how to deploy the server from your custom download, as it must be from the same family as your selected server type.
-2. Check the checkbox named **Deploy from a custom download**.
-    If you want to download from your Azure storage account, select the storage account from the **Storage account** drop-down list (you can click the **Accounts** link to modify what is in the list), which will partially fill in the **URL** field, and then fill in the remaining portion of the URL to your server download ZIP (when using Azure storage, blob names in the URL must be lowercase). If you do not want to use Azure storage, select **(none)** from the **Storage account** drop-down list, and enter the URL to your server download ZIP in the **URL** field. The ZIP would contain a child folder representing your application server installation directory. For example, if you are using a zip for Apache Tomcat 7.0.35, within the zip would be the child folder representing the installation directory, such as **apache-tomcat-7.0.35**. 
-3. Specify the value for the home directory environment variable. It will default to the value used for your local application server, if any, but you can specify a different value if your cloud application server is different from your local application server. However, you need to make sure that your cloud application server is of the same family as the server type selected earlier.
-    If you update your cloud application server zip in the future, you can manually change the home directory setting, or, to have it again match your local setting (if you changed your local application server too).
-4. Click **OK** to save your changes.
+1. Certifique-se de que você já selecionou um tipo de servidor, de acordo com as etapas anteriores. Isso informa ao plug-in como implantar o servidor a partir de seu download personalizado, pois ele deve ser da mesma família que o tipo de servidor selecionado.
+2. Marque a caixa de seleção **Implantar de um download personalizado**.
+    Se você quiser baixar de sua conta de armazenamento do Azure, escolha a conta de armazenamento na lista suspensa **Conta de armazenamento** (clique no link **Contas** para modificar o conteúdo da lista) e isso preencherá parcialmente o campo **URL**. Em seguida, preencha o restante da URL até o ZIP baixado de seu servidor (ao usar o armazenamento do Azure, os nomes de blob na URL deverão estar em letra minúscula). Se você não quiser usar o armazenamento do Azure, selecione **(nenhum)** na lista suspensa **Conta de armazenamento** e digite a URL até o ZIP baixado de seu servidor no campo **URL**. O ZIP contém uma pasta filho que representa o diretório de instalação do servidor de aplicativo. Por exemplo, se você estiver usando um zip para o Apache Tomcat 7.0.35, o conteúdo do zip seria a pasta filho que representa o diretório de instalação, por exemplo, **apache-tomcat-7.0.35**. 
+3. Especifique o valor para a variável de ambiente do diretório base. Ele assumirá o padrão como o valor usado para o servidor de aplicativo local, se houver algum, mas você pode especificar um valor diferente se o servidor de aplicativos de nuvem for diferente do seu servidor de aplicativo local. No entanto, você precisa se certificar de que o servidor de aplicativos de nuvem seja da mesma família que o tipo de servidor selecionado anteriormente.
+    Se você atualizar posteriormente o zip de seu servidor de aplicativos de nuvem, altere manualmente a configuração do diretório base ou, fazer com que ele corresponda novamente à configuração local (se você também alterou seu servidor de aplicativo local).
+4. Clique em **OK** para salvar as alterações.
 
-The underlying logic for which items appear in the **Server** tab of the **Server Configuration** property page can be customized. This is an advanced feature that you might need if your needs extend beyond the default values or if you want to add other servers. To customize the logic, in the **Server** dialog, click the **Customize** link. This will close the **Server Configuration** property page and open the **componentsets.xml** file in Eclipse, which you can then modify as needed to extend the server configuration template. Documentation for **componentsets.xml** is included in the **componentsets.xml** file itself.
+A lógica subjacente dos itens que aparecem na guia **Servidor** da página de propriedades **Configuração do Servidor** pode ser personalizada. Esse é um recurso avançado do qual você pode precisar se as suas necessidades ultrapassarem os valores padrão, ou se você quiser adicionar outros servidores. Para personalizar a lógica, na caixa de diálogo **Servidor**, clique no link **Personalizar**. Isso fechará a página de propriedades de **Configuração do Servidor** e abrirá o arquivo **componentsets.xml** no Eclipse para você modificar conforme o necessário a fim de estender o modelo de configuração do servidor. A documentação do **componentsets.xml** está incluída no próprio arquivo **componentsets.xml**.
 
-If you are using the **Deploy my local server (auto-upload to cloud storage)** option:
+Se você estiver usando a opção **Implantar meu servidor local (carregamento automático no armazenamento em nuvem)** :
 
-1. Check the checkbox named **Deploy my local server (auto-upload to cloud storage)**.
-2. Using the **Storage account** drop-down list, select **(auto)**. If you specify **(auto)** here, the Eclipse toolkit will use the same storage account for your server as the one you select for your deployment in the **Publish to Azure** dialog.
-3. Click **OK** to save your changes.
+1. Marque a caixa de seleção **Implantar meu servidor local (carregamento automático no armazenamento em nuvem)**.
+2. Na lista suspensa **Conta de armazenamento**, selecione **(automática)**. Se você especificar **(automática**), o kit de ferramentas do Eclipse usará a mesma conta de armazenamento para o servidor que aquela selecionada para a implantação na caixa de diálogo **Publicar no Azure**.
+3. Clique em **OK** para salvar as alterações.
 
-Select a server installation path on your computer in the **Local server path** text box if any of the following conditions are true:
+Selecione um caminho de instalação do servidor em seu computador na caixa de texto **Caminho do servidor local** se qualquer uma das condições a seguir for verdadeira:
 
-* You want to test your deployment in the emulator (applies to Windows only).
-* You want to deploy your locally installed server to the cloud.
-* You want to use a custom server download of your own in the cloud, in which case, also ensure the **Deploy my local server (auto-upload to cloud storage)** option is selected above.
+* Você deseja testar a implantação no emulador (aplica-se apenas ao Windows).
+* Você deseja implantar o servidor instalado localmente na nuvem.
+* Você deseja usar um download de servidor personalizado próprio na nuvem. Nesse caso, marque também a opção **Implantar meu servidor local (carregamento automático no armazenamento em nuvem)** acima.
 
-If none of the preceding options apply to your situation, the local server setting is optional.
+Se nenhuma das opções anteriores se aplicar à sua situação, a configuração do servidor local será opcional.
 
-### <a name="applications-configuration"></a>Applications configuration
-The following is an example of how you can specify an application.
+### <a name="applications-configuration"></a>Configuração de aplicativos
+Veja a seguir um exemplo de como você pode especificar um aplicativo.
 
 ![][ic719512]
 
-Click **Add** to add another application, or **Remove** to remove an application. For efficiency purposes, if you want to use a download for the source of an application when deploying to the cloud, use the [components properties](#components_properties) to specify a URL, storage account, etc. 
+Clique em **Adicionar** para adicionar outro aplicativo, ou em **Remover** para remover um aplicativo. Para obter eficiência, se você quiser usar um download como a fonte de um aplicativo ao implantar na nuvem, use as [propriedades de componentes](#components_properties) para especificar uma URL, a conta de armazenamento etc. 
 
-Beginning with the April 2014 release, your applications are automatically uploaded into the same storage account (under the **eclipsedeploy** container) as the one selected for your deployment. The startup logic of your deployment contains a step that first downloads those applications from that storage account. This means that you may upgrade your applications in your deployment without needing to rebuild and redeploy the entire package, by manually uploading newer versions of the application directly into that storage account (using the Azure portal for example), replacing the WAR files originally uploaded there by the toolkit. Then, just initiate the recycling of all those role instances using Azure's management portal again, or via command line utilities. (Triggering role recycling directly from within the Eclipse toolkit is not currently supported.)
+A partir da versão de abril de 2014, os aplicativos são carregados automaticamente na mesma conta de armazenamento (no contêiner **eclipsedeploy** ) selecionada para sua implantação. A lógica de inicialização de sua implantação contém uma etapa que baixa primeiro esses aplicativos dessa conta de armazenamento. Isso significa que você pode atualizar os aplicativos em sua implantação sem precisar recompilar e reimplantar todo o pacote, carregando manualmente as versões mais recentes do aplicativo diretamente na conta de armazenamento (usando o Portal do Azure, por exemplo), substituindo os arquivos WAR carregados originalmente pelo kit de ferramentas. Em seguida, basta iniciar a reciclagem de todas as instâncias de função usando novamente o Portal de Gerenciamento do Azure, ou por meio de utilitários de linha de comando. (No momento, não há suporte para a inicialização da reciclagem diretamente do kit de ferramentas do Eclipse.)
 
-### <a name="notes-about-server-configuration"></a>Notes about server configuration
-Changes made through the **Server configuration** property page are reflected in the `<component>` elements of the package.xml file.
+### <a name="notes-about-server-configuration"></a>Observações sobre a configuração do servidor
+As alterações feitas na página de propriedades de **Configuração do servidor** são refletidas nos elementos `<component>` do arquivo package.xml.
 
-When you use the **Automatically upload...** or **Deploy from download...** options for either the JDK or application server, and you are building for the cloud (not the compute emulator), and you are connected to the network, you may notice build messages such as the following in the Console output, as the Ant builder verifies the download's availability:
+Quando você usa as opções **Carregar automaticamente...** ou **Implantar do download...** para o JDK ou o servidor de aplicativos, e está compilando para a nuvem (não para o emulador de computação) e conectado à rede, talvez perceba mensagens de build como a seguinte na saída do Console, enquanto o compilador Ant verifica a disponibilidade do download:
 
 `[windowsazurepackage] Verifying blob availability (https://example.blob.core.windows.net/temp/tomcat6.zip)...` 
 
-If you selected the **Deploy from download...** option, the following warning may be shown, but the build will continue:
+Se você tiver selecionado a opção **Implantar do download...** , o seguinte aviso poderá ser exibido, mas a compilação continuará:
 
 `[windowsazurepackage] warning: Failed to confirm blob availability! Make sure the URL and/or the access key is correct (https://example.blob.core.windows.net/temp/tomcat6.zip).` 
 
-This warning is the only indication that the download's availability hasn't been verified. So if a deployment fails in the cloud for some reason, check to see if you received this warning.
+Esse aviso é a única indicação de que a disponibilidade do download ainda não foi verificada. Portanto, se uma implantação falhar na nuvem por algum motivo, verifique se você recebeu esse aviso.
 
-If you want to disable the download verification (for example, if you feel it unnecessarily slows down the build), set the `verifydownloads` attribute to `false` in the `<windowsazurepackage>` element of package.xml: 
+Se você quiser desabilitar a verificação de download (por exemplo, se você se sentir que isso causa uma lentidão desnecessária no build), defina o atributo `verifydownloads` como `false` no elemento `<windowsazurepackage>` do arquivo package.xml: 
 
 `<windowsazurepackage verifydownloads="false" ...>` 
 
-If you selected the **Automatically upload...** option, then in the console window you will see build messages reporting the progress of the upload every 5 seconds, whenever an upload is necessary.
+Se você tiver selecionado a opção **Carregar automaticamente...** , você verá mensagens de build na janela do console informando sobre o progresso do carregamento a cada 5 segundos, sempre que um carregamento for necessário.
 
 <a name="ssl_offloading_properties"></a> 
 
-### <a name="ssl-offloading-properties"></a>SSL offloading properties
-Open the context menu for the role in Eclipse's Project Explorer pane, click **Azure**, and then click **SSL Offloading**. 
+### <a name="ssl-offloading-properties"></a>Propriedades de descarregamento de SSL
+Abra o menu de contexto da função no painel Gerenciador de Projeto do Eclipse, clique em **Azure** e clique em **Descarregamento de SSL**. 
 
 ![][ic719481]
 
-Within this dialog, you can enable SSL offloading, allowing you to easily enable Hypertext Transfer Protocol Secure (HTTPS) support in your Java deployment on Azure, without requiring you to configure SSL in your Java application server. For more information, see [SSL Offloading][SSL Offloading] and [How to Use SSL Offloading][How to Use SSL Offloading].
+Nessa caixa de diálogo, você pode habilitar o descarregamento de SSL e, assim, permitindo o suporte ao protocolo HTTPS (Hypertext Transfer Protocol Secure) na implantação Java no Azure, sem a necessidade de configurar SSL em seu servidor de aplicativos Java. Para saber mais, veja [Descarregamento de SSL][Descarregamento de SSL] e [Como usar o descarregamento de SSL][Como usar o descarregamento de SSL].
 
-## <a name="see-also"></a>See Also
-[Azure Toolkit for Eclipse][Azure Toolkit for Eclipse]
+## <a name="see-also"></a>Consulte também
+[Kit de ferramentas do Azure para Eclipse][Kit de ferramentas do Azure para Eclipse]
 
-[Installing the Azure Toolkit for Eclipse][Installing the Azure Toolkit for Eclipse]
+[Instalação do Kit de Ferramentas do Azure para o Eclipse][Instalação do Kit de Ferramentas do Azure para o Eclipse]
 
-[Creating a Hello World Application for Azure in Eclipse][Creating a Hello World Application for Azure in Eclipse]
+[Criação de um aplicativo Hello World do Azure no Eclipse][Criação de um aplicativo Hello World do Azure no Eclipse]
 
-[Azure Project Properties][Azure Project Properties]
+[Propriedades do Projeto do Azure][Propriedades do Projeto do Azure]
 
-[Azure Storage Account List][Azure Storage Account List]
+[Lista de contas de Armazenamento do Azure][Lista de contas de armazenamento do Azure]
 
-For more information about using Azure with Java, see the [Azure Java Developer Center][Azure Java Developer Center].
+Para obter mais informações sobre o uso do Azure com Java, consulte o [Central de desenvolvedores de Java no Azure][Central de desenvolvedores de Java no Azure].
 
 <!-- URL List -->
 
-[Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
-[Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
-[Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
-[Azure Project Properties]: http://go.microsoft.com/fwlink/?LinkID=699524
-[Azure Storage Account List]: http://go.microsoft.com/fwlink/?LinkID=699528
-[com.microsoft.windowsazure.serviceruntime package summary]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
-[Creating a Hello World Application for Azure in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
-[Debugging a specific role instance in a multi-instance deployment]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
-[Debugging Azure Applications in Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
+[Central de desenvolvedores de Java no Azure]: http://go.microsoft.com/fwlink/?LinkID=699547
+[Portal de Gerenciamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=512959
+[Kit de ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699529
+[Propriedades do Projeto do Azure]: http://go.microsoft.com/fwlink/?LinkID=699524
+[Lista de contas de armazenamento do Azure]: http://go.microsoft.com/fwlink/?LinkID=699528
+[com.microsoft.windowsazure.serviceruntime]: http://azure.github.io/azure-sdk-for-java/com/microsoft/windowsazure/serviceruntime/package-summary.html
+[Criação de um aplicativo Hello World do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699533
+[Depuração de uma instância de função específica em uma implantação com várias instâncias]: http://go.microsoft.com/fwlink/?LinkID=699535#debugging_specific_role_instance
+[Depuração de aplicativos do Azure no Eclipse]: http://go.microsoft.com/fwlink/?LinkID=699535
 [Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
-[How to Use Co-located Caching]: http://go.microsoft.com/fwlink/?LinkID=699542
-[How to Use SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
-[Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
-[SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
+[Como usar caching colocalizado]: http://go.microsoft.com/fwlink/?LinkID=699542
+[Como usar o descarregamento de SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
+[Instalação do Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Afinidade da sessão]: http://go.microsoft.com/fwlink/?LinkID=699548
+[Descarregamento de SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
 
 <!-- IMG List -->
 
@@ -456,6 +460,6 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

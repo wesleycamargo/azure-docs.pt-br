@@ -1,25 +1,30 @@
 ---
-title: Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite | Microsoft Docs
-description: Este documento o ajuda a usar a opção de inteligência contra ameaças disponível na Segurança e Auditoria do OMS para monitorar e responder a alertas de segurança.
+title: "Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite | Microsoft AzurDocs"
+description: "Este documento o ajuda a usar a opção de inteligência contra ameaças disponível na Segurança e Auditoria do OMS para monitorar e responder a alertas de segurança."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 7d45a32b-1341-4bb5-a436-1f42a8a2590a
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2016
+ms.date: 12/01/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7161cacfd371aa73974e635a343793bbec76d858
+
 
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite
 Este documento o ajuda a usar a opção de inteligência contra ameaças disponível na Segurança e Auditoria do OMS para monitorar e responder a alertas de segurança.
 
-## <a name="what-is-oms?"></a>O que é o OMS?
+## <a name="what-is-oms"></a>O que é o OMS?
 O OMS (Microsoft Operations Management Suite) é a solução de gerenciamento de TI baseada em nuvem da Microsoft que ajuda a gerenciar e proteger sua infraestrutura local e de nuvem. Para obter mais informações sobre o OMS, leia o artigo [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="threat-intelligence"></a>Inteligência contra ameaças
@@ -74,13 +79,21 @@ O **mapa de inteligência contra ameaças** o ajudará a identificar os locais a
 
 ![mapa do threat intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig5.png)
 
-## <a name="see-also"></a>Consulte também
+> [!NOTE]
+> Você pode ver uma demonstração sobre como usar essa funcionalidade durante um processo de resposta a incidentes assistindo à apresentação [Mitigar as ameaças de segurança de datacenter com investigação guiada usando o Operations Management Suite](https://myignite.microsoft.com/videos/5000) entregue no Microsoft Ignite.
+> 
+> 
+
+## <a name="see-also"></a>Confira também
 Neste documento, você aprendeu a usar a opção **Inteligência contra Ameaças** na solução de Segurança e Auditoria do OMS para responder a alertas de segurança. Para saber mais sobre a Segurança do OMS, veja os seguintes artigos:
 
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
 * [Introdução à solução de Segurança e Auditoria do Operations Management Suite](oms-security-getting-started.md)
 * [Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

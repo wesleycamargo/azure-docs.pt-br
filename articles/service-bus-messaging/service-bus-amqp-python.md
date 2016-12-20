@@ -1,22 +1,26 @@
 ---
-title: Barramento de Serviço e Python com AMQP 1.0 | Microsoft Docs
-description: Usando o Barramento de Serviço do Python com AMQP.
-services: service-bus
+title: "Barramento de Serviço e Python com AMQP 1.0 | Microsoft Docs"
+description: "Usando o Barramento de Serviço do Python com AMQP."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 375396e7-cbec-4d25-9b98-63ef8de75fef
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97e90f5429fe4f2535a246db8dfbe81c772b3c88
+
 
 ---
-# <a name="using-service-bus-from-python-with-amqp-1.0"></a>Usando o Barramento de Serviço do Python com AMQP 1.0
+# <a name="using-service-bus-from-python-with-amqp-10"></a>Usando o Barramento de Serviço do Python com AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 Proton-Python é uma associação da linguagem Pyhton a Proton-C; ou seja, Proton-Python é implementada como um wrapper em torno de um mecanismo implementado em C.
@@ -26,7 +30,7 @@ Você pode baixar o Proton-C e as associações relacionadas (inclusive Python) 
 
 Observe que no momento da redação deste artigo, o suporte a SSL no Proton-C só está disponível para sistemas operacionais Linux. Como o barramento de serviço do Azure requer o uso de SSL, Proton-C (e as associações de linguagem) só pode ser usada para acessar o Barramento de Serviço do Linux no momento. O trabalho para habilitar o Proton-C com SSL no Windows está em andamento, portanto, verifique com frequência para saber se há atualizações.
 
-## <a name="working-with-service-bus-queues,-topics,-and-subscriptions-from-python"></a>Trabalhando com filas, tópicos e assinaturas do Barramento de Serviço no Python
+## <a name="working-with-service-bus-queues-topics-and-subscriptions-from-python"></a>Trabalhando com filas, tópicos e assinaturas do Barramento de Serviço no Python
 O código a seguir mostra como enviar e receber mensagens de uma entidade de mensagens do Barramento de Serviço.
 
 ### <a name="send-messages-using-proton-python"></a>Enviar mensagens usando Proton-Python
@@ -58,9 +62,9 @@ if messenger.incoming:
 messenger.stop()
 ```
 
-## <a name="messaging-between-.net-and-proton-python"></a>Mensagens entre .NET e Proton-Python
+## <a name="messaging-between-net-and-proton-python"></a>Mensagens entre .NET e Proton-Python
 ### <a name="application-properties"></a>Propriedades do aplicativo
-#### <a name="proton-python-to-service-bus-.net-apis"></a>Proton-Python para APIs .NET do Barramento de Serviço
+#### <a name="proton-python-to-service-bus-net-apis"></a>Proton-Python para APIs .NET do Barramento de Serviço
 As mensagens Proton-Python oferecem suporte às propriedades de aplicativo dos seguintes tipos: **int**, **long**, **float**, **uuid**, **bool**, **string**. O código Python a seguir mostra como definir propriedades de uma mensagem usando cada um desses tipos de propriedade.
 
 ```
@@ -71,7 +75,7 @@ message.properties[u"TestFloat"] = 1.5
 message.properties[u"TestGuid"] = uuid.uuid1()    
 ```
 
-Na API .NET do Barramento de Serviço, as propriedades do aplicativo de mensagens entram na coleação **Propriedades** de [BrokeredMessage][BrokeredMessage]. O código a seguir mostra como ler as propriedades do aplicativo de uma mensagem recebida de um cliente Python.
+Na API .NET do Barramento de Serviço, as propriedades do aplicativo de mensagens entram na coleção **Propriedades** de [BrokeredMessage][BrokeredMessage]. O código a seguir mostra como ler as propriedades do aplicativo de uma mensagem recebida de um cliente Python.
 
 ```
 if (message.Properties.Keys.Count > 0)
@@ -96,7 +100,7 @@ A tabela a seguir mapeia os tipos de propriedades Python para os tipos de propri
 | bool |bool |
 | string |string |
 
-#### <a name="service-bus-.net-apis-to-proton-python"></a>APIs .NET do Barramento de Serviço para Proton-Python
+#### <a name="service-bus-net-apis-to-proton-python"></a>APIs .NET do Barramento de Serviço para Proton-Python
 O tipo [BrokeredMessage][BrokeredMessage] oferece suporte às propriedades do aplicativo dos seguintes tipos: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset**, and **TimeSpan**. O código .NET a seguir mostra como definir propriedades em um objeto [BrokeredMessage][BrokeredMessage] usando cada um desses tipos de propriedade.
 
 ```
@@ -155,9 +159,9 @@ A tabela a seguir mapeia os tipos de propriedades .NET para os tipos de propried
 | Uri |DescribedType |Uri.AbsoluteUri mapeado para o tipo AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### <a name="standard-properties"></a>Propriedades padrões
-As tabelas a seguir mostram o mapeamento entre as propriedades de mensagem padrões do Proton-Python e as propriedades de mensagens padrões [BrokeredMessage][BrokeredMessage].
+As tabelas a seguir mostram o mapeamento entre as propriedades de mensagem padrão do Proton-Python e as propriedades de mensagens padrão [BrokeredMessage][BrokeredMessage].
 
-#### <a name="proton-python-to-service-bus-.net-apis"></a>Proton-Python para APIs .NET do Barramento de Serviço
+#### <a name="proton-python-to-service-bus-net-apis"></a>Proton-Python para APIs .NET do Barramento de Serviço
 | Proton-Python | Barramento de Serviço do .NET | Observações |
 | --- | --- | --- |
 | durável |n/d |O Barramento de Serviço só oferece suporte a mensagens duráveis. |
@@ -207,6 +211,6 @@ Está pronto(a) para saber mais? Visite os links a seguir:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

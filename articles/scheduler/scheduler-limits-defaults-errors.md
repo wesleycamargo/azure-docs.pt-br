@@ -1,31 +1,35 @@
 ---
-title: Limites e padrões do Agendador
-description: Limites e padrões do Agendador
+title: "Limites e padrões do Agendador"
+description: "Limites e padrões do Agendador"
 services: scheduler
 documentationcenter: .NET
-author: krisragh
-manager: dwrede
-editor: ''
-
+author: derek1ee
+manager: kevinlam1
+editor: 
+ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: krisragh
+ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
+
 
 ---
-# Limites e padrões do Agendador
-## Aceleradores, limites, padrões e cotas do Agendador
+# <a name="scheduler-limits-and-defaults"></a>Limites e padrões do Agendador
+## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Aceleradores, limites, padrões e cotas do Agendador
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## O cabeçalho x-ms-request-id
-Cada solicitação feita no serviço de Agendador retorna um cabeçalho de resposta chamado **x-ms-request-id**. Esse cabeçalho contém um valor opaco que identifica exclusivamente a solicitação.
+## <a name="the-x-ms-request-id-header"></a>O cabeçalho x-ms-request-id
+Cada solicitação feita no serviço de Agendador retorna um cabeçalho de resposta chamado**x-ms-request-id**. Esse cabeçalho contém um valor opaco que identifica exclusivamente a solicitação.
 
 Se uma solicitação estiver falhando consistentemente e você tiver verificado que a solicitação foi formulada corretamente, você poderá usar esse valor para relatar o erro à Microsoft. Em seu relatório, inclua o valor de x-ms-request-id, a hora aproximada na qual a solicitação foi feita, o identificador da assinatura, a coleção de trabalhos e/ou o trabalho e o tipo de operação para o qual a solicitação realizou uma tentativa.
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
  [O que é o Agendador?](scheduler-intro.md)
 
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
@@ -42,4 +46,9 @@ Se uma solicitação estiver falhando consistentemente e você tiver verificado 
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

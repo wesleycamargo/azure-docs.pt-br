@@ -1,12 +1,12 @@
 ---
-title: Como implantar um serviço Web em várias regiões | Microsoft Docs
-description: Etapas para implantar (copiar) um novo serviço Web para outras regiões.
+title: "Como implantar um serviço Web em várias regiões | Microsoft Docs"
+description: "Etapas para implantar (copiar) um novo serviço Web para outras regiões."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondl
 editor: cgronlun
-
+ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
+ms.openlocfilehash: ba27d4adf73b4d5d3747567b54aeb5f0d06f8243
+
 
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Como implantar um serviço Web em várias regiões
@@ -27,7 +31,7 @@ O preço é específico de cada região; portanto, você deverá definir um plan
 3. Na página de visão geral de Planos, clique em **Novo**.
 4. No menu suspenso **Assinatura** , selecione a assinatura na qual o novo plano residirá.
 5. No menu suspenso **Região** , selecione uma região para o novo plano. As opções de plano para a região selecionada serão exibidas na seção **Opções de Plano** da página.
-6. No menu suspenso **Grupo de Recursos** , selecione um grupo de recursos para o plano. Para saber mais sobre grupos de recursos, veja [Gerenciar recursos do Azure pelo portal](../azure-portal/resource-group-portal.md).
+6. No menu suspenso **Grupo de Recursos** , selecione um grupo de recursos para o plano. Em mais informações sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 7. Em **Nome do Plano** , digite o nome do plano.
 8. Em **Opções do Plano**, clique no nível de cobrança para o novo plano.
 9. Clique em **Criar**.
@@ -39,12 +43,15 @@ O preço é específico de cada região; portanto, você deverá definir um plan
 4. Em **Nome do Serviço Web**, digite um novo nome para o serviço Web.
 5. Em **Descrição do serviço Web**, digite uma descrição para o serviço Web.
 6. No menu suspenso **Assinatura** , selecione a assinatura na qual o novo serviço Web residirá.
-7. No menu suspenso **Grupo de Recursos** , selecione um grupo de recursos para o serviço Web. Para saber mais sobre grupos de recursos, veja [Gerenciar recursos do Azure pelo portal](../azure-portal/resource-group-portal.md).
+7. No menu suspenso **Grupo de Recursos** , selecione um grupo de recursos para o serviço Web. Em mais informações sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 8. No menu suspenso **Região** , selecione a região na qual implantar o serviço Web.
 9. No menu suspenso **Conta de armazenamento** , selecione uma conta de armazenamento na qual armazenar o serviço Web.
 10. Na lista suspensa **Plano de preços** , selecione um plano na região que você selecionou na etapa 8.
 11. Clique em **Copiar**.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

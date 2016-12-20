@@ -1,19 +1,23 @@
 ---
-title: Criar um namespace do Barramento de Serviço usando um modelo do Resource Manager | Microsoft Docs
-description: Usar modelo do Azure Resource Manager para criar um namespace do Barramento de Serviço
-services: service-bus
+title: "Criar um namespace do Barramento de Serviço usando um modelo do Resource Manager | Microsoft Docs"
+description: "Usar modelo do Azure Resource Manager para criar um namespace do Barramento de Serviço"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: dc0d6482-6344-4cef-8644-d4573639f5e4
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm;shvija
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 39907193d006d6060152c9ac737a082d655c2256
+
 
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um namespace do Barramento de Serviço usando um modelo do Azure Resource Manager
@@ -21,21 +25,21 @@ Este artigo descreve como usar um modelo do Azure Resource Manager que cria um n
 
 Para saber mais sobre a criação de modelos, confira [Criando modelos do Azure Resource Manager][Criando modelos do Azure Resource Manager].
 
-Para ver o modelo completo, consulte o [Modelo de namespace do Barramento de Serviço][Modelo de namespace do Barramento de Serviço] no GitHub.
+Para obter o modelo completo, confira o [Modelo de namespace do Barramento de Serviço][Modelo de namespace do Barramento de Serviço] no GitHub.
 
 > [!NOTE]
 > Os modelos do Azure Resource Manager a seguir estão disponíveis para download e implantação. 
 > 
-> * [Criar um namespace dos Hubs de Eventos com um Hub de Eventos e um grupo de consumidores](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 > * [Criar um namespace do Barramento de Serviço com fila](service-bus-resource-manager-namespace-queue.md)
 > * [Criar um namespace do Barramento de Serviço com tópico e assinatura](service-bus-resource-manager-namespace-topic.md)
 > * [Create a Service Bus namespace with queue and authorization rule (Criar um namespace de Barramento de Serviço com fila e regra de autorização)](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Criar um namespace do Barramento de Serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Modelos de Início Rápido do Azure] e procure por Barramento de Serviço.
+> Para verificar os modelos mais recentes, acesse a galeria de [Modelos de Início Rápido do Azure][Modelos de Início Rápido do Azure] e pesquise Barramento de Serviço.
 > 
 > 
 
-## <a name="what-will-you-deploy?"></a>O que você implantará?
+## <a name="what-will-you-deploy"></a>O que você implantará?
 Com esse modelo, você implantará um namespace de Barramento de Serviço com uma SKU [Básica, Standard ou Premium](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Para executar a implantação automaticamente, clique no seguinte botão:
@@ -79,7 +83,7 @@ O nome do [SKU](https://azure.microsoft.com/pricing/details/service-bus/) do Bar
 
 O modelo definirá os valores permitidos para esse parâmetro (Basic, Standard ou Premium) e atribuirá um valor padrão (Standard) se nenhum valor for especificado.
 
-Para saber mais sobre os preços do Barramento de Serviço, consulte [Barramento de Serviço, preços e cobrança][Barramento de Serviço, preços e cobrança].
+Para saber mais sobre os preços do Barramento de Serviço, confira [Barramento de Serviço, preços e cobrança][Barramento de Serviço, preços e cobrança].
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 A versão da API do Barramento de Serviço do modelo.
@@ -133,7 +137,7 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você criou e implantou recursos usando o Azure Resource Manager, saiba como gerenciar esses recursos lendo estes artigos:
 
-* [Gerenciar o Barramento de Serviço com o PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+* [Gerenciar o Barramento de Serviço com o PowerShell](service-bus-powershell-how-to-provision.md)
 * [Gerenciar recursos do Barramento de Serviço com o Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
 [Criando modelos do Azure Resource Manager]: ../resource-group-authoring-templates.md
@@ -145,6 +149,6 @@ Agora que você criou e implantou recursos usando o Azure Resource Manager, saib
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

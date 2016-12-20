@@ -1,13 +1,13 @@
 ---
 title: Usar o ReportViewer em um site da Web | Microsoft Docs
-description: Este tópico descreve como criar um site da Web do Microsoft Azure com o controle ReportViewer do Visual Studio que exibe um relatório armazenado em uma máquina virtual do Microsoft Azure.
+description: "Este tópico descreve como criar um site da Web do Microsoft Azure com o controle ReportViewer do Visual Studio que exibe um relatório armazenado em uma máquina virtual do Microsoft Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
 manager: erikre
 editor: monicar
 tags: azure-service-management
-
+ms.assetid: 78b76318-d9bf-48ef-9d9e-d1b7d8cf3042
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 65b564e6600bbf13a68c68b2d5118544fd79bab2
+
 
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Usar o ReportViewer em um site da Web hospedado no Azure
@@ -34,7 +38,7 @@ Para incorporar o ReportViewer ao site da Web do Microsoft Azure, é necessário
 * **Publicar** o aplicativo Web ASP.NET no Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Leia a seção "Recomendações gerais e práticas recomendadas" no [Business Intelligence do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-bi.md).
+Leia a seção "Recomendações gerais e práticas recomendadas" no [Business Intelligence do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 > [!NOTE]
 > Os controles ReportViewer são fornecidos com o Visual Studio Standard Edition ou versões posteriores. Se estiver usando o Web Developer Express Edition, você deverá instalar o [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) para usar os recursos de tempo de execução do ReportViewer.
@@ -53,10 +57,10 @@ No modo de processamento remoto, o controle ReportViewer usa os seguintes assemb
 * **Microsoft.ReportViewer.WebForms.dll**: contém o código do ReportViewer, que você precisa para usar o ReportViewer em sua página. Uma referência para esse assembly é adicionada ao seu projeto quando você solta um controle ReportViewer em uma página ASP.NET em seu projeto.
 * **Microsoft.ReportViewer.Common.dll**: contém classes usadas pelo controle ReportViewer no tempo de execução. Ele não é adicionado automaticamente ao seu projeto.
 
-### <a name="to-add-a-reference-to-microsoft.reportviewer.common"></a>Para adicionar uma referência ao Microsoft.ReportViewer.Common
+### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>Para adicionar uma referência ao Microsoft.ReportViewer.Common
 * Clique com o botão direito do mouse no nó **Referências** do projeto e selecione **Adicionar Referência**, selecione o assembly na guia .NET e clique em **OK**.
 
-### <a name="to-make-the-assemblies-locally-accessible-by-your-asp.net-application"></a>Para tornar os assemblies acessíveis localmente ao aplicativo ASP.NET
+### <a name="to-make-the-assemblies-locally-accessible-by-your-aspnet-application"></a>Para tornar os assemblies acessíveis localmente ao aplicativo ASP.NET
 1. Na pasta **Referências** , clique no assembly Microsoft.ReportViewer.Common para que suas propriedades apareçam no painel Propriedades.
 2. No painel Propriedades, defina **Local da Cópia** como True.
 3. Repita as etapas 1 e 2 para Microsoft.ReportViewer.WebForms.
@@ -77,7 +81,7 @@ No modo de processamento remoto, o controle ReportViewer usa os seguintes assemb
 ## <a name="configuring-authentication-and-authorization"></a>Configurando a autenticação e a autorização
 O ReportViewer precisa usar credenciais apropriadas para se autenticar no servidor de relatório, e as credenciais devem ser autorizadas pelo servidor de relatório a acessar os relatórios que você deseja. Para obter informações sobre autenticação, consulte o white paper [Controle do visualizador de relatórios do Reporting Services e servidores de relatórios com base em máquina virtual do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
-## <a name="publish-the-asp.net-web-application-to-azure"></a>Publicar o aplicativo Web ASP.NET no Azure
+## <a name="publish-the-aspnet-web-application-to-azure"></a>Publicar o aplicativo Web ASP.NET no Azure
 Para obter instruções sobre como publicar um aplicativo Web ASP .NET no Azure, confira [Como migrar e publicar um aplicativo Web no Azure por meio do Visual Studio](../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introdução aos aplicativos Web e ao ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
 
 > [!IMPORTANT]
@@ -90,12 +94,15 @@ Para obter instruções sobre como publicar um aplicativo Web ASP .NET no Azure,
 ## <a name="resources"></a>Recursos
 [Relatórios da Microsoft](http://go.microsoft.com/fwlink/?LinkId=205399)
 
-[Business Intelligence do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-bi.md)
+[Business Intelligence do SQL Server em Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo](virtual-machines-windows-classic-ps-sql-report.md)
+[Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo](virtual-machines-windows-classic-ps-sql-report.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Controle de visualizador de relatórios do Reporting Services e máquina virtual do Microsoft Azure com base em servidores de relatórios](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

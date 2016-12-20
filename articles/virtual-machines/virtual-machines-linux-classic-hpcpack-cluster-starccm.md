@@ -1,13 +1,13 @@
 ---
 title: Executar o STAR-CCM+ com o HPC Pack em VMs do Linux | Microsoft Docs
-description: Implante um cluster do Microsoft HPC Pack no Azure e execute um trabalho do STAR-CCM+ em vários nós de computação do Linux em uma rede RDMA.
+description: "Implante um cluster do Microsoft HPC Pack no Azure e execute um trabalho do STAR-CCM+ em vários nós de computação do Linux em uma rede RDMA."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: xpillons
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager,hpc-pack
-
+ms.assetid: 75523406-d268-4623-ac3e-811c7b74de4b
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,17 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 666b9e47953674b17be6cc84dbc6aeec28e28b57
+
 
 ---
-# Executar o STAR-CCM+ com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure
+# <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Executar o STAR-CCM+ com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure
 Este artigo mostra como implantar um cluster do Microsoft HPC Pack no Azure e executar um trabalho do [STAR-CCM+ da CD-adapco](http://www.cd-adapco.com/products/star-ccm%C2%AE) em vários nós de computação Linux interconectados com InfiniBand.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-O Microsoft HPC Pack fornece recursos para executar uma variedade de aplicativos de HPC e paralelos em larga escala, incluindo aplicativos MPI, em clusters de máquinas virtuais do Microsoft Azure. O HPC Pack também dá suporte à execução de aplicativos de HPC do Linux em VMs com nós de computação do Linux implantadas em um cluster do HPC Pack. Para saber como começar a usar os nós de computação do Linux com o HPC Pack, consulte a [Introdução a nós de computação Linux em um cluster de HPC Pack no Azure](virtual-machines-linux-classic-hpcpack-cluster.md).
+O Microsoft HPC Pack fornece recursos para executar uma variedade de aplicativos de HPC e paralelos em larga escala, incluindo aplicativos MPI, em clusters de máquinas virtuais do Microsoft Azure. O HPC Pack também dá suporte à execução de aplicativos de HPC do Linux em VMs com nós de computação do Linux implantadas em um cluster do HPC Pack. Para saber como começar a usar os nós de computação do Linux com o HPC Pack, consulte a [Introdução a nós de computação Linux em um cluster HPC Pack no Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-## Configurar um cluster do HPC Pack
-Baixe os scripts de implantação de IaaS do HPC Pack do [Centro de Download](https://www.microsoft.com/pt-BR/download/details.aspx?id=44949) e extraia-os localmente.
+## <a name="set-up-an-hpc-pack-cluster"></a>Configurar um cluster do HPC Pack
+Baixe os scripts de implantação de IaaS do HPC Pack do [Centro de Download](https://www.microsoft.com/en-us/download/details.aspx?id=44949) e extraia-os localmente.
 
 O Azure PowerShell é um pré-requisito. Se o PowerShell não estiver configurado no computador local, leia [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
 
@@ -39,7 +43,7 @@ A saída lista o local em que essas imagens estão disponíveis e o nome da imag
 
 Antes de implantar o cluster, você precisa criar um arquivo de modelo de implantação do HPC Pack. Como nosso alvo é um cluster pequeno, o nó principal será o controlador de domínio e hospedará um banco de dados SQL local.
 
-O modelo a seguir implantará esse nó principal, criará um arquivo XML chamado **MyCluster.xml** e substituirá os valores de **SubscriptionId**, **StorageAccount**, **Location**, **VMName** e **ServiceName** pelos seus.
+O modelo a seguir implantará esse nó de cabeçalho, criará um arquivo XML chamado **MyCluster.xml** e substituirá os valores de **SubscriptionId**, **StorageAccount**, **Location**, **VMName** e **ServiceName** pelos seus.
 
     <?xml version="1.0" encoding="utf-8" ?>
     <IaaSClusterConfig>
@@ -89,10 +93,10 @@ Eventualmente, talvez você precise consertar o encaminhador DNS. Para fazer iss
 2. Clique no botão **Editar** para remover quaisquer encaminhadores e clique em **OK**.
 3. Certifique-se de que a caixa de seleção **Usar dicas de raiz se encaminhadores não estiverem disponíveis** esteja marcada e clique em **OK**.
 
-## Configurar nós de computação do Linux
+## <a name="set-up-linux-compute-nodes"></a>Configurar nós de computação do Linux
 Você implanta os nós de computação do Linux usando o mesmo modelo de implantação que usou para criar o nó principal.
 
-Copie o arquivo **MyCluster.xml** do computador local para o nó principal e atualize a marca **NodeCount** com o número de nós que você deseja implantar (<=20). Tenha cuidado para ter núcleos suficientes disponíveis na sua cota do Azure, porque cada instância A9 consumirá 16 núcleos de sua assinatura. Você poderá usar instâncias A8 (8 núcleos) em vez de A9 se quiser usar mais VMs no mesmo orçamento.
+Copie o arquivo **MyCluster.xml** do computador local para o nó de cabeçalho e atualize a marcação **NodeCount** com o número de nós que você deseja implantar (<=20). Tenha cuidado para ter núcleos suficientes disponíveis na sua cota do Azure, porque cada instância A9 consumirá 16 núcleos de sua assinatura. Você poderá usar instâncias A8 (8 núcleos) em vez de A9 se quiser usar mais VMs no mesmo orçamento.
 
 No nó principal, copie os scripts de implantação de IaaS do HPC Pack.
 
@@ -100,8 +104,8 @@ Execute os seguintes comandos do Azure PowerShell em um prompt de comandos com p
 
 1. Execute **Add-AzureAccount** para se conectar à sua assinatura do Azure.
 2. Se tiver várias assinaturas, execute **Get-AzureSubscription** para listá-las.
-3. Defina uma assinatura padrão executando o comando **Select-AzureSubscription -SubscriptionName xxxx -Default**.
-4. Execute **.\\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** para iniciar a implantação dos nós de computação do Linux.
+3. Defina uma assinatura padrão executando o comando **Select-AzureSubscription -SubscriptionName xxxx -Default** .
+4. Execute **.\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** para iniciar a implantação dos nós de computação do Linux.
    
    ![Implantação do nó principal em ação][hndeploy]
 
@@ -111,14 +115,14 @@ Abra a ferramenta de Gerenciador de Cluster do HPC Pack. Após alguns minutos, o
 
 Agora que todos os nós estão em funcionamento, há configurações de infraestrutura adicionais a serem definidas.
 
-## Configurar um compartilhamento de arquivos do Azure para nós do Windows e Linux
+## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Configurar um compartilhamento de arquivos do Azure para nós do Windows e Linux
 Você pode usar o serviço de arquivos do Azure para armazenar scripts, pacotes de aplicativos e arquivos de dados. O arquivo do Azure fornece funcionalidades CIFS sobre o Armazenamento de Blobs do Azure como um repositório persistente. Lembre-se de que essa não é a solução mais escalonável, mas é a mais simples e não requer VMs dedicadas.
 
 Crie um compartilhamento de arquivos do Azure seguindo as instruções no artigo [Introdução ao Armazenamento de Arquivos do Azure no Windows](../storage/storage-dotnet-how-to-use-files.md).
 
-Mantenha o nome da sua conta de armazenamento como **saname**, o nome do compartilhamento de arquivos como **sharename** e a chave da conta de armazenamento **sakey**.
+Mantenha o nome da sua conta de armazenamento como **saname**, o nome do compartilhamento de arquivos como **sharename** e a chave de conta de armazenamento **sakey**.
 
-### Montar o compartilhamento de arquivos do Azure no nó principal
+### <a name="mount-the-azure-file-share-on-the-head-node"></a>Montar o compartilhamento de arquivos do Azure no nó principal
 Abra um prompt de comandos com privilégios elevados e execute o seguinte comando para armazenar as credenciais no cofre do computador local:
 
 ```
@@ -128,11 +132,12 @@ Abra um prompt de comandos com privilégios elevados e execute o seguinte comand
 Em seguida, para montar o compartilhamento de arquivos do Azure, execute:
 
 ```
-    net use Z: \<saname>.file.core.windows.net<sharename> /persistent:yes
+    net use Z: \\<saname>.file.core.windows.net\<sharename> /persistent:yes
 ```
 
-### Montar o compartilhamento de arquivos do Azure em nós de computação do Linux
-Uma ferramenta útil que é fornecida com o HPC Pack é a ferramenta clusrun. Você pode usar essa ferramenta de linha de comando para executar o mesmo comando simultaneamente em um conjunto de nós de computação. Em nosso caso, ela é usada para montar o compartilhamento de arquivos do Azure e fazer com que ele persista e sobreviva a reinicializações. Em um prompt de comandos com privilégios elevados no nó principal, execute os comandos a seguir.
+### <a name="mount-the-azure-file-share-on-linux-compute-nodes"></a>Montar o compartilhamento de arquivos do Azure em nós de computação do Linux
+Uma ferramenta útil que é fornecida com o HPC Pack é a ferramenta clusrun. Você pode usar essa ferramenta de linha de comando para executar o mesmo comando simultaneamente em um conjunto de nós de computação. Em nosso caso, ela é usada para montar o compartilhamento de arquivos do Azure e fazer com que ele persista e sobreviva a reinicializações.
+Em um prompt de comandos com privilégios elevados no nó principal, execute os comandos a seguir.
 
 Para criar o diretório de montagem:
 
@@ -152,16 +157,16 @@ Para fazer com que o compartilhamento de montagem persista:
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
-## Instalar o STAR-CCM+
+## <a name="install-star-ccm"></a>Instalar o STAR-CCM+
 As instâncias de VM do Azure A8 e A9 dão suporte ao InfiniBand e funcionalidades de RDMA. Os drivers de kernel que habilitam essas funcionalidades estão disponíveis para imagens do Windows Server 2012 R2, SUSE 12, CentOS 6.5 e CentOS 7.1 no Azure Marketplace. O Microsoft MPI e Intel MPI (versão 5. x) são as duas bibliotecas de MPI que dão suporte a esses drivers no Azure.
 
 O STAR-CCM+ da CD-adapco versão 11.x e posterior é fornecido com o Intel MPI versão 5.x, portanto o suporte do InfiniBand para Azure está incluído.
 
 Obter o pacote Linux64 do STAR-CCM+ no [portal do CD-adapco](https://steve.cd-adapco.com). Em nosso caso, usamos a versão 11.02.010 com precisão mista.
 
-No nó principal, no compartilhamento de arquivos do Azure **/hpcdata**, crie um script de shell chamado **setupstarccm.sh** com o conteúdo a seguir. Esse script será executado em cada nó de computação para configurar o STAR-CCM+ localmente.
+No nó de cabeçalho, no compartilhamento de arquivos do Azure **/hpcdata**, crie um script de shell chamado **setupstarccm.sh** com o conteúdo a seguir. Esse script será executado em cada nó de computação para configurar o STAR-CCM+ localmente.
 
-#### Script setupstarcm.sh de exemplo
+#### <a name="sample-setupstarcmsh-script"></a>Script setupstarcm.sh de exemplo
 ```
     #!/bin/bash
     # setupstarcm.sh to set up STAR-CCM+ locally
@@ -190,7 +195,7 @@ Agora, para instalar o STAR-CCM+ em todos os seus nós de computação do Linux,
 
 Enquanto o comando é executado, você pode monitorar o uso da CPU com o mapa de calor do Gerenciador de Cluster. Depois de alguns minutos, todos os nós devem estar instalados corretamente.
 
-## Executar trabalhos do STAR-CCM+
+## <a name="run-star-ccm-jobs"></a>Executar trabalhos do STAR-CCM+
 O HPC Pack é usado por suas funcionalidades de agendador de trabalho para executar trabalhos do STAR-CCM+. Para fazer isso, precisamos do suporte de alguns scripts que são usados para iniciar o trabalho e executar o STAR-CCM+. Os dados de entrada são mantidos no compartilhamento de arquivos do Azure primeiro por questões de simplicidade.
 
 O script do PowerShell a seguir é usado para enfileirar um trabalho do STAR-CCM+. Ele usa três argumentos:
@@ -207,7 +212,7 @@ O modelo de entrada e o script **runstarccm.sh** são armazenados no compartilha
 
 Os arquivos de log são nomeados com a ID do trabalho e são armazenados no **compartilhamento /hpcdata**, assim como os arquivos de saída do STAR-CCM+.
 
-#### Script SubmitStarccmJob.ps1 de exemplo
+#### <a name="sample-submitstarccmjobps1-script"></a>Script SubmitStarccmJob.ps1 de exemplo
 ```
     Add-PSSnapin Microsoft.HPC -ErrorAction silentlycontinue
     $scheduler="headnodename"
@@ -233,7 +238,7 @@ Os arquivos de log são nomeados com a ID do trabalho e são armazenados no **co
 ```
 Substitua **runner.java** por seu código de registro em log e código do iniciador de modelo Java do STAR-CCM+ preferidos.
 
-#### Script runstarccm.sh de exemplo
+#### <a name="sample-runstarccmsh-script"></a>Script runstarccm.sh de exemplo
 ```
     #!/bin/bash
     echo "start"
@@ -279,11 +284,11 @@ Substitua **runner.java** por seu código de registro em log e código do inicia
     exit ${RTNSTS}
 ```
 
-Em nosso teste, usamos um token de licença do tipo Power-On-Demand. Para esse token, você precisa definir a variável de ambiente **$CDLMD\_LICENSE\_FILE** como **1999@flex.cd-adapco.com** e a chave na opção **-podkey** da linha de comando.
+Em nosso teste, usamos um token de licença do tipo Power-On-Demand. Para esse token, você precisa definir a variável de ambiente **$CDLMD_LICENSE_FILE** como **1999@flex.cd-adapco.com** e a chave na opção **-podkey** da linha de comando.
 
-Após a inicialização, o script extrai de **$CCP\_NODES\_CORES** as variáveis de ambiente definidas pelo HPC Pack, a lista de nós para criar um arquivo de host usado pelo iniciador de MPI. Esse arquivo de host conterá a lista de nomes dos nós de computação que são usados para o trabalho, um nome por linha.
+Após a inicialização, o script extrai – das variáveis de ambiente definidas pelo HPC Pack **$CCP_NODES_CORES** – a lista de nós para criar um arquivo de host usado pelo iniciador de MPI. Esse arquivo de host conterá a lista de nomes dos nós de computação que são usados para o trabalho, um nome por linha.
 
-O formato **$CCP\_NODES\_CORES** segue este padrão:
+O formato **$CCP_NODES_CORES** segue este padrão:
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
@@ -311,7 +316,7 @@ Por fim, para iniciar um trabalho, certifique-se de que os nós estejam em funci
     .\ SubmitStarccmJob.ps1 <model> <nbNodes> <nbCoresPerNode>
 ```
 
-## Parar os nós
+## <a name="stop-nodes"></a>Parar os nós
 Posteriormente, depois de concluir seus testes, você pode usar os seguintes comandos do PowerShell do HPC Pack para parar e iniciar os nós:
 
 ```
@@ -319,14 +324,18 @@ Posteriormente, depois de concluir seus testes, você pode usar os seguintes com
     Start-HPCIaaSNode.ps1 -Name <prefix>-00*
 ```
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Tentar executar outras cargas de trabalho do Linux. Por exemplo, consulte:
 
-* [Executar o NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md)
-* [Executar o OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md)
+* [Executar o NAMD com o Microsoft HPC Pack em nós de computação do Linux no Azure](virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Executar o OpenFOAM com o Microsoft HPC Pack em um cluster de RDMA do Linux no Azure](virtual-machines-linux-classic-hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 <!--Image references-->
 [hndeploy]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]: ./media/virtual-machines-linux-classic-hpcpack-cluster-starccm/ClusterManager.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

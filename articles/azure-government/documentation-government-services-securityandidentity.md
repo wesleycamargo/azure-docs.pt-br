@@ -1,13 +1,13 @@
 ---
-title: Azure Government documentation | Microsoft Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+title: "Segurança do Azure Governamental + identidade | Microsoft Docs"
+description: "Este guia fornece uma comparação dos recursos e orientações sobre como desenvolver aplicativos para o Azure Government"
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: e2fe7983-5870-43e9-ae01-2d45d3102c8a
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,24 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/12/2016
 ms.author: ryansoc
+translationtype: Human Translation
+ms.sourcegitcommit: cd01170c3c0a3f62024de3357d342af1f4f90c6c
+ms.openlocfilehash: 27d447e8e3c336bbce2e1ca81d2c7c413b0360fc
+
 
 ---
-# <a name="azure-government-security-and-identity"></a>Azure Government Security and Identity
-## <a name="key-vault"></a>Key Vault
-For details on this service and how to use it, see the <a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
+# <a name="azure-government-security-identity"></a>Segurança do Azure Governamental + identidade
+## <a name="key-vault"></a>Cofre da Chave
+Para obter detalhes sobre esse serviço e como usá-lo, consulte a [documentação pública do Cofre de Chaves do Azure](../key-vault/index.md).
 
-### <a name="data-considerations"></a>Data Considerations
-The following information identifies the Azure Government boundary for Azure Key Vault:
+### <a name="data-considerations"></a>Considerações de dados
+As informações a seguir identificam o limite do Azure Governamental para o Cofre de Chaves do Azure:
 
-| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| Dados regulamentados/controlados permitidos | Dados regulamentados/controlados não permitidos |
 | --- | --- |
-| All data encrypted with an Azure Key Vault key may contain Regulated/controlled data. |Azure Key Vault metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your Key Vault.  Do not enter Regulated/controlled data into the following fields: Resource group names, Key Vault names, Subscription name |
+| Todos os dados criptografados com uma chave do Cofre de Chaves do Azure podem conter dados regulamentados/controlados. |Metadados do Cofre de Chaves do Azure não são permitidos para conter dados de exportação controlados. Esses metadados incluem todos os dados de configuração inseridos durante a criação e manutenção de seu Cofre de Chaves.  Não insira dados Regulamentados/controlados nos seguintes campos: Nomes de grupo de recursos, Nomes de Cofre de Chaves, Nome de assinatura |
 
-Key Vault is generally available in Azure Government. As in public, there is no extension, so Key Vault is available through PowerShell and CLI only.
+O Cofre de Chaves está disponível no Azure Governamental. Assim como no público, não há qualquer extensão, portanto o Cofre de Chaves só está disponível por meio do PowerShell e da CLI.
 
-## <a name="next-steps"></a>Next Steps
-For supplemental information and updates, subscribe to the <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+## <a name="next-steps"></a>Próximas etapas
+Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/26/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
+ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
 
 
 ---
@@ -64,7 +64,7 @@ Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com um
     O projeto de aplicativo não contém qualquer código diretamente. Em vez disso, ele faz referência a um conjunto de projetos de serviço. Além disso, ele contém três outros tipos de conteúdo:
    
    * **Perfis de publicação**: usados para gerenciar preferências de ferramentas para ambientes diferentes.
-   * **Scripts**: inclui um script do PowerShell para a implantação/atualização de seu aplicativo. O Visual Studio usa o script de bastidores do Visual Studio. O script também pode ser chamado diretamente na linha de comando.
+   * **Scripts**: inclui um script do PowerShell para a implantação/atualização de seu aplicativo. O Visual Studio usa o script em segundo plano. O script também pode ser chamado diretamente na linha de comando.
    * **Definição de aplicativo**: inclui o manifesto do aplicativo em *ApplicationPackageRoot*. Os arquivos de parâmetros do aplicativo associados estão em *ApplicationParameters*, que definem o aplicativo e permitem que você o configure especificamente para determinado ambiente.
      
      Para obter uma visão geral do conteúdo do projeto de serviço, confira [Introdução aos Reliable Services](service-fabric-reliable-services-quick-start.md).
@@ -151,6 +151,6 @@ Quando você altera o modo de cluster, o cluster de desenvolvimento é redefinid
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

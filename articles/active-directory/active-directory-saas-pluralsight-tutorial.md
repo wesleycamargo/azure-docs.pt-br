@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Pluralsight | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Pluralsight.
+title: "Tutorial: integração do Azure Active Directory ao Pluralsight | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Pluralsight."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6b71ba7f928871768851357bcb4bce1fbf4fed3
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-pluralsight"></a>Tutorial: Integração do Azure Active Directory com o Pluralsight
+# <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Tutorial: Integração do Azure Active Directory com o Pluralsight
 O objetivo desse tutorial é mostrar como integrar o Pluralsight ao Azure AD (Azure Active Directory).
 
 A integração do Pluralsight ao Azure AD oferece os seguintes benefícios:
@@ -126,7 +130,7 @@ Também é possível adicionar o atributo **“ID Exclusiva”** com o valor apr
 
     c. Na lista **Valor do Atributo** , selecione o valor do atributo mostrado nessa linha.
 
-    d. Clique em **Concluído**.  
+    d. Clique em **Concluído**.    
 
 
 
@@ -173,7 +177,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_09.png) 
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -205,7 +209,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -274,6 +278,6 @@ Ao clicar no bloco Pluralsight no Painel de Acesso, você deve ser conectado aut
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

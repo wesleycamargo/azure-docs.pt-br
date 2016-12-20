@@ -1,22 +1,26 @@
 ---
-title: Solução Gerenciamento de Alertas no OMS (Operations Management Suite) | Microsoft Docs
-description: A solução de Gerenciamento de Alertas no Log Analytics ajuda a analisar todos os alertas em seu ambiente.  Além de consolidar alertas gerados no OMS, ela importa alertas dos grupos de gerenciamento conectados do SCOM (System Center Operations Manager) para o Log Analytics.
+title: "Solução Gerenciamento de Alertas no OMS (Operations Management Suite) | Microsoft Docs"
+description: "A solução de Gerenciamento de Alertas no Log Analytics ajuda a analisar todos os alertas em seu ambiente.  Além de consolidar alertas gerados no OMS, ela importa alertas dos grupos de gerenciamento conectados do SCOM (System Center Operations Manager) para o Log Analytics."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2caa3118785fab6919dd088e440bf3483a77bd69
+
 
 ---
-# <a name="alert-management-solution-in-operations-management-suite-(oms)"></a>Solução Gerenciamento de Alertas no OMS (Operations Management Suite)
+# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Solução Gerenciamento de Alertas no OMS (Operations Management Suite)
 ![Ícone do Gerenciamento de Alertas](media/log-analytics-solution-alert-management/icon.png) A solução de Gerenciamento de Alertas ajuda a analisar todos os alertas em seu ambiente.  Além de consolidar alertas gerados no OMS, ela importa alertas dos grupos de gerenciamento conectados do SCOM (System Center Operations Manager) para o Log Analytics.  Em ambientes com vários grupos de gerenciamento, a solução de Gerenciamento de Alertas fornecerá uma exibição consolidada dos alertas em todos os grupos de gerenciamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -114,6 +118,9 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros de alert
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre os [Alertas no Log Analytics](log-analytics-alerts.md) para obter detalhes sobre como gerar alertas por meio do Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

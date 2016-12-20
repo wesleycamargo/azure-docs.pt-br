@@ -1,12 +1,12 @@
 ---
-title: Integração do Reach SDK do iOS no Engajamento Móvel do Azure | Microsoft Docs
-description: Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure
+title: "Integração do Reach SDK do iOS no Azure Mobile Engagement | Microsoft Docs"
+description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1f5f5857-867c-40c5-9d76-675a343a0296
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,6 +14,10 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 090f653da4825d7953dde27740d219bf40a4bd97
+
 
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>Como integrar o Engagement Reach no iOS
@@ -500,6 +504,6 @@ Como para personalização da notificação avançada, é recomendável examinar
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

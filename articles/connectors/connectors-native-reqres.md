@@ -1,13 +1,13 @@
 ---
-title: Usar ações de solicitação e resposta | Microsoft Docs
-description: Visão geral do gatilho e da ação da solicitação e da resposta em um aplicativo lógico do Azure
-services: ''
-documentationcenter: ''
+title: "Usar ações de solicitação e resposta | Microsoft Docs"
+description: "Visão geral do gatilho e da ação da solicitação e da resposta em um aplicativo lógico do Azure"
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 48c9453ac0435a6180f8b322897439bf1964fae9
+
 
 ---
-# Introdução aos componentes de solicitação e resposta
+# <a name="get-started-with-the-request-and-response-components"></a>Introdução aos componentes de solicitação e resposta
 Com os componentes de solicitação e resposta em um aplicativo lógico, você pode responder em tempo real a eventos.
 
 Por exemplo, você pode:
@@ -28,7 +32,7 @@ Por exemplo, você pode:
 
 Para começar a usar as ações de solicitação e resposta em um aplicativo lógico, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Usar o gatilho de Solicitação HTTP
+## <a name="use-the-http-request-trigger"></a>Usar o gatilho de Solicitação HTTP
 Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
 
 Veja uma sequência de exemplo de como configurar uma solicitação HTTP no Designer de Aplicativo Lógico.
@@ -45,12 +49,12 @@ Veja uma sequência de exemplo de como configurar uma solicitação HTTP no Desi
 
 ![Gatilho de resposta](./media/connectors-native-reqres/using-trigger.png)
 
-## Usar a ação de Resposta HTTP
-A ação de Resposta HTTP só será válida quando usada em um fluxo de trabalho disparado por uma solicitação HTTP. Se você não definir uma ação de resposta, uma resposta `202 ACCEPTED` será retornada imediatamente ao chamador. Você pode adicionar uma ação de resposta a qualquer etapa do fluxo de trabalho. O aplicativo lógico só mantém a solicitação de entrada aberta por um minuto para uma resposta. Após um minuto, se nenhuma resposta for enviada do fluxo de trabalho (e se existir uma ação de resposta na definição), um `504 GATEWAY TIMEOUT` será retornado ao chamador.
+## <a name="use-the-http-response-action"></a>Usar a ação de Resposta HTTP
+A ação de Resposta HTTP só será válida quando usada em um fluxo de trabalho disparado por uma solicitação HTTP. Se você não definir uma ação de resposta, uma resposta `202 ACCEPTED` será retornada imediatamente ao chamador.  Você pode adicionar uma ação de resposta a qualquer etapa do fluxo de trabalho. O aplicativo lógico só mantém a solicitação de entrada aberta por um minuto para uma resposta.  Após um minuto, se nenhuma resposta for enviada do fluxo de trabalho (e se existir uma ação de resposta na definição), um `504 GATEWAY TIMEOUT` será retornado ao chamador.
 
 Veja como adicionar uma ação de Resposta HTTP:
 
-1. Selecione o botão **Nova Etapa**.
+1. Selecione o botão **Nova Etapa** .
 2. Escolha **Adicionar uma ação**.
 3. Na caixa de pesquisa de ação, digite **resposta** para listar a ação de Resposta.
    
@@ -60,24 +64,24 @@ Veja como adicionar uma ação de Resposta HTTP:
     ![Concluir a ação de resposta](./media/connectors-native-reqres/using-action-2.png)
 5. Clique no canto superior esquerdo da barra de ferramentas para salvar e seu aplicativo lógico será salvo e publicado (ativado).
 
-## Gatilho de solicitação
+## <a name="request-trigger"></a>Gatilho de solicitação
 Veja os detalhes do gatilho com suporte deste conector. Há um único gatilho de solicitação.
 
 | Gatilho | Descrição |
 | --- | --- |
 | Solicitação |Ocorre quando uma solicitação HTTP é recebida |
 
-## Ação de resposta
+## <a name="response-action"></a>Ação de resposta
 Veja os detalhes da ação com suporte deste conector. Há uma única ação de resposta que pode ser usada apenas quando acompanhada por um gatilho de solicitação.
 
 | Ação | Descrição |
 | --- | --- |
-| Response |Retorna uma resposta à solicitação HTTP correlacionada |
+| resposta |Retorna uma resposta à solicitação HTTP correlacionada |
 
-### Detalhes de gatilho e da ação
+### <a name="trigger-and-action-details"></a>Detalhes de gatilho e da ação
 As tabelas a seguir descrevem os campos de entrada para o gatilho e a ação e os detalhes de saída correspondentes.
 
-#### Gatilho de solicitação
+#### <a name="request-trigger"></a>Gatilho de solicitação
 A seguir, um campo de entrada para o gatilho de uma solicitação HTTP de entrada.
 
 | Nome de exibição | Nome da propriedade | Descrição |
@@ -92,19 +96,24 @@ A seguir, os detalhes de saída para a solicitação.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
-| Cabeçalhos |objeto |Cabeçalhos da solicitação |
+| headers |objeto |Cabeçalhos da solicitação |
 | Corpo |objeto |Objeto da solicitação |
 
-#### Ação de resposta
+#### <a name="response-action"></a>Ação de resposta
 Estes são os campos de entrada da ação de Resposta HTTP. Um * significa que é um campo obrigatório.
 
 | Nome de exibição | Nome da propriedade | Descrição |
 | --- | --- | --- |
 | Código de status* |statusCode |O código de status HTTP |
-| Cabeçalhos |headers |Um objeto JSON de cabeçalhos de resposta a serem incluídos |
-| Corpo |body |O corpo da resposta |
+| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos de resposta a serem incluídos |
+| Corpo |Corpo |O corpo da resposta |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora, experimente a plataforma e [crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

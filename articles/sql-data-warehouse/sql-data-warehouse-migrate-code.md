@@ -1,25 +1,29 @@
 ---
-title: Migrar seu código SQL para o SQL Data Warehouse | Microsoft Docs
-description: Dicas para migrar seu código SQL para o SQL Data Warehouse do Azure para desenvolvimento de soluções.
+title: "Migrar seu código SQL para o SQL Data Warehouse | Microsoft Docs"
+description: "Dicas para migrar seu código SQL para o SQL Data Warehouse do Azure para desenvolvimento de soluções."
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
-
+author: jrowlandjones
+manager: jhubbard
+editor: 
+ms.assetid: 19c252a3-0e41-4eec-9d3e-09a68c7e7add
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/02/2016
-ms.author: lodipalm;barbkess;sonyama;jrj
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0ff5ad648d429da433170301205eafb850be5d81
+
 
 ---
-# Migrar seu código SQL para o SQL Data Warehouse
+# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrar seu código SQL para o SQL Data Warehouse
 Durante a migração de seu código de outro banco de dados para o SQL Data Warehouse, provavelmente você precisará fazer alterações à sua base de código. Alguns recursos do SQL Data Warehouse podem melhorar consideravelmente o desempenho, pois foram criados para funcionar diretamente de uma maneira distribuída. No entanto, para manter o desempenho e a escala, alguns recursos também não estão disponíveis.
 
-## Limitações comuns do T-SQL
+## <a name="common-t-sql-limitations"></a>Limitações comuns do T-SQL
 A lista a seguir resume os recursos mais comuns que não têm suporte no SQL Data Warehouse do Azure. Os links levam a soluções alternativas para o recurso sem suporte:
 
 * [Junções ANSI em atualizações][Junções ANSI em atualizações]
@@ -50,8 +54,8 @@ A lista a seguir resume os recursos mais comuns que não têm suporte no SQL Dat
 
 Felizmente, a maioria dessas limitações pode ser solucionada. Foram fornecidas explicações nos artigos de desenvolvimento relevantes mencionados acima.
 
-## Recursos do CTE com suporte
-Tabela CTEs (expressões comuns) têm suporte parcial no SQL Data Warehouse. Atualmente, há suporte aos seguintes recursos de CTE:
+## <a name="supported-cte-features"></a>Recursos do CTE com suporte
+Tabela CTEs (expressões comuns) têm suporte parcial no SQL Data Warehouse.  Atualmente, há suporte aos seguintes recursos de CTE:
 
 * Uma CTE pode ser especificada em uma instrução SELECT.
 * Uma CTE pode ser especificada em uma instrução CREATE VIEW.
@@ -62,33 +66,33 @@ Tabela CTEs (expressões comuns) têm suporte parcial no SQL Data Warehouse. Atu
 * Uma tabela externa pode ser referenciada de uma CTE.
 * Várias definições de consulta CTE podem ser definidas em uma CTE.
 
-## Limitações da CTE
+## <a name="cte-limitations"></a>Limitações da CTE
 As expressões de tabela comum têm algumas limitações no SQL Data Warehouse, incluindo:
 
 * Uma CTE deve ser seguida por uma única instrução SELECT. As instruções INSERT, UPDATE, DELETE e MERGE não têm suporte.
 * Não há suporte para a expressão de tabela comum que inclui referências a ela mesma (expressão de tabela comum recursiva) (veja a seção abaixo).
-* Não é permitido especificar mais de uma cláusula WITH em uma CTE. Por exemplo, se CTE\_query\_definition contiver uma subconsulta, essa subconsulta não poderá conter uma cláusula WITH aninhada que defina outra CTE.
-* Uma cláusula ORDER BY não pode ser usada em CTE\_query\_definition, exceto quando existe uma cláusula TOP especificada.
+* Não é permitido especificar mais de uma cláusula WITH em uma CTE. Por exemplo, se CTE_query_definition contiver uma subconsulta, essa subconsulta não poderá conter uma cláusula WITH aninhada que defina outra CTE.
+* Uma cláusula ORDER BY não pode ser usada em CTE_query_definition, exceto quando existe uma cláusula TOP especificada.
 * Quando uma CTE é usada em uma instrução que faz parte de um lote, a instrução anterior deve ser seguida por um ponto-e-vírgula.
-* Quando usado em instruções preparadas por sp\_prepare, as CTEs se comportarão da mesma forma que outras instruções SELECT em PDW. No entanto, se as CTEs forem usadas como parte das CETAS preparadas por sp\_prepare, o comportamento poderá ser diferente do SQL Server e de outras instruções de PDW, devido ao modo como a associação é implementada por sp\_prepare. Se a instrução SELECT que faz referência à CTE estiver usando uma coluna incorreta que não existe na CTE, o sp\_prepare passará sem detectar o erro, mas o erro será gerado durante sp\_execute.
+* Quando usado em instruções preparadas por sp_prepare, as CTEs se comportarão da mesma forma que outras instruções SELECT em PDW. No entanto, se as CTEs forem usadas como parte das CETAS preparadas por sp_prepare, o comportamento poderá ser diferente do SQL Server e de outras instruções de PDW, devido ao modo como a associação é implementada por sp_prepare. Se a instrução SELECT que faz referência à CTE estiver usando uma coluna incorreta que não existe na CTE, o sp_prepare passará sem detectar o erro, mas o erro será gerado durante sp_execute.
 
-## CTEs recursivas
-As CTEs recursivas não têm suporte no SQL Data Warehouse. A migração de CTEs recursivas pode ser praticamente completa e o melhor processo é dividi-la o em várias etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver o `GROUP BY WITH CUBE` no artigo [Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento][Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento].
+## <a name="recursive-ctes"></a>CTEs recursivas
+As CTEs recursivas não têm suporte no SQL Data Warehouse.  A migração de CTEs recursivas pode ser praticamente completa e o melhor processo é dividi-la o em várias etapas. Normalmente, você pode usar um loop e preencher uma tabela temporária à medida que você itera sobre as consultas recursivas provisórias. Depois que a tabela temporária for preenchida, você pode retornar os dados como um único conjunto de resultados. Uma abordagem semelhante foi usada para resolver `GROUP BY WITH CUBE` no artigo [cláusula group by com as opções rollup/cube/grouping sets][cláusula group by com as opções rollup/cube/grouping sets].
 
-## Funções do sistema sem suporte
+## <a name="unsupported-system-functions"></a>Funções do sistema sem suporte
 Também há algumas funções do sistema que não têm suporte. Estas são algumas das principais e que normalmente são usadas em data warehouse:
 
 * NEWSEQUENTIALID()
 * @@NESTLEVEL()
 * @@IDENTITY()
 * @@ROWCOUNT()
-* ROWCOUNT\_BIG
-* ERROR\_LINE()
+* ROWCOUNT_BIG
+* ERROR_LINE()
 
 Alguns desses problemas podem ser solucionados.
 
-## Solução alternativa de @@ROWCOUNT
-Para solucionar a falta de suporte para @@ROWCOUNT, crie um procedimento armazenado que recuperará a última contagem de linhas de sys.dm\_pdw\_request\_steps e, em seguida, execute `EXEC LastRowCount` após uma instrução DML.
+## <a name="rowcount-workaround"></a>Solução alternativa @@ROWCOUNT
+Para solucionar a falta de suporte para @@ROWCOUNT,, crie um procedimento armazenado que recuperará a última contagem de linhas de sys.dm_pdw_request_steps e, em seguida, execute `EXEC LastRowCount` após uma instrução DML.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
@@ -110,7 +114,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ;
 ```
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista completa de todas as instruções T-SQL com suporte, confira [Tópicos do Transact-SQL][Tópicos do Transact-SQL].
 
 <!--Image references-->
@@ -124,7 +128,6 @@ Para obter uma lista completa de todas as instruções T-SQL com suporte, confir
 
 [cursores]: ./sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
-[Agrupar por cláusula com opções de conjuntos de rollup/cubo/agrupamento]: ./sql-data-warehouse-develop-group-by-options.md
 [cláusula group by com as opções rollup/cube/grouping sets]: ./sql-data-warehouse-develop-group-by-options.md
 [níveis de aninhamento superiores a 8]: ./sql-data-warehouse-develop-transactions.md
 [atualizando por meio de exibições]: ./sql-data-warehouse-develop-views.md
@@ -135,4 +138,8 @@ Para obter uma lista completa de todas as instruções T-SQL com suporte, confir
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

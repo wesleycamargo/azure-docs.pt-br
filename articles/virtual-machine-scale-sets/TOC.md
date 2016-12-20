@@ -2,15 +2,17 @@
 ## [O que são conjuntos de escala de máquina virtual?](virtual-machine-scale-sets-overview.md)
 
 # Introdução
-## [Criar um conjunto de dimensionamento do Windows](virtual-machine-scale-sets-windows-create.md)
-## [Criar um conjunto de dimensionamento do Linux](virtual-machine-scale-sets-linux-create-cli.md)
+## [Criar um conjunto de dimensionamento no portal](virtual-machine-scale-sets-portal-create.md)
 
 # Como
 ## Planejar e projetar
 ### [Considerações sobre o design](virtual-machine-scale-sets-design-overview.md)
+
 ## Implantar
 ### [Conjunto de dimensionamento usando o portal](virtual-machine-scale-sets-portal-create.md)
 ### [Conjunto de dimensionamento usando o Visual Studio](virtual-machine-scale-sets-vs-create.md)
+### [Conjunto de dimensionamento usando o PowerShell](virtual-machine-scale-sets-windows-create.md)
+### [Conjunto de dimensionamento usando a CLI do Azure](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Conjunto de dimensionamento Linux com dimensionamento automático](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Conjunto de dimensionamento do Windows com dimensionamento automático](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Aplicativos em conjunto de dimensionamento](virtual-machine-scale-sets-deploy-app.md)
@@ -38,6 +40,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Criptografia do Serviço de Armazenamento do Azure para dados em repouso | Microsoft Docs
-description: Use o recurso de Criptografia do Serviço de Armazenamento do Azure para criptografar seu Armazenamento de Blobs do Azure no lado do serviço ao armazenar os dados, e descriptografá-lo ao recuperar os dados.
+title: "Criptografia do Serviço de Armazenamento do Azure para dados em repouso | Microsoft Docs"
+description: "Use o recurso de Criptografia do Serviço de Armazenamento do Azure para criptografar seu Armazenamento de Blobs do Azure no lado do serviço ao armazenar os dados, e descriptografá-lo ao recuperar os dados."
 services: storage
 documentationcenter: .net
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bdb016af2c21b06c6abf5af607e703e5f898f8f4
+
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Criptografia do Serviço de Armazenamento do Azure para dados em repouso
@@ -56,8 +60,8 @@ A SSE tem as seguintes limitações:
 * Dados de tabela, filas arquivos não serão criptografados.
 
 ## <a name="getting-started"></a>Introdução
-### <a name="step-1:-[create-a-new-storage-account](storage-create-storage-account.md)."></a>Etapa 1: [Criar uma nova conta de armazenamento](storage-create-storage-account.md).
-### <a name="step-2:-enable-encryption."></a>Etapa 2: Habilitar a criptografia.
+### <a name="step-1-create-a-new-storage-accountstorage-create-storage-accountmd"></a>Etapa 1: [Criar uma nova conta de armazenamento](storage-create-storage-account.md).
+### <a name="step-2-enable-encryption"></a>Etapa 2: Habilitar a criptografia.
 Você pode habilitar a criptografia usando o [portal do Azure](https://portal.azure.com).
 
 > [!NOTE]
@@ -65,7 +69,7 @@ Você pode habilitar a criptografia usando o [portal do Azure](https://portal.az
 > 
 > 
 
-### <a name="step-3:-copy-data-to-storage-account"></a>Etapa 3: Copiar dados para a conta de armazenamento
+### <a name="step-3-copy-data-to-storage-account"></a>Etapa 3: Copiar dados para a conta de armazenamento
 Se você habilitar a SSE em uma conta de armazenamento e gravar blobs nessa conta, os blobs serão criptografados. Blobs que já estiverem na conta de armazenamento não serão criptografados até que sejam gravados novamente. Você pode copiar dados de uma conta de armazenamento para uma com criptografia da SSE, ou até mesmo habilitar a SSE e copiar os blobs de um contêiner para outro para garantir que os dados anteriores sejam criptografados. É possível fazer isso usando qualquer uma das ferramentas a seguir.
 
 #### <a name="using-azcopy"></a>Como usar o AzCopy
@@ -83,7 +87,7 @@ Use um gerenciador de armazenamento para criar contas de armazenamento, carregar
 
 Para saber mais, visite [Pesquisadores de armazenamento do Azure](storage-explorers.md).
 
-### <a name="step-4:-query-the-status-of-the-encrypted-data"></a>Etapa 4: Consultar o status dos dados criptografados
+### <a name="step-4-query-the-status-of-the-encrypted-data"></a>Etapa 4: Consultar o status dos dados criptografados
 Uma versão atualizada das bibliotecas de Cliente de Armazenamento foi implantada para permitir que você consulte o estado de um objeto para determinar se ele está criptografado ou não. Exemplos serão adicionados a este documento no futuro próximo.
 
 Enquanto isso, você pode chamar [Obter propriedades da conta](https://msdn.microsoft.com/library/azure/mt163553.aspx) para verificar se a conta de armazenamento tem a criptografia habilitada ou para exibir as propriedades da conta de armazenamento no Portal do Azure.
@@ -175,6 +179,9 @@ R: Entre em contato com [ssediscussions@microsoft.com](mailto:ssediscussions@mic
 ## <a name="next-steps"></a>Próximas etapas
 O Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que, juntos, permitem aos desenvolvedores criar aplicativos seguros. Para obter mais detalhes, visite o [Guia de segurança do armazenamento](storage-security-guide.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

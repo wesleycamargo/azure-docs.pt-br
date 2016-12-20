@@ -1,27 +1,35 @@
 ---
-title: Notas de versão do SDK para Web do Azure Mobile Engagement | Microsoft Docs
-description: As últimas atualizações e procedimentos mais recentes do SDK para Web do Azure Mobile Engagement
+title: "Notas de versão do SDK para Web do Azure Mobile Engagement | Microsoft Docs"
+description: "As últimas atualizações e procedimentos mais recentes do SDK para Web do Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: cb4cda8b-df15-473a-81ee-f7c722f6397b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: web
 ms.devlang: js
 ms.topic: article
-ms.date: 06/07/2016
+ms.date: 10/18/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc90620d284bdcae888b990f55191be18b29d6f5
+
 
 ---
-# Notas de versão do SDK para Web do Azure Mobile Engagement
-## Versão 2.0.1 (6/10/2016)
+# <a name="azure-mobile-engagement-web-sdk-release-notes"></a>Notas de versão do SDK para Web do Azure Mobile Engagement
+## <a name="202-10182016"></a>2.0.2 (18/10/2016)
+* Falha corrigida na navegação particular (Safari).
+* Falha corrigida em navegadores com cookies desabilitados.
+
+## <a name="201-6102016"></a>2.0.1 (10/6/2016)
 * Desabilitado o SDK no Internet Explorer 8 e no Internet Explorer 9.
 * Detecção corrigida do navegador da Web Opera.
 
-## Versão 2.0.0 (7/6/2016)
+## <a name="200-672016"></a>2.0.0 (07/06/2016)
 * Azure Mobile Engagement de lançamento.
 * Atualizada para que a configuração de `appId` seja substituída por uma configuração de cadeia de conexão.
 * APIs adicionadas para habilitar e desabilitar o agente.
@@ -31,4 +39,9 @@ ms.author: piyushjo
 * Retornos de chamada removidos relacionados à conexão XMPP substituída.
 * Removido o suporte ao recurso Reach.
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

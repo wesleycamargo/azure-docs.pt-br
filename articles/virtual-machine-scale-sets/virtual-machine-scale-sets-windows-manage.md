@@ -1,33 +1,37 @@
 ---
-title: Gerenciar VMs em um Conjunto de Escala de Máquina Virtual | Microsoft Docs
-description: Gerenciar máquinas virtuais em um conjunto de escala de máquina virtual usando o Azure PowerShell.
+title: "Gerenciar VMs em um Conjunto de dimensionamento de máquinas virtuais | Microsoft Docs"
+description: "Gerenciar máquinas virtuais em um conjunto de escala de máquina virtual usando o Azure PowerShell."
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2016
+ms.date: 09/27/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 812d5c977ace7176e81e3e875daaf8e643c95a46
+
 
 ---
-# Gerenciar máquinas virtuais em um conjunto de escala de máquina virtual
-Use as tarefas neste artigo para gerenciar os recursos de máquina virtual no seu conjunto de escala de máquina virtual.
+# <a name="manage-virtual-machines-in-a-virtual-machine-scale-set"></a>Gerenciar máquinas virtuais em um conjunto de dimensionamento de máquinas virtuais
+Use as tarefas neste artigo para gerenciar as máquinas virtuais no conjunto de dimensionamento de máquinas virtuais.
 
-Todas as tarefas que envolvem o gerenciamento de uma máquina virtual em um conjunto de escala exigem que você conheça a ID da instância da máquina que deseja gerenciar. Você pode usar o [Gerenciador de Recursos do Azure](https://resources.azure.com) para localizar a ID da instância de uma máquina virtual em um conjunto de escala. Você também pode usar o Gerenciador de Recursos para verificar o status das tarefas que você concluir.
+A maior parte das tarefas que envolvem o gerenciamento de uma máquina virtual em um conjunto de dimensionamento exigem que você conheça a ID da instância do computador que deseja gerenciar. Você pode usar o [Gerenciador de Recursos do Azure](https://resources.azure.com) para localizar a ID da instância de uma máquina virtual em um conjunto de escala. Você também pode usar o Gerenciador de Recursos para verificar o status das tarefas que você concluir.
 
-Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura que você deseja usar e entrar na sua conta do Azure.
+Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 
-## Exibir informações sobre um conjunto de escala de máquina virtual
-Você pode obter informações gerais sobre um conjunto de escala, que também é conhecido como a exibição de instância. Ou então, você pode obter informações mais específicas, tais como informações sobre os recursos no conjunto.
+## <a name="display-information-about-a-scale-set"></a>Exibir informações sobre um conjunto de dimensionamento
+Você pode obter informações gerais sobre um conjunto de escala, que também é conhecido como a exibição de instância. Ou então, você pode obter informações mais específicas, tais como informações sobre os recursos no conjunto de dimensionamento.
 
-Neste comando, substitua o *nome do grupo de recursos* pelo nome do grupo de recursos que contém o conjunto de escala de máquina virtual, o *nome do conjunto de escala* pelo nome do conjunto de escala da máquina virtual e execute-o:
+Substitua os valores entre aspas com o nome ou o grupo de recursos e o conjunto de dimensionamento e, em seguida, execute o comando:
 
     Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
 
@@ -87,7 +91,7 @@ Ele retorna algo semelhante a:
         Settings                                : {"xmlCfg":"...","storageAccount":"astore"}
     ProvisioningState                           : Succeeded
 
-Neste comando, substitua o *nome do grupo de recursos* pelo nome do grupo de recursos que contém o conjunto de escala de máquina virtual, o *nome do conjunto de escala* pelo nome do conjunto de escala da máquina virtual e *#* pelo identificador da instância da máquina virtual sobre a qual deseja obter informações e execute-o:
+Substitua os valores entre aspas com o nome do seu grupo de recursos e do conjunto de dimensionamento. Substitua *#* com o identificador de instância da máquina virtual da qual você deseja obter informações e, em seguida, execute:
 
     Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
@@ -140,8 +144,8 @@ Ele retorna algo semelhante a:
       Settings                    : {"xmlCfg":"...","storageAccount":"astore"}
       ProvisioningState           : Succeeded
 
-## Iniciar uma máquina virtual em um conjunto de escala
-Neste comando, substitua o *nome do grupo de recursos* pelo nome do grupo de recursos que contém o conjunto de escala de máquina virtual, o *nome do conjunto de escala* pelo nome do conjunto de escala, *#* pelo identificador da máquina virtual que você deseja iniciar e execute-o:
+## <a name="start-a-virtual-machine-in-a-scale-set"></a>Iniciar uma máquina virtual em um conjunto de escala
+Substitua os valores entre aspas com o nome do seu grupo de recursos e do conjunto de dimensionamento. Substitua *#* com o identificador da máquina virtual que você deseja iniciar e, em seguida, execute:
 
     Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
@@ -161,10 +165,10 @@ No Gerenciador de Recursos, podemos ver que o status da instância é **em execu
       }
     ]
 
-Você poderá iniciar todas as máquinas virtuais do conjunto se não usar o parâmetro - InstanceId.
+Você poderá iniciar todas as máquinas virtuais do conjunto de dimensionamento se não usar o parâmetro -InstanceId.
 
-## Parar uma máquina virtual em um conjunto de escala
-Neste comando, substitua o *nome do grupo de recursos* pelo nome do grupo de recursos que contém o conjunto de escala de máquina virtual, o *nome do conjunto de escala* pelo nome do conjunto de escala, *#* pelo identificador da máquina virtual que você deseja parar e execute-o:
+## <a name="stop-a-virtual-machine-in-a-scale-set"></a>Parar uma máquina virtual em um conjunto de escala
+Substitua os valores entre aspas com o nome do seu grupo de recursos e do conjunto de dimensionamento. Substitua *#* com o identificador da máquina virtual que você deseja parar e, em seguida, execute:
 
     Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
@@ -184,20 +188,32 @@ No Gerenciador de Recursos, podemos ver que o status da instância é **desaloca
       }
     ]
 
-Para parar uma máquina virtual sem desalocá-la, use o parâmetro - StayProvisioned. Você poderá parar todas as máquinas virtuais do conjunto se não usar o parâmetro - InstanceId.
+Para parar uma máquina virtual sem desalocá-la, use o parâmetro - StayProvisioned. Você poderá parar todas as máquinas virtuais do conjunto se não usar o parâmetro -InstanceId.
 
-## Reiniciar uma máquina virtual em um conjunto de escala
-Neste comando, substitua o *nome do grupo de recursos* pelo nome do grupo de recursos que contém o conjunto de escala de máquina virtual, o *nome do conjunto de escala* pelo nome do conjunto de escala, *#* pelo identificador da máquina virtual que você deseja reiniciar e execute-o:
+## <a name="restart-a-virtual-machine-in-a-scale-set"></a>Reiniciar uma máquina virtual em um conjunto de escala
+Substitua os valores entre aspas com o nome do seu grupo de recursos e o conjunto de dimensionamento. Substitua *#* com o identificador da máquina virtual que você deseja reiniciar e, em seguida, execute:
 
     Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
-Você poderá reiniciar todas as máquinas virtuais do conjunto se não usar o parâmetro - InstanceId.
+Você poderá reiniciar todas as máquinas virtuais do conjunto se não usar o parâmetro -InstanceId.
 
-## Remover uma máquina virtual de um conjunto de escala
-Neste comando, substitua o *nome do grupo de recursos* pelo nome do grupo de recursos que contém o conjunto de escala de máquina virtual, o *nome do conjunto de escala* pelo nome do conjunto de escala, *#* pelo identificador da máquina virtual que você deseja remover do conjunto de escala e execute-o:
+## <a name="remove-a-virtual-machine-from-a-scale-set"></a>Remover uma máquina virtual de um conjunto de escala
+Substitua os valores entre aspas com o nome do seu grupo de recursos e o conjunto de dimensionamento. Substitua *#* com o identificador da máquina virtual que você deseja remover e, em seguida, execute:  
 
     Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId #
 
 Você poderá remover o conjunto de escala da máquina virtual se não usar o parâmetro - InstanceId.
 
-<!---HONumber=AcomDC_0720_2016-->
+## <a name="change-the-capacity-of-a-scale-set"></a>Alterar a capacidade de um conjunto de dimensionamento
+Você pode adicionar ou remover máquinas virtuais, alterando a capacidade do conjunto. Obtenha o conjunto de dimensionamento que você deseja alterar, defina a capacidade que você deseja e, em seguida, atualize o conjunto de dimensionamento com a nova capacidade. Nesses comandos, substitua os valores entre aspas com o nome do seu grupo de recursos e o conjunto de dimensionamento.
+
+  $vmss = Get-AzureRmVmss -ResourceGroupName "nome do grupo de recursos" -VMScaleSetName "nome do conjunto de dimensionamento" $vmss.sku.capacity = 5 Update-AzureRmVmss -ResourceGroupName "nome do grupo de recursos" -Name "nome do conjunto de dimensionamento" -VirtualMachineScaleSet $vmss 
+
+Se você estiver removendo máquinas virtuais do conjunto de dimensionamento, as máquinas virtuais com as ids de mais altas são removidas primeiro.
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

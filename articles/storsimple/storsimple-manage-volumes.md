@@ -1,12 +1,12 @@
 ---
 title: Gerenciar seus volumes do StorSimple | Microsoft Docs
-description: Explica como adicionar, modificar, monitorar e excluir volumes do StorSimple e como colocá-los offline, se necessário.
+description: "Explica como adicionar, modificar, monitorar e excluir volumes do StorSimple e como colocá-los offline, se necessário."
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: ccabd859-590c-4568-a81d-6ff38f125be3
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2016
 ms.author: v-sharos
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2b79492914bb52e970343a2e829622122f03642b
+
 
 ---
-# Usar o serviço StorSimple Manager para gerenciar volumes
+# <a name="use-the-storsimple-manager-service-to-manage-volumes"></a>Usar o serviço StorSimple Manager para gerenciar volumes
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 Este tutorial explica como usar o serviço StorSimple Manager para criar e gerenciar volumes no dispositivo StorSimple e dispositivo virtual StorSimple.
 
 O serviço StorSimple Manager é uma extensão do portal clássico do Azure que permite gerenciar a solução do StorSimple em uma única interface da Web. Além de gerenciar volumes, você pode usar o serviço StorSimple Manager para criar e gerenciar serviços do StorSimple, exibir e gerenciar dispositivos, exibir alertas, exibir e gerenciar políticas de backup e o catálogo de backup.
@@ -31,7 +35,7 @@ O serviço StorSimple Manager é uma extensão do portal clássico do Azure que 
 > 
 > 
 
-## A página Volumes
+## <a name="the-volumes-page"></a>A página Volumes
 A página **Volumes** página permite que você gerencie os volumes de armazenamento provisionados no dispositivo Microsoft Azure StorSimple para os iniciadores (servidores). Ela exibe a lista de volumes no seu dispositivo StorSimple.
 
  ![Página Volumes](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
@@ -53,10 +57,10 @@ As tarefas mais comuns associadas a um volume são:
 * Colocar um volume offline
 * Monitorar um volume
 
-## Adicionar um volume
+## <a name="add-a-volume"></a>Adicionar um volume
 Você [criou um volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-volume) durante a implantação da solução StorSimple. Adicionar um volume é um procedimento semelhante.
 
-### Para adicionar um volume
+### <a name="to-add-a-volume"></a>Para adicionar um volume
 1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e, em seguida, clique na guia **Contêineres de Volume**.
 2. Selecione um contêiner de volume e clique na seta na linha correspondente para acessar os volumes associados ao contêiner.
 3. Clique em **Adicionar** na parte inferior da página. Isso inicia o assistente Adicionar um volume.
@@ -67,18 +71,18 @@ Você [criou um volume](storsimple-deployment-walkthrough-u1.md#step-6-create-a-
    1. Digite um **Nome** para o seu volume.
    2. Especifique a **Capacidade Provisionada** para o seu volume em GB ou TB. A capacidade deve ser entre 1 GB e 64 TB para um dispositivo físico. A capacidade máxima que pode ser provisionada para um volume em um dispositivo virtual StorSimple é de 30 TB.
    3. Selecione o **Tipo de Uso** para o seu volume. Se você estiver usando o volume em camadas para dados de arquivamento, marcar a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** alterará o tamanho do bloco de eliminação de duplicação para o volume para 512 KB. Se você não selecionar esta opção, o volume em camadas correspondente usará um tamanho de bloco de 64 KB. Um tamanho maior de bloco de eliminação de duplicação permite que o dispositivo acelere a transferência de dados de arquivos grandes para a nuvem (volumes em camadas eram chamados de volumes primários).
-   4. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)para ir para a página **Configurações Adicionais**.
+   4. Clique no ícone de seta ![Ícone de seta](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)para ir para a página **Configurações Adicionais** .
       
-        ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes/AddVolume2.png)
+        ![Configurações adicionais do assistente para Adicionar volume](./media/storsimple-manage-volumes/AddVolume2.png)
 5. Em **Configurações Adicionais**, adicione um novo registro de controle de acesso (ACR):
    
    1. Selecione um registro de controle de acesso (ACR) na lista suspensa. Como opção, você também pode abrir um novo ACR. ACRs determinam quais hosts podem acessar os volumes fazendo a correspondência do IQN do host com aqueles listados no registro.
-   2. É recomendável que você habilite um backup padrão ao marcar a caixa de seleção **Habilitar um backup padrão para este volume**.
-   3. Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para criar o volume com as configurações especificadas.
+   2. É recomendável que você habilite um backup padrão ao marcar a caixa de seleção **Habilitar um backup padrão para este volume** .
+   3. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-volumes/HCS_CheckIcon.png)  para criar o volume com as configurações especificadas.
 
 O seu novo volume agora está pronto para uso.
 
-## Modificar um volume
+## <a name="modify-a-volume"></a>Modificar um volume
 Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acessam o volume.
 
 > [!IMPORTANT]
@@ -87,13 +91,13 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
 > 
 > 
 
-### Para modificar um volume
+### <a name="to-modify-a-volume"></a>Para modificar um volume
 1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e, em seguida, clique na guia **Contêiner de Volume**. Esta página lista, em formato de tabela, todos os contêineres de volume associados ao dispositivo.
 2. Selecione um contêiner de volume e clique nele para exibir a lista de todos os volumes dentro do contêiner.
 3. Na página **Volumes** selecione um volume e clique em **Modificar**.
 4. No assistente Adicionar um volume, em **Configurações Básicas**, você pode fazer o seguinte:
    
-   * Edite o **Nome** e o **Tipo** se você quiser modificar um volume em camadas para um volume de arquivamento marcando a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** para alterar o tamanho do bloco de eliminação de duplicação para o volume para 512 KB.
+   * Edite o **Nome** e o **Tipo** se você quiser modificar um volume em camadas para um volume de arquivamento marcando a caixa de seleção **Usar este volume para dados de arquivamento acessados com menos frequência** para alterar o tamanho do bloco de eliminação de duplicação para o volume para 512 KB.
    * Aumentar a **Capacidade Provisionada**. A **Capacidade Provisionada** só pode ser aumentada. Não é possível reduzir um volume depois que ele é criado.
      
      > [!NOTE]
@@ -109,7 +113,7 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
      > Você não pode alterar a opção **Habilitar um backup padrão para este volume** para o volume.
      > 
      > 
-6. Salve suas alterações, clicando no ícone de verificação ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). O portal clássico do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
+6. Salve suas alterações, clicando no ícone de verificação  ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). O portal clássico do Azure exibirá uma mensagem de atualização do volume. Ele exibirá uma mensagem de êxito quando o volume for atualizado com êxito.
 7. Se estiver expandindo um volume, conclua as seguintes etapas no computador host do Windows:
    
    1. Acesse **Gerenciamento do Computador** ->**Gerenciamento de Disco**.
@@ -121,10 +125,10 @@ Modifica um volume quando você precisa expandi-lo ou alterar os hosts que acess
 
 Para assistir a um vídeo que demonstra como expandir um volume, clique [aqui](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
-## Colocar um volume offline
+## <a name="take-a-volume-offline"></a>Colocar um volume offline
 Talvez seja necessário colocar um volume offline quando você estiver planejando modificá-lo ou excluí-lo. Quando um volume está offline, não está disponível para acesso de leitura / gravação. Você precisará colocar o volume offline no host e no dispositivo. Execute as seguintes etapas para colocar um volume offline.
 
-### Para colocar um volume offline
+### <a name="to-take-a-volume-offline"></a>Para colocar um volume offline
 1. Certifique-se de que o volume em questão não está em uso antes de colocá-lo offline.
 2. Coloque o volume offline no host primeiro. Isso elimina qualquer risco de corrupção de dados no volume. Para etapas específicas, consulte as instruções do sistema operacional do host.
 3. Depois que o host estiver offline, coloque o volume no dispositivo offline executando as seguintes etapas:
@@ -141,7 +145,7 @@ Talvez seja necessário colocar um volume offline quando você estiver planejand
 > 
 > 
 
-## Excluir um volume
+## <a name="delete-a-volume"></a>Excluir um volume
 > [!IMPORTANT]
 > Você pode excluir um volume apenas se ele estiver offline.
 > 
@@ -149,29 +153,34 @@ Talvez seja necessário colocar um volume offline quando você estiver planejand
 
 Conclua as seguintes etapas para excluir um volume.
 
-### Para excluir um volume
+### <a name="to-delete-a-volume"></a>Para excluir um volume
 1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e, em seguida, clique na guia **Contêineres de Volume**.
-2. Selecione o contêiner de volume que possui o volume que você deseja excluir. Clique no contêiner de volume para acessar a página **Volumes**.
+2. Selecione o contêiner de volume que possui o volume que você deseja excluir. Clique no contêiner de volume para acessar a página **Volumes** .
 3. Todos os volumes associados a este contêiner são exibidos em formato de tabela. Verifique o status do volume que deseja excluir. Se o volume que você deseja excluir não estiver offline, coloque-o offline em primeiro lugar, seguindo as etapas em [Colocar um volume offline](#take-a-volume-offline).
 4. Depois que o volume estiver offline, clique em **Excluir** na parte inferior da página.
 5. Quando solicitado a confirmar, clique em **Sim**. O volume será excluído e a página **Volumes** mostrará a lista atualizada de volumes dentro do contêiner.
 
-## Monitorar um volume
+## <a name="monitor-a-volume"></a>Monitorar um volume
 O monitoramento de volume permite coletar estatísticas de E/S para um volume. O monitoramento é habilitado por padrão para os primeiros 32 volumes que você criar. O monitoramento de volumes adicionais é desabilitado por padrão. Monitoramento de volumes clonados também será desabilitado por padrão.
 
 Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para um volume.
 
-### Para habilitar ou desabilitar o monitoramento de volume
+### <a name="to-enable-or-disable-volume-monitoring"></a>Para habilitar ou desabilitar o monitoramento de volume
 1. Na página **Dispositivos**, selecione o dispositivo, clique duas vezes nele e, em seguida, clique na guia **Contêineres de Volume**.
-2. Selecione o contêiner de volume em que reside o volume e, em seguida, clique no contêiner de volume para acessar a página **Volumes**.
+2. Selecione o contêiner de volume em que reside o volume e, em seguida, clique no contêiner de volume para acessar a página **Volumes** .
 3. Todos os volumes associados a este contêiner são listados em formato de tabela. Clique e selecione o volume ou o clone do volume.
 4. Na parte inferior da página, clique em **Modificar**.
-5. No Assistente Modificar Volume, em **Configurações Básicas**, selecione **Habilitar** ou **Desabilitar** da lista suspensa **Monitoramento**.
+5. No assistente Modificar Volume, em **Configurações Básicas**, selecione **Habilitar** ou **Desabilitar** na lista suspensa **Monitoramento**.
    
     ![Modificar as Configurações Básicas de um volume](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como [Clonar um volume StorSimple](storsimple-clone-volume.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

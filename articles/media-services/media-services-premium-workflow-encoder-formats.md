@@ -1,12 +1,12 @@
 ---
 title: Codecs e formatos do Fluxo de Trabalho do Media Encoder Premium | Microsoft Docs
-description: Este tópico fornece uma visão geral dos codecs e formatos do Fluxo de Trabalho do Media Encoder Premium
+description: "Este tópico fornece uma visão geral dos codecs e formatos do Fluxo de Trabalho do Media Encoder Premium"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erik43
-editor: ''
-
+editor: 
+ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d7e3bc0ac0c1f0c6bbce0cc25fe7a8df2cc53836
+
 
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs e formatos de fluxo de trabalho do Media Encoder Premium
@@ -32,10 +36,10 @@ Este documento contém uma lista de formatos de arquivo de entrada e saída e co
 
 **Fluxo de trabalho do Media Encoder Premium** dá suporte a legendas codificadas descritas [nesta](#closed_captioning) seção 
 
-## <a name="<a-id="input_formats"></a>media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Codecs e formatos de entrada de fluxo de trabalho do Media Encoder Premium
+## <a name="a-idinputformatsamedia-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Codecs e formatos de entrada de fluxo de trabalho do Media Encoder Premium
 A seção a seguir lista os codecs e formatos de arquivo aos quais esse processador de mídia dá suporte como entrada.
 
-### <a name="input-container/file-formats"></a>Formatos de arquivo/contêiner de entrada
+### <a name="input-containerfile-formats"></a>Formatos de arquivo/contêiner de entrada
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -64,10 +68,10 @@ A seção a seguir lista os codecs e formatos de arquivo aos quais esse processa
 * Áudio do Windows Media
 * WAV/PCM
 
-## <a name="<a-id="output_format"></a>media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Codecs e formatos de saída de fluxo de trabalho do Media Encoder Premium
+## <a name="a-idoutputformatamedia-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Codecs e formatos de saída de fluxo de trabalho do Media Encoder Premium
 A seção a seguir lista os codecs e formatos de arquivo com suporte como a saída desse processador de mídia.
 
-### <a name="output-container/file-formats"></a>Formatos de contêiner/arquivo de saída
+### <a name="output-containerfile-formats"></a>Formatos de contêiner/arquivo de saída
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM e AS02)
 * DPP (incluindo AS11)
@@ -96,7 +100,7 @@ A seção a seguir lista os codecs e formatos de arquivo com suporte como a saí
 * MP3 (MPEG-1 Audio Layer 3)
 * Áudio do Windows Media
 
-## <a name="<a-id="closed_captioning"></a>support-for-closed-captioning"></a><a id="closed_captioning"></a>Suporte a legenda codificada
+## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>Suporte a legenda codificada
 Na ingestão, o **fluxo de trabalho do Media Encoder Premium** dá suporte a:
 
 1. Arquivos SCC
@@ -124,6 +128,9 @@ Se o vídeo de entrada não contiver a legendagem oculta, o ativo de saída aind
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

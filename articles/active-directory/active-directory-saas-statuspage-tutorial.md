@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integração do Active Directory do Azure com o StatusPage | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o StatusPage.
+title: "Tutorial: integração do Azure Active Directory ao StatusPage | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o StatusPage."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f6ee8bb3-df43-4c0d-bf84-89f18deac4b9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: accfb64dfe167de9c6481954e00af6c8f732ab1d
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integração do Active Directory do Azure com o StatusPage
+# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integração do Active Directory do Azure com o StatusPage
 O objetivo desse tutorial é mostrar como integrar o StatusPage ao Azure AD (Azure Active Directory).
 
 A integração do StatusPage ao Azure AD oferece os seguintes benefícios: 
@@ -155,7 +159,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-statuspage-tutorial/create_aaduser_09.png)  
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -186,7 +190,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    
    d. Na lista **Função**, selecione **Usuário**.
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-statuspage-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -273,6 +277,6 @@ Quando você clica no bloco StatusPage no Painel de Acesso, você deve ser conec
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

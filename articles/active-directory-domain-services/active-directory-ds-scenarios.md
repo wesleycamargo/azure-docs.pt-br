@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory Domain Services: cenários de implantação | Microsoft Docs'
-description: Cenários de implantação dos Serviços de Domínio do Azure AD
+title: "Azure Active Directory Domain Services: cenários de implantação | Microsoft Docs"
+description: "Cenários de implantação dos Serviços de Domínio do Azure AD"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b76a5c7dfd640e0a398845b6c8f6b0b35574b4ac
+
 
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Cenários de implantação e casos de uso
 Nesta seção, examinamos alguns cenários e casos de uso que podem aproveitar os Serviços de Domínio do AD (Azure Active Directory).
 
-## <a name="secure,-easy-administration-of-azure-virtual-machines"></a>Administração segura e fácil de máquinas virtuais do Azure
+## <a name="secure-easy-administration-of-azure-virtual-machines"></a>Administração segura e fácil de máquinas virtuais do Azure
 Você pode usar os Serviços de Domínio do Azure Active Directory para gerenciar as máquinas virtuais do Azure de forma simplificada. As máquinas virtuais do Azure pode ser associadas ao domínio gerenciado, permitindo que você use suas credenciais corporativas do AD para fazer logon. Essa abordagem ajuda a evitar problemas de gerenciamento de credenciais, como manutenção de contas de administrador local em cada uma de suas máquinas virtuais do Azure.
 
 Máquinas virtuais do servidor que ingressaram no domínio gerenciado também podem ser gerenciadas e protegidas usando a Política de Grupo. Você pode aplicar linhas de base de segurança necessária para as máquinas virtuais do Azure e bloquear de acordo com as diretrizes de segurança corporativa. Por exemplo, você pode usar os recursos de gerenciamento da Política de Grupo para restringir os tipos de aplicativos que podem ser iniciados nessas máquinas virtuais.
@@ -79,6 +83,9 @@ O RemoteApp do Azure permite que o administrador do Contoso crie uma coleção a
 
 Para saber mais sobre esse cenário de implantação, confira o artigo do Blog de Serviços de Área de Trabalho Remota intitulado [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)(Levantar e deslocar suas cargas de trabalho com o Azure RemoteApp e os Azure AD Domain Services).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager | Microsoft Docs
-description: Este artigo apresenta a migração de recursos com suporte da plataforma do clássico para o Azure Resource Manager
+title: "Migração de recursos de IaaS com suporte da plataforma, da clássica para o Azure Resource Manager | Microsoft Docs"
+description: "Este artigo apresenta a migração de recursos com suporte da plataforma do clássico para o Azure Resource Manager"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: singhkays
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: kasing
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 525e40a424afdf6ec7486bff249b11439a8cf740
+
 
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager
-Neste artigo, descrevemos como estamos possibilitando a migração de recursos de IaaS (infraestrutura como serviço) dos de implantação clássicos para o Resource Manager. Você pode ler mais sobre os [recursos e benefícios do Azure Resource Manager](../resource-group-overview.md). Fornecemos os detalhes sobre como conectar recursos dos dois modelos de implantação coexistindo em sua assinatura usando gateways site a site de rede virtual. 
+Neste artigo, descrevemos como estamos possibilitando a migração de recursos de IaaS (infraestrutura como serviço) dos de implantação clássicos para o Resource Manager. Você pode ler mais sobre os [recursos e benefícios do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Fornecemos os detalhes sobre como conectar recursos dos dois modelos de implantação coexistindo em sua assinatura usando gateways site a site de rede virtual.
 
 ## <a name="goal-for-migration"></a>Meta de migração
 O Gerenciador de Recursos possibilita implantar aplicativos complexos por meio de modelos, configurar máquinas virtuais usando extensões de VM e incorporar o gerenciamento de acesso e a marcação. O Azure Resource Manager inclui implantação paralela e escalonável para máquinas virtuais em conjuntos de disponibilidade. O novo modelo também oferece gerenciamento de ciclo de vida de computação, rede e armazenamento de maneira independente. Por fim, há um enfoque para habilitar a segurança por padrão com a imposição de máquinas virtuais em uma rede virtual.
@@ -36,13 +40,13 @@ Antes de analisarmos os detalhes, vamos ver a diferença entre as operações do
 
 > [!NOTE]
 > Em alguns cenários de migração, a plataforma Azure interrompe, desaloca e reinicia as máquinas virtuais. Isso acarreta um curto tempo de inatividade do plano de dados.
-> 
-> 
+>
+>
 
 ## <a name="supported-scopes-of-migration"></a>Escopos de migração com suporte
-Há três escopos de migração destinados principalmente à computação, à rede e ao armazenamento. 
+Há três escopos de migração destinados principalmente à computação, à rede e ao armazenamento.
 
-### <a name="migration-of-virtual-machines-(not-in-a-virtual-network)"></a>Migração de máquinas virtuais (não em uma rede virtual)
+### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>Migração de máquinas virtuais (não em uma rede virtual)
 No modelo de implantação do Resource Manager, a segurança de seus aplicativos é imposta por padrão. Todas as VMs precisam estar em uma rede virtual no modelo do Gerenciador de Recursos. As plataforma Azure reinicia (`Stop`, `Deallocate`, e `Start`) as VMs como parte da migração. Você tem duas opções para as redes virtuais:
 
 * Você pode solicitar que a plataforma crie uma nova rede virtual e migre a máquina virtual para a nova rede virtual.
@@ -50,10 +54,10 @@ No modelo de implantação do Resource Manager, a segurança de seus aplicativos
 
 > [!NOTE]
 > Nesse escopo de migração, as operações do “plano de gerenciamento” e do “plano de dados” podem não ser permitidas por determinado período durante a migração.
-> 
-> 
+>
+>
 
-### <a name="migration-of-virtual-machines-(in-a-virtual-network)"></a>Migração de máquinas virtuais (em uma rede virtual)
+### <a name="migration-of-virtual-machines-in-a-virtual-network"></a>Migração de máquinas virtuais (em uma rede virtual)
 Para a maioria das configurações de VM, somente os metadados são migrados entre os modelos Clássico e o Resource Manager. As VMs subjacentes estão em execução no mesmo hardware, na mesma rede e com o mesmo armazenamento. As operações do plano de gerenciamento talvez não tenham permissão por determinado período de tempo durante a migração. No entanto, o plano de dados continua funcionando. Ou seja, os aplicativos em execução nas VMs (clássicas) não incorrem em tempo de inatividade durante a migração.
 
 Atualmente, não há suporte para as seguintes configurações. Se for adicionado suporte a elas no futuro, algumas VMs nessa configuração poderão incorrer em tempo de inatividade (passarão por operações de parar, desalocar e reiniciar a VM).
@@ -63,16 +67,16 @@ Atualmente, não há suporte para as seguintes configurações. Se for adicionad
 
 > [!NOTE]
 > Nesse escopo de migração, o plano de gerenciamento pode não ser permitido por determinado período durante a migração. Para algumas configurações, conforme descrito acima, ocorre tempo de inatividade do plano de dados.
-> 
-> 
+>
+>
 
 ### <a name="storage-accounts-migration"></a>Migração das contas de armazenamento
-Para permitir uma migração perfeita, você implantar VMs do Resource Manager em uma conta de armazenamento clássico. Com essa funcionalidade, recursos de computação e rede podem e devem ser migrados independentemente de contas de armazenamento. Depois de migrar suas Máquinas Virtuais e a Rede Virtual, você precisa migrar suas contas de armazenamento para concluir o processo de migração. 
+Para permitir uma migração perfeita, você implantar VMs do Resource Manager em uma conta de armazenamento clássico. Com essa funcionalidade, recursos de computação e rede podem e devem ser migrados independentemente de contas de armazenamento. Depois de migrar suas Máquinas Virtuais e a Rede Virtual, você precisa migrar suas contas de armazenamento para concluir o processo de migração.
 
 > [!NOTE]
-> O modelo de implantação do Resource Manager não tem o conceito de discos e imagens clássicas. Quando a conta de armazenamento é migrada, os discos e imagens clássicos não ficarão visíveis na pilha do Resource Manager, mas os VHDs de backup permanecem na conta de armazenamento. 
-> 
-> 
+> O modelo de implantação do Resource Manager não tem o conceito de discos e imagens clássicas. Quando a conta de armazenamento é migrada, os discos e imagens clássicos não ficarão visíveis na pilha do Resource Manager, mas os VHDs de backup permanecem na conta de armazenamento.
+>
+>
 
 ## <a name="unsupported-features-and-configurations"></a>Recursos e configurações sem suporte
 No momento, não oferecemos suporte para alguns recursos e configurações. As seções a seguir descrevem nossas recomendações a respeito deles.
@@ -85,8 +89,8 @@ Atualmente, não há suporte para os seguintes recursos. Se preferir, você pode
 | Computação |Discos de máquina virtual não associados. |
 | Computação |Imagens de máquinas virtuais. |
 | Rede |ACLs de ponto de extremidade. |
-| Rede |Gateways de rede virtual (site a site, Rota Expressa do Azure, Gateway de Aplicativo, ponto a site). |
-| Rede |Redes virtuais usando Emparelhamento VNet. (Migre VNet para ARM, em seguida, emparelhar). Saiba mais sobre [Emparelhamento de VNet](../virtual-network/virtual-network-peering-overview.md). |
+| Rede |Gateways de rede virtual (Gateways do Azure ExpressRoute, Gateway de Aplicativo). |
+| Rede |Redes virtuais usando Emparelhamento VNet. (Migrar a VNet para o ARM e emparelhar) Saiba mais sobre o [Emparelhamento VNet](../virtual-network/virtual-network-peering-overview.md). |
 | Rede |Perfis do Gerenciador de Tráfego. |
 
 ### <a name="unsupported-configurations"></a>Configurações sem suporte
@@ -105,7 +109,8 @@ Atualmente, não há suporte para as seguintes configurações.
 | Serviço de aplicativo do Azure |Redes virtuais que contêm ambientes do Serviço de Aplicativo |Não há suporte para esse recurso no momento. |
 | Azure HDInsight |Redes virtuais que contêm serviços do HDInsight |Não há suporte para esse recurso no momento. |
 | Serviços de Ciclo de Vida do Microsoft Dynamics |Redes virtuais que contêm máquinas virtuais gerenciadas pelos Serviços de Ciclo de Vida do Microsoft Dynamics |Não há suporte para esse recurso no momento. |
-| Computação |Extensões da Central de Segurança do Azure com uma Rede Virtual que tenha um gateway de VPN ou um gateway de ER com o servidor DNS local |A Central de Segurança do Azure instala automaticamente extensões em suas Máquinas Virtuais a fim de monitorar a segurança e emitir alertas. Essas extensões normalmente são instaladas automaticamente se a política da Central de Segurança do Azure for habilitada na assinatura. Como a migração do gateway não tem suporte no momento, e o gateway precisa ser excluído antes de prosseguir com a confirmação da migração, o acesso à internet para a conta de armazenamento da VM é perdido quando o gateway é excluído. A migração não continuará quando isso acontece, pois o blob de status do agente convidado não pode ser preenchido. Recomendamos a desabilitação da política da Central de Segurança do Azure na assinatura três horas antes de continuar com a migração. |
+| Azure AD Domain Services |Redes virtuais que contêm serviços do Azure AD Domain Services |Não há suporte para esse recurso no momento. |
+| Computação |Extensões da Central de Segurança do Azure com uma VNET que tenha um gateway de VPN em conectividade de trânsito ou um gateway de ExpressRoute com o servidor DNS local |A Central de Segurança do Azure instala automaticamente extensões em suas Máquinas Virtuais a fim de monitorar a segurança e emitir alertas. Essas extensões normalmente são instaladas automaticamente se a política da Central de Segurança do Azure for habilitada na assinatura. Migração do gateway de ExpressRoute não é tem suporte atualmente e os gateways de VPN com conectividade de trânsito perdem o acesso local. Excluir o gateway ExpressRoute ou migrar o gateway de VPN com a conectividade de trânsito faz com que o acesso à Internet para a conta de armazenamento de VM serão perdidos ao continuar com a confirmação da migração. A migração não continuará quando isso acontece, pois o blob de status do agente convidado não pode ser preenchido. Recomendamos a desabilitação da política da Central de Segurança do Azure na assinatura três horas antes de continuar com a migração. |
 
 ## <a name="the-migration-experience"></a>A experiência de migração
 Antes de iniciar a experiência de migração, é recomendável fazer o seguinte:
@@ -123,8 +128,8 @@ O fluxo de trabalho de migração está descrito a seguir
 
 > [!NOTE]
 > Todas as operações descritas nas seções a seguir são idempotentes. Caso você tenha algum problema que não seja um recurso sem suporte ou um erro de configuração, recomenda-se que você repita a operação de preparação, anulação ou confirmação. A plataforma Azure tenta novamente a ação.
-> 
-> 
+>
+>
 
 ### <a name="validate"></a>Validar
 A operação de validação é a primeira etapa do processo de migração. O objetivo desta etapa é analisar os dados em segundo plano para os recursos em migração e retornará êxito/falha caso eles possam fazer a migração.
@@ -147,10 +152,10 @@ Assim que a operação de preparação for concluída, você tem a opção de vi
 
 > [!NOTE]
 > Máquinas Virtuais que não estão em uma Rede Virtual clássica são interrompidas e desalocadas nesta fase da migração.
-> 
-> 
+>
+>
 
-### <a name="check-(manual-or-scripted)"></a>Verificação (manual ou com scripts)
+### <a name="check-manual-or-scripted"></a>Verificação (manual ou com scripts)
 Nessa etapa de verificação, opcionalmente, você pode usar a configuração que baixou anteriormente para validar se a migração parece correta. Se preferir, você pode entrar no portal e verificar pontualmente as propriedades e os recursos para validar se os metadados de migração parecem corretos.
 
 Se estiver migrando uma rede virtual, a maior parte da configuração das máquinas virtuais não é reiniciada. Para aplicativos nessas VMs, você pode validar que o aplicativo está ainda em execução.
@@ -165,17 +170,17 @@ Caso encontre problemas, sempre será possível anular a migração e voltar par
 Anulação é uma etapa opcional que pode ser usada para reverter as alterações para o modelo de implantação clássico e interromper a migração.
 
 > [!NOTE]
-> Essa operação não pode ser executada depois que a operação de confirmação é disparada.  
-> 
-> 
+> Essa operação não pode ser executada depois que a operação de confirmação é disparada.     
+>
+>
 
 ### <a name="commit"></a>Confirmar
 Após a conclusão da validação, é possível confirmar a migração. Os recursos não aparecem mais no clássico e estão disponíveis apenas no modelo de implantação do Resource Manager. Os recursos migrados só podem ser gerenciados no novo portal.
 
 > [!NOTE]
 > Esta é uma operação idempotente. Se falhar, é recomendável que você repita a operação. Se a falha persistir, crie um tíquete de suporte ou uma postagem no fórum com uma marcação ClassicIaaSMigration em nosso [fórum sobre VMs](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WAVirtualMachinesforWindows).
-> 
-> 
+>
+>
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 **Este plano de migração afeta qualquer um de meus serviços existentes ou aplicativos executados em máquinas virtuais do Azure?**
@@ -184,7 +189,7 @@ Não. As VMs (clássicas) são serviços com suporte total na disponibilidade ge
 
 **O que acontecerá com minhas VMs se eu não planejar a migração no futuro próximo?**
 
-Não estamos preterindo as APIs clássicas e o modelo de recursos existentes. Queremos simplificar a migração, considerando os recursos avançados disponíveis no modelo de implantação do Gerenciador de Recursos. É altamente recomendável que você examine [alguns dos avanços feitos](virtual-machines-windows-compare-deployment-models.md) como parte do IaaS no Gerenciador de Recursos.
+Não estamos preterindo as APIs clássicas e o modelo de recursos existentes. Queremos simplificar a migração, considerando os recursos avançados disponíveis no modelo de implantação do Gerenciador de Recursos. É altamente recomendável que você examine [alguns dos avanços feitos](../resource-manager-deployment-model.md) como parte do IaaS no Gerenciador de Recursos.
 
 **O que este plano de migração significa para minhas ferramentas existentes?**
 
@@ -212,7 +217,7 @@ Durante a migração, os recursos se transformam do clássico para o Gerenciador
 
 **E se eu estiver usando o Azure Site Recovery ou o Backup do Azure hoje?**
 
-Para migrar sua máquina virtual habilitada para backup, veja [Fiz backup de minhas VMs clássicas no cofre de backup. Agora quero migrar minhas VMs do modo clássico para o modo do Gerenciador de Recursos. Como fazer backup delas no cofre dos serviços de recuperação?](../backup/backup-azure-backup-ibiza-faq.md#i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode-how-can-i-backup-them-in-recovery-services-vault)
+Para migrar sua máquina virtual habilitada para backup, veja [Fiz backup de minhas VMs clássicas no cofre de backup. Agora quero migrar minhas VMs do modo clássico para o modo do Gerenciador de Recursos. Como posso fazer backup deles no cofre de serviços de recuperação?](../backup/backup-azure-backup-ibiza-faq.md)Fiz backup de minhas VMs clássicas no cofre de backup. Agora quero migrar minhas VMs do modo clássico para o modo do Gerenciador de Recursos.  Como fazer backup delas no cofre dos serviços de recuperação?
 
 **Posso validar minha assinatura ou meus recursos para ver se eles podem fazer a migração?**
 
@@ -240,8 +245,11 @@ Agora que você compreende a migração de recursos clássicos de IaaS para o Ge
 * [Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 * [Usar o PowerShell para migrar recursos de IaaS do clássico para o Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
 * [Usar a CLI para migrar recursos de IaaS do clássico para o Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
-* [Clonar uma máquina virtual clássica para o Azure Resource Manager usando scripts da comunidade do PowerShell](virtual-machines-windows-migration-scripts.md)
+* [Clonar uma máquina virtual clássica para o Azure Resource Manager usando scripts da comunidade do PowerShell](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Examinar os erros de migração mais comuns](virtual-machines-migration-errors.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

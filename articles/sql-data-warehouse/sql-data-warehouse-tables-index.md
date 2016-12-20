@@ -1,39 +1,43 @@
 ---
-title: Indexing tables in SQL Data Warehouse | Microsoft Docs
-description: Getting started with table indexing in Azure SQL Data Warehouse.
+title: Indexando tabelas no SQL Data Warehouse | Microsoft Azure
+description: "Introdução à indexação de tabela no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
-
+author: jrowlandjones
+manager: barbkess
+editor: 
+ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: barbkess
+ms.date: 07/12/2016
+ms.author: jrj;barbkess;sonyama
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01eb26ff4528faabdbc7b4d482190148b52f67d4
+
 
 ---
-# <a name="indexing-tables-in-sql-data-warehouse"></a>Indexing tables in SQL Data Warehouse
+# <a name="indexing-tables-in-sql-data-warehouse"></a>Indexando tabelas no SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Data Types][Data Types]
-> * [Distribute][Distribute]
-> * [Index][Index]
+> * [Visão geral][Visão geral]
+> * [Tipos de dados][Tipos de dados]
+> * [Distribuir][Distribuir]
+> * [Índice][Índice]
 > * [Partition][Partition]
-> * [Statistics][Statistics]
-> * [Temporary][Temporary]
+> * [Estatísticas][Estatísticas]
+> * [Temporário][Temporário]
 > 
 > 
 
-SQL Data Warehouse offers several indexing options including [clustered columnstore indexes][clustered columnstore indexes], [clustered indexes and nonclustered indexes][clustered indexes and nonclustered indexes].  In addition, it also offers a no index option also known as [heap][heap].  This article covers the benefits of each index type as well as tips to getting the most performance out of your indexes. See [create table syntax][create table syntax] for more detail on how to create a table in SQL Data Warehouse.
+O SQL Data Warehouse oferece várias opções de indexação, incluindo [clustered columnstore indexes][clustered columnstore indexes], [índices clusterizados e índices não clusterizados][índices clusterizados e índices não clusterizados].  Além disso, ele oferece uma opção sem índice também conhecida como [heap][heap].  Este artigo aborda as vantagens de cada tipo de índice, bem como dicas para obter o melhor desempenho dos seus índices. Confira [sintaxe create table][sintaxe create table] para obter mais detalhes sobre como criar uma tabela no SQL Data Warehouse.
 
-## <a name="clustered-columnstore-indexes"></a>Clustered columnstore indexes
-By default, SQL Data Warehouse creates a clustered columnstore index when no index options are specified on a table. Clustered columnstore tables offer both the highest level of data compression as well as the best overall query performance.  Clustered columnstore tables will generally outperform clustered index or heap tables and are usually the best choice for large tables.  For these reasons, clustered columnstore is the best place to start when you are unsure of how to index your table.  
+## <a name="clustered-columnstore-indexes"></a>Índice columnstore clusterizado
+Por padrão, o SQL Data Warehouse cria um índice columnstore clusterizado quando nenhuma opção de índice é especificada em uma tabela. As tabelas columnstore clusterizadas oferecem o nível mais alto de compactação de dados e o melhor desempenho de consulta geral.  As tabelas columnstore clusterizadas geralmente superam as tabelas de índice clusterizado ou de heap e geralmente são a melhor opção para tabelas grandes.  Por esses motivos, columnstore clusterizado é a melhor opção para começar quando você não tem certeza de como indexar sua tabela.  
 
-To create a clustered columnstore table, simply specify CLUSTERED COLUMNSTORE INDEX in the WITH clause, or leave the WITH clause off:
+Para criar uma tabela columnstore clusterizada, basta especificar CLUSTERED COLUMNSTORE INDEX na cláusula WITH, ou não incluir a cláusula WITH:
 
 ```SQL
 CREATE TABLE myTable   
@@ -45,19 +49,19 @@ CREATE TABLE myTable
 WITH ( CLUSTERED COLUMNSTORE INDEX );
 ```
 
-There are a few scenarios where clustered columnstore may not be a good option:
+Há alguns cenários em que columnstore clusterizado pode não ser uma boa opção:
 
-* Columnstore tables do not support secondary non-clustered indexes.  Consider heap or clustered index tables instead.
-* Columnstore tables do not support varchar(max), nvarchar(max) and varbinary(max).  Consider heap or clustered index instead.
-* Columnstore tables may be less efficient for transient data.  Consider heap and perhaps even temporary tables.
-* Small tables with less than 100 million rows.  Consider heap tables.
+* As tabelas ColumnStore não dão suporte a índices não clusterizados secundários.  Considere tabelas de índice clusterizado ou heap.
+* Tabelas ColumnStore não dão suporte a varchar (max), nvarchar (max) e varbinary (max).  Considere o heap ou índice clusterizado.
+* As tabelas ColumnStore podem ser menos eficientes para dados transitórios.  Considere a possibilidade de tabelas heap ou até mesmo temporárias.
+* Tabelas pequenas com menos de cem milhões de linhas.  Considere as tabelas de heap.
 
-## <a name="heap-tables"></a>Heap tables
-When you are temporarily landing data on SQL Data Warehouse, you may find that using a heap table will make the overall process faster.  This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table will be much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table][Temporary] will also load much faster than loading a table to permanent storage.  
+## <a name="heap-tables"></a>Tabelas de heap
+Quando você estiver descarregando temporariamente os dados no SQL Data Warehouse, poderá achar que usar uma tabela de heap tornará o processo geral mais rápido.  Isso ocorre porque carregamentos de heaps são mais rápidos que as tabelas de índice e, em alguns casos, a leitura subsequente pode ser feita no cache.  Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap será muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma [tabela temporária][Temporário] também carregará muito mais rapidamente do que carregar uma tabela em um armazenamento permanente.  
 
-For small lookup tables, less than 100 million rows, often heap tables make sense.  Cluster columnstore tables begin to achieve optimal compression once there is more than 100 million rows.
+Para tabelas de pesquisa pequenas, de menos de cem milhões de linhas, as tabelas de heap geralmente são adequadas.  As tabelas columnstore do cluster começam a obter compactação ideal quando há mais de cem milhões de linhas.
 
-To create a heap table, simply specify HEAP in the WITH clause:
+Para criar uma tabela de heap, basta especificar HEAP na cláusula WITH:
 
 ```SQL
 CREATE TABLE myTable   
@@ -69,10 +73,10 @@ CREATE TABLE myTable
 WITH ( HEAP );
 ```
 
-## <a name="clustered-and-nonclustered-indexes"></a>Clustered and nonclustered indexes
-Clustered indexes may outperform clustered columnstore tables when a single row needs to be quickly retrieved.  For queries where a single or very few row lookup is required to performance with extreme speed, consider a cluster index or nonclustered secondary index.  The disadvantage to using a clustered index is that only queries which use a highly selective filter on the clustered index column will benefit.  To improve filter on other columns a nonclustered index can be added to other columns.  However, each index which is added to a table will add both space and processing time to loads.
+## <a name="clustered-and-nonclustered-indexes"></a>Índices clusterizados e não clusterizados
+Os índices clusterizados podem superar o desempenho de tabelas columnstore clusterizadas quando uma única linha precisa ser recuperada rapidamente.  Para consultas em que é necessário pesquisar poucas vezes ou somente uma vez para desempenho com extrema velocidade, considere um índice de cluster ou um índice secundário não clusterizado.  A desvantagem de usar um índice clusterizado é que apenas as consultas que usam um filtro altamente seletivo na coluna de índice clusterizado se beneficiarão.  Para melhorar o filtro em outras colunas, um índice não clusterizado pode ser adicionado a outras colunas.  No entanto, cada índice adicionado a uma tabela adicionará espaço e tempo de processamento às cargas.
 
-To create a clustered index table, simply specify CLUSTERED INDEX in the WITH clause:
+Para criar uma tabela de índice clusterizado, basta especificar o CLUSTERED INDEX na cláusula WITH:
 
 ```SQL
 CREATE TABLE myTable   
@@ -84,21 +88,21 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-To add a non-clustered index on a table, simply use the following syntax:
+Para adicionar um índice não clusterizado em uma tabela, basta usar a seguinte sintaxe:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON t1 (zipCode);
 ```
 
 > [!NOTE]
-> A non-clustered index is created by default when CREATE INDEX is used. Furthermore, a non-clustered index is only permitted on a row storage table (HEAP or CLUSTERED INDEX). Non clustered indexes on top of a CLUSTERED COLUMNSTORE INDEX is not permitted at this time.
+> Um índice não clusterizado é criado por padrão quando CREATE INDEX é usado. Além disso, um índice não clusterizado é permitido somente em uma tabela de armazenamento de linha (HEAP ou CLUSTERED INDEX). Índices não clusterizados sobre um CLUSTERED COLUMNSTORE INDEX não são permitidos neste momento.
 > 
 > 
 
-## <a name="optimizing-clustered-columnstore-indexes"></a>Optimizing clustered columnstore indexes
-Clustered columnstore tables are organized in data into segments.  Having high segment quality is critical to achieving optimal query performance on a columnstore table.  Segment quality can be measured by the number of rows in a compressed row group.  Segment quality is most optimal where there are at least 100K rows per compressed row group and gain in performance as the number of rows per row group approach 1,048,576 rows, which is the most rows a row group can contain.
+## <a name="optimizing-clustered-columnstore-indexes"></a>Otimizando índices columnstore clusterizados
+As tabelas columnstore clusterizadas são organizadas em dados em segmentos.  Para segmentos de boa qualidade, é essencial obter um desempenho ideal em uma tabela columnstore.  A qualidade de segmento pode ser medida pelo número de linhas em um grupo de linhas compactado.  A qualidade do segmento é ideal quando há pelo menos cem mil linhas por grupo de linha compactado e ganho de desempenho conforme o número de linhas por grupo de linhas se aproxima das 1.048.576 linhas, que é a maior quantidade de linhas que um grupo de linhas pode conter.
 
-The below view can be created and used on your system to compute the average rows per row group and identify any sub-optimal cluster columnstore indexes.  The last column on this view will generate as SQL statement which can be used to rebuild your indexes.
+A exibição abaixo pode ser criada e usada em seu sistema para calcular a média de linhas por grupo de linhas e identificar índices columnstore de cluster abaixo do ideal.  A última coluna nessa exibição gera como instrução SQL que pode ser usada para recriar os índices.
 
 ```sql
 CREATE VIEW dbo.vColumnstoreDensity
@@ -108,10 +112,10 @@ SELECT
 ,       DB_Name()                                                               AS [database_name]
 ,       s.name                                                                  AS [schema_name]
 ,       t.name                                                                  AS [table_name]
-,   COUNT(DISTINCT rg.[partition_number])                   AS [table_partition_count]
+,    COUNT(DISTINCT rg.[partition_number])                    AS [table_partition_count]
 ,       SUM(rg.[total_rows])                                                    AS [row_count_total]
 ,       SUM(rg.[total_rows])/COUNT(DISTINCT rg.[distribution_id])               AS [row_count_per_distribution_MAX]
-,   CEILING ((SUM(rg.[total_rows])*1.0/COUNT(DISTINCT rg.[distribution_id]))/1048576) AS [rowgroup_per_distribution_MAX]
+,    CEILING    ((SUM(rg.[total_rows])*1.0/COUNT(DISTINCT rg.[distribution_id]))/1048576) AS [rowgroup_per_distribution_MAX]
 ,       SUM(CASE WHEN rg.[State] = 0 THEN 1                   ELSE 0    END)    AS [INVISIBLE_rowgroup_count]
 ,       SUM(CASE WHEN rg.[State] = 0 THEN rg.[total_rows]     ELSE 0    END)    AS [INVISIBLE_rowgroup_rows]
 ,       MIN(CASE WHEN rg.[State] = 0 THEN rg.[total_rows]     ELSE NULL END)    AS [INVISIBLE_rowgroup_rows_MIN]
@@ -147,86 +151,86 @@ GROUP BY
 ;
 ```
 
-Now that you have created the view, run this query to identify tables with row groups with less than 100K rows.  Of course, you may want to increase the threshold of 100K if you are looking for more optimal segment quality. 
+Agora que você criou o modo de exibição, execute essa consulta para identificar tabelas com grupos de linhas com menos de cem mil linhas.  Claro, convém aumentar o limite de cem mil se você deseja aumentar a qualidade do segmento. 
 
 ```sql
-SELECT  *
+SELECT    *
 FROM    [dbo].[vColumnstoreDensity]
-WHERE   COMPRESSED_rowgroup_rows_AVG < 100000
+WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
         OR INVISIBLE_rowgroup_rows_AVG < 100000
 ```
 
-Once you have run the query you can begin to look at the data and analyze your results. This table explains what to look for in your row group analysis.
+Depois de executar a consulta, você poderá começar a analisar os dados e seus resultados. Esta tabela explica o que procurar em sua análise do rowgroup.
 
-| Column | How to use this data |
+| Coluna | Como usar esses dados |
 | --- | --- |
-| [table_partition_count] |If the table is partitioned, then you may expect to see higher Open row group counts. Each partition in the distribution could in theory have an open row group associated with it. Factor this into your analysis. A small table that has been partitioned could be optimized by removing the partitioning altogether as this would improve compression. |
-| [row_count_total] |Total row count for the table. For example, you can use this value to calculate percentage of rows in the compressed state. |
-| [row_count_per_distribution_MAX] |If all rows are evenly distributed this value would be the target number of rows per distribution. Compare this value with the compressed_rowgroup_count. |
-| [COMPRESSED_rowgroup_rows] |Total number of rows in columnstore format for the table. |
-| [COMPRESSED_rowgroup_rows_AVG] |If the average number of rows is significantly less than the maximum # of rows for a row group, then consider using CTAS or ALTER INDEX REBUILD to recompress the data |
-| [COMPRESSED_rowgroup_count] |Number of row groups in columnstore format. If this number is very high in relation to the table it is an indicator that the columnstore density is low. |
-| [COMPRESSED_rowgroup_rows_DELETED] |Rows are logically deleted in columnstore format. If the number is high relative to table size, consider recreating the partition or rebuilding the index as this removes them physically. |
-| [COMPRESSED_rowgroup_rows_MIN] |Use this in conjunction with the AVG and MAX columns to understand the range of values for the row groups in your columnstore. A low number over the load threshold (102,400 per partition aligned distribution) suggests that optimizations are available in the data load |
-| [COMPRESSED_rowgroup_rows_MAX] |As above |
-| [OPEN_rowgroup_count] |Open row groups are normal. One would reasonably expect one OPEN row group per table distribution (60). Excessive numbers suggest data loading across partitions. Double check the partitioning strategy to make sure it is sound |
-| [OPEN_rowgroup_rows] |Each row group can have 1,048,576 rows in it as a maximum. Use this value to see how full the open row groups are currently |
-| [OPEN_rowgroup_rows_MIN] |Open groups indicate that data is either being trickle loaded into the table or that the previous load spilled over remaining rows into this row group. Use the MIN, MAX, AVG columns to see how much data is sat in OPEN row groups. For small tables it could be 100% of all the data! In which case ALTER INDEX REBUILD to force the data to columnstore. |
-| [OPEN_rowgroup_rows_MAX] |As above |
-| [OPEN_rowgroup_rows_AVG] |As above |
-| [CLOSED_rowgroup_rows] |Look at the closed row group rows as a sanity check. |
-| [CLOSED_rowgroup_count] |The number of closed row groups should be low if any are seen at all. Closed row groups can be converted to compressed rowg roups using the ALTER INDEX ... REORGANISE command. However, this is not normally required. Closed groups are automatically converted to columnstore row groups by the background "tuple mover" process. |
-| [CLOSED_rowgroup_rows_MIN] |Closed row groups should have a very high fill rate. If the fill rate for a closed row group is low, then further analysis of the columnstore is required. |
-| [CLOSED_rowgroup_rows_MAX] |As above |
-| [CLOSED_rowgroup_rows_AVG] |As above |
-| [Rebuild_Index_SQL] |SQL to rebuild columnstore index for a table |
+| [table_partition_count] |Se a tabela for particionada, espere ver contagens mais altas de grupos de linhas abertos. Cada partição na distribuição poderia, na teoria, ter um grupo de linhas aberto associado a ela. Fatore isso na sua análise. Uma pequena tabela que foi particionada poderia ser otimizada com a remoção completa do particionamento, pois isso aprimoraria a compactação. |
+| [row_count_total] |Contagem total de linhas para a tabela. Por exemplo, você pode usar este valor para calcular a porcentagem de linhas no estado compactado. |
+| [row_count_per_distribution_MAX] |Se todas as linhas forem distribuídas uniformemente, esse valor será o número alvo de linhas por distribuição. Compare esse valor com compressed_rowgroup_count. |
+| [COMPRESSED_rowgroup_rows] |Número total de linhas no formato columnstore para a tabela. |
+| [COMPRESSED_rowgroup_rows_AVG] |Se o número médio de linhas for significativamente menor do que o número máximo de linhas para um grupo de linhas, considere usar CTAS ou ALTER INDEX REBUILD para compactar novamente os dados |
+| [COMPRESSED_rowgroup_count] |Número de grupos de linhas no formato columnstore. Se esse número for muito alto em relação à tabela, isso significa que a densidade de columnstore é baixa. |
+| [COMPRESSED_rowgroup_rows_DELETED] |Linhas são excluídas de forma lógica no formato columnstore. Se o número for alto em relação ao tamanho da tabela, considere recriar a partição ou refazer o índice, pois isso as remove fisicamente. |
+| [COMPRESSED_rowgroup_rows_MIN] |Use em conjunto com as colunas AVG e MAX para entender o intervalo de valores dos grupos de linhas no columnstore. Um número baixo acima do limite de carga (102.400 por distribuição alinhada por partição) sugere que as otimizações estão disponíveis na carga de dados |
+| [COMPRESSED_rowgroup_rows_MAX] |Como acima |
+| [OPEN_rowgroup_count] |Grupos de linhas abertos são normais. Seria razoável esperar um grupo de linhas ABERTO de acordo com a distribuição de tabela (60). Números excessivos sugerem carregamento de dados nas partições. Verifique a estratégia de particionamento para garantir que ela esteja correta |
+| [OPEN_rowgroup_rows] |Cada grupo de linhas pode ter 1.048.576 linhas, no máximo. Use esse valor para ver quão completo estão os grupos de linhas no momento |
+| [OPEN_rowgroup_rows_MIN] |Os grupos abertos indicam que os dados estão sendo carregados lentamente na tabela ou que a carga anterior foi despejada sobre as linhas restantes nesse grupo de linhas. Use as colunas MIN, MAX, AVG para ver a quantidade de dados colocada nos grupos de linhas ABERTOS. Em tabelas pequenas, esse valor pode ser de 100% de dados! Nesse caso, use ALTER INDEX REBUILD para forçar os dados para columnstore. |
+| [OPEN_rowgroup_rows_MAX] |Como acima |
+| [OPEN_rowgroup_rows_AVG] |Como acima |
+| [CLOSED_rowgroup_rows] |Analise as linhas do grupo de linhas fechado como uma verificação de integridade. |
+| [CLOSED_rowgroup_count] |O número de grupos de linhas fechados deverá ser baixo se algum for visto. Os grupos de linhas fechados podem ser convertidos em grupos de linhas compactados usando a instrução ALTER INDEX... Comando REORGANISE. No entanto, normalmente isso não é obrigatório. Os grupos fechados são convertidos automaticamente em grupos de linhas columnstore pelo processo em segundo plano "motor de tupla". |
+| [CLOSED_rowgroup_rows_MIN] |Os grupos de linhas fechados devem ter uma taxa de preenchimento alta. Se a taxa de preenchimento de um grupo de linhas fechado for baixa, será necessário fazer outra análise do columnstore. |
+| [CLOSED_rowgroup_rows_MAX] |Como acima |
+| [CLOSED_rowgroup_rows_AVG] |Como acima |
+| [Rebuild_Index_SQL] |SQL para recriar o índice columnstore para uma tabela |
 
-## <a name="causes-of-poor-columnstore-index-quality"></a>Causes of poor columnstore index quality
-If you have identified tables with poor segment quality, you will want to identify the root cause.  Below are some other common causes of poor segment quaility:
+## <a name="causes-of-poor-columnstore-index-quality"></a>Causas de má qualidade de índice columnstore
+Se você tiver identificado tabelas com segmentos de má qualidade, desejará identificar a causa raiz.  A seguir estão algumas causas comuns de segmentos de má qualidade:
 
-1. Memory pressure when index was built
-2. High volume of DML operations
-3. Small or trickle load operations
-4. Too many partitions
+1. Pressão de memória quando o índice foi criado
+2. Alto volume de operações DML
+3. Operações de carregamento pequenas ou lentas
+4. Número excessivo de partições
 
-These factors can cause a columnstore index to have significantly less than the optimal 1 million rows per row group.  They can also cause rows to go to the delta row group instead of a compressed row group. 
+Esses fatores podem fazer com que um índice columnstore tenha menos que o ideal de um milhão de linhas por grupo de linhas.  Eles também podem colocar as linhas no rowgroup delta, em vez do rowgroup compactado. 
 
-### <a name="memory-pressure-when-index-was-built"></a>Memory pressure when index was built
-The number of rows per compressed row group are directly related to the width of the row and the amount of memory available to process the row group.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  Therefore, the best practice is to give the session which is writing to your columnstore index tables access to as much memory as possible.  Since there is a trade-off between memory and concurrency, the guidance on the right memory allocation depends on the data in each row of your table, the amount of DWU you've allocated to your system, and the amount of concurrency slots you can give to the session which is writing data to your table.  As a best practice, we recommend starting with xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
+### <a name="memory-pressure-when-index-was-built"></a>Pressão de memória quando o índice foi criado
+O número de linhas por grupo de linhas compactado está diretamente relacionado à largura da linha e à quantidade de memória disponível para processar o grupo de linhas.  Quando as linhas são gravadas nas tabelas columnstore sob pressão da memória, a qualidade do segmento columnstore pode ficar prejudicada.  Portanto, a prática recomendada é fornecer à sessão que está gravando o acesso de tabelas de índice columnstore o máximo de memória possível.  Como há uma compensação entre a memória e simultaneidade, a orientação sobre a alocação de memória correta depende dos dados em cada linha da tabela, da quantidade de DWUS que você alocou para o seu sistema e a quantidade de slots de simultaneidade que pode ser dada à sessão que está gravando dados em sua tabela.  Como prática recomendada, sugerimos iniciar com xlargerc se você estiver usando DW300 ou menos, largerc se estiver usando DW400 DW600 e mediumrc se estiver usando DW1000 ou mais.
 
-### <a name="high-volume-of-dml-operations"></a>High volume of DML operations
-A high volume of DML operations that update and delete rows can introduce inefficiency into the columnstore. This is especially true when the majority of the rows in a row group are modified.
+### <a name="high-volume-of-dml-operations"></a>Alto volume de operações DML
+Um alto volume de operações DML pesadas que atualizam e excluem linhas pode causar ineficiência ao columnstore. Isso acontece principalmente quando a maioria das linhas em um rowgroup é modificada.
 
-* Deleting a row from a compressed row group only logically marks the row as deleted. The row remains in the compressed row group until the partition or table is rebuilt.
-* Inserting a row adds the row to to an internal rowstore table called a delta row group. The inserted row is not converted to columnstore until the delta row group is full and is marked as closed. Row groups are closed once they reach the maximum capacity of 1,048,576 rows. 
-* Updating a row in columnstore format is processed as a logical delete and then an insert. The inserted row may be stored in the delta store.
+* A exclusão de uma linha de um rowgroup compactado somente marca logicamente a linha como excluída. A linha permanece no rowgroup compactado até que a partição ou a tabela seja recriada.
+* A inserção de uma linha a adiciona a uma tabela interna da rowstore chamada de rowgroup delta. A linha inserida não é convertida para a columnstore, até que o rowgroup delta esteja cheio e marcado como fechado. Rowgroups são fechados quando atingem a capacidade máxima de 1.048.576 linhas. 
+* A atualização de uma linha no formato columnstore é processada como uma exclusão lógica e, em seguida, como uma inserção. A linha inserida pode ser armazenada no repositório delta.
 
-Batched update and insert operations that exceed the bulk threshold of 102,400 rows per partition aligned distribution will be written directly to the columnstore format. However, assuming an even distribution, you would need to be modifying more than 6.144 million rows in a single operation for this to occur. If the number of rows for a given partition aligned distribution is less than 102,400 then the rows will go to the delta store and will stay there until sufficient rows have been inserted or modified to close the row group or the index has been rebuilt.
+As operações de atualização e inserção em lote que excedem o limite em massa de 102.400 linhas por distribuição alinhada em partição serão gravadas diretamente no formato columnstore. No entanto, supondo a ocorrência de uma distribuição uniforme, seria necessário modificar mais de 6.144 milhões de linhas em uma única operação para que isso ocorresse. Se o número de linhas de uma determinada distribuição alinhada em partição for menor do que 102.400, as linhas serão encaminhadas ao repositório delta e permanecerão lá até que uma quantidade suficiente de linhas seja inserida ou modificada, a fim de fechar o rowgroup ou recriar o índice.
 
-### <a name="small-or-trickle-load-operations"></a>Small or trickle load operations
-Small loads that flow into SQL Data Warehouse are also sometimes known as trickle loads. They typically represent a near constant stream of data being ingested by the system. However, as this stream is near continuous the volume of rows is not particularly large. More often than not the data is significantly under the threshold required for a direct load to columnstore format.
+### <a name="small-or-trickle-load-operations"></a>Operações de carregamento pequenas ou lentas
+Às vezes, pequenas cargas que fluem para o SQL Data Warehouse também são chamadas de cargas lentas. Normalmente, elas representam um fluxo quase constante de dados que estão sendo incluídos pelo sistema. No entanto, como esse fluxo é quase contínuo, o volume de linhas não é grande. Frequentemente, os dados ficam consideravelmente abaixo do limite necessário para um carregamento direto no formato columnstore.
 
-In these situations, it is often better to land the data first in Azure blob storage and let it accumulate prior to loading. This technique is often known as *micro-batching*.
+Nessas situações, é melhor levar os dados primeiro ao armazenamento de blobs do Azure e deixá-los se acumularem antes do carregamento. Essa técnica é conhecida normalmente como *micro envio em lote*.
 
-### <a name="too-many-partitions"></a>Too many partitions
-Another thing to consider is the impact of partitioning on your clustered columnstore tables.  Before partitioning, SQL Data Warehouse already divides your data into 60 databases.  Partitioning further divides your data.  If you partition your data, then you will want to consider that **each** partition will need to have at least 1 million rows to benefit from a clustered columnstore index.  If you partition your table into 100 partitions, then your table will need to have at least 6 billion rows to benefit from a clustered columnstore index (60 distributions * 100 partitions * 1 million rows). If your 100 partition table does not have 6 billion rows, either reduce the number of partitions or consider using a heap table instead.
+### <a name="too-many-partitions"></a>Número excessivo de partições
+Outra coisa a considerar é o impacto de particionamento de suas tabelas columnstore clusterizadas.  Antes do particionamento, o SQL Data Warehouse já divide seus dados em 60 bancos de dados.  O particionamento divide ainda mais seus dados.  Se particionar seus dados, você precisará considerar que **cada** partição deverá ter pelo menos um milhão de linhas para se beneficiar de um índice columnstore clusterizado.  Se você dividir a tabela em 100 partições, a tabela deverá ter pelo menos seis bilhões de linhas para se beneficiar de um índice columnstore clusterizado (60 distribuições * 100 partições * um milhão de linhas). Se a tabela de cem partições não tiver seis bilhões de linhas, reduza o número de partições ou considere usar uma tabela de heap.
 
-Once your tables have been loaded with some data, follow the below steps to identify and rebuild tables with sub-optimal cluster columnstore indexes.
+Quando as tabelas tiverem sido carregadas com alguns dados, siga as etapas abaixo para identificar e recriar tabelas com índices columnstore de cluster abaixo do ideal.
 
-## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Rebuilding indexes to improve segment quality
-### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Step 1: Identify or create user which uses the right resource class
-One quick way to immediately improve segment quality is to rebuild the index.  The SQL returned by the above view will return an ALTER INDEX REBUILD statement which can be used to rebuild your indexes.  When rebuilding your indexes, be sure that you allocate enough memory to the session which will rebuild your index.  To do this, increase the resource class of a user which has permissions to rebuild the index on this table to the recommended minimum.  The resource class of the database owner user cannot be changed, so if you have not created a user on the system, you will need to do so first.  The minimum we recommend is xlargerc if you are using DW300 or less, largerc if you are using DW400 to DW600, and mediumrc if you are using DW1000 and above.
+## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Recriando índices para melhorar a qualidade de segmento
+### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Etapa 1: identificar ou criar o usuário que usa a classe de recurso correta
+Uma maneira rápida de melhorar a qualidade do segmento imediatamente é recriar o índice.  O SQL retornado pela exibição acima retornará uma instrução ALTER INDEX REBUILD, que pode ser usada para recriar os índices.  Ao recriar os índices, não deixe de alocar memória suficiente para a sessão que recriará o índice.  Para fazer isso, aumente a classe de recurso de um usuário que tem permissões para recriar o índice nessa tabela para o mínimo recomendado.  A classe de recurso de usuário do proprietário do banco de dados não pode ser alterada. Se você não tiver criado um usuário no sistema, precisará fazer isso primeiro.  Recomendamos, no mínimo, iniciar com xlargerc se você estiver usando DW300 ou menos, largerc se estiver usando DW400 DW600 e mediumrc se estiver usando DW1000 ou mais.
 
-Below is an example of how to allocate more memory to a user by increasing their resource class.  For more information about resource classes and how to create a new user can be found in the [concurrency and workload management][Concurrency] article.
+Abaixo está um exemplo de como alocar mais memória para um usuário aumentando sua classe de recurso.  Mais informações sobre o recurso de classes e como criar um novo usuário podem ser encontradas no artigo [Gerenciamento de simultaneidade e carga de trabalho][Simultaneidade].
 
 ```sql
 EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
-### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Step 2: Rebuild clustered columnstore indexes with higher resource class user
-Logon as the user from step 1 (e.g. LoadUser), which is now using a higher resource class, and execute the ALTER INDEX statements.  Be sure that this user has ALTER permission to the tables where the index is being rebuilt.  These examples show how to rebuild the entire columnstore index or how to rebuild a single partition. On large tables, it is more practical to rebuild indexes a single partition at a time.
+### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Etapa 2: recriar índices columnstore clusterizados com usuário de classe de recurso superior
+Faça logon como o usuário da etapa 1 (por exemplo, LoadUser), que agora está usando uma classe de recurso maior, e execute as instruções ALTER INDEX.  Verifique se esse usuário tem a permissão ALTER para as tabelas em que o índice está sendo recriado.  Estes exemplos mostram como recriar todo o índice columnstore e como recriar uma partição única. Em tabelas grandes, é mais prático recriar índices, uma partição por vez.
 
-Alternatively, instead of rebuilding the index, you could copy the table to a new table using [CTAS][CTAS].  Which way is best? For large volumes of data, [CTAS][CTAS] is usually faster than [ALTER INDEX][ALTER INDEX]. For smaller volumes of data, [ALTER INDEX][ALTER INDEX] is easier to use and won't require you to swap out the table.  See **Rebuilding indexes with CTAS and partition switching** below for more details on how to rebuild indexes with CTAS.
+Como alternativa, em vez de recompilar o índice, você pode copiar a tabela para uma nova tabela utilizando [CTAS][CTAS].  Qual é a melhor opção? Para grandes volumes de dados, [CTAS][CTAS] é geralmente mais rápida do que [ALTER INDEX][ALTER INDEX]. Para volumes menores de dados, [ALTER INDEX][ALTER INDEX] é mais fácil de usar e não exigirá a troca da tabela.  Confira **Recriando índices com CTAS e alternância de partição** abaixo para obter mais detalhes sobre como recompilar índices com CTAS.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -248,13 +252,13 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation][Columnstore Indexes Defragmentation] and the syntax topic [ALTER INDEX][ALTER INDEX].
+A recriação de um índice no SQL Data Warehouse é uma operação offline.  Para saber mais sobre a recompilação de índices, confira a seção ALTER INDEX REBUILD em [Desfragmentação de índices columnstore][Desfragmentação de índices columnstore] (Desfragmentação de Índices Columnstore) e o tópico da sintaxe [ALTER INDEX][ALTER INDEX].
 
-### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Step 3: Verify clustered columnstore segment quality has improved
-Rerun the query which identified table with poor segment quality and verify segment quality has improved.  If segment quality did not improve, it could be that the rows in your table are extra wide.  Consider using a higher resource class or DWU when rebuilding your indexes.
+### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Etapa 3: verificar se melhorou a qualidade do segmento columnstore clusterizado
+Execute novamente a consulta que identificou a tabela com segmentos de má qualidade e verifique se a qualidade melhorou.  Se a qualidade do segmento não melhorou, é possível que as linhas da tabela sejam muito amplas.  Considere usar uma classe de recurso maior ou mais DWU durante a recriação de índices.
 
-## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Rebuilding indexes with CTAS and partition switching
-This example uses [CTAS][CTAS] and partition switching to rebuild a table partition. 
+## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Recriando índices com CTAS e alternância de partição
+Este exemplo usa [CTAS][CTAS] e a alternância de partição para recompilar uma partição de tabela. 
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -294,37 +298,37 @@ ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternet
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
 ```
 
-For more details about re-creating partitions using `CTAS`, see the [Partition][Partition] article.
+Para obter mais detalhes sobre como recriar partições usando `CTAS`, confira o artigo [Partition][Partition].
 
-## <a name="next-steps"></a>Next steps
-To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute],  [Partitioning a Table][Partition], [Maintaining Table Statistics][Statistics] and [Temporary Tables][Temporary].  To learn more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].
+## <a name="next-steps"></a>Próximas etapas
+Para saber mais, confira os artigos em [Visão Geral da Tabela][Visão geral], [Tipos de Dados de Tabela][Tipos de dados], [Distribuindo uma Tabela][Distribuir],  [Particionando uma Tabela][Partition], [Mantendo Estatísticas de Tabela][Estatísticas] e [Tabelas Temporárias][Temporário].  Para saber mais sobre as práticas recomendadas, veja [Práticas recomendadas do SQL Data Warehouse][Práticas recomendadas do SQL Data Warehouse].
 
 <!--Image references-->
 
 <!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
+[Visão geral]: ./sql-data-warehouse-tables-overview.md
+[Tipos de dados]: ./sql-data-warehouse-tables-data-types.md
+[Distribuir]: ./sql-data-warehouse-tables-distribute.md
+[Índice]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[Concurrency]: ./sql-data-warehouse-develop-concurrency.md
+[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
+[Temporário]: ./sql-data-warehouse-tables-temporary.md
+[Simultaneidade]: ./sql-data-warehouse-develop-concurrency.md
 [CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
+[Práticas recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->
 [ALTER INDEX]: https://msdn.microsoft.com/library/ms188388.aspx
 [heap]: https://msdn.microsoft.com/library/hh213609.aspx
-[clustered indexes and nonclustered indexes]: https://msdn.microsoft.com/library/ms190457.aspx
-[create table syntax]: https://msdn.microsoft.com/library/mt203953.aspx
-[Columnstore Indexes Defragmentation]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
+[índices clusterizados e índices não clusterizados]: https://msdn.microsoft.com/library/ms190457.aspx
+[sintaxe create table]: https://msdn.microsoft.com/library/mt203953.aspx
+[Desfragmentação de índices columnstore]: https://msdn.microsoft.com/library/dn935013.aspx#Anchor_1
 [clustered columnstore indexes]: https://msdn.microsoft.com/library/gg492088.aspx
 
 <!--Other Web references-->
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

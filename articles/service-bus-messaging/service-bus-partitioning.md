@@ -1,25 +1,29 @@
 ---
-title: Filas e tópicos particionados | Microsoft Docs
-description: Descreve como particionar filas e tópicos do Barramento de Serviço usando vários agentes de mensagem.
-services: service-bus
+title: "Filas e tópicos particionados | Microsoft Docs"
+description: "Descreve como particionar filas e tópicos do Barramento de Serviço usando vários agentes de mensagem."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a0c7d5a2-4876-42cb-8344-a1fc988746e7
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2016
 ms.author: sethm;hillaryc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 03e68436372414a25d87f50c2b057c2f8d193401
+
 
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 O Barramento de Serviço do Azure emprega vários agentes de mensagens para processar mensagens e vários repositórios de mensagens para armazenar mensagens. Uma fila ou um tópico convencional é manipulado por um único agente de mensagem e armazenado em um repositório de mensagens. O Barramento de Serviço também habilita filas ou tópicos a serem particionados entre diversos agentes e repositórios de mensagens. Isso significa que a produtividade geral de uma fila ou um tópico particionado não é mais limitada pelo desempenho de um único agente ou repositório de mensagens. Além disso, uma interrupção temporária de um repositório de mensagens não torna uma fila ou um tópico particionado indisponível. Filas e tópicos particionados podem conter todos os recursos avançados do Barramento de Serviço, como o suporte a transações e sessões.
 
-Para obter mais detalhes sobre aspectos internos do Barramento de Serviço, confira o tópico [Arquitetura do Barramento de Serviço][Arquitetura do Barramento de Serviço].
+Para obter mais detalhes sobre aspectos internos do Barramento de Serviço, consulte o tópico [Arquitetura do Barramento de Serviço][Arquitetura do Barramento de Serviço].
 
 ## <a name="how-it-works"></a>Como ele funciona
 Cada fila ou tópico particionado consiste em vários fragmentos. Cada fragmento é armazenado em um repositório de mensagens diferente e manipulado por um agente de mensagens diferente. Quando uma mensagem é enviada a uma fila ou um tópico particionado, o Barramento de Serviço atribui a mensagem a um dos fragmentos. A seleção é feita aleatoriamente pelo Barramento de Serviço ou por uma chave de partição que pode ser especificada pelo remetente.
@@ -33,7 +37,7 @@ Para usar filas e tópicos particionados com o Barramento de Serviço do Azure, 
 
 Você pode criar filas e tópicos do Barramento de Serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Com o particionamento habilitado, o Barramento de Serviço cria 16 partições para cada GB especificado. Assim, se você criar uma fila que tenha 5 GB, com 16 partições, o tamanho máximo da fila será (5 \* 16) = 80 GB. É possível ver o tamanho máximo da fila ou do tópico particionado observando sua entrada no [Portal do Azure][Portal do Azure].
 
-Há várias maneiras de criar uma fila ou um tópico particionado. Ao criar a fila ou o tópico de seu aplicativo, você pode habilitar o particionamento para a fila ou tópico definindo respectivamente a propriedade [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] ou [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] como **true**. Essas propriedades devem ser definidas no momento em que a fila ou o tópico é criado. Não é possível alterar essas propriedades em uma fila ou um tópico existente. Por exemplo:
+Há várias maneiras de criar uma fila ou um tópico particionado. Ao criar a fila ou o tópico de seu aplicativo, é possível habilitar o particionamento para a fila ou tópico definindo respectivamente a propriedade [QueueDescription.EnablePartitioning][QueueDescription.EnablePartitioning] ou [TopicDescription.EnablePartitioning][TopicDescription.EnablePartitioning] como **true**. Essas propriedades devem ser definidas no momento em que a fila ou o tópico é criado. Não é possível alterar essas propriedades em uma fila ou um tópico existente. Por exemplo:
 
 ```
 // Create partitioned topic
@@ -55,18 +59,18 @@ Dependendo do cenário, propriedades de mensagem diferentes são usadas como uma
 
 **SessionId**: caso uma mensagem tenha a propriedade [BrokeredMessage.SessionId][BrokeredMessage.SessionId] definida, o Barramento de Serviço usará essa propriedade como a chave de partição. Dessa forma, todas as mensagens que pertencem à mesma sessão são manipuladas pelo mesmo agente de mensagens. Isso habilita o Barramento de Serviço a garantir a ordenação das mensagens, bem como a consistência dos estados de sessão.
 
-**PartitionKey**: caso uma mensagem tenha a propriedade [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] definida, mas não a propriedade [BrokeredMessage.SessionId][BrokeredMessage.SessionId], o Barramento de Serviço usará a propriedade [PartitionKey][PartitionKey] como a chave de partição. Caso a mensagem tenha as propriedades [SessionId][SessionId] e [PartitionKey][PartitionKey] definidas, as propriedades deverão ser idênticas. Se a propriedade [PartitionKey][PartitionKey] for definida como um valor diferente da propriedade [SessionId][SessionId], o Barramento de Serviço resultará em uma exceção **InvalidOperationException**. A propriedade [PartitionKey][PartitionKey] deverá ser usada caso um remetente enviar mensagens transacionais sem reconhecimento de sessão. A chave de partição garante que todas as mensagens enviadas em uma transação sejam manipuladas pelo mesmo agente de mensagens.
+**PartitionKey**: caso uma mensagem tenha a propriedade [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey], mas não a propriedade [BrokeredMessage.SessionId][BrokeredMessage.SessionId] definida, o Barramento de Serviço usará a propriedade [PartitionKey][PartitionKey] como a chave de partição. Caso a mensagem tenha as propriedades [SessionId][SessionId] e [PartitionKey][PartitionKey] definidas, as propriedades deverão ser idênticas. Se a propriedade [PartitionKey][PartitionKey] for definida como um valor diferente do que o da propriedade [SessionId][SessionId], o Barramento de Serviço retornará uma exceção **InvalidOperationException**. A propriedade [PartitionKey][PartitionKey] deverá ser usada se um remetente enviar mensagens transacionais sem reconhecimento de sessão. A chave de partição garante que todas as mensagens enviadas em uma transação sejam manipuladas pelo mesmo agente de mensagens.
 
 **MessageId**: caso a fila ou o tópico tenha a propriedade [QueueDescription.RequiresDuplicateDetection][QueueDescription.RequiresDuplicateDetection] definida como **true** e as propriedades [BrokeredMessage.SessionId][BrokeredMessage.SessionId] ou [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] não forem definidas, a propriedade [BrokeredMessage.MessageId][BrokeredMessage.MessageId] servirá como a chave de partição. (Observe que as bibliotecas Microsoft .NET e AMQP atribuirão automaticamente uma ID de mensagem se o aplicativo de envio não o fizer.) Nesse caso, todas as cópias da mesma mensagem são manipuladas pelo mesmo agente de mensagens. Isso permite que o Barramento de Serviço detecte e elimine mensagens duplicadas. Se a propriedade [QueueDescription.RequiresDuplicateDetection][QueueDescription.RequiresDuplicateDetection] não for definida como **true**, o Barramento de Serviço não considerará a propriedade [MessageId][MessageId] como uma chave de partição.
 
 ### <a name="not-using-a-partition-key"></a>Não usando uma chave de partição
 Na ausência de uma chave de partição, o Barramento de Serviço distribui mensagens em forma de round robin para todos os fragmentos da fila ou do tópico particionado. Se o fragmento escolhido não estiver disponível, o Barramento de Serviço atribuirá a mensagem a um fragmento diferente. Dessa forma, a operação de envio será bem-sucedida independentemente da indisponibilidade temporária de um repositório de mensagens.
 
-Para dar ao Barramento de Serviço tempo suficiente para enfileirar a mensagem em um fragmento diferente, o valor de [MessagingFactorySettings.OperationTimeout][MessagingFactorySettings.OperationTimeout] especificado pelo cliente que envia a mensagem deve ser maior que 15 segundos. É recomendável que você defina a propriedade [OperationTimeout][OperationTimeout] com o valor padrão de 60 segundos.
+Para que o Barramento de Serviço tenha tempo suficiente para enfileirar a mensagem em um fragmento diferente, o valor [MessagingFactorySettings.OperationTimeout][MessagingFactorySettings.OperationTimeout] especificado pelo cliente que envia a mensagem deve ser maior que 15 segundos. É recomendável definir a propriedade [OperationTimeout][OperationTimeout] com o valor padrão de 60 segundos.
 
 Observe que uma chave de partição "fixa" uma mensagem a um fragmento específico. Se o repositório de mensagens que mantém o fragmento estiver indisponível, o Barramento de Serviço retornará um erro. Na ausência de uma chave de partição, o Barramento de Serviço pode escolher um fragmento diferente, e a operação será bem-sucedida. Portanto, é recomendável que você não forneça uma chave de partição, a menos que seja necessário.
 
-## <a name="advanced-topics:-use-transactions-with-partitioned-entities"></a>Tópicos avançados: usar transações com entidades particionadas
+## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Tópicos avançados: usar transações com entidades particionadas
 As mensagens enviadas como parte de uma transação devem especificar uma chave de partição. Essa pode ser uma das seguintes propriedades: [BrokeredMessage.SessionId][BrokeredMessage.SessionId], [BrokeredMessage.PartitionKey][BrokeredMessage.PartitionKey] ou [BrokeredMessage.MessageId][BrokeredMessage.MessageId]. Todas as mensagens que são enviadas como parte da mesma transação devem especificar a mesma chave de partição. Caso você tente enviar uma mensagem sem uma chave de partição em uma transação, o Barramento de Serviço resultará em uma exceção **InvalidOperationException**. Caso você tente enviar várias mensagens que tenham chaves de partição diferentes na mesma transação, o Barramento de Serviço resultará em uma exceção **InvalidOperationException**. Por exemplo:
 
 ```
@@ -101,10 +105,10 @@ committableTransaction.Commit();
 ```
 
 ## <a name="automatic-message-forwarding-with-partitioned-entities"></a>Encaminhamento automático de mensagens com entidades particionadas
-O Barramento de Serviço do Azure dá suporte ao encaminhamento automático de mensagens de, para ou entre entidades particionadas. Para habilitar o encaminhamento automático de mensagens, defina a propriedade [QueueDescription.ForwardTo][QueueDescription.ForwardTo] na assinatura ou fila de origem. Se a mensagem especificar uma chave de partição ([SessionId][SessionId], [PartitionKey][PartitionKey] ou [MessageId][MessageId]), essa chave será usada para a entidade de destino.
+O Barramento de Serviço do Azure dá suporte ao encaminhamento automático de mensagens de, para ou entre entidades particionadas. Para habilitar o encaminhamento automático de mensagens, defina a propriedade [QueueDescription.ForwardTo][QueueDescription.ForwardTo] na assinatura ou na fila de origem. Se a mensagem especificar uma chave de partição ([SessionId][SessionId], [PartitionKey][PartitionKey] ou [MessageId][MessageId]), essa chave será usada para a entidade de destino.
 
 ## <a name="considerations-and-guidelines"></a>Considerações e diretrizes
-* **Recursos de alta consistência**: se uma entidade usar recursos como sessões, detecção de duplicidades ou controle explícito de chave de particionamento, as operações de mensagens serão sempre roteadas para fragmentos específicos. Se qualquer um dos fragmentos tiver alto tráfego ou se o repositório subjacente não estiver íntegro, essas operações falharão e a disponibilidade será reduzida. Em geral, a consistência ainda é muito maior do que em entidades não particionadas; somente um subconjunto de tráfego tem problemas, em vez de todo o tráfego.
+* **Recursos de alta consistência**: se uma entidade usa recursos como sessões, detecção de duplicidades ou controle explícito de chave de particionamento, as operações de mensagens serão sempre roteadas para fragmentos específicos. Se qualquer um dos fragmentos tiver alto tráfego ou se o repositório subjacente não estiver íntegro, essas operações falharão e a disponibilidade será reduzida. Em geral, a consistência ainda é muito maior do que em entidades não particionadas; somente um subconjunto de tráfego tem problemas, em vez de todo o tráfego.
 * **Gerenciamento**: operações como Criar, Atualizar e Excluir devem ser executadas em todos os fragmentos da entidade. Se qualquer fragmento não estiver íntegro, isso poderá resultar em falhas para essas operações. Para a operação Get, informações como contagens de mensagens devem ser agregadas de todos os fragmentos. Se qualquer fragmento não estiver íntegro, o status de disponibilidade será relatado como limitado.
 * **Cenários de mensagens de baixo volume**: para esses cenários, particularmente ao usar o protocolo HTTP, talvez você precise executar várias operações de recebimento para obter todas as mensagens. Para solicitações de recebimento, o front-end executa um recebimento em todos os fragmentos e armazena em cache todas as respostas recebidas. Uma solicitação de recebimento subsequente na mesma conexão se beneficiará desse armazenamento em cache, e as latências de recebimento serão menores. No entanto, se você tiver várias conexões ou se usar HTTP, isso estabelecerá uma nova conexão para cada solicitação. Assim, não há garantia de que ela chegará ao mesmo nó. Se todas as mensagens existentes forem bloqueadas e armazenadas em cache no outro front-end, a operação de recebimento resultará em **nulo**. As mensagens eventualmente expiram e você pode recebê-las novamente. O keep-alive de HTTP é recomendável.
 * **Pesquisar/inspecionar mensagens**: o PeekBatch nem sempre retorna o número de mensagens especificado na [propriedade MessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecount.aspx). Há duas razões comuns para isso. Uma razão é que o tamanho agregado da coleção de mensagens excede o tamanho máximo de 256 KB. Outra razão é que, se a fila ou o tópico tiver a [Propriedade EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) definida como **verdadeiro**, uma partição poderá não ter mensagens suficientes para concluir o número solicitado de mensagens. Em geral, se um aplicativo quiser receber um número específico de mensagens, ele deverá solicitar [PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) repetidamente até obter o número de mensagens ou até não existirem mais mensagens para inspecionar. Para obter mais informações, incluindo exemplos de código, confira [QueueClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) ou [SubscriptionClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx).
@@ -121,7 +125,7 @@ Atualmente, o Barramento de Serviço impõe as seguintes limitações a filas e 
 * O Barramento de Serviço atualmente permite até 100 filas ou tópicos particionados por namespace. Cada fila ou tópico particionado conta para a cota de 10.000 entidades por namespace (não se aplica à camada Premium).
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja a discussão sobre o [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço][Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço] para saber mais sobre como particionar entidades de mensagens. 
+Veja a discussão de [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço][Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço] para saber mais sobre como particionar entidades de mensagens. 
 
 [Arquitetura do Barramento de Serviço]: service-bus-architecture.md
 [Portal do Azure]: https://portal.azure.com
@@ -142,6 +146,6 @@ Veja a discussão sobre o [Suporte a AMQP 1.0 para filas e tópicos particionado
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Etapa 6: acessar o serviço Web do Aprendizado de Máquina | Microsoft Docs'
-description: 'Etapa 6: desenvolver um passo a passo de solução de previsão: acessar um serviço Web do Aprendizado de Máquina do Azure ativo.'
+title: "Etapa 6: Acessar o serviço Web do Machine Learning | Microsoft Docs"
+description: "Etapa 6: desenvolver um passo a passo de solução de previsão: acessar um serviço Web do Aprendizado de Máquina do Azure ativo."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 80f722c536c822189c1ab2a8160f560a78e7ca01
+
 
 ---
-# <a name="walkthrough-step-6:-access-the-azure-machine-learning-web-service"></a>Etapa 6 do passo a passo: acessar o serviço Web do Aprendizado de Máquina do Azure
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Etapa 6 do passo a passo: acessar o serviço Web do Aprendizado de Máquina do Azure
 Esta é a última etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Criar um espaço de trabalho do Aprendizado de Máquina](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -42,6 +46,9 @@ Para obter mais informações sobre como usar modelos de aplicativos da Web, con
 Você também pode desenvolver um aplicativo personalizado para acessar o serviço Web usando código inicial fornecido nas linguagens de programação R, C# e Python.
 Você pode ver todos os detalhes em [Como consumir um serviço Web de Aprendizado de Máquina do Azure que foi publicado por meio de um experimento de Aprendizado de Máquina](machine-learning-consume-web-services.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -2,20 +2,24 @@
 title: Usando aplicativos do App-V com o Azure RemoteApp| Microsoft Docs
 description: Saiba como usar os aplicativos App-V no Azure RemoteApp.
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: ericorman
 manager: mbaldwin
-
+ms.assetid: e2292cb2-5c89-4b2b-ab11-74dbacd07c31
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8057e9ce27f9df3e9455d48d9c8196033612c8f3
+
 
 ---
-# Usando os aplicativos App-V no Azure RemoteApp
+# <a name="using-app-v-apps-in-azure-remoteapp"></a>Usando os aplicativos App-V no Azure RemoteApp
 > [!IMPORTANT]
 > O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
@@ -23,7 +27,7 @@ ms.author: elizapo
 
 Você pode usar os aplicativos do App-V em uma coleção híbrida do Azure RemoteApp, o que requer o ingresso no domínio.
 
-Antes de começar, instale o cliente do App-V 5.1 com as atualizações mais recentes. Você precisará criar uma [imagem personalizada](remoteapp-create-custom-image.md) que inclua o cliente de App-V.
+Antes de começar, instale o cliente do App-V 5.1 com as atualizações mais recentes. Você precisará criar uma [imagem personalizada](remoteapp-create-custom-image.md) que inclua o cliente de App-V.  
 
 É fácil usar sua infraestrutura existente do App-V com o Azure RemoteApp. Como uma coleção híbrida é implantada em uma Rede Virtual do Azure com acesso ao controlador de domínio e as VMs são ingressadas no domínio, você poderá aproveitar a infraestrutura existente do App-V e os métodos de implantação para hospedar com facilidade o aplicativo App-V no Azure RemoteApp. Veja algumas considerações que você deve fazer com base no tipo de implantação do App-V que possui no momento:
 
@@ -38,4 +42,9 @@ Antes de começar, instale o cliente do App-V 5.1 com as atualizações mais rec
 
  Depois de criar sua imagem personalizada e sua coleção híbrida, publique seu aplicativo, atribua usuários e aproveite seus aplicativos existentes do App-V hospedados no Azure RemoteApp entregues a qualquer dispositivo em qualquer lugar.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

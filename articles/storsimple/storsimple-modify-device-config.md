@@ -1,23 +1,27 @@
 ---
-title: Modificar a configuração do dispositivo StorSimple | Microsoft Docs
-description: Descreve como usar o serviço StorSimple Manager para reconfigurar um dispositivo StorSimple que já foi implantado.
+title: "Modificar a configuração do dispositivo StorSimple | Microsoft Docs"
+description: "Descreve como usar o serviço StorSimple Manager para reconfigurar um dispositivo StorSimple que já foi implantado."
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: bb679264-8d46-429c-9ef7-630dc3b4a423
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/16/2016
+ms.date: 09/29/2016
 ms.author: v-sharos
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2dfc682fa54577ec5ab9d8a1e21ea82f035cc41e
+
 
 ---
-# Usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple
-## Visão geral
+# <a name="use-the-storsimple-manager-service-to-modify-your-storsimple-device-configuration"></a>Usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple
+## <a name="overview"></a>Visão geral
 A página **Configurar** do Portal clássico do Azure contém todos os parâmetros de dispositivo que você pode reconfigurar em um dispositivo StorSimple gerenciado por um serviço StorSimple Manager. Este tutorial explica como você pode usar a página **Configurar** para realizar as seguintes tarefas em nível do dispositivo:
 
 * Modificar as configurações de dispositivo 
@@ -26,7 +30,7 @@ A página **Configurar** do Portal clássico do Azure contém todos os parâmetr
 * Modificar as interfaces de rede
 * Alternar ou reatribuir IPs
 
-## Modificar as configurações de dispositivo
+## <a name="modify-device-settings"></a>Modificar as configurações de dispositivo
 As configurações de dispositivo incluem o nome amigável do dispositivo e a descrição do dispositivo.
 
 Um dispositivo StorSimple que está conectado ao serviço StorSimple Manager recebe um nome padrão. O nome padrão normalmente reflete o número de série do dispositivo. Por exemplo, um nome de dispositivo padrão que é de 15 caracteres, como 8600-SHX0991003G44HT, indica o seguinte:
@@ -34,32 +38,30 @@ Um dispositivo StorSimple que está conectado ao serviço StorSimple Manager rec
 * **8600** – Indica o modelo do dispositivo.
 * **SHX** – Indica o site de produção.
 * **0991003** - Indica um produto específico.
-* **G44HT** - Os últimos cinco dígitos são aumentados para criar números de série exclusivos. Isso pode não ser um conjunto sequencial.
+* **G44HT**- Os últimos cinco dígitos são aumentados para criar números de série exclusivos. Isso pode não ser um conjunto sequencial.
 
 É possível usar o Portal Clássico do Azure para alterar o nome do dispositivo e atribuir a ele um nome amigável exclusivo de sua escolha. O nome amigável pode conter qualquer caractere e ter no máximo 64 caracteres.
 
 Também é possível especificar uma descrição de dispositivo. Uma descrição de dispositivo geralmente ajuda a identificar o proprietário e o local físico do dispositivo. O campo de descrição deve conter menos de 256 caracteres.
 
-## Modificar as configurações de tempo
+## <a name="modify-time-settings"></a>Modificar as configurações de tempo
 O dispositivo deve sincronizar a hora para autenticar com seu provedor de serviços de armazenamento em nuvem. Selecione seu fuso horário na lista suspensa e especifique até dois servidores NTP (Protocolo de Tempo de Rede). O servidor NTP primário é necessário e é especificado quando você usa o Windows PowerShell para StorSimple para configurar seu dispositivo. É possível especificar o **time.windows.com** padrão do Windows Server como o servidor NTP. É possível exibir a configuração do servidor NTP primário por meio do Portal Clássico do Azure, mas é preciso usar a interface do Windows PowerShell para alterá-la.
 
-A configuração do servidor NTP secundário é opcional. É possível usar o Portal Clássico para configurar um servidor NTP secundário.
+A configuração do servidor NTP secundário é opcional. É possível usar o Portal Clássico para configurar um servidor NTP secundário. 
 
 Ao configurar o servidor NTP, verifique se sua rede permite que o tráfego NTP passe do datacenter para a Internet. Ao especificar um servidor NTP público, é preciso garantir que os firewalls de rede e outros dispositivos de segurança estejam configurados para permitir que o tráfego NTP viaje a partir da rede externa e para ela. Se o tráfego NTP bidirecional não for permitido, será preciso usar um servidor NTP interno (um controlador de domínio do Windows oferece essa função). Se o dispositivo não puder sincronizar a hora, talvez não seja possível se comunicar com o provedor de armazenamento em nuvem.
 
-Para ver uma lista de servidores NTP públicos, vá até o [NTP Servers Web](http://support.ntp.org/bin/view/Servers/WebHome).
+Para ver uma lista de servidores NTP públicos, vá até o [NTP Servers Web](http://support.ntp.org/bin/view/Servers/WebHome). 
 
-### O que acontece se o dispositivo for implantado em um fuso horário diferente?
+### <a name="what-happens-if-the-device-is-deployed-in-a-different-time-zone"></a>O que acontece se o dispositivo for implantado em um fuso horário diferente?
 Se o dispositivo for implantado em um fuso horário diferente, o fuso horário do dispositivo será alterado. Considerando que todas as políticas de backup usam o fuso horário do dispositivo, as políticas de backup se ajustarão automaticamente de acordo com o novo fuso horário. Nenhuma intervenção do usuário é necessária.
 
-## Modificar as configurações de DNS
+## <a name="modify-dns-settings"></a>Modificar as configurações de DNS
 Um servidor DNS é usado quando o dispositivo tenta se comunicar com seu provedor de serviços de armazenamento em nuvem. Para obter alta disponibilidade, é preciso configurar os servidores DNS primário e secundário durante a implantação inicial do dispositivo. Para reconfigurar o servidor DNS primário, será preciso usar a interface do Windows PowerShell em seu dispositivo StorSimple.
 
 Para modificar o servidor DNS secundário, é possível usar o Portal clássico do Azure.
 
-<!-- If a secondary DNS server is not configured, you will not be able to create volume containers or provision volumes on the device.-->
-
-## Modificar as interfaces de rede
+## <a name="modify-network-interfaces"></a>Modificar as interfaces de rede
 O dispositivo tem seis interfaces de rede, quatro delas são de 1 GbE e duas são de 10 GbE. Essas interfaces são rotuladas como DATA 0 – DATA 5. DATA 0, DATA 1, DATA 4 e DATA 5 são de 1 GbE, enquanto DATA 2 e DATA 3 são interfaces de rede de 10 GbE.
 
 Configure **Configurações de Interface de Rede** para cada uma das interfaces a serem usadas. Para garantir alta disponibilidade, recomendamos que você tenha pelo menos duas interfaces iSCSI e duas interfaces habilitadas para a nuvem em seu dispositivo. É recomendável, mas não obrigatório, que as interfaces não utilizadas sejam desabilitadas.
@@ -103,17 +105,22 @@ Para cada interface de rede, os parâmetros a seguir são exibidos:
 > 
 > 
 
-## Alternar ou reatribuir IPs
+## <a name="swap-or-reassign-ips"></a>Alternar ou reatribuir IPs
 Atualmente, se alguma interface de rede do controlador receber um VIP que está em uso (pelo mesmo dispositivo ou por outro dispositivo de rede), o controlador fará failover. Portanto, será necessário seguir o procedimento adequado se você estiver alternando VIPs para a interface de rede do dispositivo, pois criará uma situação de IP duplicado.
 
 Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma das interfaces de rede:
 
-#### Para reatribuir IPs
+#### <a name="to-reassign-ips"></a>Para reatribuir IPs
 1. Limpe o endereço IP para ambas as interfaces.
 2. Depois que os endereços IP estiverem limpos, atribua novos endereços IP às respectivas interfaces.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como [configurar o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0518_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

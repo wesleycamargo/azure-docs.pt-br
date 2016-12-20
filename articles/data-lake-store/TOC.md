@@ -1,5 +1,5 @@
 # Visão geral
-## [Visão geral do repositório Azure Data Lake](data-lake-store-overview.md)
+## [Visão geral do Azure Data Lake Store](data-lake-store-overview.md)
 ## [Comparar o Azure Data Lake Store com o Armazenamento do Azure](data-lake-store-comparison-with-blob-storage.md)
 ## [Usar o Azure Data Lake Store para processamento de Big Data](data-lake-store-data-scenarios.md)
 ## [Aplicativos de software livre que funcionam com o Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
@@ -12,6 +12,7 @@
 ## [Usar a API REST](data-lake-store-get-started-rest-api.md)
 ## [Usar a CLI do Azure](data-lake-store-get-started-cli.md)
 ## [Usar o Node.js](data-lake-store-manage-use-nodejs.md)
+## [Usando o Python](data-lake-store-get-started-python.md)
 
 # Como
 ## Copiar Dados
@@ -21,22 +22,15 @@
 ### [Como usar o Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Carregar dados de fontes offline](data-lake-store-offline-bulk-data-upload.md)
 
-## Desenvolver
-### [Usar o PowerShell](data-lake-store-get-started-powershell.md)
-### [Usando o SDK .NET](data-lake-store-get-started-net-sdk.md)
-### [Usar o SDK do Java](data-lake-store-get-started-java-sdk.md)
-### [Usar a API REST](data-lake-store-get-started-rest-api.md)
-### [Usar a CLI do Azure](data-lake-store-get-started-cli.md)
-### [Usar o Node.js](data-lake-store-manage-use-nodejs.md)
-
 ## Dados Seguros
 ### [Visão geral da segurança](data-lake-store-security-overview.md)
 ### [Controle de acesso no Data Lake Store](data-lake-store-access-control.md)
-### [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
+### [Proteger dados no Data Lake Store](data-lake-store-secure-data.md)
 ### [Autenticação serviço a serviço](data-lake-store-authenticate-using-active-directory.md)
 ### [Autenticação do usuário final](data-lake-store-end-user-authenticate-using-active-directory.md)
 
 ## Integrar-se aos Serviços do Azure
+### [Acesso de VMs na VNET do Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Usar com Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Criar cluster do HDInsight com o Data Lake Store usando o Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 ### [Criar cluster do HDInsight com o Data Lake Store usando o PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
@@ -49,13 +43,16 @@
 
 ## Gerenciar
 ### [Acessar logs de diagnóstico](data-lake-store-diagnostic-logs.md)
+### [Projetando para alta disponibilidade](data-lake-store-troubleshooting-guidance.md)
 
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
+## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [REST](/rest/api/datalakestore/)
+## [Python (Gerenciamento de Conta)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+## [Python (Gerenciamento do sistema de arquivos)](http://azure-datalake-store.readthedocs.io/en/latest)
+## [REST](/rest/api/datalakestore)
 
 # Recursos
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=data-lake-store)
@@ -67,6 +64,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

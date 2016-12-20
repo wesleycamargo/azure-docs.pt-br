@@ -1,22 +1,26 @@
 ---
-title: Notificações de Reliable Services | Microsoft Docs
-description: Documentação conceitual para notificações de Reliable Services do Service Fabric
+title: "Notificações de Reliable Services | Microsoft Docs"
+description: "Documentação conceitual para notificações de Reliable Services do Service Fabric"
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
 editor: masnider,vturecek
-
+ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/24/2016
+ms.date: 10/18/2016
 ms.author: mcoskun
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 18c71608f7429f7c52720282ca66f44c88de2d84
+
 
 ---
-# Notificações do Reliable Services
+# <a name="reliable-services-notifications"></a>Notificações do Reliable Services
 As notificações permitem que os clientes controle as alterações que estão sendo feitas em um objeto no qual eles estão interessados. Dois tipos de objetos dão suporte a notificações: *Gerenciador de Estado Confiável* e *Dicionário Confiável*.
 
 Os motivos comuns para usar as Notificações são:
@@ -26,7 +30,7 @@ Os motivos comuns para usar as Notificações são:
 
 As notificações são disparadas como parte da aplicação de operações. Por disso, as notificações devem ser manipuladas tão rápido quanto possível, e eventos síncronos não devem incluir operações dispendiosas.
 
-## Notificações do Gerenciador de Estado Confiável
+## <a name="reliable-state-manager-notifications"></a>Notificações do Gerenciador de Estado Confiável
 O Gerenciador de Estado Confiável fornece notificações para os eventos a seguir:
 
 * Transação
@@ -38,7 +42,8 @@ O Gerenciador de Estado Confiável fornece notificações para os eventos a segu
 
 O Gerenciador de Estado Confiável rastreia as transações em execução no momento. A única alteração no estado da transação que faz com que uma notificação seja acionada é uma confirmação de transação.
 
-O Gerenciador de Estado Confiável mantém uma coleção de estados confiáveis, como Dicionário Confiável e Fila Confiável. O Gerenciador de Estado Confiável dispara notificações quando essa coleção muda: um estado confiável é adicionado ou removido ou toda a coleção é recompilada. A coleção do Gerenciador de Estado Confiável é recompilada em três casos:
+O Gerenciador de Estado Confiável mantém uma coleção de estados confiáveis, como Dicionário Confiável e Fila Confiável. O Gerenciador de Estado Confiável dispara notificações quando essa coleção muda: um estado confiável é adicionado ou removido ou toda a coleção é recompilada.
+A coleção do Gerenciador de Estado Confiável é recompilada em três casos:
 
 * Recuperação: quando uma réplica é iniciada, recupera seu estado anterior do disco. Ao fim da recuperação, ela usa **NotifyStateManagerChangedEventArgs** para disparar um evento que contém o conjunto de estados confiáveis recuperados.
 * Cópia completa: para que uma réplica possa ingressar no conjunto de configurações, ela deve ser compilada. Às vezes, isso exige a aplicação de uma cópia completa do estado do Gerenciador de Estado Confiável da réplica primária para a réplica secundária ociosa. O Gerenciador de Estado Confiável na réplica secundária usa **NotifyStateManagerChangedEventArgs** para disparar um evento que contém o conjunto de estados confiáveis que adquiriu da réplica primária.
@@ -62,7 +67,7 @@ O manipulador de eventos **TransactionChanged** usa **NotifyTransactionChangedEv
 > 
 > 
 
-Veja a seguir um exemplo de manipulador de eventos **TransactionChanged**.
+Veja a seguir um exemplo de manipulador de eventos **TransactionChanged** .
 
 ```C#
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
@@ -77,12 +82,14 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 }
 ```
 
-O manipulador de eventos **StateManagerChanged** usa **NotifyStateManagerChangedEventArgs** para fornecer detalhes sobre o evento. **NotifyStateManagerChangedEventArgs** tem duas subclasses: **NotifyStateManagerRebuildEventArgs** e **NotifyStateManagerSingleEntityChangedEventArgs**. Use a propriedade de ação no **NotifyStateManagerChangedEventArgs** para converter **NotifyStateManagerChangedEventArgs** na subclasse correta:
+O manipulador de eventos **StateManagerChanged** usa **NotifyStateManagerChangedEventArgs** para fornecer detalhes sobre o evento.
+**NotifyStateManagerChangedEventArgs** tem duas subclasses: **NotifyStateManagerRebuildEventArgs** e **NotifyStateManagerSingleEntityChangedEventArgs**.
+Use a propriedade de ação no **NotifyStateManagerChangedEventArgs** para converter **NotifyStateManagerChangedEventArgs** na subclasse correta:
 
 * **NotifyStateManagerChangedAction.Rebuild**: **NotifyStateManagerRebuildEventArgs**
 * **NotifyStateManagerChangedAction.Add** e **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
 
-Veja a seguir um exemplo de manipulador de notificação **StateManagerChanged**.
+Veja a seguir um exemplo de manipulador de notificação **StateManagerChanged** .
 
 ```C#
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
@@ -98,7 +105,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-## Notificações de Dicionário Confiável
+## <a name="reliable-dictionary-notifications"></a>Notificações de Dicionário Confiável
 O Dicionário Confiável fornece notificações para os seguintes eventos:
 
 * Recompilar: chamada quando **ReliableDictionary** recuperou o estado de um backup ou recuperou ou copiou o estado local ou backup.
@@ -107,7 +114,8 @@ O Dicionário Confiável fornece notificações para os seguintes eventos:
 * Update: chamado quando um item em **IReliableDictionary** tiver sido atualizado.
 * Remove: chamado quando um item em **IReliableDictionary** tiver sido removido.
 
-Para obter notificações de dicionário confiável, você precisa se registrar com o manipulador de eventos **DictionaryChanged** em **IReliableDictionary**. Um lugar comum para se registrar com esses manipuladores de eventos é na notificação de adição **ReliableStateManager.StateManagerChanged**. O registro quando **IReliableDictionary** é adicionado a **IReliableStateManager** garante que você não perca notificações.
+Para obter notificações de dicionário confiável, você precisa se registrar com o manipulador de eventos **DictionaryChanged** em **IReliableDictionary**. Um lugar comum para se registrar com esses manipuladores de eventos é na notificação de adição **ReliableStateManager.StateManagerChanged** .
+O registro quando **IReliableDictionary** é adicionado a **IReliableStateManager** garante que você não perca notificações.
 
 ```C#
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
@@ -132,7 +140,7 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 > 
 > 
 
-O conjunto de código anterior define a interface de **IReliableNotificationAsyncCallback**, juntamente com **DictionaryChanged**. Como **NotifyDictionaryRebuildEventArgs** contém uma interface **IAsyncEnumerable** que precisa ser enumerada de forma assíncrona, as notificações de recompilação são disparadas por meio de **RebuildNotificationAsyncCallback** em vez de **OnDictionaryChangedHandler**.
+O conjunto de código anterior define a interface de **IReliableNotificationAsyncCallback**, juntamente com **DictionaryChanged**. Como **NotifyDictionaryRebuildEventArgs** contém uma interface **IAsyncEnumerable** que precisa ser enumerada de forma assíncrona, as notificações de recriação são disparadas por meio de **RebuildNotificationAsyncCallback** em vez de **OnDictionaryChangedHandler**.
 
 ```C#
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
@@ -154,7 +162,8 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 > 
 > 
 
-O **DictionaryChanged** usa o manipulador de eventos **NotifyDictionaryChangedEventArgs** para fornecer detalhes sobre o evento. **NotifyDictionaryChangedEventArgs** tem cinco subclasses. Use a propriedade de ação em **NotifyDictionaryChangedEventArgs** para converter **NotifyDictionaryChangedEventArgs** na subclasse correta:
+O manipulador de eventos **DictionaryChanged** usa o **NotifyDictionaryChangedEventArgs** para fornecer detalhes sobre o evento.
+**NotifyDictionaryChangedEventArgs** tem cinco subclasses. Use a propriedade de ação em **NotifyDictionaryChangedEventArgs** para converter **NotifyDictionaryChangedEventArgs** na subclasse correta:
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
@@ -193,7 +202,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-## Recomendações
+## <a name="recommendations"></a>Recomendações
 * *Conclua* os eventos de notificações o mais rápido possível.
 * *Não* execute quaisquer operações dispendiosas (por exemplo, operações de E/S) como parte de eventos síncronos.
 * *Verifique* o tipo de ação antes de processar o evento. Novos tipos de ação podem ser adicionados no futuro.
@@ -206,9 +215,15 @@ Eis aqui algumas coisas que se deve manter em mente:
 * Para transações que contêm várias operações, as operações são aplicadas na ordem em que foram recebidas na réplica primária do usuário.
 * Como parte do processamento do progresso falso, algumas operações podem ser desfeitas. As notificações são geradas para essas operações da ação de desfazer, revertendo o estado da réplica de volta a um ponto estável. Uma diferença importante das notificações de ação de desfazer é que os eventos que têm chaves duplicadas são agregados. Por exemplo, se a transação T1 estiver sendo desfeita, você verá uma notificação única para Delete(X).
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
+* [Coleções Confiáveis](service-fabric-work-with-reliable-collections.md)
 * [Início Rápido dos Serviços Confiáveis](service-fabric-reliable-services-quick-start.md)
 * [Backup e restauração do Reliable Services (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)
 * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

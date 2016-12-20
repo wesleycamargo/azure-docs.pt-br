@@ -2,11 +2,11 @@
 title: Conector do PowerShell | Microsoft Docs
 description: Este artigo descreve como configurar o conector Windows PowerShell da Microsoft.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6dba8e34-a874-4ff0-90bc-bd2b0a4199b5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fe75e4899be6023a552c0223703cb56d29085bee
+
 
 ---
 # <a name="windows-powershell-connector-technical-reference"></a>Referência técnica do Windows PowerShell Connector
@@ -341,6 +345,6 @@ Substitua o nome do conector Windows PowerShell para o espaço reservado {Connec
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

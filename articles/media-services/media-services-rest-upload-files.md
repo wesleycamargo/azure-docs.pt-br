@@ -1,12 +1,12 @@
 ---
-title: Carregar arquivos em uma conta dos Serviços de Mídia usando REST | Microsoft Docs
-description: Saiba como obter o conteúdo de mídia nos serviços de mídia ao criar e carregar ativos.
+title: "Carregar arquivos em uma conta dos Serviços de Mídia usando REST | Microsoft Docs"
+description: "Saiba como obter o conteúdo de mídia nos serviços de mídia ao criar e carregar ativos."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 41df7cbe-b8e2-48c1-a86c-361ec4e5251f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a5bff2c32eae9abbf7fce92d407c8a7bc12b683b
+
 
 ---
-# Carregar arquivos em uma conta dos Serviços de Mídia usando o REST
+# <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
@@ -24,12 +28,12 @@ ms.author: juliako
 > 
 > 
 
-Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos). Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais.
+Nos serviços de mídia, você pode carregar seus arquivos digitais em um ativo. A entidade [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) pode conter vídeo, áudio, imagens, coleções de miniaturas, sequências de texto e arquivos de legendas (e os metadados sobre esses arquivos).  Depois que os arquivos são carregados no ativo, o conteúdo é armazenado com segurança na nuvem para processamento e transmissão adicionais. 
 
 > [!NOTE]
 > As seguintes considerações se aplicam ao escolher um nome de arquivo de ativo:
 > 
-> * Os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao compilar URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por esse motivo, não é permitida a codificação de percentual. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Além disso, pode haver somente um '.' para a extensão de nome de arquivo.
+> * Os serviços de mídia usam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, não é permitida a codificação por porcentagem. O valor da propriedade **Name** não pode ter nenhum dos seguintes [caracteres reservados para codificação de percentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Além disso, só pode haver um '.' para a extensão de nome de arquivo.
 > * O comprimento do nome não deve ser maior do que 260 caracteres.
 > 
 > 
@@ -42,30 +46,31 @@ O fluxo de trabalho básico para o carregamento de Ativos é dividido nas seguin
 
 O AMS também permite que você carregue ativos em massa. Para saber mais, consulte [esta](media-services-rest-upload-files.md#upload_in_bulk) seção.
 
-## Carregar ativos
-### Criar um ativo
+## <a name="upload-assets"></a>Carregar ativos
+### <a name="create-an-asset"></a>Criar um ativo
 > [!NOTE]
 > Ao trabalhar com a API REST dos serviços de mídia, as seguintes considerações se aplicam:
 > 
 > Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 > 
-> Depois de se conectar com êxito a https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md).
+> Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md). 
 > 
 > 
 
 Um ativo é um contêiner para múltiplos tipos ou conjuntos de objetos nos serviços de mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda oculta. Na API REST, criar um ativo requer enviar solicitação POST para serviços de mídia e colocar qualquer informação de propriedade sobre seus ativos no corpo da solicitação.
 
-Uma das propriedades que você pode especificar quando criar um ativo está em **Opções**. **Opções** é um valor de enumeração que descreve as opções de criptografia em que um ativo pode ser criado. Um valor válido é um dos valores na lista abaixo, não uma combinação de valores.
+Uma das propriedades que você pode especificar quando criar um ativo está em **Opções**. **Opções** é um valor de enumeração que descreve as opções de criptografia em que um ativo pode ser criado. Um valor válido é um dos valores na lista abaixo, não uma combinação de valores. 
 
-* **None** = **0**: nenhuma criptografia será usada. Esse é o valor padrão. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento. Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
+* **Nenhuma** = **0**: nenhuma criptografia será usada. Esse é o valor padrão. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento.
+    Se você pretende enviar um MP4 usando o download progressivo, use essa opção. 
 * **StorageEncrypted** = **1**: especifique se você deseja que os arquivos sejam criptografados com a criptografia AES de 256 bits para carregamento e armazenamento.
   
     Se seu ativo tiver o armazenamento criptografado, você deverá configurar a política de entrega de ativos. Para obter mais informações, consulte [Configurando a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md).
-* **CommonEncryptionProtected** = **2**: especifique se você estiver carregando arquivos protegidos com um método de criptografia comum (por exemplo, PlayReady).
+* **CommonEncryptionProtected** = **2**: especifique se você estiver carregando arquivos protegidos com um método de criptografia comum (por exemplo, PlayReady). 
 * **EnvelopeEncryptionProtected** = **4**: especifique se você estiver carregando HLS criptografado com arquivos AES. Observe que os arquivos devem ter sido codificados e criptografados pelo Gerenciador de Transformação.
 
 > [!NOTE]
-> Se o ativo for usar criptografia, você deverá criar uma **ContentKey** e vinculá-la ao seu ativo conforme descrito no tópico a seguir: [Como criar uma ContentKey](media-services-rest-create-contentkey.md). Observe que, depois de carregar os arquivos para o ativo, você precisa atualizar as propriedades de criptografia na entidade **AssetFile** com os valores obtidos durante a criptografia dos **Ativos**. Faça isso usando a solicitação HTTP **MERGE**.
+> Se o ativo for usar criptografia, você deverá criar uma **ContentKey** e vinculá-la ao seu ativo conforme descrito no tópico a seguir:[Como criar uma ContentKey](media-services-rest-create-contentkey.md). Observe que, depois de carregar os arquivos para o ativo, você precisa atualizar as propriedades de criptografia na entidade **AssetFile** com os valores obtidos durante a criptografia dos **Ativos**. Faça isso usando a solicitação HTTP **MERGE** . 
 > 
 > 
 
@@ -116,12 +121,12 @@ Se for bem-sucedido, será retornado o seguinte:
        "StorageAccountName":"storagetestaccount001"
     }
 
-### Criar um AssetFile
+### <a name="create-an-assetfile"></a>Criar um AssetFile
 A entidade [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo e um ativo pode conter um ou vários arquivos de ativo. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
 
 Observe que a instância de **AssetFile** e o arquivo de mídia real são dois objetos diferentes. A instância de AssetFile contém metadados sobre o arquivo de mídia, enquanto o arquivo de mídia contém o conteúdo de mídia real.
 
-Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usará a solicitação HTTP **MERGE** para atualizar o AssetFile com informações sobre o arquivo de mídia (como mostrado posteriormente no tópico).
+Depois de carregar o arquivo de mídia digital em um contêiner de blob, você usará a solicitação HTTP **MERGE** para atualizar o AssetFile com informações sobre o arquivo de mídia (como mostrado posteriormente no tópico). 
 
 **Solicitação HTTP**
 
@@ -180,7 +185,7 @@ Depois de carregar o arquivo de mídia digital em um contêiner de blob, você u
     }
 
 
-### Criando o AccessPolicy com permissão de gravação.
+### <a name="creating-the-accesspolicy-with-write-permission"></a>Criando o AccessPolicy com permissão de gravação.
 Antes de carregar todos os arquivos no armazenamento de blobs, defina os direitos de política de acesso para gravar em um ativo. Para fazer isso, POSTE uma solicitação HTTP para o conjunto de entidade AccessPolicies. Defina um valor de DurationInMinutes durante a criação ou você receberá uma mensagem de erro de servidor interno 500 em resposta. Para saber mais sobre AccessPolicies, consulte [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
 O exemplo a seguir mostra como criar um AccessPolicy:
@@ -226,7 +231,7 @@ O exemplo a seguir mostra como criar um AccessPolicy:
        "Permissions":2
     }
 
-### Obter a URL de carregamento
+### <a name="get-the-upload-url"></a>Obter a URL de carregamento
 Para receber a URL de carregamento real, crie um localizador de SAS. Os localizadores definem a hora de início e o tipo de ponto de extremidade de conexão para clientes que desejam acessar arquivos em um ativo. Você pode criar várias entidades de localizador para um determinado par de AccessPolicy e ativos para manipular solicitações e necessidades de clientes diferentes. Cada um destes localizadores usam o valor StartTime mais o valor de DurationInMinutes do AccessPolicy para determinar quanto tempo uma URL pode ser usada. Para saber mais, consulte [Localizador](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
 Uma URL SAS tem o seguinte formato:
@@ -236,7 +241,7 @@ Uma URL SAS tem o seguinte formato:
 Algumas considerações se aplicam:
 
 * Você não pode ter mais do que cinco localizadores exclusivos associados a um determinado ativo ao mesmo tempo. Para saber mais, consulte Localizador.
-* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").
+* Se você precisar carregar os arquivos imediatamente, você deve definir o valor StartTime como cinco minutos antes da hora atual. Isso ocorre porque pode haver uma defasagem horária entre o computador do cliente e os serviços de mídia. Além disso, o valor de StartTime deve estar no seguinte formato DateTime: AAAA-MM-DDTHH:mm:ssZ (por exemplo, "2014-05-23T17:53:50Z").    
 * Pode haver um 30 a 40 segundos de atraso após a criação de um localizador quando ele está disponível para uso. Esse problema se aplica a URL SAS e localizadores de origem.
 
 O exemplo a seguir mostra como criar um localizador URL SAS, conforme definido pela propriedade Type no corpo da solicitação ("1" para um localizador SAS e "2" para um localizador de origem sob demanda). A propriedade **Path** retornada contém a URL que você deve usar para carregar seu arquivo.
@@ -292,17 +297,17 @@ Se for bem-sucedido, será retornada a seguinte resposta:
        "Name":null
     }
 
-### Carregar um arquivo em um contêiner de armazenamento de blobs
-Depois de definir AccessPolicy e localizador, o arquivo real é carregado como um contêiner de armazenamento de blobs do Azure usando as APIs de REST do armazenamento do Azure. Você pode carregar na página ou em blobs de blocos.
+### <a name="upload-a-file-into-a-blob-storage-container"></a>Carregar um arquivo em um contêiner de armazenamento de blobs
+Depois de definir AccessPolicy e localizador, o arquivo real é carregado como um contêiner de armazenamento de blobs do Azure usando as APIs de REST do armazenamento do Azure. Você pode carregar na página ou em blobs de blocos. 
 
 > [!NOTE]
-> Você deve adicionar o nome do arquivo para o arquivo que você deseja carregar no valor **Path** do Localizador recebido na seção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Você deve adicionar o nome do arquivo para o arquivo que você deseja carregar no valor **Path** do Localizador recebido na seção anterior. Por exemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 > 
 > 
 
 Para saber mais sobre como trabalhar com blobs de armazenamento do Azure, consulte [API REST do serviço Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-### Atualizar o AssetFile
+### <a name="update-the-assetfile"></a>Atualizar o AssetFile
 Agora que você carregou o arquivo, atualize as informações de tamanho do FileAsset (e outros). Por exemplo:
 
     MERGE https://media.windows.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
@@ -328,7 +333,7 @@ Agora que você carregou o arquivo, atualize as informações de tamanho do File
 
 Se for bem-sucedido, será retornado o seguinte: HTTP/1.1 204 No Content
 
-### Excluir o AccessPolicy e localizador
+### <a name="delete-the-locator-and-accesspolicy"></a>Excluir o AccessPolicy e localizador
 **Solicitação HTTP**
 
     DELETE https://media.windows.net/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
@@ -366,8 +371,8 @@ Se for bem-sucedido, será retornado o seguinte:
     HTTP/1.1 204 No Content 
     ...
 
-## <a id="upload_in_bulk"></a>Carregar ativos em massa
-### Criar o IngestManifest
+## <a name="a-iduploadinbulkaupload-assets-in-bulk"></a><a id="upload_in_bulk"></a>Carregar ativos em massa
+### <a name="create-the-ingestmanifest"></a>Criar o IngestManifest
 O IngestManifest é um contêiner para um conjunto de ativos, arquivos de ativo e informações de estatísticas que podem ser usadas para determinar o progresso da ingestão em massa para o conjunto.
 
 **Solicitação HTTP**
@@ -385,7 +390,7 @@ O IngestManifest é um contêiner para um conjunto de ativos, arquivos de ativo 
 
     { "Name" : "ExampleManifestREST" }
 
-### Criar ativos
+### <a name="create-assets"></a>Criar ativos
 Antes de criar o IngestManifestAsset, você precisa criar o Ativo que será concluído usando a ingestão em massa. Um ativo é um contêiner para múltiplos tipos ou conjuntos de objetos nos serviços de mídia, incluindo vídeo, áudio, imagens, coleções de miniaturas, faixas de texto e arquivos de legenda oculta. Na API REST, a criação de um Ativo exige o envio de uma solicitação HTTP POST para os Serviços de Mídia do Microsoft Azure e a inserção de qualquer informação de propriedade sobre seu ativo no corpo da solicitação. Neste exemplo, o Ativo é criado usando a opção StorageEncrption(1) incluída no corpo da solicitação.
 
 **Resposta HTTP**
@@ -403,7 +408,7 @@ Antes de criar o IngestManifestAsset, você precisa criar o Ativo que será conc
 
     { "Name" : "ExampleManifestREST_Asset", "Options" : 1 }
 
-### Criar os IngestManifestAssets
+### <a name="create-the-ingestmanifestassets"></a>Criar os IngestManifestAssets
 Os IngestManifestAssets representam os Ativos em um IngestManifest usados com a ingestão em massa. Eles basicamente vinculam o ativo ao manifesto. Os Serviços de Mídia do Azure analisam internamente o upload do arquivo com base na coleção de IngestManifestFiles associada ao IngestManifestAsset. Após o carregamento desses arquivos, o ativo será concluído. Você pode criar um novo IngestManifestAsset com uma solicitação HTTP POST. No corpo da solicitação, inclua a ID do IngestManifest e a ID do ativo que o IngestManifestAsset deve vincular à ingestão em massa.
 
 **Resposta HTTP**
@@ -421,7 +426,7 @@ Os IngestManifestAssets representam os Ativos em um IngestManifest usados com a 
     { "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "Asset" : { "Id" : "nb:cid:UUID:b757929a-5a57-430b-b33e-c05c6cbef02e"}}
 
 
-### Criar os IngestManifestFiles para cada Ativo
+### <a name="create-the-ingestmanifestfiles-for-each-asset"></a>Criar os IngestManifestFiles para cada Ativo
 Um IngestManifestFile representa um objeto de blob de vídeo ou de áudio real que será carregado como parte da ingestão em massa de um ativo. As propriedades de criptografia relacionadas não serão necessárias, a menos que o ativo esteja usando uma opção de criptografia. O exemplo usado nesta seção demonstra a criação de um IngestManifestFile que usa StorageEncryption para o Ativo criado anteriormente.
 
 **Resposta HTTP**
@@ -439,18 +444,18 @@ Um IngestManifestFile representa um objeto de blob de vídeo ou de áudio real q
 
     { "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
 
-### Carregar os arquivos no Armazenamento de Blobs
+### <a name="upload-the-files-to-blob-storage"></a>Carregar os arquivos no Armazenamento de Blobs
 Você pode usar qualquer aplicativo cliente de alta velocidade capaz de carregar os arquivos de ativo no URI do contêiner de armazenamento de blobs fornecido pela propriedade BlobStorageUriForUpload do IngestManifest. Um serviço de carregamento de alta velocidade notável é [Aspera sob demanda para o aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=272001).
 
-### Monitorar o progresso de ingestão em massa
+### <a name="monitor-bulk-ingest-progress"></a>Monitorar o progresso de ingestão em massa
 Você pode determinar o progresso de operações de ingestão em massa para um IngestManifest sondando a propriedade Statistics do IngestManifest. Essa propriedade é um tipo complexo, [IngestManifestStatistics](https://msdn.microsoft.com/library/azure/jj853027.aspx). Para sondar a propriedade Statistics, envie uma solicitação HTTP GET passando a ID do IngestManifest.
 
-## Criar ContentKeys usadas para criptografia
+## <a name="create-contentkeys-used-for-encryption"></a>Criar ContentKeys usadas para criptografia
 Se o ativo for usar criptografia, será necessário criar o ContentKey a ser usado para a criptografia antes de criar os arquivos do ativo. Na criptografia de armazenamento, as propriedades a seguir devem ser incluídas no corpo da solicitação.
 
 | Propriedade do corpo da solicitação | Descrição |
 | --- | --- |
-| ID |A ID de ContentKey que nós mesmos geramos usando o seguinte formato: “nb:kid:UUID:<NEW GUID>”. |
+| ID |A ID de ContentKey que nós mesmos geramos usando o seguinte formato, "nb:kid:UUID:<NEW GUID>". |
 | ContentKeyType |Esse é o tipo de chave de conteúdo, como um inteiro para esta chave de conteúdo. Passamos o valor 1 para a criptografia de armazenamento. |
 | EncryptedContentKey |Criamos um novo valor de chave de conteúdo, que é um valor de 256 bits (32 bytes). A chave é criptografada usando o certificado X.509 de criptografia de armazenamento que recuperamos dos Serviços de Mídia do Microsoft Azure por meio da execução de uma solicitação HTTP GET para os métodos GetProtectionKeyId e GetProtectionKey. |
 | ProtectionKeyId |Essa é a ID da chave de proteção para o certificado X.509 de criptografia de armazenamento usado para criptografar nossa chave de conteúdo. |
@@ -472,7 +477,7 @@ Se o ativo for usar criptografia, será necessário criar o ContentKey a ser usa
 
     {"Id" : "nb:kid:UUID:316d14d4-b603-4d90-b8db-0fede8aa48f8", "ContentKeyType" : 1, "EncryptedContentKey" : "Y4NPej7heOFa2vsd8ZEOcjjpu/qOq3RJ6GRfxa8CCwtAM83d6J2mKOeQFUmMyVXUSsBCCOdufmieTKi+hOUtNAbyNM4lY4AXI537b9GaY8oSeje0NGU8+QCOuf7jGdRac5B9uIk7WwD76RAJnqyep6U/OdvQV4RLvvZ9w7nO4bY8RHaUaLxC2u4aIRRaZtLu5rm8GKBPy87OzQVXNgnLM01I8s3Z4wJ3i7jXqkknDy4VkIyLBSQvIvUzxYHeNdMVWDmS+jPN9ScVmolUwGzH1A23td8UWFHOjTjXHLjNm5Yq+7MIOoaxeMlKPYXRFKofRY8Qh5o5tqvycSAJ9KUqfg==", "ProtectionKeyId" : "7D9BB04D9D0A4A24800CADBFEF232689E048F69C", "ProtectionKeyType" : 1, "Checksum" : "TfXtjCIlq1Y=" }
 
-### Vincular o ContentKey ao Ativo
+### <a name="link-the-contentkey-to-the-asset"></a>Vincular o ContentKey ao Ativo
 O ContentKey é associado a um ou mais ativos enviando uma solicitação HTTP POST. A solicitação a seguir é um exemplo de vinculação do exemplo de ContentKey ao exemplo de ativo por meio da ID.
 
 **Resposta HTTP**
@@ -503,15 +508,19 @@ O ContentKey é associado a um ou mais ativos enviando uma solicitação HTTP PO
 
 
 
-## Próxima etapa
+## <a name="next-step"></a>Próxima etapa
 Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornecer comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[How to Get a Media Processor]: media-services-get-media-processor.md
+[Como obter um processador de mídia]: media-services-get-media-processor.md
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

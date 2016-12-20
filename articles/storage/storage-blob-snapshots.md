@@ -1,19 +1,23 @@
 ---
-title: Criar um instantâneo somente leitura de um blob | Microsoft Docs
-description: Saiba como criar um instantâneo de um blob para fazer backup de dados de blob em um determinado momento. Entenda como é realizada a cobrança pelos instantâneos e como usá-los para minimizar os encargos de capacidade.
+title: "Criar um instantâneo somente leitura de um blob | Microsoft Docs"
+description: "Saiba como criar um instantâneo de um blob para fazer backup de dados de blob em um determinado momento. Entenda como é realizada a cobrança pelos instantâneos e como usá-los para minimizar os encargos de capacidade."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/16/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 664f03a8492178daf342b659595f035b7cccec5a
+
 
 ---
 # <a name="create-a-blob-snapshot"></a>Criar um instantâneo de blob
@@ -36,37 +40,38 @@ Quaisquer concessões associadas ao blob básico não afetam o instantâneo. Nã
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
 O exemplo de código a seguir mostra como criar um instantâneo no .NET. Este exemplo especifica metadados separados para o instantâneo quando ele é criado.
 
-    private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
+```csharp
+private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
+{
+    // Create a new block blob in the container.
+    CloudBlockBlob baseBlob = container.GetBlockBlobReference("sample-base-blob.txt");
+
+    // Add blob metadata.
+    baseBlob.Metadata.Add("ApproxBlobCreatedDate", DateTime.UtcNow.ToString());
+
+    try
     {
-        // Create a new block blob in the container.
-        CloudBlockBlob baseBlob = container.GetBlockBlobReference("sample-base-blob.txt");
+        // Upload the blob to create it, with its metadata.
+        await baseBlob.UploadTextAsync(string.Format("Base blob: {0}", baseBlob.Uri.ToString()));
 
-        // Add blob metadata.
-        baseBlob.Metadata.Add("ApproxBlobCreatedDate", DateTime.UtcNow.ToString());
+        // Sleep 5 seconds.
+        System.Threading.Thread.Sleep(5000);
 
-        try
-        {
-            // Upload the blob to create it, with its metadata.
-            await baseBlob.UploadTextAsync(string.Format("Base blob: {0}", baseBlob.Uri.ToString()));
-
-            // Sleep 5 seconds.
-            System.Threading.Thread.Sleep(5000);
-
-            // Create a snapshot of the base blob.
-            // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
-            // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
-            Dictionary<string, string> metadata = new Dictionary<string, string>();
-            metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
-            await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
-        }
-        catch (StorageException e)
-        {
-            Console.WriteLine(e.Message);
-            Console.ReadLine();
-            throw;
-        }
+        // Create a snapshot of the base blob.
+        // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
+        // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
+        Dictionary<string, string> metadata = new Dictionary<string, string>();
+        metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
+        await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
     }
-
+    catch (StorageException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+}
+```
 
 ## <a name="copy-snapshots"></a>Copiar instantâneos
 As operações de cópia que envolvem blobs e instantâneos seguem estas regras:
@@ -84,7 +89,9 @@ Não é possível excluir um blob com instantâneos, a menos que os instantâneo
 
 O exemplo de código a seguir mostra como excluir um blob e seus instantâneos no .NET, onde `blockBlob` é uma variável do tipo **CloudBlockBlob**:
 
-    await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+```csharp
+await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+```
 
 ## <a name="snapshots-with-azure-premium-storage"></a>Instantâneos com Armazenamento Premium do Azure
 Usando instantâneos com armazenamento Premium, siga estas regras:
@@ -97,23 +104,25 @@ Usando instantâneos com armazenamento Premium, siga estas regras:
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>Retornar o URI absoluto para um instantâneo
 Este exemplo de código C# cria um instantâneo e grava o URI absoluto para o local principal.
 
-    //Create the blob service client object.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+```csharp
+//Create the blob service client object.
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
 
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    //Get a reference to a container.
-    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
-    container.CreateIfNotExists();
+//Get a reference to a container.
+CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+container.CreateIfNotExists();
 
-    //Get a reference to a blob.
-    CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
-    blob.UploadText("This is a blob.");
+//Get a reference to a blob.
+CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
+blob.UploadText("This is a blob.");
 
-    //Create a snapshot of the blob and write out its primary URI.
-    CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
-    Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
+//Create a snapshot of the blob and write out its primary URI.
+CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
+Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
+```
 
 ## <a name="understand-how-snapshots-accrue-charges"></a>Entender como instantâneos acumulam cobranças
 Criar um instantâneo, que é uma cópia somente leitura de um blob, pode resultar em cobranças de armazenamento de dados adicionais para sua conta. Ao projetar o aplicativo, é importante estar ciente de como essas cobranças podem aumentar para que você possa minimizar custos desnecessários.
@@ -156,6 +165,9 @@ No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum do
 ## <a name="next-steps"></a>Próximas etapas
 Para obter exemplos adicionais usando o Armazenamento de Blobs, confira [Exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Você pode baixar um aplicativo de exemplo e executá-lo ou procurar o código no GitHub. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

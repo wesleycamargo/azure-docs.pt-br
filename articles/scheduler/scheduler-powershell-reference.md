@@ -1,27 +1,31 @@
 ---
-title: Referência de cmdlets do PowerShell do Agendador
-description: Referência de cmdlets do PowerShell do Agendador
+title: "Referência de cmdlets do PowerShell do Agendador"
+description: "Referência de cmdlets do PowerShell do Agendador"
 services: scheduler
 documentationcenter: .NET
-author: krisragh
-manager: dwrede
-editor: ''
-
+author: derek1ee
+manager: kevinlam1
+editor: 
+ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: krisragh
+ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e36a52f44bc30662a01299d2d4a2f3c36d9033a7
+
 
 ---
-# Referência de cmdlets do PowerShell do Agendador
+# <a name="scheduler-powershell-cmdlets-reference"></a>Referência de cmdlets do PowerShell do Agendador
 A tabela a seguir descreve a página de referência de cada um dos principais cmdlets no Agendador do Azure e contém links para eles.
 
-Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). 
 
-Para saber mais sobre [Cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx), veja [Uso do Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
+Para obter mais informações sobre os [Cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx), consulte [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) (Usando o Azure PowerShell com o Azure Resource Manager).
 
 | Cmdlet | Descrição do cmdlet |
 | --- | --- |
@@ -43,7 +47,7 @@ Para saber mais sobre [Cmdlets do Azure Resource Manager](https://msdn.microsoft
 | [Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137\(v=azure.200\).aspx) |Modifica um trabalho de tópico do barramento de serviço. |
 | [Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128\(v=azure.200\).aspx) |Modifica um trabalho da fila de armazenamento. |
 
-Para saber mais, você pode executar qualquer um dos seguintes cmdlets:
+Para saber mais, você pode executar qualquer um dos seguintes cmdlets: 
 
 ```
 Get-Help <cmdlet name> -Detailed
@@ -55,7 +59,7 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
  [O que é o Agendador?](scheduler-intro.md)
 
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)
@@ -72,4 +76,9 @@ Get-Help <cmdlet name> -Full
 
  [Autenticação de saída do Agendador do Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Como configurar pontos de extremidade de Aprendizado de Máquina do Azure no Stream Analytics | Microsoft Docs
-description: Funções definidas pelo usuário da Linguagem de Máquina no Stream Analytics
-keywords: ''
-documentationcenter: ''
+title: Como configurar pontos de extremidade do Azure Machine Learning no Stream Analytics | Microsoft Docs
+description: "Funções definidas pelo usuário da Linguagem de Máquina no Stream Analytics"
+keywords: 
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce7dd546ce534ede6901444d5fe441493ac2fc45
+
 
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integração do Aprendizado de Máquina ao Stream Analytics
 O Stream Analytics dá suporte a funções definidas pelo usuário que chamam pontos de extremidade do Azure Machine Learning. O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
 
-## <a name="overview:-azure-machine-learning-terminology"></a>Visão geral: terminologia do Aprendizado de Máquina do Azure
+## <a name="overview-azure-machine-learning-terminology"></a>Visão geral: terminologia do Aprendizado de Máquina do Azure
 O Aprendizado de Máquina do Microsoft Azure fornece uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. Essa ferramenta é chamada de *Estúdio de Aprendizado de Máquina do Azure*. O estúdio é usado para interagir com os recursos do Machine Learning e para compilar, testar e iterar facilmente em seu design. Veja abaixo esses recursos e suas definições.
 
 * **Espaço de trabalho**: o *espaço de trabalho* é um contêiner que mantém todos os outros recursos de Aprendizado de Máquina em um contêiner para gerenciamento e controle.
@@ -30,7 +34,7 @@ O Aprendizado de Máquina do Microsoft Azure fornece uma ferramenta colaborativa
 
 Cada ponto de extremidade tem APIs para execução em lote e execução síncrona. O Stream Analytics usa a execução síncrona. O serviço específico é chamado de [Serviço de Solicitação/Resposta](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs) no Estúdio AM do Azure.
 
-## <a name="machine-learning-resources-that-needed-for-stream-analytics-jobs"></a>Recursos de Aprendizado de Máquina necessários para trabalhos do Stream Analytics
+## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Recursos de Machine Learning necessários para trabalhos do Stream Analytics
 Para que o processamento de trabalhos do Stream Analytics seja bem-sucedido, é necessário ter um ponto de extremidade de Solicitação/Resposta, uma [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md#get-an-azure-machine-learning-authorization-key)e uma definição do Swagger. O Stream Analytics tem um ponto de extremidade adicional que constrói a URL do ponto de extremidade de swagger, procura a interface e retorna uma definição de UDF padrão para o usuário.
 
 ## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>Configurar uma UDF de Stream Analytics e Aprendizado de Máquina por meio da API REST
@@ -200,6 +204,9 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

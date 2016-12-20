@@ -1,19 +1,23 @@
 ---
-title: Solução de Dados de Transmissão no Log Analytics | Microsoft Docs
-description: Dados de transmissão são dados consolidados de rede e de desempenho recebidos de computadores com agentes do OMS, incluindo agentes do Operations Manager e agentes conectados com o Windows. Os dados de rede são combinados com os dados de log para ajudá-lo a correlacionar dados.
+title: "Solução de Dados de Transmissão no Log Analytics | Microsoft Docs"
+description: "Dados de transmissão são dados consolidados de rede e de desempenho recebidos de computadores com agentes do OMS, incluindo agentes do Operations Manager e agentes conectados com o Windows. Os dados de rede são combinados com os dados de log para ajudá-lo a correlacionar dados."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+
 
 ---
 # <a name="wire-data-solution-in-log-analytics"></a>Solução de Dados de Transmissão no Log Analytics
@@ -21,8 +25,8 @@ Dados de transmissão são dados consolidados de rede e de desempenho recebidos 
 
 > [!NOTE]
 > Atualmente, a solução de Dados de Transmissão não está disponível para ser adicionada aos espaços de trabalho. Os clientes que já têm a solução de Dados de Transmissão habilitada podem continuar usando a solução.
-> 
-> 
+>
+>
 
 Por padrão, o OMS coleta dados registrados para dados de CPU, memória, disco e desempenho de rede dos contadores internos do Windows. A coleta de dados de rede e de outros dados é feita em tempo real para cada agente, incluindo sub-redes e protocolos no nível de aplicativo usados pelo computador. É possível adicionar outros contadores de desempenho na página Configurações, na guia Logs.
 
@@ -76,7 +80,7 @@ Requisitos: para usar o exemplo a seguir, você precisará ter a solução de Se
 2. Na lista de **Consultas Comuns de WireData**, clique em **Quantidade de Tráfego de Rede (em Bytes) por Processo** para ver a lista de processos retornados.
     ![consultas dos dados de transmissão](./media/log-analytics-wire-data/oms-wiredata-01.png)
 3. Se a lista de processos for muito longa para ser exibida com facilidade, você poderá modificar a consulta de pesquisa para que seja parecida com esta:
-   
+
     ```
     Type WireData | measure count() by ProcessName | where AggregatedValue <40
     ```
@@ -85,24 +89,26 @@ Requisitos: para usar o exemplo a seguir, você precisará ter a solução de Se
 4. Usando os dados retornados em sua lista, clique em um processo nomeado. Neste exemplo, DancingPigs.exe foi clicado. Os resultados mostrados abaixo descrevem o tipo de tráfego de rede, como a comunicação de saída por meio de vários protocolos.
     ![resultados dos dados de transmissão mostrando um processo nomeado](./media/log-analytics-wire-data/oms-wiredata-03.png)
 5. Visto que a solução de Segurança e Auditoria está instalada, você pode investigar os eventos de segurança que têm o mesmo valor de campo ProcessName, modificando a consulta de pesquisa com os operadores de consulta de pesquisa IN e DISTINCT. Você poderá fazer isso em seguida, quando os dados de transmissão e outros logs da solução tiverem valores no mesmo formato. Modifique sua consulta de pesquisa para que seja parecida com esta:
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName}
     ```    
-   
+
     ![resultados dos dados de transmissão mostrando os dados combinados](./media/log-analytics-wire-data/oms-wiredata-04.png)
 6. Nos resultados indicados acima, você verá que os dados da conta são mostrados. Agora você pode refinar sua consulta de pesquisa para descobrir a frequência com que a conta, mostrando os dados de Segurança e Auditoria, era usada pelo processo com uma consulta parecida com esta:        
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName} | measure count() by Account
     ```
-   
+
     ![resultados dos dados de transmissão mostrando os dados da conta](./media/log-analytics-wire-data/oms-wiredata-05.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquise nos logs](log-analytics-log-searches.md) para exibir registros detalhados da pesquisa de dados de transmissão.
 * Veja [a postagem no blog intitulada Using Wire Data in Operations Management Suite Log Search](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) (Usando os dados de transmissão na pesquisa de log do Operations Management Suite), em que Dan mostra outras informações sobre a frequência com que os dados são coletados e como você pode modificar as propriedades de coleção dos agentes do Operations Manager.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

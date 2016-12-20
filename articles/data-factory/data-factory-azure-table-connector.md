@@ -1,36 +1,40 @@
 ---
-title: Mover dados de e para a Tabela do Azure | Microsoft Docs
+title: Mover dados de/para a Tabela do Azure | Microsoft Docs
 description: Saiba como mover dados para/do Armazenamento de Tabela do Azure usando o Azure Data Factory
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 07b046b1-7884-4e57-a613-337292416319
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/07/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 52402d5152d4eadfcb6feb313728bd09a39e6268
+ms.openlocfilehash: 87031d315f67ac49711639f238e79cdd09540b97
+
 
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados para e da Tabela do Azure | Azure Data Factory
 Este artigo descreve como você pode usar a atividade de cópia em um Azure Data Factory para mover dados de/para uma tabela do Azure de/para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral de movimentação de dados e combinações de armazenamento de dados com suporte com a atividade de cópia.
 
 ## <a name="copy-data-wizard"></a>Assistente de cópia de dados
-A maneira mais fácil de criar um pipeline que copia dados de/para o Armazenamento de Tabela do Azure é usar o Assistente de cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados. 
+A maneira mais fácil de criar um pipeline que copia dados de/para o Armazenamento de Tabela do Azure é usar o Assistente de cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Os exemplos a seguir fornecem amostras de definições de JSON que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tais exemplos mostram como copiar dados de/para o Armazenamento de Tabela do Azure e o Banco de Dados de Blob do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
+Os exemplos a seguir fornecem amostras de definições de JSON que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Tais exemplos mostram como copiar dados de/para o Armazenamento de Tabela do Azure e o Banco de Dados de Blob do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos coletores com suporte. Para obter mais informações, consulte a seção "Formatos e armazenamentos de dados com suporte" em [Mover dados usando a Atividade de Cópia](data-factory-data-movement-activities.md).
 
-## <a name="sample:-copy-data-from-azure-table-to-azure-blob"></a>Exemplo: Copiar dados da Tabela do Azure para o Blob do Azure
+## <a name="sample-copy-data-from-azure-table-to-azure-blob"></a>Exemplo: Copiar dados da Tabela do Azure para o Blob do Azure
 O exemplo a seguir mostra:
 
-1. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (usado para tabela e blob).
+1. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md) (usado para tabela e blob).
 2. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureTable](#azure-table-dataset-type-properties).
-3. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
-4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [AzureTableSource](#azure-table-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
+3. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [AzureTableSource](#azure-table-copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 O exemplo copia dados pertencentes à partição padrão em uma tabela do Azure para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -79,7 +83,7 @@ Configurar “external”: “true” informa ao serviço Data Factory que o con
 
 **Conjunto de dados de saída de Blob do Azure:**
 
-Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início. 
+Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
     {
       "name": "AzureBlobOutput",
@@ -151,46 +155,46 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
                     "description": "copy activity",
                     "type": "Copy",
                     "inputs": [
-                        {
+                          {
                             "name": "AzureTableInput"
                         }
                     ],
                     "outputs": [
-                        {
-                            "name": "AzureBlobOutput"
-                        }
+                          {
+                                "name": "AzureBlobOutput"
+                          }
                     ],
                     "typeProperties": {
-                        "source": {
+                          "source": {
                             "type": "AzureTableSource",
                             "AzureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'"
-                        },
-                        "sink": {
+                          },
+                          "sink": {
                             "type": "BlobSink"
-                        }
+                          }
                     },
                     "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },              
+                          "frequency": "Hour",
+                          "interval": 1
+                    },                
                     "policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "OldestFirst",
-                        "retry": 0,
-                        "timeout": "01:00:00"
+                          "concurrency": 1,
+                          "executionPriorityOrder": "OldestFirst",
+                          "retry": 0,
+                          "timeout": "01:00:00"
                     }
                 }
-             ]  
+             ]    
         }
     }
 
-## <a name="sample:-copy-data-from-azure-blob-to-azure-table"></a>Exemplo: Copiar dados do Blob do Azure para a Tabela do Azure
+## <a name="sample-copy-data-from-azure-blob-to-azure-table"></a>Exemplo: Copiar dados do Blob do Azure para a Tabela do Azure
 O exemplo a seguir mostra:
 
-1. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (usado para tabela e blob)
+1. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md) (usado para tabela e blob)
 2. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-3. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureTable](#azure-table-dataset-type-properties). 
-4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [AzureTableSink](#azure-table-copy-activity-type-properties). 
+3. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureTable](#azure-table-dataset-type-properties).
+4. O [pipeline](data-factory-create-pipelines.md) com a Atividade de cópia que usa [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) e [AzureTableSink](#azure-table-copy-activity-type-properties).
 
 O exemplo copia os dados de série temporal de um blob do Azure para uma tabela do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
@@ -206,7 +210,7 @@ O exemplo copia os dados de série temporal de um blob do Azure para uma tabela 
       }
     }
 
-O Azure Data Factory oferece suporte a dois tipos de serviços vinculados do Armazenamento do Azure: **AzureStorage** e **AzureStorageSas**. Para o primeiro, você especifica a cadeia de conexão que inclui a chave de conta, e para o mais recente, você especifica o URI de SAS (Assinatura de Acesso Compartilhado). Confira a seção [Serviços vinculados](#linked-services) para obter detalhes. 
+O Azure Data Factory oferece suporte a dois tipos de serviços vinculados do Armazenamento do Azure: **AzureStorage** e **AzureStorageSas**. Para o primeiro, você especifica a cadeia de conexão que inclui a chave de conta, e para o mais recente, você especifica o URI de SAS (Assinatura de Acesso Compartilhado). Confira a seção [Serviços vinculados](#linked-services) para obter detalhes.
 
 **Conjunto de dados de entrada de Blob do Azure:**
 
@@ -277,7 +281,7 @@ Os dados são coletados de um novo blob a cada hora (frequência: hora, interval
 
 **Conjunto de dados de saída de Tabela do Azure:**
 
-O exemplo copia dados para uma tabela chamada "MyTable" na Tabela do Azure. Crie uma tabela do Azure com o mesmo número de colunas que você espera que o arquivo CSV de Blob contenha. Novas linhas são adicionadas à tabela a cada hora. 
+O exemplo copia dados para uma tabela chamada "MyTable" na Tabela do Azure. Crie uma tabela do Azure com o mesmo número de colunas que você espera que o arquivo CSV de Blob contenha. Novas linhas são adicionadas à tabela a cada hora.
 
     {
       "name": "AzureTableOutput",
@@ -296,7 +300,7 @@ O exemplo copia dados para uma tabela chamada "MyTable" na Tabela do Azure. Crie
 
 **Pipeline com Atividade de cópia:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **BlobSource** e o tipo **sink** está definido como **AzureTableSink**. 
+O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **BlobSource** e o tipo **sink** está definido como **AzureTableSink**.
 
     {  
         "name":"SamplePipeline",
@@ -332,7 +336,7 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
             "scheduler": {
               "frequency": "Hour",
               "interval": 1
-            },                      
+            },                        
             "policy": {
               "concurrency": 1,
               "executionPriorityOrder": "OldestFirst",
@@ -367,7 +371,7 @@ Para armazenamentos de dados sem esquema, como a Tabela do Azure, o serviço do 
 Portanto, para fontes de dados sem esquema, a prática recomendada é especificar a estrutura de dados usando a propriedade **structure** .
 
 ## <a name="azure-table-copy-activity-type-properties"></a>Propriedades de tipo de atividade de cópia de Tabela do Azure
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, conjuntos de dados de entrada e saída, e políticas, estão disponíveis para todos os tipos de atividade. 
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, conjuntos de dados de entrada e saída, e políticas, estão disponíveis para todos os tipos de atividade.
 
 As propriedades disponíveis na seção typeProperties da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
 
@@ -379,11 +383,11 @@ As propriedades disponíveis na seção typeProperties da atividade, por outro l
 | azureTableSourceIgnoreTableNotFound |Indique se assimilar a exceção da tabela não existe. |TRUE<br/>FALSE |Não |
 
 ### <a name="azuretablesourcequery-examples"></a>Exemplos do azureTableSourceQuery
-Se a coluna Tabela do Azure é do tipo cadeia de caracteres: 
+Se a coluna Tabela do Azure é do tipo cadeia de caracteres:
 
     azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', SliceStart)"
 
-Se a coluna Tabela do Azure é do tipo datetime: 
+Se a coluna Tabela do Azure é do tipo datetime:
 
     "azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', SliceStart, SliceEnd)"
 
@@ -407,9 +411,9 @@ No exemplo a seguir, a coluna de origem DivisionID é mapeada para a coluna de d
     "translator": {
         "type": "TabularTranslator",
         "columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
-    } 
+    }
 
-DivisionID é especificada como a chave de partição. 
+DivisionID é especificada como a chave de partição.
 
     "sink": {
         "type": "AzureTableSink",
@@ -427,7 +431,7 @@ Como mencionado no artigo sobre as [atividades de movimentação de dados](data-
 1. Converter de tipos de fonte nativos para o tipo .NET
 2. Converter do tipo .NET para o tipo de coletor nativo
 
-Quando dados forem movidos para e da Tabela do Azure, os seguintes [mapeamentos definidos pelo serviço Tabela do Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) serão usados nos tipos OData da Tabela do Azure para o tipo .NET e vice-versa. 
+Quando dados forem movidos para e da Tabela do Azure, os seguintes [mapeamentos definidos pelo serviço Tabela do Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx) serão usados nos tipos OData da Tabela do Azure para o tipo .NET e vice-versa.
 
 | Tipo de dados OData | Tipo .NET | Detalhes |
 | --- | --- | --- |
@@ -441,9 +445,9 @@ Quando dados forem movidos para e da Tabela do Azure, os seguintes [mapeamentos 
 | Edm.String |Cadeia de caracteres |Um valor codificado em UTF-16. Valores de cadeia de caracteres podem ter até 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Exemplo de conversão de tipo
-O exemplo a seguir é para copiar dados de um Blob do Azure para Tabela do Azure com conversões de tipo. 
+O exemplo a seguir é para copiar dados de um Blob do Azure para Tabela do Azure com conversões de tipo.
 
-Suponha que o conjunto de dados de Blob está no formato CSV e contém três colunas. Uma delas é uma coluna de data e hora com um formato de data e hora personalizado usando nomes abreviados em francês para o dia da semana. 
+Suponha que o conjunto de dados de Blob está no formato CSV e contém três colunas. Uma delas é uma coluna de data e hora com um formato de data e hora personalizado usando nomes abreviados em francês para o dia da semana.
 
 Defina o conjunto de dados de origem de Blob conforme demonstrado a seguir, juntamente com definições de tipo para as colunas.
 
@@ -451,7 +455,7 @@ Defina o conjunto de dados de origem de Blob conforme demonstrado a seguir, junt
         "name": " AzureBlobInput",
         "properties":
         {
-             "structure": 
+             "structure":
               [
                     { "name": "userid", "type": "Int64"},
                     { "name": "name", "type": "String"},
@@ -484,7 +488,7 @@ Defina o conjunto de dados de origem de Blob conforme demonstrado a seguir, junt
         }
     }
 
-Dado o mapeamento de tipo OData da Tabela do Azure para o tipo .NET, você definiria a tabela na Tabela do Azure com o esquema a seguir. 
+Dado o mapeamento de tipo OData da Tabela do Azure para o tipo .NET, você definiria a tabela na Tabela do Azure com o esquema a seguir.
 
 **Esquema da tabela do Azure:**
 
@@ -518,6 +522,8 @@ Nesse caso, o Data Factory fará automaticamente as conversões de tipo, inclusi
 ## <a name="performance-and-tuning"></a>Desempenho e Ajuste
 Consulte o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

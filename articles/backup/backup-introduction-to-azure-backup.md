@@ -1,11 +1,11 @@
 ---
 title: "O que é o Backup do Azure? | Microsoft Docs"
-description: "Com o Backup e os Serviços de Recuperação do Azure, você pode fazer backup e restaurar dados e aplicativos de Windows Servers, máquinas de cliente Windows, servidores com System Center DPM e máquinas virtuais do Azure."
+description: "Com o Backup e os Serviços de Recuperação do Azure, você pode fazer backup e restaurar dados e aplicativos de Servidores Windows, máquinas de cliente Windows, servidores com System Center DPM e máquinas virtuais do Azure."
 services: backup
 documentationcenter: 
 author: markgalioto
 manager: cfreeman
-editor: tysonn
+editor: 
 keywords: "backup e restauração; serviços de recuperação; soluções de backup"
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
+ms.date: 12/6/2016
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: c827c37ae4164ebd9cd2a971e94f073de8c59b46
+ms.sourcegitcommit: b9737c3da308aecf25d5f18088f96c319edeafd5
+ms.openlocfilehash: 76ec51a75240710b24c0e91042d6229e60eeada9
 
 
 ---
@@ -35,7 +35,7 @@ As soluções tradicionais de backup evoluíram para tratar a nuvem como um pont
 
 **Várias opções de armazenamento** -um aspecto de alta disponibilidade é a replicação de armazenamento. O Backup do Azure oferece dois tipos de replicação: [armazenamento localmente redundante](../storage/storage-redundancy.md#locally-redundant-storage) e [armazenamento replicado geograficamente](../storage/storage-redundancy.md#geo-redundant-storage). Escolha a opção de armazenamento de backup com base na necessidade:
 
-* O Armazenamento localmente redundante (LRS) replica seus dados três vezes (ele cria três cópias de seus dados) em um datacenter emparelhado na mesma região. O LRS é uma opção de baixo custo e é ideal para os clientes preocupados porque ele protege os dados contra falhas de hardware local.
+* O Armazenamento com redundância local (LRS) replica seus dados três vezes (ele cria três cópias de seus dados) em um datacenter emparelhado na mesma região. O LRS é uma opção de baixo custo e é ideal para os clientes preocupados porque ele protege os dados contra falhas de hardware local.
 * O GRS (armazenamento com replicação geográfica) replica seus dados para uma região secundária (a centenas de quilômetros da região primária dos dados de origem). O GRS é mais caro do que o LRS, mas fornece um nível mais alto de durabilidade para seus dados, mesmo se houver uma interrupção regional.
 
 **Transferência de dados ilimitada** - o Backup do Azure não limita a quantidade de dados de entrada ou saída que você transfere. O Backup do Azure também não cobra pelos dados que são transferidos. No entanto, se você usar o serviço de Importação/Exportação do Azure para importar grandes quantidades de dados, haverá um custo associado aos dados de entrada. Para obter mais informações sobre esse custo, confira o [Fluxo de trabalho de backup offline no Backup do Azure](backup-azure-backup-import-export.md). Os dados de saída são aqueles transferidos de um cofre de Backup durante uma operação de restauração.
@@ -44,17 +44,17 @@ As soluções tradicionais de backup evoluíram para tratar a nuvem como um pont
 
 **Backup consistente com o aplicativo** - independentemente de você estar fazendo backup de um servidor de arquivos, máquina virtual ou banco de dados SQL, precisa saber que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de backup. O Backup do Azure fornece backups consistentes com aplicativos, garantindo que correções adicionais não sejam necessárias para restaurar os dados. Restaurar dados consistentes com aplicativos reduz o tempo de restauração, permitindo que você rapidamente retorne ao estado de execução.
 
-**Retenção de longo prazo** - você pode fazer backup de dados do Azure por 99 anos. Em vez de alternar as cópias de backup de disco para fita e levá-la para armazenamento de longo prazo em um local externo, você pode usar o Azure para retenção de curto e longo prazo.
+**Retenção de longo prazo** - faça backup de dados no Azure por 99 anos. Em vez de alternar as cópias de backup de disco para fita e levá-la para armazenamento de longo prazo em um local externo, você pode usar o Azure para retenção de curto e longo prazo.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Quais componentes do Backup do Azure devo usar?
 Se não tiver certeza de qual componente do Backup do Azure atende às suas necessidades, confira a tabela a seguir para obter informações sobre o que você pode proteger com cada componente. O portal do Azure fornece um assistente, que é embutido no portal, para orientá-lo a escolher qual componente baixar e implantar. O assistente, que é parte da criação de cofre dos Serviços de Recuperação, o conduz pelas etapas para selecionar uma meta de backup e escolher os dados ou o aplicativo a serem protegidos.
 
 | Componente | Benefícios | limites | O que é protegido? | Onde os backups são armazenados? |
 | --- | --- | --- | --- | --- |
-| Agente de Backup do Azure (MARS) |<li>Fazer backup de arquivos e pastas no SO Windows físico ou virtual, (as máquinas virtuais podem estar no local ou no Azure)<li>Nenhum servidor de backup separado necessário. |<li>Fazer backup 3 vezes por dia <li>Não reconhece aplicativos; arquivo, pasta e restauração em nível de volume somente, <li>  Não há suporte para Linux. |<li>Arquivos, <li>Pastas |Criar cofre de backup do Azure |
-| System Center DPM |<li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Total flexibilidade sobre quando fazer backups<li>Granularidade da recuperação (tudo)<li>Pode usar o cofre do Backup do Azure<li>Suporte para Linux (se hospedada no Hyper-V) |Falta de suporte heterogêneo (backup de VM VMware, backup de cargas de trabalho do Oracle). |<li>Arquivos, <li>Pastas,<li> Volumes, <li>VMs,<li> Aplicativos,<li> Cargas de trabalho |<li>Cofre do Backup do Azure,<li> Disco conectado localmente,<li>  Fita (somente local) |
-| Servidor de Backup do Azure |<li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Total flexibilidade sobre quando fazer backups<li>Granularidade da recuperação (tudo)<li>Pode usar o cofre do Backup do Azure<li>Suporte para Linux (se hospedada no Hyper-V)<li>Não exige uma licença do System Center |<li>Falta de suporte heterogêneo (backup de VM VMware, backup de cargas de trabalho do Oracle).<li>Sempre requer assinatura do Azure ao vivo<li>Não há suporte para backup em fita |<li>Arquivos, <li>Pastas,<li> Volumes, <li>VMs,<li> Aplicativos,<li> Cargas de trabalho |<li>Cofre do Backup do Azure,<li> Disco conectado localmente |
-| Backup de VM IaaS do Azure |<li>Backups nativos para Windows/Linux<li>Sem necessidade de instalação de agente específico<li>Backup em nível de malha com nenhuma infraestrutura de backup necessária |<li>Backup/restauração em nível de disco uma vez por dia<li>Não pode fazer backup no local |<li>VMs, <li>Todos os discos (usando o PowerShell) |<p>Criar cofre de backup do Azure</p> |
+| Agente de Backup do Azure (MARS) |<li>Fazer backup de arquivos e pastas no sistema operacional Windows físico ou virtual (as máquinas virtuais podem ser locais ou estar no Azure)<li>Nenhum servidor de backup separado necessário. |<li>Fazer backup 3 vezes por dia <li>Não reconhece aplicativos; arquivo, pasta e restauração em nível de volume somente, <li>  Não há suporte para Linux. |<li>Arquivos, <li>Pastas |Criar cofre de backup do Azure |
+| System Center DPM |<li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Total flexibilidade sobre quando fazer backups<li>Granularidade da recuperação (tudo)<li>Pode usar o cofre do Backup do Azure<li>Suporte para Linux no Hyper-V e VMs VMware <li>Proteger VMs VMware usando o DPM 2012 R2 |Não é possível fazer o backup da carga de trabalho do Oracle.|<li>Arquivos, <li>Pastas,<li> Volumes, <li>VMs,<li> Aplicativos,<li> Cargas de trabalho |<li>Cofre do Backup do Azure,<li> Disco conectado localmente,<li>  Fita (somente local) |
+| Servidor de Backup do Azure |<li>Instantâneos com reconhecimento de aplicativo (VSS)<li>Total flexibilidade sobre quando fazer backups<li>Granularidade da recuperação (tudo)<li>Pode usar o cofre do Backup do Azure<li>Suporte para Linux (se hospedada no Hyper-V)<li>Proteger VMs VMware usando o DPM 2012 R2<li>Não exige uma licença do System Center |<li>Não é possível fazer o backup da carga de trabalho do Oracle.<li>Sempre requer assinatura do Azure ao vivo<li>Não há suporte para backup em fita |<li>Arquivos, <li>Pastas,<li> Volumes, <li>VMs,<li> Aplicativos,<li> Cargas de trabalho |<li>Cofre do Backup do Azure,<li> Disco conectado localmente |
+| Backup de VM IaaS do Azure |<li>Backups nativos para Windows/Linux<li>Sem necessidade de instalação de agente específico<li>Backup em nível de malha sem a necessidade de uma infraestrutura de backup |<li>Fazer backup de máquinas virtuais uma vez por dia <li>Restaurar máquinas virtuais somente no nível do disco<li>Não pode fazer backup no local |<li>VMs, <li>Todos os discos (usando o PowerShell) |<p>Criar cofre de backup do Azure</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Quais são os cenários de implantação para cada componente?
 | Componente | Pode ser implantado no Azure? | Pode ser implantado localmente? | Armazenamento de destino com suporte |
@@ -95,7 +95,7 @@ A tabela a seguir mostra os componentes do Backup do Azure com suporte para Linu
 O Backup do Azure protege VMs de Armazenamento Premium. O Armazenamento Premium do Azure é um armazenamento baseado em SSD (unidade de estado sólido) desenvolvida para dar suporte a cargas de trabalho com E/S intenso. O Armazenamento Premium é uma opção interessante para cargas de trabalho de máquina virtual (VM). Para saber mais sobre o Armazenamento Premium, confira o artigo [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../storage/storage-premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Backup de VMs de Armazenamento Premium
-Ao fazer backup de VMs de Armazenamento Premium, o serviço de Backup cria um local de preparo temporário na conta de Armazenamento Premium. O local de preparo, chamado de "AzureBackup-" é igual ao tamanho total dos dados dos discos premium conectados à VM.
+Ao fazer backup de VMs de Armazenamento Premium, o serviço de Backup cria um local de preparo temporário na conta de Armazenamento Premium. O local de preparo, chamado de "AzureBackup-" é igual ao tamanho total dos dados dos discos premium conectados à VM. Verifique se há espaço livre suficiente para um local temporário de preparo na conta de armazenamento. Para obter informações adicionais, confira o artigo [limitações de armazenamento premium](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
 
 > [!NOTE]
 > Não modifique nem edite o local de preparo.
@@ -122,10 +122,10 @@ As seções a seguir fornecem as tabelas que resumem a disponibilidade ou o supo
 
 ![chave de tabela](./media/backup-introduction-to-azure-backup/table-key.png)
 
-O cofre de Backup é o destino de armazenamento preferencial em todos os componentes. O System Center DPM e o Servidor de Backup também oferecem a opção de ter uma cópia do disco local. No entanto, somente o System Center DPM fornece a opção de gravar dados em um dispositivo de armazenamento em fita.
+O cofre de Backup é o destino de armazenamento preferencial em todos os componentes. O System Center DPM e o Servidor de Backup do Azure também oferecem a opção de ter uma cópia do disco local. No entanto, somente o System Center DPM fornece a opção de gravar dados em um dispositivo de armazenamento em fita.
 
 #### <a name="compression"></a>Compactação
-Os backups são compactados para reduzir o espaço de armazenamento necessário. O único componente que não usa a compactação é a extensão de VM. Com o uso da extensão de VM, todos os dados de backup são copiados da sua conta de armazenamento para o cofre do Backup na mesma região, sem compactação. A não compactação infla um pouco o armazenamento usado. No entanto, o armazenamento de dados sem compactação possibilita uma restauração mais rápida.
+Os backups são compactados para reduzir o espaço de armazenamento necessário. O único componente que não usa a compactação é a extensão de VM. A extensão de VM copia todos os dados de backup da sua conta de armazenamento para o cofre do Backup na mesma região. Nenhuma compactação é usada durante a transferência dos dados. Transferir os dados sem compactação infla um pouco o armazenamento usado. No entanto, o armazenamento de dados sem compactação possibilita uma restauração mais rápida, caso você precise desse ponto de recuperação.
 
 #### <a name="incremental-backup"></a>Backup incremental
 Cada componente dá suporte a backup incremental, independentemente do armazenamento de destino (disco, fita, cofre de backup). O backup incremental garante que os backups sejam eficientes em termos de tempo e armazenamento, transferindo somente as alterações feitas desde o último backup.
@@ -169,24 +169,27 @@ Fazer backup de VMs do Azure requer a configuração da criptografia *na* máqui
 
 A extensão da VM (na VM IaaS) lê os dados diretamente da conta de armazenamento do Azure por meio da rede de armazenamento; portanto, não é necessário compactar esse tráfego.
 
-Se você estiver fazendo backup de seus dados em um Servidor de Backup do Azure ou no System Center DPM, compacte os dados que vão do servidor primário para o servidor de backup. Isso economiza largura de banda.
+Se você estiver fazendo backup de seus dados em um Servidor de Backup do Azure ou no System Center DPM, compacte os dados que vão do servidor primário para o servidor de backup. Compactar os dados antes de fazer o backup deles no DPM ou no Servidor de Backup do Azure economiza largura de banda.
 
 #### <a name="network-throttling"></a>Limitação de rede
 O agente do Backup do Azure fornece limitação de rede, o que permite controlar como a largura de banda é usada durante a transferência de dados. A limitação pode ser útil se você precisa fazer backup de dados durante o horário de expediente, mas não quer que o processo de backup interfira no outro tráfego de Internet. A limitação da transferência de dados aplica-se a atividades de backup e restauração.
 
 ### <a name="backup-and-retention"></a>Backup e retenção
+
+O Backup do Azure tem um limite de 9999 pontos de recuperação, também conhecido como cópias de backup ou instantâneos, por Cofre de Backup. A tabela a seguir mostra a frequência de backup máximo (no cofre) para cada componente. A configuração da política de backup determina a rapidez com a qual você pode consumir os pontos de recuperação. Por exemplo, se você criar um ponto de recuperação por dia, poderá depois retê-los por 27 anos antes de executá-los. Se você usar um ponto de recuperação por mês, poderá depois retê-los por 833 anos antes de executá-los. O serviço de Backup não define um limite de tempo de validade em um ponto de recuperação.
+
 |  | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
 | Frequência de backup<br/> (para cofre do Backup) |Três backups por dia |Dois backups por dia |Dois backups por dia |Um backup por dia |
 | Frequência de backup<br/> (para o disco) |Não aplicável |<li>A cada 15 minutos para o SQL Server <li>A cada hora para outras cargas de trabalho |<li>A cada 15 minutos para o SQL Server <li>A cada hora para outras cargas de trabalho</p> |Não aplicável |
 | Opções de retenção |Diária, semanal, mensal, anual |Diária, semanal, mensal, anual |Diária, semanal, mensal, anual |Diária, semanal, mensal, anual |
-| Período de retenção |Até 99 anos |Até 99 anos |Até 99 anos |Até 99 anos |
-| Pontos de recuperação no cofre do Backup |Ilimitado |Ilimitado |Ilimitado |Ilimitado |
+| Pontos de recuperação máximos por servidor |9999|9999|9999|9999|
+| Período de retenção máximo |Depende da frequência de backup |Depende da frequência de backup |Depende da frequência de backup |Depende da frequência de backup |
 | Pontos de recuperação no disco local |Não aplicável |<li>64 para Servidores de Arquivos,<li>448 para Servidores de Aplicativos |<li>64 para Servidores de Arquivos,<li>448 para Servidores de Aplicativos |Não aplicável |
 | Pontos de recuperação em fita |Não aplicável |Ilimitado |Não aplicável |Não aplicável |
 
 ## <a name="what-is-the-vault-credential-file"></a>O que é o arquivo de credencial do cofre?
-O arquivo de credenciais do cofre é um certificado gerado pelo portal para cada cofre do Backup. O portal, em seguida, carrega a chave pública no ACS (Serviço de Controle de Acesso). A chave privada é fornecida a você ao baixar as credenciais. Você pode usá-la para registrar os computadores que protegerá. A chave privada é o que permite que você autentique os servidores ou computadores para enviar dados de backup para um determinado cofre do Backup.
+O arquivo de credenciais do cofre é um certificado gerado pelo portal para cada cofre do Backup. O portal, em seguida, carrega a chave pública no ACS (Serviço de Controle de Acesso). A chave privada é fornecida a você ao baixar as credenciais. Use-a para registrar os computadores que você deseja proteger. A chave privada é o que permite que você autentique os servidores ou computadores para enviar dados de backup para um determinado cofre do Backup.
 
 Você só pode usar a credencial do cofre para registrar os servidores ou computadores. No entanto, tenha cuidado com as credenciais do cofre, caso elas sejam perdidas ou obtidas por outros, poderão ser usadas para registrar outros computadores no mesmo cofre. Como os dados de backup são criptografados usando uma senha que pertence apenas a você, os dados de backup existentes não podem ser comprometidos. As credenciais do cofre expiram após 48 horas. Embora você possa baixar credenciais do cofre do Backup sempre que desejar, somente as últimas credenciais podem ser usadas para registro.
 
@@ -207,7 +210,7 @@ Os conceitos a seguir podem ajudá-lo a tomar decisões importantes sobre backup
 Use um dos seguintes tutoriais para obter instruções detalhadas, passo a passo, para proteger dados no Windows Server ou proteger uma máquina virtual (VM) no Azure:
 
 * [Fazer backup de arquivos e pastas](backup-try-azure-backup-in-10-mins.md)
-* [Fazer backup de máquinas virtuais do Azure](backup-azure-vms-first-look.md)
+* [Fazer backup de máquinas virtuais do Azure](backup-azure-vms-first-look-arm.md)
 
 Para obter detalhes sobre como proteger outras cargas de trabalho, experimente um dos seguintes artigos:
 
@@ -215,12 +218,12 @@ Para obter detalhes sobre como proteger outras cargas de trabalho, experimente u
 * [Fazer backup de cargas de trabalho do aplicativo](backup-azure-microsoft-azure-backup.md)
 * [Backup de VM IaaS do Azure](backup-azure-vms-prepare.md)
 
-[verde]: ./media/backup-introduction-to-azure-backup/green.png
-[amarelo]: ./media/backup-introduction-to-azure-backup/yellow.png
-[vermelho]: ./media/backup-introduction-to-azure-backup/red.png
+[green]: ./media/backup-introduction-to-azure-backup/green.png
+[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
+[red]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

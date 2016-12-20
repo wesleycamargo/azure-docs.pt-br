@@ -1,13 +1,13 @@
 ---
-title: Administração do serviço do Azure Search no portal do Azure
-description: Gerenciar o Azure Search, um serviço de nuvem hospedado no Microsoft Azure, usando o portal do Azure.
+title: "Administração do serviço do Azure Search no portal do Azure"
+description: "Gerenciar o Azure Search, um serviço de nuvem hospedado no Microsoft Azure, usando o portal do Azure."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
@@ -15,6 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 71cfd2ea327cad22cdb1085558658934804c15f1
+
 
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administração do serviço do Azure Search no portal do Azure
@@ -35,9 +39,11 @@ O Azure Search é um serviço de pesquisa baseado em nuvem, totalmente gerenciad
 
 *Gerenciamento de conteúdo* (ou gerenciamento de índice) refere-se a operações, como análise de tráfego de pesquisa para entender o volume de consultas, descobrir quais termos as pessoas pesquisam e como os resultados da pesquisa bem-sucedida são para a orientação dos clientes para documentos específicos no índice. Gerenciamento de conteúdo está além do escopo deste artigo. Para obter instruções sobre como obter informações sobre operações internas no nível do índice, consulte [Análise de tráfego de pesquisa para o Azure Search](search-traffic-analytics.md).
 
-*desempenho de consulta* também está além do escopo deste artigo. Para obter mais informações, consulte [Desempenho e otimização no Azure Search](search-performance-optimization.md).
+*desempenho de consulta* também está além do escopo deste artigo. Para obter mais informações, confira [Monitorar as métricas de uso e consulta](search-monitor-usage.md) e [Desempenho e otimização](search-performance-optimization.md).
 
-O Azure Search não oferece soluções integradas para recuperação de desastres ou backup e restauração. Para clientes que enviam objetos e dados por push e dados para o seu serviço, o código-fonte para criar e preencher um índice é a opção de restauração de fato, se você excluir um índice por engano. Para recuperação de desastres, os clientes optam por redundância por meio de um serviço adicional em um data center regional diferente. Para obter mais informações, consulte [Desempenho e otimização no Azure Search](search-performance-optimization.md).
+A Pesquisa do Azure realizará failover para outros clusters e data centers se houver uma interrupção, mas não fornecerá soluções internas para operações manuais de backup e restauração se o índice ou o serviço for excluído de forma mal-intencionada ou acidental. Para clientes que enviam objetos e dados por push e dados para o seu serviço, o código-fonte para criar e preencher um índice é a opção de restauração de fato, se você excluir um índice por engano. 
+
+A Pesquisa do Azure não fornece replicação geográfica de índices entre serviços. Se sua solução tem alcance global, considere adicionar redundância por meio de um serviço adicional em um datacenter regional diferente para que todos os componentes do aplicativo sejam hospedados em um único lugar. Para obter mais informações, consulte [Desempenho e otimização no Azure Search](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -156,7 +162,7 @@ Para se planejar para o futuro, talvez você queira conferir o armazenamento (us
 
 <a id="advanced-deployment"></a>
 
-## <a name="best-practices-on-scale-and-deployment-(video)"></a>Práticas recomendadas em escala e implantação (vídeo)
+## <a name="best-practices-on-scale-and-deployment-video"></a>Práticas recomendadas em escala e implantação (vídeo)
 Este vídeo de 30 minutos examina as práticas recomendadas para cenários de implantação avançados, incluindo cargas de trabalho distribuídas geograficamente. Você também pode consultar [Desempenho e otimização no Azure Search](search-performance-optimization.md) para páginas de ajuda que abrangem os mesmos pontos.
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
@@ -184,6 +190,6 @@ Além disso, se você ainda não fez isso, examine o [artigo de desempenho e oti
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

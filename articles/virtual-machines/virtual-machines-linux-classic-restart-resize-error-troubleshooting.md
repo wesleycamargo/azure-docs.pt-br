@@ -1,13 +1,13 @@
 ---
-title: Problemas de reinicialização ou redimensionamento de VM | Microsoft Docs
-description: Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma Máquina Virtual Linux existente no Azure
+title: "Problemas de reinicialização ou redimensionamento da VM | Microsoft Docs"
+description: "Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma Máquina Virtual Linux existente no Azure"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: Deland-Han
 manager: felixwu
-editor: ''
+editor: 
 tags: top-support-issue
-
+ms.assetid: 73f2672c-602e-4766-8948-2b180115d299
 ms.service: virtual-machines-linux
 ms.topic: support-article
 ms.tgt_pltfrm: vm-linux
@@ -15,12 +15,16 @@ ms.workload: required
 ms.date: 09/20/2016
 ms.devlang: na
 ms.author: delhan
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 9268bc13c33893df624bd2311ba28f898e2fee90
+
 
 ---
-# Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma Máquina Virtual Linux existente no Azure
+# <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Solucionar problemas de implantação clássica ao reinicializar ou redimensionar uma Máquina Virtual Linux existente no Azure
 > [!div class="op_single_selector"]
-> * [Clássico](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md)
-> * [Gerenciador de Recursos](virtual-machines-linux-restart-resize-error-troubleshooting.md)
+> * [Clássico](virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+> * [Gerenciador de Recursos](virtual-machines-linux-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -28,20 +32,22 @@ Ao tentar iniciar uma VM (Máquina Virtual) do Azure parada ou redimensionar uma
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
+Para a versão do Resource Manager, consulte [aqui](virtual-machines-linux-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## Coletar logs de auditoria
+## <a name="collect-audit-logs"></a>Coletar logs de auditoria
 Para iniciar a solução de problemas, colete os logs de auditoria para identificar o erro associado ao problema.
 
-No portal do Azure, clique em **Procurar** > **Máquinas virtuais** > *sua máquina virtual Linux* > **Configurações** > **Logs de Auditoria**.
+No Portal do Azure, clique em **Procurar** > **Máquinas virtuais** > *sua máquina virtual do Linux* > **Configurações** > **Logs de auditoria**.
 
-## Problema: erro ao iniciar uma VM parada
+## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: erro ao iniciar uma VM parada
 Você tenta iniciar uma VM parada, mas ocorre uma falha de alocação.
 
-### Causa
+### <a name="cause"></a>Causa
 Deve-se tentar fazer a solicitação de início da VM parada no cluster original que hospeda o serviço de nuvem. No entanto, o cluster não tem espaço livre disponível para atender à solicitação.
 
-### Resolução
+### <a name="resolution"></a>Resolução
 * Crie um novo serviço de nuvem e o associe a uma região ou a uma rede virtual baseada em região, mas não a um grupo de afinidades.
 * Exclua a VM parada.
 * Recrie a VM no novo serviço de nuvem usando os discos.
@@ -54,13 +60,13 @@ Se você receber um erro ao tentar criar um novo serviço de nuvem, tente novame
 > 
 > 
 
-## Problema: erro ao redimensionar uma VM existente
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Problema: erro ao redimensionar uma VM existente
 Você tenta redimensionar uma VM existente, mas ocorre uma falha de alocação.
 
-### Causa
+### <a name="cause"></a>Causa
 Deve-se tentar fazer a solicitação de redimensionamento da VM no cluster original que hospeda o serviço de nuvem. No entanto, o cluster não dá suporte ao tamanho de VM solicitado.
 
-### Resolução
+### <a name="resolution"></a>Resolução
 Reduza o tamanho de VM solicitado e tente fazer novamente a solicitação de redimensionamento.
 
 * Clique em **Procurar tudo** > **Máquinas virtuais (clássicas)** > *sua máquina virtual* > **Configurações** > **Tamanho**. Para obter as etapas detalhadas, consulte [Redimensionar a máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
@@ -74,7 +80,12 @@ Se não for possível reduzir o tamanho da VM, siga estas etapas:
 
 Se o serviço de nuvem existente não estiver associado a uma rede virtual baseada em região, será necessário excluir as VMs no serviço de nuvem existente e recriá-las no novo serviço de nuvem por meio de seus discos. No entanto, é importante lembrar-se de que o novo serviço de nuvem terá um novo nome e VIP e, portanto, será necessário atualizá-los em todas as dependências que atualmente usam essas informações para o serviço de nuvem existente.
 
-## Próximas etapas
-Se você encontrar problemas ao criar uma nova VM do Linux no Azure, veja [Solucionar problemas de implantação com a criação de uma nova máquina virtual do Linux no Azure](virtual-machines-linux-troubleshoot-deployment-new-vm.md).
+## <a name="next-steps"></a>Próximas etapas
+Se você encontrar problemas ao criar uma nova VM do Linux no Azure, veja [Solucionar problemas de implantação com a criação de uma nova máquina virtual do Linux no Azure](virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

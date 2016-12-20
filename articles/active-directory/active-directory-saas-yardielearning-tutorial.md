@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Yardi eLearning | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Yardi eLearning.
+title: "Tutorial: integração do Azure Active Directory com o Yardi eLearning | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Yardi eLearning."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 7ea58b54-ec5b-4576-8586-814b11d0f4fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31be0e05b72b8c1ba444ad69798f3675b58a6b71
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-yardi-elearning"></a>Tutorial: integração do Azure Active Directory ao Yardi eLearning
+# <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Tutorial: integração do Azure Active Directory ao Yardi eLearning
 O objetivo desse tutorial é mostrar como integrar o Yardi eLearning ao Azure AD (Azure Active Directory).
 
 A integração do Yardi eLearning ao Azure AD oferece os seguintes benefícios:
@@ -133,7 +137,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-yardielearning-tutorial/create_aaduser_09.png) 
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -165,7 +169,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-yardielearning-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -236,6 +240,6 @@ Quando você clicar no bloco Yardi eLearning no Painel de Acesso, deverá fazer 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

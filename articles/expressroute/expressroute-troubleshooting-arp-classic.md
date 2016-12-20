@@ -1,25 +1,29 @@
 ---
-title: 'Guia de solução de problemas de Rota Expressa: Obtenção de tabelas ARP | Microsoft Docs'
-description: Esta página fornece instruções para obter tabelas ARP para um circuito de Rota Expressa.
+title: "Guia de solução de problemas de ExpressRoute: Obtenção de tabelas ARP | Microsoft Docs"
+description: "Esta página fornece instruções para obter tabelas ARP para um circuito de Rota Expressa."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carolz
 editor: tysonn
-
+ms.assetid: b5856acf-03c2-4933-8111-6ce12998d92a
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 10/11/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: 49f7eae7184fda3ea73c8a85e354d0e41df039c7
+
 
 ---
-# <a name="expressroute-troubleshooting-guide:-getting-arp-tables-in-the-classic-deployment-model"></a>Guia de solução de problemas de Rota Expressa: Obtenção de tabelas ARP no modelo de implantação clássico
+# <a name="expressroute-troubleshooting-guide-getting-arp-tables-in-the-classic-deployment-model"></a>Guia de solução de problemas de Rota Expressa: Obtenção de tabelas ARP no modelo de implantação clássico
 > [!div class="op_single_selector"]
-> [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-> [PowerShell - Clássico](expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell – Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell - clássico](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 
@@ -30,7 +34,7 @@ Este artigo explica as etapas para obter as tabelas ARP (Address Resolution Prot
 > 
 > 
 
-## <a name="address-resolution-protocol-(arp)-and-arp-tables"></a>ARP (Protocolo de resolução de endereço) e tabelas ARP
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>ARP (Protocolo de resolução de endereço) e tabelas ARP
 ARP é um protocolo de camada 2 definido em [RFC 826](https://tools.ietf.org/html/rfc826). ARP é usado para mapear o endereço de Ethernet (endereço MAC) para um endereço IP.
 
 A tabela ARP fornece um mapeamento do endereço IPv4 e do endereço MAC para um emparelhamento específico. A tabela ARP para um emparelhamento de circuito de Rota Expressa fornece as seguintes informações para cada interface (primária e secundária):
@@ -82,7 +86,7 @@ Veja abaixo um exemplo de saída para um dos caminhos:
           0 Microsoft         10.0.0.2 aaaa.bbbb.cccc
 
 
-### <a name="arp-tables-for-azure-public-peering:"></a>Tabelas ARP para emparelhamento público do Azure:
+### <a name="arp-tables-for-azure-public-peering"></a>Tabelas ARP para emparelhamento público do Azure:
 O cmdlet a seguir fornece as tabelas ARP para o emparelhamento público do Azure:
 
         # Required variables
@@ -131,7 +135,7 @@ Veja abaixo um exemplo de saída para um dos caminhos:
 ## <a name="how-to-use-this-information"></a>Como usar essas informações
 A tabela ARP de um emparelhamento pode ser usada para validar a configuração e a conectividade da camada 2. Esta seção fornece uma visão geral da aparência das tabelas ARP em cenários diferentes.
 
-### <a name="arp-table-when-a-circuit-is-in-an-operational-(expected)-state"></a>Tabela ARP quando um circuito está no estado operacional (esperado)
+### <a name="arp-table-when-a-circuit-is-in-an-operational-expected-state"></a>Tabela ARP quando um circuito está no estado operacional (esperado)
 * A tabela ARP tem uma entrada para o lado local com um endereço IP válido e um endereço MAC e uma entrada semelhante para o lado da Microsoft.
 * O último octeto do endereço IP local é sempre um número ímpar.
 * O último octeto do endereço IP da Microsoft é sempre um número par.
@@ -142,7 +146,7 @@ A tabela ARP de um emparelhamento pode ser usada para validar a configuração e
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### <a name="arp-table-when-it's-on-premises-or-when-the-connectivity-provider-side-has-problems"></a>Tabela ARP quando ela é local ou o lado do provedor de conectividade/local tiver problemas
+### <a name="arp-table-when-its-on-premises-or-when-the-connectivity-provider-side-has-problems"></a>Tabela ARP quando ela é local ou o lado do provedor de conectividade/local tiver problemas
  Aparece apenas uma entrada na tabela ARP. Ela mostra o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft.
 
         Age InterfaceProperty IpAddress  MacAddress    
@@ -165,6 +169,9 @@ A tabela ARP de um emparelhamento pode ser usada para validar a configuração e
 * Validar a transferência de dados examinando os bytes de entrada e saída.
 * Abra um tíquete de suporte com a [Ajuda + suporte do Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se você ainda estiver enfrentando problemas.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

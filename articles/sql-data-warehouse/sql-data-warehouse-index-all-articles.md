@@ -1,19 +1,23 @@
 ---
-title: Todos os tópicos sobre o serviço do SQL Data Warehouse | Microsoft Docs
-description: Uma tabela de todos os tópicos existentes sobre o serviço do Azure chamada SQL Data Warehouse em http://azure.microsoft.com/documentation/articles/, Título e descrição.
+title: "Todos os tópicos para o serviço do SQL Data Warehouse | Microsoft Docs"
+description: "Uma tabela de todos os tópicos existentes sobre o serviço do Azure chamada SQL Data Warehouse em http://azure.microsoft.com/documentation/articles/, Título e descrição."
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: barbkess
 manager: jhubbard
-editor: MightyPen
-
+editor: 
+ms.assetid: a26a6dec-9c08-4415-8f58-4ee1dd41f718
 ms.service: sql-data-warehouse
 ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
+
 
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Todos os tópicos sobre o serviço do SQL Data Warehouse do Azure
@@ -22,15 +26,15 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço do *
 ## <a name="new"></a>Novo
 | &nbsp; | Title | Descrição |
 | ---:|:--- |:--- |
-| 1 |[Backups do SQL Data Warehouse](sql-data-warehouse-backup.md) |Saiba mais sobre os backups do banco de dados interno do SQL Data Warehouse que permitem que você restaure um Azure SQL Data Warehouse para um ponto de restauração ou outra região geográfica. |
+| 1 |[Backups do SQL Data Warehouse](sql-data-warehouse-backups.md) |Saiba mais sobre os backups do banco de dados interno do SQL Data Warehouse que permitem que você restaure um Azure SQL Data Warehouse para um ponto de restauração ou outra região geográfica. |
 
-## <a name="updated-articles,-sql-data-warehouse"></a>Artigos atualizados, SQL Data Warehouse
+## <a name="updated-articles-sql-data-warehouse"></a>Artigos atualizados, SQL Data Warehouse
 Esta seção lista os artigos que foram atualizados recentemente nos quais a atualização foi grande ou significativa. Para cada artigo atualizado, um trecho aproximado do texto markdown adicionado é exibido. Os artigos foram atualizados dentro do intervalo de datas de **22/08/2016** a **05/10/2016**.
 
 | &nbsp; | Artigo | Texto atualizado, trecho | Data da atualização |
 | ---:|:--- |:--- |:--- |
-| 2 |[Carregar dados do armazenamento de blobs do Azure no SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |/- To track bytes and files SELECT  r.command,  s.request_id,  r.status,  count(distinct input_name) as nbr_files,  sum(s.bytes_processed)/1024/1024 as gb_processed FROM  sys.dm_pdw_exec_requests r  inner join sys.dm_pdw_dms_external_work s  on r.request_id = s.request_id WHERE  r. label  = 'CTAS : Load  cso . DimProduct  '  OU r. label  = 'CTAS : Load  cso . AGRUPAR POR r.command dos FactOnlineSales, s.request_id, r.status CLASSIFICAR POR nbr_files desc, desc gb_processed; |2016-09-07 |
-| 3 |[Restauração do SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |** Posso restaurar um data warehouse em pausa?** Para restaurar um data warehouse que está pausado, primeiro você precisa colocá-lo online novamente. Quando o data warehouse estiver online novamente, você tem sete dias de pontos de restauração para escolher. ** Restauração de uma região com redundância geográfica** Caso você esteja usando o armazenamento com redundância geográfica, você pode restaurar o data warehouse para o seu data center pareado em uma região geográfica diferente. O data warehouse é restaurado por meio do último backup diário. ** Restauração de linha do tempo** Você pode restaurar um banco de dados para qualquer ponto de restauração dentro dos últimos sete dias. Os instantâneos iniciam a cada 4-8 horas e permanecem disponíveis por sete dias. Quando um instantâneo tem mais de sete dias, ele expira e seu ponto de restauração fica indisponível. ** Restauração de custos** O custo de armazenamento para o data warehouse restaurado é cobrado na taxa de Armazenamento Premium do Azure. Caso você pause um data warehouse restaurado, você será cobrado pelo armazenamento com a taxa de Armazenamento Premium do Azure. A vantagem da pausa é que você não será cobrado |2016-09-29 |
+| 2 |[Carregar dados do armazenamento de blobs do Azure no SQL Data Warehouse (PolyBase)](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) |/- Para rastrear bytes e arquivos SELECIONE r.command,  s.request_id,  r.status,  count(distinct input_name) como nbr_files,  sum(s.bytes_processed)/1024/1024 como gb_processed DE  sys.dm_pdw_exec_requests r  inner join sys.dm_pdw_dms_external_work s  on r.request_id = s.request_id ONDE  r. label  = 'CTAS : Load  cso . DimProduct  '  OU r. label  = 'CTAS : Load  cso . AGRUPAR POR r.command dos FactOnlineSales, s.request_id, r.status CLASSIFICAR POR nbr_files desc, desc gb_processed; |2016-09-07 |
+| 3 |[Restauração do SQL Data Warehouse](sql-data-warehouse-restore-database-overview.md) |** Posso restaurar um data warehouse pausado?** Para restaurar um data warehouse que está pausado, primeiro você precisa colocá-lo online novamente. Quando o data warehouse estiver online novamente, você tem sete dias de pontos de restauração para escolher. ** Restauração de uma região com redundância geográfica** Caso você esteja usando o armazenamento com redundância geográfica, você pode restaurar o data warehouse para o seu data center pareado em uma região geográfica diferente. O data warehouse é restaurado a partir do último backup diário. ** Restauração de linha do tempo** Você pode restaurar um banco de dados para qualquer ponto de restauração dentro dos últimos sete dias. Os instantâneos iniciam a cada 4-8 horas e permanecem disponíveis por sete dias. Quando um instantâneo possui mais de sete dias, ele expira e seu ponto de restauração fica indisponível. ** Restauração de custos** O custo de armazenamento para o data warehouse restaurado é cobrado na taxa de Armazenamento Premium do Azure. Caso você pause um data warehouse restaurado, você será cobrado pelo armazenamento com a taxa de Armazenamento Premium do Azure. A vantagem da pausa é que você não será cobrado |2016-09-29 |
 
 ## <a name="get-started"></a>Introdução
 | &nbsp; | Title | Descrição |
@@ -145,7 +149,7 @@ Esta seção lista os artigos que foram atualizados recentemente nos quais a atu
 ## <a name="security"></a>Segurança
 | &nbsp; | Title | Descrição |
 | ---:|:--- |:--- |
-| 78 |[SQL Data Warehouse – Suporte de versão anterior a clientes para auditoria e Máscara de Dados Dinâmicos](sql-data-warehouse-auditing-downlevel-clients.md) |Saiba mais sobre o suporte a clientes de versão anterior do SQL Data Warehouse para auditoria de dados |
+| 78 |[SQL Data Warehouse - Suporte de versão anterior a clientes para auditoria e Máscara de Dados Dinâmicos](sql-data-warehouse-auditing-downlevel-clients.md) |Saiba mais sobre o suporte a clientes de versão anterior do SQL Data Warehouse para auditoria de dados |
 | 79 |[Auditoria no Azure SQL Data Warehouse](sql-data-warehouse-auditing-overview.md) |Introdução à auditoria no SQL Data Warehouse |
 | 80 |[Introdução aos dados TDE (Transparent Data Encryption) no SQL Data Warehouse](sql-data-warehouse-encryption-tde.md) |TDE (Transparent Data Encryption) no SQL Data Warehouse |
 | 81 |[Introdução ao Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md) |TDE (Transparent Data Encryption) no SQL Data Warehouse (T-SQL) |
@@ -160,6 +164,9 @@ Esta seção lista os artigos que foram atualizados recentemente nos quais a atu
 | 86 |[Limites de capacidade do SQL Data Warehouse](sql-data-warehouse-service-capacity-limits.md) |Valores máximos para conexões, bancos de dados, tabelas e consultas para o SQL Data Warehouse. |
 | 87 |[Solução de problemas do Azure SQL Data Warehouse](sql-data-warehouse-troubleshoot.md) |Solução de problemas do Azure SQL Data Warehouse. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

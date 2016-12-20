@@ -1,12 +1,12 @@
 ---
 title: API REST de pesquisa de log do Log Analytics | Microsoft Docs
-description: Este guia fornece um tutorial básico que descreve como você pode usar a API REST da Pesquisa do Log Analytics no OMS (Operations Management Suite) e fornece exemplos que mostram como usar os comandos.
+description: "Este guia fornece um tutorial básico que descreve como você pode usar a API REST da Pesquisa do Log Analytics no OMS (Operations Management Suite) e fornece exemplos que mostram como usar os comandos."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: b4e9ebe8-80f0-418e-a855-de7954668df7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 81dd7d9dc799f6f4c0dd54a12409724c182a0349
+
 
 ---
 # <a name="log-analytics-log-search-rest-api"></a>API REST de pesquisa de log do Log Analytics
@@ -93,7 +97,7 @@ O Azure Resource Manager pode ser usado por meio de uma [Biblioteca para .NET](h
 ## <a name="log-analytics-search-rest-api-reference-examples"></a>Exemplos de referência da API REST de Pesquisa do Log Analytics
 Os exemplos a seguir mostram como você pode usar a API de pesquisa.
 
-### <a name="search---action/read"></a>Pesquisa - ação/leitura
+### <a name="search---actionread"></a>Pesquisa - ação/leitura
 **Url de exemplo:**
 
 ```
@@ -179,7 +183,7 @@ A tabela a seguir descreve as propriedades que estão disponíveis.
     }
 ```
 
-### <a name="search/{id}---action/read"></a>Pesquisa/{ID} - ação/leitura
+### <a name="searchid---actionread"></a>Pesquisa/{ID} - ação/leitura
 **Solicite o conteúdo de uma pesquisa salva:**
 
 ```
@@ -356,7 +360,7 @@ A seguir está um exemplo de resposta para um grupo de computadores.
         "Tags": [{
             "Name": "Group",
             "Value": "Computer"
-        }],
+          }],
     "Version": 1
     }
 
@@ -395,6 +399,9 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para criar consultas usando campos personalizados para os critérios.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

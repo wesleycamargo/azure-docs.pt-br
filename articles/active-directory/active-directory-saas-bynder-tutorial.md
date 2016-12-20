@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Bynder | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Bynder.
+title: "Tutorial: Integração do Azure Active Directory ao Bynder | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Bynder."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4fb0ab26-b3b9-420a-8072-a0be80ea021e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 01ce02974d18d56421f161126e3541ac7d4997fa
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-bynder"></a>Tutorial: Integração do Azure Active Directory ao Bynder
+# <a name="tutorial-azure-active-directory-integration-with-bynder"></a>Tutorial: Integração do Azure Active Directory ao Bynder
 O objetivo desse tutorial é mostrar como integrar o Bynder com o Azure AD (Azure Active Directory).
 
 A integração do Bynder ao Azure AD oferece os seguintes benefícios:
@@ -141,7 +145,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-bynder-tutorial/create_aaduser_09.png)
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -244,6 +248,6 @@ Quando você clicar no bloco do Bynder no Painel de Acesso, deverá ser automati
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

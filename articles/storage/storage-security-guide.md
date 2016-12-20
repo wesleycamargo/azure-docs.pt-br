@@ -1,19 +1,23 @@
 ---
-title: Guia de segurança do Armazenamento do Azure | Microsoft Docs
-description: Detalha os vários métodos de proteger o Armazenamento do Azure, incluindo, entre outros, RBAC, Criptografia do Serviço de Armazenamento, Criptografia do Cliente, SMB 3.0 e Azure Disk Encryption.
+title: "Guia de segurança do Armazenamento do Azure | Microsoft Docs"
+description: "Detalha os vários métodos de proteger o Armazenamento do Azure, incluindo, entre outros, RBAC, Criptografia do Serviço de Armazenamento, Criptografia do Cliente, SMB 3.0 e Azure Disk Encryption."
 services: storage
 documentationcenter: .net
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/08/2016
-ms.author: cbrooks;robinsh
+ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8f674c34cfbfd5c107258d7acd33583947cd61d6
+
 
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do Armazenamento do Azure
@@ -50,7 +54,7 @@ Ao criar uma nova conta de armazenamento, você seleciona um modelo de implanta�
 
 Este guia se concentra no modelo Resource Manager, que é o meio recomendado para a criação de contas de armazenamento. Com as contas de armazenamento do Gerenciador de Recursos, em vez de fornecer acesso à toda a assinatura, você pode controlar o acesso em um nível mais limitado no plano de gerenciamento usando o RBAC (Controle de Acesso Baseado em Função).
 
-### <a name="how-to-secure-your-storage-account-with-role-based-access-control-(rbac)"></a>Como proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função)
+### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Como proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função)
 Vamos falar sobre o que é o RBAC e como você pode usá-lo. Cada assinatura do Azure tem um Azure Active Directory. Os usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure que usam o modelo de implantação Resource Manager. Esse acesso é chamado de RBAC (Controle de Acesso Baseado em Função). Para gerenciar esse acesso, é possível usar o [Portal do Azure](https://portal.azure.com/), as [ferramentas da CLI do Azure](../xplat-cli-install.md), o [PowerShell](../powershell-install-configure.md) ou as [APIs REST do Provedor de Recursos de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Com o modelo Resource Manager, você coloca a conta de armazenamento em um grupo de recursos e controla o acesso ao plano de gerenciamento dessa conta de armazenamento específica usando o Azure Active Directory. Por exemplo, é possível permitir que usuários específicos acessem as chaves da conta de armazenamento, enquanto outros usuários podem exibir informações sobre a conta de armazenamento, mas não podem acessar suas chaves.
@@ -87,10 +91,7 @@ Veja os principais pontos que você precisa saber sobre como usar o RBAC para ac
   Esse artigo detalha todas as funções disponíveis internas no RBAC.
 * [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md)
   
-  Esse artigo explica os modelos de implantação clássica e implantação Resource Manager, além de explicar os benefícios de usar o Resource Manager e os grupos de recursos.
-* [Provedores de computação, rede e armazenamento do Azure no Gerenciador de Recursos do Azure](../virtual-machines/virtual-machines-windows-compare-deployment-models.md)
-  
-  Esse artigo explica como os Provedores de Computação, Rede e Armazenamento do Azure funcionam no modelo do Gerenciador de Recursos.
+  Esse artigo explica os modelos de implantação clássica e implantação Resource Manager, além de explicar os benefícios de usar o Resource Manager e os grupos de recursos. Explica como os Provedores de Computação, Rede e Armazenamento do Azure funcionam no modelo do Gerenciador de Recursos.
 * [Gerenciar o controle de acesso com base em função com a API REST](../active-directory/role-based-access-control-manage-access-rest.md)
   
   Esse artigo mostra como usar a API REST para gerenciar o RBAC.
@@ -187,15 +188,17 @@ Uma Assinatura de Acesso Compartilhado é um conjunto de parâmetros de consulta
 
 que fornece informações sobre o acesso permitido e por quanto tempo o acesso é permitido. Veja um exemplo; este URI fornece acesso de leitura a um blob por cinco minutos. Observe que os parâmetros de consulta SAS devem ser Codificados pela URL, como %3A para dois-pontos (:) e %20 para um espaço.
 
-    http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
-    ?sv=2015-04-05 (storage service version)
-    &st=2015-12-10T22%3A18%3A26Z (start time, in UTC time and URL encoded)
-    &se=2015-12-10T22%3A23%3A26Z (end time, in UTC time and URL encoded)
-    &sr=b (resource is a blob)
-    &sp=r (read access)
-    &sip=168.1.5.60-168.1.5.70 (requests can only come from this range of IP addresses)
-    &spr=https (only allow HTTPS requests)
-    &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
+```
+http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
+?sv=2015-04-05 (storage service version)
+&st=2015-12-10T22%3A18%3A26Z (start time, in UTC time and URL encoded)
+&se=2015-12-10T22%3A23%3A26Z (end time, in UTC time and URL encoded)
+&sr=b (resource is a blob)
+&sp=r (read access)
+&sip=168.1.5.60-168.1.5.70 (requests can only come from this range of IP addresses)
+&spr=https (only allow HTTPS requests)
+&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
+```
 
 #### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Como a Assinatura de Acesso Compartilhado é autenticada pelo Serviço de Armazenamento do Azure
 Quando o serviço de armazenamento recebe a solicitação, ele usa os parâmetros de consulta de entrada e cria uma assinatura usando o mesmo método que o programa de chamada. Ele então compara as duas assinaturas. Se elas coincidirem, o serviço de armazenamento poderá verificar a versão do serviço de armazenamento para garantir que ele seja válido, verificar se a data e a hora atuais estão dentro da janela especificada, ter certeza de que o acesso solicitado corresponde à solicitação feita etc.
@@ -256,7 +259,7 @@ Para obter informações mais detalhadas sobre como usar as Assinatura de Acesso
   * [SAS Getting Started Tutorial (Tutorial de introdução à SAS)](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ## <a name="encryption-in-transit"></a>Criptografia em trânsito
-### <a name="transport-level-encryption-–-using-https"></a>Criptografia no nível de transporte – usando HTTPS
+### <a name="transport-level-encryption-using-https"></a>Criptografia no nível de transporte – usando HTTPS
 Outra etapa que você deve executar para garantir a segurança dos dados do Armazenamento do Azure é criptografá-los entre o cliente e o Armazenamento do Azure. A primeira recomendação é sempre usar o protocolo [HTTPS](https://en.wikipedia.org/wiki/HTTPS) , que garante a comunicação segura na Internet pública.
 
 Você sempre deve usar HTTPS ao chamar as APIs REST ou ao acessar objetos no armazenamento. Além disso, as **Assinaturas de Acesso Compartilhado**, que podem ser usadas para delegar acesso a objetos do Armazenamento do Azure, incluem uma opção para especificar que apenas o protocolo HTTPS pode ser utilizado ao usar as Assinaturas de Acesso Compartilhado, garantindo que qualquer pessoa que envie links com tokens SAS usará o protocolo adequado.
@@ -292,7 +295,7 @@ Há três recursos do Azure que fornecem criptografia em repouso. O Azure Disk E
 
 Embora seja possível usar a Criptografia do Cliente para criptografar os dados em trânsito (que também são armazenados em sua forma criptografada no Armazenamento), talvez você prefira simplesmente usar HTTPS durante a transferência e que os dados sejam criptografados automaticamente de alguma maneira quando são armazenados. Há duas maneiras de fazer isso: com o Azure Disk Encryption e com a SSE. Uma é usada para criptografar os dados diretamente nos discos de dados e do sistema operacional usados pelas VMs e a outra é usada para criptografar os dados gravados no Armazenamento de Blobs do Azure.
 
-### <a name="storage-service-encryption-(sse)"></a>SSE (Criptografia do Serviço de Armazenamento)
+### <a name="storage-service-encryption-sse"></a>SSE (Criptografia do Serviço de Armazenamento)
 A SSE permite solicitar que o serviço de armazenamento criptografe automaticamente os dados ao gravá-los no Armazenamento do Azure. Quando você lê os dados no Armazenamento do Azure, eles são descriptografados pelo serviço de armazenamento antes de serem retornados. Isso permite proteger os dados sem precisar modificar código nem adicionar código a nenhum aplicativo.
 
 Essa é uma configuração que se aplica à conta de armazenamento inteira. Você pode habilitar e desabilitar esse recurso alterando o valor da configuração. Para fazer isso, você pode usar o Portal do Azure, o PowerShell, a CLI do Azure, a API REST do Provedor de Recursos de Armazenamento ou a Biblioteca de Cliente de Armazenamento .NET. Por padrão, a SSE é desativada.
@@ -342,7 +345,7 @@ A solução dá suporte aos seguintes itens para VMs IaaS para lançamento de vi
 
 * Integração com o Cofre da Chave do Azure
 * [VMs de IaaS das séries Standard A, D e G](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* Habilitar a criptografia em VMs de IaaS criadas usando o modelo do [Gerenciador de Recursos do Azure](../resource-group-overview.md)
+* Habilitar a criptografia em VMs de IaaS criadas usando o modelo do [Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md)
 * Todas as [regiões](https://azure.microsoft.com/regions/)
 
 Esse recurso garante que todos os dados nos discos da máquina virtual sejam criptografados em repouso no Armazenamento do Azure.
@@ -352,7 +355,7 @@ Esse recurso garante que todos os dados nos discos da máquina virtual sejam cri
   
   Esse artigo aborda a versão preview do Azure Disk Encryption e fornece um link para baixar o white paper.
 
-### <a name="comparison-of-azure-disk-encryption,-sse,-and-client-side-encryption"></a>Comparação do Azure Disk Encryption, da SSE e da Criptografia do Cliente
+### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparação do Azure Disk Encryption, da SSE e da Criptografia do Cliente
 #### <a name="iaas-vms-and-their-vhd-files"></a>VMs IaaS e seus arquivos VHD
 Para discos usados pelas VMs IaaS, é recomendável usar o Azure Disk Encryption. Você pode ativar a SSE para criptografar os arquivos VHD usados para apoiar os discos no Armazenamento do Azure, mas ela só criptografa os dados recém-criados. Isso significa que, se você criar uma VM e habilitar a SSE na conta de armazenamento que mantém o arquivo VHD, somente as alterações serão criptografadas, não o arquivo VHD original.
 
@@ -364,7 +367,7 @@ Caso você tenha um VHD não criptografado no local, será possível carregá-lo
 
 Ao adicionar um disco de dados e montá-lo na VM, você pode ativar o Azure Disk Encryption nesse disco de dados. Ele criptografará esse disco de dados localmente primeiro e, em seguida, a camada de gerenciamento de serviço fará uma gravação lenta no armazenamento para que o conteúdo do armazenamento seja criptografado.
 
-#### <a name="client-side-encryption####"></a>Criptografia do cliente
+#### <a name="client-side-encryption"></a>Criptografia do cliente
 A criptografia do cliente é o método mais seguro de criptografar dados, pois ela os criptografa antes da transferência, além de criptografar os dados em repouso. No entanto, ela exige a adição de código aos aplicativos usando armazenamento, o que talvez não seja conveniente. Nesses casos, é possível usar HTTPs para os dados em trânsito e a SSE para criptografar os dados em repouso.
 
 Com a criptografia do cliente, você pode criptografar entidades de tabela, mensagens da fila e blobs. Com a SSE, você pode criptografar apenas os blobs. Se precisar que dados de tabela e fila sejam criptografados, você deverá usar a criptografia do cliente.
@@ -373,7 +376,7 @@ A criptografia do cliente é totalmente gerenciada pelo aplicativo. Essa é a ab
 
 A criptografia do cliente significa mais carga no cliente, e você deve levar isso em conta em seus planos de escalabilidade, especialmente se estiver criptografando e transferindo muitos dados.
 
-#### <a name="storage-service-encryption-(sse)"></a>SSE (Criptografia do Serviço de Armazenamento)
+#### <a name="storage-service-encryption-sse"></a>SSE (Criptografia do Serviço de Armazenamento)
 A SSE é gerenciada pelo Armazenamento do Azure. O uso da SSE não fornece segurança aos dados em trânsito, mas ela criptografa os dados conforme eles são gravados no Armazenamento do Azure. Não há impacto no desempenho ao usar esse recurso.
 
 Você pode criptografar apenas os blobs de blocos, os blobs de acréscimo e os blobs de páginas usando a SSE. Se precisar criptografar dados de tabela ou fila, pense em usar a criptografia do cliente.
@@ -390,7 +393,7 @@ Outra parte dos dados que você pode ver nos logs da análise de armazenamento �
 
 Isso pode ser muito útil se você estiver protegendo rigorosamente o acesso ao armazenamento. Por exemplo, no Armazenamento de Blobs, é possível definir todos os contêineres para privado e implementar o uso de um serviço SAS em todos os aplicativos. Desse modo, você pode verificar os logs regularmente para ver se seus blobs são acessados usando as chaves da conta de armazenamento, que pode indicar uma violação de segurança, ou se os blobs são públicos, mas não deveriam ser.
 
-#### <a name="what-do-the-logs-look-like?"></a>Como os logs devem ser?
+#### <a name="what-do-the-logs-look-like"></a>Como os logs devem ser?
 Depois de habilitar o registro em log e as métricas da conta de armazenamento usando o Portal do Azure, os dados de análise começarão a se acumular rapidamente. O registro em log e as métricas para cada serviço são distintos; o registro em log é feito apenas quando há atividade na conta de armazenamento, enquanto as métricas são registradas a cada minuto, de hora em hora, ou todos os dias, de acordo com a configuração.
 
 Os logs são armazenados em blobs de blocos em um contêiner chamado $logs na conta de armazenamento. Esse contêiner é criado automaticamente quando a Análise de Armazenamento é habilitada. Uma vez criado, esse contêiner não pode ser excluído, embora você possa excluir seu conteúdo.
@@ -405,7 +408,7 @@ Cada solicitação no Armazenamento do Azure é registrada. Veja um instantâneo
 
 É possível ver que você pode usar os logs para rastrear qualquer tipo de chamada para uma conta de armazenamento.
 
-#### <a name="what-are-all-of-those-fields-for?"></a>Para que servem todos esses campos?
+#### <a name="what-are-all-of-those-fields-for"></a>Para que servem todos esses campos?
 Há um artigo listado nos recursos abaixo que fornece a lista dos muitos campos nos logs e para que eles são usados. Veja a lista de campos na ordem:
 
 ![Instantâneo de campos em um arquivo de log](./media/storage-security-guide/image3.png)
@@ -414,7 +417,7 @@ Estamos interessados nas entradas para GetBlob e em como elas são autenticadas,
 
 Por exemplo, nas primeiras linhas na lista acima, request-status é "Success" e authorization-type é "authenticated". Isso significa que a solicitação foi validada usando a chave da conta de armazenamento.
 
-#### <a name="how-are-my-blobs-being-authenticated?"></a>Como meu blobs estão sendo autenticados?
+#### <a name="how-are-my-blobs-being-authenticated"></a>Como meu blobs estão sendo autenticados?
 Temos três casos que nos interessam.
 
 1. O blob é público e é acessado usando uma URL sem uma Assinatura de Acesso Compartilhado. Nesse caso, request-status é "AnonymousSuccess" e authorization-type é "anonymous".
@@ -446,7 +449,7 @@ Você pode usar o Analisador de Mensagem da Microsoft para exibir e analisar ess
   
   Esse artigo é a referência do Analisador de Mensagem da Microsoft e inclui links para um tutorial, início rápido e resumo do recurso.
 
-## <a name="cross-origin-resource-sharing-(cors)"></a>CORS (Compartilhamento de Recursos entre Origens)
+## <a name="cross-origin-resource-sharing-cors"></a>CORS (Compartilhamento de Recursos entre Origens)
 ### <a name="cross-domain-access-of-resources"></a>Acesso de recursos entre domínios
 Quando um navegador da Web em execução em um domínio faz uma solicitação HTTP a um recurso de outro domínio, isso é chamado de solicitação HTTP entre origens. Por exemplo, uma página HTML no site da contoso.com faz uma solicitação para um jpeg hospedado em fabrikam.blob.core.windows.net. Por motivos de segurança, os navegadores restringem as solicitações HTTP entre origens iniciadas dentro de scripts, como JavaScript. Isso significa que quando algum código JavaScript em uma página da Web de contoso.com solicita esse jpeg em fabrikam.blob.core.windows.net, o navegador não permite a solicitação.
 
@@ -457,22 +460,24 @@ Uma maneira de resolver isso é atribuir um domínio personalizado, como "storag
 
 Outra maneira de resolver esse problema é ter o aplicativo Web que atua como proxy para as chamadas de armazenamento. Isso significa que se você estiver carregando um arquivo no Armazenamento de Blobs, o aplicativo Web o gravará localmente e, em seguida, o copiará no Armazenamento de Blobs, ou lerá todo ele na memória e depois o gravará no Armazenamento de Blobs. Como alternativa, você escrever um aplicativo Web dedicado (como uma API Web) que carrega os arquivos localmente e os grava no Armazenamento de Blobs. De qualquer forma, é preciso prestar contas a essa função ao determinar a escalabilidade necessária.
 
-#### <a name="how-can-cors-help?"></a>Como o CORS pode ajudar?
+#### <a name="how-can-cors-help"></a>Como o CORS pode ajudar?
 O Armazenamento do Azure permite habilitar o CORS – Compartilhamento de Recursos entre Origens. Para cada conta de armazenamento, é possível especificar os domínios que podem acessar os recursos na conta de armazenamento. Por exemplo, no caso descrito acima, podemos pode habilitar o CORS na conta de armazenamento fabrikam.blob.core.windows.net e configurá-lo para permitir o acesso em contoso.com. Assim, o aplicativo Web de contoso.com pode acessar diretamente os recursos em fabrikam.blob.core.windows.net.
 
 Observe que o CORS permite o acesso, mas não fornece autenticação, que é obrigatória para todo acesso não público dos recursos de armazenamento. Isso significa que você poderá acessar blobs somente se eles forem públicos ou se incluir uma Assinatura de Acesso Compartilhado dando a você permissão adequada. Arquivos, filas e tabelas não têm acesso público e exigem uma SAS.
 
 Por padrão, o CORS está desabilitado em todos os serviços Você pode habilitar o CORS usando a API REST ou a biblioteca de cliente de armazenamento para chamar um dos métodos e definir as políticas de serviço. Ao fazer isso, você inclui uma regra de CORS, que está em XML. Veja um exemplo de uma regra de CORS que foi definida usando a operação Definir Propriedades de Serviço para o Serviço Blob de uma conta de armazenamento. Você pode executar essa operação usando a biblioteca de cliente de armazenamento ou as APIs REST do Armazenamento do Azure.
 
-    <Cors>    
-        <CorsRule>
-            <AllowedOrigins>http://www.contoso.com, http://www.fabrikam.com</AllowedOrigins>
-            <AllowedMethods>PUT,GET</AllowedMethods>
-            <AllowedHeaders>x-ms-meta-data*,x-ms-meta-target*,x-ms-meta-abc</AllowedHeaders>
-            <ExposedHeaders>x-ms-meta-*</ExposedHeaders>
-            <MaxAgeInSeconds>200</MaxAgeInSeconds>
-        </CorsRule>
-    <Cors>
+```xml
+<Cors>    
+    <CorsRule>
+        <AllowedOrigins>http://www.contoso.com, http://www.fabrikam.com</AllowedOrigins>
+        <AllowedMethods>PUT,GET</AllowedMethods>
+        <AllowedHeaders>x-ms-meta-data*,x-ms-meta-target*,x-ms-meta-abc</AllowedHeaders>
+        <ExposedHeaders>x-ms-meta-*</ExposedHeaders>
+        <MaxAgeInSeconds>200</MaxAgeInSeconds>
+    </CorsRule>
+<Cors>
+```
 
 Veja o que cada linha significa:
 
@@ -521,6 +526,7 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
   
   Esse artigo fala sobre o uso do modo FIPS em computadores Windows antigos.
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Importar dados no Estúdio de Aprendizado de Máquina | Microsoft Docs
-description: Como importar os dados para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados. Saiba quais tipos e formatos de dados têm suporte.
+title: Importar dados para o Machine Learning Studio | Microsoft Docs
+description: "Como importar os dados para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados. Saiba quais tipos e formatos de dados têm suporte."
 keywords: importar dados, formato de dados, tipos de dados, fontes de dados, dados de treinamento
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: c194ee3b-838c-4efe-bb2a-c1d052326216
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,31 +15,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: garye;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3d9cceb28de1cfd43a2d2de79de3a59517908ec9
+
 
 ---
-# Importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados
-Para usar seus próprios dados no Estúdio de Aprendizado de Máquina para desenvolver e treinar uma solução de análise preditiva, você pode:
+# <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados
+Para usar seus próprios dados no Estúdio de Aprendizado de Máquina para desenvolver e treinar uma solução de análise preditiva, você pode: 
 
-* carregar dados de um **arquivo local** antes do tempo do seu disco rígido para criar um módulo de conjunto de dados no espaço de trabalho.
-* acessar dados de uma das várias **fontes de dados online** enquanto o teste é executado usando o módulo [Importar Dados][import-data].
-* usar dados de outro teste de Aprendizado de Máquina do Azure salvo como um **conjunto de dados**.
+* carregar dados de um **arquivo local** antes do tempo por meio do disco rígido para criar um módulo de conjunto de dados no espaço de trabalho.  
+* acessar dados de uma das várias **fontes de dados online** enquanto o teste é executado usando o módulo [Importar Dados][import-data]. 
+* usar dados de outro teste de Aprendizado de Máquina do Azure salvo como um **conjunto de dados**. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Cada uma dessas opções são descritas em um dos tópicos no menu acima. Este tópico mostra como importar dados de várias fontes de dados para usar no Machine Learning Studio.
+Cada uma dessas opções são descritas em um dos tópicos no menu acima. Este tópico mostra como importar dados de várias fontes de dados para usar no Estúdio de Aprendizado de Máquina. 
 
 > [!NOTE]
-> Há diversos conjuntos de dados de exemplo disponíveis no Estúdio de Aprendizado de Máquina que você pode usar para essa finalidade. Para saber mais, consulte [Usar os conjuntos de dados de amostra no Estúdio de Aprendizado de Máquina do Azure](machine-learning-use-sample-datasets.md).
+> Há diversos conjuntos de dados de exemplo disponíveis no Estúdio de Aprendizado de Máquina que você pode usar para essa finalidade. Para obter informações, consulte [Usar os conjuntos de dados de amostra no Estúdio de Aprendizado de Máquina do Azure](machine-learning-use-sample-datasets.md).
 > 
 > 
 
-Este tópico introdutório também mostra como obter dados prontos para uso no Machine Learning Studio e descreve quais formatos de dados e tipos de dados são compatíveis.
+Este tópico introdutório também mostra como obter dados prontos para uso no Estúdio de Aprendizado de Máquina e descreve quais formatos de dados e tipos de dados são compatíveis. 
 
 > [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 > 
 > 
 
-## Preparar dados para uso no Estúdio de Aprendizado de Máquina do Azure.
+## <a name="get-data-ready-for-use-in-azure-machine-learning-studio"></a>Preparar dados para uso no Estúdio de Aprendizado de Máquina do Azure.
 O Estúdio de Aprendizado de Máquina foi criado para trabalhar com dados tabulares ou retangulares, como dados de texto delimitados ou dados estruturados de um banco de dados, embora em algumas circunstâncias seja possível usar dados não retangulares.
 
 É melhor se os dados estiverem relativamente limpos. Ou seja, você deve cuidar de problemas como cadeias de caracteres sem aspas antes de carregar os dados para seu experimento.
@@ -48,7 +52,7 @@ No entanto, há módulos disponíveis no Estúdio de Aprendizado de Máquina que
 
 A qualquer momento do experimento, você pode exibir ou baixar os dados que são produzidos por um módulo clicando com o botão direito na porta de saída. Dependendo do módulo, pode haver opções de download diferentes disponíveis, ou você poderá exibir os dados no seu navegador da Web no Estúdio de Aprendizado de Máquina.
 
-## Formatos e tipos de dados compatíveis
+## <a name="data-formats-and-data-types-supported"></a>Formatos e tipos de dados compatíveis
 Você pode importar vários tipos de dados para seu experimento, dependendo de qual mecanismo usar para importar os dados e de onde eles estão vindo:
 
 * Texto sem formatação (.txt)
@@ -79,15 +83,20 @@ Os **tipos de dados** a seguir são reconhecidos pelo Estúdio de Aprendizado de
 * DateTime
 * TimeSpan
 
-O Estúdio de Aprendizado de Máquina usa um tipo de dados interno chamado ***Tabela de Dados*** para transmitir dados entre módulos. Você pode converter explicitamente os dados para o formato Data Table usando o módulo [Converter para conjunto de dados][convert-to-dataset].
+O Machine Learning Studio usa um tipo de dados interno chamado ***Tabela de Dados*** para transmitir dados entre módulos. Você pode converter explicitamente os dados para o formato Data Table usando o módulo [Converter para conjunto de dados][convert-to-dataset].
 
 Qualquer módulo que aceitar formatos diferentes do Data Table converterá os dados para Data Table silenciosamente antes de transmiti-los para o módulo seguinte.
 
-Se necessário, você pode converter o formato Data Table de volta para o formato CSV, TSV, ARFF ou SVMLight usando outros módulos de conversão. Veja a seção **Conversões de Formato de Dados** da paleta de módulos para ver os módulos que executam essas funções.
+Se necessário, você pode converter o formato Data Table de volta para o formato CSV, TSV, ARFF ou SVMLight usando outros módulos de conversão.
+Veja a seção **Conversões de Formato de Dados** da paleta de módulos para ver os módulos que executam essas funções.
 
 <!-- Module References -->
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

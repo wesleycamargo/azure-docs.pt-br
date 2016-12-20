@@ -1,12 +1,12 @@
 ---
 title: Pesquisas de log no Log Analytics | Microsoft Docs
-description: As pesquisas de log permitem combinar e correlacionar quaisquer dados de computador de várias fontes em seu ambiente.
+description: "As pesquisas de log permitem combinar e correlacionar quaisquer dados de computador de várias fontes em seu ambiente."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3e1810850651cff4680ea558178ebf92aeac4faa
+
 
 ---
 # <a name="log-searches-in-log-analytics"></a>Pesquisas de log no Log Analytics
@@ -246,7 +250,7 @@ Esse comando é particularmente útil quando você deseja controlar a saída de 
 ## <a name="use-the-measure-command"></a>Usar o comando medir
 MEDIDA é um dos comandos mais versáteis em pesquisas do Log Analytics. Ele permite que você aplique *funções* estatísticas aos seus dados e agregue os resultados agrupados por um determinado campo. Há várias funções estatísticas que têm suporte de Medida.
 
-### <a name="measure-count()"></a>Contagem de medida()
+### <a name="measure-count"></a>Contagem de medida()
 A primeira função estatística com a qual trabalhar e uma das mais simples de entender é a função *count()* .
 
 Os resultados de qualquer consulta de pesquisa, como `Type=Event`, mostram filtros também chamados de facetas à esquerda dos resultados da pesquisa. Os filtros mostram uma distribuição de valores por um determinado campo para os resultados da pesquisa executada.
@@ -571,6 +575,9 @@ Para obter outras informações sobre pesquisas de log, veja:
 * Use [Campos personalizados no Log Analytics](log-analytics-custom-fields.md) para estender as pesquisas de log.
 * Examine a [referência de pesquisa de log do Log Analytics](log-analytics-search-reference.md) para exibir todos os campos de pesquisa e as facetas disponíveis no Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

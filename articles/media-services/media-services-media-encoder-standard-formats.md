@@ -1,12 +1,12 @@
 ---
-title: Codecs e formatos padrão do codificador de mídia
-description: Este tópico oferece uma visão geral dos codecs e dos formatos do Codificador de Mídia Padrão.
+title: "Codecs e formatos padrão do codificador de mídia"
+description: "Este tópico oferece uma visão geral dos codecs e dos formatos do Codificador de Mídia Padrão."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 382913f0501c692cc1ee460d2264118414ad20c3
+
 
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs e formatos padrão do codificador de mídia
 Este documento contém uma lista dos formatos de arquivo de importação e importação mais comuns que você pode usar com o Codificador de Mídia padrão.
 
-## <a name="input-container/file-formats"></a>Formatos de arquivo/contêiner de entrada
+## <a name="input-containerfile-formats"></a>Formatos de arquivo/contêiner de entrada
 | Formatos de arquivo (extensões de arquivo) | Suportado |
 | --- | --- | --- | --- |
-| FLV (com codecs H.264 e AAC) (.flv) |Sim |
-| MXF (.mxf) |Sim |
-| GXF (.gxf) |Sim |
+| FLV (com codecs H.264 e AAC) (.flv) |sim |
+| MXF    (.mxf) |sim |
+| GXF    (.gxf) |Sim |
 | MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Sim |
 | Vídeo do Windows Media (WMV)/ASF (.wmv, .asf) |Sim |
 | AVI (8 bits/10 bits descompactado) (.avi) |Sim |
@@ -108,6 +112,9 @@ A tabela a seguir lista os codecs e formatos de arquivo com suporte para exporta
 
 [Como codificar com o Codificador de Mídia Padrão](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

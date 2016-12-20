@@ -2,24 +2,28 @@
 title: Fazer backup de um servidor do Exchange no Backup do Azure com o System Center 2012 R2 DPM | Microsoft Docs
 description: Saiba como fazer backup de um servidor do Exchange no Backup do Azure usando o System Center 2012 R2 DPM
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: MaanasSaran
 manager: NKolli1
-editor: ''
-
+editor: 
+ms.assetid: 13f32256-888e-416e-a78b-40c2a26a5939
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/28/2016
 ms.author: anuragm;jimpark;delhan;trinadhk;markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2ee4bfa8c7dce45c6366ddc8aa6e723fe91431a7
+
 
 ---
-# Fazer backup de um servidor do Exchange no Backup do Azure com o System Center 2012 R2 DPM
-Este artigo descreve como configurar um servidor do System Center 2012 R2 DPM (Data Protection Manager) para fazer backup de um servidor do Microsoft Exchange no Backup do Azure.
+# <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Fazer backup de um servidor do Exchange no Backup do Azure com o System Center 2012 R2 DPM
+Este artigo descreve como configurar um servidor do System Center 2012 R2 DPM (Data Protection Manager) para fazer backup de um servidor do Microsoft Exchange no Backup do Azure.  
 
-## Atualizações
+## <a name="updates"></a>Atualizações
 Para registrar o servidor DPM no Backup do Azure, você deve instalar o pacote cumulativo de atualizações mais recente do System Center 2012 R2 DPM e a versão mais recente do Agente de Backup do Azure. Obtenha o pacote cumulativo de atualizações mais recente no [Catálogo da Microsoft](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
 > [!NOTE]
@@ -27,7 +31,7 @@ Para registrar o servidor DPM no Backup do Azure, você deve instalar o pacote c
 > 
 > 
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de continuar, verifique se todos os [pré-requisitos](backup-azure-dpm-introduction.md#prerequisites) para uso do Backup do Microsoft Azure como proteção às cargas de trabalho foram atendidos. Esses pré-requisitos incluem os seguintes:
 
 * Criação de um cofre de backup no site do Azure.
@@ -36,13 +40,13 @@ Antes de continuar, verifique se todos os [pré-requisitos](backup-azure-dpm-int
 * Uso das credenciais do cofre para registro no servidor DPM.
 * Se você estiver protegendo o Exchange 2016, atualize para o DPM 2012 R2 UR9 ou posterior
 
-## Agente de proteção do DPM
+## <a name="dpm-protection-agent"></a>Agente de proteção do DPM
 Execute estas etapas para instalar o agente de proteção do DPM no servidor do Exchange:
 
 1. Verifique se os firewalls estão configurados corretamente. Confira [Configurar exceções de firewall do agente](https://technet.microsoft.com/library/Hh758204.aspx).
-2. Instale o agente no servidor do Exchange, clicando em **Gerenciamento > Agentes > Instalar** no Console do Administrador do DPM. Confira [Instalar o agente de proteção do DPM](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) para conhecer as etapas detalhadas.
+2. Instale o agente no servidor do Exchange clicando em **Gerenciamento > Agentes > Instalar** no Console do Administrador do DPM. Confira [Instalar o agente de proteção do DPM](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396) para conhecer as etapas detalhadas.
 
-## Criar um grupo de proteção do Exchange server
+## <a name="create-a-protection-group-for-the-exchange-server"></a>Criar um grupo de proteção do Exchange server
 1. No Console do Administrador do DPM, clique em **Proteção** e, em seguida, clique em **Novo** na faixa de opções de ferramenta para abrir o assistente **Criar Novo Grupo de Proteção**.
 2. Na tela de **Boas-vindas** do assistente, clique em **Próximo**.
 3. Na tela **Selecionar tipo do grupo de proteção**, escolha **Servidores** e clique em **Próximo**.
@@ -68,10 +72,11 @@ Execute estas etapas para instalar o agente de proteção do DPM no servidor do 
     Depois de escolher essa opção, a verificação de consistência do backup será executada no servidor DPM a fim de evitar o tráfego de E/S gerado pela execução do comando **eseutil** no servidor Exchange.
    
    > [!NOTE]
-   > Para usar essa opção, você deve copiar os arquivos Ese.dll e Eseutil.exe no diretório C:\\Arquivos de Programas\\Microsoft System Center 2012 R2\\DPM\\DPM\\bin no servidor DPM. Caso contrário, o seguinte erro será disparado: ![erro de eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
+   > Para usar essa opção, você deve copiar os arquivos Ese.dll e Eseutil.exe no diretório C:\Arquivos de Programas\Microsoft System Center 2012 R2\DPM\DPM\bin no servidor DPM. Caso contrário, o seguinte erro será disparado:   
+   > ![erro de eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    > 
    > 
-8. Clique em **Avançar**.
+8. Clique em **Próximo**.
 9. Escolha o banco de dados para **Copiar o Backup** e clique em **Próximo**.
    
    > [!NOTE]
@@ -93,19 +98,19 @@ Execute estas etapas para instalar o agente de proteção do DPM no servidor do 
     > Observe que os Pontos de recuperação online têm base nos pontos de recuperação completos expressos. Portanto, você deve agendar o ponto de recuperação online após o período especificado para o ponto de recuperação completo expresso.
     > 
     > 
-16. Configurar a política de retenção para o **Backup do Azure** e clique em **Próximo**.
+16. Configure a política de retenção para o **Backup do Azure** e clique em **Próximo**.
 17. Escolha uma opção de replicação online e clique em **Próximo**.
     
-    Se você tiver um banco de dados de grande porte, talvez a criação do backup inicial na rede demore bastante. Para evitar esse problema, crie um backup offline.
+    Se você tiver um banco de dados de grande porte, talvez a criação do backup inicial na rede demore bastante. Para evitar esse problema, crie um backup offline.  
     
     ![Especificar política de retenção online](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 18. Confirme as configurações e clique em **Criar Grupo**.
 19. Clique em **fechar**
 
-## Recuperar o banco de dados do Exchange
+## <a name="recover-the-exchange-database"></a>Recuperar o banco de dados do Exchange
 1. Para recuperar um banco de dados do Exchange, clique em **Recuperação** no Console do Administrador do DPM.
 2. Localize o banco de dados do Exchange que você deseja recuperar.
-3. Selecione um ponto de recuperação online na lista suspensa *tempo de recuperação*.
+3. Selecione um ponto de recuperação online na lista suspensa *tempo de recuperação* .
 4. Clique em **Recuperar** para iniciar o **Assistente de Recuperação**.
 
 Há cinco tipos de recuperação para os pontos de recuperação online:
@@ -118,7 +123,12 @@ Há cinco tipos de recuperação para os pontos de recuperação online:
   
     ![Escolher a replicação online](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

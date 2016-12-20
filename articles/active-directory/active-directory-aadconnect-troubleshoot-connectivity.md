@@ -2,18 +2,22 @@
 title: 'Azure AD Connect: solucionar problemas de conectividade | Microsoft Docs'
 description: Explica como solucionar problemas de conectividade com o Azure AD Connect.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2016
+ms.date: 11/01/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fecca4c7667608bf081ed51025a92d40826f94c4
+
 
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Solucionar problemas de conectividade com o Azure AD Connect
@@ -46,7 +50,7 @@ Desses intervalos, a tabela a seguir é o mínimo absoluto para oferecer a capac
 | \*.microsoftonline.com |HTTPS/443 |Usado para configurar o diretório do Azure AD e importar/exportar dados. |
 
 ## <a name="errors-in-the-wizard"></a>Erros no assistente
-O assistente de instalação está usando dois contextos de segurança diferentes. Na página **Conectar-se ao AD do Azure** utiliza o usuário conectado no momento. Na página **Configurar** o assistente muda para a [conta que executa o serviço no mecanismo de sincronização](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). As configurações de proxy que realizamos são globais para o computador de forma que, se houver um problema, ele provavelmente já aparecerá na página **Conectar-se ao AD do Azure** no assistente.
+O assistente de instalação está usando dois contextos de segurança diferentes. Na página **Conectar-se ao AD do Azure** utiliza o usuário conectado no momento. Na página **Configurar** o assistente muda para a [conta que executa o serviço no mecanismo de sincronização](connect/active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). As configurações de proxy que realizamos são globais para o computador de forma que, se houver um problema, ele provavelmente já aparecerá na página **Conectar-se ao AD do Azure** no assistente.
 
 Esses são os erros mais comuns que você encontrará no assistente de instalação.
 
@@ -168,7 +172,7 @@ A autenticação foi bem-sucedida. Não foi possível recuperar as informações
 ### <a name="retrievedomains"></a>RetrieveDomains
 A autenticação foi bem-sucedida. Não foi possível recuperar informações de domínio do Azure AD.
 
-## <a name="troubleshooting-steps-for-previous-releases."></a>Etapas para solucionar problemas de versões anteriores.
+## <a name="troubleshooting-steps-for-previous-releases"></a>Etapas para solucionar problemas de versões anteriores.
 O assistente de conexão foi desativado a partir das versões com número de compilação 1.1.105.0 (lançada em fevereiro de 2016). Esta seção e a configuração não são mais necessárias, mas são mantidas como referência.
 
 Para que o assistente de conexão funcione, o winhttp deve ser configurado. Isso pode ser feito com o [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
@@ -185,6 +189,9 @@ Esse erro ocorre quando o Assistente de conexão não consegue acessar o proxy o
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

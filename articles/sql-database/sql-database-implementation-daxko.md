@@ -1,22 +1,27 @@
 ---
 title: Estudo de caso sobre o Banco de Dados SQL do Azure - Daxko/CSI | Microsoft Docs
-description: Saiba mais sobre como a Daxko/CSI usa o Banco de Dados SQL para acelerar o ciclo de desenvolvimento e aprimorar os serviços de atendimento ao cliente e o desempenho
+description: "Saiba mais sobre como a Daxko/CSI usa o Banco de Dados SQL para acelerar o ciclo de desenvolvimento e aprimorar os serviços de atendimento ao cliente e o desempenho"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 357b402955187a08a35faacdcb178af75698433d
+
 
 ---
-# <a name="daxko/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI usou o Azure para acelerar o ciclo de desenvolvimento e aprimorar o serviço de atendimento ao cliente e o desempenho
+# <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI usou o Azure para acelerar o ciclo de desenvolvimento e aprimorar o serviço de atendimento ao cliente e o desempenho
 ![Logotipo da CSI/Daxko](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 A Daxko/CSI Software enfrentou um desafio: sua base de clientes dos centros de bem-estar e recreação foi aumentando rapidamente, graças ao sucesso de sua abrangente solução de software corporativo, mas manter as necessidade de infraestrutura de TI para esse aumento da base de clientes foi uma prova para a equipe de TI da empresa. A empresa era cada vez mais restringida pela sobrecarga de operações crescentes, especialmente pelo gerenciamento dos bancos de dados em expansão. Pior ainda, essa sobrecarga de operações foi minando os recursos de desenvolvimento para novas iniciativas, como novos recursos de mobilidade para o software da empresa.
@@ -86,10 +91,13 @@ O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do Spe
 * Para saber mais sobre as ferramentas de bancos de dados e dimensionamento elástico, confira as [ferramentas de banco de dados elástico e dimensionamento elástico](sql-database-elastic-scale-get-started.md).
 * Para saber mais sobre como migrar um banco de dados do SQL Server, confira o [Assistente de Migração de SQL do Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md).
 * Para saber mais sobre a Replicação Geográfica Ativa, confira [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md).
-* Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute). 
+* Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute).    
 * Para saber mais sobre o Barramento de Serviço, confira [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/).
 * Para saber mais sobre dimensionamento automático, confira o artigo sobre o [dimensionamento de serviços de nuvem](../cloud-services/cloud-services-how-to-scale.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

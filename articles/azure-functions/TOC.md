@@ -5,7 +5,7 @@
 ## [Criar uma função do webhook](functions-create-a-web-hook-or-api-function.md)
 ## [Criar uma função conectada do Azure](functions-create-an-azure-connected-function.md)
 ## [Criar uma função de processamento de evento](functions-create-an-event-processing-function.md)
-# Como:
+# Como
 ## Planejar e projetar
 ### [Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
 ### [Escolha entre os planos de hospedagem](functions-scale.md)
@@ -16,6 +16,7 @@
 #### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
 ### [Trabalhar com gatilhos e associações](functions-triggers-bindings.md)
+#### [Associações do DocumentDB](functions-bindings-documentdb.md)
 #### [Associações do Hub de Eventos](functions-bindings-event-hubs.md)
 #### [Associações HTTP e webhook](functions-bindings-http-webhook.md)
 #### [Associações de Aplicativos Móveis](functions-bindings-mobile-apps.md)
@@ -49,6 +50,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

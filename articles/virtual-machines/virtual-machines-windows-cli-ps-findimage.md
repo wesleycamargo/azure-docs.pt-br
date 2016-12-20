@@ -1,13 +1,13 @@
 ---
 title: Navegar e selecionar as imagens da VM do Windows | Microsoft Docs
-description: Saiba como determinar o editor, a oferta e o SKU para imagens ao criar uma máquina virtual do Windows com o modelo de implantação do Gerenciador de Recursos.
+description: "Saiba como determinar o editor, a oferta e o SKU para imagens ao criar uma máquina virtual do Windows com o modelo de implantação do Gerenciador de Recursos."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: squillace
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 188b8974-fabd-4cd3-b7dc-559cbb86b98a
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 78f3769cd38bbcc6dbe8ac6241d6d5c3a65ccd00
+
 
 ---
-# Navegue e selecione imagens da máquina virtual do Windows com o PowerShell ou a CLI
+# <a name="navigate-and-select-windows-virtual-machine-images-in-azure-with-powershell-or-the-cli"></a>Navegue e selecione imagens da máquina virtual do Windows com o PowerShell ou a CLI
 Este tópico descreve como localizar editores de imagens de VM, ofertas, SKUs e versões de cada local no qual você pode implantar. Para dar um exemplo, algumas das imagens mais usadas da VM do Windows são:
 
-## Tabela das imagens do Windows mais usadas
+## <a name="table-of-commonly-used-windows-images"></a>Tabela das imagens do Windows mais usadas
 | PublisherName | Oferta | Sku |
 |:--- |:--- |:--- |:--- |
 | MicrosoftDynamicsNAV |DynamicsNAV |2015 |
@@ -36,4 +40,9 @@ Este tópico descreve como localizar editores de imagens de VM, ofertas, SKUs e 
 
 [!INCLUDE [virtual-machines-common-cli-ps-findimage](../../includes/virtual-machines-common-cli-ps-findimage.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

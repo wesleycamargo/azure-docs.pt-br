@@ -1,12 +1,12 @@
 ---
-title: Otimize seu ambiente com a solução de Service Fabric no Log Analytics | Microsoft Docs
-description: Você pode usar a solução de Service Fabric para avaliar o risco e a integridade dos aplicativos, microsserviços, nós e clusters do seu Service Fabric.
+title: "Otimize seu ambiente com a solução de Service Fabric no Log Analytics | Microsoft Docs"
+description: "Você pode usar a solução de Service Fabric para avaliar o risco e a integridade dos aplicativos, microsserviços, nós e clusters do seu Service Fabric."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: niniikhena
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+
 
 ---
 # <a name="service-fabric-solution-in-log-analytics"></a>Service Fabric Solution in Log Analytics (Solução do Service Fabric no Log Analytics)
@@ -33,7 +37,7 @@ Para começar a usar a solução, você precisará conectar seu cluster do Servi
 2. Se você precisar coletar contadores de desempenho de seus hosts ou usar outras soluções do OMS, como Segurança em seu Cluster do Service Fabric, siga as etapas em ***Deploy a Service Fabric Cluster connected to an OMS workspace with VM Extension installed*** (Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do OMS com a extensão de VM instalada).
 3. Se você já tiver implantado o cluster do Service Fabric e quiser conectá-lo ao Log Analytics, siga as etapas em ***Adding an existing storage account to Log Analytics*** (Adicionar uma conta de armazenamento existente para Log Analytics).
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace."></a>Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics.
+## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics.
 O modelo faz o seguinte:
 
 1. implanta um cluster do Azure Service Fabric conectado a um espaço de trabalho do Log Analytics. Você tem a opção de criar um novo espaço de trabalho durante a implantação do modelo ou inserir o nome de um espaço de trabalho do Log Analytics já existente.
@@ -50,7 +54,7 @@ Aceite os termos legais e pressione "Criar" para iniciar a implantação. Após 
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed."></a>Implante um Cluster do Service Fabric conectado a um espaço de trabalho do OMS com a extensão de VM instalada.
+## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed"></a>Implante um Cluster do Service Fabric conectado a um espaço de trabalho do OMS com a extensão de VM instalada.
 O modelo faz o seguinte:
 
 1. implanta um cluster do Azure Service Fabric conectado a um espaço de trabalho do Log Analytics. Você pode criar um novo espaço de trabalho ou usar um existente.
@@ -124,7 +128,7 @@ Depois que as implantações estiverem concluídas e a solução do Service Fabr
 | --- | --- |
 | Problemas importantes |Uma exibição de problemas como RunAsyncFailures RunAsynCancellations e nós com falha. |
 | Eventos operacionais |Eventos operacionais importantes, como atualização de aplicativos e implantações. |
-| Eventos de serviço confiável |Eventos importantes de serviços confiáveis, como Runasyncinvocations. |
+| Eventos de serviço confiável |Eventos importantes de serviços confiáveis como Runasyncinvocations. |
 | Eventos de ator |Eventos de ator importantes gerados pelos seus microsserviços, como exceções lançadas por um método de ator, ativações e desativações de ator e assim por diante. |
 | Eventos de aplicativo |Todos os eventos de ETW personalizados gerados por seus aplicativos. |
 
@@ -146,6 +150,9 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 ## <a name="next-steps"></a>Próximas etapas
 * Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados dos eventos do Service Fabric.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

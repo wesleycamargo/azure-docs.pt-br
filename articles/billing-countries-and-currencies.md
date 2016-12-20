@@ -1,26 +1,30 @@
 ---
-title: Lista os países em que o Azure está disponível comercialmente, junto com as moedas com suporte | Microsoft Docs
-description: Os países e as regiões em que o Microsoft Azure está disponível comercialmente e as moedas correspondentes que podem ser usadas para comprar o Azure.
-services: ''
-documentationcenter: ''
+title: "Lista os países/regiões em que o Azure está disponível comercialmente, junto com as moedas com suporte | Microsoft Docs"
+description: "Os países/regiões em que o Microsoft Azure está disponível comercialmente e as moedas correspondentes que podem ser usadas para comprar o Azure."
+services: 
+documentationcenter: 
 author: genlin
-manager: msmbaldwin
-editor: ''
+manager: mbaldwin
+editor: 
 tags: billing
-
+ms.assetid: 31a5c698-2041-45b5-9299-884f305cebbc
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 11/10/2016
 ms.author: genli
+translationtype: Human Translation
+ms.sourcegitcommit: 72d750dfd8c0044ee845a9feb9b8f4d2a4761cf0
+ms.openlocfilehash: a7d83d9d098de41a65581a5924453d311b6203f5
+
 
 ---
-# Em quais países e regiões o Microsoft Azure está disponível comercialmente e quais moedas podem ser usadas para comprar o Azure?
-Você pode adquirir o Microsoft Azure em mais de 140 países em todo o mundo, e há suporte para várias moedas diferentes. Veja a seguir uma lista dos países em que você pode comprar o Azure e as moedas que pode usar para efetuar o pagamento do Azure.
+# <a name="in-which-countriesregions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure"></a>Em quais países/regiões o Microsoft Azure está disponível comercialmente e quais moedas podem ser usadas para comprar o Azure?
+Você pode adquirir o Microsoft Azure em mais de 140 países/regiões em todo o mundo, e há suporte para várias moedas diferentes. Veja a seguir uma lista dos países/regiões em que você pode comprar o Azure e as moedas que pode usar para efetuar o pagamento do Azure.
 
-| País | Código de moeda |
+| País/Região | Código de moeda |
 | --- | --- |
 | Afeganistão |USD |
 | Albânia |USD |
@@ -170,4 +174,8 @@ Você pode adquirir o Microsoft Azure em mais de 140 países em todo o mundo, e 
 | Zâmbia |USD |
 | Zimbábue |USD |
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

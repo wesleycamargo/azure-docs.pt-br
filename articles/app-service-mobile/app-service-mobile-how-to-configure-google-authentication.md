@@ -1,22 +1,26 @@
 ---
-title: Como configurar a autenticação do Google para seu aplicativo de Serviços de Aplicativos
-description: Saiba como configurar a autenticação do Google para seu aplicativo de Serviços de Aplicativos.
+title: "Como configurar a autenticação do Google para seu aplicativo de Serviços de Aplicativos"
+description: "Saiba como configurar a autenticação do Google para seu aplicativo de Serviços de Aplicativos."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: mattchenderson
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 2b2f9abf-9120-4aac-ac5b-4a268d9b6e2b
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 10/01/2016
 ms.author: mahender
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 015f26c108a10ca346fc990cf1c6435493e137a4
+
 
 ---
-# Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon do Google
+# <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon do Google
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar o Google como um provedor de autenticação.
@@ -24,11 +28,11 @@ Este tópico mostra como configurar o Serviço de Aplicativo do Azure para usar 
 Para concluir o procedimento neste tópico, você deve ter uma conta do Google com um endereço de email verificado. Para criar uma nova conta do Google, vá para [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
 
 ## <a name="register"> </a>Registre seu aplicativo com o Google
-1. Faça logon no [portal do Azure] e navegue até o seu aplicativo. Copie a **URL**, pois você a usará mais tarde para configurar seu aplicativo do Google.
-2. Vá até o site [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) faça logon com suas credenciais de conta do Google, clique em **Criar projeto**, forneça um **Nome do projeto** e clique em **Criar**.
-3. Em **APIs sociais**, clique em **API do Google+** e, então, em **Habilitar**.
-4. No painel navegação à esquerda, clique em **Credenciais** > **Tela de consentimento de OAuth**, selecione seu **Endereço de email**, insira um **Nome do Produto** e clique em **Salvar**.
-5. Na guia **Credenciais**, clique em **Criar credenciais** > **ID do Cliente OAuth** e, então, selecione **aplicativo Web**.
+1. Faça logon no [portal do Azure]e navegue até o seu aplicativo. Copie a **URL**, pois você a usará mais tarde para configurar seu aplicativo do Google.
+2. Vá até o site [de apis do Google](http://go.microsoft.com/fwlink/p/?LinkId=268303) faça logon com suas credenciais de conta do Google, clique em **Criar Projeto**, forneça um **Nome do projeto** e clique em **Criar**.
+3. Em **APIs Sociais**, clique em **API do Google+** e em **Habilitar**.
+4. No painel de navegação à esquerda, clique em **Credenciais** > **Tela de consentimento de OAuth**, selecione seu **Endereço de email**, insira um **Nome do Produto** e clique em **Salvar**.
+5. Na guia **Credenciais**, clique em **Criar credenciais** > **ID do cliente OAuth** e, então, selecione **Aplicativo Web**.
 6. Cole a **URL** do Serviço de Aplicativo que você copiou anteriormente em **Origens Autorizadas do JavaScript** e, então, cole seu URI de Redirecionamento em **URI de Redirecionamento Autorizado**. O URI de redirecionamento é a URL do seu aplicativo acrescentada com o caminho */.auth/login/google/callback*. Por exemplo: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Certifique-se de que você está usando o esquema HTTPS. Em seguida, clique em **Criar**.
 7. Na próxima tela, anote os valores de ID do cliente e de segredo do cliente.
 
@@ -37,7 +41,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Google c
 
 
 ## <a name="secrets"> </a>Adicionar informações do Google ao seu aplicativo
-1. De volta ao [portal do Azure], navegue até o seu aplicativo. Clique em **Configurações** e em **Autenticação / Autorização**.
+1. De volta ao [portal do Azure], navegue até o seu aplicativo. Clique em **Configurações** e em **Autenticação/Autorização**.
 2. Se o recurso Autenticação / Autorização não estiver habilitado, mude a opção para **Ativado**.
 3. Clique em **Google**. Cole os valores de ID do Aplicativo e de Segredo do Aplicativo que você obteve anteriormente e, opcionalmente, habilite os escopos exigidos pelo seu aplicativo. Em seguida, clique em **OK**.
    
@@ -65,4 +69,9 @@ Agora você está pronto para usar o Google para autenticação em seu aplicativ
 
 [portal do Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

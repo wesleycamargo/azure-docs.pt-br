@@ -1,11 +1,11 @@
 ---
-title: Introdução à autenticação baseada em certificado no Android | Microsoft Docs
-description: Saiba como configurar a autenticação baseada em certificado em soluções com dispositivos Android
+title: "Introdução à autenticação baseada em certificado no Android | Microsoft Docs"
+description: "Saiba como configurar a autenticação baseada em certificado em soluções com dispositivos Android"
 services: active-directory
 author: MarkusVi
 documentationcenter: na
 manager: femila
-
+ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ab8558808dc509855d075c6bba305b8524407ff
+
 
 ---
-# <a name="get-started-with-certificate-based-authentication-on-android-public-preview"></a>Introdução à autenticação baseada em certificado no Android — Visualização Pública
+# <a name="get-started-with-certificate-based-authentication-on-android---public-preview"></a>Introdução à autenticação baseada em certificado no Android — Visualização Pública
 > [!div class="op_single_selector"]
 > * [iOS](active-directory-certificate-based-authentication-ios.md)
 > * [Android](active-directory-certificate-based-authentication-android.md)
@@ -60,9 +64,9 @@ Um servidor de federação deve ser configurado.
 Para que o Azure Active Directory revogue um certificado do cliente, o token ADFS deve ter as seguintes declarações:  
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`  
-  (O número de série do certificado do cliente) 
+   (O número de série do certificado do cliente) 
 * `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`  
-  (A cadeia de caracteres para o emissor do certificado do cliente) 
+   (A cadeia de caracteres para o emissor do certificado do cliente) 
 
 O Azure Active Directory adiciona essas declarações ao token de atualização se elas estiverem disponíveis no token ADFS (ou qualquer outro token SAML). Quando o token de atualização precisa ser validado, essas informações são usadas para verificar a revogação. 
 
@@ -137,7 +141,7 @@ Recupere as autoridades de certificação atualmente armazenadas no Azure Active
 ### <a name="removing-a-certificate-authority"></a>Removendo uma autoridade de certificação
 1. Recupere as autoridades de certificação: 
    
-       $c=Get-AzureADTrustedCertificateAuthority 
+     $c=Get-AzureADTrustedCertificateAuthority 
 2. Remova o certificado da autoridade de certificação: 
    
         Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
@@ -145,7 +149,7 @@ Recupere as autoridades de certificação atualmente armazenadas no Azure Active
 ### <a name="modfiying-a-certificate-authority"></a>Modificando uma autoridade de certificação
 1. Recupere as autoridades de certificação: 
    
-       $c=Get-AzureADTrustedCertificateAuthority 
+     $c=Get-AzureADTrustedCertificateAuthority 
 2. Modifique as propriedades na autoridade de certificação: 
    
         $c[0].AuthorityType=1 
@@ -192,11 +196,10 @@ As etapas a seguir descrevem o processo para atualizar e invalidar o token de au
         connect-msolservice -credential $msolcred 
 2. Recupere o valor StsRefreshTokensValidFrom atual para um usuário: 
    
-       $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-       $user.StsRefreshTokensValidFrom 
+     $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`   $user.StsRefreshTokensValidFrom 
 3. Configure um novo valor StsRefreshTokensValidFrom para o usuário igual ao carimbo de data/hora atual: 
    
-       Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+     Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
 A data que você define deve estar no futuro. Se a data não estiver no futuro, a propriedade **StsRefreshTokensValidFrom** não será definida. Se a data estiver no futuro, **StsRefreshTokensValidFrom** será definida para a hora atual (não a data indicada pelo comando Set-MsolUser). 
 
@@ -204,6 +207,7 @@ A data que você define deve estar no futuro. Se a data não estiver no futuro, 
 [1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

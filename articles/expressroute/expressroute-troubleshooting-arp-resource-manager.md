@@ -1,25 +1,29 @@
 ---
-title: Guia de solução de problemas de Rota Expressa - Obtenção de tabelas ARP | Microsoft Docs
-description: Esta página fornece instruções sobre como obter tabelas ARP para um circuito de Rota Expressa
+title: "Guia de solução de problemas de ExpressRoute: Obtenção de tabelas ARP | Microsoft Docs"
+description: "Esta página fornece instruções sobre como obter tabelas ARP para um circuito de Rota Expressa"
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carolz
 editor: tysonn
-
+ms.assetid: 0a6bf1d5-6baf-44dd-87d3-1ebd2fd08bdc
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 10/11/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: e63a0e17d7c3794608130ad0b654c5c903d404a0
+
 
 ---
 # <a name="expressroute-troubleshooting-guide---getting-arp-tables-in-the-resource-manager-deployment-model"></a>Guia de solução de problemas de Rota Expressa - Obtenção de tabelas ARP no modelo de implantação do Resource Manager
 > [!div class="op_single_selector"]
-> [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-> [PowerShell - Clássico](expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell – Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell - clássico](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 
@@ -30,7 +34,7 @@ Este artigo fornece uma orientação pelas etapas de aprendizado sobre as tabela
 > 
 > 
 
-## <a name="address-resolution-protocol-(arp)-and-arp-tables"></a>ARP (Protocolo de resolução de endereço) e tabelas ARP
+## <a name="address-resolution-protocol-arp-and-arp-tables"></a>ARP (Protocolo de resolução de endereço) e tabelas ARP
 ARP (Protocolo de resolução de endereço) é um protocolo de camada 2 definido no [RFC 826](https://tools.ietf.org/html/rfc826). ARP é usado para mapear o endereço de Ethernet (endereço MAC) com um endereço IP.
 
 A tabela ARP fornece um mapeamento do endereço ipv4 e do endereço MAC para um emparelhamento específico. A tabela ARP para um emparelhamento de circuito de Rota Expressa fornece as seguintes informações para cada interface (primária e secundária)
@@ -130,7 +134,7 @@ Veja abaixo um exemplo de saída para um dos caminhos
 ## <a name="how-to-use-this-information"></a>Como usar essas informações
 A tabela ARP de um emparelhamento pode ser usada para determinar a validade da configuração e da conectividade da camada 2. Esta seção fornece uma visão geral da aparência das tabelas ARP em cenários diferentes.
 
-### <a name="arp-table-when-a-circuit-is-in-operational-state-(expected-state)"></a>Tabela ARP quando um circuito está no estado operacional (estado esperado)
+### <a name="arp-table-when-a-circuit-is-in-operational-state-expected-state"></a>Tabela ARP quando um circuito está no estado operacional (estado esperado)
 * A tabela ARP terá uma entrada para o lado local com um endereço IP válido e um endereço MAC e uma entrada semelhante para o lado da Microsoft. 
 * O último octeto do endereço IP local sempre será um número ímpar.
 * O último octeto do endereço IP da Microsoft sempre será um número par.
@@ -141,7 +145,7 @@ A tabela ARP de um emparelhamento pode ser usada para determinar a validade da c
          10 On-Prem           65.0.0.1 ffff.eeee.dddd
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
-### <a name="arp-table-when-on-premises-/-connectivity-provider-side-has-problems"></a>Tabela de ARP quando o lado do provedor de conectividade/local tiver problemas
+### <a name="arp-table-when-on-premises-connectivity-provider-side-has-problems"></a>Tabela de ARP quando o lado do provedor de conectividade/local tiver problemas
 * Apenas uma entrada será exibida na tabela ARP. Isso mostrará o mapeamento entre o endereço MAC e o endereço IP usado no lado da Microsoft. 
   
        Age InterfaceProperty IpAddress  MacAddress    
@@ -164,6 +168,9 @@ A tabela ARP de um emparelhamento pode ser usada para determinar a validade da c
 * Validar a transferência de dados examinando os bytes de entrada/saída
 * Abra um tíquete de suporte com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) se você ainda estiver enfrentando problemas.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

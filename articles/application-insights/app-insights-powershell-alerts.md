@@ -1,26 +1,35 @@
 ---
-title: Usar o PowerShell para configurar alertas no Application Insights
-description: Automatize a configuração do Application Insights para receber emails sobre alterações de métricas.
+title: Usar o PowerShell para configurar alertas no Application Insights | Microsoft Docs
+description: "Automatize a configuração do Application Insights para receber emails sobre alterações de métricas."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2016
+ms.date: 10/31/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
+ms.openlocfilehash: ff5e7721e2cdf2f8b034f714b6b58642efcb6368
+
 
 ---
-# Usar o PowerShell para configurar alertas no Application Insights
-Você pode automatizar a configuração de [alertas](app-insights-alerts.md) no [Visual Studio Application Insights](app-insights-overview.md).
+# <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usar o PowerShell para configurar alertas no Application Insights
+Você pode automatizar a configuração de [alertas](app-insights-alerts.md) no [Application Insights](app-insights-overview.md).
 
 Além disso, você pode [definir webhooks para automatizar sua resposta a um alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
-## Configuração única
+> [!NOTE]
+> Se você quiser criar alertas e recursos ao mesmo tempo, considere [usar um modelo do Azure Resource Manager](app-insights-powershell.md).
+>
+>
+
+## <a name="one-time-setup"></a>Configuração única
 Se você nunca usou o PowerShell com sua assinatura do Azure:
 
 Instale o módulo do Azure Powershell no computador em que você deseja executar os scripts.
@@ -28,20 +37,19 @@ Instale o módulo do Azure Powershell no computador em que você deseja executar
 * Instale o [Microsoft Web Platform Installer (v5 ou superior)](http://www.microsoft.com/web/downloads/platform.aspx).
 * Use-o para instalar o Microsoft Azure PowerShell
 
-## Conecte-se ao Azure
+## <a name="connect-to-azure"></a>Conecte-se ao Azure
 Inicie o Azure PowerShell e [conecte-se à sua assinatura](../powershell-install-configure.md):
 
 ```PowerShell
 
     Add-AzureAccount
-    Switch-AzureMode AzureResourceManager
 ```
 
 
-## Obter alertas
-    Get-AlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+## <a name="get-alerts"></a>Obter alertas
+    Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## Adicionar alerta
+## <a name="add-alert"></a>Adicionar alerta
     Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
@@ -51,12 +59,12 @@ Inicie o Azure PowerShell e [conecte-se à sua assinatura](../powershell-install
      -WindowSize {HH:MM:SS}  `
      [-SendEmailToServiceOwners] `
      [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM" ] `
-     -Location "East US"
+     -Location "East US" // must be East US at present
      -RuleType Metric
 
 
 
-## Exemplo 1
+## <a name="example-1"></a>Exemplo 1
 Enviar email se a resposta do servidor às solicitações HTTP, em média no prazo de 5 minutos, demorar mais de 1 segundo. Meu recurso Application Insights é chamado IceCreamWebApp e está no grupo de recursos Fabrikam. Sou o proprietário da assinatura do Azure.
 
 O GUID é a ID da assinatura (não a chave de instrumentação do aplicativo).
@@ -72,7 +80,7 @@ O GUID é a ID da assinatura (não a chave de instrumentação do aplicativo).
      -SendEmailToServiceOwners `
      -Location "East US" -RuleType Metric
 
-## Exemplo 2
+## <a name="example-2"></a>Exemplo 2
 Tenho um aplicativo em que uso o [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) para relatar uma métrica chamada "salesPerHour". Envie um email para meus colegas se "salesPerHour" cair abaixo de 100, em média no prazo de 24 horas.
 
     Add-AlertRule -Name "poor sales" `
@@ -88,7 +96,7 @@ Tenho um aplicativo em que uso o [TrackMetric()](app-insights-api-custom-events-
 
 A mesma regra pode ser usada para a métrica relatada usando o [parâmetro de medida](app-insights-api-custom-events-metrics.md#properties) de outra chamada de controle, como TrackEvent ou trackPageView.
 
-## Nomes de métrica
+## <a name="metric-names"></a>Nomes de métrica
 | Nome da métrica | Nome da tela | Descrição |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Exceções de navegador |Contagem de exceções não identificadas lançadas no navegador. |
@@ -111,7 +119,7 @@ A mesma regra pode ser usada para a métrica relatada usando o [parâmetro de me
 | `request.duration` |Tempo de resposta do servidor |Tempo entre o recebimento de uma solicitação HTTP e a finalização do envio da resposta. |
 | `request.rate` |Taxa de solicitação |Taxa de todas as solicitações para o aplicativo por segundo. |
 | `requestFailed.count` |Solicitações falhas |Contagem de solicitações HTTP que resultaram em um código de resposta >= 400 |
-| `view.count` |Visualizações de página |Contagem de solicitações de usuário cliente para uma página da Web. O tráfego sintético é filtrado. |
+| `view.count` |Visualizações de página |Contagem de solicitações de usuário  cliente para uma página da Web. O tráfego sintético é filtrado. |
 | {o nome de métrica personalizada} |{O nome da métrica} |O valor de métrica relatado pelo [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) ou o [parâmetro de medidas de uma chamada de controle](app-insights-api-custom-events-metrics.md#properties). |
 
 As métricas são enviadas por diferentes módulos de telemetria:
@@ -119,17 +127,21 @@ As métricas são enviadas por diferentes módulos de telemetria:
 | Grupo de métricas | Módulo de coletor |
 | --- | --- |
 | basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript do navegador](app-insights-javascript.md) |
-| performanceCounter |[Desempenho](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3) |
-| remoteDependencyFailed |[Dependência](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1) |
-| request,<br/>requestFailed |[Solicitação do servidor](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2) |
+| performanceCounter |[Desempenho](app-insights-configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Dependência](app-insights-configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[Solicitação do servidor](app-insights-configuration-with-applicationinsights-config.md) |
 
-## Webhooks
+## <a name="webhooks"></a>Webhooks
 Você pode [automatizar sua resposta a um alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md). O Azure ligará para um endereço web de sua escolha quando um alerta for gerado.
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
 * [Script para configurar o Application Insights](app-insights-powershell-script-create-resource.md)
 * [Criar recursos de teste da Web e do Application Insights por meio de modelos](app-insights-powershell.md)
 * [Automatizar o acoplamento do Diagnóstico do Microsoft Azure ao Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Automatizar sua resposta a um alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

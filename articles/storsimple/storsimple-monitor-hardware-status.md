@@ -1,12 +1,12 @@
 ---
 title: Componentes de hardware e status do StorSimple | Microsoft Docs
-description: Saiba como monitorar os componentes de hardware do dispositivo StorSimple por meio do serviço StorSimple Manager.
+description: "Saiba como monitorar os componentes de hardware do dispositivo StorSimple por meio do serviço StorSimple Manager."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 0d56a2ba-daf0-45ad-9610-8b8712dd5750
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
+
 
 ---
-# Usar o serviço StorSimple Manager para monitorar componentes e status de hardware
-## Visão geral
-Este artigo descreve os vários componentes físicos e lógicos do dispositivo StorSimple no local. Ele também explica como monitorar o status de componente de dispositivo usando a página **Manutenção** no serviço StorSimple Manager.
+# <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>Usar o serviço StorSimple Manager para monitorar componentes e status de hardware
+## <a name="overview"></a>Visão geral
+Este artigo descreve os vários componentes físicos e lógicos do dispositivo StorSimple no local. Ele também explica como monitorar o status de componente de dispositivo usando a página **Manutenção** no serviço StorSimple Manager. 
 
-A página **Manutenção** mostra o status do hardware de todos os componentes do dispositivo StorSimple.
+A página **Manutenção** mostra o status do hardware de todos os componentes do dispositivo StorSimple. 
 
 Na lista de componentes para 8100, há três seções que descrevem:
 
@@ -39,20 +43,20 @@ Um dispositivo 8600 tem componentes adicionais que correspondem ao compartimento
 > 
 > 
 
-## Monitorar o status de hardware
+## <a name="monitor-the-hardware-status"></a>Monitorar o status de hardware
 Execute as etapas a seguir para exibir o status de hardware de um componente de dispositivo:
 
-1. Navegue até **dispositivos**, selecione um dispositivo StorSimple específico. Clique para ir para o menu de nível de dispositivo e clique na guia **Manutenção**.
+1. Navegue até **dispositivos**, selecione um dispositivo StorSimple específico. Clique para ir para o menu de nível de dispositivo e clique na guia **Manutenção**. 
 2. Localize a seção **Status de Hardware** e escolha os componentes disponíveis (como descrito acima). Basta clicar em uma seta que precede o rótulo de componente para expandir a lista e exibir o status de vários componentes do dispositivo. Consulte a [lista detalhada de componentes para o compartimento primário](#component-list-for-primary-enclosure-of-storsimple-device) e a [lista detalhada de componentes para o compartimento EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
 3. Use o seguinte esquema de codificação por cor para interpretar o status do componente:
    
    * **Marca verde** – Indica um componente **Íntegro** ou **OK**.
    * **Amarelo** – Indica um componente no estado de **Aviso**.
    * **Ponto de exclamação vermelho** – Indica um componente que tem um status de **Falha** ou **Precisa de atenção**.
-   * **Branco com texto preto**– Indica um componente que não está presente.
-4. Se você encontrar um componente que não está em um estado **Íntegro**, entre em contato com o Suporte da Microsoft. Se os alertas forem habilitados no seu dispositivo, você receberá um alerta por email. Se você precisar substituir um componente de hardware com falha, consulte [Substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
+   * **Branco com texto preto** – Indica um componente que não está presente.
+4. Se você encontrar um componente que não está em um estado **Íntegro** , entre em contato com o Suporte da Microsoft. Se os alertas forem habilitados no seu dispositivo, você receberá um alerta por email. Se você precisar substituir um componente de hardware com falha, consulte [Substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
-## Lista de componentes para o compartimento primário do dispositivo StorSimple
+## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Lista de componentes para o compartimento primário do dispositivo StorSimple
 A tabela a seguir descreve os componentes físicos e lógicos contidos no compartimento primário do dispositivo StorSimple local.
 
 | Componente | Módulo | Tipo | Local | Unidade renovável (FRU)? | Descrição |
@@ -83,7 +87,7 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 | Pool de armazenamento do SSD |N/D |Lógico |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos SSDs de dispositivo. |
 | Controller [0-1] [estado] |E/S |Físico |Controller |Sim |Exibe o estado do controlador e se ele está no modo ativo ou em espera dentro do chassi. |
 | Sensores de temperatura no controlador |E/S |Físico |Controller |Não |Vários sensores de temperatura, como o módulo de E/S, temperatura da CPU, sensores DIMM e PCI e têm seu estado exibido, que indica se a temperatura encontrada está ou não dentro da tolerância. |
-| Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor serial anexado SCSI (SAS), que é usado para conectar o armazenamento integrado ao controlador. |
+| ﻿Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor serial anexado SCSI (SAS), que é usado para conectar o armazenamento integrado ao controlador. |
 | Conector SAS [0-1] |E/S |Físico |Controller |Não |Indica o estado de cada conector SAS, que é usado para conectar o armazenamento integrado ao expansor SAS. |
 | Interconexão de plano intermediário de SBB |E/S |Físico |Controller |Não |Indica o estado do conector intermediário, que é usado para conectar cada controlador ao plano intermediário. |
 | Núcleo do processador |E/S |Físico |Controller |Não |Indica o estado dos núcleos de processador em cada controlador. |
@@ -93,7 +97,7 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 | Ethernet |E/S |Físico |Controller |Não |Indica o estado de cada uma das interfaces de rede, ou seja, o gerenciamento e as portas de dados fornecidas no controlador. |
 | NVRAM |E/S |Físico |Controller |Não |Indica o estado da NVRAM, uma memória de acesso aleatório não volátil com a bateria de reserva que serve para guardar informações importantes de aplicativos em caso de falha de energia. |
 
-## Lista de componentes para o compartimento EBOD do dispositivo StorSimple
+## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Lista de componentes para o compartimento EBOD do dispositivo StorSimple
 A tabela a seguir descreve os componentes físicos e lógicos contidos no compartimento EBOD do dispositivo StorSimple local.
 
 | Componente | Módulo | Tipo | Local | FRU? | Descrição |
@@ -112,17 +116,22 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 | Armazenamento local [HDD] |N/D |Lógico |Compartilhado |N/D |Exibe o estado do pool de armazenamento lógico que é criado a partir dos HDDs de dispositivo. |
 | Controller [0-1] [estado] |E/S |Físico |Controller |Sim |Exibe o estado dos controladores no módulo EBOD. |
 | Sensores de temperatura no EBOD |E/S |Físico |Controller |Não |Vários sensores de temperatura têm seu estado exibido, indicando se a temperatura encontrada está dentro da tolerância. |
-| Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor SAS, que é usado para conectar o armazenamento integrado ao controlador. |
+| ﻿Expansor SAS |E/S |Físico |Controller |Não |Indica o estado do expansor SAS, que é usado para conectar o armazenamento integrado ao controlador. |
 | Conector SAS [0-2] |E/S |Físico |Controller |Não |Indica o estado de cada conector SAS, que é usado para conectar o armazenamento integrado ao expansor SAS. |
 | Interconexão de plano intermediário de SBB |E/S |Físico |Controller |Não |Indica o estado do conector intermediário, que é usado para conectar cada controlador ao plano intermediário. |
 | Energia de eletrônicos do compartimento |E/S |Físico |Controller |Não |Indica o estado do sistema de energia usado pelo compartimento. |
 | Diagnósticos de eletrônicos do compartimento |E/S |Físico |Controller |Não |Indica o estado dos subsistemas de diagnóstico fornecidos pelo controlador. |
 | Conexão com o controlador de dispositivo |E/S |Físico |Controller |Não |Indica o estado da conexão entre o módulo E/S do EBOD e o controlador do dispositivo. |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Para usar o serviço StorSimple Manager para gerenciar seu dispositivo, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-* Se você precisar solucionar problemas de um componente do dispositivo que apresente um status degradado ou com falha, consulte [Indicadores de monitoramento do StorSimple](storsimple-monitoring-indicators.md).
+* Se você precisar solucionar problemas de um componente do dispositivo que apresente um status degradado ou com falha, consulte [Indicadores de monitoramento do StorSimple](storsimple-monitoring-indicators.md). 
 * Para substituir um componente de hardware com falha, consulte [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 * Se você continuar enfrentando problemas de dispositivo, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

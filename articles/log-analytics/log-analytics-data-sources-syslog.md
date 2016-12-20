@@ -1,19 +1,23 @@
 ---
 title: Mensagens do Syslog no Log Analytics | Microsoft Docs
-description: O Syslog é um protocolo de registro de eventos em log que é comum para o Linux.   Este artigo descreve como configurar a coleta de mensagens do Syslog no Log Analytics e os detalhes dos registros que eles criam no repositório do OMS.
+description: "O Syslog é um protocolo de registro de eventos em log que é comum para o Linux.   Este artigo descreve como configurar a coleta de mensagens do Syslog no Log Analytics e os detalhes dos registros que eles criam no repositório do OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 724567b853bec19cb41ef6a78b7d25a665830897
+
 
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Fontes de dados de Syslog no Log Analytics
@@ -69,7 +73,7 @@ O arquivo de configuração para rsyslog está localizado em **/etc/rsyslog.d/95
 
 Você pode remover um recurso removendo sua seção do arquivo de configuração.  Você pode limitar as severidades coletadas para um recurso específico, modificando a entrada desse recurso.  Por exemplo, para limitar o recurso do usuário a mensagens com uma severidade de erro ou superior, você modificaria essa linha do arquivo de configuração para o seguinte:
 
-    user.error  @127.0.0.1:25224
+    user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>syslog-ng
@@ -175,6 +179,9 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 * Use [campos personalizados](log-analytics-custom-fields.md) para analisar dados dos registros do syslog em campos individuais.
 * [Configure Agentes do Linux](log-analytics-linux-agents.md) para coletar outros tipos de dados. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Sincronização do Azure AD Connect: noções básicas sobre a arquitetura | Microsoft Docs'
-description: Este tópico descreve a arquitetura da sincronização do Azure AD Connect e explica os termos usados.
+title: "Sincronização do Azure AD Connect: noções básicas sobre a arquitetura | Microsoft Docs"
+description: "Este tópico descreve a arquitetura da sincronização do Azure AD Connect e explica os termos usados."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 57430db0d82603627c501d336b830d5dbf3109db
+
 
 ---
-# <a name="azure-ad-connect-sync:-understanding-the-architecture"></a>Sincronização do Azure AD Connect: noções básicas sobre a arquitetura
+# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização do Azure AD Connect: noções básicas sobre a arquitetura
 Este tópico aborda a arquitetura básica para a sincronização do Azure AD Connect. Em muitos aspectos, ela é semelhante à de seus predecessores MIIS 2003, ILM 2007 e FIM 2010. A sincronização do Azure AD Connect é a evolução dessas tecnologias. Se você estiver familiarizado com qualquer uma dessas tecnologias mais antigas, o conteúdo deste tópico também será familiar. Se você ainda não estiver familiarizado com a sincronização, este tópico é para você. No entanto, não é um requisito saber os detalhes deste tópico para conseguir fazer as personalizações na sincronização do Azure AD Connect (chamada de mecanismo de sincronização neste tópico).
 
 ## <a name="architecture"></a>Arquitetura
@@ -254,6 +258,9 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

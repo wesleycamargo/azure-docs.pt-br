@@ -1,12 +1,12 @@
 ---
 title: Substituir a bateria em um dispositivo StorSimple | Microsoft Docs
-description: Descreve como remover, substituir e realizar manutenção no módulo de bateria de backup do dispositivo StorSimple.
+description: "Descreve como remover, substituir e realizar manutenção no módulo de bateria de backup do dispositivo StorSimple."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 3c8a6654-4826-4883-aad8-75f332347c53
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 59af78e188441979d9d5a177a1f7b31b8080a0b5
+
 
 ---
-# Substitua o módulo de bateria de backup no dispositivo StorSimple
-## Visão geral
-O módulo de energia e refrigeração (PCM) do compartimento primário no dispositivo Microsoft Azure StorSimple tem um pacote de bateria adicional. Esse pacote fornece energia para que o dispositivo StorSimple possa salvar dados caso haja perda de energia CA no compartimento primário. Esse pacote de bateria é conhecido como *módulo de bateria de backup*. O módulo de bateria de backup existe somente para o compartimento primário em seu dispositivo StorSimple (o compartimento EBOD não contém um módulo de bateria de backup).
+# <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Substitua o módulo de bateria de backup no dispositivo StorSimple
+## <a name="overview"></a>Visão geral
+O módulo de energia e refrigeração (PCM) do compartimento primário no dispositivo Microsoft Azure StorSimple tem um pacote de bateria adicional. Esse pacote fornece energia para que o dispositivo StorSimple possa salvar dados caso haja perda de energia CA no compartimento primário. Esse pacote de bateria é conhecido como *módulo de bateria de backup*. O módulo de bateria de backup existe somente para o compartimento primário em seu dispositivo StorSimple (o compartimento EBOD não contém um módulo de bateria de backup). 
 
 Este tutorial explica como:
 
-* Remover o módulo de bateria de backup
+* Remover o módulo de bateria de backup 
 * Instalar um novo módulo de bateria de backup
 * Realizar manutenção no módulo de bateria de backup
 
@@ -31,10 +35,10 @@ Este tutorial explica como:
 > 
 > 
 
-## Remover o módulo de bateria de backup
+## <a name="remove-the-backup-battery-module"></a>Remover o módulo de bateria de backup
 O módulo de bateria de backup de seu dispositivo StorSimple é uma unidade substituível no local. Antes de ser instalado no PCM, o módulo de bateria deve ser armazenado em seu pacote original. Execute as etapas a seguir para remover a bateria de backup.
 
-#### Para remover o módulo de bateria de backup
+#### <a name="to-remove-the-backup-battery-module"></a>Para remover o módulo de bateria de backup
 1. No portal clássico do Azure, vá até **Dispositivos** > **Manutenção** > **Status de Hardware**. Em **Componentes compartilhados**, observe o status da bateria.
 2. Identifique o PCM no qual a bateria falhou. A Figura 1 mostra a parte traseira do dispositivo StorSimple.
    
@@ -72,19 +76,19 @@ O módulo de bateria de backup de seu dispositivo StorSimple é uma unidade subs
 5. Coloque o módulo na embalagem da unidade substituível no local.
 6. Devolva a unidade com defeito à Microsoft para que a manutenção e o manuseio adequados sejam realizados.
 
-## Instalar um novo módulo de bateria de backup
+## <a name="install-a-new-backup-battery-module"></a>Instalar um novo módulo de bateria de backup
 Execute as etapas a seguir para instalar o módulo de bateria de reposição no PCM no compartimento primário do seu dispositivo StorSimple.
 
-#### Para instalar o módulo de bateria
+#### <a name="to-install-the-battery-module"></a>Para instalar o módulo de bateria
 1. Coloque o módulo de bateria de backup na direção correta no PCM.
 2. Pressione para baixo a alça do módulo da bateria até o conector no banco
 3. Substitua o PCM no compartimento primário, seguindo as orientações em [Substituir um módulo de energia e refrigeração no seu dispositivo StorSimple](storsimple-power-cooling-module-replacement.md).
 4. Após a substituição ser concluída, vá até **Dispositivos** > **Manutenção** > **Status de Hardware** no portal clássico do Azure. Verifique o status da bateria para se certificar de que a instalação foi bem-sucedida. Um status verde indica que a bateria está íntegra.
 
-## Realizar manutenção no módulo de bateria de backup
+## <a name="maintain-the-backup-battery-module"></a>Realizar manutenção no módulo de bateria de backup
 No seu dispositivo StorSimple, o módulo de bateria de backup fornece energia ao controlador durante um evento de perda de energia. Ele permite que o dispositivo StorSimple salve dados críticos antes de encerrar de maneira controlada. Com duas baterias completamente carregadas nos PCMs, o sistema pode manipular dois eventos consecutivos de perda.
 
-No Portal clássico do Azure, o **Status de Hardware** na página **Manutenção** indica se a bateria está com defeito ou se está próxima do fim da vida útil. O status da bateria é indicado por **Bateria no PCM 0** ou **Bateria no PCM 1** em **Componentes compartilhados**. Essa página mostrará um estado **DEGRADADO** quando próximo do fim da vida útil e **FALHA** quando atingido o fim da vida útil.
+No Portal clássico do Azure, o **Status de Hardware** na página **Manutenção** indica se a bateria está com defeito ou se está próxima do fim da vida útil. O status da bateria é indicado por **Bateria no PCM 0** ou **Bateria no PCM 1** em **Componentes compartilhados**. Essa página mostrará um estado **DEGRADADO** quando próximo do fim da vida útil e **FALHA** quando atingir o fim da vida útil. 
 
 > [!NOTE]
 > A bateria pode relatar **FALHA** quando precisar apenas ser carregada.
@@ -95,16 +99,21 @@ Se o estado **DEGRADADO** for exibido, recomendamos o seguinte curso de ação:
 
 * O sistema pode ter tido uma perda de energia recente ou as baterias podem estar passando por manutenção periódica. Observe o sistema por 12 horas antes de continuar.
   
-  * Se o estado ainda estiver **DEGRADADO** após 12 horas de conexão contínua à energia CA com os controladores e os PCMs em execução, então a bateria precisará ser substituída. Por favor [ Contate o Suporte da Microsoft ](storsimple-contact-microsoft-support.md) para obter um módulo de bateria de backup de reposição.
+  * Se o estado ainda estiver **DEGRADADO** após 12 horas de conexão contínua à energia CA com os controladores e os PCMs em execução, então a bateria precisará ser substituída. Por favor [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para obter um módulo de bateria de backup de reposição.
   * Se o estado estiver OK após 12 horas, a bateria está operacional e precisava apenas de uma carga de manutenção.
-* Se não houve uma perda associada à energia AC e o PCM está ligado e conectado à corrente alternada, a bateria precisa ser substituído. [ Contate o Suporte da Microsoft ](storsimple-contact-microsoft-support.md) para solicitar um módulo de bateria de reposição.
+* Se não houve uma perda associada à energia AC e o PCM está ligado e conectado à corrente alternada, a bateria precisa ser substituído. [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para solicitar um módulo de bateria de reposição.
 
 > [!IMPORTANT]
-> Descarte a bateria com falha de acordo com as regulamentações nacionais e regionais.
+> Descarte a bateria com falha de acordo com as regulamentações nacionais e regionais. 
 > 
 > 
 
-## Próximas etapas
-Saiba mais sobre [substituição de componentes de hardware do StorSimple ](storsimple-hardware-component-replacement.md)
+## <a name="next-steps"></a>Próximas etapas
+Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Protocolo SAML de Logon Único do Azure | Microsoft Docs
-description: Este artigo descreve o protocolo SAML de logon único no Azure Active Directory
+title: "Protocolo SAML de Logon Único do Azure | Microsoft Docs"
+description: "Este artigo descreve o protocolo SAML de logon único no Azure Active Directory"
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 548191cfe851a37893f068e8de482ed6e28e476b
+
 
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de Logon Único
@@ -246,7 +250,7 @@ Ele contém declarações sobre o assunto ou o usuário. O trecho a seguir cont�
       </Attribute>
       ...
 </AttributeStatement>
-```     
+```        
 
 * **Declaração de Nome**: o valor do atributo `Name` (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) é o nome UPN do usuário autenticado, como `testuser@managedtenant.com`.
 * **Declaração ObjectIdentifier**: o valor do atributo `ObjectIdentifier` (`http://schemas.microsoft.com/identity/claims/objectidentifier`) é o `ObjectId` do objeto de diretório representando o usuário autenticado no Azure AD. `ObjectId` é um identificador seguro globalmente exclusivo, imutável e reutilizável do usuário autenticado.
@@ -267,6 +271,6 @@ Esse elemento declara que o assunto de asserção foi autenticado por um meio es
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

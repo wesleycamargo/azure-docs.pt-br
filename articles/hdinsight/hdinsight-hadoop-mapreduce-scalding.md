@@ -2,38 +2,42 @@
 title: Desenvolver trabalhos do MapReduce Scalding com o Maven | Microsoft Docs
 description: Aprenda a usar o Maven para criar um trabalho de MapReduce no Scalding e, em seguida, implantar e executar o trabalho em um Hadoop no cluster HDInsight.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 26a4d4e8-2623-4fae-a0ca-17792b7a5713
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2016
+ms.date: 10/18/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d83a1f9755d22512834d23b8fd12f740c4198a85
+
 
 ---
-# Desenvolver trabalhos de MapReduce do Scalding com o Apache Hadoop no HDInsight
+# <a name="develop-scalding-mapreduce-jobs-with-apache-hadoop-on-hdinsight"></a>Desenvolver trabalhos de MapReduce do Scalding com o Apache Hadoop no HDInsight
 Scalding é uma biblioteca de Scala que facilita a criação de trabalhos de MapReduce do Hadoop. Ela oferece uma sintaxe concisa e uma integração muito próxima com Scala.
 
 Neste documento, aprenda como usar o Maven para criar um trabalho básico de contagem de palavras no MapReduce escrito em Scalding. Em seguida, você aprenderá como implantar e executar esse trabalho em um cluster HDInsight.
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Um Hadoop baseado em Windows ou Linux em clusters do HDInsight**. Consulte [Fornecimento do Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md) ou [Fornecimento do Hadoop baseado em Windows no HDInsight](hdinsight-provision-clusters.md) para obter mais informações.
+* **Um Hadoop baseado em Windows ou Linux em clusters do HDInsight**. Consulte [Provisionamento do Hadoop baseado em Linux no HDInsight](hdinsight-hadoop-provision-linux-clusters.md) ou [Provisionamento do Hadoop baseado em Windows no HDInsight](hdinsight-provision-clusters.md) para obter mais informações.
 * **[Maven](http://maven.apache.org/)**
-* **[SDK da plataforma Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou posterior**
+* **[Plataforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou superior**
 
-## Criar e compilar o projeto
+## <a name="create-and-build-the-project"></a>Criar e compilar o projeto
 1. Use o comando a seguir para criar um novo projeto Maven:
    
         mvn archetype:generate -DgroupId=com.microsoft.example -DartifactId=scaldingwordcount -DarchetypeGroupId=org.scala-tools.archetypes -DarchetypeArtifactId=scala-archetype-simple -DinteractiveMode=false
    
-    Esse comando criará um novo diretório chamado **scaldingwordcount** e criará o scaffolding para um aplicativo Scala.
+    Esse comando criará um novo diretório chamado **scaldingwordcount**e criará o scaffolding para um aplicativo Scala.
 2. No diretório **scaldingwordcount**, abra o arquivo **pom.xml** e substitua o conteúdo pelo seguinte:
    
         <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -132,14 +136,14 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
    
    * **maven.compiler.source** e **maven.compiler.target**: define a versão Java para este projeto
    * **repositories**: os repositórios que contêm os arquivos de dependência usados pelo projeto
-   * **scalding-core\_2.11** e **hadoop-core**: este projeto depende de pacotes básicos Scalding e Hadoop
+   * **scalding-core_2.11** e **hadoop-core**: este projeto depende de pacotes básicos Scalding e Hadoop
    * **maven-scala-plugin**: plug-in para compilar aplicativos Scala
    * **maven-shade-plugin**: plug-in para criar jars sombreadas (fat). Este plug-in aplica filtros e transformações; especificamente:
      
      * **filtros**: os filtros aplicados modificam as metainformações incluídas com o arquivo jar. Para evitar a assinatura de exceções em tempo de execução, isso exclui vários arquivos de assinatura que podem ser incluídos com dependências.
      * **execuções**: a configuração de execução da fase de pacote especifica a classe **com.twitter.scalding.Tool** como a classe principal para o pacote. Sem ela, você precisaria especificar com.twitter.scalding.Tool, além da classe que contém a lógica de aplicativo, ao executar o trabalho com o comando hadoop.
-3. Exclua o diretório **src/teste**, pois você não criará testes com este exemplo.
-4. Abra o arquivo **src/main/scala/com/microsoft/example/app.scala** e substitua o conteúdo pelo seguinte:
+3. Exclua o diretório **src/teste** , pois você não criará testes com este exemplo.
+4. Abra o arquivo **src/main/scala/com/microsoft/example/App.scala** e substitua o conteúdo pelo seguinte:
    
         package com.microsoft.example
    
@@ -169,7 +173,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
    
     Quando esse trabalho for concluído, o pacote que contém o aplicativo WordCount poderá ser encontrado em **target/scaldingwordcount-1.0-SNAPSHOT.jar**.
 
-## Executar o trabalho em um cluster baseado em Linux
+## <a name="run-the-job-on-a-linux-based-cluster"></a>Executar o trabalho em um cluster baseado em Linux
 > [!NOTE]
 > As etapas a seguir usam o SSH e o comando Hadoop. Para obter outros métodos de executar trabalhos do MapReduce, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 > 
@@ -197,7 +201,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
    
         yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasbs:///example/data/gutenberg/davinci.txt --output wasbs:///example/wordcountout
    
-    Isso executa a classe WordCount implementada anteriormente. `--hdfs` instrui o trabalho para usar HDFS. `--input` especifica o arquivo de texto de entrada, enquanto `--output` especifica o local de saída.
+    Isso executa a classe WordCount implementada anteriormente. `--hdfs` instrui o trabalho para usar HDFS. `--input` especifica o arquivo de texto de entrada, enquanto que `--output` especifica a localização de saída.
 4. Após concluir o trabalho, use o seguinte para exibir a saída.
    
         hdfs dfs -text wasbs:///example/wordcountout/*
@@ -218,7 +222,7 @@ Neste documento, aprenda como usar o Maven para criar um trabalho básico de con
         wrotefootnote   1
         wrought 7
 
-## Executar o trabalho em um cluster baseado em Windows
+## <a name="run-the-job-on-a-windows-based-cluster"></a>Executar o trabalho em um cluster baseado em Windows
 As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de executar trabalhos do MapReduce, consulte [Usar o MapReduce no Hadoop no HDInsight](hdinsight-use-mapreduce.md).
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -241,14 +245,14 @@ As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de exec
 3. Use o seguinte script para carregar e executar o trabalho WordCount. Substitua `CLUSTERNAME` pelo nome de seu cluster HDInsight e verifique se `$fileToUpload` é o caminho correto para o arquivo **scaldingwordcount-1.0-SNAPSHOT.jar**.
    
         #Cluster name, file to be uploaded, and where to upload it
-        $clustername = "CLUSTERNAME"
-        $fileToUpload = "scaldingwordcount-1.0-SNAPSHOT.jar"
+        $clustername = Read-Host -Prompt "Enter the HDInsight cluster name"
+        $fileToUpload = Read-Host -Prompt "Enter the path to the scaldingwordcount-1.0-SNAPSHOT.jar file"
         $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
    
         #Login to your Azure subscription
         Login-AzureRmAccount
         #Get HTTPS/Admin credentials for submitting the job later
-        $creds = Get-Credential
+        $creds = Get-Credential -Message "Enter the login credentials for the cluster"
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
@@ -275,10 +279,10 @@ As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de exec
             -JarFile wasbs:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
             -ClassName com.microsoft.example.WordCount `
             -arguments "--hdfs", `
-                       "--input", `
-                       "wasbs:///example/data/gutenberg/davinci.txt", `
-                       "--output", `
-                       "wasbs:///example/wordcountout"
+                        "--input", `
+                        "wasbs:///example/data/gutenberg/davinci.txt", `
+                        "--output", `
+                        "wasbs:///example/wordcountout"
         $job = Start-AzureRmHDInsightJob `
             -clustername $clusterName `
             -jobdefinition $jobDef `
@@ -325,11 +329,16 @@ As etapas a seguir usam o Windows PowerShell. Para obter outros métodos de exec
         wrotefootnote   1
         wrought 7
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu como usar o Scalding para criar trabalhos do MapReduce com o HDInsight, use os links a seguir para explorar outras maneiras de trabalhar com o Azure HDInsight.
 
 * [Usar o Hive com o HDInsight](hdinsight-use-hive.md)
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

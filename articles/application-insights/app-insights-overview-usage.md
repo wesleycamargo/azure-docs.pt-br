@@ -1,11 +1,11 @@
 ---
-title: Análise de uso com o Application Insights
-description: Visão geral da análise de uso com o Application Insights
+title: "Análise de uso com o Application Insights"
+description: "Visão geral da análise de uso com o Application Insights"
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: b633e0d5-a6e5-4ab7-9c72-499e5d7571ce
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,38 +13,42 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/08/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ff52467bb9634de2c58a7e87323abe4014cc4a29
+
 
 ---
-# Análise de uso com o Application Insights
+# <a name="usage-analysis-with-application-insights"></a>Análise de uso com o Application Insights
 Saber como as pessoas usam seu aplicativo permite a você concentrar o trabalho de desenvolvimento nos cenários que são mais importantes para elas, além de adquirir percepção sobre quais objetivos elas têm maior ou menor dificuldade para atingir.
 
 O Application Insights pode fornecer uma visão clara do uso do seu aplicativo, ajudando a melhorar sua experiência de usuário e atingir suas metas comerciais.
 
-O Application Insights funciona tanto para aplicativos autônomos (no iOS, Android e Windows) quanto para aplicativos web (hospedados no .NET ou J2EE)
+O Application Insights funciona tanto para aplicativos autônomos (no iOS, Android e Windows) quanto para aplicativos web  (hospedados no .NET ou J2EE) 
 
-## Adicione o Application Insights ao seu projeto
+## <a name="add-application-insights-to-your-project"></a>Adicione o Application Insights ao seu projeto
 Para começar, obtenha uma conta gratuita com o [Microsoft Azure](https://azure.com). (Depois do período de avaliação gratuita, você pode continuar com a camada gratuita do serviço).
 
 No [Portal do Azure](https://portal.azure.com), crie um recurso do Application Insights. É aqui onde verá seu uso e dados de performance sobre seu aplicativo.
 
 ![No Azure, clique em Novo, Serviços de Desenvolvedor, Application Insights](./media/app-insights-overview-usage/01-create.png)
 
-**Se seu aplicativo for um aplicativo de dispositivo,**, adicione o SDK do Application Insights ao projeto. O procedimento exato varia dependendo de sua [IDE e plataforma](app-insights-platforms.md). Para aplicativos do Windows, clique com o botão direito do mouse no Visual Studio e selecione “Adicionar Application Insights”.
+**Se seu aplicativo for um aplicativo de dispositivo,** , adicione o SDK do Application Insights ao projeto. O procedimento exato varia dependendo de sua [IDE e plataforma](app-insights-platforms.md). Para aplicativos do Windows, clique com o botão direito do mouse no Visual Studio e selecione “Adicionar Application Insights”.
 
-**Se for um aplicativo web,**abrir a folha de início rápido e obter o trecho de código para adicionar a páginas da web. Publicá-los novamente com este trecho de código.
+**Se for um aplicativo web,** abrir a folha de início rápido e obter o trecho de código para adicionar a páginas da web. Publicá-los novamente com este trecho de código.
 
 ![Abra o Início Rápido e clique em Obter código para monitorar minhas páginas na Web. Copie o script no cabeçalho da página da web mestra.](./media/app-insights-overview-usage/02-monitor-web-page.png)
 
-Você também pode adicionar o Application Insights ao seu código de servidor [ASP.NET](app-insights-asp-net.md)ou[J2EE](app-insights-java-get-started.md) para combinar telemetria a partir do cliente e servidor.
+Você também pode adicionar o Application Insights ao código do servidor do [ASP.NET](app-insights-asp-net.md) ou do [J2EE](app-insights-java-get-started.md) para combinar a telemetria do cliente e do servidor.
 
-### Execute seu projeto e veja os primeiros resultados
-Execute seu projeto no modo de depuração por alguns minutos e, em seguida, vá para o[portal do Azure](https://portal.azure.com)e vá para o recurso de projeto no Application Insights.
+### <a name="run-your-project-and-see-first-results"></a>Execute seu projeto e veja os primeiros resultados
+Execute seu projeto no modo de depuração por alguns minutos e, em seguida, vá para o [portal do Azure](https://portal.azure.com) e vá para o recurso de projeto no Application Insights.
 
 ![No Azure, clique em Navegar, Application Insights e selecione seu projeto.](./media/app-insights-overview-usage/00-start.png)
 
 Publique seu aplicativo para obter mais telemetria e descubra o que os usuários estão fazendo com seu aplicativo.
 
-## Análise imediata
+## <a name="analytics-out-of-the-box"></a>Análise imediata
 Clique no bloco de visualizações de página para ver os detalhes de uso.
 
 ![No Azure, selecionar Navegar > Application Insights > o nome do seu projeto e rolar para baixo até o bloco de Visualizações de Página](./media/app-insights-overview-usage/01-overview.png)
@@ -73,7 +77,7 @@ Dados de grupo (segmento) segundo uma propriedade, como Navegador, Sistema Opera
 
 ![Selecionar um gráfico que exibe uma única métrica, ativar Agrupamento e escolher uma propriedade](./media/app-insights-overview-usage/03-browsers.png)
 
-## Uso da página
+## <a name="page-usage"></a>Uso da página
 Clique no bloco de visualizações de página para obter uma análise das suas páginas mais populares:
 
 ![Na folha Visão Geral, clicar no gráfico Visualizações de página](./media/app-insights-overview-usage/05-games.png)
@@ -84,14 +88,14 @@ O exemplo acima é de um site de jogos. Nele, podemos ver instantaneamente:
 * O número de pessoas que consultam as páginas de jogos é muito menor do que aquelas que consultam a home page. Por que nossa página inicial não estimula as pessoas a jogar?
 * “Palavras Cruzadas” é o jogo mais popular. Lá, devemos dar prioridade a novas ideias e aprimoramentos.
 
-## Acompanhamento personalizado
+## <a name="custom-tracking"></a>Acompanhamento personalizado
 Vamos supor que, em vez de implementar cada jogo em uma página da Web separada, você decida refatorá-los todos no mesmo aplicativo de página única, com a maioria das funcionalidades codificadas como Javascript na página da Web. Isso permite que o usuário alterne rapidamente entre um jogo e outro, ou até mesmo entre vários jogos em uma única página.
 
 Mas você ainda gostaria que o Application Insights registrasse o número de vezes que cada jogo é aberto, exatamente do mesmo modo que fazia quando elas estavam em páginas da Web separadas. Isso é fácil: basta inserir uma chamada para o módulo de telemetria em seu JavaScript no qual você deseja registrar que uma nova “página” foi aberta:
 
     telemetryClient.trackPageView(game.Name);
 
-## Eventos personalizados
+## <a name="custom-events"></a>Eventos personalizados
 Você pode usar a telemetria de várias maneiras para entender como o seu aplicativo está sendo usado. Mas você não deseja sempre misturar as mensagens com modos de exibição de página. Em vez disso, use eventos personalizados. Você pode enviá-los por meio de aplicativos de dispositivos, páginas da Web ou um servidor Web:
 
 (JavaScript)
@@ -119,7 +123,7 @@ Clique no cabeçalho da tabela para ver o número total de eventos. Você pode s
 
 O recurso particularmente útil encontrado nas linhas do tempo é que você pode correlacionar alterações com outras métricas e eventos. Por exemplo, nos momentos em que mais jogos são executados, você esperaria ver um aumento também nos jogos abandonados. Mas o aumento nos jogos abandonados é desproporcional, e você gostaria de saber se a carga elevada está causando problemas que os usuários consideram inaceitáveis.
 
-## Analisar eventos específicos
+## <a name="drill-into-specific-events"></a>Analisar eventos específicos
 Para obter um melhor entendimento de como uma sessão típica decorre, convém concentrar-se na sessão de um usuário específico que contenha um determinado tipo de evento.
 
 Neste exemplo, codificamos um evento personalizado "NoGame", que é chamado se o usuário faz logoff sem chegar realmente a iniciar um jogo. Por que um usuário faria isso? Talvez, se analisarmos detalhadamente algumas ocorrências específicas, obteremos uma pista.
@@ -144,7 +148,7 @@ Não havia nenhuma exceção, portanto, o usuário não foi impedido de jogar de
 
 E agora podemos ver que este usuário fez logon simplesmente para verificar os resultados mais recentes. Talvez devamos pensar em desenvolver uma história de usuário que torne isso mais fácil de fazer. (E devemos implementar um evento personalizado ao relatório quando essa história específica ocorrer.)
 
-## Filtre, pesquise e segmente seus dados com propriedades
+## <a name="filter-search-and-segment-your-data-with-properties"></a>Filtre, pesquise e segmente seus dados com propriedades
 Você pode anexar marcas arbitrárias e valores numéricos aos eventos.
 
 JavaScript no cliente
@@ -191,13 +195,13 @@ JavaScript no cliente
 
 Na Pesquisa de Diagnóstico, exiba as propriedades clicando por uma ocorrência individual de um evento.
 
-![Na lista de eventos, abrir um evento e, em seguida, clicar em '...' para ver mais propriedades](./media/app-insights-overview-usage/11-details.png)
+![Na lista de eventos, abra um evento e clique em '...' para ver mais propriedades](./media/app-insights-overview-usage/11-details.png)
 
 Use o campo Pesquisa para ver as ocorrências de eventos com um valor da propriedade específico.
 
 ![Digitar um valor no campo Pesquisa](./media/app-insights-overview-usage/12-searchEvents.png)
 
-## Testando A | B
+## <a name="a-b-testing"></a>Testando A | B
 Se você não souber qual variante de um recurso terá mais êxito, libere ambas, tornando cada uma acessível para diferentes usuários. Avalie o sucesso de cada uma e então parta para uma versão unificada.
 
 Para essa técnica, você pode anexar marcas distintas a todas as telemetrias enviadas por cada versão do seu aplicativo. Você pode fazer isso definindo propriedades no TelemetryContext ativo. Essas propriedades padrão são adicionadas a todas as mensagens de telemetria que o aplicativo envia - não apenas a suas mensagens personalizadas, mas também à telemetria padrão.
@@ -245,22 +249,28 @@ No inicializador de aplicativo como Global.asax.cs:
     }
 
 
-## Compilar - Medir - Aprender
+## <a name="build---measure---learn"></a>Compilar - Medir - Aprender
 Quando você usa análise, ela se torna parte integrante de seu ciclo de desenvolvimento, não apenas algo a respeito do que você pensa para ajudar a resolver problemas. Aqui estão algumas dicas:
 
 * Determine a métrica principal do seu aplicativo. Você deseja a maior quantidade de usuários possível ou prefere um conjunto pequeno de usuários muito contentes? Você deseja maximizar visitas ou vendas?
-* Planeje medir cada história. Quando você faz o esboço de um novo recurso ou história de usuário, ou quando planeja atualizar um existente, pense sempre em como você medirá o sucesso da alteração. Antes da codificação começar, pergunte "Que efeito isso terá em nossas métricas, se funcionar? Devemos acompanhar quaisquer novos eventos?" E é claro, quando o recurso estiver ativo, certifique-se de examinar as análises e agir segundo os resultados.
+* Planeje medir cada história. Quando você faz o esboço de um novo recurso ou história de usuário, ou quando planeja atualizar um existente, pense sempre em como você medirá o sucesso da alteração. Antes da codificação começar, pergunte "Que efeito isso terá em nossas métricas, se funcionar? Devemos acompanhar quaisquer novos eventos?"
+  E é claro, quando o recurso estiver ativo, certifique-se de examinar as análises e agir segundo os resultados.
 * Relacione outras métricas à métrica principal. Por exemplo, se você adicionar um recurso "Favoritos", você gostaria de saber com que frequência os usuários adicionam Favoritos. Mas talvez é mais interessante saber com que frequência eles retornam aos seus Favoritos. E o mais importante, os clientes que usam Favoritos compram mais produtos?
 * Teste de canário. Configure um comutador de recurso que permita a você tornar um novo recurso visível apenas para alguns usuários. Use o Application Insights para ver se o novo recurso está sendo usado do modo que você previu. Faça ajustes, então libere-o para um público maior.
 * Fale com seus usuários! A análise não é suficiente por si só, mas sim complementar de se manter um bom relacionamento com o cliente.
 
-## Saiba mais
+## <a name="learn-more"></a>Saiba mais
 * [Detecte, realize triagem e diagnostique as falhas e problemas de desempenho em seu aplicativo](app-insights-detect-triage-diagnose.md)
 * [Introdução ao Application Insights em várias plataformas.](app-insights-detect-triage-diagnose.md)
 
-## Vídeo
+## <a name="video"></a>Vídeo
 > [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/231/player]
 > 
 > 
 
-<!---HONumber=AcomDC_0420_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

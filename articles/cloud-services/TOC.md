@@ -64,6 +64,13 @@
 #### [Portal clássico](cloud-services-how-to-scale.md)
 ### [Usar Python para gerenciar recursos do Azure](cloud-services-python-how-to-use-service-management.md)
 
+### [Patches do SO convidado](cloud-services-guestos-msrc-releases.md)
+### Desativação do SO convidado
+#### [Política de desativação](cloud-services-guestos-retirement-policy.md)
+#### [Aviso de desativação da Família 1](cloud-services-guestos-family1-retirement.md)
+### [Notícias sobre o lançamento do SO convidado](cloud-services-guestos-update-matrix.md)
+### [Roteiro do XPath de configuração da função de Serviços de Nuvem](cloud-services-role-config-xpath.md)
+
 ## Gerenciar certificados
 ### [Serviços de Nuvem e certificados de gerenciamento](cloud-services-certs-create.md)
 ### Configurar SSL 
@@ -101,12 +108,6 @@
 ## [XMLSchema .csdef](https://msdn.microsoft.com/library/azure/ee758711)
 ## [XMLSchema .cscfg](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
-## [Patches do SO convidado](cloud-services-guestos-msrc-releases.md)
-## Desativação do SO convidado
-### [Política de desativação](cloud-services-guestos-retirement-policy.md)
-### [Aviso de desativação da Família 1](cloud-services-guestos-family1-retirement.md)
-## [Notícias sobre o lançamento do SO convidado](cloud-services-guestos-update-matrix.md)
-## [Roteiro do XPath de configuração da função de Serviços de Nuvem](cloud-services-role-config-xpath.md)
 
 # Recursos
 ## [Preços](https://azure.microsoft.com/pricing/details/cloud-services/)
@@ -116,6 +117,6 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

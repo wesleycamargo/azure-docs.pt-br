@@ -1,22 +1,26 @@
 ---
-title: Tópicos de referência do SQL Data Warehouse | Microsoft Docs
-description: Links de conteúdo de referência para o SQL Data Warehouse.
+title: "Tópicos de referência do SQL Data Warehouse | Microsoft Docs"
+description: "Links de conteúdo de referência para o SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: abecd886-77bd-484f-b006-93600533a044
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/08/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9395c092411ebc056a8b3145a29f3a0c56b2a3cd
+
 
 ---
-# Tópicos de referência para o SQL Data Warehouse
+# <a name="reference-topics-for-sql-data-warehouse"></a>Tópicos de referência para o SQL Data Warehouse
 Estes artigos contêm informações de referência para o SQL Data Warehouse.
 
 * [Elementos de linguagem Transact-SQL][Elementos de linguagem Transact-SQL]
@@ -24,8 +28,8 @@ Estes artigos contêm informações de referência para o SQL Data Warehouse.
 * [Exibições do sistema Transact-SQL][Exibições do sistema Transact-SQL]
 * [Cmdlets do PowerShell][Cmdlets do PowerShell]
 
-## Próximas etapas
-Para obter informações de desenvolvimento, consulte [visão geral de desenvolvimento][visão geral de desenvolvimento].
+## <a name="next-steps"></a>Próximas etapas
+Para obter informações sobre o desenvolvimento, consulte [visão geral de desenvolvimento][visão geral de desenvolvimento].
 
 <!--Image references-->
 
@@ -39,4 +43,8 @@ Para obter informações de desenvolvimento, consulte [visão geral de desenvolv
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

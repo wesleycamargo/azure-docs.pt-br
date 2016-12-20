@@ -1,12 +1,12 @@
 ---
 title: Atividade de Hive
-description: Saiba como usar a atividade de Hive em uma Azure Data Factory para executar consultas de Hive em um cluster sob demanda/próprio de HDInsight.
+description: "Saiba como usar a atividade de Hive em uma Azure Data Factory para executar consultas de Hive em um cluster sob demanda/próprio de HDInsight."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: sharonlo101
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: shlo
+translationtype: Human Translation
+ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
+ms.openlocfilehash: 6f5aecf7ac50258e8f744a7bbf9c78d46413069d
+
 
 ---
 # <a name="hive-activity"></a>Atividade de Hive
 > [!div class="op_single_selector"]
-> [Hive](data-factory-hive-activity.md)  
-> [Pig](data-factory-pig-activity.md)  
-> [MapReduce](data-factory-map-reduce.md)  
-> [Streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
-> [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-> [Procedimento Armazenado](data-factory-stored-proc-activity.md)
-> [U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
-> [.NET personalizado](data-factory-use-custom-activities.md)
+> * [Hive](data-factory-hive-activity.md)  
+> * [Pig](data-factory-pig-activity.md)  
+> * [MapReduce](data-factory-map-reduce.md)  
+> * [Streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
+> * [Aprendizado de máquina](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Procedimento armazenado](data-factory-stored-proc-activity.md)
+> * [U-SQL da Análise Data Lake](data-factory-usql-activity.md)
+> * [.NET personalizado](data-factory-use-custom-activities.md)
 > 
 > 
 
@@ -89,18 +93,18 @@ O **script do Hive** para processar esses dados:
     DROP TABLE IF EXISTS HiveSampleIn; 
     CREATE EXTERNAL TABLE HiveSampleIn 
     (
-        ProfileID       string, 
-        SessionStart    string, 
-        Duration        int, 
-        SrcIPAddress    string, 
-        GameType        string
+        ProfileID        string, 
+        SessionStart     string, 
+        Duration         int, 
+        SrcIPAddress     string, 
+        GameType         string
     ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/samplein/'; 
 
     DROP TABLE IF EXISTS HiveSampleOut; 
     CREATE EXTERNAL TABLE HiveSampleOut 
-    (   
-        ProfileID   string, 
-        Duration    int
+    (    
+        ProfileID     string, 
+        Duration     int
     ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION 'wasb://adfwalkthrough@<storageaccount>.blob.core.windows.net/sampleout/';
 
     INSERT OVERWRITE TABLE HiveSampleOut
@@ -122,36 +126,37 @@ Para executar o script do Hive em um pipeline do Data Factory, você precisa faz
    > 
 5. Crie um pipeline com a atividade HDInsightHive. A atividade processa/transforma os dados.
    
-       {
-         "name": "HiveActivitySamplePipeline",
-         "properties": {
-           "activities": [
-             {
-               "name": "HiveActivitySample",
-               "type": "HDInsightHive",
-               "inputs": [
-                 {
-                   "name": "HiveSampleIn"
-                 }
-               ],
-               "outputs": [
-                 {
-                   "name": "HiveSampleOut"
-                 }
-               ],
-               "linkedServiceName": "HDInsightLinkedService",
-               "typeproperties": {
-                 "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                 "scriptLinkedService": "StorageLinkedService"
-               },
-               "scheduler": {
+     {
+   
+       "name": "HiveActivitySamplePipeline",
+       "properties": {
+         "activities": [
+           {
+             "name": "HiveActivitySample",
+             "type": "HDInsightHive",
+             "inputs": [
+               {
+                 "name": "HiveSampleIn"
+               }
+             ],
+             "outputs": [
+               {
+                 "name": "HiveSampleOut"
+               }
+             ],
+             "linkedServiceName": "HDInsightLinkedService",
+             "typeproperties": {
+               "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+               "scriptLinkedService": "StorageLinkedService"
+             },
+                "scheduler": {
                    "frequency": "Hour",
                    "interval": 1
-               }
              }
-           ]
-         }
+           }
+         ]
        }
+     }
 6. Implante o pipeline. Consulte o artigo [Criando pipelines](data-factory-create-pipelines.md) para obter detalhes. 
 7. Monitore o pipeline usando as exibições de gerenciamento e monitoramento de data factory. Consulte o artigo [Monitoramento e gerenciando pipelines do Data Factory](data-factory-monitor-manage-pipelines.md) para obter detalhes. 
 
@@ -164,35 +169,35 @@ Para usar o script do Hive com parâmetros, faça o seguinte
   
         {
             "name": "HiveActivitySamplePipeline",
-            "properties": {
+              "properties": {
             "activities": [
-                {
+                 {
                     "name": "HiveActivitySample",
                     "type": "HDInsightHive",
                     "inputs": [
-                        {
+                          {
                             "name": "HiveSampleIn"
                           }
                     ],
                     "outputs": [
-                        {
+                          {
                             "name": "HiveSampleOut"
                         }
                     ],
                     "linkedServiceName": "HDInsightLinkedService",
                     "typeproperties": {
-                        "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
-                        "scriptLinkedService": "StorageLinkedService",
-                        "defines": {
+                          "scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
+                          "scriptLinkedService": "StorageLinkedService",
+                          "defines": {
                             "Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
                             "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
-                        },
-                        "scheduler": {
-                            "frequency": "Hour",
-                            "interval": 1
+                          },
+                           "scheduler": {
+                              "frequency": "Hour",
+                              "interval": 1
                         }
                     }
-                }
+                  }
             ]
           }
         }
@@ -201,18 +206,18 @@ Para usar o script do Hive com parâmetros, faça o seguinte
         DROP TABLE IF EXISTS HiveSampleIn; 
         CREATE EXTERNAL TABLE HiveSampleIn 
         (
-            ProfileID   string, 
-            SessionStart    string, 
-            Duration    int, 
-            SrcIPAddress    string, 
-            GameType    string
+            ProfileID     string, 
+            SessionStart     string, 
+            Duration     int, 
+            SrcIPAddress     string, 
+            GameType     string
         ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Input}'; 
   
         DROP TABLE IF EXISTS HiveSampleOut; 
         CREATE EXTERNAL TABLE HiveSampleOut 
         (
-            ProfileID   string, 
-            Duration    int
+            ProfileID     string, 
+            Duration     int
         ) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '10' STORED AS TEXTFILE LOCATION '${hiveconf:Output}';
   
         INSERT OVERWRITE TABLE HiveSampleOut
@@ -228,6 +233,9 @@ Para usar o script do Hive com parâmetros, faça o seguinte
 * [Invocar programas Spark](data-factory-spark.md)
 * [Invocar scripts R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

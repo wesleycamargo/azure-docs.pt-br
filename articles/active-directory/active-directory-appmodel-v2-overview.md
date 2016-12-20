@@ -1,12 +1,12 @@
 ---
-title: Visão geral do ponto de extremidade v2.0 | Microsoft Docs
-description: Uma introdução à criação de aplicativos com conexão à conta da Microsoft e ao Active Directory do Azure.
+title: "Visão geral do ponto de extremidade v2.0 | Microsoft Docs"
+description: "Uma introdução à criação de aplicativos com conexão à conta da Microsoft e ao Active Directory do Azure."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e98ec55dbe5ff0411af124b45bd7ef6177aa957e
+
 
 ---
-# <a name="sign-in-microsoft-account-&-azure-ad-users-in-a-single-app"></a>Conecte-se os usuários da Conta da Microsoft e do Azure AD em um único aplicativo
+# <a name="sign-in-microsoft-account-azure-ad-users-in-a-single-app"></a>Conecte-se os usuários da Conta da Microsoft e do Azure AD em um único aplicativo
 Antigamente, um desenvolvedor de aplicativo que desejava oferecer suporte a contas da Microsoft e ao Active Directory do Azure tinha que se integrar a dois sistemas distintos.  Agora apresentamos uma nova versão da API de autenticação que permite aos usuários se conectarem com os dois tipos de contas usando o sistema do Azure AD.  Esse sistema de autenticação convergida é conhecido como **o ponto de extremidade v2.0**.  Com o ponto de extremidade v2.0, uma simples integração permite alcançar um público que se estende por milhões de usuários com contas pessoais e corporativas/de estudante.
 
 Aplicativos que usam o ponto de extremidade v2.0 também podem consumir APIs REST do [Microsoft Graph](https://graph.microsoft.io) e do [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) usando qualquer tipo de conta.
@@ -32,7 +36,7 @@ Escolha sua plataforma favorita na lista a seguir para compilar um aplicativo us
 <!-- TODO: Finalize this table  -->
 [!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## <a name="what's-new"></a>O que há de novo
+## <a name="whats-new"></a>O que há de novo
 As informações conceituais aqui serão úteis para entender o que é possível ou não com o ponto de extremidade v2.0.
 
 * Saiba mais sobre os [tipos de aplicativos que podem ser criados com o ponto de extremidade v2.0](active-directory-v2-flows.md).
@@ -48,10 +52,13 @@ Estes links serão úteis na exploração em profundidade da plataforma:
 * [Referência do Token v2.0](active-directory-v2-tokens.md)
 * [Referência da Biblioteca v2.0](active-directory-v2-libraries.md)
 * [Escopos e Consentimento no ponto de extremidade v2.0](active-directory-v2-scopes.md)
-* [O Portal de Registro de Aplicativo da Microsoft](https://apps.dev.microsoft.com)
+* [O Portal de Registro de Aplicativo da Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)
 * [Referência à API REST do Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 * [O Microsoft Graph](https://graph.microsoft.io)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

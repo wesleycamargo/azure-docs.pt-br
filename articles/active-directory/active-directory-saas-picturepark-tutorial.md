@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Picturepark | Microsoft Docs'
-description: Saiba como usar o Picturepark com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!
+title: "Tutorial: Integração do Azure Active Directory com o Picturepark | Microsoft Docs"
+description: "Saiba como usar o Picturepark com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 31c21cd4-9c00-4cad-9538-a13996dc872f
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98f2e5596a0af2fc9e633e005642cc3cd21621ce
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Active Directory do Azure com o Picturepark
+# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Active Directory do Azure com o Picturepark
 O objetivo deste tutorial é mostrar a integração do Azure com o Picturepark.  
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -36,7 +40,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 ## <a name="enabling-the-application-integration-for-picturepark"></a>Habilitando a integração de aplicativos para Picturepark
 O objetivo desta seção é descrever como habilitar a integração de aplicativos com o Picturepark.
 
-### <a name="to-enable-the-application-integration-for-picturepark,-perform-the-following-steps:"></a>Para habilitar a integração de aplicativos com o Picturepark, execute as seguintes etapas:
+### <a name="to-enable-the-application-integration-for-picturepark-perform-the-following-steps"></a>Para habilitar a integração de aplicativos com o Picturepark, execute as seguintes etapas:
 1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-picturepark-tutorial/IC700993.png "Active Directory")
@@ -62,7 +66,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 A configuração do logon único para Picturepark exige que você recupere um valor de impressão digital de um certificado.  
 Se você não estiver familiarizado com esse procedimento, veja [Como recuperar o valor de impressão digital de um certificado](http://youtu.be/YKQF266SAxI).
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Para configurar o logon único, execute as seguintes etapas:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
 1. No portal clássico do Azure, na página de integração de aplicativos do **Picturepark**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
    ![Configurar Logon Único](./media/active-directory-saas-picturepark-tutorial/IC795058.png "Configure Single Sign-On")
@@ -108,7 +112,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como recuperar 
 Para permitir que os usuários do AD do Azure façam logon no Picturepark, eles devem ser provisionados no Picturepark.  
 No caso do Picturepark, o provisionamento é uma tarefa manual.
 
-### <a name="to-provision-a-user-accounts,-perform-the-following-steps:"></a>Para provisionar contas de usuário, execute as seguintes etapas:
+### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Para provisionar contas de usuário, execute as seguintes etapas:
 1. Faça logon em seu locatário do **Picturepark** .
 2. Na barra de ferramentas na parte superior, clique em **Ferramentas administrativas** e em **Usuários**.
    
@@ -132,7 +136,7 @@ No caso do Picturepark, o provisionamento é uma tarefa manual.
 ## <a name="assigning-users"></a>Atribuindo usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
-### <a name="to-assign-users-to-picturepark,-perform-the-following-steps:"></a>Para atribuir usuários ao Picturepark, execute as seguintes etapas:
+### <a name="to-assign-users-to-picturepark-perform-the-following-steps"></a>Para atribuir usuários ao Picturepark, execute as seguintes etapas:
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração de aplicativos do **Picturepark**, clique em **Atribuir usuários**.
    
@@ -143,6 +147,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

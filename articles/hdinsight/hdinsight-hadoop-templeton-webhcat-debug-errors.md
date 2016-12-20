@@ -1,13 +1,13 @@
 ---
 title: Entenda e resolva erros do WebHCat no HDInsight
-description: Saiba sobre erros comuns retornados pelo WebHCat no HDInsight e como resolvê-los.
+description: "Saiba sobre erros comuns retornados pelo WebHCat no HDInsight e como resolvê-los."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b57bd17a8887dbf9bdecee4a3ad79b55ec7fb610
+
 
 ---
-# <a name="understand-and-resolve-errors-received-from-webhcat-(templeton,)-on-hdinsight"></a>Entenda e resolva erros recebidos do WebHCat (Templeton) no HDInsight
+# <a name="understand-and-resolve-errors-received-from-webhcat-templeton-on-hdinsight"></a>Entenda e resolva erros recebidos do WebHCat (Templeton) no HDInsight
 Ao usar o WebHCat (anteriormente conhecido como Templeton) para trabalhar com o HDInsight, você pode receber erros. Este documento fornece orientação sobre erros comuns – por que eles ocorrem e o que você pode fazer para resolvê-los.
 
-## <a name="what-is-webhcat?"></a>O que é o WebHCat?
+## <a name="what-is-webhcat"></a>O que é o WebHCat?
 O [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) é uma API REST para o [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), uma camada de gerenciamento de armazenamento e tabela para Hadoop. O WebHCat é habilitado por padrão em clusters do HDInsight e é usado por várias ferramentas para enviar trabalhos, obter o status do trabalho etc. sem logon no cluster.
 
 ## <a name="modifying-configuration"></a>Modificando a configuração
@@ -55,7 +59,7 @@ Estes são os valores de configuração padrão que podem afetar o desempenho do
 | --- | --- |
 | Isso geralmente ocorre durante o failover entre o HeadNode primário e secundário para o cluster |Aguarde dois minutos e repita a operação |
 
-## <a name="bad-request-content:-could-not-find-job"></a>Conteúdo de solicitação incorreto: não foi possível encontrar o trabalho
+## <a name="bad-request-content-could-not-find-job"></a>Conteúdo de solicitação incorreto: não foi possível encontrar o trabalho
 **Código de status HTTP**: 400
 
 | Causa | Resolução |
@@ -82,6 +86,6 @@ Estes são os valores de configuração padrão que podem afetar o desempenho do
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

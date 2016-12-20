@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Halogen Software'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Halogen Software.
+title: "Tutorial: Integração do Active Directory do Azure com o Halogen Software"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Halogen Software."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2ca2298d-9a0c-4f14-925c-fa23f2659d28
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21d31eb33a838d42b4ba8f4191b89e6094206f6e
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-halogen-software"></a>Tutorial: Integração do Active Directory do Azure com o Halogen Software
+# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Tutorial: Integração do Active Directory do Azure com o Halogen Software
 O objetivo desse tutorial é mostrar como integrar o Halogen Software ao Azure AD (Azure Active Directory).
 
 A integração do Halogen Software ao Azure AD oferece os seguintes benefícios: 
@@ -63,7 +67,7 @@ Para configurar a integração do Halogen Software com o Azure AD, você precisa
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
     ![Aplicativos][2]
-4. Clique em **Adicionar** na parte inferior da página. 
+4. Clique em **Adicionar** na parte inferior da página.    
    
     ![Aplicativos][3]
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
@@ -276,6 +280,7 @@ Quando clica no bloco Halogen Software no Painel de Acesso, você deve fazer log
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

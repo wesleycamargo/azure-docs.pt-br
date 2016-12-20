@@ -1,12 +1,12 @@
 ---
-title: 'RBAC: funções internas | Microsoft Docs'
-description: Este tópico descreve as funções internas para o RBAC (controle de acesso baseado em função).
+title: "RBAC: funções internas | Microsoft Docs"
+description: "Este tópico descreve as funções internas para o RBAC (controle de acesso baseado em função)."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/25/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
+
 
 ---
-# RBAC: funções internas
+# <a name="rbac-built-in-roles"></a>RBAC: funções internas
 O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar as definições de funções internas. No entanto, você pode criar [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md) para atender às necessidades específicas de sua organização.
 
-## Funções no Azure
+## <a name="roles-in-azure"></a>Funções no Azure
 A tabela a seguir fornece breves descrições das funções internas. Clique no nome da função para ver sua lista detalhada de **ações** e de **não ações**. A propriedade das **ações** especifica as ações permitidas em recursos do Azure. As cadeias de caracteres da ação podem usar caracteres curingas. A propriedade das **não ações** especifica as ações excluídas das ações permitidas.
 
 > [!NOTE]
@@ -37,6 +41,7 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador](#contributor) |Pode gerenciar tudo, exceto o acesso. |
 | [Colaborador da fábrica de dados](#data-factory-contributor) |Pode criar e gerenciar data factories e recursos filho dentro deles. |
 | [Usuário do DevTest Labs](#devtest-labs-user) |Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las e desligá-las. |
+| [Colaborador de zona DNS](#dns-zone-contributor) |Pode gerenciar zonas e registros DNS |
 | [Colaborador de Conta do Banco de Dados de Documentos](#documentdb-account-contributor) |Pode gerenciar contas do Banco de Dados de Documentos |
 | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) |Pode gerenciar contas do Intelligent Systems |
 | [Colaborador de rede](#network-contributor) |Pode gerenciar todos os recursos de rede |
@@ -59,10 +64,10 @@ A tabela a seguir fornece breves descrições das funções internas. Clique no 
 | [Colaborador do Plano de Web](#web-plan-contributor) |Pode gerenciar planos da Web |
 | [Colaborador do Site](#website-contributor) |Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados |
 
-## Permissões de função
-As tabelas a seguir descrevem as permissões específicas fornecidas a cada função. Isso pode incluir **Actions** que concedem permissões e **NotActions** que as restringem.
+## <a name="role-permissions"></a>Permissões de função
+As tabelas a seguir descrevem as permissões específicas fornecidas a cada função. Isso pode incluir **Ações** que concedem permissões e **Não Ações** que as restringem.
 
-### Colaborador de serviço de gerenciamento de API
+### <a name="api-management-service-contributor"></a>Colaborador de serviço de gerenciamento de API
 Pode gerenciar os serviços de gerenciamento de API
 
 | **Ações** |  |
@@ -75,7 +80,7 @@ Pode gerenciar os serviços de gerenciamento de API
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler funções e atribuições de função |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador de componente do Application Insights
+### <a name="application-insights-component-contributor"></a>Colaborador de componente do Application Insights
 Pode gerenciar os componentes do Application Insights
 
 | **Ações** |  |
@@ -89,7 +94,7 @@ Pode gerenciar os componentes do Application Insights
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Operador de automação
+### <a name="automation-operator"></a>Operador de automação
 Capaz de iniciar, parar, suspender e reiniciar trabalhos
 
 | **Ações** |  |
@@ -113,7 +118,7 @@ Capaz de iniciar, parar, suspender e reiniciar trabalhos
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador do BizTalk
+### <a name="biztalk-contributor"></a>Colaborador do BizTalk
 Pode gerenciar os serviços BizTalk
 
 | **Ações** |  |
@@ -126,7 +131,7 @@ Pode gerenciar os serviços BizTalk
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador do DB MySQL ClearDB
+### <a name="cleardb-mysql-db-contributor"></a>Colaborador do DB MySQL ClearDB
 Pode gerenciar bancos de dados MySQL ClearDB
 
 | **Ações** |  |
@@ -139,7 +144,7 @@ Pode gerenciar bancos de dados MySQL ClearDB
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 | successbricks.cleardb/Databases/* |Criar e gerenciar bancos de dados MySQL ClearDB |
 
-### Colaborador
+### <a name="contributor"></a>Colaborador
 Pode gerenciar tudo, exceto o acesso.
 
 | **Ações** |  |
@@ -151,7 +156,7 @@ Pode gerenciar tudo, exceto o acesso.
 | Microsoft.Authorization/*/Delete |Não é possível excluir funções e atribuições de função |
 | Microsoft.Authorization/*/Write |Não é possível criar funções e atribuições de função |
 
-### Colaborador da fábrica de dados
+### <a name="data-factory-contributor"></a>Colaborador da fábrica de dados
 Criar e gerenciar data factories e recursos filho dentro deles.
 
 | **Ações** |  |
@@ -164,7 +169,7 @@ Criar e gerenciar data factories e recursos filho dentro deles.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Usuário do DevTest Labs
+### <a name="devtest-labs-user"></a>Usuário do DevTest Labs
 Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las e desligá-las.
 
 | **Ações** |  |
@@ -197,7 +202,20 @@ Pode exibir tudo e se conectar a máquinas virtuais, iniciá-las, reiniciá-las 
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Storage/storageAccounts/listKeys/action |Listar chaves da conta de armazenamento |
 
-### Colaborador de Conta do Banco de Dados de Documentos
+### <a name="dns-zone-contributor"></a>Colaborador de zona DNS
+Pode gerenciar zonas e registros DNS.
+
+| **Ações** |  |
+| --- | --- |
+| Microsoft.Authorization/\*/read |Ler funções e atribuições de função |
+| Microsoft.Insights/alertRules/\* |Criar e gerenciar regras de alerta |
+| Microsoft.Network/dnsZones/\* |Criar e gerenciar zonas e registros DNS |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
+| Microsoft.Resources/deployments/\* |Criar e gerenciar implantações do grupo de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
+| Microsoft.Support/\* |Criar e gerenciar tíquetes de suporte |
+
+### <a name="documentdb-account-contributor"></a>Colaborador de Conta do Banco de Dados de Documentos
 Pode gerenciar contas do Banco de Dados de Documentos
 
 | **Ações** |  |
@@ -210,7 +228,7 @@ Pode gerenciar contas do Banco de Dados de Documentos
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador de conta do sistemas inteligentes
+### <a name="intelligent-systems-account-contributor"></a>Colaborador de conta do sistemas inteligentes
 Pode gerenciar contas do Intelligent Systems
 
 | **Ações** |  |
@@ -223,7 +241,7 @@ Pode gerenciar contas do Intelligent Systems
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador de rede
+### <a name="network-contributor"></a>Colaborador de rede
 Pode gerenciar todos os recursos de rede
 
 | **Ações** |  |
@@ -236,7 +254,7 @@ Pode gerenciar todos os recursos de rede
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador de Conta APM do New Relic
+### <a name="new-relic-apm-account-contributor"></a>Colaborador de Conta APM do New Relic
 Pode gerenciar contas e aplicativos de Gerenciamento de Desempenho do Aplicativo New Relic
 
 | **Ações** |  |
@@ -249,21 +267,21 @@ Pode gerenciar contas e aplicativos de Gerenciamento de Desempenho do Aplicativo
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 | NewRelic.APM/accounts/* |Criar e gerenciar contas de gerenciamento de desempenho do aplicativo New Relic |
 
-### Proprietário
+### <a name="owner"></a>Proprietário
 Pode gerenciar tudo, incluindo o acesso
 
 | **Ações** |  |
 | --- | --- |
 | * |Criar e gerenciar recursos de todos os tipos |
 
-### Leitor
+### <a name="reader"></a>Leitor
 Pode ver tudo, mas não pode fazer alterações
 
 | **Ações** |  |
 | --- | --- |
 | */leitura |Ler recursos de todos os tipos, exceto segredos. |
 
-### Colaborador do Cache Redis
+### <a name="redis-cache-contributor"></a>Colaborador do Cache Redis
 Pode gerenciar caches Redis
 
 | **Ações** |  |
@@ -276,8 +294,8 @@ Pode gerenciar caches Redis
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador de Coleções de Trabalho do Agendador
-Pode gerenciar coleções de trabalhos do Agendador
+### <a name="scheduler-job-collections-contributor"></a>Colaborador de Coleções de Trabalho do Agendador
+Pode gerenciar coleções de trabalhos do agendador
 
 | **Ações** |  |
 | --- | --- |
@@ -289,8 +307,8 @@ Pode gerenciar coleções de trabalhos do Agendador
 | Microsoft.Scheduler/jobcollections/* |Criar e gerenciar coleções de trabalhos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador do Serviço de Pesquisa
-Pode gerenciar serviços de Pesquisa
+### <a name="search-service-contributor"></a>Colaborador do Serviço de Pesquisa
+Pode gerenciar serviços de pesquisa
 
 | **Ações** |  |
 | --- | --- |
@@ -302,7 +320,7 @@ Pode gerenciar serviços de Pesquisa
 | Microsoft.Search/searchServices/* |Criar e gerenciar serviços de pesquisa |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Gerenciador de segurança
+### <a name="security-manager"></a>Gerenciador de Segurança
 Pode gerenciar componentes de segurança, políticas de segurança e máquinas virtuais
 
 | **Ações** |  |
@@ -318,7 +336,7 @@ Pode gerenciar componentes de segurança, políticas de segurança e máquinas v
 | Microsoft.Security/* |Criar e gerenciar políticas e componentes de segurança |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador do banco de dados SQL
+### <a name="sql-db-contributor"></a>Colaborador do banco de dados SQL
 Pode gerenciar bancos de dados SQL, mas não suas políticas relacionadas à segurança
 
 | **Ações** |  |
@@ -342,7 +360,7 @@ Pode gerenciar bancos de dados SQL, mas não suas políticas relacionadas à seg
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* |Não é possível editar políticas de alerta de segurança |
 | Microsoft.Sql/servers/databases/securityMetrics/* |Não é possível editar métricas de segurança |
 
-### Gerenciador de Segurança do SQL
+### <a name="sql-security-manager"></a>Gerenciador de Segurança do SQL
 Pode gerenciar políticas relacionadas à segurança de servidores e bancos de dados SQL
 
 | **Ações** |  |
@@ -369,7 +387,7 @@ Pode gerenciar políticas relacionadas à segurança de servidores e bancos de d
 | Microsoft.Sql/servers/securityAlertPolicies/* |Criar e gerenciar políticas de alerta de segurança de servidor SQL |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador do SQL Server
+### <a name="sql-server-contributor"></a>Colaborador do SQL Server
 Pode gerenciar servidores e bancos de dados SQL, mas não as políticas relacionadas à segurança
 
 | **Ações** |  |
@@ -395,7 +413,7 @@ Pode gerenciar servidores e bancos de dados SQL, mas não as políticas relacion
 | Microsoft.Sql/servers/databases/securityMetrics/* |Não é possível editar métricas de segurança de banco de dados do servidor SQL |
 | Microsoft.Sql/servers/securityAlertPolicies/* |Não é possível editar políticas de alerta de segurança de servidor SQL |
 
-### Colaborador da Conta de Armazenamento Clássica
+### <a name="classic-storage-account-contributor"></a>Colaborador da conta de armazenamento clássica
 Pode gerenciar contas de armazenamento clássicas
 
 | **Ações** |  |
@@ -408,7 +426,7 @@ Pode gerenciar contas de armazenamento clássicas
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador da Conta de Armazenamento
+### <a name="storage-account-contributor"></a>Colaborador da Conta de Armazenamento
 Pode gerenciar contas de armazenamento, mas não acessá-las.
 
 | **Ações** |  |
@@ -422,7 +440,7 @@ Pode gerenciar contas de armazenamento, mas não acessá-las.
 | Microsoft.Storage/storageAccounts/* |Criar e gerenciar contas de armazenamento |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Administrador de Acesso do Usuário
+### <a name="user-access-administrator"></a>Administrador de Acesso do Usuário
 Pode gerenciar o acesso do usuário aos recursos do Azure
 
 | **Ações** |  |
@@ -431,7 +449,7 @@ Pode gerenciar o acesso do usuário aos recursos do Azure
 | Microsoft.Authorization/* |Gerenciar autorização |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador de Máquina Virtual Clássica
+### <a name="classic-virtual-machine-contributor"></a>Colaborador de Máquina Virtual Clássica
 Pode gerenciar máquinas virtuais clássicas, mas não a rede virtual ou a conta de armazenamento à qual estão conectadas
 
 | **Ações** |  |
@@ -454,7 +472,7 @@ Pode gerenciar máquinas virtuais clássicas, mas não a rede virtual ou a conta
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador de Máquina Virtual
+### <a name="virtual-machine-contributor"></a>Colaborador de Máquina Virtual
 Pode gerenciar máquinas virtuais, mas não a rede virtual ou a conta de armazenamento à qual estão conectadas
 
 | **Ações** |  |
@@ -485,7 +503,7 @@ Pode gerenciar máquinas virtuais, mas não a rede virtual ou a conta de armazen
 | Microsoft.Storage/storageAccounts/read |Ler contas de armazenamento |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador de rede clássica
+### <a name="classic-network-contributor"></a>Colaborador de rede clássica
 Pode gerenciar redes virtuais clássicas e IPs reservados
 
 | **Ações** |  |
@@ -498,7 +516,7 @@ Pode gerenciar redes virtuais clássicas e IPs reservados
 | Microsoft.Resources/subscriptions/resourceGroups/read |Ler grupos de recursos |
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 
-### Colaborador do Plano de Web
+### <a name="web-plan-contributor"></a>Colaborador do Plano de Web
 Pode gerenciar planos da Web
 
 | **Ações** |  |
@@ -511,7 +529,7 @@ Pode gerenciar planos da Web
 | Microsoft.Support/* |Criar e gerenciar tíquetes de suporte |
 | Microsoft.Web/serverFarms/* |Criar e gerenciar farms de servidores |
 
-### Colaborador do Site
+### <a name="website-contributor"></a>Colaborador do Site
 Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 
 | **Ações** |  |
@@ -527,12 +545,17 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 | Microsoft.Web/listSitesAssignedToHostName/read |Ler sites atribuídos a um nome de host |
 | Microsoft.Web/serverFarms/join/action |Unir farms de servidores |
 | Microsoft.Web/serverFarms/read |Ler farms de servidores |
-| Microsoft.Web/sites/* |Criar e gerenciar sites da Web |
+| Microsoft.Web/sites/* |Criar e gerenciar sites (a criação de sites também requer permissões de gravação para o Plano do Serviço de Aplicativo associado) |
 
-## Confira também
+## <a name="see-also"></a>Confira também
 * [Controle de Acesso Baseado em Função](role-based-access-control-configure.md): introdução ao RBAC no portal do Azure.
 * [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
 * [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
 * [Solução de problemas de Controle de Acesso Baseado em Função](role-based-access-control-troubleshooting.md): obtenha sugestões para corrigir problemas comuns.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Todos os tópicos do serviço SQL Server Stretch Database | Microsoft Docs
-description: Tabela de todos os tópicos existentes sobre o serviço do Azure chamado SQL Server Stretch Database em http://azure.microsoft.com/documentation/articles/, Título e descrição.
+title: "Todos os tópicos do serviço SQL Server Stretch Database | Microsoft Docs"
+description: "Tabela de todos os tópicos existentes sobre o serviço do Azure chamado SQL Server Stretch Database em http://azure.microsoft.com/documentation/articles/, Título e descrição."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: DouglasL
 manager: jhubbard
 editor: MightyPen
-
+ms.assetid: b1718024-84d6-4f5c-a912-3a99edb3f632
 ms.service: sql-server-stretch-database
 ms.workload: sql-server-stretch-database
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
+
 
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Todos os tópicos do serviço SQL Server Stretch Database do Azure
@@ -54,6 +58,9 @@ Este tópico lista todos os tópicos que se aplicam diretamente ao serviço **SQ
 | 14 |[Fazer backup de bancos de dados habilitados para o Stretch](sql-server-stretch-database-backup.md) |\-Saiba como fazer backup de bancos de dados habilitados para Stretch. |
 | 15 |[Restaurar o backup de bancos de dados habilitados para o Stretch](sql-server-stretch-database-restore.md) |\-Saiba como restaurar bancos de dados habilitados para Stretch. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

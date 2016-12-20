@@ -2,11 +2,11 @@
 title: Criar um pacote de suporte do StorSimple | Microsoft Docs
 description: Saiba como criar, descriptografar e editar um pacote de suporte para o dispositivo StorSimple.
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: eac76f5f-5db1-4c92-af8c-54053b91e66c
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 42b245d4e205dffda7ec62199ced3834c278a466
+
 
 ---
-# Criar e gerenciar um pacote de suporte do StorSimple
-## Visão geral
+# <a name="create-and-manage-a-storsimple-support-package"></a>Criar e gerenciar um pacote de suporte do StorSimple
+## <a name="overview"></a>Visão geral
 Um pacote de suporte do StorSimple é um mecanismo fácil de usar que coleta todos os logs relevantes para ajudar o Suporte da Microsoft na solução de problemas do dispositivo StorSimple. Os logs coletados são criptografados e compactados.
 
 Este tutorial inclui instruções passo a passo para criar e gerenciar o pacote de suporte.
 
-## Criar e carregar um pacote de suporte no Portal Clássico do Azure
+## <a name="create-and-upload-a-support-package-in-the-azure-classic-portal"></a>Criar e carregar um pacote de suporte no Portal Clássico do Azure
 Você pode criar e carregar um pacote de suporte para o site do Suporte da Microsoft por meio da página **Manutenção** do serviço no Portal Clássico do Azure.
 
 > [!NOTE]
@@ -34,18 +38,18 @@ Um pacote de suporte criptografado e compactado (arquivo .cab) é criado e carre
 
 Execute as seguintes etapas no portal clássico para criar um pacote de suporte.
 
-#### Para criar um pacote de suporte no Portal clássico do Azure
+#### <a name="to-create-a-support-package-in-the-azure-classic-portal"></a>Para criar um pacote de suporte no Portal clássico do Azure
 1. Selecione **Dispositivos** > **Manutenção**.
 2. Na seção **Pacote de suporte**, selecione **Criar e carregar pacote de suporte**.
-3. Na caixa de diálogo **Criar e carregar pacote de suporte**, faça o seguinte:
+3. Na caixa de diálogo **Criar e carregar pacote de suporte** , faça o seguinte:
    
     ![Criar um pacote de suporte](./media/storsimple-create-manage-support-package/IC740923.png)
    
-   * Na caixa de texto **Chave de acesso de suporte**, digite a chave de acesso. Seu engenheiro de suporte da Microsoft deve enviar essa chave de acesso para você por email.
+   * Na caixa de texto **Chave de acesso de suporte** , digite a chave de acesso. Seu engenheiro de suporte da Microsoft deve enviar essa chave de acesso para você por email.
    * Selecione a caixa de seleção para fornecer consentimento para carregar automaticamente o pacote de suporte para o site de Suporte da Microsoft.
-   * Clique no ícone de verificação ![Ícone de verificação](./media/storsimple-create-manage-support-package/IC740895.png).
+   * Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-create-manage-support-package/IC740895.png).
 
-## Criar um pacote de suporte manualmente
+## <a name="manually-create-a-support-package"></a>Criar um pacote de suporte manualmente
 Em alguns casos, você precisará criar o pacote de suporte manualmente por meio do Windows PowerShell para StorSimple. Por exemplo:
 
 * Se você precisar remover informações confidenciais de seus arquivos de log antes de compartilhar com o Microsoft Support.
@@ -53,7 +57,7 @@ Em alguns casos, você precisará criar o pacote de suporte manualmente por meio
 
 Você pode compartilhar seu pacote de suporte gerado manualmente com o Suporte da Microsoft por email. Execute as etapas a seguir para criar um pacote de suporte no Windows PowerShell para StorSimple.
 
-#### Para criar um pacote de suporte no Windows PowerShell para StorSimple
+#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>Para criar um pacote de suporte no Windows PowerShell para StorSimple
 1. Para iniciar uma sessão do Windows PowerShell como administrador no computador remoto usado para se conectar ao dispositivo StorSimple, insira o seguinte comando:
    
     `Start PowerShell`
@@ -84,7 +88,7 @@ Você pode compartilhar seu pacote de suporte gerado manualmente com o Suporte d
      
        O pacote de suporte é criado para ambos os controladores na pasta compartilhada de rede especificada. Ele é um arquivo compactado e criptografado que pode ser enviado ao Suporte da Microsoft para solução de problemas. Para obter mais informações, consulte [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
-### Os parâmetros do cmdlet Export-HcsSupportPackage
+### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Os parâmetros do cmdlet Export-HcsSupportPackage
 Você pode usar os seguintes parâmetros com o cmdlet Export-HcsSupportPackage.
 
 | Parâmetro | Obrigatório/Opcional | Descrição |
@@ -96,7 +100,7 @@ Você pode usar os seguintes parâmetros com o cmdlet Export-HcsSupportPackage.
 | `-PackageTag` |Opcional |Use para especificar um diretório no *Caminho* no qual o pacote de suporte é colocado. O padrão é [nome do dispositivo]-[data e hora atuais:aaaa-MM-dd-HH-mm-ss]. |
 | `-Scope` |Opcional |Especifique como **Cluster** (padrão) para criar um pacote de suporte para ambos os controladores. Se você quiser criar um pacote somente para o controlador atual, especifique **Controlador**. |
 
-## Editar um pacote de suporte
+## <a name="edit-a-support-package"></a>Editar um pacote de suporte
 Após gerar um pacote de suporte, talvez seja necessário editar o pacote para remover informações confidenciais. Isso pode incluir nomes de volume, endereços IP do dispositivo e nomes de backup dos arquivos de log.
 
 > [!IMPORTANT]
@@ -106,7 +110,7 @@ Após gerar um pacote de suporte, talvez seja necessário editar o pacote para r
 
 Para editar um pacote de suporte antes de carregá-lo no site de Suporte da Microsoft, primeiro descriptografe o pacote de suporte, edite os arquivos e criptografe-os novamente. Execute as seguintes etapas:
 
-#### Para editar um pacote de suporte no Windows PowerShell para StorSimple
+#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Para editar um pacote de suporte no Windows PowerShell para StorSimple
 1. Gere um pacote de suporte conforme descrito anteriormente, em [Para criar um pacote de suporte no Windows PowerShell para StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
 2. [Baixe o script](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) localmente em seu cliente.
 3. Importe o módulo do Windows PowerShell. Especifique o caminho para a pasta local em que você baixou o script. Para importar o módulo, insira:
@@ -136,7 +140,7 @@ Para editar um pacote de suporte antes de carregá-lo no site de Suporte da Micr
         Supply values for the following parameters:EncryptionPassphrase: ****
 9. Anote a nova senha para que você possa compartilhá-la com o Suporte da Microsoft quando solicitado.
 
-### Exemplo: edição de arquivos em um pacote de suporte em um compartilhamento protegido por senha
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemplo: edição de arquivos em um pacote de suporte em um compartilhamento protegido por senha
 O exemplo a seguir mostra como descriptografar, editar e criptografar novamente um pacote de suporte.
 
         PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
@@ -159,8 +163,13 @@ O exemplo a seguir mostra como descriptografar, editar e criptografar novamente 
 
         PS C:\WINDOWS\system32>
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar pacotes de suporte e logs de dispositivo para solucionar problemas de implantação do dispositivo](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,32 +1,36 @@
 ---
-title: Erro na Detecção da Autenticação
-description: O Assistente de conexão do Active Directory detectou um tipo de autenticação incompatível
+title: "Erro na Detecção da Autenticação"
+description: "O Assistente de conexão do Active Directory detectou um tipo de autenticação incompatível"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.service: active-directory
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/18/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7c031d6e04c26151b9e6e25fbca8acb6bbbdb12d
+
 
 ---
-# Erro na Detecção da Autenticação
-Ao detectar o código de autenticação anterior, o assistente detectou um tipo de autenticação incompatível.
+# <a name="error-during-authentication-detection"></a>Erro na Detecção da Autenticação
+Ao detectar o código de autenticação anterior, o assistente detectou um tipo de autenticação incompatível.   
 
-## O que está sendo verificado?
-**Observação:** para detectar corretamente o código de autenticação anterior em um projeto, o projeto deve ser criado. Se este erro ocorrer e você não tiver o código de autenticação anterior em seu projeto, compile o projeto novamente e repita a operação.
+## <a name="what-is-being-checked"></a>O que está sendo verificado?
+**Observação:** para detectar corretamente o código de autenticação anterior em um projeto, o projeto deve ser criado.  Se este erro ocorrer e você não tiver o código de autenticação anterior em seu projeto, compile o projeto novamente e repita a operação.
 
-### Tipos de projeto
-O assistente verifica o tipo de projeto que você está desenvolvendo para que possa injetar a lógica de autenticação adequada ao projeto. Se houver qualquer controlador que deriva de `ApiController` no projeto, o projeto será considerado um projeto WebAPI. Se houver apenas os controladores que derivam de `MVC.Controller` no projeto, o projeto será considerado um projeto MVC. Qualquer outro item não tem suporte do assistente. Atualmente, não há suporte para projetos de formulários da Web.
+### <a name="project-types"></a>Tipos de projeto
+O assistente verifica o tipo de projeto que você está desenvolvendo para que possa injetar a lógica de autenticação adequada ao projeto.  Se houver qualquer controlador que deriva de `ApiController` no projeto, o projeto será considerado um projeto WebAPI.  Se houver apenas os controladores que derivam de `MVC.Controller` no projeto, o projeto será considerado um projeto MVC.  Qualquer outro item não tem suporte do assistente.  Atualmente, não há suporte para projetos de formulários da Web.
 
-### Código de autenticação compatível
-O assistente também verifica se as configurações de autenticação configuradas anteriormente com o assistente são compatíveis com ele. Se todas as configurações estiverem presentes, ele é considerado um caso reentrante e o assistente será aberto e exibirá as configurações. Se apenas algumas das configurações estiverem presentes, ele será considerado um caso de erro.
+### <a name="compatible-authentication-code"></a>Código de autenticação compatível
+O assistente também verifica se as configurações de autenticação configuradas anteriormente com o assistente são compatíveis com ele.  Se todas as configurações estiverem presentes, ele é considerado um caso reentrante e o assistente será aberto e exibirá as configurações.  Se apenas algumas das configurações estiverem presentes, ele será considerado um caso de erro.
 
 Em um projeto do MVC, o assistente verifica qualquer uma das configurações a seguir, fruto do uso anterior do assistente:
 
@@ -41,53 +45,57 @@ Além disso, o assistente verifica qualquer uma das configurações a seguir em 
     <add key="ida:Tenant" value="" />
     <add key="ida:Audience" value="" />
 
-### Código de autenticação incompatível
+### <a name="incompatible-authentication-code"></a>Código de autenticação incompatível
 Por fim, o assistente tenta detectar versões do código de autenticação que foram configuradas com versões anteriores do Visual Studio. Se você recebeu esse erro, significa que seu projeto contém um tipo de autenticação incompatível. O assistente detecta os seguintes tipos de autenticação de versões anteriores do Visual Studio:
 
-* Autenticação do Windows
-* Contas Individuais de Usuário
-* Contas organizacionais
+* Autenticação do Windows 
+* Contas Individuais de Usuário 
+* Contas organizacionais 
 
-Para detectar a Autenticação do Windows em um projeto MVC, o assistente procura pelo elemento `authentication` de seu arquivo **web.config**.
+Para detectar a Autenticação do Windows em um projeto MVC, o assistente procura pelo elemento `authentication` de seu arquivo **web.config** .
 
 <pre>
-    &lt;configuration>
-        &lt;system.web>
-            <span style="background-color: yellow">&lt;authentication mode="Windows" /></span>
-        &lt;/system.web>
-    &lt;/configuration>
+    &lt;configuration&gt;
+        &lt;system.web&gt;
+            <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
+        &lt;/system.web&gt;
+    &lt;/configuration&gt;
 </pre>
 
 Para detectar a Autenticação do Windows em um projeto da API da Web, o assistente procura pelo elemento `IISExpressWindowsAuthentication` do arquivo **.csproj** de seu projeto:
 
 <pre>
-    &lt;Project>
-        &lt;PropertyGroup>
-            <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication>habilitado&lt;/IISExpressWindowsAuthentication></span>
-        &lt;/PropertyGroup>
-    &lt;/Project>
+    &lt;Project&gt;
+        &lt;PropertyGroup&gt;
+            <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
+        &lt;/PropertyGroup> &lt;/Project&gt;
 </pre>
 
-Para detectar a autenticação de contas de usuário individual, o assistente procura o elemento de pacote de seu arquivo **Packages.config**.
+Para detectar a autenticação de contas de usuário individual, o assistente procura o elemento de pacote de seu arquivo **Packages.config** .
 
 <pre>
-    &lt;packages>
-        <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
-    &lt;/packages>
+    &lt;packages&gt;
+        <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
+    &lt;/packages&gt;
 </pre>
 
 Para detectar uma forma anterior de Autenticação de conta organizacional, o assistente procura o seguinte elemento **web.config**:
 
 <pre>
-    &lt;configuration>
-        &lt;appSettings>
-            <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /></span>
-        &lt;/appSettings>
-    &lt;/configuration>
+    &lt;configuration&gt;
+        &lt;appSettings&gt;
+            <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
+        &lt;/appSettings&gt;
+    &lt;/configuration&gt;
 </pre>
 
 Para alterar o tipo de autenticação, remova o tipo de autenticação incompatível e execute o assistente novamente.
 
 Para obter mais informações, consulte [Cenários de autenticação para o Azure AD](active-directory-authentication-scenarios.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

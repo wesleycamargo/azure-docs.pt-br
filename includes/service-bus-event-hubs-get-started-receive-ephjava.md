@@ -2,9 +2,9 @@
 EventProcessorHost é uma classe Java que simplifica o recebimento de eventos dos Hubs de Eventos gerenciando pontos de verificação persistentes e recebimentos paralelos desses Hubs de Eventos. Usando o EventProcessorHost, você pode dividir eventos entre vários destinatários, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o EventProcessorHost para um único destinatário.
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-Para usar o EventProcessorHost, você deve ter uma [Conta de Armazenamento do Azure][Azure Storage account]:
+Para usar o EventProcessorHost, você deve ter uma [Conta de Armazenamento do Azure][Conta de Armazenamento do Azure]:
 
-1. Faça logon no [Portal Clássico do Azure][Azure classic portal] e clique em **NOVO** na parte inferior da tela.
+1. Faça logon no [Portal Clássico do Azure][Portal Clássico do Azure] e clique em **NOVO** na parte inferior da tela.
 2. Clique em **Serviços de Dados**, em **Armazenamento**, em **Criação Rápida** e digite um nome para sua conta de armazenamento. Selecione a região desejada e, em seguida, clique em **Criar Conta de Armazenamento**.
    
     ![][11]
@@ -17,7 +17,7 @@ Para usar o EventProcessorHost, você deve ter uma [Conta de Armazenamento do Az
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Crie um projeto Java usando o Host de EventProcessor
 A biblioteca de cliente Java para os Hubs de Eventos está disponível para uso em projetos do Maven por meio do [Repositório Central do Maven][Maven Package], e pode ser referenciada usando a seguinte declaração de dependência dentro do arquivo de projeto do Maven:    
 
-``` XML
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
@@ -34,7 +34,7 @@ Para diferentes tipos de ambientes de compilação, é possível obter explicita
 
 1. Para o exemplo a seguir, primeiro crie um novo projeto do Maven para um aplicativo de console/shell em seu ambiente de desenvolvimento Java favorito. A classe será chamada ```ErrorNotificationHandler```.     
    
-    ``` Java
+    ```Java
     import java.util.function.Consumer;
     import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
    
@@ -167,7 +167,7 @@ Para diferentes tipos de ambientes de compilação, é possível obter explicita
     ```
 4. Substitua os campos a seguir pelos valores usados durante a criação do Hub de Eventos da conta de armazenamento.
    
-    ``` Java
+    ```Java
     final String namespaceName = "----ServiceBusNamespaceName-----";
     final String eventHubName = "----EventHubName-----";
    
@@ -184,10 +184,10 @@ Para diferentes tipos de ambientes de compilação, é possível obter explicita
 > 
 
 <!-- Links -->
-[Visão Geral dos Hubs de Eventos]: ../articles/event-hubs/event-hubs-overview.md
-[Conta do Armazenamento do Azure]: ../articles/storage/storage-create-storage-account.md
-[Portal clássico do Azure]: http://manage.windowsazure.com
-[Pacote do Maven]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
+[Visão geral de Hubs de Eventos]: ../articles/event-hubs/event-hubs-overview.md
+[Conta de Armazenamento do Azure]: ../articles/storage/storage-create-storage-account.md
+[Portal Clássico do Azure]: http://manage.windowsazure.com
+[Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
 <!-- Images -->
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
@@ -195,6 +195,6 @@ Para diferentes tipos de ambientes de compilação, é possível obter explicita
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

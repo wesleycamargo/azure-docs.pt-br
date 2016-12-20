@@ -1,13 +1,13 @@
 ---
-title: Vídeos, exemplos e tutoriais na Pesquisa do Azure | Microsoft Docs
-description: Lista central de todos os vídeos, exemplos, demonstrações e tutoriais criados para a Pesquisa do Azure, um serviço de nuvem hospedado do Microsoft Azure.
+title: "Vídeos, exemplos e tutoriais na Pesquisa do Azure | Microsoft Docs"
+description: "Lista central de todos os vídeos, exemplos, demonstrações e tutoriais criados para a Pesquisa do Azure, um serviço de nuvem hospedado do Microsoft Azure."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: 4ffa17a3-9e2b-4172-ad77-30c6a1354b24
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/22/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1011a19ae7ffae0fedee1d6202d1b00d35d948f9
+
 
 ---
-# <a name="azure-search:-code-samples,-demos,-videos-and-tutorials"></a>Pesquisa do Azure: exemplos de código, demonstrações, vídeos e tutoriais
+# <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Pesquisa do Azure: exemplos de código, demonstrações, vídeos e tutoriais
 Atualize-se mais rapidamente com os seguintes vídeos, demonstrações, tutoriais e aplicativos de exemplo.
 
 ## <a name="code-samples"></a>Exemplos de código
@@ -81,6 +85,9 @@ Aqui estão alguns dos nossos tutoriais e vídeos mais populares para a Pesquisa
 | [Tutorial de perfis de pontuação](search-get-started-scoring-profiles.md) |Testar perfis de pontuação usando um aplicativo de console. |
 | [Tutorial da API REST de gerenciamento da Pesquisa do Azure](search-get-started-management-api.md) |Como usar a API REST de gerenciamento para provisionar o serviço e gerenciar chaves de api de administração ou de consulta. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

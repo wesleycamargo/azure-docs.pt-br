@@ -1,12 +1,12 @@
 ---
-title: Políticas de retenção de relatório do Azure Active Directory | Microsoft Docs
-description: Políticas de retenção sobre dados de relatório no Active Directory do Azure
+title: "Políticas de retenção de relatório do Azure Active Directory | Microsoft Docs"
+description: "Políticas de retenção sobre dados de relatório no Active Directory do Azure"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7e0e1ede67509de9f47293eb7257ecc56c0df93d
+
 
 ---
-# Políticas de retenção de relatório do Azure Active Directory
-*Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
+# <a name="azure-active-directory-report-retention-policies"></a>Políticas de retenção de relatório do Azure Active Directory
+*Esta documentação é parte do [Guia de Relatórios do Azure Active Directory](active-directory-reporting-guide.md).*
 
 Os relatórios do Azure AD (Azure Active Directory) retêm dados para um determinado número de dias, indicado aqui.
 
@@ -47,4 +51,9 @@ Os relatórios do Azure AD (Azure Active Directory) retêm dados para um determi
 | Uso de dispositivo do RMS |30 dias |
 | Uso de aplicativos habilitados para RMS |30 dias |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

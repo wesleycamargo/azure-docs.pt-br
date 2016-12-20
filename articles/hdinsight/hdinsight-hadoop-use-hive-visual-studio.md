@@ -2,12 +2,12 @@
 title: Consulta do Hive com ferramentas de Hadoop para o Visual Studio | Microsoft Docs
 description: Aprenda a usar o Hive com o Hadoop no HDInsight usando as ferramentas de Hadoop do Visual Studio.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 2b3e672a-1195-4fa5-afb7-b7b73937bfbe
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c14547e54d7f09267b12f3bbe22e45e51ff08744
+
 
 ---
-# Executar consultas Hive usando as ferramentas de HDInsight para o Visual Studio
+# <a name="run-hive-queries-using-the-hdinsight-tools-for-visual-studio"></a>Executar consultas Hive usando as ferramentas de HDInsight para o Visual Studio
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 Nesse artigo, você aprenderá a enviar remotamente consultas de Hive para um cluster HDInsight, usando para isso as ferramentas de HDInsight para o Visual Studio.
@@ -27,7 +31,7 @@ Nesse artigo, você aprenderá a enviar remotamente consultas de Hive para um cl
 > 
 > 
 
-## <a id="prereq"></a>Pré-requisitos
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * Um cluster Azure HDInsight (Hadoop no HDInsight) (baseado em Linux ou Windows)
@@ -38,8 +42,8 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
     Visual Studio 2015 (Community/Enterprise)
 * Ferramentas do HDInsight para o Visual Studio. Confira [Começar a usar as ferramentas Hadoop para HDInsight do Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) para obter informações sobre como instalar e configurar as ferramentas.
 
-## <a id="run"></a> Executar consultas Hive usando as ferramentas de HDInsight para o Visual Studio
-1. Abra **Visual Studio** e selecione **Novo**, **Projeto**, **HDInsight** e finalmente selecione **Aplicativo Hive**. Forneça um nome para esse projeto.
+## <a name="a-idruna-run-hive-queries-using-the-hdinsight-tools-for-visual-studio"></a><a id="run"></a> Executar consultas Hive usando as ferramentas de HDInsight para o Visual Studio
+1. Abra **Visual Studio** e selecione **Novo** > **Projeto** > **HDInsight** > **Aplicativo Hive**. Forneça um nome para esse projeto.
 2. Abra o arquivo **Script.hql** criado com esse projeto e cole as seguintes instruções HiveQL:
    
         set hive.execution.engine=tez;
@@ -62,11 +66,11 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
      > 
    * **ROW FORMAT**: informa ao Hive como os dados são formatados. Nesse caso, os campos em cada log são separados por um espaço.
    * **STORED AS TEXTFILE LOCATION**: informa ao Hive onde os dados são armazenados (o diretório de exemplos/dados) e que estão armazenados como texto.
-   * **SELECT**: seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3**, já que existem três linhas que contêm esse valor.
-   * **INPUT\_\_FILE\_\_NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe a pesquisa ao arquivo sample.log que contém os dados e impede que ela retorne dados de outros arquivos de dados de exemplo que não correspondem ao esquema que definimos.
-3. Na barra de ferramentas, selecione o **Cluster HDInsight** que você deseja usar para essa consulta e selecione **Enviar ao WebHCat** para executar as instruções como um trabalho hive usando o WebHCat. Você também poderá enviar o trabalho usando o botão **Executar via HiveServer2**, se o HiveServer2 estiver disponível na versão do seu cluster. O **Resumo do Trabalho do Hive** aparecerá e exibirá informações sobre o trabalho em execução. Use o link **Atualizar** para atualizar as informações do trabalho, até o **Status do Trabalho** ser alterado para **Concluído**.
+   * **SELECT**: seleciona uma contagem de todas as linhas em que a coluna **t4** contém o valor **[ERROR]**. Isso deve retornar um valor de **3** , já que existem três linhas que contêm esse valor.
+   * **INPUT__FILE__NAME LIKE '%.log'** - informa ao Hive que só devemos retornar dados de arquivos que terminam em .log. Isso restringe a pesquisa ao arquivo sample.log que contém os dados e impede que ela retorne dados de outros arquivos de dados de exemplo que não correspondem ao esquema que definimos.
+3. Na barra de ferramentas, selecione o **Cluster HDInsight** que você deseja usar para essa consulta e selecione **Enviar ao WebHCat** para executar as instruções como um trabalho hive usando o WebHCat. Você também poderá enviar o trabalho usando o botão **Executar via HiveServer2** , se o HiveServer2 estiver disponível na versão do seu cluster. O **Resumo do Trabalho do Hive** aparecerá e exibirá informações sobre o trabalho em execução. Use o link **Atualizar** para atualizar as informações do trabalho, até o **Status do Trabalho** ser alterado para **Concluído**.
 4. Use o link **Saída de Trabalho** para exibir a saída desse trabalho. Ela deve exibir `[ERROR] 3`, que é o valor retornado pela instrução SELECT.
-5. Você também pode executar consultas Hive sem criar um projeto. Usando o **Gerenciador de Servidores**, expanda **Azure**, **HDInsight**, clique com o botão direito do mouse no seu servidor do HDInsight e selecione **Escrever uma Consulta de Hive**.
+5. Você também pode executar consultas Hive sem criar um projeto. Usando o **Gerenciador de Servidores**, expanda **Azure** > **HDInsight**, clique com o botão direito do mouse no seu servidor do HDInsight e selecione **Escrever uma Consulta de Hive**.
 6. No documento **temp.hql** que aparece, adicione as seguintes instruções HiveQL:
    
         set hive.execution.engine=tez;
@@ -78,18 +82,18 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
    * **CREATE TABLE IF NOT EXISTS**: cria uma tabela, se ela ainda não existir. Já que a palavra-chave **EXTERNAL** não é utilizada, essa é uma tabela interna, armazenada no depósito de dados do Hive e gerenciada totalmente pelo Hive.
      
      > [!NOTE]
-     > Diferentemente de tabelas **EXTERNAS**, o descarte de uma tabela interna excluirá também os dados subjacentes.
+     > Diferentemente de tabelas **EXTERNAS** , o descarte de uma tabela interna excluirá também os dados subjacentes.
      > 
      > 
    * **STORED AS ORC**: armazena os dados no formato ORC (colunar de linhas otimizadas). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.
    * **INSERT OVERWRITE ... SELECT**: seleciona linhas da tabela **log4jLogs** que contêm **[ERROR]** e insere os dados na tabela **errorLogs**.
 7. Na barra de ferramentas, selecione no menu suspenso de **Enviar** para executar o trabalho. Use o **Status do Trabalho** para determinar se o trabalho foi concluído com êxito.
-8. Para verificar se o trabalho concluído e criado uma nova tabela, use **Gerenciador de Servidores** e expanda **Azure**, **HDInsight**, seu cluster HDInsight, **Bancos de Dados do Hive** e **padrão**. Você deve ver as tabelas **errorLogs** e **log4jLogs**.
+8. Para verificar se o trabalho concluído e criado uma nova tabela, use **Gerenciador de Servidores** e expanda **Azure** > **HDInsight** > seu cluster HDInsight > **Bancos de Dados do Hive** > e **padrão**. Você deve ver as tabelas **errorLogs** e **log4jLogs**.
 
-## <a id="summary"></a>Resumo
+## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumo
 Como você pode ver, as ferramentas do HDInsight do Visual Studio fornecem uma maneira fácil de executar consultas Hive em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
 
-## <a id="nextsteps"></a>Próximas etapas
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
 Para obter informações gerais sobre o Hive no HDInsight:
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
@@ -134,4 +138,8 @@ Para obter mais informações sobre as ferramentas do HDInsight para o Visual St
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

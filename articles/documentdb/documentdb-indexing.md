@@ -1,23 +1,27 @@
 ---
-title: Indexação automática no Banco de Dados de Documentos | Microsoft Docs
-description: Saiba mais sobre o funcionamento da indexação no Banco de Dados de Documentos do Azure.
+title: "Indexação automática no DocumentDB | Microsoft Docs"
+description: "Saiba mais sobre o funcionamento da indexação no Banco de Dados de Documentos do Azure."
 services: documentdb
 author: arramac
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 126bfd36-9332-4127-8747-1a1c806760f7
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 10/27/2016
 ms.author: arramac
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9b88c62a7ea76d61ff593217392c3225624bb886
+
 
 ---
-# Indexação automática no Banco de Dados de Documentos do Azure
-Este artigo foi retirado do documento [“Indexação agnóstica do esquema com o Banco de Dados de Documentos do Azure”](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), que será apresentado na [41ª Conferência Interna sobre Bancos de dados muito grandes](http://www.vldb.org/2015/) entre 31 de agosto e 4 de setembro de 2015, e é uma introdução do funcionamento da indexação no Banco de Dados de Documentos do Azure.
+# <a name="automatic-indexing-in-azure-documentdb"></a>Indexação automática no Banco de Dados de Documentos do Azure
+Este artigo foi retirado do documento [“Indexação agnóstica do esquema com o Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)”, que será apresentado na [41ª Conferência Interna sobre Bancos de dados muito grandes](http://www.vldb.org/2015/) entre 31 de agosto e 4 de setembro de 2015, e é uma introdução do funcionamento da indexação no Azure DocumentDB. 
 
 Depois de ler este artigo, você poderá responder às seguintes perguntas:
 
@@ -25,8 +29,8 @@ Depois de ler este artigo, você poderá responder às seguintes perguntas:
 * Como o Banco de Dados de Documentos cria um índice em documentos diferentes?
 * Como o Banco de Dados de Documentos executa a indexação automática em escala?
 
-## <a id="HowDocumentDBIndexingWorks"></a> Funcionamento da indexação do Banco de Dados de Documentos
-O [Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) é um verdadeiro banco de dados independente de esquema desenvolvido especificamente para JSON. Ele não espera ou exige qualquer esquema ou definições de índice secundárias para indexar dados em escala. Isso permite que você defina rapidamente e itere em modelos de dados de aplicativo usando o Banco de Dados de Documentos. Ao incluir documentos em uma coleção, o Banco de Dados de Documentos indexa todas as propriedades de documento automaticamente e elas ficam disponíveis para consulta. A indexação automática permite que você armazene documentos pertencentes a esquemas completamente arbitrários sem se preocupar com esquemas ou índices secundários.
+## <a name="a-idhowdocumentdbindexingworksa-how-documentdb-indexing-works"></a><a id="HowDocumentDBIndexingWorks"></a> Funcionamento da indexação do Banco de Dados de Documentos
+[Banco de Dados de Documentos do Microsoft Azure](https://azure.microsoft.com/services/documentdb/) é um verdadeiro banco de dados independente de esquema desenvolvido especificamente para JSON. Ele não espera ou exige qualquer esquema ou definições de índice secundárias para indexar dados em escala. Isso permite que você defina rapidamente e itere em modelos de dados de aplicativo usando o Banco de Dados de Documentos. Ao incluir documentos em uma coleção, o Banco de Dados de Documentos indexa todas as propriedades de documento automaticamente e elas ficam disponíveis para consulta. A indexação automática permite que você armazene documentos pertencentes a esquemas completamente arbitrários sem se preocupar com esquemas ou índices secundários.
 
 Com o objetivo de eliminar a incompatibilidade de impedância entre o banco de dados e os modelos de programação de aplicativo, o Banco de Dados de Documentos explora a simplicidade do JSON e sua falta de uma especificação de esquema. Ele não faz nenhuma suposição sobre os documentos e permite que os documentos de uma coleção do Banco de Dados de Documentos variem no esquema, além de valores específicos da instância. Em comparação com outros bancos de dados de documentos, o mecanismo de banco de dados do Banco de Dados de Documentos opera diretamente no nível de gramática do JSON, permanecendo agnóstico em relação ao conceito de um esquema de documento e obscurecendo o limite entre os valores de instância e de estrutura de documentos. Isso, por sua vez, permite que ele indexe automaticamente documentos sem exigir um esquema ou índices secundários.
 
@@ -56,13 +60,18 @@ Uma implicação importante do tratamento uniforme de ambos os valores de instâ
 
 Apesar de serem independentes de esquema, as linguagens de consulta SQL e JavaScript do Banco de Dados de Documentos oferecem projeções e filtros relacionais, navegação hierárquica entre documentos, operações espaciais e invocação de UDFs totalmente escritas em JavaScript. O tempo de execução da consulta do Banco de Dados de Documentos é capaz de dar suporte a essas consultas já que pode operar diretamente nesta representação de árvore de índice dos dados.
 
-A política de indexação padrão indexa automaticamente todas as propriedades de todos os documentos e oferece consultas consistentes (o que significa que o índice é atualizado de forma síncrona com a gravação de documento). Como o Banco de Dados de Documentos dá suporte a atualizações consistentes à árvore de índice em escala? O Banco de Dados de Documentos usa técnicas otimizadas de manutenção de índice estruturado de log, livre de bloqueios. Isso significa que o Banco de Dados de Documentos pode oferecer suporte a um volume permanente de gravações rápidas e ainda assim oferecer consultas consistentes.
+A política de indexação padrão indexa automaticamente todas as propriedades de todos os documentos e oferece consultas consistentes (o que significa que o índice é atualizado de forma síncrona com a gravação de documento). Como o Banco de Dados de Documentos dá suporte a atualizações consistentes à árvore de índice em escala? O Banco de Dados de Documentos usa técnicas otimizadas de manutenção de índice estruturado de log, livre de bloqueios. Isso significa que o Banco de Dados de Documentos pode oferecer suporte a um volume permanente de gravações rápidas e ainda assim oferecer consultas consistentes. 
 
 A indexação do Banco de Dados de Documentos foi projetada para eficiência de armazenamento e para lidar com a multilocação. Para manter um bom custo-benefício, a sobrecarga do armazenamento em disco do índice é baixa e previsível. As atualizações de índice também são realizadas dentro do orçamento de recursos do sistema alocados por coleção do Banco de Dados de Documentos.
 
-## <a name="NextSteps"></a> Próximas etapas
+## <a name="a-namenextstepsa-next-steps"></a><a name="NextSteps"></a> Próximas etapas
 * Baixe ["Indexação independente de esquema com o Banco de Dados de Documentos do Azure"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), a ser apresentado na 41ª Conferência Interna sobre Bancos de dados muito grandes, de 31 de agosto a 4 de setembro de 2015.
 * [Consulta com SQL do Banco de Dados de Documentos](documentdb-sql-query.md)
 * Saiba mais sobre como personalizar o índice do Banco de Dados de Documentos [aqui](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,30 +1,28 @@
-Há alguns limites no número de métricas e eventos por aplicativo (isto é, por chave de instrumentação).
+Há alguns limites no número de métricas e eventos por aplicativo (isto é, por chave de instrumentação). 
 
-Os limites dependem da [camada de preços](https://azure.microsoft.com/pricing/details/application-insights/) que você escolher.
+Os limites dependem do [plano de preços](https://azure.microsoft.com/pricing/details/application-insights/) que você escolher.
 
-| **Recurso** | **Limite padrão** | **Limite máximo** |
+| **Recurso** | **Limite padrão** | **Observação**
 | --- | --- | --- |
-| Pontos de dados da sessão<sup>1, 2</sup> por mês |ilimitado | |
-| Total de pontos de dados por mês de solicitação, evento, dependência, rastreamento, exceção e exibição de página |5 milhões |50 milhões<sup>3</sup> |
-| Taxa de dados de [Log e Rastreamento](../articles/application-insights/app-insights-search-diagnostic-logs.md) |200 dp/s |500 dp/s |
-| Taxa de dados de [exceção](../articles/application-insights/app-insights-asp-net-exceptions.md) |50 dp/s |50 dp/s |
-| Taxa total de dados de solicitação, evento, dependência e telemetria de exibição de página |200 dp/s |500 dp/s |
-| Retenção de dados brutos para [Pesquisa](../articles/application-insights/app-insights-diagnostic-search.md) e [Análise](../articles/application-insights/app-insights-analytics.md) |7 dias | |
-| Retenção de dados agregados para [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md) |90 dias | |
-| Contagem de nome de [propriedade](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) |100 | |
-| Comprimento do nome da propriedade |150 | |
-| Comprimento do valor da propriedade |8192 | |
-| Comprimento da mensagem de rastreamento e exceção |10000 | |
-| Contagem de nome de [métrica](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) |100 | |
-| Comprimento do nome da métrica |150 | |
-| [Testes de disponibilidade](../articles/application-insights/app-insights-monitor-web-app-availability.md) |10 | |
+| Total de dados por dia | 100 GB | Você pode reduzir, definindo um limite.
+| Dados gratuitos por mês<br/> (Plano de preços básico) | 1 GB | Dados adicionais cobrados por GB
+| Retenção de dados | 90 dias | Para [Pesquisa](../articles/application-insights/app-insights-diagnostic-search.md), [Análise](../articles/application-insights/app-insights-analytics.md) e [Metrics explorer](../articles/application-insights/app-insights-metrics-explorer.md)
+| Retenção de resultados detalhados do [Teste de disponibilidade de várias etapas](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 30 dias | Resultados detalhados de cada etapa
+| Contagem de nomes de [Propriedade](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) e [Métrica](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)<sup>2</sup> | 200 | 
+| Tamanho dos nomes de propriedade e métrica | 150 |
+| Tamanho da cadeia de caracteres do valor da propriedade | 8192 |
+| Valores distintos para as propriedades<sup>3,4</sup> | 100 | >100 => não é possível usar a propriedade como filtro no Metrics Explorer
+| Comprimento da mensagem de rastreamento e exceção | 10000 |
+| Contagem de [testes de disponibilidade](../articles/application-insights/app-insights-monitor-web-app-availability.md) por aplicativo  | 10 |
 
-<sup>1</sup> Um ponto de dados é um valor ou evento de métrica individual, com propriedades e medidas anexadas.
+1. Todos esses números são por chave de instrumentação.
+2. Nomes de métrica são definidos no TrackMetric e no parâmetro de medição de outras chamadas Track*(). Os nomes de métricas são globais por chave de instrumentação.
+3. As propriedades podem ser usadas para filtragem e agrupamento, somente enquanto tiverem menos de 100 valores exclusivos para cada propriedade. Depois que o número de valores exclusivos exceder 100, ainda é possível pesquisar a propriedade, mas não a use mais para filtros ou agrupamentos.
+4. As propriedades padrão como Solicitar Nome e URL da Página estão limitadas a 1000 valores exclusivos por semana. Depois de 1000 valores exclusivos, os valores adicionais são marcados como "Outros valores". O valor original ainda pode ser usado para filtragem e pesquisa de texto completo.
 
-<sup>2</sup> Um ponto de dados da sessão registra o início ou término de uma sessão e a identidade do usuário.
-
-<sup>3</sup> Você pode comprar capacidade adicional além de 50 milhões.
 
 [Sobre cotas e preços no Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+<!--HONumber=Nov16_HO5-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Integração da API de Cobrança do Microsoft Azure e do Cloud Cruiser | Microsoft Docs
-description: Fornece uma perspectiva exclusiva do parceiro de cobrança Cloud Cruiser do Microsoft Azure em suas experiências de integração das APIs de Cobrança do Azure em seus produtos.  Isso é especialmente útil para clientes do Azure e do Cloud Cruiser que estejam interessados em usar/experimentar o Cloud Cruiser para o pacote do Microsoft Azure.
-services: ''
-documentationcenter: ''
+title: "Integração da API de Cobrança do Microsoft Azure e do Cloud Cruiser | Microsoft Docs"
+description: "Fornece uma perspectiva exclusiva do parceiro de cobrança Cloud Cruiser do Microsoft Azure em suas experiências de integração das APIs de Cobrança do Azure em seus produtos.  Isso é especialmente útil para clientes do Azure e do Cloud Cruiser que estejam interessados em usar/experimentar o Cloud Cruiser para o pacote do Microsoft Azure."
+services: 
+documentationcenter: 
 author: BryanLa
 manager: mbaldwin
-editor: ''
+editor: 
 tags: billing
-
+ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 09/08/2016
 ms.author: mobandyo;sirishap;bryanla
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b1783823218a883fc9fdec05e835fb7249eed97d
+
 
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Integração da API de Cobrança do Microsoft Azure e Cloud Cruiser
@@ -40,7 +44,7 @@ Veja a seguir um exemplo de resposta da API mostrando os preços para a instânc
         "MeterStatus": "Active"
     },
 
-### <a name="cloud-cruiser’s-interface-to-azure-ratecard-api"></a>Interface do Cliud Cruiser para a API RateCard do Azure
+### <a name="cloud-cruisers-interface-to-azure-ratecard-api"></a>Interface do Cliud Cruiser para a API RateCard do Azure
 O Cloud Cruiser pode aproveitar as informações da API RateCard de diferentes maneiras. Neste artigo, mostraremos como ele pode ser usado para fazer a análise e a simulação de custo de fluxo de trabalho IaaS.
 
 Para demonstrar este caso de uso, imagine uma carga de trabalho de várias instâncias em execução no Microsoft Azure Pack (WAP). O objetivo é simular essa mesma carga de trabalho no Azure e estimar os custos de fazer essa migração. Para criar esta simulação, há duas tarefas principais a serem executadas:
@@ -201,7 +205,7 @@ A melhor parte é que você só precisa passar por esse processo uma vez. Quando
 * Se você gostaria de se aprofundar no exemplo de código, confira nossos exemplos de código da API de Cobrança do Microsoft Azure em [Exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ### <a name="learn-more"></a>Saiba mais
-* Consulte o artigo [Visão geral do Gerenciador de Recursos do Azure](resource-group-overview.md) para saber mais sobre o Gerenciador de Recursos do Azure.
+* Consulte o artigo [Visão geral do Gerenciador de Recursos do Azure](azure-resource-manager/resource-group-overview.md) para saber mais sobre o Gerenciador de Recursos do Azure.
 
 <!--Image references-->
 
@@ -222,6 +226,6 @@ A melhor parte é que você só precisa passar por esse processo uma vez. Quando
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

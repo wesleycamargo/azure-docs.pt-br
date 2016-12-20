@@ -1,12 +1,12 @@
 ---
-title: Operações de Azure AD Connect Health.
-description: Este artigo descreve as outras operações que podem ser executadas após a implantação do Azure AD Connect Health.
+title: "Operações de Azure AD Connect Health."
+description: "Este artigo descreve as outras operações que podem ser executadas após a implantação do Azure AD Connect Health."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: karavar
 manager: samueld
 editor: curtand
-
+ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: vakarand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cc78c6059ff96608c181c8d3d9f8dc2df6a5cd8e
+
 
 ---
 # <a name="azure-ad-connect-health-operations"></a>Operações de Azure AD Connect Health
@@ -106,10 +110,10 @@ O Azure AD Connect oferece suporte ao gerenciamento de acesso em dois níveis:
 A permissão é concedida se um usuário final tem acesso no nível do diretório ou da instância do serviço.
 
 ### <a name="how-to-allow-users-or-groups-access-to-azure-ad-connect-health"></a>Como permitir o acesso de usuários ou grupos ao Azure AD Connect Health
-#### <a name="steps-1:-select-the-appropriate-access-scope"></a>Etapa 1: Selecione o escopo de acesso apropriado
+#### <a name="steps-1-select-the-appropriate-access-scope"></a>Etapa 1: Selecione o escopo de acesso apropriado
 Para permitir a um usuário o acesso no nível *Todas as instâncias de serviço* no Azure AD Connect Health, abra a folha principal no Azure AD Connect Health.<br>
 
-#### <a name="step-2:-add-users,-groups-and-assign-roles"></a>Etapa 2: Adicione usuários, grupos e atribua funções
+#### <a name="step-2-add-users-groups-and-assign-roles"></a>Etapa 2: Adicione usuários, grupos e atribua funções
 1. Clique na parte "Usuários" na seção Configurar.<br>
    ![Folha Principal do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Selecione "Adicionar"
@@ -129,7 +133,7 @@ Essas etapas permitirão acesso aos usuários e grupos listados de acordo com su
 > 
 > 
 
-#### <a name="step-3:-share-the-blade-location-with-users-or-groups"></a>Etapa 3: Compartilhe o local da folha com usuários ou grupos
+#### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Etapa 3: Compartilhe o local da folha com usuários ou grupos
 1. Depois de atribuir permissões, um usuário poderá acessar o Azure AD Connect Health em [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
 2. Uma vez na folha, o usuário poderá fixar a folha, ou partes diferentes, no painel clicando em "Fixar no painel"<br>
    ![Fixar folha do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
@@ -139,7 +143,7 @@ Essas etapas permitirão acesso aos usuários e grupos listados de acordo com su
 > 
 > 
 
-### <a name="remove-users-and/or-groups"></a>Remover usuários e/ou grupos
+### <a name="remove-users-andor-groups"></a>Remover usuários e/ou grupos
 Você pode remover um usuário ou grupo adicionado à parte de controle de acesso baseado em função do Azure AD Connect Health clicando com botão direito e selecionando remover.<br>
 ![Remover Usuário do RBAC do Azure AD Connect Health](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
@@ -154,6 +158,9 @@ Você pode remover um usuário ou grupo adicionado à parte de controle de acess
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

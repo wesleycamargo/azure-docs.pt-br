@@ -1,33 +1,37 @@
 ---
 title: Logs de streaming e console
-description: Logs de streaming e visão geral do console
+description: "Logs de streaming e visão geral do console"
 author: btardif
 manager: wpickett
-editor: ''
+editor: 
 services: app-service\web
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 3e50a287-781b-4c6a-8c53-eec261889d7a
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/26/2016
+ms.date: 10/12/2016
 ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7704270d7bba54577f61f3f349dc69dc6ddf08c6
+
 
 ---
-# Logs de streaming e o console
-### Logs de streaming
-O Portal do Microsoft Azure fornece um visualizador de log de streaming integrado que permite que você exiba os eventos de rastreamento de seus aplicativos do Serviço de Aplicativo em tempo real.
+# <a name="streaming-logs-and-the-console"></a>Logs de streaming e o console
+## <a name="streaming-logs"></a>Logs de streaming
+O **portal do Azure** fornece um visualizador de log de streaming integrado que permite exibir os eventos de rastreamento de aplicativos do **Serviço de Aplicativo** em tempo real.  
 
-A configuração disso exige algumas etapas simples:
+A configuração desse recurso exige algumas etapas simples:
 
 * Escrever rastreamentos no código
-* Habilitar o Diagnóstico de Aplicativo no Portal do Azure
-* Clique na parte de logs de streaming na folha do aplicativo Web
+* Habilitar os **Logs de Diagnóstico** para seu aplicativo
+* Exiba a transmissão da interface de usuário interna **Logs de Streaming** no **portal do Azure**.
 
-### Como escrever rastreamentos no código
-É fácil escrever rastreamentos no código. No C#, é tão fácil quanto escrever o seguinte código:
+### <a name="how-to-write-traces-in-your-code"></a>Como escrever rastreamentos no código
+É fácil escrever rastreamentos no código.  No C#, é tão fácil quanto escrever o seguinte código:
 
 `````````````````````````
 Trace.TraceInformation("My trace statement");
@@ -43,29 +47,32 @@ Trace.TraceError("My error statement");
 
 A classe de rastreamento está no namespace System. Diagnostics.
 
-Em um aplicativo node. js, você pode escrever esse código para obter o mesmo resultado:
+Em um aplicativo node.js, você pode escrever esse código para obter o mesmo resultado:
 
 `````````````````````````
 console.log("My trace statement").
 `````````````````````````
 
-### Como habilitar e exibir os logs de streaming
-![][BrowseSitesScreenshot] Os diagnósticos são habilitados de acordo com cada aplicativo Web. De dentro do [portal](https://portal.azure.com), navegue até o site para o qual deseja habilitar este recurso.
+### <a name="how-to-enable-and-view-the-streaming-logs"></a>Como habilitar e exibir os logs de streaming
+Os Diagnósticos do ![][BrowseSitesScreenshot] são habilitados de acordo com cada aplicativo. Comece navegando até o site em que deseja habilitar esse recurso.  
 
-![][DiagnosticsLogs] Em seguida, clique em **(1) Configurações** > **(2) Logs de diagnóstico** e **(3)ative** o **Registro em log do aplicativo (Sistema de arquivos)** ou **Registro em log do aplicativo (blob)**. A opção **Nível** permite alterar o nível de gravidade de rastreamentos a serem capturados. Você deverá defini-lo como **Detalhado** se estiver tentando se familiarizar com o recurso porque isso garantirá que todas as instruções de rastreamento sejam registradas.
+![][DiagnosticsLogs] No menu de configurações, role para baixo até a seção **Monitoramento** e clique em **(1) Logs de Diagnóstico**. Em seguida, **(2) habilite** **Log de Aplicativo (Filesystem)** ou **Log de Aplicativo (blob)** A opção **Nível** permite alterar o nível de severidade dos rastreamentos a serem capturados. Se estiver apenas tentando se familiarizar com o recurso, defina o nível para **Detalhado** a fim de garantir que todos os demonstrativos de rastreamento sejam coletados.
 
 Clique em **SALVAR** na parte superior da lâmina, e você está pronto para exibir logs.
 
-**OBSERVAÇÃO:** quanto mais alto o **nível de severidade**, mais recursos serão consumidos para log e mais rastreamentos mais serão exibidos. Verifique se está definido para o nível apropriado ao usar esse recurso para um alto tráfego / site de produção.
+> [!NOTE]
+> Quanto mais alto o **nível de severidade**, mais recursos serão consumidos para registro e mais rastreamentos serão produzidos. Certifique-se de que o **nível de severidade** esteja configurado com o detalhamento correto para um site de produção ou tráfego alto. 
+> 
+> 
 
-![][StreamingLogsScreenshot] Para exibir os logs em fluxo de dentro do portal, clique em **(1) Ferramentas** > **(2) Fluxo de Log**. Se o aplicativo Web estiver gravando ativamente instruções de rastreamento, você deverá vê-las na **(3)** janela resultante quase em tempo real.
+![][StreamingLogsScreenshot] Para exibir os **logs de streaming** de dentro do portal do Azure, clique em **(1) Fluxo de Log** também na seção **Monitoramento** do menu de configurações. Se o aplicativo estiver gravando ativamente os demonstrativos de rastreamento, você deverá vê-los na **(2) interface de usuário Logs de Streaming** quase em tempo real.
 
-## Console
-O Portal do Azure dá ao console acesso ao ambiente do aplicativo Web. É possível explorar o sistema de arquivos do aplicativo Web e executar scripts do powershell/cmd. Você está vinculado às mesmas permissões definidas como o código do aplicativo Web em execução durante a execução dos comandos do console. Você não poderá acessar os diretórios protegidos ou executar scripts que exigem permissões elevadas.
+## <a name="console"></a>Console
+O **portal do Azure** fornece ao console acesso ao seu aplicativo. É possível explorar o sistema de arquivos do aplicativo e executar scripts powershell/cmd. Você é vinculado pelas mesmas permissões definidas que seu código de aplicativo em execução ao executar comandos do console. O acesso a diretórios protegidos ou a execução de scripts que exigem permissões elevadas é bloqueado.  
 
-![][ConsoleScreenshot] Para chegar ao console, procure um aplicativo Web conforme descrito na seção acima. Clique em **(1)Ferramentas**>**(2)Console** e o **(3)** console será aberto.
+![][ConsoleScreenshot] No menu de configurações, role para baixo até a seção **Ferramentas de Desenvolvimento** e clique em **(1) Console**, e a interface de usuário **(2) Console** será aberta à direita.
 
-Para se familiarizar com o console, tente comandos básicos como estes:
+Para se familiarizar com o **console**, tente comandos básicos como:
 
 `````````````````````````
 dir
@@ -81,4 +88,8 @@ cd
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

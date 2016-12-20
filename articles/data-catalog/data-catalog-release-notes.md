@@ -1,13 +1,13 @@
 ---
-title: Notas de versão do Catálogo de Dados do Azure | Microsoft Docs
-description: Notas de versão do Catálogo de Dados do Azure.
+title: "Notas de versão do Catálogo de Dados do Azure | Microsoft Docs"
+description: "Notas de versão do Catálogo de Dados do Azure."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,26 +15,30 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/21/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 60abdc490cefc7362ca6ed0dec7dbfd53984201f
+
 
 ---
-# Notas de versão do Catálogo de Dados do Azure
-## Notas da versão de 20 de novembro de 2015 do Catálogo de Dados do Azure
-### Abrindo fontes no Power BI Desktop
-Ao usar a opção "Abrir no Power BI Desktop" no portal do **Catálogo de Dados do Azure**, os usuários podem encontrar um de dois problemas no aplicativo Power BI Desktop:
+# <a name="azure-data-catalog-release-notes"></a>Notas de versão do Catálogo de Dados do Azure
+## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Notas da versão de 20 de novembro de 2015 do Catálogo de Dados do Azure
+### <a name="opening-data-sources-in-power-bi-desktop"></a>Abrindo fontes no Power BI Desktop
+Ao usar a opção "Abrir no Power BI Desktop" no portal do **Catálogo de Dados do Azure** , os usuários podem encontrar um de dois problemas no aplicativo Power BI Desktop:
 
 * Será exibida uma caixa de diálogo com o título "Não é possível abrir o documento"
 * O Power BI Desktop abre, mas o arquivo parece estar vazio
 
 Para cada situação, o problema pode ser resolvido ao baixar e instalar a versão mais recente do Power BI Desktop em [PowerBI.com](https://powerbi.com).
 
-## Notas da versão de 13 de novembro de 2015 do Catálogo de Dados do Azure
-### Registrando e conectando ao Teradata
+## <a name="notes-for-the-november-13-2015-release-of-azure-data-catalog"></a>Notas da versão de 13 de novembro de 2015 do Catálogo de Dados do Azure
+### <a name="registering-and-connecting-to-teradata"></a>Registrando e conectando ao Teradata
 Ao se conectar a fontes de dados Teradata, os usuários devem ter instalado o driver ODBC correto do Teradata que coincida com o número de bits (32 bits ou 64 bits) do software que está sendo usado.
 
 A partir dessa data de lançamento do ADC, o [driver ODBC do Teradata para windows (versão 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) mais recente é compatível com o Office 2013, mas não com o Office 2016.
 
-## Notas da versão de 13 de julho de 2015 do Catálogo de Dados do Azure
-### Registrando e conectando-se ao Banco de Dados do Oracle
+## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Notas da versão de 13 de julho de 2015 do Catálogo de Dados do Azure
+### <a name="registering-and-connecting-to-oracle-database"></a>Registrando e conectando-se ao Banco de Dados do Oracle
 Ao conectar-se às fontes de dados do banco de dados Oracle, os usuários devem ter instalado os drivers corretos do Oracle que correspondem ao número de bits (32 bits ou 64 bits) do software que está sendo usado.
 
 * Ao registrar fontes de dados Oracle em um computador executando o Windows de 32 bits, os drivers do Oracle de 32 bits serão usados
@@ -42,15 +46,15 @@ Ao conectar-se às fontes de dados do banco de dados Oracle, os usuários devem 
 * Ao conectar-se às fontes de dados Oracle usando o Excel em um computador executando a versão de 32 bits do Microsoft Office, inclusive no Windows de 64 bits, os drivers do Oracle de 32 bits serão usados
 * Ao conectar-se às fontes de dados Oracle usando o Excel em um computador executando a versão de 64 bits do Microsoft Office, os drivers do Oracle de 64 bits serão usados
 
-### Registro e conexão ao SQL Server Reporting Services
+### <a name="registering-and-connecting-to-sql-server-reporting-services"></a>Registro e conexão ao SQL Server Reporting Services
 Atualmente, o suporte para as fontes de dados do SSRS (SQL Server Reporting Services) está limitado somente a servidores do Modo Nativo. O suporte para o SSRS no modo SharePoint será adicionado em uma versão posterior.
 
-### Abrindo ativos de dados no Excel
-Ao abrir ativos de dados no Microsoft Excel no portal do **Catálogo de Dados do Azure**, uma caixa de diálogo **Aviso de segurança do Microsoft Excel** pode ser exibida aos usuários. Esse é um comportamento padrão e esperado, e os usuários podem selecionar **Habilitar** para continuar.
+### <a name="opening-data-assets-in-excel"></a>Abrindo ativos de dados no Excel
+Ao abrir os ativos de dados no Microsoft Excel, no portal do **Catálogo de Dados do Azure**, os usuários poderão ver uma caixa de diálogo **Aviso de Segurança do Microsoft Excel**. Esse é um comportamento padrão e esperado, e os usuários podem selecionar **Habilitar** para continuar.
 
 Para obter mais informações, veja [Habilitar ou desabilitar alertas de segurança sobre links e arquivos de sites suspeitos](https://support.office.com/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
-### Registro da fonte de dados e configuração de proxy e política
+### <a name="proxy-and-policy-configuration-and-data-source-registration"></a>Registro da fonte de dados e configuração de proxy e política
 Os usuários podem encontrar uma situação em que podem acessar o portal do Catálogo de Dados do Azure, mas quando tentam fazer logon na ferramenta de registro da fonte de dados encontram uma mensagem de erro que impede o logon.
 
 Há duas causas possíveis para esse comportamento de problema:
@@ -74,4 +78,9 @@ Para obter mais informações, consulte [Configurando políticas de autenticaç�
 
 Para localizar o arquivo RegistrationTool.exe.config, inicie a ferramenta de registro e, em seguida, abra o utilitário Gerenciador de Tarefas do Windows. Na guia Detalhes do Gerenciador de tarefas, clique com o botão direito em RegistrationTool.exe e escolha Abrir local do arquivo no menu pop-up.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

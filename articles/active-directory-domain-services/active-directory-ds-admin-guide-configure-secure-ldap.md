@@ -1,12 +1,12 @@
 ---
-title: Configurar o LDAP Seguro (LDAPS) nos Serviços de Domínio do AD do Azure | Microsoft Docs
-description: Configurar o LDAP Seguro (LDAPS) para um domínio gerenciado dos Serviços de Domínio do Azure AD
+title: "Configurar o LDAP Seguro (LDAPS) nos Serviços de Domínio do Azure AD |Microsoft Docs"
+description: "Configurar o LDAP Seguro (LDAPS) para um domínio gerenciado dos Serviços de Domínio do Azure AD"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 53cf596d1c1df77872696f2a55363cf3a83d5efe
+
 
 ---
-# <a name="configure-secure-ldap-(ldaps)-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o LDAP Seguro (LDAPS) para um domínio gerenciado dos Serviços de Domínio do Azure AD
+# <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o LDAP Seguro (LDAPS) para um domínio gerenciado dos Serviços de Domínio do Azure AD
 Este artigo mostra como você pode habilitar o protocolo LDAPS para seu domínio gerenciado dos Serviços de Domínio do Azure AD. O LDAP Seguro também é conhecido como “LDAP sobre protocolo SSL/TLS”.
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -49,7 +53,7 @@ A primeira tarefa envolve a obtenção de um certificado que será usado para ac
 * Obtenha um certificado de uma autoridade de certificação. A autoridade pode ser a autoridade de certificação corporativa de sua organização ou uma autoridade de certificação pública.
 * Crie um certificado autoassinado.
 
-### <a name="option-a-(recommended)---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Opção A (recomendada) - obter um certificado LDAP seguro de uma autoridade de certificação
+### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Opção A (recomendada) - obter um certificado LDAP seguro de uma autoridade de certificação
 Se sua organização implantar uma infraestrutura de chave pública (PKI) corporativa, será necessário obter um certificado da autoridade de certificação (CA) corporativa para sua organização. Se sua organização obtiver seus certificados de uma autoridade de certificação pública, será necessário obter o certificado LDAP seguro da autoridade de certificação pública.
 
 Ao solicitar um certificado, siga os requisitos descritos em [Requisito para o certificado LDAP seguro](#requirements-for-the-secure-ldap-certificate).
@@ -79,7 +83,7 @@ No exemplo anterior, substitua "contoso100.com" pelo nome de domínio DNS do seu
 
 O certificado autoassinado recém-criado é colocado no repositório de certificados do computador local.
 
-## <a name="task-2---export-the-secure-ldap-certificate-to-a-.pfx-file"></a>Tarefa 2 - exportar o certificado LDAP seguro para um arquivo .PFX
+## <a name="task-2---export-the-secure-ldap-certificate-to-a-pfx-file"></a>Tarefa 2 - exportar o certificado LDAP seguro para um arquivo .PFX
 Antes de iniciar esta tarefa, verifique se você obteve o certificado LDAP seguro de sua autoridade de certificação corporativa ou de uma autoridade de certificação pública ou se criou um certificado autoassinado.
 
 Execute as etapas a seguir para exportar o certificado LDAPS para um arquivo .PFX.
@@ -225,6 +229,9 @@ Isso é tudo - agora você está pronto para se conectar ao domínio gerenciado 
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Administrar um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

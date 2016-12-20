@@ -1,13 +1,13 @@
 ---
-title: Mova os circuitos de Rota Expressa do Clássico para o Gerenciador de Recursos | Microsoft Docs
-description: Esta página descreve como mover um circuito clássico para o modelo de implantação do Gerenciador de Recursos.
+title: "Mova os circuitos de ExpressRoute do Clássico para o Gerenciador de Recursos | Microsoft Docs"
+description: "Esta página descreve como mover um circuito clássico para o modelo de implantação do Gerenciador de Recursos."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1c3bd8e01e02fb66bf5e04c307863bbe54176128
+
 
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Mova os circuitos de Rota Expressa do modelo de implantação Clássico para o Gerenciador de Recursos
@@ -28,7 +32,7 @@ ms.author: ganesr
 ## <a name="move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Mova o circuito de Rota Expressa para o modelo de implantação do Gerenciador de Recursos
 Você deverá mover um circuito de Rota Expressa para o modelo de implantação do Gerenciador de Recursos para que você possa usá-lo tanto no modelo de implantação Clássico quanto no do Gerenciador de Recursos. Podemos fazer isso executando os comandos do PowerShell a seguir.
 
-### <a name="step-1:-gather-circuit-details-from-the-classic-deployment-model"></a>Etapa 1: Coletar detalhes do circuito do modelo de implantação clássico
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Etapa 1: Coletar detalhes do circuito do modelo de implantação clássico
 Você precisa coletar informações sobre o circuito de Rota Expressa primeiro.
 
 Entre no ambiente clássico do Azure e obtenha a chave de serviço. Você pode usar o seguinte trecho do PowerShell para coletar as informações:
@@ -48,7 +52,7 @@ Entre no ambiente clássico do Azure e obtenha a chave de serviço. Você pode u
 
 Copie a **chave de serviço** do circuito que você deseja mover para o modelo de implantação do Gerenciador de Recursos.
 
-### <a name="step-2:-sign-in-to-the-resource-manager-environment,-and-create-a-new-resource-group"></a>Etapa 2: Entrar no ambiente do Gerenciador de Recursos e criar um novo grupo de recursos
+### <a name="step-2-sign-in-to-the-resource-manager-environment-and-create-a-new-resource-group"></a>Etapa 2: Entrar no ambiente do Gerenciador de Recursos e criar um novo grupo de recursos
 Você pode criar um novo grupo de recursos usando o seguinte trecho:
 
     # Sign in to your Azure Resource Manager environment
@@ -62,7 +66,7 @@ Você pode criar um novo grupo de recursos usando o seguinte trecho:
 
 Você também poderá usar um grupo de recursos existente, se já tiver um.
 
-### <a name="step-3:-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Etapa 3: Mover o circuito de Rota Expressa para o modelo de implantação do Gerenciador de Recursos
+### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Etapa 3: Mover o circuito de Rota Expressa para o modelo de implantação do Gerenciador de Recursos
 Agora você está pronto para mover o circuito de Rota Expressa do modelo de implantação Clássico para o do Gerenciador de Recursos. Examine as informações fornecidas em [Movendo circuitos de Rota Expressa do modelo de implantação Clássico para o Gerenciador de Recursos](expressroute-move.md) antes de continuar.
 
 Você pode fazê-lo executando o seguinte trecho:
@@ -119,6 +123,9 @@ Depois de criar seu circuito, faça o seguinte:
 * [Criar e modificar o roteamento do circuito da Rota Expressa](expressroute-howto-routing-arm.md)
 * [Vincular a rede virtual ao circuito da Rota Expressa](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

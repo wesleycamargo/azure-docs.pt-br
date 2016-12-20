@@ -1,12 +1,12 @@
 ---
-title: Codificação avançada com o Fluxo de Trabalho do Media Encoder Premium | Microsoft Docs
-description: Saiba como codificar com fluxo de trabalho do Media Encoder Premium. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET.
+title: "Codificação avançada com o Fluxo de Trabalho do Media Encoder Premium | Microsoft Docs"
+description: "Saiba como codificar com fluxo de trabalho do Media Encoder Premium. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0f4c87ac-810a-4d42-8df8-923dff2016c6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4e86a871222def32f7779f07eab5668d366ecec4
+
 
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codificação avançada com fluxo de trabalho do Media Encoder Premium
@@ -59,12 +63,13 @@ As seguintes etapas são executadas:
    
     b. 2º – o ativo de vídeo.
    
-    **Observação**: o ativo de fluxo de trabalho deve ser adicionado à tarefa antes do ativo de mídia. A cadeia de caracteres de configuração para essa tarefa deve estar vazia. 
+    **Observação**: o ativo de fluxo de trabalho deve ser adicionado à tarefa antes do ativo de mídia. 
+   A cadeia de caracteres de configuração para essa tarefa deve estar vazia. 
 6. Envie o trabalho de codificação.
 
 O exemplo a seguir é um exemplo completo. Para saber mais sobre como configurar com desenvolvimento dos Serviços de Mídia com o .NET, consulte [Desenvolvimento de serviços de mídia com o .NET](media-services-dotnet-how-to-use.md)
 
-    using System; 
+     using System; 
     using System.Linq;
     using System.Configuration;
     using System.IO;
@@ -272,6 +277,9 @@ Para solucionar dúvidas sobre o codificador premium, envie um email para o mepd
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,28 +1,32 @@
 ---
-title: Notificar usuários nos Hubs de Notificação do Azure com o back-end do .NET
-description: Saiba como enviar notificações por push seguro no Azure. Amostras de código escrito em C# usando a API .NET.
+title: "Notificar usuários nos Hubs de Notificação do Azure com o back-end do .NET"
+description: "Saiba como enviar notificações por push seguro no Azure. Amostras de código escrito em C# usando a API .NET."
 documentationcenter: windows
-author: wesmc7777
+author: ysxu
 manager: erikre
 services: notification-hubs
-editor: ''
-
+editor: 
+ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0b963ef661612b1a176dd8e5f01d56e61eb5acb
+
 
 ---
-# <a name="azure-notification-hubs-notify-users-with-.net-backend"></a>Notificar usuários nos Hubs de Notificação do Azure com o back-end do .NET
+# <a name="azure-notification-hubs-notify-users-with-net-backend"></a>Notificar usuários nos Hubs de Notificação do Azure com o back-end do .NET
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>Visão geral
 O suporte à notificação por push no Azure permite que você acesse uma infraestrutura de envio por push fácil de usar, multiplataforma e expansível que simplifica em muito a implementação de notificações por push para aplicativos de consumidor e empresariais para plataformas móveis. Este tutorial mostra como usar os Hubs de Notificação do Azure para enviar notificações por push a um usuário específico do aplicativo em um dispositivo específico. Um back-end de WebAPI do ASP.NET é usado para autenticar clientes. Usando o usuário cliente autenticado e a marca será automaticamente adicionada pelo back-end para o registro de notificação. Essa marca será usada para enviar pelo back-end para gerar notificações para um usuário específico. Para obter mais informações sobre como se registrar para receber notificações usando um back-end do aplicativo, consulte o tópico de diretrizes [Registrando-se por meio do back-end do aplicativo](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial baseia-se no hub de notificação que você criou no tutorial [Introdução aos Hubs de Notificação] .
 
-Este tutorial também é um pré-requisito para o tutorial [Push Seguro] . Depois de concluir as etapas deste tutorial, você pode prosseguir para o tutorial [Proteger Push] , que mostra como modificar o código neste tutorial para enviar uma notificação por push com segurança.
+Este tutorial também é um pré-requisito para o tutorial [Push Seguro] . Depois de concluir as etapas deste tutorial, você pode prosseguir para o tutorial [Push Seguro] , que mostra como modificar o código neste tutorial para enviar uma notificação por push com segurança.
 
 ## <a name="before-you-begin"></a>Antes de começar
 Levamos seus comentários a sério. Se você tiver alguma dificuldade para concluir este tópico ou recomendações para melhorar este conteúdo, apreciaremos seus comentários na parte inferior da página.
@@ -35,9 +39,11 @@ Antes de iniciar este tutorial, você já deve ter concluído estes tutoriais do
 * [Introdução aos Hubs de Notificação]<br/>Você cria seu hub de notificação, reserva o nome do aplicativo e se registra para receber notificações nesse tutorial. Este tutorial presume que você já concluiu essas etapas. Do contrário, siga as etapas descritas em [Introdução aos Hubs de Notificação (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md); especificamente, as seções [Registrar seu aplicativo para a Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#register-your-app-for-the-windows-store) e [Configurar seu Hub de Notificação](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). Especificamente, não se esqueça de inserir os valores de **SID do Pacote** e **Segredo do Cliente** no portal, na guia **Configurar** de seu hub de notificação. Esse procedimento de configuração é descrito na seção [Configurar seu Hub de Notificação](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). Esta é uma etapa importante: se as credenciais no portal não corresponderem àquelas especificadas para o nome do aplicativo escolhido, a notificação por push não será bem-sucedida.
 
 > [!NOTE]
-> Se você estiver usando Aplicativos Móveis no Serviço de Aplicativo como back-end, consulte a [versão do Aplicativos Móveis](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) deste tutorial.
+> Se você estiver usando Aplicativos Móveis no Serviço de Aplicativo do Azure como serviço de back-end, consulte a [versão dos Aplicativos Móveis](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) deste tutorial.
 > 
 > 
+
+&nbsp;
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -342,6 +348,6 @@ Nesta seção, você atualiza o código no projeto concluído no tutorial [Intro
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,20 +1,24 @@
 ---
-title: Guia estratégico do Azure Active Directory Identity Protection | Microsoft Docs
+title: "Guia estratégico do Azure Active Directory Identity Protection | Microsoft Docs"
 description: Saiba como o Azure AD Identity Protection permite limitar a capacidade de um invasor de explorar uma identidade ou um dispositivo comprometidos ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
-documentationcenter: ''
+keywords: "azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/11/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
+ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
+
 
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico do Azure Active Directory Identity Protection
@@ -32,7 +36,7 @@ Esta seção fornece as etapas para simular os seguintes tipos de evento de risc
 
 Outros eventos de risco não podem ser simulados de maneira segura.
 
-### <a name="signins-from-anonymous-ip-addresses"></a>Entradas de endereços IP anônimos
+### <a name="sign-ins-from-anonymous-ip-addresses"></a>Entradas de endereços IP anônimos
 Esse tipo de evento de risco identifica os usuários que entraram com êxito de um endereço IP que foi identificado como um endereço IP de proxy anônimo. Esses proxies geralmente são usados por usuários que desejam ocultar o endereço IP de seu dispositivo e podem ser usados com objetivos mal-intencionados.
 
 **Para simular uma entrada de um IP anônimo, realize as seguintes etapas**:
@@ -43,7 +47,7 @@ Esse tipo de evento de risco identifica os usuários que entraram com êxito de 
 
 A entrada será exibida no painel do Identity Protection dentro de 5 minutos. 
 
-### <a name="signins-from-unfamiliar-locations"></a>Entradas de locais desconhecidos
+### <a name="sign-ins-from-unfamiliar-locations"></a>Entradas de locais desconhecidos
 O risco de locais desconhecidos é um mecanismo de avaliação de entrada em tempo real que considera locais de entrada anteriores (IP, Latitude/Longitude e ASN) para determinar os locais novos/desconhecidos. O sistema armazena IPs, Latitude/Longitude e ASNs anteriores de um usuário e os considera como locais “conhecidos”. Um local de entrada é considerado desconhecido se não corresponder a nenhum dos locais familiares existentes.
 
 Azure Active Directory Identity Protection:  
@@ -108,7 +112,7 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
     ![Guia estratégico](./media/active-directory-identityprotection-playbook/201.png "Playbook")
     <br>
 
-## <a name="signin-risk"></a>Risco de entrada
+## <a name="sign-in-risk"></a>Risco de entrada
 **Para testar um risco de entrada, realize as seguintes etapas:**
 
 1. Entre em [https://portal.azure.com ](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
@@ -126,13 +130,16 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
 9. Clique em **Save**.
 10. Agora é possível testar o acesso condicional baseado em risco simulando eventos de risco de locais desconhecidos ou IP anônimo, pois são considerados eventos de risco **Médio** .
 
-<br>
-![Guia estratégico](./media/active-directory-identityprotection-playbook/200.png "Playbook")
-<br>
 
-## <a name="see-also"></a>Consulte também
+![Manual](./media/active-directory-identityprotection-playbook/200.png "Playbook")
+
+
+## <a name="see-also"></a>Confira também
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

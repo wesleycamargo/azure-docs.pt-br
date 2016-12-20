@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Novatus | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o SECURE DELIVER.
+title: "Tutorial: Integração do Azure Active Directory com o Novatus | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o SECURE DELIVER."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: fccd5668-fe6f-4e6d-a9ce-ba4f321c33d1
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8885f776250d44419e73bcfecaa4c49359f198bf
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-secure-deliver"></a>Tutorial: integração do Azure Active Directory ao SECURE DELIVER
+# <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>Tutorial: integração do Azure Active Directory ao SECURE DELIVER
 O objetivo deste tutorial é mostrar como integrar o SECURE DELIVER ao Azure AD (Azure Active Directory).  
 A integração do SECURE DELIVER ao Azure AD oferece os seguintes benefícios:
 
@@ -240,6 +244,6 @@ Ao clicar no bloco do SECURE DELIVER no Painel de Acesso, você deverá ser cone
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

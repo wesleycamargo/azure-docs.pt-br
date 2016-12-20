@@ -1,32 +1,36 @@
 ---
-title: Tutorial do REST do Barramento de Serviço usando o sistema de mensagens de retransmissão | Microsoft Docs
-description: Compile um aplicativo host simples de retransmissão do Barramento de Serviço que expõe uma interface baseada em REST.
-services: service-bus
+title: "Tutorial do REST do Barramento de Serviço usando o sistema de mensagens de retransmissão | Microsoft Docs"
+description: "Compile um aplicativo host simples de retransmissão do Barramento de Serviço que expõe uma interface baseada em REST."
+services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
+ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ba69a1a5f363fe5034e3fc7946b1584c9d77b50
+
 
 ---
-# <a name="service-bus-relay-rest-tutorial"></a>Tutorial do REST para Retransmissão do Barramento de Serviço
+# <a name="service-bus-wcf-relay-rest-tutorial"></a>Tutorial do REST para Retransmissão do WCF do Barramento de Serviço
 Este tutorial descreve como compilar um aplicativo host simples de Barramento de Serviço que expõe uma interface baseada em REST. O REST permite que um cliente da Web, como, por exemplo, um navegador da Web, acesse as APIs de Barramento de Serviço por meio de solicitações HTTP.
 
 Este tutorial usa o modelo de programação REST do Windows Communication Foundation (WCF) para construir um serviço REST no Barramento de Serviço. Para saber mais, confira [Modelo de programação REST WCF](https://msdn.microsoft.com/library/bb412169.aspx) e [Criando e implementando serviços](https://msdn.microsoft.com/library/ms729746.aspx) na documentação do WCF.
 
-## <a name="step-1:-create-a-service-namespace"></a>Etapa 1: Criar um namespace de serviço
+## <a name="step-1-create-a-service-namespace"></a>Etapa 1: Criar um namespace de serviço
 A primeira etapa é criar um namespace e obter uma chave de SAS (Assinatura de Acesso Compartilhado). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é automaticamente gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace de serviço e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="step-2:-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>Etapa 2: definir um contrato de serviço WCF baseado em REST para usar com o Barramento de Serviço
+## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-service-bus"></a>Etapa 2: definir um contrato de serviço WCF baseado em REST para usar com o Barramento de Serviço
 Assim como ocorre com outros serviços de Barramento de Serviço, quando você cria um serviço no estilo REST, é preciso definir o contrato. O contrato especifica para quais operações o host oferece suporte. Uma operação de serviço pode ser considerada um método de serviço Web. Os contratos são criados pela definição de uma interface C++, C# ou Visual Basic. Cada método na interface corresponde a uma operação de serviço específica. O atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) deve ser aplicado a cada interface, e o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) deve ser aplicado a cada operação. Se um método em uma interface que tem o [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) não tiver o [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), tal método não será exposto. O código usado para essas tarefas é mostrado no exemplo logo após o procedimento.
 
 A principal diferença entre um contrato básico de Barramento de Serviço e um contrato no estilo REST é a adição de uma propriedade para o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx): [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Esta propriedade permite mapear um método em sua interface para um método no outro lado da interface. Nesse caso, usaremos [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) para vincular um método a HTTP GET. Isso permite que o Barramento de Serviço recupere e interprete de forma precisa os comandos enviados à interface.
@@ -53,7 +57,7 @@ A principal diferença entre um contrato básico de Barramento de Serviço e um 
     [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o namespace que permite o acesso programático aos recursos básicos do WCF. O Barramento de Serviço usa vários dos objetos e atributos do WCF para definir contratos de serviço. Você usará este namespace na maioria dos seus aplicativos de retransmissão do Barramento de Serviço. Da mesma forma, [System.ServiceModel.Channels](https://msdn.microsoft.com/library/system.servicemodel.channels.aspx) ajuda a definir o canal, que é o objeto por meio do qual você se comunica com o Barramento de Serviço e o navegador da Web do cliente. Por fim, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) contém os tipos que permitem a criação de aplicativos baseados na Web.
 7. Renomeie o namespace `ImageListener` para **Microsoft.ServiceBus.Samples**.
    
-    ```
+     ```
     namespace Microsoft.ServiceBus.Samples
     {
         ...
@@ -129,7 +133,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3:-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Etapa 3: implementar um contrato de serviço WCF baseado em REST para usar no Barramento de Serviço
+## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Etapa 3: implementar um contrato de serviço WCF baseado em REST para usar no Barramento de Serviço
 A criação de um serviço de Barramento de Serviço no estilo REST exige primeiro a criação do contrato, que é definido por meio de uma interface. A próxima etapa é implementar a interface. Isso envolve a criação de uma classe chamada **ImageService** que implementa a interface **IImageContract** definida pelo usuário. Depois de implementar o contrato, configure a interface usando um arquivo App.config. O arquivo de configuração contém as informações necessárias para o aplicativo, como o nome do serviço, o nome do contrato e o tipo de protocolo usado para se comunicar com o Barramento de Serviço. O código usado para essas tarefas é fornecido no exemplo logo após o procedimento.
 
 Assim como nas etapas anteriores, há pouca diferença entre a implementação de um contrato no estilo REST e um contrato de Barramento de Serviço básico.
@@ -236,7 +240,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
     ```
    
     Esta etapa configura um serviço que usa o padrão previamente definido **webHttpRelayBinding**. Ele também usa o padrão **sbTokenProvider**, definido na próxima etapa.
-4. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo "SAS_KEY" pela chave *Assinatura de Acesso Compartilhado* (SAS) obtida anteriormente no [portal do Azure][portal do Azure].
+4. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo "SAS_KEY" pela chave *SAS* (Assinatura de Acesso Compartilhado) obtida anteriormente no [Portal do Azure][Portal do Azure].
    
     ```
     <behaviors>
@@ -260,8 +264,8 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
    
     ```
     <appSettings>
-    <!-- Service Bus specific app settings for messaging connections -->
-    <add key="Microsoft.ServiceBus.ConnectionString"
+       <!-- Service Bus specific app settings for messaging connections -->
+       <add key="Microsoft.ServiceBus.ConnectionString"
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
@@ -423,7 +427,7 @@ O exemplo a seguir mostra o arquivo App.config associado ao serviço.
 </configuration>
 ```
 
-## <a name="step-4:-host-the-rest-based-wcf-service-to-use-service-bus"></a>Etapa 4: hospedar o serviço WCF baseado em REST para usar o Barramento de Serviço
+## <a name="step-4-host-the-rest-based-wcf-service-to-use-service-bus"></a>Etapa 4: hospedar o serviço WCF baseado em REST para usar o Barramento de Serviço
 Esta etapa descreve como executar um serviço Web usando um aplicativo de console no Barramento de Serviço. Confira uma lista completa com os códigos escritos nesta etapa logo após o procedimento.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Para criar um endereço base para o serviço
@@ -554,12 +558,13 @@ Após compilar a solução, faça o seguinte para executar o aplicativo:
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você compilou um aplicativo que usa o serviço de retransmissão do Barramento de Serviço, confira os seguintes artigos para saber mais sobre o sistema de mensagens de retransmissão:
 
-* [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus/service-bus-fundamentals-hybrid-solutions.md#relays)
-* [Como usar o serviço de Retransmissão do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
+* [Visão geral da arquitetura de Barramento de Serviço do Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
+* [Como usar o serviço de Retransmissão do WCF do Barramento de Serviço](service-bus-dotnet-how-to-use-relay.md)
 
 [Portal do Azure]: https://portal.azure.com
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

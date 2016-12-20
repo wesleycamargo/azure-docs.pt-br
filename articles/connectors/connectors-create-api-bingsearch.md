@@ -1,192 +1,203 @@
 ---
-title: Adicionar os aplicativos lógicos do conector de Pesquisa do Bing | Microsoft Docs
-description: Visão geral do conector de Pesquisa do Bing com os parâmetros de API REST
-services: ''
-suite: ''
-documentationcenter: ''
+title: "Adicionar os aplicativos lógicos do conector de Pesquisa do Bing | Microsoft Docs"
+description: "Visão geral do conector de Pesquisa do Bing com os parâmetros de API REST"
+services: 
+suite: 
+documentationcenter: 
 author: MandiOhlinger
-manager: erikre
-editor: ''
+manager: anneta
+editor: 
 tags: connectors
-
+ms.assetid: a7f530e8-1573-4612-8899-c9c84aa2de6d
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/07/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
+ms.openlocfilehash: 327b66296521eaef5dacbb069eff7580610c09e9
+
 
 ---
-# Introdução ao conector de Pesquisa do Bing
-Conecte-se à Pesquisa do Bing para pesquisar notícias, vídeos e muito mais. Com a Pesquisa do Bing, você pode:
+# <a name="get-started-with-the-bing-search-connector"></a>Introdução ao conector de Pesquisa do Bing
+Conecte-se à Pesquisa do Bing para pesquisar notícias, vídeos e muito mais. Com a Pesquisa do Bing, você pode: 
 
-* Criar seu fluxo de negócios com base nos dados que você obtém da pesquisa.
+* Criar seu fluxo de negócios com base nos dados que você obtém da pesquisa. 
 * Use ações para pesquisar imagens, notícias e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, você pode pesquisar por um vídeo e usar o Twitter para publicar esse vídeo em um feed do Twitter.
 
 Para adicionar uma operação a aplicativos lógicos, consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Gatilhos e ações
-A Pesquisa do Bing inclui as seguintes ações. Não há nenhum gatilho.
+## <a name="triggers-and-actions"></a>Gatilhos e ações
+A Pesquisa do Bing inclui as seguintes ações. Não há gatilhos. 
 
 | Gatilhos | Ações |
 | --- | --- |
-| Nenhum |<ul><li>Pesquisar na Web</li><li>Pesquisar vídeos</li><li>Pesquisar imagens</li><li>Pesquisar notícias</li><li>Pesquisar relacionado</li><li>Pesquisar ortografias</li><li>Pesquisar tudo</li></ul> |
+| Nenhum |<ul><li>Pesquisar na Web</li><li>Pesquisar vídeos</li><li>Pesquisa imagens</li><li>Pesquisar notícias</li><li>Pesquisa relacionada</li><li>Pesquisar ortografias</li><li>Pesquisar tudo</li></ul> |
 
 Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
-## Referência da API REST do Swagger
+## <a name="swagger-rest-api-reference"></a>Referência da API REST do Swagger
 Aplica-se à versão: 1.0.
 
-### Pesquisar na Web
-Recupera sites de uma Pesquisa do Bing.```GET: /Web```
+### <a name="search-web"></a>Pesquisar na Web
+Recupera sites de uma Pesquisa do Bing.  
+```GET: /Web```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| query |string |sim |query |nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
-| maxResult |inteiro |não |query |nenhum |Número máximo de resultados a serem retornados. |
-| startOffset |inteiro |não |query |nenhum |Número de resultados a serem ignorados |
-| adultContent |string |não |query |nenhum |Filtro de conteúdo adulto. Valores válidos: <ul><li>Desativado</li><li>Moderado</li><li>Estrito</li></ul> |
-| market |string |não |query |nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
-| longitude |número |não |query |nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
-| latitude |número |não |query |nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
-| webFileType |string |não |query |nenhum |Tipo de arquivo para restringir a pesquisa (exemplo: 'DOC') |
+| query |string |sim |query |Nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
+| maxResult |inteiro |não |query |Nenhum |Número máximo de resultados a serem retornados. |
+| startOffset |inteiro |não |query |Nenhum |Número de resultados a serem ignorados |
+| adultContent |string |não |query |Nenhum |Filtro de conteúdo adulto. Valores válidos:  <ul><li>Desativar</li><li>Moderado</li><li>Rigoroso</li></ul> |
+| market |string |não |query |Nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
+| longitude |número |não |query |Nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
+| latitude |número |não |query |Nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
+| webFileType |string |não |query |Nenhum |Tipo de arquivo para restringir a pesquisa (exemplo: 'DOC') |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
-| padrão |Falha na Operação. |
+| padrão |Falha na operação. |
 
-### Pesquisar vídeos
-Recupera vídeos de uma pesquisa do Bing.```GET: /Video```
+### <a name="search-videos"></a>Pesquisar vídeos
+Recupera vídeos de uma pesquisa do Bing.  
+```GET: /Video```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| query |string |sim |query |nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
-| maxResult |inteiro |não |query |nenhum |Número máximo de resultados a serem retornados. |
-| startOffset |inteiro |não |query |nenhum |Número de resultados a serem ignorados |
-| adultContent |string |não |query |nenhum |Filtro de conteúdo adulto. Valores válidos: <ul><li>Desativado</li><li>Moderado</li><li>Estrito</li></ul> |
-| market |string |não |query |nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
-| longitude |número |não |query |nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
-| latitude |número |não |query |nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
-| videoFilters |string |não |query |nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Duração:Curta</li><li>Duração:Média</li><li>Duração:Longa</li><li>Aspecto:Standard</li><li>Aspecto:Widescreen</li><li>Resolução:Baixa</li><li>Resolução:Média</li><li>Resolução:Alta</li></ul> <br/><br/>Por exemplo: 'Duração:Curta+Resolução:Alta' |
-| videoSortBy |string |não |query |nenhum |Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>A ordem de classificação de data implica em ordem decrescente.</p> |
+| query |string |sim |query |Nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
+| maxResult |inteiro |não |query |Nenhum |Número máximo de resultados a serem retornados. |
+| startOffset |inteiro |não |query |Nenhum |Número de resultados a serem ignorados |
+| adultContent |string |não |query |Nenhum |Filtro de conteúdo adulto. Valores válidos:  <ul><li>Desativar</li><li>Moderado</li><li>Rigoroso</li></ul> |
+| market |string |não |query |Nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
+| longitude |número |não |query |Nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
+| latitude |número |não |query |Nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
+| videoFilters |string |não |query |Nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses.  Valores válidos:  <ul><li>Duração:Curta</li><li>Duração:Média</li><li>Duração:Longa</li><li>Aspecto:Padrão</li><li>Aspecto:Widescreen</li><li>Resolução:Baixa</li><li>Resolução:Média</li><li>Resolução:Alta</li></ul> <br/><br/>Por exemplo: ‘Duração:Curta+Resolução:Alta’ |
+| videoSortBy |string |não |query |Nenhum |Ordem de classificação dos resultados. Valores válidos:  <ul><li>Data</li><li>Relevância</li></ul> <p>Ordem de classificação por data implica ordem decrescente.</p> |
 
-#### Resposta
+#### <a name="response"></a>Response
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
-| padrão |Falha na Operação. |
+| padrão |Falha na operação. |
 
-### Pesquisa imagens
-Recupera imagens de uma pesquisa do Bing.```GET: /Image```
+### <a name="search-images"></a>Pesquisa imagens
+Recupera imagens de uma pesquisa do Bing.  
+```GET: /Image```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| query |string |sim |query |nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
-| maxResult |inteiro |não |query |nenhum |Número máximo de resultados a serem retornados. |
-| startOffset |inteiro |não |query |nenhum |Número de resultados a serem ignorados |
-| adultContent |string |não |query |nenhum |Filtro de conteúdo adulto. Valores válidos: <ul><li>Desativado</li><li>Moderado</li><li>Estrito</li></ul> |
-| market |string |não |query |nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
-| longitude |número |não |query |nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
-| latitude |número |não |query |nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
-| imageFilters |string |não |query |nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Tamanho:Pequeno</li><li>Tamanho:Médio</li><li>Tamanho:Grande</li><li>Tamanho:Largura:[Largura]</li><li>Tamanho:Altura:[Altura]</li><li>Aspecto:Quadrado</li><li>Aspecto:Largo</li><li>Aspecto: Alto</li><li>Cor:Cor</li><li>Cor:Monocromático</li><li>Estilo:Foto</li><li>Estilo:Elemento Gráfico</li><li>Face:Face</li><li>Face:Retrato</li><li>Face:Outro</li></ul><br/><br/>Por exemplo: 'Tamanho:Pequeno+Aspecto:Quadrado' |
+| query |string |sim |query |Nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
+| maxResult |inteiro |não |query |Nenhum |Número máximo de resultados a serem retornados. |
+| startOffset |inteiro |não |query |Nenhum |Número de resultados a serem ignorados |
+| adultContent |string |não |query |Nenhum |Filtro de conteúdo adulto. Valores válidos:  <ul><li>Desativar</li><li>Moderado</li><li>Rigoroso</li></ul> |
+| market |string |não |query |Nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
+| longitude |número |não |query |Nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
+| latitude |número |não |query |Nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
+| imageFilters |string |não |query |Nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos:  <ul><li>Tamanho:Pequeno</li><li>Tamanho:Médio</li><li>Tamanho:Grande</li><li>Tamanho:Largura:[Largura]</li><li>Tamanho:Altura:[Altura]</li><li>Aspecto:Quadrado</li><li>Aspecto:Largo</li><li>Aspecto:Longo</li><li>Cor:Cor</li><li>Cor:Monocromático</li><li>Estilo:Foto</li><li>Estilo:Gráficos</li><li>Face:Face</li><li>Face:Retrato</li><li>Face:Outros</li></ul><br/><br/>Por exemplo: “Tamanho:Pequeno+Aspecto:Quadrado” |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
-| padrão |Falha na Operação. |
+| padrão |Falha na operação. |
 
-### Pesquisar notícias
-Recupera os resultados de notícias de uma pesquisa do Bing.```GET: /News```
+### <a name="search-news"></a>Pesquisar notícias
+Recupera os resultados de notícias de uma pesquisa do Bing.  
+```GET: /News```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| query |string |sim |query |nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
-| maxResult |inteiro |não |query |nenhum |Número máximo de resultados a serem retornados. |
-| startOffset |inteiro |não |query |nenhum |Número de resultados a serem ignorados |
-| adultContent |string |não |query |nenhum |Filtro de conteúdo adulto. Valores válidos: <ul><li>Desativado</li><li>Moderado</li><li>Estrito</li></ul> |
-| market |string |não |query |nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
-| longitude |número |não |query |nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
-| latitude |número |não |query |nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
-| newsSortBy |string |não |query |nenhum |Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>A ordem de classificação de data implica em ordem decrescente.</p> |
-| newsCategory |string |não |query | |Categoria de notícias para restringir a pesquisa (exemplo: ‘rt\_Business’) |
-| newsLocationOverride |string |não |query |nenhum |Substituição para detecção de local do Bing. Esse parâmetro só é aplicável no mercado pt-BR. O formato de entrada é US./<state >/ (exemplo: “US.WA”) |
+| query |string |sim |query |Nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
+| maxResult |inteiro |não |query |Nenhum |Número máximo de resultados a serem retornados. |
+| startOffset |inteiro |não |query |Nenhum |Número de resultados a serem ignorados |
+| adultContent |string |não |query |Nenhum |Filtro de conteúdo adulto. Valores válidos:  <ul><li>Desativar</li><li>Moderado</li><li>Rigoroso</li></ul> |
+| market |string |não |query |Nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
+| longitude |número |não |query |Nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
+| latitude |número |não |query |Nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
+| newsSortBy |string |não |query |Nenhum |Ordem de classificação dos resultados. Valores válidos:  <ul><li>Data</li><li>Relevância</li></ul> <p>Ordem de classificação por data implica ordem decrescente.</p> |
+| newsCategory |string |não |query | |Categoria de notícias para restringir a pesquisa (exemplo: ‘rt_Business’) |
+| newsLocationOverride |string |não |query |Nenhum |Substituição para detecção de local do Bing. Esse parâmetro só é aplicável no mercado en-US. O formato de entrada é US./<state /> (exemplo: “US.WA”) |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
-| padrão |Falha na Operação. |
+| padrão |Falha na operação. |
 
-### Pesquisar ortografias
-Recupera sugestões de ortografia.```GET: /SpellingSuggestions```
+### <a name="search-spellings"></a>Pesquisar ortografias
+Recupera sugestões de ortografia.  
+```GET: /SpellingSuggestions```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| query |string |sim |query |nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
-| maxResult |inteiro |não |query |nenhum |Número máximo de resultados a serem retornados. |
-| startOffset |inteiro |não |query |nenhum |Número de resultados a serem ignorados |
-| adultContent |string |não |query |nenhum |Filtro de conteúdo adulto. Valores válidos: <ul><li>Desativado</li><li>Moderado</li><li>Estrito</li></ul> |
-| market |string |não |query |nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
-| longitude |número |não |query |nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
-| latitude |número |não |query |nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
+| query |string |sim |query |Nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
+| maxResult |inteiro |não |query |Nenhum |Número máximo de resultados a serem retornados. |
+| startOffset |inteiro |não |query |Nenhum |Número de resultados a serem ignorados |
+| adultContent |string |não |query |Nenhum |Filtro de conteúdo adulto. Valores válidos:  <ul><li>Desativar</li><li>Moderado</li><li>Rigoroso</li></ul> |
+| market |string |não |query |Nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
+| longitude |número |não |query |Nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
+| latitude |número |não |query |Nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
-| padrão |Falha na Operação. |
+| padrão |Falha na operação. |
 
-### Pesquisa relacionada
-Recupera os resultados da pesquisa relacionados de uma pesquisa do Bing.```GET: /RelatedSearch```
+### <a name="search-related"></a>Pesquisa relacionada
+Recupera os resultados da pesquisa relacionados de uma pesquisa do Bing.  
+```GET: /RelatedSearch```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| query |string |sim |query |nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
-| maxResult |inteiro |não |query |nenhum |Número máximo de resultados a serem retornados. |
-| startOffset |inteiro |não |query |nenhum |Número de resultados a serem ignorados |
-| adultContent |string |não |query |nenhum |Filtro de conteúdo adulto. Valores válidos: <ul><li>Desativado</li><li>Moderado</li><li>Estrito</li></ul> |
-| market |string |não |query |nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
-| longitude |número |não |query |nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
-| latitude |número |não |query |nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
+| query |string |sim |query |Nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
+| maxResult |inteiro |não |query |Nenhum |Número máximo de resultados a serem retornados. |
+| startOffset |inteiro |não |query |Nenhum |Número de resultados a serem ignorados |
+| adultContent |string |não |query |Nenhum |Filtro de conteúdo adulto. Valores válidos:  <ul><li>Desativar</li><li>Moderado</li><li>Rigoroso</li></ul> |
+| market |string |não |query |Nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
+| longitude |número |não |query |Nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
+| latitude |número |não |query |Nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
-| padrão |Falha na Operação. |
+| padrão |Falha na operação. |
 
-### Pesquisar tudo
-Recupera todos os sites, vídeos, imagens etc. de uma pesquisa do Bing.```GET: /CompositeSearch```
+### <a name="search-all"></a>Pesquisar tudo
+Recupera todos os sites, vídeos, imagens, etc.  
+```GET: /CompositeSearch```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| query |string |sim |query |nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
-| maxResult |inteiro |não |query |nenhum |Número máximo de resultados a serem retornados. |
-| startOffset |inteiro |não |query |nenhum |Número de resultados a serem ignorados |
-| adultContent |string |não |query |nenhum |Filtro de conteúdo adulto. Valores válidos: <ul><li>Desativado</li><li>Moderado</li><li>Estrito</li></ul> |
-| market |string |não |query |nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
-| longitude |número |não |query |nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
-| latitude |número |não |query |nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
-| webFileType |string |não |query |nenhum |Tipo de arquivo para restringir a pesquisa (exemplo: 'DOC') |
-| videoFilters |string |não |query |nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Duração:Curta</li><li>Duração:Média</li><li>Duração:Longa</li><li>Aspecto:Standard</li><li>Aspecto:Widescreen</li><li>Resolução:Baixa</li><li>Resolução:Média</li><li>Resolução:Alta</li></ul> <br/><br/>Por exemplo: 'Duração:Curta+Resolução:Alta' |
-| videoSortBy |string |não |query |nenhum |Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>A ordem de classificação de data implica em ordem decrescente.</p> |
-| imageFilters |string |não |query |nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos: <ul><li>Tamanho:Pequeno</li><li>Tamanho:Médio</li><li>Tamanho:Grande</li><li>Tamanho:Largura:[Largura]</li><li>Tamanho:Altura:[Altura]</li><li>Aspecto:Quadrado</li><li>Aspecto:Largo</li><li>Aspecto: Alto</li><li>Cor:Cor</li><li>Cor:Monocromático</li><li>Estilo:Foto</li><li>Estilo:Elemento Gráfico</li><li>Face:Face</li><li>Face:Retrato</li><li>Face:Outro</li></ul><br/><br/>Por exemplo: 'Tamanho:Pequeno+Aspecto:Quadrado' |
-| newsSortBy |string |não |query |nenhum |Ordem de classificação dos resultados. Valores válidos: <ul><li>Data</li><li>Relevância</li></ul> <p>A ordem de classificação de data implica em ordem decrescente.</p> |
-| newsCategory |string |não |query |nenhum |Categoria de notícias para restringir a pesquisa (exemplo: ‘rt\_Business’) |
-| newsLocationOverride |string |não |query |nenhum |Substituição para detecção de local do Bing. Esse parâmetro só é aplicável no mercado pt-BR. O formato de entrada é US./<state >/ (exemplo: “US.WA”) |
+| query |string |sim |query |Nenhum |Texto a ser procurado (exemplo: ‘xbox’) |
+| maxResult |inteiro |não |query |Nenhum |Número máximo de resultados a serem retornados. |
+| startOffset |inteiro |não |query |Nenhum |Número de resultados a serem ignorados |
+| adultContent |string |não |query |Nenhum |Filtro de conteúdo adulto. Valores válidos:  <ul><li>Desativar</li><li>Moderado</li><li>Rigoroso</li></ul> |
+| market |string |não |query |Nenhum |Mercado ou região para restringir a pesquisa (exemplo: pt-BR) |
+| longitude |número |não |query |Nenhum |Longitude (coordenada leste/oeste ) para restringir a pesquisa (exemplo: 47,603450) |
+| latitude |número |não |query |Nenhum |Latitude (coordenada norte/sul) para restringir a pesquisa (exemplo: -122,329696) |
+| webFileType |string |não |query |Nenhum |Tipo de arquivo para restringir a pesquisa (exemplo: 'DOC') |
+| videoFilters |string |não |query |Nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses.  Valores válidos:  <ul><li>Duração:Curta</li><li>Duração:Média</li><li>Duração:Longa</li><li>Aspecto:Padrão</li><li>Aspecto:Widescreen</li><li>Resolução:Baixa</li><li>Resolução:Média</li><li>Resolução:Alta</li></ul> <br/><br/>Por exemplo: ‘Duração:Curta+Resolução:Alta’ |
+| videoSortBy |string |não |query |Nenhum |Ordem de classificação dos resultados. Valores válidos:  <ul><li>Data</li><li>Relevância</li></ul> <p>Ordem de classificação por data implica ordem decrescente.</p> |
+| imageFilters |string |não |query |Nenhum |Filtre a pesquisa com base no tamanho, aspecto, cor, estilo, face ou qualquer combinação desses. Valores válidos:  <ul><li>Tamanho:Pequeno</li><li>Tamanho:Médio</li><li>Tamanho:Grande</li><li>Tamanho:Largura:[Largura]</li><li>Tamanho:Altura:[Altura]</li><li>Aspecto:Quadrado</li><li>Aspecto:Largo</li><li>Aspecto:Longo</li><li>Cor:Cor</li><li>Cor:Monocromático</li><li>Estilo:Foto</li><li>Estilo:Gráficos</li><li>Face:Face</li><li>Face:Retrato</li><li>Face:Outros</li></ul><br/><br/>Por exemplo: “Tamanho:Pequeno+Aspecto:Quadrado” |
+| newsSortBy |string |não |query |Nenhum |Ordem de classificação dos resultados. Valores válidos:  <ul><li>Data</li><li>Relevância</li></ul> <p>Ordem de classificação por data implica ordem decrescente.</p> |
+| newsCategory |string |não |query |nenhum |Categoria de notícias para restringir a pesquisa (exemplo: ‘rt_Business’) |
+| newsLocationOverride |string |não |query |Nenhum |Substituição para detecção de local do Bing. Esse parâmetro só é aplicável no mercado en-US. O formato de entrada é US./<state /> (exemplo: “US.WA”) |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
-| padrão |Falha na Operação. |
+| padrão |Falha na operação. |
 
-## Definições de objeto
-#### WebResultModel: resultados da pesquisa da Web do Bing
+## <a name="object-definitions"></a>Definições de objeto
+#### <a name="webresultmodel-bing-web-search-results"></a>WebResultModel: resultados da pesquisa da Web do Bing
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | Title |string |não |
@@ -195,7 +206,7 @@ Recupera todos os sites, vídeos, imagens etc. de uma pesquisa do Bing.```GET: /
 | ID |string |não |
 | FullUrl |string |não |
 
-#### VideoResultModel: resultados da pesquisa de vídeo do Bing
+#### <a name="videoresultmodel-bing-video-search-results"></a>VideoResultModel: resultados da pesquisa de vídeo do Bing
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | Title |string |não |
@@ -205,7 +216,7 @@ Recupera todos os sites, vídeos, imagens etc. de uma pesquisa do Bing.```GET: /
 | Tempo de execução |inteiro |não |
 | Miniatura |não definido |não |
 
-#### ThumbnailModel: propriedades de miniatura do elemento multimídia
+#### <a name="thumbnailmodel-thumbnail-properties-of-the-multimedia-element"></a>ThumbnailModel: propriedades de miniatura do elemento multimídia
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | MediaUrl |string |não |
@@ -214,7 +225,7 @@ Recupera todos os sites, vídeos, imagens etc. de uma pesquisa do Bing.```GET: /
 | Altura |inteiro |não |
 | FileSize |inteiro |não |
 
-#### ImageResultModel: resultados da pesquisa de imagens do Bing
+#### <a name="imageresultmodel-bing-image-search-results"></a>ImageResultModel: resultados da pesquisa de imagens do Bing
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | Title |string |não |
@@ -224,7 +235,7 @@ Recupera todos os sites, vídeos, imagens etc. de uma pesquisa do Bing.```GET: /
 | SourceUrl |string |não |
 | Miniatura |não definido |não |
 
-#### NewsResultModel: resultados da pesquisa de notícias do Bing
+#### <a name="newsresultmodel-bing-news-search-results"></a>NewsResultModel: resultados da pesquisa de notícias do Bing
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | Title |string |não |
@@ -234,20 +245,20 @@ Recupera todos os sites, vídeos, imagens etc. de uma pesquisa do Bing.```GET: /
 | Fonte |string |não |
 | Data |string |não |
 
-#### SpellResultModel: resultados de sugestões de ortografia do Bing
+#### <a name="spellresultmodel-bing-spelling-suggestions-results"></a>SpellResultModel: resultados de sugestões de ortografia do Bing
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | ID |string |não |
 | Valor |string |não |
 
-#### RelatedSearchResultModel: resultados de pesquisa relacionados ao Bing
+#### <a name="relatedsearchresultmodel-bing-related-search-results"></a>RelatedSearchResultModel: resultados de pesquisa relacionados ao Bing
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | Title |string |não |
 | ID |string |não |
 | BingUrl |string |não |
 
-#### CompositeSearchResultModel: resultados de pesquisa compostas do Bing
+#### <a name="compositesearchresultmodel-bing-composite-search-results"></a>CompositeSearchResultModel: resultados de pesquisa compostas do Bing
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | WebResultsTotal |inteiro |não |
@@ -262,9 +273,14 @@ Recupera todos os sites, vídeos, imagens etc. de uma pesquisa do Bing.```GET: /
 | SpellSuggestionResults |array |não |
 | RelatedSearchResults |array |não |
 
-## Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## <a name="next-steps"></a>Próximas etapas
+[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-Voltar para a [Lista de APIs](apis-list.md).
+Volte para a [Lista de APIs](apis-list.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

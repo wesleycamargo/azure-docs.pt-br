@@ -1,12 +1,12 @@
 ---
-title: Lista de Tarefas de Desenvolvimento e Administração nos Serviços BizTalk | Microsoft Docs
-description: Planejamento e trabalho de auxiliam na implantação dos Serviços BizTalk do Azure.
+title: "Lista de Tarefas de Desenvolvimento e Administração nos Serviços BizTalk | Microsoft Docs"
+description: "Planejamento e trabalho de auxiliam na implantação dos Serviços BizTalk do Azure."
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0ab70b5b-1a88-4ba5-b329-ec51b785010e
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1013419f9283c3e81a6a6e8ed56a34d6ee5937ea
+
 
 ---
-# <a name="administration-and-development-task-list-in-biztalk-services"></a>Lista de Tarefas de Desenvolvimento e Administração nos Serviços BizTalk
+# <a name="administration-and-development-task-list-in-biztalk-services"></a>Lista de Tarefas de Desenvolvimento e Administração nos Serviços BizTalk   
 ## <a name="getting-started"></a>Introdução
 Ao trabalhar com Serviços BizTalk do Microsoft Azure, há vários componentes locais e baseados em nuvem a serem considerados. Para começar, considere o seguinte fluxo de processo:  
 
@@ -50,6 +54,9 @@ Ao trabalhar com Serviços BizTalk do Microsoft Azure, há vários componentes l
 [Usando o BAS (Serviço de Adaptador BizTalk)](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
 [Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

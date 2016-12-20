@@ -1,34 +1,38 @@
 ---
-title: Como adicionar operações a uma API no Gerenciamento de API do Azure | Microsoft Docs
-description: Saiba como adicionar operações a uma API no Gerenciamento de API do Azure.
+title: "Como adicionar operações a uma API no Gerenciamento de API do Azure | Microsoft Docs"
+description: "Saiba como adicionar operações a uma API no Gerenciamento de API do Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1158a023-1913-4e9c-93de-9164b672f9b3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1bc391f5be5e41c6b6691950241ba5f3abdbf538
+
 
 ---
-# Como adicionar operações a uma API no Gerenciamento de API do Azure
+# <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Como adicionar operações a uma API no Gerenciamento de API do Azure
 Antes que uma API no Gerenciamento de API possa ser usada, as operações devem ser adicionadas. Este guia mostra como adicionar e configurar tipos diferentes de operações para uma API em Gerenciamento de API.
 
 ## <a name="add-operation"> </a>Adicionar uma operação
-Operações são adicionadas e configuradas em uma API no Portal do editor. Para acessar o portal do editor, clique em **Gerenciar** no Portal Clássico do Azure do serviço de Gerenciamento de API.
+Operações são adicionadas e configuradas em uma API no Portal do editor. Para acessar o portal do editor, clique em **Portal do editor** no Portal do Azure para acessar o serviço Gerenciamento de API.
 
 ![Portal do editor][api-management-management-console]
 
-> Se você ainda não criou uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][Criar uma instância de serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+> Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
 > 
 > 
 
-Selecione a API desejada no Portal do editor e então selecione a guia **Operações**.
+Selecione a API desejada no Portal do editor e então selecione a guia **Operações** . 
 
 ![Operações][api-management-operations]
 
@@ -54,16 +58,16 @@ Se desejar, especifique **Reescrever modelo de URL**. Isso permite que você use
 
 Quem chamar a operação utilizará o formato `/customers?customerid=ALFKI` e ele será mapeado para `/Customers('ALFKI')` quando o serviço de back-end for invocado.
 
-O nome de **exibição** e a **Descrição** oferecem uma descrição da operação e são usados para fornecer documentação aos desenvolvedores que utilizam essa API no portal do desenvolvedor.
+O Nome de **exibição** e a **Descrição** oferecem uma descrição da operação e são usados para fornecer documentação aos desenvolvedores que utilizam essa API no portal do desenvolvedor.
 
 ![Descrição][api-management-description]
 
-A descrição da operação pode ser especificada como texto sem formatação ou HTML na caixa de texto **Descrição**.
+A descrição da operação pode ser especificada como texto sem formatação ou HTML na caixa de texto **Descrição** .
 
 ## <a name="operation-caching"> </a>Cache da operação
-O cache de respostas reduz a latência percebida pelos consumidores da API, reduz a largura de banda e diminui a carga no serviço Web HTTP que está implementando a API.
+O cache de respostas reduz a latência percebida pelos consumidores da API, reduz a largura de banda e diminui a carga no serviço Web HTTP que está implementando a API. 
 
-Para habilitar o cache para a operação de modo fácil e rápido, selecione a guia **Cache** e marque a caixa de seleção **Habilitar**.
+Para habilitar o cache para a operação de modo fácil e rápido, selecione a guia **Caching** e marque a caixa de seleção **Habilitar**.
 
 ![Cache][api-management-caching-tab]
 
@@ -84,27 +88,27 @@ Para adicionar um novo parâmetro de consulta, clique em **Adicionar parâmetro 
 * **Descrição** - uma breve descrição do parâmetro (opcional).
 * **Tipo** - tipo do parâmetro, selecionado no menu suspenso.
 * **Valores** - valores que podem ser atribuídos a esse parâmetro. Um dos valores pode ser marcado como padrão (opcional).
-* **Obrigatório** - faça com que o parâmetro seja obrigatório marcando a caixa de seleção.
+* **Obrigatório** - faça com que o parâmetro seja obrigatório marcando a caixa de seleção. 
 
 ![Parâmetros da solicitação][api-management-request-parameters]
 
 ## <a name="request-body"> </a>Corpo da solicitação
-Se a operação permitir (por exemplo, PUT, POST) e precisar de um corpo, você poderá fornecer um exemplo dele em todos os formatos de representação com suporte (por exemplo, json, XML).
+Se a operação permitir (por exemplo, PUT, POST) e precisar de um corpo, você poderá fornecer um exemplo dele em todos os formatos de representação com suporte (por exemplo, json, XML). 
 
 > O corpo da solicitação é usado somente para fins de documentação e não é validado.
 > 
 > 
 
-Para inserir um corpo de solicitação, vá até a guia **Corpo**.
+Para inserir um corpo de solicitação, vá até a guia **Corpo** .
 
-Clique em **Adicionar representação**, comece a digitar o nome do tipo de conteúdo desejado (por exemplo, aplicativo/json), selecione-o no menu suspenso e cole o exemplo de corpo de solicitação desejado, no formato selecionado, na caixa de texto.
+Clique em **Adicionar representação**, comece a digitar o nome do tipo de conteúdo desejado (por exemplo, aplicativo/json), selecione-o no menu suspenso e cole o exemplo de corpo de solicitação desejado, no formato selecionado, na caixa de texto. 
 
 ![Corpo da solicitação][api-management-request-body]
 
-Além de representações, você também pode especificar um texto de descrição opcional na caixa de texto **Descrição**.
+Além de representações, você também pode especificar um texto de descrição opcional na caixa de texto **Descrição** .
 
 ## <a name="responses"> </a>Respostas
-É uma prática recomendável fornecer exemplos de respostas para todos os códigos de status que a operação possa produzir. Cada código de status pode ter mais de um exemplo de corpo de resposta, um para cada um dos tipos de conteúdos com suporte.
+É uma prática recomendável fornecer exemplos de respostas para todos os códigos de status que a operação possa produzir. Cada código de status pode ter mais de um exemplo de corpo de resposta, um para cada um dos tipos de conteúdos com suporte. 
 
 Para adicionar uma resposta, clique em **Adicionar** e comece a digitar o código de status desejado. Neste exemplo, o código de status é **200 OK**. Quando o código for exibido no menu suspenso, selecione-o e o código de resposta será criado e adicionado à sua operação.
 
@@ -114,11 +118,11 @@ Clique em **Adicionar representação**, comece a digitar o nome do tipo de cont
 
 ![Tipo de conteúdo do corpo][api-management-response-body-content-type]
 
-Copie o exemplo de corpo de resposta no formato selecionado na caixa de texto.
+Copie o exemplo de corpo de resposta no formato selecionado na caixa de texto. 
 
 ![Corpo da resposta][api-management-response-body]
 
-Se desejar, adicione uma descrição opcional na caixa de texto **Descrição**.
+Se desejar, adicione uma descrição opcional na caixa de texto **Descrição** .
 
 Após configurar a operação, clique em **Salvar**.
 
@@ -150,18 +154,22 @@ Após as operações serem adicionadas a uma API, a próxima etapa é associar a
 [api-management-api-summary]: ./media/api-management-howto-add-operations/api-management-api-summary.png
 [api-management-echo-operations]: ./media/api-management-howto-add-operations/api-management-echo-operations.png
 
-[Add an operation]: #add-operation
-[Operation caching]: #operation-caching
-[Request parameters]: #request-parameters
-[Request body]: #request-body
-[Responses]: #responses
-[Next steps]: #next-steps
+[Adicionar uma operação]: #add-operation
+[Cache da operação]: #operation-caching
+[Parâmetros da solicitação]: #request-parameters
+[Corpo da solicitação]: #request-body
+[Respostas]: #responses
+[Próximas etapas]: #next-steps
 
 [Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[Criar uma instância de serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
+[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[Como adicionar operações a uma API]: api-management-howto-add-operations.md
 [Como criar e publicar um produto]: api-management-howto-add-products.md
 [Como armazenar em cache os resultados de operações no Gerenciamento de API do Azure]: api-management-howto-cache.md
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -2,12 +2,12 @@
 title: Usar o Hive do Hadoop com o PowerShell no HDInsight | Microsoft Docs
 description: Usar o PowerShell para executar consultas Hive com Hadoop no HDInsight
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: cb795b7c-bcd0-497a-a7f0-8ed18ef49195
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/07/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: bb5fee05bb14276ab0a9e2309f8a20cb3684df57
+
 
 ---
-# Executar consultas Hive usando o PowerShell
+# <a name="run-hive-queries-using-powershell"></a>Executar consultas Hive usando o PowerShell
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 Este documento fornece um exemplo de como usar o Azure PowerShell no modo de Grupo de Recursos do Azure para executar consultas do Hive em um Hadoop no cluster HDInsight.
@@ -34,9 +38,9 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 * **Um cluster do Azure HDInsight (Hadoop no HDInsight, baseado em Windows ou Linux)**
 * **Uma estação de trabalho com o PowerShell do Azure.**
   
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## Executar consultas do Hive usando o Azure PowerShell
+## <a name="run-hive-queries-using-azure-powershell"></a>Executar consultas do Hive usando o Azure PowerShell
 O PowerShell do Azure fornece *cmdlets* que lhe permitem executar remotamente as consultas Hive no HDInsight. Internamente, isso é feito por meio de chamadas REST para [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (anteriormente chamado de Templeton) em execução no cluster HDInsight.
 
 Os cmdlets a seguir são usados ao executar consultas do Hive em um cluster HDInsight remoto:
@@ -102,7 +106,7 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
             -DefaultStorageAccountName $storageAccountName `
             -DefaultStorageAccountKey $storageAccountKey `
             -HttpCredential $creds
-2. Abra um novo prompt de comando do **PowerShell do Azure**. Altere os diretórios para o local do arquivo **hivejob.ps1** e use o seguinte comando para executar o script:
+2. Abra um novo prompt de comando do **PowerShell do Azure** . Altere os diretórios para o local do arquivo **hivejob.ps1** e use o seguinte comando para executar o script:
    
         .\hivejob.ps1
    
@@ -146,12 +150,12 @@ As etapas a seguir demonstram como usar esses cmdlets para executar um trabalho 
    > 
    > `Invoke-AzureRmHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    > 
-   > Para obter mais informações sobre **Here-Strings**, consulte <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Usando Here-Strings do Windows PowerShell</a>.
+   > Para obter mais informações sobre **Here-Strings**, consulte <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Como usar Here-Strings do Windows PowerShell</a>.
    > 
    > 
 
-## Solucionar problemas
-Se nenhuma informação for retornada quando o trabalho for concluído, um erro pode ter ocorrido durante o processamento. Para exibir informações de erro para esse trabalho, adicione o seguinte ao final do arquivo **hivejob.ps1**, salve-o e execute-o novamente.
+## <a name="troubleshooting"></a>Solucionar problemas
+Se nenhuma informação for retornada quando o trabalho for concluído, um erro pode ter ocorrido durante o processamento. Para exibir informações de erro para esse trabalho, adicione o seguinte ao final do arquivo **hivejob.ps1** , salve-o e execute-o novamente.
 
     # Print the output of the Hive job.
     Get-AzureRmHDInsightJobOutput `
@@ -165,10 +169,10 @@ Se nenhuma informação for retornada quando o trabalho for concluído, um erro 
 
 Isso retorna as informações gravadas em STDERR para o servidor ao executar o trabalho e pode ajudar a determinar por que o trabalho está falhando.
 
-## Resumo
+## <a name="summary"></a>Resumo
 Como você pode ver, o PowerShell do Azure fornece uma maneira fácil de executar consultas do Hive em um cluster HDInsight, monitorar o status do trabalho e recuperar a saída.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para obter informações gerais sobre o Hive no HDInsight:
 
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
@@ -178,4 +182,9 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

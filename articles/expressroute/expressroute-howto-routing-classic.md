@@ -1,13 +1,13 @@
 ---
-title: Como configurar o roteamento de um circuito da Rota Expressa para o modelo de implantação clássica usando o PowerShell | Microsoft Docs
-description: Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito de Rota Expressa. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
+title: "Como configurar o roteamento de um circuito do ExpressRoute para o modelo de implantação clássico usando o PowerShell | Microsoft Docs"
+description: "Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito de Rota Expressa. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: 1442295477760e7f528621be42b72f1c02625c50
+
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Criar e modificar o roteamento de um circuito da Rota Expressa
 > [!div class="op_single_selector"]
-> [Portal do Azure - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell - Clássico](expressroute-howto-routing-classic.md)
+> * [Portal do Azure - Gerenciador de Recursos](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell – Resource Manager](expressroute-howto-routing-arm.md)
+> * [PowerShell - clássico](expressroute-howto-routing-classic.md)
 > 
 > 
 
@@ -303,6 +307,9 @@ Em seguida, [Vincular uma Rede Virtual a um circuito da Rota Expressa](expressro
 * Para obter mais informações sobre fluxos de trabalho, veja [Fluxos de trabalho da Rota Expressa](expressroute-workflows.md).
 * Para obter mais informações sobre o emparelhamento de circuito, veja [Circuitos e domínios de roteamento da Rota Expressa](expressroute-circuit-peerings.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

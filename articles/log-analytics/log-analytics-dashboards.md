@@ -1,12 +1,12 @@
 ---
 title: Criar um painel personalizado no Log Analytics | Microsoft Docs
-description: Este guia ajuda a entender como os Painéis do Log Analytics podem visualizar todas as pesquisas de log salvas, dando a você uma lente única para exibir seu ambiente.
+description: "Este guia ajuda a entender como os Painéis do Log Analytics podem visualizar todas as pesquisas de log salvas, dando a você uma lente única para exibir seu ambiente."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: afd1e5359edbdfdbd4a8afaac139f5877b306c2b
+
 
 ---
 # <a name="create-a-custom-dashboard-in-log-analytics"></a>Criar um painel personalizado no Log Analytics
@@ -28,7 +32,7 @@ Todos os painéis personalizados que você cria no portal do OMS também estão 
 
 ![painel móvel](./media/log-analytics-dashboards/oms-search-mobile.png)
 
-## <a name="how-do-i-create-my-dashboard?"></a>Como crio meu painel?
+## <a name="how-do-i-create-my-dashboard"></a>Como crio meu painel?
 Para começar, vá para a página Visão Geral do OMS. Você verá o bloco **Meu Painel** à esquerda. Clique para fazer uma busca detalhada do painel.
 
 ![Visão geral](./media/log-analytics-dashboards/oms-dashboards-overview.png)
@@ -55,7 +59,7 @@ Na exibição Meu Painel, basta clicar  em **Personalizar** para entrar no modo 
 
 ![Editar Bloco](./media/log-analytics-dashboards/oms-dashboards-pictorial05.png)
 
-### <a name="tile-visualizations#"></a>Visualizações do bloco
+### <a name="tile-visualizations"></a>Visualizações do bloco
 Há três tipos de visualização do bloco para escolher:
 
 | tipo de gráfico | o que ele faz |
@@ -80,6 +84,9 @@ Para remover um bloco, navegue até a exibição Meu Painel e clique em **Person
 ## <a name="next-steps"></a>Próximas etapas
 * Crie [alertas](log-analytics-alerts.md) no Log Analytics para gerar notificações e para corrigir problemas.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

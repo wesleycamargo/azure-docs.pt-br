@@ -1,12 +1,12 @@
 ---
-title: Eventos do relatório de auditoria do Azure Active Directory | Microsoft Docs
-description: Eventos de auditoria que estão disponíveis para exibição e download no Active Directory do Azure
+title: "Eventos do relatório de auditoria do Azure Active Directory | Microsoft Docs"
+description: "Eventos de auditoria que estão disponíveis para exibição e download no Active Directory do Azure"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 307eedf7-05bc-448d-a84d-bead5a4c5770
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 23da68e26865a8c3525cce3cb2b3a4db447fcc4c
+
 
 ---
-# Eventos de relatório de auditoria do Azure Active Directory
-*Esta documentação é parte do [Guia de Relatórios do Active Directory do Azure](active-directory-reporting-guide.md).*
+# <a name="azure-active-directory-audit-report-events"></a>Eventos de relatório de auditoria do Azure Active Directory
+*Esta documentação é parte do [Guia de Relatórios do Azure Active Directory](active-directory-reporting-guide.md).*
 
-O relatório de auditoria do Active Directory do Azure ajuda os clientes a identificar ações privilegiadas que ocorreram nos seus respectivos Active Directory do Azure. Ações com privilégios incluem alterações de elevação (por exemplo, criação de funções ou redefinições de senha), alteração de configurações de política (por exemplo, políticas de senha) ou alterações na configuração de diretório (por exemplo, as alterações às configurações de federação de domínio). Os relatórios fornecem o registro de auditoria para o nome do evento, o ator que executou a ação, o recurso de destino afetado pela alteração e a data e hora (em UTC). Os clientes são capazes de recuperar a lista de eventos de auditoria para o Azure Active Directory por meio do [Portal do Azure](https://portal.azure.com/), como descrito em [Exibir seus Logs de Auditoria](active-directory-reporting-azure-portal.md).
+O relatório de auditoria do Active Directory do Azure ajuda os clientes a identificar ações privilegiadas que ocorreram nos seus respectivos Active Directory do Azure. Ações com privilégios incluem alterações de elevação (por exemplo, criação de funções ou redefinições de senha), alteração de configurações de política (por exemplo, políticas de senha) ou alterações na configuração de diretório (por exemplo, as alterações às configurações de federação de domínio). Os relatórios fornecem o registro de auditoria para o nome do evento, o ator que executou a ação, o recurso de destino afetado pela alteração e a data e hora (em UTC). Os clientes são capazes de recuperar a lista dos eventos de auditoria para o Azure Active Directory por meio de [Portal do Azure](https://portal.azure.com/), como descrito em [Exibir seus Logs de Auditoria](active-directory-reporting-azure-portal.md).
 
-## Lista de eventos de relatório de auditoria
+## <a name="list-of-audit-report-events"></a>Lista de eventos de relatório de auditoria
 <!--- audit event descriptions should be in the past tense --->
 
 | Eventos | Descrição do evento |
@@ -78,7 +82,7 @@ O relatório de auditoria do Active Directory do Azure ajuda os clientes a ident
 | Adicionar um membro da função à Função |Um usuário foi adicionado a uma função de diretório. |
 | Remover membro de função da Função |Um usuário foi removido de uma função de diretório. |
 | AddRoleDefinition |Obter definição da função. |
-| UpdateRoleDefinition |Atualizar definição de função. Para ver quais configurações de função foram atualizadas, veja [Propriedades de Definição de Função Auditadas](#update-role-definition-attributes) na seção abaixo |
+| UpdateRoleDefinition |Atualizar definição de função. Para ver quais configurações de função foram atualizadas, veja [Propriedades de Definição da Função Auditadas](#update-role-definition-attributes) na seção abaixo |
 | DeleteRoleDefinition |Definição de função excluída. |
 | AddRoleAssignmentToRoleDefinition |Atribuição de função adicionada à definição de função. |
 | RemoveRoleAssignmentFromRoleDefinition |Atribuição de função removida da definição de função. |
@@ -152,12 +156,12 @@ O relatório de auditoria do Active Directory do Azure ajuda os clientes a ident
 | RemoveDefaultPolicyServicePrincipal |Remover política da entidade de serviço. |
 | RemovePolicyCredentials |Remover credenciais de política. |
 
-## Retenção do relatório de auditoria
+## <a name="audit-report-retention"></a>Retenção do relatório de auditoria
 Os eventos no relatório de auditoria do Azure AD são mantidos por 180 dias. Para saber mais sobre retenção de relatórios, confira [Políticas de retenção de relatório do Active Directory do Azure](active-directory-reporting-retention.md).
 
 Para clientes interessados no armazenamento de seus eventos de auditoria por períodos mais longos, a API de Relatório pode ser usada regularmente receber eventos de auditoria em um armazenamento de dados separado. Confira [Introdução à API de Relatório](active-directory-reporting-api-getting-started.md) para obter detalhes.
 
-## Propriedades incluídas com cada evento de auditoria
+## <a name="properties-included-with-each-audit-event"></a>Propriedades incluídas com cada evento de auditoria
 | Propriedade | Descrição |
 | --- | --- |
 | Data e hora |A data e hora em que o evento de auditoria ocorreu |
@@ -165,7 +169,7 @@ Para clientes interessados no armazenamento de seus eventos de auditoria por per
 | Ação |A ação que foi executada |
 | Destino |O usuário ou a entidade de serviço em que a ação foi executada |
 
-## Atributos de “Atualizar Usuário”
+## <a name="update-user-attributes"></a>Atributos de “Atualizar Usuário”
 O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre quais atributos de usuário foram atualizados. Para cada atributo, o valor anterior e o novo valor são ambos incluídos.
 
 | Atributo | Descrição |
@@ -188,7 +192,7 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 | InviteReplyUrl |Lista de urls para responder mediante a aceitação do convite. |
 | InviteResources |Lista de recursos aos quais o usuário foi convidado. |
 | LastDirSyncTime |Última vez em que o objeto foi atualizado devido à sincronização do diretório autoritativo (cliente, local). |
-| MSExchRemoteRecipientType |Mapeia para tipos de destinatário do MSO. Veja [tipos de destinatário do MSO] https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx para tipos de destinatário |
+| MSExchRemoteRecipientType |Mapeia para tipos de destinatário do MSO. Consulte [tipos de destinatário MSO] https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx para ver os tipos de destinatário |
 | PreferredDataLocation |O local preferido dos dados do usuário, do grupo, do contato, da pasta pública ou do dispositivo. |
 | ProxyAddresses |O endereço pelo qual um objeto de destinatário do Exchange Server é reconhecido em um sistema de email externo. |
 | StsRefreshTokensValidFrom |Carrega informações de revogação de token de atualização - qualquer token de atualização STS emitido antes desse momento serão considerados como expirados. |
@@ -197,7 +201,7 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 | UserStateChangedOn |Carimbo de data/hora da última alteração feita em UserState. Usado para disparar fluxos de trabalho do ciclo de vida. |
 | UserType |Tipo de usuário. Membro (0), Convidado (1), Viral(2). |
 
-## Atributos de "Atualizar Grupo"
+## <a name="update-group-attributes"></a>Atributos de "Atualizar Grupo"
 | Atributo | Descrição |
 | --- | --- |
 | Classificação |A classificação de um Grupo Unificado (ICA, ICM etc). |
@@ -211,7 +215,7 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 | LastDirSyncTime |Última vez em que o objeto foi atualizado como resultado da sincronização do diretório autoritativo (cliente, local). |
 | Email |Endereço de email principal |
 | MailEnabled |Indica se este grupo tem a funcionalidade de email. |
-| MailNickname |Moniker para um objeto de catálogo de endereços, geralmente a parte de seu nome de email anterior ao símbolo "@". |
+| MailNickname |Moniker para um objeto do catálogo de endereços, geralmente a parte de seu nome de email precedida do símbolo "@". |
 | MembershipRule |Uma cadeia de caracteres que expressa os critérios usados pelo serviço de gerenciamento de grupos de autoatendimento para determinar quais membros deverão pertencer a esse grupo. Veja também IsMembershipRuleLocked. Aplicável somente aos grupos onde GroupType inclui GroupType.DynamicMembership. |
 | MembershipRuleProcessingState |Um valor de enumeração definido pelo serviço de gerenciamento de grupos de autoatendimento que define o status de processamento de associação para esse grupo. Aplicável somente aos grupos onde GroupType inclui GroupType.DynamicMembership. |
 | ProxyAddresses |O endereço pelo qual um objeto de destinatário do Exchange Server é reconhecido em um sistema de email externo. |
@@ -219,7 +223,7 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 | SecurityEnabled |Indica se a associação ao grupo pode influenciar as decisões de autorização. |
 | WellKnownObject |Rotula um objeto de diretório, indicando-o como parte de um conjunto predefinido. |
 
-## Atributos de "Atualizar Dispositivo"
+## <a name="update-device-attributes"></a>Atributos de "Atualizar Dispositivo"
 | Atributo | Descrição |
 | --- | --- |
 | AccountEnabled |Indica se uma entidade de segurança pode ser autenticada. |
@@ -240,13 +244,13 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 | IsManaged |Este atributo é usado para indicar que o dispositivo é gerenciado por um MDM de nuvem. |
 | LastDirSyncTime |Última vez em que o objeto foi atualizado devido à sincronização do diretório autoritativo (cliente, local). |
 
-## Atributos de "Atualizar Configuração do Dispositivo"
+## <a name="update-device-configuration-attributes"></a>Atributos de "Atualizar Configuração do Dispositivo"
 | Atributo | Descrição |
 | --- | --- |
 | MaximumRegistrationInactivityPeriod |O número máximo de dias que um dispositivo pode ficar inativo antes de ser considerado para remoção. |
 | RegistrationQuota |Política usada para limitar o número de registros de dispositivos permitidos para um único usuário. |
 
-## Atributos de "Atualizar Configuração de Entidade de Serviço"
+## <a name="update-service-principal-configuration-attributes"></a>Atributos de "Atualizar Configuração de Entidade de Serviço"
 | Atributo | Descrição |
 | --- | --- |
 | AccountEnabled |Indica se uma entidade de segurança pode ser autenticada. |
@@ -254,12 +258,12 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 | DisplayName |O nome de exibição para um objeto |
 | ServicePrincipalName |Um nome de entidade de serviço que contém "nome/autoridade", onde o nome especifica um valor de classe do aplicativo e a autoridade contém pelo menos nomedohost[:porta] ou "nome", que especifica um identificador para a entidade de serviço. |
 
-## Atributos de "Atualizar Aplicativo"
+## <a name="update-app-attributes"></a>Atributos de "Atualizar Aplicativo"
 | Atributo | Descrição |
 | --- | --- |
 | AppAddress |O conjunto de endereços (URLs de redirecionamento) atribuídos a uma entidade de serviço. |
 | AppId |ID do Aplicativo do Aplicativo |
-| AppIdentifierUri |URI do Aplicativo, que identifica o aplicativo. Geralmente, é a URL de acesso do aplicativo. |
+| AppIdentifierUri |URI do Aplicativo, que identifica o aplicativo.  Geralmente, é a URL de acesso do aplicativo. |
 | AppLogoUrl |A url para a imagem de logotipo do aplicativo armazenada em uma CDN. |
 | AvailableToOtherTenants |Se verdadeiro, o aplicativo é um aplicativo multilocatário (ou seja, pode ser usado por outros locatários). |
 | DisplayName |O nome de exibição para um Nome de Aplicativo |
@@ -272,7 +276,7 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 | WebApp |Se verdadeiro, indica que esse aplicativo é um aplicativo Web. |
 | WwwHomepage |A página da Web principal. |
 
-## Atributos de "Atualizar Função"
+## <a name="update-role-attributes"></a>Atributos de "Atualizar Função"
 | Atributo | Descrição |
 | --- | --- |
 | AppAddress |O conjunto de endereços (URLs de redirecionamento) atribuídos a uma entidade de serviço. |
@@ -280,7 +284,7 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 | Builtin |Indica se o tempo de vida de um objeto é de propriedade do sistema. |
 | Descrição |Frases descritivas legíveis sobre o objeto. |
 | DisplayName |O nome de exibição para um objeto |
-| MailNickname |Moniker para um objeto de catálogo de endereços, geralmente a parte de seu nome de email anterior ao símbolo "@". |
+| MailNickname |Moniker para um objeto do catálogo de endereços, geralmente a parte de seu nome de email precedida do símbolo "@". |
 | RoleDisabled |Indica se a função deve ser ignorada para fins de verificações de acesso. |
 | RoleTemplateId |Identidade do modelo de função. |
 | ServiceInfo |Informações de provisionamento específicas do serviço que podem ser consumidas pelo MOAC e/ou por outras instâncias de serviço (do mesmo tipo de serviço ou de tipos diferentes). |
@@ -288,20 +292,20 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 | ValidationError |As informações publicadas por um serviço federado que descreve um erro não transitório específico do serviço relacionado às propriedades ou vinculado de uma ação de administrador de objetos a ser resolvida. |
 | WellKnownObject |Rotula um objeto de diretório, indicando-o como parte de um conjunto predefinido. |
 
-## Atributos "Atualizar Definição de Função"
+## <a name="update-role-definition-attributes"></a>Atributos "Atualizar Definição de Função"
 | Atributo | Descrição |
 | --- | --- |
 | AssignableScopes |Coleção de escopos de autorização que podem ser referenciados na atribuição dessa RoleDefinition a uma entidade de segurança. |
 | DisplayName |O nome de exibição para um objeto |
 | GrantedPermissions |Permissões concedidas por esta RoleDefinition. |
 
-## Atributos de "Atualizar Unidade Administrativa"
+## <a name="update-administrative-unit-attributes"></a>Atributos de "Atualizar Unidade Administrativa"
 | Atributo | Descrição |
 | --- | --- |
 | Descrição |Essa propriedade é atualizada quando você altera a descrição de uma unidade administrativa. |
 | DisplayName |Essa propriedade é atualizada quando você altera o nome de uma unidade administrativa. |
 
-## Atributos de "Atualizar Empresa"
+## <a name="update-company-attributes"></a>Atributos de "Atualizar Empresa"
 | Atributo | Descrição |
 | --- | --- |
 | AllowedDataLocation |Um local em que os usuários da empresa podem ser provisionados. |
@@ -326,7 +330,7 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 | TenantType |O tipo de um locatário. Se esse valor não for especificado, o locatário será uma Empresa. Caso contrário, os valores possíveis são: MicrosoftSupport (0), SyndicatePartner (1), BreadthPartner (2) BreadthPartnerDelegatedAdmin (3) ResellerPartnerDelegatedAdmin (4) ValueAddedResellerPartnerDelegatedAdmin (5). |
 | VerifiedDomain |Um conjunto de nomes de domínio DNS associado a uma Empresa. |
 
-## Atributos de "Atualizar Domínio"
+## <a name="update-domain-attributes"></a>Atributos de "Atualizar Domínio"
 | Atributo | Descrição |
 | --- | --- |
 | Funcionalidades |Sinalizadores de bits que descrevem os recursos do domínio, se houver. |
@@ -339,4 +343,9 @@ O evento de auditoria "Atualizar usuário" inclui informações adicionais sobre
 
 Registros de auditoria são um controle necessário para muitas regulamentações de conformidade. Para clientes que usam o Relatório de Auditoria do Azure Active Directory para atender aos seus regulamentos de conformidade, recomenda-se que o cliente envie uma cópia deste tópico de ajuda com a cópia do relatório de auditoria exportado do cliente para ajudar a explicar os detalhes do relatório. Se o auditor gostaria de entender os regulamentos de conformidade que o Azure atende atualmente, indique a [Página de conformidade](https://azure.microsoft.com/support/trust-center/compliance/) da Central de confiabilidade do Microsoft Azure ao auditor.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

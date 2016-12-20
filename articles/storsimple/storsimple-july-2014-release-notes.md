@@ -1,12 +1,12 @@
 ---
-title: Notas de versão do StorSimple 8000 | Microsoft Docs
-description: Descreve os novos recursos, problemas em aberto e as soluções alternativas disponíveis para a versão de julho de 2014 do Microsoft Azure StorSimple.
+title: "Notas de versão do StorSimple 8000 | Microsoft Docs"
+description: "Descreve os novos recursos, problemas em aberto e as soluções alternativas disponíveis para a versão de julho de 2014 do Microsoft Azure StorSimple."
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 12f1796e-37c3-42b4-b997-a84fc1950c20
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 387b274a993454814f7238f4cd89a52351a6fc1f
+
 
 ---
-# Notas de versão de lançamento do StorSimple série 8000 - julho de 2014
-## Visão geral
-As notas de versão a seguir identificam os problemas críticos abertos para o StorSimple série 8000 da GA (disponibilidade geral) de julho de 2014 do Microsoft Azure StorSimple. Esta versão corresponde à versão do software 6.3.9600.17215.
+# <a name="storsimple-8000-series-release-version-release-notes---july-2014"></a>Notas de versão de lançamento do StorSimple série 8000 - julho de 2014
+## <a name="overview"></a>Visão geral
+As notas de versão a seguir identificam os problemas críticos abertos para o StorSimple série 8000 da GA (disponibilidade geral) de julho de 2014 do Microsoft Azure StorSimple. Esta versão corresponde à versão do software 6.3.9600.17215.  
 
-Salvo indicação em contrário, estas notas de versão se aplicam a todos os modelos do dispositivo StorSimple. As notas de versão são continuamente atualizadas; à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Antes de implantar sua solução Microsoft Azure StorSimple, considere as seguintes informações.
+Salvo indicação em contrário, estas notas de versão se aplicam a todos os modelos do dispositivo StorSimple. As notas de versão são continuamente atualizadas; à medida que são descobertas questões críticas que exijam uma solução alternativa, elas são adicionadas. Antes de implantar sua solução Microsoft Azure StorSimple, considere as seguintes informações.  
 
-## Problemas conhecidos nesta versão
-A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
+## <a name="known-issues-in-this-release"></a>Problemas conhecidos nesta versão
+A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.  
 
 | Nº | Recurso | Problema | Comentários/soluções alternativas | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
@@ -38,4 +42,9 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 9 |Instalação |Durante o Adaptador StorSimple para instalação do SharePoint, você precisa fornecer um IP do dispositivo para que a instalação seja concluída com êxito. | |Sim |Não |
 | 10 |Interfaces de rede |Na versão anterior, as interfaces de rede DADOS 2 e DADOS 3 foram trocadas no software. |Contate o Microsoft Support se você precisa configurar essas interfaces. |Sim |Não |
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
