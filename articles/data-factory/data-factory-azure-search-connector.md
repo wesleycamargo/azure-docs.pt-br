@@ -51,30 +51,33 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados em seu co
 
 **Serviço vinculado ao Azure Search:**
 
-    {   
-        "name": "AzureSearchLinkedService",
-        "properties": {
-            "type": "AzureSearch",
-            "typeProperties": {
-                "url": "https://<service>.search.windows.net",
-                "key": "<AdminKey>"
-            }
+```JSON
+{   
+    "name": "AzureSearchLinkedService",
+    "properties": {
+        "type": "AzureSearch",
+        "typeProperties": {
+            "url": "https://<service>.search.windows.net",
+            "key": "<AdminKey>"
         }
     }
-
+}
+```
 
 **Serviço vinculado do SQL Server**
 
-    {
-      "Name": "SqlServerLinkedService",
-      "properties": {
-        "type": "OnPremisesSqlServer",
-        "typeProperties": {
-          "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
-          "gatewayName": "<gatewayname>"
-        }
-      }
+```JSON
+{
+  "Name": "SqlServerLinkedService",
+  "properties": {
+    "type": "OnPremisesSqlServer",
+    "typeProperties": {
+      "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+      "gatewayName": "<gatewayname>"
     }
+  }
+}
+```
 
 **Conjunto de dados de entrada do SQL Server**
 
@@ -82,98 +85,102 @@ O exemplo supõe que você criou uma tabela "MyTable" no SQL Server e que ela co
 
 Configurar "external": "true" informa ao serviço Data Factory que o conjunto de dados é externo ao Data Factory e não é produzido por uma atividade no Data Factory.
 
-    {
-      "name": "SqlServerDataset",
-      "properties": {
-        "type": "SqlServerTable",
-        "linkedServiceName": "SqlServerLinkedService",
-        "typeProperties": {
-          "tableName": "MyTable"
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          "externalData": {
-            "retryInterval": "00:01:00",
-            "retryTimeout": "00:10:00",
-            "maximumRetry": 3
-          }
-        }
+```JSON
+{
+  "name": "SqlServerDataset",
+  "properties": {
+    "type": "SqlServerTable",
+    "linkedServiceName": "SqlServerLinkedService",
+    "typeProperties": {
+      "tableName": "MyTable"
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
       }
     }
+  }
+}
+```
 
 **Conjunto de dados de saída do Azure Search:**
 
 O exemplo copia dados para um índice do Azure Search chamado **produtos**. O Data Factory não cria o índice. Para testar o exemplo, crie um índice com esse nome. Crie o índice do Azure Search com o mesmo número de colunas do que o conjunto de dados de entrada. Novas entradas são adicionadas ao índice do Azure Search a cada hora.
 
-    {
-        "name": "AzureSearchIndexDataset",
-        "properties": {
-            "type": "AzureSearchIndex",
-            "linkedServiceName": "AzureSearchLinkedService",
-            "typeProperties" : {
-                "indexName": "products",
-            },
-            "availability": {
-                "frequency": "Minute",
-                "interval": 15
-            }
-       }
-    }
-
+```JSON
+{
+    "name": "AzureSearchIndexDataset",
+    "properties": {
+        "type": "AzureSearchIndex",
+        "linkedServiceName": "AzureSearchLinkedService",
+        "typeProperties" : {
+            "indexName": "products",
+        },
+        "availability": {
+            "frequency": "Minute",
+            "interval": 15
+        }
+   }
+}
+```
 
 **Pipeline com a Atividade de cópia:**
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição de JSON do pipeline, o tipo de **fonte** está definido como **SqlSource** e o tipo de **coletor** está definido como **AzureSearchIndexSink**. A consulta SQL especificada para a propriedade **SqlReaderQuery** seleciona os dados na última hora a serem copiados.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
-        "description":"pipeline for copy activity",
-        "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline for copy activity",
+    "activities":[  
+      {
+        "name": "SqlServertoAzureSearchIndex",
+        "description": "copy activity",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "SqlServertoAzureSearchIndex",
-            "description": "copy activity",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": " SqlServerInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureSearchIndexDataset"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "SqlSource",
-                "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-              },
-              "sink": {
-                "type": "AzureSearchIndexSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": " SqlServerInput"
           }
-         ]
-       }
-    }
-
+        ],
+        "outputs": [
+          {
+            "name": "AzureSearchIndexDataset"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "SqlSource",
+            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+          },
+          "sink": {
+            "type": "AzureSearchIndexSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+     ]
+   }
+}
+```
 
 
 ## <a name="azure-search-linked-service-properties"></a>Propriedades do serviço vinculado Azure Search
@@ -247,13 +254,14 @@ Cada coluna contém as seguintes propriedades:
 
 O exemplo a seguir mostra a seção da estrutura JSON para uma tabela que tem três colunas `userid`, `name` e `lastlogindate`.
 
-    "structure": 
-    [
-        { "name": "userid"},
-        { "name": "name"},
-        { "name": "lastlogindate"}
-    ],
-
+```JSON
+"structure": 
+[
+    { "name": "userid"},
+    { "name": "name"},
+    { "name": "lastlogindate"}
+],
+```
 Use as diretrizes a seguir referentes a quando incluir informações de "estrutura" e o que incluir na seção **estrutura**.
 
 - **Para fontes de dados estruturados** que armazenam as informações sobre o esquema e o tipo junto com os dados em si (por exemplo: SQL Server, Oracle, tabela do Azure etc.): especifique a seção "estrutura" apenas se quiser mapear colunas de origem específicas para colunas específicas no coletor e seus nomes não são iguais. Consulte detalhes na seção de mapeamento de coluna. 

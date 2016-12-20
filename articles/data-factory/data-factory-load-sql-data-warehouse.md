@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 12/16/2016
 ms.author: jingwang
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -78,32 +78,33 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
   
     Para obter a melhor taxa de transferência possível, a cópia precisa ser executada usando um usuário do SQL Data Warehouse pertencente à classe de recurso `xlargerc`.  Saiba como fazer isso seguindo [Alterar um exemplo de classe de recurso de usuário](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).  
 * Crie um esquema de tabela de destino no banco de dados do Azure SQL Data Warehouse executando a instrução DDL a seguir:
-  
-        CREATE TABLE [dbo].[lineitem]
-        (
-            [L_ORDERKEY] [bigint] NOT NULL,
-            [L_PARTKEY] [bigint] NOT NULL,
-            [L_SUPPKEY] [bigint] NOT NULL,
-            [L_LINENUMBER] [int] NOT NULL,
-            [L_QUANTITY] [decimal](15, 2) NULL,
-            [L_EXTENDEDPRICE] [decimal](15, 2) NULL,
-            [L_DISCOUNT] [decimal](15, 2) NULL,
-            [L_TAX] [decimal](15, 2) NULL,
-            [L_RETURNFLAG] [char](1) NULL,
-            [L_LINESTATUS] [char](1) NULL,
-            [L_SHIPDATE] [date] NULL,
-            [L_COMMITDATE] [date] NULL,
-            [L_RECEIPTDATE] [date] NULL,
-            [L_SHIPINSTRUCT] [char](25) NULL,
-            [L_SHIPMODE] [char](10) NULL,
-            [L_COMMENT] [varchar](44) NULL
-        )
-        WITH
-        (
-            DISTRIBUTION = ROUND_ROBIN,
-            CLUSTERED COLUMNSTORE INDEX
-        )
 
+    ```SQL  
+    CREATE TABLE [dbo].[lineitem]
+    (
+        [L_ORDERKEY] [bigint] NOT NULL,
+        [L_PARTKEY] [bigint] NOT NULL,
+        [L_SUPPKEY] [bigint] NOT NULL,
+        [L_LINENUMBER] [int] NOT NULL,
+        [L_QUANTITY] [decimal](15, 2) NULL,
+        [L_EXTENDEDPRICE] [decimal](15, 2) NULL,
+        [L_DISCOUNT] [decimal](15, 2) NULL,
+        [L_TAX] [decimal](15, 2) NULL,
+        [L_RETURNFLAG] [char](1) NULL,
+        [L_LINESTATUS] [char](1) NULL,
+        [L_SHIPDATE] [date] NULL,
+        [L_COMMITDATE] [date] NULL,
+        [L_RECEIPTDATE] [date] NULL,
+        [L_SHIPINSTRUCT] [char](25) NULL,
+        [L_SHIPMODE] [char](10) NULL,
+        [L_COMMENT] [varchar](44) NULL
+    )
+    WITH
+    (
+        DISTRIBUTION = ROUND_ROBIN,
+        CLUSTERED COLUMNSTORE INDEX
+    )
+    ```
 Com as etapas de pré-requisito concluídas, agora estamos prontos para configurar a atividade de cópia usando o Assistente de Cópia.
 
 ## <a name="launch-copy-wizard"></a>Iniciar o Assistente de cópia
@@ -139,67 +140,66 @@ Na página **Propriedades** :
 2. Selecione opção **Executar uma vez agora**.   
 3. Clique em **Próximo**.  
 
-![Assistente de Cópia – página Propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
+    ![Assistente de Cópia – página Propriedades](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>Etapa 2: Configurar a origem
 Esta seção mostra as etapas para configurar a origem: Blob do Azure contendo os arquivos de item de linha de 1 TB TPC-H.
 
-Selecione o **Armazenamento de Blobs do Azure** como o armazenamento de dados e clique em **Próximo**.
+1. Selecione o **Armazenamento de Blobs do Azure** como o armazenamento de dados e clique em **Próximo**.
 
-![Assistente de Cópia – selecionar página de origem](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
+    ![Assistente de Cópia – selecionar página de origem](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
-Preencha as informações de conexão para a conta de Armazenamento de Blobs do Azure e, em seguida, clique em **Próximo**.
+2. Preencha as informações de conexão para a conta de Armazenamento de Blobs do Azure e, em seguida, clique em **Próximo**.
 
-![Assistente de Cópia – informações de conexão de origem](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
+    ![Assistente de Cópia – informações de conexão de origem](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
-Escolha a **pasta** que contém os arquivos de item de linha TPC-H e clique em **Próximo**.
+3. Escolha a **pasta** que contém os arquivos de item de linha TPC-H e clique em **Próximo**.
 
-![Assistente de Cópia – selecionar pasta de entrada](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
+    ![Assistente de Cópia – selecionar pasta de entrada](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-Ao clicar em **Próximo**, as configurações de formato de arquivo são detectadas automaticamente.  Certifique-se de que delimitador de coluna é ' | 'em vez da vírgula ',' usada como padrão.  Clique em **Próximo** depois de ter visualizado os dados.
+4. Ao clicar em **Próximo**, as configurações de formato de arquivo são detectadas automaticamente.  Certifique-se de que delimitador de coluna é ' | 'em vez da vírgula ',' usada como padrão.  Clique em **Próximo** depois de ter visualizado os dados.
 
-![Assistente de Cópia – configurações de formato de arquivo](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
+    ![Assistente de Cópia – configurações de formato de arquivo](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## <a name="step-3-configure-destination"></a>Etapa 3: Configurar o destino
 Esta seção mostra como configurar o destino: tabela `lineitem` no banco de dados do Azure SQL Data Warehouse.
 
-Escolha **Azure SQL Data Warehouse** como o repositório de destino e clique em **Próximo**.
+1. Escolha **Azure SQL Data Warehouse** como o repositório de destino e clique em **Próximo**.
 
-![Assistente de Cópia – selecionar o armazenamento de dados de destino](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
+    ![Assistente de Cópia – selecionar o armazenamento de dados de destino](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-Preencha as informações de conexão do SQL Data Warehouse.  Certifique-se de especificar o usuário que é membro da função `xlargerc` (consulte a seção **pré-requisitos** para obter instruções detalhadas) e clique em **Próximo**. 
+2. Preencha as informações de conexão do SQL Data Warehouse.  Certifique-se de especificar o usuário que é membro da função `xlargerc` (consulte a seção **pré-requisitos** para obter instruções detalhadas) e clique em **Próximo**. 
 
-![Assistente de Cópia – informações de conexão de destino](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
+    ![Assistente de Cópia – informações de conexão de destino](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
-Escolha a tabela de destino e clique em **Próximo**.
+3. Escolha a tabela de destino e clique em **Próximo**.
 
-![Assistente de Cópia – página de mapeamento de tabela](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
+    ![Assistente de Cópia – página de mapeamento de tabela](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-Aceite as configurações padrão para o mapeamento de coluna e clique em **Próximo**.
+4. Aceite as configurações padrão para o mapeamento de coluna e clique em **Próximo**.
 
-![Assistente de Cópia – página de mapeamento de esquema](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
+    ![Assistente de Cópia – página de mapeamento de esquema](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
 
 ## <a name="step-4-performance-settings"></a>Etapa 4: Configurações de desempenho
+
 A opção **Permitir polybase** é marcada por padrão.  Clique em **Próximo**.
 
 ![Assistente de Cópia – página de mapeamento de esquema](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
 ## <a name="step-5-deploy-and-monitor-load-results"></a>Etapa 5: Implantar e monitorar os resultados de carga
-Clique no botão **Concluir** para implantar. 
+1. Clique no botão **Concluir** para implantar. 
 
-![Assistente de Cópia – página de resumo](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    ![Assistente de Cópia – página de resumo](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
-Depois que a implantação for concluída, clique em `Click here to monitor copy pipeline` para monitorar o andamento da execução da cópia.
+2. Depois que a implantação for concluída, clique em `Click here to monitor copy pipeline` para monitorar o andamento da execução da cópia. Selecione o pipeline de cópia criado na lista **Janelas de Atividade**.
 
-Selecione o pipeline de cópia criado na lista **Janelas de Atividade**.
+    ![Assistente de Cópia – página de resumo](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
-![Assistente de Cópia – página de resumo](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    Você pode exibir os detalhes de execução da cópia no **Gerenciador de Janelas de Atividade** no painel direito, incluindo o volume de dados lidos de origem e gravado no destino, a duração e a taxa de transferência média da execução.
 
-Você pode exibir os detalhes de execução da cópia no **Gerenciador de Janelas de Atividade** no painel direito, incluindo o volume de dados lidos de origem e gravado no destino, a duração e a taxa de transferência média da execução.
+    Como você pode ver na captura de tela a seguir, copiar 1 TB do Armazenamento de Blobs do Azure para o SQL Data Warehouse levou 14 minutos, atingindo efetivamente uma taxa de transferência de 1,22 GBps!
 
-Como você pode ver na captura de tela a seguir, copiar 1 TB do Armazenamento de Blobs do Azure para o SQL Data Warehouse levou 14 minutos, atingindo efetivamente uma taxa de transferência de 1,22 GBps!
-
-![Assistente de Cópia – caixa de diálogo de êxito](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
+    ![Assistente de Cópia – caixa de diálogo de êxito](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
 ## <a name="best-practices"></a>Práticas recomendadas
 Aqui estão algumas práticas recomendadas para a execução de seu banco de dados do Azure SQL Data Warehouse:
