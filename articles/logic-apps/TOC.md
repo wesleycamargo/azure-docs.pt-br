@@ -7,7 +7,7 @@
 ## [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Usar os recursos de aplicativos lógicos](../app-service-logic/app-service-logic-use-logic-app-features.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Visão geral de modelos](../app-service-logic/app-service-logic-use-logic-app-templates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Criar um modelo personalizado](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Crie um aplicativo usando um modelo](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Exemplos e cenários](../app-service-logic/app-service-logic-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Cenário de Barramento de Serviço](../app-service-logic/app-service-logic-scenario-function-sb-trigger.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Processamento B2B](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -16,7 +16,7 @@
 # Como
 ## Compilação
 ### [Criar um conector](../app-service-logic/app-service-logic-create-api-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Usar o Conector do Sistema de Arquivos](../app-service-logic/app-service-logic-use-file-connector.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Use o conector do Sistema de Arquivos](../app-service-logic/app-service-logic-use-file-connector.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Ferramentas do Visual Studio](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Usando Azure Functions](../app-service-logic/app-service-logic-azure-functions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Aplicativos lógicos como pontos de extremidade escaláveis](../app-service-logic/app-service-logic-http-endpoint.md?toc=%2fazure%2flogic-apps%2ftoc.json)

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 844a2bb0bc702cf8e81684267677db8a8803208f
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: ff8e5a68ada52f93c1f50e73a1a7857273d7f9c3
 
 ---
 #<a name="vpn-gateway-documentation"></a>Documentação de Gateway de VPN
@@ -122,78 +122,33 @@ O Gateway de VPN do Azure é um gateway de rede virtual privada (VPN) usado para
  
 ---
 
-## <a name="reference"></a>Referência
-
+<h2>Referência</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referência do PowerShell</p>
+                        <h3>Linha de comando</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (gerenciador de recursos)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (clássico)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vpn-gateway">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>CLI do Azure</h3>
-                        <p>Gateway de VPN usando a CLI do Azure</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referência gerenciada do .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Referência de SDK do Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163859">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST do Gateway de VPN</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (gerenciador de recursos)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (clássico)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 

@@ -1,11 +1,12 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 64e7a12fea6e6ae837d7ae0aacf3ac7426605707
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: 07cbe71fc9330724dd8b92c5321d4fca9ecde512
 
 ---
-#<a name="sql-database-documentation"></a>Documentação do Banco de Dados SQL
+
+# <a name="sql-database-documentation"></a>Documentação do Banco de Dados SQL
 
 O Banco de Dados SQL é um serviço de banco de dados relacional na nuvem com base no mecanismo do Microsoft SQL Server que contém recursos críticos. Ele oferece desempenho previsível, escalabilidade sem tempo de inatividade, continuidade dos negócios e proteção de dados e quase não exige administração. Como ele se baseia no mecanismo SQL Server, o Banco de Dados SQL oferece suporte a ferramentas do SQL Server, bibliotecas e APIs, o que torna mais fácil mover e estender para a nuvem.
 
@@ -104,78 +105,50 @@ O Banco de Dados SQL é um serviço de banco de dados relacional na nuvem com ba
 
 ---
 
-## <a name="reference"></a>Referência
-
+<h2>Referência</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referência do Azure PowerShell</p>
+                        <h3>Linha de comando</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
+                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (Banco de dados Elástico)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referência gerenciada do .NET</p>
+                        <h3>Idiomas</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Referência de SDK do Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/sql">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST do Banco de Dados SQL</p>
+                        <p><a href="/rest/api/sql/">referência da API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/bb510741">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>T-SQL</h3>
-                        <p>Referência de T-SQL</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 

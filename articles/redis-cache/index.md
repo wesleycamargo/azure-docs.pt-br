@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 99a123b0efaea3e4e298aed44cea72547bfa7094
+ms.sourcegitcommit: 4cd50960b30990f3220788e6613a2815d8e28612
+ms.openlocfilehash: 026c452cd784da14a901cab8e5aecaafda448418
 
 ---
 #<a name="redis-cache-documentation"></a>Documentação do Cache Redis
@@ -11,7 +11,7 @@ O Cache Redis do Azure é baseado no popular Cache Redis de software livre. Ele 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/redis-cache/cache-premium-tier-intro/">
+        <a href="/azure/redis-cache/cache-premium-tier-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -82,7 +82,7 @@ O Cache Redis do Azure é baseado no popular Cache Redis de software livre. Ele 
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/documentdb-nodejs-get-started">
+        <a href="/azure/redis-cache/cache-nodejs-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -139,81 +139,49 @@ O Cache Redis do Azure é baseado no popular Cache Redis de software livre. Ele 
 
 ---
 
-## <a name="reference"></a>Referência
-
+<h2>Referência</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referência do Azure PowerShell</p>
+                        <h3>Linha de comando</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache">PowerShell</a></p>
+                        <p><a href="/cli/azure/redis">CLI do Azure 2.0 (Visualização)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/redis">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>CLI do Azure</h3>
-                        <p>Redis Cache com a CLI do Azure</p>
-                    </div>
+                        <h3>Idiomas</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.redis._redis_cache">Java</a></p>
+                        <p><a href="http://redis.io/clients">Clientes do Redis</a></p>
+                        <p><a href="http://redis.io/commands#">Comandos do Redis</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>API de Referência Gerenciada do Cache Redis</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>SDK do Java do Azure</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST do Cache Redis</p>
+                        <p><a href="https://docs.microsoft.com/rest/api/redis/">referência da API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
-
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">

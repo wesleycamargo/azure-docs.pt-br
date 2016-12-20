@@ -9,7 +9,7 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 6d15839ce4084a808d9ecd5900a39a4f67dec822
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 6b016384339f0dc943237a88787c2c86debd9016
 
 
 ---
@@ -30,15 +30,15 @@ Neste tutorial de introdução, você aprenderá a usar o portal do Azure para:
 * Criar um servidor lógico do SQL do Azure
 * Exibir propriedades de servidor lógico do SQL do Azure
 * Criar uma regra de firewall no nível de servidor
-* Criar o banco de dados de exemplo do Adventure Works LT
+* Crie o banco de dados de exemplo do Adventure Works LT como um banco de dados autônomo
 * Exibir propriedades de banco de dados de exemplo do Adventure Works LT no Azure
 
 Neste tutorial, você também usa a versão mais recente do SQL Server Management Studio para:
 
 * Conectar-se ao servidor lógico e seu banco de dados mestre
-* Exibir propriedades do banco de dados mestre
+* Consultar o banco de dados mestre
 * Conectar-se ao banco de dados de exemplo
-* Exibir propriedades do banco de dados de usuário
+* Consultar o banco de dados de exemplo
 
 Ao concluir este tutorial, você terá um banco de dados de exemplo e um banco de dados em branco em execução em um grupo de recursos do Azure e conectado a um servidor lógico. Você também terá uma regra de firewall de nível de servidor configurada para habilitar a entidade de segurança de nível de servidor fazer logon no servidor de um endereço IP especificado (ou o intervalo de endereços IP). 
 
@@ -208,7 +208,7 @@ Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), si
     ![credenciais do servidor](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > Ao adicionar um banco de dados a um servidor, ele pode ser adicionado como um único banco de dados (esse é o padrão) ou para um pool elástico do SQL. Para saber mais sobre pools elásticos, confira [Pools elásticos](sql-database-elastic-pool.md).
+    > Ao adicionar um banco de dados a um servidor, ele pode ser adicionado como um banco de dados autônomo (esse é o padrão) ou adicionado a um pool elástico. Para saber mais sobre pools elásticos, confira [Pools elásticos](sql-database-elastic-pool.md).
     >
 
 7. No tipo de preço, altere o tipo de preço para **Básico** (você pode aumentar o tipo de preço mais tarde, se desejado, mas para fins de aprendizado, recomendamos que você use a camada de custo mais baixa).
@@ -304,6 +304,6 @@ Agora que você concluiu este tutorial, há vários tutoriais adicionais que tal
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

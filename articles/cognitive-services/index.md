@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: f59bb52f11334d93bbc6cf655b7f790a58a3ebfd
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: e4e35a7c13db98770295cbaa19cf33b18c1fb5e7
 
 ---
 #<a name="cognitive-services-documentation"></a>Documentação dos Serviços Cognitivos
@@ -68,52 +68,31 @@ Os Serviços Cognitivos (visualização) são compostos por uma série de APIs q
 
 ---
 
-## <a name="reference"></a>Referência
-
+<h2>Referência</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referência do Azure PowerShell</p>
+                        <h3>Linha de comando</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referência Gerenciada dos Serviços Cognitivos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/cognitiveservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST dos Serviços Cognitivos</p>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">referência da API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
