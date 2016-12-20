@@ -1,20 +1,24 @@
 ---
-title: Políticas de indexação do Banco de Dados de Documentos | Microsoft Docs
-description: Compreenda como a indexação funciona no Banco de Dados de Documentos e saiba como configurar e alterar a política de indexação. Configure a política de indexação no Banco de Dados de Documentos para indexação automática e mais desempenho.
-keywords: como funciona a indexação, indexação automática, indexação do banco de dados, banco de dados de documentos, azure, Microsoft azure
+title: "Políticas de indexação do DocumentDB | Microsoft Docs"
+description: "Compreenda como a indexação funciona no Banco de Dados de Documentos e saiba como configurar e alterar a política de indexação. Configure a política de indexação no Banco de Dados de Documentos para indexação automática e mais desempenho."
+keywords: "como funciona a indexação, indexação automática, indexação do banco de dados, banco de dados de documentos, azure, Microsoft azure"
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: arramac
 manager: jhubbard
 editor: monicar
-
+ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: documentdb
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/08/2016
+ms.date: 11/11/2016
 ms.author: arramac
+translationtype: Human Translation
+ms.sourcegitcommit: 994fb8080f053ae3eb72eb1dda92bd5aa46c6988
+ms.openlocfilehash: a48cdb58dd48cc033f69de15fc19f313bc12cdfa
+
 
 ---
 # <a name="documentdb-indexing-policies"></a>Políticas de indexação do Banco de Dados de Documentos
@@ -30,7 +34,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 * Como fazer alterações à política de indexação de uma coleção?
 * Como posso comparar armazenamento e desempenho de políticas de indexação diferentes?
 
-## <a name="<a-id="customizingindexingpolicy"></a>-customizing-the-indexing-policy-of-a-collection"></a><a id="CustomizingIndexingPolicy"></a> Personalizando a política de indexação de uma coleção
+## <a name="a-idcustomizingindexingpolicya-customizing-the-indexing-policy-of-a-collection"></a><a id="CustomizingIndexingPolicy"></a> Personalizando a política de indexação de uma coleção
 Os desenvolvedores podem personalizar as compensações entre armazenamento, desempenho de gravação/consulta e consistência de consulta, substituindo a política de indexação padrão em uma coleção do Banco de Dados de Documentos e configurando os aspectos a seguir.
 
 * **Incluindo/excluindo documentos e caminhos no/do índice**. Os desenvolvedores podem escolher determinados documentos a serem excluídos ou incluídos no índice no momento da inserção ou da substituição deles na coleção. Os desenvolvedores também podem optar por incluir ou excluir determinadas propriedades JSON conhecidas como caminhos (incluindo padrões curingas) a serem indexadas em documentos incluídos em um índice.
@@ -72,192 +76,23 @@ O exemplo a seguir mostra como criar uma coleção do Banco de Dados de Document
 
 A tabela a seguir mostra a consistência para as consultas baseadas no modo de indexação (Consistente e Lento) configurado para a coleção e o nível de consistência especificado para a solicitação de consulta. Isso se aplica a consultas criadas com qualquer interface - API REST, SDKs ou de dentro de procedimentos armazenados e de gatilhos. 
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Consistentee</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Lento</strong>
-                </p>
-            </td>            
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Strong</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Strong </p>
-            </td>
-            <td valign="top">
-                <p>
-Eventual </p>
-            </td>            
-        </tr>       
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Bounded staleness</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Bounded staleness </p>
-            </td>
-            <td valign="top">
-                <p>
-Eventual </p>
-            </td>            
-        </tr>          
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Session</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Session </p>
-            </td>
-            <td valign="top">
-                <p>
-Eventual </p>
-            </td>            
-        </tr>      
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Eventual</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Eventual </p>
-            </td>
-            <td valign="top">
-                <p>
-Eventual </p>
-            </td>            
-        </tr>         
-    </tbody>
-</table>
+|Consistência|Modo de indexação: Consistente|Modo de indexação: Lento|
+|---|---|---|
+|Strong|Strong|Eventual|
+|Bounded staleness|Bounded staleness|Eventual|
+|Session|Session|Eventual|
+|Eventual|Eventual|Eventual|
 
 O Banco de Dados de Documentos retorna um erro para consultas feitas em coleções com o modo de indexação Nenhum. As consultas podem ainda ser executadas como verificações por meio do cabeçalho explícito `x-ms-documentdb-enable-scan` na API REST ou da opção de solicitação `EnableScanInQuery` usando o SDK do .NET. Alguns recursos de consulta como ORDER BY não têm suporte como verificações com `EnableScanInQuery`.
 
 A tabela a seguir mostra a consistência de consultas baseadas no modo de indexação (Consistente, Lento e Nenhum) quando EnableScanInQuery é especificado.
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Consistentee</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Lento</strong>
-                </p>
-            </td>       
-            <td valign="top">
-                <p>
-                    <strong>Nenhum</strong>
-                </p>
-            </td>             
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Strong</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Strong </p>
-            </td>
-            <td valign="top">
-                <p>
-Eventual </p>
-            </td>    
-            <td valign="top">
-                <p>
-Strong </p>
-            </td>                
-        </tr>       
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Bounded staleness</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Bounded staleness </p>
-            </td>
-            <td valign="top">
-                <p>
-Eventual </p>
-            </td>      
-            <td valign="top">
-                <p>
-Bounded staleness </p>
-            </td> 
-        </tr>          
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Session</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Session </p>
-            </td>
-            <td valign="top">
-                <p>
-Eventual </p>
-            </td>   
-            <td valign="top">
-                <p>
-Session </p>
-            </td>             
-        </tr>      
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Eventual</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Eventual </p>
-            </td>
-            <td valign="top">
-                <p>
-Eventual </p>
-            </td>      
-            <td valign="top">
-                <p>
-Eventual </p>
-            </td>              
-        </tr>         
-    </tbody>
-</table>
+|Consistência|Modo de indexação: Consistente|Modo de indexação: Lento|Modo de indexação: Nenhum|
+|---|---|---|---|
+|Strong|Strong|Eventual|Strong|
+|Bounded staleness|Bounded staleness|Eventual|Bounded staleness|
+|Session|Session|Eventual|Session|
+|Eventual|Eventual|Eventual|Eventual|
 
 O exemplo de código a seguir mostra como criar uma coleção do Banco de Dados de Documentos usando o SDK do .NET com indexação consistente em todas as inserções de documentos.
 
@@ -281,116 +116,14 @@ Caminhos de índice também podem usar o operador curinga * para especificar o c
 
 Estes são os padrões comuns para especificar caminhos de índice:
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Caminho</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Descrição/caso de uso</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    /*
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Caminho padrão para coleta. Recursiva e aplica-se em toda árvore do documento inteiro.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/prop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Caminho de índice necessário para fazer consultas como as seguintes (com tipos hash e de intervalo respectivamente): </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop </p>                
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/prop/* </p>
-            </td>
-            <td valign="top">
-                <p>
-Caminho de índice para todos os caminhos sob o rótulo especificado. Funciona com as seguintes consultas </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop.nextprop = "value" </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/props/[]/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-O caminho do índice necessário para atender a consultas de JOIN e iteração em matrizes de escalares como ["a", "b", "c"]: </p>
-                <p>
-SELECT tag FROM tag IN collection.props WHERE tag = "value" </p>
-                <p>
-SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5 </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-/props/[]/subprop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-O caminho do índice necessário para atender a consultas de JOIN e iteração em matrizes de objetos como [{subprop: "a"}, {subprop: "b"}]: </p>
-                <p>
-SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value" </p>
-                <p>
-SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value" </p>
-            </td>
-        </tr>        
-        <tr>
-            <td valign="top">
-                <p>
-/prop/subprop/?
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-Caminho de índice necessário para fazer consultas (com tipos hash e de intervalo respectivamente): </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop = "value" </p>
-                <p>
-SELECT * FROM collection c WHERE c.prop.subprop &gt; 5 </p>
-                <p>
-SELECT * FROM collection c ORDER BY c.prop.subprop </p>                
-            </td>
-        </tr>
-    </tbody>
-</table>
+| path                | Descrição/caso de uso                                                                                                                                                                                                                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| /                   | Caminho padrão para coleta. Recursiva e aplica-se em toda árvore do documento inteiro.                                                                                                                                                                                                                                   |
+| /prop/?             | Caminho de índice necessário para fazer consultas como as seguintes (com tipos hash e de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
+| /prop/              | Caminho de índice para todos os caminhos sob o rótulo especificado. Funciona com as seguintes consultas<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /props/[]/?         | O caminho do índice necessário para atender a consultas de JOIN e iteração em matrizes de escalares como ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
+| /props/[]/subprop/? | O caminho do índice necessário para atender a consultas de JOIN e iteração em matrizes de objetos como [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
+| /prop/subprop/?     | Caminho de índice necessário para fazer consultas (com tipos hash e de intervalo respectivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
 > Ao definir caminhos de índice personalizados, é necessário especificar a regra de indexação padrão para a árvore de todo o documento indicada pelo caminho especial "/*". 
@@ -421,76 +154,35 @@ O exemplo a seguir configura um caminho específico com a indexação de interva
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
 
 
-### <a name="index-data-types,-kinds-and-precisions"></a>Tipos, modelos e precisões de dados
+### <a name="index-data-types-kinds-and-precisions"></a>Tipos, modelos e precisões de dados
 Agora que já vimos como especificar caminhos, vamos examinar as opções que podemos usar para configurar a política de indexação para um caminho. Você pode especificar uma ou mais definições de indexação para cada caminho:
 
-* Tipo de dados: **String**, **Number** ou **Point** (pode conter somente uma entrada por tipo de dados por caminho). **Polígono** e **LineString** recebem suporte no modo de visualização particular
+* Tipo de dados: **String**, **Number**, **Point**, **Polygon** ou **LineString** (pode conter somente uma entrada por tipo de dados por caminho)
 * Tipo de índice: **Hash** (consultas de igualdade), **Intervalo** (consultas de igualdade, de intervalo ou Order By) ou **Espacial** (consultas espaciais) 
 * Precisão: 1 a 8 ou -1 (precisão máxima) para os números de 1 a 100 (precisão máxima) para a cadeia de caracteres
 
 #### <a name="index-kind"></a>Tipo de índice
 O Banco de Dados de Documentos dá suporte a tipos de índice Hash e Intervalo para todos os caminhos (que possam ser configurados para cadeias de caracteres, números ou ambos).
 
-* **Hash** dá suporte a consultas JOIN e de igualdade eficientes. Na maioria dos casos de uso, os índices de hash não precisam de uma precisão maior que o valor padrão de 3 bytes.
-* **Intervalo** dá suporte a consultas de igualdade eficientes, a consultas de intervalo (usando >, <, >=, <=, !=) e a consultas Order By. Por padrão, as consultas Ordenar por também exigem a precisão máxima de índice (-1).
+* **Hash** dá suporte a consultas JOIN e de igualdade eficientes. Na maioria dos casos de uso, os índices de hash não precisam de uma precisão maior que o valor padrão de 3 bytes. DataType pode ser String ou Number.
+* **Intervalo** dá suporte a consultas de igualdade eficientes, a consultas de intervalo (usando >, <, >=, <=, !=) e a consultas Order By. Por padrão, as consultas Ordenar por também exigem a precisão máxima de índice (-1). DataType pode ser String ou Number.
 
-O Banco de Dados de Documentos também dá suporte ao tipo de índice Espacial para todos os caminhos que possam ser especificados para o tipo de dados de Ponto. O valor no caminho especificado deve ser um ponto GeoJSON válido, como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+O DocumentDB também dá suporte ao tipo de índice Espacial para todos os caminhos que possam ser especificados para os tipos de dados de Point, Polygon ou LineString. O valor no caminho especificado deve ser um fragmento GeoJSON válido, como `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
-* **Espacial** dá suporte a consultas espaciais (interna e de distância) eficientes.
+* **Espacial** dá suporte a consultas espaciais (interna e de distância) eficientes. DataType pode ser Point, Polygon ou LineString.
 
 > [!NOTE]
-> O Banco de Dados de Documentos oferece suporte à indexação automática de Pontos, Polígonos (modo de visualização particular) e LineStrings (modo de visualização particular). Para acessar a visualização, envie um email askdocdb@microsoft.com, ou entre em contato conosco por meio do Suporte do Azure.
+> O DocumentDB oferece suporte à indexação automática de Points, Polygons e LineStrings.
 > 
 > 
 
 Estes são os tipos de índice com suporte e exemplos de consultas que eles podem usar para servir:
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Tipo de índice</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong>Descrição/caso de uso</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-Hash </p>
-            </td>
-            <td valign="top">
-                <p>
-O hash em /prop/? (ou /*) pode ser usado para servir as seguintes consultas de forma eficiente: SELECT * FROM collection c WHERE c.prop = "value" Hash over /props/[]/? (or /* or /props/*) pode ser usado para servir as seguintes consultas com eficiência: SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5 </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-Intervalo </p>
-            </td>
-            <td valign="top">
-                <p>
-O intervalo em over /prop/? (ou /*) pode ser usado para servir as seguintes consultas com eficiência: SELECT * FROM collection c WHERE c.prop = "value" SELECT * FROM collection c WHERE c.prop > 5 SELECT * FROM collection c ORDER BY c.prop </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-Espacial </p>
-            </td>
-            <td valign="top">
-                <p>
-O intervalo em over /prop/? (ou /*) pode ser usado para servir estas consultas de forma eficiente: SELECT * FROM collection c WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40 SELECT * FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) </p>
-            </td>
-        </tr>        
-    </tbody>
-</table>
+| Tipo de índice | Descrição/caso de uso                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Hash       | O hash em /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash em /props/[]/? (or / or /props/) pode ser usado para servir às consultas a seguir eficientemente:<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| Intervalo      | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
+| Espacial     | O intervalo em over /prop/? (or /) pode ser usado para servir às seguintes consultas eficientemente:<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --com indexação nos pontos habilitada<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --com indexação em polígonos habilitada              |
 
 Por padrão, um erro será retornado para consultas com operadores de intervalo como >= se não houver nenhum índice de intervalo (de qualquer precisão) para sinalizar que uma verificação pode ser necessária para servir a consulta. Consultas de intervalo podem ser executadas sem um índice de intervalo usando o cabeçalho x-ms-documentdb-enable-scan na API REST ou na opção de solicitação EnableScanInQuery usando o SDK do .NET. Se houver qualquer outro filtro na consulta que o Banco de Dados de Documentos possa usar para filtrar o índice, nenhum erro será retornado.
 
@@ -501,7 +193,7 @@ A precisão de índice permite definir um equilíbrio entre a sobrecarga de arma
 
 A configuração de precisão do índice tem mais aplicação prática com intervalos de cadeia de caracteres. Como cadeias de caracteres podem ter qualquer comprimento arbitrário, a escolha de precisão do índice pode afetar o desempenho de consultas de intervalo de cadeia de caracteres e a quantidade de espaço de armazenamento de índice necessária. Os índices de intervalo de cadeia de caracteres podem ser configurados com 1-100 ou -1 (“máximo”). Se você quiser executar consultas Ordenar por em propriedades de cadeia de caracteres, então deverá especificar uma precisão de -1 para os caminhos correspondentes.
 
-Os índices espaciais sempre usam a precisão de índice padrão para pontos e não podem ser substituídos. 
+Os índices espaciais sempre usam a precisão de índice padrão para todos os tipos (Points, LineStrings e Polygons) e não podem ser substituídos. 
 
 O exemplo a seguir mostra como aumentar a precisão de índices de intervalo em uma coleção usando o SDK do .NET. 
 
@@ -719,6 +411,9 @@ Siga os links abaixo para ver exemplos de gerenciamento de políticas de índice
 2. [Operações de coleção de API REST do Banco de Dados de Documentos](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [Consulta com SQL do Banco de Dados de Documentos](documentdb-sql-query.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

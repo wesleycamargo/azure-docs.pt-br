@@ -2,12 +2,12 @@
 title: Desenvolver trabalhos de Python MapReduce com HDInsight | Microsoft Docs
 description: Saiba como criar e executar trabalhos Python MapReduce em clusters HDInsight baseados em Linux.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 729550243e18c7a9f514aa18d1f4fdd8142d141b
+
 
 ---
 # <a name="develop-python-streaming-programs-for-hdinsight"></a>Desenvolver programas de transmissão do Python para HDInsight
@@ -46,7 +50,7 @@ O fluxograma a seguir ilustra o que acontece durante o mapa e reduz as fases.
 
 ![ilustração da redução do mapa](./media/hdinsight-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
-## <a name="why-python?"></a>Por que Python?
+## <a name="why-python"></a>Por que Python?
 Python é uma linguagem de programação de alto nível para fins gerais que permite expressar conceitos em menos linhas de código que muitas outras linguagens. Ele recentemente se tornou popular com os cientistas de dados como uma linguagem de criação de protótipos, graças à sua natureza interpretada, digitação dinâmica e sintaxe elegante o torna adequado para o método RAD.
 
 Python é instalado em todos os clusters HDInsight.
@@ -63,7 +67,7 @@ O Python pode facilmente atender a esses requisitos usando o módulo **sys** par
 ## <a name="create-the-mapper-and-reducer"></a>Criar o mapeador e redutor
 O mapeador e o redutor são arquivos de texto, nesse caso, **mapper.py** e **reducer.py** (para deixar claro o que cada um faz). Você pode criá-los usando o editor de sua escolha.
 
-### <a name="mapper.py"></a>Mapper.py
+### <a name="mapperpy"></a>Mapper.py
 Crie um novo arquivo chamado **mapper.py** e use o seguinte código como o conteúdo:
 
     #!/usr/bin/env python
@@ -92,7 +96,7 @@ Crie um novo arquivo chamado **mapper.py** e use o seguinte código como o conte
 
 Dedique uns momentos para ler o código e entender o que ele faz.
 
-### <a name="reducer.py"></a>reducer.py
+### <a name="reducerpy"></a>reducer.py
 Crie um novo arquivo chamado **reducer.py** e use o seguinte código como o conteúdo:
 
     #!/usr/bin/env python
@@ -204,6 +208,9 @@ Agora que você aprendeu a usar a transmissão de trabalhos MapReduce com o HDIn
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar trabalhos do MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

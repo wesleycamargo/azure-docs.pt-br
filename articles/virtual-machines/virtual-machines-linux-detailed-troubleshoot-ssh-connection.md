@@ -1,14 +1,14 @@
 ---
-title: Solução de problemas de SSH detalhada para uma VM do Azure | Microsoft Docs
-description: Etapas da solução de problemas de SSH mais detalhada para problemas de conexão para uma máquina virtual do Azure
-keywords: conexão ssh recusada, erro de ssh, ssh do azure, falha de conexão SSH
+title: "Solução de problemas de SSH detalhada para uma VM do Azure | Microsoft Docs"
+description: "Etapas da solução de problemas de SSH mais detalhada para problemas de conexão para uma máquina virtual do Azure"
+keywords: "conexão ssh recusada, erro de ssh, ssh do azure, falha de conexão SSH"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: top-support-issue,azure-service-management,azure-resource-manager
-
+ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -16,12 +16,16 @@ ms.devlang: na
 ms.topic: support-article
 ms.date: 09/01/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 9333062851e070a93afc6935e58594711b741f48
+
 
 ---
-# Etapas detalhadas de solução de problemas de SSH
-Há muitas razões possíveis para que o cliente de SSH não possa acessar o serviço SSH na VM. Se tiver seguido as [etapas geral de solução de problemas de SSH](virtual-machines-linux-troubleshoot-ssh-connection.md), será necessário solucionar o problema de conexão. Este artigo guiará você pelas etapas detalhadas de solução de problemas para determinar onde a conexão SSH está falhando e como resolver isso.
+# <a name="detailed-ssh-troubleshooting-steps"></a>Etapas detalhadas de solução de problemas de SSH
+Há muitas razões possíveis para que o cliente de SSH não possa acessar o serviço SSH na VM. Se tiver seguido as [etapas gerais de solução de problemas de SSH](virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), será necessário solucionar o problema de conexão. Este artigo guiará você pelas etapas detalhadas de solução de problemas para determinar onde a conexão SSH está falhando e como resolver isso.
 
-## Realizar etapas preliminares
+## <a name="take-preliminary-steps"></a>Realizar etapas preliminares
 O diagrama a seguir mostra os componentes que estão envolvidos.
 
 ![Diagrama que mostra os componentes de serviço SSH](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot1.png)
@@ -54,7 +58,7 @@ Para verificar a conectividade de rede, verifique os pontos de extremidade confi
 
 Após essas etapas, tente estabelecer novamente a conexão SSH.
 
-## Descobrir a origem do problema
+## <a name="find-the-source-of-the-issue"></a>Descobrir a origem do problema
 O cliente SSH no computador poderá não conseguir acessar o serviço SSH na VM do Azure devido aos problemas ou configurações incorretas a seguir:
 
 * [Computador cliente de SSH](#source-1-ssh-client-computer)
@@ -63,7 +67,7 @@ O cliente SSH no computador poderá não conseguir acessar o serviço SSH na VM 
 * [Grupos de segurança de rede](#source-4-network-security-groups)
 * [VM baseada em Linux no Azure](#source-5-linux-based-azure-virtual-machine)
 
-## Fonte 1: computador cliente de SSH
+## <a name="source-1-ssh-client-computer"></a>Fonte 1: computador cliente de SSH
 Para que o seu computador deixe de ser a fonte da falha, verifique se ele pode estabelecer conexões SSH com outro computador local baseado em Linux.
 
 ![Diagrama que realça os componentes do computador cliente SSH](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
@@ -80,16 +84,16 @@ Se uma das seguintes condições se aplicar, desabilite temporariamente o softwa
 Se você estiver usando autenticação de certificado, verifique se tem essas permissões para a pasta .ssh em seu diretório base:
 
 * Chmod 700 ~/.ssh
-* Chmod 644 ~/.ssh/*.pub
-* Chmod 600 ~/.ssh/id\_rsa (ou quaisquer outros arquivos que têm suas chaves privadas armazenadas)
-* Chmod 644 ~/.ssh/known\_hosts (contém os hosts aos quais você se conectou via SSH)
+* Chmod 644 ~/.ssh/\*.pub
+* Chmod 600 ~/.ssh/id_rsa (ou quaisquer outros arquivos que têm suas chaves privadas armazenadas)
+* Chmod 644 ~/.ssh/known_hosts (contém os hosts aos quais você se conectou via SSH)
 
-## Fonte 2: dispositivo de borda da organização
+## <a name="source-2-organization-edge-device"></a>Fonte 2: dispositivo de borda da organização
 Para que o dispositivo de borda de sua organização deixe de ser a fonte da falha, verifique se um computador conectado diretamente à Internet pode estabelecer conexões SSH a sua VM do Azure. Se você estiver acessando a VM por uma VPN site a site ou por uma conexão ExpressRoute do Azure, vá para [Fonte 4: Grupos de segurança de rede](#nsg).
 
 ![Diagrama que realça o dispositivo de borda da organização](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot3.png)
 
-Se não tiver um computador que esteja diretamente conectado à Internet, crie uma nova VM do Azure em seu próprio grupo de recursos ou serviço de nuvem e usá-la. Para saber mais, consulte [Criar uma máquina virtual que execute o Linux no Azure](virtual-machines-linux-quick-create-cli.md). Exclua o grupo de recursos ou a VM e o serviço de nuvem ao concluir o teste.
+Se não tiver um computador que esteja diretamente conectado à Internet, crie uma nova VM do Azure em seu próprio grupo de recursos ou serviço de nuvem e usá-la. Para saber mais, consulte [Criar uma máquina virtual que execute o Linux no Azure](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Exclua o grupo de recursos ou a VM e o serviço de nuvem ao concluir o teste.
 
 Se você puder criar uma conexão SSH com um computador conectado diretamente à Internet, verifique se há o seguinte no dispositivo de borda da organização:
 
@@ -99,7 +103,7 @@ Se você puder criar uma conexão SSH com um computador conectado diretamente à
 
 Trabalhe com o administrador da rede para corrigir as configurações dos dispositivos de borda de sua organização a fim de permitir o tráfego SSH com a Internet.
 
-## Fonte 3: ponto de extremidade de serviço de nuvem e ACL
+## <a name="source-3-cloud-service-endpoint-and-acl"></a>Fonte 3: ponto de extremidade de serviço de nuvem e ACL
 > [!NOTE]
 > Essa fonte aplica-se somente às VMs que foram criadas usando o modelo de implantação clássico. Para as VMs criadas com o Resource Manager, vá para [fonte 4: Grupos de segurança de rede](#nsg).
 > 
@@ -109,26 +113,27 @@ Para que o ponto de extremidade de serviço de nuvem e uma ACL deixem de ser a f
 
 ![Diagrama que realça a ACL e o ponto de extremidade do serviço de nuvem](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-Se não houver outra VM na mesma rede virtual, você poderá facilmente criar uma nova. Para saber mais, veja [Criar uma VM do Linux no Azure usando a CLI](virtual-machines-linux-quick-create-cli.md). Exclua a VM extra ao concluir o teste.
+Se não houver outra VM na mesma rede virtual, você poderá facilmente criar uma nova. Para saber mais, veja [Criar uma VM do Linux no Azure usando a CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Exclua a VM extra ao concluir o teste.
 
 Se for possível criar uma conexão SSH com uma VM na mesma rede virtual, verifique o seguinte:
 
-* **A configuração do ponto de extremidade para o tráfego SSH na VM de destino.** A porta TCP particular do ponto de extremidade deve corresponder à porta TCP na qual o serviço SSH na VM está escutando. (A porta padrão é 22). Para as VMs criadas no modelo de implantação do Resource Manager usando modelos, verifique o número da porta SSH TCP no Portal do Azure em **Procurar** > **Máquinas virtuais (v2)** > *Nome da VM* > **Configurações** > **Pontos de extremidade**.
-* **A ACL para o ponto de extremidade de tráfego de SSH na máquina virtual de destino.** Uma ACL permite que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de SSH para o ponto de extremidade. Verifique suas ACLs para assegurar que o tráfego de entrada dos endereços IP públicos de seu proxy ou de outro servidor de borda é permitido. Para obter mais informações, veja [Sobre ACLs (listas de controle de acesso) de rede](../virtual-network/virtual-networks-acl.md).
+* **A configuração do ponto de extremidade para o tráfego SSH na VM de destino.**  A porta TCP particular do ponto de extremidade deve corresponder à porta TCP na qual o serviço SSH na VM está escutando. (A porta padrão é 22). Para as VMs criadas usando o modelo de implantação do Resource Manager, verifique o número da porta SSH TCP no Portal do Azure selecionando **Procurar** > **Máquinas virtuais (v2)** > *Nome da VM* > **Configurações** > **Pontos de extremidade**.
+* **A ACL para o ponto de extremidade de tráfego de SSH na máquina virtual de destino.**  Uma ACL permite que você especifique tráfego de entrada permitido ou negado da Internet com base em seu endereço IP de origem. ACLs configuradas incorretamente podem impedir o tráfego de SSH para o ponto de extremidade. Verifique suas ACLs para assegurar que o tráfego de entrada dos endereços IP públicos de seu proxy ou de outro servidor de borda é permitido. Para obter mais informações, veja [Sobre ACLs (listas de controle de acesso) de rede](../virtual-network/virtual-networks-acl.md).
 
-Para que o ponto de extremidade deixe de ser a fonte do problema, remova o ponto de extremidade atual, crie um novo e especifique o nome do SSH (porta TCP 22 como o número da porta pública e privada). Para obter mais informações, consulte [Configurar pontos de extremidade em uma máquina virtual no Azure](virtual-machines-windows-classic-setup-endpoints.md).
+Para que o ponto de extremidade deixe de ser a fonte do problema, remova o ponto de extremidade atual, crie um novo e especifique o nome do SSH (porta TCP 22 como o número da porta pública e privada). Para obter mais informações, consulte [Configurar pontos de extremidade em uma máquina virtual no Azure](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 <a id="nsg"></a>
 
-## Fonte 4: grupos de segurança de rede
-Os grupos de segurança de rede proporcionam um controle mais granular do tráfego de entrada e de saída permitido. Você pode criar regras que abrangem sub-redes e serviços de nuvem em uma rede virtual do Azure. Examine as regras do grupo de segurança de rede para verificar se o tráfego SSH de entrada e saída da Internet é permitido. Para saber mais, confira [Sobre grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
+## <a name="source-4-network-security-groups"></a>Fonte 4: Grupos de segurança de rede
+Os grupos de segurança de rede proporcionam um controle mais granular do tráfego de entrada e de saída permitido. Você pode criar regras que abrangem sub-redes e serviços de nuvem em uma rede virtual do Azure. Examine as regras do grupo de segurança de rede para verificar se o tráfego SSH de entrada e saída da Internet é permitido.
+Para saber mais, confira [Sobre grupos de segurança de rede](../virtual-network/virtual-networks-nsg.md).
 
-## Fonte 5: máquina virtual do Azure baseada no Linux
+## <a name="source-5-linux-based-azure-virtual-machine"></a>Fonte 5: máquina virtual do Azure baseada no Linux
 A última fonte possível de problemas é a própria máquina virtual do Azure.
 
 ![Diagrama que realça uma VM do Azure baseada em Linux](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot5.png)
 
-Se você ainda não fez isso, siga as instruções [para redefinir uma senha ou SSH para máquinas virtuais baseadas em Linux](virtual-machines-linux-classic-reset-access.md).
+Se você ainda não fez isso, siga as instruções [para redefinir uma senha ou SSH para máquinas virtuais baseadas em Linux](virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 Tente se conectar novamente do seu computador. Caso ainda não consiga, veja a seguir alguns dos possíveis problemas:
 
@@ -137,7 +142,12 @@ Tente se conectar novamente do seu computador. Caso ainda não consiga, veja a s
 * O firewall local na máquina virtual de destino tem regras que estão impedindo o tráfego SSH de entrada ou de saída.
 * Um software de detecção de invasão ou de monitoramento de rede em execução na máquina virtual do Azure está impedindo conexões de SSH.
 
-## Recursos adicionais
-Para saber mais sobre como solucionar problemas de acesso do aplicativo, veja [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-linux-troubleshoot-app-connection.md)
+## <a name="additional-resources"></a>Recursos adicionais
+Para obter mais informações sobre como solucionar problemas de acesso do aplicativo, consulte [Solucionar problemas de acesso a um aplicativo executado em uma máquina virtual do Azure](virtual-machines-linux-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,20 +1,24 @@
 ---
-title: Dimensionamento automático e conjuntos de dimensionamento da máquina virtual | Microsoft Docs
-description: Saiba como usar os recursos de diagnóstico e dimensionamento automático para dimensionar automaticamente as máquinas virtuais em um conjunto de dimensionamento.
+title: "Dimensionamento automático e conjuntos de dimensionamento de máquinas virtuais | Microsoft Docs"
+description: "Saiba como usar os recursos de diagnóstico e dimensionamento automático para dimensionar automaticamente as máquinas virtuais em um conjunto de dimensionamento."
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: ff6a29db5450a78840f27cb69abc726a147406a1
+ms.openlocfilehash: fec4155c2c54e47f92ff93aff662b59e775a02c9
+
 
 ---
 # <a name="automatic-scaling-and-virtual-machine-scale-sets"></a>Dimensionamento automático e conjuntos de dimensionamento da máquina virtual
@@ -22,7 +26,7 @@ O dimensionamento automático de máquinas virtuais em um conjunto de escala é 
 
 O dimensionamento automático é um processo automatizado que ajuda a facilitar o gerenciamento da sobrecarga. Reduzindo a sobrecarga, você não precisa monitorar continuamente o desempenho do sistema ou decidir como gerenciar recursos. O dimensionamento é um processo elástico. Mais recursos podem ser adicionados conforme a carga aumentar, mas conforme a demanda diminuir recursos podem ser removidos para minimizar custos e manter níveis de desempenho.
 
-Configure o dimensionamento automático em um conjunto de escala usando um modelo do Azure Resource Manager, o Azure PowerShell ou a CLI do Azure.
+Configure o dimensionamento automático em um conjunto de dimensionamento usando um modelo do Azure Resource Manager, Azure PowerShell, CLI do Azure ou portal do Azure.
 
 ## <a name="set-up-scaling-by-using-resource-manager-templates"></a>Configure o dimensionamento usando modelos do Resource Manager
 Em vez de implantar e gerenciar cada recurso do seu aplicativo separadamente, use um modelo que implanta todos os recursos em uma única operação coordenada. No modelo, os recursos do aplicativo são definidos e os parâmetros de implantação são especificados para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na criação de valores para sua implantação. Para saber mais, consulte [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
@@ -193,14 +197,17 @@ E uma máquina virtual é adicionada ao conjunto de escala:
 Após um período de resfriamento de cinco minutos, se o número médio de threads nas máquinas permanecer acima de 600, outra máquina será adicionada ao conjunto. Se a contagem de threads média permanecer abaixo 550, a capacidade do conjunto de escala será reduzida em um e uma máquina será removida do conjunto.
 
 ## <a name="set-up-scaling-using-azure-powershell"></a>Configurar o dimensionamento usando o Azure PowerShell
-Para ver exemplos de uso do PowerShell para configurar o dimensionamento automático, consulte [Exemplos de início rápido do PowerShell do Azure Insights](../monitoring-and-diagnostics/insights-powershell-samples.md).
+Para ver exemplos de uso do PowerShell para configurar o dimensionamento automático, consulte [Exemplos de início rápido do Azure PowerShell Monitor](../monitoring-and-diagnostics/insights-powershell-samples.md).
 
 ## <a name="set-up-scaling-using-azure-cli"></a>Configurar o dimensionamento usando a CLI do Azure
-Para ver exemplos de uso da CLI do Azure para configurar o dimensionamento automático, consulte [Exemplos de início rápido da CLI entre plataformas do Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md).
+Para ver exemplos de uso da CLI do Azure para configurar o dimensionamento automático, consulte [Exemplos de início rápido da CLI entre plataformas do Azure Monitor](../monitoring-and-diagnostics/insights-cli-samples.md).
+
+## <a name="set-up-scaling-using-the-azure-portal"></a>Configurar o dimensionamento usando o portal do Azure
+Para ver um exemplo de como usar o portal do Azure para configurar o dimensionamento automático, consulte [Criar um conjunto de dimensionamento de Máquinas Virtuais usando o portal do Azure](virtual-machine-scale-sets-portal-create.md).
 
 ## <a name="investigate-scaling-actions"></a>Investigar ações de dimensionamento
-* [Portal do Azure]() - Atualmente, você pode obter uma quantidade limitada de informações usando o portal.
-* [Gerenciador de Recursos do Azure]() – esta é a melhor ferramenta para explorar o estado atual do conjunto de escala. Siga este caminho e você deverá ver a exibição da instância do conjunto de dimensionamento criado: assinaturas > {sua assinatura} > resourceGroups > {seu grupo de recursos} > provedores > Microsoft.Compute > virtualMachineScaleSets > {seu conjunto de dimensionamento} > virtualMachines
+* Portal do Azure – Atualmente, você pode obter uma quantidade limitada de informações usando o portal.
+* Gerenciador de Recursos do Azure – Esta é a melhor ferramenta para explorar o estado atual do conjunto de dimensionamento. Siga este caminho e você deverá ver a exibição da instância do conjunto de dimensionamento criado: Assinaturas > {sua assinatura} > resourceGroups > {seu grupo de recursos} > provedores > Microsoft.Compute > virtualMachineScaleSets > {seu conjunto de dimensionamento} > virtualMachines
 * Azure PowerShell- Use este comando para obter algumas informações:
   
         Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
@@ -209,11 +216,14 @@ Para ver exemplos de uso da CLI do Azure para configurar o dimensionamento autom
 
 ## <a name="next-steps"></a>Próximas etapas
 * Veja [Dimensionar automaticamente as máquinas em um Conjunto de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-windows-autoscale.md) para ter um exemplo de como criar um conjunto de dimensionamento com o dimensionamento automático configurado.
-* Encontre exemplos de recursos de monitoramento do Azure Insights nos [exemplos de início rápido do PowerShell do Azure Insights](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* Saiba sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Insights](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
-* Saiba como [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Insights](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+* Encontre exemplos de recursos de monitoramento do Azure Monitor nos [Exemplos de início rápido do Azure Monitor PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
+* Saiba sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
+* Saiba como [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 * Saiba mais sobre [Cenários de dimensionamento automático avançado](virtual-machine-scale-sets-advanced-autoscale.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

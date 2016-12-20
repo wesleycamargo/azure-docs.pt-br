@@ -22,7 +22,7 @@
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
 ## [Gerar Assinaturas de Acesso Compartilhado](service-bus-sas-overview.md)
 
-# Como:
+# Como
 ## Planejar e projetar
 ### [Otimizar desempenho](service-bus-performance-improvements.md)
 ### [Mensagens assíncronas e de alta disponibilidade](service-bus-async-messaging.md)
@@ -51,18 +51,20 @@
 ### [Usando o PowerShell para provisionar entidades](service-bus-powershell-how-to-provision.md)
 
 # Referência
-## [Detalhes de preço](service-bus-pricing-billing.md)
-## [Exemplos](service-bus-samples.md)
-## [Exceções](service-bus-messaging-exceptions.md)
-## [Cotas](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](/rest/api/servicebus)
+
+# Recursos
 ## [Sintaxe SQLFilter](service-bus-messaging-sql-filter.md)
 ## [Sintaxe SQLRuleAction](service-bus-messaging-sql-rule-action.md)
 ## [Guia do protocolo AMQP1.0](service-bus-amqp-protocol-guide.md)
 ### [Operações baseadas em resposta de solicitação AMQP 1.0](service-bus-amqp-request-response.md)
-
-# Recursos
+## [Detalhes de preço](service-bus-pricing-billing.md)
+## [Exemplos](service-bus-samples.md)
+## [Exceções](service-bus-messaging-exceptions.md)
+## [Cotas](service-bus-quotas.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [Fóruns do MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -73,6 +75,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

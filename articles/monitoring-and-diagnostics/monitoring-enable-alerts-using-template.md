@@ -1,19 +1,23 @@
 ---
-title: Criar uma métrica de alerta com um modelo do Resource Manager | Microsoft Docs
-description: Saiba como usar um modelo do Resource Manager para criar um alerta de métrica para receber notificações por email ou webhook.
+title: "Criar uma métrica de alerta com um modelo do Resource Manager | Microsoft Docs"
+description: "Saiba como usar um modelo do Resource Manager para criar um alerta de métrica para receber notificações por email ou webhook."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/28/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4788235f470fafb043f72dfb44dbe96ebb595df9
+
 
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
@@ -139,7 +143,7 @@ Para criar um alerta usando um modelo do Resource Manager, você cria um recurso
             "type": "Microsoft.Insights/alertRules",
             "name": "[parameters('alertName')]",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[parameters('alertName')]",
                 "description": "[parameters('alertDescription')]",
@@ -361,7 +365,7 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
                 "[variables('vmID')]"
             ],
             "location": "[variables('location')]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[variables('alertName')]",
                 "description": "variables('alertDescription')",
@@ -397,9 +401,12 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre os Alertas](../azure-portal/insights-receive-alert-notifications.md)
+* [Saiba mais sobre os Alertas](insights-receive-alert-notifications.md)
 * [Adicionar Configurações de Diagnóstico](monitoring-enable-diagnostic-logs-using-template.md) ao modelo do Resource Manager
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

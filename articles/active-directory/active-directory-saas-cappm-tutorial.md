@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao CA PPM | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o CA PPM.
+title: "Tutorial: Integração do Azure Active Directory com o CA PPM | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o CA PPM."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ca9d5e71-e429-4891-8d10-3498e7210e89
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5bccef79845fc16c0154ec774817156f5be95884
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-ca-ppm"></a>Tutorial: Integração do Azure Active Directory ao CA PPM
+# <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Tutorial: Integração do Azure Active Directory ao CA PPM
 Neste tutorial, você aprenderá a integrar o CA PPM ao Azure AD (Azure Active Directory).
 
 A integração do CA PPM ao Azure AD oferece os seguintes benefícios:
@@ -229,6 +233,6 @@ Ao clicar no bloco do CA PPM no Painel de Acesso, você deverá ser conectado au
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Visão geral sobre a proteção de conteúdo | Microsoft Docs
-description: Este artigo fornece uma visão geral da proteção de conteúdo com os Serviços de Mídia.
+title: "Visão geral sobre a proteção de conteúdo | Microsoft Docs"
+description: "Este artigo fornece uma visão geral da proteção de conteúdo com os Serviços de Mídia."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 576d3a1c242c74715e7a6dc33ec0a4adebcc9959
+
 
 ---
 # <a name="protecting-content-overview"></a>Visão geral sobre a proteção de conteúdo
@@ -51,7 +55,7 @@ Use a criptografia de armazenamento para criptografar seu conteúdo limpo localm
 
 Para entregar um ativo de armazenamento criptografado, você deve configurar a política de entrega do ativo para que o Serviços de Mídia saiba como você deseja distribuir seu conteúdo. Antes que seu ativo possa ser transmitido, o servidor de streaming remove a criptografia de armazenamento e transmite o conteúdo usando a política de distribuição especificada (por exemplo, AES, criptografia comum ou sem criptografia).
 
-## <a name="common-encryption-(cenc)"></a>Criptografia comum (CENC)
+## <a name="common-encryption-cenc"></a>Criptografia comum (CENC)
 A criptografia comum é usada ao criptografar o conteúdo com PlayReady e/ou Widewine.
 
 ## <a name="using-cbcs-aapl-encryption"></a>Usando a criptografia cbcs-aapl
@@ -115,6 +119,6 @@ Os tópicos a seguir demonstram como proteger o conteúdo no armazenamento, entr
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Substituir um PCM em seu dispositivo StorSimple | Microsoft Docs
-description: Explica como remover e substituir módulo de energia e resfriamento (PCM) em seu dispositivo StorSimple
+description: "Explica como remover e substituir módulo de energia e resfriamento (PCM) em seu dispositivo StorSimple"
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 24a158cb-0b79-4908-bb5a-431e48760f6a
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a956de58b279a013913631a077d7b03c6327f72
+
 
 ---
-# Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple
-## Visão geral
+# <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple
+## <a name="overview"></a>Visão geral
 O módulo de energia e resfriamento (PCM) em seu dispositivo Microsoft Azure StorSimple consiste em uma fonte de alimentação e ventiladores que são controlados por meio de compartimentos primário e EBOD. Há apenas um modelo de PCM que é certificado para cada compartimento. O compartimento primário é certificado para um PCM de 764 W e o compartimento EBOD é certificado para um PCM de 580 W. Embora os PCMs do compartimento primário e do compartimento EBOD sejam diferentes, o procedimento de substituição é idêntico.
 
 Este tutorial explica como:
@@ -30,7 +34,7 @@ Este tutorial explica como:
 > 
 > 
 
-## Antes de substituir um PCM
+## <a name="before-you-replace-a-pcm"></a>Antes de substituir um PCM
 Esteja ciente das seguintes questões importantes antes de substituir o PCM:
 
 * Se a fonte de alimentação do PCM falhar, deixe o módulo com defeito instalado, mas remova o cabo de alimentação. O ventilador continuará a receber energia do compartimento e continuará a fornecer resfriamento adequado. Se o ventilador falhar, o PCM precisa ser trocado imediatamente.
@@ -39,7 +43,7 @@ Esteja ciente das seguintes questões importantes antes de substituir o PCM:
 * A substituição do módulo PCM leva apenas alguns minutos para ser concluída, mas precisa ser concluída em até 10 minutos após remover o PCM com falha para evitar superaquecimento.
 * Observe que os módulos de substituição PCM de 764 W enviados da fábrica não contêm o módulo de bateria de backup. Você precisará remover a bateria do seu PCM com falha e, então, inseri-la no módulo de substituição antes de executar a substituição. Para obter mais informações, confira como [remover e inserir um módulo de bateria de backup](storsimple-battery-replacement.md).
 
-## Remover um PCM
+## <a name="remove-a-pcm"></a>Remover um PCM
 Siga estas instruções quando estiver pronto para remover um módulo de energia e resfriamento (PCM) do dispositivo Microsoft Azure StorSimple.
 
 > [!NOTE]
@@ -47,7 +51,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
 > 
 > 
 
-#### Para remover um PCM
+#### <a name="to-remove-a-pcm"></a>Para remover um PCM
 1. No Portal clássico do Azure, clique em **Dispositivos** > **Manutenção** > **Status de Hardware**. Verifique o status dos componentes do PCM em **Componentes compartilhados** para identificar qual PCM falhou:
    
    * Se uma fonte de alimentação no PCM 0 tiver falhado, o status da **Fonte de Alimentação no PCM 0** ficará vermelho.
@@ -57,7 +61,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
    
     ![ID do sistema na no painel de operações frontal](./media/storsimple-power-cooling-module-replacement/IC740991.png)
    
-     **Figura 1** Parte frontal do dispositivo
+     **Figura 1** Parte frontal do dispositivo  
    
    | Rótulo | Descrição |
    |:--- |:--- |
@@ -66,7 +70,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
    | 3 |Falha do módulo |
    | 4 |Falha lógica |
    | 5 |Exibição da ID da unidade |
-3. Os LEDs indicadores de monitoramento na parte traseira do compartimento primário também podem ser usado para identificar o PCM defeituoso. Consulte o diagrama e a tabela a seguir para entender como usar os LEDs para localizar o PCM defeituoso. Por exemplo, se o LED correspondente à **Falha do Ventilador** estiver aceso, houve falha no ventilador. Da mesma forma, se o LED correspondente à **Falha de CA** estiver aceso, a fonte de alimentação falhou.
+3. Os LEDs indicadores de monitoramento na parte traseira do compartimento primário também podem ser usado para identificar o PCM defeituoso. Consulte o diagrama e a tabela a seguir para entender como usar os LEDs para localizar o PCM defeituoso. Por exemplo, se o LED correspondente à **Falha do Ventilador** estiver aceso, houve falha no ventilador. Da mesma forma, se o LED correspondente à **Falha de CA** estiver aceso, a fonte de alimentação falhou. 
    
     ![Backplane dos LEDs indicadores de monitoramento de PCM do dispositivo](./media/storsimple-power-cooling-module-replacement/IC740992.png)
    
@@ -84,7 +88,7 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
    
      ![Backplane dos módulos do compartimento primário do dispositivo](./media/storsimple-power-cooling-module-replacement/IC740994.png)
    
-     **Figura 3** Parte traseira do dispositivo com módulos de plug-in
+     **Figura 3** Parte traseira do dispositivo com módulos de plug-in 
    
    | Rótulo | Descrição |
    |:--- |:--- |
@@ -104,16 +108,16 @@ Siga estas instruções quando estiver pronto para remover um módulo de energia
    
     **Figura 5** Removendo o PCM
 
-## Instalar um PCM de reposição
+## <a name="install-a-replacement-pcm"></a>Instalar um PCM de reposição
 Siga estas instruções para instalar um PCM em seu dispositivo StorSimple. Certifique-se de que você inseriu o módulo de bateria de backup antes de instalar o PCM de substituição (aplicável somente aos PCMs de 764 W). Para obter mais informações, confira como [remover e inserir um módulo de bateria de backup](storsimple-battery-replacement.md).
 
-#### Para instalar um PCM
+#### <a name="to-install-a-pcm"></a>Para instalar um PCM
 1. Verifique se possui a peça de reposição do PCM para esse compartimento. O compartimento primário necessita de um PCM de 764 W e o compartimento EBOD necessita de um PCM de 580 W. Você não deve tentar usar o PCM de 580 W no compartimento primário nem o PCM de 764 W no compartimento EBOD. A imagem a seguir mostra onde identificar essas informações na etiqueta do PCM.
    
     ![Etiqueta do PCM do dispositivo](./media/storsimple-power-cooling-module-replacement/IC740973.png)
    
     **Figura 6** Etiqueta do PCM
-2. Verifique se há danos no compartimento, prestando muita atenção aos conectores.
+2. Verifique se há danos no compartimento, prestando muita atenção aos conectores. 
    
    > [!NOTE]
    > **Não instale o módulo se algum pino do conector estiver torto.**
@@ -124,23 +128,28 @@ Siga estas instruções para instalar um PCM em seu dispositivo StorSimple. Cert
     ![Instalando o PCM do dispositivo](./media/storsimple-power-cooling-module-replacement/IC740975.png)
    
     **Figura 7** Instalando o PCM
-4. Feche manualmente a alça do PCM. Você deve ouvir um clique ao encaixar a trava da alça.
+4. Feche manualmente a alça do PCM. Você deve ouvir um clique ao encaixar a trava da alça. 
    
    > [!NOTE]
    > Para garantir que os pinos do conector tenham encaixado, com cuidado, puxe a alça sem soltar a trava. Se o PCM deslizar, isso significa que a trava foi fechada antes que os conectores encaixassem.
    > 
    > 
 5. Conecte os cabos de energia na fonte de alimentação e no PCM.
-6. Proteja os ganchos de alívio de tensão.
+6. Proteja os ganchos de alívio de tensão. 
 7. Ligue o PCM.
-8. Verifique se a substituição foi bem-sucedida: no Portal clássico do Azure do seu serviço StorSimple Manager, navegue até **Dispositivos** > **Manutenção** > **Status de Hardware**. Em **Componentes Compartilhados**, o status do PCM deverá estar verde.
+8. Verifique se a substituição foi bem-sucedida: no Portal clássico do Azure do seu serviço StorSimple Manager, navegue até **Dispositivos** > **Manutenção** > **Status de Hardware**. Em **Componentes Compartilhados**, o status do PCM deverá estar verde. 
    
    > [!NOTE]
    > Pode levar alguns minutos até que o PCM de reposição esteja completamente inicializado.
    > 
    > 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

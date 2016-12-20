@@ -247,9 +247,9 @@
 ### [Solucionar problemas de desempenho do aplicativo Web](app-service-web-troubleshoot-performance-degradation.md)
 
 # Referência
-## [CLI do Azure](/cli/azure/)
-## [Java](/java/api/)
+## [Visualização da CLI do Azure 2.0](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
+## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # Relacionados
@@ -266,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

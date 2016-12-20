@@ -1,28 +1,27 @@
 ---
 title: Aplicativo Web .NET do Azure AD v2.0 | Microsoft Docs
-description: Como criar um aplicativo Web do MVC .NET que chama serviços Web usando contas pessoais da Microsoft e contas corporativas ou de estudante para conexão.
+description: "Como criar um aplicativo Web do MVC .NET que chama serviços Web usando contas pessoais da Microsoft e contas corporativas ou de estudante para conexão."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 56be906e-71de-469d-9a5c-9fc08aae4223
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 10/27/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 587a5136004525f5badc5e72d006fc6dd07d42d8
+
 
 ---
-# <a name="calling-a-web-api-from-a-.net-web-app"></a>Chamar uma API Web em um aplicativo Web .NET
+# <a name="calling-a-web-api-from-a-net-web-app"></a>Chamar uma API Web em um aplicativo Web .NET
 Com o ponto de extremidade v2.0, você pode adicionar autenticação rapidamente a seus aplicativos Web e APIs Web com suporte a contas pessoais da Microsoft e contas corporativas ou de estudante.  Compilaremos aqui um aplicativo Web MVC que faz logon dos usuários usando o OpenID Connect, com alguma ajuda do middleware OWIN da Microsoft.  O aplicativo Web obterá tokens de acesso OAuth 2.0 para uma API Web protegida pelo OAuth 2.0 que permite criar, ler e excluir itens de uma determinado “Lista de Tarefas Pendentes” do usuário.
-
-> [!WARNING]
-> Este tutorial usa uma biblioteca de cliente desatualizada e sem suporte, `Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory` (ADAL Experimental).  Estamos trabalhando para atualizar este tutorial para a MSAL (biblioteca de visualização do `Microsoft.Identity.Client` ). Enquanto isso, recomendamos substituir o uso da ADAL Experimental neste tutorial pela MSAL.  Mais informações sobre as opções de escolha de uma biblioteca de cliente estão disponíveis em nosso [artigo sobre limitações](active-directory-v2-limitations.md).
-> 
-> 
 
 Este tutorial se concentrará principalmente em usar ADAL para adquirir e usar tokens de acesso em um aplicativo Web, descrito por completo [aqui](active-directory-v2-flows.md#web-apps).  Como pré-requisitos, talvez você queira aprender primeiro a [adicionar conexão básica a um aplicativo Web](active-directory-v2-devquickstarts-dotnet-web.md) ou a [proteger corretamente uma API Web](active-directory-v2-devquickstarts-dotnet-api.md).
 
@@ -41,7 +40,7 @@ Como alternativa, você pode [baixar o aplicativo concluído como. zip](https://
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
 ## <a name="register-an-app"></a>Registrar um aplicativo
-Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md).  Não se esqueça de:
+Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou siga estas [etapas detalhadas](active-directory-v2-app-registration.md).  Não se esqueça de:
 
 * Copiar a **ID do Aplicativo** designada ao seu aplicativo, você precisará dela logo.
 * Crie um **Segredo de Aplicativo** do tipo **Senha** e anote seu valor para uso posterior
@@ -58,7 +57,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoList-WebApp
 ```
 
 ## <a name="sign-the-user-in"></a>Conectar o usuário
-Configuraremos aqui o middleware OWIN para usar o [protocolo de autenticação do OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  
+Configuraremos aqui o middleware OWIN para usar o [protocolo de autenticação do OpenID Connect](active-directory-v2-protocols.md).  
 
 * Abra o arquivo `web.config` na raiz do projeto `TodoList-WebApp` e insira os valores de configuração do aplicativo na seção `<appSettings>`.
   * `ida:ClientId` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
@@ -79,7 +78,7 @@ public void ConfigureAuth(IAppBuilder app)
         new OpenIdConnectAuthenticationOptions
         {
 
-                    // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0 
+                    // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
                     // The `Scope` describes the permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
                     // In a real application you could use issuer validation for additional checks, like making sure the user's organization has signed up for your app, for instance.
 
@@ -103,18 +102,18 @@ public void ConfigureAuth(IAppBuilder app)
 
         });
 }
-...
+// ...
 ```
 
-## <a name="use-adal-to-get-access-tokens"></a>Usar o ADAL para obter acesso a tokens
-Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjunto com o OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) para resgatar o authorization_code de um token de acesso para o Serviço Lista de Tarefas Pendentes.  O ADAL pode facilitar esse processo para você:
+## <a name="use-msal-to-get-access-tokens"></a>Usar a MSAL para obter acesso a tokens
+Na notificação `AuthorizationCodeReceived`, queremos usar [OAuth 2.0 em conjunto com o OpenID Connect](active-directory-v2-protocols.md) para resgatar o authorization_code de um token de acesso para o Serviço Lista de Tarefas Pendentes.  A MSAL pode facilitar esse processo para você:
 
-* Primeiramente, instale a versão de visualização do ADAL:
+* Primeiramente, instale a versão de visualização da MSAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+```PM> Install-Package Microsoft.Identity.Client -ProjectName TodoList-WebApp -IncludePrerelease```
 
-* E adicione outra instrução `using` ao arquivo `App_Start\Startup.Auth.cs` do ADAL.
-* Agora, adicione um novo método, o manipulador de eventos `OnAuthorizationCodeReceived`.  Esse manipulador usará o ADAL para adquirir um token de acesso para a API Lista de Tarefas Pendentes e armazenará o token no cache do token do ADAL para depois:
+* E adicione outra instrução `using` ao arquivo `App_Start\Startup.Auth.cs`da MSAL.
+* Agora, adicione um novo método, o manipulador de eventos `OnAuthorizationCodeReceived`.  Esse manipulador usará a MSAL para adquirir um token de acesso para a API Lista de Tarefas Pendentes e armazenará o token no cache do token da MSAL para depois:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -125,69 +124,67 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
         ClientCredential cred = new ClientCredential(clientId, clientSecret);
 
         // Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
-        var authContext = new Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext(authority, new NaiveSessionCache(userObjectId));
-        var authResult = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), cred, new string[] { clientId });
+        app = new ConfidentialClientApplication(Startup.clientId, redirectUri, cred, new NaiveSessionCache(userObjectId, notification.OwinContext.Environment["System.Web.HttpContextBase"] as HttpContextBase)) {};
+        var authResult = await app.AcquireTokenByAuthorizationCodeAsync(new string[] { clientId }, notification.Code);
 }
-...
+// ...
 ```
 
-* Em aplicativos Web, o ADAL tem um cache de token extensível que pode ser usado para armazenar tokens.  Este exemplo implementa o `NaiveSessionCache` , que usa o armazenamento de sessão http para tokens de cache.
+* Em aplicativos Web, a MSAL tem um cache de token extensível que pode ser usado para armazenar tokens.  Este exemplo implementa o `NaiveSessionCache` , que usa o armazenamento de sessão http para tokens de cache.
 
 <!-- TODO: Token Cache article -->
 
 
-## <a name="4.-call-the-web-api"></a>4. Chamar a API Web
+## <a name="call-the-web-api"></a>Chamar a API Web
 Agora é hora de usar de fato o access_token que você acabou de adquirir na etapa 3.  Abra o arquivo `Controllers\TodoListController.cs` do aplicativo Web, que faz todas as solicitações CRUD à API da Lista de Tarefas Pendentes.
 
-* Aqui, você pode usar o ADAL novamente para buscar access_tokens no cache do ADAL.  Primeiramente, adicione uma instrução `using` para ADAL a este arquivo.
+* Aqui, você pode usar a MSAL novamente para buscar access_tokens no cache da MSAL.  Primeiramente, adicione uma instrução `using` para MSAL a este arquivo.
   
-    `using Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory;`
-* Na ação `Index`, use o método `AcquireTokenSilentAsync` do ADAL para obter um access_token que possa ser usado para ler dados no serviço Lista de Tarefas Pendentes:
+    `using Microsoft.Identity.Client;`
+* Na ação `Index`, use o método `AcquireTokenSilentAsync` da MSAL para obter um access_token que possa ser usado para ler dados no serviço Lista de Tarefas Pendentes:
 
 ```C#
-...
+// ...
 string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
 string tenantID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
 string authority = String.Format(CultureInfo.InvariantCulture, Startup.aadInstance, tenantID, string.Empty);
 ClientCredential credential = new ClientCredential(Startup.clientId, Startup.clientSecret);
 
 // Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
-AuthenticationContext authContext = new AuthenticationContext(authority, new NaiveSessionCache(userObjectID));
-result = await authContext.AcquireTokenSilentAsync(new string[] { Startup.clientId }, credential, UserIdentifier.AnyUser);
-...
+app = new ConfidentialClientApplication(Startup.clientId, redirectUri, credential, new NaiveSessionCache(userObjectID, this.HttpContext)){};
+result = await app.AcquireTokenSilentAsync(new string[] { Startup.clientId });
+// ...
 ```
 
 * O exemplo adiciona o token resultante à solicitação HTTP GET, como o cabeçalho `Authorization`, que o serviço Lista de Tarefas Pendentes usa para autenticar a solicitação.
-* Se o serviço Lista de Tarefas Pendentes retornar uma resposta `401 Unauthorized`, access_tokens em ADAL se tornarão inválidos por algum motivo.  Nesse caso, você deve descartar todos os access_token do cache do ADAL e mostrar ao usuário uma mensagem que ele pode precisar para entrar novamente, que reiniciará o fluxo de aquisição de token.
+* Se o serviço Lista de Tarefas Pendentes retornar uma resposta `401 Unauthorized`, access_tokens na MSAL se tornarão inválidos por algum motivo.  Nesse caso, você deve descartar todos os access_token do cache da MSAL e mostrar ao usuário uma mensagem que ele pode precisar para entrar novamente, que reiniciará o fluxo de aquisição de token.
 
 ```C#
-...
+// ...
 // If the call failed with access denied, then drop the current access token from the cache,
 // and show the user an error indicating they might need to sign-in again.
 if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
 {
-        var todoTokens = authContext.TokenCache.ReadItems().Where(a => a.Scope.Contains(Startup.clientId));
-        foreach (TokenCacheItem tci in todoTokens)
-                authContext.TokenCache.DeleteItem(tci);
+        app.AppTokenCache.Clear(Startup.clientId);
 
         return new RedirectResult("/Error?message=Error: " + response.ReasonPhrase + " You might need to sign in again.");
 }
-...
+// ...
 ```
 
-* Da mesma forma, se o ADAL não puder retornar um access_token por algum motivo, você deverá orientar o usuário a entrar novamente.  Isso é tão simples quanto capturar qualquer `AdalException`:
+* Da mesma forma, se a MSAL não puder retornar um access_token por algum motivo, você deverá orientar o usuário a entrar novamente.  Isso é tão simples quanto capturar qualquer `MSALException`:
 
 ```C#
-...
-catch (AdalException ee)
+// ...
+catch (MsalException ee)
 {
-        // If ADAL could not get a token silently, show the user an error indicating they might need to sign in again.
+        // If MSAL could not get a token silently, show the user an error indicating they might need to sign in again.
         return new RedirectResult("/Error?message=An Error Occurred Reading To Do List: " + ee.Message + " You might need to log out and log back in.");
 }
-...
+// ...
 ```
 
-* A mesma chamada `AcquireTokenSilentAsync` é implementada nas ações `Create` e `Delete`.  Em aplicativos Web, você pode usar esse método ADAL para obter access_tokens sempre que precisar deles em seu aplicativo.  O ADAL se encarregará da aquisição, do caching e da atualização de tokens.
+* A mesma chamada `AcquireTokenSilentAsync` é implementada nas ações `Create` e `Delete`.  Em aplicativos Web, você pode usar esse método MSAL para obter access_tokens sempre que precisar deles em seu aplicativo.  A MSAL se encarregará da aquisição, do caching e da atualização de tokens.
 
 Por fim, compile e execute seu aplicativo!  Entre com uma conta da Microsoft ou uma Conta do AD do Azure e observe como a identidade do usuário é refletida na barra de navegação superior.  Adicione e exclua alguns itens na Lista de Tarefas do usuário para ver as chamadas à API protegidas pelo OAuth 2.0 em ação.  Agora você tem um aplicativo Web e uma API Web, ambos protegidos por protocolos padrão do setor, que podem autenticar usuários com as respectivas contas pessoais e corporativas/de estudante.
 
@@ -197,11 +194,14 @@ Para referência, o exemplo concluído (sem seus valores de configuração) [é 
 Para obter recursos adicionais, consulte:
 
 * [Guia do desenvolvedor do v2.0 >>](active-directory-appmodel-v2-overview.md)
-* [Marca "adal" do StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+* [Marca “azure-active-directory” do StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

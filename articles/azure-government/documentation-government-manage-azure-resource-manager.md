@@ -1,13 +1,13 @@
 ---
-title: Azure Government documentation | Microsoft Docs
-description: This provides a comparison of features and guidance on developing applications for Azure Government.
+title: Resource Manager do Azure Governamental | Microsoft Docs
+description: "Este guia oferece uma comparação das funcionalidades e das orientações sobre como desenvolver aplicativos para o Azure Governamental."
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: brendalee
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: f270ebe4-dbbb-4e3d-8eba-efe1ca038988
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,115 +15,122 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/10/2016
 ms.author: brendalee
+translationtype: Human Translation
+ms.sourcegitcommit: 4febeb038f1007e1e20981d120debe4db1d7731a
+ms.openlocfilehash: dd511273e8ce3b9dd98b3d26534a9ddb7aee8ebf
+
 
 ---
-# <a name="azure-resource-manager"></a>Azure Resource Manager
-For detailed information on Resource Manager providers, API versions, and schemas, please refer [here](../resource-manager-supported-services.md). The following tables list which services are supported through Resource Manager in Azure Government.
+# <a name="azure-resource-manager"></a>Gerenciador de Recursos do Azure
+Para obter informações detalhadas sobre provedores do Resource Manager, as versões de API e esquemas, clique [aqui](../resource-manager-supported-services.md). As tabelas a seguir listam os serviços que têm suporte do Resource Manager do Azure Governamental.
 
-## <a name="compute"></a>Compute
-| Service | Resource Manager Enabled |
+## <a name="compute"></a>Computação
+| O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
-| Batch |Yes |
-| Container |No |
-| Dynamics Lifecycle Services |No |
-| Scale Sets |Yes |
-| Service Fabric |Yes |
-| Virtual Machines |Yes |
+| Batch |Sim |
+| Contêiner |Não |
+| Serviços de ciclo de vida do Dynamics |Não |
+| Conjuntos de Dimensionamento |Sim |
+| Service Fabric |Sim |
+| Máquinas Virtuais |Sim |
 
-## <a name="networking"></a>Networking
-| Service | Resource Manager Enabled |
+## <a name="networking"></a>Rede
+| O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
-| Application Gateway |Yes |
-| DNS |Yes |
-| ExpressRoute |Yes |
-| Load Balancer |Yes |
-| Traffic Manager |Yes |
-| Virtual Networks |Yes |
-| VPN Gateway |Yes |
+| Gateway de Aplicativo |Sim |
+| DNS |Sim |
+| ExpressRoute |Sim |
+| Balanceador de carga |sim |
+| Gerenciador de Tráfego |sim |
+| Redes Virtuais |Sim |
+| Gateway de VPN |Sim |
 
-## <a name="data-&-storage"></a>Data & Storage
-| Service | Resource Manager Enabled |
+## <a name="data-storage"></a>Armazenamento de dados
+| O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
-| DocumentDB |No |
-| Redis Cache |Yes |
-| Search |No |
-| Storage |Yes |
-| SQL Database |Yes |
-| SQL Data Warehouse |Yes |
-| StorSimple |No |
+| DocumentDB |Não |
+| Cache Redis |sim |
+| Pesquisar |Não |
+| Armazenamento |Sim |
+| Banco de dados SQL |Sim |
+| SQL Data Warehouse |sim |
+| StorSimple |Não |
 
-## <a name="web-&-mobile"></a>Web & Mobile
-| Service | Resource Manager Enabled |
+## <a name="web-mobile"></a>Web e serviços móveis
+| O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
-| API Apps |Yes |
-| API Management |No |
-| Logic Apps |No |
-| Mobile Apps |Yes |
-| Mobile Engagements |No |
-| Web Apps |Yes |
+| Aplicativos de API |Sim |
+| Gerenciamento da API |Não |
+| Aplicativos Lógicos |Não |
+| Aplicativos Móveis |Sim |
+| Compromisso de mobilidade |Não |
+| Aplicativos Web |Sim |
 
-## <a name="analytics"></a>Analytics
-| Service | Resource Manager Enabled |
+## <a name="analytics"></a>Análise
+| O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
-| Data Catalog |No |
-| Data Factory |No |
-| Data Lake Analytics |No |
-| Data Lake Store |No |
-| HDInsights |No |
-| Machine Learning |No |
-| Power BI |No |
+| Catálogo de Dados |Não |
+| Data Factory |Não |
+| Data Lake Analytics |Não |
+| Data Lake Store |Não |
+| HDInsights |Não |
+| Machine Learning |Não |
+| Power BI |Não |
 
-## <a name="intelligence"></a>Intelligence
-| Service | Resource Manager Enabled |
+## <a name="intelligence"></a>Inteligência
+| O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
-| Cognitive Services |No |
+| Serviços Cognitivos |Não |
 
-## <a name="internet-of-things"></a>Internet of Things
-| Service | Resource Manager Enabled |
+## <a name="internet-of-things"></a>Internet das coisas
+| O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
-| Event Hub |Yes |
-| IoTHubs |No |
-| Notification Hubs |No |
+| Hub de evento |Sim |
+| IoTHubs |Não |
+| Hubs de Notificação |Não |
 
-## <a name="media-&-cdn"></a>Media & CDN
-| Service | Resource Manager Enabled |
+## <a name="media-cdn"></a>Mídia e CDN
+| O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
-| CDN |No |
-| Media Service |No |
+| CDN |Não |
+| Serviço de mídia |Não |
 
-## <a name="hybrid-integration"></a>Hybrid Integration
-| Service | Resource Manager Enabled |
+## <a name="hybrid-integration"></a>Integração híbrida
+| O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
-| BizTalk Services |No |
-| Recovery Service |No |
-| Service Bus |Yes |
+| Serviços do BizTalk |Não |
+| Serviço de Recuperação |Sim (Hyper-V apenas) |
+| Barramento de Serviço |Sim |
 
-## <a name="developer-services"></a>Developer Services
-| Service | Resource Manager Enabled |
+## <a name="developer-services"></a>Serviços para Desenvolvedores
+| O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
-| Application Insights |No |
-| Bing Maps |No |
-| DevTest Labs |No |
-| Visual Studio account |No |
+| Application Insights |Não |
+| Bing Mapas |Não |
+| Laboratórios de Desenvolvimento/Teste |Não |
+| Conta do Visual Studio |Não |
 
-## <a name="management-and-security"></a>Management and Security
-| Service | Resource Manager Enabled |
+## <a name="management-and-security"></a>Gerenciamento e segurança
+| O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
-| Automation |Yes |
-| Key Vault |Yes |
-| Operational Insights |Yes |
-| Scheduler |Yes |
-| Security (preview) |No |
+| Automação |Sim |
+| Cofre da Chave |Sim |
+| Insights Operacionais |Sim |
+| Agendador |Sim |
+| Segurança (visualização) |Não |
 
-## <a name="resource-manager"></a>Resource Manager
-| Feature | Resource Manager Enabled |
+## <a name="resource-manager"></a>Gerenciador de Recursos
+| Recurso | Gerenciador de Recursos habilitado |
 | --- | --- |
-| Authorization |Yes |
-| Resources |Yes |
+| Autorização |sim |
+| Recursos |sim |
 
-## <a name="next-steps"></a>Next Steps
-For supplemental information and updates, subscribe to the <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+## <a name="next-steps"></a>Próximas etapas
+Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

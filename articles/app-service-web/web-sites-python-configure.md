@@ -1,13 +1,13 @@
 ---
-title: Configurando o Python com Aplicativos Web do Serviço de Aplicativo do Azure
-description: Este tutorial descreve opções para criar e configurar um servidor Web básico compatível com aplicativos de Python Gateway Interface (WSGI) nos Aplicativos Web do Serviço de Aplicativo do Azure.
+title: "Configurando o Python com Aplicativos Web do Serviço de Aplicativo do Azure"
+description: "Este tutorial descreve opções para criar e configurar um servidor Web básico compatível com aplicativos de Python Gateway Interface (WSGI) nos Aplicativos Web do Serviço de Aplicativo do Azure."
 services: app-service
 documentationcenter: python
 tags: python
 author: huguesv
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,31 +15,35 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8a9cdbc993468db23f2a256c1ff092c1b057a18
+
 
 ---
-# Configurando o Python com Aplicativos Web do Serviço de Aplicativo do Azure
+# <a name="configuring-python-with-azure-app-service-web-apps"></a>Configurando o Python com Aplicativos Web do Serviço de Aplicativo do Azure
 Este tutorial descreve as opções para criação e configuração de uma Web Server Gateway Interface (WSGI) básica compatível com aplicativos Python nos [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 Ele descreve os recursos adicionais de implantação do Git, como o ambiente virtual e a instalação do pacote usando requirements.txt.
 
-## Bottle, Django ou Flask?
+## <a name="bottle-django-or-flask"></a>Bottle, Django ou Flask?
 O Azure Marketplace contém modelos para as estruturas Bottle, Django e Flask. Se você estiver desenvolvendo seu primeiro aplicativo Web no Serviço de Aplicativo do Azure ou se não estiver familiarizado com o Git, recomendamos que você siga um destes tutoriais, que incluem instruções passo a passo para criar um aplicativo funcional da galeria usando a implantação do Git do Windows ou Mac:
 
 * [Criando aplicativos Web com Bottle](web-sites-python-create-deploy-bottle-app.md)
 * [Criando aplicativos Web com Django](web-sites-python-create-deploy-django-app.md)
 * [Criando aplicativos Web com Flask](web-sites-python-create-deploy-flask-app.md)
 
-## Criação de aplicativos Web no Portal do Azure
+## <a name="web-app-creation-on-azure-portal"></a>Criação de aplicativos Web no Portal do Azure
 Este tutorial assume uma assinatura existente do Azure e acesso ao Portal do Azure.
 
-Se não tiver um aplicativo Web já existente, você poderá criar um no [Portal do Azure](https://portal.azure.com). Clique no botão NOVO no canto superior esquerdo, clique em **Web + Mobile** > **aplicativo Web**.
+Se não tiver um aplicativo Web já existente, você poderá criar um no [Portal do Azure](https://portal.azure.com).  Clique no botão NOVO no canto superior esquerdo e clique em **Web + Celular** > **aplicativo Web**.
 
-## Publicação Git
+## <a name="git-publishing"></a>Publicação Git
 Configure a publicação de Git para seu aplicativo Web recém-criado seguindo as instruções em [Implantação de GIT local no Serviço de Aplicativo do Azure](app-service-deploy-local-git.md). Este tutorial usa Git para criar, gerenciar e publicar nosso aplicativo Web Python para o Serviço de Aplicativo do Azure.
 
 Depois que a publicação Git estiver configurada, um repositório Git será criado e associado ao seu aplicativo Web. A URL do repositório será exibida e poderá ser usada para enviar por push dados do ambiente de desenvolvimento local para a nuvem. Para publicar aplicativos via Git, certifique-se de que um cliente Git também esteja instalado e use as instruções fornecidas para enviar o conteúdo do seu aplicativo Web para o Serviço de Aplicativo do Azure.
 
-## Visão geral do aplicativo
+## <a name="application-overview"></a>Visão geral do aplicativo
 Nas próximas seções, os arquivos a seguir são criados. Eles devem ser colocados na raiz do repositório Git.
 
     app.py
@@ -49,7 +53,7 @@ Nas próximas seções, os arquivos a seguir são criados. Eles devem ser coloca
     ptvs_virtualenv_proxy.py
 
 
-## Manipulador WSGI
+## <a name="wsgi-handler"></a>Manipulador WSGI
 WSGI é um padrão de Python descrito por [PEP 3333](http://www.python.org/dev/peps/pep-3333/) definindo uma interface entre o servidor web e o Python. Ele fornece uma interface padronizada para escrever vários aplicativos da web e estruturas usando o Python. As estruturas web populares Python de hoje usam a WSGI. Os Aplicativos Web do Serviço de Aplicativo do Azure oferecem suporte para essas estruturas; além disso, os usuários avançados podem até mesmo criar seus próprios, desde que o manipulador personalizado siga as diretrizes de especificação WSGI.
 
 Aqui está um exemplo de um `app.py` que define um manipulador personalizado:
@@ -69,7 +73,7 @@ Aqui está um exemplo de um `app.py` que define um manipulador personalizado:
 
 Você pode executar esse aplicativo localmente com `python app.py` e, em seguida, navegar até `http://localhost:5555` no seu navegador da Web.
 
-## Ambiente virtual
+## <a name="virtual-environment"></a>Ambiente virtual
 Embora o aplicativo de exemplo acima não exija pacotes externos, é provável que seu aplicativo exija alguns.
 
 Para ajudar a gerenciar as dependências do pacote externo, a implantação do Git do Azure dá suporte à criação de ambientes virtuais.
@@ -78,7 +82,7 @@ Quando o Azure detecta um arquivo requirements.txt na raiz do repositório, ele 
 
 Você provavelmente desejará criar um ambiente virtual localmente para desenvolvimento, mas não o inclua em seu repositório Git.
 
-## Gerenciamento de pacote
+## <a name="package-management"></a>Gerenciamento de pacote
 Os pacotes listados no arquivo requirements.txt serão instalados automaticamente no ambiente virtual usando pip. Isso ocorre em todas as implantações, mas pip ignorará a instalação se um pacote já estiver instalado.
 
 Exemplo `requirements.txt`:
@@ -86,7 +90,7 @@ Exemplo `requirements.txt`:
     azure==0.8.4
 
 
-## Versão do Python
+## <a name="python-version"></a>Versão do Python
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 Exemplo `runtime.txt`:
@@ -94,12 +98,12 @@ Exemplo `runtime.txt`:
     python-2.7
 
 
-## Web.config
+## <a name="webconfig"></a>Web.config
 Você precisará criar um arquivo web.config para especificar como o servidor deve manipular solicitações.
 
 Observe que, se você tiver um arquivo web.x.y.config no repositório, em que x.y corresponde ao tempo de execução do Python selecionado, o Azure copiará automaticamente o arquivo apropriado como web.config.
 
-Os exemplos de web.config a seguir contam com um script de proxy do ambiente virtual, que é descrito na próxima seção. Eles funcionam com o manipulador WSGI usado no exemplo `app.py` acima.
+Os exemplos de web.config a seguir contam com um script de proxy do ambiente virtual, que é descrito na próxima seção.  Eles funcionam com o manipulador WSGI usado no exemplo `app.py` acima.
 
 Exemplo `web.config` para Python 2.7:
 
@@ -207,7 +211,7 @@ Nos exemplos acima, o local dos arquivos estáticos no disco deve corresponder a
 
 `PYTHONPATH` pode ser personalizado, mas se você instalar todas as suas dependências no ambiente virtual especificando-as em requirements.txt, não deverá precisar alterá-lo.
 
-## Proxy de ambiente virtual
+## <a name="virtual-environment-proxy"></a>Proxy de ambiente virtual
 O script a seguir é usado para recuperar o manipulador WSGI, ativar o ambiente virtual e registrar os erros em log. Foi projetado para ser genérico e ser usado sem modificações.
 
 Conteúdo de `ptvs_virtualenv_proxy.py`:
@@ -266,7 +270,7 @@ Conteúdo de `ptvs_virtualenv_proxy.py`:
             except: 
                 log('ptvsd.enable_attach failed\n')
         except ImportError:
-            log('error importing ptvsd.\n');
+            log('error importing ptvsd.\n')
 
     def get_wsgi_handler(handler_name):
         if not handler_name:
@@ -336,16 +340,16 @@ Conteúdo de `ptvs_virtualenv_proxy.py`:
         return handler
 
 
-## Personalizar a implantação do Git
+## <a name="customize-git-deployment"></a>Personalizar a implantação do Git
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-deployment.md)]
 
-## Solução de problemas - Instalação de pacotes
+## <a name="troubleshooting---package-installation"></a>Solução de problemas - Instalação de pacotes
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## Solução de problemas - Ambiente virtual
+## <a name="troubleshooting---virtual-environment"></a>Solução de problemas - Ambiente virtual
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python/).
 
 > [!NOTE]
@@ -353,7 +357,12 @@ Para saber mais, confira o [Centro de Desenvolvedores do Python](/develop/python
 > 
 > 
 
-## O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, confira: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+## <a name="whats-changed"></a>O que mudou
+* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

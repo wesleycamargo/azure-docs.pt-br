@@ -1,19 +1,23 @@
 ---
-title: Como usar as filas de Barramento de Serviço no Node.js | Microsoft Docs
-description: Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js.
-services: service-bus
+title: "Como usar as filas de Barramento de Serviço no Node.js | Microsoft Docs"
+description: "Aprenda a usar as filas do Barramento de Serviço no Azure a partir de um aplicativo Node.js."
+services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
+ms.openlocfilehash: d36d806d14fbaa813ea9e8e6ec132fda998bb22c
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Como usar filas do Barramento de Serviço
@@ -23,16 +27,16 @@ Este artigo descreve como usar as filas do Barramento de Serviço no Node.js. As
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="create-a-node.js-application"></a>Criar um aplicativo do Node.js
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, veja a seção [Criar e implantar um aplicativo Node.js em um site do Azure][Criar e implantar um aplicativo Node.js em um site do Azure] ou [Serviço de Nuvem do Node.js][Serviço de Nuvem do Node.js] usando o Windows PowerShell.
+## <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo do Node.js, confira [Criar e implantar um aplicativo Node.js em um site do Azure][Criar e implantar um aplicativo Node.js em um site do Azure] ou [Serviço de Nuvem do Node.js][Serviço de Nuvem do Node.js] usando o Windows PowerShell.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
 Para usar o Barramento de Serviço do Azure, baixe e use o pacote do Azure Node.js. Este pacote inclui um conjunto de bibliotecas que se comunicam com os serviços REST do barramento de serviço.
 
-### <a name="use-node-package-manager-(npm)-to-obtain-the-package"></a>Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
+### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Usar o NPM (gerenciador de pacotes de nós) para obter o pacote
 1. Use a janela de comando **Windows PowerShell para Node.js** para navegar até a pasta **c:\\node\\sbqueues\\WebRole1** na qual você criou o aplicativo de exemplo.
 2. Digite **npm install azure** na janela Comando, o que deve resultar em uma saída semelhante à seguinte:
-   
+
     ```
     azure@0.7.5 node_modules\azure
         ├── dateformat@1.0.2-1.2.3
@@ -60,7 +64,7 @@ O módulo Azure lê as variáveis de ambiente AZURE\_SERVICEBUS\_NAMESPACE e AZU
 
 Para obter um exemplo de como definir as variáveis de ambiente em um arquivo de configuração para um Serviço de Nuvem do Azure, consulte [Serviço de Nuvem do Node.js com Armazenamento][Serviço de Nuvem do Node.js com Armazenamento].
 
-Para ver um exemplo de como definir variáveis de ambiente no [portal clássico do Azure][portal clássico do Azure] para um Site do Azure, veja [Aplicativo Web do Node.js com Armazenamento][].
+Para ver um exemplo de como definir variáveis de ambiente no [Portal clássico do Azure][Portal clássico do Azure] para um site do Azure, confira [Aplicativo Web Node.js com Armazenamento][Aplicativo Web Node.js com Armazenamento].
 
 ## <a name="create-a-queue"></a>Criar uma fila
 O objeto **ServiceBusService** permite que você trabalhe com filas de barramento de serviço. O código a seguir cria um objeto **ServiceBusService**. Adicione-o próximo ao início do arquivo **server.js** , após a instrução de importação do módulo Azure:
@@ -134,7 +138,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, confira [Cotas do Barramento de Serviço][Cotas do Barramento de Serviço].
+As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para obter mais informações sobre cotas, consulte [Cotas do Barramento de Serviço][Cotas do Barramento de Serviço].
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
 As mensagens são recebidas de uma fila usando o método **receiveQueueMessage** no objeto **ServiceBusService**. Por padrão, as mensagens são excluídas da fila à medida que são lidas; no entanto, você pode ler (pico) e bloquear a mensagem sem excluí-la da fila configurando o parâmetro opcional **isPeekLock** como **true**.
@@ -174,8 +178,8 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 Para saber mais sobre filas, veja os seguintes recursos.
 
 * [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas]
-* Repositório do [SDK do Azure para Node][] no GitHub
-* [Centro de Desenvolvedores do Node.js](/develop/nodejs/)
+* [SDK do Azure para o nó][SDK do Azure para o nó] no GitHub
+* [Centro de desenvolvedores do Node.js](/develop/nodejs/)
 
 [SDK do Azure para o nó]: https://github.com/Azure/azure-sdk-for-node
 [Portal clássico do Azure]: http://manage.windowsazure.com
@@ -183,13 +187,12 @@ Para saber mais sobre filas, veja os seguintes recursos.
 [Serviço de Nuvem do Node.js]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Filas, tópicos e assinaturas]: service-bus-queues-topics-subscriptions.md
 [Criar e implantar um aplicativo Node.js em um site do Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Serviço de Nuvem do Node.js com Armazenamento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+[Serviço de Nuvem do Node.js com Armazenamento]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
 [Aplicativo Web Node.js com Armazenamento]: ../storage/storage-nodejs-how-to-use-table-storage.md
 [Cotas do Barramento de Serviço]: service-bus-quotas.md
 
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: How to send scheduled notifications | Microsoft Docs
-description: This topic describes using Scheduled Notifications with Azure Notification Hubs.
+title: "Como enviar notificações agendadas | Microsoft Docs"
+description: "Este tópico descreve como usar as Notificações Agendadas com os Hubs de Notificação do Azure."
 services: notification-hubs
 documentationcenter: .net
-keywords: push notifications,push notification,scheduling push notifications
+keywords: "notificações por push, notificação por push, agendando notificações por push"
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6b718c75-75dd-4c99-aee3-db1288235c1a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -15,23 +15,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: efac6e1ecc00359f1622d380333140bc055c83e0
+
 
 ---
-# <a name="how-to:-send-scheduled-notifications"></a>How To: Send scheduled notifications
-## <a name="overview"></a>Overview
-If you have a scenario in which you want to send a notification at some point in the future, but do not have an easy way to wake up your back-end code to send the notification. Standard tier Notification Hubs supports a feature that enables you to schedule notifications up to 7 days in the future.
+# <a name="how-to-send-scheduled-notifications"></a>Como enviar notificações agendadas
+## <a name="overview"></a>Visão geral
+Se você tiver um cenário no qual deseja enviar uma notificação em algum momento futuro, mas não tiver um maneira fácil de despertar seu código back-end para enviar a notificação. Os Hubs de Notificação do tipo Standard oferecem suporte a um recurso que permite a programação de notificações para sete dias no futuro.
 
-When sending a notification, simply use the [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) class in the Notification Hubs SDK as shown in the following example:
+Ao enviar uma notificação, simplesmente use a classe [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) no SDK dos Hubs de Notificação, conforme mostra o exemplo a seguir:
 
     Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
     var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 
-Also, you can cancel a previously scheduled notification using its notificationId:
+Além disso, você pode cancelar uma notificação previamente agendada usando essa notificationId:
 
     await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 
-There are no limits on the number of scheduled notifications you can send.
+Não há limites para o número de notificações agendadas que você pode enviar.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

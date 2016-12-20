@@ -15,17 +15,12 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: 2809b7f5367a333a7aac99db890d0aee3bc6667a
+ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
+ms.openlocfilehash: 5a6b743d69e1716ae3f48ddf0dfcb0f042133f5c
 
 
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Criar e implantar um aplicativo Node.jc para um Serviço de Nuvem do Azure
-> [!div class="op_single_selector"]
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [.NET](cloud-services-dotnet-get-started.md)
->
->
 
 Este tutorial mostra como criar um aplicativo simples do Node.js em execução em um Serviço de Nuvem do Azure. Os Serviços de Nuvem são os blocos de construção de aplicativos de nuvem escalonáveis no Azure. Eles permitem a separação e o gerenciamento independente e o dimensionamento dos componentes de front-end e back-end de seu aplicativo.  Os serviços de nuvem fornecem uma máquina virtual exclusiva robusta para hospedar cada função confiável.
 
@@ -176,7 +171,7 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js].
 <!-- URL List -->
 
 [Comparação de Sites do Azure, Serviços de Nuvem e Máquinas virtuais]: ../app-service-web/choose-web-site-cloud-service-vm.md
-[usando um aplicativo Web leve]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+[usar um aplicativo Web leve]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
 [Powershell do Azure]: ../powershell-install-configure.md
 [SDK do Azure para .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Conecte o PowerShell]: ../powershell-install-configure.md#step-3-connect
@@ -196,6 +191,6 @@ Para saber mais, confira o [Centro de desenvolvedores do Node.js].
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

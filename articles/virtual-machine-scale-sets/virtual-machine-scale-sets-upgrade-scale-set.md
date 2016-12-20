@@ -1,13 +1,13 @@
 ---
-title: Implantar um aplicativo em conjuntos de escala de máquina virtual | Microsoft Docs
-description: Implantar um aplicativo em conjuntos de escala de máquina virtual
+title: "Implantar um aplicativo em conjuntos de dimensionamento de máquinas virtuais | Microsoft Docs"
+description: "Implantar um aplicativo em conjuntos de escala de máquina virtual"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gbowerman
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a5158c51149e75952eaf91af14f3fcf2dd1ed2af
+
 
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Atualizar um conjunto de escala de máquina virtual
@@ -39,7 +43,7 @@ A sequência básica para alterar a versão/SKU do sistema operacional de uma im
 
 Com essas informações em mente, vamos ver como você pode atualizar a versão de um conjunto de escala no PowerShell, e usando a API REST. Esses exemplos abordam o caso de uma imagem de plataforma, mas este artigo fornece informações suficientes para adaptar esse processo a uma imagem personalizada.
 
-## <a name="powershell##"></a>PowerShell
+## <a name="powershell"></a>PowerShell
 Este exemplo atualiza um conjunto de escala de máquina virtual do Windows para uma nova versão, 4.0.20160229. Depois de atualizar o modelo, ele atualiza uma instância da máquina virtual por vez.
 
 ```powershell
@@ -90,6 +94,9 @@ Depois de clicar em **Atualizar** e em **Obter Detalhes**, as máquinas virtuais
 
 ![Vmsseditor mostrando atualização em andamento](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

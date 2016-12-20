@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o 8x8 Virtual Office | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o 8x8 Virtual Office.
+title: "Tutorial: Integração do Azure Active Directory com o 8x8 Virtual Office | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o 8x8 Virtual Office."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f8d126b9c2cfe5aaa6ef8f72f23ae7d66d6c524
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-8x8-virtual-office"></a>Tutorial: Integração do Azure Active Directory com o 8x8 Virtual Office
+# <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Tutorial: Integração do Azure Active Directory com o 8x8 Virtual Office
 O objetivo desse tutorial é mostrar como integrar o 8x8 Virtual Office ao Azure AD (Azure Active Directory).
 
 A integração do 8x8 Virtual Office ao Azure AD oferece os seguintes benefícios:
@@ -104,7 +108,7 @@ Nesta seção, você habilitará o Logon Único do Microsoft Azure AD no portal 
     ![Configurar o logon único](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_03.png) 
 3. Na página de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
    
-    ![Configurar Logon Único](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_04.png)
+    ![Configurar o logon único](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_04.png)
    
     a. Na caixa de texto **URL de Resposta**, digite: `https://sso.8x8.com/saml2`
    
@@ -153,7 +157,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-8x8virtualoffice-tutorial/create_aaduser_09.png)
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -256,6 +260,6 @@ Ao clicar no bloco do 8x8 Virtual Office no Painel de Acesso, você deverá ser 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

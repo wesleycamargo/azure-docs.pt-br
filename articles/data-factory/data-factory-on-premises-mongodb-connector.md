@@ -2,79 +2,86 @@
 title: Mover dados do MongoDB usando o Data Factory | Microsoft Docs
 description: Saiba mais sobre como mover dados do banco de dados MongoDB usando o Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 10ca7d9a-7715-4446-bf59-2d2876584550
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 11/02/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
+ms.openlocfilehash: 2a590795178d819d9df1b010dc68809492d6bdbc
+
 
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB usando o Azure Data Factory
 Este artigo descreve como você pode usar a atividade de cópia em uma fábrica de dados do Azure para mover dados de um armazenamento de dados MongoDB local para outro armazenamento de dados. Este artigo se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral da movimentação de dados com a atividade de cópia e as combinações de armazenamento de dados de origem/do coletor para as quais a atividade de cópia dá suporte.
 
-O serviço Data Factory dá suporte à conexão com fontes MongoDB locais usando o Gateway de Gerenciamento de Dados. Veja o artigo [Gateway de gerenciamento de dados](data-factory-data-management-gateway.md) para saber mais sobre o Gateway de Gerenciamento de Dados e o artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo sobre como configurar o gateway de um pipeline de dados para mover dados. 
+O serviço Data Factory dá suporte à conexão com fontes MongoDB locais usando o Gateway de Gerenciamento de Dados. Veja o artigo [Gateway de gerenciamento de dados](data-factory-data-management-gateway.md) para saber mais sobre o Gateway de Gerenciamento de Dados e o artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo sobre como configurar o gateway de um pipeline de dados para mover dados.
 
 > [!NOTE]
 > É necessário usar o gateway para se conectar ao MongoDB, mesmo se ele está hospedado em VMs IaaS do Azure. Se estiver tentando se conectar a uma instância do MongoDB hospedada na nuvem, você também pode instalar a instância do gateway na VM do IaaS.
-> 
-> 
+>
+>
 
 Atualmente, o Data Factory dá suporte apenas para a movimentação de dados do MongoDB para outros armazenamentos de dados, mas não para a movimentação de dados de outros armazenamentos de dados para o MongoDB.
 
+## <a name="supported-versions"></a>Versões com suporte
+O conector MongoDB suporta o MongoDB versão 2.4 e posterior.
+
 ## <a name="prerequisites"></a>Pré-requisitos
-Para o serviço Azure Data Factory poder se conectar ao banco de dados MongoDB no local, você deve instalar os seguintes componentes: 
+Para o serviço Azure Data Factory poder se conectar ao banco de dados MongoDB no local, você deve instalar os seguintes componentes:
 
 * Gateway de Gerenciamento de Dados 2.0 ou superior no mesmo computador que hospeda o banco de dados ou em um computador separado para evitar disputa por recursos com o banco de dados. O Gateway de Gerenciamento de Dados é um software que conecta fontes de dados locais a serviços de nuvem de maneira segura e gerenciada. Confira o artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) para obter todos os detalhes sobre o Gateway de Gerenciamento de Dados.
-  
-    Quando você instala o gateway, ele instala automaticamente um driver ODBC do Microsoft MongoDB usado para se conectar ao banco de dados MongoDB. 
+
+    Quando você instala o gateway, ele instala automaticamente um driver ODBC do Microsoft MongoDB usado para se conectar ao banco de dados MongoDB.
 
 ## <a name="copy-data-wizard"></a>Assistente para Copiar Dados
-A maneira mais fácil de criar um pipeline que copie dados de um banco de dados Cassandra para qualquer um dos repositórios de dados compatíveis é usar o Assistente de cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados. 
+A maneira mais fácil de criar um pipeline que copie dados de um banco de dados Cassandra para qualquer um dos repositórios de dados compatíveis é usar o Assistente de cópia de dados. Confira [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do banco de dados MongoDB para Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a Atividade de Cópia no Azure Data Factory.
+O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do banco de dados MongoDB para Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
-## <a name="sample:-copy-data-from-mongodb-to-azure-blob"></a>Exemplo: copiar dados do MongoDB para o Blob do Azure
-Este exemplo mostra como copiar dados de um banco de dados MongoDB local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores) usando a atividade de cópia no Azure Data Factory.  
+## <a name="sample-copy-data-from-mongodb-to-azure-blob"></a>Exemplo: copiar dados do MongoDB para o Blob do Azure
+Este exemplo mostra como copiar dados de um banco de dados MongoDB local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** para qualquer uma das fontes declaradas [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  
 
 O exemplo tem as seguintes entidades de data factory:
 
 1. Um serviço vinculado do tipo [OnPremisesMongoDb](#linked-service-properties).
-2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2. Um serviço vinculado do tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. Um [conjunto de dados](data-factory-create-datasets.md) de entrada do tipo [MongoDbCollection](#dataset-type-properties).
 4. Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 5. Um [pipeline](data-factory-create-pipelines.md) com a Atividade de Cópia que usa [MongoDbSource](#copy-activity-type-properties) e [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-O exemplo copia dados de um resultado de consulta no banco de dados MongoDB para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos. 
+O exemplo copia dados de um resultado de consulta no banco de dados MongoDB para um blob a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) . 
+Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo com as instruções no artigo [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md) .
 
 **Serviço vinculado ao MongoDB**
 
-    { 
-        "name": "OnPremisesMongoDbLinkedService", 
-        "properties": 
-        { 
-            "type": "OnPremisesMongoDb", 
-            "typeProperties": 
-            { 
-                "authenticationType": "<Basic or Anonymous>", 
+    {
+        "name": "OnPremisesMongoDbLinkedService",
+        "properties":
+        {
+            "type": "OnPremisesMongoDb",
+            "typeProperties":
+            {
+                "authenticationType": "<Basic or Anonymous>",
                 "server": "< The IP address or host name of the MongoDB server >",  
-                "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>", 
-                "username": "<username>", 
+                "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
+                "username": "<username>",
                 "password": "<password>",
                "authSource": "< The database that you want to use to check your credentials for authentication. >",
                 "databaseName": "<database name>",
                 "gatewayName": "<mygateway>"
-            } 
+            }
         }
-    } 
+    }
 
 
 **Serviço vinculado de armazenamento do Azure**
@@ -93,18 +100,18 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
 
     {
          "name":  "MongoDbInputDataset",
-        "properties": { 
-            "type": "MongoDbCollection", 
-            "linkedServiceName": "OnPremisesMongoDbLinkedService", 
-            "typeProperties": { 
-                "collectionName": "<Collection name>"   
-            }, 
+        "properties": {
+            "type": "MongoDbCollection",
+            "linkedServiceName": "OnPremisesMongoDbLinkedService",
+            "typeProperties": {
+                "collectionName": "<Collection name>"    
+            },
             "availability": {
                 "frequency": "Hour",
                 "interval": 1
             },
             "external": true
-        } 
+        }
     }
 
 
@@ -234,7 +241,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos do serv
 | gatewayName |Nome do gateway que acessa o armazenamento de dados. |Sim |
 | encryptedCredential |Credencial criptografada pelo gateway. |Opcional |
 
-Veja [Definir credenciais e segurança](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) para obter detalhes sobre como definir credenciais para uma fonte de dados MongoDB local.
+Consulte [Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre como configurar as credenciais para uma fonte de dados MongoDB local.
 
 ## <a name="dataset-type-properties"></a>Propriedades do tipo de conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
@@ -246,7 +253,7 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | collectionName |Nome da coleção no banco de dados MongoDB. |Sim |
 
 ## <a name="copy-activity-type-properties"></a>Propriedades do tipo da atividade de cópia
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades. 
+Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.
 
 As propriedades disponíveis na seção **typeProperties** da atividade, por outro lado, variam de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam de acordo com os tipos de fonte e coletor.
 
@@ -257,7 +264,7 @@ Quando a fonte é do tipo **MongoDbSource** , as seguintes propriedades estão d
 | query |Utiliza a consulta personalizada para ler os dados. |Cadeia de consulta SQL-92. Por exemplo: select * from MyTable. |Não (se **collectionName** de **dataset** for especificado) |
 
 ## <a name="schema-by-data-factory"></a>Esquema do Data Factory
-O serviço Azure Data Factory infere o esquema de uma coleção do MongoDB usando os 100 documentos mais recentes na coleção. Se esses 100 documentos não contiverem o esquema completo, algumas colunas poderão ser ignoradas durante a operação de cópia. 
+O serviço Azure Data Factory infere o esquema de uma coleção do MongoDB usando os 100 documentos mais recentes na coleção. Se esses 100 documentos não contiverem o esquema completo, algumas colunas poderão ser ignoradas durante a operação de cópia.
 
 ## <a name="type-mapping-for-mongodb"></a>Mapeamento de tipo para o MongoDB
 Como mencionado no artigo sobre as [Atividades de movimentação de dados](data-factory-data-movement-activities.md) , a Atividade de Cópia executa conversões automáticas dos tipos de fonte nos tipos de coletor com a seguinte abordagem de duas etapas:
@@ -281,9 +288,9 @@ Ao mover dados para o MongoDB, os seguintes mapeamentos serão usados dos tipos 
 | Objeto |Renormalizado para colunas simples com “_” como separador aninhado |
 
 > [!NOTE]
-> Para saber mais sobre o suporte para matrizes usando tabelas virtuais, consulte a seção [Suporte para tipos complexos usando tabelas virtuais](#support-for-complex-types-using-virtual-tables) abaixo. 
-> 
-> 
+> Para saber mais sobre o suporte para matrizes usando tabelas virtuais, consulte a seção [Suporte para tipos complexos usando tabelas virtuais](#support-for-complex-types-using-virtual-tables) abaixo.
+>
+>
 
 Atualmente, os seguintes tipos de dados do MongoDB não têm suporte: DBPointer, JavaScript, Max/Min key, Regular Expression, Symbol, Timestamp, Undefined
 
@@ -295,10 +302,10 @@ O Azure Data Factory usa um driver ODBC interno para se conectar ao banco de dad
 
 As tabelas virtuais se referem aos dados na tabela real, permitindo que o driver acesse dados desordenados. Veja a seção Exemplo abaixo para obter detalhes. Você pode acessar o conteúdo das matrizes do MongoDB consultando e unindo as tabelas virtuais.
 
-Você pode usar o [Assistente de Cópia](data-factory-data-movement-activities.md#data-factory-copy-wizard) para exibir intuitivamente a lista de tabelas no banco de dados MongoDB, incluindo as tabelas virtuais, e visualizar os dados internos. Também é possível construir uma consulta no Assistente de Cópia e validar para ver o resultado.
+Você pode usar o [Assistente de Cópia](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) para exibir intuitivamente a lista de tabelas no banco de dados MongoDB, incluindo as tabelas virtuais, e visualizar os dados internos. Também é possível construir uma consulta no Assistente de Cópia e validar para ver o resultado.
 
 ### <a name="example"></a>Exemplo
-Por exemplo, "TabelaDeExemplo" abaixo é uma tabela do MongoDB com uma coluna com uma matriz de Objetos em cada célula – Faturas, e uma coluna com uma matriz de tipos escalares – Classificações. 
+Por exemplo, "TabelaDeExemplo" abaixo é uma tabela do MongoDB com uma coluna com uma matriz de Objetos em cada célula – Faturas, e uma coluna com uma matriz de tipos escalares – Classificações.
 
 | _id | Nome do Cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
@@ -312,10 +319,10 @@ O driver geraria várias tabelas virtuais para representar essa tabela única. A
 | 1111 |ABC |Silver |
 | 2222 |XYZ |Gold |
 
-As tabelas a seguir mostram as tabelas virtuais que representam as matrizes originais no exemplo. Essas tabelas contém o seguinte: 
+As tabelas a seguir mostram as tabelas virtuais que representam as matrizes originais no exemplo. Essas tabelas contém o seguinte:
 
 * Uma referência à coluna de chave primária original correspondente para a linha da matriz original (por meio da coluna _id)
-* Uma indica da posição dos dados dentro da matriz original 
+* Uma indica da posição dos dados dentro da matriz original
 * Os dados expandidos para cada elemento da matriz
 
 Tabela "TabelaDeExemplo_Faturas":
@@ -343,8 +350,10 @@ Tabela "TabelaDeExemplo_Classificações":
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho da movimentação de dados (Atividade de Cópia) no Azure Data Factory, além de várias maneiras de otimizar esse processo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Veja o artigo [Mover dados entre locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo para criar um pipeline de dados que move dados de um armazenamento de dados local para um armazenamento de dados do Azure. 
+Veja o artigo [Mover dados entre locais e na nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo para criar um pipeline de dados que move dados de um armazenamento de dados local para um armazenamento de dados do Azure.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Entradas de fontes desconhecidas
-description: Um relatório que indica os usuários que entraram com êxito em seu diretório a partir de um endereço IP de proxy anônimo.
+description: "Um relatório que indica os usuários que entraram com êxito em seu diretório a partir de um endereço IP de proxy anônimo."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: SSalahAhmed
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2f045543-1578-4972-bf70-b35310f23110
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 04824d96fcce4affc8fb43edebd241f0f7213405
+
 
 ---
 # <a name="sign-ins-from-unknown-sources"></a>Entradas de fontes desconhecidas
@@ -23,6 +27,9 @@ Os resultados desse relatório mostrarão o número de vezes que um usuário rea
 
 ![Entradas de fontes desconhecidas](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

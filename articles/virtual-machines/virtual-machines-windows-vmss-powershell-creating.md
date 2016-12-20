@@ -1,39 +1,44 @@
 ---
-title: Criando Conjuntos de Escala de Máquina Virtual usando cmdlets do PowerShell | Microsoft Docs
-description: Introdução à criação e ao gerenciamento dos seus primeiros Conjuntos de Escalas de Máquina Virtual do Azure usando cmdlets do Azure PowerShell
+title: "Criação de conjuntos de dimensionamento de máquinas virtuais usando cmdlets do PowerShell | Microsoft Docs"
+description: "Introdução à criação e ao gerenciamento dos seus primeiros Conjuntos de Escalas de Máquina Virtual do Azure usando cmdlets do Azure PowerShell"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: danielsollondon
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 430d9d64-1f35-48f0-a4fd-9b69910ffa59
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2016
+ms.date: 09/29/2016
 ms.author: danielsollondon
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 14f83c6753ce37639b1b2f78a4c632f1d69f585d
+
 
 ---
-# Criando Conjuntos de Escala de Máquina Virtual usando cmdlets do PowerShell
+# <a name="creating-virtual-machine-scale-sets-using-powershell-cmdlets"></a>Criando Conjuntos de Escala de Máquina Virtual usando cmdlets do PowerShell
 Este é um exemplo de como criar um VMSS (Conjunto de Escala de Máquina Virtual). Ele cria um VMSS de 3 nós, com todas as Redes e Armazenamento associados.
 
-## Primeiras Etapas
-Certifique-se de ter o módulo do Azure PowerShell mais recente esteja instalado, ele conterá os cmdlets do PowerShell necessários para manter e criar VMSS. Vá para as ferramentas de linha de comando [aqui](http://aka.ms/webpi-azps) para os Módulos do Azure mais recentes disponíveis.
+## <a name="first-steps"></a>Primeiras Etapas
+Certifique-se de ter o módulo do Azure PowerShell mais recente esteja instalado, ele conterá os cmdlets do PowerShell necessários para manter e criar VMSS.
+Vá para as ferramentas de linha de comando [aqui](http://aka.ms/webpi-azps) para os Módulos do Azure mais recentes disponíveis.
 
-Para localizar commandlets relacionados ao VMSS, use a cadeia de caracteres de pesquisa * VMSS*.
+Para localizar commandlets relacionados ao VMSS, use a cadeia de caracteres de pesquisa \*VMSS\*.
 
-## Criando uma VMSS
-##### Criar grupo de recursos
+## <a name="creating-a-vmss"></a>Criando uma VMSS
+##### <a name="create-resource-group"></a>Criar grupo de recursos
 ```
 $loc = 'westus';
 $rgname = 'mynewrgwu';
   New-AzureRmResourceGroup -Name $rgname -Location $loc -Force;
 ```
 
-##### Criar Conta de Armazenamento
+##### <a name="create-storage-account"></a>Criar Conta de Armazenamento
 Definir o nome/o tipo de conta de armazenamento
 
 ```
@@ -44,23 +49,23 @@ $stotype = 'Standard_LRS';
 $stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stoname;
 ```
 
-#### Criar Rede (Rede Virtual/Sub-rede)
-##### Especificação de Sub-rede
+#### <a name="create-networking-vnet-subnet"></a>Criar Rede (Rede Virtual/Sub-rede)
+##### <a name="subnet-specification"></a>Especificação de Sub-rede
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
-##### Especificação de Rede Virtual
+##### <a name="vnet-specification"></a>Especificação de Rede Virtual
 ```
-$vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -DnsServer "10.1.1.1" -Subnet $subnet;
+$vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
 
 #In this case below we assume the new subnet is the only one, note difference if you have one already or have adjusted this code to more than one subnet.
 $subnetId = $vnet.Subnets[0].Id;
 ```
 
-##### Criar Recurso IP Público para Permitir o Acesso Externo
+##### <a name="create-public-ip-resource-to-allow-external-access"></a>Criar Recurso IP Público para Permitir o Acesso Externo
 Isso será associado ao Balanceador de Carga.
 
 ```
@@ -68,7 +73,7 @@ $pubip = New-AzureRmPublicIpAddress -Force -Name ('pubip' + $rgname) -ResourceGr
 $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName $rgname;
 ```
 
-##### Criar e Configurar o Balanceador de Carga
+##### <a name="create-and-configure-load-balancer"></a>Criar e Configurar o Balanceador de Carga
 ```
 $frontendName = 'fe' + $rgname
 $backendAddressPoolName = 'bepool' + $rgname
@@ -81,7 +86,7 @@ $lbName = 'vmsslb' + $rgname
 $frontend = New-AzureRmLoadBalancerFrontendIpConfig -Name $frontendName -PublicIpAddress $pubip
 ```
 
-##### Configurar o Balanceador de Carga
+##### <a name="configure-load-balancer"></a>Configurar o Balanceador de Carga
 Criar Configuração de Pool de Endereços de Back-end, isso será compartilhado por NICs as VMs em VMSS.
 
 ```
@@ -131,7 +136,7 @@ Verifique as configurações de Balanceamento de Carga, verifique as configuraç
 $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
-##### Configurar e Criar VMSS
+##### <a name="configure-and-create-vmss"></a>Configurar e Criar VMSS
 Observe que este exemplo de infraestrutura mostra como instalar a distribuição e o dimensionamento de tráfego da Web através de VMSS, mas as imagens das VMs especificadas aqui não tem serviços Web instalados.
 
 ```
@@ -164,9 +169,6 @@ $ipCfg = New-AzureRmVmssIPConfig -Name 'nic' `
 -LoadBalancerInboundNatPoolsId $actualLb.InboundNatPools[0].Id `
 -LoadBalancerBackendAddressPoolsId $actualLb.BackendAddressPools[0].Id `
 -SubnetId $subnetId;
-
-$ipCfg.LoadBalancerBackendAddressPools.Add($actualLb.BackendAddressPools[0].Id);
-$ipCfg.LoadBalancerInboundNatPools.Add($actualLb.InboundNatPools[0].Id);
 ```
 
 Criar Configuração VMSS
@@ -198,4 +200,8 @@ VM1 : pubipmynewrgwu.westus.cloudapp.azure.com:3361
 VM2 : pubipmynewrgwu.westus.cloudapp.azure.com:3362
 ```
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

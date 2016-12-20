@@ -1,12 +1,12 @@
 ---
-title: Gatilhos de aplicativo da API do Serviço de Aplicativo | Microsoft Docs
-description: Como implementar gatilhos em um aplicativo de API no Serviço de Aplicativo do Azure
+title: "Gatilhos de aplicativo de API do Serviço de Aplicativo | Microsoft Docs"
+description: "Como implementar gatilhos em um aplicativo de API no Serviço de Aplicativo do Azure"
 services: logic-apps
 documentationcenter: .net
 author: guangyang
 manager: wpickett
 editor: jimbe
-
+ms.assetid: 493c3703-786d-4434-9dca-8f77744b2f5d
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: dotnet
@@ -14,34 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f3970e39dab23f65c623e134d9e38df9831b37f8
+
 
 ---
-# Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure
+# <a name="azure-app-service-api-app-triggers"></a>Gatilhos de aplicativo de API do Serviço de Aplicativo do Azure
 > [!NOTE]
 > Esta versão do artigo se aplica à versão do esquema 2014-12-01-preview de aplicativos de API.
 > 
 > 
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 Este artigo explica como implementar gatilhos de aplicativo de API e consumi-los por meio de um aplicativo lógico.
 
-Todos os trechos de código mostrados neste tópico foram copiados do [exemplo de código do aplicativo de API do FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
+Todos os trechos de código mostrados neste tópico foram copiados do [exemplo de código do aplicativo de API do FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802). 
 
 Observe que você precisará baixar o seguinte pacote do nuget para que o código neste artigo seja compilado e executado: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
-## O que são gatilhos de aplicativo de API?
-É um cenário comum para um aplicativo de API disparar um evento para que os clientes do aplicativo de API possam realizar a ação apropriada em resposta ao evento. O mecanismo baseado em API REST que oferece suporte a esse cenário é chamado de gatilho de aplicativo de API.
+## <a name="what-are-api-app-triggers"></a>O que são gatilhos de aplicativo de API?
+É um cenário comum para um aplicativo de API disparar um evento para que os clientes do aplicativo de API possam realizar a ação apropriada em resposta ao evento. O mecanismo baseado em API REST que oferece suporte a esse cenário é chamado de gatilho de aplicativo de API. 
 
 Por exemplo, digamos que seu código de cliente está usando o [Aplicativo de API para conexão ao Twitter](../app-service-logic/app-service-logic-connector-twitter.md) e seu código precisa executar uma ação com base em novos tweets que contêm palavras específicas. Nesse caso, você pode definir um gatilho de sondagem ou de envio por push para facilitar essa necessidade.
 
-## Gatilho de sondagem versus gatilho de envio
+## <a name="poll-trigger-versus-push-trigger"></a>Gatilho de sondagem versus gatilho de envio
 Atualmente, há suporte para dois tipos de gatilhos:
 
-* Gatilho de sondagem - o cliente faz a sondagem no aplicativo de API buscando notificação de um determinado evento ter sido acionado
-* Disparador de envio - o cliente é notificado pelo aplicativo API quando um evento é acionado
+* Gatilho de sondagem - o cliente faz a sondagem no aplicativo de API buscando notificação de um determinado evento ter sido acionado 
+* Disparador de envio - o cliente é notificado pelo aplicativo API quando um evento é acionado 
 
-### Gatilho de sondagem
-Um gatilho de sondagem é implementado como uma API REST regular e espera que seus clientes (por exemplo, um aplicativo lógico) consultem-no para obter notificações. Enquanto o cliente pode manter o estado, o gatilho de sondagem em si é sem estado.
+### <a name="poll-trigger"></a>Gatilho de sondagem
+Um gatilho de sondagem é implementado como uma API REST regular e espera que seus clientes (por exemplo, um aplicativo lógico) consultem-no para obter notificações. Enquanto o cliente pode manter o estado, o gatilho de sondagem em si é sem estado. 
 
 As informações sobre os pacotes de solicitação e resposta a seguir ilustram alguns aspectos fundamentais do contrato de gatilho de sondagem.
 
@@ -90,10 +94,12 @@ O trecho de código a seguir é um exemplo de como implementar um gatilho de son
 Para testar esse gatilho de sondagem, siga estas etapas:
 
 1. Implante o Aplicativo de API com uma configuração de autenticação **Público (anônimo)**.
-2. Chame a operação **touch** para tocar em um arquivo. A imagem a seguir mostra um exemplo de solicitação via Postman. ![Operação de toque de chamada via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-3. Chame o gatilho de sondagem com o parâmetro **triggerState** definido como um carimbo de data/hora antes da etapa 2. A imagem a seguir mostra o exemplo de solicitação via Postman. ![Gatilho de sondagem de chamada via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
+2. Chame a operação **touch** para tocar em um arquivo. A imagem a seguir mostra um exemplo de solicitação via Postman.
+   ![Operação de toque de chamada via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+3. Chame o gatilho de sondagem com o parâmetro **triggerState** definido como um carimbo de data/hora antes da etapa 2. A imagem a seguir mostra o exemplo de solicitação via Postman.
+   ![Gatilho de sondagem de chamada via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
-### Gatilho de push
+### <a name="push-trigger"></a>Gatilho de push
 Um gatilho de push é implementado como uma API REST regular que envia notificações para clientes que se inscreveram para serem notificados quando eventos específicos forem disparados.
 
 As informações a seguir sobre os pacotes de solicitação e resposta ilustram alguns aspectos fundamentais do contrato de gatilho de push:
@@ -193,11 +199,14 @@ Para testar esse gatilho de sondagem, siga estas etapas:
 
 1. Implante o Aplicativo de API com uma configuração de autenticação **Público (anônimo)**.
 2. Navegue até [http://requestb.in/](http://requestb.in/) para criar um RequestBin que servirá como sua URL de retorno de chamada.
-3. Chame o disparador de envio com uma GUID como **triggerId** e a URL RequestBin como **callbackUrl**. ![Gatilho de push de chamada via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
-4. Chame a operação **touch** para tocar em um arquivo. A imagem a seguir mostra um exemplo de solicitação via Postman. ![Operação de toque de chamada via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-5. Verifique o RequestBin para confirmar que o retorno de chamada do gatilho de push é invocado com a saída da propriedade. ![Gatilho de sondagem de chamada via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
+3. Chame o gatilho de envio com uma GUID como **triggerId** e a URL RequestBin como **callbackUrl**.
+   ![Gatilho de push de chamada via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
+4. Chame a operação **touch** para tocar em um arquivo. A imagem a seguir mostra um exemplo de solicitação via Postman.
+   ![Operação de toque de chamada via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+5. Verifique o RequestBin para confirmar que o retorno de chamada do gatilho de push é invocado com a saída da propriedade.
+   ![Gatilho de sondagem de chamada via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
-### Descrever gatilhos na definição de API
+### <a name="describe-triggers-in-api-definition"></a>Descrever gatilhos na definição de API
 Depois de implementar os gatilhos e implantar seu aplicativo de API no Azure, navegue até a folha **definição API** no portal de visualização do Azure e você verá que os gatilhos são reconhecidos automaticamente na interface do usuário, que é orientada pela definição de API Swagger 2.0 do aplicativo de API.
 
 ![Folha Definição de API](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
@@ -230,8 +239,8 @@ A propriedade de extensão **x-ms-schedular-trigger** é como os gatilhos são d
   * Se a propriedade **operationId** contém a cadeia de caracteres **trigger**.
   * Se a propriedade **parameters** inclui um parâmetro com uma propriedade **name** definida como **triggerId**.
 
-## Usar gatilhos de aplicativo de API em aplicativos lógicos
-### Listar e configurar gatilhos de aplicativo de API no designer de aplicativos lógicos
+## <a name="use-api-app-triggers-in-logic-apps"></a>Usar gatilhos de aplicativo de API em aplicativos lógicos
+### <a name="list-and-configure-api-app-triggers-in-the-logic-apps-designer"></a>Listar e configurar gatilhos de aplicativo de API no designer de aplicativos lógicos
 Se você criar um aplicativo lógico no mesmo grupo de recursos que o aplicativo de API, você poderá adicioná-la à tela do designer simplesmente clicando nele. As imagens a seguir ilustram isso:
 
 ![Gatilhos no Designer de Aplicativos Lógicos](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
@@ -240,16 +249,16 @@ Se você criar um aplicativo lógico no mesmo grupo de recursos que o aplicativo
 
 ![Configurar o Gatilho de Push no Designer de Aplicativos Lógicos](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
-## Otimizar gatilhos de aplicativo de API para aplicativos lógicos
+## <a name="optimize-api-app-triggers-for-logic-apps"></a>Otimizar gatilhos de aplicativo de API para aplicativos lógicos
 Depois de adicionar gatilhos a um aplicativo de API, há algumas coisas que você pode fazer para melhorar a experiência ao usar o aplicativo de API em um aplicativo lógico.
 
-Por exemplo, o parâmetro **triggerState** para gatilhos sondagem deve ser definido como a expressão a seguir no aplicativo lógico. Essa expressão deve avaliar a última chamada do gatilho pelo aplicativo lógico e retornar esse valor.
+Por exemplo, o parâmetro **triggerState** para gatilhos sondagem deve ser definido como a expressão a seguir no aplicativo lógico. Essa expressão deve avaliar a última chamada do gatilho pelo aplicativo lógico e retornar esse valor.  
 
     @coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
 OBSERVAÇÃO: Para obter uma explicação das funções usadas na expressão acima, consulte a documentação sobre [Linguagem de definição de fluxo de trabalho de aplicativos lógicos](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
-Os usuários de aplicativos lógicos precisariam fornecer a expressão acima para o parâmetro **triggerState** ao usar o gatilho. É possível fazer com que esse valor seja predefinido pelo designer do aplicativo lógico por meio da propriedade de extensão **x-ms-scheduler-recommendation**. A propriedade de extensão **x-ms-visibility** pode ser definida com o um valor *internal* para que o parâmetro em si não seja exibido no designer. O trecho de código a seguir ilustra isso.
+Os usuários de aplicativos lógicos precisariam fornecer a expressão acima para o parâmetro **triggerState** ao usar o gatilho. É possível fazer com que esse valor seja predefinido pelo designer do aplicativo lógico por meio da propriedade de extensão **x-ms-scheduler-recommendation**.  A propriedade de extensão **x-ms-visibility** pode ser definida com o um valor *internal* para que o parâmetro em si não seja exibido no designer.  O trecho de código a seguir ilustra isso.
 
     "/api/Messages/poll": {
       "get": {
@@ -286,8 +295,8 @@ Usando as propriedades de extensão **x-ms-scheduler-recommendation** e **x-ms-v
           },
 
 
-### Adicionar propriedades de extensão na definição de API
-Informações adicionais de metadados - como as propriedades de extensão **x-ms-scheduler-recommendation** e **x-ms-visibility** -podem ser adicionadas à definição de API de dois modos: estáticos ou dinâmicos.
+### <a name="add-extension-properties-in-api-defintion"></a>Adicionar propriedades de extensão na definição de API
+Informações adicionais de metadados – como as propriedades de extensão **x-ms-scheduler-recommendation** e **x-ms-visibility** -podem ser adicionadas à definição de API de dois modos: estáticos ou dinâmicos.
 
 Para metadados estáticos, você pode editar diretamente o arquivo */metadata/apiDefinition.swagger.json* em seu projeto e adicionar as propriedades manualmente.
 
@@ -333,4 +342,8 @@ Este é um exemplo de como essa classe pode ser implementada para facilitar o ce
     }
 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Diretrizes de monitoramento e diagnóstico | Microsoft Docs
-description: Práticas recomendadas para monitoramento de aplicativos distribuídos na nuvem.
-services: ''
+title: "Diretrizes de monitoramento e diagnóstico | Microsoft Docs"
+description: "Práticas recomendadas para monitoramento de aplicativos distribuídos na nuvem."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 2d2a8497-73d0-4a46-aac6-6d504003de2b
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 8d149069c95b5b68904ab6a5a47b1fa6215da23d
+
 
 ---
 # <a name="monitoring-and-diagnostics-guidance"></a>Diretrizes de monitoramento e diagnóstico
@@ -60,7 +64,7 @@ Se qualquer parte do sistema for considerada como problemática, um operador dev
 
 Um sistema de monitoramento de integridade abrangente permite que o operador faça uma busca detalhada no sistema para exibir o status de integridade dos componentes e subsistemas. Por exemplo, se o sistema geral for representado como parcialmente íntegro, o operador deve ser capaz de ter uma visão mais detalhada para determinar qual funcionalidade está indisponível no momento.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
 Os dados brutos necessários para dar suporte ao monitoramento da integridade podem ser gerados como resultado de:
 
 * Rastreamento da execução de solicitações do usuário. Essas informações podem ser usadas para determinar quais solicitações tiveram êxito, quais falharam e quanto tempo cada solicitação leva.
@@ -93,7 +97,7 @@ Um operador também deve ser capaz de exibir o histórico de disponibilidade de 
 
 Uma solução de monitoramento deve fornecer uma visão imediata e histórica da disponibilidade ou indisponibilidade de cada subsistema. Ele também deve ser capaz de alertar rapidamente um operador quando um ou mais serviços falham ou quando os usuários não podem se conectar aos serviços. Não se trata apenas de monitorar cada serviço, mas também de examinar as ações se elas falham ao tentar se comunicar com um serviço. Até certo ponto, um grau de falha de conectividade é normal e pode ser devido a erros temporários. Mas pode ser útil permitir que o sistema emita um alerta pelo número de falhas de conectividade para determinado subsistema que ocorrem durante um período específico.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
 Assim como com o monitoramento de integridade, os dados brutos necessários para dar suporte ao monitoramento da disponibilidade podem ser gerados como resultado do monitoramento do usuário sintético e do registro em log de exceções, falhas e avisos que possam ocorrer. Além disso, dados de disponibilidade podem ser obtidos realizando o monitoramento do ponto de extremidade. O aplicativo pode expor um ou mais pontos de extremidade de integridade, cada um deles testando o acesso a uma área funcional do sistema. O sistema de monitoramento pode executar um ping de cada ponto de extremidade seguindo um cronograma definido e coletar os resultados (sucesso ou falha).
 
 Todas as falhas de conectividade de rede, tempos limite e novas tentativas de conexão devem ser registrados. Todos os dados devem ter carimbo de data/hora.
@@ -157,7 +161,7 @@ Todas as visualizações devem permitir que um operador especifique um período 
 
 O operador deve ser capaz de gerar um alerta baseado em qualquer medida de desempenho para qualquer valor determinado durante qualquer intervalo de tempo especificado.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
 Você pode obter dados de desempenho de alto nível (taxa de transferência, número de usuários simultâneos, número de transações de negócios, taxas de erro e assim por diante) monitorando o progresso das solicitações de usuários conforme elas chegam e passam pelo sistema. Isso envolve a incorporação de instruções de rastreamento nos pontos-chave do código do aplicativo, em conjunto com informações de tempo. Todas as falhas, exceções e avisos devem ser capturados com dados suficientes para correlacioná-los às solicitações que os causaram. O log do IIS (Serviços de Informações da Internet) é outra fonte útil.
 
 Se possível, você também deve capturar dados de desempenho de quaisquer sistemas externos que o aplicativo utilizar. Esses sistemas externos podem fornecer seus próprios contadores de desempenho ou outros recursos para solicitação de dados de desempenho. Se isso não for possível, registre informações como a hora de início e de término de cada solicitação feita para um sistema externo, junto com o status (êxito, falha ou aviso) da operação. Por exemplo, você pode usar uma abordagem de cronômetro para solicitações de tempo: inicie um cronômetro quando a solicitação for iniciada e pare o cronômetro quando ela for concluída.
@@ -199,7 +203,7 @@ As informações fornecidas a um operador devem incluir o endereço do host de o
 
 Um aspecto fundamental da manutenção da segurança de um sistema é a capacidade de detectar rapidamente ações que desviam do padrão normal. As informações como o número de solicitações de entrada com falha e/ou com êxito podem ser exibidas visualmente para ajudar a detectar se há um aumento na atividade em horário fora do comum. (Um exemplo dessa atividade mostra usuários entrando às 3h e executando um grande número de operações quando seu dia de trabalho começa às 9h). Essas informações também podem ser usadas para ajudar a configurar o dimensionamento automático baseado em tempo. Por exemplo, se o operador observar que um grande número de usuários entra regularmente em um determinado horário do dia, ele pode configurar a inicialização de serviços de autenticação adicionais para lidar com o volume de trabalho e depois desativar esses serviços quando o pico terminar.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
 A segurança é um aspecto abrangente da maioria dos sistemas distribuídos. Os dados pertinentes provavelmente serão gerados em vários pontos em um sistema. Você deve considerar a adoção de uma abordagem SIEM (gerenciamento de informações e eventos de segurança) para coletar informações relacionadas à segurança resultantes de eventos gerados pelo aplicativo, equipamento de rede, servidores, firewalls, software antivírus e outros elementos de prevenção de intrusões.
 
 O monitoramento de segurança pode incorporar dados de ferramentas que não fazem parte do seu aplicativo. Essas ferramentas podem incluir utilitários que identificam atividades de verificação de porta por órgãos externos ou filtros de rede que detectam tentativas de acesso não autenticado ao seu aplicativo e dados.
@@ -251,7 +255,7 @@ Um aplicativo em nuvem provavelmente incluirá um número de subsistemas e compo
 
 Para fins de alerta, o sistema deve ser capaz de acionar um evento se qualquer um dos indicadores amplos ultrapassar um limite especificado. Os detalhes dos diversos fatores que compõem o indicador mais amplo devem estar disponíveis como dados contextuais para o sistema de alertas.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
 Os dados brutos necessários para dar suporte ao monitoramento de SLA são semelhantes aos dados brutos necessários para monitorar o desempenho em conjunto com alguns aspectos do monitoramento da integridade e da disponibilidade. (Consulte as seções para obter mais detalhes). Você pode capturar dados:
 
 * Monitorando pontos de extremidade.
@@ -283,7 +287,7 @@ Um analista deve ser capaz de rastrear a sequência das operações de negócios
 
 As informações de auditoria são altamente confidenciais. Elas provavelmente incluirão dados que identifiquem os usuários do sistema, junto com as tarefas em execução. Por esse motivo, as informações de auditoria provavelmente terão a forma de relatórios que são disponibilizados somente para analistas confiáveis, em vez de usar um sistema interativo que dê suporte a operações gráficas de busca detalhada. Um analista deve ser capaz de gerar uma variedade de relatórios. Por exemplo, relatórios podem listar as atividades de todos os usuários que ocorrem durante um período especificado, detalham a cronologia das atividades de um único usuário ou listam a sequência de operações executadas em um ou mais recursos.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
 As principais fontes de informações para auditoria podem incluir:
 
 * O sistema de segurança que gerencia a autenticação do usuário.
@@ -314,7 +318,7 @@ Para examinar o uso do sistema, um operador normalmente precisa consultar inform
 
 Um operador também deve ser capaz de gerar gráficos. Por exemplo, um gráfico pode exibir os usuários que consomem mais recursos ou os recursos do sistema ou não que são acessados com mais frequência.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
 O rastreamento de uso pode ser executado em um nível relativamente alto. Ele pode observar os horários de início e término de cada solicitação e da natureza da solicitação (ler, gravar e assim por diante, dependendo do recurso em questão). Você pode obter essas informações:
 
 * Rastreando as atividades do usuário.
@@ -331,7 +335,7 @@ Os clientes e outros usuários podem relatar problemas se eventos ou comportamen
 ### <a name="requirements-for-issue-tracking"></a>Requisitos para o acompanhamento de questões
 Os operadores normalmente acompanham problemas usando um sistema separado que permite que eles registrem e relatem os detalhes dos problemas relatados pelos usuários. Esses detalhes podem incluir as tarefas que o usuário estava tentando executar, sintomas do problema, a sequência dos eventos e quaisquer mensagens de aviso ou erro emitidas.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
 A fonte inicial dos dados para o acompanhamento de questões é o usuário que relatou o problema em primeiro lugar. O usuário poderá fornecer dados adicionais, como:
 
 * Um despejo de memória (se o aplicativo incluir um componente executado no desktop do usuário).
@@ -358,7 +362,7 @@ Quando um usuário relata um problema, geralmente ele só está ciente do impact
 ### <a name="requirements-for-tracing-and-debugging"></a>Requisitos para rastreamento e depuração
 Para rastrear eventos inesperados e outros problemas, é vital que os dados de monitoramento forneçam informações suficientes para permitir que o analista rastreie as origens desses problemas e reconstrua a sequência de eventos que ocorreram. Essas informações devem ser suficientes para permitir que o analista diagnostique a causa raiz dos problemas. Um desenvolvedor pode fazer as modificações necessárias para impedir sua repetição.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos para coleta de dados, fontes de dados e instrumentação
 A solução de problemas pode envolver o rastreamento de todos os métodos (e seus parâmetros) chamados como parte de uma operação para construir uma árvore que descreva o fluxo lógico pelo sistema quando um cliente faz uma solicitação específica. Exceções e avisos que o sistema gera como resultado desse fluxo precisam ser capturados e registrados.
 
 Para dar suporte à depuração, o sistema pode fornecer ganchos que permitem que um operador capture informações de estado em pontos importantes no sistema. Ou o sistema pode fornecer informações detalhadas passo a passo como o andamento de operações selecionadas. A captura de dados nesse nível de detalhe podem impor uma carga adicional ao sistema e deve ser um processo temporário. Um operador usa esse processo principalmente quando uma série muito incomum de eventos ocorre e é difícil de replicar, ou quando uma nova versão de um ou mais elementos em um sistema exige monitoramento cuidadoso para garantir que os elementos funcionem conforme o esperado.
@@ -517,7 +521,7 @@ Devido à natureza elástica da nuvem e para evitar a necessidade de recuperar d
 
 Para otimizar o uso da largura de banda, você pode optar por transferir dados menos urgentes em partes, como lotes. No entanto, os dados não devem ser adiados por tempo indeterminado, especialmente se contiverem informações em que o tempo faz diferença.
 
-#### <a name="_pulling-and-pushing-instrumentation-data_"></a>*Receber e enviar dados de instrumentação*
+#### <a name="pulling-and-pushing-instrumentation-data"></a>*Receber e enviar dados de instrumentação*
 O subsistema de coleta de dados de instrumentação pode recuperar ativamente dados de instrumentação de logs e outras fontes para cada instância do aplicativo (o *modelo pull*). Ou ele pode atuar como um receptor passivo que aguarda que os dados sejam enviados dos componentes que constituem cada instância do aplicativo (o *modelo push*).
 
 Uma abordagem para implementar o modelo pull é usar agentes de monitoramento em execução localmente com cada instância do aplicativo. Um agente de monitoramento é um processo separado que recupera periodicamente (recebe por pull) dados de telemetria coletados no nó local e grava essas informações diretamente no armazenamento centralizado que é compartilhado por todas as instâncias do aplicativo. Esse é o mecanismo que o Diagnóstico do Azure implementa. Cada instância de uma função de trabalho ou web do Azure pode ser configurada para capturar informações de diagnóstico e outras informações de rastreamento que são armazenadas localmente. O agente de monitoramento que é executado em cada instância copia os dados especificados para o Armazenamento do Azure. O artigo [Habilitando o diagnóstico nos Serviços de Nuvem do Azure e máquinas virtuais](cloud-services/cloud-services-dotnet-diagnostics.md) fornece mais detalhes sobre esse processo. Alguns elementos, como logs do IIS, despejos de memória e logs de erros personalizados, são gravados no armazenamento de blobs. Os dados do log de eventos do Windows, eventos de ETW e contadores de desempenho são gravados no armazenamento de tabelas. A Figura 3 ilustra esse mecanismo.
@@ -545,7 +549,7 @@ Para ter dimensionalidade, você pode executar várias instâncias do serviço d
 
 <a name="consolidating-instrumentation-data"></a>
 
-#### <a name="_consolidating-instrumentation-data_"></a>*Consolidando dados de instrumentação*
+#### <a name="consolidating-instrumentation-data"></a>*Consolidando dados de instrumentação*
 Os dados de instrumentação recuperados pelo serviço de coleta de dados de uma única instância de um aplicativo fornece uma exibição localizada da integridade e do desempenho dessa instância. Para avaliar a integridade geral do sistema, é necessário consolidar alguns aspectos dos dados dos modos de exibição locais. Você poderá executar esse procedimento depois que os dados forem armazenados, mas, em alguns casos, também poderá obter o resultado enquanto os dados são coletados. Em vez de serem gravados diretamente no armazenamento compartilhado, os dados de instrumentação podem passar por um serviço de consolidação de dados separado que combine os dados e atue como um processo de filtro e limpeza. Por exemplo, dados de instrumentação que incluem as mesmas informações de correlação, como uma ID de atividade, podem ser mesclados. (É possível que um usuário inicie a execução de uma operação de negócios em um nó e seja transferido para outro nó em caso de falha deste ou dependendo de como o balanceamento de carga esteja configurado). Esse processo também pode detectar e remover quaisquer dados duplicados (sempre é uma possibilidade de se o serviço de telemetria usar filas de mensagens para enviar dados de instrumentação para o armazenamento). A Figura 5 ilustra um exemplo dessa estrutura.
 
 ![Exemplo de uso de um serviço para consolidar dados de instrumentação](media/best-practices-monitoring/Consolidation.png)
@@ -574,12 +578,12 @@ Você também deve a urgência com que os dados são necessários. Dados que for
 
 Informações que são usadas para análises mais consideradas, para gerar relatórios e para identificar tendências históricas são menos urgentes e podem ser armazenadas de uma forma que dê suporte à mineração de dados e a consultas ad hoc. Para saber mais, confira a seção [Suporte a análises hot, warm e cold](#supporting-hot-warm-and-cold-analysis) mais adiante neste documento.
 
-#### <a name="_log-rotation-and-data-retention_"></a>*Rotação de logs e retenção de dados*
+#### <a name="log-rotation-and-data-retention"></a>*Rotação de logs e retenção de dados*
 A instrumentação pode gerar volumes consideráveis de dados. Esses dados podem ser mantidos em diversos locais, começando pelos arquivos de log brutos, arquivos de rastreamento e outras informações capturadas em cada nó para a exibição consolidada, limpa e particionada desses dados mantidos em um armazenamento compartilhado. Em alguns casos, depois que os dados são processados e transferidos, os dados brutos de origem podem ser removidos de cada nó. Em outros casos, pode ser necessário ou simplesmente útil salvar as informações brutas. Por exemplo, pode ser melhor deixar dados gerados para fins de depuração disponíveis em sua forma bruta, mas eles poderão ser descartados bem rapidamente após os bugs serem corrigidos.
 
 Dados de desempenho geralmente têm uma vida útil mais longa para que possam ser usados na identificação de tendências de desempenho e no planejamento de capacidade. A exibição consolidada dos dados geralmente é mantida online por um período limitado para habilitar o acesso rápido. Depois disso, ela pode ser arquivada ou descartada. Dados coletados para medição e de cobrança clientes talvez precisem ser salvos indefinidamente. Além disso, requisitos regulatórios podem exigir que as informações coletadas para fins de auditoria e segurança também sejam arquivados e salvos. Esses dados também são confidenciais e talvez precisem ser criptografados ou protegidos para evitar violações. Você nunca deve gravar as senhas dos usuários ou outras informações que podem ser usadas para cometer fraudes de identidade. Esses detalhes devem ser removidos dos dados antes do armazenamento.
 
-#### <a name="_down-sampling_"></a>*Redução da resolução*
+#### <a name="down-sampling"></a>*Redução da resolução*
 É útil armazenar dados históricos para que você possa identificar tendências de longo prazo. Em vez de salvar dados antigos em sua totalidade, talvez seja possível reduzir a amostra de dados para reduzir sua resolução e economizar custos com armazenamento. Como exemplo, em vez de salvar indicadores de desempenho minuto a minuto, dados de mais de um mês podem ser consolidados para formar um modo de exibição de hora em hora.
 
 ### <a name="best-practices-for-collecting-and-storing-logging-information"></a>Práticas recomendadas para coletar e armazenar informações de log
@@ -597,7 +601,7 @@ Conforme descrito na seção [Consolidando dados de instrumentação](#consolida
 
 <a name="supporting-hot-warm-and-cold-analysis"></a>
 
-### <a name="supporting-hot,-warm,-and-cold-analysis"></a>Suporte à análise hot, warm e cold
+### <a name="supporting-hot-warm-and-cold-analysis"></a>Suporte à análise hot, warm e cold
 Analisar e reformatar dados para visualização, geração de relatórios e alertas pode ser um processo complexo que consome seu próprio conjunto de recursos. Algumas formas de monitoramento precisam ser pontuais e requerem análise imediata dos dados para serem eficazes. Elas são conhecidas como *análises hot*. Exemplos incluem as análises que são necessárias para gerar alertas e alguns aspectos do monitoramento de segurança (como detectar um ataque ao sistema). Os dados que forem necessários para esses fins devem ser disponibilizados e estruturados rapidamente para um processamento eficiente. Em alguns casos, pode ser necessário mover a processamento da análise para os nós individuais onde os dados são mantidos.
 
 Outras formas de análise são menos críticas e podem exigir um pouco de computação e agregação após os dados brutos serem recebidos. Isso é chamado de *análise warm*. A análise de desempenho normalmente se encaixa nesta categoria. Nesse caso, é improvável que um evento de desempenho único e isolado seja estatisticamente relevante. (Isso pode ser causado por um aumento ou por uma falha repentina). Os dados de uma série de eventos devem fornecer uma imagem mais confiável do desempenho do sistema.
@@ -699,10 +703,13 @@ Em muitos casos, os processos em lotes podem gerar relatórios de acordo com um 
 * [Habilitando o Diagnostics nos Serviços de nuvem do Azure e Máquinas virtuais](cloud-services/cloud-services-dotnet-diagnostics.md)
 * [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [DocumentDB do Azure](https://azure.microsoft.com/services/documentdb/) e [HDInsight](https://azure.microsoft.com/services/hdinsight/)
 * [Como usar filas do Barramento de Serviço](service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
-* [Business intelligence do SQL Server em máquinas virtuais do Azure](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
-* [Receber notificações de alerta](azure-portal/insights-receive-alert-notifications.md) e [Controlar a integridade do serviço](azure-portal/insights-service-health.md)
+* [Business intelligence do SQL Server em máquinas virtuais do Azure](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Receber notificações de alerta](monitoring-and-diagnostics/insights-receive-alert-notifications.md) e [Controlar a integridade do serviço](monitoring-and-diagnostics/insights-service-health.md)
 * [Application Insights](application-insights/app-insights-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

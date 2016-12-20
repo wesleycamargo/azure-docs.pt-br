@@ -1,12 +1,12 @@
 ---
-title: Entradas após várias falhas
-description: Um relatório que indica os usuários que obtiveram êxito após várias tentativas de entrada malsucedidas consecutivas.
+title: "Entradas após várias falhas"
+description: "Um relatório que indica os usuários que obtiveram êxito após várias tentativas de entrada malsucedidas consecutivas."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: SSalahAhmed
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e4ec1a39-9c20-418f-8a75-6497d0117176
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e55e0145adbdb1f41a8b8753d5555f20e96bf161
+
 
 ---
 # <a name="sign-ins-after-multiple-failures"></a>Entradas após várias falhas
@@ -27,6 +31,9 @@ Os resultados desse relatório mostrarão o número de tentativas consecutivas d
 
 ![Entradas após várias falhas](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

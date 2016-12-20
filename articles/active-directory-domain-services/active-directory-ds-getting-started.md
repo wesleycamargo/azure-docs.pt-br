@@ -1,12 +1,12 @@
 ---
-title: 'Serviços de Domínio do Azure AD: criar o grupo AAD DC Administrators | Microsoft Docs'
-description: Introdução aos Serviços de Domínio do Active Directory do Azure
+title: "Serviços de Domínio do Azure AD: criar o grupo AAD DC Administrators | Microsoft Docs"
+description: "Introdução aos Serviços de Domínio do Active Directory do Azure"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0dfc373cc65033cfb7c2b1882dca41faa7c7bcae
+
 
 ---
 # <a name="get-started-with-azure-ad-domain-services"></a>Introdução aos Azure AD Domain Services
 Este artigo percorre as tarefas de configuração necessárias para habilitar os Serviços de Domínio do Azure AD para seu locatário do Azure AD.
 
-## <a name="task-1:-create-the-'aad-dc-administrators'-group"></a>Tarefa 1: Criar o grupo “AAD DC Administrators”
+## <a name="task-1-create-the-aad-dc-administrators-group"></a>Tarefa 1: Criar o grupo “AAD DC Administrators”
 A primeira etapa é criar um grupo administrativo no seu locatário do Azure Active Directory. Este grupo administrativo especial é chamado **AAD DC Administrators**. Os membros desse grupo recebem privilégios administrativos nos computadores que ingressaram no domínio gerenciado dos Azure AD Domain Services. Em computadores que ingressaram no domínio, esse grupo é adicionado ao grupo "Administradores". Além disso, os membros desse grupo também poderão usar a Área de Trabalho Remota para se conectar remotamente a computadores ingressados no domínio.  
 
 > [!NOTE]
@@ -56,9 +60,12 @@ Nessa tarefa de configuração, você cria o grupo administrativo e adicionará 
 
 <br>
 
-## <a name="task-2:-create-or-select-an-azure-virtual-network"></a>Etapa 2: Criar ou selecionar uma rede virtual do Azure
+## <a name="task-2-create-or-select-an-azure-virtual-network"></a>Etapa 2: Criar ou selecionar uma rede virtual do Azure
 A próxima tarefa de configuração é [criar ou selecionar uma rede virtual do Azure](active-directory-ds-getting-started-vnet.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

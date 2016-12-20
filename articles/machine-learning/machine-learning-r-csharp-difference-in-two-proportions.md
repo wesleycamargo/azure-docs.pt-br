@@ -1,12 +1,12 @@
 ---
-title: Diferença no teste de proporções | Microsoft Docs
-description: Diferença no teste de proporções
+title: "Diferença no teste de proporções | Microsoft Docs"
+description: "Diferença no teste de proporções"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: aniedea
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 9356b821-5345-44f6-8e26-719f2dea5e6d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
 ms.author: aniedea
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 27e1626e72f9740e73a19e078868a7c4392baf1e
+
 
 ---
-# Diferença no teste de proporções
-Duas proporções são estatisticamente diferentes? Suponha que um usuário deseje comparar dois filmes para determinar se um filme tem uma proporção significativamente maior de 'curtidas' quando comparado a o outro. Com uma amostra grande, pode haver uma diferença estatisticamente significativa entre as proporções 0.50 e 0.51. Com uma pequena amostra, pode não haver dados suficientes para determinar se essas proporções são realmente diferentes.
+# <a name="difference-in-proportions-test"></a>Diferença no teste de proporções
+Duas proporções são estatisticamente diferentes? Suponha que um usuário deseje comparar dois filmes para determinar se um filme tem uma proporção significativamente maior de 'curtidas' quando comparado a o outro. Com uma amostra grande, pode haver uma diferença estatisticamente significativa entre as proporções 0.50 e 0.51. Com uma pequena amostra, pode não haver dados suficientes para determinar se essas proporções são realmente diferentes. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -27,7 +31,7 @@ Este [serviço Web](https://datamarket.azure.com/dataset/aml_labs/prop_test) rea
 > 
 > 
 
-## Consumo do serviço Web
+## <a name="consumption-of-web-service"></a>Consumo do serviço Web
 Esse serviço aceita quatro argumentos e forma uma hipótese de teste de proporções.
 
 Os argumentos de entrada são:
@@ -39,13 +43,13 @@ Os argumentos de entrada são:
 
 A saída do serviço é o resultado do teste de hipóteses juntamente com o valor da estatística do qui-quadrado, df, valor p, proporção em 1/2 amostra e limites de intervalo de confiança.
 
-> Esse serviço, conforme hospedado no Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET.
+> Esse serviço, conforme hospedado no Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET. 
 > 
 > 
 
 Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx)).
 
-### Iniciando o código C# para consumo de serviço Web:
+### <a name="starting-c-code-for-web-service-consumption"></a>Iniciando o código C# para consumo de serviço Web:
     public class Input
     {
             public string successes1;
@@ -76,24 +80,24 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
     }
 
 
-## Criação de serviço Web
+## <a name="creation-of-web-service"></a>Criação de serviço Web
 > Este serviço Web foi criado usando o Aprendizado de Máquina do Azure. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
 > 
 > 
 
-De dentro do Aprendizado de Máquina do Azure, uma nova experiência em branco foi criada com dois módulos [Executar Script R][execute-r-script]. No primeiro módulo, o esquema de dados é definido, enquanto o segundo módulo usa o comando prop.test dentro do R para realizar o teste de hipóteses para duas proporções.
+De dentro do Machine Learning do Azure, uma nova experiência em branco foi criada com dois módulos [Executar Script R][execute-r-script]. No primeiro módulo, o esquema de dados é definido, enquanto o segundo módulo usa o comando prop.test dentro do R para realizar o teste de hipóteses para duas proporções. 
 
-### Fluxo de teste:
+### <a name="experiment-flow"></a>Fluxo de teste:
 ![Fluxo de teste][2]
 
-#### Módulo 1:
+#### <a name="module-1"></a>Módulo 1:
     ####Schema definition  
     data.set=data.frame(successes1=50,successes2=60,total1=100,total2=100);
     maml.mapOutputPort("data.set"); #send data to output port
     dataset1 = maml.mapInputPort(1) #read data from input port
 
 
-#### Módulo 2:
+#### <a name="module-2"></a>Módulo 2:
     test=prop.test(c(dataset1$successes1[1],dataset1$successes2[1]),c(dataset1$total1[1],dataset1$total2[1])) #conduct hypothesis test
 
     result=data.frame(
@@ -109,10 +113,10 @@ De dentro do Aprendizado de Máquina do Azure, uma nova experiência em branco f
     maml.mapOutputPort("result"); #output port
 
 
-## Limitações
+## <a name="limitations"></a>Limitações
 Este é um exemplo muito simples para um teste de diferença em duas proporções. Como se pode ver no exemplo de código acima, nenhuma captura de erro é implementada e o serviço presume que todas as variáveis são contínuas.
 
-## Perguntas frequentes
+## <a name="faq"></a>Perguntas frequentes
 Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publicação no Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img1.png
@@ -123,4 +127,8 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

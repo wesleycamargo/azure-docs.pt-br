@@ -1,12 +1,12 @@
 ---
-title: Solução de Análise de Rede do Azure no Log Analytics | Microsoft Docs
-description: Você pode usar a solução de Análise de Rede do Azure no Log Analytics para examinar logs de grupo de segurança de rede do Azure e logs do Gateway de Aplicativo do Azure.
+title: "Solução de Análise de Rede do Azure no Log Analytics | Microsoft Docs"
+description: "Você pode usar a solução de Análise de Rede do Azure no Log Analytics para examinar logs de grupo de segurança de rede do Azure e logs do Gateway de Aplicativo do Azure."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eed3bd763edb94d7bea28b4039c03afa7359fee1
+
 
 ---
-# <a name="azure-networking-analytics-(preview)-solution-in-log-analytics"></a>Solução de Análise de Rede do Azure (Visualização) no Log Analytics
+# <a name="azure-networking-analytics-preview-solution-in-log-analytics"></a>Solução de Análise de Rede do Azure (Visualização) no Log Analytics
 > [!NOTE]
 > Esta é uma [solução de visualização](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
 > 
@@ -24,7 +28,7 @@ ms.author: richrund
 
 Você pode usar a solução de Análise de Rede do Azure no Log Analytics para examinar logs de grupo de segurança de rede do Azure e logs do Gateway de Aplicativo do Azure.
 
-Você pode habilitar o registro em log para logs de Gateway de Aplicativo do Azure e grupos de segurança de rede do Azure. Esses logs são gravados no armazenamento de blobs, em que eles podem então ser indexados pelo Log Analytics para pesquisa e análise.
+Você pode habilitar o registro em log para logs de Gateway de Aplicativo do Azure e grupos de segurança de rede do Azure. Esses logs são gravados no armazenamento de blobs, onde eles podem então ser indexados pelo Log Analytics para pesquisa e análise.
 
 Nos Gateways de Aplicativo, há suporte para os seguintes logs:
 
@@ -96,6 +100,9 @@ Depois de clicar no bloco **Visão Geral**, você pode exibir resumos dos seus l
 ## <a name="next-steps"></a>Próximas etapas
 * Use [Pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados da Análise de Rede do Azure.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

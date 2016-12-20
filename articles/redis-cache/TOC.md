@@ -45,21 +45,21 @@
 ###[Atualizar para um tamanho e uma camada diferentes](cache-how-to-scale.md)
 ###[Usar o cluster do Redis para reduzir horizontalmente/expandir](cache-how-to-premium-clustering.md)
 
-#Referência
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [CLI do Azure](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+# Referência
+## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Visualização da CLI do Azure 2.0](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Clientes do Redis](http://redis.io/clients)
 ## [Comandos do Redis](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
+
+# Recursos
 ## [Exemplos do cache do Redis](cache-redis-samples.md)
-
-#Recursos
-##[Preços](https://azure.microsoft.com/pricing/details/cache/)
+## [Preços](https://azure.microsoft.com/pricing/details/cache/)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

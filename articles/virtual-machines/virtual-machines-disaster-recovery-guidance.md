@@ -1,12 +1,12 @@
 ---
-title: O que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure | Microsoft Docs
-description: Saiba o que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure.
+title: "O que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure | Microsoft Docs"
+description: "Saiba o que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure."
 services: virtual-machines
-documentationcenter: ''
+documentationcenter: 
 author: kmouss
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 65272148-ff06-4bce-91f1-851d706d4d40
 ms.service: virtual-machines
 ms.workload: virtual-machines
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: kmouss;aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e1c0a6c0b375d9f1fbc331736f6bed73c2232048
+
 
 ---
-# O que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure
+# <a name="what-to-do-in-the-event-that-an-azure-service-disruption-impacts-azure-virtual-machines"></a>O que fazer caso uma interrupção de serviço do Azure afete as máquinas virtuais do Azure
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas.
 
 A Microsoft fornece um SLA (Contrato de Nível de Serviço) para seus serviços como um compromisso com o tempo de atividade e a conectividade. O SLA para serviços individuais do Azure pode ser encontrado em [Contratos de Nível de Serviço do Azure](https://azure.microsoft.com/support/legal/sla/).
@@ -32,7 +36,7 @@ Este artigo aborda um cenário real de recuperação de desastre, quando uma reg
 
 Para ajudar você a lidar com essas ocorrências raras, fornecemos as seguintes diretrizes para a máquina virtual do Azure no caso de uma interrupção de serviço de toda a região em que seu aplicativo da máquina virtual do Azure é implantado.
 
-## Opção 1: aguardar a recuperação
+## <a name="option-1-wait-for-recovery"></a>Opção 1: aguardar a recuperação
 Nesse caso, nenhuma ação sua é necessária. Saiba que estamos trabalhando cuidadosamente para restaurar a disponibilidade do serviço. Você pode ver o status atual do serviço no nosso [Painel de integridade do serviço Azure](https://azure.microsoft.com/status/).
 
 > [!NOTE]
@@ -40,21 +44,21 @@ Nesse caso, nenhuma ação sua é necessária. Saiba que estamos trabalhando cui
 > 
 > 
 
-Para clientes que desejam acesso imediato às máquinas virtuais, as duas opções abaixo estão disponíveis.
+Para clientes que desejam acesso imediato às máquinas virtuais, as duas opções abaixo estão disponíveis.  
 
 > [!NOTE]
-> Lembre-se de que as duas opções abaixo têm a possibilidade de perda parcial de dados.
+> Lembre-se de que as duas opções abaixo têm a possibilidade de perda parcial de dados.     
 > 
 > 
 
-## Opção 2: Restaurar uma VM de um backup
+## <a name="option-2-restore-a-vm-from-a-backup"></a>Opção 2: Restaurar uma VM de um backup
 Para os clientes que configuraram um backup de VM, você pode restaurar a VM de seu ponto de backup e recuperação.
 
 Para restaurar uma nova VM a partir do Backup do Azure, confira [Restauração de máquinas virtuais no Azure](../backup/backup-azure-restore-vms.md).
 
 Para ajudar a planejar sua infraestrutura de backup de máquinas virtuais do Azure, confira [Planejar sua infraestrutura de backup de VM no Azure](../backup/backup-azure-vms-introduction.md).
 
-## Opção 3: Iniciar um failover usando o Azure Site Recovery
+## <a name="option-3-initiate-a-failover-by-using-azure-site-recovery"></a>Opção 3: Iniciar um failover usando o Azure Site Recovery
 Se tiver configurado o Azure Site Recovery para trabalhar com suas máquinas virtuais do Azure afetadas, você poderá restaurar as VMs de suas réplicas. Essas réplicas podem residir no Azure ou no local. Nesse caso, você pode criar novas VMs a partir de sua réplica existente. Para restaurar suas VMs de uma réplica do Azure Site Recovery, confira [Migrar máquinas virtuais IaaS do Azure entre regiões do Azure com o Azure Site Recovery](../site-recovery/site-recovery-migrate-azure-to-azure.md).
 
 > [!NOTE]
@@ -62,7 +66,7 @@ Se tiver configurado o Azure Site Recovery para trabalhar com suas máquinas vir
 > 
 > 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como implementar uma estratégia de alta disponibilidade e recuperação de desastres, consulte [Recuperação de desastres e alta disponibilidade para aplicativos do Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
 
 Para desenvolver uma compreensão técnica detalhada dos recursos de uma plataforma de nuvem, consulte [Orientação técnica sobre a resiliência do Azure](../resiliency/resiliency-technical-guidance.md).
@@ -73,4 +77,9 @@ Saiba como usar o Azure Site Recovery para orquestrar e automatizar a proteção
 
 Se as instruções não estiverem claras ou se você desejar que a Microsoft faça as operações em seu nome, entre em contato com o [Atendimento ao Cliente](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

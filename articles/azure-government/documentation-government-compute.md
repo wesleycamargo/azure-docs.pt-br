@@ -1,13 +1,13 @@
 ---
-title: Documentação do Azure Governamental | Microsoft Docs
-description: Este guia fornece uma comparação dos recursos e orientações sobre como desenvolver aplicativos para o Azure Government
+title: "Computação do Azure Governamental | Microsoft Docs"
+description: "Este guia fornece uma comparação dos recursos e orientações sobre como desenvolver aplicativos para o Azure Government"
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 09/29/2016
 ms.author: ryansoc
+translationtype: Human Translation
+ms.sourcegitcommit: a0374d6aeae42641e906a7f8e39bfc58eaacf096
+ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
+
 
 ---
 # <a name="azure-government-compute"></a>Computação do Azure Governamental
 ## <a name="virtual-machines"></a>Máquinas Virtuais
-Para obter detalhes sobre esse serviço e como usá-lo, consulte [Tamanhos de máquinas virtuais do Azure](../virtual-machines/virtual-machines-windows-sizes.md).
+Para obter detalhes sobre esse serviço e como usá-lo, consulte [Tamanhos de máquinas virtuais do Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="variations"></a>Variações
 Os seguintes SKUs de VM estão disponíveis de forma geral (GA) no Azure Government:
@@ -43,6 +47,9 @@ As informações a seguir identificam o limite do Azure Governamental para o má
 ## <a name="next-steps"></a>Próximas etapas
 Para obter informações complementares e atualizações, assine o <a href="https://blogs.msdn.microsoft.com/azuregov/">Blog do Microsoft Azure Governamental. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

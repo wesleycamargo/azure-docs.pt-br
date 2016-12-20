@@ -1,12 +1,12 @@
 ---
-title: Usar um UDF (função definida pelo usuário) do Java com o Hive no HDInsight | Microsoft Docs
-description: Saiba como criar e usar um UDF (função definida pelo usuário) do Java do Hive no HDInsight.
+title: "Usar um UDF (função definida pelo usuário) do Java com o Hive no HDInsight | Microsoft Docs"
+description: "Saiba como criar e usar um UDF (função definida pelo usuário) do Java do Hive no HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 240ba2289ededf7a65c71e2f5007cf3a52ca4f84
+
 
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Usar um Java UDF com o Hive no HDInsight
@@ -209,6 +213,9 @@ Para ver outras maneiras de trabalhar com o Hive, consulte [Usar o Hive com o HD
 
 Para obter mais informações sobre funções definidas pelo usuário do Hive, consulte a seção [Operadores e funções definidas pelo usuário do Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) do wiki Hive em apache.org.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

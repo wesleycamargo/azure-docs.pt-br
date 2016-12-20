@@ -1,12 +1,12 @@
 ---
-title: Visão geral da StorSimple Virtual Array | Microsoft Docs
-description: Descreve a StorSimple Virtual Array, uma solução de armazenamento integrado que gerencia as tarefas de armazenamento entre um dispositivo virtual local e o armazenamento em nuvem do Microsoft Azure.
+title: "Visão geral da StorSimple Virtual Array | Microsoft Docs"
+description: "Descreve a StorSimple Virtual Array, uma solução de armazenamento integrado que gerencia as tarefas de armazenamento entre um dispositivo virtual local e o armazenamento em nuvem do Microsoft Azure."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: dacf0aa8-6cd3-425b-993d-d93bb632157d
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/06/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 80cac87cbcabe32f8aa1e4e05e8ba0b6643f1dc5
+
 
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
@@ -48,7 +52,7 @@ A tabela a seguir resume os recursos importantes da Matriz Virtual.
 | Instantâneos |Com controle de falhas |
 | Recuperação em nível de item |Sim, os usuários podem fazer restauração de compartilhamentos |
 
-## <a name="why-use-storsimple?"></a>Por que usar StorSimple?
+## <a name="why-use-storsimple"></a>Por que usar StorSimple?
 O StorSimple conecta usuários e servidores no armazenamento do Azure, em minutos, sem modificações em aplicativos.
 
 A tabela a seguir descreve algumas das principais vantagens que a solução de Matriz Virtual oferece.
@@ -184,6 +188,9 @@ Os recursos de proteção de dados StorSimple permitem que você crie backups so
 ## <a name="next-steps"></a>Próximas etapas
 Saiba como [preparar o portal da Matriz Virtual](storsimple-ova-deploy1-portal-prep.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

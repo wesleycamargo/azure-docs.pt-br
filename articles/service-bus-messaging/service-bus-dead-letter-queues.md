@@ -1,22 +1,26 @@
 ---
-title: Filas de mensagens mortas do Barramento de Serviço | Microsoft Docs
-description: Visão geral das filas de mensagens mortas do Barramento de Serviço
-services: service-bus
+title: "Filas de mensagens mortas do Barramento de Serviço | Microsoft Docs"
+description: "Visão geral das filas de mensagens mortas do Barramento de Serviço"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: clemensv;sethm
+ms.author: clemensv,sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dfab83bdd505a1a173abc1142da609d31ecbd72a
+
 
 ---
-# <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de mensagens mortas do Barramento de Serviço
+# <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de mensagens mortas do Barramento de Serviço 
 As filas e as assinaturas de tópico do Barramento de Serviço fornecem uma subfila secundária chamada DLQ (*fila de mensagens mortas*). A fila de mensagens mortas não precisa ser explicitamente criada e não pode ser excluída ou de alguma forma gerenciada independentemente da entidade principal.
 
 A finalidade da fila de mensagens mortas é manter mensagens que não podem ser entregues a algum receptor ou simplesmente mensagens que não puderam ser processadas. As mensagens podem ser removidas da DLQ e inspecionadas. Um aplicativo pode, com a ajuda de um operador, corrigir problemas e reenviar a mensagem, registrar o fato de que houve um erro e/ou tomar uma medida corretiva. 
@@ -83,6 +87,9 @@ Confira os artigos a seguir para obter mais informações sobre as filas do Barr
 * [Introdução às filas do Barramento de Serviço](service-bus-dotnet-get-started-with-queues.md)
 * [Filas do Azure e filas do Barramento de Serviço – comparações](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

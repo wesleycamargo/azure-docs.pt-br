@@ -1,12 +1,12 @@
 ---
-title: Gerenciando os Ativos dos Serviços de Mídia em Várias Contas de Armazenamento | Microsoft Docs
-description: Este artigo orienta sobre como gerenciar ativos de Serviços de Mídia através de várias contas de armazenamento
+title: "Gerenciando os Ativos dos Serviços de Mídia em Várias Contas de Armazenamento | Microsoft Docs"
+description: "Este artigo orienta sobre como gerenciar ativos de Serviços de Mídia através de várias contas de armazenamento"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
+
 
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gerenciando ativos de Serviços de Mídia através de várias contas de armazenamento
@@ -250,6 +254,9 @@ O código a seguir usa o SDK mais recente dos Serviços de Mídia para executar 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

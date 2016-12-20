@@ -1,13 +1,13 @@
 ---
-title: Adicionar a ação HTTP em Aplicativos Lógicos | Microsoft Docs
-description: Visão geral da ação HTTP com propriedades
-services: ''
-documentationcenter: ''
+title: "Adicionar a ação HTTP nos aplicativos lógicos | Microsoft Docs"
+description: "Visão geral da ação HTTP com propriedades"
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 522624ccb14d295359ff5585e1b46b618b45c305
+
 
 ---
-# Introdução à ação HTTP
+# <a name="get-started-with-the-http-action"></a>Introdução à ação HTTP
 Com a ação HTTP, você pode estender os fluxos de trabalho para a sua organização e se comunicar com qualquer ponto de extremidade por HTTP.
 
 Você pode:
@@ -27,7 +31,7 @@ Você pode:
 
 Para começar a usar a ação HTTP em um aplicativo lógico, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Usar o gatilho HTTP
+## <a name="use-the-http-trigger"></a>Usar o gatilho HTTP
 Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
 
 Veja uma sequência de exemplo de como configurar um gatilho HTTP no Designer de Aplicativo Lógico.
@@ -39,7 +43,7 @@ Veja uma sequência de exemplo de como configurar um gatilho HTTP no Designer de
 
 ![Gatilho HTTP](./media/connectors-native-http/using-trigger.png)
 
-### Como o gatilho HTTP funciona
+### <a name="how-the-http-trigger-works"></a>Como o gatilho HTTP funciona
 O gatilho HTTP faz uma chamada para um ponto de extremidade HTTP em um intervalo recorrente. Por padrão, qualquer código de resposta HTTP inferior a 300 resultará em uma execução do aplicativo lógico. Você pode adicionar uma condição na exibição de código que será avaliada após a chamada HTTP para determinar se o aplicativo lógico deve ser disparado. Veja um exemplo de um gatilho HTTP que será disparado sempre que o código de status retornado for maior ou igual a `400`.
 
 ```javascript
@@ -67,10 +71,10 @@ O gatilho HTTP faz uma chamada para um ponto de extremidade HTTP em um intervalo
 
 Os detalhes completos sobre os parâmetros de gatilho HTTP estão disponíveis no [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
 
-## Usar a ação HTTP
+## <a name="use-the-http-action"></a>Usar a ação HTTP
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](connectors-overview.md).
 
-1. Selecione o botão **Nova Etapa**.
+1. Selecione o botão **Nova Etapa** .
 2. Escolha **Adicionar uma ação**.
 3. Na caixa de pesquisa de ação, digite **http** para listar a ação HTTP.
    
@@ -80,54 +84,56 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
     ![Concluir a ação HTTP](./media/connectors-native-http/using-action-2.png)
 5. Clique no canto superior esquerdo da barra de ferramentas para salvar. Seu aplicativo lógico será salvo e publicado (ativado).
 
-## Gatilho HTTP
+## <a name="http-trigger"></a>Gatilho HTTP
 Veja os detalhes do gatilho com suporte deste conector. O conector HTTP tem um gatilho.
 
 | Gatilho | Descrição |
 | --- | --- |
-| HTTP |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
+| http |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
 
-## Ação HTTP
+## <a name="http-action"></a>Ação HTTP
 Veja os detalhes da ação com suporte deste conector. O conector HTTP tem uma ação possível.
 
 | Ação | Descrição |
 | --- | --- |
-| HTTP |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
+| http |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
 
-## Detalhes do HTTP
+## <a name="http-details"></a>Detalhes do HTTP
 As tabelas a seguir descrevem os campos de entrada obrigatórios e opcionais para a ação e os detalhes de saída correspondentes associados ao uso da ação.
 
-#### Solicitação HTTP
-Estes são os campos de entrada para a ação, o que cria uma solicitação HTTP de saída. Um * significa que é um campo obrigatório.
+#### <a name="http-request"></a>Solicitação HTTP
+Estes são os campos de entrada para a ação, o que cria uma solicitação HTTP de saída.
+Um * significa que é um campo obrigatório.
 
 | Nome de exibição | Nome da propriedade | Descrição |
 | --- | --- | --- |
 | Método* |estático |Verbo HTTP a ser usado |
 | URI* |uri |O URI para a solicitação HTTP |
-| Cabeçalhos |headers |Um objeto JSON de cabeçalhos HTTP a serem incluídos |
-| Corpo |body |O corpo da solicitação HTTP |
-| Autenticação |autenticação |Os detalhes na seção [Autenticação](#authentication) |
+| Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos HTTP a serem incluídos |
+| Corpo |Corpo |O corpo da solicitação HTTP |
+| Autenticação |Autenticação |Os detalhes na seção [Autenticação](#authentication) |
 
 <br>
 
-#### Detalhes de saída
+#### <a name="output-details"></a>Detalhes de saída
 A seguir, os detalhes de saída para a resposta HTTP.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
-| Cabeçalhos |objeto |Cabeçalhos de resposta |
+| headers |objeto |Cabeçalhos de resposta |
 | Corpo |objeto |Objeto de resposta |
 | Código de status |int |Código de status HTTP |
 
-## Autenticação
+## <a name="authentication"></a>Autenticação
 O recurso Aplicativos Lógicos do Serviço de Aplicativo do Azure permite que você use diferentes tipos de autenticação em pontos de extremidade HTTP. Você pode usar essa autenticação com os conectores **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** e **[Webhook HTTP](connectors-native-webhook.md)**. Os seguintes tipos de autenticação são configuráveis:
 
 * [Autenticação básica](#basic-authentication)
 * [Autenticação de certificado de cliente](#client-certificate-authentication)
 * [Autenticação OAuth do Azure AD (Azure Active Directory)](#azure-active-directory-oauth-authentication)
 
-#### Autenticação básica
-O seguinte objeto de autenticação é necessário para a autenticação básica. Um * significa que é um campo obrigatório.
+#### <a name="basic-authentication"></a>Autenticação básica
+O seguinte objeto de autenticação é necessário para a autenticação básica.
+Um * significa que é um campo obrigatório.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
@@ -136,7 +142,7 @@ O seguinte objeto de autenticação é necessário para a autenticação básica
 | Password* |Senha |Senha para autenticação |
 
 > [!TIP]
-> Se quiser usar uma senha que não possa ser recuperada da definição, use um parâmetro `securestring` e a [função de definição de fluxo de trabalho](http://aka.ms/logicappdocs) `@parameters()`.
+> Se você quiser usar uma senha que não é possível recuperar na definição, use um parâmetro `securestring` e a função de definição do fluxo de trabalho `@parameters()`[](http://aka.ms/logicappdocs).
 > 
 > 
 
@@ -150,7 +156,7 @@ Desse modo, você cria um objeto como este no campo de autenticação:
 }
 ```
 
-#### Autenticação de certificado de cliente
+#### <a name="client-certificate-authentication"></a>Autenticação de certificado de cliente
 O seguinte objeto de autenticação é necessário para a autenticação de certificado de cliente. Um * significa que é um campo obrigatório.
 
 | Nome da propriedade | Tipo de dados | Descrição |
@@ -160,7 +166,7 @@ O seguinte objeto de autenticação é necessário para a autenticação de cert
 | Password* |Senha |A senha para acessar o arquivo PFX |
 
 > [!TIP]
-> Você pode usar um parâmetro `securestring` e a [função de definição de fluxo de trabalho](http://aka.ms/logicappdocs) `@parameters()` para usar um parâmetro que não poderá ser lido na definição depois de salvar o aplicativo lógico.
+> Você pode usar um parâmetro `securestring` e a função de definição do fluxo de trabalho `@parameters()`[](http://aka.ms/logicappdocs) para usar um parâmetro que não será legível na definição depois de salvar o aplicativo lógico.
 > 
 > 
 
@@ -174,7 +180,7 @@ Por exemplo:
 }
 ```
 
-#### Autenticação OAuth do Azure AD
+#### <a name="azure-ad-oauth-authentication"></a>Autenticação OAuth do Azure AD
 O seguinte objeto de autenticação é necessário para a autenticação OAuth do Azure AD. Um * significa que é um campo obrigatório.
 
 | Nome da propriedade | Tipo de dados | Descrição |
@@ -186,7 +192,7 @@ O seguinte objeto de autenticação é necessário para a autenticação OAuth d
 | Secret* |segredo |O segredo do cliente que está solicitando o token |
 
 > [!TIP]
-> Você pode usar um parâmetro `securestring` e a [função de definição de fluxo de trabalho](http://aka.ms/logicappdocs) `@parameters()` para usar um parâmetro que não poderá ser lido na definição depois de salvo.
+> Você pode usar um parâmetro `securestring` e a função de definição do fluxo de trabalho `@parameters()` [](http://aka.ms/logicappdocs) para usar um parâmetro que não será legível na definição depois de salvar.
 > 
 > 
 
@@ -202,7 +208,12 @@ Por exemplo:
 }
 ```
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora, experimente a plataforma e [crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

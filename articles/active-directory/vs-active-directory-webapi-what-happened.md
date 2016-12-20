@@ -1,30 +1,34 @@
 ---
-title: O que aconteceu com meu projeto de WebApi (serviço conectado do Active Directory do Azure do Visual Studio) | Microsoft Docs
-description: Descreve o que acontece ao seu projeto do MVC WebApi quando você se conecta ao Azure AD usando o Visual Studio
+title: "O que aconteceu com meu projeto de WebApi (serviço conectado do Azure Active Directory do Visual Studio) | Microsoft Docs"
+description: "Descreve o que acontece ao seu projeto do MVC WebApi quando você se conecta ao Azure AD usando o Visual Studio"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.service: active-directory
 ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/18/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8abdacac444d3e77469e957dfe858647e1258c1d
+
 
 ---
-# O que aconteceu com meu projeto da API Web (serviço conectado do Active Directory do Azure do Visual Studio)
+# <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto da API Web (serviço conectado do Active Directory do Azure do Visual Studio)
 > [!div class="op_single_selector"]
 > * [Introdução](vs-active-directory-webapi-getting-started.md)
 > * [O que aconteceu](vs-active-directory-webapi-what-happened.md)
 > 
 > 
 
-## Referências foram adicionadas
-### Referências do pacote NuGet
+## <a name="references-have-been-added"></a>Referências foram adicionadas
+### <a name="nuget-package-references"></a>Referências do pacote NuGet
 * `Microsoft.Owin`
 * `Microsoft.Owin.Host.SystemWeb`
 * `Microsoft.Owin.Security`
@@ -34,7 +38,7 @@ ms.author: tarcher
 * `Owin`
 * `System.IdentityModel.Tokens.Jwt`
 
-### Referências .NET
+### <a name="net-references"></a>Referências .NET
 * `Microsoft.Owin`
 * `Microsoft.Owin.Host.SystemWeb`
 * `Microsoft.Owin.Security`
@@ -44,14 +48,14 @@ ms.author: tarcher
 * `Owin`
 * `System.IdentityModel.Tokens.Jwt`
 
-## Alterações de código
-### Arquivos de código foram adicionados ao seu projeto
-Uma classe de inicialização de autenticação **App\_Start/Startup.Auth.cs** foi adicionada ao seu projeto contendo lógica de inicialização para autenticação do Azure AD authentication.
+## <a name="code-changes"></a>Alterações de código
+### <a name="code-files-were-added-to-your-project"></a>Arquivos de código foram adicionados ao seu projeto
+Uma classe de inicialização de autenticação **App_Start/Startup.Auth.cs** foi adicionada ao seu projeto contendo lógica de inicialização para autenticação do Azure AD.
 
-### O código de inicialização foi adicionado ao seu projeto
+### <a name="startup-code-was-added-to-your-project"></a>O código de inicialização foi adicionado ao seu projeto
 Se você já tiver uma classe de Inicialização em seu projeto, o método **Configuração** terá sido atualizado para incluir uma chamada para `ConfigureAuth(app)`. Caso contrário, uma classe Startup foi adicionada ao projeto.
 
-### Seu arquivo app.config ou web.config possui novos valores de configuração.
+### <a name="your-appconfig-or-webconfig-file-has-new-configuration-values"></a>Seu arquivo app.config ou web.config possui novos valores de configuração.
 As entradas de configuração a seguir foram adicionadas.
 
 ```
@@ -62,20 +66,20 @@ As entradas de configuração a seguir foram adicionadas.
     </appSettings>`
 ```
 
-### Um aplicativo do Azure AD foi criado
+### <a name="an-azure-ad-app-was-created"></a>Um aplicativo do Azure AD foi criado
 Um Aplicativo Azure AD foi criado no diretório selecionado no assistente.
 
 [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
 
-## Se eu tiver marcado *desabilitar a autenticação de Contas de Usuários Individuais*, quais alterações adicionais foram feitas ao meu projeto?
+## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-to-my-project"></a>Se eu tiver marcado *desabilitar a autenticação de Contas de Usuários Individuais*, quais alterações adicionais foram feitas ao meu projeto?
 Referências ao pacote NuGet foram removidas e arquivos foram removidos e copiados. Dependendo do estado do seu projeto, você terá de remover manualmente referências ou arquivos adicionais ou modificar o código conforme apropriado.
 
-### Referências ao pacotes NuGet removidas (para aquelas presentes)
+### <a name="nuget-package-references-removed-for-those-present"></a>Referências ao pacotes NuGet removidas (para aquelas presentes)
 * `Microsoft.AspNet.Identity.Core`
 * `Microsoft.AspNet.Identity.EntityFramework`
 * `Microsoft.AspNet.Identity.Owin`
 
-### Arquivos de código copiados e removidos (para aqueles presentes)
+### <a name="code-files-backed-up-and-removed-for-those-present"></a>Arquivos de código copiados e removidos (para aqueles presentes)
 Cada um dos seguintes arquivos foi copiado e removido do projeto. Arquivos de backup estão localizados em uma pasta “Backup” na raiz do diretório do projeto.
 
 * `App_Start\IdentityConfig.cs`
@@ -84,14 +88,14 @@ Cada um dos seguintes arquivos foi copiado e removido do projeto. Arquivos de ba
 * `Models\IdentityModels.cs`
 * `Providers\ApplicationOAuthProvider.cs`
 
-### Arquivos de código copiados (para aqueles presentes)
+### <a name="code-files-backed-up-for-those-present"></a>Arquivos de código copiados (para aqueles presentes)
 Cada um dos seguintes arquivos foi copiado antes de ser substituído. Arquivos de backup estão localizados em uma pasta “Backup” na raiz do diretório do projeto.
 
 * `Startup.cs`
 * `App_Start\Startup.Auth.cs`
 
-## Se eu tiver marcado *Ler dados do diretório*, quais alterações adicionais foram feitas ao meu projeto?
-### Foram feitas alterações adicionais em sua app.config ou web.config
+## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-to-my-project"></a>Se eu tiver marcado *Ler dados do diretório*, quais alterações adicionais foram feitas ao meu projeto?
+### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>Foram feitas alterações adicionais em sua app.config ou web.config
 As outras entradas de configuração a seguir foram adicionadas.
 
 ```
@@ -100,9 +104,14 @@ As outras entradas de configuração a seguir foram adicionadas.
     </appSettings>`
 ```
 
-### Seu aplicativo Active Directory do Azure foi atualizado
-Seu aplicativo Active Directory do Azure foi atualizado para incluir a permissão *Ler dados do diretório* e uma chave adicional foi criada e, em seguida, utilizada como *ida:Password* no arquivo `web.config`.
+### <a name="your-azure-active-directory-app-was-updated"></a>Seu aplicativo Active Directory do Azure foi atualizado
+Seu aplicativo Azure Active Directory foi atualizado para incluir a permissão *Ler dados do diretório* e uma chave adicional foi criada e, em seguida, utilizada como *ida:Password* no arquivo `web.config`.
 
 [Saiba mais sobre o Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

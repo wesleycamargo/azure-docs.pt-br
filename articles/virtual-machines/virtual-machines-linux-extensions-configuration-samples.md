@@ -1,13 +1,13 @@
 ---
-title: Exemplo de configuração de extensões de VM do Linux | Microsoft Docs
-description: Configuração de exemplo para criação de modelos com extensões para VMs do Linux
+title: "Exemplo de configuração de extensões de VM do Linux | Microsoft Docs"
+description: "Configuração de exemplo para criação de modelos com extensões para VMs do Linux"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 4f50e6b2-fce0-41ef-823d-df433957601a
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 7f08d711a7d45c48fab5aab272b0446cff61e163
+
 
 ---
 # <a name="linux-vm-extension-configuration-samples"></a>Exemplos de configuração de extensão de VM Linux.
 > [!div class="op_single_selector"]
-> * [PowerShell – modelo](virtual-machines-windows-extensions-configuration-samples.md)
-> * [CLI - Modelo](virtual-machines-linux-extensions-configuration-samples.md)
+> * [PowerShell – modelo](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI - Modelo](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -28,13 +32,13 @@ ms.author: kundanap
 
 Este artigo fornece um exemplo de configuração para configurar extensões de VM do Azure para VMs do Linux.
 
-Para saber mais sobre estas extensões, clique aqui: [Visão geral de extensões de VM do Azure.](virtual-machines-windows-extensions-features.md)
+Para saber mais sobre estas extensões, clique aqui: [Visão geral de extensões de VM do Azure.](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-Para saber mais sobre a criação de modelos de extensão, clique aqui: [Criando modelos de extensão.](virtual-machines-windows-extensions-authoring-templates.md)
+Para saber mais sobre a criação de modelos de extensão, clique aqui: [Criando modelos de extensão.](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 Este artigo lista os valores de configuração esperados para algumas das Extensões do Linux.
 
-## <a name="sample-template-snippet-for-vm-extensions."></a>Trecho do exemplo de modelo para Extensões de VM.
+## <a name="sample-template-snippet-for-vm-extensions"></a>Trecho do exemplo de modelo para Extensões de VM.
 O trecho do modelo para Implantação de extensões tem a seguinte aparência:
 
       {
@@ -55,7 +59,7 @@ O trecho do modelo para Implantação de extensões tem a seguinte aparência:
       }
       }
 
-## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Trecho de código do modelo de exemplo para extensões de VM com Conjuntos de Escala de VM.
+## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets"></a>Trecho de código do modelo de exemplo para extensões de VM com Conjuntos de Escala de VM.
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -90,7 +94,7 @@ O restante do artigo fornece exemplos de configurações para extensões de VM L
             }
           }
 
-### <a name="customscript-extension-for-linux."></a>Extensão CustomScript para Linux.
+### <a name="customscript-extension-for-linux"></a>Extensão CustomScript para Linux.
     {
         "publisher": " Microsoft.Azure.Extensions",
         "type": "CustomScript",
@@ -127,7 +131,7 @@ O restante do artigo fornece exemplos de configurações para extensões de VM L
           }
         }
 
-### <a name="vm-access-extension-(password-reset)"></a>Extensão de acesso a VM (redefinição de senha)
+### <a name="vm-access-extension-password-reset"></a>Extensão de acesso a VM (redefinição de senha)
 Para obter o esquema atualizado, consulte a [Documentação do VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
         {
@@ -217,6 +221,9 @@ Veja abaixo um modelo de VM completo para a criação de uma VM do Linux com uma
 
 [Extensão de script personalizado em uma VM do Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

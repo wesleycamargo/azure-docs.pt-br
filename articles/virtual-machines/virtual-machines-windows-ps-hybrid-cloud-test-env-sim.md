@@ -1,23 +1,27 @@
 ---
-title: Ambiente de teste de nuvem híbrida simulado | Microsoft Docs
-description: Crie um ambiente de nuvem híbrida simulado para testes profissionais de TI ou testes de desenvolvimento, usando duas redes virtuais do Azure e uma conexão Rede Virtual para Rede Virtual.
+title: "Ambiente de teste de nuvem híbrida simulado | Microsoft Docs"
+description: "Crie um ambiente de nuvem híbrida simulado para testes profissionais de TI ou testes de desenvolvimento, usando duas redes virtuais do Azure e uma conexão Rede Virtual para Rede Virtual."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: JoeDavies-MSFT
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: ca5bf294-8172-44a9-8fed-d6f38d345364
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 09/30/2016
 ms.author: josephd
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 1322af70f643bcc191e3d69fe4a174adc9cd7e8d
+
 
 ---
-# Configurar um ambiente de nuvem híbrida simulado para testes
+# <a name="set-up-a-simulated-hybrid-cloud-environment-for-testing"></a>Configurar um ambiente de nuvem híbrida simulado para testes
 Este artigo explica como criar um ambiente simulado de nuvem híbrida com o Microsoft Azure usando duas redes virtuais do Azure. Veja abaixo a configuração resultante.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
@@ -39,7 +43,7 @@ Há quatro fases principais para configurar esse ambiente de teste de nuvem híb
 1. Configurar a rede virtual TestLab.
 2. Criar a rede virtual entre locais.
 3. Criar a conexão VPN de VNet para VNet.
-4. Configurar o DC2.
+4. Configurar o DC2. 
 
 Essa configuração exige uma assinatura do Azure. Se você tiver uma assinatura do MSDN ou do Visual Studio, confira [Crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -48,8 +52,8 @@ Essa configuração exige uma assinatura do Azure. Se você tiver uma assinatura
 > 
 > 
 
-## Fase 1: Configurar a rede virtual TestLab
-Use as instruções no tópico [Base Configuration test environment (Ambiente de teste da Configuração de Base)](https://technet.microsoft.com/library/mt771177.aspx) para configurar os computadores DC1, APP1 e CLIENT1 na rede virtual do Azure chamada TestLab.
+## <a name="phase-1-configure-the-testlab-virtual-network"></a>Fase 1: Configurar a rede virtual TestLab
+Use as instruções no tópico [Base Configuration test environment (Ambiente de teste da Configuração de Base)](https://technet.microsoft.com/library/mt771177.aspx) para configurar os computadores DC1, APP1 e CLIENT1 na rede virtual do Azure chamada TestLab. 
 
 Em seguida, inicie um prompt do Azure PowerShell.
 
@@ -92,7 +96,7 @@ Depois, crie seu gateway.
 
 Lembre-se de que a criação de novos gateways pode levar 20 minutos ou mais.
 
-No portal do Azure em seu computador local, conecte-se ao DC1 com as credenciais CORP\\User1. Para configurar o domínio CORP para que computadores e usuários utilizem seu controlador de domínio local para autenticação, execute estes comandos em um prompt de comando no nível de administrador do Windows PowerShell no DC1.
+No portal do Azure em seu computador local, conecte-se ao DC1 com as credenciais CORP\User1. Para configurar o domínio CORP para que computadores e usuários utilizem seu controlador de domínio local para autenticação, execute estes comandos em um prompt de comando no nível de administrador do Windows PowerShell no DC1.
 
     New-ADReplicationSite -Name "TestLab" 
     New-ADReplicationSite -Name "TestVNET"
@@ -103,7 +107,7 @@ Esta é a configuração atual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph1.png)
 
-## Fase 2: Criar a rede virtual TestVNET
+## <a name="phase-2-create-the-testvnet-virtual-network"></a>Fase 2: Criar a rede virtual TestVNET
 Primeiro, crie a rede virtual TestVNET e proteja-a com um grupo de segurança de rede.
 
     $rgName="<name of the resource group that you used for your TestLab virtual network>"
@@ -130,7 +134,7 @@ Esta é a configuração atual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph2.png)
 
-## Fase 3: Criar a conexão de VNet para VNet
+## <a name="phase-3-create-the-vnet-to-vnet-connection"></a>Fase 3: Criar a conexão de VNet para VNet
 Primeiro, obtenha uma chave pré-compartilhada aleatória, criptograficamente forte de 32 caracteres do seu administrador de rede ou segurança. Você também pode usar as informações em [Create a random string for an IPsec preshared key (Criar uma cadeia de caracteres aleatória para uma chave pré-compartilhada IPsec)](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx) para obter uma chave pré-compartilhada.
 
 Em seguida, use estes comandos para criar a conexão VPN VNet para VNet, que pode levar algum tempo para ser concluída.
@@ -147,7 +151,7 @@ Esta é a configuração atual.
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph3.png)
 
-## Fase 4: configurar o DC2
+## <a name="phase-4-configure-dc2"></a>Fase 4: configurar o DC2
 Em primeiro lugar, crie uma máquina virtual para DC2. Execute estes comandos no prompt de comando do Azure PowerShell em seu computador local.
 
     $rgName="<your resource group name>"
@@ -181,7 +185,7 @@ Em seguida, adicione o disco de dados extra no DC2 como um novo volume com a let
 
 1. No painel esquerdo do Gerenciador do Servidor, clique em **Serviços de Arquivo e Armazenamento** e, em seguida, clique em **Discos**.
 2. No painel de conteúdo, no grupo **Discos**, clique em **disco 2** (com a **Partição** definida como **Desconhecida**).
-3. Clique em **Tarefas**, e, em seguida, em **Novo Volume**.
+3. Clique em **Tarefas** e, em seguida, em **Novo Volume**.
 4. Na página Antes de começar do Assistente de Novo Volume, clique em **Avançar**.
 5. Na página Selecione o servidor e o disco, clique em **Disco 2** e, em seguida, em **Avançar**. Quando solicitado, clique em **OK**.
 6. Na página Especifique o tamanho do volume, clique em **Avançar**.
@@ -195,7 +199,7 @@ Em seguida, configure o DC2 como um controlador de domínio de réplica para o d
     Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
     Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Observe que você será solicitado a fornecer a senha de CORP\\User1 e uma senha do Modo de Restauração dos Serviços de Diretório (DSRM) e reiniciar o DC2.
+Observe que você será solicitado a fornecer a senha de CORP\User1 e uma senha do Modo de Restauração dos Serviços de Diretório (DSRM) e reiniciar o DC2.
 
 Agora que a rede virtual TestVNET tem seu próprio servidor DNS (DC2), você deve configurar a rede virtual TestVNET para usar esse servidor DNS.
 
@@ -204,13 +208,18 @@ Agora que a rede virtual TestVNET tem seu próprio servidor DNS (DC2), você dev
 3. Em **Servidor DNS primário**, digite **192.168.0.4** para substituir 10.0.0.4.
 4. Clique em **Salvar**.
 
-Esta é a configuração atual.
+Esta é a configuração atual. 
 
 ![](./media/virtual-machines-windows-ps-hybrid-cloud-test-env-sim/virtual-machines-windows-ps-hybrid-cloud-test-env-sim-ph4.png)
 
 Seu ambiente de nuvem híbrida simulado agora está pronto para testes.
 
-## Próxima etapa
-* Configure um [aplicativo de linha de negócios baseado na Web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md) nesse ambiente.
+## <a name="next-step"></a>Próxima etapa
+* Configure um [aplicativo de linha de negócios baseado na Web](virtual-machines-windows-ps-hybrid-cloud-test-env-lob.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nesse ambiente.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Usar o Pig do Hadoop com área de trabalho remota no HDInsight | Microsoft Docs
-description: Aprenda a usar o comando Pig para executar instruções Pig Latin por meio de uma conexão de área de trabalho remota a um cluster Hadoop em HDInsight baseado em Windows.
+title: "Usar o Pig do Hadoop com área de trabalho remota no HDInsight | Microsoft Docs"
+description: "Aprenda a usar o comando Pig para executar instruções Pig Latin por meio de uma conexão de área de trabalho remota a um cluster Hadoop em HDInsight baseado em Windows."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: e034a286-de0f-465f-8bf1-3d085ca6abed
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 28499d1778db75fa164afe20ae1adc6736f7bb93
+
 
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Executar trabalhos do Pig por meio de uma conexão de área de trabalho remota
@@ -24,16 +28,16 @@ Este documento fornece uma explicação passo a passo para usar o comando Pig pa
 
 Neste documento, saiba como
 
-## <a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Pré-requisitos
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * Um cluster HDInsight baseado em Windows (Hadoop no HDInsight)
 * Um computador cliente executando o Windows 7, Windows 8 ou Windows 10
 
-## <a name="<a-id="connect"></a>connect-with-remote-desktop"></a><a id="connect"></a>Conectar com a área de trabalho remota
+## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>Conectar com a área de trabalho remota
 Habilite a área de trabalho remota para o cluster HDInsight e conecte-se a ele seguindo as instruções em [Conectar aos clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#rdp).
 
-## <a name="<a-id="pig"></a>use-the-pig-command"></a><a id="pig"></a>Usar o comando Pig
+## <a name="a-idpigause-the-pig-command"></a><a id="pig"></a>Usar o comando Pig
 1. Após ter estabelecido uma conexão de área de trabalho remota, inicie a **Linha de Comando do Hadoop** usando o ícone correspondente na área de trabalho.
 2. Use o seguinte para iniciar o comando do Pig:
    
@@ -109,10 +113,10 @@ Você também pode usar o comando Pig para executar o Pig Latin contido em um ar
         (ERROR,6)
         (FATAL,2)
 
-## <a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Resumo
+## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumo
 Como você pode ver, o comando Pig permite executar operações do MapReduce, ou usar trabalhos do Pig Latin armazenados em arquivos em lotes.
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Próximas etapas
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
 Para obter informações gerais sobre o Pig no HDInsight:
 
 * [Usar o Pig com Hadoop no HDInsight](hdinsight-use-pig.md)
@@ -122,6 +126,9 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 * [Usar o Hive com Hadoop no HDInsight](hdinsight-use-hive.md)
 * [Usar o MapReduce com Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

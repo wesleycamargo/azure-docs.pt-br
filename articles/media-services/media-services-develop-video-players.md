@@ -1,12 +1,12 @@
 ---
-title: Desenvolver aplicativos de player de vídeo
-description: O tópico fornece links para as Estruturas do Player e plug-ins que você pode usar para desenvolver seus próprios aplicativos de cliente que podem consumir a mídia de streaming dos Serviços de Mídia.
+title: "Desenvolver aplicativos de player de vídeo"
+description: "O tópico fornece links para as Estruturas do Player e plug-ins que você pode usar para desenvolver seus próprios aplicativos de cliente que podem consumir a mídia de streaming dos Serviços de Mídia."
 author: Juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 55e419fc-4c39-4902-9c62-f41cfcd86c6c
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: aea38b92140f753ce13256297b4740c4391aeb25
+
 
 ---
 # <a name="develop-video-player-applications"></a>Desenvolver aplicativos de player de vídeo
@@ -68,6 +72,9 @@ Para obter informações sobre o suporte à legendagem oculta e a anúncios em v
 
 [Repositório do dash.js do GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

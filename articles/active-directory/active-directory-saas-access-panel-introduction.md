@@ -1,12 +1,12 @@
 ---
-title: Introdução ao painel de acesso | Microsoft Docs
-description: Saiba como usar as várias versões do painel de acesso (navegador da Web, aplicativo Android, iPhone e iPad) para acessar os aplicativos SaaS atribuídos a você.
+title: "Introdução ao painel de acesso | Microsoft Docs"
+description: "Saiba como usar as várias versões do painel de acesso (navegador da Web, aplicativo Android, iPhone e iPad) para acessar os aplicativos SaaS atribuídos a você."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markusvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 677515cf1336aa1638fae1be492707f1a60e38a2
+
 
 ---
 # <a name="introduction-to-the-access-panel"></a>Introdução ao painel de acesso
@@ -93,12 +97,12 @@ Se uma organização estiver usando aplicativos do Office 365 e o usuário for l
 
 Quando um usuário clica em um bloco do aplicativo para um aplicativo do Office 365, ele é redirecionado para esse aplicativo e conectado automaticamente.
 
-### <a name="microsoft-and-thirdparty-applications-configured-with-federationbased-sso"></a>Aplicativos da Microsoft e de terceiros configurados com o SSO baseado em federação
+### <a name="microsoft-and-third-party-applications-configured-with-federation-based-sso"></a>Aplicativos da Microsoft e de terceiros configurados com o SSO baseado em federação
 São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como "*Logon único do Azure AD*". Um usuário só verá esses aplicativos se tiver acesso explicitamente concedido ao aplicativo pelo administrador.
 
 Quando um usuário clica em um bloco do aplicativo para um desses aplicativos, ele é redirecionado para esse aplicativo e conectado automaticamente.
 
-### <a name="passwordbased-sso-without-identity-provisioning"></a>SSO baseado em senha sem provisionamento de identidade
+### <a name="password-based-sso-without-identity-provisioning"></a>SSO baseado em senha sem provisionamento de identidade
 São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como "*Logon único baseado em senha*". <br>  Todos os usuários no diretório verão todos os aplicativos configurados nesse modo.
 
 Quando um usuário clica em um bloco do aplicativo pela primeira vez para um desses aplicativos, ele é solicitado a instalar o plug-in do SSO de senha para o Internet Explorer ou Chrome, que pode exigir a reinicialização do navegador da Web. Quando ele é retornado ao painel de acesso e clica novamente no bloco do aplicativo, será solicitado a ele um nome de usuário e uma senha para o aplicativo. Depois que o nome de usuário e a senha são inseridos, essas credenciais são armazenadas com segurança no AD do Azure e vinculadas à sua conta no AD do Azure, e o painel de acesso conectará automaticamente o usuário ao aplicativo usando essas credenciais.
@@ -107,7 +111,7 @@ Na próxima vez que um usuário clicar no bloco do aplicativo, ele será conecta
 
 Se as credenciais de um usuário forem alteradas no aplicativo de terceiros de destino, o usuário deverá também atualizar suas credenciais armazenadas no AD do Azure. Para atualizar as credenciais, um usuário deve selecionar o ícone no canto inferior direito do bloco do aplicativo e selecionar "Atualizar credenciais" para inserir novamente o nome de usuário e a senha para o aplicativo.
 
-### <a name="passwordbased-sso-with-identity-provisioning"></a>SSO baseado em senha com provisionamento de identidade
+### <a name="password-based-sso-with-identity-provisioning"></a>SSO baseado em senha com provisionamento de identidade
 São aplicativos que o administrador adicionou na seção Active Directory do Portal de Gerenciamento do Azure com o modo de logon único definido como "*Logon único baseado em senha*", além de provisionamento de identidade.
 
 Quando um usuário clica em um bloco do aplicativo pela primeira vez para um desses aplicativos, ele é solicitado a instalar o plug-in do SSO de senha para o Internet Explorer ou Chrome, que pode exigir a reinicialização do navegador da Web. Quando ele é retornado ao painel de acesso e clica novamente no bloco do aplicativo, é solicitado a ele um nome de usuário e uma senha para o aplicativo.
@@ -131,6 +135,6 @@ Ao configurar o logon único para um aplicativo, o portal de gerenciamento do Az
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

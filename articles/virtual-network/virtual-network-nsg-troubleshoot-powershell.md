@@ -1,13 +1,13 @@
 ---
-title: Solucionar problemas de grupos de segurança de rede – PowerShell | Microsoft Docs
-description: Saiba como solucionar problemas de Grupos de Segurança de Rede no modelo de implantação do Azure Resource Manager usando o Azure PowerShell.
+title: "Solucionar problemas de grupos de segurança de rede – PowerShell | Microsoft Docs"
+description: "Saiba como solucionar problemas de Grupos de Segurança de Rede no modelo de implantação do Azure Resource Manager usando o Azure PowerShell."
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 4c732bb7-5cb1-40af-9e6d-a2a307c2a9c4
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 10a56e134f0e31e60758d6e616b771dabc0f4dad
+
 
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Solucionar problemas de grupos de segurança de rede usando o Azure PowerShell
@@ -194,6 +198,9 @@ Considere os seguintes pontos ao solucionar problemas de conectividade:
 * As regras de segurança em vigor serão mostradas apenas se houver um NSG associado à NIC e/ou sub-rede da VM. 
 * Se não houver nenhum NSG associado à NIC ou à sub-rede e você tiver um endereço IP público atribuído à sua VM, todas as portas estarão abertas para acesso de entrada e saída. Se a VM tem um endereço IP público, recomenda-se aplicar NSGs à NIC ou à sub-rede.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Azure Active Directory B2C | Microsoft Docs
-description: Criação de aplicativos Web usando a implementação do Azure Active Directory do protocolo de autenticação OpenID Connect.
+description: "Criação de aplicativos Web usando a implementação do Azure Active Directory do protocolo de autenticação OpenID Connect."
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/22/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9a4ccad94520bd0d811ba9dcfd6f7cc680c89a1f
+
 
 ---
-# <a name="azure-active-directory-b2c:-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: entrada na Web com o OpenID Connect
+# <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: entrada na Web com o OpenID Connect
 O OpenID Connect é um protocolo de autenticação criado com base em OAuth 2.0 que pode ser usado para conectar com segurança os usuários em aplicativos Web.  Usando a implementação do Azure Active Directory B2C (Azure AD) do OpenID Connect, você pode terceirizar a inscrição, a entrada e outras experiências de gerenciamento de identidade nos seus aplicativos Web para o do Azure AD. Este guia mostrará como fazer isso de maneira independente da linguagem. Ele descreverá como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
 
 O [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* do OAuth 2.0 a ser usado como um protocolo de *autenticação*. Isso permite que você execute o logon único usando OAuth. Ele apresenta o conceito de um `id_token`, que é um token de segurança que permite ao cliente verificar a identidade do usuário e obter informações básicas de perfil sobre o usuário.
@@ -118,7 +122,7 @@ error=access_denied
 | error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro de autenticação. |
 | state |Veja a descrição completa na tabela anterior. Se um parâmetro de estado estiver incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores de estado na solicitação e na resposta são idênticos. |
 
-## <a name="validate-the-id_token"></a>Validar o id_token
+## <a name="validate-the-idtoken"></a>Validar o id_token
 Apenas receber o id_token não é suficiente para autenticar o usuário -- você deve validar a assinatura do id_token e verificar as declarações no token de acordo com os requisitos do aplicativo. O Azure AD B2C usa [JWTs (Tokens Web JSON)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos.
 
 Há muitas bibliotecas de software livre para validar JWTs dependendo do idioma de preferência. Recomendamos que você explore essas opções em vez de implementar a sua própria lógica de validação. As informações aqui serão úteis para descobrir como usar essas bibliotecas adequadamente.
@@ -133,7 +137,7 @@ Uma das propriedades desse documento de configuração é o `jwks_uri`, cujo val
 
 A fim de determinar qual política foi usada na assinatura de um id_token (e onde buscar os metadados), você tem duas opções. Primeiro, o nome da política é incluído na declaração `acr` no id_token. Para obter informações sobre como analisar as declarações de um id_token, consulte a [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md). A outra opção é codificar a política no valor do parâmetro `state` quando você emitir a solicitação e, em seguida, decodificá-lo para determinar qual política foi usada. Qualquer um dos métodos é perfeitamente válido.
 
-Depois que tiver adquirido o documento de metadados do ponto de extremidade de metadados OpenID Connect, você poderá usar as chaves públicas RSA256 (localizadas nesse ponto de extremidade) para validar a assinatura do id_token. Pode haver várias chaves listadas nesse ponto de extremidade em qualquer ponto no tempo, cada uma identificada por um `kid`. O cabeçalho do id_token também contém uma declaração `kid`, que indica quais dessas chaves foi usada para assinar o id_token. Confira a [referência ao token do Azure AD B2C](active-directory-b2c-reference-tokens.md) para obter mais informações, incluindo as seções [Validando tokens](active-directory-b2c-reference-tokens.md#validating-tokens) e [Informações importantes sobre a substituição de chave de assinatura](active-directory-b2c-reference-tokens.md#validating-tokens).
+Depois que tiver adquirido o documento de metadados do ponto de extremidade de metadados OpenID Connect, você poderá usar as chaves públicas RSA256 (localizadas nesse ponto de extremidade) para validar a assinatura do id_token. Pode haver várias chaves listadas nesse ponto de extremidade em qualquer ponto no tempo, cada uma identificada por um `kid`. O cabeçalho do id_token também contém uma declaração `kid`, que indica quais dessas chaves foi usada para assinar o id_token. Consulte a [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md) para obter mais informações, incluindo como [validar os tokens](active-directory-b2c-reference-tokens.md#token-validation).
 <!--TODO: Improve the information on this-->
 
 Depois que você validar a assinatura de id_token, há várias declarações que precisará verificar, por exemplo:
@@ -304,6 +308,9 @@ Se você quiser experimentar essas solicitações por conta própria, primeiro d
 * [Criar um aplicativo](active-directory-b2c-app-registration.md) para obter uma ID de aplicativo e um redirect_uri. Você deve incluir um **aplicativo Web/API Web** em seu aplicativo e, opcionalmente, criar um **segredo do aplicativo**.
 * [Criar suas regras](active-directory-b2c-reference-policies.md) para obter os nomes de política.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

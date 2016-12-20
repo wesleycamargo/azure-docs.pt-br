@@ -1,13 +1,13 @@
 ---
-title: Technical deep dive on platform-supported migration from classic to Azure Resource Manager | Microsoft Docs
-description: This article does a technical deep dive on platform-supported migration of resources from classic to Azure Resource Manager
+title: "Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager | Microsoft Docs"
+description: "Este artigo faz uma análise técnica detalhada sobre a migração de recursos com suporte da plataforma do clássico para o Azure Resource Manager"
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: singhkays
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 29267453-f894-4180-bb67-dce2a0e062bb
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,52 +15,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: kasing
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: fc778c8b78a20cbcd9f3988ab28b763ab1c62f48
+
 
 ---
-# <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Technical deep dive on platform-supported migration from classic to Azure Resource Manager
-In this article, we do a technical deep dive on migration at a resource and feature level to help you understand how the platform migrates resources from the classic deployment model to the Azure Resource Manager deployment model. For more information, please read the service announcement article: [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
+# <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager
+Neste artigo, fazemos uma análise técnica da migração em nível de recursos para ajudá-lo a entender como a plataforma migra os recursos do modelo de implantação clássica para modelo de implantação do Azure Resource Manager. Para obter mais informações, leia o artigo de comunicado do serviço - [Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
 
-## <a name="detailed-guidance-on-migration-at-a-resource-and-feature-level"></a>Detailed guidance on migration at a resource and feature level
-You can find the classic and Resource Manager representations of the resources in the following table. Features and resources not listed in this table are not supported at this time.
+## <a name="detailed-guidance-on-migration-at-a-resource-and-feature-level"></a>Diretrizes detalhadas sobre a migração em nível de recursos
+Você pode encontrar as representações do clássico e do Gerenciador de Recursos dos recursos na tabela abaixo. No momento, não há suporte para os recursos não listados nesta tabela.
 
-| Classic representation | Resource Manager representation | Detailed notes |
+| Representação do clássico | Representação do Gerenciador de Recursos | Anotações detalhadas |
 | --- | --- | --- |
-| Cloud service name |DNS name |During migration, we create a new resource group for every cloud service with the naming pattern `<cloudservicename>-migrated`. This resource group will contain all the resources. The cloud service name becomes a DNS name that is associated with the public IP address. |
-| Virtual machine |Virtual machine |VM-specific properties are migrated unchanged. Note that certain osProfile information, like computer name, is not stored in the classic deployment model and remains empty after migration. |
-| Disk resources attached to VM |Implicit disks attached to VM |Disks are not modeled as top-level resources in the Resource Manager deployment model. They are migrated as implicit disks under the VM. At this time, we support only disks that are attached to a VM. To enable migration, Resource Manager VMs can now use classic storage accounts. This allows the disks to be easily migrated to the Resource Manager model without any updates. |
-| VM extensions |VM extensions |All the resource extensions, except XML extensions, are migrated from the classic deployment model. |
-| Virtual machine certificates |Certificates in Azure Key Vault |If a cloud service contains service certificates, the platform creates a new Azure key vault per cloud service and moves the certificates into the key vault. The VMs will be updated to reference the certificates from the key vault. |
-| WinRM configuration |WinRM configuration under osProfile |Windows Remote Management configuration is moved unchanged, as part of the migration. |
-| Availability-set property |Availability-set resource |Availability-set specification was a property on the VM in the classic deployment model. Availability sets become a top-level resource as part of the migration. Note that we don't support the following configuration: multiple availability sets per cloud service, or one or more availability sets along with VMs that are not in any availability set in a cloud service. |
-| Network configuration on a VM |Primary network interface |Network configuration on a VM is represented as the primary network interface resource after migration. For VMs that are not in a virtual network, the internal IP address changes during migration. |
-| Multiple network interfaces on a VM |Network interfaces |If a VM had multiple network interfaces associated with it, each network interface becomes a top-level resource as part of the migration in the Resource Manager deployment model, along with all the properties. |
-| Load-balanced endpoint set |Load balancer |In the classic deployment model, the platform assigned an implicit load balancer for every cloud service. During migration, we create a new load-balancer resource, and the load-balancing endpoint set becomes load-balancer rules. |
-| Inbound NAT rules |Inbound NAT rules |Input endpoints defined on the VM are converted to inbound Network Access Translation rules under the load balancer during the migration. |
-| VIP address |Public IP address with DNS name |The virtual IP address becomes a public IP address and is associated with the load balancer. |
-| Virtual network |Virtual network |The virtual network is migrated, with all its properties, to the Resource Manager deployment model. A new resource group is created with the name `-migrated`. Note the [unsupported configurations](virtual-machines-windows-migration-classic-resource-manager.md). |
-| Reserved IPs |Public IP address with static allocation method |Reserved IPs associated with the load balancer are migrated, along with the migration of the cloud service or the virtual machine. Unassociated reserved IP migration is not supported at this time. |
-| Public IP address per VM |Public IP address with dynamic allocation method |The public IP address associated with the VM is converted as a public IP address resource, with the allocation method set to static. |
-| NSGs |NSGs |Network security groups associated with a subnet are cloned as part of the migration to the Resource Manager deployment model. Note that the NSG in the classic deployment model is not removed during the migration. However, the management-plane operations for the NSG are be blocked when the migration is in progress. |
-| DNS servers |DNS servers |DNS servers associated with a virtual network or the VM are migrated as part of the corresponding resource migration, along with all the properties. |
-| UDRs |UDRs |User-defined routes associated with a subnet are cloned as part of the migration to the Resource Manager deployment model. Note that the UDR in the classic deployment model is not removed during the migration. However, the management-plane operations for the UDR are blocked when the migration is in progress. |
-| IP forwarding property on a VM's network configuration |IP forwarding property on the NIC |The IP forwarding property on a VM is converted to a property on the network interface during the migration. |
-| Load balancer with multiple IPs |Load balancer with multiple public IP resources |Every public IP associated with the load balancer is converted to a public IP resource and associated with the load balancer after migration. |
-| Internal DNS names on the VM |Internal DNS names on the NIC |During migration, the internal DNS suffixes for the VM’s are migrated to a read only property named “InternalDomainNameSuffix” on the NIC. The suffix remains unchanged after migration and VM resolution should continue to work as previously. |
+| Nome do serviço de nuvem |Nome DNS |Durante a migração, criamos um novo grupo de recursos para cada serviço de nuvem com o padrão de nomenclatura `<cloudservicename>-migrated`. Esse grupo de recursos contém todos os recursos. O nome do serviço de nuvem torna-se um nome DNS associado ao endereço IP público. |
+| Máquina virtual |Máquina virtual |As propriedades específicas da VM são migradas sem alterações. Observe que determinadas informações de osProfile, como nome do computador, não foram armazenadas no modelo de implantação clássica e permanecem vazias após a migração. |
+| Recursos de disco anexados à VM |Discos implícitos anexados à VM |Os discos não são modelados como recursos de nível superior no modelo de implantação do Gerenciador de Recursos. Eles são migrados como discos implícitos na VM. No momento, há suporte apenas aos discos anexados a uma VM. Para habilitar a migração, as VMs do Gerenciador de Recursos agora podem usar contas de armazenamento clássico. Isso permite que os discos sejam facilmente migrados para o modelo do Gerenciador de Recursos sem nenhuma atualização. |
+| Extensões de VM |Extensões de VM |Todas as extensões de recurso, exceto as extensões XML, são migradas do modelo de implantação clássica. |
+| Certificados de máquina virtual |Certificados no Cofre da Chave do Azure |Se um serviço de nuvem contiver certificados de serviço, a plataforma criará um novo cofre de chaves do Azure por serviço de nuvem e moverá os certificados para o cofre de chaves. As VMs serão atualizadas para fazer referência aos certificados por meio do cofre de chaves. |
+| Configuração do WinRM |Configuração do WinRM em osProfile |A configuração do Gerenciamento Remoto do Windows é movida sem alterações, como parte da migração. |
+| Propriedade do conjunto de disponibilidade |Recurso do conjunto de disponibilidade |A especificação do conjunto de disponibilidade era uma propriedade da VM no modelo de implantação clássica. Os conjuntos de disponibilidade se tornam um recurso de nível superior como parte da migração. Observe que não há suporte para a seguinte configuração: vários conjuntos de disponibilidade por serviço de nuvem ou um ou mais conjuntos de disponibilidade junto com VMs que não estão em nenhum conjunto de disponibilidade em um serviço de nuvem. |
+| Configuração de rede em uma VM |Interface de rede primária |A configuração de rede em uma VM é representada como o recurso de interface de rede primária após a migração. Para as VMs que não estão em uma rede virtual, o endereço IP interno é alterado durante a migração. |
+| Várias interfaces de rede em uma VM |Interfaces de rede |Se uma VM tiver várias interfaces de rede associadas, cada interface de rede se tornará um recurso de nível superior como parte da migração no modelo de implantação do Gerenciador de Recursos, juntamente com todas as propriedades. |
+| Conjunto de pontos de extremidade com balanceamento de carga |Balanceador de carga |No modelo de implantação clássica, a plataforma atribuía um balanceador de carga implícito a cada serviço de nuvem. Durante a migração, criamos um novo recurso de balanceador de carga e o conjunto de pontos de extremidade com balanceamento de carga se torna as regras do balanceador de carga. |
+| Regras NAT de entrada |Regras NAT de entrada |Os pontos de extremidade de entrada definidos na VM são convertidos em regras de Network Access Translation de entrada sob o balanceador de carga durante a migração. |
+| Endereço VIP |Endereço IP público com o nome DNS |O endereço IP virtual se torna um endereço IP público e é associado ao balanceador de carga. |
+| Rede virtual |Rede virtual |A rede virtual é migrada com todas as propriedades para o modelo de implantação do Gerenciador de Recursos. É criado um novo grupo de recursos com o nome `-migrated`. Observe as [configurações sem suporte](virtual-machines-windows-migration-classic-resource-manager.md). |
+| IPs Reservados |Endereço IP público com método de alocação estático |Os IPs Reservados associados ao balanceador de carga são migrados, juntamente com a migração do serviço de nuvem ou da máquina virtual. No momento, não há suporte para a migração de IP reservado não associado. |
+| Endereço IP público por VM |Endereço IP público com método de alocação dinâmico |O endereço IP público associado à VM é convertido como um recurso de endereço IP público, com o método de alocação definido como estático. |
+| NSGs |NSGs |Os grupos de segurança de rede associados a uma sub-rede são clonados como parte da migração para o modelo de implantação do Gerenciador de Recursos. Observe que o NSG no modelo de implantação clássica não é removido durante a migração. No entanto, as operações do plano de gerenciamento referentes ao NSG serão bloqueadas quando a migração estiver em andamento. |
+| Servidores DNS |Servidores DNS |Os servidores DNS associados a uma rede virtual ou à VM são migrados como parte da migração do recurso correspondente, juntamente com todas as propriedades. |
+| UDRs |UDRs |As rotas definidas pelo usuário associados a uma sub-rede são clonadas como parte da migração para o modelo de implantação do Gerenciador de Recursos. Observe que a UDR no modelo de implantação clássica não é removida durante a migração. No entanto, as operações do plano de gerenciamento referentes à UDR serão bloqueadas quando a migração estiver em andamento. |
+| Propriedade de encaminhamento IP em uma configuração de rede da VM |Propriedade de encaminhamento IP na NIC |A propriedade de encaminhamento IP em uma VM é convertida em uma propriedade na interface de rede durante a migração. |
+| Balanceador de carga com vários IPs |Balanceador de carga com vários recursos IP públicos |Cada IP público associado ao balanceador de carga é convertido em um recurso IP público e associado ao balanceador de carga após a migração. |
+| Nomes DNS internos na VM |Nomes DNS internos na NIC |Durante a migração, os sufixos DNS internos das VMs são migrados para uma propriedade somente leitura chamada "InternalDomainNameSuffix" no NIC. O sufixo permanece inalterado após a migração, e a resolução da VM deve continuar a funcionar como antes. |
 
-## <a name="illustration-of-a-simple-migration-walkthrough"></a>Illustration of a simple migration walkthrough
-In the following example screenshots, you can see the representation of a cloud service with a VM (not in a virtual network) after the preparation phase.
+## <a name="illustration-of-a-simple-migration-walkthrough"></a>Ilustração de um passo a passo de migração simples
+Nas capturas de tela de exemplo a seguir, é possível ver a representação de um serviço de nuvem com uma VM (não em uma rede virtual) após a fase de preparação.
 
-![Screenshot that shows the Classic representation after prepare](./media/virtual-machines-windows-migration-classic-resource-manager/classic-migration-prepare-portal.png)
-![Screenshot that shows the Resource Manager representation after prepare](./media/virtual-machines-windows-migration-classic-resource-manager/resourcemanager-migration-prepare-portal.png)
+![Captura de tela que mostra a representação Clássica após a preparação](./media/virtual-machines-windows-migration-classic-resource-manager/classic-migration-prepare-portal.png)
+![Captura de tela que mostra a representação do Resource Manager após a preparação](./media/virtual-machines-windows-migration-classic-resource-manager/resourcemanager-migration-prepare-portal.png)
 
-## <a name="next-steps"></a>Next steps
-Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating resources.
+## <a name="next-steps"></a>Próximas etapas
+Agora que você compreende a migração de recursos clássicos de IaaS para o Gerenciador de Recursos, poderá começar a migrar os recursos.
 
-* [Use PowerShell to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
-* [Use CLI to migrate IaaS resources from classic to Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
-* [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
-* [Clone a classic virtual machine to Azure Resource Manager by using community PowerShell scripts](virtual-machines-windows-migration-scripts.md)
+* [Usar o PowerShell para migrar recursos de IaaS do clássico para o Azure Resource Manager](virtual-machines-windows-ps-migration-classic-resource-manager.md)
+* [Usar a CLI para migrar recursos de IaaS do clássico para o Azure Resource Manager](virtual-machines-linux-cli-migration-classic-resource-manager.md)
+* [Migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md)
+* [Clonar uma máquina virtual clássica para o Azure Resource Manager usando scripts da comunidade do PowerShell](virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

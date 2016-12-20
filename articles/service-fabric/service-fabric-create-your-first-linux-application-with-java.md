@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
+ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
+ms.openlocfilehash: 87f5ac490f113a7c0144b20563a4f8f4bbcc6b21
 
 
 ---
@@ -28,7 +28,10 @@ ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
 > 
 > 
 
-O Service Fabric fornece SDKs para compilação de serviços no Linux em .NET Core e Java. Neste tutorial, vamos ver como criar um aplicativo para Linux e compilar um serviço usando Java.
+O Service Fabric fornece SDKs para compilação de serviços no Linux em .NET Core e Java. Neste tutorial, veremos como criar um aplicativo para Linux e compilar um serviço usando Java.  O vídeo do Microsoft Virtual Academy a seguir também explica o processo de criação de um aplicativo Java no Linux:  
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, verifique se você [configurar o ambiente de desenvolvimento Linux](service-fabric-get-started-linux.md). Se você estiver usando Mac OS X, poderá [configurar um ambiente de uma caixa do Linux em uma máquina virtual usando Vagrant](service-fabric-get-started-mac.md).
@@ -86,7 +89,7 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
 3. Clique no nó encontrado na etapa anterior e selecione **Desativar (Reiniciar)** no menu Ações. Isso reiniciará um dos cinco nós no cluster local e forçará um failover para uma das réplicas secundárias em execução em outro nó. Ao fazer isso, preste atenção à saída do cliente de teste e observe que o contador continua a aumentar apesar do failover.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Compilar e implantar um aplicativo com o plug-in Eclipse Neon
-Se você instalou o Plug-in de serviço para Eclipse Neon, você pode usá-lo para criar, compilar e implantar aplicativos do Service Fabric compilados com o Java.  Ao instalar o Eclipse, escolha o **Eclipse IDE para desenvolvedores Java**.
+Se você instalou o [Plug-in Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) para Eclipse Neon, você pode usá-lo para criar, compilar e implantar aplicativos do Service Fabric compilados com o Java.  Ao instalar o Eclipse, escolha o **Eclipse IDE para desenvolvedores Java**.
 
 ### <a name="create-the-application"></a>Criar o aplicativo
 O Plug-in de serviço do Service Fabric está disponível por meio da extensibilidade do Eclipse.
@@ -98,13 +101,22 @@ O Plug-in de serviço do Service Fabric está disponível por meio da extensibil
 3. Você deve confirmar o uso da perspectiva do Service Fabric, que otimiza o Eclipse para uso com projetos do Service Fabric. Selecione “Sim”.
 
 ### <a name="deploy-the-application"></a>Implantar o aplicativo
-Os modelos do Service Fabric incluem um conjunto de tarefas do Gradle para compilar e implantar aplicativos, que você pode disparar pelo Eclipse.
+Os modelos do Service Fabric incluem um conjunto de tarefas do Gradle para compilar e implantar aplicativos, que você pode disparar pelo Eclipse. 
 
 1. Escolha **Executar > Executar Configurações**.
-2. Expanda **Projeto Gradle** e escolha **ServiceFabricDeployer**.
-3. Clique em **Executar**.
+2. Especifique **local** ou **nuvem**. A configuração padrão é **local**. Para implantar um cluster remoto, selecione **nuvem**.
+3. Certifique-se de que as informações adequadas estão preenchidas nos perfis de publicação, editando `local.json` ou `cloud.json` conforme apropriado.
+4. Clique em **Executar**.
 
 Seu aplicativo será compilado e implantado em poucos instantes. Você pode monitorar o status no Service Fabric Explorer.
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>Adicionando mais serviços a um aplicativo existente
+
+Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas: 
+1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
+2. Execute o `yo azuresfjava:AddService`
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
@@ -117,6 +129,6 @@ Seu aplicativo será compilado e implantado em poucos instantes. Você pode moni
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

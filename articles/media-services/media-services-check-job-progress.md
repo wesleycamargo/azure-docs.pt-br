@@ -1,12 +1,12 @@
 ---
 title: Monitorar o andamento do trabalho usando o .NET
-description: Saiba como usar o código do manipulador de eventos para acompanhar o andamento do trabalho e enviar atualizações de status. O exemplo de código é escritos em C# e usam o SDK dos Serviços de Mídia para .NET.
+description: "Saiba como usar o código do manipulador de eventos para acompanhar o andamento do trabalho e enviar atualizações de status. O exemplo de código é escritos em C# e usam o SDK dos Serviços de Mídia para .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1420c9dbaba1767526fa86a27aacb4fa3b2e2fe0
+
 
 ---
-# Monitorar o andamento do trabalho usando o .NET
+# <a name="monitor-job-progress-using-net"></a>Monitorar o andamento do trabalho usando o .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -26,7 +30,7 @@ ms.author: juliako
 
 Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode verificar o andamento definindo um evento StateChanged (conforme descrito neste tópico) ou usando o Armazenamento de Filas do Azure para monitorar as notificações de trabalho dos Serviços de Mídia (conforme descrito [neste](media-services-dotnet-check-job-progress-with-queues.md) tópico).
 
-## Definir o manipulador de eventos StateChanged para monitorar o andamento do trabalho
+## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definir o manipulador de eventos StateChanged para monitorar o andamento do trabalho
 O exemplo de código a seguir define o manipulador de eventos StateChanged: Esse manipulador de eventos acompanha o andamento do trabalho e fornece o status atualizado, dependendo do estado. O código também define o método LogJobStop. Esse método auxiliar registra os detalhes de erros.
 
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
@@ -106,12 +110,17 @@ O exemplo de código a seguir define o manipulador de eventos StateChanged: Esse
 
 
 
-## Próxima etapa
+## <a name="next-step"></a>Próxima etapa
 Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornecer comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

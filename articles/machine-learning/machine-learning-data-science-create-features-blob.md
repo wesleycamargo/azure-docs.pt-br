@@ -1,19 +1,23 @@
 ---
-title: Criar recursos para dados de armazenamento de blob do Azure usando o Panda | Microsoft Docs
-description: Como criar recursos para os dados armazenados no contêiner de blob do Azure com o pacote Python Pandas.
+title: Criar recursos para dados de armazenamento de blobs do Azure usando o Panda | Microsoft Docs
+description: "Como criar recursos para os dados armazenados no contêiner de blob do Azure com o pacote Python Pandas."
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/09/2016
 ms.author: bradsev;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
+
 
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Criar recursos para dados de armazenamento de blob do Azure usando o Panda
@@ -53,10 +57,10 @@ Para explorar e manipular um conjunto de dados, eles devem ser baixados da fonte
 
 Agora você está pronto para explorar os dados e gerar recursos neste conjunto de dados.
 
-## <a name="a-nameblobfeaturegenafeature-generation"></a><a name="blob-featuregen"></a>Geração de recursos
+## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Geração de recursos
 As duas seções a seguir mostram como gerar recursos categóricos com valores de indicador e de compartimentalização usando scripts Python.
 
-### <a name="a-nameblobcountfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Geração de Recursos baseada no valor do indicador
+### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Geração de Recursos baseada no valor do indicador
 Recursos categóricos podem ser criados da seguinte maneira:
 
 1. Inspecionar a distribuição da coluna categórica:
@@ -75,7 +79,7 @@ Recursos categóricos podem ser criados da seguinte maneira:
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="a-nameblobbinningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Agrupamento da Geração de Recursos
+### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Agrupamento da Geração de Recursos
 Para gerar recursos compartimentalizados, faça o seguinte:
 
 1. Adicione uma sequência de colunas a ser compartimentalizada a coluna numérica
@@ -89,7 +93,7 @@ Para gerar recursos compartimentalizados, faça o seguinte:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="a-namesqlfeaturegenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Aprendizado de Máquina do Azure
+## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Aprendizado de Máquina do Azure
 Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Aprendizado de Máquina do Azure usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Estúdio de Aprendizado de Máquina do Azure também.
 
 1. Grave o quadro de dados no arquivo local
@@ -114,12 +118,15 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
         #perform upload
         output_blob_service.put_block_blob_from_path(CONTAINERNAME,BLOBNAME,localfileprocessed)
    
-        except:         
+        except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
 3. Agora, os dados podem ser lidos do blob usando o módulo [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) do Aprendizado de Máquina do Azure, como mostra a tela abaixo:
 
 ![blob de leitor](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

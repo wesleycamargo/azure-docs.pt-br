@@ -1,12 +1,12 @@
 ---
-title: Solução de problemas de controle de acesso baseado em função | Microsoft Docs
-description: Obtenha ajuda para problemas ou dúvidas sobre recursos do Controle de Acesso Baseado em Função.
+title: "Solução de problemas de controle de acesso baseado em função | Microsoft Docs"
+description: "Obtenha ajuda para problemas ou dúvidas sobre recursos do Controle de Acesso Baseado em Função."
 services: azure-portal
 documentationcenter: na
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,22 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a6fd242b89e6a7cd61be6ceadf15852e9ef61a8a
+
 
 ---
-# Solução de problemas de Controle de Acesso baseado em função
-## Introdução
-O [Controle de Acesso Baseado em Função](role-based-access-control-configure.md) é um recurso avançado que permite a você delegar acesso refinado aos recursos no Azure. Isso significa que você pode ficar tranquilo, concedendo a uma certa pessoa o direito de usar exatamente o que ela precisa, e nada mais. No entanto, às vezes o modelo de recurso para os recursos do Azure pode ser complicado e pode ser difícil entender para o que exatamente você está concedendo permissões.
+# <a name="role-based-access-control-troubleshooting"></a>Solução de problemas de Controle de Acesso baseado em função
+## <a name="introduction"></a>Introdução
+[Controle de Acesso Baseado em Função](role-based-access-control-configure.md) é um recurso avançado que permite a você delegar acesso refinado aos recursos no Azure. Isso significa que você pode ficar tranquilo, concedendo a uma certa pessoa o direito de usar exatamente o que ela precisa, e nada mais. No entanto, às vezes o modelo de recurso para os recursos do Azure pode ser complicado e pode ser difícil entender para o que exatamente você está concedendo permissões.
 
 Este documento informará a você o que esperar ao usar algumas das funções no Portal do Azure. Estas três funções abrangem todos os tipos de recurso:
 
-* Proprietário
-* Colaborador
-* Leitor
+* Proprietário  
+* Colaborador  
+* Leitor  
 
 Os proprietários e colaboradores têm acesso completo a experiência de gerenciamento, mas um colaborador não pode conceder acesso aos outros usuário ou grupos. As coisas se tornam um pouco mais interessante com a função do leitor, sendo assim foi onde dedicamos algum tempo. Consulte o [Artigo de introdução ao Controle de Acesso Baseado em Função](role-based-access-control-configure.md) para obter detalhes sobre como conceder acesso.
 
-## Cargas de trabalho do serviço de aplicativo
-### Recursos do acesso de gravação
+## <a name="app-service-workloads"></a>Cargas de trabalho do serviço de aplicativo
+### <a name="write-access-capabilities"></a>Recursos do acesso de gravação
 Se você conceder a um usuário o acesso somente leitura a um aplicativo Web, para sua surpresa, alguns recursos estarão desabilitados. Os seguintes recursos de gerenciamento exigem o acesso de **gravação** para um aplicativo Web (Colaborador ou Proprietário) e não estarão disponíveis em um cenário de somente leitura.
 
 * Comandos (por exemplo, iniciar, parar, etc.)
@@ -45,51 +49,56 @@ Se você conceder a um usuário o acesso somente leitura a um aplicativo Web, pa
 
 Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao seu administrador o acesso de Colaborador para o aplicativo Web.
 
-### Lidando com recursos relacionados
+### <a name="dealing-with-related-resources"></a>Lidando com recursos relacionados
 Os aplicativos Web são complicados pela presença de alguns recursos diferentes que interagem. Aqui encontra-se um grupo de recursos típico com alguns sites:
 
 ![Grupo de recursos do aplicativo Web](./media/role-based-access-control-troubleshooting/website-resource-model.png)
 
 Como resultado, se você conceder a alguém acesso somente ao aplicativo Web, muitas das funcionalidades na folha do site no portal do Azure serão desabilitadas.
 
-Esses itens exigem acesso de **gravação** ao **plano do Serviço de Aplicativo** que corresponde ao seu site:
+Estes itens exigem acesso para **gravação** no **Plano do Serviço de Aplicativo** que corresponde ao seu site:  
 
-* Exibindo o tipo de preço do aplicativo Web (Grátis ou Standard)
-* Configuração de escala (número instâncias, tamanho da máquina virtual, configurações de escalonamento automático)
-* Cotas (armazenamento, largura de banda, CPU)
+* Exibindo o tipo de preço do aplicativo Web (Grátis ou Standard)  
+* Configuração de escala (número instâncias, tamanho da máquina virtual, configurações de escalonamento automático)  
+* Cotas (armazenamento, largura de banda, CPU)  
 
-Esses itens exigem acesso de **gravação** a todo o **Grupo de recursos** que contém o seu site:
+Estes itens exigem acesso para **gravação** no **Grupo de recursos** inteiro que contém o seu site:  
 
-* Associações e certificados SSL (Isso ocorre porque certificados SSL podem ser compartilhados entre sites no mesmo grupo de recursos e localização geográfica)
-* Regras de alerta
-* Configurações de autoescala
-* Componentes do Application insights
-* Testes da Web
+* Associações e certificados SSL (Isso ocorre porque certificados SSL podem ser compartilhados entre sites no mesmo grupo de recursos e localização geográfica)  
+* Regras de alerta  
+* Configurações de autoescala  
+* Componentes do Application insights  
+* Testes da Web  
 
-## Cargas de trabalho da máquina virtual
+## <a name="virtual-machine-workloads"></a>Cargas de trabalho da máquina virtual
 Como muitos aplicativos Web, alguns recursos na folha da máquina virtual requerem o acesso de gravação para a máquina virtual ou a outros recursos no grupo de recursos.
 
 As máquinas virtuais são relacionadas a nomes de domínio, redes virtuais, contas de armazenamento e regras de alerta.
 
-Estes itens exigem acesso de **gravação** à **Máquina virtual**:
+Estes itens exigem acesso para **gravação** na **Máquina virtual**:
 
-* Pontos de extremidade
-* Endereços IP
-* Discos
-* Extensões
+* Pontos de extremidade  
+* Endereços IP  
+* Discos  
+* Extensões  
 
-Eles exigem acesso de **gravação** à **Máquina virtual** e ao **Grupo de recursos** (juntamente com o Nome de domínio) que está em:
+Estes exigem acesso para **gravação** tanto na **Máquina virtual** quanto no **Grupo de recursos** (juntamente com o Nome de domínio) encontrados em:  
 
-* Conjunto de disponibilidade
-* Conjunto de balanceamento de carga
-* Regras de alerta
+* Conjunto de disponibilidade  
+* Conjunto de balanceamento de carga  
+* Regras de alerta  
 
 Se você não conseguir acessar nenhum desses blocos, precisará solicitar ao seu administrador o acesso de Colaborador para o Grupo de recursos.
 
-## Veja mais
+## <a name="see-more"></a>Veja mais
 * [Controle de Acesso Baseado em Função](role-based-access-control-configure.md): introdução ao RBAC no portal do Azure.
 * [Funções internas](role-based-access-built-in-roles.md): obter detalhes sobre as funções que são incluídas por padrão no RBAC.
 * [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
 * [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

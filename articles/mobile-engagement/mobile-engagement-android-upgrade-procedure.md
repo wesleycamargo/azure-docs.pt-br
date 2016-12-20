@@ -1,12 +1,12 @@
 ---
-title: Integração do SDK do Android do Azure Mobile Engagement
-description: Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement
+title: "Integração do SDK do Android do Azure Mobile Engagement"
+description: "Atualizações e procedimentos mais recentes para o SDK do Android do Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 11618586-c709-49ca-bcd8-745323ff1af6
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,16 +14,20 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97ce7f4d682ec12470db4248d046a8367840f0bd
+
 
 ---
-# Procedimentos de atualização
+# <a name="upgrade-procedures"></a>Procedimentos de atualização
 Se você já tiver integrado uma versão anterior do SDK no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
 
 Você precisará seguir vários procedimentos se perdeu várias versões do SDK. Por exemplo, se você migrar do 1.4.0 para 1.6.0 você tem que primeiro seguir o procedimento "de 1.4.0 a 1.5.0” e depois o procedimento "de 1.5.0 a 1.6.0".
 
 Seja qual for a versão de atualização, você precisa substituir o `mobile-engagement-VERSION.jar` pelo novo.
 
-## De 4.2.0 a 4.2.1
+## <a name="from-420-to-421"></a>De 4.2.0 a 4.2.1
 De fato, esta etapa pode ser realizada em qualquer versão do SDK; é uma melhoria de segurança quando as atividades de Alcance são integradas.
 
 Agora você deverá adicionar `exported="false"` a todas as atividades de Alcance.
@@ -57,12 +61,13 @@ As atividades de Alcance deverão ter esta aparência no `AndroidManifest.xml`:
               </intent-filter>
             </activity>
 
-## De 4.0.0 a 4.1.0
+## <a name="from-400-to-410"></a>De 4.0.0 a 4.1.0
 O SDK agora manipula o novo modelo de permissão para Android M.
 
 Se você usar os recursos de localização ou notificações de visão geral, leia [esta seção](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
 
-Além do novo modelo de permissão, podemos agora dar suporte a recursos locais de configuração em tempo de execução. Ainda somos compatíveis com os parâmetros de manifesto para o localização, mas agora foi preterido. Para usar a configuração de tempo de execução, remova as seções a seguir do seu ``AndroidManifest.xml``:
+Além do novo modelo de permissão, podemos agora dar suporte a recursos locais de configuração em tempo de execução.
+Ainda somos compatíveis com os parâmetros de manifesto para o localização, mas agora foi preterido. Para usar a configuração de tempo de execução, remova as seções a seguir do seu ``AndroidManifest.xml``:
 
     <meta-data
       android:name="engagement:locationReport:lazyArea"
@@ -79,13 +84,13 @@ Além do novo modelo de permissão, podemos agora dar suporte a recursos locais 
 
 e leia [este procedimento atualizado](mobile-engagement-android-integrate-engagement.md#location-reporting) para usar em vez disso, a configuração de tempo de execução.
 
-## De 3.0.0 a 4.0.0
-### Push nativo
+## <a name="from-300-to-400"></a>De 3.0.0 a 4.0.0
+### <a name="native-push"></a>Push nativo
 O push nativo (GCM/ADM) agora também é usado nas notificações de aplicativo para que você deve configurar as credenciais por push nativo para qualquer tipo de campanha de envio.
 
 Caso ainda não o tenha feito, siga [este procedimento](mobile-engagement-android-integrate-engagement-reach.md#native-push).
 
-### AndroidManifest.xml
+### <a name="androidmanifestxml"></a>AndroidManifest.xml
 Integração de Reach foi modificada em ``AndroidManifest.xml``.
 
 Substitua:
@@ -124,7 +129,8 @@ Por
       </intent-filter>
     </receiver>
 
-Possivelmente, agora existe uma tela de carregamento quando você clica em um anúncio (com texto/conteúdo da web) ou uma pesquisa. Você deve adicioná-lo para as campanhas funcionarem em 4.0.0:
+Possivelmente, agora existe uma tela de carregamento quando você clica em um anúncio (com texto/conteúdo da web) ou uma pesquisa.
+Você deve adicioná-lo para as campanhas funcionarem em 4.0.0:
 
     <activity
       android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
@@ -135,10 +141,10 @@ Possivelmente, agora existe uma tela de carregamento quando você clica em um an
       </intent-filter>
     </activity>
 
-### Recursos
+### <a name="resources"></a>Recursos
 Insira o novo arquivo `res/layout/engagement_loading.xml` no seu projeto.
 
-## De 2.4.0 a 3.0.0
+## <a name="from-240-to-300"></a>De 2.4.0 a 3.0.0
 O seguinte descreve como migrar uma integração do SDK do serviço Capptain oferecido pelo Capptain SAS em um aplicativo acionado pelo Mobile Engagement do Azure. Se você estiver migrando de uma versão anterior, consulte o site do Capptain para migrar primeiro para a 2.4.0 e depois aplicar o procedimento a seguir
 
 > [!IMPORTANT]
@@ -146,15 +152,15 @@ O seguinte descreve como migrar uma integração do SDK do serviço Capptain ofe
 > 
 > 
 
-### Arquivo JAR
+### <a name="jar-file"></a>Arquivo JAR
 Substitua `capptain.jar` por `mobile-engagement-VERSION.jar` em sua pasta `libs`.
 
-### Arquivos de recurso
+### <a name="resource-files"></a>Arquivos de recurso
 Cada arquivo de recursos que fornecemos (antecedidos por `capptain_`) precisa ser substituído por novos (prefixados com `engagement_`).
 
 Se você personalizou os arquivos, precisará reaplicar sua personalização nos novos arquivos, **todos os identificadores nos arquivos de recursos também foram renomeados**.
 
-### ID do aplicativo
+### <a name="application-id"></a>ID do aplicativo
 Agora o Engagement usa uma cadeia de conexão para configurar os identificadores SDK, como o identificador do aplicativo.
 
 Você precisa usar um método `EngagementAgent.init` em sua atividade de inicializador como este:
@@ -173,14 +179,14 @@ Remova esta seção de seu `AndroidManifest.xml` se você tiver:
 
             <meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
-### API Java
+### <a name="java-api"></a>API Java
 Cada chamada a qualquer classe Java do nosso SDK precisa ser renomeada; por exemplo, `CapptainAgent.getInstance(this)` deve ser renomeado para `EngagementAgent.getInstance(this)`, `extends CapptainActivity` deve ser renomeado para `extends EngagementActivity`, etc...
 
 Se elas tiverem sido integradas com arquivos de preferência do agente padrão, o nome de arquivo padrão é agora `engagement.agent` e a chave é `engagement:agent`.
 
 Ao criar anúncios da Web, o associador de Javascript é agora `engagementReachContent`.
 
-### AndroidManifest.xml
+### <a name="androidmanifestxml"></a>AndroidManifest.xml
 Ocorreram muitas alterações, o serviço não está mais compartilhado e muitos destinatários não são mais exportáveis.
 
 Agora, a declaração de serviço é mais simples: remova o filtro intencional e todos os metadados de dentro dele e adicione `exportable=false`.
@@ -397,7 +403,7 @@ e
 
             sendXMPPMessage(android.os.Bundle msg)
 
-### ProGuard
+### <a name="proguard"></a>ProGuard
 A configuração ProGuard pode ser afetada por mudanças de marca, as regras agora estão assim:
 
             -dontwarn android.**
@@ -409,4 +415,8 @@ A configuração ProGuard pode ser afetada por mudanças de marca, as regras ago
             }
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

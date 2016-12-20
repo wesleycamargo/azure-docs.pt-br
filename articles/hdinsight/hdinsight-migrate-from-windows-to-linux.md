@@ -2,18 +2,22 @@
 title: Migrar do HDInsight baseado em Windows para o HDInsight baseado em Linux | Microsoft Docs
 description: Saiba como migrar de um cluster HDInsight baseado no Windows para um cluster HDInsight baseado no Linux.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 10/28/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
+ms.openlocfilehash: f82e8fcb6228df25c8e3181059fe06fea5fbce78
+
 
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrar de um cluster HDInsight baseado no Windows para um cluster baseado em Linux
@@ -22,9 +26,9 @@ Embora o HDInsight baseado em Windows seja uma maneira fácil de usar o Hadoop n
 Este documento fornece detalhes sobre as diferenças entre o HDInsight no Windows e no Linux, bem como instruções sobre como migrar cargas de trabalho existentes para um cluster baseado em Linux.
 
 > [!NOTE]
-> Os clusters HDInsight usam Ubuntu LTS (suporte de longo prazo) como o sistema operacional para os nós no cluster. Os clusters HDInsight 3.3 e 3.4 usam o Ubuntu 14.0.4 LTS; versões anteriores do HDInsight usavam Ubuntu 12.04.05 LTS.
-> 
-> 
+> Os clusters HDInsight usam Ubuntu LTS (suporte de longo prazo) como o sistema operacional para os nós no cluster. Para obter informações sobre a versão do Ubuntu disponível com o HDInsight, além de outras informações de controle de versão do componente, confira [Versões de componente do HDInsight](hdinsight-component-versioning.md).
+>
+>
 
 ## <a name="migration-tasks"></a>Tarefas de migração
 Veja a seguir o fluxo de trabalho geral da migração.
@@ -51,7 +55,7 @@ Há vários métodos para copiar os dados e trabalhos. No entanto, os dois abord
 Você pode usar o comando HDFS do Hadoop para copiar diretamente os dados do armazenamento do cluster de produção existente para o armazenamento de um novo cluster de teste usando as etapas a seguir.
 
 1. Encontre as informações sobre a conta de armazenamento e o contêiner padrão do cluster existente. Você pode fazer isso usando o script a seguir do Azure PowerShell.
-   
+
         $clusterName="Your existing HDInsight cluster name"
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
@@ -60,17 +64,17 @@ Você pode usar o comando HDFS do Hadoop para copiar diretamente os dados do arm
 3. Na folha Configuração Opcional, escolha **Contas de Armazenamento Vinculadas**.
 4. Escolha **Adicionar uma chave de armazenamento**e, quando solicitado, escolha a conta de armazenamento que foi retornada pelo script do PowerShell na etapa 1. Clique em **Selecionar** em cada folha para fechá-las. E por último, crie o cluster.
 5. Assim que o cluster tiver sido criado, conecte-o usando **SSH.**  Se você não sabe direito como usar o SSH com o HDInsight, confira um dos artigos a seguir.
-   
+
    * [Usar SSH com HDInsight baseado em Linux de clientes Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
    * [Usar SSH com HDInsight baseado em Linux de clientes Linux, Unix ou Mac](hdinsight-hadoop-linux-use-ssh-unix.md)
 6. Na sessão SSH, use o comando a seguir para copiar arquivos da conta de armazenamento vinculada para a nova conta de armazenamento padrão. Substitua CONTAINER e ACCOUNT pelas informações de contêiner e conta retornadas pelo script do PowerShell na etapa 1. Substitua o caminho para dados pelo caminho para um arquivo de dados.
-   
+
         hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
-   
+
     [AZURE.NOTE] Se a estrutura de diretório que contiver os dados não existir no ambiente de teste, você poderá criá-la usando o comando a seguir.
-   
+
         hdfs dfs -mkdir -p /new/path/to/create
-   
+
     A opção `-p` permite a criação de todos os diretórios no caminho.
 
 #### <a name="direct-copy-between-azure-storage-blobs"></a>Cópia direta entre blobs do Armazenamento do Azure
@@ -86,7 +90,7 @@ A tabela a seguir fornece instruções de como migrar componentes do lado servid
 | --- | --- |
 | **PowerShell** (scripts do lado do servidor, incluindo as Ações de Script usadas durante a criação do cluster) |Reescreva-os como scripts Bash. Para as Ações de Script, confira [Personalizar clusters HDInsight baseados em Linux usando as Ações de Script](hdinsight-hadoop-customize-cluster-linux.md) e [Desenvolvimento de ação de script com o HDInsight](hdinsight-hadoop-script-actions-linux.md). |
 | **CLI do Azure** (scripts de servidor) |Embora a CLI do Azure esteja disponível no Linux, ela não vem pré-instalada nos nós principais do cluster HDInsight. Se você precisar dela para criar o script de servidor, confira [Instalar a CLI do Azure](../xplat-cli-install.md) para obter informações sobre a instalação em plataformas baseadas em Linux. |
-| **Componentes do .NET** |Atualmente, o .NET não é compatível com clusters HDInsight baseados em Linux, mas será adicionado em uma atualização futura. Se precisar migrar agora, você deverá reescrever os componentes em Java ou Python. |
+| **Componentes do .NET** |O .NET não é totalmente compatível com os clusters HDInsight baseados em Linux. Os clusters Storm no HDInsight baseados em Linux criados depois de 28/10/2017 aceitam topologias Storm do C# usando a estrutura SCP.NET. O suporte adicional para o .NET será adicionado em futuras atualizações. |
 | **Componentes do Win32 ou de outra tecnologia exclusiva do Windows** |A orientação depende do componente ou da tecnologia; talvez você possa encontrar uma versão que seja compatível com Linux, ou talvez precise encontrar uma solução alternativa, ou reescrever esse componente. |
 
 ## <a name="cluster-creation"></a>Criação do cluster
@@ -129,10 +133,10 @@ O Ambari tem um sistema de alerta que pode informar a você sobre problemas pote
 
 > [!IMPORTANT]
 > Os alertas do Ambari indicam que *pode* haver um problema, e não que *há* um problema. Por exemplo, você pode receber um alerta de que HiveServer2 não pode ser acessado, mesmo que consiga acessá-lo normalmente.
-> 
+>
 > Vários alertas são implementados como consultas baseadas em intervalo em um serviço e esperam uma resposta por um período específico. Portanto, o alerta não significa necessariamente que o serviço está inativo, apenas que ele não retornou resultados dentro do tempo esperado.
-> 
-> 
+>
+>
 
 De modo geral, antes de tomar alguma medida, você deve avaliar se um alerta vem ocorrendo por um longo período ou se espelha problemas do usuário que foram relatados anteriormente com o cluster.
 
@@ -152,7 +156,7 @@ De modo geral, se você souber o nome do arquivo, será possível usar o comando
 
 Você também pode usar caracteres curinga com o nome do arquivo. Por exemplo, `find / -name *streaming*.jar 2>/dev/null` retornará o caminho para qualquer arquivo jar que contenha a palavra 'streaming' como parte do nome do arquivo.
 
-## <a name="hive,-pig,-and-mapreduce"></a>Hive, Pig e MapReduce
+## <a name="hive-pig-and-mapreduce"></a>Hive, Pig e MapReduce
 As cargas de trabalho de Pig e MapReduce são bastante semelhantes nos clusters baseados em Linux — a principal diferença é que se você usar a Área de Trabalho Remota para se conectar a um cluster baseado no Windows e executar trabalhos, verá um SSH com clusters baseados no Linux.
 
 * [Usar o Pig com o SSH](hdinsight-hadoop-use-pig-ssh.md)
@@ -173,7 +177,7 @@ A tabela a seguir fornece instruções para migrar as cargas de trabalho do Hive
 | --- | --- |
 | Painel de Controle do Storm |O Painel Storm não está disponível. Confira [Deploy and Manage Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) (Implantar e gerenciar topologias Storm no HDInsight baseado em Linux) para saber como enviar topologias |
 | Interface do Usuário do Storm |A interface de usuário do Storm está disponível em https://NOMEDOCLUSTER.azurehdinsight.net/stormui |
-| Visual Studio para criar, implantar e gerenciar topologias híbridas ou do C# |Atualmente, os clusters baseados em Linux não são compatíveis com topologias do .NET. No entanto, elas serão permitidas em uma atualização futura. Se precisar migrar antes, você precisará reimplementar as topologias em Java. Confira [Desenvolver topologias baseadas em Java](hdinsight-storm-develop-java-topology.md) para saber mais sobre como criar topologias baseadas em Java. |
+| Visual Studio para criar, implantar e gerenciar topologias híbridas ou do C# |O Visual Studio pode ser usado para criar, implantar e gerenciar topologias C# (SCP.NET) ou híbridas em clusters Storm no HDInsight baseados em Linux criados depois de 28/10/2017. |
 
 ## <a name="hbase"></a>HBase
 Em clusters baseados em Linux, o znode pai do HBase é `/hbase-unsecure`. Você deve definir isso na configuração para qualquer aplicativo cliente Java que use API Java nativa para HBase.
@@ -184,10 +188,10 @@ Confira [Build a Java-based HBase application](hdinsight-hbase-build-java-maven.
 Os clusters Spark estavam disponíveis em clusters baseados em Windows durante a versão prévia. No entanto, no lançamento, o Spark estará disponível somente com clusters baseados em Linux. Não há caminho de migração de um cluster da versão prévia do Spark baseado em Windows para um cluster de lançamento baseado em Linux.
 
 ## <a name="known-issues"></a>Problemas conhecidos
-### <a name="azure-data-factory-custom-.net-activities"></a>Atividades personalizadas do .NET no Azure Data Factory
+### <a name="azure-data-factory-custom-net-activities"></a>Atividades personalizadas do .NET no Azure Data Factory
 Atualmente, atividades personalizadas do .NET no Azure Data Factory não são compatíveis com clusters HDInsight baseados em Linux. Sendo assim, você deve usar um dos métodos a seguir para implementar atividades personalizadas como parte do seu pipeline ADF.
 
-* Execute atividades do .NET no pool do Lote do Azure. Veja a seção Usar serviço vinculado do Lote do Azure em [Usar atividades personalizadas em um pipeline do Azure Data Factory](../data-factory/data-factory-use-custom-activities.md#AzureBatch)
+* Execute atividades do .NET no pool do Lote do Azure. Veja a seção Usar serviço vinculado do Lote do Azure em [Usar atividades personalizadas em um pipeline do Azure Data Factory](../data-factory/data-factory-use-custom-activities.md)
 * Implemente a atividade como uma atividade do MapReduce. Confira [Invocar Programas MapReduce da Data Factory](../data-factory/data-factory-map-reduce.md) para obter mais informações.
 
 ### <a name="line-endings"></a>Terminações de linha
@@ -200,12 +204,12 @@ Em caso de scripts que serão executados diretamente em nós de cluster do Linux
 Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, será possível fazer uma alteração em massa nas terminações de linha usando um dos métodos a seguir:
 
 * **Se você tiver scripts que pretende carregar no cluster**, use as seguintes instruções do PowerShell para alterar as terminações de linha de CRLF para LF antes de carregar o script no cluster.
-  
+
       $original_file ='c:\path\to\script.py'
       $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
       [IO.File]::WriteAllText($original_file, $text)
 * **Se tiver scripts que já estão no armazenamento usado pelo cluster**, você poderá usar o comando a seguir em uma sessão do SSH para o cluster baseado em Linux, a fim de modificar o script.
-  
+
       hdfs dfs -get wasbs:///path/to/script.py oldscript.py
       tr -d '\r' < oldscript.py > script.py
       hdfs dfs -put -f script.py wasbs:///path/to/script.py
@@ -216,6 +220,8 @@ Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, 
 * [Conectar-se a um cluster baseado em Linux usando SSH em um cliente Linux, Unix ou Mac](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Gerenciar um cluster baseado em Linux usando o Ambari](hdinsight-hadoop-manage-ambari.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

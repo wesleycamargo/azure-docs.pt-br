@@ -1,19 +1,23 @@
 ---
-title: Provisionar a Máquina Virtual de Ciência de Dados Linux | Microsoft Docs
-description: Configure e crie uma Máquina Virtual de Ciência de Dados Linux no Azure para realizar a análise e o aprendizado de máquina.
+title: "Provisionar a Máquina Virtual de Ciência de Dados Linux | Microsoft Docs"
+description: "Configure e crie uma Máquina Virtual de Ciência de Dados Linux no Azure para realizar a análise e o aprendizado de máquina."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3d5c5d6ae177b6f662df261f3254816b20bac764
+
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>Provisionar a Máquina Virtual de Ciência de Dados Linux
@@ -341,6 +345,9 @@ Veja como você pode continuar seu aprendizado e exploração:
 * Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 * Visite a [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) para obter exemplos de análise de dados e de aprendizado de máquina que usam o Cortana Analytics Suite.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

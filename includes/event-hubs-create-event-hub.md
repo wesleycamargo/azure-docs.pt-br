@@ -1,6 +1,6 @@
 ## <a name="create-an-event-hub"></a>Criar um Hub de Evento
 1. Faça logon no [portal do Azure][portal do Azure] e clique em **Novo** na parte superior esquerda da tela.
-2. Clique em **Dados + Análise** e clique em **Hubs de Eventos**.
+2. Clique em **Internet das Coisas** e, em seguida, clique em **Hubs de Eventos**.
    
     ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 3. Na folha **Criar um namespace** , insira um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
@@ -34,6 +34,6 @@ Seu Hub de Evento foi criado, e você tem as cadeias de conexão que precisa par
 
 [portal do Azure]: https://portal.azure.com/
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Visão geral de Azure Active Directory Domain Services | Microsoft Docs
-description: Visão geral de Azure Active Directory Domain Services
+title: "Visão geral dos Azure Active Directory Domain Services | Microsoft Docs"
+description: "Visão geral de Azure Active Directory Domain Services"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2e78382b4cbfe7623eec1b2cd32a9eaea61e4709
+
 
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
@@ -79,6 +83,9 @@ Com os serviços de domínio do AD do Azure, você pode aproveitar os seguintes 
 * **Compatível** – os Serviços de Domínio do Azure AD baseiam-se na infraestrutura de nível corporativo comprovada do Active Directory do Windows Server. Portanto, os aplicativos podem contar com um maior grau de compatibilidade com os recursos do Active Directory do Windows Server. Nem todos os recursos disponíveis no AD do Windows Server estão atualmente disponíveis nos Serviços de Domínio do Azure AD. No entanto, os recursos disponíveis são compatíveis com os recursos correspondentes do AD do Windows Server que se baseiam na sua infraestrutura local. LDAP, Kerberos, NTLM, política de grupo e recursos de ingresso no domínio constituem uma oferta madura que foi testada e refinada em várias versões do Windows Server.
 * **Econômicos** – Com os Serviços de Domínio do Azure AD, você pode evitar a sobrecarga de gerenciamento e infraestrutura associada ao gerenciamento de infraestrutura de identidade para dar suporte a aplicativos tradicionais com reconhecimento de diretório. Você pode mover esses aplicativos para os Serviços de Infraestrutura do Azure e aproveitar economias ainda maiores em despesas operacionais.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao SanSan | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o SanSan.
+title: "Tutorial: integração do Azure Active Directory ao SanSan | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o SanSan."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2533338698478a4d9aa07aace93c9bbecb0b3350
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-sansan"></a>Tutorial: integração do Azure Active Directory ao SanSan
+# <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Tutorial: integração do Azure Active Directory ao SanSan
 Neste tutorial, você aprenderá a integrar o SanSan ao Azure AD (Azure Active Directory).
 
 A integração do SanSan ao Azure AD oferece os seguintes benefícios:
@@ -113,11 +117,11 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no portal 
 
     b. Na caixa de texto **Identificador** , digite a URL no seguinte padrão: 
 
-      | Ambiente             | URL |
-      | :--                     | :-- |
-      | PC Web                  | `https://ap.sansan.com/v/saml2/<company name>`|
-      | Aplicativo móvel nativo       | `https://internal.api.sansan.com/saml2/<company name>` |
-      | Configurações de navegador móvel | `https://ap.sansan.com/s/saml2/<company name>` |
+    | Ambiente             | URL |
+    | :--                     | :-- |
+    | PC Web                  | `https://ap.sansan.com/v/saml2/<company name>`|
+    | Aplicativo móvel nativo       | `https://internal.api.sansan.com/saml2/<company name>` |
+    | Configurações de navegador móvel | `https://ap.sansan.com/s/saml2/<company name>` |
 
 
     c. Clique em **Avançar**.
@@ -159,7 +163,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sansan-tutorial/create_aaduser_09.png) 
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -191,7 +195,7 @@ Na lista de usuários, selecione **Brenda Fernandes**.
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-sansan-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -259,6 +263,6 @@ Quando você clica no bloco SanSan no Painel de Acesso, deve ser conectado autom
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

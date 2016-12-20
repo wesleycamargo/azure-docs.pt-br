@@ -2,10 +2,10 @@
 title: 'Passo a passo: exportar telemetria para o Banco de Dados SQL do Application Insights'
 description: Exportar dados continuamente do Application Insights para o SQL usando o Stream Analytics
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: noamben
 manager: douge
-
+ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,10 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: abaeb614e304c4ae78e6a1d43d19c99698e50494
+
 
 ---
-# Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
-Este artigo mostra como mover os dados de telemetria do [Visual Studio Application Insights][start] em um banco de dados SQL do Azure usando [Exportação Contínua][export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).
+# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
+Este artigo mostra como mover os dados de telemetria do [Azure Application Insights][iniciar] em um banco de dados SQL do Azure usando [Exportação Contínua][export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 A exportação contínua move os dados de telemetria no Armazenamento do Azure no formato JSON. Vamos analisar objetos JSON usando o Azure Stream Analytics e criando linhas em uma tabela de banco de dados.
 
@@ -24,9 +28,9 @@ A exportação contínua move os dados de telemetria no Armazenamento do Azure n
 
 Vamos começar supondo que você já tenha o aplicativo que você deseja monitorar.
 
-Neste exemplo, usaremos os dados de exibição de página, mas o mesmo padrão pode ser facilmente ampliado para outros tipos de dados como exceções e eventos personalizados.
+Neste exemplo, usaremos os dados de exibição de página, mas o mesmo padrão pode ser facilmente ampliado para outros tipos de dados como exceções e eventos personalizados. 
 
-## Adicione o Application Insights ao seu aplicativo
+## <a name="add-application-insights-to-your-application"></a>Adicione o Application Insights ao seu aplicativo
 Introdução:
 
 1. [Configurar o Application Insights para sua página da Web](app-insights-javascript.md). 
@@ -34,7 +38,7 @@ Introdução:
     (Neste exemplo, vamos nos concentrar no processamento de dados de exibição de página de navegadores do cliente, mas você também pode configurar o Application Insights do lado do servidor do seu aplicativo [Java](app-insights-java-get-started.md) ou [ASP.NET](app-insights-asp-net.md) e processar telemetrias de solicitações, dependências e outras telemetrias do servidor.)
 2. Publicar seu aplicativo e observar os dados de telemetria que aparecem em seu recurso Application Insights.
 
-## Criar armazenamento no Azure
+## <a name="create-storage-in-azure"></a>Criar armazenamento no Azure
 Exportação contínua sempre gera dados para uma conta de armazenamento do Azure, por isso você precisa primeiro criar o armazenamento.
 
 1. Crie uma conta de armazenamento na sua assinatura do [Portal do Azure][portal].
@@ -49,7 +53,7 @@ Exportação contínua sempre gera dados para uma conta de armazenamento do Azur
    
     ![No armazenamento, abra Configurações, Chaves e faça uma cópia da Chave de Acesso Primária](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## Iniciar exportação contínua no armazenamento do Azure
+## <a name="start-continuous-export-to-azure-storage"></a>Iniciar exportação contínua no armazenamento do Azure
 1. No portal do Azure, navegue até o recurso do Application Insights que você criou para seu aplicativo.
    
     ![Selecione Navegar, Application Insights e o nome do seu projeto.](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
@@ -66,19 +70,19 @@ Exportação contínua sempre gera dados para uma conta de armazenamento do Azur
     ![Escolher os tipos de evento](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Deixe que alguns dados sejam acumulados. Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas](app-insights-metrics-explorer.md) e eventos individuais na [pesquisa de diagnóstico](app-insights-diagnostic-search.md).
+1. Deixe que alguns dados sejam acumulados. Agora relaxe e deixe as pessoas usarem seu aplicativo por um tempo. A telemetria chegará e você verá os gráficos estatísticos no [gerenciador de métricas](app-insights-metrics-explorer.md) e eventos individuais na [pesquisa de diagnóstico](app-insights-diagnostic-search.md). 
    
-    E, além disso, os dados serão exportados para seu armazenamento.
-2. Inspecione os dados exportados no portal – escolha **Procurar**, selecione sua conta de armazenamento e depois **Contêineres** – ou no Visual Studio. No Visual Studio, escolha **Exibir/Cloud Explorer** e abra Azure/Armazenamento. (Se você não tiver essa opção de menu, precisará instalar o Azure SDK: abra o diálogo Novo Projeto e abra Visual C#/Nuvem/Obter Microsoft Azure SDK para .NET.)
+    E, além disso, os dados serão exportados para seu armazenamento. 
+2. Inspecione os dados exportados no portal – escolha **Procurar**, selecione sua conta de armazenamento e depois **Contêineres** – ou no Visual Studio. No Visual Studio, escolha **Exibir/Cloud Explorer**e abra Azure/Armazenamento. (Se você não tiver essa opção de menu, precisará instalar o Azure SDK: abra o diálogo Novo Projeto e abra Visual C#/Nuvem/Obter Microsoft Azure SDK para .NET.)
    
     ![No Visual Studio, abra o Navegador do Servidor, Azure e Armazenamento](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
    
-    Anote a parte comum do nome do caminho, que deriva do nome do aplicativo e da chave de instrumentação.
+    Anote a parte comum do nome do caminho, que deriva do nome do aplicativo e da chave de instrumentação. 
 
 Os eventos são gravados em arquivos blob formato JSON. Cada arquivo pode conter um ou mais eventos. Portanto, gostaríamos de escrever um código para ler os dados de evento e filtrar os campos desejados. Podemos fazer todos os tipos de coisas com os dados, mas nosso plano para hoje é escrever um código para mover os dados para um banco de dados SQL. Isso nos permitirá executar diversas consultas interessantes.
 
-## Criar um Banco de Dados SQL do Azure
-Mais uma vez, começando com a sua assinatura no [Portal do Azure][portal], crie o banco de dados (e um novo servidor, a menos que você já tenha um) para o qual você vai gravar os dados.
+## <a name="create-an-azure-sql-database"></a>Criar um Banco de Dados SQL do Azure
+Mais uma vez, na sua assinatura no [portal do Azure][portal], crie o banco de dados (e um novo servidor, a menos que você já tenha um) onde você vai gravar os dados.
 
 ![Novo, Dados, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
@@ -86,8 +90,8 @@ Verifique se o servidor de banco de dados permite o acesso aos serviços do Azur
 
 ![Navegar, Servidores, seu servidor, Configurações, Firewall, Permitir Acesso ao Azure](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
-## Criar uma tabela no banco de dados do Azure SQL
-Conecte-se ao banco de dados criado na seção anterior com sua ferramenta de gerenciamento preferida. Neste passo a passo, usaremos as SSMS ([Ferramentas de Gerenciamento do SQL Server](https://msdn.microsoft.com/ms174173.aspx)).
+## <a name="create-a-table-in-azure-sql-db"></a>Criar uma tabela no banco de dados do Azure SQL
+Conecte-se ao banco de dados criado na seção anterior com sua ferramenta de gerenciamento preferida. Neste passo a passo, usaremos as SSMS ( [Ferramentas de Gerenciamento do SQL Server](https://msdn.microsoft.com/ms174173.aspx) ).
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -135,7 +139,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 Neste exemplo, estamos usando dados de modos de exibição de página. Para ver os outros dados disponíveis, inspecione a saída JSON e veja o [modelo de exportação de dados](app-insights-export-data-model.md).
 
-## Criar uma instância do Azure Stream Analytics
+## <a name="create-an-azure-stream-analytics-instance"></a>Criar uma instância do Azure Stream Analytics
 No [Portal do Azure Clássico](https://manage.windowsazure.com/), selecione o serviço do Azure Stream Analytics e crie um novo trabalho do Stream Analytics:
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
@@ -146,7 +150,7 @@ Quando o novo trabalho for criado, expanda seus detalhes:
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
 
-#### Definir local de blob
+#### <a name="set-blob-location"></a>Definir local de blob
 Defina a entrada do seu blob de Exportação Contínua:
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
@@ -155,10 +159,10 @@ Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamen
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
 
-#### Definir padrão de prefixo de caminho
+#### <a name="set-path-prefix-pattern"></a>Definir padrão de prefixo de caminho
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Lembre-se de definir o Formato de data como **AAAA-MM-DD** (com **traços**).
+Defina o Formato de Data como **AAAA-MM-DD** (com **traços**).
 
 O Padrão de Prefixo de Caminho especifica como o Stream Analytics encontra os arquivos de entrada no armazenamento. Você precisa configurá-lo para corresponder à maneira como a Exportação Contínua armazena os dados. Defina-o assim:
 
@@ -173,7 +177,7 @@ Neste exemplo:
 
 Para obter o nome e iKey do seu recurso do Application Insights, abra Essentials na sua página de visão geral ou abra as Configurações.
 
-#### Concluir a configuração inicial
+#### <a name="finish-initial-setup"></a>Concluir a configuração inicial
 Confirme o formato de serialização:
 
 ![Confirme e feche o assistente](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
@@ -185,7 +189,7 @@ Feche o assistente e aguarde até que a instalação seja concluída.
 > 
 > 
 
-## Definir a consulta
+## <a name="set-query"></a>Definir a consulta
 Abra a seção de consulta:
 
 ![No Stream Analytics, selecione Consulta](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
@@ -230,7 +234,7 @@ Substitua a consulta padrão por:
 
 Observe que as primeiras propriedades são específicas aos dados de exibição da página. Exportações de outros tipos de telemetria terão propriedades diferentes. [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
 
-## Configurar a saída para o banco de dados
+## <a name="set-up-output-to-database"></a>Configurar a saída para o banco de dados
 Selecione SQL como a saída.
 
 ![No Stream Analytics, selecione Saídas](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
@@ -241,7 +245,7 @@ Especifique o Banco de Dados SQL.
 
 Feche o assistente e aguarde uma notificação de que a saída foi configurada.
 
-## Iniciar o processamento
+## <a name="start-processing"></a>Iniciar o processamento
 Inicie o trabalho na barra de ação:
 
 ![No Stream Analytics, clique em Iniciar](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
@@ -256,7 +260,7 @@ Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Serv
     FROM [dbo].[PageViewsTable]
 
 
-## Artigos relacionados
+## <a name="related-articles"></a>Artigos relacionados
 * [Exportar para SQL usando uma função de trabalho](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exportar para Power BI usando o Stream Analytics](app-insights-export-power-bi.md)
 * [Referência de modelo de dados detalhados para os tipos de propriedades e valores.](app-insights-export-data-model.md)
@@ -269,8 +273,11 @@ Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Serv
 [export]: app-insights-export-telemetry.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-overview.md
+[iniciar]: app-insights-overview.md
 
 
 
-<!---HONumber=AcomDC_0309_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

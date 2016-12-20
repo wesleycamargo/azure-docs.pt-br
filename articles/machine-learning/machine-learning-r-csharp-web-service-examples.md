@@ -1,26 +1,30 @@
 ---
-title: Exemplos de serviços Web de Aprendizado de Máquina criados com R | Microsoft Docs
-description: Encontre um conjunto útil de exemplos de serviços Web criados com código R e Aprendizado de Máquina e publicado no Azure Marketplace.
-keywords: csharp, código r, exemplos de serviço Web
+title: "Exemplos de serviços Web do Machine Learning criados com R | Microsoft Docs"
+description: "Encontre um conjunto útil de exemplos de serviços Web criados com código R e Aprendizado de Máquina e publicado no Azure Marketplace."
+keywords: "csharp, código r, exemplos de serviço Web"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: jaymathe
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 97d66cb7-6a84-4ae9-8095-0b5f5ba82d7f
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/21/2016
 ms.author: jaymathe
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0c3e94cf69d55de9c31a48de35e86a1ae9149a63
+
 
 ---
-# Exemplos de serviços Web usando código R no Aprendizado de Máquina do Azure e publicados no Microsoft Azure Marketplace
-Neste artigo, os serviços Web de exemplo são criados usando o Aprendizado de Máquina do Azure e publicados no Azure Marketplace. Cada exemplo de serviço Web tem um documento abrangente anexado, incorporando exemplos de conjuntos de dados para testar os serviços e explicando como o usuário pode criar seu próprio serviço semelhante.
+# <a name="web-services-examples-using-r-code-on-azure-machine-learning-and-published-to-microsoft-azure-marketplace"></a>Exemplos de serviços Web usando código R no Aprendizado de Máquina do Azure e publicados no Microsoft Azure Marketplace
+Neste artigo, os serviços Web de exemplo são criados usando o Aprendizado de Máquina do Azure e publicados no Azure Marketplace. Cada exemplo de serviço Web tem um documento abrangente anexado, incorporando exemplos de conjuntos de dados para testar os serviços e explicando como o usuário pode criar seu próprio serviço semelhante. 
 
-No Estúdio de Aprendizado de Máquina do Azure, os usuários podem escrever código R e, com alguns cliques, publicá-lo como um serviço Web para aplicativos e dispositivos o consumirem em todo o mundo.
+No Estúdio de Aprendizado de Máquina do Azure, os usuários podem escrever código R e, com alguns cliques, publicá-lo como um serviço Web para aplicativos e dispositivos o consumirem em todo o mundo. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -32,7 +36,7 @@ Cada exemplo inclui um exemplo de C# para consumo do serviço Web.
 
 Considere os seguintes cenários.
 
-## Cenário 1: Modelo genérico
+## <a name="scenario-1-generic-model"></a>Cenário 1: Modelo genérico
 Um usuário trabalha com um modelo genérico que pode ser aplicado a dados de um novo usuário, como uma previsão básica de dados de série temporal ou um método de R personalizado com análises avançadas. Esse usuário publica o modelo como um serviço Web para que outros possam consumi-lo com seus dados.
 
 * [Classificador binário](machine-learning-r-csharp-binary-classifier.md)
@@ -43,22 +47,22 @@ Um usuário trabalha com um modelo genérico que pode ser aplicado a dados de um
 * [ARIMA (Forecasting-AutoRegressive Integrated Moving Average, média móvel integrada de previsão-autorregressão)](machine-learning-r-csharp-arima.md)
 * [Análise de sobrevivência](machine-learning-r-csharp-survival-analysis.md)
 
-## Cenário 2: Modelo treinado – dados específicos
+## <a name="scenario-2-trained-model-specific-data"></a>Cenário 2: Modelo treinado – dados específicos
 Um usuário tem dados que fornecem previsões úteis por meio de código R, como uma grande amostra de questionários de personalidade agrupados por meio de um algoritmo k-means, para prever os dados da pesquisa de saúde ou tipo de personalidade do usuário que podem ser usados para prever o risco de uma pessoa ter câncer de pulmão com um pacote R de análise de sobrevivência. O usuário publica os dados por meio de um serviço Web que prevê o resultado de um novo usuário.
 
-## Cenário 3: Modelo treinado – dados genéricos
+## <a name="scenario-3-trained-model-generic-data"></a>Cenário 3: Modelo treinado – dados genéricos
 Um usuário tem dados genéricos (por exemplo, um corpus de texto) que permitem desenvolver um serviço Web e aplicá-lo genericamente a diferentes tipos de cenários e casos de uso.
 
 * [Análise de sentimento baseada em léxico](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
 
-## Cenário 4: Calculadora avançada
+## <a name="scenario-4-advanced-calculator"></a>Cenário 4: Calculadora avançada
 Um usuário fornece cálculos avançados ou simulações, que não requerem qualquer modelo treinado ou ajuste de um modelo aos dados do usuário.
 
 * [Diferença no teste de proporções](machine-learning-r-csharp-difference-in-two-proportions.md)
 * [Pacote de distribuição normal](machine-learning-r-csharp-normal-distribution.md)
 * [Pacote de distribuição binomial](machine-learning-r-csharp-binomial-distribution.md)
 
-## Perguntas frequentes
+## <a name="faq"></a>Perguntas frequentes
 Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-web-service-examples/machine-learning-r-code-options-for-using-and-sharing-cloud.png
@@ -66,4 +70,8 @@ Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no M
 
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

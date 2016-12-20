@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory ao Origami | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Origami.
+title: "Tutorial: integração do Azure Active Directory ao Origami | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Origami."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a28bb0ba-b564-46ba-accc-e587699295d4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d5499636ff1c560dd5a50924f0fd67d8dac50203
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Azure Active Directory ao Origami
+# <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Azure Active Directory ao Origami
 Neste tutorial, você aprenderá a integrar o Origami ao Azure AD (Azure Active Directory).
 
 A integração do Origami ao Azure AD oferece os seguintes benefícios:
@@ -157,14 +161,14 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-origami-tutorial/create_aaduser_04.png) 
-5. Na página do diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:  ![criação de um usuário de teste do Azure AD](./media/active-directory-saas-origami-tutorial/create_aaduser_05.png) 
+5. Na página de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:  ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-origami-tutorial/create_aaduser_05.png) 
    
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
    
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
     c. Clique em **Próximo**.
-6. Na caixa de diálogo **perfil de usuário**, realize as etapas a seguir: ![criação de um usuário de teste do Azure AD](./media/active-directory-saas-origami-tutorial/create_aaduser_06.png) 
+6. Na caixa de diálogo **perfil de usuário**, realize as etapas a seguir: ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-origami-tutorial/create_aaduser_06.png) 
    
    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
@@ -270,6 +274,6 @@ Ao clicar no bloco do Origami no Painel de Acesso, você deverá ser conectado a
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,28 +1,32 @@
 ---
-title: 'APIs de Aprendizado de Máquina: Análise de texto| Microsoft Docs'
-description: As APIs de análise de texto de Aprendizado de Máquina da Microsoft podem ser usadas para analisar texto não estruturado a fim de fazer a análise de sentimento, a extração de frases-chave, a detecção de idioma e a detecção de tópico.
+title: "APIs de Machine Learning: análise de texto| Microsoft Docs"
+description: "As APIs de análise de texto de Aprendizado de Máquina da Microsoft podem ser usadas para analisar texto não estruturado a fim de fazer a análise de sentimento, a extração de frases-chave, a detecção de idioma e a detecção de tópico."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: onewth
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 5b60694e-5521-4e4d-bf6a-1a92fdf94b65
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2016
+ms.date: 10/04/2016
 ms.author: onewth
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f4389705a81b531bd706cbabc0b4c3b171febd5f
+
 
 ---
-# APIs de Machine Learning: análise de texto para sentimento, extração de frases-chave, detecção de idioma e detecção de tópico
+# <a name="machine-learning-apis-text-analytics-for-sentiment-key-phrase-extraction-language-detection-and-topic-detection"></a>APIs de Machine Learning: análise de texto para sentimento, extração de frases-chave, detecção de idioma e detecção de tópico
 > [!NOTE]
-> Este guia destina-se à versão 1 da API. Para a versão 2, [**consulte este documento**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). A versão 2 agora é a versão preferencial desta API.
+> Este guia destina-se à versão 1 da API. Para a versão 2, [**confira este documento**](../cognitive-services/cognitive-services-text-analytics-quick-start.md). A versão 2 agora é a versão preferencial desta API.
 > 
 > 
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 API de Análise de Texto é um pacote de [serviços Web](https://datamarket.azure.com/dataset/amla/text-analytics) de análise de texto criado com o Aprendizado de Máquina do Azure. A API pode ser usada para analisar textos não estruturados para a execução de tarefas como análise de sentimento, extração de frases-chave, detecção de idioma e de tópico. Nenhum dado de treinamento é necessário para usar essa API, basta colocar seus dados de texto. Essa API usa técnicas avançadas de processamento de idioma natural para proporcionar as melhores previsões.
 
 Você pode ver a análise de texto em ação em nosso [site de demonstração](https://text-analytics-demo.azurewebsites.net/), no qual você também encontrará [exemplos](https://text-analytics-demo.azurewebsites.net/Home/SampleCode) de como implementar a análise de texto em C# e Python.
@@ -30,21 +34,21 @@ Você pode ver a análise de texto em ação em nosso [site de demonstração](h
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 - - -
-## Análise de sentimento
+## <a name="sentiment-analysis"></a>Análise de sentimento
 A API retorna uma pontuação numérica entre 0 e 1. Classificações próximas de 1 indicam sentimento positivo, enquanto as classificações próximas de 0 indicam sentimento negativo. A pontuação de sentimento é gerada usando técnicas de classificação. Os recursos de entrada para o classificador incluem n-gramas, recursos gerados por meio de marcas de partes de fala incorporações de palavras. Atualmente, inglês é o único idioma com suporte.
 
-## Extração de frases-chave
+## <a name="key-phrase-extraction"></a>Extração de frases-chave
 A API retorna uma lista de cadeias de caracteres representando os principais pontos de discussão no texto de entrada. Empregamos técnicas do kit de ferramentas de Processamento de Linguagem Natural sofisticado do Microsoft Office. Atualmente, inglês é o único idioma com suporte.
 
-## Detecção de idioma
+## <a name="language-detection"></a>Detecção de idioma
 A API retorna o idioma detectado e uma pontuação numérica entre 0 e 1. Classificações próximas a 1 indicam 100% de certeza de que o idioma identificado é verdadeiro. Há 120 idiomas com suporte no total.
 
-## Detecção de tópico
+## <a name="topic-detection"></a>Detecção de tópico
 Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista dos registros de texto enviados. Um tópico é identificado com uma senha, que pode ser uma ou mais palavras relacionadas. Essa API requer o envio de, no mínimo, 100 registros de texto, mas foi projetada para detectar os tópicos em centenas ou em milhares de registros. Observe que essa API cobra uma transação por registro de texto enviado. A API é projetada para funcionar bem com textos curto escritos por humanos, como revisões e comentários do usuário.
 
 - - -
-## Definição da API
-### Cabeçalhos
+## <a name="api-definition"></a>Definição da API
+### <a name="headers"></a>Cabeçalhos
 Inclua os cabeçalhos corretos em sua solicitação, que devem da seguinte maneira:
 
     Authorization: Basic <creds>
@@ -55,9 +59,9 @@ Inclua os cabeçalhos corretos em sua solicitação, que devem da seguinte manei
 Você pode encontrar a chave da conta em sua conta no [Azure Data Market](https://datamarket.azure.com/account/keys). Observe que, atualmente, apenas JSON é aceita para formatos de entrada e saída. Não há suporte para XML.
 
 - - -
-## APIs de resposta única
-### GetSentiment
-**URL**
+## <a name="single-response-apis"></a>APIs de resposta única
+### <a name="getsentiment"></a>GetSentiment
+**URL**    
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
 
@@ -75,7 +79,7 @@ Isso retornará uma resposta da seguinte maneira:
     }
 
 - - -
-### GetKeyPhrases
+### <a name="getkeyphrases"></a>GetKeyPhrases
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
@@ -99,7 +103,7 @@ Isso retornará uma resposta da seguinte maneira:
     }
 
 - - -
-### GetLanguage
+### <a name="getlanguage"></a>GetLanguage
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetLanguage
@@ -127,13 +131,13 @@ Isso retornará uma resposta da seguinte maneira:
 `NumberOfLanguagesToDetect` é um parâmetro opcional. O padrão é 1.
 
 - - -
-## APIs de lote
+## <a name="batch-apis"></a>APIs de lote
 O serviço de análise de texto permite que você faça extrações de opiniões e frases-chave no modo de lote. Observe que cada um dos registros pontuados conta como uma transação. Por exemplo, se você solicitar o sentimento de 1000 registros em uma única chamada, ocorrerá a dedução de 1000 transações.
 
-Perceba que as IDs inseridas no sistema são as IDs retornadas pelo sistema. O serviço Web não verifica se as IDs são exclusivas. É responsabilidade do chamador verificar a exclusividade.
+Perceba que as IDs inseridas no sistema são as IDs retornadas pelo sistema. O serviço Web não verifica se as IDs são exclusivas. É responsabilidade do chamador verificar a exclusividade. 
 
-### GetSentimentBatch
-**URL**
+### <a name="getsentimentbatch"></a>GetSentimentBatch
+**URL**    
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentimentBatch
 
@@ -167,14 +171,14 @@ Na resposta abaixo, você obtém a lista de pontuações associada às IDs do te
 
 
 - - -
-### GetKeyPhrasesBatch
+### <a name="getkeyphrasesbatch"></a>GetKeyPhrasesBatch
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrasesBatch
 
 **Solicitação de exemplo**
 
-Neste exemplo, estamos solicitando a lista de sentimentos para as frases-chave nos textos a seguir:
+Neste exemplo, estamos solicitando a lista de sentimentos para as frases-chave nos textos a seguir: 
 
 * "Era um hotel maravilhoso, com decoração exclusiva e equipe amigável"
 * "Foi uma conferência incrível, com palestras muito interessantes"
@@ -207,7 +211,7 @@ Na resposta abaixo, você obtém a lista de frases-chave, associada às IDs do t
 
 ---
 
-### GetLanguageBatch
+### <a name="getlanguagebatch"></a>GetLanguageBatch
 
 Na chamada POST abaixo, solicitamos a detecção de idioma para duas entradas de texto:
 
@@ -247,12 +251,12 @@ Isso retorna a resposta a seguir, na qual o idioma inglês é detectado na prime
     }
 ---
 
-## APIs de detecção de tópico
+## <a name="topic-detection-apis"></a>APIs de detecção de tópico
 Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista dos registros de texto enviados. Um tópico é identificado com uma senha, que pode ser uma ou mais palavras relacionadas. Observe que essa API cobra uma transação por registro de texto enviado.
 
 Essa API requer o envio de, no mínimo, 100 registros de texto, mas foi projetada para detectar os tópicos em centenas ou em milhares de registros.
 
-### Tópicos – enviar trabalho
+### <a name="topics-submit-job"></a>Tópicos – enviar trabalho
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
@@ -281,9 +285,9 @@ Na resposta abaixo, você obtém a JobId do trabalho enviado:
         "JobId":"<JobId>"
     }
 
-Uma lista de frases com uma ou mais palavras que não devem ser retornadas como tópicos. Pode ser usado para filtrar tópicos muito genéricos. Por exemplo, em um conjunto de dados sobre análises de hotéis, "hotel" e "hostel" podem ser frases de interrupção adequadas.
+Uma lista de frases com uma ou mais palavras que não devem ser retornadas como tópicos. Pode ser usado para filtrar tópicos muito genéricos. Por exemplo, em um conjunto de dados sobre análises de hotéis, "hotel" e "hostel" podem ser frases de interrupção adequadas.  
 
-### Tópicos – pesquisa de resultados do trabalho
+### <a name="topics-poll-for-job-results"></a>Tópicos – pesquisa de resultados do trabalho
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult
@@ -358,4 +362,9 @@ As propriedades de cada parte da resposta são as seguintes:
 | TopicId |A ID do tópico a que o registro foi atribuído. |
 | Distância |Confiança em que o registro pertence ao tópico. Uma distância mais próxima a zero indica maior confiança. |
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

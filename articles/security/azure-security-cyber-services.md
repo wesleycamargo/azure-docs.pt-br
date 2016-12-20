@@ -1,22 +1,26 @@
 ---
-title: Serviços Microsoft em Segurança Cibernética | Microsoft Docs
-description: O artigo fornece uma introdução sobre os serviços Microsoft relacionados à segurança cibernética e como obter mais informações sobre esses serviços.
+title: "Serviços Microsoft em Segurança Cibernética | Microsoft Docs"
+description: "O artigo fornece uma introdução sobre os serviços Microsoft relacionados à segurança cibernética e como obter mais informações sobre esses serviços."
 services: security
 documentationcenter: na
 author: TomShinder
 manager: StevenPo
 editor: TomSh
-
+ms.assetid: 925ba3c6-fe35-413a-98ea-e1a1461f3022
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e3502015d20b172214369b05c3ea12bd5b5c98e9
+
 
 ---
-# Serviços Microsoft em Segurança Cibernética
+# <a name="microsoft-services-in-cybersecurity"></a>Serviços Microsoft em Segurança Cibernética
 Os Serviços Microsoft oferecem uma abordagem abrangente para a segurança, identidade e segurança cibernética. Os Serviços Microsoft oferecem uma matriz de serviços de segurança e identidade entre estratégia, planejamento, implementação e suporte contínuo que pode ajudar nossos clientes empresariais a implementar soluções de segurança integrais, alinhadas com seus objetivos estratégicos.
 
 Com acesso direto às equipes de desenvolvimento de produto, podemos criar soluções que integram e aprimoram os mais recentes recursos de identidade e segurança de nossos produtos, para ajudar a proteger os negócios de nossos clientes e fomentar a inovação.
@@ -36,4 +40,9 @@ Saiba mais sobre os serviços fornecidos pelos Serviços Microsoft:
 
 [Saiba mais](https://aka.ms/cyberserv) sobre serviços de consultoria de segurança dos Serviços da Microsoft.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

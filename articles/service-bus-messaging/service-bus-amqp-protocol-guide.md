@@ -1,22 +1,26 @@
 ---
-title: AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure | Microsoft Docs
-description: Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure
-services: service-bus,event-hubs
+title: "AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure | Microsoft Docs"
+description: "Guia de protocolo para expressões e a descrição do AMQP 1.0 no Barramento de Serviço e nos Hubs de Eventos do Azure"
+services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2016
 ms.author: clemensv;jotaub;hillaryc;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 946384b5986ee56f16f5b3fe3be07d09f9837076
+
 
 ---
-# <a name="amqp-1.0-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
+# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 O Advanced Message Queueing Protocol 1.0 é um protocolo de enquadramento e transferência padronizado para transferir mensagens de forma assíncrona, segura e confiável entre duas partes. É o principal protocolo de Mensagens do Barramento de Serviço e dos Hubs de Eventos do Azure. Ambos os serviços também oferecem suporte a HTTPS. O protocolo proprietário SBMP, que também é compatível, está sendo desativado em favor do AMQP.
 
 O AMQP 1.0 é o resultado da colaboração de todo o setor, que reuniu fornecedores de middleware, como a Microsoft e a Red Hat, com muitos usuários de middleware de mensagens, como a JP Morgan Chase, representando o setor de serviços financeiros. O fórum de padronização técnica para as especificações de protocolo e de extensão do AMQP é o OASIS, e ele obteve aprovação formal como um padrão internacional como ISO/IEC 19494.
@@ -32,7 +36,7 @@ Na discussão a seguir, vamos pressupor que o gerenciamento de conexões, de ses
 
 Ao discutir os recursos avançados do Barramento de Serviço do Azure, como a procura de mensagens ou o gerenciamento de sessões, aqueles serão explicados nos termos do AMQP, mas também como uma pseudo-implementação em camadas sobre essa abstração de API assumida.
 
-## <a name="what-is-amqp?"></a>O que é AMQP?
+## <a name="what-is-amqp"></a>O que é AMQP?
 AMQP é um protocolo de enquadramento e transferência. O enquadramento significa que ele fornece a estrutura para fluxos de dados binários que fluem em qualquer direção de uma conexão de rede. A estrutura oferece delineação para que blocos de dados distintos – quadros – sejam trocados entre as partes conectadas. Os recursos de transferência garantem que ambas as partes da comunicação possam estabelecer uma compreensão geral sobre quando os quadros deverão ser transferidos e quando as transferências deverão ser consideradas concluídas.
 
 Ao contrário das versões de rascunho expiradas anteriores produzidas pelo grupo de trabalho de AMQP que ainda estão em uso por alguns agentes de mensagens, o protocolo AMQP 1.0 final e padronizado do grupo de trabalho não prescreve a presença de um agente de mensagem ou qualquer topologia específica para entidades dentro de um agente de mensagem.
@@ -44,7 +48,7 @@ O protocolo AMQP 1.0 foi projetado para ser extensível, permitindo que mais esp
 ## <a name="basic-amqp-scenarios"></a>Cenários básicos de AMQP
 Esta seção explica o uso básico do AMQP 1.0 com o Barramento de Serviço do Azure, que inclui a criação de conexões, sessões e links, e a transferência de mensagens de e para entidades do Barramento de Serviço, como filas, tópicos e assinaturas.
 
-A fonte mais confiável para saber mais sobre o funcionamento do AMQP é a especificação AMQP 1.0, mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [this video course][].
+A fonte mais confiável para saber mais sobre o funcionamento do AMQP é a especificação AMQP 1.0, mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [este curso de vídeo][este curso de vídeo].
 
 ### <a name="connections-and-sessions"></a>Conexões e sessões
 ![][1]
@@ -57,7 +61,7 @@ O Barramento de Serviço do Azure requer o uso de TLS em todos os momentos. Ele 
 
 Depois de configurar a conexão e o TLS, o Barramento de Serviço oferece duas opções de mecanismo SASL:
 
-* O SASL SIMPLES normalmente é usado para passar credenciais de nome de usuário e de senha para um servidor. O Barramento de Serviço não tem contas, mas [regras de Segurança de Acesso Compartilhado](../service-bus/service-bus-shared-access-signature-authentication.md) nomeadas, que conferem direitos e estão associadas com uma chave. O nome de uma regra é usado como o nome de usuário e a chave (como texto codificado em base64) é usado como a senha. Os direitos associados à regra escolhida controlam as operações permitidas na conexão.
+* O SASL SIMPLES normalmente é usado para passar credenciais de nome de usuário e de senha para um servidor. O Barramento de Serviço não tem contas, mas [regras de Segurança de Acesso Compartilhado](service-bus-shared-access-signature-authentication.md) nomeadas, que conferem direitos e estão associadas com uma chave. O nome de uma regra é usado como o nome de usuário e a chave (como texto codificado em base64) é usado como a senha. Os direitos associados à regra escolhida controlam as operações permitidas na conexão.
 * O SASL ANÔNIMO é usado para ignorar a autorização SASL quando o cliente quiser usar o modelo CBS (segurança com base em declarações), que será descrito posteriormente. Com essa opção, uma conexão de cliente pode ser estabelecida anonimamente por um curto período, durante o qual o cliente só poderá interagir com o ponto de extremidade CBS e o handshake CBS deverá ser concluído.
 
 Uma vez estabelecida a conexão de transporte, os contêineres declararam o tamanho máximo do quadro com que estão dispostos a lidar e o tempo limite de ociosidade após o qual eles serão unilateralmente desconectados se não houver atividade na conexão.
@@ -141,25 +145,25 @@ As setas mostram a direção do fluxo performativo.
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
 
-#### <a name="create-message-sender-(error)"></a>Criar Remetente da Mensagem (Erro)
+#### <a name="create-message-sender-error"></a>Criar Remetente da Mensagem (Erro)
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
-#### <a name="close-message-receiver/sender"></a>Fechar Receptor/Remetente da Mensagem
+#### <a name="close-message-receiversender"></a>Fechar Receptor/Remetente da Mensagem
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
 | --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
-#### <a name="send-(success)"></a>Enviar (Êxito)
+#### <a name="send-success"></a>Enviar (Êxito)
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
-#### <a name="send-(error)"></a>Enviar (Erro)
+#### <a name="send-error"></a>Enviar (Erro)
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
@@ -308,6 +312,7 @@ Para saber mais sobre o AMQP, confira o seguinte:
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Aplicativos de Big Data compatíveis com o Repositório Data Lake | Microsoft Docs
-description: Lista de aplicativos de software livre que funcionam com o Repositório Azure Data Lake
+title: "Aplicativos de Big Data compatíveis com o Data Lake Store | Microsoft Docs"
+description: "Lista de aplicativos de software livre que funcionam com o Repositório Azure Data Lake"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 699e1805-cb76-4807-9ac1-8bd9d9bbb72b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/25/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2966e0e59eef09f5a29945cc1e00bede6a8ade81
+
 
 ---
-# Aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake
+# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake
 Este artigo lista os aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake. Para os aplicativos na tabela abaixo, há suporte apenas para as versões disponíveis com a distribuição listada. Para obter informações sobre quais versões desses aplicativos estão disponíveis com o HDInsight, veja [Controle de versão de componente do HDInsight](../hdinsight/hdinsight-component-versioning.md).
 
 | Software livre | Distribuição |
@@ -34,7 +38,12 @@ Este artigo lista os aplicativos de Big Data de software livre que funcionam com
 | [Apache Tez](http://tez.apache.org/) |HDInsight 3.2 e 3.4 |
 | [Apache Spark](http://spark.apache.org/) |HDInsight 3.4 |
 
-## Confira também
+## <a name="see-also"></a>Confira também
 * [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

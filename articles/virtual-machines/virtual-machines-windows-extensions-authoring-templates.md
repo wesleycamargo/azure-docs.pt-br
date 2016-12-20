@@ -1,13 +1,13 @@
 ---
-title: Criando modelos com extensões de VM do Windows | Microsoft Docs
-description: Saiba mais sobre como criar modelos do Azure Resource Manager com extensões de VMs do Windows
+title: "Criando modelos com extensões de VM do Windows | Microsoft Docs"
+description: "Saiba mais sobre como criar modelos do Azure Resource Manager com extensões de VMs do Windows"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: kundanap
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 418dd1f7-ded8-45ab-9a5a-a59d245e2555
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: cc2e3c234ef9219d1b836771dbbc456d73a13ac8
+
 
 ---
-# Criando modelos do Azure Resource Manager com extensões de VM do Windows
+# <a name="authoring-azure-resource-manager-templates-with-windows-vm-extensions"></a>Criando modelos do Azure Resource Manager com extensões de VM do Windows
 [!INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 No Azure PowerShell, execute o seguinte cmdlet do Azure PowerShell:
@@ -38,10 +42,10 @@ Essas três propriedades são mapeadas para “publisher”, “type” e “typ
 > 
 > 
 
-## Identificando o esquema dos parâmetros de configuração da extensão
+## <a name="identifying-the-schema-for-the-extension-configuration-parameters"></a>Identificando o esquema dos parâmetros de configuração da extensão
 A próxima etapa da criação de um modelo de extensão é identificar o formato para fornecer os parâmetros de configuração. Cada extensão dá suporte a seu próprio conjunto de parâmetros.
 
-Para obter configurações de exemplo para extensões do Windows, veja [Amostras de extensões do Windows](virtual-machines-windows-extensions-configuration-samples.md).
+Para obter configurações de exemplo para extensões do Windows, veja [Amostras de extensões do Windows](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Consulte o seguinte para obter um modelo completo com extensões de VM.
 
@@ -49,4 +53,9 @@ Consulte o seguinte para obter um modelo completo com extensões de VM.
 
 Depois de criar o modelo, você poderá implantá-lo usando o Azure PowerShell.
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

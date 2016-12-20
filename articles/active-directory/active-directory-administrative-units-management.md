@@ -1,19 +1,23 @@
 ---
 title: Gerenciamento de unidades administrativas no Active Directory do Azure
-description: Usando unidades administrativas para delegação mais granular de permissões no Active Directory do Azure
+description: "Usando unidades administrativas para delegação mais granular de permissões no Active Directory do Azure"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8464cd6b-1d1a-470d-a4fb-ee29b8eab4c4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: f54b28df432788cb42027133de09c3579fa41a18
+
 
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Gerenciamento de unidades administrativas no AD do Azure - Visualização pública
@@ -23,8 +27,8 @@ Isso é útil em organizações com divisões independentes, por exemplo, uma gr
 
 > [!IMPORTANT]
 > Você pode criar e usar unidades administrativas somente se você habilitar o Active Directory Premium do Azure. Para saber mais, consulte [Introdução ao AD Premium do Azure](active-directory-get-started-premium.md).
-> 
-> 
+>
+>
 
 Do ponto de vista do administrador central, uma unidade administrativa é um objeto de diretório que pode ser criado e populado com recursos. **Nesta versão, esses recursos podem ser somente os usuários.**  Após criada e populada, a unidade administrativa pode ser usada como um escopo para restringir a permissão concedida somente para os recursos contidos na unidade administrativa.
 
@@ -36,6 +40,8 @@ Para obter mais informações sobre requisitos de software e instalação do mó
 ## <a name="next-steps"></a>Próximas etapas
 [Edições do Active Directory do Azure](active-directory-editions.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

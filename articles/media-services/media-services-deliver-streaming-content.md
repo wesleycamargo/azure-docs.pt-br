@@ -1,12 +1,12 @@
 ---
-title: Publicar o conteúdo dos Serviços de Mídia do Azure usando o .NET
-description: Saiba como criar um localizador que é usado para construir um URL de transmissão. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET.
+title: "Publicar o conteúdo dos Serviços de Mídia do Azure usando o .NET"
+description: "Saiba como criar um localizador que é usado para construir um URL de transmissão. Os exemplos de código são escritos em C# e usam a SDK dos Serviços de Mídia para .NET."
 author: juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: c53b1f83-4cb1-4b09-840f-9c145b7d6f8d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f566b8f75d26e3d786ce3396dd133478af38da76
+
 
 ---
-# Publicar o conteúdo dos Serviços de Mídia do Azure usando o .NET
+# <a name="publish-azure-media-services-content-using-net"></a>Publicar o conteúdo dos Serviços de Mídia do Azure usando o .NET
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -24,30 +28,30 @@ ms.author: juliako
 > 
 > 
 
-## Visão geral
-Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [codificando um ativo](media-services-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável.
+## <a name="overview"></a>Visão geral
+Você pode transmitir um conjunto de MP4 com taxa de bits adaptável ao criar um localizador de streaming sob demanda e criar uma URL de transmissão. O tópico [codificando um ativo](media-services-encode-asset.md) mostra como codificar um conjunto de MP4 de taxa de bits adaptável. 
 
 > [!NOTE]
-> Se o seu conteúdo for criptografado, configure a política de entrega de ativos (conforme descrito [neste](media-services-dotnet-configure-asset-delivery-policy.md) tópico) antes de criar um localizador.
+> Se o seu conteúdo for criptografado, configure a política de entrega de ativos (conforme descrito [neste](media-services-dotnet-configure-asset-delivery-policy.md) tópico) antes de criar um localizador. 
 > 
 > 
 
-Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.
+Você também pode usar um localizador de streaming sob demanda para criar URLs que apontam para arquivos MP4 que podem ser baixados progressivamente.  
 
-Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e compilar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo.
+Este tópico mostra como criar um localizador de streaming sob demanda para publicar seu ativo e compilar um Smooth, MPEG DASH e URLs de streaming do HLS. Ele também mostra se mostra muito interessado em criar URLs de download progressivo. 
 
-## Criar um localizador de streaming sob demanda
+## <a name="create-an-ondemand-streaming-locator"></a>Criar um localizador de streaming sob demanda
 Para criar o localizador de streaming sob demanda e obter URLs, você precisa fazer o seguinte:
 
 1. Se o conteúdo for criptografado, defina uma política de acesso.
 2. Criar um localizador de streaming sob demanda.
-3. Se você planeja transmitir, obtenha o arquivo de manifesto do streaming (.ism) no ativo.
+3. Se você planeja transmitir, obtenha o arquivo de manifesto do streaming (.ism) no ativo. 
    
-   Se você planeja fazer download progressivo, obtenha os nomes dos arquivos MP4 no ativo.
-4. Crie URLs para o arquivo de manifesto ou arquivos MP4.
+   Se você planeja fazer download progressivo, obtenha os nomes dos arquivos MP4 no ativo.  
+4. Crie URLs para o arquivo de manifesto ou arquivos MP4. 
 
-### Usar o SDK do .NET dos Serviços de Mídia
-Criar URLs de streaming
+### <a name="use-media-services-net-sdk"></a>Usar o SDK do .NET dos Serviços de Mídia
+Criar URLs de streaming 
 
     private static void BuildStreamingURLs(IAsset asset)
     {
@@ -97,11 +101,11 @@ As saídas do código:
 
 
 > [!NOTE]
-> Você também pode transmitir seu conteúdo por uma conexão SSL. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS.
+> Você também pode transmitir seu conteúdo por uma conexão SSL. Para fazer isso, certifique-se de que suas URLs de streaming começam com HTTPS. 
 > 
 > 
 
-Crie URLs de download progressivo
+Crie URLs de download progressivo 
 
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
@@ -140,7 +144,7 @@ As saídas do código:
 
     . . . 
 
-### Usam o SDK do .NET dos Serviços de Mídia
+### <a name="use-media-services-net-sdk-extensions"></a>Usam o SDK do .NET dos Serviços de Mídia
 O código a seguir chama métodos de extensões do SDK do .NET que criam um localizador e geram o Smooth Streaming, HLS e URLs do MPEG-DASH para streaming adaptável.
 
     // Create a loctor.
@@ -160,13 +164,19 @@ O código a seguir chama métodos de extensões do SDK do .NET que criam um loca
     Console.WriteLine(mpegDashUri);
 
 
-## Roteiros de aprendizagem dos Serviços de Mídia
+## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornecer comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Consulte também
-[Baixar ativos](media-services-deliver-asset-download.md) [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
+## <a name="see-also"></a>Consulte também
+[Baixar ativos](media-services-deliver-asset-download.md)
+[Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

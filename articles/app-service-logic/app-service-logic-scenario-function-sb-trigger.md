@@ -1,12 +1,12 @@
 ---
-title: 'Cenário de aplicativo lógico: crie um gatilho do Barramento de Serviço do Azure Functions | Microsoft Docs'
-description: Saiba como usar as Azure Functions como um gatilho do Barramento de Serviço para um aplicativo lógico
+title: "Cenário de aplicativo lógico: crie um gatilho do Barramento de Serviço do Azure Functions | Microsoft Docs"
+description: "Saiba como usar as Azure Functions como um gatilho do Barramento de Serviço para um aplicativo lógico"
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -14,28 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3f8031d31d1291972026430e67005863579ae911
+
 
 ---
-# Cenário de aplicativo lógico: crie um gatilho do Barramento de Serviço do Azure usando as Azure Functions
+# <a name="logic-app-scenario-create-an-azure-service-bus-trigger-by-using-azure-functions"></a>Cenário de aplicativo lógico: crie um gatilho do Barramento de Serviço do Azure usando as Azure Functions
 Você pode usar as Azure Functions para criar um gatilho para um aplicativo lógico quando você precisa implantar um ouvinte ou uma tarefa de execução longa. Por exemplo, você pode criar uma função que escutaria em uma fila e acionaria imediatamente um aplicativo lógico como um gatilho de envio.
 
-## Compilar o aplicativo lógico
-Neste exemplo, você terá uma função em execução para cada aplicativo lógico que precisa ser disparado. Primeiro, crie um aplicativo lógico com um gatilho de solicitação HTTP. A função chama esse ponto de extremidade sempre que uma mensagem da fila é recebida.
+## <a name="build-the-logic-app"></a>Compilar o aplicativo lógico
+Neste exemplo, você terá uma função em execução para cada aplicativo lógico que precisa ser disparado. Primeiro, crie um aplicativo lógico com um gatilho de solicitação HTTP. A função chama esse ponto de extremidade sempre que uma mensagem da fila é recebida.  
 
-1. Abra um novo aplicativo lógico e selecione o gatilho **Manual - Quando uma Solicitação HTTP for Recebida**. Opcionalmente, você pode especificar um esquema JSON para usar com a mensagem da fila usando uma ferramenta como [jsonschema.net](http://jsonschema.net). Cole o esquema no gatilho. Isso permitirá que o designer compreenda a forma dos dados e movimente as propriedades com mais facilidade pelo fluxo de trabalho.
-2. Adicione as etapas adicionais que você deseja que ocorram após uma mensagem da fila ser recebida. Por exemplo, envie um email por meio do Office 365.
+1. Abra um novo aplicativo lógico e selecione o gatilho **Manual - Quando uma Solicitação HTTP for Recebida** .  
+   Opcionalmente, você pode especificar um esquema JSON para usar com a mensagem da fila usando uma ferramenta como [jsonschema.net](http://jsonschema.net). Cole o esquema no gatilho. Isso permitirá que o designer compreenda a forma dos dados e movimente as propriedades com mais facilidade pelo fluxo de trabalho.
+2. Adicione as etapas adicionais que você deseja que ocorram após uma mensagem da fila ser recebida. Por exemplo, envie um email por meio do Office 365.  
 3. Salve o aplicativo lógico para gerar a URL de retorno de chamada do gatilho para esse aplicativo lógico. A URL aparecerá no cartão do gatilho.
 
 ![A URL de retorno de chamada aparece no cartão do gatilho][1]
 
-## Compilar a função
+## <a name="build-the-function"></a>Compilar a função
 Em seguida, você precisa criar uma função que atuará como o gatilho e ouvirá a fila.
 
-1. Abra o [portal das Azure Functions](https://functions.azure.com/signin) e escolha **Nova Função**, então selecione o modelo **ServiceBusQueueTrigger - C#**.
+1. Abra o [Portal do Azure Functions](https://functions.azure.com/signin), escolha **Nova Função** e selecione o modelo **ServiceBusQueueTrigger - C#**.
    
-    ![Portal do Azure Functions][2]
+    ![portal das Azure Functions][2]
 2. Configure a conexão com a fila do Barramento de Serviço (que usará o ouvinte de `OnMessageReceive()` do SDK do Barramento de Serviço).
-3. Grave uma função simples para chamar o ponto de extremidade do aplicativo lógico (criado anteriormente) usando a mensagem da fila como gatilho. Aqui está um exemplo completo de uma função. O exemplo usa um tipo de conteúdo de mensagem `application/json`, mas você pode alterar isso se necessário.
+3. Grave uma função simples para chamar o ponto de extremidade do aplicativo lógico (criado anteriormente) usando a mensagem da fila como gatilho. Aqui está um exemplo completo de uma função. O exemplo usa um tipo de conteúdo de mensagem `application/json` , mas você pode alterar isso se necessário.
    
    ```
    using System;
@@ -62,4 +67,8 @@ Para testar, adicionar uma mensagem na fila por meio de uma ferramenta como o [E
 [1]: ./media/app-service-logic-scenario-function-sb-trigger/manualTrigger.PNG
 [2]: ./media/app-service-logic-scenario-function-sb-trigger/newQueueTriggerFunction.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

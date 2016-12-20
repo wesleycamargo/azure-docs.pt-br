@@ -1,14 +1,14 @@
 ---
-title: Referência do desenvolvedor de NodeJS do Azure Functions | Microsoft Docs
+title: "Referência do desenvolvedor de NodeJS do Azure Functions | Microsoft Docs"
 description: Entenda como desenvolver Azure Functions usando NodeJS.
 services: functions
 documentationcenter: na
 author: christopheranderson
 manager: erikre
-editor: ''
-tags: ''
-keywords: azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor
-
+editor: 
+tags: 
+keywords: "azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
+ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: functions
 ms.devlang: nodejs
 ms.topic: reference
@@ -16,9 +16,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/13/2016
 ms.author: chrande
+translationtype: Human Translation
+ms.sourcegitcommit: 4544629c47326d448cd99b5d96d79666a56f0274
+ms.openlocfilehash: 116b0fd67701e69a81b7f736bbd241427eb33e34
+
 
 ---
-# Referência do desenvolvedor de NodeJS do Azure Functions
+# <a name="azure-functions-nodejs-developer-reference"></a>Referência do desenvolvedor de NodeJS do Azure Functions
 > [!div class="op_single_selector"]
 > * [Script C#](functions-reference-csharp.md)
 > * [Script em F#](functions-reference-fsharp.md)
@@ -30,8 +34,8 @@ A experiência de Node/JavaScript para o Azure Functions torna mais fácil expor
 
 Este artigo pressupõe que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md).
 
-## Exportando uma função
-Todas as funções JavaScript devem exportar uma única `function` via `module.exports` para o tempo de execução localizar a função e executá-la. Esta função sempre deve incluir um objeto `context`.
+## <a name="exporting-a-function"></a>Exportando uma função
+Todas as funções JavaScript devem exportar uma única `function` via `module.exports` para o tempo de execução localizar a função e executá-la. Esta função sempre deve incluir um objeto `context` .
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -47,13 +51,13 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-Os bindings de `direction === "in"` são passados como argumentos de função, o que significa que você pode usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para lidar dinamicamente com novas entradas (por exemplo, usando `arguments.length` para iterar por todas as suas entradas). Essa funcionalidade será muito conveniente se você tiver apenas um gatilho sem nenhuma entrada adicional, pois será possível acessar seus dados de gatilho de maneira previsível, sem fazer referência ao objeto `context`.
+As associações de `direction === "in"` são passadas como argumentos de função, o que significa que você pode usar [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) para lidar dinamicamente com novas entradas (por exemplo, usando `arguments.length` para iterar por todas as suas entradas). Essa funcionalidade será muito conveniente se você tiver apenas um gatilho sem nenhuma entrada adicional, pois será possível acessar seus dados de gatilho de maneira previsível, sem fazer referência ao objeto `context` .
 
 Os argumentos sempre são passados para a função na ordem em que ocorrem em *function.json*, mesmo se você não especificá-los na sua instrução de exportações. Por exemplo, se tiver `function(context, a, b)` e alterá-lo para `function(context, a)`, você ainda poderá obter o valor de `b` no código de função, fazendo referência ao `arguments[3]`.
 
-Todos os bindings, independentemente da direção, também são transmitidos por todo o objeto `context` (veja abaixo).
+Todos os bindings, independentemente da direção, também são transmitidos por todo o objeto `context` (veja abaixo). 
 
-## objeto de contexto
+## <a name="context-object"></a>objeto de contexto
 O tempo de execução usa um objeto `context` para passar dados de/para sua função e permitir que você se comunique com o tempo de execução.
 
 O objeto de contexto sempre é o primeiro parâmetro para uma função e sempre deve ser incluído porque tem métodos como `context.done` e `context.log`, que são necessários para usar corretamente o tempo de execução. Você pode nomear o objeto de acordo com a sua preferência (por exemplo, `ctx` ou `c`).
@@ -65,16 +69,16 @@ module.exports = function(context) {
 };
 ```
 
-## context.bindings
-O objeto `context.bindings` coleta todos os dados de entrada e de saída. Os dados são adicionados ao objeto `context.bindings` por meio da propriedade `name` do binding. Por exemplo, dada a seguinte definição de binding *function.json*, você pode acessar o conteúdo da fila por meio de `context.bindings.myInput`.
+## <a name="contextbindings"></a>context.bindings
+O objeto `context.bindings` coleta todos os dados de entrada e de saída. Os dados são adicionados ao objeto `context.bindings` por meio da propriedade `name` do binding. Por exemplo, dada a seguinte definição de associação em *function.json*, você pode acessar o conteúdo da fila por meio de `context.bindings.myInput`. 
 
 ```json
-    {
-        "type":"queue",
-        "direction":"in",
-        "name":"myInput"
-        ...
-    }
+{
+    "type":"queue",
+    "direction":"in",
+    "name":"myInput"
+    ...
+}
 ```
 
 ```javascript
@@ -87,7 +91,7 @@ context.bindings.myOutput = {
 ```
 
 ## `context.done([err],[propertyBag])`
-A função `context.done` informa ao tempo de execução que você terminou de executar. Isso é importante para chamar quando você tiver terminado com a função. Caso contrário, o tempo de execução ainda não saberá que a função foi concluída.
+A função `context.done` informa ao tempo de execução que você terminou de executar. Isso é importante para chamar quando você tiver terminado com a função. Caso contrário, o tempo de execução ainda não saberá que a função foi concluída. 
 
 A função `context.done` permite que você passe um erro definido pelo usuário de volta para o tempo de execução, bem como um recipiente de propriedades que substituirá as propriedades no objeto `context.bindings`.
 
@@ -101,7 +105,7 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 //  -> text: hello there, world, noNumber: true
 ```
 
-## context.log(message)
+## <a name="contextlogmessage"></a>context.log(message)
 O método `context.log` permite obter instruções de log de saída que são correlacionadas para fins de registro. Se você usar `console.log`, suas mensagens aparecerão apenas para o log de nível de processo, o que não será tão útil.
 
 ```javascript
@@ -110,7 +114,7 @@ function. You can access your bindings via context.bindings */
 context.log({hello: 'world'}); // logs: { 'hello': 'world' } 
 ```
 
-O método `context.log` dá suporte ao mesmo formato de parâmetro que o Node [util.format method](https://nodejs.org/api/util.html#util_util_format_format). Desta forma, por exemplo, um código como este:
+O método `context.log` dá suporte ao mesmo formato de parâmetro que o Node [util.format method](https://nodejs.org/api/util.html#util_util_format_format) . Desta forma, por exemplo, um código como este:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
@@ -124,7 +128,7 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-## Gatilhos HTTP: context.req e context.res
+## <a name="http-triggers-contextreq-and-contextres"></a>Gatilhos HTTP: context.req e context.res
 No caso de gatilhos de HTTP, como é um padrão comum usar `req` e `res` para os objetos de solicitação e de resposta HTTP, decidimos facilitar o acesso a eles no objeto de contexto, em vez de forçá-lo a usar todo o padrão de `context.bindings.name` completo.
 
 ```javascript
@@ -134,16 +138,16 @@ if(context.req.body.emoji === ':pizza:') context.log('Yay!');
 context.res = { status: 202, body: 'You successfully ordered more coffee!' };   
 ```
 
-## Versão do Node e gerenciamento de pacote
-A versão do Node está bloqueada em `5.9.1` no momento. Estamos investigando a adição de suporte para mais versões e para torná-las configuráveis.
+## <a name="node-version-package-management"></a>Versão do Node e gerenciamento de pacote
+A versão do Node está bloqueada em `5.9.1`no momento. Estamos investigando a adição de suporte para mais versões e para torná-las configuráveis.
 
-Você pode incluir pacotes em sua função, carregando um arquivo *package.json* na pasta da sua função no sistema de arquivos do aplicativo de funções. Para obter instruções de como carregar um arquivo, confira a seção **Como atualizar os arquivos de aplicativo de funções** do [tópico de referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate).
+Você pode incluir pacotes em sua função, carregando um arquivo *package.json* na pasta da sua função no sistema de arquivos do aplicativo de funções. Para obter instruções de como carregar um arquivo, confira a seção **Como atualizar os arquivos de aplicativo de funções** do [tópico de referência do desenvolvedor do Azure Functions](functions-reference.md#fileupdate). 
 
 Você também pode usar `npm install` na interface de linha de comando do aplicativo de funções SCM (Kudu):
 
 1. Navegue até: `https://<function_app_name>.scm.azurewebsites.net`.
 2. Clique em **Console de Depuração > CMD**.
-3. Navegue até `D:\home\site\wwwroot<function_name>`.
+3. Navegue até `D:\home\site\wwwroot\<function_name>`.
 4. Execute `npm install`.
 
 Depois que os pacotes necessários forem instalados, você os importa para a função da maneira usual (por exemplo, via `require('packagename')`)
@@ -159,7 +163,7 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-## Variáveis de ambiente
+## <a name="environment-variables"></a>Variáveis de ambiente
 Para obter uma variável de ambiente ou um valor de configuração do aplicativo, use `process.env`, conforme mostrado no exemplo de código a seguir:
 
 ```javascript
@@ -179,15 +183,21 @@ function GetEnvironmentVariable(name)
 }
 ```
 
-## Suporte a TypeScript/CoffeeScript
-Ainda não há suporte direto para compilação automática de TypeScript/CoffeeScript por meio do tempo de execução, por isso seria necessário manipulá-los fora do tempo de execução, no tempo de implantação.
+## <a name="typescriptcoffeescript-support"></a>Suporte a TypeScript/CoffeeScript
+Ainda não há suporte direto para compilação automática de TypeScript/CoffeeScript por meio do tempo de execução, por isso seria necessário manipulá-los fora do tempo de execução, no tempo de implantação. 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais, consulte os recursos a seguir:
 
+* [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
 * [Referência do desenvolvedor de C# do Azure Functions](functions-reference-csharp.md)
 * [Referência do desenvolvedor em F# do Azure Functions](functions-reference-fsharp.md)
 * [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

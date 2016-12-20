@@ -1,12 +1,12 @@
 ---
-title: Gerenciando aplicativos com o Active Directory do Azure | Microsoft Docs
-description: Este artigo apresenta os benefícios da integração do Active Directory do Azure com seus aplicativos locais, de nuvem e SaaS.
+title: Gerenciando aplicativos com o Azure Active Directory | Microsoft Docs
+description: "Este artigo apresenta os benefícios da integração do Active Directory do Azure com seus aplicativos locais, de nuvem e SaaS."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 95b96f10-2d5c-4b78-8af8-d3657a24140f
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0e5d50d111a63e7af8df6ded3492fe16e575ff51
+
 
 ---
 # <a name="managing-applications-with-azure-active-directory"></a>Gerenciamento de aplicativos com o Active Directory do Azure
@@ -94,7 +98,7 @@ Alguns aplicativos fornecem interfaces de automação para a criação e remoç�
 ## <a name="access-management"></a>gerenciamento de acesso
 Com o AD do Azure, você pode gerenciar o acesso a aplicativos que usam atribuições individuais ou orientadas por regras. Você também pode delegar o gerenciamento de acesso para as pessoas certas na organização, garantindo a melhor supervisão e reduzindo a carga sobre a assistência técnica.
 
-## <a name="onpremises-applications"></a>Aplicativos locais
+## <a name="on-premises-applications"></a>Aplicativos locais
 O proxy de aplicativo interno permite que você publique seus aplicativos locais para seus usuários, resultando em uma experiência de acesso consistente com o aplicativo em nuvem moderno e nos benefícios dos recursos de monitoramento, relatórios e segurança do AD do Azure.
 
 ## <a name="reporting-and-monitoring"></a>Relatórios e monitoramento
@@ -109,6 +113,9 @@ Para começar a integrar aplicativos com o AD do Azure, confira o [Guia de intro
 ## <a name="see-also"></a>Consulte também
 [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Como identificar cenários e planejar o processamento de dados analíticos avançados | Microsoft Docs
-description: Planeje a análise avançada considerando uma série de perguntas importantes.
+title: "Como identificar cenários e planejar o processamento de dados analíticos avançados | Microsoft Docs"
+description: "Planeje a análise avançada considerando uma série de perguntas importantes."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3b9cd8f5f0f65b84863e27abda0f3e4ca25d2e15
+
 
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Como identificar cenários e planejar o processamento de dados analíticos avançados
@@ -21,7 +25,7 @@ Quais recursos você deve planejar incluir ao configurar um ambiente para o proc
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="logistic-questions:-data-locations-and-movement"></a>Perguntas sobre logística: locais e movimentação de dados
+## <a name="logistic-questions-data-locations-and-movement"></a>Perguntas sobre logística: locais e movimentação de dados
 As perguntas sobre logística dizem respeito à localização da **fonte de dados**, ao **destino** no Azure e aos requisitos para mover os dados, inclusive o cronograma, a quantidade e os recursos envolvidos. Pode ser necessário mover os dados várias vezes durante o processo de análise. Um cenário comum é mover os dados locais para alguma forma de armazenamento no Azure e então para o Estúdio de Aprendizado de Máquina.
 
 1. **Qual é a sua fonte de dados?**  Ela é local ou fica na nuvem? Por exemplo:
@@ -45,7 +49,7 @@ As perguntas sobre logística dizem respeito à localização da **fonte de dado
 4. **Os dados precisam ser movidos em um cronograma regular ou ser modificados durante a migração?**  Considere o uso do ADF (Azure Data Factory) quando os dados precisarem ser migrados de forma contínua, particularmente se um cenário híbrido que acesse os recursos locais e de nuvem estiver envolvido ou quando os dados forem transacionados ou quando for necessário modificá-los ou adicionar lógica de negócios a eles durante a migração. Para saber mais, confira [Mover dados de um servidor SQL local para o SQL Azure com o Azure Data Factory](machine-learning-data-science-move-sql-azure-adf.md)
 5. **Quanto dos dados será movido para o Azure?**  Os conjuntos de dados muito grandes podem exceder a capacidade de armazenamento de determinados ambientes. Para obter um exemplo, confira a discussão sobre os limites de tamanho do Estúdio de Aprendizado de Máquina na próxima seção. Nesses casos, uma amostra dos dados poderá ser usada durante a análise. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process](machine-learning-data-science-sample-data.md)(Dados de exemplo no Processo de Ciência de Dados de Equipe).
 
-## <a name="data-characteristics-questions:-type,-format-and-size"></a>Perguntas sobre características de dados: tipo, formato e tamanho
+## <a name="data-characteristics-questions-type-format-and-size"></a>Perguntas sobre características de dados: tipo, formato e tamanho
 Essas perguntas são essenciais para o planejamento de seus ambientes de armazenamento e de processamento, cada um apropriado aos diversos tipos de dados e cada um com determinadas restrições.
 
 1. **Quais são os tipos de dados?** Por exemplo:
@@ -74,10 +78,10 @@ Tome o ambiente do Estúdio de Aprendizado de Máquina do Azure como exemplo:
 
 Para obter informações sobre as limitações de outros serviços do Azure usados no processo de análise, confira [Assinatura do Azure e Limites de Serviço, Cotas e Restrições](../azure-subscription-service-limits.md).
 
-## <a name="data-quality-questions:-exploration-and-pre-processing"></a>Perguntas sobre qualidade de dados: exploração e pré-processamento
+## <a name="data-quality-questions-exploration-and-pre-processing"></a>Perguntas sobre qualidade de dados: exploração e pré-processamento
 1. **O que você sabe sobre seus dados?**  Explore os dados quando precisar compreender suas características básicas. Quais padrões ou tendências eles exibem, quais exceções que possuem ou quantos valores estão ausentes. Esta etapa é importante para a determinação da extensão do pré-processamento necessário, para a formulação de hipóteses que poderiam sugerir os recursos mais apropriados ou o tipo de análise e para a formulação de planos para coleta de dados adicionais. O cálculo de estatísticas descritivas e a plotagem de visualizações são técnicas úteis para a inspeção de dados. Para obter detalhes sobre como reduzir a amostra de um conjunto de dados em vários ambientes do Azure, confira [Sample data in the Team Data Science Process (Dados de exemplo no Processo de Ciência de Dados de Equipe)](machine-learning-data-science-explore-data.md).
 2. **Os dados exigem pré-processamento ou limpeza?**
-   O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Para obter uma descrição, confira [Tarefas para preparar dados para o aprendizado de máquina avançado](machine-learning-data-science-prepare-data.md).
+    O pré-processamento e a limpeza de dados são tarefas importantes e geralmente devem ser realizadas antes que o conjunto de dados possa ser usado com eficiência para o aprendizado de máquina. Dados brutos costumam conter ruídos e não são confiáveis, e pode haver valores ausentes. Usar esses dados para a modelagem pode produzir resultados incorretos. Para obter uma descrição, confira [Tarefas para preparar dados para o aprendizado de máquina avançado](machine-learning-data-science-prepare-data.md).
 
 ## <a name="tools-and-languages-questions"></a>Perguntas sobre ferramentas e linguagens
 Há muitas opções, dependendo de quais linguagens e ambientes ou ferramentas de desenvolvimento você precisa ou com as quais se sente mais confortável.
@@ -95,12 +99,15 @@ Há muitas opções, dependendo de quais linguagens e ambientes ou ferramentas d
    * [RStudio](http://www.rstudio.com)
    * [Python Tools para Visual Studio](http://microsoft.github.io/PTVS/)
    * [Anaconda](https://www.continuum.io/why-anaconda)
-   * [Jupiter notebooks](http://jupyter.org/)
+   * [Notebooks Jupyter](http://jupyter.org/)
    * [Microsoft Power BI](http://powerbi.microsoft.com)
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identificar seu cenário de análise avançada
 Depois de responder às perguntas na seção anterior, você está pronto para determinar qual cenário melhor se adapta a seu caso. Os cenários de exemplo são descritos em [Cenários para análise avançada no Aprendizado de Máquina do Azure](machine-learning-data-science-plan-sample-scenarios.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

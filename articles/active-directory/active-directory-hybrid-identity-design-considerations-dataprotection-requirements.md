@@ -1,12 +1,12 @@
 ---
-title: Considerações de design da identidade híbrida do Active Directory do Azure - determinar os requisitos de proteção de dados | Microsoft Docs
-description: Ao planejar sua solução de identidade híbrida, identifique os requisitos de proteção de dados de seus negócios e quais opções estão disponíveis para melhor atender a esses requisitos.
-documentationcenter: ''
+title: "Considerações de design da identidade híbrida do Azure Active Directory - determinar os requisitos de proteção de dados | Microsoft Docs"
+description: "Ao planejar sua solução de identidade híbrida, identifique os requisitos de proteção de dados de seus negócios e quais opções estão disponíveis para melhor atender a esses requisitos."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 797b467e480ba51c531ea6eddf3ad2447ec16f1a
+
 
 ---
 # <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Planejar para aumentar a segurança de dados usando solução de identidade forte
@@ -81,6 +85,9 @@ A legislação e a conformidade regulatória variará de acordo com a indústria
 ## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

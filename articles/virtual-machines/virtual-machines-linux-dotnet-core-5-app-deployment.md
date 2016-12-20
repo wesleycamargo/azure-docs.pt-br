@@ -1,20 +1,24 @@
 ---
-title: Automação da implantação de aplicativos com extensões de máquina virtual | Microsoft Docs
-description: Tutorial principal de DotNet da máquina virtual do Azure
+title: "Automação da implantação de aplicativos com extensões de máquina virtual | Microsoft Docs"
+description: "Tutorial principal de DotNet da máquina virtual do Azure"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 9fc8b1ba-60f5-410b-8190-9f1ff885e50e
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: b4ddeb091c2c6d2fdfd32d0094567f9e9d8914a7
+
 
 ---
 # <a name="application-deployment-with-azure-resource-manager-templates"></a>Implantação de aplicativos com modelos do Azure Resource Manager
@@ -23,13 +27,17 @@ Depois que todos os requisitos de infraestrutura do Azure foram identificados e 
 Este documento detalha como extensões de Máquina Virtual podem automatizar a implantação de aplicativos e configuração de máquinas virtuais do Azure. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ## <a name="configuration-script"></a>Script de configuração
-Extensões de máquina virtual são programas especializados executadas em máquinas virtuais para fornecer automação da configuração. As extensões estão disponíveis para várias finalidades específicas, como antivírus, configuração de registro e configuração do Docker. Uma extensão de script personalizado pode ser usada para executar qualquer script em uma máquina virtual. Com o exemplo de Loja de Música, cabe à extensão de script personalizado configurar máquinas virtuais do Ubuntu e instalar o aplicativo de Loja de Música.
+Extensões de máquina virtual são programas especializados executadas em máquinas virtuais para fornecer automação da configuração. As extensões estão disponíveis para várias finalidades específicas, como antivírus, configuração de registro e configuração do Docker. Uma extensão de script personalizado pode ser usada para executar qualquer script em uma máquina virtual. Com o exemplo de Loja de Música, cabe à extensão de script personalizado configurar máquinas virtuais do Ubuntu e instalar o aplicativo de Loja de Música. 
 
 Antes de detalhar como extensões de máquina virtual são declaradas em um modelo do Azure Resource Manager, examine o script que é executado. Esse script configura a máquina virtual do Ubuntu para hospedar o aplicativo de Loja de Música. Quando executado, o script instala todo software necessário, instala o aplicativo de Loja de Música do controle do código-fonte e prepara o banco de dados. 
 
-Para saber mais sobre como hospedar um aplicativo .Net Core no Linux, consulte [Publicar em um ambiente de produção do Linux](https://docs.asp.net/en/latest/publishing/linuxproduction.html). 
+Para saber mais sobre como hospedar um aplicativo .Net Core no Linux, consulte [Publicar em um ambiente de produção do Linux](https://docs.asp.net/en/latest/publishing/linuxproduction.html).
 
-```none
+> Este exemplo é para fins de demonstração.
+> 
+> 
+
+```bash
 #!/bin/bash
 
 # install dotnet core
@@ -76,7 +84,7 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Extens
 
 Observe que no JSON a seguir o script é armazenado no GitHub. Esse script também pode ser armazenado no Armazenamento de Blobs do Azure. Além disso, os modelos do Azure Resource Manager permitem a criação da cadeia de caracteres de execução de script de forma que os valores de parâmetros de modelo podem ser usados como parâmetros para execução de script. Nesse caso, os dados são fornecidos ao implantar os modelos e, em seguida, esses valores podem ser usados ao executar o script.
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "extensions",
@@ -105,13 +113,16 @@ Observe que no JSON a seguir o script é armazenado no GitHub. Esse script tamb�
 }
 ```
 
-Para obter mais informações sobre como usar a extensão de script personalizado, consulte [Extensões de script personalizado com modelos do Resource Manager](virtual-machines-linux-extensions-customscript.md).
+Para obter mais informações sobre como usar a extensão de script personalizado, consulte [Extensões de script personalizado com modelos do Resource Manager](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="next-step"></a>Próxima etapa
 <hr>
 
 [Explorar mais modelos do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

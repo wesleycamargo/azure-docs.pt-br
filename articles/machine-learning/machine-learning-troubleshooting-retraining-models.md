@@ -1,12 +1,12 @@
 ---
-title: Solução de Problemas de Readaptação de um serviço Web do Machine Learning | Microsoft Docs
-description: Identifique e corrija os problemas comuns encontrados quando você está readaptando o modelo para um serviço Web do Aprendizado de Máquina do Azure.
+title: "Solução de Problemas de Readaptação de um serviço Web do Machine Learning | Microsoft Docs"
+description: "Identifique e corrija os problemas comuns encontrados quando você está readaptando o modelo para um serviço Web do Aprendizado de Máquina do Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: VDonGlover
 manager: raymondl
-editor: ''
-
+editor: 
+ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 736582889573c0e36e06910a3690db5651d5ccfa
+
 
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Solução de problemas de readaptação de um serviço Web clássico do Azure Machine Learning
@@ -36,7 +40,7 @@ Com todas as peças no lugar, as principais etapas necessárias para readaptar o
 
 1. Chame o serviço Web de treinamento: a chamada é para o BES (Serviço de Execução em Lote), não o RRS (Serviço de Resposta a Solicitação). Você pode usar o Código c# de exemplo na página de ajuda da API para fazer a chamada. 
 2. Encontre os valores para *BaseLocation*, *RelativeLocation* e *SasBlobToken*: esses valores são retornados na saída de sua chamada para o Serviço Web de treinamento. 
-     ![exibindo a saída do exemplo de readaptação e os valores BaseLocation, RelativeLocation e SasBlobToken.][image6]
+   ![exibindo a saída do exemplo de readaptação e os valores BaseLocation, RelativeLocation e SasBlobToken.][image6]
 3. Atualize o ponto de extremidade adicionado do serviço Web de pontuação com o novo modelo treinado: usando o código de exemplo fornecido em Readaptar os modelos de Aprendizado de Máquina de forma programática, atualize o novo ponto de extremidade adicionado ao modelo de pontuação com o modelo treinado recentemente do Serviço Web de Treinamento.
 
 ## <a name="common-obstacles"></a>Obstáculos comuns
@@ -58,7 +62,7 @@ Para obter a URL correta do PATCH:
 
 1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Abra a guia Aprendizado de Máquina. 
-    ![Guia Machine Learning.][image4]
+   ![Guia Machine Learning.][image4]
 3. Clique no nome do espaço de trabalho e depois em **Serviços Web**.
 4. Clique no serviço Web de pontuação com o qual você está trabalhando. (Se você não modificou o nome padrão do serviço Web, ele terminará com [Scoring Exp.].)
 5. Clicar em **Adicionar Ponto de Extremidade**.
@@ -88,7 +92,7 @@ Você pode verificar em qual serviço Web está o ponto de extremidade visitando
 
 1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Abra a guia Aprendizado de Máquina. 
-    ![IU do espaço de trabalho do Machine Learning.][image4]
+   ![IU do espaço de trabalho do Machine Learning.][image4]
 3. Selecione o espaço de trabalho.
 4. Clique em **Serviços Web**.
 5. Selecione o Serviço Web de previsão.
@@ -97,7 +101,7 @@ Você pode verificar em qual serviço Web está o ponto de extremidade visitando
 ### <a name="check-the-workspace-that-your-web-service-is-in-to-ensure-it-is-in-the-correct-region"></a>Verifique o espaço de trabalho no qual o serviço Web está para garantir que esteja na região correta
 1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Selecione Aprendizado de Máquina no menu.
-     ![IU da região do Machine Learning.][image4]
+   ![IU da região do Machine Learning.][image4]
 3. Verifique o local do seu espaço de trabalho.
 
 <!-- Image Links -->
@@ -111,6 +115,7 @@ Você pode verificar em qual serviço Web está o ponto de extremidade visitando
 [image7]: ./media/machine-learning-troubleshooting-retraining-a-model/web-services-tab.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

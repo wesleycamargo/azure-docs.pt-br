@@ -1,12 +1,12 @@
 ---
-title: Análise de sobrevivência com o Aprendizado de Máquina do Azure | Microsoft Docs
-description: Probabilidade de ocorrência de evento de análise de sobrevivência
+title: "Análise de sobrevivência com o Azure Machine Learning | Microsoft Docs"
+description: "Probabilidade de ocorrência de evento de análise de sobrevivência"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: zhangya
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: a142fc45-cdfb-4971-910e-05dab8bc699e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,38 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: zhangya
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8a9ec607cf4e8ae6ee5c69f4ed4db5f1a0854400
+
 
 ---
-# Análise de sobrevivência
-Em muitos cenários, o resultado principal em avaliação é o momento de um evento de interesse. Em outras palavras, a pergunta "quando esse evento ocorrerá?" é feita. Como exemplo, considere situações em que os dados descrevem o tempo decorrido (dias, anos, quilometragem, etc.) até o evento de interesse (recidiva da doença, recebimento de grau PhD, falha nas pastilhas de freio) ocorrer. Cada instância nos dados representa um objeto específico (um paciente, uma estudante, um carro, etc.).
+# <a name="survival-analysis"></a>Análise de sobrevivência
+Em muitos cenários, o resultado principal em avaliação é o momento de um evento de interesse. Em outras palavras, a pergunta “quando esse evento ocorrerá?” é feita. Como exemplo, considere situações em que os dados descrevem o tempo decorrido (dias, anos, quilometragem, etc.) até o evento de interesse (recidiva da doença, recebimento de grau PhD, falha nas pastilhas de freio) ocorrer. Cada instância nos dados representa um objeto específico (um paciente, uma estudante, um carro, etc.).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Esse [serviço Web](https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) responde à pergunta "qual é a probabilidade de o evento de interesse ocorrer no tempo n para o objeto x?" Ao fornecer um modelo de análise de sobrevivência, esse serviço Web permite aos usuários fornecer dados para treinar o modelo e testá-lo. O tema principal do teste é modelar a extensão do tempo decorrido até que ocorra o evento de interesse.
+Esse [serviço Web](https://datamarket.azure.com/dataset/aml_labs/survivalanalysis) responde à pergunta “qual é a probabilidade de o evento de interesse ocorrer no tempo n para o objeto x?” Ao fornecer um modelo de análise de sobrevivência, esse serviço Web permite aos usuários fornecer dados para treinar o modelo e testá-lo. O tema principal do teste é modelar a extensão do tempo decorrido até que ocorra o evento de interesse. 
 
-> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas a finalidade do serviço Web é também servir como um exemplo de como o Aprendizado de Máquina do Azure pode ser usado para criar serviços Web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Estúdio de Aprendizado de Máquina do Azure, um experimento pode ser criado com código R e publicado como um serviço Web. O serviço Web pode ser publicado no Azure Marketplace e consumido por dispositivos e usuários em todo o mundo – sem qualquer infraestrutura configurada pelo autor do serviço Web.
+> Este serviço Web poderia ser consumido por usuários – potencialmente por meio de um aplicativo móvel, de um site ou até mesmo em um computador local, por exemplo. Mas a finalidade do serviço Web é também servir como um exemplo de como o Aprendizado de Máquina do Azure pode ser usado para criar serviços Web sobre o código R. Com apenas algumas linhas de código R e cliques de botão dentro do Estúdio de Aprendizado de Máquina do Azure, um experimento pode ser criado com código R e publicado como um serviço Web. O serviço Web pode ser publicado no Azure Marketplace e consumido por dispositivos e usuários em todo o mundo – sem qualquer infraestrutura configurada pelo autor do serviço Web.  
 > 
 > 
 
-## Consumo do serviço Web
+## <a name="consumption-of-web-service"></a>Consumo do serviço Web
 O esquema de dados de entrada do serviço Web é mostrado na tabela a seguir. São necessárias seis informações como entrada: dados de treinamento, dados de teste, tempo de interesse, o índice da dimensão de "tempo", o índice da dimensão de "evento" e os tipos de variáveis (contínua ou fator). Os dados de treinamento são representados por uma sequência, em que as linhas são separadas por vírgulas e as colunas são separadas por ponto e vírgula. O número de recursos de dados é flexível. Todos os elementos na cadeia de caracteres de entrada devem ser numéricos. Nos dados de treinamento, a dimensão de "tempo" indica o número de unidades de tempo (dias, anos, quilometragem, etc.) decorridas desde o ponto de partida do estudo (o recebimento de programas de tratamento de drogas pelo paciente, o início do doutorado de um aluno, o início do uso de um carro, etc.) até o evento de interesse (o paciente voltar a usar drogas, o aluno obter o grau de PhD, as pastilhas do freio do carro falharem, etc.) ocorrer. A dimensão de "evento" indica se o evento de interesse ocorre no final do estudo. Um valor de "evento=1" significa que o evento de interesse ocorre no período indicado pela dimensão de "tempo"; "evento=0" significa que o evento de interesse não ocorreu até o momento indicado pela dimensão de "tempo".
 
 * trainingdata - uma cadeia de caracteres. As linhas são separadas por vírgulas; as colunas são separadas por ponto e vírgula. Cada linha inclui a dimensão de "tempo", a dimensão de "evento" e as variáveis do preditor.
 * testingdata - Uma linha de dados que contém variáveis de previsão para um determinado objeto.
-* time\_of\_interest - O tempo de interesse decorrido n.
-* index\_time - O índice da coluna da dimensão de "tempo" (a partir de 1).
-* index\_event - O índice da coluna da dimensão de "evento" (a partir de 1).
-* variable\_types - Uma cadeia de caracteres com ponto e vírgula como separador. 0 representa variáveis contínuas e 1 representa variáveis de fator.
+* time_of_interest - O tempo de interesse decorrido n.
+* index_time - O índice da coluna da dimensão de "tempo" (a partir de 1).
+* index_event - O índice da coluna da dimensão de "evento" (a partir de 1).
+* variable_types - Uma cadeia de caracteres com ponto e vírgula como separador. 0 representa variáveis contínuas e 1 representa variáveis de fator.
 
-A saída é a probabilidade de um evento ocorrer em um determinado tempo.
+A saída é a probabilidade de um evento ocorrer em um determinado tempo. 
 
-> Esse serviço, conforme hospedado no Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET.
+> Esse serviço, conforme hospedado no Azure Marketplace é um serviço OData; ele pode ser chamado por meio de métodos POST ou GET. 
 > 
 > 
 
-Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)).
+Há várias maneiras de consumir o serviço de forma automática (os aplicativos de exemplo estão [aqui](http://microsoftazuremachinelearning.azurewebsites.net/SurvivalAnalysis.aspx)). 
 
-### Iniciando o código C# para consumo de serviço Web:
+### <a name="starting-c-code-for-web-service-consumption"></a>Iniciando o código C# para consumo de serviço Web:
     public class Input
     {
             public string trainingdata;
@@ -82,17 +86,17 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 
 A interpretação desse teste é a seguinte: Supondo que o objetivo dos dados seja modelar o tempo decorrido até o retorno para o uso de drogas para os pacientes que receberam um dos dois programas de tratamento. O resultado das leituras do serviço Web: para pacientes com 35 anos, dois tratamentos anteriores para drogas, recebendo o programa de tratamento residencial longo e com o uso de heroína e cocaína, a probabilidade de voltar a usar drogas é de 95,64% até o dia 500.
 
-## Criação de serviço Web
+## <a name="creation-of-web-service"></a>Criação de serviço Web
 > Este serviço Web foi criado usando o Aprendizado de Máquina do Azure. Para obter uma avaliação gratuita, bem como vídeos introdutórios sobre a criação de testes e [publicação de serviços Web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). Abaixo está uma captura de tela do teste que criou o serviço Web e o exemplo de código para cada um dos módulos dentro do teste.
 > 
 > 
 
-De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criado e dois módulos [Executar Scripts R][execute-r-script] foram levados ao espaço de trabalho. O esquema de dados foi criado com um [Executar Script R][execute-r-script] simples, que define o esquema de dados de entrada para o serviço Web. Esse módulo é, então, vinculado ao segundo módulo [Executar Script R][execute-r-script], que faz a maior parte do trabalho. Esse módulo faz o pré-processamento de dados, a criação de modelo e as previsões. Na etapa de pré-processamento de dados, os dados de entrada representados por uma cadeia de caracteres longa são transformados e convertidos em uma estrutura de dados. Na etapa de construção do modelo, um pacote R externo "survival\_2.37-7.zip" é instalado para realizar a análise de sobrevivência. Em seguida, a função de "coxph" é executada após uma série de tarefas de processamento de dados. Os detalhes da função "coxph" para a análise de sobrevivência podem ser lidos na documentação de R. Na etapa de previsão, uma instância de teste é fornecida para o modelo treinado com a função "surfit" e a curva de sobrevivência para esta instância de teste é produzida como a variável "curva". Por fim, a probabilidade do tempo de interesse é obtida.
+De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois módulos [Executar Script R][execute-r-script] foram levados ao espaço de trabalho. O esquema de dados foi criado com um [Executar Script R][execute-r-script] simples, que define o esquema de dados de entrada para o serviço Web. Esse módulo é, então, vinculado ao segundo módulo [Executar Script R][execute-r-script], que faz a maior parte do trabalho. Esse módulo faz o pré-processamento de dados, a criação de modelo e as previsões. Na etapa de pré-processamento de dados, os dados de entrada representados por uma cadeia de caracteres longa são transformados e convertidos em uma estrutura de dados. Na etapa de construção do modelo, um pacote R externo "survival_2.37-7.zip" é instalado para realizar a análise de sobrevivência. Em seguida, a função de "coxph" é executada após uma série de tarefas de processamento de dados. Os detalhes da função "coxph" para a análise de sobrevivência podem ser lidos na documentação de R. Na etapa de previsão, uma instância de teste é fornecida para o modelo treinado com a função "surfit" e a curva de sobrevivência para esta instância de teste é produzida como a variável "curva". Por fim, a probabilidade do tempo de interesse é obtida. 
 
-### Fluxo de teste:
+### <a name="experiment-flow"></a>Fluxo de teste:
 ![fluxo de teste][1]
 
-#### Módulo 1:
+#### <a name="module-1"></a>Módulo 1:
     #Data schema with example data (replaced with data from web service)
     trainingdata="53;1;29;0;0;3,79;1;34;0;1;2,45;1;27;0;1;1,37;1;24;0;1;1,122;1;30;0;1;1,655;0;41;0;0;1,166;1;30;0;0;3,227;1;29;0;0;3,805;0;30;0;0;1,104;1;24;0;0;1,90;1;32;0;0;1,373;1;26;0;0;1,70;1;36;0;0;1”
     testingdata="35;2;1;1"
@@ -107,7 +111,7 @@ De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criad
 
     maml.mapOutputPort("sampleInput"); #send data to output port
 
-#### Módulo 2:
+#### <a name="module-2"></a>Módulo 2:
     #Read data from input port
     data <- maml.mapInputPort(1) 
     colnames(data) <- c("trainingdata","testingdata","time_of_interest","index_time","index_event","variable_types")
@@ -190,10 +194,10 @@ De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criad
 
 
 
-## Limitações
+## <a name="limitations"></a>Limitações
 Este serviço Web aceita apenas valores numéricos como variáveis de recurso (colunas). A coluna "evento" pode ter apenas o valor 0 ou 1. A coluna "hora" precisa ser um inteiro positivo.
 
-## Perguntas frequentes
+## <a name="faq"></a>Perguntas frequentes
 Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publicação no Azure Marketplace, consulte [aqui](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
@@ -203,4 +207,8 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

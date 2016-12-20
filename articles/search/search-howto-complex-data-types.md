@@ -1,13 +1,13 @@
 ---
 title: Como modelar os tipos de dados complexos no Azure Search | Microsoft Docs
-description: As estruturas de dados aninhadas e hierárquicas podem ser modeladas em um índice do Azure Search usando o conjunto de linhas nivelado e o tipo de dados Coleções.
+description: "As estruturas de dados aninhadas e hierárquicas podem ser modeladas em um índice do Azure Search usando o conjunto de linhas nivelado e o tipo de dados Coleções."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: LiamCa
 manager: pablocas
-editor: ''
+editor: 
 tags: complex data types; compound data types; aggregate data types
-
+ms.assetid: e4bf86b4-497a-4179-b09f-c1b56c3c0bb2
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -15,15 +15,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/07/2016
 ms.author: liamca
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a90d7d90a6f3a75e230d32fb02b5ae69909d3c31
+
 
 ---
-# Como modelar os tipos de dados complexos no Azure Search
+# <a name="how-to-model-complex-data-types-in-azure-search"></a>Como modelar os tipos de dados complexos no Azure Search
 Os conjuntos de dados externos usados para preencher um índice do Azure Search, às vezes, incluem subestruturas hierárquicas ou aninhadas que não se dividem de modo organizado em um conjunto de linhas da tabela. Os exemplos dessas estruturas podem incluir vários locais e números de telefone para um único cliente, vários tamanhos e cores para um único SKU, vários autores de um único livro e assim por diante. Em termos de modelagem, você pode ver essas estruturas referidas como *tipos de dados complexos*, *tipos de dados compostos*, *tipos de dados combinados* ou *tipos de dados de agregação*, para citar alguns.
 
 Os tipos de dados complexos não são suportados nativamente no Azure Search, mas uma solução comprovada inclui um processo de duas etapas de nivelamento da estrutura e uso de um tipo de dados **Coleção** para reconstituir a estrutura interna. Seguir a técnica descrita neste artigo permite que o conteúdo seja pesquisado, lapidado, filtrado e classificado.
 
-## Exemplo de uma estrutura de dados complexos
-Normalmente, os dados em questão residem como um conjunto de documentos XML ou JSON, ou como itens em um armazenamento NoSQL, como o DocumentDB. Estruturalmente, o desafio é ter vários itens-filho que precisam ser pesquisados e filtrados. Como ponto de partida para ilustrar a solução alternativa, veja o seguinte documento JSON que lista um conjunto de contatos como um exemplo:
+## <a name="example-of-a-complex-data-structure"></a>Exemplo de uma estrutura de dados complexos
+Normalmente, os dados em questão residem como um conjunto de documentos XML ou JSON, ou como itens em um armazenamento NoSQL, como o DocumentDB. Estruturalmente, o desafio é ter vários itens-filho que precisam ser pesquisados e filtrados.  Como ponto de partida para ilustrar a solução alternativa, veja o seguinte documento JSON que lista um conjunto de contatos como um exemplo:
 
 ~~~~~
 [
@@ -59,21 +63,21 @@ Normalmente, os dados em questão residem como um conjunto de documentos XML ou 
 }]
 ~~~~~
 
-Embora os campos denominados 'id', 'name' e 'empresa' possam ser mapeados facilmente um a um como campos em um índice do Azure Search, o campo 'locais' contém uma matriz de locais, com um conjunto de IDs de local, bem como descrições do local. Considerando que o Azure Search não tem um tipo de dados que oferece suporte, precisamos de uma maneira diferente de modelar isso no Azure Search.
+Embora os campos denominados 'id', 'name' e 'empresa' possam ser mapeados facilmente um a um como campos em um índice do Azure Search, o campo 'locais' contém uma matriz de locais, com um conjunto de IDs de local, bem como descrições do local. Considerando que o Azure Search não tem um tipo de dados que oferece suporte, precisamos de uma maneira diferente de modelar isso no Azure Search. 
 
 > [!NOTE]
-> Essa técnica também é descrita por Kirk Evans em uma postagem de blog [Indexando o DocumentDB com o Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), que mostra uma técnica denominada "nivelar os dados", por meio da qual você teria os campos chamados `locationsID` e `locationsDescription` que são [coleções](https://msdn.microsoft.com/library/azure/dn798938.aspx) (ou uma matriz de cadeias de caracteres).
+> Essa técnica também é descrita por Kirk Evans em uma postagem de blog [Indexando o DocumentDB com o Azure Search](https://blogs.msdn.microsoft.com/kaevans/2015/03/09/indexing-documentdb-with-azure-seach/), que mostra uma técnica denominada "nivelar os dados", por meio da qual você teria os campos chamados `locationsID` e `locationsDescription` que são [coleções](https://msdn.microsoft.com/library/azure/dn798938.aspx) (ou uma matriz de cadeias de caracteres).   
 > 
 > 
 
-## Parte 1: Nivelar a matriz em campos individuais
-Para criar um índice do Azure Search que aceita esse conjunto de dados, crie campos individuais para a subestrutura aninhada: `locationsID` e `locationsDescription` com um tipo de dados de [coleções](https://msdn.microsoft.com/library/azure/dn798938.aspx) (ou uma matriz de cadeias de caracteres). Nesses campos, você deve indexar os valores '1' e '2' no campo `locationsID` para John Smith e os valores '3' e '4' no campo `locationsID` para Jen Campbell.
+## <a name="part-1-flatten-the-array-into-individual-fields"></a>Parte 1: Nivelar a matriz em campos individuais
+Para criar um índice do Azure Search que aceita esse conjunto de dados, crie campos individuais para a subestrutura aninhada: `locationsID` e `locationsDescription` com um tipo de dados de [coleções](https://msdn.microsoft.com/library/azure/dn798938.aspx) (ou uma matriz de cadeias de caracteres). Nesses campos, você deve indexar os valores '1' e '2' no campo `locationsID` para John Smith e os valores '3' e '4' no campo `locationsID` para Jen Campbell.  
 
-Os dados no Azure Search ficariam assim:
+Os dados no Azure Search ficariam assim: 
 
 ![dados de exemplo, 2 linhas](./media/search-howto-complex-data-types/sample-data.png)
 
-## Parte 2: Adicionar um campo de coleção na definição do índice
+## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>Parte 2: Adicionar um campo de coleção na definição do índice
 No esquema do índice, as definições do campo podem ser semelhantes a este exemplo.
 
 ~~~~
@@ -91,16 +95,16 @@ var index = new Index()
 };
 ~~~~
 
-## Validar os comportamentos da pesquisa e, opcionalmente, estender o índice
+## <a name="validate-search-behaviors-and-optionally-extend-the-index"></a>Validar os comportamentos da pesquisa e, opcionalmente, estender o índice
 Supondo que você criou o índice e carregou os dados, agora você pode testar a solução para verificar a execução da consulta de pesquisa no conjunto de dados. Cada campo da **coleção** deve ser **pesquisável**, **filtrável** e **lapidável**. Você deve ser capaz de executar consultas como:
 
 * Localize todas as pessoas que trabalham na 'Matriz Adventureworks'.
-* Obtenha uma contagem do número de pessoas que trabalham em um ‘Escritório Central’.
-* Das pessoas que trabalham em um ‘Escritório Central', mostre em quais outros escritórios elas trabalham, junto com uma contagem de pessoas em cada local.
+* Obtenha uma contagem do número de pessoas que trabalham em um ‘Escritório Central’.  
+* Das pessoas que trabalham em um ‘Escritório Central', mostre em quais outros escritórios elas trabalham, junto com uma contagem de pessoas em cada local.  
 
 Onde essa técnica falha é quando você precisa fazer uma pesquisa que combina a identificação do local, bem como a descrição do local. Por exemplo:
 
-* Localize todas as pessoas onde elas têm um Escritório Central E uma Identificação de local 4.
+* Localize todas as pessoas onde elas têm um Escritório Central E uma Identificação de local 4.  
 
 Se você se lembra, o conteúdo original era assim:
 
@@ -111,27 +115,32 @@ Se você se lembra, o conteúdo original era assim:
    }
 ~~~~
 
-No entanto, agora que dividimos os dados em campos separados, não temos nenhuma maneira de saber se o Escritório Central para Jen Campbell relaciona-se a `locationsID 3` ou `locationsID 4`.
+No entanto, agora que dividimos os dados em campos separados, não temos nenhuma maneira de saber se o Escritório Central para Jen Campbell relaciona-se a `locationsID 3` ou `locationsID 4`.  
 
-Para lidar com isso, defina outro campo no índice que combina todos os dados em uma única coleção. Para nosso exemplo, chamaremos esse campo de `locationsCombined` e iremos separar o conteúdo com `||`, embora seja possível escolher qualquer separador que você acha que seria um conjunto exclusivo de caracteres para seu conteúdo. Por exemplo:
+Para lidar com isso, defina outro campo no índice que combina todos os dados em uma única coleção.  Para nosso exemplo, chamaremos esse campo de `locationsCombined` e iremos separar o conteúdo com `||`, embora seja possível escolher qualquer separador que você acha que seria um conjunto exclusivo de caracteres para seu conteúdo. Por exemplo: 
 
 ![dados de exemplo, 2 linhas com separador](./media/search-howto-complex-data-types/sample-data-2.png)
 
-Usando esse campo `locationsCombined`, agora podemos aceitar ainda mais consultas, como:
+Usando esse campo `locationsCombined` , agora podemos aceitar ainda mais consultas, como:
 
-* Mostre uma contagem de pessoas que trabalham em um 'Escritório Central' com uma Id de local '4'.
-* Procure as pessoas que trabalham em um ‘Escritório Central' com uma Id de local '4'.
+* Mostre uma contagem de pessoas que trabalham em um 'Escritório Central' com uma Id de local '4'.  
+* Procure as pessoas que trabalham em um ‘Escritório Central' com uma Id de local '4'. 
 
-## Limitações
-Essa técnica é útil para vários cenários, mas ela não é aplicável em todos os casos. Por exemplo:
+## <a name="limitations"></a>Limitações
+Essa técnica é útil para vários cenários, mas ela não é aplicável em todos os casos.  Por exemplo:
 
-1. Se você não tem um conjunto estático de campos em seu tipo de dados complexos e não foi possível mapear todos os tipos possíveis para um único campo.
+1. Se você não tem um conjunto estático de campos em seu tipo de dados complexos e não foi possível mapear todos os tipos possíveis para um único campo. 
 2. Atualizar os objetos aninhados requer um trabalho extra para determinar exatamente o que precisa ser atualizado no índice do Azure Search
 
-## Exemplo de código
+## <a name="sample-code"></a>Exemplo de código
 Você pode ver um exemplo sobre como indexar um conjunto de dados JSON complexo no Azure Search e executar várias consultas nesse conjunto de dados no [repositório GitHub](https://github.com/liamca/AzureSearchComplexTypes).
 
-## Próxima etapa
+## <a name="next-step"></a>Próxima etapa
 [Escolha o suporte nativo para os tipos de dados complexos](https://feedback.azure.com/forums/263029-azure-search) na página UserVoice do Azure Search e forneça qualquer entrada adicional que você gostaria de considerar em relação à implementação do recurso. Você também pode me acessar diretamente no Twitter em @liamca.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

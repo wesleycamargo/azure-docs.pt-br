@@ -1,12 +1,12 @@
 ---
-title: Substituição de componentes de hardware do StorSimple | Microsoft Docs
-description: Descreve como substituir com segurança PCMs, bateria, módulos de controlador, controladores do EBOD, unidades de disco e chassis de um dispositivo StorSimple.
+title: "Substituição de componentes de hardware do StorSimple | Microsoft Docs"
+description: "Descreve como substituir com segurança PCMs, bateria, módulos de controlador, controladores do EBOD, unidades de disco e chassis de um dispositivo StorSimple."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: e8087ba7-0b66-4f59-8988-e53aad52ee21
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 50df20f1f84f570cec1261e14028f3a700871dac
+
 
 ---
 # <a name="storsimple-hardware-component-replacement"></a>Substituição de componentes de hardware do StorSimple
@@ -131,6 +135,9 @@ As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositiv
 ## <a name="next-steps"></a>Próximas etapas
 Examine todas as [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware do StorSimple.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

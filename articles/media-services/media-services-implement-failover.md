@@ -1,12 +1,12 @@
 ---
-title: Implementando o cenário de streaming de failover | Microsoft Docs
-description: Este tópico mostra como implementar o cenário de streaming de failover.
+title: "Implementando o cenário de streaming de failover | Microsoft Docs"
+description: "Este tópico mostra como implementar o cenário de streaming de failover."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
+
 
 ---
 # <a name="implementing-failover-streaming-scenario"></a>Implementando o cenário de streaming de failover
@@ -96,7 +100,7 @@ Nesta seção você irá criar e configurar um projeto de aplicativo de console 
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## <a name="add-code-that-handles-redundancy-for-on-demand-streaming."></a>Adicione o código que manipula a redundância para streaming Sob Demanda.
+## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Adicione o código que manipula a redundância para streaming Sob Demanda.
 1. Adicione os seguintes campos no nível de classe à classe Program.
    
         // Read values from the App.config file.
@@ -957,6 +961,9 @@ Agora você pode usar um gerenciador de tráfego para rotear solicitações entr
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

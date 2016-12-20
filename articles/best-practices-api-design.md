@@ -1,13 +1,13 @@
 ---
 title: Diretrizes de design de API | Microsoft Docs
-description: Orientação sobre como criar uma API bem projetada.
-services: ''
+description: "Orientação sobre como criar uma API bem projetada."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 19514a32-923a-488c-85f5-b5beec2576de
 ms.service: best-practice
 ms.devlang: rest-api
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6e74b90e0ccd7cf43d1d98db05ca1f6a0d999751
+
 
 ---
-# Diretrizes de design de API
+# <a name="api-design-guidance"></a>Diretrizes de design de API
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 Muitas soluções modernas baseadas na Web utilizam serviços Web, hospedados por servidores Web, para fornecer funcionalidades para aplicativos de cliente remoto. As operações que um serviço Web expõe constituem uma API da Web. Uma API da Web bem projetada deve buscar apoiar:
 
 * **Independência de plataforma**. Aplicativos cliente devem ser capazes de utilizar a API que fornece o serviço Web, sem exigências sobre o modo como os dados ou operações expostos pela API são implementados fisicamente. Isso requer que a API opere em conformidade com padrões comuns que permitem que um serviço Web e aplicativos de cliente concordem sobre quais formatos de dados utilizar e sobre a estrutura dos dados que são trocados entre aplicativos cliente e o serviço Web.
@@ -28,22 +32,22 @@ Muitas soluções modernas baseadas na Web utilizam serviços Web, hospedados po
 
 A finalidade destas diretrizes é descrever as questões que você deve considerar ao criar uma API da Web.
 
-## Introdução ao REST (Representational State Transfer)
+## <a name="introduction-to-representational-state-transfer-rest"></a>Introdução ao REST (Representational State Transfer)
 Em sua dissertação em 2000, Roy Fielding propôs uma abordagem de arquitetura alternativa para estruturar as operações expostas por serviços Web: REST. REST é um estilo arquitetural para a criação de sistemas distribuídos com base em hipermídia. Uma vantagem principal do modelo REST é que ele é baseado em padrões abertos e não vincula a implementação do modelo ou os aplicativos cliente que o acessam a nenhuma implementação específica. Por exemplo, um serviço Web REST poderia ser implementado usando a API Web ASP.NET da Microsoft, e aplicativos cliente poderiam ser desenvolvidos usando qualquer linguagem e conjunto de ferramentas capazes de gerar solicitações HTTP e analisar as respostas HTTP.
 
 > [!NOTE]
-> \: REST é, na verdade, independente de qualquer protocolo subjacente e não está necessariamente ligado a HTTP. No entanto, as implementações mais comuns dos sistemas baseados em REST utilizam HTTP como o protocolo de aplicativo para enviar e receber solicitações. Este documento concentra-se no mapeamento de princípios REST para sistemas projetados para operar usando HTTP.
+> O REST é, na verdade, independente de qualquer protocolo subjacente e não está necessariamente ligado a HTTP. No entanto, as implementações mais comuns dos sistemas baseados em REST utilizam HTTP como o protocolo de aplicativo para enviar e receber solicitações. Este documento concentra-se no mapeamento de princípios REST para sistemas projetados para operar usando HTTP.
 > 
 > 
 
-O modelo de REST usa um esquema de navegação para representar objetos e serviços em uma rede (mencionados como *recursos*). Muitos sistemas que implementam REST geralmente usam o protocolo HTTP para transmitir solicitações para acessar esses recursos. Nesses sistemas, um aplicativo cliente envia uma solicitação na forma de um URI que identifica um recurso, além de um método HTTP (os mais comuns são GET, POST, PUT e DELETE) que indica a operação a ser executada nesse recurso. O corpo da solicitação HTTP contém os dados necessários para executar a operação. O ponto que é importante entender é que o REST define um modelo de solicitação sem monitoração de estado. Solicitações HTTP devem ser independentes e podem ocorrer em qualquer ordem, portanto, a tentativa de reter informações de estado transitório entre as solicitações não é viável. O único local onde as informações são armazenadas é nos próprios recursos, e cada solicitação deve ser uma operação atômica. Na verdade, um modelo REST implementa uma máquina de estado finito onde uma solicitação faz, em um recurso, a transição de um estado bem definido não transitório para outro.
+O modelo de REST usa um esquema de navegação para representar objetos e serviços em uma rede (mencionados como *funcionalidades*). Muitos sistemas que implementam REST geralmente usam o protocolo HTTP para transmitir solicitações para acessar esses recursos. Nesses sistemas, um aplicativo cliente envia uma solicitação na forma de um URI que identifica um recurso, além de um método HTTP (os mais comuns são GET, POST, PUT e DELETE) que indica a operação a ser executada nesse recurso.  O corpo da solicitação HTTP contém os dados necessários para executar a operação. O ponto que é importante entender é que o REST define um modelo de solicitação sem monitoração de estado. Solicitações HTTP devem ser independentes e podem ocorrer em qualquer ordem, portanto, a tentativa de reter informações de estado transitório entre as solicitações não é viável.  O único local onde as informações são armazenadas é nos próprios recursos, e cada solicitação deve ser uma operação atômica. Na verdade, um modelo REST implementa uma máquina de estado finito onde uma solicitação faz, em um recurso, a transição de um estado bem definido não transitório para outro.
 
 > [!NOTE]
 > A natureza sem monitoração de estado de solicitações individuais no modelo REST permite que um sistema construído seguindo esses princípios seja altamente dimensionável. Não é necessário manter qualquer afinidade entre um aplicativo cliente fazendo uma série de solicitações e os servidores Web específicos tratando dessas solicitações.
 > 
 > 
 
-Outro ponto crucial na implementação de um modelo eficaz do REST é entender as relações entre os vários recursos aos quais o modelo fornece acesso. Esses recursos normalmente são organizados como coleções e relacionamentos. Por exemplo, suponha que uma rápida análise de um sistema de comércio eletrônico mostre que há duas coleções pelas quais aplicativos cliente provavelmente se interessam: pedidos e clientes. Cada pedido e cliente deve ter sua própria chave exclusiva para fins de identificação. O URI para acessar a coleção de pedidos pode ser algo tão simples quanto */pedidos* e, do mesmo modo, o URI para recuperar todos os clientes pode ser */clientes*. Emitir uma solicitação HTTP GET para o URI */pedidos* deve retornar uma lista que representa todos os pedidos na coleção, codificada como uma resposta HTTP:
+Outro ponto crucial na implementação de um modelo eficaz do REST é entender as relações entre os vários recursos aos quais o modelo fornece acesso. Esses recursos normalmente são organizados como coleções e relacionamentos. Por exemplo, suponha que uma rápida análise de um sistema de comércio eletrônico mostre que há duas coleções pelas quais aplicativos cliente provavelmente se interessam: pedidos e clientes. Cada pedido e cliente deve ter sua própria chave exclusiva para fins de identificação. O URI para acessar a coleção de pedidos pode ser algo tão simples quanto */orders* e, do mesmo modo, o URI para recuperar todos os clientes pode ser */customers*. Emitir uma solicitação HTTP GET para o URI */orders* deve retornar uma lista que representa todos os pedidos na coleção, codificada como uma resposta HTTP:
 
 ```HTTP
 GET http://adventure-works.com/orders HTTP/1.1
@@ -59,7 +63,7 @@ Date: Fri, 22 Aug 2014 08:49:02 GMT
 Content-Length: ...
 [{"orderId":1,"orderValue":99.90,"productId":1,"quantity":1},{"orderId":2,"orderValue":10.00,"productId":4,"quantity":2},{"orderId":3,"orderValue":16.60,"productId":2,"quantity":4},{"orderId":4,"orderValue":25.90,"productId":3,"quantity":1},{"orderId":5,"orderValue":99.90,"productId":1,"quantity":1}]
 ```
-Buscar um pedido individual requer a especificação do identificador para o pedido por meio do recurso *pedidos*, como *pedidos/2*:
+Buscar um pedido individual requer a especificação do identificador para o pedido por meio do recurso *orders*, como */orders/2*:
 
 ```HTTP
 GET http://adventure-works.com/orders/2 HTTP/1.1
@@ -81,12 +85,12 @@ Content-Length: ...
 
 Observe que a resposta de uma solicitação REST faz uso dos códigos de status HTTP padrão. Por exemplo, uma solicitação que retorna dados válidos deve incluir o código de resposta HTTP 200 (OK), enquanto uma solicitação que não consegue localizar ou excluir um recurso especificado deve retornar uma resposta que inclui o código de status HTTP 404 (Não Encontrado).
 
-## Design e a estrutura de uma API da Web RESTful
+## <a name="design-and-structure-of-a-restful-web-api"></a>Design e a estrutura de uma API da Web RESTful
 As chaves para a criação de uma API da Web bem-sucedida são simplicidade e consistência. Uma API da Web que exibe esses dois fatores facilita a criação de aplicativos cliente que precisam consumir a API.
 
 Uma API da Web RESTful concentra-se na exposição de um conjunto de recursos conectados e no fornecimento das principais operações que permitem que um aplicativo manipule esses recursos e navegue facilmente entre eles. Por esse motivo, os URIs que constituem uma API da Web RESTful típica deve ser orientados para os dados que ela expõe, além de usar os recursos fornecidos pelo HTTP para realizar operações com esses dados. Essa abordagem exige uma mentalidade diferente daquela empregada normalmente durante a criação de um conjunto de classes em uma API orientada a objeto, que tende a ser mais motivada pelo comportamento de objetos e classes. Além disso, uma API da Web RESTful deve ser sem monitoração de estado e não deve depender de operações serem invocadas em uma sequência específica. As seções a seguir resumem os pontos que você deve considerar ao criar uma API da Web RESTful.
 
-### Organizando a API da Web em torno de recursos
+### <a name="organizing-the-web-api-around-resources"></a>Organizando a API da Web em torno de recursos
 > [!TIP]
 > Os URIs expostos por um serviço Web REST deve se basear em substantivos (os dados aos quais a API da Web fornece acesso) e não em verbos (o que um aplicativo pode fazer com os dados).
 > 
@@ -99,19 +103,19 @@ Concentre-se nas entidades comerciais que a API da Web expõe. Por exemplo, em u
 > 
 > 
 
-Entidades comerciais individuais raramente existem em isolamento (embora possam existir alguns objetos singleton), mas em vez disso, tendem a ser agrupadas em coleções. Em termos de REST, cada entidade e cada coleção são recursos. Em uma API da Web RESTful, cada coleção tem seu próprio URI contido no serviço Web, e executar uma solicitação HTTP GET por um URI para uma coleção recupera uma lista dos itens nessa coleção. Cada item individual também tem seu próprio URI, e um aplicativo pode enviar outra solicitação HTTP GET usando esse URI para obter os detalhes desse item. Você deve organizar os URIs para coleções e itens de maneira hierárquica. No sistema de comércio eletrônico, o URI */clientes* denota a coleção de clientes, e */clientes/5* recupera os detalhes para o único cliente com ID 5 desta coleção. Essa abordagem ajuda a manter a API da Web intuitiva.
+Entidades comerciais individuais raramente existem em isolamento (embora possam existir alguns objetos singleton), mas em vez disso, tendem a ser agrupadas em coleções. Em termos de REST, cada entidade e cada coleção são recursos. Em uma API da Web RESTful, cada coleção tem seu próprio URI contido no serviço Web, e executar uma solicitação HTTP GET por um URI para uma coleção recupera uma lista dos itens nessa coleção. Cada item individual também tem seu próprio URI, e um aplicativo pode enviar outra solicitação HTTP GET usando esse URI para obter os detalhes desse item. Você deve organizar os URIs para coleções e itens de maneira hierárquica. No sistema de comércio eletrônico, o URI */customers* denota a coleção de clientes, e */customers/5* recupera os detalhes para o único cliente com ID 5 desta coleção. Essa abordagem ajuda a manter a API da Web intuitiva.
 
 > [!TIP]
 > Adote uma convenção de nomenclatura consistente nos URIs; em geral, ajuda usar substantivos plurais para URIs que fazem referência a coleções.
 > 
 > 
 
-Você também precisa considerar as relações entre diferentes tipos de recursos e como você pode expor essas associações. Por exemplo, os clientes podem fazer zero ou mais pedidos. Uma maneira natural de representar essa relação seria por meio de um URI como */clientes/5/pedidos*, para localizar todos os pedidos do cliente 5. Você também pode considerar a possibilidade de representar a associação de um pedido a um cliente específico, por meio de um URI como */pedidos/99/cliente* para localizar o cliente para o pedido 99, mas estender muito esse modelo pode torná-lo difícil de implementar. Uma solução melhor é fornecer links navegáveis para recursos associados, como o cliente, no corpo da mensagem de resposta HTTP retornada quando se consulta o pedido. Esse mecanismo é descrito mais detalhadamente na seção Usando a Abordagem de HATEOAS Para Habilitar a Navegação Para Recursos Relacionados, posteriormente nestas diretrizes.
+Você também precisa considerar as relações entre diferentes tipos de recursos e como você pode expor essas associações. Por exemplo, os clientes podem fazer zero ou mais pedidos. Uma maneira natural de representar essa relação seria por meio de um URI como */clientes/5/orders* , para localizar todos os pedidos do cliente 5. Você também pode considerar a possibilidade de representar a associação de um pedido a um cliente específico, por meio de um URI como */orders/99/customer* para localizar o cliente para o pedido 99, mas estender muito esse modelo pode torná-lo difícil de implementar. Uma solução melhor é fornecer links navegáveis para recursos associados, como o cliente, no corpo da mensagem de resposta HTTP retornada quando se consulta o pedido. Esse mecanismo é descrito mais detalhadamente na seção Usando a Abordagem de HATEOAS Para Habilitar a Navegação Para Recursos Relacionados, posteriormente nestas diretrizes.
 
-Em sistemas mais complexos pode haver muito mais tipos de entidade, e pode ser tentador fornecer URIs que permitem a um aplicativo cliente navegar por vários níveis de relações, como */clientes/1/pedidos/99/produtos* para obter a lista de produtos no pedido 99 feito pelo cliente 1. No entanto, esse nível de complexidade pode ser difícil de manter e é inflexível no caso de as relações entre os recursos mudarem no futuro. Em vez disso, você deve tentar manter os URIs relativamente simples. Tenha em mente que uma vez que um aplicativo tem uma referência a um recurso, deve ser possível usar essa referência para localizar itens relacionados a esse recurso. A consulta anterior pode ser substituída pelo URI */clientes/1/pedidos* para localizar todos os pedidos do cliente 1 e, em seguida, consultar o URI */pedidos/99/produtos* para encontrar os produtos nesse pedido (supondo que o pedido 99 foi feito pelo cliente 1).
+Em sistemas mais complexos pode haver muito mais tipos de entidade, e pode ser tentador fornecer URIs que permitem a um aplicativo cliente navegar por vários níveis de relações, como */customers/1/orders/99/products* para obter a lista de produtos no pedido 99 feito pelo cliente 1. No entanto, esse nível de complexidade pode ser difícil de manter e é inflexível no caso de as relações entre os recursos mudarem no futuro. Em vez disso, você deve tentar manter os URIs relativamente simples. Tenha em mente que uma vez que um aplicativo tem uma referência a um recurso, deve ser possível usar essa referência para localizar itens relacionados a esse recurso. A consulta anterior pode ser substituída pelo URI */customers/1/orders* para localizar todos os pedidos do cliente 1 e, em seguida, consultar o URI */orders/99/products* para encontrar os produtos nesse pedido (supondo que o pedido 99 tenha sido feito pelo cliente 1).
 
 > [!TIP]
-> Evite exigir URIs de recurso mais complexos do que *coleção/item/coleção*.
+> Evite exigir URIs de recurso mais complexos do que *collection/item/collection*.
 > 
 > 
 
@@ -126,7 +130,7 @@ Evite introduzir as dependências entre a API da Web na estrutura, tipo ou local
 
 Por fim, pode não ser possível mapear toda operação implementada por uma API da Web para um recurso específico. Você pode tratar desses cenários *sem recursos* por meio de solicitações HTTP GET, que invocam uma funcionalidade e retornam os resultados como uma mensagem de resposta HTTP. Uma API da Web que implementa operações simples estilo calculadora, como adicionar e subtrair, pode fornecer URIs que exponham essas operações como pseudorrecursos, além de utilizar a cadeia de consulta para especificar os parâmetros necessários. Por exemplo, uma solicitação GET para o URI */add?operand1=99&operand2=1* pode retornar uma mensagem de resposta com o corpo contendo o valor 100, enquanto a solicitação GET para o URI */subtract?operand1=50&operand2=20* pode retornar uma mensagem de resposta com o corpo contendo o valor 30. No entanto, use essas formas de URIs apenas com moderação.
 
-### Definindo operações em termos de métodos HTTP
+### <a name="defining-operations-in-terms-of-http-methods"></a>Definindo operações em termos de métodos HTTP
 O protocolo HTTP define vários métodos que atribuem significado semântico a uma solicitação. Os métodos HTTP comuns usados pelas APIs da Web mais RESTful são:
 
 * **GET**, para obter uma cópia do recurso no URI especificado. O corpo da mensagem de resposta contém os detalhes do recurso solicitado.
@@ -163,7 +167,7 @@ Uma solicitação PUT destina-se a modificar um recurso existente. Se o recurso 
 > 
 > 
 
-### Processando solicitações HTTP
+### <a name="processing-http-requests"></a>Processando solicitações HTTP
 Os dados incluídos por um aplicativo cliente em muitas solicitações HTTP e as mensagens de resposta correspondentes no servidor Web podem ser apresentados em uma variedade de formatos (ou tipos de mídia). Por exemplo, os dados que especificam os detalhes de um cliente ou pedido podem ser fornecidos como XML, JSON ou algum outro formato codificado e compactado. Uma API da Web RESTful deve oferecer suporte a diferentes tipos de mídia, conforme solicitado pelo aplicativo cliente que envia uma solicitação.
 
 Quando um aplicativo cliente envia uma solicitação que retorna dados no corpo de uma mensagem ele pode especificar, no cabeçalho Accept da solicitação, os tipos de mídia com os quais pode lidar. O código a seguir ilustra uma solicitação HTTP GET que obtém os detalhes do cliente 1 e solicita que os resultados sejam retornados como JSON (o cliente ainda deve examinar o tipo de mídia dos dados na resposta, para verificar o formato dos dados retornados):
@@ -294,34 +298,34 @@ HTTP/1.1 204 No Content
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 ```
 
-Se o recurso não for encontrado, o servidor Web deverá retornar, em vez disso, uma mensagem 404 (Não Encontrado).
+Se o recurso não for encontrado, o servidor Web deverá retornar,  em vez disso, uma mensagem 404 (Não Encontrado).
 
 > [!TIP]
 > Se todos os recursos em uma coleção precisarem ser excluídos, permita que uma solicitação HTTP DELETE seja especificada para o URI da coleção, em vez de forçar um aplicativo a remover um recurso da coleção de cada vez.
 > 
 > 
 
-### Filtragem e paginação de dados
+### <a name="filtering-and-paginating-data"></a>Filtragem e paginação de dados
 Você deve esforçar-se para manter os URIs simples e intuitivos. Expor uma coleção de recursos por meio de um único URI ajuda nesse sentido, mas pode levar a aplicativos que buscam grandes quantidades de dados, quando apenas um subconjunto dessas informações é necessário. Gerar um grande volume de tráfego afeta não apenas o desempenho e a escalabilidade do servidor Web, mas também a capacidade de resposta dos aplicativos cliente que solicitam os dados.
 
-Por exemplo, se pedidos contêm o preço pago pelo pedido, um aplicativo cliente que precisa recuperar todos os pedidos que têm um custo por um valor específico talvez precise recuperar todos os pedidos do URI */pedidos* e, em seguida, filtrar esses pedidos localmente. Fica claro que esse processo é muito ineficiente; desperdiça energia tanto de processamento quanto de largura de banda de rede no servidor que hospeda a API da Web.
+Por exemplo, se pedidos contêm o preço pago pelo pedido, um aplicativo cliente que precisa recuperar todos os pedidos que têm um custo por um valor específico talvez precise recuperar todos os pedidos do URI */orders* e, em seguida, filtrar esses pedidos localmente. Fica claro que esse processo é muito ineficiente; desperdiça energia tanto de processamento quanto de largura de banda de rede no servidor que hospeda a API da Web.
 
-Uma solução pode ser fornecer um esquema de URI, como *pedidos/valordopedido\_superior\_a\_n* onde *n* é o preço do pedido; porém, para todos os preços exceto um número limitado, essa abordagem não é prática. Além disso, se você precisar consultar pedidos com base em outros critérios, você pode terminar sendo obrigado a fornecer uma longa lista de URIs com nomes possivelmente não intuitivos.
+Uma solução pode ser fornecer um esquema de URI, como */orders/ordervalue_greater_than_n*, onde *n* é o preço do pedido; porém, para todos os preços exceto um número limitado, essa abordagem não é prática. Além disso, se você precisar consultar pedidos com base em outros critérios, você pode terminar sendo obrigado a fornecer uma longa lista de URIs com nomes possivelmente não intuitivos.
 
 Uma estratégia melhor para filtragem de dados é fornecer os critérios de filtro na cadeia de consulta que é passada para a API da Web, como */pedidos?ordervaluethreshold=n*. Neste exemplo, a operação correspondente na API da Web é responsável pela análise e processamento do parâmetro `ordervaluethreshold` na cadeia de consulta e por retornar os resultados filtrados na resposta HTTP.
 
-Algumas solicitações HTTP GET simples sobre os recursos de coleção teriam potencial de retornar um grande número de itens. Para combater a possibilidade dessa ocorrência, você deve projetar a API da Web para limitar a quantidade de dados retornados por qualquer solicitação única. Você pode obter isso oferecendo suporte a cadeias de consulta que permitam ao usuário especificar o número máximo de itens a serem recuperados (que poderia, por sua vez, estar sujeito a um limite máximo para ajudar a evitar ataques de Negação de Serviço) e um deslocamento inicial na coleção. Por exemplo, a cadeia de consulta no URI */pedidos?limit=25&offset=50* deve recuperar 25 pedidos, começando a partir do 50º pedido encontrado na coleção pedidos. Assim como ocorre com a filtragem de dados, a operação que implementa a solicitação GET na API da Web é responsável pela análise e processamento dos parâmetros `limit` e `offset` na cadeia de consulta. Para ajudar aplicativos cliente, solicitações GET que retornam dados paginados também devem incluir algum tipo de metadados que indiquem o número total de recursos disponíveis na coleção. Você também pode considerar outras estratégias de paginação inteligente; para obter mais informações, consulte [Observações Sobre Design de API: Paginação Inteligente](http://bizcoder.com/api-design-notes-smart-paging)
+Algumas solicitações HTTP GET simples sobre os recursos de coleção teriam potencial de retornar um grande número de itens. Para combater a possibilidade dessa ocorrência, você deve projetar a API da Web para limitar a quantidade de dados retornados por qualquer solicitação única. Você pode obter isso oferecendo suporte a cadeias de consulta que permitam ao usuário especificar o número máximo de itens a serem recuperados (que poderia, por sua vez, estar sujeito a um limite máximo para ajudar a evitar ataques de Negação de Serviço) e um deslocamento inicial na coleção. Por exemplo, a cadeia de consulta no URI */orders?limit=25&offset=50* deve recuperar 25 pedidos, começando a partir do 50º pedido encontrado na coleção pedidos. Assim como ocorre com a filtragem de dados, a operação que implementa a solicitação GET na API da Web é responsável pela análise e processamento dos parâmetros `limit` e `offset` na cadeia de consulta. Para ajudar aplicativos cliente, solicitações GET que retornam dados paginados também devem incluir algum tipo de metadados que indiquem o número total de recursos disponíveis na coleção. Você também pode considerar outras estratégias de paginação inteligente; para obter mais informações, consulte [Observações Sobre Design de API: Paginação Inteligente](http://bizcoder.com/api-design-notes-smart-paging)
 
-Você pode seguir uma estratégia semelhante para classificar os dados conforme eles são encontrados; você pode fornecer um parâmetro de classificação que use um nome de campo como o valor, tal como */pedidos?sort=ProductID*. No entanto, observe que essa abordagem pode ter um efeito deletério no cache (parâmetros de cadeia de consulta fazem parte do identificador de recurso usado por muitas implementações de cache como a chave para dados armazenados em cache).
+Você pode seguir uma estratégia semelhante para classificar os dados conforme eles são encontrados; você pode fornecer um parâmetro de classificação que use um nome de campo como o valor, tal como */orders?sort=ProductID*. No entanto, observe que essa abordagem pode ter um efeito deletério no cache (parâmetros de cadeia de consulta fazem parte do identificador de recurso usado por muitas implementações de cache como a chave para dados armazenados em cache).
 
-Você pode estender esse método para limitar (projetar) os campos retornados se um único item de recurso contém uma grande quantidade de dados. Por exemplo, você poderia usar um parâmetro de cadeia de consulta que aceita uma lista de campos delimitada por vírgulas, como */pedidos?fields=ProductID,Quantity*.
+Você pode estender esse método para limitar (projetar) os campos retornados se um único item de recurso contém uma grande quantidade de dados. Por exemplo, você poderia usar um parâmetro de cadeia de consulta que aceita uma lista de campos delimitada por vírgulas, como */orders?fields=ProductID,Quantity*.
 
 > [!TIP]
 > Forneça padrões significativos a todos os parâmetros opcionais nas cadeias de consulta. Por exemplo, defina o parâmetro `limit` como 10 e o parâmetro `offset` como 0 se você implementar a paginação, defina o parâmetro sort para a chave do recurso se você implementar ordenação e, por fim, defina o parâmetro `fields` para todos os campos no recurso se você oferecer suporte a projeções.
 > 
 > 
 
-### Manipulação de recursos binários grandes
+### <a name="handling-large-binary-resources"></a>Manipulação de recursos binários grandes
 Um único recurso pode conter campos binários grandes, como arquivos ou imagens. Para superar os problemas de transmissão causados por conexões intermitentes e não confiáveis e para melhorar os tempos de resposta, considere a possibilidade de fornecer operações que habilitem a recuperação desses recursos em partes pelo aplicativo cliente. Para fazer isso, a API da Web deve oferecer suporte ao cabeçalho Accept-Ranges para solicitações GET para grandes recursos e, idealmente, implementar solicitações HTTP HEAD para esses recursos. O cabeçalho Accept-Ranges indica que a operação GET oferece suporte a resultados parciais, e que um aplicativo cliente pode enviar solicitações GET que retornam um subconjunto de um recurso especificado como um intervalo de bytes. Uma solicitação HEAD é semelhante a uma solicitação GET, porém retorna apenas um cabeçalho que descreve o recurso e um corpo de mensagem vazio. Um aplicativo cliente pode emitir uma solicitação HEAD para determinar se deve ou não buscar um recurso pelo uso de solicitações GET parciais. O exemplo a seguir mostra uma solicitação HEAD que obtém informações sobre uma imagem do produto:
 
 ```HTTP
@@ -381,11 +385,11 @@ Content-Range: bytes 2500-4580/4580
 ...
 ```
 
-## Usando a abordagem HATEOAS para habilitar a navegação para recursos relacionados
+## <a name="using-the-hateoas-approach-to-enable-navigation-to-related-resources"></a>Usando a abordagem HATEOAS para habilitar a navegação para recursos relacionados
 Uma das principais motivações por trás de REST é a que deve ser possível navegar por todo o conjunto de recursos sem exigir conhecimento prévio do esquema de URI. Cada solicitação HTTP GET deve retornar as informações necessárias para localizar os recursos relacionados diretamente ao objeto solicitado por hiperlinks incluídos na resposta, e também deve ser provida de informações descrevendo as operações disponíveis em cada um desses recursos. Esse conceito é conhecido como HATEOAS, ou Hipertexto como o Mecanismo de Estado do Aplicativo. O sistema é efetivamente uma máquina de estado finito, e a resposta para cada solicitação contém as informações necessárias para ir de um estado para outro; nenhuma outra informação deve ser necessária.
 
 > [!NOTE]
-> Atualmente não há padrões nem especificações que definam como modelar o princípio HATEOAS. Os exemplos mostrados nesta seção ilustram uma possível solução.
+> Atualmente não há padrões nem especificações que definam como  modelar o princípio HATEOAS. Os exemplos mostrados nesta seção ilustram uma possível solução.
 > 
 > 
 
@@ -397,7 +401,7 @@ Accept: application/json
 ...
 ```
 
-O corpo da mensagem de resposta contém uma matriz `links` (realçada no código de exemplo) que especifica a natureza da relação (*Customer*), o URI do cliente (\_http://adventure-works.com/customers/3_, como obter os detalhes desse cliente (*GET*), e os tipos MIME para os quais há suporte no servidor Web usados para recuperar essas informações (*text/xml* e *application/json*). Essas são todas as informações de que um aplicativo cliente precisa para ser capaz de obter os detalhes do cliente. Além disso, a matriz Links também inclui links para as operações que podem ser executadas, como PUT (para modificar o cliente, junto com o formato que o servidor Web espera que o cliente forneça) e DELETE.
+O corpo da mensagem de resposta contém uma matriz `links` (realçada no código de exemplo) que especifica a natureza da relação (*Customer*), o URI do cliente (*http://adventure-works.com/customers/3*), como obter os detalhes desse cliente (*GET*), e os tipos MIME para os quais há suporte no servidor Web usados para recuperar essas informações (*text/xml* e *application/json*). Essas são todas as informações de que um aplicativo cliente precisa para ser capaz de obter os detalhes do cliente. Além disso, a matriz Links também inclui links para as operações que podem ser executadas, como PUT (para modificar o cliente, junto com o formato que o servidor Web espera que o cliente forneça) e DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -423,15 +427,15 @@ Content-Length: ...
 
 Para que essa abordagem seja eficaz, aplicativos cliente devem estar preparados para recuperar e analisar essas informações adicionais.
 
-## Controlando a versão de uma API da Web RESTful
+## <a name="versioning-a-restful-web-api"></a>Controlando a versão de uma API da Web RESTful
 É muito improvável em todas as situações, exceto as mais simples, que uma API da Web permanecerá estática. Conforme os requisitos de negócios mudam, novas coleções de recursos podem ser adicionados, as relações entre os recursos podem mudar e a estrutura dos dados nos recursos pode ser alterada. Enquanto a atualização de uma API da Web para lidar com requisitos novos ou diferentes é um processo relativamente simples, você deve considerar os efeitos que essas mudanças terão em aplicativos cliente que consomem a API da Web. O problema é que, embora o desenvolvedor que projeta e implementa uma API da Web tenha controle total sobre essa API, o desenvolvedor não tem o mesmo grau de controle sobre os aplicativos cliente, que podem ser criados por organizações terceirizadas operando remotamente. A principal prioridade é habilitar aplicativos cliente existentes a continuar funcionando inalterados, permitindo simultaneamente que novos aplicativos cliente tirem proveito das novas funções e recursos.
 
 O controle de versão permite que uma API da Web indique os recursos e as funções que ela expõe, e um aplicativo cliente pode enviar solicitações direcionadas a uma versão específica de uma função ou recurso. As seções a seguir descrevem várias abordagens diferentes, cada qual com suas próprias vantagens e desvantagens.
 
-### Sem controle de versão
-Essa é a abordagem mais simples e pode ser aceitável para algumas APIs internas. Grandes alterações poderiam ser representadas como novos recursos ou novos links. Adicionar conteúdo aos recursos existentes não deve representar uma alteração significativa, já que aplicativos cliente que não esperavam ver esse conteúdo vão simplesmente ignorá-lo.
+### <a name="no-versioning"></a>Sem controle de versão
+Essa é a abordagem mais simples e pode ser aceitável para algumas APIs internas. Grandes alterações poderiam ser representadas como novos recursos ou novos links.  Adicionar conteúdo aos recursos existentes não deve representar uma alteração significativa, já que aplicativos cliente que não esperavam ver esse conteúdo vão simplesmente ignorá-lo.
 
-Por exemplo, uma solicitação para o URI \_http://adventure-works.com/customers/3_ deve retornar os detalhes de um único cliente contendo os campos `id`, `name` e `address` esperados pelo aplicativo cliente:
+Por exemplo, uma solicitação para o URI *http://adventure-works.com/customers/3* deve retornar os detalhes de um único cliente contendo os campos `id`, `name` e `address` esperados pelo aplicativo cliente:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -460,7 +464,7 @@ Content-Length: ...
 
 Aplicativos cliente existentes podem continuar funcionando corretamente se forem capazes de ignorar campos não reconhecidos, enquanto os novos aplicativos cliente podem ser projetados para lidar com esse novo campo. No entanto, se ocorrerem alterações mais radicais ao esquema de recursos (por exemplo, remover ou renomear campos) ou se as relações entre os recursos mudarem, estas poderão constituir alterações significativas que impedem que aplicativos cliente existentes funcionem corretamente. Nessas situações, você deve considerar uma das abordagens a seguir.
 
-### Controle de versão de URI
+### <a name="uri-versioning"></a>Controle de versão de URI
 Cada vez que você modifica a API da Web ou altera o esquema de recursos, você adiciona um número de versão ao URI para cada recurso. Os URIs previamente existentes devem continuar a funcionar como antes, recuperando recursos que estão em conformidade com seu esquema original.
 
 Estendendo o exemplo anterior, se o campo `address` é reestruturado em subcampos contendo cada parte constituinte do endereço (como `streetAddress`, `city`, `state` e `zipCode`), esta versão do recurso pode ser exposta por meio de um URI contendo um número de versão, como http://adventure-works.com/v2/customers/3:
@@ -476,8 +480,8 @@ Content-Length: ...
 
 Esse mecanismo de controle de versão é muito simples, mas depende do servidor realizar o roteamento da solicitação para o ponto de extremidade apropriado. No entanto, ele pode se tornar inviável conforme a API da Web amadurece ao passar por várias iterações e o servidor tem que oferecer suporte a um número de versões diferentes. Além disso, de um ponto de vista purista, em todos os casos os aplicativos cliente estão buscando os mesmos dados (cliente 3), portanto o URI não deve ser diferente, independentemente de qual for a versão. Esse esquema também complica a implementação de HATEOAS, já que todos os links precisarão incluir o número da versão em seus URIs.
 
-### Controle de versão de cadeia de consulta
-Em vez de fornecer vários URIs, você pode especificar a versão do recurso usando um parâmetro de cadeia de consulta acrescentada à solicitação HTTP, como \_http://adventure-works.com/customers/3?version=2_. O parâmetro de versão, caso seja omitido por aplicativos cliente mais antigos, deve passar a usar um valor padrão significativo, como 1.
+### <a name="query-string-versioning"></a>Controle de versão de cadeia de consulta
+Em vez de fornecer vários URIs, você pode especificar a versão do recurso usando um parâmetro de cadeia de consulta acrescentada à solicitação HTTP, como *http://adventure-works.com/customers/3?version=2*. O parâmetro de versão, caso seja omitido por aplicativos cliente mais antigos, deve passar a usar um valor padrão significativo, como 1.
 
 Essa abordagem tem a vantagem de semântica que o mesmo recurso é sempre recuperado do mesmo URI, mas para isso, é necessário que o código que processa a solicitação analise a cadeia de consulta e envie de volta a resposta HTTP apropriada. Essa abordagem também tem as mesmas complicações para implementar HATEOAS como o mecanismo de controle de versão do URI.
 
@@ -486,7 +490,7 @@ Essa abordagem tem a vantagem de semântica que o mesmo recurso é sempre recupe
 > 
 > 
 
-### Controle de versão de cabeçalho
+### <a name="header-versioning"></a>Controle de versão de cabeçalho
 Em vez de acrescentar o número de versão como um parâmetro de cadeia de consulta, você pode implementar um cabeçalho personalizado que indica a versão do recurso. Essa abordagem requer que o aplicativo cliente adicione o cabeçalho apropriado a quaisquer solicitações, embora o código que processa a solicitação do cliente possa usar um valor padrão (versão 1) se o cabeçalho da versão for omitido. Os exemplos a seguir utilizam um cabeçalho personalizado chamado *Custom-Header*. O valor desse cabeçalho indica a versão da API da Web.
 
 Versão 1:
@@ -527,7 +531,7 @@ Content-Length: ...
 
 Observe que assim como nas duas abordagens anteriores, implementar HATEOAS requer a inclusão do cabeçalho personalizado apropriado em quaisquer eventuais links.
 
-### Controle de versão do tipo de mídia
+### <a name="media-type-versioning"></a>Controle de versão do tipo de mídia
 Quando um aplicativo cliente envia uma solicitação HTTP GET para um servidor Web, ele deve estipular o formato do conteúdo que pode manipular usando um cabeçalho Accept, conforme descrito anteriormente nestas diretrizes. Frequentemente, a finalidade do cabeçalho *Accept* é permitir que o aplicativo cliente especifique se o corpo da resposta deve ser XML, JSON ou algum outro formato comum que o cliente possa analisar. No entanto, é possível definir tipos de mídia personalizados que incluem informações, permitindo que o aplicativo cliente indique qual versão de um recurso esse aplicativo está esperando. O exemplo a seguir mostra uma solicitação que especifica um cabeçalho *Accept* com o valor *application/vnd.adventure-works.v1+json*. O elemento *vnd.adventure-works.v1* indica ao servidor Web que ele deve retornar a versão 1 do recurso, enquanto o elemento *json* especifica que o formato do corpo da resposta deve ser JSON:
 
 ```HTTP
@@ -559,8 +563,13 @@ Essa abordagem é possivelmente o mais puro dos mecanismos de controle de versã
 > 
 > 
 
-## Mais informações
+## <a name="more-information"></a>Mais informações
 * O [Guia RESTful](http://restcookbook.com/) contém uma introdução à criação de APIs RESTful.
 * A [Lista de Verificação de API](https://mathieu.fenniak.net/the-api-checklist/) da Web contém uma lista útil de itens a serem considerados ao projetar e implementar uma API da Web.
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

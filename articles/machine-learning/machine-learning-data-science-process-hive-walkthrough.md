@@ -1,12 +1,12 @@
 ---
-title: 'O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop | Microsoft Docs'
-description: Usando o Processo de Ciência de Dados de Equipe para um cenário completo que emprega um cluster Hadoop do HDInsight para criar e implantar um modelo usando um conjunto de dados publicamente disponível.
+title: "O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop | Microsoft Docs"
+description: "Usando o Processo de Ciência de Dados de Equipe para um cenário completo que emprega um cluster Hadoop do HDInsight para criar e implantar um modelo usando um conjunto de dados publicamente disponível."
 services: machine-learning,hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: hangzh;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6eb9fd3750eaf03547f93462d97bc30d30a9a8bc
+
 
 ---
-# <a name="the-team-data-science-process-in-action:-using-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight
+# <a name="the-team-data-science-process-in-action-using-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usando clusters Hadoop do HDInsight
 Neste passo a passo, usamos o [TDSP (Processo de Ciência de Dados de Equipe)](data-science-process-overview.md) em um cenário de ponta a ponta usando um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Modelos de dados são criados com o Aprendizado de Máquina do Azure para lidar com classificação binária e multiclasse e tarefas preditivas de regressão.
 
 Para ver um passo a passo que mostra como manipular um conjunto de dados maior (1 terabyte) em um cenário semelhante usando clusters Hadoop do HDInsight para processamento de dados, confira [Processo de Ciência de Dados de Equipe — usando clusters Hadoop do Azure HDInsight em um conjunto de dados de 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
 Também é possível usar um bloco de anotações iPython para executar as tarefas apresentadas passo a passo usando o conjunto de dados de 1 TB. Usuários que gostariam de testar essa abordagem devem consultar o tópico [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
 
-## <a name="<a-name="dataset"></a>nyc-taxi-trips-dataset-description"></a><a name="dataset"></a>Descrição do conjunto de dados Corridas de Táxi em NYC
+## <a name="a-namedatasetanyc-taxi-trips-dataset-description"></a><a name="dataset"></a>Descrição do conjunto de dados Corridas de Táxi em NYC
 Os dados de Viagens de Táxi em NYC são cerca de 20 GB de arquivos compactados em valores separados por vírgulas (CSV) (cerca de 48 GB descompactados), que incluem mais de 173 milhões de viagens individuais e a tarifa paga por cada viagem. Cada registro de corrida inclui o local e horário de saída e chegada, número da carteira de motorista de taxista anônima e o número do medalhão (identificador exclusivo do táxi). Os dados abrangem todas as corridas no ano de 2013 e são fornecidos nos dois conjuntos de dados a seguir para cada mês:
 
 1. Os arquivos CSV “trip_data” contêm detalhes da corrida, como o número de passageiros, pontos de saída e chegada, duração e extensão da corrida. Aqui estão alguns exemplos de registros:
@@ -49,7 +53,7 @@ Para obter todos os detalhes relevantes para uma corrida em particular, é sufic
 
 Descreveremos mais detalhes dos dados quando os armazenarmos em tabelas Hive em breve.
 
-## <a name="<a-name="mltasks"></a>examples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de tarefas de previsão
+## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de tarefas de previsão
 Ao abordar a dados, determinar o tipo de previsões que deseja fazer com base na sua análise ajuda a esclarecer as tarefas que você precisará incluir em seu processo.
 Aqui estão três exemplos de problemas de previsão que abordados neste passo a passo cuja formulação se baseia no *tip\_amount*:
 
@@ -66,7 +70,7 @@ Aqui estão três exemplos de problemas de previsão que abordados neste passo a
         Class 4 : tip_amount > $20
 3. **Tarefa de regressão**: prever o valor da gorjeta paga por uma corrida.  
 
-## <a name="<a-name="setup"></a>set-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>Configurar um cluster Hadoop do HDInsight para análises avançadas
+## <a name="a-namesetupaset-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>Configurar um cluster Hadoop do HDInsight para análises avançadas
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -81,7 +85,7 @@ Você pode configurar um ambiente do Azure para análises avançadas que empregu
    * Você deve habilitar o Acesso Remoto ao nó principal do cluster após sua criação. Navegue até a guia **Configuração** e clique em **Habilitar Remoto**. Esta etapa especifica as credenciais de usuário usadas para logon remoto.
 3. [Criar um espaço de trabalho de Aprendizado de Máquina do Azure](machine-learning-create-workspace.md): esse espaço de trabalho Aprendizado de Máquina do Azure é usado para criar modelos de aprendizado de máquina. Essa tarefa é abordada depois de concluir uma análise inicial e redução de dados usando o cluster HDInsight.
 
-## <a name="<a-name="getdata"></a>get-the-data-from-a-public-source"></a><a name="getdata"></a>Obter os dados de uma fonte de pública
+## <a name="a-namegetdataaget-the-data-from-a-public-source"></a><a name="getdata"></a>Obter os dados de uma fonte de pública
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -97,7 +101,7 @@ Neste artigo, descrevemos como usar AzCopy para transferir os arquivos que cont�
 
 1. Quando a cópia for concluída, um total de 24 arquivos compactados estarão na pasta de dados escolhida. Descompacte os arquivos baixados para o mesmo diretório em seu computador local. Tome nota da pasta em que os arquivos descompactados estão. Essa pasta, que será chamada de *<path\_to\_unzipped_data\_files\>*, é o que se segue.
 
-## <a name="<a-name="upload"></a>upload-the-data-to-the-default-container-of-azure-hdinsight-hadoop-cluster"></a><a name="upload"></a>Carregar os dados para o contêiner padrão do cluster do Hadoop do Azure HDInsight
+## <a name="a-nameuploadaupload-the-data-to-the-default-container-of-azure-hdinsight-hadoop-cluster"></a><a name="upload"></a>Carregar os dados para o contêiner padrão do cluster do Hadoop do Azure HDInsight
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -122,7 +126,7 @@ Este comando carrega os dados de tarifa para o diretório ***nyctaxifareraw*** n
 
 Os dados agora devem estar no armazenamento de Blob do Azure e prontos para serem consumidos dentro do cluster HDInsight.
 
-## <a name="<a-name="#download-hql-files"></a>log-into-the-head-node-of-hadoop-cluster-and-and-prepare-for-exploratory-data-analysis"></a><a name="#download-hql-files"></a>Faça logon no nó principal do cluster Hadoop e prepare-se para análise exploratória de dados
+## <a name="a-namedownload-hql-filesalog-into-the-head-node-of-hadoop-cluster-and-and-prepare-for-exploratory-data-analysis"></a><a name="#download-hql-files"></a>Faça logon no nó principal do cluster Hadoop e prepare-se para análise exploratória de dados
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -140,7 +144,7 @@ Para preparar o cluster para análise exploratória de dados, podemos baixar os 
 
 Esses dois comandos baixarão todos os arquivos .hql necessários neste passo a passo para o diretório local ***C:\temp&#92;*** no nó principal.
 
-## <a name="<a-name="#hive-db-tables"></a>create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Criar banco de dados e tabelas Hive particionadas por mês
+## <a name="a-namehive-db-tablesacreate-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Criar banco de dados e tabelas Hive particionadas por mês
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -208,7 +212,7 @@ Esse script do Hive cria duas tabelas:
 
 Se precisar de qualquer assistência adicional com esses procedimentos ou desejar investigar procedimentos alternativos, veja a seção [Enviar consultas Hive diretamente da Linha de Comando do Hadoop ](machine-learning-data-science-move-hive-tables.md#submit).
 
-## <a name="<a-name="#load-data"></a>load-data-to-hive-tables-by-partitions"></a><a name="#load-data"></a>Carregar dados para tabelas Hive de partições
+## <a name="a-nameload-dataaload-data-to-hive-tables-by-partitions"></a><a name="#load-data"></a>Carregar dados para tabelas Hive de partições
 > [!NOTE]
 > Essa normalmente é uma tarefa **Admin** .
 > 
@@ -225,12 +229,12 @@ O arquivo *sample\_hive\_load\_data\_by\_partitions.hql* contém os seguintes co
 
 Observe que várias consultas de Hive que usamos aqui no processo de exploração envolvem a pesquisa em uma única partição ou em apenas algumas das partições. Mas essas consultas podem ser executadas em todos os dados.
 
-### <a name="<a-name="#show-db"></a>show-databases-in-the-hdinsight-hadoop-cluster"></a><a name="#show-db"></a>Mostra os bancos de dados no cluster do Hadoop do HDInsight
+### <a name="a-nameshow-dbashow-databases-in-the-hdinsight-hadoop-cluster"></a><a name="#show-db"></a>Mostra os bancos de dados no cluster do Hadoop do HDInsight
 Para mostrar os bancos de dados criados no cluster do Hadoop do HDInsight dentro da janela de Linha de Comando do Hadoop, execute o seguinte comando na Linha de Comando do Hadoop:
 
     hive -e "show databases;"
 
-### <a name="<a-name="#show-tables"></a>show-the-hive-tables-in-the-nyctaxidb-database"></a><a name="#show-tables"></a>Mostrar as tabelas no banco de dados nyctaxidb
+### <a name="a-nameshow-tablesashow-the-hive-tables-in-the-nyctaxidb-database"></a><a name="#show-tables"></a>Mostrar as tabelas no banco de dados nyctaxidb
 Para mostrar as tabelas no banco de dados nyctaxidb, execute o seguinte comando na Linha de Comando do Hadoop:
 
     hive -e "show tables in nyctaxidb;"
@@ -275,7 +279,7 @@ A saída esperada é mostrada abaixo:
     month=9
     Time taken: 1.887 seconds, Fetched: 12 row(s)
 
-## <a name="<a-name="#explore-hive"></a>data-exploration-and-feature-engineering-in-hive"></a><a name="#explore-hive"></a>Exploração de dados e engenharia de recursos no Hive
+## <a name="a-nameexplore-hiveadata-exploration-and-feature-engineering-in-hive"></a><a name="#explore-hive"></a>Exploração de dados e engenharia de recursos no Hive
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -289,7 +293,7 @@ As tarefas de exploração de dados e engenharia de recursos para os dados carre
 * Gerar rótulos de classificação binária e multiclasse com base em **tip\_amount**.
 * Gerar recursos computando as distâncias diretas de viagem.
 
-### <a name="exploration:-view-the-top-10-records-in-table-trip"></a>Exploração: exibir os 10 principais registros na tabela de corridas
+### <a name="exploration-view-the-top-10-records-in-table-trip"></a>Exploração: exibir os 10 principais registros na tabela de corridas
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -309,7 +313,7 @@ Costuma ser útil salvar os registros em um arquivo para exibição conveniente.
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
-### <a name="exploration:-view-the-number-of-records-in-each-of-the-12-partitions"></a>Exploração: exibir o número de registros em cada uma das 12 partições
+### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>Exploração: exibir o número de registros em cada uma das 12 partições
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -379,7 +383,7 @@ Isso resulta em:
 
 O número total de registros em ambas as tabelas também é o mesmo. Isso fornece a segunda validação de que os dados foram carregados corretamente.
 
-### <a name="exploration:-trip-distribution-by-medallion"></a>Exploração: distribuição de corridas por licença
+### <a name="exploration-trip-distribution-by-medallion"></a>Exploração: distribuição de corridas por licença
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -413,7 +417,7 @@ No prompt da pasta Hive, emita o comando a seguir:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### <a name="exploration:-trip-distribution-by-medallion-and-hack_license"></a>Exploração: distribuição de corridas por medallion e hack_license
+### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploração: distribuição de corridas por medallion e hack_license
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -438,7 +442,7 @@ No prompt do diretório do Hive, execute:
 
 Os resultados da consulta são gravados em um arquivo local C:\temp\queryoutput.tsv.
 
-### <a name="exploration:-assessing-data-quality-by-checking-for-invalid-longitude/latitude-records"></a>Exploração: avaliar a qualidade dos dados através da verificação de registros de latitude/longitude inválidos
+### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitudelatitude-records"></a>Exploração: avaliar a qualidade dos dados através da verificação de registros de latitude/longitude inválidos
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -462,7 +466,7 @@ No prompt do diretório do Hive, execute:
 
 O argumento *-S* incluído neste comando suprime a impressão de tela de status dos trabalhos de Mapear/Reduzir de Hive. Isso é útil, pois ele torna a tela de impressão da saída da consulta de Hive mais legível.
 
-### <a name="exploration:-binary-class-distributions-of-trip-tips"></a>Exploração: distribuições de classe binária de gorjetas para corridas
+### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Exploração: distribuições de classe binária de gorjetas para corridas
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -488,7 +492,7 @@ No prompt do diretório do Hive, execute:
     hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 
 
-### <a name="exploration:-class-distributions-in-the-multiclass-setting"></a>Exploração: distribuições de classe na configuração multiclasse
+### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Exploração: distribuições de classe na configuração multiclasse
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -511,7 +515,7 @@ Execute o seguinte comando no console de Linha de Comando do Hadoop:
 
     hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
 
-### <a name="exploration:-compute-direct-distance-between-two-longitude-latitude-locations"></a>Exploração: calcular a distância direta entre dois locais de latitude-longitude
+### <a name="exploration-compute-direct-distance-between-two-longitude-latitude-locations"></a>Exploração: calcular a distância direta entre dois locais de latitude-longitude
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -568,7 +572,7 @@ Assim, para ver o conteúdo de um determinado arquivo, digamos, 000000\_0, usamo
 
 A principal vantagem de os dados residirem em um blob do Azure é que podemos podem explorar os dados dentro de Azure Machine Learning usando o módulo [Importar Dados][import-data].
 
-## <a name="<a-name="#downsample"></a>down-sample-data-and-build-models-in-azure-machine-learning"></a><a name="#downsample"></a>Para reduzir dados e criar modelos no Aprendizado de Máquina do Azure
+## <a name="a-namedownsampleadown-sample-data-and-build-models-in-azure-machine-learning"></a><a name="#downsample"></a>Para reduzir dados e criar modelos no Aprendizado de Máquina do Azure
 > [!NOTE]
 > Essa é normalmente é uma tarefa de **Cientista de Dados** .
 > 
@@ -750,7 +754,7 @@ Observe que, uma vez que nossos dados reduzidos residem no contêiner padrão, a
 
 O conjunto de dados agora pode ser usado como o ponto de partida para criar modelos de Aprendizado de Máquina.
 
-### <a name="<a-name="mlmodel"></a>build-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Compilar modelos no Aprendizado de Máquina do Azure
+### <a name="a-namemlmodelabuild-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Compilar modelos no Aprendizado de Máquina do Azure
 Agora estamos prontos para prosseguir com a criação e implantação de modelo no [Aprendizado de Máquina do Azure](https://studio.azureml.net). Os dados estão prontos para uso para resolver os problemas de previsão identificados acima:
 
 **1. Classificação binária**: prever se uma gorjeta foi ou não paga em uma corrida.
@@ -835,6 +839,6 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

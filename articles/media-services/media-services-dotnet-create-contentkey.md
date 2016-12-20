@@ -1,12 +1,12 @@
 ---
 title: Criar ContentKeys com .NET
-description: Saiba como criar chaves de conteúdo que fornecem acesso seguro aos ativos.
+description: "Saiba como criar chaves de conteúdo que fornecem acesso seguro aos ativos."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 225b05e5-7d30-409c-b5b7-3ef0634310c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c547afd9535eb4764caf6b37d4e38a22f6e88186
+
 
 ---
-# <a name="create-contentkeys-with-.net"></a>Criar ContentKeys com .NET
+# <a name="create-contentkeys-with-net"></a>Criar ContentKeys com .NET
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -63,7 +67,7 @@ Um dos valores que você deve definir ao criar um conteúdo da chave é o tipo d
         EnvelopeEncryption = 4
     }
 
-## <a name="<a-id="envelope_contentkey"></a>create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Criar um tipo de envelope de ContentKey
+## <a name="a-idenvelopecontentkeyacreate-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Criar um tipo de envelope de ContentKey
 O trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia de envelope. Em seguida, associa a chave com o ativo especificado.
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -100,7 +104,7 @@ chamada
 
 
 
-## <a name="<a-id="common_contentkey"></a>create-common-type-contentkey"></a><a id="common_contentkey"></a>Criar um tipo comum de ContentKey
+## <a name="a-idcommoncontentkeyacreate-common-type-contentkey"></a><a id="common_contentkey"></a>Criar um tipo comum de ContentKey
 O trecho de código a seguir cria uma chave de conteúdo do tipo de criptografia comum. Em seguida, associa a chave com o ativo especificado.
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
@@ -144,6 +148,9 @@ chamada
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

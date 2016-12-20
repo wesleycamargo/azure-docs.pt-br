@@ -1,12 +1,12 @@
 ---
-title: Conexão do gateway de dados local com Aplicativos Lógicos | Microsoft Docs
-description: Saiba como criar uma conexão ao gateway de dados no local de um aplicativo lógico.
+title: "Conexão do gateway de dados local com Aplicativos Lógicos | Microsoft Docs"
+description: "Saiba como criar uma conexão ao gateway de dados no local de um aplicativo lógico."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6cb4449d-e6b8-4c35-9862-15110ae73e6a
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -14,39 +14,43 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 814ad11e130c197f91e597091fca3afbe8f61cbd
+
 
 ---
-# Conectar-se ao gateway de dados local para Aplicativos Lógicos
-Conectores de aplicativos lógicos compatíveis permitem que você configure a conexão para acessar os dados no local por meio do gateway de dados local. As etapas a seguir explicam como instalar e configurar o gateway de dados local para trabalhar com um aplicativo lógico.
+# <a name="connect-to-the-on-premises-data-gateway-for-logic-apps"></a>Conectar-se ao gateway de dados local para Aplicativos Lógicos
+Conectores de aplicativos lógicos compatíveis permitem que você configure a conexão para acessar os dados no local por meio do gateway de dados local.  As etapas a seguir explicam como instalar e configurar o gateway de dados local para trabalhar com um aplicativo lógico.
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * É necessário usar um endereço de email corporativo ou de estudante no Azure para associar o gateway de dados local com sua conta (conta do Azure Active Directory)
-  * Se estiver usando uma Conta da Microsoft (por exemplo, @outlook.com, @live.com), você poderá usar sua conta do Azure para criar um endereço de email corporativo ou de estudante [seguindo estas etapas](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal)
+  * Se estiver usando uma Conta da Microsoft (por exemplo, @outlook.com, @live.com)), você poderá usar sua conta do Azure para criar um endereço de email corporativo ou de estudante [seguindo estas etapas](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal)
 
 > [!WARNING]
-> No momento, há uma limitação em que a instalação do gateway só será concluída quando usando uma conta que tenha sido registrada com o Power BI. Enquanto isso, registre qualquer conta com "Power BI Gratuito" para concluir a instalação.
+> No momento, há uma limitação em que a instalação do gateway só será concluída quando usando uma conta que tenha sido registrada com o Power BI.  Enquanto isso, registre qualquer conta com "Power BI Gratuito" para concluir a instalação.
 > 
 > 
 
 * É necessário ter o gateway de dados local [instalado em um computador local](app-service-logic-gateway-install.md).
 * O gateway não deve ter sido declarado por outro gateway de dados local do Azure ([a declaração ocorre com a criação da etapa 2 abaixo](#2-create-an-azure-on-premises-data-gateway-resource)) - uma instalação só pode ser associada a um recurso de gateway.
 
-## Instalando e configurando a conexão
-### 1\. Instale o gateway de dados local
-Informações sobre como instalar o gateway de dados local podem ser encontradas [neste artigo](app-service-logic-gateway-install.md). O gateway deve ser instalado em um computador local antes de continuar com o restante das etapas.
+## <a name="installing-and-configuring-the-connection"></a>Instalando e configurando a conexão
+### <a name="1-install-the-on-premises-data-gateway"></a>1. Instale o gateway de dados local
+Informações sobre como instalar o gateway de dados local podem ser encontradas [neste artigo](app-service-logic-gateway-install.md).  O gateway deve ser instalado em um computador local antes de continuar com o restante das etapas.
 
-### 2\. Crie um recurso de gateway de dados local do Azure
+### <a name="2-create-an-azure-on-premises-data-gateway-resource"></a>2. Crie um recurso de gateway de dados local do Azure
 Uma vez instalado, você deve associar sua assinatura do Azure com o gateway de dados local.
 
 1. Faça logon no Azure usando o mesmo endereço de email corporativo ou escolar usado durante a instalação do gateway
 2. Clique no botão de recurso **Novo**
 3. Procure e selecione o **gateway de dados local**
-4. Preencha as informações para associar o gateway à sua conta e selecione o **Nome de Instalação** apropriado
+4. Preencha as informações para associar o gateway à sua conta e selecione o **Nome de Instalação**
    
     ![Conexão ao Gateway de Dados Local][1]
 5. Clique no botão **Criar** para criar o recurso
 
-### 3\. Crie uma conexão com o aplicativo lógico no designer
+### <a name="3-create-a-logic-app-connection-in-the-designer"></a>3. Crie uma conexão com o aplicativo lógico no designer
 Agora que sua assinatura do Azure está associada a uma instância do gateway de dados local, você pode criar uma conexão a ele de dentro de um aplicativo lógico.
 
 1. Abra um aplicativo lógico e escolha um conector que ofereça suporte à conectividade local (na data de publicação deste artigo, o SQL Server)
@@ -56,9 +60,9 @@ Agora que sua assinatura do Azure está associada a uma instância do gateway de
 3. Selecione o **Gateway** ao qual se conectar e preencha outras informações de conexão necessárias
 4. Clique em **Criar** para criar a conexão
 
-A conexão deve ter sido configurada com êxito para uso em seu aplicativo lógico.
+A conexão deve ter sido configurada com êxito para uso em seu aplicativo lógico.  
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * [Exemplos comuns e cenários de aplicativos lógicos](app-service-logic-examples-and-scenarios.md)
 * [Recursos de integração corporativa](app-service-logic-enterprise-integration-overview.md)
 
@@ -67,4 +71,8 @@ A conexão deve ter sido configurada com êxito para uso em seu aplicativo lógi
 [2]: ./media/app-service-logic-gateway-connection/blankconnection.PNG
 [3]: ./media/app-service-logic-gateway-connection/checkbox.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

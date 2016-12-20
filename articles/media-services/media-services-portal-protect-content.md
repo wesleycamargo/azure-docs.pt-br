@@ -1,19 +1,23 @@
 ---
-title: Configurando as políticas de proteção de conteúdo com o portal do Azure | Microsoft Docs
-description: Este artigo demonstra como usar o portal do Azure para configurar as políticas de proteção de conteúdo. O artigo também mostra como habilitar a criptografia dinâmica para seus ativos.
+title: "Configurando as políticas de proteção de conteúdo com o portal do Azure | Microsoft Docs"
+description: "Este artigo demonstra como usar o portal do Azure para configurar as políticas de proteção de conteúdo. O artigo também mostra como habilitar a criptografia dinâmica para seus ativos."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
+
 
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Configurando as políticas de proteção de conteúdo com o portal do Azure
@@ -39,12 +43,12 @@ Este artigo demonstra como configurar as políticas de proteção de conteúdo c
 ## <a name="start-configuring-content-protection"></a>Iniciar a configuração da proteção de conteúdo
 Para usar o portal para começar a configurar a proteção de conteúdo, global para sua conta AMS, faça o seguinte:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
+1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
 2. Selecione **Configurações** > **Proteção de conteúdo**.
 
 ![Proteger conteúdo](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
-## <a name="key/license-authorization-policy"></a>política de autorização de chave/licença
+## <a name="keylicense-authorization-policy"></a>política de autorização de chave/licença
 O AMS oferece várias maneiras de autenticar os usuários que fazem solicitações de licença ou chave. A política de autorização da chave de conteúdo deve ser configurada por você e atendida pelo cliente para que a chave/licença seja entregue ao cliente. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: **aberta** ou **de token**.
 
 O portal do Azure permite que você crie uma **política de autorização de chave/licença** para todos os tipos de criptografias.
@@ -130,6 +134,9 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -2,12 +2,12 @@
 title: Autenticando e autorizando com o Power BI Embedded
 description: Autenticando e autorizando com o Power BI Embedded
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2b860b5815a0dd35138c685eb90490a8e2c53d5e
+
 
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-embedded"></a>Autenticando e autorizando com o Power BI Embedded
@@ -55,7 +59,7 @@ Quando decodificado, ele terá esta aparência:
 
 ![](media\\power-bi-embedded-app-token-flow\\power-bi-embedded-app-token-flow-sample-decoded.png)
 
-## <a name="here's-how-the-flow-works"></a>Como funciona o fluxo
+## <a name="heres-how-the-flow-works"></a>Como funciona o fluxo
 1. Copie as chaves de API para o seu aplicativo. Você pode obter as chaves no **Portal do Azure**.
    
     ![](media\\powerbi-embedded-get-started-sample\\azure-portal.png)
@@ -84,6 +88,9 @@ Após o **Power BI Embedded** enviar um relatório para o usuário, o usuário p
 * [Cenários comuns do Microsoft Power BI Embedded](power-bi-embedded-scenarios.md)
 * [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

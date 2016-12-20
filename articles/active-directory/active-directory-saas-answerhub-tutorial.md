@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure ao AnswerHub | Microsoft Docs'
-description: Saiba como usar o AnswerHub com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!
+title: "Tutorial: integração do Azure Active Directory ao AnswerHub | Microsoft Docs"
+description: "Saiba como usar o AnswerHub com o Active Directory do Azure para habilitar o logon único, provisionamento automatizado e muito mais!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 067d47bdfa5459a8e751292339a0e7ff4a8ad46b
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Active Directory do Azure ao AnswerHub
+# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Active Directory do Azure ao AnswerHub
 O objetivo deste tutorial é mostrar a integração do Azure ao [AnswerHub](http://www.dzonesoftware.com/products/answerhub-question-answer-software).  
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -36,7 +40,7 @@ O cenário descrito neste tutorial consiste nos seguintes blocos de construção
 ## <a name="enabling-the-application-integration-for-answerhub"></a>Habilitando a integração de aplicativos para o AnswerHub
 O objetivo desta seção é descrever como habilitar a integração de aplicativos para o AnswerHub.
 
-### <a name="to-enable-the-application-integration-for-answerhub,-perform-the-following-steps:"></a>Para habilitar a integração de aplicativos para o AnswerHub, execute as seguintes etapas:
+### <a name="to-enable-the-application-integration-for-answerhub-perform-the-following-steps"></a>Para habilitar a integração de aplicativos para o AnswerHub, execute as seguintes etapas:
 1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-answerhub-tutorial/IC700993.png "Active Directory")
@@ -62,7 +66,7 @@ O objetivo desta seção é descrever como permitir que os usuários se autentiq
 Como parte deste procedimento, é necessário criar um arquivo de certificado codificado em base 64.  
 Se você não estiver familiarizado com esse procedimento, veja [Como converter um certificado binário em um arquivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Para configurar o logon único, execute as seguintes etapas:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
 1. No portal clássico do Azure, na página de integração do aplicativo **AnswerHub**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
    ![Configurar o logon único](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configure single sign-on")
@@ -114,7 +118,7 @@ Se você não estiver familiarizado com esse procedimento, veja [Como converter 
 Para permitir que os usuários do AD do Azure façam logon no AnswerHub, eles devem ser provisionados no AnswerHub.  
 No caso do AnswerHub, o provisionamento é uma tarefa manual.
 
-### <a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>Para configurar o provisionamento de usuários, execute as seguintes etapas:
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o provisionamento de usuários, execute as seguintes etapas:
 1. Faça logon em seu site de empresa do **AnswerHub** como administrador.
 2. Vá para **Administração**.
 3. Clique na guia **Usuários e Grupos**.
@@ -131,7 +135,7 @@ No caso do AnswerHub, o provisionamento é uma tarefa manual.
 ## <a name="assigning-users"></a>Atribuindo usuários
 Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
 
-### <a name="to-assign-users-to-answerhub,-perform-the-following-steps:"></a>Para atribuir usuários ao AnswerHub, execute as seguintes etapas:
+### <a name="to-assign-users-to-answerhub-perform-the-following-steps"></a>Para atribuir usuários ao AnswerHub, execute as seguintes etapas:
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração do aplicativo **AnswerHub**, clique em **Atribuir usuários**.
    
@@ -142,6 +146,9 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

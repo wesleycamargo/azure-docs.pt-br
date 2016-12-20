@@ -1,60 +1,69 @@
 ---
-title: Notas de versão do SDK do Azure para .NET
-description: Notas de versão SDK do Azure para .NET
+title: "Notas de versão SDK do Azure para .NET"
+description: "Notas de versão SDK do Azure para .NET"
 services: app-service/web
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: dwrede
-editor: ''
-
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
+editor: 
+ms.assetid: f7724fdc-79b7-4b3c-ab31-6da4679a1264
+ms.service: app-service
+ms.devlang: multiple
 ms.topic: article
-ms.date: 07/25/2016
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5b2da4a73f85ecb8d6b15463172ede2bd7270958
+
 
 ---
-# Notas de versão SDK do Azure para .NET
-Este tópico contém links para as Notas de versão SDK do Azure para .NET
+# <a name="azure-sdk-for-net-release-notes"></a>Notas de versão SDK do Azure para .NET
+Este tópico contém links para as Notas de versão SDK do Azure para .NET 
 
-## Notas de versão do SDK do Azure para .NET 2.9
+## <a name="azure-sdk-for-net-29-release-notes"></a>Notas de versão do SDK do Azure para .NET 2.9
 [Notas de versão do SDK do Azure para .NET 2.9](azure-sdk-dotnet-release-notes-2-9.md)
 
-## Notas de versão SDK do Azure para .NET 2.8
+## <a name="azure-sdk-for-net-28-release-notes"></a>Notas de versão SDK do Azure para .NET 2.8
 [Notas de versão do SDK do Azure para .NET 2.8](azure-sdk-dotnet-release-notes-2-8.md)
 
-## Notas de versão do SDK do Azure para .NET 2.7
+## <a name="azure-sdk-for-net-27-release-notes"></a>Notas de versão do SDK do Azure para .NET 2.7
 [Notas de versão do SDK do Azure para .NET 2.7](azure-sdk-dotnet-release-notes-2-7.md)
 
-## Notas de versão SDK do Azure para .NET 2.6
+## <a name="azure-sdk-for-net-26-release-notes"></a>Notas de versão SDK do Azure para .NET 2.6
 [Notas de versão SDK do Azure para .NET 2.6](azure-sdk-dotnet-release-notes-2-6.md)
 
-## Notas de versão SDK do Azure para .NET 2.5.1
+## <a name="azure-sdk-for-net-251-release-notes"></a>Notas de versão SDK do Azure para .NET 2.5.1
 [Notas de versão SDK do Azure para .NET 2.5.1](../app-service/app-service-release-notes.md)
 
-## Notas de versão SDK do Azure para .NET 2.5
+## <a name="azure-sdk-for-net-25-release-notes"></a>Notas de versão SDK do Azure para .NET 2.5
 [Notas de versão SDK do Azure para .NET 2.5](https://msdn.microsoft.com/library/azure/dn873976.aspx)
 
-## Notas de versão SDK do Azure para .NET 2.4
+## <a name="azure-sdk-for-net-24-release-notes"></a>Notas de versão SDK do Azure para .NET 2.4
 [Notas de versão SDK do Azure para .NET 2.4](https://msdn.microsoft.com/library/azure/dn794167.aspx)
 
-## Notas de versão SDK do Azure para .NET 2.3
+## <a name="azure-sdk-for-net-23-release-notes"></a>Notas de versão SDK do Azure para .NET 2.3
 [Notas de versão SDK do Azure para .NET 2.3](https://msdn.microsoft.com/library/azure/dn655054.aspx)
 
-## Notas de versão SDK do Azure para .NET 2.2
+## <a name="azure-sdk-for-net-22-release-notes"></a>Notas de versão SDK do Azure para .NET 2.2
 [Notas de versão SDK do Azure para .NET 2.2](https://msdn.microsoft.com/library/azure/dn459835.aspx)
 
-## Notas de versão SDK do Azure para .NET 2.1
+## <a name="azure-sdk-for-net-21-release-notes"></a>Notas de versão SDK do Azure para .NET 2.1
 [Notas de versão SDK do Azure para .NET 2.1](https://msdn.microsoft.com/library/azure/dn407359.aspx)
 
-## Notas de versão SDK do Azure para .NET 2.0
+## <a name="azure-sdk-for-net-20-release-notes"></a>Notas de versão SDK do Azure para .NET 2.0
 [Notas de versão SDK do Azure para .NET 2.0](https://msdn.microsoft.com/library/azure/dn169556.aspx)
 
-## Tópicos relacionados
+## <a name="related-topics"></a>Tópicos relacionados
 [SDK do Azure para .NET](https://azure.microsoft.com/downloads/archive-net-downloads/)
 
 [Notas de versão do SDK do Azure no MSDN](https://msdn.microsoft.com/library/azure/dn627519.aspx)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

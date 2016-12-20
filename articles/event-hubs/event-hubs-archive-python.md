@@ -2,11 +2,11 @@
 title: Passo a passo do Arquivamento dos Hubs de Eventos do Azure | Microsoft Docs
 description: Exemplo que usa o SDK do Python do Azure para demonstrar o uso do recurso Arquivamento dos Hubs de Eventos.
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: djrosanova
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2016
 ms.author: darosa;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c836558426b44633993f9f52de39d0a843039614
+
 
 ---
-# Passo a passo do Arquivamento dos Hubs de Eventos: Python
+# <a name="event-hubs-archive-walkthrough-python"></a>Passo a passo do Arquivamento dos Hubs de Eventos: Python
 O Arquivamento dos Hubs de Eventos é um novo recurso dos Hubs de Eventos que permite que você envie automaticamente os dados de fluxo no Hub de Eventos a uma conta de Armazenamento de Blobs do Azure desejada. Isso facilita a execução de processamento em lote na transmissão de dados em tempo real. Este artigo descreve como usar o Arquivamento dos Hubs de Eventos com o Python. Para saber mais sobre Arquivamento dos Hubs de Eventos, confira o [artigo de visão geral](event-hubs-archive-overview.md).
 
 Este exemplo usa o SDK do Python do Azure para demonstrar o uso do recurso Arquivamento. O sender.py envia telemetria de ambiente simulado para os Hubs de Eventos no formato JSON. O Hub de Eventos está configurado para usar o recurso Arquivamento a fim de gravar esses dados em armazenamento de blobs em lotes. Em seguida, o archivereader.py lê esses blobs e cria um arquivo de acréscimo por dispositivo e grava os dados em arquivos. csv.
@@ -36,8 +40,8 @@ Pré-requisitos
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## Criar uma conta de Armazenamento do Azure
-1. Faça logon no [portal do Azure][portal do Azure].
+## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
+1. Faça logon no [Portal do Azure][Portal do Azure].
 2. No painel de navegação esquerdo do portal, clique em Novo, clique em Dados + Armazenamento e em Conta de Armazenamento.
 3. Preencha os campos na folha da conta de armazenamento e clique em **Criar**.
    
@@ -47,12 +51,12 @@ Pré-requisitos
 
 [!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-## Criar um script Python para enviar eventos a seu Hub de Eventos
-1. Abra seu editor favorito do Python, como o [Visual Studio Code][Visual Studio Code].
+## <a name="create-a-python-script-to-send-events-to-your-event-hub"></a>Criar um script Python para enviar eventos a seu Hub de Eventos
+1. Abra seu editor favorito do Python, como, por exemplo, o [Visual Studio Code][Visual Studio Code].
 2. Crie um script chamado **sender.py**. Esse script enviará 200 eventos para seu Hub de Eventos. Eles são simples leituras de ambiente enviadas em JSON.
 3. Cole o seguinte código em sender.py:
    
-   ```
+   ```python
    import uuid
    import datetime
    import random
@@ -73,12 +77,12 @@ Pré-requisitos
    ```
 4. Atualize o código anterior para usar o nome do namespace e os valores de chave que você obteve quando criou o namespace dos Hubs de Eventos.
 
-## Criar um script Python para ler os arquivos no arquivo
+## <a name="create-a-python-script-to-read-your-archive-files"></a>Criar um script Python para ler os arquivos no arquivo
 1. Preencha a folha e clique em **Criar**.
 2. Crie um script chamado **archivereader.py**. Esse script lerá os arquivos no arquivo e criará um arquivo por dispositivo para gravar os dados somente para esse dispositivo.
 3. Cole o código abaixo no archivereader.py:
    
-   ```
+   ```python
    import os
    import string
    import json
@@ -122,7 +126,7 @@ Pré-requisitos
    ```
 4. Não se esqueça de colar os valores apropriados do nome da sua conta de armazenamento e da chave na chamada para `startProcessing`.
 
-## Executar os scripts
+## <a name="run-the-scripts"></a>Executar os scripts
 1. Abra um prompt de comando com o Python em seu caminho e execute estes comandos para instalar os pacotes de pré-requisito do Python:
    
    ```
@@ -153,21 +157,25 @@ Pré-requisitos
 
 Esse processador de arquivamento usa o diretório local para baixar todos os blobs do contêiner/da conta de armazenamento. Ele processa todos os que não estão vazios e grava os resultados como arquivos. csv no diretório local.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* Visão geral do [arquivamento dos Hubs de Eventos][arquivamento dos Hubs de Eventos]
-* Um [aplicativo de exemplo completo que usa os Hubs de Evento][aplicativo de exemplo completo que usa os Hubs de Evento].
-* O exemplo de [Escala horizontal do processamento de eventos com Hubs de Eventos][Escala horizontal do processamento de eventos com Hubs de Eventos].
+* [arquivamento dos Hubs de Eventos][arquivamento dos Hubs de Eventos]
+* Um [aplicativo de exemplo que usa os Hubs de Eventos completo][aplicativo de exemplo completo que usa os Hubs de Evento].
+* O exemplo de [Expansão do processamento de eventos com o Hubs de Eventos][Escala horizontal do processamento de eventos com Hubs de Eventos].
 * [Visão geral de Hubs de Evento][Visão geral de Hubs de Evento]
 
-[portal do Azure]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 [arquivamento dos Hubs de Eventos]: event-hubs-archive-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
-[About Azure storage accounts]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[Sobre as contas de armazenamento do Azure]: https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/
 [Visual Studio Code]: https://code.visualstudio.com/
 [Visão geral de Hubs de Evento]: event-hubs-overview.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [Escala horizontal do processamento de eventos com Hubs de Eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

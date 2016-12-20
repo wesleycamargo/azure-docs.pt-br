@@ -27,29 +27,27 @@
 ### [Criar e Gerenciar usando a CLI](key-vault-manage-with-cli.md)
 
 # Referência
-## [Sobre chaves e segredos](https://msdn.microsoft.com/en-us/library/azure/dn903623)
-## [Exemplos de código](https://www.microsoft.com/download/details.aspx?id=45343)
-
-## [Cmdlets do PowerShell do Resource Manager do Cofre de Chaves](/powershell/resourcemanager/)
-## [Cmdlets do PowerShell Clássico do Cofre de Chaves](/powershell/servicemanagement/)
-## [Cofre de Chaves usando a CLI do Azure](/cli/azure/)
-## [Cofre de Chaves na Referência Java](/java/api/)
-## [API de Referência Gerenciada do Cofre de Chaves](/dotnet/api/) 
-## [Referência de API REST do Cofre de Chaves](/rest/api/keyvault) 
-## [Node.js para o Cofre de Chaves](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
+## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [CLI do Azure 2.0 (Visualização)](/cli/azure/keyvault)
+## [.NET](/dotnet/api/microsoft.azure.keyvault)
+## [Java](/java/api/com.microsoft.azure.keyvault)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## [REST](/rest/api/keyvault)
 
 # Relacionados
 ## [Active Directory do Azure](https://azure.microsoft.com/documentation/services/active-directory/)
 ## [Azure Rights Management](https://technet.microsoft.com/en-US/dn175750)
 ## [Gerenciamento de chaves extensível usando o Cofre de Chaves](https://msdn.microsoft.com/en-us/library/azure/dn198405)
-## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
+## [Autenticação Multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Recursos
+## [Sobre chaves e segredos](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Exemplos de código](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Preços](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Fóruns](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

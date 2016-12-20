@@ -15,10 +15,32 @@
 ## Evitar
 ### [Definir políticas de segurança](security-center-policies.md)
 ### [Implementar recomendações de segurança](security-center-recommendations.md)
+
 ### [Recomendações do aplicativo](security-center-application-recommendations.md)
+#### [Add a web application firewall](security-center-add-web-application-firewall.md)
+
 ### [Recomendações de rede](security-center-network-recommendations.md)
+#### [Adicionar um firewall de próxima geração](security-center-add-next-generation-firewall.md)
+#### [Habilitar Grupos de segurança de rede](security-center-enable-network-security-groups.md)
+#### [Restringir o acesso por meio de pontos de extremidade para a Internet](security-center-restrict-access-through-internet-facing-endpoints.md)
+
 ### [Recomendações do serviço SQL](security-center-sql-service-recommendations.md)
+#### [Enable auditing on SQL databases](security-center-enable-auditing-on-sql-databases.md)
+#### [Enable auditing on SQL servers](security-center-enable-auditing-on-sql-servers.md)
+#### [Habilitar Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
+
 ### [Recomendações de máquina virtual](security-center-virtual-machine-recommendations.md)
+#### [Aplicar a criptografia de disco](security-center-apply-disk-encryption.md)
+#### [Aplicar atualizações do sistema](security-center-apply-system-updates.md)
+#### [Habilitar coleta de dados](security-center-enable-data-collection.md)
+#### [Habilitar o Agente de VM](security-center-enable-vm-agent.md)
+#### [Instalar proteção do ponto de extremidade](security-center-install-endpoint-protection.md)
+#### [Fornecer detalhes de contato de segurança](security-center-provide-security-contact-details.md)
+#### [Corrigir as vulnerabilidades do sistema operacional](security-center-remediate-os-vulnerabilities.md)
+#### [Resolver alertas de integridade de proteção do ponto de extremidade](security-center-resolve-endpoint-protection-health-alerts.md)
+#### [Atualizar a versão do sistema operacional](security-center-update-os-version.md)
+#### [Avaliação de vulnerabilidade não instalada](security-center-vulnerability-assessment-recommendations.md)
+
 ### [Monitorar integridade da segurança](security-center-monitoring.md)
 ### [Monitorar soluções de parceiros](security-center-partner-solutions.md)
 
@@ -27,33 +49,14 @@
 ### [Gerenciar alertas de segurança](security-center-managing-and-responding-alerts.md)
 ### [Gerenciar incidentes de segurança](security-center-incident.md)
 ### [Integração de log do Azure](security-center-integrating-alerts-with-log-integration.md)
-### [Avaliação de vulnerabilidade](security-center-vulnerability-assessment-recommendations.md)
 ### [Tipos de alertas de segurança](security-center-alerts-type.md)
 ### [Relatório de inteligência de ameaças](security-center-threat-report.md)
-
-### Gerenciar alertas de segurança
-#### [Adicionar um firewall de próxima geração](security-center-add-next-generation-firewall.md)
-#### [Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md)
-#### [Aplicar a criptografia de disco](security-center-apply-disk-encryption.md)
-#### [Aplicar atualizações do sistema](security-center-apply-system-updates.md)
-#### [Habilitar auditoria em bancos de dados SQL](security-center-enable-auditing-on-sql-databases.md)
-#### [Habilitar auditoria em servidores SQL](security-center-enable-auditing-on-sql-servers.md)
-#### [Habilitar coleta de dados](security-center-enable-data-collection.md)
-#### [Habilitar Grupos de segurança de rede](security-center-enable-network-security-groups.md)
-#### [Habilitar Transparent Data Encryption](security-center-enable-transparent-data-encryption.md)
-#### [Habilitar o Agente de VM](security-center-enable-vm-agent.md)
-#### [Instalar proteção do ponto de extremidade](security-center-install-endpoint-protection.md)
-#### [Fornecer detalhes de contato de segurança](security-center-provide-security-contact-details.md)
-#### [Corrigir as vulnerabilidades do sistema operacional](security-center-remediate-os-vulnerabilities.md)
-#### [Resolver alertas de integridade de proteção do ponto de extremidade](security-center-resolve-endpoint-protection-health-alerts.md)
-#### [Restringir o acesso por meio de pontos de extremidade para a Internet](security-center-restrict-access-through-internet-facing-endpoints.md)
-#### [Atualizar a versão do sistema operacional](security-center-update-os-version.md)
 
 ## Solucionar problemas
 ### [Guia de Solução de problemas](security-center-troubleshooting-guide.md)
 
 # Referência
-## [API REST](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
+## [REST](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # Relacionados
 ## [Segurança do Azure](/azure/security/)
@@ -66,6 +69,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

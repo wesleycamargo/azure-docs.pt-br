@@ -1,101 +1,108 @@
 ---
-title: Service Bus messaging samples overview | Microsoft Docs
-description: Categorizes and describes Service Bus messaging samples with links to each.
-services: service-bus
+title: "Visão geral de exemplos do sistema de mensagens do Barramento de Serviço | Microsoft Docs"
+description: "Categoriza e descreve exemplos de mensagens do Barramento de Serviço com links para cada um."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 719403ca2ef90cdcf5f76fe15f7a33095e71a74c
+
 
 ---
-# <a name="service-bus-messaging-samples"></a>Service Bus messaging samples
-The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/) (cloud service) and [Service Bus for Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). This article categorizes and describes the samples available, with links to each.
+# <a name="service-bus-messaging-samples"></a>Exemplos de mensagens do Barramento de Serviço
+Os exemplos de mensagens do Barramento de Serviço demonstram os principais recursos de [mensagens do Barramento de Serviço](https://azure.microsoft.com/services/service-bus/) (serviço de nuvem) e do [Barramento de Serviço para o Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). Este tópico categoriza e descreve os exemplos disponíveis, com links para cada um.
 
 > [!NOTE]
-> Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
+> Os exemplos do Barramento de Serviço não são instalados com o SDK. Para obter os exemplos, visite a [página de exemplos do SDK do Azure](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 > 
-> Additionally, there is an updated set of Service Bus messaging samples [here](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (as of this writing, they are not described in this article).  
+> Além disso, há um conjunto atualizado de amostras de mensagens do Barramento de Serviço [aqui](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) (até o fechamento deste artigo, elas não são descritas).  
 > 
 > 
 
-For relay samples, see [Service Bus relay samples](../service-bus-relay/service-bus-relay-samples.md).
+Para obter exemplos de retransmissão, consulte [Service Bus relay samples (Exemplos de Retransmissão do Barramento de Serviço)](../service-bus-relay/service-bus-relay-samples.md).
 
-## <a name="service-bus-messaging"></a>Service Bus messaging
-The following samples illustrate how to write applications that use Service Bus messaging.
+## <a name="service-bus-messaging"></a>Mensagens do Barramento de Serviço
+Os exemplos a seguir ilustram como gravar aplicativos que usam o sistema de mensagens do Barramento de Serviço.
 
-Note that the messaging samples require a connection string to access your Service Bus namespace.
+Observe que os exemplos do sistema de mensagens exigem uma cadeia de caracteres de conexão para acessar o namespace do Barramento de Serviço.
 
-### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>To obtain a connection string for Azure Service Bus
-1. Log on to the [Azure portal](http://portal.azure.com).
-2. In the left-hand column, click **Service Bus**.
-3. Click the name of your namespace in the list.
-4. In the namespace blade, click **Shared access policies**.
-5. In the **Shared access policies** blade, click **RootManageSharedAccessKey**.
-6. Copy the connection string to the clipboard.
+### <a name="to-obtain-a-connection-string-for-azure-service-bus"></a>Para obter uma cadeia de conexão do Barramento de Serviço do Azure
+1. Faça logon no [portal do Azure](http://portal.azure.com).
+2. Na coluna à esquerda, clique em **Barramento de Serviço**.
+3. Clique no nome do seu namespace na lista.
+4. Na folha namespace, clique em **Políticas de acesso compartilhado**.
+5. Na folha **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
+6. Copie a cadeia de conexão para a área de transferência.
 
-### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>To obtain a connection string for Service Bus for Windows Server
-1. Run the following PowerShell cmdlet:
+### <a name="to-obtain-a-connection-string-for-service-bus-for-windows-server"></a>Para obter uma cadeia de conexão do Barramento de Serviço do Windows Server
+1. Execute o seguinte cmdlet do PowerShell:
    
     ```
     get-sbClientConfiguration
     ```
-2. Paste the connection string into the App.config file for the sample.
+2. Cole a cadeia de conexão no arquivo App.config do exemplo.
 
-### <a name="getting-started-samples"></a>Getting started samples
-These samples describe basic messaging functionality.
+### <a name="getting-started-samples"></a>Exemplos de introdução
+Estes exemplos descrevem a funcionalidade básica do sistema de mensagens.
 
-| Sample Name | Description | Minimum SDK Version | Availability |
+| Nome do exemplo | Descrição | Versão mínima do SDK | Disponibilidade |
 | --- | --- | --- | --- |
-| [Getting Started: Messaging with Queues](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3) |Demonstrates how to use Microsoft Azure Service Bus to send and receive messages from a queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Getting Started: Messaging With Topics](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5) |Demonstrates how to use Microsoft Azure Service Bus to send and receive messages from a topic with multiple subscriptions. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
+| [Introdução: Sistema de mensagens com filas](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3) |Demonstra como usar o Barramento de Serviço do Microsoft Azure para enviar e receber mensagens de uma fila. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Introdução: Sistema de mensagens com tópicos](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5) |Demonstra como usar o Barramento de Serviço do Microsoft Azure para enviar e receber mensagens de um tópico com várias assinaturas. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
 
-### <a name="exploring-features"></a>Exploring features
-The following samples demonstrate various features of Service Bus.
+### <a name="exploring-features"></a>Explorando os recursos
+Os exemplos a seguir demonstram diversos recursos do Barramento de Serviço.
 
-| Sample Name | Description | Minimum SDK Version | Availability |
+| Nome do exemplo | Descrição | Versão mínima do SDK | Disponibilidade |
 | --- | --- | --- | --- |
-| [HTTP Token Providers](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5) |Demonstrates the different ways of authenticating an HTTP/REST client with Service Bus. |2.1 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Service Bus HTTP Client](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a) |Demonstrates how to send messages to and receive messages from Service Bus via HTTP/REST. |2.3 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Service Bus Autoforwarding](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b) |Demonstrates how to automatically forward messages from a queue, subscription, or deadletter queue into another queue or topic. It also demonstrates how to send a message into a queue or topic via a transfer queue. |2.3 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: WCF Channel Session Sample](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451) |Demonstrates how to use Microsoft Azure Service Bus using Windows Communication Foundation (WCF) channels. The sample shows the use of WCF channels to send and receive messages via a Service Bus queue. The sample shows both session and non-session communication over the Service Bus. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Transactions](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e) |Demonstrates how to use the Microsoft Azure Service Bus messaging features within a transaction scope in order to ensure batches of messaging operations are committed atomically. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Management Operations Using REST](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88) |Demonstrates how to perform management operations on Service Bus using REST. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Resource Provider REST APIs](http://code.msdn.microsoft.com/Service-Bus-Resource-5d887203) |Demonstrates how to use the new Service Bus RDFE REST APIs to manage namespaces and messaging entities. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: WCF Service Session Sample](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-db4262c2) |Demonstrates how to use Microsoft Azure Service Bus using the WCF service model. The sample shows the use of the WCF service model to accomplish session-based communication via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Request Response](http://code.msdn.microsoft.com/Brokered-Messaging-Request-2b4ff5d8) |Demonstrates how to use the Microsoft Azure Service Bus and the request/response functionality. The sample shows simple clients and servers communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Dead Letter Queue](http://code.msdn.microsoft.com/Brokered-Messaging-Dead-22536dd8) |Demonstrates how to use Microsoft Azure Service Bus and the messaging "dead letter queue" functionality. The sample shows a simple sender and receiver communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Deferred Messages](http://code.msdn.microsoft.com/Brokered-Messaging-ccc4f879) |Demonstrates how to use the message deferral feature of Microsoft Azure Service Bus. The sample shows a simple sender and receiver communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Session Messages](http://code.msdn.microsoft.com/Brokered-Messaging-Session-41c43fb4) |Demonstrates how to use Microsoft Azure Service Bus and the Messaging Session functionality. The sample shows simple senders and receivers communicating via a Service Bus queue. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Request Response Topic](http://code.msdn.microsoft.com/Brokered-Messaging-Request-6759a36e) |Demonstrates how to implement the request/response pattern using Microsoft Azure Service Bus topics and subscriptions. The sample shows simple clients and servers communicating via a Service Bus topic. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Request Response Queue](http://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) |Demonstrates how to use Microsoft Azure Service Bus and the request/response functionality. The sample shows simple clients and servers communicating via two Service Bus queues. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Duplicate Detection](http://code.msdn.microsoft.com/Brokered-Messaging-c0acea25) |Demonstrates how to use Microsoft Azure Service Bus duplicate message detection with queues. It creates two queues, one with duplicate detection enabled and other one without duplicate detection. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Async Messaging](http://code.msdn.microsoft.com/Brokered-Messaging-Async-211c1e74) |Demonstrates how to use Microsoft Azure Service Bus to send and receive messages asynchronously from a queue. The queue provides decoupled, asynchronous communication between a sender and any number of receivers (here, a single receiver). |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) |Demonstrates how to use Microsoft Azure Service Bus publish/subscribe advanced filters. It creates a topic and 3 subscriptions with different filter definitions, sends messages to the topic, and receives all messages from subscriptions. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Brokered Messaging: Messages Prefetch](http://code.msdn.microsoft.com/Brokered-Messaging-be2dac1d) |Demonstrates how to use the Microsoft Azure Service Bus messages prefetch feature. It demonstrates how to use the messages prefetch feature upon receive. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
+| [Provedores de token HTTP](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5) |Demonstra as maneiras diferentes de autenticar um cliente HTTP/REST com o Barramento de Serviço. |2,1 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Cliente HTTP do Barramento de Serviço](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a) |Demonstra como enviar e receber mensagens do Barramento de Serviço via HTTP/REST. |2.3 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Encaminhamento automático do Barramento de Serviço](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b) |Demonstra como encaminhar automaticamente as mensagens de uma fila, de uma assinatura ou de uma fila de mensagens mortas para outra fila ou tópico. Isso também demonstra como enviar uma mensagem para uma fila ou tópico por meio de uma fila de transferência. |2.3 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: exemplo de sessão de canal WCF](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451) |Demonstra como usar o Barramento de Serviço do Microsoft Azure usando canais do Windows Communication Foundation (WCF). O exemplo mostra o uso de canais do WCF para enviar e receber mensagens por meio de uma fila do Barramento de Serviço. O exemplo mostra a comunicação de sessão e sem sessão no Barramento de Serviço. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Transações](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e) |Demonstra como usar os recursos do sistema de mensagens do Barramento de Serviço do Microsoft Azure em um escopo de transação para garantir que lotes de operações do sistema de mensagens sejam atomicamente confirmados. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Operações de gerenciamento usando REST](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88) |Demonstra como realizar operações de gerenciamento no Barramento de Serviço usando REST. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [APIs REST do Provedor de Recursos](http://code.msdn.microsoft.com/Service-Bus-Resource-5d887203) |Demonstra como usar as novas APIs REST do RDFE do Barramento de Serviço para gerenciar namespaces e entidades do sistema de mensagens. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Exemplo de sessão do serviço WCF](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-db4262c2) |Demonstra como usar o Barramento de Serviço do Microsoft Azure usando o modelo de serviço WCF. O exemplo mostra o uso do modelo de serviço WCF para realizar a comunicação baseada em sessão por meio de uma fila do Barramento de Serviço. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Resposta de solicitação](http://code.msdn.microsoft.com/Brokered-Messaging-Request-2b4ff5d8) |Demonstra como usar o Barramento de Serviço do Microsoft Azure e a funcionalidade de solicitação/resposta. O exemplo mostra clientes e servidores simples se comunicando por meio de uma fila do Barramento de Serviço. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Fila de mensagens mortas](http://code.msdn.microsoft.com/Brokered-Messaging-Dead-22536dd8) |Demonstra como usar o Barramento de Serviço do Microsoft Azure e a funcionalidade “fila de mensagens mortas” do sistema de mensagens. O exemplo mostra uma comunicação simples entre remetente e destinatário por meio de uma fila do Barramento de Serviço. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Mensagens adiadas](http://code.msdn.microsoft.com/Brokered-Messaging-ccc4f879) |Demonstra como usar o recurso de adiamento de mensagens do Barramento de Serviço do Microsoft Azure. O exemplo mostra uma comunicação simples entre remetente e destinatário por meio de uma fila do Barramento de Serviço. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Mensagens de sessão](http://code.msdn.microsoft.com/Brokered-Messaging-Session-41c43fb4) |Demonstra como usar o Barramento de Serviço do Microsoft Azure e a funcionalidade Sessão do Sistema de Mensagens. O exemplo mostra uma comunicação simples entre remetentes e destinatários por meio de uma fila do Barramento de Serviço. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Tópico de resposta de solicitação](http://code.msdn.microsoft.com/Brokered-Messaging-Request-6759a36e) |Demonstra como implementar o padrão de solicitação/resposta usando tópicos e assinaturas do Barramento de Serviço do Microsoft Azure. O exemplo mostra clientes e servidores simples se comunicando por meio de um tópico do Barramento de Serviço. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Fila de resposta de solicitação](http://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) |Demonstra como usar o Barramento de Serviço do Microsoft Azure e a funcionalidade de solicitação/resposta. O exemplo mostra clientes e servidores simples se comunicando por meio de duas filas do Barramento de Serviço. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Detecção de duplicidades](http://code.msdn.microsoft.com/Brokered-Messaging-c0acea25) |Demonstra como usar a detecção de mensagens duplicadas do Barramento de Serviço do Microsoft Azure com filas. Ele cria duas filas, uma com a detecção de duplicidades habilitada e outra sem a detecção de duplicidades. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Sistema de mensagens assíncrono](http://code.msdn.microsoft.com/Brokered-Messaging-Async-211c1e74) |Demonstra como usar o Barramento de Serviço do Microsoft Azure para enviar e receber mensagens assincronamente de uma fila. A fila fornece comunicação separada e assíncrona entre um remetente e qualquer número de destinatários (aqui, um único destinatário). |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Filtros Avançados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) |Demonstra como usar os filtros avançados de publicação/assinatura do Barramento de Serviço do Microsoft Azure. Ele cria um tópico e 3 assinaturas com diferentes definições de filtro, envia mensagens para o tópico e recebe todas as mensagens de assinaturas. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Sistema de Mensagens Agenciado: Pré-busca de mensagens](http://code.msdn.microsoft.com/Brokered-Messaging-be2dac1d) |Demonstra como usar o recurso de pré-busca de mensagens do Barramento de Serviço do Microsoft Azure. Demonstra como usar o recurso de pré-busca de mensagens após o recebimento. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
 
-## <a name="service-bus-reference-tools"></a>Service Bus reference tools
-The following samples demonstrate various other features of the service.
+## <a name="service-bus-reference-tools"></a>Ferramentas de referência do Barramento de Serviço
+Os exemplos a seguir demonstram vários outros recursos do serviço.
 
-| Sample Name | Description | Minimum SDK Version | Availability |
+| Nome do exemplo | Descrição | Versão mínima do SDK | Disponibilidade |
 | --- | --- | --- | --- |
-| [Service Bus Explorer](http://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a) |The Service Bus Explorer allows users to connect to a Service Bus service namespace and manage messaging entities in an easy manner. The tool provides advanced features such as import/export functionality, and the ability to test messaging entities and relay services. |1.8 |Microsoft Azure Service Bus; Service Bus for Windows Server |
-| [Authorization: SBAzTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93) |This sample demonstrates how to create and manage service identities in Microsoft Azure Active Directory Access Control (also known as Access Control Service or ACS) for use with Service Bus. |N/A |Microsoft Azure Service Bus |
+| [Service Bus Explorer](http://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a) |O Gerenciador do Barramento de Serviço permite que usuários se conectem a um namespace de serviço do Barramento de Serviço e gerenciem entidades do sistema de mensagens de uma maneira fácil. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação, e a capacidade de testar entidades do sistema de mensagens e os serviços de retransmissão. |1.8 |Barramento de Serviço do Microsoft Azure; Barramento de Serviço do Windows Server |
+| [Autorização: SBAzTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93) |Este exemplo demonstra como criar e gerenciar identidades de serviço no Controle de Acesso do Active Directory do Microsoft Azure (também conhecido como Serviço de Controle de Acesso ou ACS) a ser usado com o Barramento de Serviço. |N/D |Barramento de Serviço do Microsoft Azure |
 
-## <a name="next-steps"></a>Next steps
-See the following topics for conceptual overviews of Service Bus.
+## <a name="next-steps"></a>Próximas etapas
+Confira os tópicos a seguir para obter visões gerais conceituais do Barramento de Serviço.
 
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Service Bus architecture](../service-bus/service-bus-architecture.md)
-* [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
+* [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
+* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

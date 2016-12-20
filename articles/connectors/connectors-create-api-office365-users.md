@@ -1,13 +1,13 @@
 ---
-title: Adicionar o conector Usuários do Office 365 aos Aplicativos Lógicos | Microsoft Docs
-description: Visão geral do conector dos Usuários do Office 365 com os parâmetros da API REST
-services: ''
-documentationcenter: ''
+title: "Adicionar o conector Usuários do Office 365 aos Aplicativos Lógicos | Microsoft Docs"
+description: "Visão geral do conector dos Usuários do Office 365 com os parâmetros da API REST"
+services: 
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: b2146481-9105-4f56-b4c2-7ae340cb922f
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f9877f6bbf57da525ad988a6f6dafa6822a7503
+
 
 ---
-# Introdução ao conector dos Usuários do Office 365
-Conecte-se aos Usuários do Office 365 para obter perfis, pesquisar usuários e muito mais.
+# <a name="get-started-with-the-office-365-users-connector"></a>Introdução ao conector dos Usuários do Office 365
+Conecte-se aos Usuários do Office 365 para obter perfis, pesquisar usuários e muito mais. 
 
 > [!NOTE]
 > Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
@@ -27,24 +31,24 @@ Conecte-se aos Usuários do Office 365 para obter perfis, pesquisar usuários e 
 
 Com os Usuários do Office 365, você pode:
 
-* Criar seu fluxo de negócios baseado nos dados obtidos dos Usuários do Office 365.
-* Usar ações que obtêm relatórios diretos, o perfil de usuário de um gerenciador e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, obtenha relatórios diretos de uma pessoa e, em seguida, utilize essas informações e atualize um banco de dados SQL Azure.
+* Criar seu fluxo de negócios baseado nos dados obtidos dos Usuários do Office 365. 
+* Usar ações que obtêm relatórios diretos, o perfil de usuário de um gerenciador e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, obtenha relatórios diretos de uma pessoa e, em seguida, utilize essas informações e atualize um banco de dados SQL Azure. 
 
 Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Gatilhos e ações
+## <a name="triggers-and-actions"></a>Gatilhos e ações
 O conector dos Usuários do Office 365 tem as ações a seguir disponíveis. Não há nenhum gatilho.
 
 | Gatilhos | Ações |
 | --- | --- |
-| Nenhum |<ul><li>Obter gerenciador</li><li>Obter meu perfil</li><li>Obter relatórios diretos</li><li>Obter o perfil do usuário</li><li>Pesquisar usuários</li></ul> |
+| Nenhum |<ul><li>Obter o gerenciador</li><li>Obter meu perfil</li><li>Obter relatórios diretos</li><li>Obter o perfil do usuário</li><li>Pesquisar por usuários</li></ul> |
 
-Todos os conectores dão suporte a dados nos formatos JSON e XML.
+Todos os conectores dão suporte a dados nos formatos JSON e XML. 
 
-## Criar uma conexão com os Usuários do Office 365
+## <a name="create-a-connection-to-office-365-users"></a>Criar uma conexão com os Usuários do Office 365
 Ao adicionar esse conector aos seus aplicativos lógicos, é necessário entrar em sua conta dos Usuários do Office 365 e permitir que os aplicativos lógicos se conectem à sua conta.
 
-> [!INCLUDE [Etapas para criar uma conexão com os Usuários do Office 365](../../includes/connectors-create-api-office365users.md)]
+> [!INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 > 
 > 
 
@@ -55,15 +59,16 @@ Depois de criar a conexão, insira as propriedades dos Usuários do Office 365, 
 > 
 > 
 
-## Referência da API REST dos Usuários do Office 365
+## <a name="office-365-users-rest-api-reference"></a>Referência da API REST dos Usuários do Office 365
 Aplica-se à versão: 1.0.
 
-### Obter meu perfil
-Recupera o perfil para o usuário atual.```GET: /users/me```
+### <a name="get-my-profile"></a>Obter meu perfil
+Recupera o perfil do usuário atual.  
+```GET: /users/me``` 
 
 Não existem parâmetros para esta chamada.
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |Operação bem-sucedida |
@@ -74,14 +79,15 @@ Não existem parâmetros para esta chamada.
 | 500 |Erro interno do servidor |
 | padrão |Falha na Operação. |
 
-### Obter o perfil do usuário
-Recupera um perfil do usuário específico.```GET: /users/{userId}```
+### <a name="get-user-profile"></a>Obter o perfil do usuário
+Recupera um perfil do usuário específico.  
+```GET: /users/{userId}``` 
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| coluna |string |sim |path |nenhum |Nome UPN ou ID do email |
+| coluna |string |Sim |path |Nenhum |Nome UPN ou ID do email |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |Operação bem-sucedida |
@@ -92,14 +98,15 @@ Recupera um perfil do usuário específico.```GET: /users/{userId}```
 | 500 |Erro interno do servidor |
 | padrão |Falha na Operação. |
 
-### Obter o gerenciador
-Recupera o perfil do usuário para o gerenciador do usuário especificado.```GET: /users/{userId}/manager```
+### <a name="get-manager"></a>Obter o gerenciador
+Recupera o perfil do usuário para o gerenciador do usuário especificado.  
+```GET: /users/{userId}/manager``` 
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| coluna |string |sim |path |nenhum |Nome UPN ou ID do email |
+| coluna |string |Sim |path |Nenhum |Nome UPN ou ID do email |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |Operação bem-sucedida |
@@ -110,14 +117,15 @@ Recupera o perfil do usuário para o gerenciador do usuário especificado.```GET
 | 500 |Erro interno do servidor |
 | padrão |Falha na Operação. |
 
-### Obter relatórios diretos
-Obter relatórios diretos. ```GET: /users/{userId}/directReports```
+### <a name="get-direct-reports"></a>Obter relatórios diretos
+Obter relatórios diretos.  
+```GET: /users/{userId}/directReports``` 
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| coluna |string |sim |path |nenhum |Nome UPN ou ID do email |
+| coluna |string |Sim |path |Nenhum |Nome UPN ou ID do email |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |Operação bem-sucedida |
@@ -128,14 +136,15 @@ Obter relatórios diretos. ```GET: /users/{userId}/directReports```
 | 500 |Erro interno do servidor |
 | padrão |Falha na Operação. |
 
-### Pesquisar por usuários
-Recupera os resultados da pesquisa dos perfis do usuário.```GET: /users```
+### <a name="search-for-users"></a>Pesquisar por usuários
+Recupera os resultados da pesquisa dos perfis do usuário.  
+```GET: /users``` 
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| searchTerm |string |não |query |nenhum |Pesquisar cadeia de caracteres (aplica-se a: nome de exibição, nome, sobrenome, email, apelido de email e nome UPN) |
+| searchTerm |string |não |query |Nenhum |Pesquisar cadeia de caracteres (aplica-se a: nome de exibição, nome, sobrenome, email, apelido de email e nome UPN) |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |Operação bem-sucedida |
@@ -144,10 +153,10 @@ Recupera os resultados da pesquisa dos perfis do usuário.```GET: /users```
 | 401 |Não Autorizado |
 | 403 |Proibido |
 | 500 |Erro interno do servidor |
-| padrão |Falha na Operação. |
+| padrão |Falha na operação. |
 
-## Definições de objeto
-#### Usuário: classe de modelo de usuário
+## <a name="object-definitions"></a>Definições de objeto
+#### <a name="user-user-model-class"></a>Usuário: classe de modelo de usuário
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | DisplayName |string |não |
@@ -156,15 +165,15 @@ Recupera os resultados da pesquisa dos perfis do usuário.```GET: /users```
 | Email |string |não |
 | MailNickname |string |não |
 | TelephoneNumber |string |não |
-| AccountEnabled |Booliano |não |
+| AccountEnabled |booleano |não |
 | ID |string |sim |
 | UserPrincipalName |string |não |
 | Departamento |string |não |
 | JobTitle |string |não |
 | mobilePhone |string |não |
 
-## Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+## <a name="next-steps"></a>Próximas etapas
+[Crie um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 Volte para a [Lista de APIs](apis-list.md).
 
@@ -176,4 +185,8 @@ Volte para a [Lista de APIs](apis-list.md).
 [10]: ./media/connectors-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/connectors-create-api-office365-users/contoso-aad-app-configure.PNG
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

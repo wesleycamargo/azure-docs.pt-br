@@ -1,12 +1,12 @@
 ---
-title: Monitorar seus Aplicativos lógicos no Serviço de Aplicativo do Azure | Microsoft Docs
-description: Como ver o que os Aplicativos lógicos fizeram
+title: "Monitorar seus Aplicativos lógicos no Serviço de Aplicativo do Azure | Microsoft Docs"
+description: "Como ver o que os Aplicativos lógicos fizeram"
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 services: logic-apps
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cc73caf6ffdc47199369112a5310a3f4dd0cc9bf
+
 
 ---
 # <a name="monitor-your-logic-apps"></a>Monitorar seus Aplicativos lógicos
@@ -134,6 +138,9 @@ Você pode aproveitar essa telemetria do Hub de Eventos ou Armazenamento em outr
 * [Criando um Modelo de Implantação do Aplicativo Lógico](app-service-logic-create-deploy-template.md)
 * [Recursos de integração corporativa](app-service-logic-enterprise-integration-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

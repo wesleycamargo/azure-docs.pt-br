@@ -1,13 +1,13 @@
 ---
-title: Referência de configurações de roaming do Windows 10 | Microsoft Docs
-description: Uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10.
+title: "Referência de configurações de roaming do Windows 10 | Microsoft Docs"
+description: "Uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10."
 services: active-directory
 keywords: enterprise state roaming, nuvem do window
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e38fd24edb0cb6cee0552a3cbdb282aae870d737
+
 
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
@@ -30,7 +34,7 @@ Veja a tabela a seguir para obter um resumo dos dispositivos e dos tipos de cont
 | Conta da Microsoft: sincronização |Sim |Sim |
 | Conta da Microsoft: backup/restauração |Não |Sim |
 
-## <a name="what-is-backup?"></a>O que é backup?
+## <a name="what-is-backup"></a>O que é backup?
 As configurações do Windows geralmente são sincronizadas por padrão, mas algumas configurações são incluídas apenas no backup, como a lista de aplicativos instalados em um dispositivo. O backup é destinado somente a dispositivos móveis e atualmente não está disponível para usuários do Enterprise State Roaming. O backup usa uma conta da Microsoft e armazena as configurações e dados do aplicativo no OneDrive. Se um usuário desabilitar a sincronização no dispositivo usando o aplicativo Configurações, os dados de aplicativo que normalmente são sincronizados se tornarão somente backup. Os dados de backup só podem ser acessados por meio da operação de restauração durante a primeira execução de um novo dispositivo. Os backups podem ser desabilitados por meio de configurações do dispositivo e podem ser gerenciados e excluídos por meio da conta do OneDrive do usuário.
 
 ## <a name="windows-settings-overview"></a>Visão geral das configurações do Windows
@@ -166,6 +170,9 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 * [Perguntas frequentes sobre configurações e roaming de dados](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

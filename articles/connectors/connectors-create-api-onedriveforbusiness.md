@@ -1,13 +1,13 @@
 ---
 title: OneDrive for Business | Microsoft Docs
-description: Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. Conecte-se ao OneDrive for Business para gerenciar seus arquivos. É possível executar várias ações, como carregar, atualizar, obter e excluir arquivos.
+description: "Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. Conecte-se ao OneDrive for Business para gerenciar seus arquivos. É possível executar várias ações, como carregar, atualizar, obter e excluir arquivos."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: cf9484e9-7a20-4de0-93c8-0fa132221f2b
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d8ce7baafbc722af58e9f3dae49777170de0ba6
+
 
 ---
-# Introdução ao conector do OneDrive for Business
+# <a name="get-started-with-the-onedrive-for-business-connector"></a>Introdução ao conector do OneDrive for Business
 Conecte-se ao OneDrive for Business para gerenciar seus arquivos. É possível executar várias ações, como carregar, atualizar, obter e excluir arquivos.
 
 > [!NOTE]
@@ -25,14 +29,14 @@ Conecte-se ao OneDrive for Business para gerenciar seus arquivos. É possível e
 > 
 > 
 
-É possível começar criando um Aplicativo Lógico agora; veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Gatilhos e ações
+## <a name="triggers-and-actions"></a>Gatilhos e ações
 O conector do OneDrive for Business pode ser usado como uma ação: ele tem um ou mais gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML.
 
  O conector do OneDrive for Business contém as seguintes ações e/ou gatilhos disponíveis:
 
-### Ações do OneDrive for Business
+### <a name="onedrive-for-business-actions"></a>Ações do OneDrive for Business
 Você pode executar as seguintes ações:
 
 | Ação | Descrição |
@@ -49,7 +53,7 @@ Você pode executar as seguintes ações:
 | [ListRootFolder](connectors-create-api-onedriveforbusiness.md#listrootfolder) |Lista os arquivos na pasta raiz do OneDrive for Business |
 | [ExtractFolderV2](connectors-create-api-onedriveforbusiness.md#extractfolderv2) |Extrai uma pasta no OneDrive for Business |
 
-### Gatilhos do OneDrive for Business
+### <a name="onedrive-for-business-triggers"></a>Gatilhos do OneDrive for Business
 Você pode escutar estes eventos:
 
 | Gatilho | Descrição |
@@ -57,72 +61,72 @@ Você pode escutar estes eventos:
 | Quando um arquivo é criado |Dispara um fluxo quando um novo arquivo é criado em uma pasta do OneDrive for Business |
 | Quando um arquivo é modificado |Dispara um fluxo quando um arquivo é modificado em uma pasta do OneDrive for Business |
 
-## Criar uma conexão com o OneDrive for Business
-Para criar Aplicativos Lógicos com o OneDrive for Business, primeiro, você deve criar uma **conexão** e, em seguida, fornecer os detalhes das seguintes propriedades:
+## <a name="create-a-connection-to-onedrive-for-business"></a>Criar uma conexão com o OneDrive for Business
+Para criar Aplicativos lógicos com o OneDrive for Business, primeiro você deve criar uma **conexão**, em seguida, forneça os detalhes para as seguintes propriedades:
 
 | Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
-| Token |Sim |Fornecer as credenciais do OneDrive for Business |
+| A criptografia do token |Sim |Fornecer as credenciais do OneDrive for Business |
 
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 
-> [!INCLUDE [Etapas para criar uma conexão com o OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
+> [!INCLUDE [Steps to create a connection to OneDrive for Business](../../includes/connectors-create-api-onedriveforbusiness.md)]
 > 
 > [!TIP]
 > Você pode usar essa conexão em outros aplicativos lógicos.
 > 
 > 
 
-## Referência do OneDrive for Business
+## <a name="reference-for-onedrive-for-business"></a>Referência do OneDrive for Business
 Aplica-se à versão: 1.0
 
-## GetFileMetadata
+## <a name="getfilemetadata"></a>GetFileMetadata
 Obter os metadados de arquivo usando a ID: recupera os metadados de um arquivo no OneDrive for Business usando a ID
 
 ```GET: /datasets/default/files/{id}```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| ID |string |sim |path |nenhum |Especificar o arquivo |
+| ID |string |Sim |path |nenhum |Especificar o arquivo |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## UpdateFile
+## <a name="updatefile"></a>UpdateFile
 Atualizar arquivo: atualiza um arquivo no OneDrive for Business
 
 ```PUT: /datasets/default/files/{id}```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| ID |string |sim |path |nenhum |Especificar o arquivo a ser atualizado |
-| corpo | |sim |corpo |nenhum |Conteúdo do arquivo a ser atualizado no OneDrive for Business |
+| ID |string |Sim |path |nenhum |Especificar o arquivo a ser atualizado |
+| corpo | |Sim |corpo |nenhum |Conteúdo do arquivo a ser atualizado no OneDrive for Business |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## DeleteFile
+## <a name="deletefile"></a>DeleteFile
 Excluir arquivo: exclui um arquivo do OneDrive for Business
 
 ```DELETE: /datasets/default/files/{id}```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| ID |string |sim |path |nenhum |Especifica o arquivo a ser excluído |
+| ID |string |Sim |path |nenhum |Especifica o arquivo a ser excluído |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## GetFileMetadataByPath
+## <a name="getfilemetadatabypath"></a>GetFileMetadataByPath
 Obter os metadados de arquivo usando o caminho: recupera os metadados de um arquivo no OneDrive for Business usando o caminho
 
 ```GET: /datasets/default/GetFileByPath```
@@ -131,13 +135,13 @@ Obter os metadados de arquivo usando o caminho: recupera os metadados de um arqu
 | --- | --- | --- | --- | --- | --- |
 | path |string |sim |query |nenhum |Caminho exclusivo para o arquivo no OneDrive for Business |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## GetFileContentByPath
+## <a name="getfilecontentbypath"></a>GetFileContentByPath
 Obter o conteúdo do arquivo usando o caminho: recupera o conteúdo de um arquivo no OneDrive for Business usando o caminho
 
 ```GET: /datasets/default/GetFileContentByPath```
@@ -146,28 +150,28 @@ Obter o conteúdo do arquivo usando o caminho: recupera o conteúdo de um arquiv
 | --- | --- | --- | --- | --- | --- |
 | path |string |sim |query |nenhum |Caminho exclusivo para o arquivo no OneDrive for Business |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## GetFileContent
+## <a name="getfilecontent"></a>GetFileContent
 Obter o conteúdo do arquivo usando a ID: recupera o conteúdo de um arquivo no OneDrive for Business usando a ID
 
 ```GET: /datasets/default/files/{id}/content```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| ID |string |sim |path |nenhum |Especificar o arquivo |
+| ID |string |Sim |path |nenhum |Especificar o arquivo |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## CreateFile
+## <a name="createfile"></a>CreateFile
 Criar arquivo: carrega um arquivo no OneDrive for Business
 
 ```POST: /datasets/default/files```
@@ -176,15 +180,15 @@ Criar arquivo: carrega um arquivo no OneDrive for Business
 | --- | --- | --- | --- | --- | --- |
 | folderPath |string |sim |query |nenhum |Caminho da pasta para carregar o arquivo no OneDrive for Business |
 | name |string |sim |query |nenhum |Nome do arquivo a ser criado no OneDrive for Business |
-| corpo | |sim |corpo |nenhum |Conteúdo do arquivo para carregar no OneDrive for Business |
+| corpo | |Sim |corpo |nenhum |Conteúdo do arquivo para carregar no OneDrive for Business |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## CopyFile
+## <a name="copyfile"></a>CopyFile
 Copiar arquivo: copia um arquivo no OneDrive for Business
 
 ```POST: /datasets/default/copyFile```
@@ -193,15 +197,15 @@ Copiar arquivo: copia um arquivo no OneDrive for Business
 | --- | --- | --- | --- | --- | --- |
 | fonte |string |sim |query |nenhum |URL para o arquivo de origem |
 | destino |string |sim |query |nenhum |Caminho do arquivo de destino no OneDrive for Business, incluindo nome do arquivo de destino |
-| substituir |Booliano |não |query |false |Substitui o arquivo de destino se estiver definido como "true" |
+| substituir |booleano |não |query |false |Substitui o arquivo de destino se estiver definido como "true" |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## OnNewFile
+## <a name="onnewfile"></a>OnNewFile
 Quando um arquivo é criado: dispara um fluxo quando um novo arquivo é criado em uma pasta do OneDrive for Business
 
 ```GET: /datasets/default/triggers/onnewfile```
@@ -210,13 +214,13 @@ Quando um arquivo é criado: dispara um fluxo quando um novo arquivo é criado e
 | --- | --- | --- | --- | --- | --- |
 | folderId |string |sim |query |nenhum |Especificar uma pasta |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## OnUpdatedFile
+## <a name="onupdatedfile"></a>OnUpdatedFile
 Quando um arquivo é modificado: dispara um fluxo quando um arquivo é modificado em uma pasta do OneDrive for Business
 
 ```GET: /datasets/default/triggers/onupdatedfile```
@@ -225,41 +229,41 @@ Quando um arquivo é modificado: dispara um fluxo quando um arquivo é modificad
 | --- | --- | --- | --- | --- | --- |
 | folderId |string |sim |query |nenhum |Especificar uma pasta |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## ListFolder
+## <a name="listfolder"></a>ListFolder
 Listar arquivos na pasta: lista os arquivos em uma pasta do OneDrive for Business
 
 ```GET: /datasets/default/folders/{id}```
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| ID |string |sim |path |nenhum |Especificar a pasta |
+| ID |string |Sim |path |nenhum |Especificar a pasta |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## ListRootFolder
+## <a name="listrootfolder"></a>ListRootFolder
 Listar pasta raiz: lista arquivos na pasta raiz do OneDrive for Business
 
 ```GET: /datasets/default/folders```
 
 Não há parâmetros para essa chamada
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
 | padrão |Falha na Operação. |
 
-## ExtractFolderV2
+## <a name="extractfolderv2"></a>ExtractFolderV2
 Extrair pasta: extrai uma pasta no OneDrive for Business
 
 ```POST: /datasets/default/extractFolderV2```
@@ -268,22 +272,22 @@ Extrair pasta: extrai uma pasta no OneDrive for Business
 | --- | --- | --- | --- | --- | --- |
 | fonte |string |sim |query |nenhum |Caminho para o arquivo morto |
 | destino |string |sim |query |nenhum |Caminho no OneDrive for Business para extrair o conteúdo do arquivo morto |
-| substituir |Booliano |não |query |false |Substitui os arquivos de destino se estiver definido como "true" |
+| substituir |booleano |não |query |false |Substitui os arquivos de destino se estiver definido como "true" |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
-| padrão |Falha na Operação. |
+| padrão |Falha na operação. |
 
-## Definições de objeto
-### DataSetsMetadata
+## <a name="object-definitions"></a>Definições de objeto
+### <a name="datasetsmetadata"></a>DataSetsMetadata
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | tabular |não definido |Não |
 | blob |não definido |Não |
 
-### TabularDataSetsMetadata
+### <a name="tabulardatasetsmetadata"></a>TabularDataSetsMetadata
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | fonte |string |Não |
@@ -292,14 +296,14 @@ Extrair pasta: extrai uma pasta no OneDrive for Business
 | tableDisplayName |string |Não |
 | tablePluralName |string |Não |
 
-### BlobDataSetsMetadata
+### <a name="blobdatasetsmetadata"></a>BlobDataSetsMetadata
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | fonte |string |Não |
 | displayName |string |Não |
 | urlEncoding |string |Não |
 
-### BlobMetadata
+### <a name="blobmetadata"></a>BlobMetadata
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | ID |string |Não |
@@ -313,12 +317,13 @@ Extrair pasta: extrai uma pasta no OneDrive for Business
 | ETag |string |Não |
 | FileLocator |string |Não |
 
-### Objeto
-| Nome da Propriedade | Tipo de Dados | Obrigatório |
-| --- | --- | --- |
-|  | | |
-
-## Próximas etapas
+### <a name="object"></a>Objeto
+## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

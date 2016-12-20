@@ -1,13 +1,13 @@
 ---
-title: Gerenciar a Pesquisa do Azure com scripts do PowerShell | Microsoft Docs
-description: Gerencie o serviço de Pesquisa do Azure com scripts do PowerShell. Criar ou atualizar um serviço da Pesquisa do Azure e gerenciar chaves de administração da Pesquisa do Azure
+title: Gerenciar o Azure Search com scripts do PowerShell | Microsoft Docs
+description: "Gerencie o serviço de Pesquisa do Azure com scripts do PowerShell. Criar ou atualizar um serviço da Pesquisa do Azure e gerenciar chaves de administração da Pesquisa do Azure"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: seansaleh
 manager: mblythe
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b611bf4d5fadd6755b97dcaee441e13ae7e62481
+
 
 ---
-# Gerencie o serviço de Pesquisa do Azure com o PowerShell
+# <a name="manage-your-azure-search-service-with-powershell"></a>Gerencie o serviço de Pesquisa do Azure com o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -25,9 +29,10 @@ ms.author: seasa
 > 
 > 
 
-Este tópico descreve os comandos do PowerShell para executar muitas das tarefas de gerenciamento dos serviços da Pesquisa do Azure. Vamos apresentar a criação de um serviço de pesquisa, como escaloná-lo e como gerenciar suas chaves de API. Esses comandos são paralelos às opções de gerenciamento disponíveis na [API REST de Gerenciamento da Pesquisa do Azure](http://msdn.microsoft.com/library/dn832684.aspx).
+Este tópico descreve os comandos do PowerShell para executar muitas das tarefas de gerenciamento dos serviços da Pesquisa do Azure. Vamos apresentar a criação de um serviço de pesquisa, como escaloná-lo e como gerenciar suas chaves de API.
+Esses comandos são paralelos às opções de gerenciamento disponíveis na [API REST de Gerenciamento da Pesquisa do Azure](http://msdn.microsoft.com/library/dn832684.aspx).
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * É necessário ter o Azure PowerShell 1.0 ou superior. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
 * É necessário estar conectado à sua assinatura do Azure no PowerShell, conforme descrito abaixo.
 
@@ -47,7 +52,7 @@ Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, 
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-## Comandos para ajudá-lo a começar
+## <a name="commands-to-help-you-get-started"></a>Comandos para ajudá-lo a começar
     $serviceName = "your-service-name-lowercase-with-dashes"
     $sku = "free" # or "basic" or "standard" for paid services
     $location = "West US"
@@ -125,8 +130,8 @@ Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, 
     # Deleting your service will delete all indexes and data in the service
     $resource | Remove-AzureRmResource
 
-## Próximas etapas
-Agora que o serviço foi criado, é possível executar as próximas etapas: compilar um [índice](search-what-is-an-index.md), [consultar um índice](search-query-overview.md) e, por fim, criar e gerenciar seu próprio aplicativo de pesquisa que usa a Pesquisa do Azure.
+## <a name="next-steps"></a>Próximas etapas
+Agora que o serviço foi criado, você pode executar as próximas etapas: compilar um [índice](search-what-is-an-index.md), [consultar um índice](search-query-overview.md) e, por fim, criar e gerenciar o seu próprio aplicativo de pesquisa que usa o Azure Search.
 
 * [Criar um índice de Pesquisa do Azure no portal do Azure](search-create-index-portal.md)
 * [Consultar um índice da Pesquisa do Azure usando o Gerenciador de Pesquisa no portal do Azure](search-explorer.md)
@@ -134,4 +139,9 @@ Agora que o serviço foi criado, é possível executar as próximas etapas: comp
 * [Como usar a pesquisa do Azure no .NET](search-howto-dotnet-sdk.md)
 * [Analisar o tráfego da Pesquisa do Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

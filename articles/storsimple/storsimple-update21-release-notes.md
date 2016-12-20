@@ -1,12 +1,12 @@
 ---
-title: Notas de versão da Atualização 2.2 do StorSimple Série 8000 | Microsoft Docs
-description: Descreve os novos recursos, problemas e as soluções alternativas para a Atualização 2.2 do StorSimple Série 8000.
+title: "Notas de versão da Atualização 2.2 para o StorSimple 8000 Series | Microsoft Docs"
+description: "Descreve os novos recursos, problemas e as soluções alternativas para a Atualização 2.2 do StorSimple Série 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 5cf03ea8-2a0f-4552-b6dc-7ea517783d7b
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,33 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c9bdd0862397dcac0a48375476002b42e6a8e331
+
 
 ---
-# Notas de versão da Atualização 2.2 do StorSimple Série 8000
-## Visão geral
-As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos em aberto da Atualização 2.2 do StorSimple Série 8000. Elas também contêm uma lista das atualizações de software do StorSimple incluídas nesta versão.
+# <a name="storsimple-8000-series-update-22-release-notes"></a>Notas de versão da Atualização 2.2 do StorSimple Série 8000
+## <a name="overview"></a>Visão geral
+As notas de versão a seguir descrevem os novos recursos e identificam os problemas críticos em aberto da Atualização 2.2 do StorSimple Série 8000. Elas também contêm uma lista das atualizações de software do StorSimple incluídas nesta versão. 
 
 A Atualização 2.2 pode ser aplicada a qualquer dispositivo StorSimple que executa a Versão (GA) ou a Atualização 0.1 à 2.1. A versão do dispositivo associada à Atualização 2.2 é 6.3.9600.17708.
 
 Examine as informações contidas nas notas de versão antes de implantar a atualização em sua solução do StorSimple.
 
 > [!IMPORTANT]
-> * A Atualização 2.2 traz apenas as atualizações de software. São necessárias cerca de 1,5 a 2 horas para instalar essa atualização.
+> * A Atualização 2.2 traz apenas as atualizações de software. São necessárias cerca de 1,5 a 2 horas para instalar essa atualização. 
 > * Caso você esteja executando a Atualização 2.1, recomendamos aplicar a Atualização 2.2 assim que possível.
 > * Para novas versões, talvez você não veja atualizações imediatamente porque fazemos uma distribuição em fases das atualizações. Aguarde alguns dias e procure atualizações novamente, uma vez que elas serão disponibilizadas em breve.
 > 
 > 
 
-## Novidades na Atualização 2.2
+## <a name="whats-new-in-update-22"></a>Novidades na Atualização 2.2
 Veja a seguir as principais melhorias feitas na Atualização 2.2.
 
 * **Otimização de recuperação automatizada de espaço** – Quando os dados são excluídos em volumes com provisionamento dinâmico, os blocos de armazenamento não utilizados precisam ser recuperados. Esta versão aprimorou o processo de recuperação de espaço da nuvem, o que resultou na disponibilização mais rápida do espaço não utilizado, em comparação com versões anteriores.
 * **Melhorias de desempenho de instantâneo** – A Atualização 2.2 melhorou o tempo de processamento de um instantâneo de nuvem em alguns cenários, nos quais grandes volumes são usados e em que há pouca, ou nenhuma, variação nos dados. Um cenário que se beneficiaria desse aprimoramento seria o de volumes de arquivamento.
-* **Proteção da coleta do pacote de Suporte** – Houve melhorias na maneira como o pacote de Suporte é coletado e carregado nesta versão.
+* **Proteção da coleta do pacote de Suporte** – Houve melhorias na maneira como o pacote de Suporte é coletado e carregado nesta versão. 
 * **Melhorias de confiabilidade da Atualização** – Esta versão traz correções de bug que resultam em uma melhoria de confiabilidade da Atualização.
 
-## Problemas corrigidos na Atualização 2.2
-A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atualizações 2.2 e 2.1.
+## <a name="issues-fixed-in-update-22"></a>Problemas corrigidos na Atualização 2.2
+A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atualizações 2.2 e 2.1.    
 
 | Não | Recurso | Problema | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- |
@@ -50,11 +54,11 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 | 4 |Criação de instantâneos |Houve problemas relacionados à criação de instantâneos incrementais em cenários com grandes volumes e pouca, ou nenhuma, rotatividade de dados. Esses problemas foram corrigidos nesta versão. |Sim |Sim |
 | 5 |Autenticação Openstack |Ao usar o Openstack como o provedor de serviços de nuvem, o usuário enfrentaria um bug raro relacionado à autenticação, no qual o analisador JSON resultava em uma falha. Esse bug foi corrigido nesta versão. |Sim |Não |
 | 6 |Cópia do host |Nas versões anteriores do software, um bug raro relacionado ao intervalo de ODX foi visto durante a cópia dos dados de um volume para outro. Isso resultaria em um failover de controlador e o sistema potencialmente poderia entrar no modo de recuperação. Esse bug foi corrigido nesta versão. |Sim |Não |
-| 7 |WMI (Instrumentação de Gerenciamento do Windows) |Nas versões anteriores do software, havia várias instâncias de falha no proxy Web com a exceção “Falha ao carregar o Provedor <ManagementException>”. Esse bug foi atribuído a um vazamento de memória da WMI, e agora está corrigido. |Sim |Não |
-| 8 |Atualização |Em determinados casos raros, nas versões anteriores do software, o usuário recebia um "CisPowershellHcsscripterror" ao tentar verificar ou instalar as atualizações. Esse problema foi corrigido nesta versão. |Sim |Sim |
+| 7 |WMI (Instrumentação de Gerenciamento do Windows) |Nas versões anteriores do software, havia várias instâncias de falha de proxy Web com a exceção “Falha ao carregar o provedor <ManagementException>”. Esse bug foi atribuído a um vazamento de memória da WMI, e agora está corrigido. |Sim |Não |
+| 8 |Atualizar |Em determinados casos raros, nas versões anteriores do software, o usuário recebia um "CisPowershellHcsscripterror" ao tentar verificar ou instalar as atualizações. Esse problema foi corrigido nesta versão. |Sim |Sim |
 | 9 |Pacote de suporte |Nesta versão, houve melhorias na forma como o pacote de suporte é coletado e carregado. |Sim |Sim |
 
-## Problemas conhecidos na Atualização 2.2
+## <a name="known-issues-in-update-22"></a>Problemas conhecidos na Atualização 2.2
 A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 
 | Nº | Recurso | Problema | Comentários/solução alternativa | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
@@ -75,21 +79,26 @@ A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 | 14 |Migração |O backup de configuração para a migração poderá falhar em um dispositivo da série 5000-7000 quando houver grupos de volumes sem volumes associados. |Exclua todos os grupos de volumes vazios sem volumes associados e repita o backup de configuração. |Sim |Não |
 | 15 |Cmdlets do Azure PowerShell e volumes fixados localmente |Não é possível criar um volume fixado localmente por meio de cmdlets do Azure PowerShell. (Qualquer volume criado por meio do Azure PowerShell será organizado em camadas.) |Sempre use o serviço do StorSimple Manager para configurar os volumes fixados localmente. |Sim |Não |
 | 16 |Espaço disponível para volumes fixados localmente |Se você excluir um volume fixado local, o espaço disponível para novos volumes pode não ser atualizado imediatamente. O serviço do StorSimple Manager atualiza o espaço local disponível aproximadamente a cada hora. |Aguarde uma hora antes de tentar criar o novo volume. |Sim |Não |
-| 17 |Volumes afixados localmente |O trabalho de restauração expõe o backup do instantâneo temporário no Catálogo de Backup, mas apenas pelo tempo que durar o trabalho de restauração. Além disso, ele expõe um grupo de discos virtuais com o prefixo **tmpCollection** na página **Políticas de Backup**, mas apenas durante o trabalho de restauração. |Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária. |Sim |Não |
+| 17 |Volumes afixados localmente |O trabalho de restauração expõe o backup do instantâneo temporário no Catálogo de Backup, mas apenas pelo tempo que durar o trabalho de restauração. Além disso, ele expõe um grupo de discos virtuais com o prefixo **tmpCollection** na página **Backup Policies**, mas apenas durante o trabalho de restauração. |Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária. |Sim |Não |
 | 18 |Volumes afixados localmente |Se você cancelar um trabalho de restauração e um failover do controlador ocorrer logo em seguida, o trabalho de restauração mostrará **Falha** em vez de **Cancelado**. Se um trabalho de restauração falhar e um failover do controlador ocorrer logo em seguida, o trabalho de restauração mostrará **Cancelado** em vez de **Falha**. |Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária. |Sim |Não |
-| 19 |Volumes afixados localmente |Se você cancelar um trabalho de restauração ou se uma restauração falhar e ocorrer um failover do controlador, outro trabalho de restauração aparecerá na página **Trabalhos**. |Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária. |Sim |Não |
+| 19 |Volumes afixados localmente |Se você cancelar um trabalho de restauração ou se uma restauração falhar e ocorrer um failover do controlador, outro trabalho de restauração aparecerá na página **Trabalhos** . |Isso poderá ocorrer se o trabalho de restauração tiver apenas volumes fixados localmente ou uma combinação de volumes fixados e em camadas. Se o trabalho de restauração incluir apenas volumes em camadas, esse comportamento não ocorrerá. Nenhuma intervenção do usuário é necessária. |Sim |Não |
 | 20 |Volumes afixados localmente |Se você tentar converter um volume em camadas (criado e clonado com a atualização 1.2 ou anterior) em um volume fixo local e o dispositivo estiver ficando sem espaço ou uma houver interrupção na nuvem, os clones podem estar corrompidos. |Esse problema ocorre apenas com volumes que foram criados e clonados com software anterior à Atualização 2.1. Isso deve ser um cenário incomum. | | |
 | 21 |Conversão de volume |Não atualize os ACRs conectados a um volume enquanto a conversão de volume estiver em andamento (em camadas para fixados localmente ou vice-versa). Atualizar os ACRs pode resultar em dados corrompidos. |Se necessário, atualize os ACRs antes da conversão de volume e não faça mais atualizações da ACR enquanto a conversão estiver em andamento. | | |
 
-## Atualizações de controlador e firmware na Atualização 2.2
+## <a name="controller-and-firmware-updates-in-update-22"></a>Atualizações de controlador e firmware na Atualização 2.2
 Esta versão tem somente atualizações de software. No entanto, se você estiver atualizando de uma versão anterior à Atualização 2, você precisará instalar o driver Storport, Spaceport e (em alguns casos) as atualizações de firmware do dispositivo de disco.
 
-Para obter mais informações sobre como instalar o driver, Storport, Spaceport e as atualizações de firmware de disco, confira [Instalar a Atualização 2.2 no dispositivo StorSimple](storsimple-install-update-21.md).
+Para obter mais informações sobre como instalar o driver, Storport, Spaceport e as atualizações de firmware de disco, confira [Instalar a Atualização 2.2 no dispositivo StorSimple](storsimple-install-update-21.md) .
 
-## Atualizações do dispositivo virtual na Atualização 2.2
-Esta atualização não pode ser aplicada ao dispositivo virtual. Novos dispositivos virtuais precisarão ser criados.
+## <a name="virtual-device-updates-in-update-22"></a>Atualizações do dispositivo virtual na Atualização 2.2
+Esta atualização não pode ser aplicada ao dispositivo virtual. Novos dispositivos virtuais precisarão ser criados. 
 
-## Próxima etapa
-Saiba como [Instalar a Atualização 2.2 no dispositivo StorSimple](storsimple-install-update-21.md).
+## <a name="next-step"></a>Próxima etapa
+Saiba como [Instalar a Atualização 2.2 no dispositivo StorSimple](storsimple-install-update-21.md) .
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

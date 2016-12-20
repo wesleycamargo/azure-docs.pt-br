@@ -1,13 +1,13 @@
 ---
-title: Conceitos de desenvolvedor do Catálogo de Dados | Microsoft Docs
-description: Introdução aos conceitos principais no modelo conceitual do Catálogo de Dados do Azure, conforme exposto pela API REST do Catálogo.
+title: "Conceitos de desenvolvedor do Catálogo de Dados | Microsoft Docs"
+description: "Introdução aos conceitos principais no modelo conceitual do Catálogo de Dados do Azure, conforme exposto pela API REST do Catálogo."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/11/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e05dc5695b08cdd82107bb3ed473c5d7b299f1e2
+
 
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos de desenvolvedor do Catálogo de Dados do Azure
@@ -55,7 +59,7 @@ As anotações são itens que representam os metadados sobre os Ativos.
 
 Alguns exemplos de anotações são descrição, marcas, esquema, documentação etc. Uma lista completa de tipos de ativo e tipos de anotação estão na seção Modelo de Objeto de Ativo.
 
-## <a name="crowdsourcing-annotations-and-user-perspective-(multiplicity-of-opinion)"></a>Anotações de crowdsourcing e perspectiva do usuário (multiplicidade de opinião)
+## <a name="crowdsourcing-annotations-and-user-perspective-multiplicity-of-opinion"></a>Anotações de crowdsourcing e perspectiva do usuário (multiplicidade de opinião)
 Um aspecto importante do Catálogo de Dados do Azure é como ele dá suporte ao crowdsourcing de metadados no sistema. Em vez de uma abordagem de wiki, em que há apenas uma opinião e o último editor vence, o modelo do Catálogo de Dados do Azure permite que várias opiniões coexistam no sistema.
 
 Essa abordagem reflete o mundo real dos dados da empresa onde diferentes usuários podem ter diferentes perspectivas sobre um determinado ativo:
@@ -358,6 +362,6 @@ A entidade de segurança especial &lt;Everyone&gt; tem a objectId "00000000-0000
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,50 +1,64 @@
 ---
-title: Service Fabric e Implantação de Contêineres | Microsoft Docs
-description: Service Fabric e o uso de contêineres para implantar aplicativos de microsserviço. Este artigo apresenta os recursos que o Service Fabric fornece para contêineres e como implantar uma imagem de contêiner em um cluster
+title: "Service Fabric e implantação de contêineres | Microsoft Docs"
+description: "Service Fabric e o uso de contêineres para implantar aplicativos de microsserviço. Este artigo descreve os recursos que o Service Fabric fornece para contêineres e como implantar uma imagem de contêiner do Windows em um cluster."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
-manager: ''
-editor: ''
-
+manager: timlt
+editor: 
+ms.assetid: 799cc9ad-32fd-486e-a6b6-efff6b13622d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2016
-ms.author: msfussell
+ms.date: 10/24/2016
+ms.author: mfussell
+translationtype: Human Translation
+ms.sourcegitcommit: af9f761179896a1acdde8e8b20476b7db33ca772
+ms.openlocfilehash: 1c5f3bc66c902c3b7186cad44728fa5237dd298a
+
 
 ---
-# <a name="preview:-deploy-a-container-to-service-fabric"></a>Preview: implantar um contêiner no Service Fabric
-> [!NOTE]
-> Este recurso está em preview para o Linux e não está disponível no Windows Server no momento. Ele estará em preview para o Windows Server na próxima versão do Service Fabric após o lançamento do Windows Server 2016 GA e com suporte na versão subsequente depois disso.
+# <a name="preview-deploy-a-windows-container-to-service-fabric"></a>Versão prévia: implantar um contêiner do Windows no Service Fabric
+> [!div class="op_single_selector"]
+> * [Implantar contêiner do Windows](service-fabric-deploy-container.md)
+> * [Implantar contêiner do Docker](service-fabric-deploy-container-linux.md)
 > 
 > 
 
-O Service Fabric tem vários recursos de contêiner que ajudam na compilação de aplicativos que são compostos por microsserviços que estão em contêineres. Eles são chamados de serviços em contêineres. Os recursos incluem;
+Este artigo o orienta pelo processo de compilação de serviços contidos em contêineres do Windows.
+
+> [!NOTE]
+> Esse recurso está em preview para Linux e não está disponível para Windows Server 2016 (ainda). O recurso estará em preview para Windows Server 2016 na próxima versão do Service Fabric do Azure. 
+> 
+> 
+
+O Service Fabric tem vários recursos de contêiner que ajudam na compilação de aplicativos que são compostos por microsserviços que estão em contêineres. 
+
+As funcionalidade s incluem:
 
 * Implantação e ativação de imagens de contêiner
 * Governança de recursos
 * Autenticação do repositório
-* Porta do contêiner para o mapeamento da porta de host
+* Mapeamento de porta de contêiner para porta de host
 * Descoberta e comunicação de contêiner para contêiner
 * Capacidade de configurar e definir as variáveis de ambiente
 
-Vamos analisar cada um dos recursos sucessivamente durante o empacotamento de um serviço em contêiner a ser incluído em seu aplicativo.
+Vamos ver como cada um dos recursos funciona quando você está empacotando um serviço em contêiner a ser incluído em seu aplicativo.
 
-## <a name="packaging-a-container"></a>Empacotamento de um contêiner
-Ao empacotar um contêiner, você pode optar por usar um modelo de projeto do Visual Studio ou por [criar o pacote de aplicativos manualmente](#manually). Usando o Visual Studio, a estrutura do pacote de aplicativos e os arquivos de manifesto são criados pelo assistente de novo projeto para você.
+## <a name="package-a-windows-container"></a>Empacotar um contêiner do Windows
+Ao empacotar um contêiner, você pode optar por usar um modelo de projeto do Visual Studio ou [criar o pacote de aplicativos manualmente](#manually). Ao usar o Visual Studio, a estrutura do pacote de aplicativos e os arquivos de manifesto são criados pelo Novo Modelo de Projeto para você. O modelo VS será lançado em uma versão futura.
 
-## <a name="using-visual-studio-to-package-an-existing-executable"></a>Uso do Visual Studio para empacotar um aplicativo executável
+## <a name="use-visual-studio-to-package-an-existing-container-image"></a>Usar o Visual Studio para empacotar uma imagem de contêiner existente
 > [!NOTE]
-> Em uma versão futura do SDK de ferramentas do Visual Studio, você poderá adicionar um contêiner em um aplicativo de uma forma parecida a como você adiciona um convidado executável atualmente. Confira o tópico [Implantar um executável convidado no Service Fabric](service-fabric-deploy-existing-app.md) . Atualmente, você precisa fazer o empacotamento manual, conforme descrito abaixo.
+> Em uma versão futura do Visual Studio para Service Fabric, você poderá adicionar um contêiner a um aplicativo da mesma forma que adiciona um executável convidado hoje. Para obter mais informações, consulte o tópico [Implantar um convidado executável à malha do serviço](service-fabric-deploy-existing-app.md). No momento, você precisa empacotar manualmente um contêiner como descrito na próxima seção.
 > 
 > 
 
 <a id="manually"></a>
 
-## <a name="manually-packaging-and-deploying-container"></a>Empacotamento e implantação manual de contêiner
+## <a name="manually-package-and-deploy-a-container"></a>Empacotar e implantar um contêiner manualmente
 O processo de empacotamento manual de um serviço em contêiner se baseia nas seguintes etapas:
 
 1. Publicar os contêineres em seu repositório.
@@ -52,48 +66,52 @@ O processo de empacotamento manual de um serviço em contêiner se baseia nas se
 3. Editar o arquivo de manifesto do serviço.
 4. Editar o arquivo de manifesto do aplicativo.
 
-## <a name="container-image-deployment-and-activation."></a>Implantação e ativação de imagem de contêiner.
+## <a name="deploy-and-activate-a-container-image"></a>Implantar e ativar uma imagem de contêiner
 No [modelo de aplicativo](service-fabric-application-model.md)do Service Fabric, um contêiner representa um host de aplicativo no qual várias réplicas de serviço são colocadas. Para implantar e ativar um contêiner, coloque o nome da imagem do contêiner em um elemento `ContainerHost` no manifesto do serviço.
 
-No manifesto do serviço, adicione um `ContainerHost` no ponto de entrada e defina o `ImageName` para o nome do repositório de contêiner e imagem. O manifesto parcial a seguir mostra um exemplo de implantação do contêiner chamado *myimage:v1* de um repositório chamado *myrepo*
+No manifesto do serviço, adicione um `ContainerHost` do ponto de entrada. Em seguida, defina o `ImageName` para o nome do repositório de contêiner e imagem. O manifesto parcial a seguir mostra um exemplo de como implantar o contêiner chamado `myimage:v1` de um repositório chamado `myrepo`:
 
+```xml
     <CodePackage Name="Code" Version="1.0">
         <EntryPoint>
           <ContainerHost>
-            <ImageName>myrepo/myimagename:v1</ImageName>
+            <ImageName>myrepo/myimage:v1</ImageName>
             <Commands></Commands>
           </ContainerHost>
         </EntryPoint>
     </CodePackage>
+```
 
-Você pode fornecer comandos de entrada na imagem de contêiner, especificando o elemento opcional `Commands` com uma vírgula delimitada por conjunto de comandos a serem executados dentro do contêiner. 
+Você pode fornecer comandos de entrada especificando o elemento opcional `Commands` com uma vírgula delimitada por conjunto de comandos a serem executados dentro do contêiner.
 
-## <a name="resource-governance"></a>Governança de recursos
-A governança de recursos é uma funcionalidade do contêiner e restringe os recursos que o contêiner pode usar no host. O `ResourceGovernancePolicy`, especificado no manifesto do aplicativo, fornece a capacidade de declarar os limites de recurso para um pacote de códigos de serviço. Os limites de recurso podem ser definidos para;
+## <a name="understand-resource-governance"></a>Compreender a governança de recursos
+A governança de recursos é uma funcionalidade do contêiner e restringe os recursos que o contêiner pode usar no host. O `ResourceGovernancePolicy`, especificado no manifesto do aplicativo, é usado para declarar os limites de recurso para um pacote de códigos de serviço. Limites de recursos podem ser definidos para os seguintes recursos:
 
 * Memória
 * MemorySwap
 * CpuShares (peso relativo da CPU)
 * MemoryReservationInMB  
-* BlkioWeight (peso relativo do BlockIO). 
+* BlkioWeight (peso relativo do BlockIO).
 
 > [!NOTE]
-> Em uma versão futura, será possível oferecer suporte para especificar limites de E/S de um bloco específico, como IOPs, leitura/gravação de BPS e outros.
+> Em uma versão futura, será incluído suporte para especificar limites de E/S de um bloco específico, como IOPs, leitura/gravação de BPS e outros.
 > 
 > 
 
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
-            <ResourceGovernancePolicy CodePackageRef="FrontendService.Code" CpuShares="500" 
+            <ResourceGovernancePolicy CodePackageRef="FrontendService.Code" CpuShares="500"
             MemoryInMB="1024" MemorySwapInMB="4084" MemoryReservationInMB="1024" />
         </Policies>
     </ServiceManifestImport>
+```
 
+## <a name="authenticate-a-repository"></a>Autenticar um repositório
+Para baixar um contêiner, poderá ser preciso fornecer as credenciais de logon para o repositório do contêiner. As credenciais de logon especificadas no manifesto do aplicativo são usadas para especificar as informações de logon, ou a chave SSH, para baixar a imagem do contêiner do repositório de imagens. O exemplo a seguir mostra uma conta chamada *TestUser* junto com a senha em texto não criptografado (*não* recomendado):
 
-## <a name="repository-authentication"></a>Autenticação do repositório
-Para baixar um contêiner, você terá que fornecer as credenciais de logon para o repositório do contêiner. As credenciais de logon especificadas no manifesto do *aplicativo* são usadas para identificar as informações de logon, ou a chave de SSH, para baixar a imagem de contêiner do repositório de imagens.  O exemplo a seguir mostra uma conta chamada *TestUser* junto com a senha em texto não criptografado. Isso **não** é recomendado.
-
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -102,26 +120,29 @@ Para baixar um contêiner, você terá que fornecer as credenciais de logon para
             </ContainerHostPolicies>
         </Policies>
     </ServiceManifestImport>
+```
 
-A senha pode e deve ser criptografada usando um certificado implantado no computador.
+É recomendável que você criptografe a senha usando um certificado implantado no computador.
 
-O exemplo a seguir mostra uma conta chamada *TestUser* com a senha criptografada usando um certificado chamado *MyCert*. Você pode usar o comando `Invoke-ServiceFabricEncryptText` do Powershell para criar o texto cifrado secreto para a senha. Confira o artigo [Gerenciamento de segredos em aplicativos do Service Fabric](service-fabric-application-secret-management.md) para saber como. A chave privada do certificado para descriptografar a senha deve ser implantada no computador local em um método fora de banda (no Azure, isso ocorre por meio do Gerenciador de Recursos). Em seguida, quando o Service Fabric implantar o pacote de serviço no computador, ele será capaz de descriptografar o segredo e, juntamente com o nome da conta, autenticar com o repositório de contêiner usando essas credenciais.
+O exemplo a seguir mostra uma conta chamada *TestUser*, em que a senha foi criptografada usando um certificado chamado *MyCert*. Você pode usar o comando `Invoke-ServiceFabricEncryptText` do PowerShell para criar o texto cifrado secreto para a senha. Para obter mais informações, consulte o artigo [Gerenciar segredos em aplicativos do Service Fabric](service-fabric-application-secret-management.md).
 
+A chave privada do certificado usada para descriptografar a senha deve ser implantada no computador local em um método fora de banda. (No Azure, esse método é o Azure Resource Manager.) Em seguida, quando o Service Fabric implanta o pacote de serviço para o computador, ele poderá descriptografar o segredo. Usando o segredo junto com o nome da conta, ele então pode autenticar com o repositório do contêiner.
+
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
             <ContainerHostPolicies CodePackageRef="FrontendService.Code">
                 <RepositoryCredentials AccountName="TestUser" Password="[Put encrypted password here using MyCert certificate ]" PasswordEncrypted="true"/>
             </ContainerHostPolicies>
-            <SecurityAccessPolicies>
-                <SecurityAccessPolicy ResourceRef="MyCert" PrincipalRef="TestUser" GrantRights="Full" ResourceType="Certificate" />
-            </SecurityAccessPolicies>
         </Policies>
     </ServiceManifestImport>
+```
 
-## <a name="container-port-to-host-port-mapping"></a>Porta do contêiner para o mapeamento da porta de host
-Você pode configurar uma porta de host usada para se comunicar com o contêiner ao especificar um `PortBinding` no manifesto do aplicativo. A associação de porta mapeia a porta que o serviço está escutando dentro do contêiner para uma porta no host.
+## <a name="configure-container-port-to-host-port-mapping"></a>Configurar mapeamento de porta do contêiner para o porta de host
+Você pode configurar uma porta de host usada para se comunicar com o contêiner especificando um `PortBinding` no manifesto do aplicativo. A associação de porta mapeia a porta que o serviço está escutando dentro do contêiner para uma porta no host.
 
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -130,13 +151,14 @@ Você pode configurar uma porta de host usada para se comunicar com o contêiner
             </ContainerHostPolicies>
         </Policies>
     </ServiceManifestImport>
+```
 
+## <a name="configure-container-to-container-discovery-and-communication"></a>Configurar descoberta e comunicação de contêiner para contêiner
+Usando a política `PortBinding`, você pode mapear uma porta de contêiner para um `Endpoint` no manifesto do serviço conforme mostrado no exemplo a seguir. O ponto de extremidade `Endpoint1` pode especificar uma porta fixa (por exemplo, porta 80). Também pode especificar nenhuma porta, quando uma porta aleatória no intervalo de portas do aplicativo do cluster será escolhida para você.
 
-## <a name="container-to-container-discovery-and-communication"></a>Descoberta e comunicação de contêiner para contêiner
-Usando a política `PortBinding`, você pode mapear uma porta de contêiner para um `Endpoint` no manifesto do serviço, conforme mostrado no exemplo a seguir. O ponto de extremidade `Endpoint1` pode especificar uma porta fixa, por exemplo, a porta 80, ou não especificar nenhuma porta, caso em que uma porta aleatória no intervalo de portas de aplicativo do cluster é escolhida para você.
+Se você especificar um ponto de extremidade, usando a marca `Endpoint` no manifesto do serviço de um contêiner de convidado, o Service Fabric poderá publicar automaticamente este ponto de extremidade no serviço de Nomenclatura. Portanto, outros serviços que são executados no cluster podem descobrir esse contêiner usando as consultas REST para resolver.
 
-Para contêineres de convidado, a especificação de um `Endpoint` como este no manifesto do serviço permite que o Service Fabric publique este ponto de extremidade automaticamente no Serviço de Cadastramento para que outros serviços em execução no cluster possam descobrir este contêiner usando as consultas de REST do serviço de resolução. 
-
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -145,14 +167,16 @@ Para contêineres de convidado, a especificação de um `Endpoint` como este no 
             </ContainerHostPolicies>
         </Policies>
     </ServiceManifestImport>
+```
 
-Ao se registrar com o Serviço de Cadastramento, você poderá fazer a comunicação de contêiner para contêiner facilmente no código dentro de seu contêiner usando o [proxy reverso](service-fabric-reverseproxy.md). Tudo o que você precisa fazer é fornecer a porta de escuta de http de proxy reverso e o nome dos serviços com os quais você deseja se comunicar, os definindo como variáveis de ambiente. Confira a próxima seção sobre como fazer isso.  
+Ao se registrar com o serviço de Nomenclatura, você poderá fazer a comunicação de contêiner para contêiner facilmente no código dentro do contêiner usando o [proxy reverso](service-fabric-reverseproxy.md). A comunicação é realizada fornecendo a porta de escuta de proxy reverso http e o nome dos serviços com os quais você deseja se comunicar como variáveis de ambiente. Para obter mais informações, confira a próxima seção. 
 
 ## <a name="configure-and-set-environment-variables"></a>Configurar e definir as variáveis de ambiente
-As variáveis de ambiente podem ser especificadas para cada pacote de códigos no manifesto do serviço para ambos os serviços implantados em contêineres ou como processos/executáveis de convidado. Esses valores de variável de ambiente podem ser substituídos especialmente no manifesto do aplicativo ou especificados durante a implantação como parâmetros do aplicativo.
+Variáveis de ambiente podem ser especificadas para cada pacote de código no manifesto de serviço, tanto para serviços implantados em contêineres quanto para serviços implantados como processos/executáveis convidados. Esses valores de variável de ambiente podem ser substituídos especialmente no manifesto do aplicativo ou especificados durante a implantação como parâmetros do aplicativo.
 
-O trecho XML do manifesto do serviço a seguir mostra um exemplo de como especificar variáveis de ambiente para um pacote de códigos. 
+O trecho XML do manifesto do serviço a seguir mostra um exemplo de como especificar variáveis de ambiente para um pacote de códigos:
 
+```xml
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description>a guest executable service in a container</Description>
         <ServiceTypes>
@@ -171,9 +195,11 @@ O trecho XML do manifesto do serviço a seguir mostra um exemplo de como especif
             </EnvironmentVariables>
         </CodePackage>
     </ServiceManifest>
+```
 
 Essas variáveis de ambiente podem ser substituídas no nível do manifesto do aplicativo:
 
+```xml
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <EnvironmentOverrides CodePackageRef="FrontendService.Code">
@@ -181,12 +207,15 @@ Essas variáveis de ambiente podem ser substituídas no nível do manifesto do a
             <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
         </EnvironmentOverrides>
     </ServiceManifestImport>
+```
 
-No exemplo acima, especificamos um valor explícito para a variável de ambiente `HttpGateway` (19000) enquanto o valor do parâmetro `BackendServiceName` é definido por meio do parâmetro de aplicativo `[BackendSvc]`. Isso permite que você especifique o valor de `BackendServiceName`no momento da implantação do aplicativo em vez de ter um valor fixo no manifesto. 
+No exemplo acima, especificamos um valor explícito para a variável de ambiente `HttpGateway` (19000) enquanto definimos o valor do parâmetro `BackendServiceName` é definido por meio do parâmetro de aplicativo `[BackendSvc]`. Essas configurações permitem especificar o valor para `BackendServiceName`valor quando você implanta o aplicativo e não tem um valor fixo no manifesto.
 
 ## <a name="complete-examples-for-application-and-service-manifest"></a>Exemplos completos de aplicativo e manifesto do serviço
-Veja a seguir um manifesto do aplicativo de exemplo que mostra os recursos do contêiner.
 
+Aqui está um exemplo de manifesto de aplicativo:
+
+```xml
     <ApplicationManifest ApplicationTypeName="SimpleContainerApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description>A simple service container application</Description>
         <Parameters>
@@ -208,12 +237,13 @@ Veja a seguir um manifesto do aplicativo de exemplo que mostra os recursos do co
             </Policies>
         </ServiceManifestImport>
     </ApplicationManifest>
+```
 
+Aqui está um exemplo de manifesto de serviço (especificado no manifesto do aplicativo anterior):
 
-Veja a seguir um manifesto do serviço de exemplo (especificado no manifesto do aplicativo anterior) que mostra os recursos do contêiner
-
+```xml
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <Description> A service that implements a stateless frontend in a container</Description>
+        <Description> A service that implements a stateless front end in a container</Description>
         <ServiceTypes>
             <StatelessServiceType ServiceTypeName="StatelessFrontendService"  UseImplicitHost="true"/>
         </ServiceTypes>
@@ -232,14 +262,19 @@ Veja a seguir um manifesto do serviço de exemplo (especificado no manifesto do 
         <ConfigPackage Name="FrontendService.Config" Version="1.0" />
         <DataPackage Name="FrontendService.Data" Version="1.0" />
         <Resources>
-            <Eendpoints>
+            <Endpoints>
                 <Endpoint Name="Endpoint1" Port="80"  UriScheme="http" />
-            </Eendpoints>
+            </Endpoints>
         </Resources>
     </ServiceManifest>
+```
+
+## <a name="next-steps"></a>Próximas etapas
+Agora que você implantou um serviço em contêiner, saiba como gerenciar seu ciclo de vida lendo [ciclo de vida de aplicativos do Service Fabric](service-fabric-application-lifecycle.md).
 
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

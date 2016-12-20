@@ -1,12 +1,12 @@
 ---
-title: Como gerar miniaturas usando o Codificador de Mídia Padrão com o .NET
-description: Este tópico mostra como usar o .NET para codificar um ativo e gerar miniaturas simultaneamente usando o Codificador de Mídia Padrão.
+title: "Como gerar miniaturas usando o Codificador de Mídia Padrão com o .NET"
+description: "Este tópico mostra como usar o .NET para codificar um ativo e gerar miniaturas simultaneamente usando o Codificador de Mídia Padrão."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
+
 
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-.net"></a>Como gerar miniaturas usando o Codificador de Mídia Padrão com o .NET
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Como gerar miniaturas usando o Codificador de Mídia Padrão com o .NET
 Este tópico mostra como usar o SDK .NET dos Serviços de Mídia para codificar um ativo e gerar miniaturas usando o Codificador de Mídia Padrão. O tópico define as predefinições de miniatura XML e JSON que você pode usar para criar uma tarefa que faça a codificação e gere miniaturas ao mesmo tempo. [Este](https://msdn.microsoft.com/library/mt269962.aspx) documento contém descrições dos elementos que são usados por essas predefinições.
 
 Certifique-se de examinar a seção [Considerações](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) .
@@ -168,7 +172,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
             }
         }
 
-## <a name="<a-id="json"></a>thumbnail-json-preset"></a><a id="json"></a>Predefinição JSON em miniatura
+## <a name="a-idjsonathumbnail-json-preset"></a><a id="json"></a>Predefinição JSON em miniatura
 Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tópico.
 
     {
@@ -270,7 +274,7 @@ Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft
     }
 
 
-## <a name="<a-id="xml"></a>thumbnail-xml-preset"></a><a id="xml"></a>Predefinição XML em miniatura
+## <a name="a-idxmlathumbnail-xml-preset"></a><a id="xml"></a>Predefinição XML em miniatura
 Para obter informações sobre o esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tópico.
 
     <?xml version="1.0" encoding="utf-16"?>
@@ -357,7 +361,7 @@ As seguintes considerações se aplicam:
     
     Você pode combinar as notações como desejar.
     
-    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" do conteúdo   OBSERVAÇÃO: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
+    Além disso, o Início também dá suporte a uma Macro especial: {Best}, que tenta determinar o primeiro quadro "interessante" da NOTA de conteúdo: (Etapa e Intervalo são ignorados quando Início é definido como {Best})
   * Padrões: Start:{Best}
 * O formato de saída precisa ser fornecido explicitamente para cada formato de Imagem: Jpg/Png/BmpFormat. Quando presente, o MES corresponderá JpgVideo a JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específica do codec de imagem: {Index}, que precisa estar presente (apenas uma vez) para formatos de saída de imagem.
 
@@ -370,6 +374,9 @@ As seguintes considerações se aplicam:
 ## <a name="see-also"></a>Consulte também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

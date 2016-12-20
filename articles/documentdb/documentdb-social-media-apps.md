@@ -1,13 +1,13 @@
 ---
-title: 'Padrão de design do Banco de Dados de Documentos: aplicativos de mídia social | Microsoft Docs'
-description: Saiba mais sobre um padrão de design para Redes Sociais, aproveitando a flexibilidade de armazenamento do Banco de Dados de Documentos e outros serviços do Azure.
-keywords: aplicativos de mídia social
+title: "Padrão de design do DocumentDB: aplicativos de mídia social | Microsoft Docs"
+description: "Saiba mais sobre um padrão de design para Redes Sociais, aproveitando a flexibilidade de armazenamento do Banco de Dados de Documentos e outros serviços do Azure."
+keywords: "aplicativos de mídia social"
 services: documentdb
 author: ealsur
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: mimig
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6c9e285834707b668086ceab7fdde582f0cd87cc
+
 
 ---
 # <a name="going-social-with-documentdb"></a>Expandindo o Banco de Dados de Documentos para as redes sociais
@@ -39,7 +43,7 @@ Por que o SQL não é a melhor opção nesse cenário? Vamos examinar a estrutur
 É claro que, para atender às necessidades de nosso conteúdo, poderíamos usar uma instância SQL gigantesca com capacidade suficiente para resolver milhares de consultas com essas várias junções, mas, sinceramente, por que faríamos isso quando há uma solução mais simples?
 
 ## <a name="the-nosql-road"></a>O caminho NoSQL
-Existem bancos de dados de graficos especiais que podem ser [executados no Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure), mas eles não são baratos e exigem serviços de IaaS (Infraestrutura como Serviço, principalmente Máquinas Virtuais), bem como manutenção. Meu objetivo neste artigo é fornecer uma solução de custo mais baixo que funcionará para a maioria dos cenários e que é executada no banco de dados NoSQL do Azure, o [DocumentDB](https://azure.microsoft.com/services/documentdb/). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL), armazenando os dados no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), nossa postagem anteriormente complicada pode ser transformada em um único [Documento](https://en.wikipedia.org/wiki/Document-oriented_database):
+Existem bancos de dados de grafos especiais que podem ser [executados no Azure](http://neo4j.com/developer/guide-cloud-deployment/#_windows_azure), mas eles não são baratos e exigem serviços de IaaS (Infraestrutura como Serviço, principalmente Máquinas Virtuais), bem como manutenção. Meu objetivo neste artigo é fornecer uma solução de custo mais baixo que funcionará para a maioria dos cenários e que é executada no banco de dados NoSQL do Azure, o [DocumentDB](https://azure.microsoft.com/services/documentdb/). Usando uma abordagem [NoSQL](https://en.wikipedia.org/wiki/NoSQL), armazenando os dados no formato JSON e aplicando a [desnormalização](https://en.wikipedia.org/wiki/Denormalization), nossa postagem anteriormente complicada pode ser transformada em um único [Documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
     {
         "id":"ew12-res2-234e-544f",
@@ -129,14 +133,14 @@ Para resolver isso, podemos usar uma abordagem mista. Como parte do documento de
         "totalPoints":11342
     }
 
-E o gráfico real de seguidores pode ser armazenado nas Tabelas do Armazenamento do Azure usando uma [extensão](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) que permite o armazenamento e recuperação simples ao estilo "A-segue-B". Dessa forma, podemos delegar o processo de recuperação da lista exata de seguidores (quando for necessário) às Tabelas de Armazenamento do Azure, mas para uma pesquisa rápida de números, continuamos usando o Banco de Dados de Documentos.
+E o grafo real de seguidores pode ser armazenado nas Tabelas do Armazenamento do Azure usando uma [extensão](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) que permite o armazenamento e recuperação simples ao estilo "A-segue-B". Dessa forma, podemos delegar o processo de recuperação da lista exata de seguidores (quando for necessário) às Tabelas de Armazenamento do Azure, mas para uma pesquisa rápida de números, continuamos usando o Banco de Dados de Documentos.
 
-## <a name="the-“ladder”-pattern-and-data-duplication"></a>O padrão de “Escada” e a duplicação de dados
+## <a name="the-ladder-pattern-and-data-duplication"></a>O padrão de “Escada” e a duplicação de dados
 Como vocês devem ter observado no documento JSON que faz referência a uma postagem, há várias ocorrências de um usuário. E devem ter acertado: isso significa que as informações que representam um usuário, considerando essa desnormalização, podem estar presentes em mais de um local.
 
 Para possibilitar consultas mais rápidas, ficamos sujeitos à duplicação de dados. O problema com esse efeito colateral é que, se por alguma ação, ocorrerem alterações aos dados de um usuário, precisaremos encontrar todas as atividades já realizadas por ele e atualizá-las. Não parece muito prático, certo?
 
-Os bancos de dados de gráfico resolvem isso do seu próprio jeito, mas nós vamos resolver isso identificando os principais atributos de um usuário mostrados em nosso aplicativo para cada atividade. Se mostramos visualmente uma postagem em nosso aplicativo e mostramos apenas o nome e a imagem do criador, por que armazenar todos os dados do usuário no atributo “createdBy”? Se, para cada comentário, mostramos apenas a imagem do usuário, realmente, não precisamos do restante de suas informações. É nesse momento que entra em cena o que chamo de “padrão de Escada”.
+Os bancos de dados de grafo resolvem isso do seu próprio jeito, mas nós vamos resolver isso identificando os principais atributos de um usuário mostrados em nosso aplicativo para cada atividade. Se mostramos visualmente uma postagem em nosso aplicativo e mostramos apenas o nome e a imagem do criador, por que armazenar todos os dados do usuário no atributo “createdBy”? Se, para cada comentário, mostramos apenas a imagem do usuário, realmente, não precisamos do restante de suas informações. É nesse momento que entra em cena o que chamo de “padrão de Escada”.
 
 Vamos usar as informações do usuário como exemplo:
 
@@ -227,6 +231,9 @@ Saiba mais sobre a modelagem de dados lendo o artigo [Modelando dados no Documen
 
 Caso contrário, saiba mais sobre o DocumentDB seguindo o [Roteiro de aprendizagem do DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

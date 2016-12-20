@@ -1,13 +1,13 @@
 ---
-title: Configurar um novo dispositivo com o AD do Azure durante a instalação | Microsoft Docs
-description: Um tópico que explica como os usuários podem configurar a Junção do Azure AD durante sua experiência de primeira execução.
+title: "Configurar um novo dispositivo com o Azure AD durante a Instalação | Microsoft Docs"
+description: "Um tópico que explica como os usuários podem configurar a Junção do Azure AD durante sua experiência de primeira execução."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,18 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 209414cf468311b8d597ec5654be832125f59683
+
 
 ---
 # <a name="set-up-a-new-device-with-azure-ad-during-setup"></a>Configurar um novo dispositivo com o AD do Azure durante a instalação
-No Windows 10, os usuários podem ingressar seus dispositivos no Azure AD (Azure Active Directory) na FRX (tela de apresentação). Isso permite que as organizações distribuam dispositivos reduzidos e encapsulados para seus funcionários ou alunos ou deixem que eles tenham uma experiência CYOD (escolha seus próprios dispositivos).
-Se o Windows 10 Professional ou Windows 10 Enterprise Edition estiver instalado em um dispositivo, a experiência usará como padrão o processo de instalação de dispositivos de propriedade da empresa.
+No Windows 10, os usuários podem ingressar seus dispositivos no Azure AD (Azure Active Directory) na FRX (tela de apresentação). Isso permite que as organizações distribuam dispositivos reduzidos e encapsulados para seus funcionários ou alunos ou deixem que eles tenham uma experiência CYOD (escolha seus próprios dispositivos).
+Se o Windows 10 Professional ou Windows 10 Enterprise Edition estiver instalado em um dispositivo, a experiência usará como padrão o processo de instalação de dispositivos de propriedade da empresa.
 
 ## <a name="to-join-a-device-to-azure-ad"></a>Para adicionar um dispositivo ao AD do Azure
 1. Ao ligar o novo dispositivo e iniciar o processo de instalação, você deverá ver a mensagem **Preparando-se** . Siga os prompts para configurar o dispositivo.
 2. Inicie personalizando a região e o idioma. Em seguida, aceite os Termos de Licença para Software Microsoft.
    ![Personalizar a região](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)
 3. Selecione a rede que deseja usar para se conectar à Internet.
-4. Selecione se está usando um dispositivo pessoal ou de propriedade da empresa. Se ele for de propriedade da empresa, clique em **Este dispositivo pertence à minha organização**. Isso inicia a experiência de junção do Azure AD. Apresentamos a seguir uma tela que será exibida se estiver usando o Windows 10 Professional.
+4. Selecione se está usando um dispositivo pessoal ou de propriedade da empresa. Se ele for de propriedade da empresa, clique em **Este dispositivo pertence à minha organização**. Isso inicia a experiência de junção do Azure AD. Apresentamos a seguir uma tela que será exibida se estiver usando o Windows 10 Professional.
    <center>
    ![Tela Quem é o proprietário deste computador?](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png)
 5. Insira as credenciais que foram fornecidas a você por sua organização.
@@ -53,6 +57,9 @@ Se o Windows 10 Professional ou Windows 10 Enterprise Edition estiver instalado 
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

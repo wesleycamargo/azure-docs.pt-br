@@ -1,26 +1,30 @@
 ---
-title: Usar o PowerShell para criar alertas para os serviços do Azure | Microsoft Docs
-description: Use o PowerShell para criar alertas do Azure, que podem disparar notificações ou automação quando as condições especificadas são atendidas.
+title: "Usar o PowerShell para criar alertas para os serviços do Azure | Microsoft Docs"
+description: "Use o PowerShell para criar alertas do Azure, que podem disparar notificações ou automação quando as condições especificadas são atendidas."
 author: rboucher
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 10/20/2016
 ms.author: robb
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db8ed8980335e2af9654bfe56b4e4c5807674040
+
 
 ---
 # <a name="use-powershell-to-create-alerts-for-azure-services"></a>Usar o PowerShell para criar alertas para os serviços do Azure
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
-> * [CLI](../azure-portal/insights-alerts-command-line-interface.md) 
+> * [CLI](insights-alerts-command-line-interface.md)
 > 
 > 
 
@@ -37,16 +41,16 @@ Você pode configurar um alerta para fazer o seguinte quando ele dispara:
 * enviar um email para o administrador de serviços e os coadministradores
 * enviar email para outros emails que você especificar.
 * chamar um webhook
-* iniciar a execução de um runbook do Azure (apenas no Portal do Azure) 
+* iniciar a execução de um runbook do Azure (apenas no Portal do Azure)
 
-Você pode configurar e obter informações sobre o uso de regras de alerta 
+Você pode configurar e obter informações sobre o uso de regras de alerta
 
 * [Portal do Azure](insights-alerts-portal.md)
-* [PowerShell](insights-alerts-powershell.md) 
-* [CLI (Interface de linha de comando)](../azure-portal/insights-alerts-command-line-interface.md) 
-* [API REST do Azure Insights](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [PowerShell](insights-alerts-powershell.md)
+* [CLI (Interface de linha de comando)](insights-alerts-command-line-interface.md)
+* [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-Para saber mais, digite ```get-help``` e depois o comando do PowerShell sobre o qual você deseja obter ajuda. 
+Para saber mais, digite ```get-help``` e depois o comando do PowerShell sobre o qual você deseja obter ajuda.
 
 ## <a name="create-alert-rules-in-powershell"></a>Criar regras de alerta no PowerShell
 1. Fazer logon no Azure.   
@@ -55,7 +59,7 @@ Para saber mais, digite ```get-help``` e depois o comando do PowerShell sobre o 
     Login-AzureRmAccount
    
     ```
-2. Obter uma lista das inscrições disponíveis. Verifique se você está trabalhando com a assinatura correta. Se não estiver, defina a correta usando a saída de `Get-AzureRmSubscription`. 
+2. Obter uma lista das inscrições disponíveis. Verifique se você está trabalhando com a assinatura correta. Se não estiver, defina a correta usando a saída de `Get-AzureRmSubscription`.
    
     ```PowerShell
     Get-AzureRmSubscription
@@ -74,7 +78,7 @@ Para saber mais, digite ```get-help``` e depois o comando do PowerShell sobre o 
      
      Uma maneira de obter a ID de recurso é usar o portal do Azure. Supondo que o recurso já foi criado, selecione-o no portal. Na próxima folha, selecione *Propriedades* na seção *Configurações*. A ID DE RECURSO é um campo na folha seguinte. Outra maneira é usar o [Azure Resource Explorer](https://resources.azure.com/).
      
-     Um exemplo de ID de recurso para um aplicativo Web é 
+     Um exemplo de ID de recurso para um aplicativo Web é
      
      ```
      /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename
@@ -86,7 +90,7 @@ Para saber mais, digite ```get-help``` e depois o comando do PowerShell sobre o 
      Get-AzureRmMetricDefinition -ResourceId <resource_id>
      ```
      
-     O exemplo a seguir gera uma tabela com o nome de métrica e a unidade dessa métrica. 
+     O exemplo a seguir gera uma tabela com o nome de métrica e a unidade dessa métrica.
      
      ```PowerShell
      Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
@@ -99,7 +103,7 @@ Para saber mais, digite ```get-help``` e depois o comando do PowerShell sobre o 
     Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
    
     ```
-6. Para criar o webhook ou enviar email quando um alerta é disparado, primeiro crie o email e/ou os webhooks. Em seguida, crie imediatamente a regra com a marca -Actions,e conforme mostra o exemplo a seguir. Você não pode associar o webhook ou emails a regras já criadas usando o PowerShell. 
+6. Para criar o webhook ou enviar email quando um alerta é disparado, primeiro crie o email e/ou os webhooks. Em seguida, crie imediatamente a regra com a marca -Actions,e conforme mostra o exemplo a seguir. Você não pode associar o webhook ou emails a regras já criadas usando o PowerShell.
 
     ```PowerShell
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
@@ -141,8 +145,11 @@ Para saber mais, digite ```get-help``` e depois o comando do PowerShell sobre o 
 * Saiba mais sobre como [configurar webhooks em alertas](insights-webhooks-alerts.md).
 * Saiba mais sobre [Runbooks da Automação do Azure](../automation/automation-starting-a-runbook.md).
 * Tenha uma [visão geral da coleta de logs de diagnóstico](monitoring-overview-of-diagnostic-logs.md) para coletar métricas detalhadas de alta frequência em seu serviço.
-* Tenha uma [visão geral da coleção de métricas](../azure-portal/insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.
+* Tenha uma [visão geral da coleção de métricas](insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

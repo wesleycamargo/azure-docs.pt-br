@@ -1,12 +1,12 @@
 ---
 title: Backup do Azure para cargas de trabalho do SQL Server usando o DPM | Microsoft Docs
-description: Uma introdução ao backup de bancos de dados do SQL Server usando o serviço do Backup do Azure
+description: "Uma introdução ao backup de bancos de dados do SQL Server usando o serviço do Backup do Azure"
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: adigan
 manager: Nkolli1
-editor: ''
-
+editor: 
+ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adigan;giridham; jimpark;markgal;trinadhk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 39dcc11dfae33fe85cfbd11dec402e23289103fc
+
 
 ---
 # <a name="azure-backup-for-sql-server-workloads-using-dpm"></a>Backup do Azure para cargas de trabalho do SQL Server usando o DPM
@@ -98,9 +102,9 @@ Antes de começar, verifique se todos os [pré-requisitos](backup-azure-dpm-intr
     Neste exemplo:
     
     * Os backups são feitos uma vez por dia às 12h e às 20h (parte inferior da tela) e são mantidos por 180 dias.
-    * O backup no sábado às 12h é mantido por 104 semanas
-    * O backup no último sábado às 12h é mantido por 60 meses
-    * O backup no último sábado de março às 12h é mantido por 10 anos
+    * O backup do sábado às 12h é retido por 104 semanas
+    * O backup do último sábado às 12h é retido por 60 meses
+    * O backup do último sábado de março às 12h é retido por 10 anos
 14. Clique em **Avançar** e selecione a opção apropriada para transferir a cópia do backup inicial para o Azure. Você pode escolher **automaticamente pela rede** ou **Backup Offline**.
     
     * **Automaticamente pela rede** transfere os dados de backup para o Azure de acordo com o agendamento escolhido para backup.
@@ -150,9 +154,12 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
    
     Após a conclusão da recuperação, o banco de dados restaurado será consistente com o aplicativo.
 
-### <a name="next-steps:"></a>Próximas etapas:
-•   [Backup do Azure - Perguntas frequentes](backup-azure-backup-faq.md)
+### <a name="next-steps"></a>Próximas etapas:
+•    [Perguntas frequentes sobre o Backup do Azure](backup-azure-backup-faq.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Criando bancos de dados de nuvem escalonáveis | Microsoft Docs
-description: Crie aplicativos de banco de dados .NET escalonáveis com a biblioteca de cliente do banco de dados elástico
+title: "Criando bancos de dados de nuvem escalonáveis | Microsoft Docs"
+description: "Crie aplicativos de banco de dados .NET escalonáveis com a biblioteca de cliente do banco de dados elástico"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 manager: jhubbard
 author: ddove
-editor: ''
-
+editor: 
+ms.assetid: 1f11c52d-13c1-4994-b9b1-5b1ae2f9255f
 ms.service: sql-database
 ms.workload: sql-database
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 41be0faae6e54a7772d97b75923647283c6a7f22
+
 
 ---
-# Criando bancos de dados de nuvem escalonáveis
+# <a name="building-scalable-cloud-databases"></a>Criando bancos de dados de nuvem escalonáveis
 A escala horizontal dos bancos de dados pode ser feita facilmente usando recursos e ferramentas escalonáveis do Banco de Dados SQL do Azure. Em particular, você pode usar a **Biblioteca de cliente do banco de dados elástico** para criar e gerenciar bancos de dados escalonados. Esse recurso permite que você desenvolva facilmente aplicativos fragmentados usando centenas — ou até mesmo milhares - de bancos de dados SQL do Azure. [Trabalhos elásticos](sql-database-elastic-jobs-powershell.md) podem ser usados para ajudar a facilitar o gerenciamento desses bancos de dados.
 
-Para instalar a biblioteca, acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+Para instalar a biblioteca, acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
-## Documentação
+## <a name="documentation"></a>Documentação
 1. [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md)
 2. [Recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md)
 3. [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md)
@@ -30,16 +34,16 @@ Para instalar a biblioteca, acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Cli
 6. [Consultas com vários fragmentos](sql-database-elastic-scale-multishard-querying.md)
 7. [Adicionando um fragmento usando ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-add-a-shard.md)
 8. [Aplicativos multilocatários com ferramentas de banco de dados elástico e segurança em nível de linha](sql-database-elastic-tools-multi-tenant-row-level-security.md)
-9. [Atualizar aplicativos de biblioteca de cliente](sql-database-elastic-scale-upgrade-client-library.md)
+9. [Atualizar aplicativos de biblioteca de cliente](sql-database-elastic-scale-upgrade-client-library.md) 
 10. [Visão geral de consultas elásticas](sql-database-elastic-query-overview.md)
 11. [Glossário de ferramentas de banco de dados elástico](sql-database-elastic-scale-glossary.md)
 12. [Biblioteca cliente do Banco de Dados Elástico com Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
 13. [Biblioteca de cliente de banco de dados elástico com Dapper](sql-database-elastic-scale-working-with-dapper.md)
 14. [Ferramenta de mesclagem/divisão](sql-database-elastic-scale-overview-split-and-merge.md)
-15. [Contadores de desempenho do gerenciador de mapa de fragmentos](sql-database-elastic-database-client-library.md)
+15. [Contadores de desempenho do gerenciador de mapa de fragmentos](sql-database-elastic-database-client-library.md) 
 16. [Perguntas frequentes sobre ferramentas de banco de dados elástico](sql-database-elastic-scale-faq.md)
 
-## Recursos do cliente
+## <a name="client-capabilities"></a>Recursos do cliente
 Escalar horizontalmente aplicativos usando a *fragmentação* apresenta desafios para o desenvolvedor e para o administrador. A biblioteca de cliente simplifica as tarefas de gerenciamento, fornecendo ferramentas que permitem que desenvolvedores e administradores gerenciam bancos de dados escalados. Em um exemplo típico, há muitos bancos de dados, conhecidos como "fragmentos", para gerenciar. Os clientes são localizados no mesmo banco de dados e há um banco de dados por cliente (um esquema de locatário único). A biblioteca de cliente inclui estes recursos:
 
 1. **Gerenciamento de mapa de fragmentos**: um banco de dados especial chamado de "gerenciador de mapa de fragmentos" é criado. O gerenciamento de mapa de fragmentos é a capacidade de um aplicativo de gerenciar metadados sobre seus fragmentos. Os desenvolvedores podem usar essa funcionalidade para registrar bancos de dados como fragmentos, descrever os mapeamentos de chaves de fragmentação individuais ou intervalos de chaves para os bancos de dados e manter esses metadados como o número e a composição de bancos de dados que evolui para refletir as alterações de capacidade. Sem a biblioteca de cliente do banco de dados elástico, você precisaria gastar muito tempo escrevendo o código de gerenciamento ao implementar a fragmentação. Para obter mais detalhes, consulte [Gerenciamento de mapa do fragmento](sql-database-elastic-scale-shard-map-management.md).
@@ -49,8 +53,8 @@ Escalar horizontalmente aplicativos usando a *fragmentação* apresenta desafios
 
 Em geral, os clientes que usam as ferramentas de banco de dados elástico podem esperar obter a funcionalidade completa do T-SQL durante o envio de operações de fragmento local em vez de operações entre fragmentos que têm suas próprias semânticas.
 
-## Próximas etapas
-Experimente o [aplicativo de exemplo](sql-database-elastic-scale-get-started.md), que demonstra as funções do cliente.
+## <a name="next-steps"></a>Próximas etapas
+Experimente o [aplicativo de exemplo](sql-database-elastic-scale-get-started.md) , que demonstra as funções do cliente. 
 
 Para instalar a biblioteca, vá para a [Biblioteca do cliente do banco de dados elástico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
@@ -60,12 +64,17 @@ Para obter instruções sobre como usar a ferramenta de mesclagem/divisão, conf
 
 Use as [Consultas elásticas](sql-database-elastic-query-overview.md).
 
-A biblioteca agora está disponível como software livre no [GitHub](https://github.com/Azure/elastic-db-tools).
+A biblioteca agora está disponível como software livre no [GitHub](https://github.com/Azure/elastic-db-tools). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
 <!--Image references-->
-[1]: ./media/sql-database-elastic-database-client-library/glossary.png
+[1]:./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

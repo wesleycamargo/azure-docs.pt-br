@@ -1,13 +1,13 @@
 ---
-title: Tópicos mais populares do Twitter com Apache Storm no HDInsight | Microsoft Docs
-description: Saiba como usar o Trident para criar uma topologia Apache Storm que determina os tópicos mais populares do Twitter com base em hashtags.
+title: "Tópicos mais populares do Twitter com Apache Storm no HDInsight | Microsoft Docs"
+description: "Saiba como usar o Trident para criar uma topologia Apache Storm que determina os tópicos mais populares do Twitter com base em hashtags."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 63b280ea-5c07-4dc8-a35f-dccf5a96ba93
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 53c18f6bb294c42456a0a4cd3c2a83812e9b13d0
+
 
 ---
-# Determine os tópicos mais populares do Twitter com o Apache Storm no HDInsight
+# <a name="determine-twitter-trending-topics-with-apache-storm-on-hdinsight"></a>Determine os tópicos mais populares do Twitter com o Apache Storm no HDInsight
 Saiba como usar o Trident para criar uma topologia Storm que determina os tópicos mais populares (hashtags) no Twitter.
 
 O Trident é uma abstração de alto nível que fornece ferramentas como junções, agregações, agrupamento, funções e filtros. Além disso, o Trident adiciona primitivos para fazer o processamento incremental com monitoração de estado. Esse exemplo demonstra como você pode criar uma topologia usando um spout personalizado, uma função e várias funções internas fornecidas pelo Trident.
@@ -27,21 +31,21 @@ O Trident é uma abstração de alto nível que fornece ferramentas como junçõ
 > 
 > 
 
-## Requisitos
+## <a name="requirements"></a>Requisitos
 * <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java e o JDK 1.7</a>
 * <a href="http://maven.apache.org/what-is-maven.html" target="_blank">Maven</a>
 * <a href="http://git-scm.com/" target="_blank">Git</a>
 * Uma conta de desenvolvedor do Twitter
 
-## Baixe o projeto
+## <a name="download-the-project"></a>Baixe o projeto
 Use o código a seguir para clonar o projeto localmente.
 
     git clone https://github.com/Blackmist/TwitterTrending
 
-## Topologia
+## <a name="topology"></a>Topologia
 A topologia para esse exemplo é o seguinte:
 
-![topologia](./media/hdinsight-storm-twitter-trending/trident.png)
+![Topologia](./media/hdinsight-storm-twitter-trending/trident.png)
 
 > [!NOTE]
 > Isso é uma visão simplificada da topologia. Várias instâncias dos componentes serão distribuídas entre os nós no cluster.
@@ -77,28 +81,28 @@ O código faz o seguinte:
 > 
 > 
 
-### O spout
+### <a name="the-spout"></a>O spout
 O spout, **TwitterSpout** usa <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> para recuperar tweets do Twitter. Um filtro é criado (amor, música e café) e os tweets de entrada (status) que correspondem ao filtro são armazenados em uma fila de bloqueio vinculada. (Para obter mais informações, consulte <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">Class LinkedBlockingQueue</a>.) Por fim, os itens são retirados da fila e emitidos na topologia.
 
-### O HashtagExtractor
+### <a name="the-hashtagextractor"></a>O HashtagExtractor
 Para extrair hashtags, <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a> é usado para recuperar todas as hashtags contidas no tweet. Eles são emitidos para o fluxo.
 
-## Habilitar Twitter
+## <a name="enable-twitter"></a>Habilitar Twitter
 Use as etapas a seguir para registrar um novo aplicativo do Twitter e obter as informações do token de acesso e do consumidor necessárias para ler do Twitter:
 
 1. Vá para <a href="https://apps.twitter.com" target="_blank">Aplicativos do Twitter</a> e clique no botão **Criar novo aplicativo**. Durante o preenchimento do formulário, deixe a **URL de retorno** vazia.
-2. Quando o aplicativo for criado, clique na guia **Chaves e Tokens de acesso**.
+2. Quando o aplicativo for criado, clique na guia **Chaves e Tokens de acesso** .
 3. Copie as informações **Chave do consumidor** e **Segredo do consumidor**.
 4. Na parte inferior da página, selecione **Criar meu token de acesso** se nenhum token existir. Assim que os tokens forem criados, copie as informações **Token de Acesso** e **Segredo do Token de Acesso**.
 5. No projeto **TwitterSpoutTopology** anteriormente clonado, abra o arquivo **resources/twitter4j.properties**, adicione as informações coletadas nas etapas anteriores e salve o arquivo.
 
-## Compilar a topologia
+## <a name="build-the-topology"></a>Compilar a topologia
 Use o seguinte código para criar o projeto:
 
         cd [directoryname]
         mvn compile
 
-## Testar a topologia
+## <a name="test-the-topology"></a>Testar a topologia
 Use o seguinte comando para testar a topologia localmente:
 
     mvn compile exec:java -Dstorm.topology=com.microsoft.example.TwitterTrendingTopology
@@ -115,7 +119,7 @@ Depois que a topologia é iniciada, você verá informações de depuração que
     DEBUG: [punk, 1]
     DEBUG: [indonesiapunkrock, 1]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora que você testou a topologia localmente, descubra como implantar essa topologia: [Implantar e gerenciar topologias Apache Storm no HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
 Você também pode estar interessado nos tópicos do Storm a seguir:
@@ -127,4 +131,9 @@ Para obter mais exemplos do Storm para HDInsight:
 
 * [Topologias de exemplo para Storm no HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

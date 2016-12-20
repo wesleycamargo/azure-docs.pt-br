@@ -5,8 +5,8 @@ documentationcenter: php
 services: app-service\web
 author: allclark
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: bac355ac-4c25-42f4-8273-c5112eafa8d4
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7bd6eddcdb20e3ea49cd29d46bb4f98d73ee9cc8
+
 
 ---
-# Baixar o SDK do Azure para PHP
-## Visão geral
+# <a name="download-the-azure-sdk-for-php"></a>Baixar o SDK do Azure para PHP
+## <a name="overview"></a>Visão geral
 O SDK do Azure para o Python inclui componentes que permitem que você desenvolva, implante e gerencie aplicativos do PHP para o Azure. O SDK do Azure para o PHP inclui especificamente o seguinte:
 
 * **As bibliotecas de cliente PHP para Azure**. Essas bibliotecas de classe fornecem uma interface para acessar recursos do Azure, como serviços de gerenciamento de dados e serviços de nuvem.  
@@ -27,20 +31,20 @@ O SDK do Azure para o Python inclui componentes que permitem que você desenvolv
 
 As seções a seguir descrevem como baixar e instalar os componentes descritos acima.
 
-As instruções deste tópico pressupõem que você tenha o [PHP][install-php] instalado.
+As instruções neste tópico pressupõem que você tenha o [PHP][install-php] instalado.
 
 > [!NOTE]
 > Você deve ter o PHP 5.5 ou superior para usar as bibliotecas de cliente PHP para Azure.
 > 
 > 
 
-## As bibliotecas de cliente PHP para Azure.
+## <a name="php-client-libraries-for-azure"></a>As bibliotecas de cliente PHP para Azure.
 As Bibliotecas de Cliente PHP para Azure fornecem uma interface para acessar recursos do Azure, como serviços de gerenciamento de dados e serviços de nuvem, de qualquer sistema operacional. Essas bibliotecas podem ser instaladas por meio do Compositor.
 
-Para obter informações sobre como usar as Bibliotecas de Cliente do PHP para Azure, consulte [Como usar o serviço Blob][blob-service], [Como usar o serviço Tabela][table-service] e [Como usar o serviço Fila][queue-service].
+Para saber mais sobre como usar as bibliotecas Cliente PHP do Azure, confira [Como usar o serviço Blob][blob-service], [Como usar o serviço de tabela][table-service] e [Como usar o serviço de fila][queue-service].
 
-### Instalar por meio do Composer
-1. [instalar o Git][install-git].
+### <a name="install-via-composer"></a>Instalar por meio do Composer
+1. [Instalar o Git][install-git].
 
     > [AZURE.NOTE] No Windows, também será necessário adicionar o Git executável à variável de ambiente PATH.
 
@@ -56,17 +60,17 @@ Para obter informações sobre como usar as Bibliotecas de Cliente do PHP para A
    
         php composer.phar install
 
-## O PowerShell do Azure e o Emuladores do Azure.
+## <a name="azure-powershell-and-azure-emulators"></a>O PowerShell do Azure e o Emuladores do Azure.
 O PowerShell do Azure é um conjunto de cmdlets do PowerShell para implantar e gerenciar serviços do Azure (como Serviços de Nuvem e Máquinas Virtuais). Os Emuladores do Azure são emuladores de serviços de nuvem e serviços de gerenciamento de dados que permitem que você teste um aplicativo localmente. Esses componentes recebem suporte apenas no Windows.
 
-A maneira recomendada de instalar os emuladores do PowerShell do Azure e do Azure é usando o [Microsoft Web Platform Installer][download-wpi]. Observe que você também pode optar por instalar outros componentes de desenvolvimento, como PHP, SQL Server, os Drivers da Microsoft do SQL Server para PHP e WebMatrix.
+A maneira recomendada de instalar o Azure PowerShell e os Emuladores do Azure é usar o [Microsoft Web Platform Installer][download-wpi]. Observe que você também pode optar por instalar outros componentes de desenvolvimento, como PHP, SQL Server, os Drivers da Microsoft do SQL Server para PHP e WebMatrix.
 
-Para obter informações sobre como usar o PowerShell do Azure, consulte [Como usar o PowerShell do Azure][powershell-tools].
+Para saber mais sobre como usar o Azure PowerShell, confira [How to Use Azure PowerShell][powershell-tools] (Como usar o Azure PowerShell).
 
-## CLI do Azure
+## <a name="azure-cli"></a>CLI do Azure
 O CLI do Azure é um conjunto de ferramentas de linha de comando para implantar e gerenciar serviços do Azure, como os Sites do Azure e Máquinas Virtuais do Azure. Para obter informações sobre como instalar a CLI do Azure, consulte [Instalar a CLI do Azure](xplat-cli-install.md).
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -84,4 +88,8 @@ Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/devel
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

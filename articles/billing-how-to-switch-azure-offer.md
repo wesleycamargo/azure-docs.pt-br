@@ -1,13 +1,13 @@
 ---
-title: Trocar a assinatura do Azure por outra oferta | Microsoft Docs
+title: Mudar a assinatura do Azure por outra oferta | Microsoft Docs
 description: Saiba mais sobre como alterar sua assinatura do Azure e mude por uma oferta diferente usando o portal de gerenciamento de assinaturas
-services: ''
-documentationcenter: ''
+services: 
+documentationcenter: 
 author: genlin
 manager: mbaldwin
-editor: ''
+editor: 
 tags: billing,top-support-issue
-
+ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2016
 ms.author: genli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c7fdfb6e915269d171f1a9fa1a397faefd8b8a99
+
 
 ---
 # <a name="switch-your-azure-subscription-to-another-offer"></a>Trocar a assinatura do Azure por outra oferta
-Como um cliente [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/), você poderá alterar sua assinatura do Azure para outra oferta no [Centro de Contas](https://account.windowsazure.com/Subscriptions). Por exemplo, você pode usar esse recurso para aproveitar os [créditos mensais para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Se você estiver em [Avaliação Gratuita](https://azure.microsoft.com/free/), saiba como [fazer upgrade para Pré-pago](billing-buy-sign-up-azure-subscription.md#upgrade-azure-free-trial-to-pay-as-you-go).
+Como um cliente [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/), você poderá alterar sua assinatura do Azure para outra oferta no [Centro de Contas](https://account.windowsazure.com/Subscriptions). Por exemplo, você pode usar esse recurso para aproveitar os [créditos mensais para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Se você estiver em [Avaliação Gratuita](https://azure.microsoft.com/free/), saiba como [fazer upgrade para Pré-pago](billing-upgrade-azure-subscription.md).
 
-#### <a name="what's-supported:"></a>O que tem suporte:
+#### <a name="whats-supported"></a>O que tem suporte:
 | Da | Para |
 | --- | --- |
 | [Pré-paga](https://azure.microsoft.com/offers/ms-azr-0003p/) |[Desenvolvimento/Teste pré-pago](https://azure.microsoft.com/offers/ms-azr-0023p/) |
@@ -44,24 +48,24 @@ Como um cliente [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/), v
 2. Selecione sua assinatura Pré-paga.
 3. Clique em **Alterar para outra oferta**. O botão só estará disponível se você estiver em Pré-pago e com o primeiro período de cobrança.
    
-   ![switchbutton](./media/billing-how-to-switch-azure-offer/switchbutton.png)
+   ![Observe o botão Alterar oferta do lado direito da página](./media/billing-how-to-switch-azure-offer/switchbutton.png)
 4. **Selecione a oferta desejada** da lista de ofertas para as quais sua assinatura pode ser alternada. Essa lista varia com base nas associações em que sua conta está associada. Se nada estiver disponível, verifique a [lista de ofertas disponíveis para as quais você pode alternar](#whats-supported) e confirme se você tem as associações corretas. 
    
-   ![selectoffer](./media/billing-how-to-switch-azure-offer/selectoffer.png)
+   ![Selecione uma oferta para a qual você deseja alternar](./media/billing-how-to-switch-azure-offer/selectoffer.png)
 5. Dependendo da oferta para qual esteja trocando, é provável que você veja uma observação sobre o impacto da troca. Examine a lista cuidadosamente e siga as instruções antes de prosseguir.
    
-   ![thingstonote](./media/billing-how-to-switch-azure-offer/thingstonote.png)
+   ![Analise as notas](./media/billing-how-to-switch-azure-offer/thingstonote.png)
 6. Você pode renomear sua assinatura. Por padrão, podemos defini-la com o nome da nova oferta. Clique em **Alterar Oferta** para concluir o processo.
    
-   ![confirmpage](./media/billing-how-to-switch-azure-offer/confirmpage.png)
+   ![Clique no botão verde](./media/billing-how-to-switch-azure-offer/confirmpage.png)
 7. Sucesso! Sua assinatura foi trocada pela nova oferta.
 
-## <a name="why-can't-i-switch-offers?"></a>Por que não é possível alternar ofertas?
+## <a name="why-cant-i-switch-offers"></a>Por que não é possível alternar ofertas?
 Talvez você não veja **Alterar para outra oferta** se:
 
 * Você não está em [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/). No momento, apenas assinaturas em Pré-pago podem ser alternadas para outra oferta.
   
-  * Se você estiver em [Avaliação Gratuita](https://azure.microsoft.com/free/), saiba como [fazer upgrade para Pré-pago](billing-buy-sign-up-azure-subscription.md#upgrade-azure-free-trial-to-pay-as-you-go).
+  * Se você estiver em [Avaliação Gratuita](https://azure.microsoft.com/free/), saiba como [fazer upgrade para Pré-pago](billing-upgrade-azure-subscription.md).
   * Para alternar a oferta de uma assinatura diferente, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * Você ainda está em seu primeiro período de cobrança. Você deve aguardar até que seu primeiro período de cobrança seja concluído antes de poder alternar as ofertas.
 
@@ -69,7 +73,7 @@ Talvez você veja **Não há ofertas disponíveis em seu país ou região no mom
 
 * Você não está qualificado para outras alterações de oferta. Consulte a [lista de ofertas disponíveis para as quais você pode alternar](#whats-supported).
 
-## <a name="what-does-switching-azure-offers-do-to-my-service-and-billing?"></a>O que a troca das ofertas do Azure oferece ao meu serviço e à cobrança?
+## <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>O que a troca das ofertas do Azure oferece ao meu serviço e à cobrança?
 Aqui estão os detalhes do que acontece quando você alterna entre os planos do Azure no Centro de Contas.
 
 ### <a name="access-to-services"></a>Acesso aos serviços
@@ -83,16 +87,19 @@ No dia da alteração, uma fatura é gerada para todos os encargos pendentes. Em
 > 
 > 
 
-## <a name="can-i-migrate-from-pay-as-you-go-to-[cloud-solution-provider](https://partner.microsoft.com/solutions/cloud-reseller-overview)-(csp)-or-[enterprise-agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)-(ea)?"></a>Posso migrar de Pré-pago para [Provedor de Soluções na Nuvem](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) ou [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
-Atualmente, não oferecemos suporte à alteração de oferta para CSP ou EA no Centro de Contas. Para mover sua assinatura existente para o EA, peça ao seu administrador de registro para adicionar sua conta ao EA. Depois disso, você receberá um email de convite. Ao seguir as instruções para aceitar o convite, as assinaturas serão automaticamente movidas para o Contrato Enterprise. Não há opções para mover uma assinatura existente para o CSP hoje.
+## <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Posso migrar de Pré-pago para [Provedor de Soluções na Nuvem](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) ou [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
+Atualmente, não oferecemos suporte à alteração de oferta para CSP ou EA no Centro de Contas. Para mover sua assinatura existente para o EA, peça ao seu administrador de registro para adicionar sua conta ao EA. Depois disso, você receberá um email de convite. Ao seguir as instruções para aceitar o convite, as assinaturas serão automaticamente movidas para o Contrato Enterprise. Para migrar para o CSP, confira [Migração de assinatura do Azure para o CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [gerenciar funções de administrador](billing-add-change-azure-subscription-administrator.md) para sua assinatura
 * Acompanhe o uso ao [baixar dados de uso e nota fiscal](billing-download-azure-invoice-daily-usage-date.md)
 
-## <a name="need-help?-contact-support."></a>Precisa de ajuda? Entre em contato com o suporte.
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Se ainda tiver mais dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

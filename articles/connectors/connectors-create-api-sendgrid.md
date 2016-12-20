@@ -1,13 +1,13 @@
 ---
 title: SendGrid | Microsoft Docs
-description: Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. O Provedor de Conexão do SendGrid permite enviar emails e gerenciar listas de destinatários.
+description: "Crie Aplicativos Lógicos com o serviço de Aplicativo do Azure. O Provedor de Conexão do SendGrid permite enviar emails e gerenciar listas de destinatários."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,24 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ad35f6590a39972ec9be7168059738b6daae0574
+
 
 ---
-# Introdução ao conector do SendGrid
+# <a name="get-started-with-the-sendgrid-connector"></a>Introdução ao conector do SendGrid
 O Provedor de Conexão do SendGrid permite enviar emails e gerenciar listas de destinatários.
 
 > [!NOTE]
-> Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos.
+> Esta versão do artigo aplica-se à versão do esquema 2015-08-01-preview de aplicativos lógicos. 
 > 
 > 
 
-É possível começar criando um Aplicativo Lógico agora; veja [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+É possível começar criando um aplicativo lógico agora; consulte [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Gatilhos e ações
-O conector do SendGrid pode ser usado como uma ação: ele tem um ou mais gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML.
+## <a name="triggers-and-actions"></a>Gatilhos e ações
+O conector do SendGrid pode ser usado como uma ação: ele tem um ou mais gatilhos. Todos os conectores dão suporte a dados nos formatos JSON e XML. 
 
  O conector SendGrid tem as ações a seguir disponíveis. Não há nenhum gatilho.
 
-### Ações do SendGrid
+### <a name="sendgrid-actions"></a>Ações do SendGrid
 Você pode executar as seguintes ações:
 
 | Ação | Descrição |
@@ -40,14 +44,14 @@ Você pode executar as seguintes ações:
 | [SendEmail](connectors-create-api-sendgrid.md#sendemail) |Envia um email usando a API do SendGrid (limitado a 10.000 destinatários) |
 | [AddRecipientToList](connectors-create-api-sendgrid.md#addrecipienttolist) |Adiciona um destinatário individual a uma lista de destinatários |
 
-## Criar uma conexão com o SendGrid
-Para criar Aplicativos Lógicos com o SendGrid, primeiro, você deve criar uma **conexão** e, em seguida, fornecer os detalhes das seguintes propriedades:
+## <a name="create-a-connection-to-sendgrid"></a>Criar uma conexão com o SendGrid
+Para criar Aplicativos lógicos com o SendGrid, primeiro você deve criar uma **conexão**, em seguida, forneça os detalhes para as seguintes propriedades: 
 
 | Propriedade | Obrigatório | Descrição |
 | --- | --- | --- |
 | ApiKey |Sim |Fornecer sua chave de API do SendGrid |
 
-> [!INCLUDE [Etapas para criar uma conexão com o SendGrid](../../includes/connectors-create-api-sendgrid.md)]
+> [!INCLUDE [Steps to create a connection to SendGrid](../../includes/connectors-create-api-sendgrid.md)]
 > 
 > [!TIP]
 > Você pode usar essa conexão em outros aplicativos lógicos.
@@ -56,19 +60,19 @@ Para criar Aplicativos Lógicos com o SendGrid, primeiro, você deve criar uma *
 
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 
-## Referência do SendGrid
+## <a name="reference-for-sendgrid"></a>Referência do SendGrid
 Aplica-se à versão: 1.0
 
-## SendEmail
-Enviar email: envia um email usando a API do SendGrid (limitado a 10.000 destinatários)
+## <a name="sendemail"></a>SendEmail
+Enviar email: envia um email usando a API do SendGrid (limitado a 10.000 destinatários) 
 
-```POST: /api/mail.send.json```
+```POST: /api/mail.send.json``` 
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
 | solicitação | |sim |corpo |nenhum |Mensagem de email a ser enviada |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
@@ -80,17 +84,17 @@ Enviar email: envia um email usando a API do SendGrid (limitado a 10.000 destina
 | 500 |Erro Interno do Servidor. Ocorreu um erro desconhecido |
 | padrão |Falha na Operação. |
 
-## AddRecipientToList
-Adicionar destinatário à lista: adiciona um destinatário individual a uma lista de destinatários
+## <a name="addrecipienttolist"></a>AddRecipientToList
+Adicionar destinatário à lista: adiciona um destinatário individual a uma lista de destinatários 
 
-```POST: /v3/contactdb/lists/{listId}/recipients/{recipientId}```
+```POST: /v3/contactdb/lists/{listId}/recipients/{recipientId}``` 
 
 | Nome | Tipo de Dados | Obrigatório | Localizado em | Valor Padrão | Descrição |
 | --- | --- | --- | --- | --- | --- |
-| listId |string |sim |path |nenhum |ID exclusiva da lista de destinatários |
-| recipientId |string |sim |path |nenhum |ID exclusiva do destinatário |
+| listId |string |Sim |path |nenhum |ID exclusiva da lista de destinatários |
+| recipientId |string |Sim |path |nenhum |ID exclusiva do destinatário |
 
-#### Resposta
+#### <a name="response"></a>Resposta
 | Nome | Descrição |
 | --- | --- |
 | 200 |OK |
@@ -99,13 +103,13 @@ Adicionar destinatário à lista: adiciona um destinatário individual a uma lis
 | 403 |Proibido |
 | 404 |Não encontrado |
 | 500 |Erro Interno do Servidor. Ocorreu um erro desconhecido |
-| padrão |Falha na Operação. |
+| padrão |Falha na operação. |
 
-## Definições de objeto
-### EmailRequest
+## <a name="object-definitions"></a>Definições de objeto
+### <a name="emailrequest"></a>EmailRequest
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
-| de |string |Sim |
+| Da |string |Sim |
 | fromname |string |Não |
 | para |string |Sim |
 | toname |string |Não |
@@ -122,37 +126,42 @@ Adicionar destinatário à lista: adiciona um destinatário individual a uma lis
 | de entrada |array |Não |
 | filenames |array |Não |
 
-### EmailResponse
+### <a name="emailresponse"></a>EmailResponse
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | message |string |Não |
 
-### RecipientLists
+### <a name="recipientlists"></a>RecipientLists
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | lists |array |Não |
 
-### RecipientList
+### <a name="recipientlist"></a>RecipientList
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | ID |inteiro |Não |
 | name |string |Não |
-| recipient\_count |inteiro |Não |
+| recipient_count |inteiro |Não |
 
-### Destinatários
+### <a name="recipients"></a>Destinatários
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | recipients |array |Não |
 
-### Destinatário
+### <a name="recipient"></a>Destinatário
 | Nome da Propriedade | Tipo de Dados | Obrigatório |
 | --- | --- | --- |
 | email |string |Não |
-| last\_name |string |Não |
-| first\_name |string |Não |
+| last_name |string |Não |
+| first_name |string |Não |
 | ID |string |Não |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,13 +1,13 @@
 ---
 title: Diretrizes de trabalhos em segundo plano | Microsoft Docs
-description: Diretrizes sobre as tarefas em segundo plano executadas independentemente da interface do usuário.
-services: ''
+description: "Diretrizes sobre as tarefas em segundo plano executadas independentemente da interface do usuário."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: f6040f8c-4cbb-4c21-a886-8d54a5868421
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 3bc7d30a8d702fd219c7fccfc241f32147c90009
+
 
 ---
 # <a name="background-jobs-guidance"></a>Diretrizes de trabalhos em segundo plano
@@ -175,7 +179,7 @@ Considere os seguintes pontos ao decidir se deseja implantar tarefas em segundo 
 
 ### <a name="more-information"></a>Mais informações
 * [Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/) no Azure
-* [Perguntas frequentes sobre Máquinas Virtuais do Azure](virtual-machines/virtual-machines-linux-classic-faq.md)
+* [Perguntas frequentes sobre Máquinas Virtuais do Azure](virtual-machines/virtual-machines-linux-classic-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="design-considerations"></a>Considerações sobre o design
 Há vários fatores fundamentais a serem consideradas durante a criação de tarefas em segundo plano. As seções a seguir discutem o particionamento, os conflitos e a coordenação.
@@ -209,7 +213,7 @@ A coordenação de várias tarefas e etapas pode ser desafiadora, mas existem tr
 * **Execução de gerenciamento das etapas de uma tarefa**. Um aplicativo pode executar tarefas que compõem uma série de etapas, algumas das quais podem invocar serviços remotos ou acessar recursos remotos. As etapas individuais podem ser independentes umas das outras, mas elas são organizadas pela lógica de aplicativo que implementa a tarefa. Para obter mais informações, consulte o [Padrão do Supervisor do Agente do Agendador](http://msdn.microsoft.com/library/dn589780.aspx).
 * **Gerenciamento de recuperação para as etapas de uma tarefa que falhou**. Um aplicativo poderá precisar desfazer o trabalho executado por uma série de etapas, que juntas definem uma operação eventualmente consistente, se uma ou mais das etapas falhar. Para obter mais informações, consulte [Padrão de transação de compensação](http://msdn.microsoft.com/library/dn589804.aspx).
 
-## <a name="lifecycle-(cloud-services)"></a>Ciclo de Vida (Serviços de Nuvem)
+## <a name="lifecycle-cloud-services"></a>Ciclo de Vida (Serviços de Nuvem)
  Se você decidir implementar trabalhos em segundo plano para aplicativos de Serviços de Nuvem que usam funções da web e de trabalho usando a classe **RoleEntryPoint** , é importante entender o ciclo de vida dessa classe para usá-la corretamente.
 
 As funções da web e de trabalho passam por um conjunto de fases distintas, como iniciar, executar e parar. A classe **RoleEntryPoint** expõe uma série de eventos que indicam quando essas fases estão ocorrendo. Use-as para inicializar, executar e interromper as tarefas personalizadas em segundo plano. O ciclo completo é:
@@ -241,7 +245,7 @@ Ao planejar como você executará tarefas em segundo plano em uma função de tr
     if (freeze != null)
     {
      if (Boolean.Parse(freeze))
-     {
+       {
          Thread.Sleep(System.Threading.Timeout.Infinite);
      }
     }
@@ -293,6 +297,9 @@ As tarefas em segundo plano devem oferecer desempenho suficiente para garantir q
 * [Filas do Azure e filas do Barramento de Serviço – comparações e contrastes](service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [Como habilitar o diagnóstico em um serviço de nuvem](cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

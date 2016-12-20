@@ -1,14 +1,14 @@
 ---
-title: Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure | Microsoft Docs
-description: Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure
+title: Implantando SAP IDES EHP7 SP3 para SAP ERP 6.0 no Microsoft Azure | Microsoft Docs
+description: "Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: hermanndms
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-keywords: ''
-
+keywords: 
+ms.assetid: 626c1523-1026-478f-bd8a-22c83b869231
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,12 +16,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 75e2508aa942067fb84d34cf00f3f9f953f1573e
+
 
 ---
-# Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure
+# <a name="deploying-sap-ides-ehp7-sp3-for-sap-erp-60-on-microsoft-azure"></a>Implantação de SAP IDES EHP7 SP3 para o SAP ERP 6.0 no Microsoft Azure
 Este artigo descreve como implantar o SAP IDES em execução com o SQL Server e o Windows OS no Microsoft Azure via SAP Cloud Appliance Library 3.0. As capturas de tela mostram o processo passo a passo. A implantação de outras soluções na lista funciona da mesma maneira de uma perspectiva de processo. Basta selecionar uma solução diferente.
 
-Para iniciar com a SAP Cloud Appliance Library (SAP CAL), acesse [aqui](https://cal.sap.com/). Há um blog do SAP sobre a nova [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+Para iniciar com a SAP Cloud Appliance Library (SAP CAL), acesse [aqui](https://cal.sap.com/). Há um blog do SAP sobre a nova [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
 As seguintes capturas de tela mostram passo a passo como implantar o SAP IDES no Microsoft Azure. O processo funciona da mesma forma para as outras soluções.
 
@@ -43,7 +47,8 @@ No novo portal do Azure, localiza-se o item "Assinaturas" no lado esquerdo. Cliq
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic7.jpg)
 
-Selecionar uma das assinaturas e escolher "Certificados de Gerenciamento" explica que existe um novo conceito usando as "entidades de serviço" para o novo modelo do Azure Resource Manager. O CAL SAP não está adaptado ainda para esse novo modelo e ainda requer o modelo "clássico" e o antigo portal do Azure para trabalhar com os certificados de gerenciamento.
+Selecionar uma das assinaturas e escolher "Certificados de Gerenciamento" explica que existe um novo conceito usando as "entidades de serviço" para o novo modelo do Azure Resource Manager.
+O CAL SAP não está adaptado ainda para esse novo modelo e ainda requer o modelo "clássico" e o antigo portal do Azure para trabalhar com os certificados de gerenciamento.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic4.jpg)
 
@@ -63,7 +68,8 @@ Depois do certificado ser carregado, a conexão entre o SAP CAL e a assinatura d
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic10.jpg)
 
-Após a configuração de uma conta, é preciso selecionar uma solução que deve ser implantada e criar uma instância. Com o modo "básico", é realmente simples. Insira um nome de instância, escolha uma região do Azure e defina a senha principal para a solução.
+Após a configuração de uma conta, é preciso selecionar uma solução que deve ser implantada e criar uma instância.
+Com o modo "básico", é realmente simples. Insira um nome de instância, escolha uma região do Azure e defina a senha principal para a solução.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic11.jpg)
 
@@ -79,10 +85,16 @@ No portal do Azure, as máquinas virtuais podem ser encontradas começando com o
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic14.jpg)
 
-Agora, é possível conectar a solução por meio do botão Conectar no portal do SAP CAL. A pequena caixa de diálogo contém um link para um guia do usuário que descreve todas as credenciais padrão para trabalhar com a solução. [Aqui](https://caldocs.hana.ondemand.com/caldocs/help/Getting_Started_Guide_IDES607MSSQL.pdf) está o link para o guia da solução IDES.
+Agora, é possível conectar a solução por meio do botão Conectar no portal do SAP CAL. A pequena caixa de diálogo contém um link para um guia do usuário que descreve todas as credenciais padrão para trabalhar com a solução.
+[Aqui](https://caldocs.hana.ondemand.com/caldocs/help/Getting_Started_Guide_IDES607MSSQL.pdf) está o link para o guia da solução IDES.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 
 Uma opção é fazer logon na VM Windows e iniciar, por exemplo, a GUI do SAP pré-configurada.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

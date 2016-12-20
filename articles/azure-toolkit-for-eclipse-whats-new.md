@@ -1,12 +1,12 @@
 ---
 title: Novidades no Kit de Ferramentas do Azure para Eclipse
 description: Saiba mais sobre os recursos mais recentes do Kit de Ferramentas do Azure para Eclipse.
-services: ''
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 16b066ea-aae7-4c30-9a12-fa0c3711b93e
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm;asirveda;martinsawicki
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2b572ac3416936b1511a9d267c30b56af714eaf3
+
 
 ---
 # <a name="whats-new-in-the-azure-toolkit-for-eclipse"></a>Novidades no Kit de Ferramentas do Azure para Eclipse
@@ -66,7 +70,7 @@ O Kit de Ferramentas do Azure para Eclipse, versão de janeiro de 2016, inclui o
 
 * **Suporte para as atualizações do Zulu OpenJDK**. Para saber mais, consulte a [página da Web do Azul Systems para o Zulu OpenJDK].
 * **Distribuições do Tomcat e Jetty atualizadas**. As distribuições do Jetty e Tomcat, disponíveis no Microsoft Azure para uso com o Kit de Ferramentas do Azure para Eclipse, foram atualizadas.
-* **Paridade de Recursos entre os Kits de Ferramentas para o Eclipse e para o IntelliJ do Azure**. O Kit de Ferramentas do Azure para o Eclipse e o [Kit de Ferramentas do Azure para o IntelliJ] agora dão suporte ao mesmo conjunto de recursos.
+* **Paridade de Recursos entre os Kits de Ferramentas para o Eclipse e para o IntelliJ do Azure**. O Kit de Ferramentas do Azure para o Eclipse e o [Kit de Ferramentas do Azure para IntelliJ] agora dão suporte ao mesmo conjunto de recursos.
 
 ### <a name="september-1-2015"></a>1º de setembro de 2015
 O Kit de Ferramentas do Azure para Eclipse, versão de setembro de 2015, inclui os seguintes aprimoramentos:
@@ -226,7 +230,7 @@ O Plug-in do Azure para Eclipse, versão de Visualização de fevereiro de 2013,
 
 * Suporte para implantação de JDKs, servidores de aplicativos e outros componentes aleatórios de downloads de armazenamento de blobs público ou privado do Azure em vez de incluí-los no pacote de implantação ao implantar na nuvem.
 * Capacidade de alterar a ordem na qual os componentes de uma função definidos pelo usuário são processados, por meio da adição de botões **Mover para cima** e **Mover para baixo** na seção **Componentes** das **Propriedades de Função do Azure**.
-* Uma atualização para o **Pacote para bibliotecas do Azure para Java** , com base na versão 0.4.0 da [API do cliente do Microsoft Azure].
+* Uma atualização para o **Pacote para bibliotecas do Azure para Java** , com base na versão 0.4.0 da [API de cliente do Microsoft Azure].
 
 ### <a name="november-5-2012"></a>5 de novembro de 2012
 O Plug-in do Azure para Eclipse, versão de Visualização de novembro de 2012, foi lançado. Esta é uma atualização importante que inclui vários recursos novos, bem como correções de bugs adicionais e aprimoramentos de uso gerados por comentários desde a versão de Visualização de setembro de 2012:
@@ -299,7 +303,7 @@ O plug-in do Azure para Eclipse, CTP de dezembro de 2011 foi lançado. Os novos 
 Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
 
 * [Kit de ferramentas do Azure para Eclipse]
-  * [Instalação do Kit de Ferramentas do Azure para o Eclipse]
+  * [Instalação do Kit de Ferramentas do Azure para Eclipse]
   * [Criar um aplicativo Web Hello World para o Azure no Eclipse]
   * *Novidades no Kit de Ferramentas do Azure para o Eclipse (Este artigo)*
 * [Kit de Ferramentas do Azure para IntelliJ]
@@ -315,7 +319,7 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
 [Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Instalação do Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Instalação do Kit de Ferramentas do Azure para Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Instalação do Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [Novidades no Kit de Ferramentas do Azure para o Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Novidades no Kit de Ferramentas do Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
@@ -334,7 +338,7 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 [Plug-in das Ferramentas do HDInsight para Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
 [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse]: http://go.microsoft.com/fwlink/?LinkID=264703
 [Como usar o descarregamento de SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Instalação do Kit de Ferramentas do Azure para o Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[Instalação do Kit de Ferramentas do Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Propriedades de armazenamento local]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 [API de cliente do Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=280397
 [Propriedades de configuração do servidor]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
@@ -358,6 +362,6 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

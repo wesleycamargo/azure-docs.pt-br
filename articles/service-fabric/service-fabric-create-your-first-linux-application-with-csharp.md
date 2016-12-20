@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9486fcb56b05b22120aef5a8373c6558b2d88d6c
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 046cc1286d894e28ed4d560c7c0b815f582e1e77
 
 
 ---
@@ -50,7 +50,7 @@ Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com um
 ## <a name="build-the-application"></a>Compilar o aplicativo
 Os modelos Yeoman do Service Fabric incluem um script de build para criar o aplicativo por meio do terminal (após navegar até a pasta do terminal).
 
-  ```bash
+  ```sh
  cd myapp 
  ./build.sh 
   ```
@@ -60,7 +60,7 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local usa
 
 1. Conectar-se ao cluster local do Service Fabric.
    
-    ```bash
+    ```sh
     azure servicefabric cluster connect
     ```
 2. Use o script de instalação fornecido no modelo para copiar o pacote de aplicativo no repositório de imagens do cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.
@@ -83,7 +83,18 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
 2. No Service Fabric Explorer, localize o nó que hospeda a réplica primária para o serviço de ator. Na captura de tela abaixo, é o nó 3.
    
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
-3. Clique no nó encontrado na etapa anterior e selecione **Desativar (Reiniciar)** no menu Ações. Esta ação reiniciará um dos cinco nós no cluster local e forçará um failover para uma das réplicas secundárias em execução em outro nó. Ao fazer isso, preste atenção à saída do cliente de teste e observe que o contador continua a aumentar apesar do failover.
+3. Clique no nó encontrado na etapa anterior e selecione **Desativar (Reiniciar)** no menu Ações. Esta ação reiniciará um nó no cluster local e forçará um failover para uma das réplicas secundárias em execução em outro nó. Ao fazer isso, preste atenção à saída do cliente de teste e observe que o contador continua a aumentar apesar do failover.
+
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>Adicionando mais serviços a um aplicativo existente
+
+Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas: 
+1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
+2. Execute o `yo azuresfcsharp:AddService`
+
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
@@ -95,6 +106,6 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

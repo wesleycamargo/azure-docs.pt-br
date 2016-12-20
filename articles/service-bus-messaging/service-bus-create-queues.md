@@ -1,19 +1,23 @@
 ---
-title: Criar aplicativos que usem as filas do Barramento de Serviço | Microsoft Docs
-description: Como gravar um aplicativo simples baseado em filas que usa o Barramento de Serviço.
-services: service-bus
+title: "Criar aplicativos que usem as filas do Barramento de Serviço | Microsoft Docs"
+description: "Como gravar um aplicativo simples baseado em filas que usa o Barramento de Serviço."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 754d91b3-1426-405e-84b4-fd36d65b114a
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2350c3e222277b6d8e837472f55a7b79346d3d21
+
 
 ---
 # <a name="create-applications-that-use-service-bus-queues"></a>Criar aplicativos que usem as filas do Barramento de Serviço
@@ -25,7 +29,7 @@ Considere um cenário do mundo de varejo no qual os dados de vendas de terminais
 
 Cada terminal de PDV reporta seus dados de vendas enviando mensagens para a **DataCollectionQueue**. Essas mensagens permanecerão nessa fila até que sejam recuperadas pelo sistema de gerenciamento de estoque. Geralmente, esse padrão é chamado de *mensagens assíncronas*, porque o terminal de PDV não precisa esperar por uma resposta do sistema de gerenciamento de estoque para continuar o processamento.
 
-## <a name="why-queuing?"></a>Por que usar filas?
+## <a name="why-queuing"></a>Por que usar filas?
 Antes de examinarmos o código que é necessário para configurar este aplicativo, considere as vantagens de usar uma fila neste cenário em vez de ter os terminais de PDV se comunicando diretamente (de forma síncrona) com o sistema de gerenciamento de estoque.
 
 ### <a name="temporal-decoupling"></a>Desacoplamento temporal
@@ -51,13 +55,13 @@ A seção a seguir mostra como usar o Barramento de Serviço para criar esse apl
 Você precisará de uma conta do Azure para começar a trabalhar com o Barramento de Serviço. Se você ainda não tiver uma assinatura, poderá se inscrever em uma conta gratuita [aqui](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="create-a-namespace"></a>Criar um namespace
-Quando tiver uma assinatura, você poderá [criar um novo namespace](../service-bus/service-bus-create-namespace-portal.md). Cada namespace age como um contêiner de escopo para um conjunto de entidades do Barramento de Serviço. Dê um nome exclusivo ao seu novo namespace em todas as contas do Barramento de Serviço. 
+Quando tiver uma assinatura, você poderá [criar um novo namespace](service-bus-create-namespace-portal.md). Cada namespace age como um contêiner de escopo para um conjunto de entidades do Barramento de Serviço. Dê um nome exclusivo ao seu novo namespace em todas as contas do Barramento de Serviço. 
 
 ### <a name="install-the-nuget-package"></a>Instalar o pacote NuGet
 Para usar o namespace do Barramento de Serviço, um aplicativo deverá fazer referência ao assembly do Barramento de Serviço, especificamente, Microsoft.ServiceBus.dll. Esse assembly pode ser encontrado como parte do SDK do Microsoft Azure e o download está disponível na [página de download do SDK do Azure](https://azure.microsoft.com/downloads/). Entretanto, o [pacote NuGet do Barramento de Serviço](https://www.nuget.org/packages/WindowsAzure.ServiceBus) é a maneira mais fácil de obter a API do Barramento de Serviço e de configurar seu aplicativo com todas as dependências do Barramento de Serviço.
 
 ### <a name="create-the-queue"></a>Criar a fila
-As operações de gerenciamento para as entidades do sistema de mensagens do Barramento de Serviço (filas e tópicos de publicação/assinatura) são executadas por meio da classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). O Barramento de Serviço usa um modelo de segurança baseado na [Assinatura de Acesso Compartilhado (SAS)](../service-bus/service-bus-sas-overview.md). A classe [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa um provedor de token de segurança com métodos de fábrica internos que retornam alguns provedores de token conhecidos. Usaremos um método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para armazenar as credenciais SAS. Assim, a instância de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) é construída com o endereço base do namespace do Barramento de Serviço e do provedor de token.
+As operações de gerenciamento para as entidades do sistema de mensagens do Barramento de Serviço (filas e tópicos de publicação/assinatura) são executadas por meio da classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). O Barramento de Serviço usa um modelo de segurança baseado na [Assinatura de Acesso Compartilhado (SAS)](service-bus-sas-overview.md). A classe [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa um provedor de token de segurança com métodos de fábrica internos que retornam alguns provedores de token conhecidos. Usaremos um método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para armazenar as credenciais SAS. Assim, a instância de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) é construída com o endereço base do namespace do Barramento de Serviço e do provedor de token.
 
 A classe [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) oferece métodos para criar, enumerar e excluir entidades do sistema de mensagens. O código exibido aqui mostra como a instância de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) é criada e usada para criar a fila **DataCollectionQueue**.
 
@@ -145,6 +149,9 @@ catch (Exception e)
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos sobre filas, confira [Criar aplicativos que usam os tópicos e as assinaturas do Barramento de Serviço](service-bus-create-topics-subscriptions.md) para continuar essa discussão usando as funcionalidades de publicação/assinatura dos tópicos e das assinaturas do Barramento de Serviço.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

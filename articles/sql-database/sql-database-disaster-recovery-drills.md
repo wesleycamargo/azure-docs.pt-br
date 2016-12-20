@@ -1,22 +1,27 @@
 ---
-title: Análises de recuperação de desastre do Banco de Dados SQL | Microsoft Docs
-description: Obtenha orientação e as práticas recomendadas para usar o Banco de Dados SQL do Azure para executar os análises de recuperação de desastres que ajudarão a manter seus aplicativos comerciais importantes resilientes a falhas e interrupções.
+title: "Análises de recuperação de desastre do Banco de Dados SQL | Microsoft Docs"
+description: "Obtenha orientação e as práticas recomendadas para usar o Banco de Dados SQL do Azure para executar os análises de recuperação de desastres que ajudarão a manter seus aplicativos comerciais importantes resilientes a falhas e interrupções."
 services: sql-database
-documentationcenter: ''
-author: mihaelablendea
+documentationcenter: 
+author: anosov1960
 manager: jhubbard
 editor: monicar
-
+ms.assetid: b44a269c-fe2a-404f-b013-290030860bd1
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/31/2016
-ms.author: mihaelab
+ms.author: sstein; sashan
+translationtype: Human Translation
+ms.sourcegitcommit: d3456b190d78560dc9380d5ecb56e0e82006e2ea
+ms.openlocfilehash: 209446ae6b1a4f951bc141d95ff481f2f5ab43b0
+
 
 ---
-# Executar análise de recuperação de desastres
+# <a name="performing-disaster-recovery-drill"></a>Executar análise de recuperação de desastres
 Recomenda-se a validação periódica da preparação do aplicativo para o fluxo de trabalho de recuperação. Consideramos uma boa prática de engenharia a verificação do comportamento do aplicativo e as implicações de perda de dados e/ou interrupção que envolvem o failover. Isso também é uma exigência da maioria dos padrões do setor, como parte da certificação de continuidade dos negócios.
 
 A execução de uma análise de recuperação de desastres é composta por:
@@ -27,37 +32,41 @@ A execução de uma análise de recuperação de desastres é composta por:
 
 Dependendo de como você [criou seu aplicativo para continuidade de negócios](sql-database-business-continuity.md), o fluxo de trabalho para executar a análise pode variar. A seguir, descrevemos as práticas recomendadas para condução de uma análise de recuperação de desastres no contexto do Banco de Dados SQL do Azure.
 
-## Restauração geográfica
+## <a name="geo-restore"></a>Restauração geográfica
 Para evitar a possível perda de dados durante a realização de uma análise de recuperação de desastres, recomendamos a execução da análise usando um ambiente de teste criando uma cópia do ambiente de produção e usando-a para verificar o fluxo de trabalho de failover do aplicativo.
 
-#### Simulação de interrupção
+#### <a name="outage-simulation"></a>Simulação de interrupção
 Para simular a interrupção, você pode excluir ou renomear o banco de dados de origem. Isso causará falha de conectividade do aplicativo.
 
-#### Recuperação
+#### <a name="recovery"></a>Recuperação
 * Execute a Restauração geográfica do banco de dados em um servidor diferente, conforme descrito [aqui](sql-database-disaster-recovery.md).
 * Altere a configuração de aplicativo para se conectar aos bancos de dados recuperados e siga o guia [Configurar um banco de dados após a recuperação](sql-database-disaster-recovery.md) para concluir a recuperação.
 
-#### Validação
+#### <a name="validation"></a>Validação
 * Conclua a análise verificando a integridade do aplicativo após a recuperação (isto é, cadeias de conexão, logons, teste de funcionalidade básica ou outras validações que fazem parte dos procedimentos de aprovações padrão do aplicativo).
 
-## Replicação Geográfica
+## <a name="geo-replication"></a>Replicação Geográfica
 Para um banco de dados protegido usando a replicação geográfica, o exercício de análise envolverá failover planejado para o banco de dados secundário. O failover planejado garante que os bancos de dados primário e secundário permaneçam em sincronia quando as funções são alternadas. Ao contrário de failover não planejado, essa operação não resultará na perda de dados, assim a análise pode ser executada no ambiente de produção.
 
-#### Simulação de interrupção
+#### <a name="outage-simulation"></a>Simulação de interrupção
 Para simular a interrupção, você pode desabilitar o aplicativo Web ou a máquina virtual conectada ao banco de dados. Isso resultará em falhas de conectividade para os clientes da web.
 
-#### Recuperação
-* Verifique se a configuração do aplicativo na região de DR aponta para o secundário anterior que se tornará o novo primário totalmente acessível.
-* Execute [failover planejado](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) para tornar o banco de dados secundário um novo primário
+#### <a name="recovery"></a>Recuperação
+* Certifique-se de que a configuração do aplicativo na região de DR aponta para o secundário anterior que se tornará o novo primário totalmente acessível.
+* Execute [failover planejado](sql-database-geo-replication-failover-powershell.md#initiate-a-planned-failover) para tornar o banco de dados secundário um novo primário
 * Siga o guia [Configurar um banco de dados após a recuperação](sql-database-disaster-recovery.md) para concluir a recuperação.
 
-#### Validação
+#### <a name="validation"></a>Validação
 * Conclua a análise verificando a integridade do aplicativo após a recuperação (isto é, cadeias de conexão, logons, teste de funcionalidade básica ou outras validações que fazem parte dos procedimentos de aprovações padrão do aplicativo).
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre cenários de continuidade dos negócios, consulte [Cenários de continuidade](sql-database-business-continuity.md)
 * Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, consulte [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md)
-* Para saber mais sobre como usar backups automatizados de recuperação, veja [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
-* Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+* Para saber mais sobre como usar backups automatizados para recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md)
+* Para saber mais sobre opções de recuperação mais rápidas, veja [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)  
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

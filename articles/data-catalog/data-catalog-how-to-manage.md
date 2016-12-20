@@ -1,13 +1,13 @@
 ---
 title: Como gerenciar ativos de dados | Microsoft Docs
-description: Artigo de instruções que destaca como controlar a visibilidade e a propriedade de ativos de dados registrados no Catálogo de Dados do Azure.
+description: "Artigo de instruções que destaca como controlar a visibilidade e a propriedade de ativos de dados registrados no Catálogo de Dados do Azure."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/04/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 49d939205c85bad8bf7422ef4d9fa02501bb8df7
+
 
 ---
 # <a name="how-to-manage-data-assets"></a>Como gerenciar ativos de dados
@@ -70,6 +74,9 @@ Os administradores do Catálogo de Dados são, implicitamente, coproprietários 
 ## <a name="summary"></a>Resumo
 O modelo de crowdsourcing do Catálogo de Dados para descoberta de ativos de dados e metadados permite que todos os usuários do Catálogo contribuam e descubram. A Edição Standard do Catálogo de Dados fornece recursos de propriedade e de gerenciamento para limitar a visibilidade e o uso de ativos de dados específicos.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Habilitar despejos de heap para serviços do Hadoop no HDInsight | Microsoft Docs
-description: Habilite despejos de heap para serviços do Hadoop por meio de clusters do HDInsight baseados em Linux para depuração e análise.
+title: "Habilitar despejos de heap para serviços do Hadoop no HDInsight | Microsoft Docs"
+description: "Habilite despejos de heap para serviços do Hadoop por meio de clusters do HDInsight baseados em Linux para depuração e análise."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
+
 
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-(preview)"></a>Habilitar despejos heap para serviços do Hadoop no HDInsight baseado em Linux (visualização)
+# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-preview"></a>Habilitar despejos heap para serviços do Hadoop no HDInsight baseado em Linux (visualização)
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 Despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os valores das variáveis no momento em que o despejo foi criado. Portanto, eles são muito úteis para diagnosticar problemas que ocorrem no tempo de execução.
@@ -27,7 +31,7 @@ Despejos de heap contêm um instantâneo da memória do aplicativo, incluindo os
 > 
 > 
 
-## <a name="<a-name="whichservices"></a>services"></a><a name="whichServices"></a>Serviços
+## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Serviços
 Você pode habilitar o despejo de heap para os seguintes serviços:
 
 * **hcatalog** - tempelton
@@ -38,7 +42,7 @@ Você pode habilitar o despejo de heap para os seguintes serviços:
 
 Você também pode habilitar despejos de heap para os processos de mapeamento e redução executados pelo HDInsight.
 
-## <a name="<a-name="configuration"></a>understanding-heap-dump-configuration"></a><a name="configuration"></a>Compreendendo a configuração do despejo de heap
+## <a name="a-nameconfigurationaunderstanding-heap-dump-configuration"></a><a name="configuration"></a>Compreendendo a configuração do despejo de heap
 Despejos de heap são habilitados transmitindo opções (às vezes conhecidas como opts, ou parâmetros) para a JVM quando um serviço é iniciado. Para a maioria dos serviços do Hadoop, isso pode ser feito modificando o script de shell usado para iniciar o serviço.
 
 Em cada script, há uma exportação para **\*\_OPTS**, que contém as opções passadas para a JVM. Por exemplo, no script **hadoop-env.sh**, a linha que começa com `export HADOOP_NAMENODE_OPTS=` contém as opções para o serviço NameNode.
@@ -127,6 +131,9 @@ Para modificar a configuração de um serviço, use as seguintes etapas:
    > 
 8. Após os serviços serem reiniciados, use o botão **Ações de Serviço** para **Desativar o Modo de Manutenção**. Use este Ambari para retomar o monitoramento dos alertas do serviço.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

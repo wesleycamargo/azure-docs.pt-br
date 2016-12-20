@@ -1,12 +1,12 @@
 ---
-title: Upload large amounts of data into Data Lake Store using offline methods| Microsoft Docs
-description: Use AdlCopy tool to copy data from Azure Storage Blobs to Data Lake Store
+title: "Carregar grandes quantidades de dados no Data Lake Store usando métodos offline | Microsoft Docs"
+description: Usar a ferramenta AdlCopy para copiar dados dos Azure Storage Blobs para o Data Lake Store
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 45321f6a-179f-4ee4-b8aa-efa7745b8eb6
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
@@ -14,26 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/07/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2969f307a6f0f52fc732d4e3360cfeda7784c5cf
+
 
 ---
-# <a name="use-azure-import-export-service-for-offline-copy-of-data-to-data-lake-store"></a>Use Azure Import-Export Service for offline copy of data to Data Lake Store
-In this article, you will learn about how to copy huge datasets (>200GB) into an Azure Data Lake Store using offline copy methods, like [Azure Import/Export Service](../storage/storage-import-export-service.md). Specifically, The file used as an example in this article is 339,420,860,416 bytes i.e. about 319GB on disk. Let's call this file 319GB.tsv.
+# <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Usar o Serviço de Importação/Exportação do Azure para uma cópia offline dos dados para o Data Lake Store
+Nesse artigo, você aprenderá a copiar grandes conjuntos de dados (> 200 GB) para um Azure Data Lake Store usando métodos de cópia offline, como o [Serviço de Importação/Exportação do Azure](../storage/storage-import-export-service.md). Especificamente, o arquivo usado como exemplo nesse artigo tem 339.420.860.416 bytes, ou aproximadamente 319 GB em disco. Vamos chamar esse arquivo de 319GB.tsv.
 
-Azure Import/Export Service allows you to securely transfer large amounts of data to Azure blob storage by shipping hard disk drives to an Azure data center.
+O Serviço de Importação/Exportação do Azure ajuda você a transferir com segurança grandes quantidades de dados para o Armazenamento de Blobs do Azure por meio do envio de unidades de disco rígido para um data center do Azure.
 
-## <a name="prerequisites"></a>Prerequisites
-Before you begin this article, you must have the following:
+## <a name="prerequisites"></a>Pré-requisitos
+Antes de começar, você deverá ter o seguinte:
 
-* **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure Storage account**.
-* **Azure Data Lake Analytics account (optional)** - See [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) for instructions on how to create a Data Lake Store account.
+* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma conta de armazenamento do Azure**.
+* **Uma conta do Azure Data Lake Analytics (opcional)**. Para obter instruções sobre como criar essa conta, confira [Introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
-## <a name="preparing-the-data"></a>Preparing the data
-Before using the Import/Export Service, we must break the data file to be transferred **into copies that are less than 200GB** in size. This is because the import tool does not work with files greater than 200GB. To comply with this, in this tutorial we split the file into chunks of 100,000,000,000 bytes each. You can do this easily using [Cygwin](https://cygwin.com/install.html). Cygwin supports Linux command which allows the users to do this easily. For our case, we use the following command.
+## <a name="preparing-the-data"></a>Preparando os dados
+Antes de usar o serviço de Importação/Exportação, divida o arquivo de dados a ser transferido **em cópias de menos de 200 GB** de tamanho. A ferramenta de importação não funciona em arquivos com mais de 200 GB. Nesse tutorial, vamos dividir o arquivo em blocos de 100 GB. Você pode fazer isso usando o [Cygwin](https://cygwin.com/install.html). O Cygwin dá suporte a comandos do Linux. Nesse caso, use o seguinte comando:
 
     split -b 100m 319GB.tsv
 
-The Split operation creates files with the names below.
+A operação de divisão cria arquivos com os nomes a seguir.
 
     319GB.tsv-part-aa
 
@@ -43,31 +47,31 @@ The Split operation creates files with the names below.
 
     319GB.tsv-part-ad
 
-## <a name="get-disks-ready-with-data"></a>Get disks ready with data
-Follow the instructions at [Using Azure Import/Export Service](../storage/storage-import-export-service.md) (under the **Prepare your drives** section) to prepare your hard drives. Here's the overall flow on how to prepare the drive.
+## <a name="get-disks-ready-with-data"></a>Prepare os discos com dados
+Siga as instruções em [Usando o serviço de Importação/Exportação do Azure](../storage/storage-import-export-service.md) (na seção **Preparar suas unidades**) para preparar seus discos rígidos. Aqui está a sequência geral:
 
-1. Procure a hard disk that meets the requirement to be used for Auzre Import/Export Service.
-2. Identify an Azure Storage account where the data will be copied once it si shipped to the Azure data center.
-3. Use the [Azure Import/Export Tool](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), a command line utility. Here's a sample snippet on how to use the tool.
+1. Compre um disco rígido que atenda ao requisito para ser usado no serviço de Importação/Exportação do Azure.
+2. Identifique uma conta de armazenamento do Azure na qual os dados serão copiados depois que forem enviados para o data center do Azure.
+3. Use a [Ferramenta de Importação/Exportação do Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), um utilitário de linha de comando. Aqui está um trecho de código que mostra como usar a ferramenta.
    
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
-    See [Using Azure Import/Export Service](../storage/storage-import-export-service.md) for more sample snippets on how to use the **Azure Import/Export Tool**.
-4. The above command creates a journal file at the specified location. You will use this journal file to create an import job from the [Azure Classic Portal](https://manage.windowsazure.com).
+    Confira [Using the Azure Import/Export service](../storage/storage-import-export-service.md) (Usando o serviço de Importação/Exportação do Azure) para obter mais trechos de código de exemplo.
+4. O comando anterior cria um arquivo de diário no local especificado. Use esse arquivo de diário para criar um trabalho de importação do [Portal Clássico do Azure](https://manage.windowsazure.com).
 
-## <a name="create-an-import-job"></a>Create an import job
-You can now create an import job using the instructions at [Using Azure Import/Export Service](../storage/storage-import-export-service.md) (under the **Create the Import job** section). For this import job, with other details, also provide the journal file created while preparing the disk drives.
+## <a name="create-an-import-job"></a>Criar um trabalho de importação
+Agora, você pode criar um trabalho de importação usando as instruções em [Using the Azure Import/Export service](../storage/storage-import-export-service.md) (Usando o serviço de Importação/Exportação do Azure) (na seção **Criar o trabalho de importação**). Para este trabalho de importação, com outros detalhes, também fornece o arquivo de diário criado durante a preparação de unidades de disco.
 
-## <a name="physically-ship-the-disks"></a>Physically ship the disks
-You can now physically ship the disks to an Azure data center where the data is copied over to the Azure Storage Blobs you provided while creating the import job. Also, while creating the job, if you opted to provide the tracking information later, you can now go back to your import job and updated the tracking number.
+## <a name="physically-ship-the-disks"></a>Enviar fisicamente os discos
+Agora, você pode enviar fisicamente os discos para um datacenter do Azure. Lá, os dados são copiados nos Azure Storage Blobs que você forneceu ao criar o trabalho de importação. Além disso, ao criar o trabalho, se tiver optado por fornecer as informações de acompanhamento posteriormente, agora você poderá voltar ao trabalho de importação e atualizar o número de controle.
 
-## <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-store"></a>Copy data from Azure Storage Blobs to Azure Data Lake Store
-Once the status of the import job shows completed, you can verify whether the data is available in the Azure Storage Blobs you had specified. You can then use a variety of methods to move that data from the Azure Storage Blobs to Azure Data Lake Store. For all the available options for uploading data, see [Ingesting data into Data Lake Store](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store).
+## <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-store"></a>Copiar dados dos Azure Storage Blobs para o Azure Data Lake Store
+Depois que o status do trabalho de importação tiver sido concluído, você poderá verificar se os dados estão disponíveis nos Azure Storage Blobs especificados. Em seguida, você poderá usar uma variedade de métodos para mover esses dados dos blobs para o Azure Data Lake Store. Para todas as opções disponíveis para carregamento de dados, consulte [Ingerindo dados no Data Lake Store](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store).
 
-In this section, we provide you with the JSON definitions that you can use to create an Azure Data Factory pipeline for copying data. You can use these JSON definitions from the [Azure portal](../data-factory/data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](../data-factory/data-factory-copy-activity-tutorial-using-powershell.md).
+Nesta seção, fornecemos as definições de JSON que você pode usar para criar um pipeline do Azure Data Factory para copiar dados. Você pode usar essas definições de JSON do [Portal do Azure](../data-factory/data-factory-copy-activity-tutorial-using-azure-portal.md), do [Visual Studio](../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md) ou do [Azure PowerShell](../data-factory/data-factory-copy-activity-tutorial-using-powershell.md).
 
-### <a name="source-linked-service-(azure-storage-blob)"></a>Source Linked Service (Azure Storage Blob)
+### <a name="source-linked-service-azure-storage-blob"></a>Serviço vinculado de origem (Azure Storage Blob)
 ````
 {
     "name": "AzureStorageLinkedService",
@@ -81,7 +85,7 @@ In this section, we provide you with the JSON definitions that you can use to cr
 }
 ````
 
-### <a name="target-linked-service-(azure-data-lake-store)"></a>Target Linked Service (Azure Data Lake Store)
+### <a name="target-linked-service-azure-data-lake-store"></a>Serviço vinculado de destino (Azure Data Lake Store)
 ````
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -96,7 +100,7 @@ In this section, we provide you with the JSON definitions that you can use to cr
     }
 }
 ````
-### <a name="input-data-set"></a>Input Data Set
+### <a name="input-data-set"></a>Conjunto de dados de entrada
 ````
 {
     "name": "InputDataSet",
@@ -116,7 +120,7 @@ In this section, we provide you with the JSON definitions that you can use to cr
     }
 }
 ````
-### <a name="output-data-set"></a>Output Data Set
+### <a name="output-data-set"></a>Conjunto de dados de saída
 ````
 {
 "name": "OutputDataSet",
@@ -134,7 +138,7 @@ In this section, we provide you with the JSON definitions that you can use to cr
   }
 }
 ````
-### <a name="pipeline-(copy-activity)"></a>Pipeline (copy activity)
+### <a name="pipeline-copy-activity"></a>Pipeline (atividade de cópia)
 ````
 {
     "name": "CopyImportedData",
@@ -183,10 +187,10 @@ In this section, we provide you with the JSON definitions that you can use to cr
     }
 }
 ````
-For more information on how to use Azure Data Factory to move data from Azure Storage Blob and Azure Data Lake Store, see [Move data from Azure Storage Blob to Azure Data Lake Store using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store).
+Para obter mais informações, confira [Move data from Azure Storage blob to Azure Data Lake Store using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) (Mover dados do Azure Storage Blob para o Azure Data Lake Store usando o Azure Data Factory).
 
-## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Reconstruct the data files in Azure Data Lake Store
-We started with a file that was 319GB in size and broke it down into files of smaller size so that it can be transferred using the Azure Import/Export Service. Now that the data is in Azure Data Lake Store, we can reconstrcut the file to its original size. You can use the following Azure PowerShell cmldts to do so.
+## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Reconstruir os arquivos de dados no Azure Data Lake Store
+Começamos com um arquivo que tinha 319 GB e o dividimos em arquivos de tamanho menor, para que eles pudessem ser transferidos usando o serviço de Importação/Exportação do Azure. Agora que os dados estão no Azure Data Lake Store, podemos reconstruir o arquivo para o seu tamanho original. Você pode usar os seguintes cmdlets do Azure PowerShell para fazer isso.
 
 ````
 # Login to our account
@@ -203,11 +207,14 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv”
 ````
 
-## <a name="next-steps"></a>Next steps
-* [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-* [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+## <a name="next-steps"></a>Próximas etapas
+* [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
+* [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

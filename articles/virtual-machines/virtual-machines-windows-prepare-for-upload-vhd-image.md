@@ -1,13 +1,13 @@
 ---
-title: Preparar um VHD do Windows para upload no Azure | Microsoft Docs
-description: Práticas recomendadas para preparar um VHD do Windows antes de carregá-lo no Azure
+title: Preparar um VHD do Windows para carregar no Azure | Microsoft Docs
+description: "Práticas recomendadas para preparar um VHD do Windows antes de carregá-lo no Azure"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: genlin
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2016
 ms.author: glimoli;genli
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 98aa7935322c873a9de6414090daab2e04ea19fe
+
 
 ---
 # <a name="prepare-a-windows-vhd-to-upload-to-azure"></a>Preparar um VHD do Windows para upload no Azure
@@ -265,8 +269,8 @@ Se você tiver uma imagem da VM Windows no [formato de arquivo VMDK](https://en.
    * [KB2904100](https://support.microsoft.com/kb/2904100) O sistema congela durante a E/S do disco no Windows <a id="step23"></a>
 2. Se quiser criar uma imagem para implantar várias máquinas dela, você precisará generalizar a imagem executando `sysprep` antes de carregar o VHD no Azure. Você não precisa executar `sysprep` para usar um VHD especializado. Para obter mais informações sobre como criar uma imagem generalizada, consulte os seguintes artigos:
    
-   * [Create a VM image from an existing Azure VM using the Resource Manager deployment model (Criar uma imagem de VM de uma VM do Azure existente usando o modelo de implantação do Gerenciador de Recursos)](virtual-machines-windows-capture-image.md)
-   * [Create a VM image from an existing Azure VM using the Classic deployment modem (Criar uma imagem de VM de uma VM do Azure existente usando o modelo de implantação clássico)](virtual-machines-windows-classic-capture-image.md)
+   * [Create a VM image from an existing Azure VM using the Resource Manager deployment model (Criar uma imagem de VM de uma VM do Azure existente usando o modelo de implantação do Gerenciador de Recursos)](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Create a VM image from an existing Azure VM using the Classic deployment modem (Criar uma imagem de VM de uma VM do Azure existente usando o modelo de implantação clássico)](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
    * [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 ## <a name="suggested-extra-configurations"></a>Configurações adicionais sugeridas
@@ -293,8 +297,11 @@ As seguintes configurações não afetam o carregamento do VHD. No entanto, é a
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Carregar uma imagem de VM Windows no Azure para implantações do Resource Manager](virtual-machines-windows-upload-image.md)
+* [Carregar uma imagem de VM Windows no Azure para implantações do Resource Manager](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Rede acelerada para uma máquina virtual – PowerShell | Microsoft Docs
-description: Saiba como configurar a Rede Acelerada para uma máquina virtual do Azure usando PowerShell.
+title: "Rede acelerada para uma máquina virtual – PowerShell | Microsoft Docs"
+description: "Saiba como configurar a Rede Acelerada para uma máquina virtual do Azure usando PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a0b63599-c23b-40b5-a8ab-23af8b07dded
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 8ae59a99a8397676160c032b744460c0b2bcc1d7
+
 
 ---
 # <a name="accelerated-networking-for-a-virtual-machine"></a>Rede acelerada para uma máquina virtual
@@ -50,7 +54,7 @@ Existem as seguintes limitações ao usar essa funcionalidade:
 * **Criação da VM:** um adaptador de rede com rede acelerada habilitada somente poderá ser conectado a uma VM quando a VM for criada. O adaptador de rede não pode ser conectado a uma VM existente.
 * **Regiões:** oferecida apenas nas regiões do Azure do Centro-Oeste dos EUA e da Europa Ocidental. O conjunto de regiões será expandido no futuro.
 * **Sistema de operacional com suporte:** Microsoft Windows Server 2012 R2 e Windows Server 2016 Technical Preview 5. Suporte a Linux e Windows Server 2012 será adicionado em breve.
-* **Tamanho da VM:** Standard_D15_v2 e Standard_DS15_v2 são os únicos tamanhos de instância de VM com suporte. Para obter mais informações, consulte o artigo [Tamanhos das máquinas virtuais no Azure](../virtual-machines/virtual-machines-windows-sizes.md) . O conjunto de tamanhos de instância VM com suporte será expandido no futuro.
+* **Tamanho da VM:** Standard_D15_v2 e Standard_DS15_v2 são os únicos tamanhos de instância de VM com suporte. Para obter mais informações, consulte o artigo [Tamanhos das máquinas virtuais no Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . O conjunto de tamanhos de instância VM com suporte será expandido no futuro.
 
 Alterações feitas nessas limitações serão anunciadas na página [Atualizações de rede virtual do Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview).
 
@@ -111,7 +115,7 @@ Alterações feitas nessas limitações serão anunciadas na página [Atualizaç
 10. Se você tiver optado por não adicionar um recurso de endereço IP público à interface, remova *-PublicIPAddress $PIP1* no final do comando que se segue. Crie o adaptador de rede com rede acelerada digitando o seguinte comando:
     
         $nic = New-AzureRmNetworkInterface -Location $locName -Name $NICName -ResourceGroupName $rgName -Subnet $Subnet -EnableAcceleratedNetworking -PublicIpAddress $PIP1 
-11. Atribua o adaptador de rede a uma máquina virtual ao criar a VM seguindo as instruções nas etapas 3 e 6 do artigo [Create a VM](../virtual-machines/virtual-machines-windows-ps-create.md) (Criar uma VM). Na etapa 6-2, substitua *Standard_A1* por um dos tamanhos de VM listados na seção [Limitações](#limitations) desse artigo.
+11. Atribua o adaptador de rede a uma máquina virtual ao criar a VM seguindo as instruções nas etapas 3 e 6 do artigo [Create a VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Criar uma VM). Na etapa 6-2, substitua *Standard_A1* por um dos tamanhos de VM listados na seção [Limitações](#limitations) desse artigo.
     
     > [!NOTE]
     > Se você tiver alterado o *nome* das variáveis $locName, $rgName ou $nic nesse artigo, a etapa 6 no artigo Create a VM (Criar uma VM) falhará. No entanto, você pode alterar os *valores* das variáveis.
@@ -122,6 +126,9 @@ Alterações feitas nessas limitações serão anunciadas na página [Atualizaç
     
     ![Gerenciador de Dispositivos](./media/virtual-network-accelerated-networking-powershell/image2.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

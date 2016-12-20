@@ -1,12 +1,12 @@
 ---
-title: Como adicionar unidades de codificação
-description: Saiba como adicionar unidades de codificação com o .NET
+title: "Como adicionar unidades de codificação"
+description: "Saiba como adicionar unidades de codificação com o .NET"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2016
 ms.author: juliako;milangada;gtrifonov
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3dc67791d7bfd7221ad484e967b5e9bf49ed8c02
+
 
 ---
-# Como dimensionar a codificação com o SDK do .NET
+# <a name="how-to-scale-encoding-with-net-sdk"></a>Como dimensionar a codificação com o SDK do .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)
@@ -26,7 +30,7 @@ ms.author: juliako;milangada;gtrifonov
 > 
 > 
 
-## Visão geral
+## <a name="overview"></a>Visão geral
 > [!IMPORTANT]
 > Lembre-se de examinar o tópico [Visão geral](media-services-scale-media-processing-overview.md) para obter mais informações sobre o tópico de dimensionamento de processamento de mídia.
 > 
@@ -44,10 +48,10 @@ Para alterar o tipo de unidade reservada e o número de unidades reservadas para
 
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
-## Abrindo um tíquete de suporte
+## <a name="opening-a-support-ticket"></a>Abrindo um tíquete de suporte
 Por padrão, todas as contas dos Serviços de Mídia podem ser dimensionadas para até 25 Unidades Reservadas para Codificação e cinco para Streaming por Demanda. Você pode solicitar um limite mais alto abrindo um tíquete de suporte.
 
-### Abra um tíquete de suporte
+### <a name="open-a-support-ticket"></a>Abra um tíquete de suporte
 Para abrir um tíquete de suporte, faça o seguinte:
 
 1. Clique em [Obter suporte](https://manage.windowsazure.com/?getsupport=true). Se você não estiver conectado, você será solicitado a inserir suas credenciais.
@@ -60,10 +64,15 @@ Para abrir um tíquete de suporte, faça o seguinte:
 8. Siga as instruções na próxima página e, em seguida, insira os detalhes sobre o problema.
 9. Clique em Enviar para abrir o tíquete.
 
-## Roteiros de aprendizagem dos Serviços de Mídia
+## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Fornecer comentários
+## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

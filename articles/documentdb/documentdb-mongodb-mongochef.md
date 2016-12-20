@@ -1,13 +1,13 @@
 ---
-title: Usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB | Microsoft Docs
-description: Saiba como usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB, agora disponível para a versão de visualização.
+title: Usar o MongoChef com uma conta do DocumentDB com suporte de protocolo para o MongoDB | Microsoft Docs
+description: "Saiba como usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB, agora disponível para a versão de visualização."
 keywords: MongoChef
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 90039d2626724ed789415967a345d2aadc3407af
+
 
 ---
 # <a name="use-mongochef-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>Usar o MongoChef com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
@@ -45,7 +49,7 @@ Para adicionar a conta do Banco de Dados de Documentos com suporte de protocolo 
    
     ![Captura de tela da janela testar conectividade do MongoChef](./media/documentdb-mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-to-create-a-database,-collection,-and-documents"></a>Usar o MongoChef para criar um banco de dados, uma coleção e documentos
+## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>Usar o MongoChef para criar um banco de dados, uma coleção e documentos
 Para criar um banco de dados, uma coleção e documentos usando o MongoChef, execute as etapas a seguir.
 
 1. No **Gerenciador de Conexões**, realce a conexão e clique em **Conectar**.
@@ -66,14 +70,14 @@ Para criar um banco de dados, uma coleção e documentos usando o MongoChef, exe
         "_id": "AndersenFamily",
         "lastName": "Andersen",
         "parents": [
-            { "firstName": "Thomas" },
-            { "firstName": "Mary Kay"}
+               { "firstName": "Thomas" },
+               { "firstName": "Mary Kay"}
         ],
         "children": [
-        {
-            "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-            "pets": [{ "givenName": "Fluffy" }]
-        }
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
         ],
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
@@ -89,7 +93,7 @@ Para criar um banco de dados, uma coleção e documentos usando o MongoChef, exe
         "children": [
             {
                 "familyName": "Merriam", 
-                "givenName": "Jesse", 
+                 "givenName": "Jesse", 
                 "gender": "female", "grade": 1,
                 "pets": [
                     { "givenName": "Goofy" },
@@ -98,9 +102,9 @@ Para criar um banco de dados, uma coleção e documentos usando o MongoChef, exe
             },
             { 
                 "familyName": "Miller", 
-                "givenName": "Lisa", 
-                "gender": "female", 
-                "grade": 8 }
+                 "givenName": "Lisa", 
+                 "gender": "female", 
+                 "grade": 8 }
         ],
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
@@ -112,6 +116,9 @@ Para criar um banco de dados, uma coleção e documentos usando o MongoChef, exe
 ## <a name="next-steps"></a>Próximas etapas
 * Explore [amostras](documentdb-mongodb-samples.md)do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

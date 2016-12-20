@@ -1,22 +1,26 @@
 ---
-title: Explorar dados na Máquina Virtual do SQL Server no Azure | Microsoft Docs
+title: "Explorar dados na Máquina Virtual do SQL Server no Azure | Microsoft Docs"
 description: Como explorar os dados armazenados em uma VM do SQL Server no Azure.
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ccbb3085-af9e-4ec2-9df2-15dcab261d05
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/09/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1654c100c1c57b04a61cf2b9d2cf37d58cec1870
+
 
 ---
-# Explorar dados na Máquina Virtual do SQL Server no Azure
+# <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Explorar dados na Máquina Virtual do SQL Server no Azure
 Este documento aborda como explorar os dados armazenados em uma VM do SQL Server no Azure. Isso pode ser feito por disputa de dados usando SQL ou usando uma linguagem de programação como Python.
 
 Os links do **menu** a seguir levam a tópicos que descrevem como usar as ferramentas para explorar dados de vários ambientes de armazenamento. Esta tarefa é uma etapa no Processo de Análise da Cortana (CAP).
@@ -28,19 +32,19 @@ Os links do **menu** a seguir levam a tópicos que descrevem como usar as ferram
 > 
 > 
 
-## <a name="sql-dataexploration"></a>Explorar dados de SQL com scripts SQL
+## <a name="a-namesql-dataexplorationaexplore-sql-data-with-sql-scripts"></a><a name="sql-dataexploration"></a>Explorar dados de SQL com scripts SQL
 Aqui estão alguns scripts de SQL de exemplo que podem ser usados para explorar armazenamentos de dados no SQL Server.
 
 1. Obter a contagem de observações por dia
    
-    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)`
+    `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
 2. Obter os níveis em uma coluna categórica
    
     `select  distinct <column_name> from <databasename>`
-3. Obter o número de níveis na combinação de duas colunas categóricas
+3. Obter o número de níveis na combinação de duas colunas categóricas 
    
     `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
-4. Obter a distribuição de colunas numéricas
+4. Obter a distribuição de colunas numéricas 
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 
@@ -49,7 +53,7 @@ Aqui estão alguns scripts de SQL de exemplo que podem ser usados para explorar 
 > 
 > 
 
-## <a name="python"></a>Explorar dados de SQL com o Python
+## <a name="a-namepythonaexplore-sql-data-with-python"></a><a name="python"></a>Explorar dados de SQL com o Python
 Usar o Python para explorar dados e gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados no blob do Azure usando o Python conforme documentado em [Processar dados de Blobs do Azure em seu ambiente de ciência de dados](machine-learning-data-science-process-data-blob.md). Os dados precisam ser carregados do banco de dados para um DataFrame pandas, quando então poderão ser processados. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um DataFrame nesta seção.
 
 O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados do SQL Server do Python usando pyodbc (substitua servername, dbname, username e password pelos seus valores específicos):
@@ -65,7 +69,12 @@ A [Biblioteca Pandas](http://pandas.pydata.org/) no Python fornece um conjunto a
 
 Agora, você pode trabalhar com o DataFrame Pandas, como abordamos no tópico [Processar dados do Blob do Azure em seu ambiente de ciência de dados](machine-learning-data-science-process-data-blob.md).
 
-## Processo de Análise do Cortana no exemplo de ação
+## <a name="cortana-analytics-process-in-action-example"></a>Processo de Análise do Cortana no exemplo de ação
 Para obter um exemplo passo a passo completo do Processo do Cortana Analytics usando um conjunto de dados público, confira [O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

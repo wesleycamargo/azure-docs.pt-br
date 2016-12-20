@@ -9,7 +9,7 @@
 # Introdução
 ## [Preparar para a implantação](site-recovery-best-practices.md)
 
-# Como:
+# Como
 ## Plano
 ### [Planejamento da capacidade](site-recovery-capacity-planner.md)
 ### [Resultados de teste de desempenho e escala](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
@@ -49,8 +49,9 @@
 ## [Monitorar e solucionar problemas](site-recovery-monitoring-and-troubleshooting.md)
 
 # Referência
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Implantação clássica do PowerShell](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [Implantação clássica do PowerShell](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Relacionados
 ## [Automação do Azure](/azure/automation/)
@@ -63,6 +64,6 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

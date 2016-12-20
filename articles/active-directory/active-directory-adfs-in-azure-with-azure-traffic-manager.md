@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
+ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
 
 
 ---
-# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Implantação do AD FS de alta disponibilidade entre fronteiras geográficas no Azure com o Gerenciador de Tráfego do Azure
+# <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Implantação do AD FS de alta disponibilidade entre fronteiras geográficas no Azure com o Gerenciador de Tráfego do Azure
 [implantação do AD FS no Azure](active-directory-aadconnect-azure-adfs.md) fornece orientação passo a passo sobre como você pode implantar uma infraestrutura do AD FS simples para sua organização no Azure. Este artigo fornece as etapas a seguir para criar uma implantação entre fronteiras geográficas do AD FS no Azure usando o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md). O Gerenciador de Tráfego do Azure ajuda a criar uma infraestrutura do AD FS de alto desempenho e alta disponibilidade entre fronteiras geográficas para sua organização, fazendo uso da gama de métodos de roteamento disponíveis para atender às diferentes necessidades da infraestrutura.
 
 Uma infraestrutura altamente disponível do AD FS entre fronteiras geográficas habilita o seguinte:
@@ -76,7 +76,7 @@ Siga as etapas abaixo para criar um perfil do gerenciador de tráfego. Para obte
    
    **Tipo de recurso de destino:** selecione Endereço IP público como o valor para essa propriedade. 
    
-   **Recurso de destino:** isso lhe dará a opção de escolher dentre os diferentes rótulos de DNS disponíveis em sua assinatura. Escolha o rótulo de DNS.
+   **Recurso de destino:** isso lhe dará a opção de escolher dentre os diferentes rótulos de DNS disponíveis em sua assinatura. Escolha o rótulo DNS correspondente ao ponto de extremidade que você está configurando.
    
    Adicione o ponto de extremidade para cada região geográfica para a qual você deseja que o Gerenciador de Tráfego do Azure encaminhe o tráfego.
    Para obter mais informações e etapas detalhadas sobre como adicionar/configurar pontos de extremidade no gerenciador de tráfego, veja [Adicionar, desabilitar, habilitar ou excluir pontos de extremidade](../traffic-manager/traffic-manager-endpoints.md)
@@ -94,13 +94,13 @@ Siga as etapas abaixo para criar um perfil do gerenciador de tráfego. Para obte
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## <a name="test-the-routing-and-ad-fs-signin"></a>Testar o roteamento e a entrada no AD FS
+## <a name="test-the-routing-and-ad-fs-sign-in"></a>Testar o roteamento e a entrada no AD FS
 ### <a name="routing-test"></a>Teste de roteamento
 Um teste muito básico para o roteamento seria tentar executar o ping do nome do DNS do serviço de federação de um computador em cada região geográfica. Dependendo do método de roteamento escolhido, o ponto de extremidade que realmente executa o ping será refletido na exibição do ping. Por exemplo, se você tiver selecionado o roteamento de desempenho, o ponto de extremidade mais próximo à região do cliente será acessado. Abaixo está o instantâneo de dois pings de dois computadores de clientes de regiões diferentes, um na região Leste da Ásia e outra no Oeste dos EUA. 
 
 ![Teste de roteamento](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### <a name="ad-fs-signin-test"></a>Teste de entrada no AD FS
+### <a name="ad-fs-sign-in-test"></a>Teste de entrada no AD FS
 A maneira mais fácil de testar o AD FS é usar a página IdpInitiatedSignon.aspx. Para fazer isso, é necessário habilitar IdpInitiatedSignOn nas propriedades do AD FS. Siga as etapas abaixo para verificar a instalação do AD FS
 
 1. Execute o cmdlet abaixo no servidor do AD FS, usando o PowerShell, para defini-lo como habilitado. 
@@ -126,6 +126,6 @@ A maneira mais fácil de testar o AD FS é usar a página IdpInitiatedSignon.asp
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

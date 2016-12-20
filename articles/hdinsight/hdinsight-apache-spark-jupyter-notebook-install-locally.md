@@ -1,13 +1,13 @@
 ---
-title: Instalar o bloco de notas Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight | Microsoft Docs
+title: Instalar o Notebook Jupyter em seu computador e conectar-se a um cluster Spark do HDInsight | Microsoft Docs
 description: Saiba mais sobre como instalar o bloco de notas Jupyter localmente em seu computador e se conectar a um cluster Apache Spark no Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a5008302306f6024d69ea82c537990ef4360495d
+
 
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-cluster-on-hdinsight-linux"></a>Instalar o notebook Jupyter em seu computador e conectar-se ao cluster do Apache Spark no HDInsight Linux
@@ -99,7 +103,7 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
 
     >[AZURE.TIP] Se você quiser atualizar a configuração do bloco de notas para se conectar a um cluster diferente, atualize o config.json com o novo conjunto de valores, conforme mostrado na Etapa 3 acima. 
 
-## <a name="why-should-i-install-jupyter-on-my-computer?"></a>Por que devo instalar o Jupyter no meu computador?
+## <a name="why-should-i-install-jupyter-on-my-computer"></a>Por que devo instalar o Jupyter no meu computador?
 Pode haver vários motivos pelos quais você possa querer instalar o Jupyter no computador e conectá-lo a um cluster Spark no HDInsight.
 
 * Mesmo que os blocos de notas Jupyter já estejam disponíveis no cluster Spark no Azure HDInsight, a instalação do Jupyter no seu computador fornece a opção de criar os blocos de notas localmente, de testar o aplicativo em um cluster em execução e de carregar os blocos de notas no cluster. Para carregar os blocos de notas no cluster, você pode carregá-los usando o bloco de notas Jupyter que está em execução ou o cluster, ou salvá-los na pasta /HdiNotebooks na conta de armazenamento associada ao cluster. Para saber mais sobre como os blocos de notas são armazenados no cluster, confira [Onde os blocos de notas Jupyter são armazenados](hdinsight-apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
@@ -113,7 +117,7 @@ Pode haver vários motivos pelos quais você possa querer instalar o Jupyter no 
 > 
 > 
 
-## <a name="<a-name="seealso"></a>see-also"></a><a name="seealso"></a>Consulte também
+## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Cenários
@@ -138,6 +142,9 @@ Pode haver vários motivos pelos quais você possa querer instalar o Jupyter no 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

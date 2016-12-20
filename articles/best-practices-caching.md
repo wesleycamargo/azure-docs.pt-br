@@ -1,13 +1,13 @@
 ---
 title: Diretrizes de Caching | Microsoft Docs
 description: Diretrizes sobre caching para melhorar o desempenho e a escalabilidade.
-services: ''
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: c86e2d49-066b-43b0-b0b6-f70ff4f87cdd
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 27612fcd27a4d314a07982446375ac32ed1a2e4a
+
 
 ---
 # <a name="caching-guidance"></a>Diretrizes de Caching
@@ -134,7 +138,7 @@ Dependendo da natureza dos dados e da probabilidade de colisões, você pode ado
 * **Otimista.**  O aplicativo verifica, imediatamente antes de atualizar os dados, se eles sofreram alterações no cache desde que foram recuperados. Se os dados ainda são os mesmos, a alteração pode ser feita. Caso contrário, o aplicativo precisará decidir se quer atualizá-los. (A lógica de negócios que orienta essa decisão será específica do aplicativo). Essa abordagem é adequada para situações em que as atualizações são frequentes ou em que a ocorrência de colisões é improvável.
 * **Pessimista.**  Durante a recuperação dos dados, o aplicativo bloqueia o cache para impedir que outra instância altere esses dados. Esse processo garante que as colisões não ocorrerão, mas elas também poderão bloquear outras instâncias que precisem processar os mesmos dados. A simultaneidade pessimista pode afetar a escalabilidade de uma solução e é recomendada apenas para operações de curta duração. Essa abordagem pode ser apropriada para situações em que há maior probabilidade de colisões, especialmente se um aplicativo atualiza vários itens no cache e precisa garantir que essas alterações sejam aplicadas de modo consistente.
 
-### <a name="implement-high-availability-and-scalability,-and-improve-performance"></a>Implementar a alta disponibilidade e a escalabilidade e melhorar o desempenho
+### <a name="implement-high-availability-and-scalability-and-improve-performance"></a>Implementar a alta disponibilidade e a escalabilidade e melhorar o desempenho
 Evite usar um cache como o repositório principal dos dados; essa é a função do repositório de dados original, por meio do qual o cache é preenchido. O repositório de dados original é responsável por garantir a persistência dos dados.
 
 Tenha cuidado para não introduzir, em suas soluções, dependências críticas sobre a disponibilidade de um serviço de cache compartilhado. Um aplicativo deverá ser capaz de continuar funcionando se o serviço que fornece o cache compartilhado não estiver disponível. O aplicativo não deve travar ou falhar enquanto aguarda o serviço de cache continuar.
@@ -207,7 +211,7 @@ O Cache Redis do Azure é uma solução de caching de alto desempenho que oferec
 > O cache é hospedado por instâncias de uma função Web ou de trabalho, e só pode ser acessado por funções que operam como parte da mesma unidade de implantação de serviço de nuvem. (Uma unidade de implantação é o conjunto de instâncias de função implantadas como um serviço de nuvem em uma região específica). O cache é clusterizado, e todas as instâncias da função dentro da mesma unidade de implantação que hospeda o cache tornam-se parte do mesmo cluster de cache. No entanto, essa opção não é mais recomendada e é fornecida apenas para oferecer suporte a aplicativos existentes que foram criados para usá-la. Para todos os novos desenvolvimentos, use o Cache Redis do Azure.
 > 
 > O Serviço de Cache Gerenciado do Azure e o Cache na Função do Azure estão atualmente programados para desativação em 16 de novembro de 2016.
-> Recomendamos que você migre para o Cache Redis do Azure antes da baixa. Para saber mais, visite a página   [Qual oferta e tamanho de Cache Redis do Azure devo usar?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) no site da Microsoft.
+> Recomendamos que você migre para o Cache Redis do Azure antes da baixa. Para saber mais, visite a página [Qual oferta e tamanho de Cache Redis do Azure devo usar?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) no site da Microsoft.
 > 
 > 
 
@@ -927,6 +931,9 @@ O padrão a seguir também pode ser relevante para seu cenário ao implementar c
 * Para saber mais, confira a página [Transações em Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) no repositório StackExchange.Redis.
 * O [Guia de particionamento de dados](http://msdn.microsoft.com/library/dn589795.aspx) , no site da Microsoft.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

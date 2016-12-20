@@ -1,13 +1,13 @@
 ---
-title: Fontes de dados com suporte do Catálogo de Dados do Azure | Microsoft Docs
-description: Especificação das fontes de dados com suporte no momento.
+title: "Fontes de dados com suporte do Catálogo de Dados do Azure | Microsoft Docs"
+description: "Especificação das fontes de dados com suporte no momento."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: jstrauss
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/15/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c357d477684444342c74e04a2c5545a76b9ee0e3
+
 
 ---
 # <a name="azure-data-catalog-supported-data-sources"></a>Fontes de dados com suporte do Catálogo de Dados do Azure
@@ -428,7 +432,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Data Lake</td>
 > <td>
-> <font size=2> protocolo: webhdfs <br>autenticação: {básica, oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: webhdfs
+> <br>autenticação: {básica, oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -436,7 +443,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Diretório, arquivo</td>
 > <td>
-> <font size=2> protocolo: webhdfs <br>autenticação: {básica, oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: webhdfs
+> <br>autenticação: {básica, oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -444,7 +454,12 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Contêiner</td>
 > <td>
-> <font size=2> protocolo: azure-blobs <br>autenticação: {azure-access-key} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contêiner </font>
+> <font size=2> protocolo: azure-blobs
+> <br>autenticação: {azure-access-key}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contêiner </font>
 > </td>
 > </tr>
 > <tr>
@@ -452,7 +467,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Blog, diretório</td>
 > <td>
-> <font size=2> protocolo: azure-blobs <br>autenticação: {azure-access-key} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contêiner <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nome </font>
+> <font size=2> protocolo: azure-blobs
+> <br>autenticação: {azure-access-key}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contêiner
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nome </font>
 > </td>
 > </tr>
 > <tr>
@@ -460,7 +481,11 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Contêiner</td>
 > <td>
-> <font size=2> protocolo: azure-tables <br>autenticação: {azure-access-key} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta </font>
+> <font size=2> protocolo: azure-tables
+> <br>autenticação: {azure-access-key}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta </font>
 > </td>
 > </tr>
 > <tr>
@@ -468,7 +493,12 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Tabela</td>
 > <td>
-> <font size=2> protocolo: azure-tables <br>autenticação: {azure-access-key} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nome </font>
+> <font size=2> protocolo: azure-tables
+> <br>autenticação: {azure-access-key}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nome </font>
 > </td>
 > </tr>
 > <tr>
@@ -476,7 +506,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Cluster Virtual</td>
 > <td>
-> <font size=2> protocolo: cosmos <br>autenticação: {básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: cosmos
+> <br>autenticação: {básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -484,7 +517,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Fluxo, conjunto de fluxo, exibição</td>
 > <td>
-> <font size=2> protocolo: cosmos <br>autenticação: {básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: cosmos
+> <br>autenticação: {básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -492,7 +528,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Site</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticação: {nenhuma, básica, windows, oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticação: {nenhuma, básica, windows, oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -500,7 +539,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Relatório</td>
 > <td>Relatório, painel</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticação: {nenhuma, básica, windows, oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticação: {nenhuma, básica, windows, oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -508,7 +550,11 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Banco de dados</td>
 > <td>
-> <font size=2> protocolo: db2 <br>autenticação: {básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+> <font size=2> protocolo: db2
+> <br>autenticação: {básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
 > </td>
 > </tr>
 > <tr>
@@ -516,7 +562,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Tabela, exibição</td>
 > <td>
-> <font size=2> protocolo: db2 <br>autenticação: {básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema </font>
+> <font size=2> protocolo: db2
+> <br>autenticação: {básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema </font>
 > </td>
 > </tr>
 > <tr>
@@ -524,7 +576,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Arquivo</td>
 > <td>
-> <font size=2> protocolo: file <br>autenticação: {nenhuma, básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; caminho </font>
+> <font size=2> protocolo: file
+> <br>autenticação: {nenhuma, básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; caminho </font>
 > </td>
 > </tr>
 > <tr>
@@ -532,7 +587,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Diretório, arquivo</td>
 > <td>
-> <font size=2> protocolo: ftp <br>autenticação: {nenhuma, básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: ftp
+> <br>autenticação: {nenhuma, básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -540,7 +598,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>HDInsight</td>
 > <td>
-> <font size=2> protocolo: webhdfs <br>autenticação: {básica, oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: webhdfs
+> <br>autenticação: {básica, oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -548,7 +609,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Diretório, arquivo</td>
 > <td>
-> <font size=2> protocolo: webhdfs <br>autenticação: {básica, oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: webhdfs
+> <br>autenticação: {básica, oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -556,7 +620,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Banco de dados</td>
 > <td>
-> <font size=2> protocolo: hive <br>autenticação: {hdinsight, básica, nome de usuário, nenhuma} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+> <font size=2> protocolo: hive
+> <br>autenticação: {hdinsight, básica, nome de usuário, nenhuma}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>connectionProperties:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
 > </td>
 > </tr>
 > <tr>
@@ -564,7 +634,14 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Tabela, exibição</td>
 > <td>
-> <font size=2> protocolo: hive <br>autenticação: {hdinsight, básica, nome de usuário, nenhuma} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+> <font size=2> protocolo: hive
+> <br>autenticação: {hdinsight, básica, nome de usuário, nenhuma}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>connectionProperties:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
 > </td>
 > </tr>
 > <tr>
@@ -572,7 +649,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Site</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticação: {nenhuma, básica, windows, oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticação: {nenhuma, básica, windows, oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -580,7 +660,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Relatório</td>
 > <td>Relatório, painel</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticação: {nenhuma, básica, windows, oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticação: {nenhuma, básica, windows, oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -588,7 +671,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Ponto de Extremidade, arquivo</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticação: {nenhuma, básica, windows, oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticação: {nenhuma, básica, windows, oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -596,7 +682,11 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Banco de dados</td>
 > <td>
-> <font size=2> protocolo: mysql <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+> <font size=2> protocolo: mysql
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
 > </td>
 > </tr>
 > <tr>
@@ -604,7 +694,12 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Tabela, exibição</td>
 > <td>
-> <font size=2> protocolo: mysql <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: mysql
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -612,7 +707,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Contêiner da entidade</td>
 > <td>
-> <font size=2> protocolo: odata <br>autenticação: {nenhuma, básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: odata
+> <br>autenticação: {nenhuma, básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -620,7 +718,11 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Conjunto de entidades, função</td>
 > <td>
-> <font size=2> protocolo: odata <br>autenticação: {nenhuma, básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; recurso </font>
+> <font size=2> protocolo: odata
+> <br>autenticação: {nenhuma, básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; recurso </font>
 > </td>
 > </tr>
 > <tr>
@@ -628,7 +730,11 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Banco de dados</td>
 > <td>
-> <font size=2> protocolo: oracle <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+> <font size=2> protocolo: oracle
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
 > </td>
 > </tr>
 > <tr>
@@ -636,7 +742,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Tabela, exibição</td>
 > <td>
-> <font size=2> protocolo: oracle <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: oracle
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -644,7 +756,11 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Banco de dados</td>
 > <td>
-> <font size=2> protocolo: postgresql <br>autenticação: {básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+> <font size=2> protocolo: postgresql
+> <br>autenticação: {básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
 > </td>
 > </tr>
 > <tr>
@@ -652,7 +768,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Tabela, exibição</td>
 > <td>
-> <font size=2> protocolo: postgresql <br>autenticação: {básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: postgresql
+> <br>autenticação: {básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -660,7 +782,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Site</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticação: {nenhuma, básica, windows, oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticação: {nenhuma, básica, windows, oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -668,7 +793,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Relatório</td>
 > <td>Relatório, painel</td>
 > <td>
-> <font size=2> protocolo: http <br>autenticação: {nenhuma, básica, windows, oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: http
+> <br>autenticação: {nenhuma, básica, windows, oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -676,7 +804,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Mashup de Dados</td>
 > <td>Protocolo 
-> <font size=2>: power-query <br>autenticação: {oauth} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2>: power-query
+> <br>autenticação: {oauth}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -684,7 +815,12 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Objeto</td>
 > <td>
-> <font size=2> protocolo: salesforce-com <br>autenticação: {básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; classe <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
+> <font size=2> protocolo: salesforce-com
+> <br>autenticação: {básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; classe
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
 > </td>
 > </tr>
 > <tr>
@@ -692,7 +828,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Servidor</td>
 > <td>
-> <font size=2> protocolo: sap-hana-sql <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor </font>
+> <font size=2> protocolo: sap-hana-sql
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor </font>
 > </td>
 > </tr>
 > <tr>
@@ -700,7 +839,12 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Visualizar</td>
 > <td>
-> <font size=2> protocolo: sap-hana-sql <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: sap-hana-sql
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -708,7 +852,10 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Listar</td>
 > <td>
-> <font size=2> protocolo: sharepoint-list <br>autenticação: {básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+> <font size=2> protocolo: sharepoint-list
+> <br>autenticação: {básica, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
 > </td>
 > </tr>
 > <tr>
@@ -716,7 +863,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Command</td>
 > <td>Procedimento armazenado</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -724,7 +877,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>TableValuedFunction</td>
 > <td>Função com valor de tabela</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -732,7 +891,11 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Banco de dados</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+> <font size=2> protocolo: tds
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
 > </td>
 > </tr>
 > <tr>
@@ -740,7 +903,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Tabela, exibição</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -748,7 +917,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Command</td>
 > <td>Procedimento armazenado</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -756,7 +931,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>TableValuedFunction</td>
 > <td>Função com valor de tabela</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -764,7 +945,11 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Banco de dados</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+> <font size=2> protocolo: tds
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
 > </td>
 > </tr>
 > <tr>
@@ -772,7 +957,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Tabela, exibição</td>
 > <td>
-> <font size=2> protocolo: tds <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: tds
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -780,7 +971,12 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Modelo</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticação: {windows, básica, anônima, nenhuma} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticação: {windows, básica, anônima, nenhuma}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo </font>
 > </td>
 > </tr>
 > <tr>
@@ -788,7 +984,14 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>KPI</td>
 > <td>KPI</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticação: {windows, básica, anônima, nenhuma} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticação: {windows, básica, anônima, nenhuma}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
 > </td>
 > </tr>
 > <tr>
@@ -796,7 +999,14 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Medida</td>
 > <td>Medida</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticação: {windows, básica, anônima, nenhuma} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Medida} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticação: {windows, básica, anônima, nenhuma}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Medida} </font>
 > </td>
 > </tr>
 > <tr>
@@ -804,7 +1014,14 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Dimensão</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticação: {windows, básica, anônima, nenhuma} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimensão} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticação: {windows, básica, anônima, nenhuma}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimensão} </font>
 > </td>
 > </tr>
 > <tr>
@@ -812,7 +1029,12 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Modelo</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticação: {windows, básica, anônima, nenhuma} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticação: {windows, básica, anônima, nenhuma}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo </font>
 > </td>
 > </tr>
 > <tr>
@@ -820,7 +1042,14 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>KPI</td>
 > <td>KPI</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticação: {windows, básica, anônima, nenhuma} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticação: {windows, básica, anônima, nenhuma}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
 > </td>
 > </tr>
 > <tr>
@@ -828,7 +1057,14 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Medida</td>
 > <td>Medida</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticação: {windows, básica, anônima, nenhuma} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Medida} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticação: {windows, básica, anônima, nenhuma}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Medida} </font>
 > </td>
 > </tr>
 > <tr>
@@ -836,7 +1072,14 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Tabela</td>
 > <td>
-> <font size=2> protocolo: analysis-services <br>autenticação: {windows, básica, anônima, nenhuma} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Tabela} </font>
+> <font size=2> protocolo: analysis-services
+> <br>autenticação: {windows, básica, anônima, nenhuma}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Tabela} </font>
 > </td>
 > </tr>
 > <tr>
@@ -844,7 +1087,11 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Servidor</td>
 > <td>
-> <font size=2> protocolo: reporting-services <br>autenticação: {windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão: {ReportingService2010} </font>
+> <font size=2> protocolo: reporting-services
+> <br>autenticação: {windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão: {ReportingService2010} </font>
 > </td>
 > </tr>
 > <tr>
@@ -852,7 +1099,12 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Relatório</td>
 > <td>Relatório</td>
 > <td>
-> <font size=2> protocolo: reporting-services <br>autenticação: {windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; caminho <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão: {ReportingService2010} </font>
+> <font size=2> protocolo: reporting-services
+> <br>autenticação: {windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; caminho
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão: {ReportingService2010} </font>
 > </td>
 > </tr>
 > <tr>
@@ -860,7 +1112,11 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Banco de dados</td>
 > <td>
-> <font size=2> protocolo: teradata <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+> <font size=2> protocolo: teradata
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
 > </td>
 > </tr>
 > <tr>
@@ -868,7 +1124,12 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Tabela, exibição</td>
 > <td>
-> <font size=2> protocolo: teradata <br>autenticação: {protocolo, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+> <font size=2> protocolo: teradata
+> <br>autenticação: {protocolo, windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
 > </td>
 > </tr>
 > <tr>
@@ -876,7 +1137,12 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Contêiner</td>
 > <td>Modelo</td>
 > <td>
-> <font size="2"> protocolo: mssql-mds <br>autenticação: {windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão </font>
+> <font size="2"> protocolo: mssql-mds
+> <br>autenticação: {windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão </font>
 > </td>
 > </tr>
 > <tr>
@@ -884,7 +1150,13 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>Tabela</td>
 > <td>Entidade</td>
 > <td>
-> <font size="2"> protocolo: mssql-mds <br>autenticação: {windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entidade </font>
+> <font size="2"> protocolo: mssql-mds
+> <br>autenticação: {windows}
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entidade </font>
 > </td>
 > </tr>
 > <tr>
@@ -892,15 +1164,16 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
 > <td>\*</td>
 > <td>\*</td>
 > <td>
-> <font size=2> protocolo: generic-asset <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
+> <font size=2> protocolo: generic-asset
+> <br>endereço:
+> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
 > </td>
 > </tr>
-> </table>
-> 
-> 
-> 
-> 
+> </table> 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

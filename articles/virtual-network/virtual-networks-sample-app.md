@@ -1,12 +1,12 @@
 ---
-title: Aplicativo de Exemplo para Uso com Ambientes de Limite de Segurança | Microsoft Docs
-description: Implantar esse aplicativo Web simples depois de criar um DMZ para testar cenários de fluxo de tráfego
+title: "Aplicativo de exemplo para uso com ambientes de limite de segurança | Microsoft Docs"
+description: "Implantar esse aplicativo Web simples depois de criar um DMZ para testar cenários de fluxo de tráfego"
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
+editor: 
+ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4d3f5e759f46bd4c4998c5d4bf70d64190ad972e
+
 
 ---
-# Aplicativo de Exemplo para Uso com Ambientes de Limite de Segurança
-[Voltar à página de Práticas Recomendadas de Limite de Segurança][HOME]
+# <a name="sample-application-for-use-with-security-boundary-environments"></a>Aplicativo de Exemplo para Uso com Ambientes de Limite de Segurança
+[Voltar à página Práticas recomendadas de limite de segurança][INÍCIO]
 
 Esses scripts do PowerShell podem ser executados localmente nos servidores IIS01 e AppVM01 para instalar e configurar um aplicativo Web muito simples que exibe uma página HTML do servidor front-end IIS01 com o conteúdo do servidor back-end AppVM01.
 
 Esse aplicativo fornece um ambiente de teste simples para diversos dos Exemplos DMZ e como as alterações às regras de Pontos de Extremidade, NSGs, UDR e Firewall podem afetar os fluxos de tráfego.
 
-## Regra de Firewall para Permitir ICMP
+## <a name="firewall-rule-to-allow-icmp"></a>Regra de Firewall para Permitir ICMP
 Essa declaração simples do PowerShell pode ser executada em qualquer VM do Windows para permitir o tráfego ICMP (Ping). Isso permitirá testes e solução de problemas mais fáceis ao permitir que o protocolo ping passe por meio do Firewall do Windows (na maioria das distribuições do Linux, o ICMP é ativado por padrão).
 
     # Turn On ICMPv4
@@ -32,7 +36,7 @@ Essa declaração simples do PowerShell pode ser executada em qualquer VM do Win
 
 **Observação:** se você usar os scripts abaixo, esta adição de regra de firewall é a primeira instrução.
 
-## IIS01 - Script de Instalação do Aplicativo Web
+## <a name="iis01---web-application-installation-script"></a>IIS01 - Script de Instalação do Aplicativo Web
 Este script:
 
 1. Abrirá o IMCPv4 (Ping) no Firewall do Windows do servidor local para testes mais fáceis
@@ -138,7 +142,7 @@ Esse script do PowerShell deve ser executado localmente com RDP em IIS01.
         Write-Host
 
 
-## AppVM01 - Script de Instalação do Servidor de Arquivos
+## <a name="appvm01---file-server-installation-script"></a>AppVM01 - Script de Instalação do Servidor de Arquivos
 Esse script configura o back-end para esse aplicativo simples. Este script:
 
 1. Abrirá o IMCPv4 (Ping) no firewall para testes mais fáceis
@@ -184,10 +188,14 @@ Esse script do PowerShell deve ser executado localmente com RDP em AppVM01. O Po
         Write-Host
 
 
-## DNS01 - Script de Instalação do Servidor DNS
+## <a name="dns01---dns-server-installation-script"></a>DNS01 - Script de Instalação do Servidor DNS
 Não há nenhum script incluído neste aplicativo de exemplo para configurar o servidor DNS. Se testar as regras de firewall, o NSG ou UDR precisa incluir o tráfego DNS, o servidor DNS01 precisará ser configurado manualmente. O arquivo xml de Configuração de Rede para os dois exemplos inclui DNS01 como o servidor DNS primário e o servidor DNS público hospedado pelo Nível 3 como o servidor DNS de backup. O servidor DNS do Nível 3 seria o servidor DNS real usado para tráfego não local e com DNS01 não configurado, não ocorreria nenhum DNS local.
 
 <!--Link References-->
-[HOME]: ../best-practices-network-security.md
+[INÍCIO]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

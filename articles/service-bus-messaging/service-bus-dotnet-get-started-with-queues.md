@@ -1,22 +1,22 @@
 ---
 title: "Introdução às filas do Barramento de Serviço | Microsoft Docs"
 description: "Como escrever um aplicativo de console em C# para a mensagem do Barramento de Serviço"
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c6405a6353cfcc56c79a6f842c6b150d10db75ee
+ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
+ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 
 
 ---
@@ -51,7 +51,8 @@ Se você já tiver uma fila do Barramento de Serviço criada, vá para a seção
 Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# usando o Visual Studio.
 
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
-1. Inicialize o Visual Studio e crie um novo aplicativo de Console.
+
+- Inicialize o Visual Studio e crie um novo aplicativo de Console.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Adicionar o pacote NuGet do Barramento de Serviço
 1. Clique com o botão direito do mouse no projeto recém-criado e selecione **Gerenciar Pacotes NuGet**.
@@ -62,12 +63,12 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
 ### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Escrever um código para enviar uma mensagem para a fila
 1. Adicione a seguinte instrução using ao topo do arquivo Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. Adicione o seguinte código ao método `Main`, defina a variável **connectionString** como a cadeia de conexão que foi obtida ao criar o namespace e defina **queueName** como o nome da fila usado ao criar a fila.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -78,7 +79,7 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
    
     Program.cs deve ficar assim.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -107,12 +108,12 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
 1. Crie um novo aplicativo de console e adicione uma referência ao pacote NuGet do Barramento de Serviço, parecido com o aplicativo de envio anterior.
 2. Adicione a seguinte instrução `using` à parte superior do arquivo Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. Adicione o seguinte código ao método `Main`, defina a variável **connectionString** como a cadeia de conexão que foi obtida ao criar o namespace e defina **queueName** como o nome da fila usado ao criar a fila.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -129,7 +130,7 @@ Para enviar mensagens para a fila, escreveremos um aplicativo de console em C# u
    
     O arquivo Program.cs deve ficar assim:
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -177,6 +178,6 @@ Confira nosso [Repositório GitHub com exemplos](https://github.com/Azure-Sample
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

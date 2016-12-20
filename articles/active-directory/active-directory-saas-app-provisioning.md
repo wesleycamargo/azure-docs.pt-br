@@ -1,23 +1,27 @@
 ---
-title: Provisionamento de usuário automatizado em aplicativo SaaS no AD do Azure | Microsoft Docs
-description: Uma introdução a como você pode usar o Azure AD para provisionar, desprovisionar e atualizar contínua e automaticamente as contas de usuário em vários aplicativos SaaS de terceiros.
+title: "Provisionamento de usuário automatizado em aplicativo SaaS no AD do Azure | Microsoft Docs"
+description: "Uma introdução a como você pode usar o Azure AD para provisionar, desprovisionar e atualizar contínua e automaticamente as contas de usuário em vários aplicativos SaaS de terceiros."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
-ms.author: asmalser-msft
+ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a8b4a5b3293d379844d6456494f71b51265d2e8
+
 
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
-## <a name="what-is-automated-user-provisioning-for-saas-apps?"></a>O que é o provisionamento automatizado de usuário para aplicativos SaaS?
+## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o provisionamento automatizado de usuário para aplicativos SaaS?
 O Azure AD (Azure Active Directory) permite que você automatize a criação, a manutenção e a remoção de identidades de usuário em aplicativos em nuvem ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) como Dropbox, Salesforce, ServiceNow e muito mais.
 
 **Abaixo estão alguns exemplos do que esse recurso permite que você faça:**
@@ -34,7 +38,7 @@ O Azure AD (Azure Active Directory) permite que você automatize a criação, a 
 * Alertas de email opcionais para erros de provisionamento.
 * Logs de relatórios e de registros para ajudá-lo a monitorar e a solucionar problemas.
 
-## <a name="why-use-automated-provisioning?"></a>Por que usar o provisionamento automatizado?
+## <a name="why-use-automated-provisioning"></a>Por que usar o provisionamento automatizado?
 Alguns motivos comuns para usar esse recurso incluem:
 
 * Evitar custos, ineficiências e erro humano associados a processos manuais de provisionamento.
@@ -67,7 +71,7 @@ Para a maioria dos aplicativos SaaS, o provisionamento é apenas de saída, o qu
 
 Entre em contato conosco através do [Fórum de comentários do Active Directory do Azure](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-## <a name="how-does-automated-provisioning-work?"></a>Como funciona o trabalho de provisionamento automatizado?
+## <a name="how-does-automated-provisioning-work"></a>Como funciona o trabalho de provisionamento automatizado?
 O Azure AD provisiona usuários para aplicativos SaaS conectando-se a pontos de extremidade de provisionamento fornecidos por cada fornecedor de aplicativo. Esses pontos de extremidade permitem que o Azure AD crie, atualize e remova usuários por meio de programação. Abaixo está uma breve visão geral das diferentes etapas que o Azure AD segue para automatizar o provisionamento.
 
 1. Quando você habilita o provisionamento de um aplicativo pela primeira vez, as seguintes ações são executadas:
@@ -109,6 +113,9 @@ Para entrar em contato com a equipe de engenharia do Azure AD e solicitar o supo
 * [Notificações de provisionamento de conta](active-directory-saas-account-provisioning-notifications.md)
 * [Lista de tutoriais sobre como integrar aplicativos SaaS](active-directory-saas-tutorial-list.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

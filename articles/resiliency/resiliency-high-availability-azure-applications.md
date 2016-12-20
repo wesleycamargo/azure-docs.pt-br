@@ -1,12 +1,12 @@
 ---
 title: Alta disponibilidade para aplicativos do Azure | Microsoft Docs
-description: Visão geral técnica e informações detalhadas sobre como projetar e criar aplicativos para alta disponibilidade no Microsoft Azure.
-services: ''
+description: "Visão geral técnica e informações detalhadas sobre como projetar e criar aplicativos para alta disponibilidade no Microsoft Azure."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: 8be4f323-ca00-4025-9356-c9bbc998eef3
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f7289c969184b518a6ff836cbb9ed7e20841206b
+
 
 ---
 # <a name="high-availability-for-applications-built-on-microsoft-azure"></a>Alta disponibilidade para aplicativos baseados no Microsoft Azure
@@ -134,6 +138,9 @@ Observe que o diagrama anterior mostra uma implementação dessa abordagem desac
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo faz parte de uma série de artigos com foco na [recuperação de desastres e alta disponibilidade para aplicativos criados no Microsoft Azure](resiliency-disaster-recovery-high-availability-azure-applications.md). O próximo artigo desta série é [Recuperação de desastre para aplicativos criados no Microsoft Azure](resiliency-disaster-recovery-azure-applications.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

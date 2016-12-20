@@ -1,22 +1,26 @@
 ---
-title: Barramento de Serviço e PHP com AMQP 1.0 | Microsoft Docs
-description: Usando o Barramento de Serviço do PHP com AMQP.
-services: service-bus
+title: "Barramento de Serviço e PHP com AMQP 1.0 | Microsoft Docs"
+description: "Usando o Barramento de Serviço do PHP com AMQP."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: dfb26c2b-41d3-4ed6-936b-b8d2f1dbd470
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 122865f056d6bd7fc8c75665d29753542a83405c
+
 
 ---
-# <a name="using-service-bus-from-php-with-amqp-1.0"></a>Usando o Barramento de Serviço do PHP com AMQP 1.0
+# <a name="using-service-bus-from-php-with-amqp-10"></a>Usando o Barramento de Serviço do PHP com AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 Proton-PHP é uma associação da linguagem PHP a Proton-C; ou seja, Proton-PHP é implementada como um wrapper em torno de um mecanismo implementado em C.
@@ -29,7 +33,7 @@ Você pode baixar Proton-C e as associações relacionadas (inclusive PHP) em [h
 > 
 > 
 
-## <a name="working-with-service-bus-queues,-topics,-and-subscriptions-from-php"></a>Trabalhando com filas, tópicos e assinaturas do Barramento de Serviço no PHP
+## <a name="working-with-service-bus-queues-topics-and-subscriptions-from-php"></a>Trabalhando com filas, tópicos e assinaturas do Barramento de Serviço no PHP
 O código a seguir mostra como enviar e receber mensagens de uma entidade de mensagens do Barramento de Serviço.
 
 ### <a name="sending-messages-using-proton-php"></a>Enviando mensagens usando Proton-PHP
@@ -65,9 +69,9 @@ if($messenger->incoming())
 $messenger->stop();
 ```
 
-## <a name="messaging-between-.net-and-proton-php"></a>Mensagens entre .NET e Proton-PHP
+## <a name="messaging-between-net-and-proton-php"></a>Mensagens entre .NET e Proton-PHP
 ### <a name="application-properties"></a>Propriedades do aplicativo
-#### <a name="protonphp-to-service-bus-.net-apis"></a>ProtonPHP para APIs .NET do Barramento de Serviço
+#### <a name="protonphp-to-service-bus-net-apis"></a>ProtonPHP para APIs .NET do Barramento de Serviço
 As mensagens do Proton-PHP oferecem suporte a propriedades de aplicativo dos seguintes tipos: **integer**, **double**, **Boolean**, **string** e **object**. O código PHP a seguir mostra como definir propriedades de uma mensagem usando cada um desses tipos de propriedade.
 
 ```
@@ -110,7 +114,7 @@ A tabela a seguir mapeia os tipos de propriedades PHP para os tipos de proprieda
 | string |string |
 | objeto |Objeto |
 
-#### <a name="service-bus-.net-apis-to-php"></a>APIs .NET do Barramento de Serviço para PHP
+#### <a name="service-bus-net-apis-to-php"></a>APIs .NET do Barramento de Serviço para PHP
 O tipo [BrokeredMessage][BrokeredMessage] oferece suporte às propriedades do aplicativo dos seguintes tipos: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset**, and **TimeSpan**. O código .NET a seguir mostra como definir propriedades em um objeto [BrokeredMessage][BrokeredMessage] usando cada um desses tipos de propriedade.
 
 ```
@@ -196,7 +200,7 @@ As tabelas a seguir mostram o mapeamento entre as propriedades de mensagem padr�
 | reply\_to\_group\_id |Message.ReplyToSessionId |- |
 | Formatar |n/d |- |
 
-#### <a name="service-bus-.net-apis-to-proton-php"></a>APIs .NET do Barramento de Serviço para Proton-PHP
+#### <a name="service-bus-net-apis-to-proton-php"></a>APIs .NET do Barramento de Serviço para Proton-PHP
 | Barramento de Serviço do .NET | Proton-PHP | Observações |
 | --- | --- | --- |
 | ContentType |Message-\>content\_type |- |
@@ -214,15 +218,15 @@ As tabelas a seguir mostram o mapeamento entre as propriedades de mensagem padr�
 ## <a name="next-steps"></a>Próximas etapas
 Está pronto(a) para saber mais? Visite os links a seguir:
 
-* [Visão geral do AMQP do Barramento de Serviço]
+* [Visão geral do Barramento de Serviço para AMQP]
 * [AMQP no Barramento de Serviço para Windows Server]
 
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-[Visão geral do AMQP do Barramento de Serviço]: service-bus-amqp-overview.md
+[Visão geral do Barramento de Serviço para AMQP]: service-bus-amqp-overview.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao HireVue | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o HireVue.
+title: "Tutorial: integração do Azure Active Directory ao HireVue | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o HireVue."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: aadfc342-14db-4d74-a83d-f0c76f0cf63c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9dfa1df1497d7505f283b7ed3bffa3c37ac0b351
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-hirevue"></a>Tutorial: Integração do Azure Active Directory com o HireVue
+# <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Tutorial: Integração do Azure Active Directory com o HireVue
 Neste tutorial, você aprenderá como integrar o HireVue ao Azure AD (Azure Active Directory).
 
 A integração do HireVue ao Azure AD oferece os seguintes benefícios:
@@ -108,19 +112,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
    
     a. Na caixa de texto **URL de entrada** , digite a URL usada pelos usuários para fazer logon no aplicativo HireVue usando o seguinte padrão: 
 
-      | Ambiente | URL |
-      |---|---|
-      | Produção | `https://<company name>.hirevue.com` |
-      | Staging| `https://<company name>.stghv.com` |
+    | Ambiente | URL |
+    |---|---|
+    | Produção | `https://<company name>.hirevue.com` |
+    | Staging| `https://<company name>.stghv.com` |
 
 
     b. Na caixa de texto **Identificador** , digite a URL no seguinte padrão:
 
 
-      | Ambiente | URN |
-      |---|---|
-      |Produção | `urn:federation:hirevue.com:saml:sp:prod` |
-      |Staging | `urn:federation:hirevue.com:saml:sp:staging` |
+    | Ambiente | URN |
+    |---|---|
+    |Produção | `urn:federation:hirevue.com:saml:sp:prod` |
+    |Staging | `urn:federation:hirevue.com:saml:sp:staging` |
 
 
 
@@ -156,7 +160,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_09.png) 
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -166,14 +170,14 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_04.png) 
-5. Na página da caixa de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:  ![Criando um usuário de teste do Azure AD](./media/active-directory-saas-hirevue-tutorial/create_aaduser_05.png) 
+5. Na página de diálogo **Conte-nos sobre este usuário**, realize as seguintes etapas:  ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_05.png) 
    
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
    
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
     c. Clique em **Próximo**.
-6. Na caixa de diálogo **Perfil do Usuário**, realize as seguintes etapas: ![Criando um usuário de teste do Azure AD](./media/active-directory-saas-hirevue-tutorial/create_aaduser_06.png) 
+6. Na caixa de diálogo **perfil de usuário**, realize as etapas a seguir: ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_06.png) 
    
    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
@@ -184,7 +188,7 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-hirevue-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -248,6 +252,6 @@ Ao clicar no bloco do HireVue no Painel de Acesso, você deverá ser conectado a
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

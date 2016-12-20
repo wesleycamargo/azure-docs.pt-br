@@ -1,19 +1,23 @@
 ---
-title: Entendendo os relatórios baseados em uso e relatórios de insights do vendedor do Azure Marketplace | Microsoft Docs
-description: Como um vendedor no Azure Marketplace, entenda seu relatório baseado em uso, também conhecido como um relatório de insights do vendedor
+title: "Entendendo os relatórios baseados em uso e relatórios de insights do vendedor do Azure Marketplace | Microsoft Docs"
+description: "Como um vendedor no Azure Marketplace, entenda seu relatório baseado em uso, também conhecido como um relatório de insights do vendedor"
 services: Azure Marketplace
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2016
-ms.author: v-jeana; hascipio
+ms.date: 10/03/2016
+ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 51452ce98a02f3bcea9914b741c611b00f862cc6
+
 
 ---
 # <a name="understand-your-seller-insights-report"></a>Entenda o relatório de insights do vendedor
@@ -26,7 +30,7 @@ Todas as editoras de serviços do desenvolvedor com cobrança baseada no uso e V
 * **Email de boas-vindas:** como uma nova editora, você receberá um email de boas-vindas para notificá-lo de que você irá começar a receber os relatórios mensais de insights do vendedor.
 * **Relatórios de vendas mensais:** se tiver usado, você receberá um segundo email com seus relatórios e instruções sobre como acessar sua senha:
   
-  * Se você tiver uma VM ou SKU de serviços do desenvolvedor com cobrança baseada no uso, seu relatório mensal mostrará a você detalhes sobre pedidos, uso, mercados e detalhes do cliente para ofertas não BYOL (traga sua própria licença).
+  * Se você tiver uma VM ou SKU de serviços do desenvolvedor com cobrança baseada em uso, seu relatório mensal mostrará a você detalhes sobre pedidos, uso, mercados e detalhes do cliente de suas ofertas.
   * Esses arquivos são bloqueados com uma senha que apenas você e a Microsoft sabem para proteger os dados de seus clientes.
   * A Microsoft não enviará um relatório se nenhuma de suas ofertas tiver gerado uso durante o mês.
 
@@ -113,6 +117,6 @@ Se você tiver perguntas relacionadas a relatórios e insights, entre em contato
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

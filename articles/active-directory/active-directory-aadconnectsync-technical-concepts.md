@@ -1,12 +1,12 @@
 ---
-title: 'Sincronização do Azure AD Connect: conceitos técnicos | Microsoft Docs'
-description: Explica os conceitos técnicos da sincronização do Azure AD Connect.
+title: "Sincronização do Azure AD Connect: conceitos técnicos | Microsoft Docs"
+description: "Explica os conceitos técnicos da sincronização do Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markusvi;andkjell
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 74b7aae21ec81f891c73461989e641a2d7a042e8
+
 
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: conceitos técnicos
@@ -89,6 +93,6 @@ Sempre que uma regra determina que um novo objeto de espaço conector precisa se
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

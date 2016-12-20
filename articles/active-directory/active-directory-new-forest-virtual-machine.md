@@ -1,13 +1,13 @@
 ---
 title: Instalar uma floresta do Active Directory em uma rede virtual do Azure | Microsoft Docs
-description: Um tutorial que explica como criar uma nova floresta do Active Directory em uma máquina virtual (VM) em uma Rede Virtual do Azure.
+description: "Um tutorial que explica como criar uma nova floresta do Active Directory em uma máquina virtual (VM) em uma Rede Virtual do Azure."
 services: active-directory, virtual-network
-keywords: 'máquina virtual do active directory, instalar floresta do active directory, vídeos do active directory do azure  '
-documentationcenter: ''
+keywords: "máquina virtual do active directory, instalar floresta do active directory, vídeos do active directory do azure  "
+documentationcenter: 
 author: MarkusVi
 manager: femila
-tags: ''
-
+tags: 
+ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markusvi
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 10ebc5878b65778471fb47f1b47d7c9d2dcb2a16
+
 
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalar uma nova floresta do Active Directory em uma rede virtual do Azure
@@ -31,7 +35,7 @@ Nesse cenário, os usuários externos precisam acessar os aplicativos que são e
 
 Floresta do ![Active Directory em máquinas virtuais na Rede Virtual do Azure ][1] 7
 
-## <a name="how-does-this-differ-from-onpremises"></a>Como isso difere do local?
+## <a name="how-does-this-differ-from-on-premises"></a>Como isso difere do local?
 Não há muita diferença entre instalar um controlador de domínio no Azure em comparação com um local. As diferenças principais estão listadas na tabela a seguir.
 
 | Para configurar... | Configuração local | rede virtual do Azure |
@@ -53,7 +57,7 @@ Não há muita diferença entre instalar um controlador de domínio no Azure em 
 ## <a name="create-vms-to-run-the-domain-controller-and-dns-server-roles"></a>Criar VMs para executar as funções de controlador de domínio e servidor DNS
 Repita as etapas a seguir para criar VMs para hospedar a função de controlador de domínio, conforme necessário. Você deve implantar pelo menos dois controladores de domínio virtuais para fornecer redundância e tolerância à falhas. Se a rede virtual do Azure inclui pelo menos dois controladores de domínio configurados da mesma forma (ou seja, ambos são GCs, executam o servidor DNS e não contêm nenhuma função FSMO, etc.), coloque as VMs que executam tais controladores de domínio em um conjunto de disponibilidade para melhorar a tolerância.
 
-Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md).
+Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 1. No portal clássico, clique em **Novo** > **Computação** > **Máquina Virtual** > **Da Galeria**. Use os valores a seguir para concluir o assistente. Aceite o valor padrão para uma configuração, a menos que outro valor seja sugerido ou necessário.
    
@@ -61,9 +65,9 @@ Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface
    | --- | --- |
    |  **Escolha uma imagem** |Windows Server 2012 R2 Datacenter |
    |  **Configuração de máquina virtual** |<p>Nome da Máquina Virtual: digite um nome de rótulo único (como AzureDC1).</p><p>Novo nome de usuário: digite o nome de um usuário. Esse usuário será um membro do grupo local de Administradores na VM. Você precisará desse nome para entrar na Máquina Virtual pela primeira vez. A conta interna chamada Administrador não funcionará.</p><p>Nova Senha/Confirmar: digite uma senha</p> |
-   |  **Configuração de máquina virtual** |<p>Serviço de Nuvem: escolha <b>Criar um novo serviço de nuvem</b> para a primeira VM e selecione esse mesmo nome de serviço de nuvem ao criar mais VMs que hospedarão a função de controlador de domínio.</p><p>Nome DNS do Serviço de Nuvem: especifique um nome global exclusivo</p><p>Região/Grupo de Afinidades/Rede Virtual: especifique o nome da rede virtual (como WestUSVNet).</p><p>Conta de Armazenamento: escolha <b>Usar uma conta de armazenamento gerada automaticamente</b> para a primeira VM e selecione esse nome de conta de armazenamento ao criar mais VMs que hospedarão a função de controlador de domínio.</p><p>Conjunto de Disponibilidade: escolha <b>Criar um conjunto de disponibilidade</b>.</p><p>Nome do conjunto de disponibilidade: digite um nome para o conjunto disponibilidade ao criar a primeira VM e, em seguida, selecione esse mesmo nome quando você criar mais VMs.</p> |
+   |  **Configuração de máquina virtual** |<p>Serviço de Nuvem: escolha <b>Criar um novo serviço de nuvem</b> para a primeira VM e selecione esse mesmo nome de serviço de nuvem ao criar mais VMs que hospedarão a função de controlador de domínio.</p><p>Nome DNS do Serviço de Nuvem: especifique um nome global exclusivo</p><p>Região/Grupo de Afinidade/Rede Virtual: especifique o nome da rede virtual (como WestUSVNet).</p><p>Conta de Armazenamento: escolha <b>Usar uma conta de armazenamento gerada automaticamente</b> para a primeira VM e selecione esse nome de conta de armazenamento ao criar mais VMs que hospedarão a função de controlador de domínio.</p><p>Conjunto de Disponibilidade: escolha <b>Criar um conjunto de disponibilidade</b>.</p><p>Nome do conjunto de disponibilidade: digite um nome para o conjunto disponibilidade ao criar a primeira VM e, em seguida, selecione esse mesmo nome quando você criar mais VMs.</p> |
    |  **Configuração de máquina virtual** |<p>Selecione <b>Instalar o Agente de VM</b> e quaisquer outras extensões que você precisa.</p> |
-2. Anexe um disco a cada máquina virtual que executará a função de servidor de controlador de domínio. O disco adicional é necessário para armazenar o banco de dados, logs e SYSVOL do AD. Especifique um tamanho para o disco (por exemplo, 10 GB) e deixe a **Preferência de Cache do Host** definida como **Nenhum**. Consulte [Como anexar um disco de dados a uma máquina virtual Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md).
+2. Anexe um disco a cada máquina virtual que executará a função de servidor de controlador de domínio. O disco adicional é necessário para armazenar o banco de dados, logs e SYSVOL do AD. Especifique um tamanho para o disco (por exemplo, 10 GB) e deixe a **Preferência de Cache do Host** definida como **Nenhum**. Consulte [Como anexar um disco de dados a uma máquina virtual Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Depois de entrar na VM pela primeira vez, abra o **Gerenciador do Servidor** > **Serviços de Arquivo e Armazenamento** para criar um volume nesse disco usando o NTFS.
 4. Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o PowerShell do Azure](../powershell-install-configure.md) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
    
@@ -79,7 +83,7 @@ Após a instalação do DC, conecte-se novamente à VM e faça logon no DC. Não
 ## <a name="reset-the-dns-server-for-the-azure-virtual-network"></a>Redefinir o servidor DNS para a rede virtual do Azure
 1. Redefina a configuração do encaminhador DNS no novo servidor DNS/DC.
    1. No Gerenciador do Servidor, clique em **Ferramentas** > **DNS**.
-   2. Em **Gerenciador DNS**, clique com o botão direito do mouse no nome do servidor DNS e clique em **Propriedades**.
+   2. Em **Gerenciador DNS**, clique com o botão direito no nome do servidor DNS e clique em **Propriedades**.
    3. Na guia **Encaminhadores**, clique no endereço IP do encaminhador e clique em **Editar**.  Selecione o endereço IP e clique em **Excluir**.
    4. Clique em **OK** para fechar o editor e em **Ok** novamente para fechar as propriedades do servidor DNS.
 2. Atualize a configuração do servidor DNS para a rede virtual.
@@ -93,11 +97,11 @@ Após a instalação do DC, conecte-se novamente à VM e faça logon no DC. Não
    | --- | --- |
    |  **Escolha uma imagem** |Windows Server 2012 R2 Datacenter |
    |  **Configuração de máquina virtual** |<p>Nome da Máquina Virtual: digite um nome de rótulo único (como AppServer1).</p><p>Novo nome de usuário: digite o nome de um usuário. Esse usuário será um membro do grupo local de Administradores na VM. Você precisará desse nome para entrar na Máquina Virtual pela primeira vez. A conta interna chamada Administrador não funcionará.</p><p>Nova Senha/Confirmar: digite uma senha</p> |
-   |  **Configuração de máquina virtual** |<p>Serviço de Nuvem: escolha **Criar um novo serviço de nuvem** para a primeira VM e selecione esse mesmo nome de serviço de nuvem ao criar mais VMs que hospedarão o aplicativo.</p><p>Nome DNS do Serviço de Nuvem: especifique um nome global exclusivo</p><p>Região/Grupo de Afinidades/Rede Virtual: especifique o nome da rede virtual (como WestUSVNet).</p><p>Conta de Armazenamento: escolha **Usar uma conta de armazenamento gerada automaticamente** para a primeira VM e selecione esse nome de conta de armazenamento ao criar mais VMs que hospedarão o aplicativo.</p><p>Conjunto de Disponibilidade: escolha **Criar um conjunto de disponibilidade**.</p><p>Nome do conjunto de disponibilidade: digite um nome para o conjunto disponibilidade ao criar a primeira VM e, em seguida, selecione esse mesmo nome quando você criar mais VMs.</p> |
+   |  **Configuração de máquina virtual** |<p>Serviço de Nuvem: escolha **Criar um novo serviço de nuvem** para a primeira VM e selecione esse mesmo nome de serviço de nuvem ao criar mais VMs que hospedarão o aplicativo.</p><p>Nome DNS do Serviço de Nuvem: especifique um nome global exclusivo</p><p>Região/Grupo de Afinidade/Rede Virtual: especifique o nome da rede virtual (como WestUSVNet).</p><p>Conta de Armazenamento: escolha **Usar uma conta de armazenamento gerada automaticamente** para a primeira VM e selecione esse nome de conta de armazenamento ao criar mais VMs que hospedarão o aplicativo.</p><p>Conjunto de Disponibilidade: escolha **Criar um conjunto de disponibilidade**.</p><p>Nome do conjunto de disponibilidade: digite um nome para o conjunto disponibilidade ao criar a primeira VM e, em seguida, selecione esse mesmo nome quando você criar mais VMs.</p> |
    |  **Configuração de máquina virtual** |<p>Selecione <b>Instalar o Agente de VM</b> e quaisquer outras extensões que você precisa.</p> |
-2. Após cada VM ter sido provisionada, conecte-se e a associe ao domínio. Em **Gerenciador do Servidor**, clique em **Servidor Local** > **WORKGROUP** > **Alterar...** e, em seguida, selecione **Domínio** e digite o nome do seu domínio local. Forneça as credenciais de um usuário de domínio e, em seguida, reinicie a VM para concluir o ingresso no domínio.
+2. Após cada VM ter sido provisionada, conecte-se e a associe ao domínio. Em **Gerenciador de Servidores**, clique em **Servidor Local** > **WORKGROUP** > **Alterar...** e, em seguida, selecione **Domínio** e digite o nome do seu domínio local. Forneça as credenciais de um usuário de domínio e, em seguida, reinicie a VM para concluir o ingresso no domínio.
 
-Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md).
+Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 Para obter mais informações sobre como usar o Windows PowerShell, consulte [Introdução aos Cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) e [Referência de Cmdlets do Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
 
@@ -122,6 +126,6 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

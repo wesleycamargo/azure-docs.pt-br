@@ -1,13 +1,13 @@
 ---
 title: Aplicativo Web Python com Django no Linux | Microsoft Docs
-description: Saiba como hospedar um aplicativo Web baseado em Django no Azure usando uma máquina virtual do Linux.
+description: "Saiba como hospedar um aplicativo Web baseado em Django no Azure usando uma máquina virtual do Linux."
 services: virtual-machines-linux
 documentationcenter: python
 author: huguesv
 manager: wpickett
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 00ad4c2c-4316-4f9a-913f-f7f49b158db7
 ms.service: virtual-machines-linux
 ms.workload: web
 ms.tgt_pltfrm: vm-linux
@@ -15,12 +15,16 @@ ms.devlang: python
 ms.topic: article
 ms.date: 11/17/2015
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 48644685a296875b8884cd4357f49391e30f034a
+
 
 ---
-# Aplicativo Web Django Hello World em uma VM do Linux
+# <a name="django-hello-world-web-application-on-a-linux-vm"></a>Aplicativo Web Django Hello World em uma VM do Linux
 > [!div class="op_single_selector"]
-> * [Windows](virtual-machines-windows-classic-python-django-web-app.md)
-> * [Mac/Linux](virtual-machines-linux-python-django-web-app.md)
+> * [Windows](virtual-machines-windows-classic-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+> * [Mac/Linux](virtual-machines-linux-python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -41,18 +45,18 @@ Abaixo, uma captura de tela do aplicativo concluído:
 
 [!INCLUDE [create-account-and-vms-note](../../includes/create-account-and-vms-note.md)]
 
-## Crie e configure uma máquina virtual do Azure para hospedar o Django
-1. Siga as instruções fornecidas [aqui](virtual-machines-linux-quick-create-portal.md) para criar uma máquina virtual do Azure da distribuição do *Server Ubuntu 14.04 LTS*. Se preferir, pode escolher a autenticação de senha em vez de chave pública SSH.
+## <a name="creating-and-configuring-an-azure-virtual-machine-to-host-django"></a>Crie e configure uma máquina virtual do Azure para hospedar o Django
+1. Siga as instruções fornecidas [aqui](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para criar uma máquina virtual do Azure da distribuição do *Server Ubuntu 14.04 LTS*.  Se preferir, pode escolher a autenticação de senha em vez de chave pública SSH.
 2. Editar o grupo de segurança de rede para permitir o tráfego http de entrada para a porta 80 usando as instruções [aqui](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
-3. Por padrão, a nova máquina virtual não tem um nome de domínio totalmente qualificado (FQDN). Você pode criar um seguindo as instruções [aqui](virtual-machines-linux-portal-create-fqdn.md). Essa etapa é opcional para concluir este tutorial.
+3. Por padrão, a nova máquina virtual não tem um nome de domínio totalmente qualificado (FQDN).  Você pode criar um seguindo as instruções [aqui](virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  Essa etapa é opcional para concluir este tutorial.
 
 ## <a id="setup"> </a>Configurando o ambiente de desenvolvimento
 **Observação:** se precisar instalar o Python ou se quiser usar as Bibliotecas do Cliente, confira o [Guia de instalação do Python](../python-how-to-install.md).
 
-A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o Apache ou o django instalados. Siga estas etapas para conectar a sua MV e instalar o Apache e o django.
+A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o Apache ou o django instalados.  Siga estas etapas para conectar a sua MV e instalar o Apache e o django.
 
-1. Inicie uma nova janela **Terminal**.
-2. Digite o seguinte comando para conectar-se à sua MV do Azure. Se não tiver criado um FQDN, você pode se conectar usando o endereço IP público exibido no resumo da máquina virtual no portal clássico do Azure.
+1. Inicie uma nova janela **Terminal** .
+2. Digite o seguinte comando para conectar-se à sua MV do Azure.  Se não tiver criado um FQDN, você pode se conectar usando o endereço IP público exibido no resumo da máquina virtual no portal clássico do Azure.
    
        $ ssh yourusername@yourVmUrl
 3. Digite os seguintes comandos para instalar o django:
@@ -63,7 +67,7 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
    
        $ sudo apt-get install apache2 libapache2-mod-wsgi
 
-## Criando um novo aplicativo Django
+## <a name="creating-a-new-django-application"></a>Criando um novo aplicativo Django
 1. Abra a janela **Terminal** que você usou na seção anterior para ssh na sua MV.
 2. Digite os seguintes comandos para criar um novo projeto de Django:
    
@@ -88,8 +92,8 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
            url(r'^$', 'helloworld.views.home', name='home'),
        )
 
-## Configurando o Apache
-1. Crie um arquivo de configuração do host virtual Apache **/etc/apache2/sites-available/helloworld.conf**. Defina o conteúdo como o seguinte e substitua *yourVmName* pelo nome real do computador que você está usando (por exemplo *pyubuntu*).
+## <a name="setting-up-apache"></a>Configurando o Apache
+1. Crie um arquivo de configuração do host virtual Apache **/etc/apache2/sites-available/helloworld.conf**. Defina o conteúdo como o seguinte e substitua *NomeDaSuaVM* pelo nome real do computador que você está usando (por exemplo *pyubuntu*).
    
        <VirtualHost *:80>
        ServerName yourVmName
@@ -106,7 +110,12 @@ A MV do Linux Ubuntu já vem com o Python 2.7 pré-instalado, mas ela não tem o
    
    ![Uma janela do navegador exibindo a página de boas-vindas no Azure.](./media/virtual-machines-linux-python-django-web-app/mac-linux-django-helloworld-browser.png)
 
-## Desligando a máquina virtual do Azure
+## <a name="shutting-down-your-azure-virtual-machine"></a>Desligando a máquina virtual do Azure
 Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtual recém-criada do Azure para liberar recursos para outros tutoriais e evitar a incidência de encargos de uso do Azure.
 
-<!---HONumber=AcomDC_0608_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

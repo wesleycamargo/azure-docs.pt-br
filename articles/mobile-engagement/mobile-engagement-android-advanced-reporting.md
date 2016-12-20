@@ -1,12 +1,12 @@
 ---
-title: Opções de relatório avançado para o SDK do Azure Mobile Engagement para Android
-description: Descreve como fazer relatórios avançados para capturar a análise do SDK do Azure Mobile Engagement para Android
+title: "Opções de relatório avançado para o SDK do Azure Mobile Engagement para Android"
+description: "Descreve como fazer relatórios avançados para capturar a análise do SDK do Azure Mobile Engagement para Android"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7da7abd5-19d6-4892-94d8-818e5424b2cd
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,9 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
+
 
 ---
-# Relatório avançado com o Engagement no Android
+# <a name="advanced-reporting-with-engagement-on-android"></a>Relatório avançado com o Engagement no Android
 > [!div class="op_single_selector"]
 > * [Universal do Windows](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -25,14 +29,14 @@ ms.author: piyushjo;ricksal
 > 
 > 
 
-Este tópico descreve cenários de relatório adicionais em seu aplicativo Android. Você pode aplicar estas opções ao aplicativo criado no tutorial [Introdução](mobile-engagement-android-get-started.md).
+Este tópico descreve cenários de relatório adicionais em seu aplicativo Android. Você pode aplicar estas opções ao aplicativo criado no tutorial [Introdução](mobile-engagement-android-get-started.md) .
 
-## Pré-requisitos
-[!INCLUDE [Pré-requisitos](../../includes/mobile-engagement-android-prereqs.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 O tutorial que você concluiu era deliberadamente simples e direto, mas há opções avançadas dentre as quais você pode escolher.
 
-## Modificação das classes `Activity`
+## <a name="modifying-your-activity-classes"></a>Modificação das classes `Activity`
 No [tutorial Introdução](mobile-engagement-android-get-started.md), era necessário apenas fazer com que as subclasses `*Activity` herdassem das classes `Engagement*Activity` correspondentes. Por exemplo, se sua atividade herdada tiver estendido o `ListActivity`, você a faria estender `EngagementListActivity`.
 
 > [!IMPORTANT]
@@ -42,11 +46,11 @@ No [tutorial Introdução](mobile-engagement-android-get-started.md), era necess
 
 Você pode encontrar essas classes na pasta `src` e copiá-las para seu projeto. As classes também estão no **JavaDoc**.
 
-## Método alternativo: chame `startActivity()` e `endActivity()` manualmente
+## <a name="alternate-method-call-startactivity-and-endactivity-manually"></a>Método alternativo: chame `startActivity()` e `endActivity()` manualmente
 Se você não puder ou não quiser sobrecarregar as classes `Activity`, será possível iniciar e encerrar suas atividades chamando diretamente os métodos de `EngagementAgent`.
 
 > [!IMPORTANT]
-> O SDK do Android nunca chama o método `endActivity()`, mesmo quando o aplicativo é fechado (no Android, os aplicativos nunca são fechados). Assim, é *ALTAMENTE* recomendado chamar o método `startActivity()` no retorno de chamada `onResume` de *TODAS* as suas atividades, e o método `endActivity()` no retorno de chamada `onPause()` de *TODAS* as suas atividades. Essa é a única maneira de certificar-se de que as sessões não serão perdidas. Se ocorrer perda de uma sessão, o serviço Engagement nunca se desconectará do back-end do Engagement (desde que o serviço permaneça conectado enquanto houver uma sessão pendente).
+> O SDK do Android nunca chama o método `endActivity()`, mesmo quando o aplicativo é fechado (no Android, os aplicativos nunca são fechados). Assim, é *ALTAMENTE* recomendado chamar o método `startActivity()` no retorno de chamada `onResume` de *TODAS* as suas atividades e o método `endActivity()` no retorno de chamada `onPause()` de *TODAS* as suas atividades. Essa é a única maneira de certificar-se de que as sessões não serão perdidas. Se ocorrer perda de uma sessão, o serviço Engagement nunca se desconectará do back-end do Engagement (desde que o serviço permaneça conectado enquanto houver uma sessão pendente).
 > 
 > 
 
@@ -72,8 +76,8 @@ Aqui está um exemplo:
 
 Este exemplo é semelhante à classe `EngagementActivity` e suas variantes, cujo código-fonte é fornecido na pasta `src`.
 
-## Usando Application.onCreate()
-Qualquer código que você colocar em `Application.onCreate()`, e em outros retornos de chamada do aplicativo, será executado para todos os processos de seu aplicativo, incluindo o serviço Engagement. Ele pode ter efeitos colaterais indesejados, como alocações de memória desnecessárias e threads no processo do Engagement, serviços ou receptores de difusão duplicados.
+## <a name="using-applicationoncreate"></a>Usando Application.onCreate()
+Qualquer código que você colocar em `Application.onCreate()` , e em outros retornos de chamada do aplicativo, será executado para todos os processos de seu aplicativo, incluindo o serviço Engagement. Ele pode ter efeitos colaterais indesejados, como alocações de memória desnecessárias e threads no processo do Engagement, serviços ou receptores de difusão duplicados.
 
 Caso você substitua `Application.onCreate()`, recomenda-se adicionar o seguinte trecho de código no início da função `Application.onCreate()`:
 
@@ -89,12 +93,12 @@ Você pode fazer a mesma coisa para `Application.onTerminate()`, `Application.on
 
 Você também pode estender `EngagementApplication` em vez de ampliar `Application`: o retorno de chamada `Application.onCreate()` faz a verificação do processo e chama `Application.onApplicationProcessCreate()` somente se o processo atual não for aquele que hospeda o serviço do Engagement. As mesmas regras se aplicam para os outros retornos de chamada.
 
-## Marcas no arquivo AndroidManifest.xml
+## <a name="tags-in-the-androidmanifestxml-file"></a>Marcas no arquivo AndroidManifest.xml
 Na marcação de serviço no arquivo AndroidManifest.xml, o atributo `android:label` permite que você escolha o nome do serviço do Engagement como ele aparecerá para os usuários finais na tela "Serviços em execução" de seus respectivos telefones. É recomendável definir esse atributo como `"<Your application name>Service"` (por exemplo, `"AcmeFunGameService"`).
 
 Especificar o atributo `android:process` garante que o serviço do Engagement será executado em seu próprio processo (executando o Engagement no mesmo processo que seu aplicativo fará o thread/interface de usuário principal potencialmente menos responsivos).
 
-## Compilando com o ProGuard
+## <a name="building-with-proguard"></a>Compilando com o ProGuard
 Se você compilar seu pacote de aplicativo com o ProGuard, você precisa manter algumas classes. Você pode usar o seguinte trecho de código de configuração:
 
     -keep public class * extends android.os.IInterface
@@ -102,4 +106,8 @@ Se você compilar seu pacote de aplicativo com o ProGuard, você precisa manter 
     <methods>;
      }
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

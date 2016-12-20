@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integração do Azure Active Directory ao Icertis Contract Management Platform | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Icertis Contract Management Platform.
+title: "Tutorial: integração do Azure Active Directory com o Icertis Contract Management Platform | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Icertis Contract Management Platform."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6627e6dd-f559-4cd4-a509-f6d9a4961b49
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a2d2fba76850d6dfcff7545d6646f45c12e05c3f
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Tutorial: integração do Azure Active Directory com o Icertis Contract Management Platform
+# <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Tutorial: integração do Azure Active Directory com o Icertis Contract Management Platform
 O objetivo deste tutorial é mostrar como integrar o Icertis Contract Management Platform ao Azure AD (Azure Active Directory).
 
 A integração do Icertis Contract Management Platform ao Azure AD fornece os seguintes benefícios:
@@ -102,11 +106,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
 2. Na página **Como você deseja que os usuários façam logon no Icertis Contract Management Platform**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
    
     ![Configurar o logon único](./media/active-directory-saas-icertisicm-tutorial/tutorial_icertisicm_03.png) 
-3. Na página da caixa de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
+3. Na página de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas e clique em **Avançar**:
    
     ![Configurar o logon único](./media/active-directory-saas-icertisicm-tutorial/tutorial_icertisicm_04.png)
    
-    a. Na caixa de texto **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://<company name>.icertis.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.icertis.com`
    
     b. Clique em **Avançar**
 
@@ -174,7 +178,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-icertisicm-tutorial/create_aaduser_07.png)
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -238,6 +242,6 @@ Ao clicar no bloco Icertis Contract Management Platform, você deve ser conectad
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

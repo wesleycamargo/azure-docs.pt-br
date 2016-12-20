@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integração do Active Directory do Azure ao Promapp | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Promapp.
+title: "Tutorial: integração do Azure Active Directory ao Promapp | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Promapp."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 418d0601-6e7a-4997-a683-73fa30a2cfb5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dece2cd1c8645c0a2d19177d433dbfe5d6e3f6cd
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-promapp"></a>Tutorial: integração do Active Directory do Azure com o Promapp
+# <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: integração do Active Directory do Azure com o Promapp
 O objetivo deste tutorial é mostrar como integrar o Promapp ao Azure AD (Azure Active Directory).  
 A integração do Promapp ao Azure AD proporciona os seguintes benefícios: 
 
@@ -255,6 +259,6 @@ Quando você clica no bloco Promapp no Painel de Acesso, você deve ser conectad
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

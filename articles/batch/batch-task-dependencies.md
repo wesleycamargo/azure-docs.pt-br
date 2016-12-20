@@ -1,12 +1,12 @@
 ---
-title: Dependências de tarefas no Lote do Azure | Microsoft Docs
-description: Crie tarefas que dependem da conclusão bem-sucedida de outras tarefas para o processamento em estilo MapReduce e cargas de trabalho de big data semelhantes no Lote do Azure.
+title: "Dependências de tarefas no Lote do Azure | Microsoft Docs"
+description: "Crie tarefas que dependem da conclusão bem-sucedida de outras tarefas para o processamento em estilo MapReduce e cargas de trabalho de big data semelhantes no Lote do Azure."
 services: batch
 documentationcenter: .net
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
+
 
 ---
 # <a name="task-dependencies-in-azure-batch"></a>Dependências de tarefa no Lote do Azure
@@ -27,7 +31,7 @@ Esse recurso permite que você crie tarefas que são agendadas para execução e
 
 Você pode criar tarefas que dependem de outras tarefas em uma relação um para um ou um para muitos. Você pode até mesmo criar uma dependência de intervalo em que uma tarefa depende da conclusão bem-sucedida de um grupo de tarefas em um intervalo específico de IDs de tarefa. Você pode combinar esses três cenários básicos para criar relações muitos-para-muitos.
 
-## <a name="task-dependencies-with-batch-.net"></a>Dependências de tarefas com o .NET do Lote
+## <a name="task-dependencies-with-batch-net"></a>Dependências de tarefas com o .NET do Lote
 Neste artigo, discutimos como configurar dependências de tarefas usando a biblioteca [.NET do Lote][net_msdn]. Primeiro mostramos como [habilitar a dependência de tarefa](#enable-task-dependencies) nos trabalhos. Em seguida, demonstramos brevemente como [configurar uma tarefa com dependências](#create-dependent-tasks). Finalmente, discutiremos os [cenários de dependência](#dependency-scenarios) aos quais o Lote dá suporte.
 
 ## <a name="enable-task-dependencies"></a>Habilitar dependências de tarefas
@@ -91,7 +95,7 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 ```
 
 ### <a name="one-to-many"></a>Um-para-muitos
-Para criar uma tarefa que tenha uma dependência referente à conclusão bem-sucedida de várias tarefas, forneça uma coleção de IDs de tarefas ao método estático [TaskDependencies][net_taskdependencies].[OnId][net_onid] ao popular a propriedade [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
+Para criar uma tarefa que tenha uma dependência referente à conclusão bem-sucedida de várias tarefas, forneça uma coleção de IDs de tarefas ao método estático [TaskDependencies][net_taskdependencies].[OnId][net_onids] ao popular a propriedade [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -165,6 +169,6 @@ Confira a postagem [Instalação de aplicativos e preparação de dados em nós 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

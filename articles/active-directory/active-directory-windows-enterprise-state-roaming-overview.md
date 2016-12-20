@@ -1,13 +1,13 @@
 ---
-title: Visão geral do Enterprise State Roaming | Microsoft Docs
-description: Fornece informações sobre as configurações do Enterprise State Roaming em dispositivos do Windows. O Enterprise State Roaming fornece aos usuários uma experiência unificada em seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo.
+title: "Visão geral do Enterprise State Roaming | Microsoft Docs"
+description: "Fornece informações sobre as configurações do Enterprise State Roaming em dispositivos do Windows. O Enterprise State Roaming fornece aos usuários uma experiência unificada em seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo."
 services: active-directory
-keywords: o que é o Enterprise State Roaming, sincronização de empresa, nuvem do windows
-documentationcenter: ''
+keywords: "o que é o Enterprise State Roaming, sincronização de empresa, nuvem do windows"
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b946c4c712544ea49607cf5cdd5ebbd997ff116
+
 
 ---
 # <a name="enterprise-state-roaming-overview"></a>Visão geral do Enterprise State Roaming
@@ -33,6 +37,9 @@ O Enterprise State Roaming está disponível em várias regiões do Azure. Você
 | [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |O Windows 10 fornece configurações da Política de Grupo e da política de gerenciamento de dispositivos móveis (MDM) para limitar a sincronização de configurações. |
 | [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |Esta é uma lista completa de todas as configurações que serão ser movidas e/ou armazenadas em backup no Windows 10. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

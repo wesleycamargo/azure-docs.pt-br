@@ -1,57 +1,59 @@
 ---
-title: Gerar recomendações usando o Mahout e o HDInsight baseado em Linux | Microsoft Docs
-description: Saiba como usar a biblioteca de aprendizado de máquina do Apache Mahout para gerar recomendações de filmes com o HDInsight para Linux (Hadoop).
+title: "Gerar recomendações usando o Mahout e o HDInsight baseado em Linux | Microsoft Docs"
+description: "Saiba como usar a biblioteca de aprendizado de máquina do Apache Mahout para gerar recomendações de filmes com o HDInsight para Linux (Hadoop)."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: c78ec37c-9a8c-4bb6-9e38-0bdb9e89fbd7
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 11/15/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 3c3944118ca986009711aee032b45c302b63e63b
+ms.openlocfilehash: 2cd1c44552183b3167ea1cfec6b2c1d7c6b3fd0c
+
 
 ---
-# Gerar recomendações de filmes usando o Apache Mahout com o Hadoop para Linux no HDInsight
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight"></a>Gerar recomendações de filmes usando o Apache Mahout com o Hadoop para Linux no HDInsight
+
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
 Saiba como usar a biblioteca de aprendizado de máquina do [Apache Mahout](http://mahout.apache.org) com o Azure HDInsight para gerar recomendações de vídeos.
 
-O Mahout é uma biblioteca de [aprendizado de máquina][ml] para o Apache Hadoop. O Mahout contém algoritmos para processamento de dados, como filtragem, classificação e clustering. Neste artigo, você utilizará um mecanismo de recomendação para gerar recomendações de filmes baseadas nos vídeos que seus amigos assistiram.
+O Mahout é uma biblioteca de [aprendizado de máquina][ml] para o Apache Hadoop. O Mahout contém algoritmos para processamento de dados, como filtragem, classificação e clustering. Neste artigo, você utiliza um mecanismo de recomendação para gerar recomendações de filmes baseadas nos vídeos que seus amigos assistiram.
 
 > [!NOTE]
 > As etapas deste documento exigem o Hadoop para Linux no cluster do HDInsight. Para obter informações sobre como usar o Mahout com um cluster do Windows, consulte [Gerar recomendações de filmes usando o Apache Mahout com o Hadoop para Windows no HDInsight](hdinsight-mahout.md)
-> 
-> 
 
-## Pré-requisitos
-* Um cluster do Hadoop no HDInsight baseado em Linux. Para obter informações sobre como criar um, consulte [Introdução ao uso do Hadoop para Linux HDInsight][getstarted].
+## <a name="prerequisites"></a>Pré-requisitos
 
-## Versões do Mahout
+* Um cluster do Hadoop no HDInsight baseado em Linux. Para saber mais sobre como criar um, consulte [Introdução ao uso do Hadoop para Linux HDInsight][getstarted]
+
+## <a name="mahout-versioning"></a>Versões do Mahout
+
 Para obter mais informações sobre a versão do Mahout incluída com o cluster HDInsight, consulte [Versões do HDInsight e componentes do Hadoop](hdinsight-component-versioning.md).
 
-> [!WARNING]
-> Embora seja possível carregar uma versão diferente do Mahout no cluster HDInsight, há suporte somente aos componentes fornecidos com o cluster HDInsight e o Suporte da Microsoft ajudará a isolar e resolver problemas relacionados a esses componentes.
-> 
-> Componentes personalizados recebem suporte comercialmente razoável para ajudá-lo a solucionar o problema. Isso pode resultar na resolução do problema ou na solicitação de você buscar nos canais disponíveis as tecnologias de código-fonte aberto, onde é possível encontrar conhecimento aprofundado sobre essa tecnologia. Por exemplo, há muitos sites de comunidades que podem ser usados, como o [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/pt-BR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Além disso, projetos Apache têm sites de projetos em [http://apache.org](http://apache.org), por exemplo: [Hadoop](http://hadoop.apache.org/) e [Spark](http://spark.apache.org/).
-> 
-> 
+## <a name="a-namerecommendationsaunderstanding-recommendations"></a><a name="recommendations"></a>Entendendo as recomendações
 
-## <a name="recommendations"></a>Entendendo as recomendações
 Uma das funções oferecidas pelo Mahout é um mecanismo de recomendação. Ele aceita dados no formato de `userID`, `itemId` e `prefValue` (os usuários escolhem o item de sua preferência). O Mahout, então, pode realizar análises de coocorrência, para determinar que *usuários que têm preferência por um item também têm preferência por esses outros itens*. O Mahout determinará, então, usuários com preferências de item similares, que podem ser utilizadas para fazer recomendações.
 
-A seguir está um exemplo extremamente simples usando filmes:
+O fluxo de trabalho a seguir é um exemplo extremamente simples que usa dados de filmes:
 
-* **Coocorrência**: Joe, Alice e Bob, todos gostaram de *Guerra nas Estrelas*, *O Império Contra-ataca* e *O Retorno de Jedi*. O Mahout determina que usuários que gostam de qualquer um desses filmes também gostam dos outros dois.
-* **Coocorrência**: Bob e Alice também gostaram de *A Ameaça Fantasma*, *A Guerra dos Clones* e *A Vingança dos Sith*. O Mahout determina que usuários que gostam de qualquer um dos três filmes citados anteriormente também gostam destes últimos três.
+* **Co-ocorrência**: Joe, Alice e Bob, todos gostaram de *Guerra nas Estrelas*, *O Império Contra-ataca* e *O Retorno de Jedi*. O Mahout determina que usuários que gostam de qualquer um desses filmes também gostam dos outros dois.
+
+* **Co-ocorrência**: Bob e Alice também gostaram de *A Ameaça Fantasma*, *A Guerra dos Clones* e *A Vingança dos Sith*. O Mahout determina que usuários que gostam de qualquer um dos três filmes citados anteriormente também gostam destes últimos três filmes.
+
 * **Recomendação por similaridade**: já que Joe gostou dos primeiros três, o Mahout pesquisará os filmes que outros com preferências similares gostaram, mas que Joe não assistiu (curtiu/classificou). Nesse caso, o Mahout recomendaria *A Ameaça Fantasma*, *A Guerra dos Clones* e *A Vingança dos Sith*.
 
-### Compreendendo os dados
+### <a name="understanding-the-data"></a>Compreendendo os dados
+
 Convenientemente, a [GroupLens Research][movielens] oferece dados de classificação para filmes em um formato compatível com o Mahout. Esses dados estão disponíveis no armazenamento padrão do cluster em `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 Existem dois arquivos, `moviedb.txt` (informações sobre filmes) e `user-ratings.txt`. O arquivo ratings.txt do usuário é usado durante a análise, enquanto moviedb.txt é usado para fornecer informações de texto amigável ao exibir os resultados da análise.
@@ -64,107 +66,128 @@ Os dados contidos em user-ratings.txt têm uma estrutura de `userID`, `movieID`,
     244    51    2    880606923
     166    346    1    886397596
 
-## Executar a análise
-Use o seguinte comando para executar o trabalho de recomendação:
+## <a name="run-the-analysis"></a>Executar a análise
 
-    mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
+Em uma conexão SSH ao cluster, use o comando a seguir para executar o trabalho de recomendação:
+
+```bash
+mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
+```
 
 > [!NOTE]
 > O trabalho pode levar vários minutos para ser concluído e pode executar vários trabalhos do MapReduce.
-> 
-> 
 
-## Exibir a saída
+## <a name="view-the-output"></a>Exibir a saída
+
 1. Quando o trabalho for concluído, use o seguinte comando para exibir a saída gerada:
-   
-        hdfs dfs -text /example/data/mahoutout/part-r-00000
-   
-    A saída terá a seguinte aparência:
+    
+    ```bash
+    hdfs dfs -text /example/data/mahoutout/part-r-00000
+    ```
+
+    A saída é exibida da seguinte maneira:
    
         1    [234:5.0,347:5.0,237:5.0,47:5.0,282:5.0,275:5.0,88:5.0,515:5.0,514:5.0,121:5.0]
         2    [282:5.0,210:5.0,237:5.0,234:5.0,347:5.0,121:5.0,258:5.0,515:5.0,462:5.0,79:5.0]
         3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
         4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
    
-    A primeira coluna é a `userID`. Os valores contidos em “[” e “]” são `movieId`:`recommendationScore`.
+    A primeira coluna é a `userID`. Os valores contidos em '[' and ']' são `movieId`:`recommendationScore`.
+
 2. Você pode usar a saída, juntamente com o moviedb.txt, para exibir mais informações amigáveis. Primeiro, é necessário copiar os arquivos localmente usando os seguintes comandos:
-   
-        hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
-        hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
-   
+    
+    ```bash
+    hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
+    hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
+    ```
+
     Isso copiará os dados de saída em um arquivo chamado **recommendations.txt** no diretório atual, juntamente com os aquivos de dados de filme.
-3. Use o comando a seguir para criar um novo script Python que pesquisará nomes de filmes para os dados na saída de recomendações:
+
+3. Use o comando a seguir para criar um novo script Python que pesquise nomes de filmes para os dados na saída de recomendações:
    
-        nano show_recommendations.py
-   
-    Quando o editor for aberto, use o seguinte como conteúdo do arquivo:
-   
-        #!/usr/bin/env python
-   
-        import sys
-   
-        if len(sys.argv) != 5:
-                print "Arguments: userId userDataFilename movieFilename recommendationFilename"
-                sys.exit(1)
-   
-        userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
-   
-        print "Reading Movies Descriptions"
-        movieFile = open(movieFilename)
-        movieById = {}
-        for line in movieFile:
-                tokens = line.split("|")
-                movieById[tokens[0]] = tokens[1:]
-        movieFile.close()
-   
-        print "Reading Rated Movies"
-        userDataFile = open(userDataFilename)
-        ratedMovieIds = []
-        for line in userDataFile:
-                tokens = line.split("\t")
-                if tokens[0] == userId:
-                        ratedMovieIds.append((tokens[1],tokens[2]))
-        userDataFile.close()
-   
-        print "Reading Recommendations"
-        recommendationFile = open(recommendationFilename)
-        recommendations = []
-        for line in recommendationFile:
-                tokens = line.split("\t")
-                if tokens[0] == userId:
-                        movieIdAndScores = tokens[1].strip("[]\n").split(",")
-                        recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
-                        break
-        recommendationFile.close()
-   
-        print "Rated Movies"
-        print "------------------------"
-        for movieId, rating in ratedMovieIds:
-                print "%s, rating=%s" % (movieById[movieId][0], rating)
-        print "------------------------"
-   
-        print "Recommended Movies"
-        print "------------------------"
-        for movieId, score in recommendations:
-                print "%s, score=%s" % (movieById[movieId][0], score)
-        print "------------------------"
+    ```bash
+    nano show_recommendations.py
+    ```
+
+    Quando o editor for aberto, use o texto a seguir como conteúdo do arquivo:
+    
+    ```python
+    #!/usr/bin/env python
+
+    import sys
+
+    if len(sys.argv) != 5:
+            print "Arguments: userId userDataFilename movieFilename recommendationFilename"
+            sys.exit(1)
+
+    userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
+
+    print "Reading Movies Descriptions"
+    movieFile = open(movieFilename)
+    movieById = {}
+    for line in movieFile:
+            tokens = line.split("|")
+            movieById[tokens[0]] = tokens[1:]
+    movieFile.close()
+
+    print "Reading Rated Movies"
+    userDataFile = open(userDataFilename)
+    ratedMovieIds = []
+    for line in userDataFile:
+            tokens = line.split("\t")
+            if tokens[0] == userId:
+                    ratedMovieIds.append((tokens[1],tokens[2]))
+    userDataFile.close()
+
+    print "Reading Recommendations"
+    recommendationFile = open(recommendationFilename)
+    recommendations = []
+    for line in recommendationFile:
+            tokens = line.split("\t")
+            if tokens[0] == userId:
+                    movieIdAndScores = tokens[1].strip("[]\n").split(",")
+                    recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
+                    break
+    recommendationFile.close()
+
+    print "Rated Movies"
+    print "------------------------"
+    for movieId, rating in ratedMovieIds:
+            print "%s, rating=%s" % (movieById[movieId][0], rating)
+    print "------------------------"
+
+    print "Recommended Movies"
+    print "------------------------"
+    for movieId, score in recommendations:
+            print "%s, score=%s" % (movieById[movieId][0], score)
+    print "------------------------"
+    ```
    
     Pressione **Ctrl-X**, **Y** e finalmente **Enter** para salvar os dados.
+    
 4. Use o comando a seguir para tornar o arquivo executável:
    
-        chmod +x show_recommendations.py
-5. Execute o script Python. O exemplo a seguir pressupõe que você esteja no diretório em que todos os arquivos foram baixados:
+    ```bash
+    chmod +x show_recommendations.py
+    ```
+
+5. Execute o script Python. O comando a seguir pressupõe que você esteja no diretório em que todos os arquivos foram baixados:
    
-        ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+    ```bash
+    ./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
+    ```
+    
+    Esse comando examina as recomendações geradas para o usuário ID 4.
    
-    Isso examinará as recomendações geradas do ID de usuário 4.
-   
-   * O arquivo **user-ratings.txt** é usado para recuperar filmes que o usuário classificou
-   * O arquivo **user-ratings.txt** é usado para recuperar os nomes dos filmes
-   * O arquivo **recommendations.txt** é usado para recuperar as recomendações de filmes deste usuário
+   * O arquivo **user-ratings.txt** é usado para recuperar filmes que o usuário classificou.
+
+   * O arquivo **user-ratings.txt** é usado para recuperar os nomes dos filmes.
+
+   * O arquivo **recommendations.txt** é usado para recuperar as recomendações de filmes deste usuário.
      
-     A saída desse comando deve ser semelhante ao seguinte:
+     A saída desse comando deve ser semelhante a este texto:
      
+     ```
        Reading Movies Descriptions
        Reading Rated Movies
        Reading Recommendations
@@ -207,20 +230,24 @@ Use o seguinte comando para executar o trabalho de recomendação:
        Time to Kill, A (1996), score=5.0
      
      ##   Rock, The (1996), score=5.0
+     ```
 
-## Excluir dados temporários
+## <a name="delete-temporary-data"></a>Excluir dados temporários
+
 Os trabalhos do Mahout não removem dados temporários criados durante o processamento do trabalho. O parâmetro `--tempDir` é especificado no trabalho de exemplo para isolar os arquivos temporários em um caminho específico para fácil exclusão. Para remover os arquivos temporários, use o seguinte comando:
 
-    hdfs dfs -rm -f -r /temp/mahouttemp
+```bash
+hdfs dfs -rm -f -r /temp/mahouttemp
+```
 
 > [!WARNING]
 > Se você quiser executar o comando novamente, você também deve excluir o diretório de saída. Use o seguinte para excluir esse diretório:
 > 
 > ```hdfs dfs -rm -f -r /example/data/mahoutout```
-> 
-> 
 
-## Próximas etapas
+
+## <a name="next-steps"></a>Próximas etapas
+
 Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalhar com dados no HDInsight:
 
 * [Hive com o HDInsight](hdinsight-use-hive.md)
@@ -241,4 +268,8 @@ Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalh
 [tools]: https://github.com/Blackmist/hdinsight-tools
 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

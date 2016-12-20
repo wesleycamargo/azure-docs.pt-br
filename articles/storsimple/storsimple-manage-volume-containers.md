@@ -1,12 +1,12 @@
 ---
-title: Gerenciar os contêineres de volume do StorSimple | Microsoft Docs
-description: Explica como você pode usar a página de contêineres de volume do serviço Gerenciador do StorSimple para adicionar, modificar ou excluir um contêiner de volume.
+title: "Gerenciar os contêineres de volume do StorSimple | Microsoft Docs"
+description: "Explica como você pode usar a página de contêineres de volume do serviço Gerenciador do StorSimple para adicionar, modificar ou excluir um contêiner de volume."
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 1c64ce75-1fd3-4d3b-9304-d4dc0fc2b069
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/24/2016
 ms.author: v-sharos
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4fb0f4e61ec98546e7044bf760d24a1ba932fe5b
+
 
 ---
-# Usar o serviço StorSimple Manager para gerenciar contêineres de volume do StorSimple
-## Visão geral
+# <a name="use-the-storsimple-manager-service-to-manage-storsimple-volume-containers"></a>Usar o serviço StorSimple Manager para gerenciar contêineres de volume do StorSimple
+## <a name="overview"></a>Visão geral
 Esse tutorial explica como usar o serviço Gerenciador do StorSimple para criar e gerenciar contêineres de volume do StorSimple.
 
-Um contêiner de volume em um dispositivo Microsoft Azure StorSimple contém um ou mais volumes que compartilham as configurações da conta de armazenamento, da criptografia e do consumo de largura de banda. Um dispositivo pode ter vários contêineres de volume para todos os seus volumes.
+Um contêiner de volume em um dispositivo Microsoft Azure StorSimple contém um ou mais volumes que compartilham as configurações da conta de armazenamento, da criptografia e do consumo de largura de banda. Um dispositivo pode ter vários contêineres de volume para todos os seus volumes. 
 
 Um contêiner de volume apresenta os seguintes atributos:
 
@@ -37,23 +41,28 @@ Estes procedimentos a seguir explicam como usar a página **Contêineres de volu
 * Modificar um contêiner de volume 
 * Excluir um contêiner de volume 
 
-## Adicionar um contêiner de volume
+## <a name="add-a-volume-container"></a>Adicionar um contêiner de volume
 Execute as etapas a seguir para adicionar um contêiner de volume.
 
 [!INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
-## Modificar um contêiner de volume
+## <a name="modify-a-volume-container"></a>Modificar um contêiner de volume
 Execute as etapas a seguir para modificar um contêiner de volume.
 
 [!INCLUDE [storsimple-modify-volume-container](../../includes/storsimple-modify-volume-container.md)]
 
-## Excluir um contêiner de volume
+## <a name="delete-a-volume-container"></a>Excluir um contêiner de volume
 Um contêiner de volume possui volumes dentro dele. Ele poderá ser excluído somente se todos os volumes contidos nele forem excluídos primeiro. Execute as etapas a seguir para excluir um contêiner de volume.
 
 [!INCLUDE [storsimple-delete-volume-container](../../includes/storsimple-delete-volume-container.md)]
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre [como gerenciar volumes do StorSimple](storsimple-manage-volumes.md). 
 * Saiba mais sobre o [uso do serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

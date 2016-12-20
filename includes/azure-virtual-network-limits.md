@@ -17,7 +17,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo
 | VIP (ILB) privado por implantação |1 |1 |
 | ACLs (Listas de Controle de Acesso de Pontos de Extremidade) |50 |50 |
 
-#### <a name="<a-name="azure-resource-manager-virtual-networking-limits"></a>networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de Rede – Azure Resource Manager
+#### <a name="a-nameazure-resource-manager-virtual-networking-limitsanetworking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de Rede – Azure Resource Manager
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura.
 
 | Recurso | Limite padrão | Limite máximo |
@@ -29,7 +29,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | NIC (Interfaces de rede) |300 |10000 |
 | Grupos de segurança de rede (NSG) |100 |400 |
 | Regras de NSG por NSG |200 |500 |
-| Tabelas de rota definida pelo usuário |100 |400 |
+| Tabelas de rota definida pelo usuário |100 |200 |
 | Rotas definidas pelo usuário por tabela de rotas |100 |400 |
 | Endereços IP públicos (dinâmicos) |60 |entre em contato com o suporte |
 | Endereços IP públicos (estático) |20 |entre em contato com o suporte |
@@ -37,11 +37,12 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Regras de balanceador de carga por balanceador de carga |150 |150 |
 | IP público front-end por balanceador de carga |5 |entre em contato com o suporte |
 | IP privado front-end por balanceador de carga |30 |entre em contato com o suporte |
-| Application gateways |50 |50 |
 | Emparelhamentos de VNets por rede virtual |10 |50 |
 
 Entre em contato com o suporte caso precise aumentar esses limites.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO5-->
 
 

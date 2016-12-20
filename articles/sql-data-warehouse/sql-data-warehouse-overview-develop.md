@@ -1,25 +1,29 @@
 ---
-title: Decisões de design e técnicas de codificação para o desenvolvimento do SQL Data Warehouse | Microsoft Docs
-description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
+title: "Decisões de design e técnicas de codificação para o desenvolvimento do SQL Data Warehouse | Microsoft Docs"
+description: "Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 996e3afc-c21c-4e21-b9df-997f953f6dfd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/16/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d1c2255264a4240eecc51199050f8406d141ace2
+
 
 ---
-# Decisões de design e técnicas de codificação para o SQL Data Warehouse
+# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisões de design e técnicas de codificação para o SQL Data Warehouse
 Dê uma olhada nesses artigos sobre desenvolvimento para entender melhor as principais decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
 
-## Principais decisões de design
+## <a name="key-design-decisions"></a>Principais decisões de design
 Os artigos a seguir destacam alguns dos principais conceitos e as decisões de design que você precisará entender para desenvolver seu data warehouse distribuído usando o SQL Data Warehouse:
 
 * [conexões][conexões]
@@ -32,7 +36,7 @@ Os artigos a seguir destacam alguns dos principais conceitos e as decisões de d
 * [CTAS][CTAS]
 * [estatísticas][estatísticas]
 
-## Recomendações para o desenvolvimento e técnicas de codificação
+## <a name="development-recommendations-and-coding-techniques"></a>Recomendações para o desenvolvimento e técnicas de codificação
 Esses artigos realçam as técnicas de codificação específicas, dicas e recomendações para o desenvolvimento de seu SQL Data Warehouse:
 
 * [procedimentos armazenados][procedimentos armazenados]
@@ -44,8 +48,8 @@ Esses artigos realçam as técnicas de codificação específicas, dicas e recom
 * [agrupar por opções][agrupar por opções]
 * [atribuição de variável][atribuição de variável]
 
-## Próximas etapas
-Após a leitura dos artigos de desenvolvimento, confira a página [Referência a Transact-SQL][Referência a Transact-SQL] para obter mais detalhes sobre a sintaxe com suporte para o SQL Data Warehouse.
+## <a name="next-steps"></a>Próximas etapas
+Após a leitura dos artigos de desenvolvimento, confira a página [Referência a Transact-SQL][Referência a Transact-SQL] para mais detalhes sobre a sintaxe com suporte para SQL Data Warehouse.
 
 <!--Image references-->
 
@@ -70,8 +74,12 @@ Após a leitura dos artigos de desenvolvimento, confira a página [Referência a
 [Referência a Transact-SQL]: ./sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
-[renaming objects]: https://msdn.microsoft.com/library/mt631611.aspx
+[renomeando objetos]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 02623fc3d663a674e2184380915d651dff5760bc
 
 
 ---
@@ -27,7 +27,7 @@ Esta introdução sem código ajuda você a começar a usar a Pesquisa do Micros
 Este tutorial pressupõe um [banco de dados de exemplo do Banco de Dados de Documentos do Azure](#apdx-sampledata) simples para criar usando nossos dados e instruções, mas também é possível adaptar estas etapas aos dados existentes no Banco de Dados de Documentos ou no Banco de Dados SQL.
 
 > [!NOTE]
-> Este tutorial requer uma [assinatura do Azure](/pricing/free-trial/?WT.mc_id=A261C142F) e um [serviço Azure Search](search-create-service-portal.md). 
+> Este tutorial requer uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) e um [serviço Azure Search](search-create-service-portal.md). 
 > 
 > 
 
@@ -181,6 +181,6 @@ Você deve obter a saída JSON, começando pelo documento número 386 e terminan
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

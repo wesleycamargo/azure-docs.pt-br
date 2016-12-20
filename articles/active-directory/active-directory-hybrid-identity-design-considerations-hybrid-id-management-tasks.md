@@ -1,12 +1,12 @@
 ---
-title: Considerações de design da identidade híbrida do Active Directory do Azure - determinar as tarefas de gerenciamento de identidade híbrida | Microsoft Docs
-description: Com o controle de acesso condicional, o Active Directory do Azure verifica as condições específicas que você escolhe para autenticar o usuário e antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo.
-documentationcenter: ''
+title: "Considerações de design da identidade híbrida do Azure Active Directory - determinar as tarefas de gerenciamento da identidade híbrida | Microsoft Docs"
+description: "Com o controle de acesso condicional, o Active Directory do Azure verifica as condições específicas escolhidas para autenticação do usuário, antes de permitir o acesso ao aplicativo. Quando essas condições forem atendidas, o usuário é autenticado e autorizado a acessar o aplicativo."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c290266a09bf6f75ab7eb9247120b921c7f841fb
+
 
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plano para o ciclo de vida de identidade híbrida
@@ -44,7 +48,7 @@ Ao definir esses requisitos, verifique se pelo menos as seguintes perguntas são
   
       - Em caso afirmativo, é possível atribuir um grupo de segurança a ele? 
        - Em caso afirmativo, o diretório de nuvem atribuirá automaticamente licenças a todos os membros do grupo? 
-        - O que acontece se um usuário for posteriormente adicionado ou removido do grupo: uma licença será automaticamente atribuída ou removida conforme o caso? 
+        - O que acontece se um usuário é posteriormente adicionado ou removido do grupo: uma licença será automaticamente atribuída ou removida conforme o caso? 
 * Integração com outros provedores de identidade de terceiros:
 * Essa solução híbrida pode ser integrada a provedores de identidade de terceiros para implementar o logon único?
 * É possível unificar todos os provedores de identidade diferentes em um sistema de identidade coeso?
@@ -53,9 +57,9 @@ Ao definir esses requisitos, verifique se pelo menos as seguintes perguntas são
 ## <a name="synchronization-management"></a>Gerenciamento de sincronização
 Um dos objetivos de um gerenciador de identidades é ser capaz de buscar todos os provedores de identidade e mantê-los sincronizados. Você mantém os dados sincronizados baseado em um provedor de identidade mestre autoritativo. Em um cenário de identidade híbrida, com um modelo de gerenciamento sincronizado, você gerencia todas as identidades de usuários e de dispositivos em um servidor local, além de sincronizar contas e, opcionalmente, senhas para a nuvem. O usuário insere a mesma senha local como é feito na nuvem e no logon, e a senha é verificada pela solução de identidade. Esse modelo usa uma ferramenta de sincronização de diretório.
 
-![](./media/hybrid-id-design-considerations/Directory_synchronization.png) Para projetar adequadamente a sincronização de sua solução de identidade híbrida, verifique se as seguintes perguntas serão respondidas: •   Quais são as soluções de sincronização disponíveis para a solução de identidade híbrida?
-•   Quais são os recursos disponíveis de logon único?
-•   Quais são as opções para a federação de identidades entre B2B e B2C?
+![](./media/hybrid-id-design-considerations/Directory_synchronization.png) Para projetar adequadamente a sincronização de sua solução da identidade híbrida, verifique se as seguintes perguntas são respondidas: •   Quais soluções de sincronização estão disponíveis para a solução da identidade híbrida?
+•   Quais recursos de logon único estão disponíveis?
+•   Quais são as opções da federação de identidades entre B2B e B2C?
 
 ## <a name="next-steps"></a>Próximas etapas
 [Determinar a estratégia de adoção do gerenciamento de identidade híbrida](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
@@ -63,6 +67,9 @@ Um dos objetivos de um gerenciador de identidades é ser capaz de buscar todos o
 ## <a name="see-also"></a>Consulte também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

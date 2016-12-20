@@ -1,49 +1,54 @@
 ---
 title: Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL do Azure
-description: O tópico fornece provas de que as operações de banco de dados de envio em lote melhorar consideravelmente a velocidade e a escalabilidade de seus aplicativos de Banco de Dados SQL do Azure. Embora essas técnicas de envio em lote funcionem para qualquer banco de dados do SQL Server, o foco do artigo é no Azure.
+description: "O tópico fornece provas de que as operações de banco de dados de envio em lote melhorar consideravelmente a velocidade e a escalabilidade de seus aplicativos de Banco de Dados SQL do Azure. Embora essas técnicas de envio em lote funcionem para qualquer banco de dados do SQL Server, o foco do artigo é no Azure."
 services: sql-database
 documentationcenter: na
-author: annemill
+author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/12/2016
-ms.author: annemill
+ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a4310e365148e94a7d9b61df354e7328863f8662
+
 
 ---
-# Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL
+# <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do aplicativo Banco de Dados SQL
 O envio de operações em lote para o Banco de Dados SQL do Azure melhora consideravelmente o desempenho e a escalabilidade dos aplicativos. Para compreender os benefícios, a primeira parte deste artigo aborda alguns exemplos de resultados de teste que comparam solicitações sequenciais e em lote para um Banco de Dados SQL. O restante do artigo mostra as técnicas, os cenários e considerações para ajudar você a usar o envio em lote com sucesso em seus aplicativos do Azure.
 
 **Autores**: Jason Roth, Silvano Coriani, Trent Swanson (Full Scale 180 Inc)
 
 **Revisores**: Conor Cunningham, Michael Thomassy
 
-## Por que o envio em lote é importante para o Banco de Dados SQL?
+## <a name="why-is-batching-important-for-sql-database"></a>Por que o envio em lote é importante para o Banco de Dados SQL?
 Envio de chamadas em lote para um serviço remoto é uma estratégia conhecida para aumentar o desempenho e a escalabilidade. Há custos de processamento fixos para todas as interações com um serviço remoto, como a serialização, a transferência de rede e a desserialização. O empacotamento de muitas transações separadas em um único lote minimiza esses custos.
 
 Neste documento, queremos examinar as vária estratégias e cenários de envio em lote do Banco de Dados SQL. Embora essas estratégias também sejam importantes para aplicativos locais que usam o SQL Server, há vários motivos para destacar o uso do envio em lote para o Banco de Dados SQL:
 
 * Há potencialmente maior latência de rede no acesso ao Banco de Dados SQL, especialmente se você estiver acessando o Banco de Dados SQL fora do mesmo datacenter do Microsoft Azure.
-* As características multilocatário do Banco de Dados SQL significam que a eficiência da camada de acesso a dados correlaciona com a escalabilidade geral do banco de dados. O Banco de Dados SQL deve impedir que qualquer locatário/usuário monopolize os recursos do banco de dados em detrimento de outros locatários. Em resposta ao uso em excesso das cotas predefinidas, o Banco de Dados SQL pode reduzir a produtividade ou responder com exceções de limitação. As eficiências, como o envio em lote, permitem que você execute mais trabalhos no Banco de Dados SQL antes de alcançar esses limites.
-* O envio em lote também é eficaz para arquiteturas que usam vários bancos de dados (fragmentação). A eficiência da sua interação com cada unidade de banco de dados ainda é um fator fundamental em sua escalabilidade total.
+* As características multilocatário do Banco de Dados SQL significam que a eficiência da camada de acesso a dados correlaciona com a escalabilidade geral do banco de dados. O Banco de Dados SQL deve impedir que qualquer locatário/usuário monopolize os recursos do banco de dados em detrimento de outros locatários. Em resposta ao uso em excesso das cotas predefinidas, o Banco de Dados SQL pode reduzir a produtividade ou responder com exceções de limitação. As eficiências, como o envio em lote, permitem que você execute mais trabalhos no Banco de Dados SQL antes de alcançar esses limites. 
+* O envio em lote também é eficaz para arquiteturas que usam vários bancos de dados (fragmentação). A eficiência da sua interação com cada unidade de banco de dados ainda é um fator fundamental em sua escalabilidade total. 
 
-Um dos benefícios de usar o Banco de Dados SQL é que você não precisa gerenciar os servidores que hospedam o banco de dados. No entanto, essa infraestrutura gerenciada também significa que você precisa pensar de forma diferente sobre a otimizações do banco de dados. Você não pode mais procurar melhorar a infraestrutura de hardware ou de rede do banco de dados. O Microsoft Azure controla esses ambientes. A principal área que você pode controlar é como seu aplicativo interage com o Banco de Dados SQL. O envio em lote é uma dessas otimizações.
+Um dos benefícios de usar o Banco de Dados SQL é que você não precisa gerenciar os servidores que hospedam o banco de dados. No entanto, essa infraestrutura gerenciada também significa que você precisa pensar de forma diferente sobre a otimizações do banco de dados. Você não pode mais procurar melhorar a infraestrutura de hardware ou de rede do banco de dados. O Microsoft Azure controla esses ambientes. A principal área que você pode controlar é como seu aplicativo interage com o Banco de Dados SQL. O envio em lote é uma dessas otimizações. 
 
 A primeira parte do documento examina várias técnicas de envio em lote para aplicativos .NET que usam o Banco de Dados SQL. As duas últimas seções abordam diretrizes e cenários de envio em lote.
 
-## Estratégias de envio em lote
-### Observação sobre os resultados de tempo neste tópico
+## <a name="batching-strategies"></a>Estratégias de envio em lote
+### <a name="note-about-timing-results-in-this-topic"></a>Observação sobre os resultados de tempo neste tópico
 > [!NOTE]
 > Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço](sql-database-service-tiers.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
 > 
 > 
 
-### Transações
+### <a name="transactions"></a>Transações
 Parece estranho iniciar uma análise do envio em lote discutindo transações. Mas o uso de transações no lado do cliente tem um efeito sutil no envio em lote do lado do servidor que melhora o desempenho. E é possível adicionar transações com apenas algumas linhas de código, portanto elas fornecem uma maneira rápida de melhorar o desempenho de operações sequenciais.
 
 Considere o seguinte código C# que contém uma sequência de operações de inserção e de atualização em uma tabela simples.
@@ -120,7 +125,7 @@ O exemplo anterior demonstra que você pode adicionar uma transação local a qu
 
 Para saber mais sobre transações no ADO.NET, consulte [Transações locais no ADO.NET](https://msdn.microsoft.com/library/vstudio/2k2hy99x.aspx).
 
-### Parâmetros com valor de tabela
+### <a name="table-valued-parameters"></a>Parâmetros com valor de tabela
 Os parâmetros com valor de tabela oferecem suporte a tipos de tabela definidos pelo usuário como parâmetros em instruções Transact-SQL, procedimentos armazenados e funções. Essa técnica de envio em lote no lado do cliente permite o envio de várias linhas de dados dentro do parâmetro com valor de tabela. Para usar os parâmetros com valor de tabela, primeiro defina um tipo de tabela. A instrução Transact-SQL a seguir cria um tipo de tabela denominado **MyTableType**.
 
     CREATE TYPE MyTableType AS TABLE 
@@ -161,7 +166,7 @@ No código, você cria uma **DataTable** com exatamente os mesmos nomes e tipos 
 
 No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela, **@TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add**. O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
 
-Para melhorar ainda mais o exemplo anterior, use um procedimento armazenado e não um comando baseado em texto. O comando Transact-SQL a seguir cria um procedimento armazenado que utiliza o parâmetro com valor de tabela **SimpleTestTableType**.
+Para melhorar ainda mais o exemplo anterior, use um procedimento armazenado e não um comando baseado em texto. O comando Transact-SQL a seguir cria um procedimento armazenado que utiliza o parâmetro com valor de tabela **SimpleTestTableType** .
 
     CREATE PROCEDURE [dbo].[sp_InsertRows] 
     @TestTvp as MyTableType READONLY
@@ -198,7 +203,7 @@ O ganho de desempenho com o envio em lote fica imediatamente aparente. No teste 
 
 Para saber mais sobre parâmetros com valor de tabela, consulte [Parâmetros com valor de tabela](https://msdn.microsoft.com/library/bb510489.aspx).
 
-### Cópia em massa do SQL
+### <a name="sql-bulk-copy"></a>Cópia em massa do SQL
 Cópia em massa do SQL é outra maneira de inserir grandes quantidades de dados em um banco de dados de destino. Aplicativos .NET podem usar a classe **SqlBulkCopy** para executar operações de inserção em massa. **SqlBulkCopy** tem uma função semelhante à ferramenta de linha de comando, **Bcp.exe**, ou à instrução Transact-SQL, **BULK INSERT**. O exemplo de código a seguir mostra como copiar em massa as linhas na tabela de origem **DataTable**, para a tabela de destino no SQL Server, MyTable.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -231,11 +236,11 @@ Os seguintes resultados do teste ad hoc mostram o desempenho do envio em lote co
 > 
 > 
 
-Em lotes menores, o uso dos parâmetros com valor de tabela superaram a classe **SqlBulkCopy**. No entanto, **SqlBulkCopy** teve um desempenho de 12 a 31% mais rápido do que os parâmetros com valor de tabela nos testes de 1.000 e 10.000 linhas. Assim como os parâmetros com valor de tabela, **SqlBulkCopy** é uma boa opção para inserções em lotes, especialmente quando comparado ao desempenho de operações que não são feitas em lotes.
+Em lotes menores, o uso dos parâmetros com valor de tabela superaram a classe **SqlBulkCopy** . No entanto, **SqlBulkCopy** teve um desempenho de 12 a 31% mais rápido do que os parâmetros com valor de tabela nos testes de 1.000 e 10.000 linhas. Assim como os parâmetros com valor de tabela, **SqlBulkCopy** é uma boa opção para inserções em lotes, especialmente quando comparado ao desempenho de operações que não são feitas em lotes.
 
 Para saber mais sobre a cópia em massa no ADO.NET, consulte [Operações de cópia em massa no SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
-### Instruções INSERT com parâmetros de várias linhas
+### <a name="multiple-row-parameterized-insert-statements"></a>Instruções INSERT com parâmetros de várias linhas
 Uma alternativa para lotes pequenos é a construção de uma grande instrução INSERT com parâmetros que insira várias linhas. O exemplo de código a seguir demonstra esta técnica.
 
     using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -274,13 +279,13 @@ Os seguintes resultados do teste ad hoc mostram o desempenho desse tipo de instr
 
 Essa abordagem pode ser ligeiramente mais rápida para lotes com menos de 100 linhas. Embora o aprimoramento seja pequeno, essa técnica é outra opção que pode funcionar bem em seu cenário de aplicativo específico.
 
-### DataAdapter
+### <a name="dataadapter"></a>DataAdapter
 A classe **DataAdapter** permite que você modifique um objeto **DataSet** e envie as alterações como operações INSERT, UPDATE e DELETE. Se você estiver usando o **DataAdapter** dessa maneira, é importante observar são realizadas chamadas separadas para cada operação distinta. Para melhorar o desempenho, use a propriedade **UpdateBatchSize** de acordo com o número de operações que devem ser enviadas em lote por vez. Para saber mais, consulte [Executando operações em lote usando DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
-### Entity Framework
-No momento, o Entity Framework não oferece suporte para o envio em lote. Vários desenvolvedores da comunidade tentaram demonstrar soluções alternativas, como a substituição do método **SaveChanges**. Mas normalmente as soluções são complexas e personalizadas para o aplicativo e o modelo de dados. Atualmente, o projeto codeplex do Entity Framework tem uma página de discussão sobre essa solicitação de recurso. Para exibir esta discussão, consulte [Anotações da reunião de design – 2 de agosto de 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+### <a name="entity-framework"></a>Entity Framework
+No momento, o Entity Framework não oferece suporte para o envio em lote. Vários desenvolvedores da comunidade tentaram demonstrar soluções alternativas, como a substituição do método **SaveChanges** . Mas normalmente as soluções são complexas e personalizadas para o aplicativo e o modelo de dados. Atualmente, o projeto codeplex do Entity Framework tem uma página de discussão sobre essa solicitação de recurso. Para exibir esta discussão, consulte [Anotações da reunião de design – 2 de agosto de 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
-### XML
+### <a name="xml"></a>XML
 Para abordarmos tudo, achamos que é importante falar sobre XML como uma estratégia de envio em lote. No entanto, o uso de XML não apresenta vantagens sobre outros métodos e impõe várias desvantagens. A abordagem é semelhante aos parâmetros com valor de tabela, mas um arquivo ou cadeia de caracteres XML é passado para um procedimento armazenado, em vez de uma tabela definida pelo usuário. O procedimento armazenado analisa os comandos no procedimento armazenado.
 
 Há várias desvantagens nessa abordagem:
@@ -291,15 +296,15 @@ Há várias desvantagens nessa abordagem:
 
 Por esses motivos, o uso de XML para consultas em lote não é recomendado.
 
-## Considerações sobre o envio em lote
+## <a name="batching-considerations"></a>Considerações sobre o envio em lote
 As seções a seguir fornecem mais orientações sobre o uso do envio em lote em aplicativos do Banco de Dados SQL.
 
-### Compensações
+### <a name="tradeoffs"></a>Compensações
 Dependendo de sua arquitetura, o envio em lote pode envolver uma compensação entre desempenho e resiliência. Por exemplo, considere o cenário no qual sua função fica inesperadamente inativa. Se você perder uma linha de dados, o impacto é menor do que o impacto de perder um lote grande de linhas não enviadas. Há um risco maior quando você armazena em buffer as linhas antes de enviá-las ao banco de dados em um período especificado.
 
 Devido a essa compensação, avalie o tipo das operações que você envia em lote. Utilize o envio em lote de forma mais agressiva (lotes maiores e períodos maiores) com dados menos críticos.
 
-### Tamanho do lote
+### <a name="batch-size"></a>Tamanho do lote
 Em nossos testes, geralmente não houve vantagem em dividir lotes grandes em partes menores. Na verdade, frequentemente essa subdivisão resultou em um desempenho mais lento do que enviar um único lote grande. Por exemplo, considere um cenário no qual você deseja inserir 1000 linhas. A tabela a seguir mostra quanto tempo leva para usar parâmetros com valor de tabela para inserir 1000 linhas divididas em lotes menores.
 
 | Tamanho do lote | Iterações | Parâmetros com valor de tabela (ms) |
@@ -320,7 +325,7 @@ Outro fator a ser considerado é que, se o lote total ficar muito grande, o Banc
 
 Por fim, equilibre o tamanho do lote com os riscos associados ao envio em lote. Se houver erros transitórios ou a função falhar, considere as consequências da repetição da operação ou da perda dos dados no lote.
 
-### Processamento paralelo
+### <a name="parallel-processing"></a>Processamento paralelo
 E se você adotasse a abordagem de redução do tamanho de lote, mas usasse vários threads para executar o trabalho? Novamente, nossos testes mostraram que vários lotes menores multithreaded geralmente apresentaram um desempenho pior do que um único lote maior. O teste a seguir tenta inserir 1000 linhas em um ou mais lotes paralelos. Este teste mostra como uma quantidade maior de lotes simultâneos na verdade diminuiu o desempenho.
 
 | Tamanho do lote [Iterações] | Dois threads (ms) | Quatro threads (ms) | Seis threads (ms) |
@@ -348,15 +353,15 @@ Em alguns designs, a execução paralela de lotes menores pode resultar em uma p
 
 Se você usar a execução paralela, considere a possibilidade de controlar o número máximo de threads de trabalho. Uma quantidade menor poderia resultar em menos contenção e um tempo de execução mais rápido. Além disso, considere a carga adicional que isso impõe sobre o banco de dados de destino, tanto nas conexões quanto nas transações.
 
-### Fatores de desempenho relacionados
+### <a name="related-performance-factors"></a>Fatores de desempenho relacionados
 As orientações típicas sobre o desempenho do banco de dados também dizem respeito ao envio em lote. Por exemplo, ocorre a redução do desempenho de inserção para tabelas com uma chave primária grande ou vários índices não clusterizados.
 
 Se parâmetros com valor de tabela usarem um procedimento armazenado, você poderá usar o comando **SET NOCOUNT ON** no início do procedimento. Essa instrução suprime o retorno da contagem de linhas afetadas no procedimento. No entanto, em nossos testes, o uso de **SET NOCOUNT ON** não teve qualquer efeito ou diminuiu o desempenho. O procedimento armazenado de teste foi simples com um único comando **INSERT** do parâmetro com valor de tabela. É possível que outros procedimentos armazenados mais complexos possam se beneficiar dessa instrução. Mas não suponha que a adição de **SET NOCOUNT ON** ao procedimento armazenado aprimorará automaticamente o desempenho. Para entender o efeito, teste o procedimento armazenado com e sem a instrução **SET NOCOUNT ON** instrução.
 
-## Cenários de envio em lote
+## <a name="batching-scenarios"></a>Cenários de envio em lote
 As seções a seguir descrevem como usar os parâmetros com valor de tabela em três cenários de aplicativo. O primeiro cenário mostra como o armazenamento em buffer e o envio em lote podem trabalhar juntos. O segundo cenário melhora o desempenho por meio da execução de operações mestre-detalhes em uma chamada com um único procedimento armazenado. O cenário final mostra como usar os parâmetros com valor de tabela em uma operação "UPSERT".
 
-### Armazenamento em buffer
+### <a name="buffering"></a>Armazenamento em buffer
 Embora alguns cenários sejam candidatos óbvios ao envio em lote, há muitos cenários que poderiam se beneficiar do envio em lote por meio do processamento atrasado. No entanto, o processamento atrasado também representa um risco maior de que os dados sejam perdidos no caso de uma falha inesperada. É importante entender esse risco e considerar as consequências.
 
 Por exemplo, considere um aplicativo Web que controla o histórico de navegação de cada usuário. Em cada solicitação de página, o aplicativo pode fazer uma chamada de banco de dados para registrar o modo de exibição de página do usuário. Mas é possível obter mais desempenho e escalabilidade por meio do armazenamento em buffer das atividades de navegação dos usuários e enviar esses dados para o banco de dados em lotes. Você pode disparar a atualização do banco de dados por tempo decorrido e/ou tamanho do buffer. Por exemplo, uma regra poderia especificar que o lote deve ser processado após 20 segundos, ou quando o buffer atingir 1000 itens.
@@ -374,7 +379,7 @@ A classe NavHistoryData a seguir modela os detalhes de navegação do usuário. 
         public DateTime AccessTime { get; set; }
     }
 
-A classe NavHistoryDataMonitor é responsável pelo armazenamento em buffer dos dados de navegação do usuário no banco de dados. Ela contém um método, RecordUserNavigationEntry, que responde gerando um evento **OnAdded**. O código a seguir mostra a lógica do construtor que usa Rx para criar uma coleção observável com base no evento. Em seguida, ele assina essa coleção observável com o método de Buffer. A sobrecarga especifica que o buffer deve ser enviado a cada 20 segundos ou 1000 entradas.
+A classe NavHistoryDataMonitor é responsável pelo armazenamento em buffer dos dados de navegação do usuário no banco de dados. Ela contém um método, RecordUserNavigationEntry, que responde gerando um evento **OnAdded** . O código a seguir mostra a lógica do construtor que usa Rx para criar uma coleção observável com base no evento. Em seguida, ele assina essa coleção observável com o método de Buffer. A sobrecarga especifica que o buffer deve ser enviado a cada 20 segundos ou 1000 entradas.
 
     public NavHistoryDataMonitor()
     {
@@ -445,7 +450,7 @@ O manipulador converte todos os itens armazenados em buffer em um tipo com valor
 
 Para usar essa classe de armazenamento em buffer, o aplicativo cria um objeto NavHistoryDataMonitor estático. Sempre que um usuário acessa uma página, o aplicativo chama o método NavHistoryDataMonitor.RecordUserNavigationEntry. A lógica do buffer continua a fim de enviar em lotes essas entradas ao banco de dados.
 
-### Detalhes da tabela mestra
+### <a name="master-detail"></a>Detalhes da tabela mestra
 Parâmetros com valor de tabela são úteis para cenários INSERT simples. No entanto, pode ser mais desafiador executar inserções em lotes que envolvem mais de uma tabela. O cenário "mestre/detalhes" é um bom exemplo. A tabela mestra identifica a entidade principal. Uma ou mais tabelas de detalhes armazenam mais dados sobre a entidade. Nesse cenário, as relações de chave estrangeiras impõem a relação de detalhes a uma entidade mestre exclusiva. Considere uma versão simplificada de uma tabela PurchaseOrder e sua tabela associada OrderDetail. O Transact-SQL a seguir cria a tabela PurchaseOrder com quatro colunas: OrderID, OrderDate, CustomerID e Status.
 
     CREATE TABLE [dbo].[PurchaseOrder](
@@ -532,9 +537,9 @@ Em seguida, defina um procedimento armazenado que aceite tabelas desses tipos. E
     JOIN @IdentityLink L ON L.SubmittedKey = D.OrderID;
     GO
 
-Nesse exemplo, a tabela @IdentityLink definida localmente armazena os valores reais de OrderID das linhas recentemente inseridas. Esses identificadores de pedido são diferentes dos valores temporários de OrderID nos parâmetros com valor de tabela @orders e @details. Por esse motivo, a tabela @IdentityLink conecta os valores de OrderID do parâmetro @orders com os valores reais de OrderID para as novas linhas na tabela PurchaseOrder. Após essa etapa, a tabela @IdentityLink pode facilitar a inserção dos detalhes do pedido com o OrderID, o que atende à restrição de chave estrangeira.
+Nesse exemplo, a tabela @IdentityLink definida localmente armazena os valores reais de OrderID das linhas recentemente inseridas. Esses identificadores de pedido são diferentes dos valores temporários de OrderID nos parâmetros com valor de tabela @orders e @details. Por esse motivo, a tabela @IdentityLink conecta os valores de OrderID do parâmetro @orders com os valores reais de OrderID para as novas linhas na tabela PurchaseOrder. Após esta etapa, a tabela @IdentityLink pode facilitar a inserção dos detalhes do pedido com o OrderID, o que atende à restrição de chave estrangeira.
 
-Esse procedimento armazenado pode ser usado do código ou de outras chamadas Transact-SQL. Consulte a seção de parâmetros com valor de tabela deste documento para obter um exemplo de código. O Transact-SQL a seguir mostra como chamar o sp\_InsertOrdersBatch.
+Esse procedimento armazenado pode ser usado do código ou de outras chamadas Transact-SQL. Consulte a seção de parâmetros com valor de tabela deste documento para obter um exemplo de código. O Transact-SQL a seguir mostra como chamar o sp_InsertOrdersBatch.
 
     declare @orders as PurchaseOrderTableType
     declare @details as PurchaseOrderDetailTableType
@@ -558,7 +563,7 @@ Essa solução permite que cada lote use um conjunto de valores de OrderID que c
 
 Este exemplo demonstra que até mesmo as operações de banco de dados mais complexas, como operações de mestre-detalhes, podem ser enviadas em lote usando parâmetros com valor de tabela.
 
-### UPSERT
+### <a name="upsert"></a>UPSERT
 Outro cenário de envio em lote envolve a atualização simultânea de linhas existentes e a inserção de novas linhas. Essa operação é chamada às vezes de operação "UPSERT" (atualização + inserção). Em vez de fazer chamadas separadas para INSERT e UPDATE, a instrução MERGE é mais adequada para essa tarefa. A instrução MERGE pode executar as duas operações, inserção e atualização, em uma única chamada.
 
 Parâmetros com valor de tabela podem ser usados com a instrução MERGE para executar atualizações e inserções. Por exemplo, considere uma tabela simplificada de funcionários que contém as seguintes colunas: EmployeeID, FirstName, LastName, SocialSecurityNumber:
@@ -580,7 +585,7 @@ Neste exemplo, você pode usar o fato de que o SocialSecurityNumber é exclusivo
       SocialSecurityNumber NVARCHAR(50) );
     GO
 
-Em seguida, crie um procedimento armazenado ou escreva um código que use a instrução MERGE para executar a atualização e a inserção. O exemplo a seguir usa a instrução MERGE em um parâmetro com valor de tabela, @employees, do tipo EmployeeTableType. O conteúdo da tabela @employees não é mostrado aqui.
+Em seguida, crie um procedimento armazenado ou escreva um código que use a instrução MERGE para executar a atualização e a inserção. O exemplo a seguir usa a instrução MERGE em um parâmetro com valor de tabela, @employees,, do tipo EmployeeTableType. O conteúdo da tabela @employees não é mostrado aqui.
 
     MERGE Employee AS target
     USING (SELECT [FirstName], [LastName], [SocialSecurityNumber] FROM @employees) 
@@ -596,7 +601,7 @@ Em seguida, crie um procedimento armazenado ou escreva um código que use a inst
 
 Para saber mais, consulte a documentação e exemplos da instrução MERGE. Embora o mesmo trabalho possa ser executado em uma chamada de procedimento armazenado com várias etapas, com operações INSERT e UPDATE separadas, a instrução MERGE é mais eficiente. O código do banco de dados também pode construir chamadas Transact-SQL que usam a instrução MERGE diretamente sem exigir duas chamadas de banco de dados para INSERT e UPDATE.
 
-## Resumo de recomendações
+## <a name="recommendation-summary"></a>Resumo de recomendações
 A lista a seguir fornece um resumo das recomendações de envio em lote discutidas neste tópico:
 
 * Use o armazenamento em buffer e o envio em lote para aumentar o desempenho e a escalabilidade de aplicativos do Banco de Dados SQL.
@@ -610,13 +615,18 @@ A lista a seguir fornece um resumo das recomendações de envio em lote discutid
 * Para operações de atualização e exclusão, use parâmetros com valor de tabela com a lógica de procedimento armazenado que determina a operação correta em cada linha no parâmetro de tabela.
 * Diretrizes para o tamanho do lote:
   * Use os maiores tamanhos de lote adequados aos seus requisitos de aplicativo e de negócios.
-  * Equilibre o ganho de desempenho de lotes grandes com os riscos de falhas catastróficas ou temporárias. Qual é a consequência de repetições ou perda de dados no lote?
+  * Equilibre o ganho de desempenho de lotes grandes com os riscos de falhas catastróficas ou temporárias. Qual é a consequência de repetições ou perda de dados no lote? 
   * Teste o maior lote para verificar se o Banco de Dados SQL não irá rejeitá-lo.
   * Crie definições de configuração que controlam o envio em lote, como o tamanho do lote ou o período de armazenamento em buffer. Essas configurações fornecem flexibilidade. Você pode alterar o comportamento do lote em produção sem reimplantar o serviço de nuvem.
 * Evite a execução paralela de lotes que operam em uma única tabela em um banco de dados. Se você optar por dividir um único lote entre vários threads de trabalho, execute testes para determinar o número ideal de threads. Após um limite não especificado, uma quantidade maior de threads diminuirá o desempenho em vez de aumentá-lo.
 * Considere o armazenamento em buffer de acordo com o tamanho e o tempo como uma maneira de implementar o envio em lote para mais cenários.
 
-## Próximas etapas
-Este artigo se concentrou em como o design do banco de dados e as técnicas de codificação relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas isso é apenas um fator em sua estratégia geral. Para conhecer outras maneiras de melhorar o desempenho e a escalabilidade, consulte [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos](sql-database-performance-guidance.md) e [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
+## <a name="next-steps"></a>Próximas etapas
+Este artigo se concentrou em como o design do banco de dados e as técnicas de codificação relacionadas ao envio em lote podem melhorar o desempenho e a escalabilidade do aplicativo. Mas isso é apenas um fator em sua estratégia geral. Para conhecer outras maneiras de melhorar o desempenho e a escalabilidade, veja [Diretrizes de desempenho do Banco de Dados SQL do Azure para bancos de dados únicos](sql-database-performance-guidance.md) e [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md).
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

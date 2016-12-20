@@ -1,12 +1,12 @@
 ---
-title: Solução de Cofre de Chaves do Azure no Log Analytics | Microsoft Docs
-description: Você pode usar a solução de Cofre de Chaves do Azure no Log Analytics para examinar logs do Cofre de Chaves do Azure.
+title: "Solução de Cofre de Chaves do Azure no Log Analytics | Microsoft Docs"
+description: "Você pode usar a solução de Cofre de Chaves do Azure no Log Analytics para examinar logs do Cofre de Chaves do Azure."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 90ef2d32a00744decdb5a50ae1f707820e87f513
+
 
 ---
-# <a name="azure-key-vault-(preview)-solution-in-log-analytics"></a>Solução de Cofre de Chaves do Azure (Visualização) no Log Analytics
+# <a name="azure-key-vault-preview-solution-in-log-analytics"></a>Solução de Cofre de Chaves do Azure (Visualização) no Log Analytics
 > [!NOTE]
 > Esta é uma [solução de visualização](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
 > 
@@ -96,6 +100,9 @@ A solução de Cofre de Chaves do Azure analisa os registros que têm um tipo de
 ## <a name="next-steps"></a>Próximas etapas
 * Usar [Pesquisas de Log](log-analytics-log-searches.md) no Log Analytics para exibir dados detalhados do Cofre de Chaves do Azure.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

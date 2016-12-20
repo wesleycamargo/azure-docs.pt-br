@@ -1,12 +1,12 @@
 ---
-title: Criptografando seu conteúdo com a Criptografia de Armazenamento usando a API REST do AMS
-description: Saiba como criptografar seu conteúdo com criptografia de armazenamento usando as APIs REST do AMS.
+title: "Criptografando seu conteúdo com a Criptografia de Armazenamento usando a API REST do AMS"
+description: "Saiba como criptografar seu conteúdo com criptografia de armazenamento usando as APIs REST do AMS."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8b0758e1fa5f12dc49d8548b733aefdf1f43d6f0
+
 
 ---
 # <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Criptografando seu conteúdo com a Criptografia de Armazenamento usando a API REST do AMS
@@ -92,7 +96,7 @@ A seguir estão as etapas gerais para gerar chaves de conteúdo que você associ
 
     Na criptografia de armazenamento, as propriedades a seguir devem ser incluídas no corpo da solicitação.
 
-    Propriedade do corpo da solicitação   | Descrição
+    Propriedade do corpo da solicitação    | Descrição
     ---|---
     ID | A ID de ContentKey que nós mesmos geramos usando o seguinte formato, "nb:kid:UUID:<NEW GUID>".
     ContentKeyType | Esse é o tipo de chave de conteúdo, como um inteiro para esta chave de conteúdo. Passamos o valor 1 para a criptografia de armazenamento.
@@ -364,6 +368,6 @@ Depois de carregar seu arquivo de mídia digital em um contêiner de blobs, voc�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

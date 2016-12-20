@@ -4,41 +4,41 @@
 > 
 > 
 
-## <a name="introduction"></a>Introduction
-Device twins are JSON documents that store device state information (meta-data, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub.
+## <a name="introduction"></a>Introdução
+Dispositivos gêmeos são documentos JSON que armazenam informações do estado do dispositivo (metadados, configurações e condições). O Hub IoT persiste um dispositivo gêmeo para cada dispositivo que você conecta ao Hub IoT.
 
-Use device twins to:
+Use os dispositivos gêmeos para:
 
-* Store device meta-data from your back end.
-* Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
-* Synchronize the state of long-running workflows (such as firmware and configuration updates) between device app and back end.
-* Query your device meta-data, configuration, or state.
+* Armazene os metadados de dispositivo de seu back-end.
+* Relate informações de estado atual, como recursos disponíveis e condições (por exemplo, o método conectividade usado) do aplicativo do dispositivo.
+* Sincronize o estado dos fluxos de trabalho de longa duração (como atualizações de firmware e configuração) entre o aplicativo do dispositivo e o back-end.
+* Consultar os metadados, a configuração ou o estado do seu dispositivo.
 
 > [!NOTE]
-> Device twins are designed for synchronization and for querying device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
+> Dispositivos gêmeos são projetados para sincronização e para consultar condições e configurações de dispositivos. Para obter mais informações sobre quando usar dispositivos gêmeos podem ser encontradas em [Entender dispositivos gêmeos][lnk-twins].
 > 
 > 
 
-Device twins are stored in an IoT hub and contain:
+Dispositivos gêmeos são armazenados em um hub IoT e contêm:
 
-* *tags*, device meta-data accessible only by the back end;
-* *desired properties*, JSON objects modifiable by the back end and observable by the device app; and
-* *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested.
+* *marcas*, metadados de dispositivo acessíveis apenas pelo back-end;
+* *propriedades desejadas*, objetos JSON modificáveis pelo back-end e observáveis pelo aplicativo de dispositivo; e
+* *propriedades relatadas*, objetos JSON modificáveis pelo aplicativo de dispositivo e legíveis pelo back-end. Marcas e propriedades não podem conter matrizes, mas objetos podem ser aninhados.
 
 ![][img-twin]
 
-Additionally, the app back end can query device twins based on all the above data.
-Refer to [Understand device twins][lnk-twins] for more information about device twins and to the [IoT Hub query language][lnk-query] reference for querying.
+Além disso, o back-end do aplicativo pode consultar dispositivos gêmeos com base em todos os dados acima.
+Consulte [Entender dispositivos gêmeos][lnk-twins] para obter mais informações sobre dispositivos gêmeos e a referência de [Linguagem de consulta do Hub IoT][lnk-query] para consultas.
 
 > [!NOTE]
-> At this time, device twins are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
+> Neste momento, os dispositivos gêmeos podem ser acessados somente de dispositivos que se conectam ao Hub IoT usando o protocolo MQTT. Confira o artigo do [suporte a MQTT][lnk-devguide-mqtt] para obter instruções sobre como converter o aplicativo de dispositivo existente para usar MQTT.
 > 
 > 
 
-This tutorial shows you how to:
+Este tutorial mostra como:
 
-* Create a back-end app that adds *tags* to a device twin, and a simulated device that reports its connectivity channel as a *reported property* on the device twin.
-* Query devices from your back end app using filters on the tags and properties previously created.
+* Criar um aplicativo de back-end que adiciona *marcas* a um dispositivo gêmeo e um aplicativo de dispositivo simulado que relata seu canal de conectividade como uma *propriedade relatada* no dispositivo gêmeo.
+* Consulte dispositivos por meio do aplicativo de back-end usando filtros nas marcas e propriedades criadas anteriormente.
 
 <!-- images -->
 [img-twin]: media/iot-hub-selector-twin-get-started/twin.png
@@ -50,6 +50,6 @@ This tutorial shows you how to:
 [lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

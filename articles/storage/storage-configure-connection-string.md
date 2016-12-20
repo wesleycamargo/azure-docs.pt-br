@@ -1,12 +1,12 @@
 ---
-title: Configurar uma Cadeia de Conexão para o Armazenamento do Azure | Microsoft Docs
-description: Criar uma cadeia de conexão para uma conta de armazenamento do Azure. Uma cadeia de conexão inclui as informações necessárias para autenticar o acesso a uma conta de armazenamento de seu aplicativo no tempo de execução.
+title: "Configurar uma Cadeia de Conexão para o Armazenamento do Azure | Microsoft Docs"
+description: "Criar uma cadeia de conexão para uma conta de armazenamento do Azure. Uma cadeia de conexão inclui as informações necessárias para autenticar o acesso a uma conta de armazenamento de seu aplicativo no tempo de execução."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 27c995e16f1137f6e18ebfc8210d492872d0e76c
+
 
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar cadeias de conexão do Armazenamento do Azure
@@ -117,6 +121,9 @@ Por exemplo, sua cadeia de conexão deve ser semelhante à seguinte cadeia de co
 * [Pesquisadores de armazenamento do Azure](storage-explorers.md)
 * [Uso de SAS (Assinaturas de Acesso Compartilhado)](storage-dotnet-shared-access-signature-part-1.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

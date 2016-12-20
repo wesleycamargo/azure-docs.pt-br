@@ -1,12 +1,12 @@
 ---
-title: 'Sincronização do Azure AD Connect: noções básicas sobre provisionamento declarativo | Microsoft Docs'
-description: Explica o modelo de configuração de provisionamento declarativo no Azure AD Connect.
+title: "Sincronização do Azure AD Connect: noções básicas sobre provisionamento declarativo | Microsoft Docs"
+description: "Explica o modelo de configuração de provisionamento declarativo no Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a52714e1b549452929827edd5bf77bfc64d405c3
+
 
 ---
-# <a name="azure-ad-connect-sync:-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é chamado de Provisionamento Declarativo e permite que você altere uma configuração com facilidade. Muitos itens descritos neste tópico são avançados e não são necessários para a maioria dos cenários do cliente.
 
 ## <a name="overview"></a>Visão geral
@@ -159,6 +163,9 @@ Para esse cenário, você precisa alterar o escopo das regras de sincronização
 
 * [Azure AD Connect Sync: referência de funções](active-directory-aadconnectsync-functions-reference.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

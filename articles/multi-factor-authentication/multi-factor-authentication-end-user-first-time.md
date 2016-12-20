@@ -1,20 +1,24 @@
 ---
-title: Configurar a verificação de duas etapas para minha conta corporativa ou de estudante
-description: 'Quando sua empresa configura a Autenticação Multifator do Azure, será solicitado que você se inscreva na verificação em duas etapas. Saiba como configurá-la. '
+title: "Configurar a verificação de duas etapas para minha conta corporativa ou de estudante"
+description: "Quando sua empresa configura a Autenticação Multifator do Azure, será solicitado que você se inscreva na verificação em duas etapas. Saiba como configurá-la. "
 services: multi-factor-authentication
 keywords: como usar o directory do azure, active directory na nuvem, tutorial do active directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: pblachar
-
+ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/23/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98869aa8c05b849e9d487838823afb04d9a89907
+
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar minha conta para verificação em duas etapas
@@ -23,7 +27,7 @@ A verificação em duas etapas é uma etapa adicional de segurança que ajuda a 
 Este artigo ajuda você a configurar sua **conta corporativa ou de estudante**. Se você quiser habilitar a verificação em duas etapas para sua própria conta pessoal da Microsoft, veja [Sobre a verificação em duas etapas](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
 ## <a name="determine-how-you-will-use-multi-factor-authentication"></a>Determinar como você usará o Multi-Factor Authentication
-A verificação em duas etapas funciona solicitando dois itens de identificação a você ao entrar. Primeiro, solicitamos o nome de usuário e a senha como de costume. Em seguida, entramos em contato com um telefone que sabemos que pertence a você e você confirma que a tentativa de entrada foi legítima.  
+A verificação em duas etapas funciona solicitando dois itens de identificação a você ao entrar. Primeiro, solicitamos o nome de usuário e a senha como de costume. Em seguida, entramos em contato com um telefone que sabemos que pertence a você e você confirma que a tentativa de logon foi legítima.  
 
 Para começar o processo de instalação, tente entrar em sua conta como faria normalmente. Se o administrador tiver configurado sua conta para verificação em duas etapas, você precisará iniciar o processo de registro automático. Comece esse processo clicando em **Configurá-lo agora.**
 
@@ -42,17 +46,17 @@ Usar esse método requer que você instale um aplicativo autenticador em seu tel
 
 1. Selecione **Aplicativo móvel** na lista suspensa.
 2. Selecione **Receber notificações para verificação** ou **Usar código de verificação**, então selecione **Configurar**.
-   
-    ![Tela de verificação de segurança adicional](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
+
+    ![Tela de verificação de segurança adicional](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
 3. No seu telefone ou tablet, abra o aplicativo e selecione **+** para adicionar uma conta. (Em dispositivos Android, selecione os três pontos e depois **Adicionar conta**.)
 4. Especifique que você deseja adicionar uma conta corporativa ou de estudante. O scanner de código QR em seu telefone se abre. Se a câmera não estiver funcionando corretamente, você optar por inserir as informações da sua empresa manualmente. Para obter mais informações, consulte [Adicionar uma conta manualmente](#add-an-account-manually).  
 5. Digitalize a imagem do código QR que apareceu na tela para configurar o aplicativo móvel.  Selecione **Concluído** para fechar a tela do código QR.  
-   
-    ![Tela do código QR](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
+
+    ![Tela do código QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
 6. Quando a ativação for concluída no telefone, selecione **Contate-me**.  Esta etapa envia uma notificação ou um código de verificação para seu telefone. Selecione **Verificar**.  
 7. Se sua empresa exigir um PIN para aprovar a verificação de entrada, digite-o.
-   
-    ![Caixa para inserir um PIN](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
+
+    ![Caixa para inserir um PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 8. Após digitar o PIN, selecione **Fechar**. Nesse ponto, sua verificação deve ter sido bem-sucedida.
 9. É recomendável inserir o número de seu telefone celular caso você perca acesso ao aplicativo móvel. Especifique seu país na lista suspensa e insira o número de seu telefone celular na caixa ao lado do país. Selecione **Avançar**.
 10. Neste ponto, você precisará configurar senhas de aplicativo para aplicativos que não são navegador assim como o Outlook 2010 ou anterior, ou o aplicativo de email nativo em dispositivos da Apple. Isso ocorre porque alguns aplicativos não dão suporte à verificação em duas etapas. Se você não usar esses aplicativos, clique em **Concluído** e ignore o restante das etapas.
@@ -64,14 +68,14 @@ Se você quiser adicionar uma conta ao aplicativo móvel manualmente em vez de u
 
 1. Selecione o botão **Inserir conta manualmente** .  
 2. Insira o código e a URL que são fornecidos na mesma página que mostra o código de barras. Essas informações são inseridas nas caixas **Código** e **URL** no aplicativo móvel.
-   
-    ![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode2.png)
+
+    ![Configuração](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
 3. Quando a ativação for concluída, selecione **Contate-me**. Esta etapa envia uma notificação ou um código de verificação para seu telefone. Selecione **Verificar**.
 
 ## <a name="use-your-mobile-phone-as-the-contact-method"></a>Usar o telefone celular como o método de contato
 1. Selecione **Telefone de Autenticação** na lista suspensa.  
-   
-    ![Configuração](./media/multi-factor-authentication-end-user-first-time-mobile-phone/phone.png)  
+
+    ![Configuração](./media/multi-factor-authentication-end-user-first-time/phone.png)  
 2. Escolha o seu país na lista suspensa e insira o número do celular.
 3. Selecione o método que você prefere usar com o celular – texto ou ligação.
 4. Selecione **Contate-me** para verificar seu número de telefone. Dependendo do modo selecionado, podemos lhe enviar uma mensagem de texto ou fazer uma chamada. Siga as instruções fornecidas na tela e selecione **Verificar**.
@@ -81,8 +85,8 @@ Se você quiser adicionar uma conta ao aplicativo móvel manualmente em vez de u
 
 ## <a name="use-your-office-phone-as-the-contact-method"></a>Usar o telefone comercial como o método de contato
 1. Selecione **Telefone Comercial** na lista suspensa  
-   
-    ![Configuração](./media/multi-factor-authentication-end-user-first-time-office-phone/office.png)  
+
+    ![Configuração](./media/multi-factor-authentication-end-user-first-time/office.png)  
 2. A caixa de número de telefone é preenchida automaticamente com as informações de contato da empresa. Se o número estiver incorreto ou ausente, peça ao administrador para fazer alterações.
 3. Selecione **Contate-me** para verificar seu número de telefone e ligaremos para ele. Siga as instruções fornecidas na tela e selecione **Verificar**.
 4. Neste ponto, você precisará configurar senhas de aplicativo para aplicativos que não são navegador assim como o Outlook 2010 ou anterior, ou o aplicativo de email nativo em dispositivos da Apple. Isso ocorre porque alguns aplicativos não dão suporte à verificação em duas etapas. Se você não usar esses aplicativos, clique em **Concluído** e ignore o restante das etapas.
@@ -94,6 +98,8 @@ Se você quiser adicionar uma conta ao aplicativo móvel manualmente em vez de u
 * Configure [senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md) para aplicativos de dispositivo nativo que não dão suporte à verificação em duas etapas.
 * Confira o [aplicativo Microsoft Authenticator](multi-factor-authentication-microsoft-authenticator.md) para obter autenticação segura mesmo quando você não tiver um serviço de célula.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

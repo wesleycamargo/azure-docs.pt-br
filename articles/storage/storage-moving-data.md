@@ -1,19 +1,23 @@
 ---
 title: Movendo dados para dentro e para fora do Armazenamento do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral dos diferentes métodos de mover dados para dentro e para fora do Armazenamento do Azure.
+description: "Este artigo fornece uma visão geral dos diferentes métodos de mover dados para dentro e para fora do Armazenamento do Azure."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: micurd
 manager: jahogg
 editor: tysonn
-
+ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 11/18/2016
 ms.author: micurd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26dc2d2269855bcb31bc8f6faf2277ac059b81f5
+
 
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Movendo dados para dentro e para fora do Armazenamento do Azure
@@ -28,7 +32,7 @@ Confira [Introdução ao Armazenamento de Blobs do Azure](storage-dotnet-how-to-
 
 Além disso, nós também oferecemos a [Biblioteca de movimentação de dados do Armazenamento do Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) que é uma biblioteca projetada para a cópia de alto desempenho dos dados do Azure e para ele. Consulte nossa [documentação](https://github.com/Azure/azure-storage-net-data-movement) da Biblioteca de movimentação de dados para saber mais. 
 
-## <a name="quickly-viewing/interacting-with-your-data"></a>Exibindo/interagindo rapidamente com seus dados
+## <a name="quickly-viewinginteracting-with-your-data"></a>Exibindo/interagindo rapidamente com seus dados
 Se você quiser uma maneira fácil de exibir os dados do Armazenamento do Azure e, ao mesmo, a capacidade de carregá-los e baixá-los, considere usar um Gerenciador de Armazenamento do Azure.
 
 Confira nossa lista de [Gerenciadores de Armazenamento do Azure](storage-explorers.md) para saber mais.
@@ -71,6 +75,9 @@ Quando houver cargas de trabalho e aplicativos locais, você precisará de uma s
 
 Confira [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para saber mais.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

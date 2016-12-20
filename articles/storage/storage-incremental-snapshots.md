@@ -1,19 +1,23 @@
 ---
-title: Usar instantâneos incrementais para backup e recuperação de máquinas virtuais do Azure | Microsoft Docs
-description: Crie uma solução personalizada para backup e recuperação de seus discos de máquina virtual do Azure usando instantâneos incrementais.
+title: "Usar instantâneos incrementais para backup e recuperação de máquinas virtuais do Azure | Microsoft Docs"
+description: "Crie uma solução personalizada para backup e recuperação de seus discos de máquina virtual do Azure usando instantâneos incrementais."
 services: storage
 documentationcenter: na
 author: aungoo-msft
 manager: tadb
 editor: tysonn
-
+ms.assetid: 3524b987-bd65-4e35-83e7-fbc2136643e5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: aungoo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ade78c954ca6443354b198c7141b6fb5c88afdb
+
 
 ---
 # <a name="back-up-azure-virtual-machine-disks-with-incremental-snapshots"></a>Fazer backup de discos de máquina virtual do Azure com instantâneos incrementais
@@ -22,7 +26,7 @@ O Armazenamento do Azure oferece a capacidade de fazer instantâneos dos blobs. 
 
 Os discos de máquinas virtuais do Azure são armazenados como blobs de página no Armazenamento do Azure. Como estamos falando de uma estratégia de backup para discos de máquina virtual neste artigo, faremos referência aos instantâneos no contexto dos blobs de página. Para saber mais sobre instantâneos, consulte [Criando um instantâneo de um Blob](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
-## <a name="what-is-a-snapshot?"></a>O que é um instantâneo?
+## <a name="what-is-a-snapshot"></a>O que é um instantâneo?
 Um instantâneo de blob é uma versão somente leitura de um blob capturada em um dado momento. Quando um instantâneo tiver sido criado, ele pode ser lido, copiado ou excluído, mas não modificado. Os instantâneos fornecem uma maneira de fazer backup de um blob da maneira como ele aparece em um momento específico. Até a versão 2015-04-05 do REST você podia copiar instantâneos completos. Com a versão 2015-07-08 do REST e as versões superiores, você pode copiar instantâneos incrementais.
 
 ## <a name="full-snapshot-copy"></a>Cópia de instantâneo completo
@@ -116,6 +120,9 @@ Saiba mais sobre como criar instantâneos de um blob e planejar a infraestrutura
 * [Criando um instantâneo de um Blob](https://msdn.microsoft.com/library/azure/hh488361.aspx)
 * [Planejar sua Infraestrutura de backup de VM](../backup/backup-azure-vms-introduction.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

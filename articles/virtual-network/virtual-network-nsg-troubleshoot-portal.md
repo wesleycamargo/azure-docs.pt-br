@@ -1,13 +1,13 @@
 ---
-title: Solucionar problemas de grupos de segurança de rede – Portal | Microsoft Docs
-description: Saiba como solucionar problemas de Grupos de segurança de rede no modelo de implantação do Azure Resource Manager usando o Portal do Azure.
+title: "Solucionar problemas de grupos de segurança de rede – Portal | Microsoft Docs"
+description: "Saiba como solucionar problemas de Grupos de segurança de rede no modelo de implantação do Azure Resource Manager usando o Portal do Azure."
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3216868d867f4c840a610c45855d22575ded609c
+
 
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Solucionar problemas de grupos de segurança de rede usando o Portal do Azure
@@ -105,7 +109,7 @@ Se seu fluxo de tráfego da VM for afetado para uma NIC específica, você poder
    > 
 4. Você pode editar diretamente as regras para NSGs associados a uma NIC e a uma sub-rede. Para saber como fazer isso, leia a etapa 8 da seção **Exibir regras de segurança em vigor para uma máquina virtual** deste artigo.
 
-## <a name="view-effective-security-rules-for-a-network-security-group-(nsg)"></a>Exibir regras de segurança em vigor para um NSG (grupo de segurança de rede)
+## <a name="view-effective-security-rules-for-a-network-security-group-nsg"></a>Exibir regras de segurança em vigor para um NSG (grupo de segurança de rede)
 Ao modificar as regras do NSG, convém analisar o impacto das regras que estão sendo adicionadas em uma VM específica. Agora você pode ver uma lista completa das regras de segurança em vigor para todas as NICs às quais um NSG fornecido é aplicado, sem precisar mudar o contexto da folha de NSG fornecida. Para solucionar problemas de regras em vigor em um NSG, siga as etapas a seguir:
 
 1. Entre no Portal do Azure em https://portal.azure.com.
@@ -145,6 +149,9 @@ Considere os seguintes pontos ao solucionar problemas de conectividade:
 * As regras de segurança em vigor serão mostradas apenas se houver um NSG associado à NIC e/ou sub-rede da VM. 
 * Se não houver nenhum NSG associado à NIC ou à sub-rede e você tiver um endereço IP público atribuído à sua VM, todas as portas estarão abertas para acesso de entrada e saída. Se a VM tem um endereço IP público, recomenda-se aplicar NSGs à NIC ou à sub-rede.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

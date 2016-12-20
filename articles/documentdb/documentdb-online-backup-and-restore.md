@@ -1,13 +1,13 @@
 ---
-title: Backup e restauração com DocumentDB | Microsoft Docs
-description: Saiba como executar o backup automático e a restauração de bancos de dados NoSQL com o Azure DocumentDB.
-keywords: backup e restauração, backup online
+title: "Backup e restauração online com o DocumentDB | Microsoft Docs"
+description: "Saiba como executar o backup automático e a restauração de bancos de dados NoSQL com o Azure DocumentDB."
+keywords: "backup e restauração, backup online"
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: RahulPrasad16
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: raprasa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 23f6049bc0df133966911b2352b044cdbc777b36
+
 
 ---
 # <a name="automatic-online-backup-and-restore-with-documentdb"></a>Backup online automático e restauração com o DocumentDB
@@ -33,7 +37,7 @@ A imagem a seguir ilustra o alto grau de redundância com o DocumentDB.
 
 ![Alto grau de redundância com o DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
-## <a name="full,-automatic,-online-backups"></a>Backups online completos, automáticos
+## <a name="full-automatic-online-backups"></a>Backups online completos, automáticos
 Opa, excluí uma coleção ou banco de dados! Com o DocumentDB, não apenas os dados, mas também os backups de dados ficam altamente redundantes e resilientes em desastres regionais. Esses backups automatizados são feitos atualmente a cada quatro horas, aproximadamente. 
 
 Os backups são feitos sem afetar o desempenho ou a disponibilidade de suas operações de banco de dados. O DocumentDB utiliza o backup em segundo plano sem consumir os RUs provisionados ou afetar o desempenho, e sem afetar a disponibilidade do banco de dados NoSQL. 
@@ -55,6 +59,9 @@ Para replicar o banco de dados NoSQL em vários data centers, confira [Distribui
 
 Para entrar em contato com o Suporte do Azure, [crie um tíquete no portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

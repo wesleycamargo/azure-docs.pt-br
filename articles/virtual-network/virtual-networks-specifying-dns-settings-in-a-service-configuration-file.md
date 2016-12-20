@@ -1,12 +1,12 @@
 ---
-title: Especificando as configurações DNS em um arquivo de configuração de serviço | Microsoft Docs
-description: especificando as configurações DNS personalizadas usando o arquivo de configuração de serviço para uma rede virtual
+title: "Especificando as configurações DNS em um arquivo de configuração de serviço | Microsoft Docs"
+description: "especificando as configurações DNS personalizadas usando o arquivo de configuração de serviço para uma rede virtual"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 467a4b99-8691-40b3-b640-e25e49675c71
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0fba2ea06827aff29a7a092933edb8120d668b29
+
 
 ---
-# Especificando as configurações de DNS em um arquivo de configuração de serviço
-## Elementos DNS
+# <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Especificando as configurações de DNS em um arquivo de configuração de serviço
+## <a name="dns-elements"></a>Elementos DNS
 Um arquivo de configuração de serviço pode conter um elemento DnsServers com uma lista de endereços IPv4 para os servidores do Sistema de Nome de Domínio (DNS) que o serviço usará. As configurações no arquivo de configuração de serviço têm precedência sobre as configurações no arquivo de configuração de rede. Para obter mais informações, consulte [Esquema de configuração de serviço do Azure (arquivo .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
 **Elemento NetworkConfiguration**
@@ -33,7 +37,7 @@ Um arquivo de configuração de serviço pode conter um elemento DnsServers com 
 > 
 > 
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
 [Esquema de configuração de serviço do Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
 [Esquema de configuração de Rede Virtual do Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
@@ -42,4 +46,9 @@ Um arquivo de configuração de serviço pode conter um elemento DnsServers com 
 
 [Sobre as configurações de rede virtual no Portal de Gerenciamento](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

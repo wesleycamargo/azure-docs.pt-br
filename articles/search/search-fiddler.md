@@ -12,23 +12,24 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
-
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
 
 ---
+
 # <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Usar o Fiddler para avaliar e testar as APIs REST de Pesquisa do Azure
 > [!div class="op_single_selector"]
+>
 > * [Visão geral](search-query-overview.md)
 > * [Gerenciador de Pesquisa](search-explorer.md)
 > * [Fiddler](search-fiddler.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
-> 
-> 
+>
+>
 
 Este procedimento usa o Fiddler, disponível como um [download gratuito da Telerik](http://www.telerik.com/fiddler), para emitir solicitações HTTP e exibir as respostas usando a API REST de Pesquisa do Azure, sem precisar escrever nenhum código. A Pesquisa do Azure é um serviço de pesquisa hospedado na nuvem totalmente gerenciado no Microsoft Azure, facilmente programável por meio APIs REST e .NET. As APIs REST do serviço Pesquisa do Azure estão documentadas no [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
@@ -39,26 +40,26 @@ Para concluir essas etapas, você precisará de um serviço de Pesquisa do Azure
 ## <a name="create-an-index"></a>Crie um índice
 1. Inicie o Fiddler. No menu **Arquivo**, desabilite **Capturar Tráfego** para ocultar atividades HTTP externas não relacionadas à atividade atual.
 2. Na guia **Compositor** , você formulará uma solicitação semelhante a captura de tela a seguir:
-   
+
       ![][1]
 3. Selecione **PUT**.
 4. Insira uma URL que especifique a URL do serviço, solicite atributos e a versão da API. Alguns aspectos a ter em mente:
-   
+
    * Use HTTPS como o prefixo.
    * O atributo de solicitação é "/indexes/hotels". Isso diz à Pesquisa para criar um índice chamado “hotels”.
-   * A versão da API fica em letras minúsculas, especificada como "?api-version=2015-02-28". As versões da API são importantes porque a Pesquisa do Azure implanta atualizações regularmente. Em ocasiões raras, uma atualização do serviço pode introduzir uma alteração de última hora na API. Por esse motivo, a Pesquisa do Azure requer uma versão de api em cada solicitação para que você tenha controle total sobre qual delas será usada.
-     
+   * A versão da API fica em letras minúsculas, especificada como "?api-version=2016-09-01". As versões da API são importantes porque a Pesquisa do Azure implanta atualizações regularmente. Em ocasiões raras, uma atualização do serviço pode introduzir uma alteração de última hora na API. Por esse motivo, a Pesquisa do Azure requer uma versão de api em cada solicitação para que você tenha controle total sobre qual delas será usada.
+
      A URL completa deve se parecer com o exemplo a seguir.
-     
-             https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
+
+             https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01
 5. Especifique o cabeçalho da solicitação, substituindo o host e a chave da API por valores que sejam válidos para seu serviço.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 6. No Corpo da Solicitação, copie os campos que compõem a definição do índice.
-   
+
           {
          "name": "hotels",  
          "fields": [
@@ -87,17 +88,17 @@ Na guia **Compositor** , sua solicitação para publicar documentos terá a segu
    ![][2]
 
 1. Selecione **POST**.
-2. Insira uma URL iniciada por HTTPS, seguida da URL do serviço, seguida de "/indexes/<'nomedoíndice'>/docs/index?api-version=2015-02-28". A URL completa deve se parecer com o exemplo a seguir.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+2. Insira uma URL iniciada por HTTPS, seguida da URL do serviço, seguida de "/indexes/<'nomedoíndice'>/docs/index?api-version=2016-09-01". A URL completa deve se parecer com o exemplo a seguir.
+
+         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
 3. O Cabeçalho da solicitação deve ser igual ao anterior. Lembre-se de que você substituiu o host e a chave de API por valores que são válidos para seu serviço.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 4. O Corpo da solicitação contém quatro documentos a serem adicionados ao índice de hotéis.
-   
+
          {
          "value": [
          {
@@ -169,12 +170,12 @@ Agora que o índice e os documentos foram carregados, você pode consultá-los. 
 
 1. Selecione **GET**.
 2. Insira uma URL iniciada por HTTPS, seguida da URL do serviço, seguida por "/indexes/<'indexname'>/docs?", seguido de parâmetros de consulta. Para um exemplo, use a URL a seguir, substituindo o nome de host de amostra por um que seja válido para seu serviço.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
-   
+
+         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2016-09-01
+
    Esta consulta pesquisa o termo “motel” e recupera categorias facetadas para as classificações.
 3. O Cabeçalho da solicitação deve ser igual ao anterior. Lembre-se de que você substituiu o host e a chave de API por valores que são válidos para seu serviço.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -188,11 +189,11 @@ O exemplo de consulta a seguir é da [operação Pesquisar Índice (API da Pesqu
 
 **Antes da substituição dos espaços:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
 
 **Após a substituição dos espaços por +:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
 
 ## <a name="query-the-system"></a>Consulte o sistema
 Você também pode consultar o sistema para obter informações de contagens de documentos e consumo de armazenamento. Na guia **Compositor** , sua solicitação será semelhante à seguinte, e a resposta retornará uma contagem do número de documentos e do espaço usado.
@@ -200,11 +201,11 @@ Você também pode consultar o sistema para obter informações de contagens de 
  ![][5]
 
 1. Selecione **GET**.
-2. Insira uma URL que inclua a URL do seu serviço, seguida por "/indexes/hotels/stats?api-version=2015-02-28":
-   
-         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
+2. Insira uma URL que inclua a URL do seu serviço, seguida por "/indexes/hotels/stats?api-version=2016-09-01":
+
+         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01
 3. Especifique o cabeçalho da solicitação, substituindo o host e a chave da API por valores que sejam válidos para seu serviço.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -225,6 +226,6 @@ Consulte [Gerenciar seu serviço de Pesquisa no Azure](search-manage.md) para ob
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

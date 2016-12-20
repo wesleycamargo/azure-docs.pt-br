@@ -3,6 +3,7 @@
 ## [Entender os microsserviços](service-fabric-overview-microservices.md)
 ## [Cenários de aplicativos](service-fabric-application-scenarios.md)
 ## [Arquitetura](service-fabric-architecture.md)
+## [Terminologia](service-fabric-technical-overview.md)
 
 # Introdução
 ## Configurar seu ambiente de desenvolvimento
@@ -15,7 +16,7 @@
 ### [C# em Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 ## [Implantar aplicativos em um cluster local](service-fabric-get-started-with-a-local-cluster.md)
 
-# Como:
+# Como
 ## Compilar um aplicativo
 ### Noções básicas
 #### [Modelo de programação](service-fabric-choose-framework.md)
@@ -176,21 +177,13 @@
 ### [Fazer teste de carga em seu aplicativo](service-fabric-vso-load-test.md)
 
 # Referência
-## [Terminologia](service-fabric-technical-overview.md)
-## [Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833398)
-## [Reliable Actors WCF](https://go.microsoft.com/fwlink/p/?linkid=833401)
-## [Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833402)
-## [Reliable Services WCF](https://go.microsoft.com/fwlink/p/?linkid=833403)
-## [Dados](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [Interfaces de dados](https://go.microsoft.com/fwlink/p/?linkid=833406)
-## [Sistema](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [Exemplo de código](http://aka.ms/servicefabricsamples)
-## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
-## [API Java](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/servicefabric/)
+## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
+## [API Java](/java/api/microsoft.servicefabric.services)
+## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [REST](/rest/api/servicefabric)
 
 # Recursos
+## [Exemplo de código](http://aka.ms/servicefabricsamples)
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Preços](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=service-fabric)
@@ -198,6 +191,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

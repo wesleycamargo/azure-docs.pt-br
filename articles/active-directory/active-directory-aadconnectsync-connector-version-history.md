@@ -1,12 +1,12 @@
 ---
-title: Histórico de lançamento de versão do conector | Microsoft Docs
-description: Este tópico lista todas as versões dos Conectores do FIM (Forefront Identity Manager) e MIM (Microsoft Identity Manager)
+title: "Histórico de lançamento de versão do conector | Microsoft Docs"
+description: "Este tópico lista todas as versões dos Conectores do FIM (Forefront Identity Manager) e MIM (Microsoft Identity Manager)"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/17/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 58c89833330d8dbb1147b42c086ca2c86be3e94d
+
 
 ---
 # <a name="connector-version-release-history"></a>Histórico de lançamento de versão do conector
@@ -35,7 +39,7 @@ Links relacionados:
 * [Conector do PowerShell](active-directory-aadconnectsync-connector-powershell.md) 
 * [Conector do Lotus Domino](active-directory-aadconnectsync-connector-domino.md) 
 
-## <a name="1.1.117.0"></a>1.1.117.0
+## <a name="111170"></a>1.1.117.0
 Lançamento: março de 2016
 
 **Novo Conector**  
@@ -97,6 +101,9 @@ Saiba mais sobre a configuração de [sincronização do Azure AD Connect](activ
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

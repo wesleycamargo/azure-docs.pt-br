@@ -1,12 +1,12 @@
 ---
-title: Cmdlets do Azure Active Directory para definir configurações de grupo | Microsoft Docs
-description: Como gerenciar as configurações de grupos usando cmdlets do Azure Active Directory.
+title: "Cmdlets do Azure Active Directory para definir configurações de grupo | Microsoft Docs"
+description: "Como gerenciar as configurações de grupos usando cmdlets do Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6a8bd076830d9b639007ee0130320869d2a63746
+
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para definir configurações de grupo
@@ -98,7 +102,7 @@ Esta etapa remove configurações no nível do diretório, que se aplicam a todo
 ## <a name="cmdlet-syntax-reference"></a>Referência de sintaxe de cmdlet
 Você pode encontrar mais documentação do Azure Active Directory PowerShell em [Cmdlets do Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
-## <a name="settingstemplate-object-reference-(group.unified-settingstemplate-object)"></a>Referência de objeto SettingsTemplate (objeto Group.Unified SettingsTemplate)
+## <a name="settingstemplate-object-reference-groupunified-settingstemplate-object"></a>Referência de objeto SettingsTemplate (objeto Group.Unified SettingsTemplate)
 * "name": "EnableGroupCreation", "type": "System.Boolean", "defaultValue": "true", "description": "Um sinalizador booliano indicando se o recurso de criação do Grupo Unificado está ativado."
 * "name": "GroupCreationAllowedGroupId", "type": "System.Guid", "defaultValue": "", "description": "GUID do grupo de segurança que está na lista de permissões para criar Grupos Unificados."
 * "name": "ClassificationList", "type": "System.String", "defaultValue": "", "description": "Uma lista delimitada por vírgulas de valores de classificação válidos que pode ser aplicada aos Grupos Unificados."
@@ -119,6 +123,9 @@ Instruções adicionais do gerente de programa da Microsoft Rob de Jong estão d
 * [Gerenciamento de acesso a recursos com grupos do Active Directory do Azure](active-directory-manage-groups.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

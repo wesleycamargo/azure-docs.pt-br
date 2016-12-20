@@ -1,13 +1,13 @@
 ---
 title: Criar e carregar um VHD Linux no Azure
-description: Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional Linux.
+description: "Saiba como criar e carregar um VHD (disco rígido virtual) do Azure que contenha um sistema operacional Linux."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,32 +15,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 76d82d5bfc9c57583ea722e76f13bdd4b17ec444
+
 
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para as distribuições não endossadas
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-**Importante**: o SLA (contrato de nível de serviço) da plataforma do Azure aplica-se a máquinas virtuais com o sistema operacional Linux somente quando uma das [distribuições endossadas é usada](virtual-machines-linux-endorsed-distros.md) . Todas as distribuições do Linux fornecidas na galeria de imagens do Azure são distribuições endossadas com a configuração necessária.
+**Importante**: o SLA (contrato de nível de serviço) da plataforma do Azure aplica-se a máquinas virtuais com o sistema operacional Linux somente quando uma das [distribuições endossadas é usada](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) . Todas as distribuições do Linux fornecidas na galeria de imagens do Azure são distribuições endossadas com a configuração necessária.
 
-* [Linux no Azure - Distribuições endossadas](virtual-machines-linux-endorsed-distros.md)
+* [Linux no Azure - Distribuições endossadas](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Suporte para imagens Linux no Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
 Todas as distribuições em execução no Azure precisam atender a diversos pré-requisitos para ter a chance de serem executadas corretamente na plataforma.  Este artigo não é conclusivo, já que cada distribuição é diferente. Dessa forma, mesmo que você atenda a todos os critérios abaixo, talvez seja necessário ajustar significativamente o seu sistema Linux para garantir que ele seja executado corretamente na plataforma.
 
-Por isso, recomendamos que você inicie com uma das nossas [distribuições endossadas do Linux no Azure](virtual-machines-linux-endorsed-distros.md) sempre que possível. Os artigos a seguir guiam você pela preparação das diversas distribuições endossadas do Linux que têm suporte no Azure:
+Por isso, recomendamos que você inicie com uma das nossas [distribuições endossadas do Linux no Azure](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) sempre que possível. Os artigos a seguir guiam você pela preparação das diversas distribuições endossadas do Linux que têm suporte no Azure:
 
-* **[Distribuições com base em CentOS](virtual-machines-linux-create-upload-centos.md)**
-* **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md)**
-* **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md)**
-* **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md)**
-* **[SLES & openSUSE](virtual-machines-linux-suse-create-upload-vhd.md)**
-* **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md)**
+* **[Distribuições com base em CentOS](virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Debian Linux](virtual-machines-linux-debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Oracle Linux](virtual-machines-linux-oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Red Hat Enterprise Linux](virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES & openSUSE](virtual-machines-linux-suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[Ubuntu](virtual-machines-linux-create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 O restante deste artigo traz orientações gerais para execução da sua distribuição do Linux no Azure.
 
 ## <a name="general-linux-installation-notes"></a>Notas de instalação gerais do Linux
 * O formato VHDX não tem suporte no Azure, somente o **VHD fixo**.  Você pode converter o disco em formato VHD usando o Gerenciador do Hyper-V ou o cmdlet convert-vhd. Se você estiver usando o VirtualBox, isso significará selecionar **Tamanho fixo** em vez do padrão alocado dinamicamente durante a criação do disco.
-* Ao instalar o sistema Linux, é *recomendável* que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM idêntica para solução de problemas. [LVM](virtual-machines-linux-configure-lvm.md) ou [RAID](virtual-machines-linux-configure-raid.md) podem ser usados nos discos de dados.
+* Ao instalar o sistema Linux, é *recomendável* que você use partições padrão em vez de LVM (geralmente o padrão para muitas instalações). Isso irá evitar conflitos de nome LVM com VMs clonadas, especialmente se um disco do sistema operacional precisar ser anexado a outra VM idêntica para solução de problemas. [LVM](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) podem ser usados nos discos de dados.
 * É necessário suporte a kernel para montar sistemas de arquivos UDF. Na primeira inicialização no Azure, a configuração de provisionamento é transmitida à VM do Linux por meio de mídia formatada para UDF, a qual é anexada ao convidado. O agente de Linux do Azure deve ser capaz de montar o sistema de arquivos UDF para ler sua configuração e provisionar a VM.
 * Versões de kernel do Linux abaixo de 2.6.37 não dão suporte ao NUMA no Hyper-V com tamanhos maiores de VM. Esse problema afeta principalmente distribuições mais antigas usando kernel Red Hat 2.6.32 upstream e foi corrigido no RHEL 6.6 (kernel-2.6.32-504). Sistemas que executam kernels personalizados anteriores a 2.6.37 ou com base em RHEL anteriores a 2.6.32-504 devem definir o parâmetro de inicialização `numa=off` na linha de comando do kernel em grub.conf. Para obter mais informações, confira o [KB 436883](https://access.redhat.com/solutions/436883) do Red Hat.
 * Não configure uma partição de permuta no disco do SO. O agente Linux pode ser configurado para criar um arquivo de permuta no disco de recursos temporários.  Verifique as etapas a seguir para obter mais informações a esse respeito.
@@ -95,23 +99,23 @@ Para corrigir isso, você pode redimensionar a VM usando o console do Gerenciado
        # qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
 ## <a name="linux-kernel-requirements"></a>Requisitos do kernel do Linux
-Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são obtidos diretamente no kernel upstream do Linux. Muitas distribuições que contam com uma versão recente do kernel do Linux (por exemplo, versões 3.x) já terão esses drivers ou fornecerão versões revertidas desses drivers com seus kernels.  Os drivers são atualizados constantemente no kernel upstream com reparos e recursos. Por isso, recomendamos que você execute, sempre que possível, uma [distribuição endossada](virtual-machines-linux-endorsed-distros.md) que inclua esses reparos e essas atualizações.
+Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são obtidos diretamente no kernel upstream do Linux. Muitas distribuições que contam com uma versão recente do kernel do Linux (por exemplo, versões 3.x) já terão esses drivers ou fornecerão versões revertidas desses drivers com seus kernels.  Os drivers são atualizados constantemente no kernel upstream com reparos e recursos. Por isso, recomendamos que você execute, sempre que possível, uma [distribuição endossada](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que inclua esses reparos e essas atualizações.
 
 Se você estiver executando uma variante das versões **de 6.0 a 6.3** do Red Hat Enterprise Linux, será necessário instalar os drivers LIS mais recentes para o Hyper-V. Os drivers LIS com o kernel já estão incluídos nas versões [6.4 e posteriores](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)do RHEL (e derivados). Os drivers LIS com o kernel já estão incluídos nas versões **6.4 e posteriores** do RHEL (e derivados). Por isso, não é necessário ter outros pacotes de instalação para executar esses sistemas no Azure.
 
 Se for necessário usar um kernel personalizado, recomendamos que você use uma versão mais recente ( **3.8 ou posterior**). No caso das distribuições ou dos fornecedores que mantêm seus próprios kernels, será necessário um pouco de esforço para a reversão dos drivers LIS do kernel upstream para seu kernel personalizado.  Recomendamos que você acompanhe os reparos upstream nos drivers LIS e faça as reversões necessárias, mesmo se estiver executando uma versão relativamente recente do kernel. A localização dos arquivos de origem do driver do LIS consta no arquivo [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) , na árvore do kernel do Linux:
 
-    F:  arch/x86/include/asm/mshyperv.h
-    F:  arch/x86/include/uapi/asm/hyperv.h
-    F:  arch/x86/kernel/cpu/mshyperv.c
-    F:  drivers/hid/hid-hyperv.c
-    F:  drivers/hv/
-    F:  drivers/input/serio/hyperv-keyboard.c
-    F:  drivers/net/hyperv/
-    F:  drivers/scsi/storvsc_drv.c
-    F:  drivers/video/fbdev/hyperv_fb.c
-    F:  include/linux/hyperv.h
-    F:  tools/hv/
+    F:    arch/x86/include/asm/mshyperv.h
+    F:    arch/x86/include/uapi/asm/hyperv.h
+    F:    arch/x86/kernel/cpu/mshyperv.c
+    F:    drivers/hid/hid-hyperv.c
+    F:    drivers/hv/
+    F:    drivers/input/serio/hyperv-keyboard.c
+    F:    drivers/net/hyperv/
+    F:    drivers/scsi/storvsc_drv.c
+    F:    drivers/video/fbdev/hyperv_fb.c
+    F:    include/linux/hyperv.h
+    F:    tools/hv/
 
 Sabemos que a ausência dos patches a seguir resulta em problemas no Azure. Por isso, eles devem constar no kernel. De forma alguma essa lista pode ser considerada completa para todas as distribuições:
 
@@ -124,7 +128,7 @@ Sabemos que a ausência dos patches a seguir resulta em problemas no Azure. Por 
 * [scsi_sysfs: proteger contra a execução dupla de __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>O agente Linux do Azure
-O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) (waagent) é necessário para garantir o provisionamento correto da máquina virtual Linux no Azure. Você pode obter a versão mais recente, verificar os problemas com arquivos ou enviar solicitações pull no [repositório GitHub do agente Linux](https://github.com/Azure/WALinuxAgent).
+O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (waagent) é necessário para garantir o provisionamento correto da máquina virtual Linux no Azure. Você pode obter a versão mais recente, verificar os problemas com arquivos ou enviar solicitações pull no [repositório GitHub do agente Linux](https://github.com/Azure/WALinuxAgent).
 
 * O agente Linux consta na licença do Apache 2.0. Diversas distribuições já fornecem pacotes RPM ou DEB para o agente. Assim, em alguns casos, é possível instalá-los e atualizá-los sem dificuldades.
 * O agente Linux do Azure requer Python v2.6+.
@@ -144,10 +148,10 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
   
     As inicializações gráfica e silenciosa não são úteis em ambientes de rede, quando queremos que todos os logs sejam enviados para a porta serial.
   
-    Você pode deixar configurada a opção `crashkernel` , mas esse parâmetro reduz a memória disponível na máquina virtual em 128 MB ou mais, o que pode ser um problema em máquinas virtuais menores.
+    Você pode deixar configurada a opção `crashkernel` , mas esse parâmetro reduz a memória disponível na máquina virtual em 128 MB ou mais, o que pode ser um problema em máquinas virtuais menores.
 * Instalando o agente Linux do Azure
   
-    O agente Linux do Azure é necessário para garantir o provisionamento de uma imagem Linux no Azure.  Muitas distribuições fornecem o agente como um pacote RPM ou DEB (o pacote geralmente recebe o nome de "WALinuxAgent" ou "walinuxagent").  Você também pode seguir as etapas descritas no [Guia do agente Linux](virtual-machines-linux-agent-user-guide.md)para instalar o agente manualmente.
+    O agente Linux do Azure é necessário para garantir o provisionamento de uma imagem Linux no Azure.  Muitas distribuições fornecem o agente como um pacote RPM ou DEB (o pacote geralmente recebe o nome de "WALinuxAgent" ou "walinuxagent").  Você também pode seguir as etapas descritas no [Guia do agente Linux](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)para instalar o agente manualmente.
 * Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização.  Geralmente, esse é o padrão.
 * Não crie espaço swap no disco do sistema operacional
   
@@ -170,6 +174,9 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md) (waagent) 
   > 
 * Em seguida, você deverá desligar a máquina virtual e carregar o VHD no Azure.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

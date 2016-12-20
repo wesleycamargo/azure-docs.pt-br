@@ -3,8 +3,8 @@ title: "Introdução à criação de um balanceador de carga interno no Resource
 description: Saiba como criar um balanceador de carga interno no Resource Manager usando o portal do Azure
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
@@ -14,25 +14,30 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 616fa3b45f8b6f7f799eeacfb1f609a1031d24f5
-
+ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
+ms.openlocfilehash: 6961255e4b1a269b3ac9bafb5f1b3ced7a2a8943
 
 ---
+
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Criar um Balanceador de carga interno no portal do Azure
-[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+
+> [!div class="op_single_selector"]
+> * [Portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-[modelo de implantação clássico](load-balancer-get-started-ilb-classic-ps.md).
+> [!NOTE]
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artigo aborda usando o modelo de implantação do Gerenciador de Recursos, que a Microsoft recomenda para a maioria das novas implantações em vez de do [modelo de implantação clássico](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Introdução à criação de um balanceador de carga interno usando o portal do Azure
+
 Use as etapas a seguir para criar um balanceador de carga interno no Portal do Azure.
 
 1. Abra um navegador, navegue até o [portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
@@ -40,32 +45,33 @@ Use as etapas a seguir para criar um balanceador de carga interno no Portal do A
 3. Na folha **Criar balanceador de carga**, insira um **Nome** para o balanceador de carga.
 4. Em **Esquema**, clique em **Interno**.
 5. Clique em **Rede virtual**e selecione a rede virtual na qual você deseja criar o balanceador de carga.
-   
+
    > [!NOTE]
    > Caso você não veja a rede virtual que deseja usar, verifique o **Local** que você está usando para o balanceador de carga e altere-o adequadamente.
-   > 
-   > 
+
 6. Clique em **Sub-rede**e selecione a sub-rede onde você quer criar o balanceador de carga.
 7. Em **Atribuição do endereço IP**, clique em **Dinâmico** ou **Estático**, dependendo de você querer que o endereço IP para o balanceador de carga seja fixo (estático) ou não.
-   
+
    > [!NOTE]
    > Se você optar por usar um endereço IP estático, será necessário fornecer um endereço para o balanceador de carga.
-   > 
-   > 
+
 8. Em **Grupo de recursos**, especifique o nome de um novo grupo de recursos para o balanceador de carga ou clique em **selecionar existente** e selecione um grupo de recursos existente.
 9. Clique em **Criar**.
 
 ## <a name="configure-load-balancing-rules"></a>Configuração de regras de balanceamento de carga
+
 Após a criação do balanceador de carga, navegue até o recurso do balanceador de carga para configurá-lo.
 Primeiro, você precisa configurar um pool de endereços back-end e uma investigação antes de configurar uma regra de balanceamento de carga.
 
-### <a name="step-1-configure-a-backend-pool"></a>Etapa 1: Configurar um pool de back-end
+### <a name="step-1-configure-a-back-end-pool"></a>Etapa 1: Configurar um pool de back-end
+
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga**, em seguida, clique no balanceador de carga que você criou acima.
 2. Na folha **Configurações**, clique nos **Pools de back-end**.
 3. Na folha **Pools de endereços de back-end**, clique em **Adicionar**.
 4. Na folha **Adicionar pool de back-end**, insira um **Nome** para o pool de back-end e clique em **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Etapa 2: Configurar uma investigação
+
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga**, em seguida, clique no balanceador de carga que você criou acima.
 2. Na folha **Configurações**, clique em **Investigações**.
 3. Na folha **Investigações**, clique em **Adicionar**.
@@ -78,6 +84,7 @@ Primeiro, você precisa configurar um pool de endereços back-end e uma investig
 10. Clique em **OK** para criar a investigação.
 
 ### <a name="step-3-configure-load-balancing-rules"></a>Etapa 3: Configurar regras de balanceamento de carga
+
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga**, em seguida, clique no balanceador de carga que você criou acima.
 2. Na folha **Configurações**, clique em **Regras de balanceamento da carga**.
 3. Na folha **Regras de balanceamento da carga**, clique em **Adicionar**.
@@ -92,6 +99,7 @@ Primeiro, você precisa configurar um pool de endereços back-end e uma investig
 12. Clique em **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
@@ -99,6 +107,6 @@ Primeiro, você precisa configurar um pool de endereços back-end e uma investig
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

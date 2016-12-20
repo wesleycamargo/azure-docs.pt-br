@@ -1,26 +1,30 @@
 ---
-title: Como atualizar projetos para a versão atual das ferramentas do Azure | Microsoft Docs
-description: Aprenda como atualizar um projeto do Azure no Visual Studio para a versão atual das ferramentas do Azure
+title: "Como atualizar projetos para a versão atual das ferramentas do Azure | Microsoft Docs"
+description: "Aprenda como atualizar um projeto do Azure no Visual Studio para a versão atual das ferramentas do Azure"
 services: visual-studio-online
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 1d64070a-078d-468a-87f4-e6715de6475f
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/18/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e346640f6cbf7969bf373b84d8a20a24a74f654e
+
 
 ---
-# Como atualizar projetos para a versão atual das ferramentas do Azure para Visual Studio
-## Visão geral
+# <a name="how-to-upgrade-projects-to-the-current-version-of-the-azure-tools-for-visual-studio"></a>Como atualizar projetos para a versão atual das ferramentas do Azure para Visual Studio
+## <a name="overview"></a>Visão geral
 Depois de instalar a versão atual das Ferramentas do Azure (ou uma versão anterior mais recente que a 1.6), todos os projetos criados usando as Ferramentas do Azure de versão anterior à 1.6 (novembro de 2011) serão atualizados automaticamente assim que você abri-los. Se você criou projetos usando a versão 1.6 (novembro de 2011) dessas ferramentas e você ainda tiver a versão instalada, pode abrir esses projetos na versão anterior e posteriormente decidir se deseja atualizá-los.
 
-## Como o projeto muda quando você o atualiza
+## <a name="how-your-project-changes-when-you-upgrade-it"></a>Como o projeto muda quando você o atualiza
 Se um projeto é atualizado automaticamente ou se você especificar que deseja atualizá-lo, o projeto será modificado para funcionar com as versões atuais de determinados assemblies e algumas propriedades também são alteradas conforme descrito nesta seção. Se seu projeto exigir outras alterações para ser compatível com a versão mais recente das ferramentas, você deve fazer essas alterações manualmente.
 
 * O arquivo Web.config para funções web e o arquivo app.config para funções de trabalho são atualizados para fazer referência à versão mais recente do Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitoirTraceListener.dll.
@@ -35,12 +39,17 @@ Se um projeto é atualizado automaticamente ou se você especificar que deseja a
 > 
 > 
 
-### Como atualizar um projeto do Azure para a versão atual
+### <a name="how-to-upgrade-an-azure-project-to-the-current-release"></a>Como atualizar um projeto do Azure para a versão atual
 1. Instale a versão atual das ferramentas do Azure na instalação do Visual Studio que você deseja usar para o projeto atualizado e, em seguida, abra o projeto que você deseja atualizar. Se o projeto foi criado com ferramentas do Azure versão anterior à 1.6 (novembro de 2011), o projeto é atualizado automaticamente para a versão atual. Se o projeto foi criado com a versão de novembro de 2011 e essa versão ainda estiver instalada, o projeto será aberto nessa versão.
-2. No Gerenciador de Soluções, abra o menu de atalho para o nó do projeto, escolha **Propriedades**, e, em seguida, escolha a guia **Aplicativo** na caixa de diálogo que aparece.
+2. No Gerenciador de Soluções, abra o menu de atalho para o nó do projeto, escolha **Propriedades** e, em seguida, escolha a guia **Aplicativo** na caixa de diálogo que aparece.
    
     A guia **Aplicativo** exibe a versão das ferramentas que está associada com o projeto. Se for exibida a versão atual das ferramentas do Azure, o projeto já foi atualizado. Se você instalou uma versão mais recente das ferramentas do que aquela mostrada pela guia, um botão **Atualizar** é exibido.
 3. Escolha o botão **Atualizar** para atualizar um projeto para a versão atual das ferramentas.
 4. Compile o projeto e resolva os erros resultantes das alterações de API. Para obter informações sobre como modificar seu código para a nova versão, consulte a documentação da API específica.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

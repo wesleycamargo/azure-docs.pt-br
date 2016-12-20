@@ -1,30 +1,34 @@
 ---
-title: Como usar as filas de Barramento de Serviço com Python | Microsoft Docs
-description: Saiba como usar as filas do barramento de serviço do Azure do Python.
-services: service-bus
+title: "Como usar as filas de Barramento de Serviço com Python | Microsoft Docs"
+description: "Saiba como usar as filas do barramento de serviço do Azure do Python."
+services: service-bus-messaging
 documentationcenter: python
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: sethm;lmazuel
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a162dc04f8eb5002cae3bf708ae2fcd4c2aa694
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Como usar filas do Barramento de Serviço
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos são escritos em Python e usam o [pacote de Barramento de Serviço do Python Azure][]. Os cenários cobertos incluem **criar filas, enviar e receber mensagens** e **excluir filas**.
+Este artigo descreve como usar as filas do Barramento de Serviço. Os exemplos são escritos em Python e usam o [Pacote de Barramento de Serviço do Azure do Python][Pacote de Barramento de Serviço do Azure do Python]. Os cenários cobertos incluem **criar filas, enviar e receber mensagens** e **excluir filas**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 > [!NOTE]
-> Para instalar o Python ou o [pacote do Barramento de Serviço do Azure do Python][], veja o [Guia de instalação do Python](../python-how-to-install.md).
+> Para instalar o Python ou o [Pacote de Barramento de Serviço do Azure do Python][Pacote de Barramento de Serviço do Azure do Python], consulte o [Guia de instalação do Python](../python-how-to-install.md).
 > 
 > 
 
@@ -44,7 +48,7 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-Os valores para o nome chave e valor da SAS podem ser encontrados na informação de conexão do [Portal clássico do Azure][Portal clássico do Azure], ou no painel das **Propriedades** do Visual Studio ao selecionar o namespace do Barramento de Serviço no Gerenciador de Servidores (conforme mostrado na seção anterior).
+Os valores do nome da chave e do valor da SAS podem ser encontrados nas informações de conexão do [Portal clássico do Azure][Portal clássico do Azure] ou no painel **Propriedades** do Visual Studio ao selecionar o namespace do Barramento de Serviço no Gerenciador de Servidores (conforme mostrado na seção anterior).
 
 ```
 bus_service.create_queue('taskqueue')
@@ -70,7 +74,7 @@ msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para saber mais sobre cotas, confira [Cotas do Barramento de Serviço][Cotas do Barramento de Serviço].
+As filas do Barramento de Serviço dão suporte ao tamanho máximo de mensagem de 256 KB na [camada Standard](service-bus-premium-messaging.md) e 1 MB na [camada Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades de aplicativo padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não há nenhum limite no número de mensagens mantidas em uma fila mas há uma capacidade do tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento da criação, com um limite superior de 5 GB. Para obter mais informações sobre cotas, consulte [Cotas do Barramento de Serviço][Cotas do Barramento de Serviço].
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
 As mensagens são recebidas de uma fila usando o método **receive\_queue\_message** no objeto **ServiceBusService**:
@@ -103,7 +107,7 @@ Caso o aplicativo falhe após o processamento da mensagem, mas antes que o méto
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você já sabe as noções básicas das filas de Barramento de Serviço, siga estes links para saber mais.
 
-* Confira [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas].
+* Consulte [Filas, tópicos e assinaturas][Filas, tópicos e assinaturas].
 
 [Portal clássico do Azure]: https://manage.windowsazure.com
 [Pacote de Barramento de Serviço do Azure do Python]: https://pypi.python.org/pypi/azure-servicebus  
@@ -113,6 +117,6 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

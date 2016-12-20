@@ -1,28 +1,32 @@
 ---
-title: Diagnosticando falhas dos aplicativos lógicos | Microsoft Docs
-description: Abordagens comuns para compreender onde os aplicativos lógicos estão falhando
+title: "Diagnosticando falhas dos aplicativos lógicos | Microsoft Docs"
+description: "Abordagens comuns para compreender onde os aplicativos lógicos estão falhando"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 05/18/2016
+ms.date: 10/18/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fb3d9e2f8d148bddfd43555254e422805c668128
+
 
 ---
-# Diagnosticando falhas nos aplicativos lógicos
-Se você tiver problemas ou falhas com o recurso de aplicativos lógicos do Serviço de Aplicativo do Azure, algumas abordagens poderão ajudá-lo a entender melhor a origem das falhas.
+# <a name="diagnosing-logic-app-failures"></a>Diagnosticando falhas nos aplicativos lógicos
+Se você tiver problemas ou falhas com o recurso de aplicativos lógicos do Serviço de Aplicativo do Azure, algumas abordagens poderão ajudá-lo a entender melhor a origem das falhas.  
 
-## Ferramentas do portal do Azure
+## <a name="azure-portal-tools"></a>Ferramentas do portal do Azure
 O Portal do Azure fornece várias ferramentas para diagnosticar cada aplicativo lógico em cada etapa.
 
-### Histórico de gatilho
+### <a name="trigger-history"></a>Histórico de gatilho
 Cada aplicativo lógico tem pelo menos um gatilho. Se você perceber que os aplicativos não são acionados, o primeiro lugar para obter informações adicionais será o histórico de gatilhos. Você pode acessar o histórico de gatilhos na folha principal do aplicativo lógico.
 
 ![Exibir o histórico de gatilho][1]
@@ -35,10 +39,10 @@ Os diferentes status que você pode ver são:
 * **Êxito**. O gatilho recebeu uma resposta de que havia dados disponíveis. Pode ser de um gatilho manual, um gatilho de recorrência ou um gatilho de sondagem. Isso provavelmente estará acompanhado de um status de **Disparado**, mas talvez isso não aconteça se você tiver uma condição ou comando SplitOn na exibição de código que não foi atendida.
 * **Falha**. Um erro foi gerado.
 
-#### Iniciar um gatilho manualmente
+#### <a name="starting-a-trigger-manually"></a>Iniciar um gatilho manualmente
 Se você quiser que o aplicativo lógico verifique imediatamente se há um gatilho disponível (sem aguardar a próxima recorrência), você poderá clicar no botão **Selecionar Gatilho** na folha principal para forçar uma verificação. Por exemplo, clicar nesse link com um gatilho Dropbox fará com que o fluxo de trabalho sonde o Dropbox imediatamente em busca de novos arquivos.
 
-### Histórico da execução
+### <a name="run-history"></a>Histórico da execução
 Cada gatilho que é acionado resulta em uma execução. Você pode acessar informações da execução da folha principal, que contém muitas informações que podem ser úteis para entender o que aconteceu durante o fluxo de trabalho.
 
 ![Localizando o histórico da execução][2]
@@ -50,9 +54,9 @@ Uma execução exibe um dos seguintes status:
 * **Cancelado**. O fluxo de trabalho estava em execução, mas recebeu uma solicitação de cancelamento.
 * **Executando**. O fluxo de trabalho está em execução atualmente. Isso pode ocorrer para os fluxos que estão sendo limitados, ou devido ao plano do Serviço de Aplicativo atual. Consulte os limites da ação na [página de preços](https://azure.microsoft.com/pricing/details/app-service/plans/) para obter detalhes. Configurar o diagnóstico (os gráficos listados abaixo do histórico da execução) também podem fornecer informações sobre quaisquer eventos de restrição que estão ocorrendo.
 
-Quando você estiver observando um histórico da execução, você pode analisar para obter mais detalhes.
+Quando você estiver observando um histórico da execução, você pode analisar para obter mais detalhes.  
 
-#### Saídas do gatilho
+#### <a name="trigger-outputs"></a>Saídas do gatilho
 As saídas do gatilho mostrarão os dados recebidos do gatilho. Isso pode ajudá-lo a determinar se todas as propriedades retornaram conforme o esperado.
 
 > [!NOTE]
@@ -62,13 +66,13 @@ As saídas do gatilho mostrarão os dados recebidos do gatilho. Isso pode ajudá
 
 ![Exemplos de saída do gatilho][3]
 
-#### Entradas e saídas da ação
+#### <a name="action-inputs-and-outputs"></a>Entradas e saídas da ação
 Você pode analisar as entradas e saídas que uma ação recebeu. Isso é útil para entender o tamanho e a forma das saídas, bem como ver todas as mensagens de erro que possam ter sido geradas.
 
 ![Entradas e saídas da ação][4]
 
-## Depurando o tempo de execução do fluxo de trabalho
-Além de monitorar as entradas, saídas e gatilhos de uma execução, pode ser útil adicionar algumas etapas em um fluxo de trabalho para ajudar na depuração. O [RequestBin](http://requestb.in) é uma ferramenta poderosa que você pode adicionar como uma etapa em um fluxo de trabalho. Usando o RequestBin, você pode configurar um inspetor de solicitação HTTP para determinar exatamente o tamanho, forma e formato de uma solicitação HTTP. Você pode criar um novo RequestBin e colar a URL em uma Ação HTTP POST do aplicativo lógico junto com qualquer conteúdo do corpo que você deseje testar (por exemplo, uma expressão, ou outra saída da etapa). Depois de executar o aplicativo lógico, você poderá atualizar o RequestBin para ver como a solicitação foi formada, já que ela foi gerada do mecanismo dos Aplicativos Lógicos.
+## <a name="debugging-workflow-runtime"></a>Depurando o tempo de execução do fluxo de trabalho
+Além de monitorar as entradas, saídas e gatilhos de uma execução, pode ser útil adicionar algumas etapas em um fluxo de trabalho para ajudar na depuração. [RequestBin](http://requestb.in) é uma ferramenta poderosa que você pode adicionar como uma etapa em um fluxo de trabalho. Usando o RequestBin, você pode configurar um inspetor de solicitação HTTP para determinar exatamente o tamanho, forma e formato de uma solicitação HTTP. Você pode criar um novo RequestBin e colar a URL em uma Ação HTTP POST do aplicativo lógico junto com qualquer conteúdo do corpo que você deseje testar (por exemplo, uma expressão, ou outra saída da etapa). Depois de executar o aplicativo lógico, você poderá atualizar o RequestBin para ver como a solicitação foi formada, já que ela foi gerada do mecanismo dos Aplicativos Lógicos.
 
 <!-- image references -->
 [1]: ./media/app-service-logic-diagnosing-failures/triggerHistory.PNG
@@ -76,4 +80,8 @@ Além de monitorar as entradas, saídas e gatilhos de uma execução, pode ser �
 [3]: ./media/app-service-logic-diagnosing-failures/triggerOutputsLink.PNG
 [4]: ./media/app-service-logic-diagnosing-failures/ActionOutputs.PNG
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

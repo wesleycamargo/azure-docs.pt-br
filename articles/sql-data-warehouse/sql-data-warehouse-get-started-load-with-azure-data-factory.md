@@ -1,4 +1,5 @@
 ---
+redirect_url: /azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory
 title: Carregar dados com o Azure Data Factory | Microsoft Docs
 description: Saiba como carregar dados com o Azure Data Factory
 services: sql-data-warehouse
@@ -16,8 +17,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 960225117a1c9b0802004455353fb9015a80b07b
+ms.sourcegitcommit: 3d41671920d40335e3e0931599a434f9d5f58bba
+ms.openlocfilehash: 0fcbd492f1f26efb67dec90a5ba25ba27172065c
 
 
 ---
@@ -202,21 +203,21 @@ Para saber mais, comece exibindo o seguinte:
 Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Eles abordam o Banco de Dados SQL do Azure ou o HDinsight, mas as informações também se aplicam ao SQL Data Warehouse do Azure.
 
 * [Tutorial: introdução ao Azure Data Factory][Tutorial: introdução ao Azure Data Factory] Este é o tutorial principal para processar dados com o Azure Data Factory. Neste tutorial, você criará seu primeiro pipeline que usa HDInsight para transformar e analisar logs da web mensalmente. Observe que não há nenhuma atividade de cópia neste tutorial.
-* [Tutorial: Copiar dados de Blob de armazenamento do Azure para o banco de dados SQL][Tutorial: copiar dados do Azure Storage Blob para o Banco de Dados SQL do Azure]. Neste tutorial, você criará um pipeline no Azure Data Factory para copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure.
+* [Tutorial: Copiar dados do Blob de Armazenamento do Azure para o Banco de Dados Azure SQL][Tutorial: Copiar dados do Blob de Armazenamento do Azure para o Banco de Dados Azure SQL]. Neste tutorial, você criará um pipeline no Azure Data Factory para copiar dados do Blob de Armazenamento do Azure para o Banco de Dados SQL do Azure.
 
 <!--Image references-->
 
 <!--Article references-->
 [documentação do AZCopy]: ../storage/storage-use-azcopy.md
-[Conector do SQL Data Warehouse do Azure]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[Conector do Azure SQL Data Warehouse]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [BCP]: sql-data-warehouse-load-with-bcp.md
-[Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [Criar uma conta de armazenamento]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Fábrica de dados]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Introdução ao Azure Data Factory (Editor do Data Factory)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
 [Introdução ao Azure Data Factory]: ../data-factory/data-factory-introduction.md
-[Carregar dados de amostra no SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
-[Mover dados para e do SQL Data Warehouse do Azure usando o Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
+[Mover dados no SQL Data Warehouse usando o Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
 [Tutorial: Copiar dados do Blob de Armazenamento do Azure para o Banco de Dados Azure SQL]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [Tutorial: introdução ao Azure Data Factory]: ../data-factory/data-factory-build-your-first-pipeline.md
@@ -226,10 +227,10 @@ Estes tópicos fornecem informações detalhadas sobre o Azure Data Factory. Ele
 <!--Other Web references-->
 [Roteiro de aprendizagem do Azure Data Factory]: https://azure.microsoft.com/documentation/learning-paths/data-factory
 [Portal do Azure]: https://portal.azure.com
-[Baixe os dados de exemplo]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
+[Baixe dados de exemplo]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

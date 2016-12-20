@@ -1,14 +1,14 @@
 ---
-title: Habilitar o Microsoft Windows Hello for Business em sua organização | Microsoft Docs
-description: Instruções de implantação para habilitar o Microsoft Passport na sua organização.
+title: "Habilitar o Microsoft Windows Hello for Business em sua organização |Microsoft Docs"
+description: "Instruções de implantação para habilitar o Microsoft Passport na sua organização."
 services: active-directory
-documentationcenter: ''
-keywords: configurar o Microsoft Passport, implantação do Microsoft Windows Hello for Business
+documentationcenter: 
+keywords: "configurar o Microsoft Passport, implantação do Microsoft Windows Hello for Business"
 author: MarkusVi
 manager: femila
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 7dbbe3c6-1cd7-429c-a9b2-115fcbc02416
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,6 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 115fbee1990b20f6a7186e5f36d0b618cf2e3b7b
+
 
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Habilitar o Microsoft Windows Hello for Business em sua organização
@@ -28,7 +32,7 @@ Depois de [conectar os dispositivos integrados ao domínio do Windows 10 ao Azur
 ## <a name="deploy-system-center-configuration-manager"></a>Implantar o System Center Configuration Manager
 Para implantar certificados de usuário baseados em chaves do Windows Hello for Business, você precisa do seguinte:
 
-* **Ramificação atual do System Center Configuration Manager** – Você precisa instalar a versão 1606 ou superior. Para saber mais, confira a [Documentação do System Center Configuration Manager](https://technet.microsoft.com/library/mt346023.aspx) e [Blog da equipe do System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
+* **Ramificação atual do System Center Configuration Manager** - Você precisa instalar a versão 1606 ou superior. Para saber mais, confira a [Documentação do System Center Configuration Manager](https://technet.microsoft.com/library/mt346023.aspx) e [Blog da equipe do System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/archive/2015/09/23/now-available-update-for-system-center-config-manager-tp3.aspx).
 * **PKI (infraestrutura de chave pública)**: para habilitar o Microsoft Windows Hello para Empresas usando certificados de usuário, você deve ter uma PKI em vigor. Caso você não tenha uma ou não queira usá-la para certificados de usuário, você pode implantar um novo controlador de domínio que tenha a build 10551 (ou superior) do Windows Server 2016 instalada. Siga as etapas para [instalar um controlador de domínio de réplica em um domínio existente](https://technet.microsoft.com/library/jj574134.aspx) ou para [instalar uma nova floresta do Active Directory, caso você esteja criando um novo ambiente](https://technet.microsoft.com/library/jj574166). (Os ISOs estão disponíveis para download em [Signiant Media Exchange](https://datatransfer.microsoft.com/signiant_media_exchange/spring/main?sdkAccessible=true).)
 
 ## <a name="configure-policy-settings"></a>Definir as configurações de política
@@ -52,7 +56,7 @@ Usar o System Center Configuration Manager é o método preferencial quando voc�
 3. Clique com o botão direito do mouse em **Objetos de Política de Grupo** e selecione **Novo**. Dê um nome ao seu Objeto de Política de Grupo, por exemplo, Habilitar o Windows Hello for Business. Clique em **OK**.
 4. Clique com o botão direito do mouse em seu novo Objeto de Política de Grupo e selecione **Editar**.
 5. Navegue até **Configuração do Computador** > **Políticas** > **Modelos Administrativos** > **Componentes do Windows** > **Windows Hello para Empresas**.
-6. Clique com o botão direito do mouse em **Habilitar o Windows Hello para Empresas** e, em seguida, selecione **Editar**.
+6. Clique com o botão direito em **Habilitar o Windows Hello para Empresas** e, em seguida, selecione **Editar**.
 7. Selecione o botão de opção **Habilitado** e clique em **Aplicar**. Clique em **OK**.
 8. Agora você pode vincular o Objeto de Política de Grupo para um local de sua escolha. Para habilitar essa política para todos os dispositivos do Windows 10 associados ao domínio em sua organização, vincule a Política de Grupo ao domínio. Por exemplo:
    * Uma UO (unidade organizacional) específica no Active Directory onde os computadores ingressados no domínio do Windows 10 estejam localizados.
@@ -110,6 +114,9 @@ Na página **Registro do SCEP** do perfil de certificado, você precisa escolher
 * [Conectar dispositivos ingressados no domínio ao AD do Azure para experiências com o Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configurar a Junção do Azure AD](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -2,12 +2,12 @@
 title: Novidades no Power BI Embedded
 description: Obter as novidades mais recentes sobre o Power BI Embedded
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,18 +15,22 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 86c4f2b6ab4ff9dfba429acfcfbd0cd2bac7b42c
+
 
 ---
-# <a name="what's-new-in-power-bi-embedded"></a>Novidades no Power BI Embedded
+# <a name="whats-new-in-power-bi-embedded"></a>Novidades no Power BI Embedded
 Atualizações do **Power BI Embedded** são lançadas regularmente. No entanto, nem todas as versões incluem novos recursos voltados para o usuário; algumas versões se concentram em recursos de serviço de back-end. Destacaremos novos recursos voltados para o usuário aqui. Passe aqui para conferir regularmente.
 
-## <a name="august-31st,-2016"></a>31 de agosto de 2016
+## <a name="august-31st-2016"></a>31 de agosto de 2016
 Incluído nesta versão:
 
 * Todos os novos SDKs do JavaScript que dão suporte à [filtragem avançada e à navegação de página](power-bi-embedded-interact-with-reports.md).
 * Agora, no datacenter central do Canadá, há suporte para o Power BI Embedded. Verifique o [status do datacenter](https://azure.microsoft.com/status/).
 
-## <a name="july-11th,-2016"></a>11 de julho de 2016
+## <a name="july-11th-2016"></a>11 de julho de 2016
 Incluído nesta versão:
 
 * **Ótimas notícias!**  O serviço Power BI Embedded não está mais no modo de visualização - agora é GA (disponível de forma geral).  
@@ -39,6 +43,9 @@ Incluído nesta versão:
 * Os usuários podem exportar dados de visualização para um **.csv**.
 * O Power BI Embedded agora tem suporte em todos os mesmos idiomas/localidades que o Microsoft Azure. Para saber mais, confira [Azure – Idiomas](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

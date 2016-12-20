@@ -1,27 +1,27 @@
 ---
 title: "Arquitetura do Barramento de Serviço | Microsoft Docs"
 description: "Descreve a arquitetura de processamento de mensagens do Barramento de Serviço do Azure."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c69783341eaed67ac29ab63d2127a4038bc0f6d
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
 
 
 ---
 # <a name="service-bus-architecture"></a>Arquitetura do Barramento de Serviço
-Este artigo descreve a arquitetura de processamento de mensagens e retransmissões do Barramento de Serviço do Azure.
+Este artigo descreve a arquitetura de processamento de mensagens do Barramento de Serviço do Azure.
 
 ## <a name="service-bus-scale-units"></a>Unidades de escala do Barramento de Serviço
 O Barramento de Serviço é organizado por *unidades de escala*. Uma unidade de escala é uma unidade de implantação que contém todos os componentes necessários para executar o serviço. Cada região implanta uma ou mais unidades de escala do Barramento de Serviço.
@@ -49,7 +49,7 @@ Quando a conexão de retransmissão é estabelecida, os clientes podem trocar me
 ![Processamento de mensagens de solicitações de retransmissão WCF](./media/service-bus-architecture/IC690645.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você teve uma visão geral da arquitetura do Barramento de Serviço, para começar, visite os links abaixo:
+Agora que você leu uma visão geral da arquitetura do Barramento de Serviço, consulte os seguintes links para obter mais informações:
 
 * [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 * [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
@@ -58,6 +58,6 @@ Agora que você teve uma visão geral da arquitetura do Barramento de Serviço, 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

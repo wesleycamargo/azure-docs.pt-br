@@ -1,39 +1,43 @@
 ---
-title: Configure webhooks on Azure Activity Log alerts | Microsoft Docs
-description: 'See how to use Activity Log alerts to call webhooks. '
+title: Configurar um webhook em alertas do Log de Atividades do Azure | Microsoft Docs
+description: 'Veja como usar alertas do Log de Atividades para chamar webhooks. '
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 64d333d1-7f37-4a00-9d16-dda6e69a113b
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2016
+ms.date: 10/20/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9285673f77cc598d881712ef125040e103059f87
+
 
 ---
-# <a name="configure-a-webhook-on-an-azure-activity-log-alert"></a>Configure a webhook on an Azure Activity Log alert
-Webhooks allow you to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS, log bugs, notify a team via chat/messaging services, or do any number of other actions. This article describes how to set a webhook on an Azure Activity Log alert and what the payload for the HTTP POST to a webhook looks like. For information on the setup and schema for an Azure metric alert, [see this page instead](insights-webhooks-alerts.md). You can also set up an Activity Log alert to send email when activated.
+# <a name="configure-a-webhook-on-an-azure-activity-log-alerts"></a>Configurar um webhook em alertas do Log de Atividades do Azure
+Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Você pode usar um webhook em um alerta para roteá-lo aos serviços que enviam SMS, registrar bugs, notificar uma equipe por meio de serviços de bate-papo/mensagens ou qualquer outra ação. Este artigo descreve como definir um webhook em um alerta do Log de Atividades do Azure, e a aparência de carga para o HTTP POST para um webhook. Para obter informações sobre a configuração e o esquema de um alerta de métrica do Azure, [consulte esta página](insights-webhooks-alerts.md). Você também pode configurar um alerta do Log de Atividades para enviar um email quando estiver ativado.
 
 > [!NOTE]
-> This feature is currently in preview, so expect variable quality and performance.
+> No momento, esse recurso está em visualização, portanto, espere desempenho e qualidade variáveis.
 > 
 > 
 
-You can set up an Activity Log alert using the [Azure PowerShell Cmdlets](insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](insights-cli-samples.md#work-with-alerts), or [Insights REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Você pode configurar um alerta do Log de Atividades usando os [Cmdlets do Azure PowerShell](insights-powershell-samples.md#create-alert-rules), [CLI entre plataformas](insights-cli-samples.md#work-with-alerts) ou [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## <a name="authenticating-the-webhook"></a>Authenticating the webhook
-TThe webhook can authenticate using either of these methods:
+## <a name="authenticating-the-webhook"></a>Autenticação do webhook
+O webhook pode autenticar usando um destes métodos:
 
-1. **Token-based authorization** - The webhook URI is saved with a token ID, eg. `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
-2. **Basic authorization** - The webhook URI is saved with a username and password, eg. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
+1. **Autorização baseada em token** - O URI do webhook é salvo com uma ID de token, por exemplo: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+2. **Autorização básica** - O URI do webhook é salvo com um nome de usuário e senha, por exemplo: `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
-## <a name="payload-schema"></a>Payload schema
-The POST operation contains the following JSON payload and schema for all Activity Log-based alerts. This schema is similar to the one used by metric-based alerts.
+## <a name="payload-schema"></a>Esquema de conteúdo
+A operação POST contém o seguinte esquema e carga JSON para todos os alertas baseados em Log de Atividade. Esse esquema é semelhante àquele usado por alertas baseados em métrica.
 
 ```
 {
@@ -83,43 +87,46 @@ The POST operation contains the following JSON payload and schema for all Activi
 }
 ```
 
-| Element Name | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
-| status |Used for metric alerts. Always set to "activated" for Activity Log alerts. |
-| context |Context of the event. |
-| resourceProviderName |The resource provider of the impacted resource. |
-| conditionType |Always "Event." |
-| name |Name of the alert rule. |
-| id |Resource ID of the alert. |
-| description |Alert description as set during creation of the alert. |
-| subscriptionId |Azure Subscription ID. |
-| timestamp |Time at which the event was generated by the Azure service that processed the request. |
-| resourceId |Resource ID of the impacted resource. |
-| resourceGroupName |Name of the resource group for the impacted resource |
-| properties |Set of `<Key, Value>` pairs (i.e. `Dictionary<String, String>`) that includes details about the event. |
-| event |Element containing metadata about the event. |
-| authorization |The RBAC properties of the event. These usually include the “action”, “role” and the “scope.” |
-| category |Category of the event. Supported values include: Administrative, Alert, Security, ServiceHealth, Recommendation. |
-| caller |Email address of the user who performed the operation, UPN claim, or SPN claim based on availability. Can be null for certain system calls. |
-| correlationId |Usually a GUID in string format. Events with correlationId belong to the same larger action and usually share a correlationId. |
-| eventDescription |Static text description of the event. |
-| eventDataId |Unique identifier for the event. |
-| eventSource |Name of the Azure service or infrastructure that generated the event. |
-| httpRequest |Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method e.g. PUT). |
-| level |One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose.” |
-| operationId |Usually a GUID shared among the events corresponding to single operation. |
-| operationName |Name of the operation. |
-| properties |Properties of the event. |
-| status |String. Status of the operation. Common values include: "Started", "In Progress", "Succeeded", "Failed", "Active", "Resolved". |
-| subStatus |Usually includes the HTTP status code of the corresponding REST call. It might also include other strings describing a substatus. Common substatus values include: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504) |
+| status |Usado para alertas de métrica. Sempre definido como "ativado" para alertas do Log de Atividades. |
+| context |Contexto do evento. |
+| resourceProviderName |O provedor de recursos do recurso afetado. |
+| conditionType |Sempre "Evento". |
+| name |Nome da regra de alerta. |
+| ID |ID do recurso do alerta. |
+| Descrição |Descrição do alerta conforme definido durante a criação do alerta. |
+| subscriptionId |ID de assinatura do Azure. |
+| timestamp |Hora quando o evento foi gerado pelo serviço do Azure que processou a solicitação. |
+| resourceId |ID de recurso do recurso afetado. |
+| resourceGroupName |Nome do grupo de recursos do recurso afetado |
+| propriedades |Conjunto de pares `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
+| evento |Elemento que contém metadados sobre o evento. |
+| autorização |Propriedades RBAC do evento. Isso geralmente inclui a “ação”, a “função” e o “escopo”. |
+| categoria |Categoria do evento. Os valores com suporte são: Administrativo, Alerta, Segurança, ServiceHealth, Recomendação. |
+| chamador |Endereço de email do usuário que realizou a operação, declaração UPN ou declaração SPN com base na disponibilidade. Pode ser nulo para determinadas chamadas do sistema. |
+| correlationId |Geralmente um GUID no formato de cadeia de caracteres. Eventos com correlationId pertencem à mesma ação maior e geralmente compartilham uma correlationId. |
+| eventDescription |Descrição de texto estático do evento. |
+| eventDataId |Identificador exclusivo do evento. |
+| eventSource |Nome do serviço ou infraestrutura do Azure que gerou o evento. |
+| httpRequest |Geralmente inclui a “clientRequestId”, o “clientIpAddress” e o “método” (método HTTP, como PUT, por exemplo). |
+| level |Um dos seguintes valores: “Crítico”, “Erro”, “Aviso”, “Informativo” e “Detalhado”. |
+| operationId |Geralmente um GUID compartilhado entre os eventos correspondentes a uma única operação. |
+| operationName |Nome da operação. |
+| propriedades |Propriedades do evento. |
+| status |Cadeia de caracteres. Status da operação. Os valores comuns incluem: "Iniciado", "Em Andamento", "Êxito", "Falha", "Ativo", "Resolvido". |
+| subStatus |Geralmente inclui o código de status HTTP da chamada REST correspondente. Também pode incluir outras cadeias de caracteres que descrevam um substatus. Os valores de substatus comuns incluem: OK (Código de Status HTTP: 200), Criado (Código de Status HTTP: 201), Aceito (Código de Status HTTP: 202), Sem Conteúdo (Código de Status HTTP: 204), Solicitação Incorreta (Código de Status HTTP: 400), Não Encontrado (Código de Status HTTP: 404), Conflito (Código de Status HTTP: 409), Erro Interno do Servidor (Código de Status HTTP: 500), Serviço Indisponível (Código de Status HTTP: 503), Tempo Limite do Gateway (Código de Status HTTP: 504) |
 
-## <a name="next-steps"></a>Next steps
-* [Learn more about the Activity Log](monitoring-overview-activity-logs.md)
-* [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)
-* [Use Logic App to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). This example is for metric alerts, but could be modified to work with an Activity Log alert.
-* [Use Logic App to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). This example is for metric alerts, but could be modified to work with an Activity Log alert.
-* [Use Logic App to send a message to an Azure Queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). This example is for metric alerts, but could be modified to work with an Activity Log alert.
+## <a name="next-steps"></a>Próximas etapas
+* [Leia mais sobre o Log de Atividades](monitoring-overview-activity-logs.md)
+* [Exemplos de scripts da Automação do Azure (Runbooks) em alertas do Azure](http://go.microsoft.com/fwlink/?LinkId=627081)
+* [Usar aplicativo lógico para enviar um SMS por meio de Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do Log de Atividades.
+* [Usar aplicativo lógico para enviar uma mensagem do Slack de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do Log de Atividades.
+* [Usar aplicativo lógico para enviar uma mensagem a uma Fila do Azure de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do Log de Atividades.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

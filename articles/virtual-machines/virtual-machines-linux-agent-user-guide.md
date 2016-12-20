@@ -1,13 +1,13 @@
 ---
-title: Guia do usuário do agente do Linux | Microsoft Docs
-description: Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure.
+title: "Guia do usuário do agente do Linux | Microsoft Docs"
+description: "Saiba como instalar e configurar o agente Linux (waagent) para gerenciar sua interação de máquina virtual com os Recursos de Infraestrutura do Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,13 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
+
 
 ---
 # <a name="azure-linux-agent-user-guide"></a>Guia do usuário do agente Linux para o Azure
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="introduction"></a>Introdução
-O Agente Linux do Microsoft Azure (waagent) gerencia o provisionamento de Linux e FreeBSD e a interação de VM com o Controlador de Malha do Azure. Ele fornece a seguinte funcionalidade para implantações IaaS do Linux e FreeBSD:
+O Agente Linux do Microsoft Azure (waagent) gerencia o provisionamento de Linux e FreeBSD e a interação de VM com o Controlador de malha do Azure. Ele fornece a seguinte funcionalidade para implantações IaaS do Linux e FreeBSD:
 
 > [!NOTE]
 > Consulte o arquivo [LEIA-ME](https://github.com/Azure/WALinuxAgent/blob/master/README.md) do agente Linux do Azure para obter mais detalhes.
@@ -98,9 +102,9 @@ O agente do Linux depende de alguns pacotes de sistema para funcionar corretamen
 * Suporte a kernel para montar sistemas de arquivos UDF.
 
 ## <a name="installation"></a>Instalação
-Instalação usando um RPM ou um pacote DEB do repositório de pacotes da distribuição é o método preferencial para instalar e atualizar o Azure do Agente Linux do Azure. Todos os [provedores de distribuição aprovados](virtual-machines-linux-endorsed-distros.md) integram o pacote do agente Linux do Azure em suas imagens e repositórios.
+Instalação usando um RPM ou um pacote DEB do repositório de pacotes da distribuição é o método preferencial para instalar e atualizar o Azure do Agente Linux do Azure. Todos os [provedores de distribuição aprovados](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) integram o pacote do agente Linux do Azure em suas imagens e repositórios.
 
-Consulte a documentação do [repositório do agente Linux do Azure no Github](https://github.com/Azure/WALinuxAgent) para opções de instalação avançada, como instalação por meio da origem ou para locais personalizados ou prefixos.
+Consulte a documentação do [repositório do agente Linux do Azure no Github](https://github.com/Azure/WALinuxAgent) para opções de instalação avançada, como instalação a partir da origem ou para locais personalizados ou prefixos.
 
 ## <a name="command-line-options"></a>Opções de linha de comando
 ### <a name="flags"></a>Sinalizadores
@@ -209,10 +213,10 @@ Tipo: Sequência
 Padrão: 6
 
 Algoritmo usado pelo Crypt ao gerar o hash de senha.  
- 1 – MD5  
- 2a – Blowfish  
- 5 – SHA-256  
- 6 – SHA-512  
+ 1 - MD5  
+ 2a - Blowfish  
+ 5 - SHA-256  
+ 6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
 Tipo: Sequência  
@@ -284,7 +288,7 @@ Isso pode ser usado para especificar um caminho alternativo para o openssl biná
 Tipo: String  
 Padrão: nenhum
 
-Se definido, o agente usará este servidor proxy para acessar a Internet. 
+Se definido, o agente usará este servidor proxy para acessar a internet. 
 
 ## <a name="ubuntu-cloud-images"></a>Imagens de nuvem do Ubuntu
 Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) para executar muitas tarefas de configuração que de outra forma seriam gerenciadas pelo Agente Linux do Azure.  Observe as seguintes diferenças:
@@ -300,8 +304,11 @@ Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpa
 * Consulte os seguintes recursos para configurar o ponto de montagem do disco de recurso e o espaço de troca nas Imagens de Nuvem do Ubuntu durante o provisionamento:
   
   * [Wiki do Ubuntu: configurar partições de troca](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Injetando dados personalizados em uma Máquina Virtual do Azure](virtual-machines-windows-classic-inject-custom-data.md)
+  * [Injetando dados personalizados em uma Máquina Virtual do Azure](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

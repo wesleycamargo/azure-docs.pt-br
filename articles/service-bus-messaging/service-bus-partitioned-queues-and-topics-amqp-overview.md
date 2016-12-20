@@ -1,27 +1,31 @@
 ---
-title: Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço | Microsoft Docs
-description: Saiba como usar o protocolo AMQP (Advanced Message Queuing Protocol) 1.0 com filas e tópicos particionados do Barramento de Serviço.
-services: service-bus
+title: "Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço | Microsoft Docs"
+description: "Saiba como usar o protocolo AMQP (Advanced Message Queuing Protocol) 1.0 com filas e tópicos particionados do Barramento de Serviço."
+services: service-bus-messaging
 documentationcenter: .net
 author: hillaryc
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e2549ad3-41eb-47e5-b25f-20043a7ffa2a
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/08/2016
+ms.date: 10/14/2016
 ms.author: hillaryc;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f343c1f087b516c35eb75fc9a1e61c5cf6d1e93
+
 
 ---
-# <a name="amqp-1.0-support-for-service-bus-partitioned-queues-and-topics"></a>Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço
+# <a name="amqp-10-support-for-service-bus-partitioned-queues-and-topics"></a>Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço
 Agora, o Barramento de Serviço do Azure dá suporte ao Advanced Message Queuing Protocol (**AMQP**) 1.0 para **Filas e tópicos particionados** do Barramento de Serviço.
 
 **AMQP** é um protocolo de enfileiramento de mensagens de padrão aberto que permite o desenvolvimento de aplicativos de plataforma cruzada usando linguagens de programação diferentes. Para obter informações gerais sobre o suporte a AMQP no Barramento de Serviço, consulte [Suporte ao AMQP 1.0 no Barramento de Serviço](service-bus-amqp-overview.md).
 
-**Filas e tópicos particionados**, também chamados de *entidades particionadas*, oferecem alta disponibilidade, confiabilidade e taxa de transferência acima das filas e tópicos não particionados convencionais. Para obter mais informações sobre entidades particionadas, veja as [Entidades de Mensagens Particionadas](service-bus-partitioning.md).
+**Filas e tópicos particionados**, também chamados de *entidades particionadas*, oferecem disponibilidade, confiabilidade e taxa de transferência maior que as filas e tópicos não particionados convencionais. Para obter mais informações sobre entidades particionadas, veja as [Entidades de Mensagens Particionadas](service-bus-partitioning.md).
 
 A inclusão do AMQP 1.0 como um protocolo para comunicação com filas e tópicos particionados permite que você crie aplicativos interoperáveis que podem aproveitar os benefícios de maior disponibilidade, confiabilidade e taxa de transferência oferecidos por entidades particionadas do Barramento de Serviço.
 
@@ -68,7 +72,7 @@ Tópicos são conceitualmente semelhantes a filas, mas podem encaminhar uma cóp
 Assim como as filas, os tópicos particionados aumentam ainda mais a disponibilidade, a confiabilidade e a taxa de transferência de aplicativos, pois esses tópicos e suas assinaturas são particionadas em vários agentes e repositórios de mensagens. 
 
 ### <a name="create-partitioned-topics"></a>Criar tópicos particionados
-É possível criar um tópico particionado usando o [portal clássico do Azure][portal clássico do Azure] e o SDK do Barramento de Serviço. Para criar um tópico particionado, a propriedade [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx) deve ser definida como **true** na instância [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). O código a seguir mostra como criar um tópico particionado usando o SDK do Barramento de Serviço.
+É possível criar um tópico particionado usando o [Portal clássico do Azure][Portal clássico do Azure] e o SDK do Barramento de Serviço. Para criar um tópico particionado, a propriedade [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx) deve ser definida como **true** na instância [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). O código a seguir mostra como criar um tópico particionado usando o SDK do Barramento de Serviço.
 
 ```
 // Create partitioned topic
@@ -115,6 +119,6 @@ Veja as informações adicionais a seguir para saber mais sobre entidades de men
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

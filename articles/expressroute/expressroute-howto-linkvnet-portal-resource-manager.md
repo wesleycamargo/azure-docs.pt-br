@@ -1,13 +1,13 @@
 ---
-title: Vincular uma rede virtual a um circuito de Rota Expressa usando o modelo de implantação do Gerenciador de Recursos e o Portal do Azure| Microsoft Docs
-description: Este documento apresenta uma visão geral de como vincular redes virtuais (VNets) a circuitos da Rota Expressa.
+title: "Vincular uma rede virtual a um circuito do ExpressRoute usando o modelo de implantação do Resource Manager e o portal do Azure| Microsoft Docs"
+description: "Este documento apresenta uma visão geral de como vincular redes virtuais (VNets) a circuitos da Rota Expressa."
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f5cb5441-2fba-46d9-99a5-d1d586e7bda4
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a3604b95179d1a88f832ed45d9a6b85931187b1
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Vincular uma rede virtual a um circuito de Rota Expressa
@@ -70,6 +74,9 @@ Neste momento, você não pode conectar as redes virtuais nas assinaturas usando
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

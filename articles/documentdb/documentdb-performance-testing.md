@@ -1,33 +1,37 @@
 ---
-title: Testes de desempenho e escalabilidade do Banco de Dados de Documentos | Microsoft Docs
+title: Testes de desempenho e escalabilidade do DocumentDB | Microsoft Docs
 description: Aprenda a executar testes de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure
 keywords: testes de desempenho
 services: documentdb
 author: arramac
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2016
+ms.date: 10/27/2016
 ms.author: arramac
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f9acb44fb6b6fac41da4dc05745a68066b0477fb
+
 
 ---
-# Teste de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure
-O teste de desempenho e escalabilidade é uma etapa importante no desenvolvimento de aplicativos. Para muitos aplicativos, a camada de banco de dados tem um impacto significativo sobre o desempenho e a escalabilidade geral e, portanto, é um componente essencial do teste de desempenho. O [Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/) foi desenvolvido para fins de escala elástica e desempenho previsível e, portanto, é uma excelente opção para aplicativos que precisam de uma camada de banco de dados de alto desempenho.
+# <a name="performance-and-scale-testing-with-azure-documentdb"></a>Teste de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure
+O teste de desempenho e escalabilidade é uma etapa importante no desenvolvimento de aplicativos. Para muitos aplicativos, a camada de banco de dados tem um impacto significativo sobre o desempenho e a escalabilidade geral e, portanto, é um componente essencial do teste de desempenho. [Banco de Dados de Documentos](https://azure.microsoft.com/services/documentdb/) foi desenvolvido para fins de escala elástica e desempenho previsível e, portanto, é uma excelente opção para aplicativos que precisam de uma camada de banco de dados de alto desempenho. 
 
 Este artigo é uma referência para desenvolvedores implementarem conjuntos de testes de desempenho para suas cargas de trabalho de Banco de Dados de Documentos ou avaliarem Banco de Dados de Documentos para cenários de aplicativos de alto desempenho. Ele se concentra principalmente nos testes de desempenho de banco de dados isolados, mas também inclui práticas recomendadas para aplicativos de produção.
 
-Depois de ler este artigo, você poderá responder as seguintes perguntas:
+Depois de ler este artigo, você poderá responder as seguintes perguntas:   
 
-* Onde posso encontrar um aplicativo cliente do .NET de exemplo para testar o desempenho do Banco de Dados de Documentos do Azure?
+* Onde posso encontrar um aplicativo cliente do .NET de exemplo para testar o desempenho do Banco de Dados de Documentos do Azure? 
 * Como posso obter altos níveis de taxa de transferência com o Banco de Dados de Documentos do Azure do meu aplicativo cliente?
 
-Para começar com o código, baixe o projeto do [Exemplo de teste de desempenho do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark).
+Para começar com o código, baixe o projeto do [Exemplo de teste de desempenho do DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark). 
 
 > [!NOTE]
 > A meta desse aplicativo é demonstrar práticas recomendadas para extrair melhor desempenho do Banco de Dados de Documentos com um número menor de computadores cliente. Ele não foi feito para demonstrar a capacidade máxima do serviço, que pode ser dimensionada sem limites.
@@ -36,10 +40,10 @@ Para começar com o código, baixe o projeto do [Exemplo de teste de desempenho 
 
 Se você estiver procurando opções de configuração do cliente para melhorar o desempenho de Banco de Dados de Documentos, consulte [Dicas de desempenho de Banco de Dados de Documentos](documentdb-performance-tips.md).
 
-## Execute o aplicativo de teste de desempenho
+## <a name="run-the-performance-testing-application"></a>Execute o aplicativo de teste de desempenho
 A maneira mais rápida de começar é compilar e executar o exemplo do .NET abaixo, conforme descrito nas etapas abaixo. Você também pode examinar o código-fonte e implementar configurações semelhantes no seus aplicativos clientes.
 
-**Etapa 1:** baixe o projeto do [Exemplo de Teste de Desempenho do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) ou divida o repositório GitHub.
+**Etapa 1:** baixe o projeto do [Exemplo de Teste de Desempenho do DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)ou divida o repositório Github.
 
 **Etapa 2:** modifique as configurações de EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (opcional) em App.config.
 
@@ -98,7 +102,7 @@ A maneira mais rápida de começar é compilar e executar o exemplo do .NET abai
 
 Uma vez que o aplicativo estiver em execução, você poderá experimentar [Políticas de indexação](documentdb-indexing-policies.md) e [Níveis de consistência](documentdb-consistency-levels.md) diferentes para entender seu impacto na produtividade e na latência. Você também pode examinar o código-fonte e implementar configurações semelhantes no seus pacotes de teste ou aplicativos de produção.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, analisamos como você pode executar testes de documentos e dimensionamento com o Banco de Dados de Documentos usando um aplicativo de console .NET. Consulte os links abaixo para saber mais sobre como trabalhar com o Banco de Dados de Documentos.
 
 * [Exemplo de teste de desempenho do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
@@ -109,4 +113,9 @@ Neste artigo, analisamos como você pode executar testes de documentos e dimensi
 * [Amostras do .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net)
 * [Blog do Banco de Dados de Documentos sobre dicas de desempenho](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
