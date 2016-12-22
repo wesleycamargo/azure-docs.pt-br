@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 1db24abb38ff28dd3535f527ef95a84abac5ea9c
-ms.openlocfilehash: 6f479beb6caf8a6dfccc0b13e6926bd5e47fb547
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
 
 
 ---
@@ -27,8 +27,8 @@ Este tópico fornece uma visão geral de bancos de dados SQL do Azure. Para obte
 ## <a name="what-is-azure-sql-database"></a>O que é o banco de dados SQL do Azure?
 Cada banco de dados no Banco de Dados SQL do Azure é associado a um servidor lógico. O banco de dados pode ser:
 
-- Um banco de dados individual com seu [próprio conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTUs)
-- Parte de um [pool de bancos de dados](sql-database-elastic-pool.md) que [compartilha um conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTUs)
+- Um banco de dados autônomo com seu [próprio conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTUs)
+- Parte de um [pool elástico](sql-database-elastic-pool.md) que [compartilha um conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTUs)
 - Parte de um [conjunto expandido de bancos de dados fragmentados](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), que pode ser individual ou bancos de dados em pool
 - Parte de um conjunto de bancos de dados que participa de um [padrão de design de SaaS multilocatário](sql-database-design-patterns-multi-tenancy-saas-applications.md), e cujos bancos de dados podem ser individuais ou bancos de dados em pool (ou ambos) 
 
@@ -71,6 +71,6 @@ Você pode gerenciar servidores lógicos do Banco de Dados SQL do Azure usando v
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 
