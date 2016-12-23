@@ -1,12 +1,12 @@
 ---
-title: Guia do desenvolvedor – linguagem de consulta | Microsoft Docs
-description: Guia do desenvolvedor do Hub IoT do Azure – descrição da linguagem de consulta usada para recuperar informações sobre gêmeos, métodos e trabalhos no Hub IoT
+title: "Guia do desenvolvedor – linguagem de consulta do Hub IoT | Microsoft Azure"
+description: "Guia do desenvolvedor do Hub IoT do Azure – descrição da linguagem de consulta do Hub IoT parecida com SQL, usada para recuperar informações sobre dispositivos gêmeos e trabalhos de seu Hub IoT"
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,18 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
+translationtype: Human Translation
+ms.sourcegitcommit: 627de0ca1647e98e08165521e7d3a519e1950296
+ms.openlocfilehash: 8007c6864368868d9cb489236d958eeada8789bd
+
 
 ---
-# <a name="reference---query-language-for-twins-and-jobs"></a>Referência – linguagem de consulta para gêmeos e trabalhos
+# <a name="reference---iot-hub-query-language-for-device-twins-and-jobs"></a>Referência - linguagem de consulta do Hub IoT para dispositivos gêmeos e trabalhos
 ## <a name="overview"></a>Visão geral
-O Hub IoT fornece uma linguagem semelhante à SQL poderosa para recuperar informações sobre [dispositivos gêmeos][lnk-twins] e [trabalhos][lnk-jobs]. Este artigo apresenta:
+O Hub IoT fornece uma linguagem avançada semelhante à SQL para recuperação de informações sobre [dispositivos gêmeos][lnk-twins] e [trabalhos][lnk-jobs]. Este artigo apresenta:
 
 * Uma introdução aos principais recursos da linguagem de consulta do Hub IoT e
 * Uma descrição mais detalhada da linguagem.
 
-## <a name="getting-started-with-twin-queries"></a>Introdução às consultas gêmeas
-Os [dispositivos gêmeos][lnk-twins] podem conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos gêmeos como um único documento JSON que contém todas as informações do gêmeo.
-Por exemplo, suponha que seus gêmeos do Hub IoT tenham a seguinte estrutura:
+## <a name="getting-started-with-device-twin-queries"></a>Introdução às consultas de dispositivos gêmeos
+Os [dispositivos gêmeos][lnk-twins] podem conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos gêmeos como um único documento JSON que contém todas as informações do dispositivo gêmeo.
+Por exemplo, suponha que seus dispositivos gêmeos do Hub IoT tenham a seguinte estrutura:
 
         {                                                                      
             "deviceId": "myDeviceId",                                            
@@ -71,27 +75,32 @@ Então, a consulta a seguir recupera o conjunto completo de dispositivos gêmeos
 
 > [!NOTE]
 > Os [SDKs do Hub IoT][lnk-hub-sdks] dão suporte à paginação de resultados grandes.
-> 
-> 
+>
+>
 
-O Hub IoT permite recuperar a filtragem de gêmeos com condições arbitrárias. Por exemplo,
+O Hub IoT permite a você recuperar a filtragem de dispositivos gêmeos com condições arbitrárias. Por exemplo,
 
         SELECT * FROM devices
         WHERE tags.location.region = 'US'
 
-recupera os gêmeos com a marcação **location.region** definida como **US**.
+recupera os dispositivos gêmeos com a tag **location.region** definida como **US**.
 Os operadores boolianos e as comparações aritméticas também têm suporte, por exemplo,
 
         SELECT * FROM devices
         WHERE tags.location.region = 'US'
             AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 
-recupera todos os gêmeos localizados nos Estados Unidos configurados para enviar telemetria com menos frequência do que a cada minuto. Como uma conveniência, também é possível usar constantes de matriz em conjunto com os operadores **IN** e **NIN** (não in). Por exemplo,
+recupera todos os dispositivos gêmeos localizados nos Estados Unidos configurados para enviar telemetria com menos frequência do que a cada minuto. Como uma conveniência, também é possível usar constantes de matriz em conjunto com os operadores **IN** e **NIN** (não in). Por exemplo,
 
         SELECT * FROM devices
         WHERE property.reported.connectivity IN ['wired', 'wifi']
 
-recupera todos os gêmeos que relataram conectividade wi-fi ou com fio. Consulte a seção [Cláusula WHERE][lnk-query-where] para encontrar a referência completa dos recursos de filtragem.
+recupera todos os dispositivos gêmeos que relataram conectividade wi-fi ou com fio. Normalmente, é necessário identificar todos os dispositivos gêmeos que contêm uma propriedade específica. O Hub IoT oferece suporte à função `is_defined()` para essa finalidade. Por exemplo,
+
+        SELECT * FROM devices
+        WHERE is_defined(property.reported.connectivity)
+
+recuperou todos os dispositivos gêmeos que definem a propriedade reportada `connectivity`. Consulte a seção [Cláusula WHERE][lnk-query-where] para encontrar a referência completa dos recursos de filtragem.
 
 Também há suporte para agrupamento e agregações. Por exemplo,
 
@@ -119,7 +128,7 @@ retorna a contagem dos dispositivos em cada status de configuração de telemetr
 
 O exemplo acima ilustra uma situação em que três dispositivos relataram a configuração bem-sucedida, dois ainda estão aplicando a configuração e um relatou um erro.
 
-### <a name="c#-example"></a>Exemplo de C
+### <a name="c-example"></a>Exemplo de C#
 A funcionalidade de consulta é exposta pelo [SDK de serviço do C#][lnk-hub-sdks] na classe **RegistryManager**.
 Aqui está um exemplo de uma consulta simples:
 
@@ -127,14 +136,14 @@ Aqui está um exemplo de uma consulta simples:
         while (query.HasMoreResults)
         {
             var page = await query.GetNextAsTwinAsync();
-            foreach (var twin in page) 
+            foreach (var twin in page)
             {
                 // do work on twin object
             }
         }
 
 Observe como o objeto **query** é instanciado com um tamanho de página (até 1000) e, em seguida, várias páginas podem ser recuperadas chamando os métodos **GetNextAsTwinAsync** várias vezes.
-É importante observar que o objeto de consulta expõe vários **Next\***, dependendo da opção de desserialização necessária para a consulta, ou seja, objetos gêmeos ou de trabalho ou Json simples a ser usado ao utilizar projeções.
+É importante observar que o objeto de consulta expõe vários **Next\***, dependendo da opção de desserialização necessária para a consulta, como dispositivos gêmeos ou objetos de trabalho, ou Json simples a ser usado ao utilizar projeções.
 
 ### <a name="node-example"></a>Exemplo de nó
 A funcionalidade de consulta é exposta pelo [SDK de serviço de nó][lnk-hub-sdks] no objeto **Registry**.
@@ -158,13 +167,13 @@ Aqui está um exemplo de uma consulta simples:
         query.nextAsTwin(onResults);
 
 Observe como o objeto **query** é instanciado com um tamanho de página (até 1000) e, em seguida, várias páginas podem ser recuperadas chamando os métodos **nextAsTwin** várias vezes.
-É importante observar que o objeto de consulta expõe vários **next\***, dependendo da opção de desserialização necessária para a consulta, ou seja, objetos gêmeos ou de trabalho ou Json simples a ser usado ao utilizar projeções.
+É importante observar que o objeto de consulta expõe vários **next\***, dependendo da opção de desserialização necessária para a consulta, como dispositivos gêmeos ou objetos de trabalho, ou Json simples a ser usado ao utilizar projeções.
 
 ### <a name="limitations"></a>Limitações
-Atualmente, as projeções têm suporte apenas ao usar agregações, ou seja, consultas não agregadas podem usar apenas `SELECT *`. Além disso, a agregação tem suporte apenas em conjunto com o agrupamento.
+Atualmente, há suporte para as comparações apenas entre tipos primitivos (sem objetos), por exemplo `... WHERE properties.desired.config = properties.reported.config` tem suporte apenas se essas propriedades tiverem valores primitivos.
 
 ## <a name="getting-started-with-jobs-queries"></a>Introdução às consultas de trabalhos
-Os [trabalhos][lnk-jobs] fornecem uma maneira de executar operações em conjuntos de dispositivos. Cada dispositivo gêmeo contém as informações dos trabalhos dos quais ele faz parte em uma coleção chamada **jobs**.
+Os [Trabalhos][lnk-jobs] fornecem uma maneira de executar operações em conjuntos de dispositivos. Cada dispositivo gêmeo contém as informações dos trabalhos dos quais ele faz parte em uma coleção chamada **jobs**.
 Logicamente,
 
         {                                                                      
@@ -177,7 +186,7 @@ Logicamente,
                 ...                                                                 
             },
             "jobs": [
-                { 
+                {
                     "deviceId": "myDeviceId",
                     "jobId": "myJobId",    
                     "jobType": "scheduleTwinUpdate",            
@@ -196,6 +205,11 @@ Logicamente,
 
 Atualmente, essa coleção pode ser consultada como **devices.jobs** na linguagem de consulta do Hub IoT.
 
+> [!IMPORTANT]
+> Atualmente, a propriedade jobs nunca retornam ao consultar dispositivos gêmeos (ou seja, consultas que contém 'FROM devices'). Ela só pode ser acessada diretamente com consultas usando `FROM devices.jobs`.
+>
+>
+
 Por exemplo, para obter todos os trabalhos (agendados e anteriores) que afetam um único dispositivo, você pode usar a seguinte consulta:
 
         SELECT * FROM devices.jobs
@@ -211,7 +225,7 @@ Por exemplo, a consulta a seguir:
             AND devices.jobs.status = 'completed'
             AND devices.jobs.createdTimeUtc > '2016-09-01'
 
-recupera todos os trabalhos de atualização gêmeos concluídos para o dispositivo **myDeviceId** que foram criados depois de setembro de 2016.
+recupera todos os trabalhos de atualização do dispositivo gêmeo concluídos para o dispositivo **myDeviceId** que foram criados depois de setembro de 2016.
 
 Também é possível recuperar os resultados por dispositivo de um único trabalho.
 
@@ -221,8 +235,8 @@ Também é possível recuperar os resultados por dispositivo de um único trabal
 ### <a name="limitations"></a>Limitações
 No momento, as consultas em **devices.jobs** não dão suporte a:
 
-* Projeções, ou seja, apenas `SELECT *` é possível;
-* Condições que se referem ao dispositivo gêmeo além das propriedades de trabalho, conforme mostrado acima;
+* Projeções, portanto, apenas `SELECT *` é possível;
+* Condições que se referem ao dispositivo gêmeo além das propriedades de trabalho, conforme mostrado acima,
 * Realização de agregações, por exemplo, count, avg, group by.
 
 ## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta de Hub IoT
@@ -258,15 +272,15 @@ Esta é a gramática da cláusula SELECT:
             | <aggregate>
 
         <aggregate> :==
-            count(<projection_element>) | count()
-            | avg(<projection_element>) | avg()
-            | sum(<projection_element>) | sum()
-            | min(<projection_element>) | min()
-            | max(<projection_element>) | max()
+            count()
+            | avg(<projection_element>)
+            | sum(<projection_element>)
+            | min(<projection_element>)
+            | max(<projection_element>)
 
-em que **attribute_name** refere-se a qualquer propriedade do documento JSON na coleção FROM. Alguns exemplos de cláusulas SELECT podem ser encontrados na seção [Introdução às consultas gêmeas][lnk-query-getstarted].
+em que **attribute_name** refere-se a qualquer propriedade do documento JSON na coleção FROM. Alguns exemplos de cláusulas SELECT podem ser encontrados na seção [Introdução às consultas de dispositivo gêmeo][lnk-query-getstarted].
 
-No momento, as cláusulas de seleção diferentes de **SELECT \*** têm suporte apenas em consultas de agregação em gêmeos.
+No momento, as cláusulas de seleção diferentes de **SELECT \*** têm suporte apenas em consultas de agregação em dispositivos gêmeos.
 
 ## <a name="group-by-clause"></a>Cláusula GROUP BY
 A cláusula **GROUP BY <group_specification>** é uma etapa opcional que pode ser executada após o filtro especificado na cláusula WHERE e antes da projeção especificada em SELECT. Ela agrupa documentos com base no valor de um atributo. Esses grupos são usados para gerar valores agregados conforme especificado na cláusula SELECT.
@@ -285,14 +299,14 @@ A sintaxe formal para GROUP BY é:
             attribute_name
             | < group_by_element > '.' attribute_name
 
-em que **attribute_name** refere-se a qualquer propriedade do documento JSON na coleção FROM. 
+em que **attribute_name** refere-se a qualquer propriedade do documento JSON na coleção FROM.
 
-No momento, a cláusula GROUP BY tem suporte apenas ao consultar gêmeos.
+No momento, a cláusula GROUP BY tem suporte apenas ao consultar dispositivos gêmeos.
 
 ## <a name="expressions-and-conditions"></a>Expressões e condições
 Em um alto nível, uma *expressão*:
 
-* Avalia para uma instância de um tipo JSON (ou seja, booliano, número, cadeia de caracteres, matriz ou objeto) e
+* Avalia para uma instância de um tipo JSON (por exemplo, booliano, número, cadeia de caracteres, matriz ou objeto) e
 * É definida pela manipulação de dados provenientes do documento JSON de dispositivo e constantes usando as funções e operadores internos.
 
 *Condições* são expressões que são avaliadas como um booliano, ou seja, qualquer constante diferente de booliana **true** é considerada como **false** (incluindo **null**, **undefined**, qualquer instância de matriz ou objeto, qualquer cadeia de caracteres e claramente o booliano **false**).
@@ -302,17 +316,20 @@ A sintaxe de expressões é:
         <expression> ::=
             <constant> |
             attribute_name |
-            unary_operator <expression> |
+            <function_call> |
             <expression> binary_operator <expression> |
             <create_array_expression> |
             '(' <expression> ')'
 
+        <function_call> ::=
+            <function_name> '(' expression ')'
+
         <constant> ::=
             <undefined_constant>
-            | <null_constant> 
-            | <number_constant> 
-            | <string_constant> 
-            | <array_constant> 
+            | <null_constant>
+            | <number_constant>
+            | <string_constant>
+            | <array_constant>
 
         <undefined_constant> ::= undefined
         <null_constant> ::= null
@@ -325,8 +342,8 @@ onde:
 | Símbolo | Definição |
 | --- | --- |
 | attribute_name |Qualquer propriedade do documento JSON na coleção FROM. |
-| unary_operator |Qualquer operador unário de acordo com a seção Operadores. |
 | binary_operator |Qualquer operador binário de acordo com a seção Operadores. |
+| function_name| A única função com suporte é `is_defined()` |
 | decimal_literal |Um float expresso em notação decimal. |
 | hexadecimal_literal |Um número expresso pela cadeia de caracteres '0x' seguida por uma cadeia de caracteres de dígitos hexadecimais. |
 | string_literal |Literais de cadeia de caracteres são cadeias de caracteres Unicode representadas por uma sequência de zero ou mais caracteres Unicode ou sequências de escape. As literais de cadeia de caracteres são colocadas entre aspas simples (apóstrofe: ') ou aspas duplas (aspas: "). Escapes permitidos: `\'`, `\"`, `\\`, `\uXXXX` para caracteres Unicode definidos por quatro dígitos hexadecimais. |
@@ -341,11 +358,11 @@ Há suporte para os seguintes operadores:
 | Comparação |=, !=, <, >, <=, >=, <> |
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba como executar consultas em seus aplicativos usando [SDKs do Hub IoT][lnk-hub-sdks].
+Saiba como executar consultas em seus aplicativos usando [SDKs do IoT do Azure][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
 [lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#getting-started-with-twin-queries
+[lnk-query-getstarted]: iot-hub-devguide-query-language.md#getting-started-with-device-twin-queries
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
@@ -356,6 +373,7 @@ Saiba como executar consultas em seus aplicativos usando [SDKs do Hub IoT][lnk-h
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 
