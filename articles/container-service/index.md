@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Saiba como usar o Serviço de Contêiner para implantar e gerenciar contêineres de aplicativos usando o DC/SO, Docker Swarm ou Kubernetes. Tutoriais, referências de API e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: 445c13f0ff0106aa1d919be81ca373377464b32a
-ms.openlocfilehash: 5e027ac1a0a9ec4d11c76bbce1e0c944742ffaf9
+ms.sourcegitcommit: aaed834dd697bece735fa9297f0228b75346ffc7
+ms.openlocfilehash: 219dfe4950339d7a68d0a5f06135acb4b247b1fd
 
 ---
 
 # <a name="azure-container-service-documentation"></a>Documentação do Serviço de Contêiner do Azure
 
-O Serviço de Contêiner do Azure simplifica a criação, a configuração e o gerenciamento de um cluster de máquinas virtuais pré-configuradas para executar os aplicativos em contêineres. O Serviço de Contêiner usa uma configuração otimizada de ferramentas populares de agendamento de software livre e de orquestração. Isso permite que você use suas habilidades existentes ou explore a experiência cada vez maior da comunidade para implantar e gerenciar aplicativos em contêineres no Microsoft Azure.
+Saiba como usar o Serviço de Contêiner para implantar e gerenciar contêineres de aplicativos totalmente portáveis. Tutoriais, referências de API e outras documentações mostram como dimensionar e orquestrar contêineres usando DC/OS, Docker Swarm ou Kubernetes.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -100,6 +101,7 @@ Baixar documentação do Serviço de Contêiner do Azure </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

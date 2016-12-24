@@ -10,7 +10,6 @@
 
 # Introdução
 ## [Iniciar com o Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Iniciar com a visualização do Hive Interativo](hdinsight-hadoop-use-interactive-hive.md)
 ## [Começar com o Servidor R](hdinsight-hadoop-r-server-get-started.md)
 ## [Iniciar com o Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Iniciar com o HBase e NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
@@ -225,6 +224,6 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

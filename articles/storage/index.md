@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Saiba como usar o Armazenamento do Azure - armazenamento de Blobs, de Tabelas, de Filas, de Arquivos e de Disco de Máquina Virtual na nuvem. Tutoriais, referências de API e outras documentações."
 translationtype: Human Translation
-ms.sourcegitcommit: a6c333ae45868d5c29ce2f2587f1417fa9fafc0b
-ms.openlocfilehash: 27fd664b69ca4467daa2b0abc6e53c9cece221ae
+ms.sourcegitcommit: 3cd1ef210c363fc280cefca3c0697eb66da85a1d
+ms.openlocfilehash: 426166d22b721d45853f3f578d39e14966c57c50
 
 ---
 
 # <a name="storage-documentation"></a>Documentação de armazenamento
 
-O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade para atender às necessidades dos clientes.  Ele é altamente escalonável, flexível e acessível globalmente e realiza automaticamente o equilíbrio de carga de seus dados com base no tráfego.  O Armazenamento do Azure fornece os quatro serviços a seguir para atender às necessidades do aplicativo: armazenamento de Blobs, armazenamento de Tabelas, armazenamento de Filas, armazenamento em Disco e armazenamento de Arquivos.
+Saiba como usar o Armazenamento do Azure, um serviço de armazenamento em nuvem disponível, escalonável e durável. Os tutoriais, as referências de API e outras documentações mostram como configurar e gerenciar o armazenamento de Blobs, de Tabelas, de Filas, de Arquivos e de Disco de Máquina Virtual.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -148,6 +149,6 @@ Download da Documentação do Armazenamento </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
 +toc_rel: breadcrumb.json
+description: "Saiba como usar uma rede virtual na nuvem. A documentação mostra como implantar uma rede virtual, usá-la para iniciar os recursos e integrá-la a uma rede local."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: c3607bf6699b83fb3fedf7cb7ccf9f1d97ad4c56
+ms.sourcegitcommit: 9a76fe5c0b518cdd95be71e0c3cf928f0ff93668
+ms.openlocfilehash: 7e2c2db7000b2ea0a4fe698e47e775cc2a7db4dd
 
 ---
-#<a name="virtual-network-documentation"></a>Documentação da Rede Virtual
+# <a name="virtual-network-documentation"></a>Documentação da Rede Virtual
 
-Uma rede virtual do Azure (VNet) é uma representação lógica da sua própria rede na nuvem.  Com a VNet, você pode ter o controle total sobre elementos da rede e segmentar sua VNet em sub-redes e usá-la para iniciar os serviços de nuvem ou as máquinas virtuais do Azure.  Além disso, você pode conectar a VNet à sua rede local usando uma das opções de conectividade disponíveis no Azure, expandindo sua rede para a nuvem enquanto mantém controle sobre os recursos.
+Saiba mais sobre como usar a Rede Virtual (VNet), uma representação da sua rede na nuvem. A documentação mostra como configurar e gerenciar uma rede virtual, usá-la para iniciar Máquinas Virtuais ou Serviços de Nuvem, conectar a rede virtual à sua rede local e expandir sua rede para a nuvem mantendo o controle sobre os recursos.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -105,81 +106,48 @@ Uma rede virtual do Azure (VNet) é uma representação lógica da sua própria 
 
 ---
 
-## <a name="reference"></a>Referência
-
+<h2>Referência</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-doc">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referência do Azure PowerShell</p>
+                        <h3>Linha de comando</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Gerenciador de recursos)</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (Clássico)</a></p>
+                        <p><a href="/cli/azure">CLI do Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vnet">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>CLI do Azure</h3>
-                        <p>CLI da rede virtual do Azure</p>
-                    </div>
+                        <h3>Idiomas</h3>
+                        <p><a href="/java/api/">Java</a></p>
+                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referência de API do .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Referência de API Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt163658">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST da Rede Virtual</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163658.aspx">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj157182.aspx">REST (Clássico)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
@@ -191,6 +159,6 @@ Download da Documentação da Rede Virtual </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -52,7 +52,7 @@
 ### [Aplicativo Web com Visual Studio](../../virtual-machines-linux-classic-web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Cluster RDMA para executar aplicativos MPI](../../virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Como usar o plug-in subordinado do Azure com a Integração contínua do Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [Como usar o plug-in subordinado do Azure com Jenkins](../../virtual-machines-azure-slave-plugin-for-jenkins.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+
 
 ## HPC Pack
 ### [Cluster RDMA do Windows para executar aplicativos MPI](../../virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
@@ -83,6 +83,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

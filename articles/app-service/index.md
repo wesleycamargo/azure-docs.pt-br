@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como usar o Serviço de Aplicativo para criar aplicativos Web e móveis para qualquer plataforma ou dispositivo usando vídeos, tutoriais, referências de API e outras documentações."
 translationtype: Human Translation
-ms.sourcegitcommit: ccb587af34367786ab67c7c614fdae9c0c7ed7a2
-ms.openlocfilehash: 4e95b452ef973fa459daa8e687e5ff759f330019
+ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
+ms.openlocfilehash: 42f4121a53432dedf214c45897aa846e0c901a41
 
 ---
 #<a name="app-service-documentation"></a>Documentação do Serviço de Aplicativo
 
-O Serviço de Aplicativo é uma oferta de PaaS (plataforma como serviço) do Microsoft Azure. Crie aplicativos Web e móveis para qualquer plataforma ou dispositivo. Integre seus aplicativos a soluções SaaS, conecte-se com aplicativos locais e automatize os processos de negócios.
+Saiba como usar o Serviço de Aplicativo para desenvolver e hospedar aplicativos Web e móveis para qualquer plataforma ou dispositivo usando vídeos, tutoriais, referências de API e outras documentações. Saiba como integrar aplicativos a soluções SaaS, conectar-se com aplicativos locais e automatizar seus processos de negócios.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -130,6 +131,6 @@ Download da Documentação do Serviço de Aplicativo </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

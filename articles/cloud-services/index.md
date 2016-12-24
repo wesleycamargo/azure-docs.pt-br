@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Os tutoriais, as referências de API e outras documentações mostram como usar os Serviços de Nuvem para hospedar e executar aplicativos de nuvem e APIs altamente disponíveis e escalonáveis."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 4985185ad8cb4a21e05d4668458e82411cd88ee0
+ms.sourcegitcommit: 2b32d1a06f7db06ad3f443548b33d3c8e2032a9e
+ms.openlocfilehash: 69bcbae09192ecbb6b375bac522b433f8cd5391f
 
 ---
 # <a name="cloud-services-documentation"></a>Documentação dos Serviços de Nuvem
 
-Os Serviços de Nuvem são um exemplo de implantação de PaaS (Plataforma como Serviço). Eles foram desenvolvidos para oferecer suporte a aplicativos que são escalonáveis, confiáveis e cuja operação é econômica. Os Serviços de Nuvem oferecem o benefício da virtualização e permitem que você tenha controle sobre a máquina virtual e possa definir configurações, aplicar patches e instalar softwares.  
+Saiba como usar os Serviços de Nuvem para hospedar e executar aplicativos de nuvem e APIs altamente disponíveis, escalonáveis.  Os tutoriais, as referências de API e outras documentações mostram como gerenciar hosts de máquina virtual e configurar, aplicar patches e instalar o software.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,6 +126,6 @@ Baixar a Documentação dos Serviços de Nuvem </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

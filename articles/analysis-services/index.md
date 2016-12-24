@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como configurar a modelagem de dados com o Analysis Services na nuvem. A Documentação mostra como criar uma solução de BI empresarial usando dados tabulares."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: a961c353af047f9d0bb6bdbc82cf262b78915afa
+ms.sourcegitcommit: fad85d382ef508b65b57559f7f52e079caae9363
+ms.openlocfilehash: 40c79ea2a68c69352d7f14bd138f8131b3b01da9
 
 ---
 # <a name="analysis-services-documentation"></a>Documentação do Analysis Services
 
-Desenvolvido com base no mecanismo analítico comprovado do Microsoft SQL Server Analysis Services, o Azure Analysis Services fornece modelagem de dados de nível corporativo na nuvem.
+Saiba como configurar e gerenciar a modelagem dados com o Analysis Services. Os tutoriais e outras documentações mostram como criar uma solução de BI de nível empresarial usando dados tabulares na nuvem ou no local.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Desenvolvido com base no mecanismo analítico comprovado do Microsoft SQL Server
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/">
+        <a href="https://azure.microsoft.com/documentation/videos/index/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -76,31 +77,19 @@ Desenvolvido com base no mecanismo analítico comprovado do Microsoft SQL Server
                 <div class="card">
                     <div class="cardText">
                         <h3>Linha de comando</h3>
-                        <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Linguagens</h3>
-                        <p><a href="/azure/analysis-services/analysis-services-datasource">Conexões de fonte de dados</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/analysisservices/">API REST</a></p>
+                        <p><a href="/rest/api/analysisservices/">referência da API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -120,6 +109,6 @@ Baixar documentação dos Analysis Services </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como implantar um controlador de entrega de aplicativos de nuvem. A documentação mostra como configurar o roteamento no nível de aplicativo e o balanceamento de carga para um front-end da Web."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 3bf27e3ba3e53aa2f06a078b81fff18fc449bc1c
+ms.sourcegitcommit: 8f9b8cee583b9bc12df14bf5161cab1952e3e022
+ms.openlocfilehash: 5e7843adfb31fcfc56986cce44fc5d59ee558d58
 
 ---
 #<a name="application-gateway-documentation"></a>Documentação do Gateway de Aplicativo
 
-O Gateway de Aplicativo do Azure fornece o controlador de entrega de aplicativo (ADC) como um serviço.  Ele permite que os clientes otimizem a produtividade do web farm descarregando a terminação SSL com uso intensivo de CPU para o Gateway de Aplicativo.  É um dispositivo virtual dedicado para seu aplicativo, com escalabilidade e alta disponibilidade, bem como um conjunto avançado de diagnóstico e registro em log para otimizar o gerenciamento.
+Saiba como implantar o Gateway de Aplicativo, um ADC (controlador de entrega de aplicativos) como um serviço. Os tutoriais, as referências de API e outras documentações mostram como configurar o roteamento no nível do aplicativo e os serviços de balanceamento de carga que permitem criar um front-end Web escalonável e altamente disponível.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ O Gateway de Aplicativo do Azure fornece o controlador de entrega de aplicativo 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=application-gateway">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=application-gateway">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -112,19 +113,19 @@ O Gateway de Aplicativo do Azure fornece o controlador de entrega de aplicativo 
                 <div class="card">
                     <div class="cardText">
                         <h3>Linha de comando</h3>
-                        <p><a href="/powershell/resourcemanager">Cmdlets do PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">CLI do Azure</a></p>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Visualização da CLI do Azure 2.0</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Linguagens</h3>
+                        <h3>Idiomas</h3>
                         <p><a href="/dotnet/api">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways">Node.js</a></p>
@@ -136,13 +137,13 @@ O Gateway de Aplicativo do Azure fornece o controlador de entrega de aplicativo 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt684941">API REST</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">API REST Clássica</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt684941">referência da API REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Referência Clássica da API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -160,6 +161,6 @@ Baixar a Documentação do Gateway de Aplicativo </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

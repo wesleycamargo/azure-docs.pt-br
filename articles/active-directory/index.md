@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Saiba mais sobre como sincronizar diretórios e habilitar o logon único. A documentação mostra como integrar um conjunto completo de recursos de gerenciamento de identidades."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 72d219c4150ddbfd59231f9131bf3502897f0ab4
+ms.sourcegitcommit: 5a478ce5c06cd875ec4ed5ff2bed4d0cd98fac53
+ms.openlocfilehash: 500c764b124ac811432212bab50f83dc6f6b86ee
 
 ---
 
 # <a name="azure-active-directory-documentation"></a>Documentação do Azure Active Directory
 
-O Azure Active Directory Premium é uma solução de nuvem de Gerenciamento de Acesso e Identidade que fornece logon único para milhares de aplicativos (SaaS) de nuvem e acesso a aplicativos Web executados de forma local. O Azure Active Directory permite a colaboração e a mobilidade corporativa e fornece proteção de identidade avançada por meio de Autenticação multifator (MFA), relatórios de segurança, auditorias, alertas e políticas de acesso condicional adaptável com base na integridade do dispositivo, o local do usuário e o nível de risco.
+Saiba como sincronizar os diretórios e habilitar o logon único com o Azure AD (Azure Active Directory). Os tutoriais, as referências de API e outras documentações mostram como integrar os recursos de gerenciamento de identidades, incluindo a autenticação multifator, o registro de dispositivos, o controle de acesso baseado em função e o monitoramento de segurança e os alertas.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -138,6 +139,6 @@ Download da Documentação do Active Directory </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
