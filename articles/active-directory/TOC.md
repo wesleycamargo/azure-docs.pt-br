@@ -202,6 +202,7 @@
 #### [Configurações de política de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 #### [Configurações do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [Perguntas frequentes](active-directory-windows-enterprise-state-roaming-faqs.md)
+#### [Solucionar problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Integrar parceiros com o Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Visão geral](active-directory-b2b-collaboration-overview.md)
 #### [Como funciona](active-directory-b2b-how-it-works.md)
@@ -296,6 +297,6 @@
 ## [Fórum de comentários do Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,40 +1,61 @@
 ---
 title: Explorar Tutoriais do Banco de Dados SQL do Azure | Microsoft Docs
 description: Saiba mais sobre recursos e funcionalidades do Banco de Dados SQL
-keywords: ''
+keywords: 
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 04c0fd7f-d260-4e43-a4f0-41cdcd5e3786
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 08/24/2016
+ms.date: 12/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
+ms.openlocfilehash: 25725a28686dc3bb33bb400f4882d539cba2b691
+
 
 ---
-# Explorar Tutoriais do Banco de Dados SQL do Azure
-Os links a seguir levam você a uma visão geral de cada área de recurso listado e a um tutorial passo a passo simples para cada área. Para ver guias de início rápido referentes às soluções que demonstram o uso do Banco de Dados SQL em uma solução completa com base em cenários do mundo real, consulte [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md) (Inícios Rápidos da solução de Banco de Dados SQL do Azure).
+# <a name="explore-azure-sql-database-tutorials"></a>Explorar Tutoriais do Banco de Dados SQL do Azure
+Os links a seguir levam você a uma visão geral de cada área de recurso listado e a um tutorial passo a passo simples para cada área. Para ver guias de início rápido referentes às soluções que demonstram o uso do Banco de Dados SQL em uma solução completa com base em cenários do mundo real, consulte [Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md)(Inícios Rápidos da solução de Banco de Dados SQL do Azure).
 
-## Como usar o SQL Server Management Studio.
+## <a name="using-sql-server-management-studio"></a>Como usar o SQL Server Management Studio.
 Nos tutoriais a seguir, você aprenderá sobre o uso do SQL Server Management Studio para administrar e consultar o Banco de Dados SQL do Azure.
 
 > [!IMPORTANT]
 > Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
+>
 
 | Tutorial | Descrição |
 | --- | --- | --- |
-| [Conectar-se ao Banco de Dados SQL do Azure usando um logon de entidade no nível do servidor](sql-database-get-started-security.md#connect-to-azure-sql-database-using-a-server-level-principal-login) |Nesse tutorial, você aprenderá a se conectar ao Banco de Dados SQL do Azure usando um logon de entidade de segurança no nível do servidor. |
+| [Conectar-se ao Banco de Dados SQL do Azure usando um logon de entidade no nível do servidor](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |Nesse tutorial, você aprenderá a se conectar ao Banco de Dados SQL do Azure usando um logon de entidade de segurança no nível do servidor do SQL. |
 | [Conectar-se ao Banco de Dados SQL do Azure como um usuário](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) |Nesse tutorial, você aprenderá a se conectar ao Banco de Dados SQL do Azure usando uma conta de usuário no nível do banco de dados. |
 |  | |
 
-## Pools elásticos
+## <a name="create-servers-databases-and-server-level-firewall-rules"></a>Criar servidores, bancos de dados e regras de firewall de nível de servidor
+Nos tutoriais a seguir, você criará servidores, bancos de dados e regras de firewall de nível de servidor. Saiba também como se conectar e consultar servidores e bancos de dados.
+
+| Tutorial | Descrição |
+| --- | --- | --- |
+| [Introdução aos servidores de banco de dados SQL, bancos de dados e regras de firewall usando o portal do Azure e o SQL Server Management Studio](sql-database-get-started.md) | Neste tutorial, você usa o portal do Azure e o SQL Server Management Studio para criar um servidor lógico do banco de dados SQL, exibir suas propriedades, criar um firewall de nível de servidor, se conectar ao banco de dados mestre, criar um banco de dados de exemplo, exibir suas propriedades, conectar-se ao banco de dados de exemplo e criar um banco de dados em branco. |
+| [Introdução aos servidores do Banco de dados SQL, bancos de dados e regras de firewall usando o Azure PowerShell](sql-database-get-started-powershell.md) | Neste tutorial, você usa o PowerShell para criar um servidor lógico do Banco de dados SQL, exibe suas propriedades, cria um firewall de nível de servidor, se conecta ao banco de dados mestre, cria um banco de dados de exemplo, exibe suas propriedades, conecta-se ao banco de dados de exemplo e cria um banco de dados em branco. |
+| [Use o C# para criar um banco de dados SQL com a Biblioteca do Banco de Dados SQL para .NET](sql-database-get-started-csharp.md)| Neste tutorial, você usa o C# para criar um servidor de Banco de Dados SQL, a regra de firewall e o banco de dados SQL. Você também cria um aplicativo do Active Directory (AD) e a entidade de serviço necessária para autenticar o aplicativo C#. |
+
+## <a name="backup-and-recovery"></a>Backup e recuperação
+No tutorial a seguir, você restaura um banco de dados em um ponto no tempo, configura retenção de backup de longo prazo e restaura um banco de dados de retenção no cofre dos Serviços de Recuperação do Azure. 
+
+| Tutorial | Descrição |
+| --- | --- | --- |
+| [Introdução ao Backup e restauração de proteção e recuperação de dados](sql-database-get-started-backup-recovery.md) | Neste tutorial, você usa o portal do Azure para restaurar um banco de dados em um ponto no tempo, configura retenção de backup de longo prazo e restaura um banco de dados de retenção no cofre dos Serviços de Recuperação do Azure. |
+
+
+## <a name="elastic-pools"></a>Pools elásticos
 Nos tutoriais a seguir, você aprenderá sobre o uso de [pools elásticos](sql-database-elastic-pool.md) para gerenciar as metas de desempenho para vários bancos de dados que têm padrões de uso muito variáveis e imprevisíveis.
 
 | Tutorial | Descrição |
@@ -47,7 +68,7 @@ Nos tutoriais a seguir, você aprenderá sobre o uso de [pools elásticos](sql-d
 | [Alterar as configurações de desempenho de um pool](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) |Nesse tutorial, você aprenderá como ajustar os limites de desempenho e armazenamento para um pool. |
 |  | |
 
-## Trabalhos de banco de dados elástico
+## <a name="elastic-database-jobs"></a>Trabalhos de banco de dados elástico
 Nos tutoriais a seguir, você aprenderá sobre o uso de [trabalhos de banco de dados elástico](sql-database-elastic-jobs-overview.md).
 
 | Tutorial | Descrição |
@@ -56,7 +77,7 @@ Nos tutoriais a seguir, você aprenderá sobre o uso de [trabalhos de banco de d
 | [Introdução aos trabalhos elásticos do Banco de Dados SQL do azure](sql-database-elastic-jobs-getting-started.md) |Nesse tutorial, você aprenderá a criar e gerenciar trabalhos que gerenciam um grupo de bancos de dados relacionados. |
 |  | |
 
-## Consultas elásticas
+## <a name="elastic-queries"></a>Consultas elásticas
 Nos tutoriais a seguir, você aprenderá sobre a execução de [consultas elásticas](sql-database-elastic-query-overview.md).
 
 | Tutorial | Descrição |
@@ -66,26 +87,26 @@ Nos tutoriais a seguir, você aprenderá sobre a execução de [consultas elást
 | [Migrar um banco de dados existente para escalar horizontalmente](sql-database-elastic-convert-to-use-elastic-tools.md) |Nesse tutorial, você aprenderá a escalar horizontalmente (fragmentos) um Banco de Dados SQL do Azure. |
 |  | |
 
-## Otimização do Desempenho
-Nos tutoriais a seguir, você aprenderá sobre a otimização do [desempenho de bancos de dados únicos](sql-database-performance-guidance.md). Para otimizar o desempenho de vários bancos de dados, consulte [Pools elásticos](#elastic-pools).
+## <a name="performance-optimization"></a>Otimização do desempenho
+Nos tutoriais a seguir, você aprenderá sobre a otimização do [desempenho de bancos de dados autônomos](sql-database-performance-guidance.md). Para otimizar o desempenho de vários bancos de dados, consulte [Pools elásticos](#elastic-pools).
 
 | Tutorial | Descrição |
 | --- | --- | --- |
 | [Alterar a camada de serviço e o nível de desempenho do banco de dados](sql-database-scale-up.md#change-the-service-tier-and-performance-level-of-your-database) |Nesse tutorial, você aprenderá a escalar verticalmente ou reduzir verticalmente o desempenho de um Banco de Dados SQL do Azure usando camadas de serviço. |
 | [Análise de Desempenho de Consultas do Consultor do Banco de Dados SQL](sql-database-performance.md#performance-overview) |Nesse tutorial, você aprenderá como abrir e usar a Análise de Desempenho de Consultas do Consultor do Banco de Dados SQL. |
-| [Recomendações de desempenho do Consultor do Banco de Dados SQL](sql-database-advisor.md#viewing-recommendations) |Nesse tutorial, você aprenderá a exibir e a aplicar as recomendações de desempenho do Consultor do Banco de Dados SQL. |
+| [Recomendações de desempenho do Consultor do Banco de Dados SQL](sql-database-advisor.md) |Nesse tutorial, você aprenderá a exibir e a aplicar as recomendações de desempenho do Consultor do Banco de Dados SQL. |
 | [Examinar as consultas que mais consomem CPU](sql-database-query-performance.md#review-top-cpu-consuming-queries) |Nesse tutorial, você aprenderá como abrir e usar a Análise de Desempenho de Consultas do Consultor do Banco de Dados SQL para examinar as consultas que mais consomem CPU. |
 | [Exibindo detalhes de uma consulta individual](sql-database-query-performance.md#viewing-individual-query-details) |Nesse tutorial, você aprenderá a usar a Análise de Desempenho de Consultas do Consultor do Banco de Dados SQL para exibir detalhes de desempenho de uma consulta individual. |
 |  | |
 
-## Migração e Arquivo do Banco de Dados SQL
+## <a name="sql-database-migration-and-archive"></a>Migração e arquivo do Banco de Dados SQL
 Nos tutoriais a seguir, você aprenderá sobre a [migração de um banco de dados do SQL Server existente para um Banco de Dados SQL do Azure](sql-database-cloud-migrate.md).
 
 | Tutorial | Descrição |
 | --- | --- | --- |
 | [Detectando problemas de compatibilidade usando o SQL Server Data Tools para Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md#detecting-compatibility-issues-using-sql-server-data-tools-for-visual-studio) |Nesse tutorial, você aprenderá a usar o SQL Server Data Tools para Visual Studio para determinar a compatibilidade do Banco de Dados SQL do Azure. |
 | [Corrigindo problemas de compatibilidade usando o SQL Server Data Tools para Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md#fixing-compatibility-issues-using-sql-server-data-tools-for-visual-studio) |Nesse tutorial, você aprenderá a usar o SQL Server Data Tools para Visual Studio para corrigir problemas de compatibilidade do Banco de Dados SQL do Azure. |
-| [Determinar a compatibilidade com o Banco de Dados SQL usando SqlPackage.exe](ql-database-cloud-migrate-determine-compatibility-sqlpackage.md#using-sqlpackageexe) |Nesse tutorial, você aprenderá a usar o utilitário da linha de comando SQLPackage.exe para determinar a compatibilidade do Banco de Dados SQL do Azure. |
+| [Determinar a compatibilidade com o Banco de Dados SQL usando SqlPackage.exe](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md#using-sqlpackageexe) |Nesse tutorial, você aprenderá a usar o utilitário da linha de comando SQLPackage.exe para determinar a compatibilidade do Banco de Dados SQL do Azure. |
 | [Determinar a compatibilidade com o Banco de Dados SQL usando SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md#using-sql-server-management-studio) |Nesse tutorial, você aprenderá a usar o SQL Server Management Studio para determinar a compatibilidade do Banco de Dados SQL do Azure. |
 | [Migrar o banco de dados do SQL Server para o Banco de Dados SQL usando o Assistente para implantação de Banco de Dados no Banco de Dados do Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md#use-the-deploy-database-to-microsoft-azure-database-wizard) |Nesse tutorial, você aprenderá a migrar um banco de dados do SQL Server compatível para o Banco de Dados SQL do Azure usando o Assistente Implantar Banco de Dados no Banco de Dados do Microsoft Azure no SQL Server Management Studio. |
 | [Exportar um Banco de Dados do SQL Server para um arquivo BACPAC usando SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) |Nesse tutorial, você aprenderá a exportar um banco de dados do SQL Server compatível para um arquivo BACPAC usando o Assistente de Exportação de Aplicativo de Camada de Dados no SQL Server Management Studio. |
@@ -96,12 +117,12 @@ Nos tutoriais a seguir, você aprenderá sobre a [migração de um banco de dado
 | [Importar um arquivo BACPAC para um Banco de Dados SQL do Azure usando o PowerShell](sql-database-import-powershell.md) |Nesse tutorial, você aprenderá a importar um banco de dados no Banco de Dados SQL do Azure por meio de um arquivo BACPAC usando o PowerShell. |
 | [Arquivar um Banco de Dados SQL do Azure usando o portal do Azure](sql-database-export.md#export-your-database) |Nesse tutorial, você aprenderá a arquivar um banco de dados SQL do Azure em um arquivo BACPAC usando o portal do Azure. |
 | [Arquivar um banco de dados SQL do Azure usando o PowerShell](sql-database-export-powershell.md) |Nesse tutorial, você aprenderá a arquivar um banco de dados SQL do Azure em um arquivo BACPAC usando o PowerShell. |
-| [Copiar um Banco de Dados SQL do Azure usando o portal do Azure](sql-database-copy.md#copy-your-sql-database) |Nesse tutorial, você aprenderá a copiar um Banco de Dados SQL do Azure usando o portal do Azure. |
-| [Copiar um banco de dados SQL do Azure usando o PowerShell](sql-database-copy-powershell.md#copy-your-sql-database) |Nesse tutorial, você aprenderá a copiar um Banco de Dados SQL do Azure usando o PowerShell. |
+| [Copiar um Banco de Dados SQL do Azure usando o portal do Azure](sql-database-copy.md) |Nesse tutorial, você aprenderá a copiar um Banco de Dados SQL do Azure usando o portal do Azure. |
+| [Copiar um banco de dados SQL do Azure usando o PowerShell](sql-database-copy-powershell.md) |Nesse tutorial, você aprenderá a copiar um Banco de Dados SQL do Azure usando o PowerShell. |
 | [Copiar um banco de dados SQL do Azure usando o Transact-SQL](sql-database-copy-transact-sql.md#copy-your-sql-database) |Nesse tutorial, você aprenderá a copiar um Banco de Dados SQL do Azure usando o Transact-SQL. |
 |  | |
 
-## Desenvolver
+## <a name="develop"></a>Desenvolver
 Nos tutoriais a seguir, você aprenderá sobre o [Desenvolvimento do Banco de Dados SQL](sql-database-develop-overview.md) e o uso das [bibliotecas de conectividade](sql-database-libraries.md).
 
 | Tutorial | Descrição |
@@ -114,24 +135,24 @@ Nos tutoriais a seguir, você aprenderá sobre o [Desenvolvimento do Banco de Da
 | [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-develop-ruby-simple.md) |Nesse tutorial, você aprenderá a se conectar a um Banco de Dados SQL do Azure usando Ruby. |
 |  | |
 
-## Acesso a banco de dados
+## <a name="database-authentication-and-authorization"></a>Autenticação e Autorização do banco de dados
 Nos tutoriais a seguir, você aprenderá a [criar e gerenciar logons e usuários](sql-database-manage-logins.md).
 
 | Tutorial | Descrição |
 | --- | --- | --- |
 | [Criar uma regra de firewall de nível de servidor do Banco de Dados SQL do Azure usando o portal do Azure](sql-database-configure-firewall-settings.md) |Nesse tutorial, você aprenderá a configurar um firewall de nível de servidor do Banco de Dados SQL usando o portal do Azure. |
 | [Criar uma regra de firewall de nível de banco de dados usando Transact-SQL](sql-database-configure-firewall-settings-tsql.md#database-level-firewall-rules) |Nesse tutorial, você aprenderá a criar uma regra de firewall de nível de banco de dados usando o Transact-SQL. |
-| [Gerenciar regras de firewall no nível de servidor usando Transact-SQL](sql-database-configure-firewall-settings-tsql.md#manage-server-level-firewall-rules-through-transact-sql) |Nesse tutorial, você aprenderá a gerenciar um firewall de nível de servidor do Banco de Dados SQL do Azure usando Transact-SQL. |
-| [Gerenciar regras de firewall de nível de servidor usando o PowerShell](sql-database-configure-firewall-settings-powershell.md#manage-firewall-rules-using-powershell) |Nesse tutorial, você aprenderá a gerenciar um firewall de nível de servidor do Banco de Dados SQL do Azure usando o PowerShell. |
-| [Gerenciar regras de firewall no nível de servidor usando a API REST](sql-database-configure-firewall-settings-rest.md#manage-firewall-rules-using-the-service-management-rest-api) |Nesse tutorial, você aprenderá a gerenciar um firewall de nível de servidor do Banco de Dados SQL do Azure usando a API REST. |
-| [Conectar-se ao Banco de Dados SQL do Azure usando um logon de entidade no nível do servidor](sql-database-get-started-security.md#connect-to-azure-sql-database-using-a-server-level-principal-login) |Nesse tutorial, você aprenderá a se conectar ao Banco de Dados SQL do Azure usando um logon de entidade de segurança no nível do servidor. |
-| [Concedendo acesso ao banco de dados para um logon](sql-database-manage-logins.md#granting-database-access-to-a-login) |Nesse tutorial, você aprenderá a conceder acesso ao banco de dados a um logon de nível de servidor. |
+| [Gerenciar regras de firewall no nível de servidor usando Transact-SQL](sql-database-configure-firewall-settings-tsql.md#server-level-firewall-rules) |Nesse tutorial, você aprenderá a gerenciar um firewall de nível de servidor do Banco de Dados SQL do Azure usando Transact-SQL. |
+| [Gerenciar regras de firewall de nível de servidor usando o PowerShell](sql-database-configure-firewall-settings-powershell.md#manage-firewall-rules-by-using-powershell) |Nesse tutorial, você aprenderá a gerenciar um firewall de nível de servidor do Banco de Dados SQL do Azure usando o PowerShell. |
+| [Gerenciar regras de firewall no nível de servidor usando a API REST](sql-database-configure-firewall-settings-rest.md#manage-firewall-rules-using-the-rest-api) |Nesse tutorial, você aprenderá a gerenciar um firewall de nível de servidor do Banco de Dados SQL do Azure usando a API REST. |
+| [Conectar-se ao Banco de Dados SQL do Azure usando um logon de entidade no nível do servidor](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |Nesse tutorial, você aprenderá a se conectar ao Banco de Dados SQL do Azure usando um logon de entidade de segurança no nível do servidor. |
+| [Concedendo acesso ao banco de dados para um logon] (sql-database-manage-logins.md#granting-database-access-to-a-login() |Nesse tutorial, você aprenderá a conceder acesso ao banco de dados a um logon de nível de servidor. |
 | [Criar um novo usuário de banco de dados usando SSMS](sql-database-get-started-security.md#create-new-database-user-using-ssms) |Nesse tutorial, você aprenderá a criar um novo usuário de banco de dados em um banco de dados existente usando o SSMS. |
-| [Conceder permissões de db\_owner a um novo usuário de banco de dados](sql-database-get-started-security.md#grant-new-database-user-dbowner-permissions) |Nesse tutorial, você aprenderá a conceder permissões de db\_owner a um usuário de banco de dados existente. |
+| [Conceder permissões de db_owner a um novo usuário de banco de dados](sql-database-get-started-security.md#grant-new-database-user-dbowner-permissions) |Nesse tutorial, você aprenderá a conceder permissões de db_owner a um usuário de banco de dados existente. |
 | [Conectar-se ao Banco de Dados SQL do Azure como um usuário](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) |Nesse tutorial, você aprenderá a se conectar a um banco de dados SQL do Azure usando uma conta de usuário de nível de banco de dados. |
 |  | |
 
-## Segurança de Dados
+## <a name="secure-and-protect-data"></a>Resguardar e proteger dados
 Nos tutoriais a seguir, você aprenderá sobre a [proteção de dados do Banco de Dados SQL do Azure](sql-database-security.md).
 
 | Tutorial | Descrição |
@@ -143,13 +164,13 @@ Nos tutoriais a seguir, você aprenderá sobre a [proteção de dados do Banco d
 | [Configurar mascaramento de dados dinâmicos](sql-database-dynamic-data-masking-get-started.md#set-up-dynamic-data-masking-for-your-database-using-the-azure-portal) |Nesse tutorial, você aprenderá a configurar o mascaramento de dados dinâmicos para seu Banco de Dados SQL do Azure. |
 |  | |
 
-## Continuidade dos negócios e Expansão de Consulta
+## <a name="business-continuity"></a>Continuidade dos negócios
 Nos tutoriais a seguir, você aprenderá sobre o uso da [Restauração Geográfica e da Replicação Geográfica Ativa](sql-database-business-continuity.md) para se recuperar de erros, para a continuidade dos negócios e para a escala horizontal de consulta.
 
 | Tutorial | Descrição |
 | --- | --- | --- |
-| [Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior com o Portal do Azure](sql-database-point-in-time-restore-portal.md) |Nesse tutorial, você aprenderá a restaurar seu banco de dados para determinado momento anterior usando o portal do Azure. |
-| [Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior com o PowerShell](sql-database-point-in-time-restore-powershell.md) |Nesse tutorial, você aprenderá a restaurar seu banco de dados para um determinado momento anterior usando o PowerShell |
+| [Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior com o Portal do Azure](sql-database-point-in-time-restore.md) |Nesse tutorial, você aprenderá a restaurar seu banco de dados para determinado momento anterior usando o portal do Azure. |
+| [Restaurar um Banco de Dados SQL do Azure para um determinado momento anterior com o PowerShell](sql-database-point-in-time-restore.md) |Nesse tutorial, você aprenderá a restaurar seu banco de dados para um determinado momento anterior usando o PowerShell |
 | [Restaurar um Banco de Dados SQL do Azure excluído usando o Portal do Azure](sql-database-restore-deleted-database-portal.md) |Nesse tutorial, você aprenderá a restaurar um banco de dados excluído usando o portal do Azure. |
 | [Restaurar um Banco de Dados SQL do Azure excluído usando o PowerShell](sql-database-restore-deleted-database-powershell.md) |Nesse tutorial, você aprenderá a restaurar um banco de dados excluído usando o PowerShell. |
 | [Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure usando o portal do Azure](sql-database-geo-replication-portal.md) |Nesse tutorial, você aprenderá a configurar a Replicação Geográfica Ativa usando o portal do Azure. |
@@ -160,7 +181,7 @@ Nos tutoriais a seguir, você aprenderá sobre o uso da [Restauração Geográfi
 | [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure usando o Transact-SQL](sql-database-geo-replication-failover-transact-sql.md) |Nesse tutorial, você aprenderá a fazer failover para uma réplica secundária replicada geograficamente usando o Transact-SQL. |
 |  | |
 
-## Sincronização de Dados
+## <a name="data-sync"></a>Sincronização de dados
 Neste tutorial, você aprenderá sobre a [Sincronização de Dados](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 | Tutorial | Descrição |
@@ -168,7 +189,11 @@ Neste tutorial, você aprenderá sobre a [Sincronização de Dados](http://downl
 | [Introdução à Sincronização de Dados do SQL do Azure (visualização)](sql-database-get-started-sql-data-sync.md) |Neste tutorial, você aprenderá os conceitos básicos da Sincronização de Dados do SQL do Azure usando o portal clássico do Azure. |
 |  | |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 [Explorar os Guias de Início Rápido da solução de Banco de Dados SQL do Azure](sql-database-solution-quick-starts.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Dec16_HO3-->
+
+

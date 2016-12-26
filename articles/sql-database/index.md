@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Aprenda sobre o Banco de dados SQL, um banco de dados como serviço na nuvem. Tutoriais, vídeos e outras documentações mostram como configurar, conectar e gerenciar um banco de dados relacional."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 07cbe71fc9330724dd8b92c5321d4fca9ecde512
+ms.sourcegitcommit: e4df0029db106923e3d28f16b3dfe239cae5b032
+ms.openlocfilehash: 4c148d62e435f063810c096069c4020ef78568d8
 
 ---
 
 # <a name="sql-database-documentation"></a>Documentação do Banco de Dados SQL
 
-O Banco de Dados SQL é um serviço de banco de dados relacional na nuvem com base no mecanismo do Microsoft SQL Server que contém recursos críticos. Ele oferece desempenho previsível, escalabilidade sem tempo de inatividade, continuidade dos negócios e proteção de dados e quase não exige administração. Como ele se baseia no mecanismo SQL Server, o Banco de Dados SQL oferece suporte a ferramentas do SQL Server, bibliotecas e APIs, o que torna mais fácil mover e estender para a nuvem.
+Saiba como usar o Banco de Dados SQL, um banco de dados como serviço relacional na nuvem criado no mecanismo do Microsoft SQL Server. Tutoriais, vídeos e outras documentações mostram como configurar, conectar e gerenciar um banco de dados SQL.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -162,6 +163,6 @@ Download da Documentação do Banco de Dados SQL </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

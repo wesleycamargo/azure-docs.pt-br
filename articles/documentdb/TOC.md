@@ -18,6 +18,7 @@
 ### [Aplicativo Web Java](documentdb-java-application.md)
 ### [Aplicativo Web Python Flask](documentdb-python-application.md)
 ## [Desenvolver Localmente](documentdb-nosql-local-emulator.md)
+### [Exportar certificados de emulador](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [PERGUNTAS FREQUENTES](documentdb-faq.md)
 
 # Como
@@ -41,21 +42,28 @@
 ### [Cotas de recursos](documentdb-limits.md)
 ### [Aumentar cotas](documentdb-increase-limits.md)
 ### [Unidades de solicitação](documentdb-request-units.md)
-### [CLI do Azure e Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### CLI do Azure
+#### [Criar uma conta](documentdb-automation-resource-manager-cli.md)
+#### [Adicionar ou remover regiões](documentdb-automation-region-management.md)
+### [PowerShell do Azure](documentdb-manage-account-with-powershell.md)
 ### [Suporte a firewall](documentdb-firewall-support.md)
 ### [Turbine sua conta](documentdb-supercharge-your-account.md)
 
 ## Desenvolver
 ### [SQL query](documentdb-sql-query.md)
 ### [Procedimentos armazenados, gatilhos e UDFs](documentdb-programming.md)
+### [Controlar alterações com o Feed de alterações](documentdb-change-feed.md)
 ### [Testes de desempenho](documentdb-performance-testing.md)
 ### [Dicas de desempenho](documentdb-performance-tips.md)
-### DocumentDB para desenvolvedores MongoDB
-#### [Suporte de protocolo para MongoDB](documentdb-protocol-mongodb.md)
-#### [Criar conta](documentdb-create-mongodb-account.md)
-#### [Conectar-se à sua conta](documentdb-connect-mongodb-account.md)
-#### [Usar o MongoChef](documentdb-mongodb-mongochef.md)
-#### [Exemplos de suporte de protocolo](documentdb-mongodb-samples.md)
+
+## Usar o suporte de DocumentDB para MongoDB
+### [Suporte de protocolo para MongoDB](documentdb-protocol-mongodb.md)
+### [Criar conta](documentdb-create-mongodb-account.md)
+### [Conectar-se à sua conta](documentdb-connect-mongodb-account.md)
+### [Migrar seus dados](documentdb-mongodb-migrate.md)
+### [Usar o Robomongo](documentdb-mongodb-robomongo.md)
+### [Usar o MongoChef](documentdb-mongodb-mongochef.md)
+### [Exemplos de suporte de protocolo](documentdb-mongodb-samples.md)
 
 ## Usar o portal
 ### [Criar uma conta de banco de dados](documentdb-create-account.md)
@@ -112,6 +120,6 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

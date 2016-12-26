@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como usar o Cache Redis do Azure, um cache de dados seguro e o agente de mensagens que dá aos aplicativos acesso rápido aos dados. Tutoriais, referências de API e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: 4cd50960b30990f3220788e6613a2815d8e28612
-ms.openlocfilehash: 026c452cd784da14a901cab8e5aecaafda448418
+ms.sourcegitcommit: 4e66f89a5a63cafc8cc9e6af957f27172957c934
+ms.openlocfilehash: cd838fe6027f2c097850c29308630d2086243985
 
 ---
 #<a name="redis-cache-documentation"></a>Documentação do Cache Redis
 
-O Cache Redis do Azure é baseado no popular Cache Redis de software livre. Ele oferece acesso ao cache Redis seguro e dedicado, gerenciado pela Microsoft e acessível de qualquer aplicativo no Azure. O Cache Redis do Azure fornece acesso a dados consistentes de alta taxa de transferência e baixa latência para proporcionar aplicativos do Azure rápidos e escalonáveis.
+Saiba como usar o Cache Redis do Azure, um cache de dados seguro e o agente de mensagens que fornece alta taxa de transferência e acesso de baixa latência a dados para aplicativos. Os tutoriais, as referências de API e outras documentações mostram como usar o Cache Redis de qualquer aplicativo no Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -193,6 +194,6 @@ Download da Documentação do Cache Redis </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

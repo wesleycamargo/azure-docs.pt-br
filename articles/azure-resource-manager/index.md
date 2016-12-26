@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como usar o Resource Manager para implantar e gerenciar os recursos da solução como um grupo e criar modelos para implantação de recursos consistentes e repetíveis."
 translationtype: Human Translation
-ms.sourcegitcommit: e48fea077e09518ab5005518c8e8a413df458b93
-ms.openlocfilehash: a7b6655d2314b198706177f1adaf1b88eb135307
+ms.sourcegitcommit: 0c80499b4b27b7c21473e0ed6468441fa26e965d
+ms.openlocfilehash: f687fd5682a912cf02efec097c6df4a0c1604938
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Documentação do Azure Resource Manager
 
-A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Resource Manager fornece recursos de segurança, auditoria e marcação para ajudar você gerenciar seus recursos após a implantação
+Saiba como usar o Resource Manager para implantar, monitorar e gerenciar os recursos da solução como um grupo. Os tutoriais, as referências de API e outras documentações mostram como configurar grupos de recursos e criar modelos para implantação consistente e reproduzível.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -158,6 +159,7 @@ Download da Documentação do Azure Resource Manager </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

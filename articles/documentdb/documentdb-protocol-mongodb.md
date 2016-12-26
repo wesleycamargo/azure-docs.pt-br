@@ -1,37 +1,55 @@
 ---
-title: Suporte do protocolo do Banco de Dados de Documentos para o MongoDB | Microsoft Docs
-description: Saiba mais sobre o protocolo de suporte do Banco de Dados de Documentos para MongoDB, agora disponível na versão de visualização pública.
-keywords: mongodb
+title: "O que é o suporte de protocolo do Banco de Dados de Documentos para MongoDB? | Microsoft Docs"
+description: "O que é o suporte de protocolo do Banco de Dados de Documentos para MongoDB? Ele permite usar o Azure DocumentDB, um serviço gerenciado baseado em nuvem, como o repositório de dados para aplicativos escritos para MongoDB."
+keywords: "o que é o MongoDB"
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/23/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 0703fa4f4d3eb9f23aa9b3c0b90267fac9557f13
+ms.openlocfilehash: 876fff6a63ccf1a3c10a6852927c60b454436954
+
 
 ---
-# <a name="documentdb-protocol-support-for-mongodb"></a>Suporte do protocolo do Banco de Dados de Documentos para o MongoDB
-## <a name="what-is-azure-documentdb?"></a>O que é o Banco de Dados de Documentos do Azure?
-O Banco de Dados de Documentos do Azure é um serviço de banco de dados NoSQL totalmente gerenciado criado para fornecer desempenho rápido e previsível, alta disponibilidade, dimensionamento automático e facilidade de desenvolvimento. Seu modelo de dados flexível, suas latências baixas consistentes e seus recursos avançados de consulta o tornam uma ótima opção para aplicativos Web, móveis, de jogos e da IoT e muitos outros que precisam de escala contínua. Leia mais em [Introdução ao Banco de Dados de Documentos](documentdb-introduction.md).
+# <a name="what-is-documentdb-protocol-support-for-mongodb"></a>O que é o suporte de protocolo do Banco de Dados de Documentos para MongoDB?
 
-## <a name="what-is-documentdb-protocol-support-for-mongodb?"></a>O que é o suporte de protocolo do Banco de Dados de Documentos para MongoDB?
-Os bancos de dados do Banco de Dados de Documentos agora podem ser usados como o repositório de dados para aplicativos escritos para o MongoDB. Usando os [drivers](https://docs.mongodb.org/ecosystem/drivers/) existentes para MongoDB, os aplicativos podem se comunicar de modo fácil e transparente com o Banco de Dados de Documentos, em muitos casos simplesmente alterando uma cadeia de conexão.  Usando essa funcionalidade de visualização, os clientes podem criar e executar aplicativos facilmente na nuvem do Azure (aproveitando os bancos de dados NoSQL totalmente gerenciados e escalonáveis) enquanto continuam usando habilidades e ferramentas conhecidas para MongoDB.
+Os bancos de dados do Banco de Dados de Documentos agora podem ser usados como o repositório de dados para aplicativos escritos para o MongoDB. Isso significa que ao usar [drivers](https://docs.mongodb.org/ecosystem/drivers/) existentes para bancos de dados do MongoDB, seu aplicativo escrito para MongoDB agora pode se comunicar com o DocumentDB e usar os bancos de dados do DocumentDB em vez dos bancos de dados do MongoDB. Em muitos casos, é possível alternar o uso do MongoDB para DocumentDB, bastando alterar uma cadeia de conexão. Usando essa funcionalidade, os clientes podem criar e executar aplicativos de banco de dados do MongoDB facilmente na nuvem do Azure (aproveitando os bancos de dados NoSQL totalmente gerenciados e escalonáveis do DocumentDB) enquanto continuam usando habilidades e ferramentas conhecidas para MongoDB.
 
-O protocolo de suporte do Banco de Dados de Documentos para MongoDB habilita as principais funções da API do MongoDB para operações CRUD (Criar, Ler, Atualizar e Excluir) dados, bem como para consultar o banco de dados. Os recursos atualmente implementados foram priorizados com base nas necessidades de plataformas, estruturas e ferramentas comuns, bem como pelos clientes em larga escala do MongoDB na avaliação do Azure para a respectiva plataforma de nuvem.
+## <a name="what-is-the-benefit-of-using-documentdb-protocol-support-for-mongodb"></a>Qual é o benefício de usar o suporte ao protocolo do DocumentDB para MongoDB?
+**Sem Gerenciamento de Servidor**: o DocumentDB é um serviço totalmente gerenciado, o que significa que você não precisa gerenciar infraestruturas ou Máquinas Virtuais. O DocumentDB está disponível em mais de 20 [Regiões do Azure](https://azure.microsoft.com/regions/services/).
+
+**Escala ilimitada**: você pode escalar a produtividade e o armazenamento, de modo independente e elástica. É possível adicionar capacidade para atender a milhões de solicitações por segundo com facilidade.
+
+**Nível empresarial**: o DocumentDB permite várias réplicas locais para proporcionar 99,99% de disponibilidade e proteção de dados em caso de falhas locais e regionais. O DocumentDB apresenta recursos de segurança e [certificações de conformidade](https://www.microsoft.com/trustcenter) de nível empresarial. 
+
+**Compatibilidade do MongoDB**: o suporte ao protocolo do DocumentDB para MongoDB foi projetado para compatibilidade com o MongoDB. Você pode usar o código, os aplicativos, os drivers e as ferramentas existentes para trabalhar com o DocumentDB. 
+
+## <a name="how-to-get-started"></a>Como começar?
+Criar uma conta do DocumentDB com o suporte ao protocolo para MongoDB no [Portal do Azure](https://portal.azure.com) e troque a conexão para sua nova conta. 
+
+*É só isso!*
+
+Para obter instruções detalhadas, siga [criar conta](documentdb-create-mongodb-account.md) e [conectar-se à sua conta](documentdb-connect-mongodb-account.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba como [criar](documentdb-create-mongodb-account.md) uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
-* Saiba como se [conectar](documentdb-connect-mongodb-account.md) a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
-* Saiba como [usar o MongoChef](documentdb-mongodb-mongochef.md) com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
+* Siga o tutorial [Criar uma conta do DocumentDB com suporte ao protocolo para MongoDB](documentdb-create-mongodb-account.md) para criar uma conta do DocumentDB.
+* Siga o tutorial [Conectar-se a uma conta do DocumentDB com suporte ao protocolo para MongoDB](documentdb-connect-mongodb-account.md) para saber como obter informações sobre a cadeia de conexão da sua conta.
+* Siga o tutorial [Usar o MongoChef com uma conta do DocumentDB com suporte ao protocolo para MongoDB](documentdb-mongodb-mongochef.md) para saber como criar uma conexão entre o banco de dados do DocumentDB e o aplicativo MongoDB no MongoChef.
 * Explore [amostras](documentdb-mongodb-samples.md)do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

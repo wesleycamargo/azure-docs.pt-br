@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como adicionar funcionalidades inteligentes a seus aplicativos, análise de linguagem, visão e fala. Obter guias de início rápido e referências de API."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: e4e35a7c13db98770295cbaa19cf33b18c1fb5e7
+ms.sourcegitcommit: d08cbd179ffb64630a37dd04e33ae50dfda3c615
+ms.openlocfilehash: 9e31044fb3be93befb18939210e0bc703462fbd6
 
 ---
 #<a name="cognitive-services-documentation"></a>Documentação dos Serviços Cognitivos
 
-Os Serviços Cognitivos (visualização) são compostos por uma série de APIs que podem ser usadas para habilitar a interação natural e contextual em seus aplicativos.  Os Serviços Cognitivos oferecem APIs de Idioma, Fala, Visão e Conhecimento.
+Saiba como habilitar a interação natural e contextual em seus aplicativos com os Serviços Cognitivos. Os tutoriais de início rápido e as referências de API o ajudam a incorporar recursos de inteligência artificial para texto, fala, visão e pesquisa. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -106,6 +107,6 @@ Baixar a Documentação dos Serviços Cognitivos </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

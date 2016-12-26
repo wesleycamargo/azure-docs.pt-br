@@ -3,8 +3,8 @@ title: Dimensione seu cluster ACS com a CLI do Azure | Microsoft Docs
 description: "Como dimensionar o cluster do Serviço de Contêiner do Azure usando a CLI do Azure."
 services: container-service
 documentationcenter: 
-author: Thraka
-manager: timlt
+author: sauryadas
+manager: madhana
 editor: 
 tags: acs, azure-container-service
 keywords: "Docker, Contêineres, Microsserviços, Mesos, Azure"
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: timlt
+ms.author: saudas
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9e8df2e68b1b7018d76da89ba9ab332b6ea216fb

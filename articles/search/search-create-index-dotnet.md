@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 87757a16f1fa31be97f6f8a0e39c6adbf2513828
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: a607ab6bf73f59f55109f9ee60ab69aa15d74db3
 
 
 ---
@@ -30,13 +30,13 @@ ms.openlocfilehash: 87757a16f1fa31be97f6f8a0e39c6adbf2513828
 > 
 > 
 
-Este artigo o orientará ao longo do processo de criação de um [índice](https://msdn.microsoft.com/library/azure/dn798941.aspx) do Azure Search usando o [SDK .NET do Azure Search](https://msdn.microsoft.com/library/azure/dn951165.aspx).
+Este artigo o orientará ao longo do processo de criação de um [índice](https://docs.microsoft.com/rest/api/searchservice/Create-Index) do Azure Search usando o [SDK .NET do Azure Search](https://aka.ms/search-sdk).
 
 Antes de seguir este guia e criar um índice, você já deverá ter [criado um serviço de Pesquisa do Azure](search-create-service-portal.md).
 
 Observe que todos os códigos de exemplo neste artigo são escritos com C#. Você pode encontrar o código-fonte completo [no GitHub](http://aka.ms/search-dotnet-howto).
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identificar a chave de API do administrador de seu serviço de Pesquisa do Azure
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Identificar a chave de API do administrador de seu serviço de Pesquisa do Azure
 Agora que provisionou um serviço de Pesquisa do Azure, você está quase pronto para emitir solicitações em relação ao ponto de extremidade de serviço usando o SDK do .NET. Primeiro, é necessário obter uma das chaves de API do administrador gerada para o serviço de pesquisa que você provisionou. O SDK do .NET enviará está chave de API em cada solicitação ao seu serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
 1. Para localizar as api-keys de seu serviço, você deve fazer logon no [Portal do Azure](https://portal.azure.com/)
@@ -73,48 +73,88 @@ O `SearchServiceClient` tem uma propriedade `Indexes`. Essa propriedade fornece 
 
 <a name="DefineIndex"></a>
 
-## <a name="iii-define-your-azure-search-index-using-the-index-class"></a>III. Definir o seu índice de Pesquisa do Azure usando a classe `Index`
+## <a name="iii-define-your-azure-search-index"></a>III. Defina seu índice do Azure Search
 Uma única chamada para o método `Indexes.Create` criará o seu índice. Esse método aceita como um parâmetro um objeto `Index` , que define o índice da sua Pesquisa do Azure. Você precisa criar um objeto `Index` e inicializá-lo da seguinte maneira:
 
 1. Defina a propriedade `Name` do objeto `Index` como o nome do índice.
-2. Defina a propriedade `Fields` do objeto `Index` para uma matriz de objetos `Field`. Cada um dos objetos `Field` define o comportamento de um campo no seu índice. Você pode fornecer o nome do campo ao construtor, junto com o tipo de dados (ou o analisador para os campos de cadeia de caracteres). Também é possível definir outras propriedades como `IsSearchable`, `IsFilterable`, etc.
+2. Defina a propriedade `Fields` do objeto `Index` para uma matriz de objetos `Field`. A maneira mais fácil de criar os objetos `Field` é chamando o método `FieldBuilder.BuildForType`, passando uma classe de modelo para o parâmetro de tipo. Uma classe de modelo tem propriedades que mapeiam para os campos do seu índice. Isso permite a vinculação de documentos do índice de pesquisa a instâncias da sua classe de modelo.
 
-É importante ter em mente as suas necessidades de negócios e experiência de usuário de pesquisa ao projetar o índice, pois a cada `Field` devem ser atribuídas as [propriedades apropriadas](https://msdn.microsoft.com/library/azure/dn798941.aspx). Essas propriedades controlam quais recursos de pesquisa (filtragem, facetas, classificação, pesquisa de texto completo etc.) se aplicam a quais campos. Para qualquer propriedade que você não defina explicitamente, a classe `Field` desabilita por padrão o recurso de pesquisa correspondente, a menos que você o habilite especificamente.
+> [!NOTE]
+> Se você não planeja usar uma classe de modelo, você ainda pode definir o índice criando objetos `Field` diretamente. Você pode fornecer o nome do campo ao construtor, junto com o tipo de dados (ou o analisador para os campos de cadeia de caracteres). Também é possível definir outras propriedades como `IsSearchable`, `IsFilterable`, etc.
+>
+>
 
-Para nosso exemplo, chamamos o índice de "hotels" e definimos os campos da seguinte maneira:
+É importante ter em mente as suas necessidades de negócios e experiência de usuário de pesquisa ao projetar o índice, pois cada campo deve ter as [propriedades adequadas](https://docs.microsoft.com/rest/api/searchservice/Create-Index) atribuídas a ele. Essas propriedades controlam quais recursos de pesquisa (filtragem, facetas, classificação, pesquisa de texto completo etc.) se aplicam a quais campos. Para qualquer propriedade que você não defina explicitamente, a classe `Field` desabilita por padrão o recurso de pesquisa correspondente, a menos que você o habilite especificamente.
+
+Para o nosso exemplo, nomeamos o índice "hotels" e definimos os campos usando uma classe de modelo. Cada propriedade da classe de modelo tem atributos que determinam os comportamentos relacionados à pesquisa do campo de índice correspondente. A classe de modelo é definida da seguinte maneira:
+
+```csharp
+[SerializePropertyNamesAsCamelCase]
+public partial class Hotel
+{
+    [Key]
+    [IsFilterable]
+    public string HotelId { get; set; }
+
+    [IsFilterable, IsSortable, IsFacetable]
+    public double? BaseRate { get; set; }
+
+    [IsSearchable]
+    public string Description { get; set; }
+
+    [IsSearchable]
+    [Analyzer(AnalyzerName.AsString.FrLucene)]
+    [JsonProperty("description_fr")]
+    public string DescriptionFr { get; set; }
+
+    [IsSearchable, IsFilterable, IsSortable]
+    public string HotelName { get; set; }
+
+    [IsSearchable, IsFilterable, IsSortable, IsFacetable]
+    public string Category { get; set; }
+
+    [IsSearchable, IsFilterable, IsFacetable]
+    public string[] Tags { get; set; }
+
+    [IsFilterable, IsFacetable]
+    public bool? ParkingIncluded { get; set; }
+
+    [IsFilterable, IsFacetable]
+    public bool? SmokingAllowed { get; set; }
+
+    [IsFilterable, IsSortable, IsFacetable]
+    public DateTimeOffset? LastRenovationDate { get; set; }
+
+    [IsFilterable, IsSortable, IsFacetable]
+    public int? Rating { get; set; }
+
+    [IsFilterable, IsSortable]
+    public GeographyPoint Location { get; set; }
+
+    // ToString() method omitted for brevity...
+}
+```
+
+Escolhemos cuidadosamente os atributos para cada propriedade com base em como achamos que serão usados em um aplicativo. Por exemplo, é provável que ao pesquisarem por "hotels", as pessoas estejam interessadas em correspondências de palavra-chave no campo `description`, por isso habilitamos a pesquisa de texto completo para esse campo, adicionando o atributo `IsSearchable` à propriedade `Description`.
+
+Observe que exatamente um campo no índice do tipo `string` deve ser designado como o campo *chave*, adicionando o atributo `Key` (confira `HotelId` no exemplo acima).
+
+A definição de índice acima usa um analisador de idioma para o campo `description_fr` porque ele se destina a armazenar texto em francês. Consulte [o tópico de Suporte a idiomas no](https://docs.microsoft.com/rest/api/searchservice/Language-support), bem como a [postagem do blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) correspondente para obter mais informações sobre os analisadores de linguagem.
+
+> [!NOTE]
+> Por padrão, o nome de cada propriedade na classe de modelo é usado como o nome do campo correspondente no índice. Se você desejar mapear todos os nomes de propriedade para nomes de campo em minúsculas concatenadas, marque a classe com o `SerializePropertyNamesAsCamelCase` atributo. Se você deseja mapear para um nome diferente, você pode usar o atributo `JsonProperty` como a propriedade `DescriptionFr` acima. O atributo `JsonProperty` tem precedência sobre o atributo `SerializePropertyNamesAsCamelCase`.
+> 
+> 
+
+Agora que definimos uma classe de modelo, podemos criar facilmente uma definição de índice:
 
 ```csharp
 var definition = new Index()
 {
     Name = "hotels",
-    Fields = new[]
-    {
-        new Field("hotelId", DataType.String)                       { IsKey = true, IsFilterable = true },
-        new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("description", DataType.String)                   { IsSearchable = true },
-        new Field("description_fr", AnalyzerName.FrLucene),
-        new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true, IsSortable = true },
-        new Field("category", DataType.String)                      { IsSearchable = true, IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("tags", DataType.Collection(DataType.String))     { IsSearchable = true, IsFilterable = true, IsFacetable = true },
-        new Field("parkingIncluded", DataType.Boolean)              { IsFilterable = true, IsFacetable = true },
-        new Field("smokingAllowed", DataType.Boolean)               { IsFilterable = true, IsFacetable = true },
-        new Field("lastRenovationDate", DataType.DateTimeOffset)    { IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("rating", DataType.Int32)                         { IsFilterable = true, IsSortable = true, IsFacetable = true },
-        new Field("location", DataType.GeographyPoint)              { IsFilterable = true, IsSortable = true }
-    }
+    Fields = FieldBuilder.BuildForType<Hotel>()
 };
 ```
-
-Escolhemos cuidadosamente os valores de propriedade para cada `Field` com base em como achamos que serão usados em um aplicativo. Por exemplo, é provável que ao pesquisarem por "hotels", as pessoas estejam interessadas em correspondências de palavra-chave no campo `description`, por isso habilitamos a pesquisa de texto completo para esse campo definindo `IsSearchable` para `true`.
-
-Observe que exatamente um campo no índice do tipo `DataType.String` deve ser designado como o campo *chave*, definindo `IsKey` para `true` (confira `hotelId` no exemplo acima).
-
-A definição de índice acima usa um analisador de idioma personalizado para o campo `description_fr` porque ele se destina a armazenar texto em francês. Consulte [o tópico de Suporte a idiomas no MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx), além da [postagem do blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) correspondente para obter mais informações sobre os analistas de linguagem.
-
-> [!NOTE]
-> Observe que, passando `AnalyzerName.FrLucene` no construtor, `Field` será automaticamente do tipo `DataType.String` e terá `IsSearchable` definido como `true`.
-> 
-> 
 
 ## <a name="iv-create-the-index"></a>IV. Criar o índice
 Agora que você tem um objeto `Index` inicializado, é possível criar o índice chamando `Indexes.Create` no seu objeto `SearchServiceClient`:
@@ -142,6 +182,6 @@ Após criar um índice de Pesquisa do Azure, você estará pronto para [carregar
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Use a documentação de backup para aprender como fazer o backup para a nuvem. Confira tutoriais e vídeos para o aplicativo, servidor Windows e o backup da máquina virtual do Azure."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 4c3a00fe82ec903bcd756e8cd2ef940fc10e8af2
+ms.sourcegitcommit: e156357ceb900f1f610b7158a803f553ac3960a5
+ms.openlocfilehash: ed252f28a754b632a3dd95d848f70ec319124ba6
 
 ---
 #<a name="backup-documentation"></a>Documentação de backup
 
-O Backup do Azure é o serviço de nuvem que você pode usar para fazer backup de dados (ou protegê-los) e restaurá-los na nuvem da Microsoft.  Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem.  
+Saiba como usar o Backup do Azure na nuvem para proteger os dados para retenção de longo prazo e recuperação. Tutoriais, vídeos e outras documentações mostram como fazer backup de dados, aplicativos, servidores Windows e máquinas virtuais do Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -142,6 +143,6 @@ Download da Documentação de Backup do Azure </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
