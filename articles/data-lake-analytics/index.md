@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba mais sobre a análise de big data com o Data Lake Analytics. Os tutoriais mostram como executar as análises em lote, em tempo real e interativas, e como escrever consultas U-SQL."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 4a9b9a0aef993055e0c5400a15918a05491509eb
+ms.sourcegitcommit: 84b03eb578df1a4122b18a01c0ffba8558adc088
+ms.openlocfilehash: f36a830ede202a7519d46fa9f12299dcec4c8130
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Documentação do Data Lake Analytics
 
-O Azure Data Lake Analytics é um serviço novo, criado para facilitar a análise de Big Data. Isso permite que você se concentre em escrever, executar e gerenciar trabalhos, em vez de operar a infraestrutura distribuída. Em vez de implantar, configurar e ajustar o hardware, você escreve consultas para transformar seus dados e extrair informações importantes. O serviço de análise pode manipular trabalhos de qualquer escala de maneira instantânea, simplesmente configurando o controle para a quantidade de potência necessária. Você só paga pelo trabalho quando ele está em execução, o que o torna econômico. O serviço de análise dá suporte ao Active Directory do Azure, permitindo que você simplesmente gerencie o acesso e as funções de maneira integrada com seu sistema de identidade local. Ele também inclui a U-SQL, uma linguagem que unifica os benefícios do SQL com a capacidade expressiva dos códigos do usuário. O tempo de execução distribuído escalonável do U-SQL permite que você analise de forma eficiente dados no repositório e em SQL Servers no Azure, no Banco de Dados SQL do Azure e no SQL Data Warehouse do Azure.
+Saiba como usar Data Lake Analytics para executar trabalhos de análise de big data dimensionados para grandes conjuntos de dados. Os tutoriais e outras documentações mostram como criar e gerenciar trabalhos de análise em lote, em tempo real e interativa, e como consultar usando a linguagem U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -231,6 +232,6 @@ Baixar a Documentação do Data Lake Analytics </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

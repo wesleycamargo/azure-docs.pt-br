@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como usar os Aplicativos de API no Serviço de Aplicativo do Azure para desenvolver, hospedar e utilizar APIs na nuvem e localmente. Tutoriais, vídeos e outras documentações."
 translationtype: Human Translation
-ms.sourcegitcommit: 2169b6e72c82ad4d9bf4b443d681c22c770229d5
-ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
-
+ms.sourcegitcommit: 410479b746b5911d1ebcb51c92a6de74686cffbe
+ms.openlocfilehash: e5b9d9322bcf5860debb93fe579665f778a41e7b
 
 ---
 # <a name="app-service---api-apps-documentation"></a>Serviço de Aplicativo - Documentação de Aplicativos de API
 
-Os Aplicativos de API são um dos quatro tipos de aplicativos oferecidos pelo Serviço de Aplicativo do Azure. Os Aplicativos de API no Serviço de Aplicativo do Azure oferecem um rico conjunto de recursos para desenvolver, hospedar e utilizar APIs na nuvem e localmente. O Serviço de Aplicativo do Azure é uma plataforma totalmente gerenciada para Web, dispositivos móveis e cenários de integração.
+Saiba como usar os Aplicativos de API no Serviço de Aplicativo do Azure para desenvolver, hospedar e utilizar APIs na nuvem e localmente. Tutoriais, vídeos e outras documentações mostram como criar e implantar aplicativos de API.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -131,6 +131,6 @@ Baixar documentação dos Aplicativos Móveis </div>
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

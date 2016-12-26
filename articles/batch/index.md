@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como usar o Lote para executar aplicativos paralelos em larga escala de computação e de alto desempenho com eficiência. Tutoriais, referências de API e outras documentações."
 translationtype: Human Translation
-ms.sourcegitcommit: e48fea077e09518ab5005518c8e8a413df458b93
-ms.openlocfilehash: a661fc1e3946709058e0d2f32122732ba8a32b41
+ms.sourcegitcommit: aafd374ff1d72df90bd09479e18ac7ce83715cef
+ms.openlocfilehash: daf72b1a473e3940e889cd6caf78b709e08428c6
 
 ---
 #<a name="batch-documentation"></a>Documentação do Lote
 
-O Lote do Azure permite executar aplicativos paralelos em grande escala e aplicativos HPC (computação de alto desempenho) com eficiência na nuvem. Com o serviço em Lotes, você define os recursos de computação do Azure para executar os aplicativos em paralelo e em escala. Você pode executar trabalhos sob demanda ou agendados sem se preocupar em criar ou gerenciar a infraestrutura manualmente.
+Saiba como usar o Lote para executar aplicativos paralelos em larga escala de computação e de alto desempenho com eficiência na nuvem. Tutoriais, referências de API e outras documentações mostram como definir os recursos de computação do Azure para executar seus aplicativos em paralelo ou em grande escala sem configurar manualmente ou gerenciando a infra-estrutura.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -112,34 +113,34 @@ O Lote do Azure permite executar aplicativos paralelos em grande escala e aplica
                 <div class="card">
                     <div class="cardText">
                         <h3>Linha de comando</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch">Cmdlets do PowerShell</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.batch/v2.3.0/azurerm.batch">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Linguagens</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.batch">API do .NET</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">SDK do Python</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/batchservice">API REST</a></p>
+                        <p><a href="/rest/api/batchservice">referência da API REST</a></p>
                     </div>
                 </div>
             </div>
@@ -157,6 +158,6 @@ Download da Documentação de Lote do Azure </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

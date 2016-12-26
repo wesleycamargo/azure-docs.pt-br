@@ -1,32 +1,36 @@
 ---
-title: 'Programação do Banco de Dados de Documentos: UDFs, gatilhos de banco de dados e procedimentos armazenados| Microsoft Docs'
-description: Saiba como usar o Banco de Dados de Documentos para escrever procedimentos armazenados, gatilhos de banco de dados e UDFs (funções definidas pelo usuário) em JavaScript. Obtenha dicas de programação de banco de dados e muito mais.
+title: "Programação do DocumentDB: UDFs, gatilhos de banco de dados e procedimentos armazenados| Microsoft Docs"
+description: "Saiba como usar o Banco de Dados de Documentos para escrever procedimentos armazenados, gatilhos de banco de dados e UDFs (funções definidas pelo usuário) em JavaScript. Obtenha dicas de programação de banco de dados e muito mais."
 keywords: Gatilhos de banco de dados, procedimento armazenado, programa de banco de dados, sproc, banco de dados de documentos, azure, Microsoft azure
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: aliuy
 manager: jhubbard
 editor: mimig
-
+ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2016
+ms.date: 11/11/2016
 ms.author: andrl
+translationtype: Human Translation
+ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
+ms.openlocfilehash: 3671e9eec62720e34155f0c10054abe01f1e1f12
+
 
 ---
-# Programação no servidor do Banco de Dados de Documentos: UDFs, gatilhos de banco de dados e procedimentos armazenados
-Saiba como a execução transacional e integrada de linguagem do JavaScript pelo Banco de Dados de Documentos do Azure permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente no JavaScript. Isso permite que você escreva uma lógica de aplicativo de programa de banco de dados que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados.
+# <a name="documentdb-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação no servidor do Banco de Dados de Documentos: UDFs, gatilhos de banco de dados e procedimentos armazenados
+Saiba como a execução transacional e integrada de linguagem do JavaScript pelo DocumentDB do Azure permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente no JavaScript. Isso permite que você escreva uma lógica de aplicativo de programa de banco de dados que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados. 
 
-É recomendável começar assistindo ao vídeo a seguir, em que Andrew Liu fornece uma breve introdução ao modelo de programação de banco de dados do lado do servidor do Banco de Dados de Documentos.
+É recomendável começar assistindo ao vídeo a seguir, em que Andrew Liu fornece uma breve introdução ao modelo de programação de banco de dados do lado do servidor do Banco de Dados de Documentos. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
 > 
 > 
 
-Em seguida, volte a este artigo, onde você aprenderá as respostas para as seguintes perguntas:
+Em seguida, volte a este artigo, onde você aprenderá as respostas para as seguintes perguntas:  
 
 * Como eu escrevo um procedimento armazenado, gatilho ou UDF usando JavaScript?
 * Como o Banco de Dados de Documentos garante o ACID?
@@ -35,26 +39,26 @@ Em seguida, volte a este artigo, onde você aprenderá as respostas para as segu
 * Como eu registro e executo um procedimento armazenado, gatilho ou UDF de modo RESTful usando HTTP?
 * Que SDKs do Banco de Dados de Documentos estão disponíveis para criar e executar procedimentos armazenados, gatilhos e UDFs?
 
-## Introdução ao procedimento armazenado e à programação UDF
-Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores de aplicativos das complexidades das incompatibilidades do sistema de tipos e tecnologias de mapeamento relacionais do objeto. Também possui uma série de vantagens intrínsecas que podem ser utilizadas para criar aplicativos ricos:
+## <a name="introduction-to-stored-procedure-and-udf-programming"></a>Introdução ao procedimento armazenado e à programação UDF
+Essa abordagem de *"JavaScript como um T-SQL moderno"* libera os desenvolvedores de aplicativos das complexidades das incompatibilidades do sistema de tipos e tecnologias de mapeamento relacionais do objeto. Também possui uma série de vantagens intrínsecas que podem ser utilizadas para criar aplicativos ricos:  
 
 * **Lógica de procedimento:** o JavaScript, enquanto uma linguagem de programação de alto nível, oferece uma interface rica e familiar para expressar a lógica de negócios. Você pode realizar sequências complexas de operações de maneira mais próxima aos dados.
-* **Transações atômicas:** o Banco de Dados de Documentos garante que as operações do banco de dados sejam realizadas dentro de um procedimento armazenado ou gatilho únicos a fim de que sejam atômicas. Isso permite que um aplicativo combine operações relacionadas em um único lote para que todas ou nenhuma delas seja bem-sucedida.
+* **Transações atômicas:** o Banco de Dados de Documentos garante que as operações do banco de dados sejam realizadas dentro de um procedimento armazenado ou gatilho únicos a fim de que sejam atômicas. Isso permite que um aplicativo combine operações relacionadas em um único lote para que todas ou nenhuma delas seja bem-sucedida. 
 * **Desempenho:** o fato de o JSON ser intrinsecamente mapeado no sistema de tipos de linguagem JavaScript e também ser a unidade básica de armazenamento no Banco de Dados de Documentos permite uma série de otimizações, como a materialização lenta de documentos JSON no pool de buffers e sua disponibilização sob demanda ao código de execução. Há mais benefícios de desempenho associados ao envio da lógica de negócios ao banco de dados:
   
-  * Envio em lote – Os desenvolvedores podem agrupar operações como inserções e enviá-las em massa. O custo de latência de tráfego de rede e a sobrecarga de armazenamento para criar transações separadas são reduzidos significativamente.
+  * Envio em lote – Os desenvolvedores podem agrupar operações como inserções e enviá-las em massa. O custo de latência de tráfego de rede e a sobrecarga de armazenamento para criar transações separadas são reduzidos significativamente. 
   * Pré-compilação – O Banco de Dados de Documentos pré-compila os procedimentos armazenados, gatilhos e funções definidas pelo usuário (UDFs) a fim de evitar custos de compilação de JavaScript para cada invocação. A sobrecarga de construir o código de bytes para a lógica de procedimento é amortizada a um valor mínimo.
-  * Sequenciamento – Várias operações precisam de um efeito colateral (“gatilho”) que possivelmente envolve realizar uma ou mais operações de armazenamento secundárias. Além da atomicidade, o desempenho é melhor quando movido ao servidor.
+  * Sequenciamento – Várias operações precisam de um efeito colateral (“gatilho”) que possivelmente envolve realizar uma ou mais operações de armazenamento secundárias. Além da atomicidade, o desempenho é melhor quando movido ao servidor. 
 * **Encapsulamento:** procedimentos armazenados podem ser usados para agrupar lógica de negócios em um único lugar. Isso apresenta duas vantagens:
-  * Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.
-  * Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.
+  * Adiciona uma camada de abstração sobre os dados brutos, o que permite que os arquitetos de dados desenvolvam seus aplicativos de maneira independente dos dados. Isso é ainda mais vantajoso quando os dados não possuem esquema, devido às suposições que precisam ser integradas ao aplicativo se precisarem lidar diretamente com os dados.  
+  * Essa abstração permite que as empresas protejam seus dados simplificando o acesso pelos scripts.  
 
-A criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), do [Estúdio do Banco de Dados de Documentos](https://github.com/mingaliu/DocumentDBStudio/releases) e dos [SDKs de clientes](documentdb-sdk-dotnet.md) em diversas plataformas, incluindo .NET, Node.js e JavaScript.
+A criação e execução de gatilhos de banco de dados, procedimentos armazenados e operadores de consulta personalizados têm suporte por meio da [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), do [Estúdio do DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases) e dos [SDKs de clientes](documentdb-sdk-dotnet.md) em diversas plataformas, incluindo .NET, Node.js e JavaScript.
 
-**Esse tutorial utiliza o [SDK do Node.js com Q Promises](http://azure.github.io/azure-documentdb-node-q/)** para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.
+Esse tutorial utiliza o [SDK do Node.js com Q Promises](http://azure.github.io/azure-documentdb-node-q/) para ilustrar a sintaxe e o uso de procedimentos armazenados, gatilhos e UDFs.   
 
-## Procedimentos armazenados
-### Exemplo: escrever um procedimento armazenado simples
+## <a name="stored-procedures"></a>Procedimentos armazenados
+### <a name="example-write-a-simple-stored-procedure"></a>Exemplo: escrever um procedimento armazenado simples
 Vamos começar com um procedimento armazenado simples que retorna uma resposta “Hello World”.
 
     var helloWorldStoredProc = {
@@ -68,7 +72,7 @@ Vamos começar com um procedimento armazenado simples que retorna uma resposta �
     }
 
 
-Os procedimentos armazenados são registrados por coleção e podem operar em qualquer documento e anexo presente na coleção. O trecho a seguir mostra como registrar o procedimento armazenado helloWorld com uma coleção.
+Os procedimentos armazenados são registrados por coleção e podem operar em qualquer documento e anexo presente na coleção. O trecho a seguir mostra como registrar o procedimento armazenado helloWorld com uma coleção. 
 
     // register the stored procedure
     var createdStoredProcedure;
@@ -81,7 +85,7 @@ Os procedimentos armazenados são registrados por coleção e podem operar em qu
         });
 
 
-Uma vez que o procedimento armazenado é registrado, podemos executá-lo em relação à coleção e ler os resultados no cliente.
+Uma vez que o procedimento armazenado é registrado, podemos executá-lo em relação à coleção e ler os resultados no cliente. 
 
     // execute the stored procedure
     client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
@@ -92,11 +96,11 @@ Uma vez que o procedimento armazenado é registrado, podemos executá-lo em rela
         });
 
 
-O objeto de contexto oferece acesso a todas as operações que podem ser realizadas no armazenamento do Banco de Dados de Documentos, bem como acesso aos objetos de solicitação e resposta. Nesse caso, usamos o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais detalhes, consulte a [documentação do SDK do servidor de JavaScript do Banco de Dados de Documentos](http://azure.github.io/azure-documentdb-js-server/).
+O objeto de contexto oferece acesso a todas as operações que podem ser realizadas no armazenamento do Banco de Dados de Documentos, bem como acesso aos objetos de solicitação e resposta. Nesse caso, usamos o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais detalhes, consulte a [documentação do SDK do servidor de JavaScript do Banco de Dados de Documentos](http://azure.github.io/azure-documentdb-js-server/).  
 
-Vamos ampliar esse exemplo e adicionar mais funcionalidades relativas ao banco de dados ao procedimento armazenado. Procedimentos armazenados podem criar, atualizar, ler, consultar e excluir documentos e anexos dentro da coleção.
+Vamos ampliar esse exemplo e adicionar mais funcionalidades relativas ao banco de dados ao procedimento armazenado. Procedimentos armazenados podem criar, atualizar, ler, consultar e excluir documentos e anexos dentro da coleção.    
 
-### Exemplo: escrever um procedimento armazenado para criar um documento
+### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Exemplo: escrever um procedimento armazenado para criar um documento
 O próximo trecho mostra como usar o objeto de contexto para interagir com recursos do Banco de Dados de Documentos.
 
     var createDocumentStoredProc = {
@@ -116,7 +120,7 @@ O próximo trecho mostra como usar o objeto de contexto para interagir com recur
     }
 
 
-Esse procedimento armazenado assume como entrada documentToCreate, o corpo de um documento a ser criado na coleção atual. Todas essas operações são assíncronas e dependem de retornos de chamada de função do JavaScript. A função de retorno de chamada possui dois parâmetros, um para o objeto de erro no caso de falhas na operação e um para o objeto criado. Dentro da chamada de retorno, os usuários podem lidar com a exceção ou lançar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o tempo de execução do Banco de Dados de Documentos lança um erro.
+Esse procedimento armazenado assume como entrada documentToCreate, o corpo de um documento a ser criado na coleção atual. Todas essas operações são assíncronas e dependem de retornos de chamada de função do JavaScript. A função de retorno de chamada possui dois parâmetros, um para o objeto de erro no caso de falhas na operação e um para o objeto criado. Dentro da chamada de retorno, os usuários podem lidar com a exceção ou lançar um erro. Caso uma chamada de retorno não seja fornecida e haja um erro, o tempo de execução do Banco de Dados de Documentos lança um erro.   
 
 No exemplo acima, a chamada de torno lançará um erro se a operação falhar. Caso contrário, ela definirá a ID do documento criada como o corpo da resposta ao cliente. A seguir, mostramos como esse procedimento armazenado é executado com parâmetros de entrada.
 
@@ -144,14 +148,14 @@ No exemplo acima, a chamada de torno lançará um erro se a operação falhar. C
     });
 
 
-Observe que esse procedimento armazenado pode ser modificado para assumir uma matriz de corpos de documentos como entrada e criá-los todos na mesma execução do procedimento armazenado ao invés de em várias solicitações de rede para criar cada um deles individualmente. Isso pode ser usado para implementar um importador em massa eficiente para o Banco de Dados de Documentos (discutido posteriormente neste tutorial).
+Observe que esse procedimento armazenado pode ser modificado para assumir uma matriz de corpos de documentos como entrada e criá-los todos na mesma execução do procedimento armazenado ao invés de em várias solicitações de rede para criar cada um deles individualmente. Isso pode ser usado para implementar um importador em massa eficiente para o Banco de Dados de Documentos (discutido posteriormente neste tutorial).   
 
 O exemplo descrito demonstra como usar procedimentos armazenados. Iremos discutir os gatilhos e funções definidas pelo usuário (UDFs) posteriormente no tutorial.
 
-## Transações do programa de banco de dados
-A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação oferece **garantias ACID**. ACID é um acrônimo bastante conhecido que indica quatro propriedades: Atomicidade, Consistência, Isolamento e Durabilidade.
+## <a name="database-program-transactions"></a>Transações do programa de banco de dados
+A transação em um banco de dados típico pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação oferece **garantias ACID**. ACID é um acrônimo bastante conhecido que indica quatro propriedades: Atomicidade, Consistência, Isolamento e Durabilidade.  
 
-Em resumo, a atomicidade garante que todo o trabalho realizado dentro de uma transação seja tratado como uma única unidade em que tudo é confirmado ou não. A consistência garante que os dados estejam sempre em uma boa condição interna entre as transações. O isolamento garante que duas transações não interfiram uma com a outra; geralmente, a maioria dos sistemas comerciais oferece vários níveis de isolamento que podem ser usados com base nas necessidades do aplicativo. A durabilidade garante que qualquer alteração confirmada no banco de dados esteja sempre presente.
+Em resumo, a atomicidade garante que todo o trabalho realizado dentro de uma transação seja tratado como uma única unidade em que tudo é confirmado ou não. A consistência garante que os dados estejam sempre em uma boa condição interna entre as transações. O isolamento garante que duas transações não interfiram uma com a outra; geralmente, a maioria dos sistemas comerciais oferece vários níveis de isolamento que podem ser usados com base nas necessidades do aplicativo. A durabilidade garante que qualquer alteração confirmada no banco de dados esteja sempre presente.   
 
 No Banco de Dados de Documentos, o JavaScript é hospedado no mesmo espaço de memória que o banco de dados. Portanto, as solicitações realizadas dentro de procedimentos armazenados e gatilhos são executadas no mesmo escopo de uma sessão do banco de dados. Isso permite que o Banco de Dados de Documentos garanta ACID para todas as operações que fazem parte de um único procedimento/gatilho armazenado. Considere a seguinte definição de um procedimento armazenado:
 
@@ -222,22 +226,22 @@ Esse procedimento armazenado utiliza transações dentro de um aplicativo de jog
 
 Se a coleção na qual o procedimento armazenado está registrado for uma coleção de única partição, o escopo da transação será todos os documentos dentro da coleção. Se a coleção for particionada, os procedimentos armazenados serão executados no escopo da transação de uma única chave de partição. A execução de cada procedimento armazenado deve incluir um valor de chave de partição correspondente ao escopo sob o qual a transação deve ser executada. Para obter mais detalhes, consulte [Particionamento do Banco de Dados de Documentos](documentdb-partition-data.md).
 
-### Confirmação e reversão
-As transações são profunda e nativamente integradas ao modelo de programação de JavaScript do Banco de Dados de Documentos. Dentro de uma função de JavaScript, todas as operações são automaticamente encapsuladas em uma única transação. Se o JavaScript for concluído sem nenhuma exceção, as operações de banco de dados serão confirmadas. Com isso, as declarações “BEGIN TRANSACTION” e “COMMIT TRANSACTION” em bancos de dados relacionais são implícitas no Banco de Dados de Documentos.
+### <a name="commit-and-rollback"></a>Confirmação e reversão
+As transações são profunda e nativamente integradas ao modelo de programação de JavaScript do Banco de Dados de Documentos. Dentro de uma função de JavaScript, todas as operações são automaticamente encapsuladas em uma única transação. Se o JavaScript for concluído sem nenhuma exceção, as operações de banco de dados serão confirmadas. Com isso, as declarações “BEGIN TRANSACTION” e “COMMIT TRANSACTION” em bancos de dados relacionais são implícitas no Banco de Dados de Documentos.  
 
 Se houver qualquer exceção propagada a partir do script, o tempo de execução de JavaScript do Banco de Dados de Documentos reverterá toda a transação. Como mostrado no exemplo anterior, lançar uma exceção é efetivamente equivalente a uma declaração “ROLLBACK TRANSACTION” no Banco de Dados de Documentos.
 
-### Consistência de dados
+### <a name="data-consistency"></a>Consistência de dados
 Procedimentos armazenados e gatilhos são sempre executados na réplica primária da coleção do Banco de Dados de Documentos. Isso assegura que as leituras de dentro de procedimentos armazenados ofereçam uma forte consistência. As consultas que utilizam funções definidas pelo usuário podem ser executadas na réplica primária ou em qualquer réplica secundária, porém, garantimos que o nível de consistência solicitado seja atendido ao escolher a réplica adequada.
 
-## Execução vinculada
-Todas as operações do Banco de Dados de Documentos devem ser concluídas dentro da duração de tempo limite da solicitação especificada pelo servidor. Essa restrição também se aplica à função de JavaScript (procedimentos armazenados, gatilhos e funções definidas pelo usuário). Se uma operação não for concluída com esse limite de tempo, a transação será retrocedida. Funções JavaScript devem ser concluídas dentro do limite de tempo ou implementar um modelo com base em uma continuação para criar um lote/retomar a execução.
+## <a name="bounded-execution"></a>Execução vinculada
+Todas as operações do Banco de Dados de Documentos devem ser concluídas dentro da duração de tempo limite da solicitação especificada pelo servidor. Essa restrição também se aplica à função de JavaScript (procedimentos armazenados, gatilhos e funções definidas pelo usuário). Se uma operação não for concluída com esse limite de tempo, a transação será retrocedida. Funções JavaScript devem ser concluídas dentro do limite de tempo ou implementar um modelo com base em uma continuação para criar um lote/retomar a execução.  
 
-A fim de simplificar o desenvolvimento de procedimentos armazenados e gatilhos para lidar com limites de tempo, todas as funções no objeto de coleção (para a criação, leitura, substituição e exclusão de documentos e anexos) retornam um valor booliano que representa se a operação será concluída. Se esse valor for falso, isso indica que o limite de tempo está prestes a expirar e que o procedimento deve encerrar a execução. Operações colocadas em fila antes da primeira operação de armazenamento não aceita serão concluídas com certeza se o procedimento armazenado for concluído dentro do tempo e não colocar nenhuma outra solicitação em fila.
+A fim de simplificar o desenvolvimento de procedimentos armazenados e gatilhos para lidar com limites de tempo, todas as funções no objeto de coleção (para a criação, leitura, substituição e exclusão de documentos e anexos) retornam um valor booliano que representa se a operação será concluída. Se esse valor for falso, isso indica que o limite de tempo está prestes a expirar e que o procedimento deve encerrar a execução.  Operações colocadas em fila antes da primeira operação de armazenamento não aceita serão concluídas com certeza se o procedimento armazenado for concluído dentro do tempo e não colocar nenhuma outra solicitação em fila.  
 
-Funções de JavaScript também são vinculadas quanto ao consumo de recursos. O Banco de Dados de Documentos reserva a produtividade por coleção com base no tamanho provisionado de uma conta do banco de dados. A produtividade é expressa em termos de uma unidade normalizada de consumo de CPU, memória e E/S chamada unidade de solicitação ou RU. Funções de JavaScript podem usar um grande número de RUs dentro de um curto período, e podem ter sua taxa limitada se o limite da coleção for atingido. Procedimentos armazenados ricos em recursos também podem ser postos em quarentena para garantir a disponibilidade das operações primitivas do banco de dados.
+Funções de JavaScript também são vinculadas quanto ao consumo de recursos. O Banco de Dados de Documentos reserva a produtividade por coleção com base no tamanho provisionado de uma conta do banco de dados. A produtividade é expressa em termos de uma unidade normalizada de consumo de CPU, memória e E/S chamada unidade de solicitação ou RU. Funções de JavaScript podem usar um grande número de RUs dentro de um curto período, e podem ter sua taxa limitada se o limite da coleção for atingido. Procedimentos armazenados ricos em recursos também podem ser postos em quarentena para garantir a disponibilidade das operações primitivas do banco de dados.  
 
-### Exemplo: importação de dados em massa em um programa de banco de dados
+### <a name="example-bulk-importing-data-into-a-database-program"></a>Exemplo: importação de dados em massa em um programa de banco de dados
 Abaixo está um exemplo de um procedimento armazenado gravado para documentos de importação em massa em uma coleção. Observe como o procedimento armazenado lida com a execução vinculada verificando o valor de retorno booliano em createDocument, e depois utiliza a contagem de documentos inserida em cada invocação do procedimento armazenado para rastrear e retomar o progresso nos lotes.
 
     function bulkImport(docs) {
@@ -289,8 +293,8 @@ Abaixo está um exemplo de um procedimento armazenado gravado para documentos de
         }
     }
 
-## <a id="trigger"></a> Gatilhos de banco de dados
-### Pré-gatilhos de banco de dados
+## <a name="a-idtriggera-database-triggers"></a><a id="trigger"></a> Gatilhos de banco de dados
+### <a name="database-pre-triggers"></a>Pré-gatilhos de banco de dados
 O Banco de Dados de Documentos oferece gatilhos que são executados ou desencadeados por uma operação em um documento. Por exemplo, você pode especificar um pré-gatilho ao criar um documento; esse pré-gatilho será executado antes que o documento seja criado. A seguir está um exemplo de como os pré-gatilhos podem ser usados para validar as propriedades de um documento que está sendo criado:
 
     var validateDocumentContentsTrigger = {
@@ -343,7 +347,7 @@ E o código de registro do lado do cliente do Node.js para o gatilho:
     });
 
 
-Pré-gatilhos não podem ter parâmetros de entrada. O objeto de solicitação pode ser usado para manipular a mensagem de solicitação associada à operação. Aqui, o pré-gatilho está sendo executado com a criação de um documento, e o corpo da mensagem de solicitação contém o documento a ser criado no formato JSON.
+Pré-gatilhos não podem ter parâmetros de entrada. O objeto de solicitação pode ser usado para manipular a mensagem de solicitação associada à operação. Aqui, o pré-gatilho está sendo executado com a criação de um documento, e o corpo da mensagem de solicitação contém o documento a ser criado no formato JSON.   
 
 Quando os gatilhos são registrados, os usuários podem especificar as operações com as quais eles podem ser executados. Este gatilho foi criado com TriggerOperation.Create, o que significa que a situação a seguir não é permitida.
 
@@ -359,8 +363,8 @@ Quando os gatilhos são registrados, os usuários podem especificar as operaçõ
 
     // Fails, can’t use a create trigger in a replace operation
 
-### Pós-gatilhos de banco de dados
-Pós-gatilhos, assim como pré-gatilhos, são associados a uma operação em um documento e não assumem parâmetros de entrada. Eles são executados **após** a operação ter sido concluída, e possuem acesso à mensagem de resposta que é enviada ao cliente.
+### <a name="database-post-triggers"></a>Pós-gatilhos de banco de dados
+Pós-gatilhos, assim como pré-gatilhos, são associados a uma operação em um documento e não assumem parâmetros de entrada. Eles são executados **após** a operação ter sido concluída, e possuem acesso à mensagem de resposta que é enviada ao cliente.   
 
 O exemplo a seguir mostra pós-gatilhos em ação:
 
@@ -428,12 +432,12 @@ O gatilho pode ser registrado como mostrado na amostra a seguir.
     });
 
 
-Esse gatilho consulta o documento de metadados e o atualiza com detalhes sobre o documento recém-criado.
+Esse gatilho consulta o documento de metadados e o atualiza com detalhes sobre o documento recém-criado.  
 
-É importante observar a execução **transacional** de gatilhos no Banco de Dados de Documentos. Esse pós-gatilho é executado como parte da mesma transação como a criação do documento original. Portanto, se lançarmos uma exceção a partir do pós-gatilho (digamos, se não for possível atualizar o documento de metadados), toda a transação falhará e será retrocedida. Nenhum documento será criado e uma exceção será retornada.
+É importante observar a execução **transacional** de gatilhos no Banco de Dados de Documentos. Esse pós-gatilho é executado como parte da mesma transação como a criação do documento original. Portanto, se lançarmos uma exceção a partir do pós-gatilho (digamos, se não for possível atualizar o documento de metadados), toda a transação falhará e será retrocedida. Nenhum documento será criado e uma exceção será retornada.  
 
-## <a id="udf"></a>Funções definidas pelo usuário
-UDFs (funções definidas pelo usuário) são usadas para estender a gramática da linguagem de consulta SQL do Banco de Dados de Documentos e para implementar uma lógica de negócios personalizada. Elas podem ser invocadas somente de dentro das consultas. Elas não possuem acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, UDFs podem ser executadas em réplicas secundárias do serviço do Banco de Dados de Documentos.
+## <a name="a-idudfauser-defined-functions"></a><a id="udf"></a>Funções definidas pelo usuário
+UDFs (funções definidas pelo usuário) são usadas para estender a gramática da linguagem de consulta SQL do Banco de Dados de Documentos e para implementar uma lógica de negócios personalizada. Elas podem ser invocadas somente de dentro das consultas. Elas não possuem acesso ao objeto de contexto e devem ser usadas como JavaScript somente para cálculo. Portanto, UDFs podem ser executadas em réplicas secundárias do serviço do Banco de Dados de Documentos.  
 
 A amostra a seguir cria uma UDF para calcular o imposto de renda com base nas taxas para diversos intervalos de renda, e depois a utiliza dentro de uma consulta para descobrir todas as pessoas que pagaram mais de $20.000 em impostos.
 
@@ -474,7 +478,7 @@ A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
         console.log("Error" , error);
     });
 
-## API de consulta integrada da linguagem JavaScript
+## <a name="javascript-language-integrated-query-api"></a>API de consulta integrada da linguagem JavaScript
 Além de emitir consultas usando a gramática SQL do Banco de Dados de Documentos, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Banco de Dados de Documentos.
 
 > [!NOTE]
@@ -488,7 +492,7 @@ As funções permitidas incluem:
 
 <ul>
 <li>
-<b>chain() ... .value([callback] [, options])</b>
+<b>chain() ... .value([callback] [, opções])</b>
 <ul>
 <li>
 Inicia uma chamada encadeada que deve ser terminada com value().
@@ -496,7 +500,7 @@ Inicia uma chamada encadeada que deve ser terminada com value().
 </ul>
 </li>
 <li>
-<b>filter(predicateFunction [, options] [, callback])</b>
+<b>filter(predicateFunction [, opções] [, callback])</b>
 <ul>
 <li>
 Filtra a entrada usando uma função de predicado que retorna true/false para filtrar documentos de entrada no conjunto resultante. Esse comportamento é semelhante ao de uma cláusula WHERE no SQL.
@@ -504,7 +508,7 @@ Filtra a entrada usando uma função de predicado que retorna true/false para fi
 </ul>
 </li>
 <li>
-<b>map(transformationFunction [, options] [, callback])</b>
+<b>map(transformationFunction [, opções] [, callback])</b>
 <ul>
 <li>
 Aplica uma projeção dada uma função de transformação que mapeia cada item de entrada para um objeto ou valor JavaScript. Esse comportamento é semelhante ao de uma cláusula SELECT no SQL.
@@ -512,7 +516,7 @@ Aplica uma projeção dada uma função de transformação que mapeia cada item 
 </ul>
 </li>
 <li>
-<b>pluck([propertyName] [, options] [, callback])</b>
+<b>pluck([propertyName] [, opções] [, callback])</b>
 <ul>
 <li>
 Esse é um atalho para um mapa que extrai o valor de uma única propriedade de cada item de entrada.
@@ -520,7 +524,7 @@ Esse é um atalho para um mapa que extrai o valor de uma única propriedade de c
 </ul>
 </li>
 <li>
-<b>flatten([isShallow] [, options] [, callback])</b>
+<b>flatten([isShallow] [, opções] [, callback])</b>
 <ul>
 <li>
 Combina e nivela as matrizes de cada item de entrada em uma única matriz. Esse comportamento é semelhante ao de SelectMany no LINQ.
@@ -528,7 +532,7 @@ Combina e nivela as matrizes de cada item de entrada em uma única matriz. Esse 
 </ul>
 </li>
 <li>
-<b>sortBy([predicate] [, options] [, callback])</b>
+<b>sortBy([predicate] [, opções] [, callback])</b>
 <ul>
 <li>
 Produz um novo conjunto de documentos classificando os documentos no fluxo de documentos de entrada em ordem crescente usando o predicado em questão. Esse comportamento é semelhante ao da cláusula ORDER BY no SQL.
@@ -536,7 +540,7 @@ Produz um novo conjunto de documentos classificando os documentos no fluxo de do
 </ul>
 </li>
 <li>
-<b>sortByDescending([predicate] [, options] [, callback])</b>
+<b>sortByDescending([predicate] [, opções] [, callback])</b>
 <ul>
 <li>
 Produz um novo conjunto de documentos classificando os documentos no fluxo de documentos de entrada em ordem decrescente usando o predicado em questão. Esse comportamento é semelhante ao da cláusula ORDER BY x DESC no SQL.
@@ -548,7 +552,7 @@ Produz um novo conjunto de documentos classificando os documentos no fluxo de do
 
 Quando incluídas em funções de predicado e/ou do seletor, as construções do JavaScript a seguir são automaticamente otimizadas para serem executadas de forma direta em índices do Banco de Dados de Documentos:
 
-* Operadores simples: = + - * / %| ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
+* Operadores simples: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
 * Literais, incluindo o literal de objeto: {}
 * var, return
 
@@ -559,7 +563,7 @@ As seguintes construções do JavaScript não são otimizadas para índices do B
 
 Para saber mais, consulte nossos [JSDocs no servidor](http://azure.github.io/azure-documentdb-js-server/).
 
-### Exemplo: Escrever um procedimento armazenado usando a API de consulta JavaScript
+### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Exemplo: Escrever um procedimento armazenado usando a API de consulta JavaScript
 O exemplo de código a seguir mostra como a API de Consulta JavaScript pode ser usada no contexto de um procedimento armazenado. O procedimento armazenado insere um documento, fornecido por um parâmetro de entrada e atualiza um documento de metadados usando o método `__.filter()` com minSize, maxSize e totalSize baseados na propriedade de tamanho do documento de entrada.
 
     /**
@@ -614,159 +618,40 @@ O exemplo de código a seguir mostra como a API de Consulta JavaScript pode ser 
       if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
     }
 
-## Folha de respostas rápidas do SQL para Javascript
+## <a name="sql-to-javascript-cheat-sheet"></a>Folha de respostas rápidas do SQL para Javascript
 A tabela a seguir apresenta várias consultas SQL e as consultas JavaScript correspondentes.
 
 Assim como acontece com consultas SQL, as chaves de propriedade do documento (por exemplo, `doc.id`) diferenciam maiúsculas de minúsculas.
 
-<br/>
+|SQL| API de consulta do JavaScript|Descrição abaixo|
+|---|---|---|
+|SELECIONAR *<br>FROM docs| __.map(function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;return doc;<br>});|1|
+|SELECT docs.id, docs.message AS msg, docs.actions <br>FROM docs|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|2|
+|SELECIONAR *<br>FROM docs<br>WHERE docs.id="X998_Y998"|__.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>});|3|
+|SELECIONAR *<br>FROM docs<br>WHERE ARRAY_CONTAINS(docs.Tags, 123)|__.filter(function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return x.Tags && x.Tags.indexOf(123) > -1;<br>});|4|
+|SELECT docs.id, docs.message AS msg<br>FROM docs<br>WHERE docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|5|
+|SELECT VALUE tag<br>FROM docs<br>JOIN tag IN docs.Tags<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc.Tags && Array.isArray(doc.Tags);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|6|
 
-<table border="1" width="100%">
-<colgroup>
-<col span="1" style="width: 40%;">
-<col span="1" style="width: 40%;">
-<col span="1" style="width: 20%;">
-</colgroup>
-<tbody>
-<tr>
-<th>SQL</th>
-<th>API de consulta do JavaScript</th>
-<th>Detalhes</th>
-</tr>
-<tr>
-<td>
-<pre>
-SELECIONAR *
-FROM docs
-</pre>
-</td>
-<td>
-<pre>
-**.map(function(doc) {
-    return doc;
-});
-</pre>
-</td>
-<td>Resulta em todos os documentos (paginados com token de continuação) no estado em que se encontram.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT docs.id, docs.message AS msg, docs.actions 
-FROM docs
-</pre>
-</td>
-<td>
-<pre>
-**.map(function(doc) {
-    return {
-        id: doc.id,
-        msg: doc.message,
-        actions: doc.actions
-    };
-});
-</pre>
-</td>
-<td>Projeta a ID, a mensagem (com o alias msg) e a ação de todos os documentos.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECIONAR * 
-FROM docs 
-WHERE docs.id="X998_Y998"
-</pre>
-</td>
-<td>
-<pre>
-**.filter(function(doc) {
-    return doc.id === "X998_Y998";
-});
-</pre>
-</td>
-<td>Consulta documentos com o predicado : id = "X998_Y998".</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECIONAR *
-FROM docs
-WHERE ARRAY_CONTAINS(docs.Tags, 123)
-</pre>
-</td>
-<td>
-<pre>
-**.filter(function(x) {
-    return x.Tags &amp;&amp; x.Tags.indexOf(123) > -1;
-});
-</pre>
-</td>
-<td>Consulta documentos com uma propriedade Tags e Tags é uma matriz que contém o valor 123.</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT docs.id, docs.message AS msg
-FROM docs 
-WHERE docs.id="X998_Y998"
-</pre>
-</td>
-<td>
-<pre>
-**.chain()
-    .filter(function(doc) {
-        return doc.id === "X998_Y998";
-    })
-    .map(function(doc) {
-        return {
-            id: doc.id,
-            msg: doc.message
-        };
-    })
-    .value();
-</pre>
-</td>
-<td>Consulta documentos com um predicado, id = "X998_Y998" e projeta a ID e a mensagem (com alias para msg).</td>
-</tr>
-<tr>
-<td>
-<pre>
-SELECT VALUE tag
-FROM docs
-JOIN tag IN docs.Tags
-ORDER BY docs._ts
-</pre>
-</td>
-<td>
-<pre>
-**.chain()
-    .filter(function(doc) {
-        return doc.Tags &amp;&amp; Array.isArray(doc.Tags);
-    })
-    .sortBy(function(doc) {
-        return doc._ts;
-    })
-    .pluck("Tags")
-    .flatten()
-    .value()
-</pre>
-</td>
-<td>Filtra documentos que têm uma propriedade de matriz, Tags, e classifica os documentos resultantes pela propriedade do sistema do carimbo de data/hora _ts e projeta + mescla a matriz Tags.</td>
-</tr>
-</tbody>
-</table>
+As descrições a seguir explicam cada consulta na tabela acima.
+1. Resulta em todos os documentos (paginados com token de continuação) no estado em que se encontram.
+2. Projeta a ID, a mensagem (com o alias msg) e a ação de todos os documentos.
+3. Consulta documentos com o predicado : id = "X998_Y998".
+4. Consulta documentos com uma propriedade Tags e Tags é uma matriz que contém o valor 123.
+5. Consulta documentos com um predicado, id = "X998_Y998" e projeta a ID e a mensagem (com alias para msg).
+6. Filtra documentos que têm uma propriedade de matriz, Tags, e classifica os documentos resultantes pela propriedade do sistema do carimbo de data/hora _ts e projeta + mescla a matriz Tags.
 
-## Suporte de tempo de execução
-O [SDK do lado do servidor de JavaScript do Banco de Dados de Documentos](http://azure.github.io/azure-documentdb-js-server/) dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme o padrão [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
-### Segurança
+## <a name="runtime-support"></a>Suporte de tempo de execução
+O [SDK do lado do servidor de JavaScript do DocumentDB](http://azure.github.io/azure-documentdb-js-server/) dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme o padrão [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+
+### <a name="security"></a>Segurança
 Procedimentos armazenados e gatilhos de JavaScript são colocados em uma área restrita para que os efeitos de um script não vazem para o outro sem passar pelo isolamento da transação de captura instantânea no nível do banco de dados. Os ambientes de tempo de execução são colocados em pools, porém, seu contexto é limpo após cada execução. Portanto, sua segurança é garantida e cada um deles está livre de qualquer efeito colateral inesperado advindo do outro.
 
-### Pré-compilação
+### <a name="pre-compilation"></a>Pré-compilação
 Os procedimentos armazenados, gatilhos e UDFs são pré-compilados implicitamente para o formato de código de bytes a fim de evitar o custo de compilação no momento da invocação de cada script. Isso assegura que as invocações dos procedimentos armazenados sejam rápidas e possuam baixa pegada.
 
-## Suporte de SDK de cliente
-Além do cliente [Node.js](documentdb-sdk-node.md), o Banco de Dados de Documentos dá suporte a SDKs [.NET](documentdb-sdk-dotnet.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](documentdb-sdk-python.md). Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
+## <a name="client-sdk-support"></a>Suporte de SDK de cliente
+Além do cliente [Node.js](documentdb-sdk-node.md), o DocumentDB dá suporte a SDKs [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](documentdb-sdk-python.md). Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -799,7 +684,7 @@ Além do cliente [Node.js](documentdb-sdk-node.md), o Banco de Dados de Document
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
 
 
-Essa amostra mostra como usar o [SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) para criar um pré-gatilho e um documento com o gatilho habilitado.
+Essa amostra mostra como usar o [SDK .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) para criar um pré-gatilho e um documento com o gatilho habilitado. 
 
     Trigger preTrigger = new Trigger()
     {
@@ -837,7 +722,7 @@ E o exemplo a seguir mostra como criar uma função definida pelo usuário (UDF)
         Console.WriteLine("Read {0} from query", book);
     }
 
-## API REST
+## <a name="rest-api"></a>API REST
 Todas as operações do Banco de Dados de Documentos podem ser realizadas de maneira RESTful. Procedimentos armazenados, gatilhos e funções definidas pelo usuário podem ser registrados em uma coleção usando HTTP POST. A seguir está um exemplo sobre como registrar um procedimento armazenado:
 
     POST https://<url>/sprocs/ HTTP/1.1
@@ -861,7 +746,8 @@ Todas as operações do Banco de Dados de Documentos podem ser realizadas de man
     }
 
 
-O procedimento armazenado é registrado pela execução de uma solicitação POST em relação ao URI dbs/testdb/colls/testColl/sprocs com o corpo contendo o procedimento armazenado a ser criado. Disparadores e UDFs podem ser registrados da mesma forma, emitindo um POST para /triggers e /udfs respectivamente. Este procedimento armazenado pode, então, ser executado emitindo uma solicitação POST ao link de recursos:
+O procedimento armazenado é registrado pela execução de uma solicitação POST em relação ao URI dbs/testdb/colls/testColl/sprocs com o corpo contendo o procedimento armazenado a ser criado. Disparadores e UDFs podem ser registrados da mesma forma, emitindo um POST para /triggers e /udfs respectivamente.
+Este procedimento armazenado pode, então, ser executado emitindo uma solicitação POST ao link de recursos:
 
     POST https://<url>/sprocs/<sproc> HTTP/1.1
     authorization: <<auth>>
@@ -906,23 +792,28 @@ Gatilhos, diferentemente dos procedimentos armazenados, não podem ser executado
 
 Aqui, o pré-gatilho a ser executado com a solicitação é especificado no cabeçalho x-ms-documentdb-pre-trigger-include. Da mesma forma, qualquer pós-gatilho é fornecido no cabeçalho x-ms-documentdb-post-trigger-include. Observe que pré e pós-gatilhos podem ser especificados para uma determinada solicitação.
 
-## Exemplo de código
+## <a name="sample-code"></a>Exemplo de código
 Você pode encontrar mais exemplos de código do lado do servidor (incluindo [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) em nosso [repositório Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
-Deseja compartilhar seu procedimento armazenado incrível? Por favor, envie uma solicitação pull!
+Deseja compartilhar seu procedimento armazenado incrível? Por favor, envie uma solicitação pull! 
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Depois de criar um ou mais procedimentos armazenados, gatilhos e funções definidas pelo usuário, você pode carregar e exibi-los no Portal do Azure usando o Gerenciador de Script. Para saber mais, consulte [Exibir procedimentos armazenados, gatilhos e funções definidas pelo usuário usando o Gerenciador de Script do Banco de Dados de Documentos](documentdb-view-scripts.md).
 
 Você também pode achar as seguintes referências e recursos úteis em seu caminho para saber mais sobre a programação do Banco de Dados de Documentos no servidor:
 
 * [SDKs do Banco de Dados de Documentos do Azure](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 * [Estudo do Banco de Dados de Documentos](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/)
+* [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
-* [JavaScript – sistema de tipo JSON](http://www.json.org/js.html)
-* [Extensibilidade de banco de dados seguro e portátil](http://dl.acm.org/citation.cfm?id=276339)
-* [Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE)
+* [JavaScript – sistema de tipo JSON](http://www.json.org/js.html) 
+* [Extensibilidade de banco de dados seguro e portátil](http://dl.acm.org/citation.cfm?id=276339) 
+* [Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

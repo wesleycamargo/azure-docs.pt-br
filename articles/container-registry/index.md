@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Saiba mais sobre como criar e manter registros de contêiner para armazenar suas imagens de implantação com um serviço gerenciado de registro do Docker. Tutoriais, referência de API e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 2e77ba043efd03ecffd3e5e786046dedbed58877
+ms.sourcegitcommit: ab80e1ef9771caa4369863c0aff1cee2c3055830
+ms.openlocfilehash: c42d5fe49d099fed7b5df9901c313832d966e340
 
 ---
 
 # <a name="azure-container-registry-documentation"></a>Documentação do Registro de Contêiner do Azure
 
-O Registro de Contêiner do Azure (visualização) é um Registro privado para hospedar as imagens de contêiner. Usando o Registro de Contêiner do Azure, você pode armazenar imagens formatadas para Docker para todos os tipos de implantações de contêiner. O Registro de Contêiner do Azure se integra bem aos orquestradores hospedados no Serviço de Contêiner do Azure, incluindo Docker Swarm, DC/SO e Kubernetes. 
+Saiba mais sobre como usar o Registro de Contêiner para armazenar e gerenciar imagens para todos os tipos de implantação de contêiner. Os tutoriais, a referência da API REST e outras documentações mostram como criar e manter registros de contêiner com este serviço gerenciado de registro do Docker.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,6 +99,7 @@ O Registro de Contêiner do Azure (visualização) é um Registro privado para h
 </ul>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

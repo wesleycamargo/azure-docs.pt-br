@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/13/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
-ms.openlocfilehash: 2c4a92fadaa845fc0d14e5101a87aabe8f8d2891
+ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
+ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
 
 
 ---
@@ -45,10 +45,30 @@ Há suporte de desenvolvimento para as seguintes versões de sistema operacional
 > 
 
 ## <a name="install-the-runtime-sdk-and-tools"></a>Instalar o tempo de execução, o SDK e as ferramentas
-O Web Platform Installer oferece duas configurações para o desenvolvimento do Service Fabric:
+O Web Platform Installer oferece duas configurações para o desenvolvimento do Service Fabric.
 
-* [Instalar o tempo de execução do Service Fabric, SDK e ferramentas para Visual Studio 2015 (exige o Visual Studio 2015 Atualização 2 ou mais recente)][full-bundle-vs2015]
-* [Instalar somente o tempo de execução do Service Fabric e o SDK (sem ferramentas do Visual Studio)][core-sdk]
+Visual Studio 2017 (o Azure Development and Management Workload deve ser instalado):
+
+* [Instalar o Service Fabric runtime e o SDK (sem ferramentas para Visual Studio)][core-sdk]
+
+Visual Studio 2015 (requer a atualização do Visual Studio 2015 2 ou posterior):
+
+* [Instalar o Service Fabric runtime, o SDK e as ferramentas][full-bundle-vs2015]
+* [Instalar somente o Service Fabric runtime e o SDK (sem ferramentas para Visual Studio)][core-sdk]
+
+> [!WARNING]
+> Os clientes relataram erros durante a instalação ao usar esses links de inicialização, ou quando esses links foram usados no navegador Chrome. Esses problemas são conhecidas no Web Platform Installer e estão sendo corrigidos.  Para solucionar esse problema, tente o seguinte:
+>- Inicie os links acima em navegadores Internet Explorer ou Edge, ou
+>- Inicie o Web Platform Installer no menu Iniciar, procure "Service Fabric" e instale o SDK
+> 
+> Pedimos desculpas pelo transtorno. 
+
+As versões atuais são:
+* Service Fabric SDK 2.4.145
+* Service Fabric runtime 5.4.145
+* Ferramentas Visual Studio 2015 1.4.41209
+
+Para obter uma lista das versões com suporte, consulte [suporte ao Service Fabric](service-fabric-support.md)
 
 ## <a name="enable-powershell-script-execution"></a>Habilitar a execução de script do PowerShell
 A Malha do Serviço usa scripts do Windows PowerShell para criar um cluster de desenvolvimento local e implantar aplicativos do Visual Studio. Por padrão, o Windows bloqueia a execução desses scripts. Para habilitá-los, você deve modificar sua política de execução do PowerShell. Abra o PowerShell com um administrador e insira o seguinte comando:
@@ -66,8 +86,9 @@ Agora que você terminou de configurar seu ambiente de desenvolvimento, comece a
 * [Confira os exemplos de código do Service Fabric no GitHub](https://aka.ms/servicefabricsamples)
 * [Visualizar o cluster usando o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Siga o roteiro de aprendizagem do Service Fabric para obter uma introdução abrangente à plataforma](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+* Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 
-[1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Página de campanha da Service Fabric"
+[1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Página da campanha do Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI link"
 [full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI link"
@@ -76,6 +97,6 @@ Agora que você terminou de configurar seu ambiente de desenvolvimento, comece a
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
+description: "Saiba como criar, implantar e gerenciar máquinas virtuais Windows ou Linux. Tutoriais, referências de API e outras documentações."
 translationtype: Human Translation
-ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
-ms.openlocfilehash: 57994a1476186696b81b05e0ce7ae645337d35b2
+ms.sourcegitcommit: eabfc16b3714006f74cdaec68efb46f651ee1b97
+ms.openlocfilehash: fc2fb1a52416e5743476a2fc4e57956b602a1689
 
 ---
-#<a name="virtual-machines-documentation"></a>Documentação de Máquinas Virtuais
+# <a name="virtual-machines-documentation"></a>Documentação de Máquinas Virtuais
 
-Uma máquina virtual do Azure oferece a flexibilidade da virtualização sem a necessidade de comprar e manter o hardware físico que executa a máquina virtual. No entanto, você ainda precisa manter a máquina virtual &mdash; configurar, corrigir e manter o software executado nela.
+Saiba como criar máquinas virtuais do Azure. Tutoriais, referências de API e outras documentações mostram como criar e implantar máquinas virtuais Windows e Linux, bem como modelos VM complexos.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -59,6 +60,6 @@ Download da Documentação da Máquina Virtual </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -9,16 +9,16 @@ manager: jhubbard
 editor: 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 12/06/2016
+ms.date: 12/14/2016
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 829229542c05477d427b15a9d862f414d9c730d6
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 2c0ee201e719c542cf801372e6a270a7b88598fb
 
 
 ---
@@ -37,24 +37,24 @@ Um padrão de aplicativo de SaaS comum é o modelo de banco de dados de locatár
 >
 >
 
-No Banco de Dados SQL, a medida relativa da capacidade do banco de dados de lidar com as demandas de recursos é expressa em DTUs (Unidades de Transação de Banco de Dados) para bancos de dados individuais e em eDTUs (DTUs elásticos) para bancos de dados elásticos em um pool elástico. Consulte a [Introduction to SQL Database](sql-database-technical-overview.md) (Introdução ao Banco de Dados SQL) para saber mais sobre DTUs e eDTUs.
+No Banco de Dados SQL, a medida relativa da capacidade do banco de dados de lidar com as demandas de recursos é expressa em DTUs (Unidades de Transação de Banco de Dados) para bancos de dados autônomos e em eDTUs (DTUs elásticos) para bancos de dados elásticos em um pool elástico. Consulte a [Introduction to SQL Database](sql-database-technical-overview.md) (Introdução ao Banco de Dados SQL) para saber mais sobre DTUs e eDTUs.
 
-Um pool é fornecido com um número definido de eDTUs por um preço definido. Dentro do pool, os bancos de dados individuais recebem a flexibilidade para dimensionar automaticamente no conjunto de parâmetros. Sob carga pesada, um banco de dados pode consumir mais eDTUs para atender à demanda. Bancos de dados sob cargas leves consumem menos e bancos de dados sem carga não consomem nenhum eDTU. O provisionamento de recursos para o pool inteiro em vez do bancos de dados único simplifica as tarefas de gerenciamento. Além disso, você tem um orçamento previsível para o pool.
+Um pool é fornecido com um número definido de eDTUs por um preço definido. Dentro do pool, os bancos de dados individuais recebem a flexibilidade para dimensionar automaticamente no conjunto de parâmetros. Sob carga pesada, um banco de dados pode consumir mais eDTUs para atender à demanda. Bancos de dados sob cargas leves consumem menos e bancos de dados sem carga não consomem nenhum eDTU. O provisionamento de recursos para o pool inteiro em vez do bancos de dados autônomo simplifica as tarefas de gerenciamento. Além disso, você tem um orçamento previsível para o pool.
 
 eDTUs adicionais podem ser adicionados a um pool existente sem tempo de inatividade do banco de dados ou impacto sobre os bancos de dados no pool elástico. Da mesma forma, se eDTUs extras não forem mais necessários, eles poderão ser removidos de um pool existente a qualquer momento.
 
 E você pode adicionar ou subtrair bancos de dados para o pool. Se um banco de dados é previsível por estar subutilizando recursos, mova-o.
 
 ## <a name="which-databases-go-in-a-pool"></a>Quais bancos de dados vão em um pool?
-![Bancos de dados SQL que compartilham eDTUs em um pool de banco de dados elástico.][1]
+![Os bancos de dados SQL que compartilham eDTUs em um pool elástico.][1]
 
-Os bancos de dados que são ótimos candidatos a pools de banco de dados elásticos normalmente têm períodos de atividade e períodos de inatividade. No exemplo acima, você pode ver a atividade de um banco de dados individual, de 4 bancos de dados e, finalmente, de um pool elástico com 20 bancos de dados. Bancos de dados com diferentes atividades ao longo do tempo são bons candidatos para pools Elásticos porque eles não estão todos ativos ao mesmo tempo e podem compartilhar eDTUs. Nem todos os bancos de dados se encaixam nesse padrão. Bancos de dados com uma demanda de recursos mais constante são mais adequados para as camadas de serviço Basic, Standard e Premium, em que os recursos são atribuídos individualmente.
+Os bancos de dados que são ótimos candidatos a pools de banco de dados elásticos normalmente têm períodos de atividade e períodos de inatividade. No exemplo acima, você pode ver a atividade de um banco de dados autônomo, de 4 bancos de dados e, finalmente, de um pool elástico com 20 bancos de dados. Bancos de dados com diferentes atividades ao longo do tempo são bons candidatos para pools Elásticos porque eles não estão todos ativos ao mesmo tempo e podem compartilhar eDTUs. Nem todos os bancos de dados se encaixam nesse padrão. Bancos de dados com uma demanda de recursos mais constante são mais adequados para as camadas de serviço Basic, Standard e Premium, em que os recursos são atribuídos individualmente.
 
 [Considerações de preço e desempenho para um pool elástico](sql-database-elastic-pool-guidance.md).
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a>Limites de eDTU e armazenamento para pools elásticos e bancos de dados elásticos
 
-A tabela a seguir descreve as características dos pools de bancos de dados elásticos Basic, Standard e Premium.
+A tabela a seguir descreve as características dos pools elásticos Basic, Standard e Premium.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -88,7 +88,7 @@ Com um pool, as tarefas de gerenciamento são simplificadas com a execução de 
 Para obter mais informações sobre outras ferramentas de banco de dados elástico, consulte [Escalando horizontalmente com o Banco de Dados SQL do Azure](sql-database-elastic-scale-introduction.md).
 
 ## <a name="business-continuity-features-for-databases-in-a-pool"></a>Recursos de continuidade de negócios para bancos de dados em um pool
-Os Bancos de Dados Elásticos normalmente dão suporte às mesmas [funcionalidades de continuidade dos negócios](sql-database-business-continuity.md) disponíveis para Bancos de Dados Individuais em servidores V12.
+Os bancos de dados elásticos normalmente dão suporte às mesmas [funcionalidades de continuidade dos negócios](sql-database-business-continuity.md) disponíveis para bancos de dados autônomos.
 
 ### <a name="point-in-time-restore"></a>Recuperação pontual
 A restauração pontual usa backups de banco de dados automáticos para recuperar um banco de dados em um pool para um ponto específico no tempo. Confira [Restauração pontual](sql-database-recovery-using-backups.md#point-in-time-restore)

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a configurar os gateways de rede virtual privada (VPN) para gerenciar o tráfego entre redes virtuais da nuvem e locais ou entre redes virtuais da nuvem."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: ff8e5a68ada52f93c1f50e73a1a7857273d7f9c3
+ms.sourcegitcommit: a826f96cd679bb26b8a6cf9bb6bf55e93ba4e346
+ms.openlocfilehash: 99843baf9989378aa3d4ff6325a399dae0b632b6
 
 ---
 #<a name="vpn-gateway-documentation"></a>Documentação de Gateway de VPN
 
-O Gateway de VPN do Azure é um gateway de rede virtual privada (VPN) usado para enviar tráfego de rede entre as redes virtuais do Azure e locais, bem como entre as redes virtuais no Azure (VNet a VNet).  
+Saiba como configurar o Gateway de VPN, um gateway de rede virtual privada. A Documentação mostra como enviar tráfego de rede entre redes virtuais do Azure e locais ou outras redes virtuais do Azure (VNets).
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -162,6 +163,6 @@ Baixar Documentação do Gateway de VPN do Azure </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

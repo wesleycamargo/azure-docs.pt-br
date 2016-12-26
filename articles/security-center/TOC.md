@@ -8,6 +8,7 @@
 # Introdução
 ## [Início rápido](security-center-get-started.md)
 ## [Planejamento e operações](security-center-planning-and-operations-guide.md)
+## [Permissões](security-center-permissions.md)
 ## [Perguntas frequentes](security-center-faq.md)
 
 # Como
@@ -69,6 +70,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

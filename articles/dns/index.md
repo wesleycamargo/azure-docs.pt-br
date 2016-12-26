@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba mais sobre como gerenciar os registros DNS usando o DNS do Azure. A documentação mostra como configurar e gerenciar zonas e registros DNS para nomes de domínio."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: e32393348fc26fa4cb0a5221695a9bf8bb4d36e1
+ms.sourcegitcommit: 1e30c21b967e9862ae24907ac5db56a341c11cf5
+ms.openlocfilehash: a0110b01879360e4558dffed6343da1ef72cfe86
 
 ---
 # <a name="dns-documentation"></a>Documentação do DNS
 
-O Azure DNS (Sistema de Nome de Domínio) é um serviço de hospedagem para domínios DNS que fornece resolução de nomes usando a infraestrutura do Microsoft Azure.  Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e cobrança que seus outros serviços do Azure.
+Saiba mais sobre como gerenciar os registros DNS usando o DNS do Azure, um serviço de hospedagem. Os tutoriais, as referências de API e outras documentações mostram como configurar e gerenciar zonas e registros DNS para nomes de domínio.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -141,6 +142,6 @@ Baixar a Documentação do DNS </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

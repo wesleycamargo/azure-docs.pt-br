@@ -1,24 +1,29 @@
 ---
-title: 'Guia de início rápido: API de Recomendações de Aprendizado de Máquina | Microsoft Docs'
-description: Recomendações do aprendizado de máquina do Azure - guia de início rápido
+title: "Guia de início rápido: API de recomendações de Machine Learning | Microsoft Docs"
+description: "Recomendações do aprendizado de máquina do Azure - guia de início rápido"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: LuisCabrer
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 5bce1a4a-1ad6-473f-812b-84f800fdc09a
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 11/17/2016
 ms.author: luisca
+translationtype: Human Translation
+ms.sourcegitcommit: 099090d06163f15a08592e25f6171cfacf24b0f1
+ms.openlocfilehash: bf47dd8f88405f2bed31c621e37531e3641ddc6c
+
 
 ---
-# Guia de início rápido para a API de recomendações de aprendizado de máquina
+# <a name="quick-start-guide-for-the-machine-learning-recommendations-api"></a>Guia de início rápido para a API de recomendações de aprendizado de máquina
 > [!NOTE]
-> Você deve começar a usar o Serviço Cognitivo da API de Recomendações em vez desta versão. O Serviço Cognitivo de Recomendações substituirá esse serviço, e todos os recursos novos serão desenvolvidos lá. Ele possui novos recursos como suporte ao processamento em lotes, um Gerenciador de API aprimorado, uma superfície de API mais limpa, uma experiência de inscrição/cobrança mais consistente etc. Saiba mais sobre [Como migrar para o novo Serviço Cognitivo](http://aka.ms/recomigrate)
+> Você deve começar a usar o Serviço Cognitivo da API de Recomendações em vez desta versão. O Serviço Cognitivo de Recomendações substituirá esse serviço, e todos os recursos novos serão desenvolvidos lá. Ele possui novos recursos como suporte ao processamento em lotes, um Gerenciador de API aprimorado, uma superfície de API mais limpa, uma experiência de inscrição/cobrança mais consistente etc.
+> Saiba mais sobre [Como migrar para o novo Serviço Cognitivo](http://aka.ms/recomigrate)
 > 
 > 
 
@@ -26,31 +31,32 @@ Este documento descreve como integrar o seu serviço ou aplicativo para usar as 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Visão geral
+## <a name="general-overview"></a>Visão geral
 Para usar as Recomendações de Aprendizado de Máquina do Azure, você precisa executar as seguintes etapas:
 
 * Criar um modelo – um modelo é um contêiner de seus dados de uso, dados do catálogo e o modelo de recomendação.
-* Importar dados do catálogo - Um catálogo contém informações de metadados sobre os itens.
+* Importar dados do catálogo - Um catálogo contém informações de metadados sobre os itens. 
 * Importar dados de uso: os dados de uso podem ser carregados de uma entre duas maneiras (ou ambas):
   * Carregando um arquivo que contém os dados de uso.
-  * Enviando eventos de aquisição de dados. Normalmente, você carrega um arquivo de uso para poder criar um modelo de recomendação inicial (inicialização) e usá-lo até que o sistema reúna dados suficientes usando o formato de aquisição de dados.
+  * Enviando eventos de aquisição de dados.
+    Normalmente, você carrega um arquivo de uso para poder criar um modelo de recomendação inicial (inicialização) e usá-lo até que o sistema reúna dados suficientes usando o formato de aquisição de dados.
 * Criar um modelo de recomendação – Esta é uma operação assíncrona, em que o sistema de recomendação emprega todos os dados de uso e cria um modelo de recomendação. Essa operação pode levar vários minutos ou várias horas, dependendo do tamanho dos dados e dos parâmetros de configuração da compilação. Ao disparar a compilação, você receberá uma ID de compilação. Use-o para verificar quando o processo de compilação foi concluído antes de começar a consumir recomendações.
 * Consumir recomendações - Obtenha recomendações para um item específico ou uma lista de itens.
 
-Todas as etapas acima são feitas por meio da API de Recomendações do Aprendizado de Máquina do Azure. Você pode baixar um aplicativo de exemplo que implementa cada uma dessas etapas da [galeria também.](http://1drv.ms/1xeO2F3)
+Todas as etapas acima são feitas por meio da API de Recomendações do Aprendizado de Máquina do Azure.  Você pode baixar um aplicativo de exemplo que implementa cada uma dessas etapas da [galeria também.](http://1drv.ms/1xeO2F3)
 
-## Limitações
+## <a name="limitations"></a>Limitações
 * O número máximo de modelos por assinatura é 10.
 * O número máximo de itens que um catálogo pode conter é 100.000.
 * O número máximo de pontos de uso mantidos é cerca de 5.000.000. Os mais antigos serão excluídos se novos forem carregados ou relatados.
 * O volume máximo dos dados que podem ser enviado no POST (por exemplo, importar dados de catálogo e importar dados de uso) é de 200 MB.
 * O número de transações por segundo para uma compilação de modelo de recomendação que não está ativa é cerca de 2 TPS. Uma compilação de modelo de recomendação ativo pode conter até 20 TPS.
 
-## Integração
-### Autenticação
-O Microsoft Azure Marketplace dá suporte ao método de autenticação Básico ou OAuth. Você pode localizar facilmente as chaves de conta, navegando até as chaves no marketplace [nas configurações da conta](https://datamarket.azure.com/account/keys).
+## <a name="integration"></a>Integração
+### <a name="authentication"></a>Autenticação
+O Microsoft Azure Marketplace dá suporte ao método de autenticação Básico ou OAuth. Você pode localizar facilmente as chaves de conta, navegando até as chaves no marketplace [nas configurações da conta](https://datamarket.azure.com/account/keys). 
 
-#### Autenticação básica
+#### <a name="basic-authentication"></a>Autenticação básica
 Adicione o cabeçalho de autorização:
 
     Authorization: Basic <creds>
@@ -69,18 +75,18 @@ Converta em Base64 (JavaScript)
 
 
 
-### URI de serviço
+### <a name="service-uri"></a>URI de serviço
 O URI da raiz de serviço para as APIs de Recomendações do Aprendizado de Máquina do Azure está [aqui.](https://api.datamarket.azure.com/amla/recommendations/v2/)
 
 O URI do serviço completo é expresso usando elementos da especificação de OData.
 
-### Versão da API
+### <a name="api-version"></a>Versão da API
 Cada chamada à API terá, por fim, um parâmetro de consulta chamado apiVersion que deve ser definido como “1.0”.
 
-### IDs diferenciam minúsculas e maiúsculas
-IDs, retornados por qualquer uma das APIS, diferenciam minúsculas de maiúsculas e devem ser usados desta maneira quando passados como parâmetros nas chamadas de API subsequentes. Por exemplo, IDS d modelo e de catálogo diferenciam maiúsculas de minúsculas.
+### <a name="ids-are-case-sensitive"></a>IDs diferenciam minúsculas e maiúsculas
+IDs, retornados por qualquer uma das APIS, diferenciam minúsculas de maiúsculas e devem ser usados desta maneira quando passados como parâmetros nas chamadas de API subsequentes. Por exemplo, IDS de modelo e de catálogo diferenciam maiúsculas de minúsculas.
 
-### Criar um modelo
+### <a name="create-a-model"></a>Criar um modelo
 Criando uma solicitação para "criar modelo":
 
 | Método HTTP | URI |
@@ -89,8 +95,8 @@ Criando uma solicitação para "criar modelo":
 
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
-| modelName |São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (\_).<br>Comprimento máximo: 20 |
-| apiVersion |1\.0 |
+| modelName |São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (_).<br>Comprimento máximo: 20 |
+| apiVersion |1.0 |
 |  | |
 | Corpo da solicitação |NENHUM |
 
@@ -98,7 +104,8 @@ Criando uma solicitação para "criar modelo":
 
 Código de status HTTP: 200
 
-* `feed/entry/content/properties/id` – Contém a ID do modelo. **Observação**: a ID do modelo diferencia maiúsculas de minúsculas.
+* `feed/entry/content/properties/id` – Contém a ID do modelo.
+  Lembre-se que a ID do modelo diferencia maiúsculas de minúsculas.
 
 XML de OData
 
@@ -131,7 +138,7 @@ XML de OData
     </feed>
 
 
-### Importar dados de catálogo
+### <a name="import-catalog-data"></a>Importar dados de catálogo
 Se você carregar vários arquivos de catálogo para o mesmo modelo com várias chamadas, inseriremos apenas os novos itens de catálogo. Os itens existentes permanecerão com os valores originais.
 
 | Método HTTP | URI |
@@ -141,10 +148,10 @@ Se você carregar vários arquivos de catálogo para o mesmo modelo com várias 
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
 | modelId |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| nome do arquivo |Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_) são permitidos.<br>Comprimento máximo: 50 |
-| apiVersion |1\.0 |
+| nome do arquivo |Identificador textual do catálogo.<br>São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (_).<br> Comprimento máximo: 50 |
+| apiVersion |1.0 |
 |  | |
-| Corpo da solicitação |Dados de catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador exclusivo de um Item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>O Nome do Item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 255</td><td>A categoria à qual este item pertence (por exemplo, Livros de Cozinha, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, Comprimento Máximo: 4000</td><td>Uma descrição deste item</td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>2406e770-769c-4189-89de-1c9283f93a96, Clara Callan, Livro<br>21bf8088-b6c0-4509-870c-e1c7ac78304a, A Sala do Esquecimento: Uma Ficção (Livro Bizantino), Livro<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Preparação Complexa,Livro<br>552a1940-21e4-4399-82bb-594b46d7ed54,Controle de Animais,Livro</pre> |
+| Corpo da solicitação |Dados de catálogo. Formato:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id do item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 50</td><td>Identificador exclusivo de um item</td></tr><tr><td>Nome do Item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 255</td><td>Nome do item</td></tr><tr><td>Categoria do Item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 255</td><td>Categoria à qual este item pertence (por exemplo, Livros de Culinária, Drama...)</td></tr><tr><td>Descrição</td><td>Não</td><td>Alfanumérico, comprimento máximo 4000</td><td>Descrição deste item</td></tr></table><br>O tamanho máximo do arquivo é de 200 MB.<br><br>Exemplo:<br><code>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</code> |
 
 **Resposta**:
 
@@ -177,8 +184,8 @@ XML de OData
     </feed>
 
 
-### Importar dados de uso
-#### Carregar um arquivo
+### <a name="import-usage-data"></a>Importar dados de uso
+#### <a name="uploading-a-file"></a>Carregar um arquivo
 Esta seção mostra como carregar dados de uso usando um arquivo. Você pode chamar essa API várias vezes com dados de uso. Todos os dados de uso serão salvos para todas as chamadas.
 
 | Método HTTP | URI |
@@ -188,10 +195,10 @@ Esta seção mostra como carregar dados de uso usando um arquivo. Você pode cha
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
 | modelId |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| nome do arquivo |Identificador textual do catálogo.<br>Somente letras (A-Z, a-z), números (0-9), hifens (-) e sublinhados (\_) são permitidos.<br>Comprimento máximo: 50 |
-| apiVersion |1\.0 |
+| nome do arquivo |Identificador textual do catálogo.<br>São permitidos apenas letras (A-Z, a-z), números (0-9), hifens (-) e sublinhado (_).<br> Comprimento máximo: 50 |
+| apiVersion |1.0 |
 |  | |
-| Corpo da solicitação |Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>ID de Usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador Exclusivo de um Usuário</td></tr><tr><td>ID do Item</td><td>Sim</td><td>Alfanumérico, Comprimento Máximo: 50</td><td>Identificador Exclusivo de um Item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, deverá também conter a data</td><td>Um dos seguintes:<br>• Clique em<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamanho máximo do arquivo: 200 MB<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Corpo da solicitação |Dados de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nome</th><th>Obrigatório</th><th>Tipo</th><th>Descrição</th></tr><tr><td>Id de usuário</td><td>Sim</td><td>Alfanumérico</td><td>Identificador exclusivo de um usuário</td></tr><tr><td>Id do item</td><td>Sim</td><td>Alfanumérico, comprimento máximo 50</td><td>Identificador exclusivo de um item</td></tr><tr><td>Hora</td><td>Não</td><td>Data no formato: AAAA/MM/DDTHH:MM:SS (por exemplo, 2013/06/20T10:00:00)</td><td>Hora dos dados</td></tr><tr><td>Evento</td><td>Não, se fornecido, também deve colocar a data</td><td>Um dos seguintes:<br>• Clique<br>• RecommendationClick<br>•    AddShopCart<br>• RemoveShopCart<br>• Compra</td><td></td></tr></table><br>O tamanho máximo do arquivo é de 200 MB.<br><br>Exemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Resposta**:
 
@@ -226,7 +233,7 @@ XML de OData
     </feed>
 
 
-#### Usando a aquisição de dados
+#### <a name="using-data-acquisition"></a>Usando a aquisição de dados
 Esta seção mostra como enviar eventos em tempo real para as Recomendações do Aprendizado de Máquina do Azure, geralmente do seu site.
 
 | Método HTTP | URI |
@@ -235,7 +242,7 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Corpo da solicitação |Entrada de dados de evento para cada evento que você deseja enviar. Você deve enviar a mesma ID no campo SessionId para a mesma sessão de usuário ou navegador. (Consulte o exemplo de corpo de evento abaixo.) |
 
@@ -326,7 +333,7 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 
 **Response**: código de status HTTP: 200
 
-### Criar um modelo de recomendação
+### <a name="build-a-recommendation-model"></a>Criar um modelo de recomendação
 | Método HTTP | URI |
 |:--- |:--- |
 | POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27` |
@@ -334,8 +341,8 @@ Esta seção mostra como enviar eventos em tempo real para as Recomendações do
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
 | modelId |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| userDescription |Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br>Comprimento máximo: 50 |
-| apiVersion |1\.0 |
+| userDescription |Identificador textual do catálogo. Observe que se você usar espaços você deve codificá-los com 20%. Consulte o exemplo acima.<br> Comprimento máximo: 50 |
+| apiVersion |1.0 |
 |  | |
 | Corpo da solicitação |NENHUM |
 
@@ -398,7 +405,7 @@ XML de OData
       </entry>
     </feed>
 
-### Obter status da compilação de um modelo
+### <a name="get-build-status-of-a-model"></a>Obter status da compilação de um modelo
 | Método HTTP | URI |
 |:--- |:--- |
 | GET |`<rootURI>/GetModelBuildsStatus?modelId=%27<modelId>%27&onlyLastBuild=<bool>&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/GetModelBuildsStatus?modelId=%279559872f-7a53-4076-a3c7-19d9385c1265%27&onlyLastBuild=true&apiVersion=%271.0%27` |
@@ -407,7 +414,7 @@ XML de OData
 |:--- |:--- |
 | modelId |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
 | onlyLastBuild |Indica se é necessário retornar todo o histórico de compilação do modelo ou apenas o status da compilação mais recente. |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Resposta**:
 
@@ -418,7 +425,7 @@ A resposta inclui uma entrada por compilação. Cada entrada tem os seguintes da
 * `feed/entry/content/properties/UserName` – O nome do usuário.
 * `feed/entry/content/properties/ModelName` – O nome do modelo.
 * `feed/entry/content/properties/ModelId` – Identificador exclusivo do modelo.
-* `feed/entry/content/properties/IsDeployed` – Se a compilação é implantada (ou seja, uma compilação ativa).
+* `feed/entry/content/properties/IsDeployed` - Se a compilação é implantada (conhecido como compilação ativa).
 * `feed/entry/content/properties/BuildId` – Identificador exclusivo da compilação.
 * `feed/entry/content/properties/BuildType` - Tipo de compilação.
 * `feed/entry/content/properties/Status` – Status da compilação. Este pode ser uma das seguintes opções: Erro, Criando, Na fila, Cancelando, Cancelado e Êxito
@@ -481,7 +488,7 @@ XML de OData
     </feed>
 
 
-### Obter recomendações
+### <a name="get-recommendations"></a>Obter recomendações
 | Método HTTP | URI |
 |:--- |:--- |
 | GET |`<rootURI>/ItemRecommend?modelId=%27<modelId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Exemplo:<br>`<rootURI>/ItemRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27` |
@@ -489,10 +496,10 @@ XML de OData
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
 | modelId |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| itemIds |Lista separada por vírgulas dos itens a serem recomendados.<br>Comprimento máximo: 1024 |
-| numberOfResults |Número de resultados necessários |
+| itemIds |Lista separada por vírgulas dos itens para recomendar.<br>Comprimento máximo: 1024 |
+| numberOfResults |Número de resultados necessários  |
 | includeMetatadata |Uso futuro, sempre falso |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Resposta:**
 
@@ -658,7 +665,7 @@ A resposta de exemplo a seguir inclui 10 itens recomendados:
       </entry>
     </feed>
 
-### Atualizar modelo
+### <a name="update-model"></a>Atualizar modelo
 Você pode atualizar a descrição do modelo ou a ID de compilação ativa.
 *ID de compilação ativa* – cada compilação para cada modelo tem uma ID de compilação. A ID de compilação ativa é a primeira compilação executada com êxito de cada novo modelo. Depois que tiver uma ID de compilação ativa e criar compilações adicionais para o mesmo modelo, você precisará defini-lo explicitamente como a ID de compilação padrão, se desejar. Ao consumir recomendações, se você não especificar a ID de compilação que deseja usar, o padrão será usado automaticamente.
 
@@ -671,7 +678,7 @@ Esse mecanismo permite, depois de ter um modelo de recomendação em produção,
 | Nome do Parâmetro | Valores Válidos |
 |:--- |:--- |
 | ID |O identificador exclusivo do modelo (diferencia maiúsculas e minúsculas) |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Corpo da solicitação |`<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`   <Description>New Description</Description>`<br>`          <ActiveBuildId>-1</ActiveBuildId>`<br>`</ModelUpdateParams>`<br><br>Observe que as marcações XML Description e ActiveBuildId são opcionais. Se você não quiser definir Description ou ActiveBuildId, remova a marca inteira. |
 
@@ -690,9 +697,12 @@ XML de OData
       <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/UpdateModel?id='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;apiVersion='1.0'" />
     </feed>
 
-## Legal
-Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio.
-Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.
-Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados.
+## <a name="legal"></a>Legal
+Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Alguns exemplos aqui representados são fornecidos somente para fins de ilustração e são fictícios. Nenhuma associação ou conexão real é intencional ou deve ser inferida.  Este documento não fornece a você nenhum direito legal a qualquer propriedade intelectual de qualquer produto da Microsoft. Você pode copiar e usar este documento para fins de consulta interna. © 2014 Microsoft. Todos os direitos reservados. 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

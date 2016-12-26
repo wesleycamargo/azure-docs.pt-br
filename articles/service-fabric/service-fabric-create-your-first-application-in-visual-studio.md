@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
-ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: 76b6934950354f94f4f68e7cfef00e890d9391a6
 
 
 ---
@@ -41,7 +41,7 @@ O vídeo a seguir descreve as etapas deste tutorial:
 > 
 
 ## <a name="create-the-application"></a>Criar o aplicativo
-Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com uma função específica no fornecimento de funcionalidade do aplicativo. O assistente de Novo Projeto permite criar um projeto de aplicativo, junto com seu primeiro projeto de serviço. Você poderá adicionar outros serviços mais tarde.
+Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com uma função específica no fornecimento de funcionalidade do aplicativo. Crie um projeto de aplicativo junto com seu primeiro projeto de serviço usando o assistente de Novo Projeto. Você também pode adicionar outros serviços mais tarde, se desejar.
 
 1. Inicie o Visual Studio como um administrador.
 2. Clique em **Arquivo > Novo Projeto > Nuvem > Aplicativo do Service Fabric**.
@@ -91,7 +91,7 @@ Agora que você tem um aplicativo, tente executá-lo.
    
     ![Detalhe do visualizador de eventos de diagnóstico][6]
    
-    O cluster local contém cinco nós hospedados em um único computador. Ele simula um cluster de cinco nós, onde os nós estão em computadores diferentes. Vamos desativar um dos nós no cluster local para simular a perda de uma máquina enquanto experimentamos o depurador do Visual Studio.
+    O cluster local contém cinco nós hospedados em um único computador. Ele simula um cluster de cinco nós, onde os nós estão em computadores diferentes. Para simular a perda de um computador enquanto experimentamos o depurador do Visual Studio, vamos desativar um dos nós no cluster local.
    
    > [!NOTE]
    > Os eventos de diagnóstico de aplicativo emitidos pelo modelo de projeto usam a classe `ServiceEventSource` incluída. Para saber mais, confira [Como monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
@@ -100,13 +100,13 @@ Agora que você tem um aplicativo, tente executá-lo.
 4. Localize a classe em seu projeto de serviço que derive de StatefulService (por exemplo, MyStatefulService) e defina um ponto de interrupção na primeira linha do método `RunAsync` .
    
     ![Ponto de interrupção no método RunAsync de serviço com estado][7]
-5. Clique com o botão direito no aplicativo de bandeja de sistema do Gerenciador de Cluster Local e escolha **Gerenciar Cluster Local** para iniciar o Service Fabric Explorer.
+5. Para iniciar o Service Fabric Explorer, clique com o botão direito no aplicativo de bandeja de sistema do Gerenciador de Cluster Local e escolha **Gerenciar Cluster Local**.
    
     ![Iniciar o Service Fabric Explorer do Gerenciador de Cluster Local][systray-launch-sfx]
    
     O Service Fabric Explorer oferece uma representação visual de um cluster, incluindo o conjunto de aplicativos implantados nele e o conjunto de nós físicos que o constituem. Para saber mais sobre o Service Fabric Explorer, confira [Visualizando seu cluster](service-fabric-visualizing-your-cluster.md).
 6. No painel esquerdo, expanda **Cluster > Nós** e localize o nó onde o código está sendo executado.
-7. Clique em **Ações > Desativar (Reiniciar)** para simular uma reinicialização do computador. (Observe que você também pode desativar o menu de contexto no modo de exibição de lista de nós no painel esquerdo.)
+7. Clique em **Ações > Desativar (Reiniciar)** para simular uma reinicialização do computador. Ou desative o nó na exibição de lista do nó no painel à esquerda).
    
     ![Parar um nó no Service Fabric Explorer][sfx-stop-node]
    
@@ -116,14 +116,14 @@ Agora que você tem um aplicativo, tente executá-lo.
     ![Visualizador de eventos de diagnóstico após o failover][diagnostic-events-viewer-detail-post-failover]
 
 ## <a name="switch-cluster-mode"></a>Alternar o modo de cluster
-Por padrão, o cluster de desenvolvimento local é configurado para ser executado como um cluster de cinco nós, o que é útil para depuração de serviços implantados em vários nós. A implantação de um aplicativo no cluster de desenvolvimento de cinco nós pode demorar algum tempo, no entanto. Se você quiser iterar as alterações de código rapidamente, sem executar seu aplicativo em cinco nós, você poderá alternar o cluster de desenvolvimento para o modo de Um nó. Para executar o código em um cluster com um nó, clique com botão direito no Gerenciador de Cluster Local na bandeja do sistema e selecione **Alternar Modo de Cluster -> 1 Nó**.  
+Por padrão, o cluster de desenvolvimento local é configurado para ser executado como um cluster de cinco nós, o que é útil para depuração de serviços implantados em vários nós. A implantação de um aplicativo no cluster de desenvolvimento de cinco nós pode demorar algum tempo, no entanto. Se você quiser iterar as alterações de código rapidamente, sem executar seu aplicativo em cinco nós, alterne o cluster de desenvolvimento para o modo de um nó. Para executar o código em um cluster com um nó, clique com botão direito no Gerenciador de Cluster Local na bandeja do sistema e selecione **Alternar Modo de Cluster -> 1 Nó**.  
 
 ![Alternar o modo de cluster][switch-cluster-mode]
 
-Quando você altera o modo de cluster, o cluster de desenvolvimento é redefinido e todos os aplicativos provisionados, ou em execução, no cluster são removidos.
+O cluster de desenvolvimento é redefinido quando você altera o modo de cluster e todos os aplicativos provisionados, ou em execução, no cluster são removidos.
 
 ## <a name="cleaning-up"></a>Limpando
-  Antes da conclusão, é importante lembrar que o cluster local é muito real. Parar o depurador remove a instância do aplicativo e cancela o registro do tipo de aplicativo. Porém, o cluster continua em execução em segundo plano. Você tem várias opções para gerenciar o cluster:
+Antes da conclusão, é importante lembrar que o cluster local é real. Parar o depurador remove a instância do aplicativo e cancela o registro do tipo de aplicativo. Porém, o cluster continua em execução em segundo plano. Você tem várias opções para gerenciar o cluster:
 
 1. Para desativar o cluster, mas manter os dados e os rastreamentos do aplicativo, clique em **Parar Cluster Local** no aplicativo da bandeja do sistema.
 2. Para excluir totalmente o cluster, clique em **Remover Cluster Local** no aplicativo da bandeja do sistema. Essa opção resultará em outra implantação lenta na próxima vez que você pressionar F5 no Visual Studio. Somente exclua o cluster se você não pretende usar o cluster local por algum tempo ou se precisa recuperar recursos.
@@ -131,8 +131,9 @@ Quando você altera o modo de cluster, o cluster de desenvolvimento é redefinid
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como criar um [cluster no Azure](service-fabric-cluster-creation-via-portal.md) ou um [cluster autônomo no Windows](service-fabric-cluster-creation-for-windows-server.md).
 * Tente criar um serviço usando os modelos de programação [Reliable Services](service-fabric-reliable-services-quick-start.md) ou [Reliable Actors](service-fabric-reliable-actors-get-started.md).
-* Saiba como você pode expor os serviços na Internet com um [front-end de serviço Web](service-fabric-add-a-web-frontend.md).
+* Saiba como expor os serviços na Internet com um [front-end de serviço Web](service-fabric-add-a-web-frontend.md).
 * Veja um [laboratório prático](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) e crie um serviço sem estado, configure o monitoramento e relatórios de integridade, e realize uma atualização do aplicativo.
+* Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 
 <!-- Image References -->
 
@@ -151,6 +152,6 @@ Quando você altera o modo de cluster, o cluster de desenvolvimento é redefinid
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

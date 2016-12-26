@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Saiba como usar o SQL Data Warehouse, combinando o SQL Server ao processamento paralelo maciço. A documentação mostra como carregar, analisar, gerenciar e exportar dados."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 6c949e62406f2d9029c00e87dfc3ca5530a5497f
+ms.sourcegitcommit: 2570909cb1cbd88a03ffb3cee82825e9e277f634
+ms.openlocfilehash: c445bb63fec439f9330b0c74346eabcfad3971da
 
 ---
 
 # <a name="sql-data-warehouse-documentation"></a>Documentação do SQL Data Warehouse
 
-O Azure SQL Data Warehouse combina o banco de dados relacional do SQL Server com os recursos de expansão na nuvem do Azure.  Criado em nossa arquitetura MPP (processamento paralelo maciço), o SQL Data Warehouse pode lidar com sua carga de trabalho corporativa.
+Saiba como usar o SQL Data Warehouse, que combina o banco de dados relacional do SQL Server ao processamento paralelo maciço. Os tutoriais e outras documentações mostram como carregar dados no depósito e então analisá-los, gerenciá-los e exportá-los.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -54,7 +55,8 @@ O Azure SQL Data Warehouse combina o banco de dados relacional do SQL Server com
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+
+<img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -75,7 +77,8 @@ O Azure SQL Data Warehouse combina o banco de dados relacional do SQL Server com
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Command-Line</h3>
+                    <div class="cardText">
+                        <h3>Linha de comando</h3>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">Cmdlets do PowerShell</a></p>
                     </div>
                 </div>
@@ -109,6 +112,6 @@ Download da Documentação do SQL Data Warehouse </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
