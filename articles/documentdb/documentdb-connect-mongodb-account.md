@@ -1,35 +1,63 @@
 ---
-title: Conectar-se a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB | Microsoft Docs
-description: Saiba como se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB, agora disponível para a versão de visualização. Conectar-se usando a cadeia de conexão do MongoDB.
-keywords: cadeia de conexão do mongodb
+title: "Cadeia de conexão do MongoDB para conta do DocumentDB | Microsoft Docs"
+description: "Saiba como conectar seu aplicativo MongoDB a uma conta do Azure DocumentDB usando uma cadeia de conexão do MongoDB."
+keywords: "cadeia de conexão do mongodb"
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/22/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 0e947e0eaa6755f499860d5ce6d8bf354bc7eca4
+ms.openlocfilehash: 35a281cf40cc5bb0a23c17990438ba696b22bc54
+
 
 ---
-# <a name="how-to-connect-to-a-documentdb-account-with-protocol-support-for-mongodb"></a>Como se conectar a uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB
-Saiba como se conectar a uma conta do Banco de Dados de Documentos do Azure com suporte de protocolo para MongoDB usando o formato de URI da cadeia de conexão padrão do MongoDB.  
 
-## <a name="get-the-account's-connection-string-information"></a>Obter informações sobre a cadeia de conexão da conta
-1. Em uma nova janela, entre no [Portal do Azure](https://portal.azure.com).
-2. Na barra **Navegação Esquerda** da folha Conta, clique em **Cadeia de Conexão**. Para navegar até a **Folha Conta**, na Barra de navegação rápida, clique em **Mais Serviços**, clique em **DocumentDB (NoSQL)** e selecione a conta do DocumentDB com suporte de protocolo para MongoDB.
-   
-    ![Captura de tela da folha Todas as Configurações](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
-3. A folha **Informações da Cadeia de Conexões** é aberta e tem todas as informações necessárias para se conectar à conta usando um driver para MongoDB, incluindo uma cadeia de conexão pré-construída.
-   
+# <a name="connect-a-mongodb-app-to-an-documentdb-account-using-a-mongodb-connection-string"></a>Conectar um aplicativo MongoDB a uma conta do DocumentDB usando a cadeia de conexão do MongoDB
+Saiba como conectar seu aplicativo MongoDB a uma conta do Azure DocumentDB usando uma cadeia de conexão do MongoDB. Ao conectar seu aplicativo MongoDB a um banco de dados do Azure DocumentDB, você pode usar um banco de dados do DocumentDB como o repositório de dados do seu aplicativo MongoDB. 
+
+Este tutorial fornece duas maneiras de recuperar informações da cadeia de conexão:
+
+- [O método de Início rápido](#QuickStartConnection), para uso com os drivers do .NET, Node.js, Shell do MongoDB, Java e Python.
+- [O método de cadeia de conexão personalizada](#GetCustomConnection), para uso com outros drivers.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma conta do Azure. Se você ainda não tiver uma, crie agora mesmo uma [conta gratuita do Azure](https://azure.microsoft.com/free/). 
+- Uma conta do DocumentDB. Para obter instruções, veja [Criar uma conta do DocumentDB para uso com aplicativos MongoDB](documentdb-create-mongodb-account.md).
+
+## <a name="a-idquickstartconnectionaget-the-mongodb-connection-string-using-the-quick-start"></a><a id="QuickStartConnection"></a>Obter a cadeia de conexão do MongoDB usando o Início rápido
+1. Em um navegador da Internet, entre no [Portal do Azure](https://portal.azure.com).
+2. Na folha **NoSQL (DocumentDB)**, selecione a conta do DocumentDB com suporte ao protocolo do MongoDB. 
+3. Na barra **Navegação Esquerda** da folha da conta, clique em **Início rápido**. 
+4. Escolha sua plataforma (*driver do .NET*, *driver do Node.js*, *Shell do MongoDB*, *driver do Java*, *driver do Python*). Caso não veja seu driver ou ferramenta na lista, não se preocupe, pois documentamos continuamente mais trechos de código de conexão. Comente abaixo o que você gostaria de ver e leia [Obter informações da cadeia de conexão da conta](#GetCustomConnection) para saber como criar sua própria conexão.
+5. Copie e cole o trecho de código no seu aplicativo MongoDB e você estará pronto para seguir adiante.
+
+    ![Captura de tela da folha de início rápido](./media/documentdb-connect-mongodb-account/QuickStartBlade.png)
+
+## <a name="a-idgetcustomconnectiona-get-the-mongodb-connection-string-to-customize"></a><a id="GetCustomConnection"></a> Obter a cadeia de conexão do MongoDB para personalização
+1. Em um navegador da Internet, entre no [Portal do Azure](https://portal.azure.com).
+2. Na folha **NoSQL (DocumentDB)**, selecione a conta do DocumentDB com suporte ao protocolo do MongoDB. 
+3. Na barra **Navegação Esquerda** da folha da conta, clique em **Cadeia de Conexão**. 
+4. A folha **Informações da Cadeia de Conexões** é aberta e tem todas as informações necessárias para se conectar à conta usando um driver para MongoDB, incluindo uma cadeia de conexão pré-construída.
+
     ![Captura de tela da folha de cadeia de conexão](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
 
 ## <a name="connection-string-requirements"></a>Requisitos da cadeia de conexão
+> [!Important]
+> O DocumentDB tem padrões e requisitos de segurança rígidos. As contas do DocumentDB exigem autenticação e comunicação segura via **SSL**.
+>
+>
+
 É importante observar que o Banco de Dados de Documentos é compatível com o formato de URI da cadeia de conexão padrão do MongoDB, com alguns requisitos específicos: contas do Banco de Dados de Documentos exigem autenticação e comunicação segura via SSL.  Sendo assim, o formato da cadeia de conexão é:
 
     mongodb://username:password@host:port/[database]?ssl=true
@@ -50,32 +78,14 @@ Onde os valores dessa cadeia de caracteres estão disponíveis na folha Cadeia d
 
 Por exemplo, considere a conta mostrada nas Informações da Cadeia de Conexão acima.  Uma cadeia de conexão válida é:
 
-    mongodb://contoso123:<password@contoso123.documents.azure.com:10250/mydatabase?ssl=true
-
-## <a name="connecting-with-the-c#-driver-for-mongodb"></a>Conectando-se com o driver de C# para MongoDB
-Como já mencionado, todas as contas do Banco de Dados de Documentos exigem autenticação e comunicação segura via SSL. Embora o formato de URI da cadeia de conexão do MongoDB permita um parâmetro de cadeia de consulta ssl=true, trabalhar com o driver de C# do MongoDB exige o uso do objeto MongoClientSettings na criação de um MongoClient.  Considerando as informações de conta acima, o trecho de código a seguir mostra como se conectar à conta e trabalhar com o banco de dados "Tarefas".
-
-            MongoClientSettings settings = new MongoClientSettings();
-            settings.Server = new MongoServerAddress("contoso123.documents.azure.com", 10250);
-            settings.UseSsl = true;
-            settings.SslSettings = new SslSettings();
-            settings.SslSettings.EnabledSslProtocols = SslProtocols.Tls12;
-
-            MongoIdentity identity = new MongoInternalIdentity("Tasks", "contoso123");
-            MongoIdentityEvidence evidence = new PasswordEvidence("<password>");
-
-            settings.Credentials = new List<MongoCredential>()
-            {
-                new MongoCredential("SCRAM-SHA-1", identity, evidence)
-            };
-            MongoClient client = new MongoClient(settings);
-            var database = client.GetDatabase("Tasks",);
-
+    mongodb://contoso123:<password@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o MongoChef](documentdb-mongodb-mongochef.md) com uma conta do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
 * Explore [amostras](documentdb-mongodb-samples.md)do Banco de Dados de Documentos com suporte de protocolo para MongoDB.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO4-->
 
 
