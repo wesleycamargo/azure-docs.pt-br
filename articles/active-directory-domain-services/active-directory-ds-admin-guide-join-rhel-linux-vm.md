@@ -152,7 +152,7 @@ Abaixo temos uma saída de exemplo desses comandos:
 Consulte o artigo [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm.md#troubleshooting-domain-join) (Solucionando problemas de ingresso no domínio).
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Serviços de Domínio do Azure AD - guia de Introdução](active-directory-ds-getting-started.md)
+* [Serviços de Domínio do Azure AD - Guia de Introdução](active-directory-ds-getting-started.md)
 * [Ingressar uma máquina virtual do Windows Server em um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Como fazer logon em uma máquina virtual executando o Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Installing Kerberos (Instalando o Kerberos)](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
@@ -161,6 +161,6 @@ Consulte o artigo [Troubleshooting domain join](active-directory-ds-admin-guide-
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 
