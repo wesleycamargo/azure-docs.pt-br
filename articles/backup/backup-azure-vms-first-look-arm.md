@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 11/10/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: 3fe4d985c62b8476bd3b3f923fa17e7f364f9352
+ms.sourcegitcommit: d18cd2c117ced64e407e87bcc96da38b0351a341
+ms.openlocfilehash: 0b3409074e0b4929fdf1f5a6b915e3814facedf6
 
 
 ---
@@ -45,6 +45,37 @@ Para saber mais sobre como proteger VMs de armazenamento Premium, confira [Backu
 
 [!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
+Com base no número de VMs que você deseja proteger, pode começar de diferentes pontos de início. Se desejar fazer backup de várias máquinas virtuais em uma única operação, vá para o cofre de Serviços de Recuperação e inicie o backup do painel do cofre. Se tiver uma única VM para backup, você poderá fazer backup diretamente na folha de gerenciamento de VM.
+
+## <a name="configure-backup-from-vm-management-blade"></a>Configurar o Backup na folha de gerenciamento de VM
+1. Entre no [Portal do Azure](https://portal.azure.com/).
+2. No menu Ajuda, clique em **Mais Serviços** e, na lista de recursos, digite **Máquinas virtuais**.  É exibida a lista de máquinas virtuais. Na lista de máquinas virtuais, selecione uma máquina virtual da qual você deseja fazer backup. Isso abrirá a folha de gerenciamento de máquina virtual.
+ ![Folha de Gerenciamento de VM](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+
+3. Na folha de gerenciamento de VM, clique na opção "Backup" presente no lado esquerdo em Configurações.
+![Opção de backup na folha de gerenciamento de VM](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+
+4. Isso abrirá a folha Habilitar Backup. Esta folha espera duas entradas: cofre de serviços de recuperação - um recurso de Backup do Azure, que é usado para armazenar os backups das VMs; uma Política de Backup - a política de Backup Especifica o agendamento de backups e por quanto tempo manter cópias de backup. Esta folha é fornecida com as opções padrão. Você pode personalizá-los de acordo com os requisitos de backup.
+
+  ![Habilitar o Assistente de Backup](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+
+5. Para o cofre de Serviços de Recuperação, você pode selecionar um cofre existente ou criar um novo cofre. Se você estiver criando um novo cofre, ele será criado no mesmo grupo de recursos que a máquina virtual e o local será o mesmo que o da máquina virtual. Se quiser criar um cofre de serviços de recuperação com valores diferentes, [crie um cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) antes de clicar na opção Backup da Etapa 3 e selecioná-la nessa folha.
+
+6. Na folha Política de Backup, selecione a política de backup que você deseja aplicar no cofre e clique em **OK**.
+    ![Selecionar a política de backup](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+
+    Os detalhes da política padrão estão listados nos detalhes. Se você quiser criar uma política, selecione **Criar Nova** no menu suspenso. O menu suspenso também fornece uma opção para alternar a hora quando o instantâneo é criado. Para obter instruções sobre como definir uma política de backup, confira [Definindo uma política de backup](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Quando você clicar em **OK**, a política de backup será associada à máquina virtual.
+
+7. Clique em "Habilitar Backup" para configurar o Backup na máquina virtual. Isso disparará uma implantação.
+![Habilitar o botão Backup](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+
+8. Você pode acompanhar o progresso da configuração por meio de notificações.
+![Habilitar a notificação de Backup](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
+
+9. Após ser concluída a implantação para configurar o backup, clicar na opção "backup" na folha de gerenciamento de VM o leva à folha Item de Backup correspondente à VM da qual foi feito backup.
+![Exibição de Item de Backup de VM](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+
+## <a name="configure-backup-from-recovery-services-vault-view"></a>Configurar Exibição do Backup do cofre de Serviços de Recuperação
 De forma geral, veja as etapas que você concluirá.  
 
 1. Criar um cofre de Serviços de Recuperação para uma VM.
@@ -187,16 +218,16 @@ Para executar o **Backup Agora**:
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalar o Agente de VM na máquina virtual
-Essas informações são fornecidas quando necessário. O Agente de VM do Azure deve ser instalado na máquina virtual do Azure para a extensão de Backup funcionar. Contudo, se sua VM foi criada a partir da galeria do Azure, o Agente de VM já estará presente na máquina virtual. As VMs migradas dos datacenters locais não teriam o Agente de VM instalado. Nesse caso, o Agente de VM precisa ser instalado. Se você tiver problemas para fazer backup da VM do Azure, verifique se o Agente de VM do Azure está instalado corretamente na máquina virtual (veja a tabela abaixo). Se você criar uma VM personalizada, [verifique se a caixa de seleção **Instalar o Agente de VM** está marcada](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md) antes da máquina virtual ser provisionada.
+Essas informações são fornecidas quando necessário. O Agente de VM do Azure deve ser instalado na máquina virtual do Azure para a extensão de Backup funcionar. Contudo, se sua VM foi criada a partir da galeria do Azure, o Agente de VM já estará presente na máquina virtual. As VMs migradas dos datacenters locais não teriam o Agente de VM instalado. Nesse caso, o Agente de VM precisa ser instalado. Se você tiver problemas para fazer backup da VM do Azure, verifique se o Agente de VM do Azure está instalado corretamente na máquina virtual (veja a tabela abaixo). Se você criar uma VM personalizada, [verifique se a caixa de seleção **Instalar o Agente de VM** está marcada](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) antes da máquina virtual ser provisionada.
 
-Saiba mais sobre o [Agente de VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e [como instalá-lo](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md).
+Saiba mais sobre o [Agente de VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e [como instalá-lo](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 A tabela a seguir oferece informações adicionais sobre o Agente de VM para VMs do Windows e do Linux.
 
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Instalação do agente de VM |<li>Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisa de privilégios de Administrador para concluir a instalação. <li>[Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. |<li> Instale o [agente Linux](https://github.com/Azure/WALinuxAgent) mais recente do GitHub. Você precisa de privilégios de Administrador para concluir a instalação. <li> [Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. |
-| Atualizar o Agente de VM |Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |Siga as instruções em [Atualizando o agente de VM do Linux ](../virtual-machines/virtual-machines-linux-update-agent.md). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
+| Atualizar o Agente de VM |Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |Siga as instruções em [Atualizando o agente de VM do Linux ](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
 | Validação da instalação do Agente de VM |<li>Navegue até a pasta *C:\WindowsAzure\Packages* na VM do Azure. <li>Você deve encontrar o arquivo WaAppAgent.exe presente.<li> Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo Versão do Produto deve ser 2.6.1198.718 ou mais recente. |N/D |
 
 ### <a name="backup-extension"></a>Extensão de backup
@@ -215,6 +246,6 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
