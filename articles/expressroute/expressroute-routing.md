@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
-ms.author: osamazia
+ms.date: 12/12/2016
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d7516dd2fa2ddc23d381ade52c53115a8af7231
+ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
+ms.openlocfilehash: e04763fa711eed4c699f2bc3f20834849dfe52e0
 
 
 ---
@@ -101,7 +101,7 @@ Damos suporte a até 4.000 prefixos anunciados a nós por meio do emparelhamento
 
 A sessão BGP será descartada se o número de prefixos exceder o limite. Aceitaremos rotas padrão somente no link de emparelhamento privado. O provedor deve filtrar a rota padrão e endereços IP privados (RFC 1918) dos caminhos de emparelhamento público do Azure e emparelhamento da Microsoft. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>Roteamento de tráfego e de roteamento entre regiões
+## <a name="transit-routing-and-cross-region-routing"></a>Roteamento de tráfego e de roteamento entre regiões
 A Rota Expressa não pode ser configurada como roteadores de tráfego. Você precisará contar com seu provedor de conectividade para serviços de roteamento de tráfego.
 
 ## <a name="advertising-default-routes"></a>Anunciando rotas padrão
@@ -117,7 +117,7 @@ As rotas padrão são permitidas apenas em sessões de emparelhamento privado do
 > 
 > 
 
-## <a name="support-for-bgp-communities-preview"></a>Suporte a comunidades BGP (visualização)
+## <a name="support-for-bgp-communities"></a>Suporte a comunidades BGP
 Esta seção fornece uma visão geral de como as comunidades BGP serão usadas com a Rota Expressa. A Microsoft anunciará rotas nos caminhos de emparelhamento público e da Microsoft com rotas marcadas com valores de comunidade apropriados. A lógica para fazer isso e os detalhes de valores de comunidade são descritos abaixo. No entanto, a Microsoft não adotará valores de comunidade marcados para rotas anunciadas à Microsoft.
 
 Se estiver se conectando à Microsoft por meio da Rota Expressa em qualquer local de emparelhamento dentro de uma região geopolítica, você terá acesso a todos os serviços de nuvem da Microsoft em todas as regiões dentro dos limites geopolíticos. 
@@ -130,37 +130,39 @@ Você pode adquirir mais de um circuito da Rota Expressa por região geopolític
 
 A Microsoft marcará prefixos anunciados por meio do emparelhamento público e do emparelhamento da Microsoft com valores de comunidade BGP apropriados indicando a região em que os prefixos estão hospedados. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o [roteamento ideal aos clientes](expressroute-optimize-routing.md).
 
-| **Região Geopolítica** | **Região do Microsoft Azure** | **Valor de comunidade BGP** |
-| --- | --- | --- |
-| **América do Norte** | | |
-| Leste dos EUA |12076:51004 | |
-| Leste dos EUA 2 |12076:51005 | |
-| Oeste dos EUA |12076:51006 | |
-| Oeste dos EUA 2 |12076:51026 | |
-| Centro-Oeste dos EUA |12076:51027 | |
-| Centro-Norte dos EUA |12076:51007 | |
-| Centro-Sul dos Estados Unidos |12076:51008 | |
-| Centro dos EUA |12076:51009 | |
-| Canadá Central |12076:51020 | |
-| Leste do Canadá |12076:51021 | |
-| **América do Sul** | | |
-| Sul do Brasil |12076:51014 | |
-| **Europa** | | |
-| Norte da Europa |12076:51003 | |
-| Europa Ocidental |12076:51002 | |
-| **Pacífico Asiático** | | |
-| Ásia Oriental |12076:51010 | |
-| Sudeste Asiático |12076:51011 | |
-| **Japão** | | |
-| Leste do Japão |12076:51012 | |
-| Oeste do Japão |12076:51013 | |
-| **Austrália** | | |
-| Leste da Austrália |12076:51015 | |
-| Sudeste da Austrália |12076:51016 | |
-| **Índia** | | |
-| Sul da Índia |12076:51019 | |
-| Oeste da Índia |12076:51018 | |
-| Centro da Índia |12076:51017 | |
+| **Região do Microsoft Azure** | **Valor de comunidade BGP** |
+| --- | --- |
+| **América do Norte** | |
+| Leste dos EUA |12076:51004 |
+| Leste dos EUA 2 |12076:51005 |
+| Oeste dos EUA |12076:51006 |
+| Oeste dos EUA 2 |12076:51026 |
+| Centro-Oeste dos EUA |12076:51027 |
+| Centro-Norte dos EUA |12076:51007 |
+| Centro-Sul dos Estados Unidos |12076:51008 |
+| Centro dos EUA |12076:51009 |
+| Canadá Central |12076:51020 |
+| Leste do Canadá |12076:51021 |
+| **América do Sul** | |
+| Sul do Brasil |12076:51014 |
+| **Europa** | |
+| Norte da Europa |12076:51003 |
+| Europa Ocidental |12076:51002 |
+| Sul do Reino Unido | 12076:51024 |
+| Oeste do Reino Unido | 12076:51025 |
+| **Pacífico Asiático** | |
+| Ásia Oriental |12076:51010 |
+| Sudeste Asiático |12076:51011 |
+| **Japão** | |
+| Leste do Japão |12076:51012 |
+| Oeste do Japão |12076:51013 |
+| **Austrália** | |
+| Leste da Austrália |12076:51015 |
+| Sudeste da Austrália |12076:51016 |
+| **Índia** | |
+| Sul da Índia |12076:51019 |
+| Oeste da Índia |12076:51018 |
+| Centro da Índia |12076:51017 |
 
 Todas as rotas anunciadas pela Microsoft serão marcadas com o valor de comunidade apropriado. 
 
@@ -173,16 +175,34 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 
 | **Serviço** | **Valor de comunidade BGP** |
 | --- | --- |
-| **Exchange** |12076:5010 |
-| **SharePoint** |12076:5020 |
-| **Skype For Business** |12076:5030 |
-| **CRM Online** |12076:5040 |
-| **Outros serviços do Office 365** |12076:5100 |
+| Exchange Online |12076:5010 |
+| SharePoint Online |12076:5020 |
+| Skype for Business Online |12076:5030 |
+| CRM Online |12076:5040 |
+| Outros serviços Online do Office 365 |12076:5100 |
 
 > [!NOTE]
 > A Microsoft não atende a valores de comunidade BGP definidos por você nas rotas anunciadas para a Microsoft.
 > 
 > 
+
+### <a name="bgp-community-support-in-national-clouds-preview"></a>Suporte à Comunidade de BGP no National Clouds (visualização)
+
+| **Região do Azure de Nuvens Nacionais**| **Valor de comunidade BGP** |
+| --- | --- |
+| **Governo dos EUA** |  |
+| US Gov Iowa | 12076:51109 |
+| US Gov Virginia | 12076:51105 |
+
+
+| **Serviço nas Nuvens Nacionais** | **Valor de comunidade BGP** |
+| --- | --- |
+| **Governo dos EUA** |  |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Skype for Business Online |12076:5130 |
+| CRM Online |12076:5140 |
+| Outros serviços Online do Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Próximas etapas
 * Configurar sua conexão da Rota Expressa.
@@ -194,6 +214,6 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

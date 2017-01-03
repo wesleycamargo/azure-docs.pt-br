@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
-ms.openlocfilehash: 9d9ddbddb1039f56c420cb8f10dfa9bb82788b72
+ms.sourcegitcommit: 3fdd561bba898b0e790f69a82ed731d7fd87d8c8
+ms.openlocfilehash: 7cf9fe659a91816e42394c1377232e122fe924a6
 
 
 ---
@@ -48,7 +48,7 @@ Uma solicitação de token de acesso de serviço para serviço contém os parâm
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| response_type |obrigatório |Especifica o tipo de resposta solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
+| grant_type |obrigatório |Especifica o tipo de resposta solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser **client_credentials**. |
 | client_id |obrigatório |Especifica a ID de cliente do Azure AD do serviço Web de chamada. Para localizar a ID de cliente do aplicativo de chamada, no Portal de Gerenciamento do Azure, clique em **Active Directory**, clique no diretório, clique no aplicativo e em **Configurar**. |
 | client_secret |obrigatório |Insira uma chave registrada para o serviço Web de chamada no Azure AD. Para criar uma chave, no Portal de Gerenciamento do Azure, clique em **Active Directory**, clique no diretório, clique no aplicativo e em **Configurar**. |
 | recurso |obrigatório |Insira o URI da ID de Aplicativo do serviço Web de recebimento. Para localizar o URI de ID do Aplicativo, no Portal de Gerenciamento do Azure, clique em **Active Directory**, clique no diretório, clique no aplicativo e em **Configurar**. |
@@ -93,6 +93,6 @@ O exemplo a seguir mostra uma resposta bem-sucedida a uma solicitação de um to
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

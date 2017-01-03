@@ -1,12 +1,12 @@
-Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-end .NET](#dotnet) ou [back-end Node.js](#nodejs).
+Use o procedimento abaixo, que corresponde ao seu tipo de projeto de back-end&mdash;, um [back-end .NET](#dotnet) ou um [back-end Node.js](#nodejs).
 
-### <a name="dotnet"></a>Projeto de back-end .NET
-1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **Gerenciar pacotes NuGet**, pesquise por `Microsoft.Azure.NotificationHubs` e clique em **Instalar**. Isso instala a biblioteca de cliente de Hubs de notificação.
-2. Na pasta Controladores, abra TodoItemController.cs e adicione as instruções a seguir `using`:
-   
+### <a name="a-namedotnetanet-back-end-project"></a><a name="dotnet"></a>Projeto de back-end do .NET
+1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **Gerenciar pacotes NuGet**. Procure `Microsoft.Azure.NotificationHubs` e então clique em **Instalar**. Isso instala a biblioteca de cliente de Hubs de notificação.
+2. Na pasta Controladores, abra TodoItemController.cs e adicione as instruções a seguir `using` :
+
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
-3. Substitua o método `PostTodoItem` pelo seguinte código:
+3. Substitua o método `PostTodoItem` pelo seguinte código:  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -14,7 +14,7 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
             // Get the settings for the server project.
             HttpConfiguration config = this.Configuration;
 
-            MobileAppSettingsDictionary settings = 
+            MobileAppSettingsDictionary settings =
                 this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
             // Get the Notification Hubs credentials for the Mobile App.
@@ -27,7 +27,7 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
             .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
             // Android payload
-            var androidNotificationPayload = "{ "data" : {"message":"" + item.Text + ""}}";
+            var androidNotificationPayload = "{ \"data\" : {\"message\":\"" + item.Text + "\"}}";
 
             try
             {
@@ -46,30 +46,30 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-1. Republicar o projeto de servidor.
+4. Republicar o projeto de servidor.
 
-### <a name="nodejs"></a>Projeto de back-end Node.js
+### <a name="a-namenodejsanodejs-back-end-project"></a><a name="nodejs"></a>Projeto de back-end do Node.js
 1. Se você ainda não fez isso, [baixe o projeto de início rápido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no Portal do Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Substitua o código existente no arquivo todoitem.js pelo código a seguir:
-   
+
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
         logger = require('azure-mobile-apps/src/logger');
-   
+
         var table = azureMobileApps.table();
-   
+
         table.insert(function (context) {
-        // For more information about the Notification Hubs JavaScript SDK, 
+        // For more information about the Notification Hubs JavaScript SDK,
         // see http://aka.ms/nodejshubs
         logger.info('Running TodoItem.insert');
-   
+
         // Define the GCM payload.
         var payload = {
             "data": {
                 "message": context.item.text
             }
         };   
-   
+
         // Execute the insert.  The insert returns the results as a Promise,
         // Do the push as a post-execute action within the promise flow.
         return context.execute()
@@ -92,10 +92,13 @@ Use o procedimento correspondente ao seu tipo de projeto de back-end, um [back-e
                 logger.error('Error while running context.execute: ', error);
             });
         });
-   
+
         module.exports = table;  
-   
+
     Isso envia uma notificação GCM que contém o item.text quando um novo item todo é inserido.
 3. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+<!--HONumber=Dec16_HO2-->
+
+

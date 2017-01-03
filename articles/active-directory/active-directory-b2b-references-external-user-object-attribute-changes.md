@@ -43,6 +43,6 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

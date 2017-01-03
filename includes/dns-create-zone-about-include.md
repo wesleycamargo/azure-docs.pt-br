@@ -1,13 +1,18 @@
-Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Para iniciar a hospedagem de seu domínio, você primeiro precisa criar uma zona DNS. Qualquer registro DNS criado para um determinado domínio estará dentro de uma zona DNS do domínio.
+Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Para iniciar a hospedagem do seu domínio no DNS do Azure, você precisará criar uma zona DNS para esse nome de domínio. Cada registro DNS para seu domínio é criado dentro dessa zona DNS.
 
-Por exemplo, domínio "contoso.com" pode conter uma série de registros DNS, como “mail.contoso.com” (para um servidor de email) e “www.contoso.com” (para um site da Web).
+Por exemplo, o domínio 'contoso.com' pode conter vários registros DNS, como 'mail.contoso.com' (para um servidor de email) e 'www.contoso.com' (para um site da Web).
 
-## <a name="a-namenamesaabout-dns-zone-names"></a><a name="names"></a>Sobre nomes da zona DNS
+Ao criar uma zona DNS no DNS do Azure:
+
 * O nome da zona deve ser exclusivo dentro do grupo de recursos e a zona não deve existir ainda. Caso contrário, a operação falhará.
 * O mesmo nome de zona pode ser reutilizado em outro grupo de recursos ou uma assinatura do Azure diferente.
-* Quando várias zonas compartilharem o mesmo nome, a cada instância serão atribuídos endereços de servidor de nome diferentes, e somente uma instância pode ser delegada do domínio pai. Confira [Delegar um domínio ao Azure DNS](../articles/dns/dns-domain-delegation.md)para saber mais.
+* Quando várias zonas têm o mesmo nome, cada instância recebe endereços de servidor de nomes diferentes. Apenas um conjunto de endereços pode ser configurado com o registrador de nome de domínio.
 
+> [!NOTE]
+> Você não precisa ter um nome de domínio para criar uma zona DNS com esse nome de domínio no DNS do Azure. No entanto, você precisa ser o proprietário do domínio para configurar os servidores de nomes do DNS do Azure como os servidores de nome corretos para o nome de domínio no registrador de nome de domínio.
+> 
+> Confira [Delegar um domínio ao DNS do Azure](../articles/dns/dns-domain-delegation.md)para saber mais.
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

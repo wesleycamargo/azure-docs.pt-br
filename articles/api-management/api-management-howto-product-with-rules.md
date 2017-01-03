@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
 
 
 ---
@@ -31,7 +31,7 @@ Para ver os cenários de limitação mais avançados usando as políticas [rate-
 Nesta etapa você criará um produto de avaliação gratuita que não requer aprovação de assinatura.
 
 > [!NOTE]
-> Se já tiver um produto configurado e desejar usá-lo para este tutorial, pule para [Configurar políticas de cota e de limite de taxa de chamada][Configurar políticas de cota e de limite de taxa de chamada] e siga o tutorial a partir daí, usando seu produto em vez do produto Avaliação Gratuita.
+> Se já tiver um produto configurado e desejar usá-lo para este tutorial, você pode pular para [Configurar políticas de cota e de limite de taxa de chamada][Configure call rate limit and quota policies] e seguir o tutorial a partir daí, usando seu produto em vez do produto Avaliação Gratuita.
 > 
 > 
 
@@ -39,7 +39,7 @@ Para começar, clique em **Portal do Editor** no Portal do Azure para acessar o 
 
 ![Portal do editor][api-management-management-console]
 
-> Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Gerenciar sua primeira API no Gerenciamento de API do Azure][Gerenciar sua primeira API no Gerenciamento de API do Azure].
+> Se ainda não criou uma instância do serviço de Gerenciamento de API, confira [Criar uma instância do serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Gerenciar sua primeira API no Gerenciamento de API do Azure][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -67,7 +67,7 @@ Após inserir todos os valores, clique em **Salvar** para criar o produto.
 
 Por padrão, os novos produtos ficam visíveis para os usuários no grupo **Administradores** . Vamos adicionar o grupo **Desenvolvedores** . Clique em **Avaliação Gratuita**, em seguida, clique na guia **Visibilidade**.
 
-> No Gerenciamento de API, os grupos são usados para gerenciar a visibilidade dos produtos para desenvolvedores. Os produtos dão visibilidade aos grupos e os desenvolvedores podem exibir e assinar os produtos visíveis para os grupos aos quais pertencem. Para obter mais informações, consulte [Como criar e usar grupos para gerenciar contas de desenvolvedor no Gerenciamento de API do Azure][Como criar e usar grupos para gerenciar contas de desenvolvedor no Gerenciamento de API do Azure].
+> No Gerenciamento de API, os grupos são usados para gerenciar a visibilidade dos produtos para desenvolvedores. Os produtos dão visibilidade aos grupos e os desenvolvedores podem exibir e assinar os produtos visíveis para os grupos aos quais pertencem. Para obter mais informações, confira [Como criar e usar grupos no Gerenciamento de API do Azure][How to create and use groups in Azure API Management].
 > 
 > 
 
@@ -78,7 +78,7 @@ Marque a caixa de seleção **Desenvolvedores**, em seguida, clique em **Salvar*
 ## <a name="add-api"> </a>Para adicionar uma API ao produto
 Nesta etapa do tutorial você adicionará a API de ECO a uma produto de avaliação gratuita.
 
-> Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de ECO que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para saber mais, confira [Gerenciar sua primeira API no Gerenciamento de API do Azure][Gerenciar sua primeira API no Gerenciamento de API do Azure].
+> Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de ECO que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para saber mais, confira [Gerenciar sua primeira API no Gerenciamento de API do Azure][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -113,44 +113,58 @@ As duas políticas que estamos adicionando neste tutorial são [Limitar taxa de 
 
 Depois do cursor estar posicionado no elemento da política de **entrada**, clique na seta ao lado **Limitar taxa de chamadas por assinatura** para inserir o modelo de política.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    <api name="name" calls="number">
-    <operation name="name" calls="number" />
-    </api>
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+<api name="name" calls="number">
+<operation name="name" calls="number" />
+</api>
+</rate-limit>
+```
 
 **Limitar taxa de chamada por assinatura** pode ser usada no nível do produto e também nos níveis de nome de operação individual e da API. Neste tutorial, apenas as políticas no nível do produto são usadas, por isso, exclua os elementos **api** e **operation** do elemento **rate-limit**, de modo que apenas o elemento **rate-limit** permaneça, como mostrado no exemplo a seguir.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+</rate-limit>
+```
 
 No produto de Avaliação Gratuita, a taxa máxima permitida é de 10 chamadas por minuto, portanto, digite **10** como o valor para o atributo **calls** e **60** para o atributo **renewal-period**.
 
-    <rate-limit calls="10" renewal-period="60">
-    </rate-limit>
+```xml
+<rate-limit calls="10" renewal-period="60">
+</rate-limit>
+```
 
 Para configurar a política **Definir cota de uso por assinatura**, posicione seu cursor imediatamente abaixo do elemento **rate-limit** recém-adicionado no elemento **inbound**, em seguida, clique na seta à esquerda de **Definir cota de uso por assinatura**.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="name" calls="number" bandwidth="kilobytes">
-    <operation name="name" calls="number" bandwidth="kilobytes" />
-    </api>
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+<api name="name" calls="number" bandwidth="kilobytes">
+<operation name="name" calls="number" bandwidth="kilobytes" />
+</api>
+</quota>
+```
 
 Como essa política também deve ficar no nível do produto, exclua os elementos do nome **api** e **operation**, como mostrado no exemplo a seguir.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+</quota>
+```
 
 As cotas podem ser baseadas no número de chamadas por intervalo, largura de banda ou ambos. Neste tutorial, não estamos limitando com base na largura de banda, por isso, exclua o atributo **largura de banda** .
 
-    <quota calls="number" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" renewal-period="seconds">
+</quota>
+```
 
 No produto de Avaliação Gratuita, a cota é de 200 chamadas por semana. Especifique **200** como o valor para o atributo **calls** e especifique **604800** como o valor do atributo **renewal-period**.
 
-    <quota calls="200" renewal-period="604800">
-    </quota>
+```xml
+<quota calls="200" renewal-period="604800">
+</quota>
+```
 
 > Os intervalos de política são especificados em segundos. Para calcular o intervalo para uma semana, você pode multiplicar o número de dias (7) pelo número de horas em um dia (24), pelo número de minutos em uma hora (60), pelo número de segundos em um minuto (60): 7 * 24 * 60 * 60 = 604800.
 > 
@@ -158,21 +172,23 @@ No produto de Avaliação Gratuita, a cota é de 200 chamadas por semana. Especi
 
 Ao finalizar a configuração da política, ela deve corresponder ao exemplo a seguir.
 
-    <policies>
-        <inbound>
-            <rate-limit calls="10" renewal-period="60">
-            </rate-limit>
-            <quota calls="200" renewal-period="604800">
-            </quota>
-            <base />
-
-    </inbound>
-    <outbound>
-
+```xml
+<policies>
+    <inbound>
+        <rate-limit calls="10" renewal-period="60">
+        </rate-limit>
+        <quota calls="200" renewal-period="604800">
+        </quota>
         <base />
 
-        </outbound>
-    </policies>
+</inbound>
+<outbound>
+
+    <base />
+
+    </outbound>
+</policies>
+```
 
 Após configurar as políticas desejadas, clique em **Salvar**.
 
@@ -286,30 +302,30 @@ Quando a política de limite de taxa de 10 chamadas por minuto estiver em vigor,
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[Como adicionar operações a uma API]: api-management-howto-add-operations.md
-[Como adicionar e publicar um produto]: api-management-howto-add-products.md
-[Monitoramento e análise]: ../api-management-monitoring.md
-[Adicionar APIs a um produto]: api-management-howto-add-products.md#add-apis
-[Publicar um produto]: api-management-howto-add-products.md#publish-product
-[Gerenciar sua primeira API no Gerenciamento de API do Azure]: api-management-get-started.md
-[Como criar e usar grupos no Gerenciamento de API do Azure]: api-management-howto-create-groups.md
-[Ver os assinantes de um produto]: api-management-howto-add-products.md#view-subscribers
-[Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
-[Próximas etapas]: #next-steps
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Manage your first API in Azure API Management]: api-management-get-started.md
+[How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
+[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Next steps]: #next-steps
 
-[Criar um produto]: #create-product
-[Configurar políticas de cota e de limite de taxa de chamada]: #policies
-[Adicionar uma API ao produto]: #add-api
-[Publicar o produto]: #publish-product
-[Assinar uma conta de desenvolvedor para o produto]: #subscribe-account
-[Chamar uma operação e testar o limite da taxa]: #test-rate-limit
+[Create a product]: #create-product
+[Configure call rate limit and quota policies]: #policies
+[Add an API to the product]: #add-api
+[Publish the product]: #publish-product
+[Subscribe a developer account to the product]: #subscribe-account
+[Call an operation and test the rate limit]: #test-rate-limit
 
-[Limitar a taxa de chamadas]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Definir uma cota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

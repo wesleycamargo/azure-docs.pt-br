@@ -11,11 +11,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 910ccb17119a3668ba99d7d056502d51e6266bd4
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 1e18f20e202c199036ff2012dcc6d415898cac7f
 
 
 ---
@@ -30,27 +30,27 @@ ms.openlocfilehash: 910ccb17119a3668ba99d7d056502d51e6266bd4
 
 Ao enviar solicitações de pesquisa à Pesquisa do Azure, há vários parâmetros que podem ser especificados junto com as palavras reais digitadas na caixa de pesquisa de seu aplicativo. Esses parâmetros de consulta permitem conseguir maior controle da experiência de pesquisa de texto completa.
 
-Abaixo está uma lista que explica resumidamente os usos comuns dos parâmetros de consulta na Pesquisa do Azure. Para ver uma cobertura completa dos parâmetros de consulta e seu comportamento, consulte as páginas detalhadas da [API REST](https://msdn.microsoft.com/library/azure/dn798927.aspx) e do [SDK do .NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.searchparameters_properties.aspx).
+Abaixo está uma lista que explica resumidamente os usos comuns dos parâmetros de consulta na Pesquisa do Azure. Para ver uma cobertura completa dos parâmetros de consulta e seu comportamento, consulte as páginas detalhadas da [API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) e do [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary).
 
 ## <a name="types-of-queries"></a>Tipos de consultas
 a Pesquisa do Azure oferece várias opções para a criação de consultas extremamente poderosas. Os dois tipos de consulta principais que você usará são `search` e `filter`. Uma consulta `search` procura um ou mais termos em todos os campos *pesquisáveis* no índice e funciona como você esperaria que um mecanismo de pesquisa, como o Bing ou o Google, funcionasse. Uma consulta `filter` avalia uma expressão booliana em todos os campos *filtráveis* em um índice. Diferentemente das consultas `search`, as consultas `filter` fazem a correspondência exata do conteúdo de um campo, o que significa que elas diferenciam letras maiúsculas de minúsculas para os campos de cadeia de caracteres.
 
 Você pode usar pesquisas e filtros juntos ou separados. Se você usá-los juntos, o filtro será aplicado primeiro ao índice inteiro e, em seguida, a pesquisa será realizada nos resultados do filtro. Os filtros, portanto, podem ser uma técnica útil para melhorar o desempenho da consulta, uma vez que reduzem o conjunto de documentos que a consulta de pesquisa precisa processar.
 
-A sintaxe das expressões de filtro é um subconjunto da [linguagem de filtro OData](https://msdn.microsoft.com/library/azure/dn798921.aspx). Para as consultas de pesquisa, você pode usar a [sintaxe simplificada](https://msdn.microsoft.com/library/azure/dn798920.aspx) ou a [sintaxe de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx), que são analisadas abaixo.
+A sintaxe das expressões de filtro é um subconjunto da [linguagem de filtro OData](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search). Para as consultas de pesquisa, você pode usar a [sintaxe simplificada](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) ou a [sintaxe de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search), que são analisadas abaixo.
 
 ### <a name="simple-query-syntax"></a>Sintaxe de consulta simples
-A [sintaxe de consulta simples](https://msdn.microsoft.com/library/azure/dn798920.aspx) é a linguagem de consulta padrão usada na Pesquisa do Azure. A sintaxe de consulta simples dá suporte a vários operadores de pesquisa comuns, incluindo o AND, OR, NOT, frase, sufixo e operadores de precedência.
+A [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) é a linguagem de consulta padrão usada na Pesquisa do Azure. A sintaxe de consulta simples dá suporte a vários operadores de pesquisa comuns, incluindo o AND, OR, NOT, frase, sufixo e operadores de precedência.
 
 ### <a name="lucene-query-syntax"></a>sintaxe de consulta Lucene
-A [sintaxe de consulta Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) permite que você use a linguagem de consulta amplamente adotada e expressiva desenvolvida como parte do [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
+A [sintaxe de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) permite que você use a linguagem de consulta amplamente adotada e expressiva desenvolvida como parte do [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-Usar a sintaxe de consulta permite que você consiga facilmente os seguintes recursos: [Consultas com escopo de campo](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fields), [pesquisa difusa](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fuzzy), [pesquisa por proximidade](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_proximity), [aumento de termos](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_termboost), [pesquisa de expressão regular](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_regex), [pesquisa de curinga](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_wildcard), [conceitos básicos da sintaxe](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_syntax) e [consultas usando operadores boolianos](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_boolean).
+Usar a sintaxe de consulta permite que você consiga facilmente os seguintes recursos: [Consultas com escopo de campo](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields), [pesquisa difusa](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy), [pesquisa por proximidade](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_proximity), [aumento de termos](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost), [pesquisa de expressão regular](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_regex), [pesquisa de curinga](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_wildcard), [conceitos básicos da sintaxe](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax) e [consultas usando operadores boolianos](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_boolean).
 
 ## <a name="ordering-results"></a>Ordenando resultados
 Ao receber os resultados de uma consulta de pesquisa, você pode solicitar que a Pesquisa do Azure apresente os resultados ordenados por valores em um campo específico. Por padrão, a Pesquisa do Azure ordena os resultados da pesquisa com base na classificação de pontuação da pesquisa de cada documento, que é derivada de [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Se você quiser que a Pesquisa do Azure retorne os resultados ordenados por um valor diferente da pontuação da pesquisa, poderá usar o `orderby` parâmetro de pesquisa. Você pode especificar o valor do parâmetro `orderby` para incluir os nomes de campo e as chamadas para a função [`geo.distance()` ](https://msdn.microsoft.com/library/azure/dn798921.aspx) para obter os valores geoespaciais. Cada expressão pode ser seguida por `asc` para indicar que os resultados são solicitados na ordem ascendente e `desc` para indicar que os resultados são solicitados na ordem descendente. Ordem ascendente da classificação padrão.
+Se você quiser que a Pesquisa do Azure retorne os resultados ordenados por um valor diferente da pontuação da pesquisa, poderá usar o `orderby` parâmetro de pesquisa. Você pode especificar o valor do parâmetro `orderby` para incluir os nomes de campo e as chamadas para a função [`geo.distance()` ](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) para obter os valores geoespaciais. Cada expressão pode ser seguida por `asc` para indicar que os resultados são solicitados na ordem ascendente e `desc` para indicar que os resultados são solicitados na ordem descendente. Ordem ascendente da classificação padrão.
 
 ## <a name="paging"></a>Paginamento
 A Pesquisa do Azure facilita implementar a paginação dos resultados da pesquisa. Usando os parâmetros `top` e `skip`, você pode emitir sem problemas as solicitações de pesquisa que permitem receber o conjunto total de resultados da pesquisa em subconjuntos gerenciáveis e ordenados, que permitem facilmente as boas práticas da IU de pesquisa. Ao receber esses subconjuntos menores de resultados, você também pode receber a contagem de documentos no conjunto total de resultados da pesquisa.
@@ -63,6 +63,6 @@ Na Pesquisa do Azure, enfatizar a parte exata dos resultados da pesquisa que cor
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Trabalhando com conectores de Proxy de Aplicativo do Azure AD | Microsoft Docs
+title: Trabalhando com conectores do Proxy de Aplicativo do Azure AD | Microsoft Docs
 description: Aborda como criar e gerenciar grupos de conectores no Proxy de Aplicativo do Azure AD.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b283796a-9679-4c79-b703-802bb850f65d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c6c16cd2adb22e58a2e5834f5b56aacfa084e407
+
 
 ---
-# Publicar aplicativos em redes e locais separados usando grupos de conectores
+# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicativos em redes e locais separados usando grupos de conectores
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-application-proxy-connectors.md)
@@ -32,28 +36,32 @@ Os grupos de conectores são úteis para diversos cenários, incluindo:
 * Grupos de Conectores podem ser usados em sites de Recuperação de desastres para detectar failover ou como backup do site principal.
 * Grupos de Conectores também podem ser usados para atender a várias empresas de um único locatário.
 
-## Pré-requisito: criar seus conectores
-Para agrupar seus conectores, você precisa assegurar-se de ter [instalado vários conectores](active-directory-application-proxy-enable.md) e de tê-los nomeado e agrupado. Por fim, você precisa atribuí-los a aplicativos específicos.
+## <a name="prerequisite-create-your-connectors"></a>Pré-requisito: criar seus conectores
+Para agrupar seus conectores, você precisa assegurar-se de ter [instalado vários conectores](active-directory-application-proxy-enable.md)e de tê-los nomeado e agrupado. Por fim, você precisa atribuí-los a aplicativos específicos.
 
-## Etapa 1: Criar grupos de conectores
+## <a name="step-1-create-connector-groups"></a>Etapa 1: Criar grupos de conectores
 Você pode criar quantos grupos de conectores desejar. A criação de grupo de Conectores é feita no portal clássico do Azure.
 
-1. Escolha o diretório e clique em **Configurar**. ![Captura de tela de configuração do proxy de aplicativo - clique em gerenciar grupos de conectores](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png)
-2. Em Proxy de Aplicativo, clique em **Gerenciar Grupos de Conectores** e crie um novo grupo de conectores fornecendo um nome ao grupo. ![Captura de tela de grupos de conectores de proxy de aplicativo - nomeie o novo grupo](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
+1. Escolha o diretório e clique em **Configurar**.  
+    ![Captura de tela da configuração do proxy de aplicativo - clique em gerenciar grupos de conectores](./media/active-directory-application-proxy-connectors/app_proxy_connectors_creategroup.png)
+2. Em Proxy de Aplicativo, clique em **Gerenciar Grupos de Conectores** e crie um novo grupo de conectores fornecendo um nome ao grupo.  
+    ![Captura de tela dos grupos de conectores do proxy de aplicativo - nomeie o novo grupo](./media/active-directory-application-proxy-connectors/app_proxy_connectors_namegroup.png)
 
-## Etapa 2: Atribuir conectores aos seus grupos
+## <a name="step-2-assign-connectors-to-your-groups"></a>Etapa 2: Atribuir conectores aos seus grupos
 Após a criação dos grupos de conectores, mova os conectores para o grupo apropriado.
 
 1. Em **Proxy de Aplicativo**, clique em **Gerenciar Conectores**.
-2. Em **Grupo**, escolha o grupo desejado para cada conector. Podem ser necessários até 10 minutos para que os conectores fiquem ativos no novo grupo. ![Captura de tela de conectores de proxy de aplicativo - selecione o grupo do menu suspenso](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
+2. Em **Grupo**, escolha o grupo desejado para cada conector. Podem ser necessários até 10 minutos para que os conectores fiquem ativos no novo grupo.  
+    ![Captura de tela dos conectores do proxy de aplicativo - selecione o grupo no menu suspenso](./media/active-directory-application-proxy-connectors/app_proxy_connectors_connectorlist.png)
 
-## Etapa 3: Atribuir aplicativos aos grupos de conectores
+## <a name="step-3-assign-applications-to-your-connector-groups"></a>Etapa 3: Atribuir aplicativos aos grupos de conectores
 A última etapa é atribuir cada aplicativo ao grupo de conectores que vai servi-lo.
 
 1. No Portal Clássico do Azure, no seu diretório, escolha o Aplicativo que você deseja atribuir ao grupo e clique em **Configurar**.
-2. Em **Grupo de conectores**, selecione o grupo que deseja usar. A alteração é aplicada imediatamente. ![Captura de tela de grupo de conectores de proxy de aplicativo - selecione o grupo do menu suspenso](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)
+2. Em **Grupo de conectores**, selecione o grupo que deseja usar. A alteração é aplicada imediatamente.  
+    ![Captura de tela do grupo de conectores do proxy de aplicativo - selecione o grupo no menu suspenso](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)
 
-## Confira também
+## <a name="see-also"></a>Confira também
 * [Habilitar Proxy de aplicativo](active-directory-application-proxy-enable.md)
 * [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
 * [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
@@ -61,4 +69,9 @@ A última etapa é atribuir cada aplicativo ao grupo de conectores que vai servi
 
 Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO5-->
+
+

@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 47af3ae7fe78fdd794330bb5069bb734b2754eaf
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 47fb1724ac72df8b83012bcacdc435ea847547da
 
 
 ---
@@ -42,7 +42,7 @@ Os cenários descritos acima são:
 * **Identidades federadas**: são identidades existentes no local e na nuvem.  Com o Azure AD Connect, os usuários são criados ou associados a contas existentes do AD do Azure.  
 
 > [!NOTE]
-> Para saber mais sobre as opções de integração, leia o artigo [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md).
+> Para saber mais sobre as opções de integração, leia o artigo [Integração de suas identidades locais com o Active Directory do Azure](connect/active-directory-aadconnect.md).
 > 
 > 
 
@@ -110,7 +110,7 @@ Escolha a topologia que vai usar quando definir a estratégia de sincronização
 ![](./media/hybrid-id-design-considerations/single-forest.png) O cenário de floresta única é muito comum nas organizações de pequeno e grande porte, que pretendem trabalhar com várias florestas, conforme ilustrado na Figure 5.
 
 > [!NOTE]
-> Para saber mais sobre as diversas topologias locais e as topologias do AD do Azure com serviço de sincronização do Azure AD Connect, leia o artigo [Topologias do Azure AD Connect](active-directory-aadconnect-topologies.md).
+> Para saber mais sobre as diversas topologias locais e as topologias do AD do Azure com serviço de sincronização do Azure AD Connect, leia o artigo [Topologias do Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
 > 
 > 
 
@@ -130,7 +130,7 @@ Se esse o caso, considere a topologia de várias florestas do AD do Azure, caso 
 * Caso tenha uma caixa de correio vinculada, haverá outra conta em outra floresta usada para iniciar sessão.
 
 > [!NOTE]
-> Os objetos existentes no local e na nuvem são "conectados" através de um identificador exclusivo. No contexto de sincronização de diretório, este identificador exclusivo é conhecido como SourceAnchor. No contexto de logon único, ele é conhecido como ImmutableId. [Conceitos de design do Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor) .
+> Os objetos existentes no local e na nuvem são "conectados" através de um identificador exclusivo. No contexto de sincronização de diretório, este identificador exclusivo é conhecido como SourceAnchor. No contexto de logon único, ele é conhecido como ImmutableId. [Conceitos de design do Azure AD Connect](connect/active-directory-aadconnect-design-concepts.md#sourceanchor) .
 > 
 > 
 
@@ -216,6 +216,6 @@ A autenticação multifator está disponível por padrão para administradores g
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

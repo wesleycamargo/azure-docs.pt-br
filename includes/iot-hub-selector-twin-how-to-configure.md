@@ -9,7 +9,7 @@ Em [Introdução a dispositivos gêmeos do Hub IoT][lnk-twin-tutorial], você ap
 
 Neste tutorial, você aprenderá a usar as *propriedades desejadas* do gêmeo de dispositivo em conjunto com as *propriedades relatadas*, para configurar aplicativos de dispositivo remotamente. Mais especificamente, este tutorial mostra como as propriedades relatadas e desejadas de um gêmeo de dispositivo habilitam uma configuração de várias etapas de uma configuração de aplicativo de dispositivo e fornecem a visibilidade para o back-end de solução do status da operação em todos os dispositivos. Você pode encontrar mais informações sobre a função das configurações do dispositivo em [Visão geral do gerenciamento de dispositivos com o Hub IoT][lnk-dm-overview].
 
-Em um nível elevado, usar dispositivos gêmeos permite que o back-end da solução especifique as configurações desejadas para os dispositivos gerenciados, em vez de enviar comandos específicos. Isso faz com que o dispositivo seja responsável por estabelecer a melhor maneira de atualizar sua configuração (muito importante em cenários de IoT em que condições específicas de dispositivo afetam a capacidade de executar imediatamente comandos específicos), enquanto relata continuamente para o back-end o estado atual e possíveis condições de erro do processo de atualização. Esse padrão é fundamental para o gerenciamento de grandes conjuntos de dispositivos, pois ele permite que o back-end tenha visibilidade total do estado do processo de configuração em todos os dispositivos.
+Em um nível elevado, usar dispositivos gêmeos permite que o back-end da solução especifique as configurações desejadas para os dispositivos gerenciados, em vez de enviar comandos específicos. Isso faz com que o dispositivo seja responsável por estabelecer a melhor maneira de atualizar sua configuração (muito importante em cenários de IoT em que condições específicas de dispositivo afetam a capacidade de executar imediatamente comandos específicos), enquanto relata continuamente para o back-end da solução o estado atual e possíveis condições de erro do processo de atualização. Esse padrão é fundamental para o gerenciamento de grandes conjuntos de dispositivos, pois ele permite que o back-end da solução tenha visibilidade total do estado do processo de configuração em todos os dispositivos.
 
 > [!NOTE]
 > Em cenários em que os dispositivos são controlados de forma mais interativa (ativar um ventilador por meio de um aplicativo controlado pelo usuário), considere usar [métodos diretos][lnk-methods].
@@ -79,11 +79,11 @@ Quando uma nova configuração desejada é recebida, o aplicativo de dispositivo
         }
 
 Em seguida, posteriormente, o aplicativo do dispositivo relatará o sucesso ou a falha dessa operação atualizando a propriedade acima.
-Observe como o back-end é capaz de, a qualquer momento, consultar o status do processo de configuração em todos os dispositivos.
+Observe como o back-end da solução é capaz de, a qualquer momento, consultar o status do processo de configuração em todos os dispositivos.
 
 Este tutorial mostra como:
 
-* Criar um aplicativo de dispositivo simulado que recebe atualizações de configuração de back-end e relata várias atualizações como *propriedades relatadas* no processo de atualização da configuração.
+* Criar um aplicativo de dispositivo simulado que recebe atualizações de configuração de back-end da solução e relata várias atualizações como *propriedades relatadas* no processo de atualização da configuração.
 * Crie um aplicativo de back-end que atualiza a configuração desejada de um dispositivo e consulta o processo de atualização de configuração.
 
 <!-- links -->
@@ -93,6 +93,7 @@ Este tutorial mostra como:
 [lnk-twin-tutorial]: ../articles/iot-hub/iot-hub-node-node-twin-getstarted.md
 [lnk-guid]: https://en.wikipedia.org/wiki/Globally_unique_identifier
 
-<!--HONumber=Nov16_HO5-->
+
+<!--HONumber=Dec16_HO2-->
 
 

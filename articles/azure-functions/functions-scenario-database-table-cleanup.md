@@ -1,13 +1,13 @@
 ---
 title: Usar o Azure Functions para executar uma tarefa de limpeza agendada | Microsoft Docs
-description: Use o Azure Functions para criar uma função C# executada com base em um temporizador de eventos.
+description: "Use o Azure Functions para criar uma função C# executada com base em um temporizador de eventos."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: b873a7d0ef9efa79c9a173a8bfd3522b12522322
+ms.openlocfilehash: c0b4a963275dae5bbf203388cb61086393803b15
+
 
 ---
 # <a name="use-azure-functions-to-perform-a-scheduled-clean-up-task"></a>Usar o Azure Functions para executar uma tarefa de limpeza agendada
@@ -48,16 +52,20 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
    
     ![Criar uma nova função disparada por temporizador](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 2. No painel **Código** na guia **Desenvolver**, adicione as seguintes referências de assembly na parte superior do código de função existente:
-   
+    ```cs
         #r "System.Configuration"
         #r "System.Data"
+    ```
+
 3. Adicione as instruções `using` a seguir à função:
-   
+    ```cs
         using System.Configuration;
         using System.Data.SqlClient;
-        using System.Threading.Tasks; 
+        using System.Threading.Tasks;
+    ```
+
 4. Substitua a função **Run** existente por este código:
-   
+    ```cs
         public static async Task Run(TimerInfo myTimer, TraceWriter log)
         {
             var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
@@ -73,6 +81,8 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
                 }
             }
         }
+    ```
+
 5. Clique em **Salvar**, observe nas janelas de **Logs** a execução da próxima função e observe o número de linhas excluídas da tabela TodoItems.
 6. (Opcional) Usando o [Aplicativo de início rápido dos Aplicativos Móveis](../app-service-mobile/app-service-mobile-ios-get-started.md), marque itens adicionais como "concluídos", retorne para a janela **Logs** e veja o mesmo número de linhas ser excluído pela função durante a próxima execução. 
 
@@ -80,14 +90,17 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
 Veja estes tópicos para obter mais informações sobre o Azure Functions.
 
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
-  Referência do programador para codificação de funções e definição de gatilhos e de associações.
+   Referência do programador para codificação de funções e definição de gatilhos e de associações.
 * [Testando o Azure Functions](functions-test-a-function.md)  
-  Descreve várias ferramentas e técnicas para testar suas funções.
+   Descreve várias ferramentas e técnicas para testar suas funções.
 * [Como escalar o Azure Functions](functions-scale.md)  
-  Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de serviço Dinâmico, e como escolher o plano certo.  
+  Discute os planos de serviço disponíveis com o Azure Functions, incluindo o Plano de consumo e como escolher o plano certo.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

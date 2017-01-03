@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
 
 
 ---
@@ -55,7 +55,7 @@ Nesta seção gostaríamos de alterar o estilo somente dos cabeçalhos. Clique n
 
 Cada regra representa uma propriedade de estilo do elemento selecionado. Por exemplo, para o texto do cabeçalho selecionado acima, o tamanho do texto está em @font-size-h1, enquanto que o nome da fonte com alternativas está em in @headings-font-family.
 
-> Caso esteja familiarizado com [bootstrap][bootstrap], essas regras são, na verdade, [variáveis LESS][variáveis LESS] no tema do bootstrap usadas pelo portal do desenvolvedor.
+> Se você está familiarizado com [bootstrap][bootstrap], essas regras são, na verdade, [variáveis LESS][LESS variables] no tema do bootstrap usadas pelo portal do desenvolvedor.
 > 
 > 
 
@@ -87,12 +87,12 @@ Clique na página **Bem-vindo** para editar o que é exibido na home page do por
 ## <a name="next-steps"> </a>Próximas etapas
 * Saiba como personalizar o conteúdo das páginas do portal do desenvolvedor usando [Modelos de portal do desenvolvedor](api-management-developer-portal-templates.md).
 
-[Alterar o texto/logotipo nos cabeçalhos da página]: #change-page-headers
-[Alterar o estilo dos cabeçalhos]: #change-headers-styling
-[Editar o conteúdo de uma página]: #edit-page-contents
-[Próximas etapas]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Portal Clássico do Azure]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -103,10 +103,10 @@ Clique na página **Bem-vindo** para editar o que é exibido na home page do por
 
 
 [bootstrap]: http://getbootstrap.com/
-[variáveis LESS]: http://getbootstrap.com/css/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

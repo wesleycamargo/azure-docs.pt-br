@@ -1,5 +1,5 @@
 # <a name="azure-technical-documentation-contributor-guide"></a>Guia do colaborador da documentação técnica do Azure
-Você encontrou o repositório do GitHub que hospeda a fonte da documentação técnica do Azure publicada em [http://docs.microsoft.com/azure](http://docs.microsoft.com/azure).
+Você encontrou o repositório do GitHub que hospeda a fonte da documentação técnica do Azure publicada em [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure).
 
 Esse repositório também contém orientações para ajudá-lo a contribuir com a nossa documentação técnica. Para obter uma lista de artigos do guia do colaborador, confira o [índice](contributor-guide/contributor-guide-index.md).
 
@@ -17,9 +17,9 @@ Obrigado por seu interesse na documentação do Azure.
 * [Índice de todos os artigos do guia do colaborador](contributor-guide/contributor-guide-index.md) (abre uma nova página)
 
 ## <a name="ways-to-contribute"></a>Formas de contribuição
-Você pode enviar atualizações para a [documentação do Azure](http://docs.microsoft.com/azure) da seguinte maneira:
+Você pode enviar atualizações para a [documentação do Azure](https://docs.microsoft.com/azure) da seguinte maneira:
 
-* Você pode contribuir facilmente com artigos técnicos na interface do usuário do GitHub. Localize o artigo neste repositório ou acesse o site [http://docs.microsoft.com/azure](http://docs.microsoft.com/azure) e clique no link do artigo para ir para a fonte do GitHub do artigo.
+* Você pode contribuir facilmente com artigos técnicos na interface do usuário do GitHub. Localize o artigo neste repositório ou acesse o site [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) e clique no link do artigo para ir para a fonte do GitHub do artigo.
 * Se você estiver fazendo alterações importantes em um artigo existente, adicionando ou alterando imagens ou contribuindo com um novo artigo, precisará bifurcar esse repositório, instalar o Git Bash, o Markdown Pad e aprender alguns comandos git.
 
 ## <a name="code-of-conduct"></a>Código de conduta
@@ -27,16 +27,16 @@ Este projeto adotou o [Código de Conduta Microsoft Open Source](https://opensou
 
 ## <a name="about-your-contributions-to-azure-content"></a>Sobre as suas contribuições ao conteúdo do Azure
 ### <a name="minor-corrections"></a>Correções secundárias
-As correções secundárias ou esclarecimentos enviados para a documentação e os exemplos de código deste repositório são cobertos pelos [Termos de Uso de docs.microsoft.com](/enterprise-mobility-security/termsofuse).
+As correções secundárias ou esclarecimentos enviados para a documentação e os exemplos de código deste repositório são cobertos pelos [Termos de Uso de docs.microsoft.com](https://docs.microsoft.com/legal/termsofuse).
 
 ### <a name="larger-submissions"></a>Contribuições maiores
 Se enviar uma solicitação pull com alterações novas ou significativas para a documentação e para os exemplos de código, enviaremos um comentário no GitHub solicitando que você envie um CLA (Contrato de Licença de Contribuição) online caso você não seja um funcionário da Microsoft. Precisamos que você preencha o formulário online antes de aceitarmos sua solicitação pull.
 
 ## <a name="repository-organization"></a>Organização do repositório
-O conteúdo do repositório azure-docs segue a organização da documentação em http://docs.microsoft.com/azure. Esse repositório contém duas pastas raiz:
+O conteúdo do repositório azure-docs segue a organização da documentação em https://docs.microsoft.com/azure. Esse repositório contém duas pastas raiz:
 
 ### <a name="articles"></a>\articles
-A pasta *\articles* contém os artigos de documentação formatados como arquivos de markdown com uma extensão *.md*. Os artigos são agrupados pelo serviço do Azure. 
+A pasta *\articles* contém os artigos de documentação formatados como arquivos de markdown com uma extensão *.md*. Os artigos são agrupados pelo serviço do Azure.
 
 Os artigos precisam seguir diretrizes estritas de nomenclatura de arquivo. Para obter detalhes, confira [nossas diretrizes de nomenclatura de arquivo](contributor-guide/file-names-and-locations.md).
 
@@ -49,7 +49,7 @@ Você pode criar seções de conteúdo reutilizável para serem incluídas em um
 Essa pasta contém nosso modelo de markdown padrão com a formatação básica de markdown necessária para um artigo.
 
 ### <a name="contributor-guide"></a>\contributor-guide
-Essa pasta contém artigos que fazem parte do nosso guia do colaborador.  
+Essa pasta contém artigos que fazem parte do nosso guia do colaborador.
 
 ## <a name="use-github-git-and-this-repository"></a>Como usar o GitHub, o Git e este repositório
 Para saber mais sobre como contribuir, como usar a IU do GitHub para contribuir com alterações pequenas e como bifurcar e clonar o repositório para contribuições mais significativas, confira [Install and set up tools for authoring in GitHub](contributor-guide/tools-and-setup.md)(Instalar e configurar as ferramentas de criação no GitHub).
@@ -87,6 +87,6 @@ Acesse o [índice do nosso guia do colaborador](contributor-guide/contributor-gu
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

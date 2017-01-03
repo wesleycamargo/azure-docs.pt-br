@@ -10,11 +10,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
 
 
 ---
@@ -47,7 +47,7 @@ Quando você define o esquema, deve especificar o nome, tipo e atributos de cada
 | *Edm.DateTimeOffset* |Valores de data e hora representados no formato OData V4 (por exemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Um ponto que representa uma localização geográfica em todo o mundo. |
 
-Você pode encontrar informações mais detalhadas sobre os [tipos de dados com suporte no MSDN](https://msdn.microsoft.com/library/azure/dn798938.aspx)da Pesquisa do Azure.
+Você pode encontrar informações mais detalhadas sobre os [tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) do Azure Search.
 
 ### <a name="field-attributes"></a>Atributos do campo
 | Atributo | Descrição |
@@ -59,16 +59,16 @@ Você pode encontrar informações mais detalhadas sobre os [tipos de dados com 
 | *Com faceta* |Permite que um campo seja usado em uma estrutura de [navegação mista](search-faceted-navigation.md) para a filtragem autodirecionada do usuário. Normalmente, os campos que contêm valores repetidos que você pode usar para agrupar vários documentos (por exemplo, vários documentos que estejam em uma única categoria de marca ou de serviço) funcionam melhor como facetas. |
 | *Pesquisável* |Marca o campo como texto completo pesquisável. |
 
-Você pode encontrar informações mais detalhadas sobre os [atributos de índice no MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx)da Pesquisa do Azure.
+Você pode encontrar informações mais detalhadas sobre os [atributos de índice](https://docs.microsoft.com/rest/api/searchservice/Create-Index) do Azure Search.
 
 ## <a name="guidance-for-defining-an-index-schema"></a>Diretrizes para definir um esquema de índice
-Ao projetar o índice, reserve algum tempo na fase de planejamento para pensar em cada decisão. É importante ter em mente suas necessidades de negócios e experiência de usuário de pesquisa ao projetar o índice, pois cada campo deve ter os [atributos apropriados](https://msdn.microsoft.com/library/azure/dn798941.aspx). A alteração de um índice após sua implantação envolve a recriação e o recarregamento dos dados.
+Ao projetar o índice, reserve algum tempo na fase de planejamento para pensar em cada decisão. É importante ter em mente suas necessidades de negócios e experiência de usuário de pesquisa ao projetar o índice, pois cada campo deve ter os [atributos apropriados](https://docs.microsoft.com/rest/api/searchservice/Create-Index). A alteração de um índice após sua implantação envolve a recriação e o recarregamento dos dados.
 
 Se os requisitos do armazenamento de dados mudarem com o tempo, você poderá aumentar ou diminuir a capacidade adicionando ou removendo as partições. Para obter detalhes, confira [Gerenciar o serviço Search no Azure](search-manage.md) ou [Limites de serviço](search-limits-quotas-capacity.md).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Introdução a Android no AD do Azure | Microsoft Docs
+title: "Introdução a Android no AD do Azure | Microsoft Docs"
 description: Como compilar um aplicativo para Android que se integre ao AD do Azure para entrada e que chame as APIs protegidas do AD do Azure usando o OAuth.
 services: active-directory
 documentationcenter: android
-author: brandwe
+author: xerners
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: mobile-android
@@ -14,6 +14,10 @@ ms.devlang: java
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: brandwe
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aab76d97d494c09bf66ea3442128cd961f0393f7
+
 
 ---
 # <a name="integrate-azure-ad-into-an-android-app"></a>Integrando o AD do Azure em um aplicativo Android
@@ -36,14 +40,14 @@ Para começar, você precisará de um locatário do AD do Azure no qual você po
 > 
 > 
 
-## <a name="step-1:-download-and-run-the-node.js-rest-api-todo-sample-server"></a>Etapa 1: Baixe e execute o servidor de exemplo da API REST TODO do Node. js
+## <a name="step-1-download-and-run-the-nodejs-rest-api-todo-sample-server"></a>Etapa 1: Baixe e execute o servidor de exemplo da API REST TODO do Node. js
 Este exemplo é escrito especificamente para funcionar em nosso exemplo existente para criar uma API REST de tarefas de locatário único para o Active Directory do Microsoft Azure. Este é um pré-requisito para o início rápido.
 
 Para obter informações sobre como configurar isso, visite nossos exemplos existentes aqui:
 
 * [Serviço de API REST de exemplo para Node. js do Active Directory do Microsoft Azure](active-directory-devquickstarts-webapi-nodejs.md)
 
-## <a name="step-2:-register-your-web-api-with-your-microsoft-azure-ad-tenant"></a>Etapa 2: Registre sua API da Web com seu locatário do Microsoft Azure AD
+## <a name="step-2-register-your-web-api-with-your-microsoft-azure-ad-tenant"></a>Etapa 2: Registre sua API da Web com seu locatário do Microsoft Azure AD
 **O que estou fazendo?**
 
 *O Microsoft Active Directory dá suporte à adição de dois tipos de aplicativos. APIs Web que oferecem serviços a usuários e aplicativos (na Web ou em um aplicativo executado em um dispositivo) que têm acesso a elas. Nesta etapa, você está registrando a API da Web que está sendo executada localmente para testar este exemplo. Normalmente, essa API Web seria um serviço REST que oferece a funcionalidade que você deseja que um aplicativo acesse. O Active Directory do Microsoft Azure pode proteger qualquer ponto de extremidade!*
@@ -64,7 +68,7 @@ Etapas para registrar uma API da Web com o AD do Microsoft Azure
 10. Ainda no portal do Azure, clique na guia Configurar de seu aplicativo.
 11. **Encontre o valor da ID do cliente, copie-o e guarde-o**; você precisará dele mais tarde ao configurar seu aplicativo.
 
-## <a name="step-3:-register-the-sample-android-native-client-application"></a>Etapa 3: Registre o aplicativo cliente nativo para Android de exemplo
+## <a name="step-3-register-the-sample-android-native-client-application"></a>Etapa 3: Registre o aplicativo cliente nativo para Android de exemplo
 Registrar seu aplicativo Web é a primeira etapa. Em seguida, você precisará informar o Active Directory do Azure sobre seu aplicativo. Isso permite que o aplicativo se comunique com a API da Web recém-registrada
 
 **O que estou fazendo?**  
@@ -105,22 +109,22 @@ Para compilar com Maven, você pode usar o pom.xml de nível superior
 
 Pacotes de JAR também serão enviados juntamente com o pacote aar.
 
-### <a name="step-4:-download-the-android-adal-and-add-it-to-your-eclipse-workspace"></a>Etapa 4: Baixe a ADAL para Android e adicione-a ao seu espaço de trabalho do Eclipse
+### <a name="step-4-download-the-android-adal-and-add-it-to-your-eclipse-workspace"></a>Etapa 4: Baixe a ADAL para Android e adicione-a ao seu espaço de trabalho do Eclipse
 Facilitamos para você ter várias opções para usar esta biblioteca em seu projeto Android:
 
 * Você pode usar o código-fonte para importar essa biblioteca no Eclipse e vinculá-la ao seu aplicativo.
 * Se estiver usando o Android Studio, você poderá usar o formato de pacote *aar* e fazer referência aos binários.
 
-#### <a name="option-1:-source-zip"></a>Opção 1: zip de origem
+#### <a name="option-1-source-zip"></a>Opção 1: zip de origem
 Para baixar uma cópia do código-fonte, clique em "Baixar ZIP" no lado direito da página ou [aqui](https://github.com/AzureAD/azure-activedirectory-library-for-android/archive/v1.0.9.tar.gz).
 
-#### <a name="option-2:-source-via-git"></a>Opção 2: Origem via Git
+#### <a name="option-2-source-via-git"></a>Opção 2: Origem via Git
 Para obter o código-fonte do SDK via git, basta digitar:
 
     git clone git@github.com:AzureAD/azure-activedirectory-library-for-android.git
     cd ./azure-activedirectory-library-for-android/src
 
-#### <a name="option-3:-binaries-via-gradle"></a>Opção 3: Binários via Gradle
+#### <a name="option-3-binaries-via-gradle"></a>Opção 3: Binários via Gradle
 Você pode obter os binários do repositório central do Maven. O pacote AAR pode ser incluído da seguinte forma em seu projeto no AndroidStudio:
 
 ```gradle
@@ -141,7 +145,7 @@ dependencies {
 }
 ```
 
-#### <a name="option-4:-aar-via-maven"></a>Opção 4: AAR via Maven
+#### <a name="option-4-aar-via-maven"></a>Opção 4: AAR via Maven
 Se você estiver usando o plug-in m2e no Eclipse, você pode especificar a dependência em seu arquivo POM. XML:
 
 ```xml
@@ -154,10 +158,10 @@ Se você estiver usando o plug-in m2e no Eclipse, você pode especificar a depen
 ```
 
 
-#### <a name="option-5:-jar-package-inside-libs-folder"></a>Opção 5: pacote jar dentro da pasta de bibliotecas
+#### <a name="option-5-jar-package-inside-libs-folder"></a>Opção 5: pacote jar dentro da pasta de bibliotecas
 Você pode obter o arquivo jar do Maven, o repositório, e colocá-lo na pasta *libs* em seu projeto. Você precisa copiar os recursos necessários para seu projeto também, uma vez que os pacotes jar não os incluem.
 
-### <a name="step-5:-add-references-to-android-adal-to-your-project"></a>Etapa 5: Adicione referências à ADAL do Android em seu projeto
+### <a name="step-5-add-references-to-android-adal-to-your-project"></a>Etapa 5: Adicione referências à ADAL do Android em seu projeto
 1. Adicione uma referência ao seu projeto e especifique-a como uma biblioteca Android. Se não souber como fazer isso, [clique aqui para obter mais informações](http://developer.android.com/tools/projects/projects-eclipse.html)
 2. Adicione a dependência do projeto para depuração em suas configurações de projeto
 3. Atualize o arquivo AndroidManifest.xml do seu projeto para incluir:
@@ -426,6 +430,9 @@ Saiba [como habilitar o SSO entre aplicativos no Android usando a ADAL](active-d
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!--HONumber=Oct16_HO4-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

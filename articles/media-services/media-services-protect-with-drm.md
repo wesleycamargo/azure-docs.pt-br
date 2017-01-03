@@ -12,21 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 12/11/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 59c0b46015b3d112d17dd79a2a4bfd3b3165dfba
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 7c2709d472d7512eda927f4f70f82e7f74adca0c
 
 
 ---
 # <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>Usando a criptografia comum dinâmica PlayReady e/ou Widevine
+
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
-> 
-> 
+>
+>
 
 Os Serviços de Mídia do Microsoft Azure permitem fornecer fluxos MPEG-DASH, Smooth Streaming e HLS (HTTP Live Streaming) protegidos com o [DRM do Microsoft PlayReady](https://www.microsoft.com/playready/overview/). Também habilitam o fornecimento de fluxos DASH criptografados com licenças DRM do Widevine. PlayReady e Widevine são criptografados de acordo com a especificação de criptografia comum (ISO/IEC 23001-7 CENC). Você pode usar o [SDK do .NET AMS](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir da versão 3.5.1) ou a API REST para configurar seu AssetDeliveryConfiguration para usar o Widevine.
 
@@ -42,13 +43,14 @@ Este tópico pode ser útil para desenvolvedores que trabalham em aplicativos qu
 
 > [!NOTE]
 > Para começar a usar criptografia dinâmica, é necessário primeiro obter pelo menos uma unidade de escala (também conhecida como unidade de streaming). Para obter mais informações, consulte [Como dimensionar um serviço de mídia](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
+>
+>
 
 ## <a name="download-sample"></a>Baixar exemplo
 Você pode baixar o exemplo descrito neste artigo [aqui](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 ## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Configurando a Criptografia Dinâmica Comum e Serviços de Distribuição de Licenças de DRM
+
 A seguir estão as etapas gerais que você precisará executar ao proteger seus ativos com o PlayReady, usando o serviço de distribuição de licenças dos Serviços de Mídia e também usando criptografia dinâmica.
 
 1. Criar um ativo e carregar arquivos no ativo.
@@ -56,13 +58,13 @@ A seguir estão as etapas gerais que você precisará executar ao proteger seus 
 3. Criar uma chave de conteúdo e associá-la ao ativo codificado. Nos Serviços de Mídia, a chave de conteúdo contém a chave de criptografia do ativo.
 4. Configurar a política de autorização da chave de conteúdo. A política de autorização de chave de conteúdo deve ser configurada por você e atendida pelo cliente para que a chave de conteúdo seja entregue ao cliente.
 
-Ao criar a política de autorização de chave de conteúdo, você precisará especificar o seguinte: método de entrega (PlayReady ou Widevine), restrições (aberta ou token) e informações específicas do tipo de distribuição de chaves que define como a chave será entregue ao cliente (modelo de licença do [PlayReady](media-services-playready-license-template-overview.md) ou [Widevine](media-services-widevine-license-template-overview.md)).
+    Ao criar a política de autorização de chave de conteúdo, você precisará especificar o seguinte: método de entrega (PlayReady ou Widevine), restrições (aberta ou token) e informações específicas do tipo de distribuição de chaves que define como a chave será entregue ao cliente (modelo de licença do [PlayReady](media-services-playready-license-template-overview.md) ou [Widevine](media-services-widevine-license-template-overview.md)).
 
-1. Configurar a política de entrega para um ativo. A configuração da política de entrega inclui: protocolo de entrega (por exemplo, MPEG DASH, HLS, HDS, Smooth Streaming ou todos), o tipo de criptografia dinâmica (por exemplo, Criptografia Comum) e a URL de aquisição de licença do PlayReady ou Widevine.
+5. Configurar a política de entrega para um ativo. A configuração da política de entrega inclui: protocolo de entrega (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), o tipo de criptografia dinâmica (por exemplo, Criptografia Comum) e a URL de aquisição de licença do PlayReady ou Widevine.
 
-Você poderia aplicar uma política diferente a cada protocolo no mesmo ativo. Por exemplo, você poderia aplicar criptografia PlayReady a Smooth/DASH e aplicar Envelope de AES a HLS. Todos os protocolos que não são definidos em uma política de entrega (por exemplo, você adicionar uma única política que só especifica HLS como o protocolo) será bloqueado a partir do streaming. A exceção a isso é se você não tiver nenhuma política de entrega de ativos definida em todos. Em seguida, todos os protocolos poderão ser criptografados.
+    Você poderia aplicar uma política diferente a cada protocolo no mesmo ativo. Por exemplo, você poderia aplicar criptografia PlayReady a Smooth/DASH e aplicar Envelope de AES a HLS. Todos os protocolos que não são definidos em uma política de entrega (por exemplo, você adicionar uma única política que só especifica HLS como o protocolo) será bloqueado a partir do streaming. A exceção a isso é se você não tiver nenhuma política de entrega de ativos definida em todos. Em seguida, todos os protocolos poderão ser criptografados.
 
-1. Criar um localizador OnDemand para obter uma URL de streaming.
+6. Criar um localizador OnDemand para obter uma URL de streaming.
 
 Você encontrará um exemplo de .NET completo no final do tópico.
 
@@ -100,9 +102,9 @@ Para obter informações detalhadas, consulte [Configurar política de autoriza�
 ## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configurar política de entrega de ativos
 Configure a política de entrega para seu ativo. Algumas coisas incluídas na configuração de política de entrega de ativos:
 
-* A URL de aquisição de licença de DRM. 
-* O protocolo de entrega de ativos (por exemplo, MPEG DASH, HLS, HDS, Smooth Streaming ou todos). 
-* O tipo de criptografia dinâmica (nesse caso, Criptografia Comum). 
+* A URL de aquisição de licença de DRM.
+* O protocolo de entrega de ativos (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos).
+* O tipo de criptografia dinâmica (nesse caso, Criptografia Comum).
 
 Para obter informações detalhadas, consulte [Configurar política de entrega de ativos ](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -111,8 +113,8 @@ Você precisará fornecer ao seu usuário a URL para Smooth Streaming, DASH ou H
 
 > [!NOTE]
 > Se você adicionar ou atualizar a política de fornecimento do ativo, você deve excluir um localizador existente (se houver) e criar um novo localizador.
-> 
-> 
+>
+>
 
 Para obter instruções sobre como publicar um ativo e criar uma URL de streaming, consulte [Criar uma URL de streaming](media-services-deliver-streaming-content.md).
 
@@ -121,12 +123,12 @@ Obtenha um token de teste com base na restrição de token que foi usada para a 
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
     // back into a TokenRestrictionTemplate class instance.
-    TokenRestrictionTemplate tokenTemplate = 
+    TokenRestrictionTemplate tokenTemplate =
         TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
     // Generate a test token based on the data in the given TokenRestrictionTemplate.
     //The GenerateTestToken method returns the token without the word “Bearer” in front
-    //so you have to add it in front of the token string. 
+    //so you have to add it in front of the token string.
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
@@ -143,26 +145,26 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
 2. Use o NuGet para instalar e adicionar o SDK do .NET dos Serviços de Mídia do Azure.
 3. Adicione outras referências: System.Configuration.
 4. Adicione o arquivo de configuração que contém o nome da conta e as informações de chave:
-   
+
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
-            <startup> 
+            <startup>
                 <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
             </startup>
               <appSettings>
-   
+
                 <add key="MediaServicesAccountName" value="AccountName"/>
                 <add key="MediaServicesAccountKey" value="AccountKey"/>
-   
+
                 <add key="Issuer" value="http://testacs.com"/>
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [configurar pontos de extremidade de transmissão](media-services-dotnet-get-started.md#configure-streaming-endpoint-using-the-portal).
+5. Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [configurar pontos de extremidade de transmissão](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
 6. Substitua o código no seu arquivo Program.cs pelo código mostrado nesta seção.
-   
+
     Certifique-se de atualizar as variáveis para que indiquem as pastas onde estão localizados os arquivos de entrada.
-   
+
         using System;
         using System.Collections.Generic;
         using System.Configuration;
@@ -174,7 +176,7 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
         using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
         using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
         using Newtonsoft.Json;
-   
+
         namespace DynamicEncryptionWithDRM
         {
             class Program
@@ -184,22 +186,22 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
                     ConfigurationManager.AppSettings["MediaServicesAccountName"];
                 private static readonly string _mediaServicesAccountKey =
                     ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-   
+
                 private static readonly Uri _sampleIssuer =
                     new Uri(ConfigurationManager.AppSettings["Issuer"]);
                 private static readonly Uri _sampleAudience =
                     new Uri(ConfigurationManager.AppSettings["Audience"]);
-   
+
                 // Field for service context.
                 private static CloudMediaContext _context = null;
                 private static MediaServicesCredentials _cachedCredentials = null;
-   
+
                 private static readonly string _mediaFiles =
                     Path.GetFullPath(@"../..\Media");
-   
+
                 private static readonly string _singleMP4File =
                     Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
-   
+
                 static void Main(string[] args)
                 {
                     // Create and cache the Media Services credentials in a static class variable.
@@ -208,56 +210,56 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
                                     _mediaServicesAccountKey);
                     // Used the cached credentials to create CloudMediaContext.
                     _context = new CloudMediaContext(_cachedCredentials);
-   
+
                     bool tokenRestriction = false;
                     string tokenTemplateString = null;
-   
+
                     IAsset asset = UploadFileAndCreateAsset(_singleMP4File);
                     Console.WriteLine("Uploaded asset: {0}", asset.Id);
-   
+
                     IAsset encodedAsset = EncodeToAdaptiveBitrateMP4Set(asset);
                     Console.WriteLine("Encoded asset: {0}", encodedAsset.Id);
-   
+
                     IContentKey key = CreateCommonTypeContentKey(encodedAsset);
                     Console.WriteLine("Created key {0} for the asset {1} ", key.Id, encodedAsset.Id);
                     Console.WriteLine("PlayReady License Key delivery URL: {0}", key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
                     Console.WriteLine();
-   
+
                     if (tokenRestriction)
                         tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
                     else
                         AddOpenAuthorizationPolicy(key);
-   
+
                     Console.WriteLine("Added authorization policy: {0}", key.AuthorizationPolicyId);
                     Console.WriteLine();
-   
+
                     CreateAssetDeliveryPolicy(encodedAsset, key);
                     Console.WriteLine("Created asset delivery policy. \n");
                     Console.WriteLine();
-   
+
                     if (tokenRestriction && !String.IsNullOrEmpty(tokenTemplateString))
                     {
                         // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
                         // back into a TokenRestrictionTemplate class instance.
                         TokenRestrictionTemplate tokenTemplate =
                             TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
-   
+
                         // Generate a test token based on the the data in the given TokenRestrictionTemplate.
-                        // Note, you need to pass the key id Guid because we specified 
+                        // Note, you need to pass the key id Guid because we specified
                         // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
                         Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
-                        string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey, 
+                        string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
                                                                                 DateTime.UtcNow.AddDays(365));
                         Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
                         Console.WriteLine();
                     }
-   
+
                     // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
                     // Note that DASH works on IE 11 (via PlayReady), Edge (via PlayReady), Chrome (via Widevine).
-   
+
                     string url = GetStreamingOriginLocator(encodedAsset);
                     Console.WriteLine("Encrypted DASH URL: {0}/manifest(format=mpd-time-csf)", url);
-   
+
                     Console.ReadLine();
                 }
 
@@ -341,7 +343,7 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
                 static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
                 {
 
-                    // Create ContentKeyAuthorizationPolicy with Open restrictions 
+                    // Create ContentKeyAuthorizationPolicy with Open restrictions
                     // and create authorization policy          
 
                     List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
@@ -365,8 +367,8 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
                                 restrictions, PlayReadyLicenseTemplate);
 
                     IContentKeyAuthorizationPolicyOption WidevinePolicy =
-                        _context.ContentKeyAuthorizationPolicyOptions.Create("", 
-                            ContentKeyDeliveryType.Widevine, 
+                        _context.ContentKeyAuthorizationPolicyOptions.Create("",
+                            ContentKeyDeliveryType.Widevine,
                             restrictions, WidevineLicenseTemplate);
 
                     IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
@@ -444,17 +446,17 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
                     // The following code configures PlayReady License Template using .NET classes
                     // and returns the XML string.
 
-                    //The PlayReadyLicenseResponseTemplate class represents the template for the response sent back to the end user. 
-                    //It contains a field for a custom data string between the license server and the application 
+                    //The PlayReadyLicenseResponseTemplate class represents the template for the response sent back to the end user.
+                    //It contains a field for a custom data string between the license server and the application
                     //(may be useful for custom app logic) as well as a list of one or more license templates.
                     PlayReadyLicenseResponseTemplate responseTemplate = new PlayReadyLicenseResponseTemplate();
 
                     // The PlayReadyLicenseTemplate class represents a license template for creating PlayReady licenses
-                    // to be returned to the end users. 
-                    //It contains the data on the content key in the license and any rights or restrictions to be 
+                    // to be returned to the end users.
+                    //It contains the data on the content key in the license and any rights or restrictions to be
                     //enforced by the PlayReady DRM runtime when using the content key.
                     PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
-                    //Configure whether the license is persistent (saved in persistent storage on the client) 
+                    //Configure whether the license is persistent (saved in persistent storage on the client)
                     //or non-persistent (only held in memory while the player is using the license).  
                     licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
 
@@ -463,18 +465,18 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
                     // is set to 150.  If false (the default), the MinimumSecurityLevel property of the license is set to 2000.
                     licenseTemplate.AllowTestDevices = true;
 
-                    // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
-                    // It grants the user the ability to playback the content subject to the zero or more restrictions 
-                    // configured in the license and on the PlayRight itself (for playback specific policy). 
-                    // Much of the policy on the PlayRight has to do with output restrictions 
-                    // which control the types of outputs that the content can be played over and 
+                    // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class.
+                    // It grants the user the ability to playback the content subject to the zero or more restrictions
+                    // configured in the license and on the PlayRight itself (for playback specific policy).
+                    // Much of the policy on the PlayRight has to do with output restrictions
+                    // which control the types of outputs that the content can be played over and
                     // any restrictions that must be put in place when using a given output.
-                    // For example, if the DigitalVideoOnlyContentRestriction is enabled, 
-                    //then the DRM runtime will only allow the video to be displayed over digital outputs 
+                    // For example, if the DigitalVideoOnlyContentRestriction is enabled,
+                    //then the DRM runtime will only allow the video to be displayed over digital outputs
                     //(analog video outputs won’t be allowed to pass the content).
 
-                    //IMPORTANT: These types of restrictions can be very powerful but can also affect the consumer experience. 
-                    // If the output protections are configured too restrictive, 
+                    //IMPORTANT: These types of restrictions can be very powerful but can also affect the consumer experience.
+                    // If the output protections are configured too restrictive,
                     // the content might be unplayable on some clients. For more information, see the PlayReady Compliance Rules document.
 
                     // For example:
@@ -519,9 +521,9 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
 
                     // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
                     // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-                    // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+                    // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption
                     // to append /? KID =< keyId > to the end of the url when creating the manifest.
-                    // As a result Widevine license acquisition URL will have KID appended twice, 
+                    // As a result Widevine license acquisition URL will have KID appended twice,
                     // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
 
                     Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
@@ -560,23 +562,23 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida na versão 3.5
                 {
 
                     // Get a reference to the streaming manifest file from the  
-                    // collection of files in the asset. 
+                    // collection of files in the asset.
 
                     var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                                                  EndsWith(".ism")).
                                                  FirstOrDefault();
 
-                    // Create a 30-day readonly access policy. 
+                    // Create a 30-day readonly access policy.
                     IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
                         TimeSpan.FromDays(30),
                         AccessPermissions.Read);
 
-                    // Create a locator to the streaming content on an origin. 
+                    // Create a locator to the streaming content on an origin.
                     ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
                         policy,
                         DateTime.UtcNow.AddMinutes(-5));
 
-                    // Create a URL to the manifest file. 
+                    // Create a URL to the manifest file.
                     return originLocator.Path + assetFile.Name;
                 }
 
@@ -621,7 +623,6 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

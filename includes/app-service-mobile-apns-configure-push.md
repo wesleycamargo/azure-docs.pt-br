@@ -1,14 +1,13 @@
 
 
-1. Em seu Mac, inicie **Acesso ao Conjunto de Chaves**. Abra **Categoria** > **Meus Certificados**. Localize o certificado SSL para exportar (que você baixou anteriormente) e divulgue seu conteúdo. Selecione apenas o certificado sem selecionar a chave privada, e [exporte-o](https://support.apple.com/kb/PH20122?locale=en_US).
-2. No portal do Azure, clique em **Procurar Tudo** > **Aplicativos Móveis** > seu back-end dos Aplicativos Móveis > **Configurações** > **Aplicativo Móvel** > **Push** > **Definir as configurações necessárias** > **+ Hub de Notificação** e forneça um nome e namespace ao hub de notificação e, em seguida, clique no botão **OK**.
-   
-      ![][1]
-3. Na folha **Criar Hub de Notificação**, clique no botão **Criar**.
-   
-    Antes de ir para a próxima etapa, clique em **Notificações** para garantir que a instalação do hub de notificação seja concluída.
-4. No portal do Azure, clique em **Procurar Tudo** > **Aplicativos Móveis** > seu back-end dos Aplicativos Móveis > **Configurações** > **Aplicativo Móvel** > **Push** > **Apple Push Notification Service** > **Carregar Certificado**. Carregue o arquivo .p12, selecionando o **Modo** correto (dependendo se o certificado SSL de cliente gerado antes era Desenvolvimento ou Distribuição). Agora, seu serviço móvel está configurado para funcionar com notificações por push no iOS!
+1. Em seu Mac, inicie **Acesso ao Conjunto de Chaves**. Na barra de navegação à esquerda, em **Categoria**, abra **Meus Certificados**. Encontre o certificado SSL que você baixou na seção anterior e divulgue seu conteúdo. Selecione apenas o certificado (não selecione a chave privada) e [exporte-o](https://support.apple.com/kb/PH20122?locale=en_US).
+2. No [portal do Azure](https://portal.azure.com/), clique em **Procurar Tudo** > **Serviços de Aplicativos** e clique no back-end dos Aplicativos Móveis. Em **Configurações**, clique em **Push do Serviço de Aplicativo** e clique no nome do hub de notificação. Vá para **Serviços de Notificação por Push da Apple** > **Carregar Certificado**. Carregue o arquivo .p12 selecionando o **Modo** correto (dependendo do certificado de cliente SSL anterior ser de produção ou de área restrita). Salve as alterações.
+
+Agora, seu serviço móvel está configurado para funcionar com notificações por push no iOS.
 
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png
 
-<!---HONumber=AcomDC_1203_2015-->
+
+<!--HONumber=Dec16_HO2-->
+
+

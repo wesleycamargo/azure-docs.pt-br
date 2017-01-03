@@ -1,4 +1,4 @@
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Em uma nova janela, entre no [portal do Azure](https://portal.azure.com/).
 2. Na barra de navegação, clique em **Novo**, em **Bancos de Dados** e em **NoSQL (DocumentDB)**.
    
    ![Captura de tela do portal do Azure, realçando Mais Serviços e Banco de Dados de Documentos (NoSQL)](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
@@ -16,17 +16,17 @@
    ![Crie bancos de dados rapidamente - Captura de tela do Hub de notificações mostrando que a conta do DocumentDB está sendo criada](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
    
    ![Captura de tela do Hub de notificações mostrando que a conta do DocumentDB foi criada com êxito e implantada em um grupo de recursos - Notificação do criador de banco de dados online](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. Depois que a conta do DocumentDB for criada, ela estará pronta para ser usada com as configurações padrão. Para revisar as configurações padrão, clique no ícone **NoSQL (DocumentDB)** na barra de navegação, clique em sua nova conta e clique em **Consistência Padrão** no Menu de Recursos.
+5. Depois que a conta do DocumentDB for criada, ela estará pronta para ser usada com as configurações padrão. Para revisar as configurações padrão, clique no ícone **NoSQL (DocumentDB)** na barra de navegação, clique em sua nova conta e clique em **Consistência padrão** no menu de recursos.
 
    ![Captura de tela mostrando como abrir sua conta do banco de dados do Azure DocumentDB no Portal do Azure](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
 
-   A consistência padrão da conta do DocumentDB é definida como **Sessão**.  Você pode ajustar a consistência padrão clicando em **Consistência Padrão** no menu de recursos. Para saber mais sobre os níveis de consistência oferecidos pelo DocumentDB, confira [Níveis de consistência no DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
+   A consistência padrão da conta do DocumentDB é definida como **Sessão**.  Você pode ajustar a consistência padrão selecionando uma das outras opções de consistência disponíveis. Para saber mais sobre os níveis de consistência oferecidos pelo DocumentDB, confira [Níveis de consistência no DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
-[Como criar uma conta do DocumentDB]: #Howto
-[Próximas etapas]: #NextSteps
+[How to: Create a DocumentDB account]: #Howto
+[Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

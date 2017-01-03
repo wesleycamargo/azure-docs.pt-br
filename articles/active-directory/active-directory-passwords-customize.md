@@ -1,12 +1,12 @@
 ---
-title: 'Personalizar: Gerenciamento de senha do AD do Azure | Microsoft Docs'
-description: Como personalizar a aparência, o comportamento e as notificações do gerenciamento de senhas no Azure AD para atender às suas necessidades.
+title: 'Personalizar: Gerenciamento de Senhas do Azure AD | Microsoft Docs'
+description: "Como personalizar a aparência, o comportamento e as notificações do gerenciamento de senhas no Azure AD para atender às suas necessidades."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: 2cddd150-8747-447a-a7cf-1d7d5775c0b3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c02f5a2b0ef127805aed0f8b8b5ec8ccac1f879f
+
 
 ---
-# <a name="customizing-password-management-to-fit-your-organization's-needs"></a>Personalização do gerenciamento de senhas para atender às necessidades da sua organização
+# <a name="customizing-password-management-to-fit-your-organizations-needs"></a>Personalização do gerenciamento de senhas para atender às necessidades da sua organização
 > [!IMPORTANT]
 > **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 > 
@@ -135,7 +139,7 @@ Determinam se o seu logotipo é exibido ou não na parte inferior dos emails env
 A tabela a seguir descreve como cada controle afeta a experiência dos usuários que se registram para a redefinição de senha e que redefinem as suas senhas.  Você pode configurar essas opções na seção **Política de redefinição de senha do usuário** da guia **Configurar** do seu diretório no [Portal de Gerenciamento do Azure](https://manage.windowsazure.com).
 
 > [!NOTE]
-> A conta de administrador que você está usando deve ter uma licença AAD Premium atribuída para que seja possível ver esses controles de política.<br><br>Eles se aplicam somente aos usuários finais que estão redefinindo as suas senhas, não aos administradores.  **Os administradores têm uma política padrão de email alternativo e/ou telefone celular que é definida para eles pela Microsoft e não pode ser alterada.**
+> A conta de administrador que você está usando deve ter uma licença AAD Premium atribuída para ver esses controles de política.<br><br>Eles se aplicam somente aos usuários finais que estão redefinindo as suas senhas, não aos administradores.  **Os administradores têm uma política padrão de email alternativo e/ou telefone celular que é definida para eles pela Microsoft e não pode ser alterada.**
 > 
 > 
 
@@ -174,7 +178,7 @@ A tabela a seguir descreve como cada controle afeta a experiência dos usuários
                   <li class="unordered">
 Se definido como não, nenhum usuário pode registrar seus próprios dados de desafio.<br><br></li>
                   <li class="unordered">
-Se definido como sim, qualquer usuário final no diretório poderá registrar dados de desafio acessando o portal de registro em <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.<br><br></li>
+Se definido como sim, qualquer usuário final no diretório pode registrar dados de desafio acessando o portal de registro em <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.<br><br></li>
                   <li class="unordered">
                     <strong>Observação:</strong> os usuários devem ter uma licença Azure AD Premium ou básica atribuída antes de poderem se registrar para a redefinição de senha.<br><br></li>
                 </ul>
@@ -216,7 +220,7 @@ Essa configuração não afeta o acesso dos usuários ao portal de registro de r
                   <li class="unordered">
 Se definido como não, todos os usuários finais em seu diretório podem redefinir as suas senhas.<br><br></li>
                   <li class="unordered">
-Se definido como sim, somente os usuários finais especificados no controle <strong>grupo que pode executar a redefinição de senha</strong> poderão redefinir as suas senhas.<br><br></li>
+Se definido como sim, somente os usuários finais especificados no controle <strong>grupo que pode executar a redefinição de senha</strong> podem redefinir as suas senhas.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -292,9 +296,9 @@ Se você estiver usando perguntas de segurança, recomendamos que as use em conj
                   <li class="unordered">
 Telefone comercial corresponde ao atributo <strong>Telefone Comercial</strong> em um objeto de usuário no diretório.<br><br></li>
                   <li class="unordered">
-Telefone celular corresponde ao atributo <strong>Telefone Celular de Autenticação</strong> (que não esteja visível publicamente) ou ao atributo <strong>Telefone Celular</strong> (que é visível publicamente) em um objeto de usuário no diretório.  O serviço primeiro verifica os dados de <strong>Telefone de Autenticação</strong> e, se não há um, volta para o atributo <strong>Telefone Celular</strong>.<br><br></li>
+Telefone celular corresponde ao atributo <strong>Telefone Celular de Autenticação</strong> (que não esteja visível publicamente) ou ao atributo <strong>Telefone Celular</strong> (que é visível publicamente) em um objeto de usuário no diretório.  O serviço primeiro verifica os dados de <strong>Telefone de Autenticação</strong> e, se não houver um, volta para o atributo <strong>Telefone Celular</strong>.<br><br></li>
                   <li class="unordered">
-Endereço de email alternativo corresponde ao atributo <strong>Email de Autenticação</strong> (que não esteja visível publicamente) ou ao atributo <strong>Email Alternativo</strong> em um objeto de usuário no diretório.  O serviço primeiro verifica os dados de <strong>Email de Autenticação</strong> e, se não há um, volta para o atributo <strong>Email Alternativo</strong>.<br><br></li>
+Endereço de email alternativo corresponde ao atributo <strong>Email de Autenticação</strong> (que não esteja visível publicamente) ou ao atributo <strong>Email Alternativo</strong> em um objeto de usuário no diretório.  O serviço primeiro verifica os dados de <strong>Email de Autenticação</strong> e, se não houver um, volta para o atributo <strong>Email Alternativo</strong>.<br><br></li>
                   <li class="unordered">
 As Perguntas de Segurança são armazenadas de forma privada e protegida em um objeto de usuário no diretório e somente podem ser respondidas pelos usuários durante o registro.  Para fins de segurança, não existe atualmente uma maneira de um administrador editar ou visualizar essas respostas.<br><br></li>
                   <li class="unordered">
@@ -314,7 +318,7 @@ Define quais métodos de autenticação são exibidos quando os usuários estão
                 </p>
                 <ul>
                   <li class="unordered">
-Determina quais métodos de autenticação um usuário pode usar como desafios para uma determinada etapa de verificação.  Por exemplo, se um usuário tiver dados tanto no campo <strong>Telefone Comercial</strong> quanto no <strong>Telefone de Autenticação</strong> no Azure Active Directory, ele poderá usar qualquer um desses métodos de autenticação para recuperar sua senha.<br><br></li>
+Determina quais métodos de autenticação um usuário pode usar como desafios para uma determinada etapa de verificação.  Por exemplo, se um usuário tiver dados tanto no campo <strong>Telefone Comercial</strong> quanto no <strong>Telefone de Autenticação</strong> no Azure Active Directory, ele pode usar qualquer um desses métodos de autenticação para recuperar sua senha.<br><br></li>
                   <li class="unordered">
                     <strong>Observação: </strong>os usuários somente serão capazes de redefinir as senhas se tiverem dados presentes para os métodos de autenticação que você habilitou como administrador.<br><br></li>
                 </ul>
@@ -563,7 +567,7 @@ Determina quais perguntas um usuário é capaz de usar para redefinir uma senha.
                 </p>
                 <ul>
                   <li class="unordered">
-Se você desabilitar esse recurso, poderá apontá-los manualmente para <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a> a fim de que registrem seus dados de contato.  <br><br></li>
+Se você desabilitar esse recurso, pode apontá-los manualmente para <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a> a fim de que registrem seus dados de contato.  <br><br></li>
                   <li class="unordered">
 Os usuários também podem acessar o portal de registro clicando no link <strong>registrar-se para a redefinição de senha</strong> abaixo da guia de perfil no painel de acesso.<br><br></li>
                   <li class="unordered">
@@ -716,11 +720,11 @@ Se você fornecer uma URL, o link se tornará um padrão href apontando para a U
                 </p>
                 <ul>
                   <li class="unordered">
-Esse controle somente aparecerá se você tiver instalado o write-back de senha com o download da versão mais recente do Azure AD Connect e habilitado a opção <strong>Write-back de senha</strong> na tela de seleção <strong>recursos opcionais</strong>.<br><br></li>
+Esse controle somente aparece se você tiver instalado o write-back de senha com o download da versão mais recente do Azure AD Connect e habilitado a opção <strong>Write-back de senha</strong> na tela de seleção <strong>recursos opcionais</strong>.<br><br></li>
                   <li class="unordered">
-Se você tiver habilitado o write-back de senha e achar que há um problema de configuração com o serviço, poderá ir a essa guia e examinar o rótulo <strong>status do serviço de write-back de senha</strong> para ver se algo está errado.<br><br></li>
+Se você tiver habilitado o write-back de senha e achar que há um problema de configuração com o serviço, pode ir a essa guia e examinar o rótulo <strong>status do serviço de write-back de senha</strong> para ver se algo está errado.<br><br></li>
                   <li class="unordered">
-Os status que podem ser mostrados são:<br><br><ul><li class="unordered"><strong>Configurado </strong> – tudo está funcionando conforme o esperado<br><br></li><li class="unordered"><strong>Não configurado</strong> – você tem o write-back instalado, mas não pode acessar o serviço. Verifique se você não está bloqueando as conexões de saída para 443 e tente instalar novamente o serviço se ainda tiver problemas.<br><br></li></ul></li>
+Os status que podem ser mostrados são:<br><br><ul><li class="unordered"><strong>Configurado</strong> – tudo está funcionando conforme o esperado<br><br></li><li class="unordered"><strong>Não configurado</strong> – você tem o write-back instalado, mas não pode acessar o serviço. Verifique se você não está bloqueando as conexões de saída para 443 e tente instalar novamente o serviço se ainda tiver problemas.<br><br></li></ul></li>
                 </ul>
                 <p>
                   <strong>Portal de registro:</strong>
@@ -736,7 +740,7 @@ Se a opção estiver definida como <strong>sim</strong>, o write-back estará ha
                 </p>
                 <ul>
                   <li class="unordered">
-Se o write-back for implantado e configurado e essa opção estiver definida como <strong>não</strong>, o write-back será desabilitado e os usuários federados e sincronizados com hash de senha não poderão redefinir suas senhas.<br><br></li>
+Se o write-back for implantado e configurado e essa opção estiver definida como <strong>não</strong>, o write-back será desabilitado e federado os usuários federados e sincronizados com hash de senha não poderão redefinir suas senhas.<br><br></li>
                   <li class="unordered">
 Se a opção estiver definida como <strong>sim</strong>, o write-back estará habilitado e os usuários federados e sincronizados com hash de senha poderão redefinir as suas senhas.<br><br></li>
                 </ul>
@@ -865,7 +869,7 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 * **Você está aqui por que está enfrentando problemas para iniciar sessão?** Se sim, [veja aqui como alterar e redefinir sua senha](active-directory-passwords-update-your-own-password.md).
 * [**Como funciona**](active-directory-passwords-how-it-works.md) – saiba mais sobre os seis diferentes componentes do serviço e o que cada um deles faz
-* [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou locais
+* [**Introdução**](active-directory-passwords-getting-started.md) – saiba como permitir que os usuários redefinam e alterem suas senhas na nuvem ou no local
 * [**Práticas recomendadas**](active-directory-passwords-best-practices.md) – aprenda a implantar rapidamente e gerenciar com eficiência as senhas em sua organização
 * [**Obter percepções**](active-directory-passwords-get-insights.md) – saiba mais sobre nossos recursos integrados de relatórios
 * [**Perguntas frequentes**](active-directory-passwords-faq.md) - obtenha respostas para perguntas frequentes
@@ -876,6 +880,6 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

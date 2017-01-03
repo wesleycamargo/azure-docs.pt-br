@@ -1,11 +1,11 @@
 ---
-title: 'collectd: estatísticas de desempenho para Java em Unix no Application Insights'
-description: Monitoramento estendido do seu site Java com o plug-in CollectD para Application Insights
+title: "collectd: estatísticas de desempenho para Java em Linux no Azure Application Insights | Microsoft Docs"
+description: Monitoramento estendido do desempenho de aplicativo do seu site Java com o plug-in CollectD para Application Insights.
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
-
+ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,26 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
+ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
+
 
 ---
-# collectd: métricas de desempenho do Unix no Application Insights
-*O Application Insights está em modo de visualização.*
+# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: métricas de desempenho do Linux no Application Insights
 
-Para explorar as métricas de desempenho do sistema Unix no [Application Insights](app-insights-overview.md), instale [collectd](http://collectd.org/), juntamente com seu plug-in do Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
 
-Normalmente, você usará o collectd se já tiver [instrumentado seu serviço web Java com o Application Insights][java]. Isso oferece a você mais dados para ajudá-lo a aprimorar o desempenho do aplicativo ou para diagnosticar problemas.
+Para explorar as métricas de desempenho do sistema Linux no [Application Insights](app-insights-overview.md), instale [collectd](http://collectd.org/) com seu plug-in do Application Insights. Essa solução de software livre reúne várias estatísticas de sistema e de rede.
+
+Normalmente, você usará o collectd se já tiver [instrumentado seu serviço Web Java com o Application Insights][java]. Isso oferece a você mais dados para ajudá-lo a aprimorar o desempenho do aplicativo ou para diagnosticar problemas. 
 
 ![Exemplo de gráficos](./media/app-insights-java-collectd/sample.png)
 
-## Obter a chave de instrumentação
-No [portal do Microsoft Azure](https://portal.azure.com), abra o recurso [Application Insights](app-insights-overview.md) onde você deseja que os dados sejam exibidos. (Ou [crie um novo recurso](app-insights-create-new-resource.md).)
+## <a name="get-your-instrumentation-key"></a>Obter a chave de instrumentação
+No [Portal do Microsoft Azure](https://portal.azure.com), abra o recurso [Application Insights](app-insights-overview.md) onde você quer que os dados sejam exibidos. (Ou [crie um novo recurso](app-insights-create-new-resource.md).)
 
 Faça uma cópia da chave de instrumentação que identifica o recurso.
 
 ![Procure tudo, abra seu recurso e, no menu suspenso Essentials, selecione e copie a Chave de Instrumentação](./media/app-insights-java-collectd/02-props.png)
 
-## Instalar o plug-in e collectd
-Em seus computadores com o servidor Unix:
+## <a name="install-collectd-and-the-plug-in"></a>Instalar o plug-in e collectd
+Em seus computadores com o servidor Linux:
 
 1. Instale [collectd](http://collectd.org/) versão 5.4.0 ou posterior.
 2. Baixe o [plug-in do gravador collectd do Application Insights](https://aka.ms/aijavasdk). Observe o número de versão.
@@ -79,25 +83,25 @@ Veja o exemplo de parte de um arquivo de configuração:
       # Other plugin configurations ...
       ...
     </Plugin>
-. ...
+.   ...
 
 Configure outros [plug-ins collectd](https://collectd.org/wiki/index.php/Table_of_Plugins), que possam coletar vários dados de diferentes fontes.
 
 Reinicie o collectd, de acordo com seu [manual](https://collectd.org/wiki/index.php/First_steps).
 
-## Exibir os dados no Application Insights
-No recurso Application Insights, abra o [Metrics Explorer e adicione gráficos][metrics], selecionando as métricas que deseja ver na categoria Personalizado.
+## <a name="view-the-data-in-application-insights"></a>Exibir os dados no Application Insights
+No recurso Application Insights, abra o [Metrics Explorer e adicione gráficos][métricas], selecionando as métricas que deseja ver na categoria Personalizado.
 
 ![](./media/app-insights-java-collectd/result.png)
 
 Por padrão, as métricas são agregadas em todos os computadores host dos quais as métricas foram coletadas. Para exibir as métricas por host, na folha Detalhes do gráfico, ative Agrupamento e escolha Agrupar por CollectD-Host.
 
-## Excluir o carregamento de estatísticas específicas
-Por padrão, o plug-in do Application Insights envia todos os dados coletados por todos os plug-ins collect ‘read’ habilitados.
+## <a name="to-exclude-upload-of-specific-statistics"></a>Excluir o carregamento de estatísticas específicas
+Por padrão, o plug-in do Application Insights envia todos os dados coletados por todos os plug-ins collect ‘read’ habilitados. 
 
 Para excluir dados de plug-ins ou fontes de dados específicos:
 
-* Edite o arquivo de configuração.
+* Edite o arquivo de configuração. 
 * Em `<Plugin ApplicationInsightsWriter>`, adicione linhas diretivas como esta:
 
 | Diretiva | Efeito |
@@ -107,10 +111,10 @@ Para excluir dados de plug-ins ou fontes de dados específicos:
 
 Diretivas separadas por uma nova linha.
 
-## Problemas?
+## <a name="problems"></a>Problemas?
 *Não vejo dados no portal*
 
-* Abra [Pesquisar][diagnostic] para ver se os eventos brutos aparecem. Às vezes, eles levam mais tempo para aparecer no Metrics Explorer.
+* Abra [Pesquisar][diagnóstico] para ver se os eventos brutos aparecem. Às vezes, eles levam mais tempo para aparecer no Metrics Explorer.
 * Talvez você precise [definir exceções de firewall para dados de saída](app-insights-ip-addresses.md)
 * Habilite o rastreamento no plug-in do Application Insights. Adicione esta linha em `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
@@ -122,13 +126,17 @@ Diretivas separadas por uma nova linha.
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
+[diagnóstico]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[metrics]: app-insights-metrics-explorer.md
+[métricas]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO4-->
+
+
