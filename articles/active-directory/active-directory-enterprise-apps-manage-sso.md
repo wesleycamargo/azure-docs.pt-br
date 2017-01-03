@@ -1,12 +1,12 @@
 ---
-title: Gerenciamento de único logon para aplicativos empresariais na visualização do Azure Active Directory | Microsoft Docs
-description: Saiba como gerenciar o logon único para aplicativos empresariais usando o Azure Active Directory
+title: "Gerenciamento de único logon para aplicativos empresariais na visualização do Azure Active Directory | Microsoft Docs"
+description: "Saiba como gerenciar o logon único para aplicativos empresariais usando o Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/30/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2f03079498568f52802b34ce57242a414e648fe3
+
 
 ---
-# <a name="preview:-managing-single-sign-on-for-enterprise-apps-in-the-new-azure-portal"></a>Visualização: gerenciamento de logon único para aplicativos empresariais no novo portal do Azure
+# <a name="preview-managing-single-sign-on-for-enterprise-apps-in-the-new-azure-portal"></a>Visualização: gerenciamento de logon único para aplicativos empresariais no novo portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-enterprise-apps-manage-sso.md)
 > * [Portal clássico do Azure](active-directory-sso-integrate-saas-apps.md)
@@ -41,7 +45,7 @@ Para gerenciar as configurações de logon único, selecione **Logon único**.
 ## <a name="single-sign-on-modes"></a>Modos de logon único
 A folha **Logon único** começa com um menu **Modo**, que permite que o modo de logon único seja configurado. As opções disponíveis incluem:
 
-* **Logon baseado em SAML** - essa opção estará disponível se o aplicativo der suporte ao logon único federado completo com o Azure Active Directory usando o protocolo SAML 2.0. Isso
+* **Logon baseado em SAML** - essa opção estará disponível se o aplicativo der suporte ao logon único federado completo com o Azure Active Directory usando o protocolo SAML 2.0.
 * **Logon baseado em senha em** -essa opção está disponível se o Azure AD dá suporte ao preenchimento de formulário de senha para este aplicativo.
 * **Logon vinculado** - anteriormente conhecida como "Logon único existente", essa opção permite que os administradores coloquem um link para esse aplicativo no painel de acesso do Azure AD ou no iniciador de aplicativo do Office 365 do usuário.
 
@@ -100,6 +104,6 @@ Se houver suporte para o aplicativo, selecionar o modo de SSO vinculado permite 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO5-->
 
 

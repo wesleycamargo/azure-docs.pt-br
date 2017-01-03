@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: f5e9d1a7f26ed3cac5767034661739169968a44e
-ms.openlocfilehash: ba0c710a0c28e9d52021ec966905a007b06f125e
+ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
+ms.openlocfilehash: 3727972c544bb8c2724e9f38953882a7f2251a60
 
 
 ---
@@ -46,9 +46,9 @@ Para uma implantação completa, recomendamos que você execute todas as etapas 
 | **Limitações de local** |Não há suporte para proxy baseado em HTTPS |
 | **Provedor/agente** |As VMs replicadas precisam do Provedor do Azure Site Recovery.<br/><br/> Hosts Hyper-V precosam do agente de Serviços de Recuperação.<br/><br/> Você os instala durante a implantação. |
 |  **Requisitos do Azure** |Conta do Azure<br/><br/> Cofre dos serviços de recuperação<br/><br/> Conta de armazenamento LRS ou GRS na região do cofre<br/><br/> Conta de armazenamento padrão<br/><br/> Rede virtual do Azure na região do cofre. [Detalhes completos](#azure-prerequisites). |
-|  **Limitações do Azure** |Se usar GRS, você precisará de outra conta LRS para registro em log<br/><br/> As contas de armazenamento criadas no portal do Azure não podem ser movidas entre grupos de recursos nas mesmas assinaturas ou em assinaturas diferentes. <br/><br/> Não há suporte para o armazenamento Premium.<br/><br/> As redes do Azure usadas para o Site Recovery não podem ser movidas entre grupos de recursos nas mesmas assinaturas ou em assinaturas diferentes. |
-|  **Replicação de VM** |[As VMs devem cumprir os pré-requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
-|  **Limitações de replicação** |Você não pode replicar VMs que executam o Linux com um endereço IP estático.<br/><br/> Você não pode excluir discos específicos da replicação. |
+|  **Limitações do Azure** |Se usar GRS, você precisará de outra conta LRS para registro em log<br/><br/> As contas de armazenamento criadas no portal do Azure não podem ser movidas entre grupos de recursos nas mesmas assinaturas ou em assinaturas diferentes. <br/><br/> Não há suporte para o armazenamento Premium.<br/><br/> As redes do Azure usadas para o Site Recovery não podem ser movidas entre grupos de recursos nas mesmas assinaturas ou em assinaturas diferentes. 
+|  **Replicação de VM** |[As VMs devem cumprir os pré-requisitos do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
+|  **Limitações de replicação** |Você não pode replicar VMs que executam o Linux com um endereço IP estático.<br/><br/> Você pode excluir discos específicos da replicação, mas não um disco de sistema operacional.
 | **Etapas de implantação** |1) Preparar o Azure (assinatura, armazenamento, rede) -> 2) Preparar o local (VMM e mapeamento de rede) -> 3) Criar cofre de Serviços de Recuperação -> 4) Configurar hosts VMM e Hyper-V-> 5) Definir configurações de replicação -> 6) Habilitar a replicação -> 7) Testa a replicação e o failover. |
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Recuperação de Site no portal do Azure
@@ -372,6 +372,7 @@ O valor do registro **UploadThreadsPerVM** controla o número de threads usados 
 2. O valor padrão é 4. Em uma rede "sobreprovisionada", os valores padrão dessas chaves do registro precisam ser alterados. O máximo é 32. Monitore o tráfego para otimizar o valor.
 
 ## <a name="step-6-enable-replication"></a>Etapa 6: Habilitar a replicação
+
 Agora habilite a replicação da seguinte maneira:
 
 1. Clique em **Etapa 2: replicar aplicativo** > **Origem**. Depois de habilitar a replicação pela primeira vez, clique em **+Replicar** no cofre para habilitar a replicação para outros computadores.
@@ -388,9 +389,20 @@ Agora habilite a replicação da seguinte maneira:
 6. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, clique e selecione cada máquina que você deseja replicar. Você só pode selecionar computadores para os quais a replicação pode ser habilitada. Em seguida, clique em **OK**.
 
     ![Habilitar a replicação](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. Em **Propriedades** > **Configurar propriedades**, selecione o sistema operacional para as VMs selecionadas e o disco do sistema operacional. Em seguida, clique em **OK**. Você pode definir propriedades adicionais posteriormente.
+7. Em **Propriedades** > **Configurar propriedades**, selecione o sistema operacional para as VMs selecionadas e o disco do sistema operacional. Por padrão, todos os discos da VM são selecionados para replicação. Convém excluir discos da replicação para reduzir o consumo de largura de banda da replicação de dados desnecessários no Azure. Por exemplo, talvez você não queira replicar discos com dados temporários ou dados que são atualizados cada vez que um computador ou um aplicativo é reiniciado (por exemplo, pagefile.sys ou Microsoft SQL Server tempdb). Para excluir o disco da replicação, você deverá desmarcá-lo. Verifique se o nome da VM do Azure (Nome de Destino) está em conformidade com os [requisitos de máquina virtual do Azure](site-recovery-best-practices.md#azure-virtual-machine-requirements) e modifique-o, se for necessário. Em seguida, clique em **OK**. Você pode definir propriedades adicionais posteriormente.
 
-    ![Habilitar a replicação](./media/site-recovery-vmm-to-azure/enable-replication6.png)
+    ![Habilitar a replicação](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
+    
+    >[!NOTE]
+    > 
+    > * Apenas discos básicos podem ser excluídos da replicação. Você não pode excluir o disco do sistema operacional e é recomendável não excluir discos dinâmicos. O ASR não pode identificar qual disco VHD é um disco básico ou dinâmico dentro da VM convidada.  Se todos os discos de volume dinâmico dependentes não forem excluídos, o disco protegido dinâmico aparecerá como um disco com falha na VM de failover e os dados nesse disco não poderão ser acessados.   
+    > * Depois que a replicação estiver habilitada, você não poderá adicionar ou remover discos para replicação. Se desejar adicionar ou excluir um disco, você precisará desabilitar a proteção da VM e habilitá-la novamente.
+    > * Se você excluir um disco necessário para um aplicativo operar, após o failover no Azure você precisará criá-lo manualmente no Azure para que possa executar o aplicativo replicado. Como alternativa, integre a automação do Azure em um plano de recuperação para criar o disco durante o failover do computador.
+    > * Não haverá failback de discos que você criar manualmente no Azure. Por exemplo, se houver failover de três discos e dois discos forem criados diretamente na VM do Azure, apenas três discos que sofreram failover terão failback do Azure para o Hyper-V. Você não pode incluir discos criados manualmente em failback ou em replicação reversa do Hyper-V para o Azure.
+    >
+    >
+    
+
 8. Em **Configurações de replicação** > **Definir configurações de replicação**, selecione a política de replicação que você deseja aplicar para as VMs protegidas. Em seguida, clique em **OK**. Você pode modificar a política de replicação em **Configurações** > **Políticas de replicação** > nome da política > **Editar Configurações**. As alterações aplicadas são usadas para computadores que já estejam replicando e para novas máquinas.
 
    ![Habilitar a replicação](./media/site-recovery-vmm-to-azure/enable-replication7.png)
@@ -426,6 +438,7 @@ Para testar a implantação, você pode executar um failover de teste para uma �
 * Para executar um teste de failover, recomendamos que você crie uma nova rede do Azure isolada da rede de produção do Azure. Esse é o comportamento padrão quando você cria uma nova rede no Azure. [Saiba mais](site-recovery-failover.md#run-a-test-failover) sobre a execução de failovers de teste.
 * Para obter o melhor desempenho ao fazer um failover para o Azure, instale o Agente do Azure no computador protegido. Ele torna a inicialização mais rápida e ajuda na solução de problemas. Instale o agente do [Linux](https://github.com/Azure/WALinuxAgent) ou do [Windows](http://go.microsoft.com/fwlink/?LinkID=394789).
 * Para testar totalmente a implantação, você precisa de uma infraestrutura para o computador replicado funcionar como esperado. Se você quiser testar o Active Directory e o DNS, poderá criar uma máquina virtual como um controlador de domínio com DNS e replicar isso para o Azure usando o Azure Site Recovery. Leia mais em [considerações sobre failover de teste para o Active Directory](site-recovery-active-directory.md#test-failover-considerations).
+* Se você tiver excluído discos da replicação, talvez seja necessário criar esses discos manualmente no Azure após o failover para que o aplicativo seja executado conforme esperado.
 * Se você quiser executar um failover não planejado em vez de um teste de failover, observe o seguinte:
 
   * Se possível, você deve desligar os computadores primários antes de fazer um failover não planejado. Isso faz com que você não tenha os computadores de origem e de réplica em execução ao mesmo tempo.
@@ -496,6 +509,6 @@ Depois que a implantação estiver configurada e em funcionamento, [saiba mais](
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

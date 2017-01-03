@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab;sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b2653afe1aeb920ef7e14f3e15501c8541c43219
+ms.sourcegitcommit: 9e331f3536bfde96d15ff5bb3a21683f67b25da2
+ms.openlocfilehash: d726a886717826368693cda6ca4141c136ea236d
 
 
 ---
@@ -38,7 +38,7 @@ A tabela a seguir compara o ERT e RPO para os três cenários mais comuns.
 | Replicação geográfica ativa |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Usar backups de banco de dados para recuperar um banco de dados
-O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco minutos para proteger sua empresa contra a perda de dados. Esses backups são armazenados no armazenamento com redundância local por 35 dias, no caso dos bancos de dados das camadas de serviço Standard e Premium, e por sete dias no caso dos bancos de dados da camada de serviço Básica - confira a seção [Camadas de serviço](sql-database-service-tiers.md) para obter mais detalhes sobre elas. Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-scale-up.md). Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Consulte [backups de banco de dados automáticos](sql-database-automated-backups.md) para obter mais detalhes.
+O Banco de Dados SQL executa automaticamente uma combinação de backups de banco de dados semanais, backups de bancos de dados diferenciais por hora e backups de logs de transação a cada cinco minutos para proteger sua empresa contra a perda de dados. Esses backups são armazenados no armazenamento com redundância geográfica por 35 dias, no caso dos bancos de dados das camadas de serviço Standard e Premium, e por sete dias no caso dos bancos de dados da camada de serviço Básica - confira a seção [Camadas de serviço](sql-database-service-tiers.md) para obter mais detalhes sobre elas. Se o período de retenção para a camada de serviço não atender seus requisitos de negócios, você poderá aumentar o período de retenção ao [alterar a camada de serviço](sql-database-scale-up.md). Os backups de banco de dados completos e diferenciais também são replicados para um [data center emparelhado](../best-practices-availability-paired-regions.md) para proteção contra uma interrupção do data center. Consulte [backups de banco de dados automáticos](sql-database-automated-backups.md) para obter mais detalhes.
 
 Se o período de retenção interno não for suficiente para seu aplicativo, você pode estendê-lo configurando a política de retenção de longo prazo para seus bancos de dados. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md). 
 
@@ -75,6 +75,10 @@ Use a replicação geográfica ativa caso seu aplicativo atenda a qualquer um de
 * Que o tempo de inatividade resulte em responsabilidade financeira.
 * Tenha uma alta taxa de alteração de dados e que a perda de uma hora de dados não seja aceitável.
 * Que o custo adicional da replicação geográfica ativa seja menor que a responsabilidade financeira potencial e das perdas associadas do negócio.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Recuperar um banco de dados após um erro de usuário ou de aplicativo
 *Ninguém é perfeito! Um usuário pode acidentalmente excluir alguns dados, remover uma tabela importante inadvertidamente ou até mesmo um banco de dados inteiro. Ou, um aplicativo pode acidentalmente substituir dados corretos por incorretos por causa de um defeito. 
@@ -136,7 +140,7 @@ Se você estiver usando backups automatizados com a replicação de armazenament
 > 
 > 
 
-### <a name="perform-post-failover-recovery-tasks"></a>Executar pós-failover / tarefas de recuperação
+### <a name="perform-post-failover--recovery-tasks"></a>Executar pós-failover / tarefas de recuperação
 Após recuperar de um dos mecanismos de recuperação, você deverá executar as seguintes tarefas adicionais antes que os usuários e aplicativos entrem em funcionamento novamente:
 
 * Redirecionar clientes e aplicativos de cliente para o novo servidor e banco de dados restaurado
@@ -154,6 +158,6 @@ Para uma discussão sobre as considerações de design de aplicativo para bancos
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Introdução à entrada e saída no AD do Azure usando node.js
+title: "Introdução à entrada e saída no AD do Azure usando node.js"
 description: Como criar um aplicativo Web MVC node.js Express que se integra ao AD do Azure para entrar.
 services: active-directory
 documentationcenter: nodejs
-author: brandwe
+author: xerners
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: brandwe
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5d2c5bf3c1d370329603ff55cf9f32367e29368a
+
 
 ---
-# <a name="nodejs-web-app-sign-in-&-sign-out-with-azure-ad"></a>Entrar e sair do aplicativo Web NodeJS com o Azure AD
+# <a name="nodejs-web-app-sign-in--sign-out-with-azure-ad"></a>Entrar e sair do aplicativo Web NodeJS com o Azure AD
 Aqui usaremos o Passport para:
 
 * Entrada do usuário no aplicativo usando o Azure AD.
@@ -38,18 +42,17 @@ O código para este tutorial é mantido [no GitHub](https://github.com/AzureADQu
 
 O aplicativo completo também é fornecido no final deste tutorial.
 
-## <a name="1.-register-an-app"></a>1. Registrar um Aplicativo
-* Entre no Portal de Gerenciamento do Azure.
-* Clique em **Active Directory**no painel de navegação à esquerda.
+## <a name="1-register-an-app"></a>1. Registrar um Aplicativo
+* Faça logon no [Portal do Azure](https://portal.azure.com).
 * Selecione o locatário em que você deseja registrar o aplicativo.
-* Clique na guia **Aplicativos** e clique em adicionar na lista de botões.
+* Clique em **Azure Active Directory** no painel de navegação à esquerda.
+* Clique na guia **Registros do Aplicativo** e clique em **Adicionar**.
 * Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.
   * O **nome** do aplicativo descreverá seu aplicativo para os usuários finais
   * A **URL de logon** é a URL base do seu aplicativo.  O padrão do esqueleto é "http://localhost:3000/auth/openid/return".
-  * O **URI da ID do aplicativo** é um identificador exclusivo para seu aplicativo.  A convenção é usar `https://<tenant-domain>/<app-name>`, por exemplo, `https://contoso.onmicrosoft.com/my-first-aad-app`
-* Depois de concluir o registro, o AAD atribuirá a seu aplicativo um identificador de cliente único.  Você precisará desse valor nas próximas seções, então copie-o da guia Configurar.
+* Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma ID do Aplicativo única.  Você precisará desse valor nas próximas seções, então copie-o da página do aplicativo.
 
-## <a name="2.-add-pre-requisities-to-your-directory"></a>2. Adicionar pré-requisitos ao seu diretório
+## <a name="2-add-pre-requisities-to-your-directory"></a>2. Adicionar pré-requisitos ao seu diretório
 Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver lá e execute os seguintes comandos:
 
 * `npm install express`
@@ -65,11 +68,11 @@ Na linha de comando, altere o diretório para a pasta raiz se ainda não estiver
 
 Isso instalará as bibliotecas das quais o passport-azure-ad depende.
 
-## <a name="3.-set-up-your-app-to-use-the-passport-node-js-strategy"></a>3. Configurar seu aplicativo para usar a estratégia passport-node-js
+## <a name="3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>3. Configurar seu aplicativo para usar a estratégia passport-node-js
 Aqui, configuraremos o middleware Express para usar o protocolo de autenticação OpenID Connect.  O Passport será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 * Para começar, abra o arquivo `config.js` na raiz do projeto e insira os valores de configuração do aplicativo na seção `exports.creds`.
-  
+
   * `clientID:` é a **ID do Aplicativo** atribuída ao seu aplicativo no portal de registro.
   * O `returnURL` é o **URI de Redirecionamento** inserido no portal.
   * O `clientSecret` é o segredo gerado no portal
@@ -88,8 +91,8 @@ var log = bunyan.createLogger({
 * Depois disso, use a estratégia que referenciamos para manipular nossas solicitações de logon
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2) 
-// 
+// Use the OIDCStrategy within Passport. (Section 2)
+//
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -129,8 +132,8 @@ O Passport usa um padrão semelhante para todas as Estratégias (Twitter, Facebo
 
 > [!IMPORTANT]
 > O código acima usa qualquer usuário que tente se autenticar em nosso servidor. Isso é conhecido como registro automático. Em servidores de produção, não convém permitir que qualquer pessoa entre sem primeiro passar por um processo de registro que você decide. Esse geralmente é o padrão que você vê em aplicativos de consumidor que lhe permitem registrar-se com o Facebook, mas depois pedem que você preencha informações adicionais. Se esse não fosse um aplicativo de exemplo, poderíamos ter apenas extraído o email do objeto de token que é retornado e pedido que ele preenchesse informações adicionais. Como esse é um servidor de teste, basta adicioná-los ao banco de dados na memória.
-> 
-> 
+>
+>
 
 * Em seguida, vamos adicionar os métodos que nos permitirão acompanhar os usuários conectados conforme exigido pelo Passport. Isso inclui a serialização e a desserialização de informações do usuário:
 
@@ -238,7 +241,7 @@ app.post('/auth/openid/return',
   });
   ```
 
-## <a name="4.-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>4. Usar o Passport para emitir solicitações de entrada e saída ao AD do Azure
+## <a name="4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>4. Usar o Passport para emitir solicitações de entrada e saída ao AD do Azure
 Seu aplicativo agora está configurado corretamente para se comunicar com o ponto de extremidade v2.0 usando o protocolo de autenticação OpenID Connect.  `passport-azure-ad` cuidou de todos os detalhes para criar as mensagens de autenticação, validar tokens no Azure AD e manter a sessão do usuário.  Tudo o que resta é dar aos usuários uma maneira de entrar, sair e coletar informações adicionais sobre o usuário conectado.
 
 * Primeiramente, vamos adicionar os métodos padrão de logon, conta e logoff ao arquivo `app.js` :
@@ -270,7 +273,7 @@ app.get('/logout', function(req, res){
 ```
 
 * Vamos examiná-los detalhadamente:
-  
+
   * A rota `/` será redirecionada para o modo de exibição de index.ejs passando o usuário na solicitação (se houver)
   * A rota `/account` primeiro ***garantirá que sejamos autenticados*** (implementamos isso abaixo) e aprovará o usuário na solicitação para que possamos obter informações adicionais sobre ele.
   * A rota `/login` chamará nosso autenticador azuread-openidconnect de `passport-azuread` e, se não tiver êxito, redirecionará o usuário para /login
@@ -300,7 +303,7 @@ app.listen(3000);
 ```
 
 
-## <a name="5.-create-the-views-and-routes-in-express-to-display-our-user-in-the-website"></a>5. Criar as exibições e as rotas no express para exibir o usuário no site
+## <a name="5-create-the-views-and-routes-in-express-to-display-our-user-in-the-website"></a>5. Criar as exibições e as rotas no express para exibir o usuário no site
 Temos nosso `app.js` concluído. Agora, basta adicionar rotas e modos de exibição que mostram as informações que precisamos do usuário e lidar com as rotas `/logout` e `/login` criadas.
 
 * Criar a rota `/routes/index.js` no diretório raiz.
@@ -373,13 +376,13 @@ Essas rotas simples apenas passarão a solicitação para nossos modos de exibi�
     <body>
         <% if (!user) { %>
             <p>
-            <a href="/">Home</a> | 
+            <a href="/">Home</a> |
             <a href="/login">Log In</a>
             </p>
         <% } else { %>
             <p>
-            <a href="/">Home</a> | 
-            <a href="/account">Account</a> | 
+            <a href="/">Home</a> |
+            <a href="/account">Account</a> |
             <a href="/logout">Log Out</a>
             </p>
         <% } %>
@@ -388,7 +391,7 @@ Essas rotas simples apenas passarão a solicitação para nossos modos de exibi�
 </html>
 ```
 
-Por fim, compile e execute seu aplicativo! 
+Por fim, compile e execute seu aplicativo!
 
 Execute `node app.js` e navegue até `http://localhost:3000`
 
@@ -404,6 +407,8 @@ Agora você pode ir para tópicos mais avançados.  Você pode desejar experimen
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!--HONumber=Oct16_HO4-->
+
+
+<!--HONumber=Dec16_HO5-->
 
 

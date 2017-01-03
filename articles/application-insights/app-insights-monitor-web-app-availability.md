@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2016
+ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: d3478ef704c0029f69cca141bd3fa0b3ac54de15
+ms.sourcegitcommit: 2d36bc4f9305590e7cc835bb813daf193d071fd1
+ms.openlocfilehash: 455d260248c5bcdb8f597484a98fec9320c81d19
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
-Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes na Web para monitorar sua disponibilidade e capacidade de resposta. [Visual Studio Application Insights](app-insights-overview.md) envia solicitações da Web ao aplicativo a intervalos regulares de pontos em todo o mundo. Ele o alertará se o aplicativo não responder ou responder lentamente.
+Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes na Web para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.
 
 ![Exemplo de teste da Web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-Você pode configurar testes na Web para qualquer ponto de extremidade HTTP ou HTTPS que for acessível da Internet pública.
+Você pode configurar testes na Web para qualquer ponto de extremidade HTTP ou HTTPS que for acessível da Internet pública. Não é necessário adicionar qualquer coisa ao site que você está testando. Ele nem precisa ser o seu site: você pode testar um serviço de API REST do qual você depende.
 
 Há dois tipos de teste da Web:
 
@@ -58,7 +58,7 @@ Em seu recurso do Application Insights, procure o bloco de Disponibilidade. Cliq
 
     **Resposta HTTP**: o código de status retornado que é contado como êxito. 200 é o código que indica que uma página da Web normal foi retornada.
 
-    **Correspondência de conteúdo**: uma cadeia de caracteres como "Bem-vindo!" Fazemos o teste para comprovar se ela ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo.
+    **Correspondência de conteúdo**: uma cadeia de caracteres como "Bem-vindo!" Faremos o teste que uma correspondência exata de maiúsculas e minúsculas ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo.
 * **Alertas** serão, por padrão, enviados a você se houver falhas em três locais em cinco minutos. Uma falha em um único local provavelmente é um problema de rede, não um problema com seu site. Porém, você pode alterar o limite para ser mais ou menos sensível e também pode alterar a quem os emails devem ser enviados.
 
     Você pode configurar um [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) , que é chamado quando um alerta é gerado. (Mas observe que, no momento, os parâmetros de consulta não são passados como Propriedades.)
@@ -102,8 +102,20 @@ Outra opção é baixar o arquivo de resultado e inspecioná-lo no Visual Studio
 
 *Parece correto, mas é relatado como uma falha?*  Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como falha, mesmo se a página html principal carregar com êxito.
 
-## <a name="multistep-web-tests"></a>Testes na Web com diversas etapas
+### <a name="open-the-server-request-and-exceptions"></a>Abrir a solicitação de servidor e exceções
+
+Nas propriedades detalhadas de um teste específico, você pode abrir o relatório do lado do servidor da solicitação e quaisquer outros eventos como exceções.
+
+![Resultado do teste da Web](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
+
+Se você não vir itens relacionados, talvez a [amostragem](app-insights-sampling.md) esteja em operação.
+
+## <a name="multi-step-web-tests"></a>Testes na Web com diversas etapas
 Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo, se estiver monitorando um site de vendas, você poderá testar se adicionar itens ao carrinho de compras funciona corretamente.
+
+> [!NOTE] 
+> Há uma cobrança para testes na Web de várias etapas. [Esquema de preços](http://azure.microsoft.com/pricing/details/application-insights/).
+> 
 
 Para criar um teste de várias etapas, grave o cenário usando o Visual Studio e, em seguida, carregue a gravação no Application Insights. O Application Insights reproduz o cenário em intervalos e verifica as respostas.
 
@@ -153,7 +165,7 @@ Não se esqueça de que todos os recursos de uma página devem carregar corretam
 
 Observe que o teste na Web deve estar totalmente contido no arquivo .webtest: não é possível usar funções codificadas no teste.
 
-### <a name="plugging-time-and-random-numbers-into-your-multistep-test"></a>Conectando a hora e números aleatórios em seu teste de várias etapas
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Conectando a hora e números aleatórios em seu teste de várias etapas
 Suponha que você está testando uma ferramenta que obtém dados dependentes de tempo, como estoques de um feed externo. Quando grava seu teste na Web você deve usar horários específicos, definindo-os, todavia, como parâmetros do teste, StartTime e EndTime.
 
 ![Um teste da Web com parâmetros.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -176,7 +188,7 @@ Plug-ins de teste da Web fornecem uma maneira de gerar tempos parametrizados.
 
 Agora, carregue seu teste no portal. Ele usa os valores dinâmicos em todas as execuções do teste.
 
-## <a name="dealing-with-signin"></a>Lidando com a entrada
+## <a name="dealing-with-sign-in"></a>Lidando com a entrada
 Se os usuários entrarem em seu aplicativo, você terá várias opções para simular entradas para poder testar as páginas por trás da entrada. A abordagem usada dependerá do tipo de segurança fornecida pelo aplicativo.
 
 Em todos os casos, você deve criar uma conta no aplicativo apenas para fins de teste. Se possível, restrinja as permissões da conta de teste para que não haja possibilidade de que os testes na Web afetem usuários reais.
@@ -227,7 +239,7 @@ Na folha de Visão geral, abra **Configurações**, **Testes de Desempenho**. Ao
 Quando o teste for concluído, você verá os tempos de resposta e as taxas de êxito.
 
 ## <a name="automation"></a>Automação
-* [Use os scripts do PowerShell para configurar um teste na Web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/) automaticamente.
+* [Use os scripts do PowerShell para configurar um teste na Web](app-insights-powershell.md#add-an-availability-test) automaticamente.
 * Configure um [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) , que é chamado quando um alerta é gerado.
 
 ## <a name="questions-problems"></a>Perguntas? Problemas?
@@ -267,7 +279,7 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 >
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Próximas etapas
-[Pesquisar logs de diagnóstico][diagnóstico]
+[Pesquisar logs de diagnóstico][diagnostic]
 
 [Solução de problemas][qna]
 
@@ -278,10 +290,10 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 [azure-availability]: ../insights-create-web-tests.md
 [diagnostic]: app-insights-diagnostic-search.md
 [qna]: app-insights-troubleshoot-faq.md
-[iniciar]: app-insights-overview.md
+[start]: app-insights-overview.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

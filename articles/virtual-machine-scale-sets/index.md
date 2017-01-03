@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Saiba como usar os Conjuntos de Dimensionamento de Máquinas Virtuais para criar VMs do Windows ou do Linux de dimensionamento automático para computação de grande porte, big data e soluções contidas."
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 693dcfd3c20ce373f093108b4d5f8b63aa30f8df
+ms.sourcegitcommit: 7fefef291643ba0c640ba3520e7e40d50391220a
+ms.openlocfilehash: a35dcbfa56c03ca264d4c7a7f779672dc6ae7526
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Documentação dos Conjuntos de Dimensionamento de Máquina Virtual
 
-Os conjuntos de dimensionamento de máquina virtual são um recurso de computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas.  Com todas as VMs configuradas igualmente, os conjuntos de dimensionamento de VMs são projetados para oferecer suporte total ao dimensionamento - nenhum pré-provisionamento de VMs é necessário. Isso facilita a criação de serviços em larga escala direcionados para Big Compute, Big Data e cargas de trabalho em contêineres.
+Saiba como usar os Conjuntos de Dimensionamento de Máquinas Virtuais para implantar e gerenciar um conjunto de VMs do Windows ou do Linux de dimensionamento automático idênticas. A documentação mostra como usar Conjuntos de Dimensionamento para dar suporte a serviços destinados a computação de grande porte, big data e soluções contidas.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -69,53 +70,34 @@ Os conjuntos de dimensionamento de máquina virtual são um recurso de computaç
 
 ---
 
-## <a name="reference"></a>Referência
-
+<h2>Referência</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell dos conjuntos de dimensionamento de máquina virtual</p>
+                        <h3>Linha de comando</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/azure/virtual-machines/azure-cli-arm-commands">CLI do Azure</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/vmss">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>CLI do Azure</h3>
-                        <p>Conjuntos de dimensionamento de máquina virtual usando a CLI do Azure</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API REST de Conjuntos de Dimensionamento de Máquina Virtual</p>
+                        <p><a href="/rest/api/compute/">referência da API REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
@@ -127,6 +109,6 @@ Baixar a Documentação dos Conjuntos de Dimensionamento de Máquina Virtual </d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

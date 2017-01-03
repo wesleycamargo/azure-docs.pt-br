@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: b557c6d3591b1d56144651e876fa4bb1b0646935
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: d00b7b543f105fd944e91f6ed27e6613366c6716
 
 
 ---
@@ -31,9 +31,9 @@ Neste tutorial de introdução, você aprenderá a usar o PowerShell para:
 * Criar um servidor lógico do SQL do Azure
 * Exibir propriedades do SQL Server do Azure
 * Criar uma regra de firewall no nível de servidor
-* Criar o banco de dados de exemplo do AdventureWorksLT como um banco de dados autônomo
+* Criar o banco de dados de exemplo do AdventureWorksLT como um banco de dados único
 * Exibir as propriedades do banco de dados de exemplo do AdventureWorksLT
-* Criar um banco de dados autônomo em branco
+* Criar um banco de dados em branco
 
 Neste tutorial, você irá:
 
@@ -577,6 +577,6 @@ Agora que você concluiu este primeiro tutorial de introdução e criou um banco
 [O que é o Banco de Dados SQL?](sql-database-technical-overview.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

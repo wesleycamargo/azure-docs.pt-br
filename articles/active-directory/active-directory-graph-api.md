@@ -1,12 +1,12 @@
 ---
-title: Graph API do Active Directory do Azure | Microsoft Docs
-description: Uma visão geral e guia de início rápido para a Graph API que permite acesso programático ao Azure AD por meio de pontos de extremidade da API REST.
+title: Graph API do Azure Active Directory | Microsoft Docs
+description: "Uma visão geral e guia de início rápido para a Graph API que permite acesso programático ao Azure AD por meio de pontos de extremidade da API REST."
 services: active-directory
-documentationcenter: ''
-author: msmbaldwin
+documentationcenter: 
+author: PatAltimore
 manager: mbaldwin
 editor: mbaldwin
-
+ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2016
 ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83d136b7996ed28baecb70c80341df1cd31707b7
+
 
 ---
-# Graph API do Active Directory do Azure
+# <a name="azure-active-directory-graph-api"></a>Graph API do Active Directory do Azure
 > [!IMPORTANT]
-> A funcionalidade da Graph API do AD do Azure também está disponível por meio do [Microsoft Graph](https://graph.microsoft.io/), uma API unificada que inclui APIs de outros serviços da Microsoft, como o Outlook, OneDrive, OneNote, Planner e Office Graph, e está acessível por meio de um único ponto de extremidade e com um token de acesso único.
+> A funcionalidade da API do Graph do Azure AD também está disponível por meio do [Microsoft Graph](https://graph.microsoft.io/), uma API unificada que inclui APIs de outros serviços da Microsoft, como o Outlook, OneDrive, OneNote, Planner e Office Graph, e está acessível por meio de um único ponto de extremidade e com um token de acesso único.
 > 
 > 
 
@@ -32,9 +36,9 @@ A Graph API do Active Directory do Azure fornece acesso programático ao AD do A
 
 Além de objetos de usuário, você pode executar operações semelhantes em outros objetos, como grupos e aplicativos. Para chamar a Graph API em um diretório, o aplicativo deve ser registrado com o AD do Azure e estar configurado para permitir acesso ao diretório. Normalmente, isso é obtido por meio de um fluxo de consentimento do usuário ou administrador.
 
-Para começar a usar a API do Azure Active Directory Graph, veja o [Guia de início rápido da Graph API](active-directory-graph-api-quickstart.md) ou a [documentação de referência da Graph API interativa](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+Para começar a usar a API do Azure Active Directory Graph, veja o [Guia de início rápido da API do Graph](active-directory-graph-api-quickstart.md) ou a [documentação de referência da API do Graph interativa](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-## Recursos
+## <a name="features"></a>Recursos
 A Graph API fornece os seguintes recursos:
 
 * **Pontos de extremidade da API REST**: a Graph API é um serviço RESTful composto por pontos de extremidade acessados por meio de solicitações HTTP padrão. A Graph API dá suporte a tipos de conteúdo XML ou JavaScript Object Notation (JSON) para solicitações e respostas. Para saber mais, consulte [Referência da Graph API REST do AD do Azure](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
@@ -49,17 +53,22 @@ A Graph API fornece os seguintes recursos:
     
     Os escopos delegado e de permissão de função de aplicativo representam um privilégio exposto pela API do Graph e podem ser solicitados por aplicativos cliente por meio dos recursos de permissões de registro do aplicativo [no portal clássico do Azure](https://manage.windowsazure.com). Os clientes podem verificar os escopos de permissão concedidos a eles inspecionando a declaração de escopo (“scp”) recebida no token de acesso quanto às permissões delegadas e a declaração de funções (“funções”) quanto às permissões de função de aplicativo. Saiba mais sobre [Escopos de permissão da API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes).
 
-## Cenários
+## <a name="scenarios"></a>Cenários
 A Graph API habilita muitos cenários de aplicativos. A seguir, os cenários mais comuns:
 
 * **Aplicativo de linha de negócios (único locatário)**: neste cenário, um desenvolvedor corporativo trabalha para uma organização que tem uma assinatura do Office 365. O desenvolvedor está criando um aplicativo Web que interage com o Azure AD para executar tarefas como a atribuição de uma licença para um usuário. Esta tarefa exige acesso à Graph API para que o desenvolvedor registre o aplicativo de único locatário no Azure AD e configure as permissões de leitura e gravação para a Graph API. Em seguida, o aplicativo é configurado para usar suas próprias credenciais ou aquelas do usuário conectado no momento para adquirir um token para chamar a Graph API.
-* **Aplicativo de software como serviço (multilocatário)**: neste cenário, um fornecedor de software independente (ISV) está desenvolvendo um aplicativo Web multilocatário hospedado que fornece recursos de gerenciamento de usuário para outras organizações que usam o AD do Azure. Esses recursos exigem acesso a objetos de diretório, por isso o aplicativo precisa chamar a Graph API. O desenvolvedor registra o aplicativo no Azure AD, configura para exigir as permissões de leitura e gravação para a Graph API e habilita o acesso externo para que outras organizações possam concordar com o uso do aplicativo em seu diretório. Quando um usuário de outra organização autentica o aplicativo pela primeira vez, é mostrada uma caixa de diálogo de consentimento com as permissões que o aplicativo está solicitando. Conceder consentimento dará o aplicativo às permissões solicitadas para a Graph API no diretório do usuário. Para saber mais sobre a estrutura de consentimento, consulte [Visão geral da estrutura de consentimento](active-directory-integrating-applications.md).
+* **Aplicativo de software como serviço (multilocatário)**: neste cenário, um fornecedor de software independente (ISV) está desenvolvendo um aplicativo Web multilocatário hospedado que fornece recursos de gerenciamento de usuário para outras organizações que usam o AD do Azure. Esses recursos exigem acesso a objetos de diretório, por isso o aplicativo precisa chamar a Graph API. O desenvolvedor registra o aplicativo no Azure AD, configura para exigir as permissões de leitura e gravação para a Graph API e habilita o acesso externo para que outras organizações possam concordar com o uso do aplicativo em seu diretório. Quando um usuário de outra organização autentica o aplicativo pela primeira vez, é mostrada uma caixa de diálogo de consentimento com as permissões que o aplicativo está solicitando.  Conceder consentimento dará o aplicativo às permissões solicitadas para a Graph API no diretório do usuário. Para saber mais sobre a estrutura de consentimento, consulte [Visão geral da estrutura de consentimento](active-directory-integrating-applications.md).
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
 [Guia de início rápido para a Graph API do AD do Azure](active-directory-graph-api-quickstart.md)
 
 [Documentação do REST para a Graph AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
 [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Dec16_HO5-->
+
+

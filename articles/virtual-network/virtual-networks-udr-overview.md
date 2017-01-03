@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
+ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
 
 
 ---
@@ -29,6 +29,7 @@ Esse fluxo de comunicação é possível porque o Azure usa uma série de rotas 
 * De uma sub-rede para outra em uma VNet.
 * De VMs com a Internet.
 * De uma VNet para outra VNet por meio de um gateway VPN.
+* De uma rede virtual para outra rede virtual por meio de emparelhamento de rede virtual (encadeamento de serviço).
 * De uma VNet à sua rede local por meio de um gateway de VPN.
 
 A figura a seguir mostra uma configuração simples com uma VNet, duas sub-redes e algumas VMs, juntamente com as rotas do sistema que permitem o fluxo do tráfego IP.
@@ -111,6 +112,6 @@ Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada n
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

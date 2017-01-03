@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: 928a93793b0b5e346fc02427c670a4c5c6ad80cc
-ms.openlocfilehash: 5d0609b826d489eb789cc86612b495bbd05afbe0
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: 2d8e851810b4ec5b7ae3f3b17c4aee11d7e51de4
 
 
 ---
+
 # <a name="application-gateway-web-application-firewall-preview"></a>Firewall do Aplicativo Web do Gateway de Aplicativo (visualização)
 
 O WAF (Firewall do aplicativo Web) é um recurso do gateway de aplicativo do Azure que fornece proteção para aplicativos Web que utilizam o gateway de aplicativo para as funções ADC (controle de entrega de aplicativos) padrão. O firewall do aplicativo Web faz isso protegendo-os contra a maioria das 10 vulnerabilidades mais comuns da Web segundo o OWASP. Os aplicativos Web cada vez mais são alvos de ataques mal-intencionados que exploram vulnerabilidades conhecidas comuns. Os ataques de injeção de SQL, os ataques de scripts entre sites, entre outros, são comuns entre essas explorações. Pode ser difícil impedir esses ataques no código do aplicativo e pode exigir manutenção rigorosa, aplicação de patches e monitoramento em várias camadas da topologia do aplicativo. Um firewall do aplicativo Web para proteger contra ataques da Web simplifica muito o gerenciamento de segurança e oferece mais garantia para o aplicativo contra ameaças de invasões. Uma solução WAF também pode reagir a uma ameaça de segurança mais rapidamente ao aplicar um patch contra uma vulnerabilidade conhecida em um local central do que a proteção de cada um dos aplicativos Web individuais. Os gateways de aplicativos existentes podem ser facilmente convertidos em um gateway de aplicativo com o firewall do aplicativo Web.
@@ -51,7 +52,7 @@ O WAF do Gateway de Aplicativo é oferecido em uma nova SKU (SKU WAF) e vem pré
 
 O WAF do Gateway de Aplicativo pode ser configurado para ser executado nestes dois modos:
 
-* **Modo de Detecção** – quando configurado para execução no modo de detecção, o WAF do Gateway de Aplicativo monitora e registra em um arquivo de log todos os alertas de ameaça. Você precisa garantir que o log de diagnóstico para o Gateway de Aplicativo esteja ativado usando a seção Diagnóstico. Você também precisará garantir que o log do WAF esteja selecionado e ativado.
+* **Modo de Detecção** – quando configurado para execução no modo de detecção, o WAF do Gateway de Aplicativo monitora e registra em um arquivo de log todos os alertas de ameaça. Você precisa garantir que o log de diagnóstico para o Gateway de Aplicativo esteja ativado usando a seção Diagnóstico. Você também precisa garantir que o log do WAF esteja selecionado e ativado.
 * **Modo de Prevenção** – quando configurado para ser executado no modo de prevenção, o Gateway de Aplicativo bloqueia ativamente invasões e ataques detectados por suas regras. O invasor recebe uma exceção 403 acesso não autorizado e a conexão é encerrada. O modo de Prevenção continua a registrar em log tais ataques nos logs do WAF.
 
 ## <a name="application-gateway-waf-reports"></a>Relatórios do WAF do Gateway de Aplicativo
@@ -82,15 +83,15 @@ O WAF do Gateway de Aplicativo fornece relatórios detalhados sobre cada ameaça
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Preços da SKU do WAF do Gateway de Aplicativo
 
-Durante a visualização, não há cobranças adicionais pelo uso do WAF do Gateway de Aplicativo. Você continua a ser cobrados pelos encargos existentes da SKU Básica. Nós comunicaremos os encargos da SKU do WAF no horário do GA. Os clientes que optaram por implantar o Gateway de Aplicativo na SKU do WAF só começariam a acumular preços da SKU do WAF após o anúncio do GA.
+Durante a visualização, não há cobranças adicionais pelo uso do WAF do Gateway de Aplicativo. Você continua a ser cobrados pelos encargos existentes da SKU Básica. Os encargos de SKU WAF serão comunicados no momento de GA. Os clientes que optaram por implantar o Gateway de Aplicativo na SKU do WAF só começariam a acumular preços da SKU do WAF após o anúncio do GA.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de aprender mais sobre os recursos do WAF, visite [Como configurar o Firewall do Aplicativo Web no Gateway de Aplicativo](application-gateway-web-application-firewall-portal.md).
+Depois de aprender mais sobre os recursos do WAF, acesse [Como configurar o Firewall do Aplicativo Web no Gateway de Aplicativo](application-gateway-web-application-firewall-portal.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

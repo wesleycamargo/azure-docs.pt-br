@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+ms.sourcegitcommit: 48821a3b2b7da4646c4569cc540d867f02a4a32f
+ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
 
 
 ---
@@ -126,7 +126,7 @@ Se desejar saber mais sobre que dados são usados pela redefinição de senha, b
 ### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>Etapa 3: redefinir sua senha do Azure AD como um usuário
 Agora que você configurou uma política de redefinição de usuário e especificou detalhes de contato para o usuário, esse usuário pode executar uma redefinição de senha por autoatendimento.
 
-#### <a name="to-perform-a-selfservice-password-reset"></a>Para executar uma redefinição de senha por autoatendimento
+#### <a name="to-perform-a-self-service-password-reset"></a>Para executar uma redefinição de senha por autoatendimento
 1. Se você visitar um site como [**portal.microsoftonline.com**](http://portal.microsoftonline.com), verá uma tela de logon como a abaixo.  Clique no link **Não consegue acessar sua conta?** para testar a interface de usuário da redefinição de senha.
    
    ![][011]
@@ -256,12 +256,40 @@ Você também pode verificar o serviço foi instalado corretamente abrindo o Vis
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Etapa 3: configurar o seu firewall
-Depois de habilitar o Write-back de Senha na ferramenta Azure AD Connect, você precisará garantir que o serviço possa se conectar à nuvem.
+Depois de você ter habilitado o Write-back de Senha, precisará verificar se o computador que executa o Azure AD Connect pode acessar os serviços de nuvem da Microsoft para receber as solicitações de write-back de senha. Esta etapa envolve atualizar as regras de conexão em seus dispositivos de rede (servidores proxy, firewalls etc.) para permitir conexões de saída para certas URLs de propriedade da Microsoft e endereços IP nas portas de rede específicas. Essas alterações podem variar dependendo da versão da ferramenta Azure AD Connect. Para obter mais contexto, você pode ler mais sobre [como funciona o write-back de senha](active-directory-passwords-learn-more.md#how-password-writeback-works) e [ modelo de segurança de write-back de senha](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
-1. Depois que a instalação estiver concluída, se você estiver bloqueando as conexões de saída desconhecidas no seu ambiente, você também precisará adicionar as seguintes regras ao firewall. Não deixe de reiniciar o computador do AAD Connect após fazer estas alterações:
-   * Permitir conexões de saída pela porta TCP 443
-   * Permitir conexões de saída para https://ssprsbprodncu-sb.accesscontrol.windows.net/
-   * Ao usar um proxy ou ter problemas gerais de conectividade, permitir conexões de saída pelas portas TCP 9350-9354 e 5671
+#### <a name="why-do-i-need-to-do-this"></a>Por que preciso fazer isto?
+
+Para o Write-back de Senha funcionar corretamente, o computador que executa o Azure AD Connect precisa ser capaz de estabelecer conexões HTTPS de saída com **.servicebus.windows.net* e o endereço IP específico usado pelo Azure, como definido na [lista de Intervalos de IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Para as versões da ferramenta Azure AD Connect 1.0.8667.0 e superior:
+
+- **Opção 1:** permitir todas as conexões HTTPS de saída na porta 443 (usando a URL ou o Endereço IP).
+    - Quando usar isto:
+        - Use esta opção se quiser a configuração mais simples que não precisa ser atualizada quando os intervalos de IP do Datacenter do Azure mudam com o tempo.
+    - Etapas necessárias:
+        - permitir todas as conexões HTTPS de saída na porta 443 usando a URL ou o endereço IP.
+<br><br>
+- **Opção 2:** permitir as conexões HTTPS de saída em intervalos de IP e URLs específicos
+    - Quando usar isto:
+        - Use esta opção se você estiver em um ambiente de rede restrito ou não se sente confortável em permitir conexões de saída.
+        - Nessa configuração, para o write-back de senha continuar a funcionar, você precisará garantir que seus dispositivos de rede sejam atualizados semanalmente com os IPs mais recentes na lista de Intervalos de IP do Datacenter do Microsoft Azure. Esses intervalos de IP estão disponíveis como um arquivo XML que é atualizado toda quarta-feira (Hora do Pacífico) e entram em vigor na segunda-feira seguinte (Hora do Pacífico).
+    - Etapas necessárias:
+        - Permitir todas as conexões HTTPS de saída para *.servicebus.windows.net
+        - Permitir todas as conexões HTTPS de saída para todos os IPs na lista de Intervalos de IP do Datacenter do Microsoft Azure e manter essa configuração atualizada semanalmente.
+
+> [!NOTE]
+> Se você configurou o Write-back de Senha seguindo as instruções acima e não vê nenhum erro no log de eventos do Azure AD Connect, mas está recebendo erros de conectividade durante o teste, pode ser o caso de um dispositivo de rede em seu ambiente estar bloqueando as conexões HTTPS para os endereços IP. Por exemplo, embora uma conexão com *https://*.servicebus.windows.net* seja permitida, uma conexão com um endereço IP específico dentro desse intervalo pode estar bloqueada. Para resolver esse problema, você precisará configurar seu ambiente de rede para permitir todas as conexões HTTPS de saída na porta 443 para qualquer endereço IP ou URL (Opção 1 acima) ou trabalhará com sua equipe de rede para permitir explicitamente as conexões HTTPS com endereços IP específicos (Opção 2 acima).
+
+**Para as versões anteriores:**
+
+- Permitir conexões TCP de saída na porta 443, 9350-9354 e porta 5671 
+- Permitir conexões de saída para *https://ssprsbprodncu-sb.accesscontrol.windows.net/*
+
+> [!NOTE]
+> Se você estiver em uma versão do Azure AD Connect anterior a 1.0.8667.0, a Microsoft recomenda atualizar para a [versão mais recente do Azure Connect AD](https://www.microsoft.com/download/details.aspx?id=47594), que inclui vários aprimoramentos da rede de write-back para facilitar a configuração.
+
+Após configurar os dispositivos de rede, reinicialize o computador executando a ferramenta Azure AD Connect.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Etapa 4: configurar as permissões apropriadas do Active Directory
 Para cada floresta que contenha os usuários cujas senhas serão redefinidas, se X for a conta que foi especificada para essa floresta no assistente de configuração (durante a configuração inicial), X deverá receber os direitos estendidos **Redefinir Senha**, **Alterar Senha**, **Permissões de Gravação** no `lockoutTime`, e **Permissões de Gravação** na `pwdLastSet` no objeto raiz de cada domínio da floresta. A direita deve ser marcada como herdada por todos os objetos de usuário.  
@@ -365,6 +393,6 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

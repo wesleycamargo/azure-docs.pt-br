@@ -36,6 +36,6 @@ Primeiro, você precisará registrar seu aplicativo em seu locatário do Azure A
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO5-->
 
 

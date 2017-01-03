@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/02/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 922219ec12343bd40dd343613e370ddd1813f126
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: acb1cd18cf6e4fa9504d76fcac48dbe85579eab0
 
 
 ---
@@ -43,7 +43,7 @@ Esta seção fornece acesso rápido às guias de solução de problemas relevant
 | Logon único federado |[Solução de problemas de logon único baseado em SAML](active-directory-saml-debugging.md) |
 | Logon único baseado em senha |[Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Proxy de Aplicativo |[Guia de solução de problemas de Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md) |
-| Logon único entre o AD local e o AD do Azure |[Solução de problemas de sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Logon único entre o AD local e o AD do Azure |[Solução de problemas de sincronização de senha](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization)<br /><br />[Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Associações de grupo dinâmico |[Solucionar problemas de associações a grupos dinâmicos](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>SSO (Logon único)
@@ -114,7 +114,7 @@ Depois de configurar o logon único em seus aplicativos e recursos, aplique uma 
 
 O Acesso Condicional é um recurso do [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
-## <a name="apps-azure-ad"></a>Aplicativos e AD do Azure
+## <a name="apps--azure-ad"></a>Aplicativos e AD do Azure
 ### <a name="cloud-app-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>Cloud App Discovery: localize quais aplicativos SaaS estão sendo usados em sua organização
 O Cloud App Discovery ajuda os departamentos de TI a saber quais aplicativos SaaS estão sendo usados em toda a organização. Ele pode medir o uso e a popularidade do aplicativo de modo que o departamento de TI possa determinar quais aplicativos serão mais beneficiados pelo controle da TI e pela integração ao AD do Azure.
 
@@ -214,6 +214,6 @@ Para ver quais relatórios estão incluídos em edições diferentes do Azure Ac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

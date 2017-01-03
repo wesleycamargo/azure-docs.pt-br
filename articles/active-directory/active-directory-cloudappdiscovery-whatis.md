@@ -55,6 +55,6 @@ Para iniciar com o Cloud App Discovery, confira [Introdução ao Cloud App Disco
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

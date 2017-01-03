@@ -3,7 +3,7 @@ title: "Gerenciamento de contêiner do Serviço de Contêiner do Azure por meio 
 description: "Implante contêineres em cluster Mesos do Serviço de Contêiner do Azure usando a API REST do Marathon."
 services: container-service
 documentationcenter: 
-author: neilpeterson
+author: dlepow
 manager: timlt
 editor: 
 tags: acs, azure-container-service
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: timlt
+ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b9358183d884dfeda3d200ef5ae8beb60d3957e
+ms.sourcegitcommit: 54832afbc9a7bf1d660de3fd898ad5c97715ca5d
+ms.openlocfilehash: a01993eb01b9e05b4848d5a81b841fe10ccae035
 
 
 ---
@@ -33,7 +33,7 @@ Embora haja estruturas disponíveis para várias cargas de trabalho populares, e
 Depois que você estiver conectado ao cluster do Serviço de Contêiner do Azure, poderá acessar o DC/OS e as APIs REST relacionadas por meio de http://localhost:local-port. Os exemplos neste documento pressupõem que você crie um túnel na porta 80. Por exemplo, o ponto de extremidade Marathon pode ser acessado na `http://localhost/marathon/v2/`. Para saber mais sobre as várias APIs, confira a documentação da Mesosphere para a [API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e a [API Chronos](https://mesos.github.io/chronos/docs/api.html) e a documentação do Apache para a [API do Agendador do Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Coletar informações do DC/OS e do Marathon
-Antes de implantar contêineres no cluster DC/OS, colete algumas informações sobre esse cluster, como os nomes e o status atual dos agentes DC/OS. Para fazer isso, confira o ponto de extremidade `master/slaves` da API REST DC/OS. Se tudo correr bem, você verá uma lista de agentes DC/OS e várias propriedades para cada um deles.
+Antes de implantar contêineres no cluster DC/OS, colete algumas informações sobre esse cluster, como os nomes e o status atual dos agentes DC/OS. Para fazer isso, confira o ponto de extremidade `master/slaves` da API REST DC/OS. Se tudo correr bem, a consulta retornará uma lista de agentes DC/OS e várias propriedades para cada um deles.
 
 ```bash
 curl http://localhost/mesos/master/slaves
@@ -47,8 +47,8 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## <a name="deploy-a-dockerformatted-container"></a>Implantar um contêiner formatado pelo Docker
-Você implanta os contêineres formatados pelo Docker por meio do Marathon usando um arquivo JSON que descreve a implementação planejada. O exemplo a seguir implantará o contêiner Nginx, associando a porta 80 do agente DC/OS à porta 80 do contêiner. Observe também que a propriedade 'acceptedResourceRoles' está definida como 'slave_public'. Isso implantará o contêiner em um agente no conjunto de escalas de agentes voltados para o público.
+## <a name="deploy-a-docker-formatted-container"></a>Implantar um contêiner formatado pelo Docker
+Você implanta os contêineres formatados pelo Docker por meio do Marathon usando um arquivo JSON que descreve a implementação planejada. O exemplo a seguir implanta o contêiner Nginx, associando a porta 80 do agente DC/OS à porta 80 do contêiner. Observe também que a propriedade 'acceptedResourceRoles' está definida como 'slave_public'. Isso implanta o contêiner em um agente no conjunto de escalas de agentes voltados para o público.
 
 ```json
 {
@@ -84,7 +84,7 @@ A saída será semelhante ao seguinte:
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-Agora, se você consultar o Marathon em busca de aplicativos, esse novo aplicativo será exibido na saída.
+Agora, se você consultar o Marathon em busca de aplicativos, esse novo aplicativo aparecerá na saída.
 
 ```
 curl localhost/marathon/v2/apps
@@ -100,7 +100,7 @@ Você também pode usar a API do Marathon para expandir ou reduzir horizontalmen
 Execute o comando a seguir para escalar horizontalmente o aplicativo.
 
 > [!NOTE]
-> O URI será http://localhost/marathon/v2/apps/ e a ID do aplicativo a ser dimensionado. Se você está usando o exemplo de Nginx que é fornecido aqui, o URI deve ser http://localhost/marathon/v2/apps/nginx.
+> O URI é http://localhost/marathon/v2/apps/ seguido pela ID do aplicativo a ser dimensionado. Se você está usando o exemplo de Nginx que é fornecido aqui, o URI deve ser http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -108,7 +108,7 @@ Execute o comando a seguir para escalar horizontalmente o aplicativo.
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Por fim, consulte o ponto de extremidade do Marathon para aplicativos. Você verá que agora há três contêineres do Nginx.
+Por fim, consulte o ponto de extremidade do Marathon para aplicativos. Você vê que agora há três contêineres Nginx.
 
 ```
 curl localhost/marathon/v2/apps
@@ -123,7 +123,7 @@ Para obter informações sobre o cluster DC/OS, como nomes e status de agentes, 
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Você implanta os contêineres formatados pelo Docker por meio do Marathon usando um arquivo JSON que descreve a implementação planejada. O exemplo a seguir implantará o contêiner Nginx, associando a porta 80 do agente DC/OS à porta 80 do contêiner.
+Você implanta os contêineres formatados pelo Docker por meio do Marathon usando um arquivo JSON que descreve a implementação planejada. O exemplo a seguir implanta o contêiner Nginx, associando a porta 80 do agente DC/OS à porta 80 do contêiner.
 
 ```json
 {
@@ -159,7 +159,7 @@ Você também pode usar a API do Marathon para expandir ou reduzir horizontalmen
 Execute o comando a seguir para escalar horizontalmente o aplicativo.
 
 > [!NOTE]
-> O URI será http://localhost/marathon/v2/apps/ e a ID do aplicativo a ser dimensionado. Se você está usando o exemplo de Nginx fornecido aqui, o URI deve ser http://localhost/marathon/v2/apps/nginx.
+> O URI é http://localhost/marathon/v2/apps/ seguido pela ID do aplicativo a ser dimensionado. Se você está usando o exemplo de Nginx fornecido aqui, o URI deve ser http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -174,6 +174,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -78,7 +78,7 @@ Agora, digite `docker-machine env <VM name>` para ver o que você precisa fazer 
 docker-machine env machine
 ```
 
-Isso imprime as informações de ambiente, que são parecidas com essas. Observe que o endereço IP, que você precisará para testar a VM, foi atribuído.
+Esse comando imprime as informações de ambiente do seu contêiner, a saída deve ser parecida com a imagem a seguir. Observe que o endereço IP, que você precisará para testar a VM foi atribuído.
 
 ```bash
 export DOCKER_TLS_VERIFY="1"

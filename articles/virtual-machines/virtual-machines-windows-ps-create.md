@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
-ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
 
 
 ---
@@ -27,7 +27,7 @@ Este artigo mostra como criar rapidamente uma Máquina Virtual do Azure que exec
 Todas as etapas neste artigo são necessárias para criar uma máquina virtual e devem demorar cerca de 30 minutos para serem executadas. Substitua os valores de parâmetro de exemplo nos comandos por nomes que façam sentido para o seu ambiente.
 
 ## <a name="step-1-install-azure-powershell"></a>Etapa 1: instalar o PowerShell do Azure
-Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
+Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 
 ## <a name="step-2-create-a-resource-group"></a>Etapa 2: criar um grupo de recursos
 Todos os recursos devem estar contidos em um grupo de recursos, portanto, vamos criá-lo primeiro.  
@@ -159,6 +159,6 @@ Agora que você tem todas as peças no lugar, é hora de criar a máquina virtua
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 
