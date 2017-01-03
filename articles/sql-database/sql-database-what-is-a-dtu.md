@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: f47aa2afad88f6afea4dae38603ec99e938d89ea
+ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
+ms.openlocfilehash: e5a6c17117e0c79d86c45a07f69433a96fdb9052
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: f47aa2afad88f6afea4dae38603ec99e938d89ea
 Este artigo explica as DTUs (Unidades de transação de banco de dados) e eDTUs (Unidades de transação de banco de dados elástico), e o que acontece quando você atinge o máximo de DTUs ou eDTUs.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>O que são DTUs (Unidades de transação do banco de dados)
-Uma DTU é uma unidade de medida dos recursos que têm garantia de disponibilidade para um Banco de Dados SQL do Azure autônomo em um nível de desempenho específico dentro de uma [camada de serviço de banco de dados autônomo](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels). Uma DTU é uma medida combinada de CPU, memória e dados de E/S, e E/S de log de transações, em uma proporção determinada por uma carga de trabalho OLTP de parâmetro projetada para ser igual às cargas de trabalho OLTP reais. Dobrar as DTUs aumentando o nível de desempenho de um banco de dados equivale a dobrar o conjunto de recursos disponíveis para esse banco de dados. Por exemplo, um banco de dados Premium P11 com 1.750 DTUs fornece 350x mais capacidade de computação DTU que um banco de dados básico com 5 DTUs. Para entender a metodologia por trás da carga de trabalho OLTP de parâmetro usada para determinar a combinação de DTU, consulte [Visão geral do Banco de Dados SQL de parâmetro](sql-database-benchmark-overview.md).
+Uma DTU é uma unidade de medida dos recursos que têm garantia de disponibilidade para um único Banco de Dados SQL do Azure em um nível de desempenho específico dentro de uma [camada de serviço de banco de dados único](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels). Uma DTU é uma medida combinada de CPU, memória e dados de E/S, e E/S de log de transações, em uma proporção determinada por uma carga de trabalho OLTP de parâmetro projetada para ser igual às cargas de trabalho OLTP reais. Dobrar as DTUs aumentando o nível de desempenho de um banco de dados equivale a dobrar o conjunto de recursos disponíveis para esse banco de dados. Por exemplo, um banco de dados Premium P11 com 1.750 DTUs fornece 350x mais capacidade de computação DTU que um banco de dados básico com 5 DTUs. Para entender a metodologia por trás da carga de trabalho OLTP de parâmetro usada para determinar a combinação de DTU, consulte [Visão geral do Banco de Dados SQL de parâmetro](sql-database-benchmark-overview.md).
 
-![Introdução ao Banco de Dados SQL: DTUs de banco de dados autônomo por camada e por nível](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+![Introdução ao Banco de Dados SQL: DTUs de banco de dados individual por camada e por nível](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Você pode [alterar os níveis de serviço](sql-database-scale-up.md) a qualquer momento com tempo de inatividade mínimo para seu aplicativo (tempo médio de quatro segundos). Para muitos negócios e aplicativos, ser capaz de criar bancos de dados e ajustar o desempenho sob demanda é o suficiente, especialmente se os padrões de uso forem relativamente previsíveis. Mas se você tiver os padrões de uso imprevisíveis, pode ser difícil de gerenciar os custos e o seu modelo de negócios. Para este cenário, você pode usar um pool elástico com um determinado número de eDTUs.
 
@@ -51,13 +51,13 @@ Pools também são indicados para um grande número de bancos de dados com padr�
 Os níveis de desempenho são calibrados e controlados para fornecer os recursos necessários para executar sua carga de trabalho de banco de dados até os limites máximos permitidos para a sua camada de serviço e nível de desempenho selecionados. Se a sua carga de trabalho está atingindo os limites em um dos limites de CPU/E/S de dados/E/S de Log, você continuará a receber os recursos no nível máximo permitido, mas provavelmente você observará latências maiores para suas consultas. Esses limites não resultam em erros, mas apenas em uma lentidão na carga de trabalho, a menos que a lentidão se torne tão grave que as consultas comecem a não serem executadas a tempo. Se você está atingindo os limites do máximo permitido de sessões/solicitações de usuários simultâneos (threads de trabalho), você verá erros explícitos. Confira [Limites de recursos do Banco de Dados SQL](sql-database-resource-limits.md) para saber mais sobre limite de recursos, além de CPU, memória, E/S de dados e E/S do log de transações.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Consulte [Camada de serviço](sql-database-service-tiers.md) para obter informações sobre as DTUs e eDTUs disponíveis para bancos de dados autônomos e pools elásticos.
+* Confira [Camada de serviço](sql-database-service-tiers.md) para obter informações sobre as DTUs e eDTUs disponíveis para bancos de dados individuais e pools elásticos.
 * Confira [Limites de recursos do Banco de Dados SQL](sql-database-resource-limits.md) para saber mais sobre limite de recursos, além de CPU, memória, E/S de dados e E/S do log de transações.
 * Confira [Análise de Desempenho de Consultas de Banco de Dados SQL](sql-database-query-performance.md) para compreender o consumo (DTUs).
 * Confira [Visão geral do parâmetro de Banco de Dados SQL](sql-database-benchmark-overview.md) para entender a metodologia por trás da carga de trabalho OLTP de parâmetro usada para determinar a combinação de DTU.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

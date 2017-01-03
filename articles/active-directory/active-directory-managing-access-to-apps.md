@@ -73,6 +73,6 @@ Recursos do AD do Azure que permitem o compartilhamento de contas incluem:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

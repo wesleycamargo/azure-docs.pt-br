@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2016
+ms.date: 12/14/2016
 ms.author: dhanyahk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 23da68e26865a8c3525cce3cb2b3a4db447fcc4c
+ms.sourcegitcommit: 6950072b8970dfc1b80674efe0be6cb7496fd5ce
+ms.openlocfilehash: 2dda60160bbcaa729bc8e5cec4f47efc10d120cf
 
 
 ---
@@ -44,8 +44,6 @@ O relatório de auditoria do Active Directory do Azure ajuda os clientes a ident
 | Adicionar grupo |Criou um grupo no diretório. |
 | Atualizar grupo |Atualizou um grupo no diretório. Para ver quais propriedades de grupo foram atualizadas, veja [Propriedades do Grupo Auditadas](#update-group-attributes) na seção abaixo |
 | Excluir grupo |Excluiu um grupo no diretório. |
-| Adicionar membro ao grupo |Adicionou um membro a um grupo no diretório. |
-| Remover membro do grupo |Removeu um membro de um grupo no diretório. |
 | CreateGroupSettings |Configurações de grupo criadas |
 | UpdateGroupSettings |Configurações de grupo atualizadas. Para ver quais configurações de grupo foram atualizadas, veja [Propriedades de Grupo Auditadas](#update-group-attributes) na seção abaixo |
 | DeleteGroupSettings |Configurações de grupo excluídas |
@@ -63,21 +61,6 @@ O relatório de auditoria do Active Directory do Azure ajuda os clientes a ident
 | Adicionar entrada de delegação |[OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) criado no diretório. |
 | Definir entrada de delegação |[OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) atualizado no diretório. |
 | Remover entrada de delegação |[OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) excluído do diretório. |
-| **Eventos de função** | |
-| Adicionar um membro da função à Função |Um usuário foi adicionado a uma função de diretório. |
-| Remover membro de função da Função |Um usuário foi removido de uma função de diretório. |
-| Definir informações de contato da empresa |Defina preferências de contato do nível da empresa. Isso inclui endereços de email para marketing, bem como notificações técnicas sobre os Serviços Online da Microsoft. |
-| Adicionar entrada de delegação |[OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) criado no diretório. |
-| Definir entrada de delegação |[OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) atualizado no diretório. |
-| Remover entrada de delegação |[OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) excluído do diretório. |
-| AddSevicePrincipalOwner |Proprietário adicionado à entidade de serviço. |
-| RemoveSevicePrincipalOwner |Proprietário removido da entidade de serviço. |
-| AddApplication |Adicionar aplicativo. |
-| UpdateApplication |Atualizar aplicativo. Para ver quais configurações de aplicativo foram atualizadas, veja [Propriedades de Aplicativo Auditadas](#update-application-attributes) na seção abaixo |
-| DeleteApplication |Excluir aplicativo. |
-| RestoreApplication |Restaurar aplicativo. |
-| AddApplicationOwner |Adicionar proprietário ao aplicativo. |
-| RemoveApplicationOwner |Remover proprietário do aplicativo. |
 | **Eventos de função** | |
 | Adicionar um membro da função à Função |Um usuário foi adicionado a uma função de diretório. |
 | Remover membro de função da Função |Um usuário foi removido de uma função de diretório. |
@@ -346,6 +329,6 @@ Registros de auditoria são um controle necessário para muitas regulamentaçõe
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

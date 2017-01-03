@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/21/2016
+ms.date: 12/16/2016
 ms.author: haining;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23954b17c96fd33159892b6f9254b4ae9d02ecf9
+ms.sourcegitcommit: 5e9aa39ccf91f98336e5db179b532930f7e83313
+ms.openlocfilehash: 35bf8b41288afd31ba7e6f861beb7a7bf2a36d94
 
 
 ---
@@ -27,7 +27,7 @@ O diagrama **Visão geral dos recursos do Estúdio de Aprendizado de Máquina do
 [Studio de Aprendizado da Máquina do Azure](https://studio.azureml.net/) tem disponível um grande número de algoritmos de aprendizado de máquina, juntamente com os módulos que ajudam com dados de entrada, saída, preparação e visualização. Usando esses componentes você pode desenvolver uma experiência de análise preditiva, itere sobre ela e usá-la para treinar o modelo.
 Em seguida, com um clique você pode colocar em operação o seu modelo na nuvem do Azure para que ele possa ser usado para pontuar novos dados.
 
-Esse diagrama mostra como todas essas peças se encaixam.
+Este diagrama demonstra como todas essas peças se encaixam.
 
 > [!NOTE]
 > Consulte a [página de algoritmo de aprendizado de máquina para o Estúdio de Aprendizado de Máquina do Microsoft Azure](machine-learning-algorithm-cheat-sheet.md) para obter ajuda adicional para navegar e escolher algoritmos disponíveis na Máquina de Aprendizado.
@@ -54,6 +54,6 @@ Baixe o diagrama de **Visão geral de recursos do Estúdio de Aprendizado de Má
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

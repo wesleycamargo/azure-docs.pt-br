@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/12/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f2e607924f17b42bba73672a2d24257e672e1134
+ms.sourcegitcommit: 29c4c2a2818468a2fa8360eebd4b653bdcbbde19
+ms.openlocfilehash: 0749d371466226343227c79db544a8e3dca0cca8
 
 
 ---
@@ -39,9 +39,8 @@ As etapas a seguir ilustram como usar o portal do Azure para criar um laboratór
    1. Insira um **Nome do Laboratório** para o novo laboratório.
    2. Selecione a **Assinatura** para associar ao laboratório.
    3. Selecione um **Local** no qual o laboratório será armazenado.
-   4. Selecione **Desligamento Automático** para especificar se você deseja ativar e definir os parâmetros de desligamento automático de todas as VMs do laboratório.
-   5. Selecione o **Tipo de armazenamento** para indicar o tipo de disco de armazenamento das VMs do laboratório. 
-   6. Selecione **Criar**.
+   4. Selecione **Desligamento Automático** para especificar se você deseja ativar e definir os parâmetros de desligamento automático de todas as VMs do laboratório. 
+   5. Selecione **Criar**.
       
       ![Criar uma folha de laboratório](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
@@ -59,6 +58,6 @@ Depois de criar seu laboratório, aqui estão algumas das próximas etapas a ser
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 
