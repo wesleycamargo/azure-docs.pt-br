@@ -53,35 +53,35 @@ O token de seu aplicativo pode conter as seguintes declarações:
 
 Um token do aplicativo de exemplo terá esta aparência:
 
-![](media\\power-bi-embedded-app-token-flow\\power-bi-embedded-app-token-flow-sample-coded.png)
+![](media/power-bi-embedded-app-token-flow/power-bi-embedded-app-token-flow-sample-coded.png)
 
 Quando decodificado, ele terá esta aparência:
 
-![](media\\power-bi-embedded-app-token-flow\\power-bi-embedded-app-token-flow-sample-decoded.png)
+![](media/power-bi-embedded-app-token-flow/power-bi-embedded-app-token-flow-sample-decoded.png)
 
 ## <a name="heres-how-the-flow-works"></a>Como funciona o fluxo
 1. Copie as chaves de API para o seu aplicativo. Você pode obter as chaves no **Portal do Azure**.
    
-    ![](media\\powerbi-embedded-get-started-sample\\azure-portal.png)
+    ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
 2. O token faz a asserção de uma declaração e tem uma data de validade.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-2.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-2.png)
 3. O token é assinado com uma chave de acesso de API.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-3.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-3.png)
 4. Solicitações do usuário para exibir um relatório.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-4.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-4.png)
 5. O token é validado com uma chave de acesso de API.
    
-   ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-5.png)
+   ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-5.png)
 6. O Power BI Embedded envia um relatório para o usuário.
    
-   ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-6.png)
+   ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-6.png)
 
 Após o **Power BI Embedded** enviar um relatório para o usuário, o usuário pode exibir o relatório em seu aplicativo personalizado. Por exemplo, se você importou o [exemplo de PBIX Analisando Dados de Vendas](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), o aplicativo Web de exemplo teria essa aparência:
 
-![](media\\powerbi-embedded-get-started-sample\\sample-web-app.png)
+![](media/powerbi-embedded-get-started-sample/sample-web-app.png)
 
 ## <a name="see-also"></a>Consulte também
 * [Introdução ao exemplo do Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md)

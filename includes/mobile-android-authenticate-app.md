@@ -34,7 +34,8 @@
 
     Isso cria um novo método para manipular o processo de autenticação. O usuário é autenticado usando uma credencial do Google. Um diálogo exibe a ID do usuário autenticado. Você não pode continuar sem uma autenticação positiva.
 
-    > [!NOTE] Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado ao método **login** acima para um destes: _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.
+    > [!NOTE]
+    > Se você estiver usando um provedor de identidade diferente do Google, altere o valor passado ao método **login** acima para um destes: _MicrosoftAccount_, _Facebook_, _Twitter_ ou _windowsazureactivedirectory_.
 
 3. No método **OnCreate**, adicione a linha de código a seguir após o código que cria uma instância do objeto `MobileServiceClient`.
 

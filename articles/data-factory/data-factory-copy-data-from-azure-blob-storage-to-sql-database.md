@@ -57,13 +57,13 @@ Você precisa do nome da conta e chave de conta da sua conta de armazenamento do
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Clique em **Mais serviços** no menu à esquerda e selecione **Contas de Armazenamento**.
 
-    ![Procurar - Contas de armazenamento](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\browse-storage-accounts.png)
+    ![Procurar - Contas de armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/browse-storage-accounts.png)
 3. Na folha **Contas de armazenamento**, selecione a **Conta de armazenamento do Azure** que você deseja usar neste tutorial.
 4. Selecione o link **Chaves de acesso** em **CONFIGURAÇÕES**.
 5. Clique no botão **copiar** (imagem) ao lado da caixa de texto **Nome da conta de armazenamento** e salve-a/cole-a em algum lugar (por exemplo, em um arquivo de texto).
 6. Repita a etapa anterior para copiar ou anote a **chave1**.
 
-    ![Chave de acesso de armazenamento](media\\data-factory-copy-data-from-azure-blob-storage-to-sql-database\\storage-access-key.png)
+    ![Chave de acesso de armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Feche todas as folhas, clicando em **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Coletar o servidor SQL, o banco de dados, os nomes de usuário

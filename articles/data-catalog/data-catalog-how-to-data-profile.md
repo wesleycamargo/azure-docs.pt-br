@@ -48,15 +48,15 @@ A inclusão de perfis de dados ao registrar ativos de dados ajuda os usuários a
 
 > [!NOTE]
 > Você também pode adicionar documentação a um ativo para descrever como os dados podem ser integrados a um aplicativo. Confira [Como documentar fontes de dados](data-catalog-how-to-documentation.md).
-> 
-> 
+>
+>
 
 <a name="howto"/>
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>Como incluir um perfil de dados ao registrar uma fonte de dados
 É fácil incluir um perfil de sua fonte de dados. Quando você registra uma fonte de dados, no painel **Objetos a ser registrados** da ferramenta de registro da fonte de dados, escolha **Incluir Perfil dos Dados**.
 
-![](media\\data-catalog-data-profile\\data-catalog-register-profile.png)
+![](media/data-catalog-data-profile/data-catalog-register-profile.png)
 
 Para saber mais sobre como registrar as fontes de dados, consulte [Como registrar as fontes de dados](data-catalog-how-to-register.md) e [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md).
 
@@ -65,13 +65,13 @@ Para descobrir ativos de dados que incluem um perfil de dados, você pode inclui
 
 > [!NOTE]
 > A seleção de **Incluir Dados de Perfil** na ferramenta de registro de fonte de dados inclui informações de perfil de nível de coluna e da tabela. No entanto, a API de Catálogo de Dados permite que os ativos de dados sejam registrados com um único conjunto de informações de perfil incluído.
-> 
-> 
+>
+>
 
 ## <a name="viewing-data-profile-information"></a>Exibição de informações de perfil de dados
 Depois de encontrar uma fonte de dados adequada com um perfil, você pode exibir os detalhes do perfil de dados. Para exibir o perfil de dados, selecione um ativo de dados e escolha **Perfil de Dados** na janela do portal do Catálogo de Dados.
 
-![](media\\data-catalog-data-profile\\data-catalog-view.png)
+![](media/data-catalog-data-profile/data-catalog-view.png)
 
 Um perfil de dados no **Catálogo de Dados do Azure** mostra informações de perfil de tabela e coluna, incluindo:
 
@@ -92,7 +92,6 @@ A criação de perfil de dados fornece estatísticas e informações sobre ativo
 ## <a name="see-also"></a>Consulte também
 * [Como registrar fontes de dados](data-catalog-how-to-register.md)
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md)
-
 
 
 
