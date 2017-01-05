@@ -55,153 +55,159 @@ O exemplo copia dados de um servidor FTP para um blob do Azure a cada hora. As p
 
 Confira a seção [Serviço FTP vinculado](#ftp-linked-service-properties) para ver os diferentes tipos de autenticação que você pode usar.
 
-    {
-        "name": "FTPLinkedService",
-        "properties": {
-        "type": "FtpServer",
-        "typeProperties": {
-            "host": "myftpserver.com",           
-            "authenticationType": "Basic",
-            "username": "Admin",
-            "password": "123456"
-        }
-      }
+```JSON
+{
+    "name": "FTPLinkedService",
+    "properties": {
+    "type": "FtpServer",
+    "typeProperties": {
+        "host": "myftpserver.com",           
+        "authenticationType": "Basic",
+        "username": "Admin",
+        "password": "123456"
     }
-
+  }
+}
+```
 **Serviço vinculado de armazenamento do Azure**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
-
+  }
+}
+```
 **Conjunto de dados de entrada do FTP** Esse conjunto de dados refere-se à pasta `mysharedfolder` e ao arquivo `test.csv` FTP. O pipeline copia o arquivo para o destino.
 
 Configurar “external”: “true” informa ao serviço Data Factory que o conjunto de dados é externo ao data factory e não é produzido por uma atividade no data factory.
 
-    {
-      "name": "FTPFileInput",
-      "properties": {
-        "type": "FileShare",
-        "linkedServiceName": "FTPLinkedService",
-        "typeProperties": {
-          "folderPath": "mysharedfolder",
-          "fileName": "test.csv",
-          "useBinaryTransfer": true
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
-      }
+```JSON
+{
+  "name": "FTPFileInput",
+  "properties": {
+    "type": "FileShare",
+    "linkedServiceName": "FTPLinkedService",
+    "typeProperties": {
+      "folderPath": "mysharedfolder",
+      "fileName": "test.csv",
+      "useBinaryTransfer": true
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
-
+  }
+}
+```
 
 **Conjunto de dados de saída de Blob do Azure**
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
-    {
-        "name": "AzureBlobOutput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/ftp/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ]
+```JSON
+{
+    "name": "AzureBlobOutput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/ftp/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 
 **Pipeline com Atividade de cópia**
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída e é agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **FileSystemSource** e o tipo **sink** está definido como **BlobSink**.
 
-    {
-        "name": "pipeline",
-        "properties": {
-            "activities": [{
-                "name": "FTPToBlobCopy",
-                "inputs": [{
-                    "name": "FtpFileInput"
-                }],
-                "outputs": [{
-                    "name": "AzureBlobOutput"
-                }],
-                "type": "Copy",
-                "typeProperties": {
-                    "source": {
-                        "type": "FileSystemSource"
-                    },
-                    "sink": {
-                        "type": "BlobSink"
-                    }
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "policy": {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "NewestFirst",
-                    "retry": 1,
-                    "timeout": "00:05:00"
-                }
+```JSON
+{
+    "name": "pipeline",
+    "properties": {
+        "activities": [{
+            "name": "FTPToBlobCopy",
+            "inputs": [{
+                "name": "FtpFileInput"
             }],
-            "start": "2016-08-24T18:00:00Z",
-            "end": "2016-08-24T19:00:00Z"
-        }
+            "outputs": [{
+                "name": "AzureBlobOutput"
+            }],
+            "type": "Copy",
+            "typeProperties": {
+                "source": {
+                    "type": "FileSystemSource"
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "NewestFirst",
+                "retry": 1,
+                "timeout": "00:05:00"
+            }
+        }],
+        "start": "2016-08-24T18:00:00Z",
+        "end": "2016-08-24T19:00:00Z"
     }
+}
+```
 
 ## <a name="ftp-linked-service-properties"></a>Propriedades do Serviço FTP Vinculado
 A tabela a seguir apresenta a descrição para elementos JSON específicos do serviço FTP vinculado.
@@ -220,62 +226,73 @@ A tabela a seguir apresenta a descrição para elementos JSON específicos do se
 | enableServerCertificateValidation |Especifique se deseja habilitar a validação do certificado SSL do servidor ao usar o canal FTP sobre SSL/TLS |Não |verdadeiro |
 
 ### <a name="using-anonymous-authentication"></a>Usando a autenticação anônima
-    {
-        "name": "FTPLinkedService",
-        "properties": {
-            "type": "FtpServer",
-            "typeProperties": {        
-                "authenticationType": "Anonymous",
-                  "host": "myftpserver.com"
-            }
+
+```JSON
+{
+    "name": "FTPLinkedService",
+    "properties": {
+        "type": "FtpServer",
+        "typeProperties": {        
+            "authenticationType": "Anonymous",
+              "host": "myftpserver.com"
         }
     }
+}
+```
 
 ### <a name="using-username-and-password-in-plain-text-for-basic-authentication"></a>Usar nome de usuário e senha em texto sem formatação para autenticação básica
-    {
-        "name": "FTPLinkedService",
-          "properties": {
-        "type": "FtpServer",
-            "typeProperties": {
-                "host": "myftpserver.com",
-                "authenticationType": "Basic",
-                "username": "Admin",
-                "password": "123456"
-            }
-          }
-    }
 
+```JSON
+{
+    "name": "FTPLinkedService",
+      "properties": {
+    "type": "FtpServer",
+        "typeProperties": {
+            "host": "myftpserver.com",
+            "authenticationType": "Basic",
+            "username": "Admin",
+            "password": "123456"
+        }
+      }
+}
+```
 
 ### <a name="using-port-enablessl-enableservercertificatevalidation"></a>Usar a porta, enableSsl, enableServerCertificateValidation
-    {
-        "name": "FTPLinkedService",
-        "properties": {
-            "type": "FtpServer",
-            "typeProperties": {
-                "host": "myftpserver.com",
-                "authenticationType": "Basic",    
-                "username": "Admin",
-                "password": "123456",
-                "port": "21",
-                "enableSsl": true,
-                "enableServerCertificateValidation": true
-            }
+ 
+```JSON
+{
+    "name": "FTPLinkedService",
+    "properties": {
+        "type": "FtpServer",
+        "typeProperties": {
+            "host": "myftpserver.com",
+            "authenticationType": "Basic",    
+            "username": "Admin",
+            "password": "123456",
+            "port": "21",
+            "enableSsl": true,
+            "enableServerCertificateValidation": true
         }
     }
+}
+```
 
 ### <a name="using-encryptedcredential-for-authentication-and-gateway"></a>Usar encryptedCredential para autenticação e gateway
-    {
-        "name": "FTPLinkedService",
-        "properties": {
-            "type": "FtpServer",
-            "typeProperties": {
-                "host": "myftpserver.com",
-                "authenticationType": "Basic",
-                "encryptedCredential": "xxxxxxxxxxxxxxxxx",
-                "gatewayName": "mygateway"
-            }
-          }
-    }
+    
+```JSON
+{
+    "name": "FTPLinkedService",
+    "properties": {
+        "type": "FtpServer",
+        "typeProperties": {
+            "host": "myftpserver.com",
+            "authenticationType": "Basic",
+            "encryptedCredential": "xxxxxxxxxxxxxxxxx",
+            "gatewayName": "mygateway"
+        }
+      }
+}
+```
 
 Consulte [Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre como configurar as credenciais para uma fonte de dados FTP local.
 
