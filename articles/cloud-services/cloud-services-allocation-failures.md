@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 1/6/2017
 ms.author: v-six
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -27,7 +27,7 @@ Quando você implanta instâncias em um Serviço de Nuvem ou adiciona nova inst�
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-### <a name="background-how-allocation-works"></a>Histórico – Como funciona a alocação
+### <a name="background--how-allocation-works"></a>Histórico – Como funciona a alocação
 Os servidores são particionados em clusters nos datacenters do Microsoft Azure. Ocorre uma nova tentativa de solicitação de alocação de serviço de nuvem em vários clusters. Quando a primeira instância é implantada em um serviço de nuvem (em preparo ou produção), esse serviço de nuvem é fixado a um cluster. Quaisquer implantações adicionais do serviço de nuvem ocorrerão no mesmo cluster. Neste artigo, chamaremos isso de "fixada a um cluster". O diagrama 1 a seguir exemplifica o caso de uma tentativa de alocação normal feita em vários clusters; o diagrama 2 demonstra o caso de uma alocação que foi fixada ao Cluster 2 por se tratar do local de hospedagem do Serviço de Nuvem CS_1.
 
 ![Diagrama de alocação](./media/cloud-services-allocation-failure/Allocation1.png)
@@ -53,25 +53,24 @@ Estes são os cenários comuns de alocação que causam a fixação de uma solic
 
 ## <a name="solutions"></a>Soluções
 1. Reimplantar em um novo serviço de nuvem: essa solução provavelmente será a mais bem-sucedida, pois permite que a plataforma escolha entre todos os clusters nessa região.
-   
+
    * Implantar a carga de trabalho em um novo serviço de nuvem  
    * Atualizar o CNAME ou um registro A para apontar o tráfego para o novo serviço de nuvem
    * Quando nenhum tráfego estiver sendo encaminhado ao local antigo, você poderá excluir o serviço de nuvem antigo. Essa solução não causará qualquer tempo de inatividade.
 2. Excluir os slots de produção e de preparo: essa solução preservará seu nome DNS existente, mas causará um tempo de inatividade para seu aplicativo.
-   
+
    * Exclua os slots de produção e de preparo de um serviço de nuvem existente para que o serviço de nuvem fique vazio e, em seguida,
    * Crie uma nova implantação no serviço de nuvem existente. Isso causará uma nova tentativa de alocação em todos os clusters na região. Certifique-se de que o serviço de nuvem não esteja associado a um grupo de afinidade.
 3. IP reservado: essa solução preservará o endereço IP existente, mas causará um tempo de inatividade para seu aplicativo.  
-   
+
    * Criar um IP reservado para sua implantação existente usando o Powershell
-     
+
      ```
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
      ```
    * Siga o nº 2 acima, lembrando de especificar o novo IP reservado no CSCFG do serviço.
 4. Remover o grupo de afinidade para novas implantações: grupos de afinidade não são mais recomendados. Execute as etapas para o nº 1 acima a fim de implantar um novo serviço de nuvem. Certifique-se de que o serviço de nuvem não esteja em um grupo de afinidade.
 5. Converter para uma rede virtual regional: confira [Como migrar de grupos de afinidades para uma rede virtual regional (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-
 
 
 
