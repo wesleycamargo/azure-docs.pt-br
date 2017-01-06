@@ -279,6 +279,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
     ```powershell
     Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
     ```
+
 ## <a name="rerun-failures-in-a-pipeline"></a>Executar novamente as falhas em um pipeline
 ### <a name="using-azure-portal"></a>Usando o Portal do Azure
 Depois de solucionar problemas e depurar falhas em um pipeline, você pode executar as falhas novamente navegando até a fatia com erro e clicando no botão **Executar** na barra de comandos.
