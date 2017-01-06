@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/26/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36fd6b01dae6aa9a48985a252766d3f2d0b19342
+ms.sourcegitcommit: c5479dd817e8929ff5e9129d4643d49758e7ab16
+ms.openlocfilehash: 82d4d74a14ec31453f0d3eb9a18140c3569f806c
 
 
 ---
@@ -101,7 +101,7 @@ Para conjuntos com mais de 2 GB, faça upload dos dados para o armazenamento do 
 
 **Eu posso ler dados da Amazon S3?**
 
-Se você tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, poderá usar o módulo [Importar Dados][import-data]. Para qualquer quantidade maior de dados para transferir para o Armazenamento do Azure primeiro use o módulo [Importar Dados][import-data] para colocá-los em seu teste.
+Se tiver uma pequena quantidade de dados e quiser expô-los por meio de uma URL http, você pode usar o módulo [Importar Dados][import-data]. Para uma quantidade maior de dados, transfira-os para o Armazenamento do Azure primeiro e use o módulo [Importar Dados][import-data] para colocá-los em seu teste.
 <!--
 
 <SEE CLOUD DS PROCESS>
@@ -109,7 +109,7 @@ Se você tiver uma pequena quantidade de dados e quiser expô-los por meio de um
 
 **Há uma funcionalidade interna de entrada de imagem?**
 
-Você pode aprender sobre a funcionalidade de entrada da imagem na referência [Importar Imagens][image-reader].
+Você pode aprender sobre a funcionalidade de entrada de imagem na referência [Importar imagens][image-reader].
 
 ### <a name="modules"></a>Módulos
 **O algoritmo, a fonte de dados, o formato de dados ou a operação de transformação de dados que estou procurando não está no Estúdio de Aprendizado de Máquina do Azure. Quais são minhas opções?**
@@ -140,7 +140,7 @@ Como os dados são transmitidos ao navegador e podem ser grandes, o tamanho dos 
 ### <a name="algorithms"></a>Algoritmos
 **Quais algoritmos existentes têm suporte no Estúdio de Aprendizado de Máquina?**
 
-O Machine Learning Studio fornece algoritmos de última geração, como Árvores de Decisão Aumentadas Escalonáveis, sistemas de Recomendação Bayesiana, Redes Neurais Profundas e Selvas de Decisão desenvolvidos na Microsoft Research. Pacotes de aprendizado de máquina escalonáveis de software livre, como Vowpal Wabbit, também estão incluídos. O Estúdio de Aprendizado de Máquina dá suporte a algoritmos de aprendizado de máquina para classificação binária e de múltiplas classes, de regressão e de clustering. Consulte a lista completa de [Módulos do Aprendizado de Máquina][machine-learning-modules].
+O Machine Learning Studio fornece algoritmos de última geração, como Árvores de Decisão Aumentadas Escalonáveis, sistemas de Recomendação Bayesiana, Redes Neurais Profundas e Selvas de Decisão desenvolvidos na Microsoft Research. Pacotes de aprendizado de máquina escalonáveis de software livre, como Vowpal Wabbit, também estão incluídos. O Estúdio de Aprendizado de Máquina dá suporte a algoritmos de aprendizado de máquina para classificação binária e de múltiplas classes, de regressão e de clustering. Consulte a lista completa de [Módulos do Machine Learning][machine-learning-modules].
 
 **Vocês sugerem automaticamente o algoritmo correto do Aprendizado de Máquina para usar com meus dados?**
 
@@ -185,7 +185,7 @@ Não, não há um ambiente REPL para R no estúdio.
 ### <a name="python-module"></a>Módulo de Python
 **É possível criar um módulo personalizado em Python?**
 
-Atualmente não, mas você pode usar um ou mais módulos [Executar Script Python][python] para obter o mesmo resultado.
+Atualmente, não, mas você pode usar um ou mais módulos [Executar script Python][python] para obter o mesmo resultado.
 
 **Há um ambiente REPL para Python?**
 
@@ -224,7 +224,7 @@ Após a implantação de um modelo de previsão, você pode monitorá-lo no port
 
 **Existe um lugar onde posso ver a saída do meu RRS/BES?**
 
-Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode escrevê-lo no Armazenamento de Blobs do Azure. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou tabela usando o módulo [Exportar Dados][export-data].
+Para RRS, a resposta do serviço Web é normalmente onde você vê o resultado. Você também pode escrevê-lo no Armazenamento de Blobs do Azure. Para BES, a saída é gravada em um blob, por padrão. Você também pode gravar a saída em um banco de dados ou em uma tabela usando o módulo [Exportar Dados][export-data].
 
 **Posso criar serviços Web apenas de modelos criados no Estúdio de Aprendizado de Máquina?**
 
@@ -245,7 +245,7 @@ Nº
 
 **Quantos dados posso usar para treinamento?**
 
-Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo tiver mais de uma entrada, o tamanho total de todas as entradas juntas será de 10 GB. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas do Hive ou do Banco de Dados SQL do Azure, ou processamento previamente os módulos [Aprendizado com Contagens][counts] antes da ingestão.  
+Os módulos do Estúdio de Aprendizado de Máquina dão suporte a conjuntos de dados com até 10 GB de dados numéricos densos para casos de uso comuns. Se um módulo tiver mais de uma entrada, o tamanho total de todas as entradas juntas será de 10 GB. Você também pode criar amostras de conjuntos de dados maiores por meio de consultas ao Banco de Dados SQL do Azure ou do Hive, ou fazer o pré-processamento com módulos [Aprendizado por contagens][counts] antes do uso.  
 
 Os seguintes tipos de dados podem ser expandidos para conjuntos de dados maiores durante a normalização de recursos e são limitados a menos de 10 GB:
 
@@ -289,9 +289,6 @@ O Machine Learning Studio depende de uma conta de armazenamento do Azure forneci
 
 Se você tiver alterado as Chaves de Acesso da conta de armazenamento, sincronize novamente as Chaves de Acesso na configuração do espaço de trabalho no portal clássico do Azure.  
 
-## <a name="azure-marketplace"></a>Azure Marketplace
-Confira as [Perguntas frequentes sobre a publicação e utilização de aplicativos no Marketplace do Aprendizado de Máquina](machine-learning-marketplace-faq.md).
-
 ## <a name="support-and-training"></a>Suporte e treinamento
 **Onde posso obter treinamento para o Aprendizado de Máquina do Azure?**
 
@@ -332,7 +329,7 @@ Para saber mais sobre preços e cobrança, confira [Preços do Aprendizado de M�
 
  O Azure Machine Learning tem uma opção de assinatura gratuita (consulte [Preços do Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/) para obter detalhes) e o Machine Learning Studio tem uma avaliação rápida de 8 horas disponível (faça logon no [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2) para obter essa avaliação).
 
- Além disso, quando você se inscrever em uma avaliação gratuita do Azure, poderá experimentar qualquer serviço do Azure por um mês. Para saber mais sobre a avaliação gratuita do Azure, visite [Perguntas frequentes sobre a avaliação gratuita do Azure](/pricing/free-trial-faq/).
+ Além disso, quando você se inscrever em uma avaliação gratuita do Azure, poderá experimentar qualquer serviço do Azure por um mês. Para saber mais sobre a avaliação gratuita do Azure, visite [Perguntas frequentes sobre a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 **O que é uma transação?**
 
@@ -432,7 +429,7 @@ Os novos planos de cobrança estão disponíveis nas três regiões de produçã
 
 Sim. Os preços de planos variam para cada região. Ao implantar um serviço Web em outra região, você precisará atribuir a ele um plano específico dessa região.
 
-### <a name="new-web-services-overages"></a>Novos serviços Web - Excedentes
+### <a name="new-web-services---overages"></a>Novos serviços Web - Excedentes
 **Como verifico se o uso do serviço Web está excedente?**
 
 Você pode exibir o uso em todos os seus planos na página Planos no portal de serviços Web de Machine Learning. Entre no portal e clique na opção de menu Planos.
@@ -545,6 +542,6 @@ O Acesso de Convidado é uma experiência teste restrita que permite que você c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

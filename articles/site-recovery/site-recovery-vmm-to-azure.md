@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
-ms.openlocfilehash: 3727972c544bb8c2724e9f38953882a7f2251a60
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 8de917236d1dcbfdf0c1232380879a33d9425291
 
 
 ---
@@ -115,13 +115,13 @@ Você precisa de uma rede do Azure à qual as VMs do Azure criadas após o failo
 * A rede deve estar na mesma região que o cofre dos Serviços de Recuperação.
 * Dependendo do modelo de recurso que deseja usar para as VMs do Azure com failover, você configura uma rede do Azure no [modo Resource Manager](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) ou no [modo clássico](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 * É recomendável configurar uma rede antes de começar. Caso você não faça isso, será necessário fazê-lo durante a implantação da Recuperação de Site.
-Observe que as redes do Azure usadas pelo Site Recovery não podem ser [movidas](../resource-group-move-resources.md) dentro de uma mesma assinatura ou entre assinaturas diferentes.
+Observe que as redes do Azure usadas pelo Site Recovery não podem ser [movidas](../azure-resource-manager/resource-group-move-resources.md) dentro de uma mesma assinatura ou entre assinaturas diferentes.
 
 ### <a name="set-up-an-azure-storage-account"></a>Configure uma conta de armazenamento do Azure
 * Você precisa de uma conta de armazenamento padrão do Azure para armazenar os dados replicados para o Azure. A rede deve estar na mesma região do que o cofre dos Serviços de Recuperação.
 * Dependendo do modelo de recurso que você deseja usar para as VMs do Azure com failover, você configurará uma conta no [modo Resource Manager](../storage/storage-create-storage-account.md) ou no [modo clássico](../storage/storage-create-storage-account-classic-portal.md).
 * É recomendável que você configure uma conta antes de começar. Caso você não faça isso, será necessário fazê-lo durante a implantação da Recuperação de Site.
-- Observe que as contas de armazenamento usadas pelo Site Recovery não podem ser [movidas](../resource-group-move-resources.md) dentro de uma mesma assinatura ou entre assinaturas diferentes.
+- Observe que as contas de armazenamento usadas pelo Site Recovery não podem ser [movidas](../azure-resource-manager/resource-group-move-resources.md) dentro de uma mesma assinatura ou entre assinaturas diferentes.
 
 ### <a name="prepare-the-vmm-server"></a>Preparar o servidor VMM
 * Certifique-se de que o servidor do VMM seja compatível com o [pré-requisitos](#on-premises-prerequisites).
@@ -144,7 +144,7 @@ Você precisa configurar o mapeamento de rede durante a implantação da Recuper
 
     ![Novo cofre](./media/site-recovery-vmm-to-azure/new-vault3.png)
 3. Em **Nome**, especifique um nome amigável para identificar o cofre. Se você tiver mais de uma assinatura, selecione uma delas.
-4. [Crie um grupo de recursos](../resource-group-template-deploy-portal.md)ou selecione um existente. Especifique uma região do Azure. Os computadores serão replicados para essa região. Para verificar as regiões suportadas, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços de Recuperação de Site do Azure](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Crie um grupo de recursos](../azure-resource-manager/resource-group-template-deploy-portal.md)ou selecione um existente. Especifique uma região do Azure. Os computadores serão replicados para essa região. Para verificar as regiões suportadas, consulte a Disponibilidade Geográfica nos [Detalhes dos Preços de Recuperação de Site do Azure](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. Se você deseja acessar rapidamente o cofre pelo Painel, clique em **Fixar no painel** > **Criar cofre**.
 
     ![Novo cofre](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
@@ -509,6 +509,6 @@ Depois que a implantação estiver configurada e em funcionamento, [saiba mais](
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

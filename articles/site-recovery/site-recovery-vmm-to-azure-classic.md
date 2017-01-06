@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 069a8619ccec30bb2a575ffd8faf3e6acf60da4a
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: 28c41f08bf8eaf7e6679040bb8fbab2e134d08fb
 
 
 ---
@@ -184,7 +184,7 @@ Em que parâmetros são os seguintes:
     ![Conta de armazenamento](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
 > [!NOTE]
-> [Migração de contas de armazenamento](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as contas de armazenamento usadas para a implantação do Site Recovery.
+> [Migração de contas de armazenamento](../azure-resource-manager/resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as contas de armazenamento usadas para a implantação do Site Recovery.
 >
 >
 
@@ -246,7 +246,7 @@ Depois que você salvar as configurações, um trabalho começará a acompanhar 
 Observe que, se a rede de destino tiver várias sub-redes, e uma dessas sub-redes tiver o mesmo nome que a sub-rede em que a máquina virtual de origem está localizada, a máquina virtual de réplica será conectada à sub-rede de destino após o failover. Se não houver uma sub-rede de destino com um nome correspondente, a máquina virtual será conectada à primeira sub-rede na rede.
 
 > [!NOTE]
-> [Migração de redes](../resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as redes usadas para a implantação do Site Recovery.
+> [Migração de redes](../azure-resource-manager/resource-group-move-resources.md) nos grupos de recursos dentro da mesma assinatura ou nas assinaturas não tem suporte para as redes usadas para a implantação do Site Recovery.
 >
 >
 
@@ -345,13 +345,12 @@ Para executar um failover de teste, faça o seguinte:
    * Clique em **Failover de teste concluído**. Limpe o ambiente de teste para desligar automaticamente e excluir as máquinas virtuais de teste.
    * Clique em **Observações** para gravar e salvar observações associadas ao failover de teste.
 
->
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [como configurar os planos de recuperação](site-recovery-create-recovery-plans.md) e o [failover](site-recovery-failover.md).
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
