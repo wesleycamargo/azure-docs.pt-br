@@ -14,7 +14,7 @@ Para começar a usar as assinaturas e os tópicos do Barramento de Serviço no A
 
 Para criar um namespace:
 
-1. Faça logon no [portal do Azure][portal do Azure].
+1. Faça logon no [Portal do Azure][Azure portal].
 2. No painel de navegação esquerdo do portal, clique em **Novo**, depois em **Integração Corporativa** e em **Barramento de Serviço**.
 3. Na caixa de diálogo **Criar um namespace** , digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 4. Depois de verificar se o nome do namespace está disponível, escolha o tipo de preço (Básico, Standard ou Premium).
@@ -35,7 +35,7 @@ Para criar um namespace:
    
     ![connection-string][connection-string]
 
-[portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
 [connection-info]: ./media/howto-service-bus-topics/connection-info.png
 [connection-string]: ./media/howto-service-bus-topics/connection-string.png
@@ -43,6 +43,6 @@ Para criar um namespace:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
