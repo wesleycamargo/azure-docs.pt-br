@@ -16,6 +16,6 @@ Observe que a SKU do gateway UltraPerformance não é representada nesta tabela.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

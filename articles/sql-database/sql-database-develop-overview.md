@@ -1,5 +1,5 @@
 ---
-title: "Visão geral do desenvolvimento do Banco de Dados SQL | Microsoft Docs"
+title: "Visão geral de desenvolvimento de aplicativo de Banco de Dados SQL | Microsoft Docs"
 description: "Saiba mais sobre bibliotecas de conectividade disponíveis e práticas recomendadas para aplicativos que se conectam ao Banco de Dados SQL."
 services: sql-database
 documentationcenter: 
@@ -8,20 +8,25 @@ manager: jhubbard
 editor: genemi
 ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
 ms.service: sql-database
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: df13648c8a76b216f596df49dd3ef617d0b35ccc
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
 
 
 ---
-# <a name="sql-database-development-overview"></a>Visão geral do desenvolvimento de Banco de Dados SQL
+# <a name="sql-database-application-development-overview"></a>Visão Geral do Desenvolvimento de Aplicativos de Banco de Dados
 Este artigo apresenta as considerações básicas sobre as quais um desenvolvedor deve estar ciente ao escrever código para se conectar ao Banco de Dados SQL do Azure.
+
+> [!TIP]
+> Para obter um tutorial que mostra como criar um servidor, criar um firewall baseado em servidor, exibir propriedades do servidor, conectar-se usando o SQL Server Management Studio, consultar o banco de dados mestre, criar um banco de dados de exemplo e um banco de dados em branco, consultar propriedades de banco de dados, conectar-se usando o SQL Server Management Studio e consultar o banco de dados de exemplo, confira [Tutorial de Introdução](sql-database-get-started.md).
+>
 
 ## <a name="language-and-platform"></a>Linguagem e plataforma
 Há exemplos de código disponíveis para uma variedade de plataformas e linguagens de programação. Você pode encontrar links de exemplos de código em: 
@@ -36,7 +41,7 @@ O Banco de Dados SQL do Azure gerencia os recursos disponíveis para um banco de
 ## <a name="security"></a>Segurança
 O Banco de Dados SQL do Azure fornece recursos para limitar o acesso, proteger os dados e monitorar atividades em um Banco de Dados SQL.
 
-* Mais informações: [proteger seu Banco de Dados SQL](sql-database-security.md)
+* Mais informações: [proteger seu Banco de Dados SQL](sql-database-security-overview.md)
 
 ## <a name="authentication"></a>Autenticação
 * O Banco de Dados SQL do Azure permite logons e usuários da autenticação do SQL Server, bem como usuários e logons da [autenticação do Azure Active Directory](sql-database-aad-authentication.md) .
@@ -72,6 +77,6 @@ Explore todas as [funcionalidades do Banco de Dados SQL](https://azure.microsoft
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

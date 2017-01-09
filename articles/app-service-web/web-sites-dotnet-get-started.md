@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 07/22/2016
+ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 
 
 ---
@@ -45,7 +45,7 @@ Além do tempo necessário para instalar o SDK do Azure para .NET, este tutorial
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * O tutorial presume que você já tenha trabalhado com o ASP.NET MVC e com o Visual Studio. Se você precisar de uma introdução, consulte [Guia de Introdução ao ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
-* Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F) ou [Ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Você precisa de uma conta do Azure. Você pode [abrir uma conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [Ativar os benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
     Se você quiser ter uma introdução ao Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751). Dessa forma você poderá criar um aplicativo de curta duração inicial no Serviço de Aplicativo, sem precisar de cartão de crédito e sem compromissos.
 
@@ -61,8 +61,8 @@ O tutorial é escrito para o Visual Studio 2015 com o [SDK do Azure para .NET](.
 
 Se você tiver o Visual Studio 2013 e preferir usá-lo, [baixe o SDK do Azure mais recente para o Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Algumas telas podem parecer diferentes das ilustrações.
 
-## <a name="configure-a-new-web-project"></a>Configurar um novo projeto Web
-A próxima etapa é criar um projeto Web no Visual Studio e um aplicativo Web no Serviço de Aplicativo do Azure. Nesta seção do tutorial você configura o novo projeto Web. 
+## <a name="create-a-web-application"></a>Criar um aplicativo Web
+A próxima etapa é criar um projeto de aplicativo Web no Visual Studio e um aplicativo Web no Serviço de Aplicativo do Azure. Nesta seção do tutorial você configura o novo projeto Web. 
 
 1. Abra o Visual Studio 2015.
 2. Clique em **Arquivo > Novo > Projeto**.
@@ -89,7 +89,7 @@ A próxima etapa é criar um projeto Web no Visual Studio e um aplicativo Web no
     Essas configurações direcionam o Visual Studio para criar um aplicativo Web do Azure para seu projeto Web.
 10. Clique em **OK**
 
-## <a name="configure-azure-resources-for-a-new-web-app"></a>Configurar recursos do Azure para um novo aplicativo Web
+## <a name="create-the-azure-resources"></a>Criar os recursos do Azure
 Agora você informa ao Visual Studio sobre os recursos do Azure que você deseja criar.
 
 1. Na caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Adicionar uma conta** e faça login no Azure com a ID e a senha da conta que você usa para gerenciar sua assinatura do Azure.
@@ -128,14 +128,14 @@ Agora você informa ao Visual Studio sobre os recursos do Azure que você deseja
 8. Na caixa de diálogo **Configurar o Plano do Serviço de Aplicativo**, clique em **OK**.
 9. Na caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Criar**.
 
-## <a name="visual-studio-creates-the-project-and-web-app"></a>O Visual Studio cria o projeto e o aplicativo Web
+## <a name="inspect-the-azure-resources-in-visual-studio"></a>Inspecionar os recursos do Azure no Visual Studio
 Em pouco tempo, geralmente menos de um minuto, o Visual Studio cria o projeto Web e o aplicativo Web.  
 
 A janela **Gerenciador de Soluções** mostra os arquivos e as pastas no novo projeto.
 
 ![Gerenciador de Soluções](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
-A janela **Atividade do Serviço de Aplicativo do Azure** mostra que o aplicativo Web foi criado.
+A janela **Atividade do Serviço de Aplicativo do Azure** mostra que os recursos do Serviço de Aplicativo foram criados no Azure. Você pode clicar no link aqui para começar a publicar o novo projeto imediatamente. No entanto, posteriormente o tutorial mostra como publicar os arquivos a qualquer momento.
 
 ![Aplicativo Web criado na janela Atividade do Serviço de Aplicativo do Azure](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -143,8 +143,8 @@ A janela **Gerenciador de Nuvem** permite a exibição e o gerenciamento de recu
 
 ![Aplicativo Web criado no Gerenciador de Nuvem](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Implantar o projeto Web no aplicativo Web do Azure
-Nesta seção, você implanta o projeto Web no aplicativo Web.
+## <a name="deploy-the-web-project-to-azure"></a>Implantar o projeto Web no Azure
+Nesta seção, você pode implantar o projeto Web para o recurso de aplicativo Web criado no Serviço de Aplicativo do Azure.
 
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e escolha **Publicar**.
    
@@ -152,7 +152,10 @@ Nesta seção, você implanta o projeto Web no aplicativo Web.
    
     Em poucos segundos, o assistente de **Publicar Web** é exibido. O assistente abre um *perfil de publicação* com configurações para implantar um projeto Web para o novo aplicativo Web.
    
-    O perfil de publicação inclui um nome de usuário e senha para a implantação.  Essas credenciais foram geradas para você, e não é necessário inseri-las. A senha é criptografada em um arquivo oculto específico do usuário na pasta `Properties\PublishProfiles` .
+    > [!TIP] 
+    > O perfil de publicação inclui um nome de usuário e senha para a implantação.  Essas credenciais foram geradas para você, e não é necessário inseri-las. A senha é criptografada em um arquivo oculto específico do usuário na pasta `Properties\PublishProfiles` .
+    >
+    >
 2. Na guia **Conexão** do assistente de **Publicar Web**, clique em **Avançar**.
    
     ![Clique em Avançar na guia Conexão do assistente Publicar Web](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -213,12 +216,12 @@ Neste tutorial, você viu como criar um aplicativo Web simples e implantá-lo em
   * [Habilitar HTTPS para um site do Azure](web-sites-configure-ssl-certificate.md)
 * Exclua o grupo de recursos que contém seu aplicativo Web, e todos os recursos do Azure relacionados, quando terminar de usá-los.
   
-    Para obter informações sobre como trabalhar com os grupos de recursos no portal do Azure, consulte [Implantar recursos com modelos do Gerenciador de Recursos e o portal do Azure](../resource-group-template-deploy-portal.md).   
+    Para obter informações sobre como trabalhar com os grupos de recursos no portal do Azure, consulte [Implantar recursos com modelos do Gerenciador de Recursos e o portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).   
 * Para obter mais exemplos de criação de um aplicativo Web ASP.NET no Serviço de Aplicativo, confira [Create and deploy an ASP.NET web app in Azure App Service (Criar e implantar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure)](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) e [Create and deploy a mobile app in Azure App Service (Criar e implantar um aplicativo móvel no Serviço de Aplicativo do Azure)](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) na [demonstração](https://github.com/Microsoft/HealthClinic.biz)HealthClinic.biz[2015 Connect](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Para ver mais guias de início rápido da demonstração do HealthClinic.biz, consulte [Azure Developer Tools Quickstarts (Guias de início rápido das ferramentas de desenvolvedor do Azure)](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

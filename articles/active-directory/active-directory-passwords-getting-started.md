@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 48821a3b2b7da4646c4569cc540d867f02a4a32f
-ms.openlocfilehash: 6dc23714a4a052c7bf0bb5162fe1568ec272b5e3
+ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
+ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
 
 
 ---
@@ -185,7 +185,7 @@ Antes de poder habilitar e usar o Write-back de Senha, você deve concluir os se
   > Se você estiver executando uma versão anterior do Windows Server 2008 ou 2008 R2, você pode usar este recurso, mas será necessário [Baixar e instalar a atualização KB 2386717](https://support.microsoft.com/kb/2386717) antes de poder aplicar a política de senha local do AD na nuvem.
   > 
   > 
-* Ter a ferramenta Azure AD Connect instalada e preparar o ambiente do AD para sincronização para a nuvem.  Para saber mais, consulte [Usar a sua infraestrutura de identidade local na nuvem](active-directory-aadconnect.md).
+* Ter a ferramenta Azure AD Connect instalada e preparar o ambiente do AD para sincronização para a nuvem.  Para saber mais, consulte [Usar a sua infraestrutura de identidade local na nuvem](connect/active-directory-aadconnect.md).
   
   > [!NOTE]
   > Antes de testar o write-back de senha, certifique-se de primeiro concluir uma importação e sincronização completas no AD e no AD do Azure no AD do Azure
@@ -199,7 +199,7 @@ Antes de poder habilitar e usar o Write-back de Senha, você deve concluir os se
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Etapa 1: baixar a versão mais recente do Azure AD Connect
-O Write-back de Senha está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0419.0911** ou superior.  O Write-back de Senha com o desbloqueio de conta automático está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0485.0222** ou superior. Se você estiver executando uma versão mais antiga, atualize para pelo menos essa versão antes de continuar. [Clique aqui para baixar a versão mais recente do Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
+O Write-back de Senha está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0419.0911** ou superior.  O Write-back de Senha com o desbloqueio de conta automático está disponível nas versões do Azure AD Connect ou na ferramenta Azure AD Sync com o número de versão **1.0.0485.0222** ou superior. Se você estiver executando uma versão mais antiga, atualize para pelo menos essa versão antes de continuar. [Clique aqui para baixar a versão mais recente do Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Para verificar a versão do Azure AD Sync
 1. Navegue até **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -236,7 +236,7 @@ Agora que você já baixou a ferramenta Azure AD Connect, você está pronto par
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Para habilitar o Write-back de Senha usando o Windows PowerShell
 1. No seu **Computador do Directory Sync**, abra uma nova **janela do Windows PowerShell com privilégios elevados**.
 2. Se o módulo ainda não tiver carregado, digite o comando `import-module ADSync` para carregar os cmdlets do Azure AD Connect na sua sessão atual.
-3. Obter a lista de Conectores AAD no seu sistema executando o cmdlet `Get-ADSyncConnector` e armazenando os resultados no `$aadConnectorName``$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Obter a lista de Conectores AAD no seu sistema executando o cmdlet `Get-ADSyncConnector` e armazenando os resultados no `$aadConnectorName``$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
 4. Para obter o status atual do write-back do conector atual, execute o seguinte cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Habilite o Write-back de Senha executando o cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -393,6 +393,6 @@ Veja abaixo links para todas as páginas de documentação sobre Redefinição d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

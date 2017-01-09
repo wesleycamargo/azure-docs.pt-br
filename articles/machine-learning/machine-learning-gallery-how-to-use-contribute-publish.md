@@ -48,7 +48,7 @@ Esses recursos básicos da Galeria podem ser agrupados logicamente em duas manei
 
 Por fim, **[Competições](machine-learning-gallery-competitions.md)** oferecem uma oportunidade empolgante de concorrer com a comunidade de cientistas de dados para resolver problemas complexos usando o Cortana Intelligence Suite.
 
-![Página Inicial da Galeria do Cortana Intelligence](media\\machine-learning-gallery-how-to-use-contribute-publish\\gallery-home-page.png)
+![Página Inicial da Galeria do Cortana Intelligence](media/machine-learning-gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Descobrir e aprender
 Qualquer pessoa pode pesquisar e procurar os tipos diferentes de recurso na Galeria que foram fornecidos pela Microsoft e pela comunidade de análises avançadas.
@@ -60,25 +60,25 @@ Clique em **Procurar tudo** no cabeçalho da Galeria, selecione refinamentos de 
 
 Veja contribuições de um autor específico clicando no nome do autor de dentro de um dos blocos:
 
-![Ver contribuições do autor](media\\machine-learning-gallery-how-to-use-contribute-publish\\view-by-author.png)
+![Ver contribuições do autor](media/machine-learning-gallery-how-to-use-contribute-publish/view-by-author.png)
 
 Você pode comentar, fornecer comentários ou fazer perguntas por meio da seção de comentários em cada página de recurso.
 Você pode até compartilhar um recursos de interesse com amigos ou colegas usando os recursos de compartilhamento do LinkedIn ou do Twitter.
 Você também pode enviar links por email para esses recursos e convidar outros usuários a ver as páginas.
 
-![Compartilhar este item com amigos](media\\machine-learning-gallery-how-to-use-contribute-publish\\comment-and-share.png)
+![Compartilhar este item com amigos](media/machine-learning-gallery-how-to-use-contribute-publish/comment-and-share.png)
 
 ## <a name="contribute-to-the-gallery"></a>Contribuir para a galeria
 Quando você entra, vira um membro da comunidade da Galeria. Isso permite a você contribuir com seus próprios itens de galeria, para que outras pessoas possam se beneficiar das soluções descobertas.
 
 À medida que outras pessoas encontrem sua contribuição na galeria, você pode seguir o número de exibições e downloads de sua contribuição:
 
-![Compartilhar este item com amigos](media\\machine-learning-gallery-how-to-use-contribute-publish\\view-and-download-counts.png)
+![Compartilhar este item com amigos](media/machine-learning-gallery-how-to-use-contribute-publish/view-and-download-counts.png)
 
 Os usuários também podem adicionar comentários e compartilhar sua contribuição com outros membros da comunidade de ciência de dados.
 Você pode fazer logon com uma ferramenta discussão, como o Disqus e receber notificações de comentários em suas contribuições.
 
-![Siga os comentários do usuário](media\\machine-learning-gallery-how-to-use-contribute-publish\\follow-comments.png)
+![Siga os comentários do usuário](media/machine-learning-gallery-how-to-use-contribute-publish/follow-comments.png)
 
 Você pode contribuir com os seguintes itens na Galeria – siga estes links para obter mais informações:
 

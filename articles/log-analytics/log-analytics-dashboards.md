@@ -4,7 +4,7 @@ description: "Este guia ajuda a entender como os Painéis do Log Analytics podem
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -83,7 +83,6 @@ Para remover um bloco, navegue até a exibição Meu Painel e clique em **Person
 
 ## <a name="next-steps"></a>Próximas etapas
 * Crie [alertas](log-analytics-alerts.md) no Log Analytics para gerar notificações e para corrigir problemas.
-
 
 
 

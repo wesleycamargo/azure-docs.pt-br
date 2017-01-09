@@ -10,6 +10,6 @@ Você paga por duas coisas: os custos de computação por hora para o gateway de
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

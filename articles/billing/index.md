@@ -12,7 +12,7 @@ Aprenda a compreender sua cobrança do Azure e a monitorar o uso e os custos. Tu
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing/billing-understand-your-bill">
+        <a href="/azure/billing/billing-getting-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

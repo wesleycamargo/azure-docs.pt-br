@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
 
 
 ---
@@ -39,7 +39,7 @@ O Banco de Dados SQL do Microsoft Azure usa regras de firewall para permitir con
 > 
 
 ## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Gerenciar regras de firewall no nível de servidor pela API REST
-1. O gerenciamento das regras de firewall por meio da API REST deve ser autenticado. Para obter informações, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](../resource-manager-api-authentication.md).
+1. O gerenciamento das regras de firewall por meio da API REST deve ser autenticado. Para obter informações, consulte [Guia do desenvolvedor para a autorização com a API do Azure Resource Manager](../azure-resource-manager/resource-manager-api-authentication.md).
 2. As regras no nível de servidor podem ser criadas, atualizadas ou excluídas usando a API REST
    
     Para criar ou atualizar uma regra de firewall no nível de servidor, execute o método PUT usando o seguinte:
@@ -79,7 +79,7 @@ Para obter ajuda com a conexão de um Banco de Dados SQL do Azure a partir de ap
 Para entender como navegar para os bancos de dados, consulte [Gerenciar o acesso ao banco de dados e a segurança de logon](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Protegendo o banco de dados](sql-database-security.md)
+* [Protegendo o banco de dados](sql-database-security-overview.md)
 * [Central de segurança do mecanismo de banco de dados do SQL Server e banco de dados SQL do Azure](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -91,6 +91,6 @@ Para entender como navegar para os bancos de dados, consulte [Gerenciar o acesso
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
