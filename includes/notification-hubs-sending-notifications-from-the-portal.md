@@ -13,6 +13,6 @@ Na próxima seção do tutorial, você aprenderá a usar a [interface REST do Hu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

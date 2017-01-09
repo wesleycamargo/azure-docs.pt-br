@@ -4,7 +4,7 @@ description: "As pesquisas de log permitem combinar e correlacionar quaisquer da
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -180,8 +180,8 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 
 > [!NOTE]
 > A sintaxe de intervalo que você deve usar é o separador de valor de campo de dois pontos (:) valor de dois-pontos (:) e *não* o sinal de igual (=). Coloque as extremidades inferior e superior do intervalo entre colchetes e separe-as com dois pontos finais (..).
-> 
-> 
+>
+>
 
 ## <a name="manipulate-search-results"></a>Manipular resultados da pesquisa
 Quando você estiver procurando por dados, vai querer refinar sua consulta de pesquisa e ter um bom nível de controle sobre os resultados. Quando os resultados são recuperados, você pode aplicar comandos para transformá-los.
@@ -574,7 +574,6 @@ Para obter outras informações sobre pesquisas de log, veja:
 
 * Use [Campos personalizados no Log Analytics](log-analytics-custom-fields.md) para estender as pesquisas de log.
 * Examine a [referência de pesquisa de log do Log Analytics](log-analytics-search-reference.md) para exibir todos os campos de pesquisa e as facetas disponíveis no Log Analytics.
-
 
 
 

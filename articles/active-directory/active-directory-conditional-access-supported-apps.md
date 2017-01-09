@@ -72,18 +72,18 @@ Você pode usar as regras de exemplo a seguir para bloquear o acesso de protocol
 Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Confiável do AD FS para a Plataforma de Identidade do Microsoft Office 365, o tráfego do Exchange ActiveSync e o tráfego de autenticação moderno e de navegador, têm acesso. Aplicativos herdados são bloqueados da extranet.
 
 ##### <a name="rule-1"></a>Regra 1
-    @RuleName = “Allow all intranet traffic”
+    @RuleName = "Allow all intranet traffic"
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 ##### <a name="rule-2"></a>Regra 2
-    @RuleName = “Allow Exchange ActiveSync ”
+    @RuleName = "Allow Exchange ActiveSync"
     c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 ##### <a name="rule-3"></a>Regra 3
-    @RuleName = “Allow extranet browser and browser dialog traffic”
-    c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
+    @RuleName = "Allow extranet browser and browser dialog traffic"
+    c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
@@ -91,21 +91,21 @@ Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Co
 Ao aplicar as três regras a seguir ao Objeto de Confiança de Terceira Parte Confiável do AD FS para a Plataforma de Identidade do Microsoft Office 365, o tráfego do Exchange ActiveSync e o tráfego de autenticação moderno e de navegador, têm acesso. Aplicativos herdados são bloqueados de qualquer localização.
 
 ##### <a name="rule-1"></a>Regra 1
-    @RuleName = “Allow all intranet traffic only for browser and modern authentication clients”
+    @RuleName = "Allow all intranet traffic only for browser and modern authentication clients"
     c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "true"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
 ##### <a name="rule-2"></a>Regra 2
-    @RuleName = “Allow Exchange ActiveSync”
+    @RuleName = "Allow Exchange ActiveSync"
     c1:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-client-application", Value == "Microsoft.Exchange.ActiveSync"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 
 
 ##### <a name="rule-3"></a>Regra 3
-    @RuleName = “Allow extranet browser and browser dialog traffic”
-    c1:[Type == " http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
+    @RuleName = "Allow extranet browser and browser dialog traffic"
+    c1:[Type == "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork", Value == "false"] &&
     c2:[Type == "http://schemas.microsoft.com/2012/01/requestcontext/claims/x-ms-endpoint-absolute-path", Value =~ "(/adfs/ls)|(/adfs/oauth2)"]
     => issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");
 

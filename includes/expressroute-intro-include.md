@@ -5,6 +5,6 @@ A Rota Expressa do Microsoft Azure permite que você estenda suas redes locais a
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

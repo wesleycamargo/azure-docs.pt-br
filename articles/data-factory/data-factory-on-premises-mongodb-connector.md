@@ -64,166 +64,170 @@ Como uma primeira etapa, configure o gateway de gerenciamento de dados de acordo
 
 **Serviço vinculado ao MongoDB**
 
+```JSON
+{
+    "name": "OnPremisesMongoDbLinkedService",
+    "properties":
     {
-        "name": "OnPremisesMongoDbLinkedService",
-        "properties":
+        "type": "OnPremisesMongoDb",
+        "typeProperties":
         {
-            "type": "OnPremisesMongoDb",
-            "typeProperties":
-            {
-                "authenticationType": "<Basic or Anonymous>",
-                "server": "< The IP address or host name of the MongoDB server >",  
-                "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
-                "username": "<username>",
-                "password": "<password>",
-               "authSource": "< The database that you want to use to check your credentials for authentication. >",
-                "databaseName": "<database name>",
-                "gatewayName": "<mygateway>"
-            }
+            "authenticationType": "<Basic or Anonymous>",
+            "server": "< The IP address or host name of the MongoDB server >",  
+            "port": "<The number of the TCP port that the MongoDB server uses to listen for client connections.>",
+            "username": "<username>",
+            "password": "<password>",
+           "authSource": "< The database that you want to use to check your credentials for authentication. >",
+            "databaseName": "<database name>",
+            "gatewayName": "<mygateway>"
         }
     }
-
+}
+```
 
 **Serviço vinculado de armazenamento do Azure**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
+  }
+}
+```
 
 **Conjunto de dados de entrada do MongoDB** Configurar “external” como “true” informa ao serviço Data Factory que a tabela é externa ao Data Factory e não é produzido por uma atividade no Data Factory.
 
-    {
-         "name":  "MongoDbInputDataset",
-        "properties": {
-            "type": "MongoDbCollection",
-            "linkedServiceName": "OnPremisesMongoDbLinkedService",
-            "typeProperties": {
-                "collectionName": "<Collection name>"    
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true
-        }
+```JSON
+{
+     "name":  "MongoDbInputDataset",
+    "properties": {
+        "type": "MongoDbCollection",
+        "linkedServiceName": "OnPremisesMongoDbLinkedService",
+        "typeProperties": {
+            "collectionName": "<Collection name>"    
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true
     }
-
-
+}
+```
 
 **Conjunto de dados de saída de Blob do Azure**
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1). O caminho de pasta para o blob é avaliado dinamicamente com base na hora de início da fatia que está sendo processada. O caminho da pasta usa as partes ano, mês, dia e horas da hora de início.
 
-    {
-        "name": "AzureBlobOutputDataSet",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mycontainer/frommongodb/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "%M"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "%d"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "%H"
-                        }
-                    }
-                ]
+```JSON
+{
+    "name": "AzureBlobOutputDataSet",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mycontainer/frommongodb/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "%M"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "%d"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "%H"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
-
+}
+```
 
 **Pipeline com Atividade de cópia**
 
 O pipeline contém uma Atividade de Cópia que está configurada para usar os conjuntos de dados de entrada e saída acima e agendada para ser executada a cada hora. Na definição JSON do pipeline, o tipo **source** está definido como **MongoDbSource** e o tipo **sink** está definido como **BlobSink**. A consulta SQL especificada para a propriedade **query** seleciona os dados na última hora para copiar.
 
-    {
-        "name": "CopyMongoDBToBlob",
-        "properties": {
-            "description": "pipeline for copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "MongoDbSource",
-                            "query": "$$Text.Format('select * from  MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+```JSON
+{
+    "name": "CopyMongoDBToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "MongoDbSource",
+                        "query": "$$Text.Format('select * from  MyTable where LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)"
                     },
-                    "inputs": [
-                        {
-                            "name": "MongoDbInputDataset"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobOutputDataSet"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "MongoDBToAzureBlob"
-                }
-            ],
-            "start": "2016-06-01T18:00:00Z",
-            "end": "2016-06-01T19:00:00Z"
-        }
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "MongoDbInputDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutputDataSet"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "MongoDBToAzureBlob"
+            }
+        ],
+        "start": "2016-06-01T18:00:00Z",
+        "end": "2016-06-01T19:00:00Z"
     }
-
+}
+```
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece a descrição para elementos JSON específicos do serviço vinculado **OnPremisesMongoDB** .

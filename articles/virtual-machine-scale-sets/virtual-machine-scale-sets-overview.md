@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d833b7aaab8680d555f6503ec27994134a2519d
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 4a2cd02f6f9b6ac51c32314ce892e572e569eb7c
 
 
 ---
@@ -34,7 +34,7 @@ Examine esses vídeos para saber mais sobre conjuntos de dimensionamento de VM:
 ## <a name="creating-and-managing-vm-scale-sets"></a>Criando e gerenciando conjuntos de dimensionamento de VM
 Você pode criar um conjunto de dimensionamento de VM no [Portal do Azure](https://portal.azure.com) selecionando *novo* e digitando "escala" na barra de pesquisa. Você verá "Escala de máquina virtual definida" nos resultados. A partir daí, você pode preencher os campos obrigatórios para personalizar e implantar o conjunto de escala. 
 
-Os conjuntos de dimensionamento de VM também podem ser definidos e implantados usando modelos JSON e [APIs REST](https://msdn.microsoft.com/library/mt589023.aspx) , assim como as VMs individuais do Azure Resource Manager. Portanto, quaisquer métodos de implantação do Gerenciador de Recursos do Azure padrão podem ser usados. Para obter mais informações sobre modelos, confira [Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md).
+Os conjuntos de dimensionamento de VM também podem ser definidos e implantados usando modelos JSON e [APIs REST](https://msdn.microsoft.com/library/mt589023.aspx) , assim como as VMs individuais do Azure Resource Manager. Portanto, quaisquer métodos de implantação do Gerenciador de Recursos do Azure padrão podem ser usados. Para obter mais informações sobre modelos, confira [Criação de modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Um conjunto de modelos de exemplo para conjuntos de escala de VM pode ser encontrado no repositório GitHub [aqui](https://github.com/Azure/azure-quickstart-templates) (procure modelos com *vmss* no título)
 
@@ -50,9 +50,9 @@ Se estiver reimplantando um modelo para alterar a capacidade, você pode definir
 Para percorrer as etapas para criar um conjunto de dimensionamento que foi dimensionado automaticamente, confira [Dimensionar automaticamente as máquinas em um Conjunto de dimensionamento de máquina virtual](virtual-machine-scale-sets-windows-autoscale.md)
 
 ## <a name="monitoring-your-vm-scale-set"></a>Monitoramento de seu conjunto de dimensionamento de VM
-O [Portal do Azure](https://portal.azure.com) lista os conjuntos de dimensionamento e mostra as propriedades básicas, bem como as VMs no conjunto. Para obter mais detalhes você pode usar o [Azure Resource Explorer](https://resources.azure.com) para exibir os conjuntos de dimensionamento de VM. Os conjuntos de dimensionamento de VM são um recurso encontrado em Microsoft.Compute, de modo que nesse site, você pode vê-los expandindo os seguintes links:
+O [portal do Azure](https://portal.azure.com) listas conjuntos de escala e mostra as propriedades e operações básicas, incluindo listar VMs no conjunto e um gráfico de uso de recursos. Para obter mais detalhes você pode usar o [Azure Resource Explorer](https://resources.azure.com) para exibir os conjuntos de dimensionamento de VM. Os conjuntos de dimensionamento de VM são um recurso encontrado em Microsoft.Compute, de modo que nesse site, você pode vê-los expandindo os seguintes links:
 
-    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+**Assinaturas -> sua assinatura -> resourceGroups -> provedores -> Microsoft.Compute -> virtualMachineScaleSets -> seu conjunto de escala de VM -> etc.**
 
 ## <a name="vm-scale-set-scenarios"></a>Cenários do conjunto de dimensionamento de VM
 Esta seção lista alguns cenários típicos de conjunto de dimensionamento de VM. Além disso, alguns serviços do Azure de nível mais alto (como Lote, Service Fabric, Serviço de Contêiner do Azure) usarão esses cenários.
@@ -71,15 +71,15 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
    Veja um exemplo de como fazer o mesmo com RDP e Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 * **Conectar às VMs usando uma "jumpbox"** - Se você criar um conjunto de dimensionamento de VM e uma VM autônoma na mesma rede virtual, a VM autônoma e o conjunto de dimensionamento de VM podem se conectar um ao outro usando seus endereços IP internos, conforme definido pela sub-rede/rede virtual. Se você criar um endereço IP público e atribuí-lo à VM autônoma, pode realizar RDP ou SSH para a VM autônoma e conectar-se nessa máquina para suas instâncias de conjunto de dimensionamento de VM. Você pode perceber, nesse momento, que um simples conjunto de escalas de VM é inerentemente mais seguro do que uma simples VM autônoma com um endereço IP público em sua configuração padrão.
   
-   [Para obter um exemplo dessa abordagem, este modelo cria um cluster Mesos simples que consiste em uma VM mestre autônoma que gerencia um cluster de VMs baseado no conjunto de escala.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+   Por exemplo, este modelo implanta um conjunto de escala simples com uma VM autônoma: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox)
 * **Balanceamento de carga para instâncias de conjunto de dimensionamento de VM** – se desejar entregar trabalho a um cluster de VMs de cálculo usando uma abordagem "round-robin", você poderá configurar um Azure Load Balancer com regras de balanceamento de carga apropriadas. É possível definir investigações para verificar se o aplicativo está em execução ao executar ping de portas com um protocolo especificado, intervalo e caminho de solicitação. O [Gateway de Aplicativo](https://azure.microsoft.com/services/application-gateway/) do Azure também oferece suporte aos conjuntos de dimensionamento, além de cenários de balanceamento de carga mais sofisticados.
   
-   [Veja um exemplo que cria um conjunto de escalas de VM de VMs que executam o servidor Web IIS e usa um balanceador de carga para equilibrar a carga que cada VM recebe. Ele também usa o protocolo HTTP para executar o ping de uma URL específica em cada máquina virtual.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json)  (observe o tipo de recurso Microsoft.Network/loadBalancers, bem como networkProfile e extensionProfile no virtualMachineScaleSet)
+   Aqui está um exemplo que cria um Conjunto de Escala de VM executando servidores Web Apache e usa um balanceador de carga para balancear a carga que cada VM recebe: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl) (observe o tipo de recurso de Microsoft.Network/loadBalancers e networkProfile e extensionProfile em virtualMachineScaleSet)
 * **Implantar um  conjunto de dimensionamento de VM como um cluster de computação em um gerenciador de cluster de PaaS** - Os  conjuntos de dimensionamento de VM são muitas vezes descritos como uma função de trabalho de próxima geração. É uma descrição válida, mas há o risco de confundir recursos do conjunto de escalas com recursos da função de trabalho PaaS v1. De certo modo, os conjuntos de escalas de VM fornecem uma verdadeira "função de trabalho" ou recurso de trabalho, já que eles fornecem um recurso de computação generalizado que é independente de plataforma/tempo de execução, personalizável e se integra à IaaS do Gerenciador de Recursos do Azure.
   
    Uma função de trabalho PaaS v1, embora limitada em termos de suporte à plataforma/tempo de execução (apenas imagens da plataforma Windows) também inclui serviços como troca de VIP, definições de atualização configuráveis, configurações específicas de implantação de aplicativo/tempo de execução, que *ainda* não estão disponíveis nos conjuntos de dimensionamento de VMs ou serão fornecidos por outros serviços PaaS de nível mais alto, como o Service Fabric. Com isso em mente, você pode observar os conjuntos de escalas de VM como uma infraestrutura que oferece suporte à PaaS. Isto é, as soluções PaaS, como o Service Fabric ou os gerenciadores de clusters, como o Mesos, podem ser criadas com base nos conjuntos de escalas de VM como uma camada de computação escalonável.
   
-   [Para obter um exemplo dessa abordagem, este modelo cria um cluster Mesos simples que consiste em uma VM mestre autônoma que gerencia um cluster de VMs baseado no conjunto de escala.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) As versões futuras do [Serviço de Contêiner do Azure](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) implantarão versões mais complexas/reforçadas desse cenário com base nos conjuntos de dimensionamento de VM.
+   Para obter um exemplo dessa abordagem, o serviço de contêiner do Azure implanta um cluster com base em conjuntos de escala com um orquestrador de contêiner: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos).
 
 ## <a name="vm-scale-set-performance-and-scale-guidance"></a>Orientação de dimensionamento e desempenho do conjunto de dimensionamento de VM
 * Não crie mais de 500 VMs em vários Conjuntos de Escalas de VM por vez.
@@ -100,7 +100,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 **P.**  Há suporte para os discos de dados nos conjuntos de dimensionamento de VM?
 
-**A.**  Não na versão inicial. Suas opções de armazenamento de dados são:
+**A.** Não na versão inicial (embora os discos de dados estejam atualmente disponíveis na visualização). Suas opções de armazenamento de dados são:
 
 * Arquivos do Azure (unidades compartilhada de SMB)
 * Unidade do sistema operacional
@@ -148,6 +148,6 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento de V
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

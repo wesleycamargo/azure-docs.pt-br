@@ -18,8 +18,8 @@ ms.workload: data-management
 ms.date: 11/23/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c9764e3a61ed22a2596da19dd92ef8eca395b82b
-ms.openlocfilehash: ae61359240e38e5d380fc65b5a77bf6c3e369091
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: ae1cacf0ff003e69a16d6beac48abc36a7f18896
 
 
 ---
@@ -142,7 +142,7 @@ Para obter ajuda com a conexão de um Banco de Dados SQL do Azure a partir de ap
 Para entender como navegar para os bancos de dados, consulte [Gerenciar o acesso ao banco de dados e a segurança de logon](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Protegendo o banco de dados](sql-database-security.md)
+* [Protegendo o banco de dados](sql-database-security-overview.md)
 * [Central de segurança do mecanismo de banco de dados do SQL Server e banco de dados SQL do Azure](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -150,6 +150,6 @@ Para entender como navegar para os bancos de dados, consulte [Gerenciar o acesso
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

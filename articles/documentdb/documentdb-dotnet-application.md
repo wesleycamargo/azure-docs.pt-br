@@ -13,21 +13,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 12/25/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af5563f875c532c0b902685219818b1cd0945a66
+ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
+ms.openlocfilehash: 9b24fe8139d50b7c37a380fcc52b7ac302f5ee5d
 
 
 ---
 # <a name="a-nametoc395809351aaspnet-mvc-tutorial-web-application-development-with-documentdb"></a><a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: desenvolvimento de aplicativos Web com o Banco de Dados de Documentos
 > [!div class="op_single_selector"]
-> * [.NET](documentdb-dotnet-application.md)
-> * [Node.js](documentdb-nodejs-application.md)
-> * [Java](documentdb-java-application.md)
-> * [Python](documentdb-python-application.md) 
-> 
+> * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
+> * [Node.js](documentdb-nodejs-get-started.md)
+> * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
 Para destacar como você pode aproveitar com eficiência o Banco de Dados de Documentos do Azure para armazenar e consultar documentos JSON, este artigo fornece um passo a passo completo que mostra como compilar um aplicativo de lista de tarefas pendentes usando o Banco de Dados de Documentos do Azure. As tarefas serão armazenadas como documentos JSON no Banco de Dados de Documentos do Azure.
@@ -44,14 +45,18 @@ Este passo a passo mostra como usar o serviço Banco de Dados de Documentos forn
 ## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Pré-requisitos para este tutorial de banco de dados
 Antes de seguir as instruções deste artigo, verifique se você possui o seguinte:
 
-* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) 
+
+    OU
+
+    Uma instalação local do [Emulador do DocumentDB do Azure](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) ou Visual Studio 2013 Atualização 4 ou superior. Se usar o Visual Studio 2013, você precisará instalar o [pacote nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) para adicionar suporte ao C# 6.0. 
-* SDK do Azure para .NET versão 2.5.1 ou superior, disponível por meio do [Microsoft Web Platform Installer][Microsoft Web Platform Installer].
+* SDK do Azure para .NET versão 2.5.1 ou superior, disponível pelo [Microsoft Web Platform Installer][Microsoft Web Platform Installer].
 
 Todas as capturas de tela neste artigo foram feitas usando o Visual Studio 2013 com Atualização 4 aplicada e o SDK do Azure para .NET versão 2.5.1. Se o seu sistema estiver configurado com versões diferentes, será possível que suas telas e opções não correspondam totalmente, mas se você cumprir os pré-requisitos acima, esta solução deverá funcionar.
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Etapa 1: criar uma conta de banco de dados do Banco de Dados de Documentos
-Vamos iniciar pela criação de uma conta do Banco de Dados de Documentos. Se você já tiver uma conta, poderá pular para [Criar um novo aplicativo ASP.NET MVC](#_Toc395637762).
+Vamos iniciar pela criação de uma conta do Banco de Dados de Documentos. Se já tiver uma conta ou se estiver usando o Emulador do DocumentDB para este tutorial, pule para [Criar um novo aplicativo ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -78,6 +83,9 @@ Agora que você tem uma conta, vamos criar nosso novo projeto ASP.NET.
 5. No painel de modelos, selecione **MVC**.
 6. Se você planeja hospedar seu aplicativo no Azure, selecione **Hospedar na nuvem** na parte inferior direita para que o Azure hospede o aplicativo. Selecionamos hospedar na nuvem e executar o aplicativo hospedado em um Site do Azure. Selecionar essa opção provisionará previamente um Site do Azure para você e tornará muito mais fácil a implantação do aplicativo de trabalho final. Se desejar hospedá-lo em outro local ou não desejar configurar o Azure com antecedência, apenas desmarque **Hospedar na Nuvem**.
 7. Clique em **OK** e deixe o Visual Studio fazer isso realizando scaffolding do modelo ASP.NET MVC vazio. 
+
+    Se receber o erro "Erro ao processar a solicitação", confira a seção [Solução de problemas](#troubleshooting).
+
 8. Se você optar por hospedá-lo na nuvem, verá pelo menos uma tela adicional pedindo para você fazer logon na conta do Azure e fornecer alguns valores do novo site. Forneça os valores adicionais e continue. 
    
       Não escolhi "Servidor de banco de dados" aqui porque não estamos usando o Servidor do Banco de Dados SQL do Azure; vamos criar uma nova Conta de Banco de Dados de Documentos do Azure posteriormente no Portal do Azure.
@@ -423,9 +431,9 @@ Vamos adicionar algum código a DocumentDBRepository e a ItemController para per
    
     Esse código chama o DocumentDBRepository e usa o método CreateItemAsync para manter o novo item de todo no banco de dados. 
    
-    **Observação de segurança**: o atributo **ValidateAntiForgeryToken** é usado aqui para ajudar a proteger esse aplicativo contra ataques de solicitação entre sites forjada. Há mais do que apenas adicionar esse atributo, as exibições precisam trabalhar com esse token antifalsificação também. Para obter mais informações sobre o assunto e exemplos de como implementar isso corretamente, confira [Impedir falsificação de solicitação entre sites][Impedir falsificação de solicitação entre sites]. O código-fonte fornecido no [GitHub][GitHub] tem a implementação completa estabelecida.
+    **Observação de segurança**: o atributo **ValidateAntiForgeryToken** é usado aqui para ajudar a proteger esse aplicativo contra ataques de solicitação entre sites forjada. Há mais do que apenas adicionar esse atributo, as exibições precisam trabalhar com esse token antifalsificação também. Para saber mais sobre o assunto e ver exemplos de como implementar isso corretamente, veja [Preventing Cross-Site Request Forgery (Prevenindo solicitação intersite forjada)][Preventing Cross-Site Request Forgery]. O código-fonte fornecido no [GitHub][GitHub] tem a implementação completa estabelecida.
    
-    **Observação de segurança**: também usamos o atributo **Bind** no parâmetro de método para ajudar na proteção contra ataques de overposting. Para obter mais detalhes, confira [Operações CRUD básicas no ASP.NET MVC][Operações CRUD básicas no ASP.NET MVC].
+    **Observação de segurança**: também usamos o atributo **Bind** no parâmetro de método para ajudar na proteção contra ataques de overposting. Para obter mais detalhes, consulte [Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC)][Basic CRUD Operations in ASP.NET MVC].
 
 Isso conclui o código exigido para adicionar novos itens ao nosso banco de dados.
 
@@ -536,20 +544,39 @@ Agora que você tem o aplicativo completo funcionando corretamente no Banco de D
 
 Em poucos segundos, o Visual Studio terminará de publicar seu aplicativo Web e iniciará um navegador no qual você poderá ver seu trabalho sendo executado no Azure!
 
+## <a name="a-nametroubleshootingatroubleshooting"></a><a name="Troubleshooting"></a>Solucionar problemas
+
+Se receber a mensagem "Erro ao processar a solicitação" ao tentar implantar o aplicativo Web, faça o seguinte: 
+
+1. Cancele a mensagem de erro e selecione **Aplicativos Web do Microsoft Azure** novamente. 
+2. Faça logon e selecione **Novo** para criar um novo aplicativo Web. 
+3. Na tela **Criar um aplicativo Web no Microsoft Azure**, faça o seguinte: 
+    
+    - Nome do aplicativo Web: "todo-net-app"
+    - Plano do Serviço de Aplicativo: crie um novo, chamado "todo-net-app"
+    - Grupo de recursos: crie um novo, chamado "todo-net-app"
+    - Região: selecione a região mais próxima dos usuários do aplicativo
+    - Servidor de banco de dados: nenhum banco de dados, clique em **Criar**. 
+
+4. Na "tela todo-net-app *", clique em **Validar Conexão**. Depois que a conexão for verificada, **Publicar**. 
+    
+    O aplicativo é então exibido em seu navegador.
+
+
 ## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Próximas etapas
 Parabéns! Você acabou de compilar seu primeiro aplicativo Web ASP.NET MVC usando o Banco de Dados de Documentos do Azure e o publicou nos Sites do Azure. O código-fonte do aplicativo completo, incluindo as funcionalidades de detalhes e de exclusão que não foram incluídas neste tutorial, pode ser baixado ou clonado do [GitHub][GitHub]. Portanto, se você estiver interessado em adicioná-las ao seu aplicativo, obtenha o código e adicione-o a esse aplicativo.
 
-Para adicionar outras funcionalidades a seu aplicativo, confira as APIs disponíveis na [Biblioteca .NET do DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx) e fique à vontade para contribuir com essa biblioteca no [GitHub][GitHub]. 
+Para adicionar outras funcionalidades a seu aplicativo, examine as APIs disponíveis na [Biblioteca .NET do DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx) e fique à vontade para contribuir com essa biblioteca no [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Prevenindo solicitação intersite forjada]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC (Operações CRUD básicas no ASP.NET MVC) (Operações CRUD básicas no ASP.NET MVC)]: http://go.microsoft.com/fwlink/?LinkId=317598
-[projeto de exemplo completo do projeto de exemplo completo do GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
+[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

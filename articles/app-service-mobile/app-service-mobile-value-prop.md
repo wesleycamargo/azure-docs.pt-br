@@ -83,18 +83,18 @@ Para obter mais informações a respeito da plataforma de Serviço de Aplicativo
 [Serviço de Aplicativo do Azure]: ../app-service/app-service-value-prop-what-is.md
 [Introdução]: app-service-mobile-ios-get-started.md
 [Armazenamento de Tabelas do Azure]: ../storage/storage-getting-started-guide.md
-[Banco de Dados de Documentos]: ../documentdb/documentdb-get-started.md
+[DocumentDB]: ../documentdb/documentdb-get-started.md
 [recursos de autenticação]: ./app-service-mobile-auth.md
 [recursos de dados]: ./app-service-mobile-offline-data-sync.md
 [recursos de notificação por push]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
-[Xamarin SDK para iOS e Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
+[Xamarin para iOS e Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Formulários do Xamarin]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[auto scaling]: ../app-service-web/web-sites-scale.md
-[staging environments]: ../app-service-web/web-sites-staged-publishing.md
+[dimensionamento automático]: ../app-service-web/web-sites-scale.md
+[ambientes de preparo]: ../app-service-web/web-sites-staged-publishing.md
 [opções de implantação]: ../app-service-web/web-sites-deploy.md
 [conexões híbridas]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [redes virtuais]: ../app-service-web/web-sites-integrate-with-vnet.md

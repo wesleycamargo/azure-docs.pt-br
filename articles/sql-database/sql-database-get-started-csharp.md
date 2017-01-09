@@ -17,14 +17,14 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: d33128d8fa2bf0ba1025eff75378ccd42ce5aee0
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
 
 
 ---
 # <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Use o C# para criar um banco de dados SQL com a Biblioteca do Banco de Dados SQL para .NET
 
-Saiba como usar o C# para criar um banco de dados SQL do Azure com a [Biblioteca de Gerenciamento do Banco de Dados do Microsoft Azure SQL para .NET.](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Este artigo descreve como criar um banco de dados autônomo com o SQL e C#. Para criar os pools elásticos, veja [Criar um pool elástico](sql-database-elastic-pool-create-csharp.md).
+Saiba como usar o C# para criar um banco de dados SQL do Azure com a [Biblioteca de Gerenciamento do Banco de Dados do Microsoft Azure SQL para .NET.](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Este artigo descreve como criar um banco de dados individual com o SQL e C#. Para criar os pools elásticos, veja [Criar um pool elástico](sql-database-elastic-pool-create-csharp.md).
 
 A Biblioteca de Gerenciamento do Banco de Dados SQL do Azure para .NET fornece uma API baseada no [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que encapsula a [API REST do Banco de Dados SQL baseada no Resource Manager.](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -223,7 +223,7 @@ Substitua o conteúdo de **Program.cs** pelo seguinte e atualize `{variables}` c
 
 
 ## <a name="create-a-service-principal-to-access-resources"></a>Criar uma entidade de serviço para acessar os recursos
-O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a entidade de serviço necessária para autenticar nosso aplicativo C#. O script gera os valores necessários para o exemplo anterior do C#. Para obter informações detalhadas, consulte [usar o Azure PowerShell para criar uma entidade de serviço para acessar os recursos](../resource-group-authenticate-service-principal.md).
+O seguinte script do PowerShell cria o aplicativo do Active Directory (AD) e a entidade de serviço necessária para autenticar nosso aplicativo C#. O script gera os valores necessários para o exemplo anterior do C#. Para obter informações detalhadas, consulte [usar o Azure PowerShell para criar uma entidade de serviço para acessar os recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -287,6 +287,6 @@ Agora que você já experimentou o Banco de Dados SQL e configurou um banco de d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

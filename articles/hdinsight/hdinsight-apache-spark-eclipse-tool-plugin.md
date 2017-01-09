@@ -13,7 +13,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -200,7 +200,7 @@ Durante a execução do aplicativo Spark Scala local em um computador Windows, v
    
    ![Resultado da execução local do Aplicativo Spark](./media/hdinsight-apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
-## <a name="feedback-known-issues"></a>Comentários e problemas conhecidos
+## <a name="feedback--known-issues"></a>Comentários e problemas conhecidos
 Atualmente, não há suporte para exibir saídas do Spark diretamente e estamos trabalhando nisso.
 
 Se você tiver sugestões ou comentários, ou se encontrar problemas ao usar essa ferramenta, fique à vontade para enviar um email para hdivstool@microsoft.com.

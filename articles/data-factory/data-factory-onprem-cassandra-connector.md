@@ -55,61 +55,66 @@ O exemplo copia dados de um banco de dados Cassandra em um blob do Azure a cada 
 
 Este exemplo usa o serviço vinculado **Cassandra** . Confira a seção [Serviço vinculado Cassandra](#onpremisescassandra-linked-service-properties) para ver as propriedades compatíveis com esse serviço vinculado.  
 
+```JSON
+{
+    "name": "CassandraLinkedService",
+    "properties":
     {
-        "name": "CassandraLinkedService",
-        "properties":
+        "type": "OnPremisesCassandra",
+        "typeProperties":
         {
-            "type": "OnPremisesCassandra",
-            "typeProperties":
-            {
-                "authenticationType": "Basic",
-                "host": "mycassandraserver",
-                "port": 9042,
-                "username": "user",
-                "password": "password",
-                "gatewayName": "mygateway"
-            }
+            "authenticationType": "Basic",
+            "host": "mycassandraserver",
+            "port": 9042,
+            "username": "user",
+            "password": "password",
+            "gatewayName": "mygateway"
         }
     }
-
+}
+```
 
 **Serviço vinculado de armazenamento do Azure**
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-        "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+    "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
     }
+}
+```
 
 **Conjunto de dados de entrada do Cassandra**
 
-    {
-        "name": "CassandraInput",
-        "properties": {
-            "linkedServiceName": "CassandraLinkedService",
-            "type": "CassandraTable",
-            "typeProperties": {
-                "tableName": "mytable",
-                "keySpace": "mykeyspace"
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
+```JSON
+{
+    "name": "CassandraInput",
+    "properties": {
+        "linkedServiceName": "CassandraLinkedService",
+        "type": "CassandraTable",
+        "typeProperties": {
+            "tableName": "mytable",
+            "keySpace": "mykeyspace"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
             }
         }
     }
+}
+```
 
 Configurar **external** como **true** informa ao serviço Data Factory que o conjunto de dados é externo ao Data Factory e não é produzido por uma atividade no Data Factory.
 
@@ -117,24 +122,25 @@ Configurar **external** como **true** informa ao serviço Data Factory que o con
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1).
 
+```JSON
+{
+    "name": "AzureBlobOutput",
+    "properties":
     {
-        "name": "AzureBlobOutput",
-        "properties":
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties":
         {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties":
-            {
-                "folderPath": "adfgetstarted/fromcassandra"
-            },
-            "availability":
-            {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "folderPath": "adfgetstarted/fromcassandra"
+        },
+        "availability":
+        {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 **Pipeline com Atividade de cópia**
 
@@ -142,51 +148,54 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 
 Confira [Propriedades do tipo RelationalSource](#cassandrasource-type-properties) para obter a lista de propriedades permitidas pelo RelationalSource.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-            "start":"2016-06-01T18:00:00",
-            "end":"2016-06-01T19:00:00",
-            "description":"pipeline with copy activity",
-            "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+        "start":"2016-06-01T18:00:00",
+        "end":"2016-06-01T19:00:00",
+        "description":"pipeline with copy activity",
+        "activities":[  
+        {
+            "name": "CassandraToAzureBlob",
+            "description": "Copy from Cassandra to an Azure blob",
+            "type": "Copy",
+            "inputs": [
             {
-                "name": "CassandraToAzureBlob",
-                "description": "Copy from Cassandra to an Azure blob",
-                "type": "Copy",
-                "inputs": [
-                {
-                    "name": "CassandraInput"
-                }
-                ],
-                "outputs": [
-                {
-                    "name": "AzureBlobOutput"
-                }
-                ],
-                "typeProperties": {
-                    "source": {
-                        "type": "CassandraSource",
-                        "query": "select id, firstname, lastname from mykeyspace.mytable"
-
-                    },
-                    "sink": {
-                        "type": "BlobSink"
-                    }
-                },
-                "scheduler": {
-                    "frequency": "Hour",
-                    "interval": 1
-                },
-                "policy": {
-                    "concurrency": 1,
-                    "executionPriorityOrder": "OldestFirst",
-                    "retry": 0,
-                    "timeout": "01:00:00"
-                }
+                "name": "CassandraInput"
             }
-            ]    
+            ],
+            "outputs": [
+            {
+                "name": "AzureBlobOutput"
+            }
+            ],
+            "typeProperties": {
+                "source": {
+                    "type": "CassandraSource",
+                    "query": "select id, firstname, lastname from mykeyspace.mytable"
+
+                },
+                "sink": {
+                    "type": "BlobSink"
+                }
+            },
+            "scheduler": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 0,
+                "timeout": "01:00:00"
+            }
         }
+        ]    
     }
+}
+```
+
 ## <a name="onpremisescassandra-linked-service-properties"></a>Propriedades do serviço vinculado OnPremisesCassandra
 A tabela a seguir fornece a descrição de elementos JSON específicos para o serviço vinculado Cassandra.
 

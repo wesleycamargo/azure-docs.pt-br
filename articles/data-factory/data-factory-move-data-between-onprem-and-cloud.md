@@ -173,47 +173,53 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
 
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Preparar o SQL Server local para o tutorial
 1. No banco de dados especificado para o serviço vinculado do SQL Server local (**SqlServerLinkedService**), use o seguinte script SQL para criar a tabela **emp** no banco de dados.
-   
-        CREATE TABLE dbo.emp
-        (
-            ID int IDENTITY(1,1) NOT NULL, 
-            FirstName varchar(50),
-            LastName varchar(50),
-            CONSTRAINT PK_emp PRIMARY KEY (ID)
-        )
-        GO 
+
+    ```SQL   
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL, 
+        FirstName varchar(50),
+        LastName varchar(50),
+        CONSTRAINT PK_emp PRIMARY KEY (ID)
+    )
+    GO
+    ``` 
 2. Insira algum exemplo na tabela: 
    
-        INSERT INTO emp VALUES ('John', 'Doe')
-        INSERT INTO emp VALUES ('Jane', 'Doe')
+    ```SQL
+    INSERT INTO emp VALUES ('John', 'Doe')
+    INSERT INTO emp VALUES ('Jane', 'Doe')
+    ```
 
 ### <a name="create-input-dataset"></a>Criar conjunto de dados de entrada
+
 1. No **Editor de Data Factory**, clique em **... Mais**, clique em **Novo conjunto de dados** na barra de comandos e clique em **tabela SQL Server**. 
 2. Substitua o JSON no painel direito pelo texto a seguir:
-   
-         {        
-             "name": "EmpOnPremSQLTable",
-             "properties": {
-                 "type": "SqlServerTable",
-                 "linkedServiceName": "SqlServerLinkedService",
-                 "typeProperties": {
-                     "tableName": "emp"
-                 },
-                 "external": true,
-                 "availability": {
-                     "frequency": "Hour",
-                     "interval": 1
-                 },
-                 "policy": {
-                     "externalData": {
-                         "retryInterval": "00:01:00",
-                         "retryTimeout": "00:10:00",
-                         "maximumRetry": 3
-                     }
-                 }
-             }
-         }     
-   
+
+    ```JSON   
+    {        
+        "name": "EmpOnPremSQLTable",
+        "properties": {
+            "type": "SqlServerTable",
+            "linkedServiceName": "SqlServerLinkedService",
+            "typeProperties": {
+                "tableName": "emp"
+            },
+            "external": true,
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            },
+            "policy": {
+                "externalData": {
+                    "retryInterval": "00:01:00",
+                    "retryTimeout": "00:10:00",
+                    "maximumRetry": 3
+                }
+            }
+        }
+    }     
+    ```     
    Observe os seguintes pontos: 
    
    * **type** é definido como **SqlServerTable**.
@@ -225,28 +231,30 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
 3. Clique em **Implantar** na barra de comando para implantar o conjunto de dados.  
 
 ### <a name="create-output-dataset"></a>Criar conjunto de dados de saída
+
 1. No **Editor Data Factory**, clique em **Novo conjunto de dados** na barra de comandos e clique em **Armazenamento de Blobs do Azure**.
 2. Substitua o JSON no painel direito pelo texto a seguir: 
-   
-         {
-             "name": "OutputBlobTable",
-             "properties": {
-                 "type": "AzureBlob",
-                 "linkedServiceName": "AzureStorageLinkedService",
-                 "typeProperties": {
-                       "folderPath": "adftutorial/outfromonpremdf",
-                       "format": {
-                         "type": "TextFormat",
-                         "columnDelimiter": ","
-                       }
-                 },
-                 "availability": {
-                       "frequency": "Hour",
-                       "interval": 1
-                 }
-               }
-         }
-   
+
+    ```JSON   
+    {
+        "name": "OutputBlobTable",
+        "properties": {
+            "type": "AzureBlob",
+            "linkedServiceName": "AzureStorageLinkedService",
+            "typeProperties": {
+                "folderPath": "adftutorial/outfromonpremdf",
+                "format": {
+                    "type": "TextFormat",
+                    "columnDelimiter": ","
+                }
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
+            }
+        }
+     }
+    ```   
    Observe os seguintes pontos: 
    
    * **type** é definido como **AzureBlob**.
@@ -258,20 +266,20 @@ Nesta etapa, você cria conjuntos de dados de entrada e saída que representam d
    
    Para definir **folderPath** e **fileName** dinamicamente com base no horário **SliceStart**, use a propriedade partitionedBy. No exemplo a seguir, folderPath usa o ano, mês e dia de SliceStart (hora de início da fatia que está sendo processada) e fileName usa a hora de SliceStart. Por exemplo, se uma fatia é produzida para 2014-10-20T08:00:00, o folderName é definido como wikidatagateway/wikisampledataout/2014/10/20 e o fileName é definido como 08.csv. 
 
-```
-"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-"fileName": "{Hour}.csv",
-"partitionedBy": 
-[
+    ```JSON
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
+    [
+    
+        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+    ],
+    ```
 
-    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-],
-```
-
-Confira [Mover dados para/de Armazenamento de Blobs do Azure](data-factory-azure-blob-connector.md) para obter detalhes sobre as propriedades JSON.
+    Confira [Mover dados para/de Armazenamento de Blobs do Azure](data-factory-azure-blob-connector.md) para obter detalhes sobre as propriedades JSON.
 3. Clique em **Implantar** na barra de comando para implantar o conjunto de dados. Confirme que você vê os conjuntos de dados na exibição de árvore.  
 
 ## <a name="create-pipeline"></a>Criar um pipeline
@@ -279,50 +287,51 @@ Nesta etapa, você criará um **pipeline** com uma **Atividade de Cópia** que u
 
 1. No Editor de Data Factory, clique em **... Mais** e clique em **Novo pipeline**. 
 2. Substitua o JSON no painel direito pelo texto a seguir:    
-   
-         {
-             "name": "ADFTutorialPipelineOnPrem",
-             "properties": {
-             "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
-             "activities": [
+
+    ```JSON   
+     {
+         "name": "ADFTutorialPipelineOnPrem",
+         "properties": {
+         "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+         "activities": [
+           {
+             "name": "CopyFromSQLtoBlob",
+             "description": "Copy data from on-prem SQL server to blob",
+             "type": "Copy",
+             "inputs": [
                {
-                 "name": "CopyFromSQLtoBlob",
-                 "description": "Copy data from on-prem SQL server to blob",
-                 "type": "Copy",
-                 "inputs": [
-                   {
-                     "name": "EmpOnPremSQLTable"
-                   }
-                 ],
-                 "outputs": [
-                   {
-                     "name": "OutputBlobTable"
-                   }
-                 ],
-                 "typeProperties": {
-                   "source": {
-                     "type": "SqlSource",
-                     "sqlReaderQuery": "select * from emp"
-                   },
-                   "sink": {
-                     "type": "BlobSink"
-                   }
-                 },
-                 "Policy": {
-                   "concurrency": 1,
-                   "executionPriorityOrder": "NewestFirst",
-                   "style": "StartOfInterval",
-                   "retry": 0,
-                   "timeout": "01:00:00"
-                 }
+                 "name": "EmpOnPremSQLTable"
                }
              ],
-             "start": "2016-07-05T00:00:00Z",
-             "end": "2016-07-06T00:00:00Z",
-             "isPaused": false
+             "outputs": [
+               {
+                 "name": "OutputBlobTable"
+               }
+             ],
+             "typeProperties": {
+               "source": {
+                 "type": "SqlSource",
+                 "sqlReaderQuery": "select * from emp"
+               },
+               "sink": {
+                 "type": "BlobSink"
+               }
+             },
+             "Policy": {
+               "concurrency": 1,
+               "executionPriorityOrder": "NewestFirst",
+               "style": "StartOfInterval",
+               "retry": 0,
+               "timeout": "01:00:00"
+             }
            }
-         }
-   
+         ],
+         "start": "2016-07-05T00:00:00Z",
+         "end": "2016-07-06T00:00:00Z",
+         "isPaused": false
+       }
+     }
+    ```   
    > [!IMPORTANT]
    > Substitua o valor da propriedade **start** pelo dia atual e o valor de **end** pelo dia seguinte.
    > 

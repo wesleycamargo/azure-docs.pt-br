@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
-ms.openlocfilehash: 8020a4863f0432480dd985870676a714d9abd52e
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: 9ad4378ab27433858d14237fe451b16690711f3a
 
 
 ---
@@ -38,7 +38,7 @@ Este tutorial mostra como criar e monitorar um Azure Data Factory usando um mode
 ## <a name="prerequisites"></a>Pré-requisitos
 * Percorra o artigo [Pré-requisitos e Visão Geral do Tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua as etapas de **pré-requisito**.
 * Siga as instruções do artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalar a última versão do Azure PowerShell no computador. Neste tutorial, você usa o PowerShell para implantar as entidades de Data Factory. 
-* (opcional) Veja [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md) para saber mais sobre os modelos do Azure Resource Manager.
+* (opcional) Veja [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para saber mais sobre os modelos do Azure Resource Manager.
 
 ## <a name="in-this-tutorial"></a>Neste tutorial
 Neste tutorial, você pode criar um data factory com as seguintes entidades de Data Factory:
@@ -583,6 +583,6 @@ Também é possível reutilizar o modelo para executar tarefas repetidas. Por ex
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

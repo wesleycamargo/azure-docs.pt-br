@@ -2,6 +2,6 @@
 > Antes de trabalhar com recursos do Azure, familiarize-se com os modelos de implantação: [Gerenciador de Recursos e clássico](../articles/azure-resource-manager/resource-manager-deployment-model.md).
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

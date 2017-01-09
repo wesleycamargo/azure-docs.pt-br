@@ -45,31 +45,34 @@ O exemplo a seguir mostra como copiar dados de uma tabela da Web para um blob do
 
 **Serviço vinculado à Web** Este exemplo usa o serviço vinculado à Web com autenticação anônima. Confira a seção [Serviço vinculado à Web](#web-linked-service-properties) para ver os diferentes tipos de autenticação que você pode usar.
 
+```JSON
+{
+    "name": "WebLinkedService",
+    "properties":
     {
-        "name": "WebLinkedService",
-        "properties":
+        "type": "Web",
+        "typeProperties":
         {
-            "type": "Web",
-            "typeProperties":
-            {
-                "authenticationType": "Anonymous",
-                "url" : "https://en.wikipedia.org/wiki/"
-            }
+            "authenticationType": "Anonymous",
+            "url" : "https://en.wikipedia.org/wiki/"
         }
     }
-
+}
+```
 
 **Serviço vinculado de armazenamento do Azure**
 
-    {
-      "name": "AzureStorageLinkedService",
-      "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-          "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-        }
-      }
+```JSON
+{
+  "name": "AzureStorageLinkedService",
+  "properties": {
+    "type": "AzureStorage",
+    "typeProperties": {
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
     }
+  }
+}
+```
 
 **Conjunto de dados de entrada WebTable** Configurar **external** como **true** informa ao serviço Data Factory que o conjunto de dados é externo ao data factory e não é produzido por uma atividade no data factory.
 
@@ -78,47 +81,49 @@ O exemplo a seguir mostra como copiar dados de uma tabela da Web para um blob do
 >
 >
 
-    {
-        "name": "WebTableInput",
-        "properties": {
-            "type": "WebTable",
-            "linkedServiceName": "WebLinkedService",
-            "typeProperties": {
-                "index": 1,
-                "path": "AFI's_100_Years...100_Movies"
-            },
-            "external": true,
-            "availability": {
-                "frequency": "Hour",
-                "interval":  1
-            }
+```JSON
+{
+    "name": "WebTableInput",
+    "properties": {
+        "type": "WebTable",
+        "linkedServiceName": "WebLinkedService",
+        "typeProperties": {
+            "index": 1,
+            "path": "AFI's_100_Years...100_Movies"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
         }
     }
-
+}
+```
 
 
 **Conjunto de dados de saída de Blob do Azure**
 
 Os dados são gravados em um novo blob a cada hora (frequência: hora, intervalo: 1).
 
+```JSON
+{
+    "name": "AzureBlobOutput",
+    "properties":
     {
-        "name": "AzureBlobOutput",
-        "properties":
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties":
         {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties":
-            {
-                "folderPath": "adfgetstarted/Movies"
-            },
-            "availability":
-            {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "folderPath": "adfgetstarted/Movies"
+        },
+        "availability":
+        {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 
 
@@ -128,50 +133,51 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 
 Confira [Propriedades do tipo WebSource](#websource-copy-activity-type-properties) para obter a lista de propriedades com suporte da WebSource.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-        "start":"2014-06-01T18:00:00",
-        "end":"2014-06-01T19:00:00",
-        "description":"pipeline with copy activity",
-        "activities":[  
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline with copy activity",
+    "activities":[  
+      {
+        "name": "WebTableToAzureBlob",
+        "description": "Copy from a Web table to an Azure blob",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "WebTableToAzureBlob",
-            "description": "Copy from a Web table to an Azure blob",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "WebTableInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureBlobOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "WebSource"
-              },
-              "sink": {
-                "type": "BlobSink"
-              }
-            },
-           "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            },
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "WebTableInput"
           }
-          ]
-       }
-    }
-
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "WebSource"
+          },
+          "sink": {
+            "type": "BlobSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+      ]
+   }
+}
+```
 
 ## <a name="web-linked-service-properties"></a>Propriedades do serviço vinculado à Web
 A tabela a seguir fornece a descrição para elementos JSON específicos para o serviço vinculado à Web.
@@ -185,36 +191,40 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 | Senha |Senha de autenticação básica. |Sim (para autenticação básica) |
 
 ### <a name="using-anonymous-authentication"></a>Usando a autenticação anônima
+
+```JSON
+{
+    "name": "web",
+    "properties":
     {
-        "name": "web",
-        "properties":
+        "type": "Web",
+        "typeProperties":
         {
-            "type": "Web",
-            "typeProperties":
-            {
-                "authenticationType": "Anonymous",
-                "url" : "https://en.wikipedia.org/wiki/"
-            }
+            "authenticationType": "Anonymous",
+            "url" : "https://en.wikipedia.org/wiki/"
         }
     }
-
+}
+```
 
 ### <a name="using-basic-authentication"></a>Usando a autenticação Básica
+
+```JSON
+{
+    "name": "web",
+    "properties":
     {
-        "name": "web",
-        "properties":
+        "type": "Web",
+        "typeProperties":
         {
-            "type": "Web",
-            "typeProperties":
-            {
-                "authenticationType": "basic",
-                "url" : "http://myit.mycompany.com/",
-                "userName": "Administrator",
-                "password": "password"
-            }
+            "authenticationType": "basic",
+            "url" : "http://myit.mycompany.com/",
+            "userName": "Administrator",
+            "password": "password"
         }
     }
-
+}
+```
 
 ## <a name="webtable-dataset-properties"></a>Propriedades de conjunto de dados WebTable
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
@@ -229,22 +239,24 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 
 **Exemplo:**
 
-    {
-        "name": "WebTableInput",
-        "properties": {
-            "type": "WebTable",
-            "linkedServiceName": "WebLinkedService",
-            "typeProperties": {
-                "index": 1,
-                "path": "AFI's_100_Years...100_Movies"
-            },
-            "external": true,
-            "availability": {
-                "frequency": "Hour",
-                "interval":  1
-            }
+```JSON
+{
+    "name": "WebTableInput",
+    "properties": {
+        "type": "WebTable",
+        "linkedServiceName": "WebLinkedService",
+        "typeProperties": {
+            "index": 1,
+            "path": "AFI's_100_Years...100_Movies"
+        },
+        "external": true,
+        "availability": {
+            "frequency": "Hour",
+            "interval":  1
         }
     }
+}
+```
 
 ## <a name="websource---copy-activity-type-properties"></a>WebSource – propriedades de tipo de atividade de cópia
 Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, consulte o artigo [Criando pipelines](data-factory-create-pipelines.md). As propriedades, como nome, descrição, tabelas de entrada e saída, e política, estão disponíveis para todos os tipos de atividades.

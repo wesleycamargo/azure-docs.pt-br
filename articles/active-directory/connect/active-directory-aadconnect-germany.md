@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 32feb93bf6b6b77d0b14206802c776da3a8eac91
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
 
 
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany-public-preview"></a>Azure AD Connect na Microsoft Cloud Alemanha - Visualização Pública
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect na Microsoft Cloud Alemanha - Visualização Pública
 ## <a name="introduction"></a>Introdução
 O Azure AD Connect fornece sincronização entre o Active Directory local e o Azure Active Directory.
 Atualmente, muitos dos cenários em [Microsoft Cloud Alemanha](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) devem ser realizados pela operadora. Ao usar o Microsoft Cloud Alemanha, você deve estar ciente do seguinte:
@@ -49,7 +49,7 @@ Depois que você entrar no portal do Azure, faça o seguinte:
 
 Você deve ver o seguinte:
 
-![Folha do Azure AD Connect](media\\active-directory-aadconnect-germany\\germany1.png)
+![Folha do Azure AD Connect](media/active-directory-aadconnect-germany/germany1.png)
 
 A tabela a seguir descreve os recursos mostrados na folha.
 
@@ -68,6 +68,6 @@ Para obter informações adicionais e orientação sobre as configurações pers
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

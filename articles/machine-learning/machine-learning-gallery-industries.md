@@ -40,9 +40,9 @@ Esses recursos incluem testes, módulos personalizados, APIs, coleções e outro
 Clique em **Ver todos** para exibir todos os recursos específicos do setor na Galeria.
 Nessa página, você pode navegar por todos os recursos na Galeria ou pode pesquisar selecionando critérios de filtro à esquerda da página e inserindo os termos de pesquisa na parte superior.
 
-![Compartilhar este item com amigos](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Compartilhar este item com amigos](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Adicionar seus próprios comentários](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Adicionar seus próprios comentários](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
  Clique em qualquer item da Galeria para abrir a página de detalhes do item para obter mais informações.
 
