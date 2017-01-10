@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -43,7 +43,6 @@ Os testes padrão que você pode executar incluem:
 Um tipo de teste que você não pode executar é qualquer tipo de ataque [DoS (negação de serviço)](https://en.wikipedia.org/wiki/Denial-of-service_attack) . Isso inclui iniciar um ataque DoS em si ou a realização de testes relacionados que podem determinar, demonstrar ou simular qualquer tipo de ataque DoS.
 
 Você está pronto para começar com testes de caneta em seus aplicativos hospedados no Microsoft Azure? Se estiver, vá diretamente para a página [Visão Geral do Teste de Penetração](https://security-forms.azure.com/penetration-testing/terms) (e clique no botão Criar uma Solicitação de Teste na parte inferior da página). Você também encontrará mais informações sobre termos e condições para teste de caneta e links úteis sobre como relatar falhas de segurança relacionadas ao Azure ou qualquer outro serviço Microsoft.
-
 
 
 
