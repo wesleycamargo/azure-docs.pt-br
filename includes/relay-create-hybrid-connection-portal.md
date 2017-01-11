@@ -1,4 +1,4 @@
-Verifique se você já criou um namespace da Retransmissão, como mostrado [aqui].[namespace-how-to].
+Verifique se você já criou um namespace da Retransmissão, como mostrado [aqui][namespace-how-to].
 
 1. Faça logon no [portal do Azure](https://portal.azure.com).
 2. No painel de navegação esquerdo do portal, clique em **Retransmissão**.
