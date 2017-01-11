@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 0665bfd58d61c5f62987eabcb379bc473ec2e92e
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: eb424ee46815347e3f5dd768ab14baf466ca3622
 
 
 ---
@@ -30,9 +30,8 @@ ms.openlocfilehash: 0665bfd58d61c5f62987eabcb379bc473ec2e92e
 
 A Extensão de Agente IaaS do SQL Server (SQLIaaSAgent) é executada em máquinas virtuais do Azure para automatizar tarefas de administração. Este tópico fornece uma visão geral dos serviços compatível com a extensão, bem como instruções de instalação, status e remoção.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para exibir a versão do Gerenciador de Recursos deste artigo, consulte [Extensão do SQL Server Agent para o Resource Manager de VMs do SQL Server](virtual-machines-windows-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para exibir a versão do Gerenciador de Recursos deste artigo, consulte [Extensão do SQL Server Agent para o Resource Manager de VMs do SQL Server](virtual-machines-windows-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="supported-services"></a>Serviços com suporte
 A Extensão do Agente IaaS do SQL Server dá suporte às seguintes tarefas de administração:
@@ -56,7 +55,7 @@ Requisitos para uso da extensão SQL Server IaaS Agent em sua VM:
 * SQL Server 2016
 
 ### <a name="azure-powershell"></a>PowerShell do Azure:
-[Baixe e configure os comandos mais recentes do Azure PowerShell](../powershell-install-configure.md).
+[Baixe e configure os comandos mais recentes do Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Em seguida, conecte o Windows PowerShell à sua assinatura do Azure usando o comando **Add-AzureAccount** .
 
@@ -108,6 +107,6 @@ Para obter mais informações sobre como executar o SQL Server em Máquinas Virt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

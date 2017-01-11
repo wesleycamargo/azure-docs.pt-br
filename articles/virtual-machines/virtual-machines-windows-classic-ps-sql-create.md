@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/07/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: d66ce0123f1e35d2da8f282c9dfec64243484a11
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: cb8041a06338d129d6444d9c7f4876ec19bbb572
 
 
 ---
@@ -25,13 +25,14 @@ ms.openlocfilehash: d66ce0123f1e35d2da8f282c9dfec64243484a11
 ## <a name="overview"></a>Visão geral
 Este artigo fornece as etapas para a criação de uma máquina virtual do SQL Server no Azure usando os cmdlets do PowerShell.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 Para obter a versão do Resource Manager desse tópico, consulte [Provisionar uma máquina virtual do SQL Server usando o Azure PowerShell Resource Manager](virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="install-and-configure-powershell"></a>Instalar e configurar o PowerShell:
 1. Se você não tiver uma conta do Azure, visite [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
-2. [Baixe e instale os comandos mais recentes do Azure PowerShell](../powershell-install-configure.md).
+2. [Baixe e instale os comandos mais recentes do Azure PowerShell](/powershell/azureps-cmdlets-docs).
 3. Em seguida, conecte o Windows PowerShell à sua assinatura do Azure usando o comando **Add-AzureAccount** .
    
         Add-AzureAccount
@@ -165,6 +166,6 @@ Além desses recursos, recomendamos ver [outros tópicos relacionados à execuç
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
