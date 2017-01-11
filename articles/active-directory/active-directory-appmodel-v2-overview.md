@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -20,7 +20,7 @@ ms.openlocfilehash: e98ec55dbe5ff0411af124b45bd7ef6177aa957e
 
 
 ---
-# <a name="sign-in-microsoft-account-azure-ad-users-in-a-single-app"></a>Conecte-se os usuários da Conta da Microsoft e do Azure AD em um único aplicativo
+# <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Conecte-se os usuários da Conta da Microsoft e do Azure AD em um único aplicativo
 Antigamente, um desenvolvedor de aplicativo que desejava oferecer suporte a contas da Microsoft e ao Active Directory do Azure tinha que se integrar a dois sistemas distintos.  Agora apresentamos uma nova versão da API de autenticação que permite aos usuários se conectarem com os dois tipos de contas usando o sistema do Azure AD.  Esse sistema de autenticação convergida é conhecido como **o ponto de extremidade v2.0**.  Com o ponto de extremidade v2.0, uma simples integração permite alcançar um público que se estende por milhões de usuários com contas pessoais e corporativas/de estudante.
 
 Aplicativos que usam o ponto de extremidade v2.0 também podem consumir APIs REST do [Microsoft Graph](https://graph.microsoft.io) e do [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) usando qualquer tipo de conta.
@@ -59,6 +59,6 @@ Estes links serão úteis na exploração em profundidade da plataforma:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

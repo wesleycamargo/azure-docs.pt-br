@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
@@ -113,7 +113,7 @@ Se o aplicativo não solicitar o escopo `offline_access`, ele não receberá ref
 
 Para saber mais sobre OAuth 2.0, refresh_tokens e access_tokens, consulte a [referência de protocolo da v2.0](active-directory-v2-protocols.md).
 
-#### <a name="openid-profile-email"></a>OpenID, perfil e email
+#### <a name="openid-profile--email"></a>OpenID, perfil e email
 No serviço Active Directory do Azure original, o fluxo de conexão mais básico do OpenID Connect forneceria uma grande quantidade de informações sobre o usuário do id_token resultante.  As declarações em um id_token podem incluir o nome do usuário, nome de usuário preferido, endereço de email, ID do objeto e muito mais.
 
 Agora estamos restringindo as informações que o escopo de `openid` permite que seu aplicativo acesse.  O escopo de “openid” apenas permitirá que seu aplicativo faça logon do usuário e receba um identificador específico do aplicativo para o usuário.  Se você quiser obter informações de identificação pessoal (PII) sobre o usuário em seu aplicativo, seu aplicativo precisará solicitar permissões adicionais do usuário.  Estamos apresentando dois novos escopos, os escopos de `email` e `profile`, que permitem que você faça isso.

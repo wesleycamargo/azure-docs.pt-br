@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -20,7 +20,7 @@ ms.openlocfilehash: 08bb7e14c0eac8003df7ea867fbd93f86475d0e8
 
 
 ---
-# <a name="v20-protocols---oauth-20-openid-connect"></a>Protocolos v2.0 - OAuth 2.0 e OpenID Connect
+# <a name="v20-protocols---oauth-20--openid-connect"></a>Protocolos v2.0 - OAuth 2.0 e OpenID Connect
 O ponto de extremidade v2.0 pode usar o Azure AD como identidade como um serviço com protocolos padrão da indústria, como o OAuth 2.0 e o OpenID Connect.  Embora o serviço esteja em conformidade com o padrão, pode haver diferenças sutis entre duas implementações diferentes desses protocolos.  As informações descritas aqui serão úteis se você optar por criar seu código enviando e tratando solicitações HTTP diretamente ou usar uma biblioteca de software livre de terceiros, em vez de usar uma de nossas bibliotecas de software livre.
 <!-- TODO: Need link to libraries above -->
 

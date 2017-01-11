@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
@@ -44,7 +44,7 @@ Crie um novo aplicativo em [apps.dev.microsoft.com](https://apps.dev.microsoft.c
 * Adicionar a plataforma **Web** para seu aplicativo.
 * Inserir o **URI de Redirecionamento**correto. O URI de redirecionamento indica ao Azure AD para onde as respostas de autenticação devem ser direcionadas — o padrão para este tutorial é `https://localhost:44326/`.
 
-## <a name="install-configure-owin-authentication"></a>Instalar e configurar a autenticação OWIN
+## <a name="install--configure-owin-authentication"></a>Instalar e configurar a autenticação OWIN
 Aqui, configuraremos middleware OWIN para usar o protocolo de autenticação OpenID Connect.  OWIN será usado para emitir solicitações de entrada e saída, gerenciar a sessão do usuário e obter informações sobre o usuário, entre outras coisas.
 
 * Para começar, abra o arquivo `web.config` na raiz do projeto e insira os valores de configuração do aplicativo na seção `<appSettings>`.
