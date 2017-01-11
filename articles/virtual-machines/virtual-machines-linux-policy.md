@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 04/13/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: f06747c35f12802f54b44774dff7f92280ba0dc9
-ms.openlocfilehash: b1c66c14fbf5b0361831bb987df3dc01131abc88
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 71036b1aa9915750992d9d671af6b1023def41c3
 
 
 ---
@@ -82,7 +82,7 @@ A política acima pode ser facilmente modificada para um cenário em que você d
 ```
 
 #### <a name="virtual-machine-property-fields"></a>Campos de Propriedade da Máquina Virtual
-A tabela abaixo descreve as propriedades da Máquina Virtual que podem ser usadas como campos na definição de política. Para saber mais sobre campos da política, consulte [Usar a política para gerenciar os recursos e controlar o acesso](../resource-manager-policy.md#fields).
+A tabela abaixo descreve as propriedades da Máquina Virtual que podem ser usadas como campos na definição de política. Para saber mais sobre campos da política, consulte [Usar a política para gerenciar os recursos e controlar o acesso](../azure-resource-manager/resource-manager-policy.md#conditions).
 
 | Nome do campo | Descrição |
 | --- | --- |
@@ -92,13 +92,13 @@ A tabela abaixo descreve as propriedades da Máquina Virtual que podem ser usada
 | imageVersion |Especifica a versão da imagem para o SKU escolhido |
 
 ## <a name="create-the-policy"></a>Criar a política
-Uma política pode ser criada facilmente usando a API REST diretamente ou os cmdlets do PowerShell. Leia mais sobre [Como criar e atribuir uma política](../resource-manager-policy.md#create-and-assign-a-policy).
+Uma política pode ser criada facilmente usando a API REST diretamente ou os cmdlets do PowerShell. Leia mais sobre [Como criar e atribuir uma política](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
 
 ## <a name="apply-the-policy"></a>Aplicar a política
-Depois de criar a política, você precisará aplicá-la a um escopo definido. O escopo pode ser uma assinatura, um grupo de recursos ou até mesmo um recurso. Leia mais sobre [Como criar e atribuir uma política](../resource-manager-policy.md#create-and-assign-a-policy).
+Depois de criar a política, você precisará aplicá-la a um escopo definido. O escopo pode ser uma assinatura, um grupo de recursos ou até mesmo um recurso. Leia mais sobre [Como criar e atribuir uma política](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: 1f5bbbe4285c1635138d40af25cd0cb1d0177300
-ms.openlocfilehash: 76d0ba4334d647008b4b1508d231059d21d0f128
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a3380731657d151b8c6337764069890420927dfc
 
 
 ---
@@ -43,7 +43,7 @@ O Azure Analysis Services é compatível com o mesmo SQL Server 2016 Analysis Se
 ## <a name="use-the-tools-you-already-know"></a>Use as ferramentas que você já conhece
 ![Ferramentas de desenvolvedor BI](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-Ao criar modelos de dados para o Azure Analysis Services, você poderá usar as mesmas ferramentas do SQL Server Analysis Services. Crie e implante modelos tabulares usando as versões mais recentes das [SSDT (SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx) ou usando o [Azure Powershell](../powershell-install-configure.md) e os modelos do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) no [SSMS (SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx).
+Ao criar modelos de dados para o Azure Analysis Services, você poderá usar as mesmas ferramentas do SQL Server Analysis Services. Crie e implante modelos tabulares usando as versões mais recentes das [SSDT (SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx) ou usando o [Azure Powershell](/powershell/azureps-cmdlets-docs) e os modelos do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) no [SSMS (SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="connect-to-data-sources"></a>Conectar às fontes de dados
 Modelos de dados implantados em servidores no suporte do Azure, conectando a fontes de dados locais na sua organização ou na nuvem. Combine dados de fontes de dados locais e na nuvem para uma solução de BI híbrida.
@@ -123,6 +123,6 @@ Agora que você sabe mais sobre o Azure Analysis Services, é hora de começar. 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o Nomadesk | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o Nomadesk.
+title: "Tutorial: Integração do Azure Active Directory com o Nomadesk | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o Nomadesk."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d261b776-b48e-45f0-9722-0297adefabb8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 44c1fcd28ab15ec91d07fcfe6510f6e8fc7a9d26
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-nomadesk"></a>Tutorial: Integração do Active Directory do Azure com o Nomadesk
+# <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Tutorial: Integração do Active Directory do Azure com o Nomadesk
 O objetivo desse tutorial é mostrar como integrar o Nomadesk ao Azure AD (Azure Active Directory).
 
 A integração do Nomadesk ao Azure AD oferece os seguintes benefícios:
@@ -44,7 +48,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 * Se não tiver um ambiente de avaliação do AD do Azure, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste. 
+O objetivo deste tutorial é permitir que você teste o logon único do Azure AD em um ambiente de teste.
 
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
@@ -56,7 +60,7 @@ Para configurar a integração do Nomadesk ao AD do Azure, você precisa adicion
 
 **Para adicionar o Nomadesk por meio da galeria, realize as seguintes etapas:**
 
-1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
+1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Active Directory][1]
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
@@ -98,23 +102,23 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 
 1. No Portal clássico do Azure, na página de integração do aplicativo **Nomadesk**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
-    ![Configurar Logon Único][6] 
+    ![Configurar Logon Único][6]
 2. Na página **Como você deseja que os usuários façam logon no Nomadesk**, selecione **Logon Único do Azure AD** e clique em **Avançar**.
    
-    ![Configurar Logon Único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_03.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_03.png)
 3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_04.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_04.png)
    
     a. Na caixa de texto URL de Entrada, digite a URL usada pelos usuários para fazer logon em seu aplicativo Nomadesk usando o seguinte padrão: **“https://mynomadesk.com/logon/saml/TENANTID”**. Ao referenciar um nome genérico, **TENANTID** precisará ser substituído por uma ID de locatário real.
 4. Na página **Configurar logon único no Nomadesk** , execute as seguintes etapas:
    
-    ![Configurar Logon Único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_05.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_05.png)
    
     a. Clique em **Baixar certificado**e salve o arquivo em seu computador.
    
     b. Clique em **Próximo**.
-5. Para ter o SSO configurado para seu aplicativo, entre em contato com a equipe de suporte do Nomadesk via [mailto:support@nomadesk.com](support@nomadesk.com). Anexe o arquivo de certificado baixado ao seu email e compartilhe as URLs de metadados (ID da Entidade, URL de Entrada de Logon Único e URL de Saída) com a equipe do Nomadesk para configurar o logon único em seu lado.
+5. Para ter o SSO configurado para seu aplicativo, entre em contato com a equipe de suporte do Nomadesk via support@nomadesk.com. Anexe o arquivo de certificado baixado ao seu email e compartilhe as URLs de metadados (ID da Entidade, URL de Entrada de Logon Único e URL de Saída) com a equipe do Nomadesk para configurar o logon único em seu lado.
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
@@ -129,19 +133,19 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
+1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_09.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_09.png)
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_03.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_03.png)
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_04.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_04.png)
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_05.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_05.png)
    
     a. Em Tipo de Usuário, selecione Novo usuário na organização.
    
@@ -150,7 +154,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
     c. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_06.png) 
+   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_06.png)
    
    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
@@ -161,12 +165,12 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_07.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_07.png)
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_08.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_08.png)
    
     a. Anote o valor da **Nova Senha**.
    
@@ -185,19 +189,19 @@ Não há itens de ação para você nesta seção. Um novo usuário será criado
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 O objetivo desta seção é permitir que Brenda Fernandes use o logon único do Azure, concedendo a ela acesso ao Nomadesk.
 
-![Atribuir usuário][200] 
+![Atribuir usuário][200]
 
 **Para atribuir Brenda Fernandes ao Nomadesk, realize as seguintes etapas:**
 
 1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
    
-    ![Atribuir usuário][201] 
+    ![Atribuir usuário][201]
 2. Na lista de aplicativos, selecione **Nomadesk**.
    
-    ![Configurar Logon Único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_50.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_50.png)
 3. No menu na parte superior, clique em **Usuários**.
    
-    ![Atribuir usuário][203] 
+    ![Atribuir usuário][203]
 4. Na lista de usuários, selecione **Brenda Fernandes**.
 5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
    
@@ -232,6 +236,6 @@ Quando você clicar no bloco Nomadesk no Painel de Acesso, deverá ser conectado
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
