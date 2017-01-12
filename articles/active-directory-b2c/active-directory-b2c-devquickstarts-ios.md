@@ -3,7 +3,7 @@ title: 'Azure Active Directory B2C: chamar uma API Web de um aplicativo do iOS u
 description: "Este artigo mostrará como criar um aplicativo de &quot;lista de tarefas pendentes&quot; do iOS que chama uma API Web do Node.js usando tokens de portador OAuth 2.0 usando uma biblioteca de terceiros"
 services: active-directory-b2c
 documentationcenter: ios
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: 
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: objectivec
 ms.topic: hero-article
-ms.date: 07/26/2016
+ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
+ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
+ms.openlocfilehash: cc5e199816668a5a0f936019ab8096e93a7a2f5a
 
 
 ---
-# <a name="azure-ad-b2c-call-a-web-api-from-an-ios-application-using-a-third-party-library"></a>Azure AD B2C : chamar uma API Web de um aplicativo iOS usando uma biblioteca de terceiros
+# <a name="azure-ad-b2c--call-a-web-api-from-an-ios-application-using-a-third-party-library"></a>Azure AD B2C : chamar uma API Web de um aplicativo iOS usando uma biblioteca de terceiros
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. Isso permite aos desenvolvedores aproveitar qualquer biblioteca que queiram integrar aos nossos serviços. Para auxiliar os desenvolvedores a usar nossa plataforma com outras bibliotecas, escrevemos alguns passo a passos como este para demonstrar como configurar bibliotecas de terceiros para que elas se conectem à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementam [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) poderá conectar-se à Plataforma de Identidade da Microsoft.
@@ -28,9 +28,9 @@ A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e Open
 Se você ainda não conhece o OAuth2 ou o OpenID Connect, grande parte desta configuração de exemplo poderá não fazer muito sentido para você. Recomendamos que você examine uma breve [visão geral do protocolo que documentamos aqui](active-directory-b2c-reference-protocols.md).
 
 > [!NOTE]
-> Alguns recursos de nossa plataforma que possuem uma expressão nesses padrões, como o Acesso Condicional e o gerenciamento de política do Intune, exigem a utilização das nossas Bibliotecas de Identidades do Microsoft Azure de software livre. 
-> 
-> 
+> Alguns recursos de nossa plataforma que possuem uma expressão nesses padrões, como o Acesso Condicional e o gerenciamento de política do Intune, exigem a utilização das nossas Bibliotecas de Identidades do Microsoft Azure de software livre.
+>
+>
 
 Nem todos os recursos e cenários do Azure Active Directory têm suporte na plataforma B2C.  Para determinar se você deve usar a plataforma B2C, leia sobre as [limitações de B2C](active-directory-b2c-limitations.md).
 
@@ -46,7 +46,7 @@ Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornec
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Criar suas políticas
-No Azure AD B2C, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Você precisa criar esta política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar a política, não se esqueça de fazer o seguinte:
+No Azure AD B2C, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Você precisa criar esta política de cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Ao criar a política, não se esqueça de fazer o seguinte:
 
 * Escolha o **Nome de exibição** e atributos de inscrição em sua política.
 * Escolha as declarações de aplicativo **Nome de exibição** e **ID do Objeto** em todas as políticas. Você pode escolher outras declarações também.
@@ -63,7 +63,7 @@ O código para este tutorial é mantido [no GitHub](https://github.com/Azure-Sam
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-Ou basta baixar o código completo e começar imediatamente: 
+Ou basta baixar o código completo e começar imediatamente:
 
 ```
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
@@ -240,7 +240,7 @@ Precisamos criar um AccountStore e, depois, fornecer os dados que acabamos de le
 
 Há algumas coisas para as quais você deve estar atento em relação ao serviço B2C nesse ponto para tornar o código mais legível:
 
-1. O Azure AD B2C usa a *política* conforme fornecido pelos parâmetros de consulta para atender à sua solicitação. Isso permite que o Azure Active Directory atue como um serviço independente apenas para seu aplicativo. Para fornecer esses parâmetros adicionais, precisamos fornecer o método `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` com os parâmetros de política personalizada. 
+1. O Azure AD B2C usa a *política* conforme fornecido pelos parâmetros de consulta para atender à sua solicitação. Isso permite que o Azure Active Directory atue como um serviço independente apenas para seu aplicativo. Para fornecer esses parâmetros adicionais, precisamos fornecer o método `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` com os parâmetros de política personalizada.
 2. O Azure AD B2C usa escopos de maneira bastante semelhante a outros servidores OAuth2. No entanto, como o uso de B2C inclui a autenticação de um usuário e o acesso a recursos, alguns escopos são absolutamente necessários para que o fluxo funcione corretamente. Este é o escopo `openid`. Os SDKs de identidade da Microsoft oferecem automaticamente o escopo `openid` a você. Portanto, você não o verá na configuração de SDK. No entanto, como estamos usando uma biblioteca de terceiros, precisamos especificar esse escopo.
 
 ```objc
@@ -274,7 +274,7 @@ Há algumas coisas para as quais você deve estar atento em relação ao serviç
                                         forAccountType:data.accountIdentifier];
 }
 ```
-Em seguida, chame-o no AppDelegate no método `didFinishLaunchingWithOptions:`. 
+Em seguida, chame-o no AppDelegate no método `didFinishLaunchingWithOptions:`.
 
 ```
 [self setupOAuth2AccountStore];
@@ -299,16 +299,16 @@ Vamos criar cada um desses métodos abaixo.
 
 > [!NOTE]
 > Associe o `loginView` ao modo de exibição da Web real que está dentro de seu storyboard. Caso contrário, você não terá um modo de exibição da Web que pode ser exibido no momento da autenticação.
-> 
-> 
+>
+>
 
 * Criar uma classe `LoginViewController.m`
 * Adicionar algumas variáveis para transportar o estado durante a autenticação
 
 ```objc
-NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory
 NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
-bool loginFlow = FALSE; 
+bool loginFlow = FALSE;
 bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
 NSURL *authcode; \\ A placeholder for our auth code.
 ```
@@ -387,7 +387,7 @@ Precisamos dizer ao modo de exibição da Web o comportamento que queremos quand
 
 * Escrever código para manipular o resultado da solicitação de OAuth2
 
-Precisaremos de um código para manipular a redirectURL proveniente do Modo de Exibição da Web. Caso ele não obtenha êxito, tentaremos novamente. Enquanto isso, a biblioteca fornecerá o erro que você pode ver no console ou com o qual lidará assincronamente. 
+Precisaremos de um código para manipular a redirectURL proveniente do Modo de Exibição da Web. Caso ele não obtenha êxito, tentaremos novamente. Enquanto isso, a biblioteca fornecerá o erro que você pode ver no console ou com o qual lidará assincronamente.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSURL *)accessResult {
@@ -487,7 +487,7 @@ Vamos criar um método que será chamado sempre que tivermos uma solicitação d
 Agora você concluiu criando a criação da forma principal como interagiremos com o aplicativo para a entrada. Após a entrada, precisaremos usar os tokens que recebemos. Para isso, vamos criar código auxiliar que chamará APIs REST para que possamos usar esta biblioteca.
 
 ## <a name="create-a-graphapicaller-class-to-handle-our-requests-to-a-rest-api"></a>Criar uma classe `GraphAPICaller` para lidar com nossos pedidos para uma API REST
-Temos uma configuração carregada sempre que carregarmos o aplicativo. Agora, precisamos fazer algo com ele assim que tivermos um token. 
+Temos uma configuração carregada sempre que carregarmos o aplicativo. Agora, precisamos fazer algo com ele assim que tivermos um token.
 
 * Crie um arquivo do `GraphAPICaller.h`
 
@@ -511,7 +511,7 @@ Agora que criamos a interface, vamos adicionar a implementação real:
 ```objc
 @implementation GraphAPICaller
 
-// 
+//
 // Gets the tasks from our REST endpoint we specified in settings
 //
 
@@ -564,7 +564,7 @@ Agora que criamos a interface, vamos adicionar a implementação real:
       }];
 }
 
-// 
+//
 // Adds a task from our REST endpoint we specified in settings
 //
 
@@ -631,7 +631,6 @@ Agora você pode ir para tópicos mais avançados sobre o B2C. Você pode experi
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
