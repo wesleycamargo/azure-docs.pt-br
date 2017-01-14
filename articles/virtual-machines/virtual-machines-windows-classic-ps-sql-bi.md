@@ -16,13 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 10/04/2016
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: caae1b5e6af1d22c68673426f619c000bb051a87
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: f88fc3390f819ce6952b3249c1a7a8ef286bc4ec
 
 
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence do SQL Server em máquinas virtuais do Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 A galeria de Máquinas Virtuais do Microsoft Azure inclui imagens com instalações do SQL Server. As edições do SQL Server com suporte nas imagens da galeria são os mesmos arquivos de instalação que você pode instalar em computadores e em máquinas virtuais locais. Este tópico resume os Recursos de BI (Business Intelligence) do SQL Server instalados nas imagens e as etapas de configuração exigidas após o provisionamento de uma máquina virtual. Este tópico também descreve as topologias de implantação com suporte para recursos de BI e as práticas recomendadas.
 
@@ -122,7 +123,7 @@ Analysis Services, Reporting Services, Mecanismo de Banco de Dados SQL Server e 
 
 ![cenário bi iaas com duas máquinas virtuais](./media/virtual-machines-windows-classic-ps-sql-bi/IC650109.gif)
 
-### <a name="mixed-azure-data-on-azure-sql-database"></a>Azure combinado – dados no banco de dados SQL do Azure
+### <a name="mixed-azure--data-on-azure-sql-database"></a>Azure combinado – dados no banco de dados SQL do Azure
 * Analysis Services, Reporting Services e o Mecanismo de Banco de Dados SQL Server em uma única máquina virtual. Essa implantação inclui os bancos de dados do servidor de relatório.
 * A fonte de dados é o banco de dados SQL do Azure.
 
@@ -354,6 +355,6 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

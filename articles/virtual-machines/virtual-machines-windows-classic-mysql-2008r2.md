@@ -16,15 +16,16 @@ ms.topic: article
 ms.date: 07/25/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: ca3993ef2cead2c38c09e2a7bceacadc7007834e
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 5d08c629fc6e94b43b73c74d8485f6aee695cf4a
 
 
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2012-r2"></a>Instalar o MySQL em uma máquina virtual criada com o modelo de implantação clássico que executa o Windows Server 2012 R2
 [MySQL](http://www.mysql.com) é um banco de dados SQL fonte aberto popular. Este tutorial mostra como instalar e executar a versão de comunidade do MySQL 5.6.23 como um MySQL Server em uma máquina virtual que executa o Windows Server 2012 R2. Para obter instruções sobre como instalar o MySQL no Linux, consulte: [Como instalar o MySQL no Azure](virtual-machines-linux-mysql-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ## <a name="create-a-virtual-machine-running-windows-server-2012-r2"></a>Criar uma máquina virtual que executa Windows Server 2012 R2
 Se você ainda não tiver uma VM que executa o Windows Server 2012 R2, você pode usar este [tutorial](virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para criar a máquina virtual. 
@@ -119,6 +120,6 @@ Para saber mais sobre como executar o MySQL, consulte a [Documentação do MySQL
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

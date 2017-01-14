@@ -1,13 +1,13 @@
 ---
-title: Vincular uma rede virtual a um circuito de Rota Expressa usando o modelo de implantação clássico e o PowerShell | Microsoft Docs
-description: Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de Rota Expressa usando o modelo de implantação clássico e o PowerShell.
+title: "Vincular uma rede virtual a um circuito do ExpressRoute usando o modelo de implantação clássico e o PowerShell | Microsoft Docs"
+description: "Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de Rota Expressa usando o modelo de implantação clássico e o PowerShell."
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 7b0eef9e6ec4bc8da9e68eabbc515f78001bc9d6
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Vincular uma rede virtual a um circuito de Rota Expressa
@@ -32,11 +36,11 @@ Este artigo o ajudará a vincular as redes virtuais (VNets) aos circuitos de Rot
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
-1. Você precisa da última versão dos módulos do Azure PowerShell. Baixe os módulos mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](https://azure.microsoft.com/downloads/). Siga as instruções em [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
+1. Você precisa da última versão dos módulos do Azure PowerShell. Baixe os módulos mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](https://azure.microsoft.com/downloads/). Siga as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter orientações passo a passo sobre como configurar o computador para usar os módulos do Azure PowerShell.
 2. Leia os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 3. Você deve ter um circuito da Rota Expressa ativo.
    * Siga as instruções para [criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md) e para que o provedor de conectividade habilite o circuito.
-   * Verifique se o emparelhamento privado do Azure está configurado para seu circuito. Confira o artigo [Configurar roteamento](expressroute-howto-routing-classic.md) para obter instruções sobre roteamento.
+   * Verifique se o emparelhamento privado do Azure está configurado para seu circuito. Veja o artigo [Configurar roteamento](expressroute-howto-routing-classic.md) para obter instruções sobre roteamento.
    * Verifique se o emparelhamento privado do Azure está configurado e se o emparelhamento BGP entre sua rede e a Microsoft está ativo para que você possa habilitar a conectividade de ponta a ponta.
    * É necessário ter uma rede virtual e um gateway de rede virtual criados e totalmente provisionados. Siga as instruções para [configurar uma rede virtual para Rota Expressa](expressroute-howto-vnet-portal-classic.md).
 
@@ -66,7 +70,9 @@ O *proprietário do circuito* é o administrador/coadministrador da assinatura n
 O proprietário do circuito tem a capacidade de modificar e revogar autorizações a qualquer momento. Revogar uma autorização fará com que todos os links sejam excluídos da assinatura cujo acesso foi revogado.
 
 ### <a name="circuit-owner-operations"></a>Operações do proprietário do circuito
-#### <a name="creating-an-authorization"></a>Criando uma autorização
+
+**Criando uma autorização**
+
 O proprietário do circuito autoriza os administradores de outras assinaturas a usar o circuito especificado. No exemplo a seguir, o administrador do circuito (TI da Contoso) habilita o administrador de outra assinatura (Desenvolvimento/Teste) a vincular até duas redes virtuais ao circuito. O administrador de TI da Contoso habilita isso especificando a ID da Microsoft de Desenvolvimento/Teste. O cmdlet não envia um email para a ID da Microsoft especificada. O proprietário do circuito precisa notificar explicitamente o outro proprietário da assinatura de que a autorização foi concluída.
 
     New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
@@ -77,7 +83,8 @@ O proprietário do circuito autoriza os administradores de outras assinaturas a 
     MicrosoftIds        : devtest@contoso.com
     Used                : 0
 
-#### <a name="reviewing-authorizations"></a>Examinando autorizações
+**Examinando autorizações**
+
 O proprietário do circuito pode examinar todas as autorizações emitidas em um circuito específico executando o seguinte cmdlet:
 
     Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
@@ -101,7 +108,8 @@ O proprietário do circuito pode examinar todas as autorizações emitidas em um
     Used                : 2
 
 
-#### <a name="updating-authorizations"></a>Atualizando autorizações
+**Atualizando autorizações**
+
 O proprietário do circuito pode modificar autorizações usando o seguinte cmdlet:
 
     Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
@@ -113,14 +121,17 @@ O proprietário do circuito pode modificar autorizações usando o seguinte cmdl
     Used                : 0
 
 
-#### <a name="deleting-authorizations"></a>Excluindo autorizações
+**Excluindo autorizações**
+
 O proprietário do circuito pode revogar/excluir autorizações usando o seguinte cmdlet:
 
     Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 
 
 ### <a name="circuit-user-operations"></a>Operações do usuário do circuito
-#### <a name="reviewing-authorizations"></a>Examinando autorizações
+
+**Examinando autorizações**
+
 O usuário do circuito pode examinar autorizações usando o seguinte cmdlet:
 
     Get-AzureAuthorizedDedicatedCircuit
@@ -135,7 +146,8 @@ O usuário do circuito pode examinar autorizações usando o seguinte cmdlet:
     Status                           : Enabled
     UsedLinks                        : 0
 
-#### <a name="redeeming-link-authorizations"></a>Resgatando autorizações de link
+**Resgatando autorizações de link**
+
 O usuário de circuito pode executar o seguinte cmdlet para resgatar uma autorização de vínculo:
 
     New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
@@ -147,6 +159,9 @@ O usuário de circuito pode executar o seguinte cmdlet para resgatar uma autoriz
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

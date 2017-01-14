@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
-ms.author: v-ahsab
+ms.author: asabbour
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a10524fe9025d83bb033e9cbab864795dffbd8d2
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: ace15c99b53b786de9924a6dbe2c8a86645709e9
 
 
 ---
 # <a name="mariadb-mysql-cluster---azure-tutorial"></a>Cluster MariaDB (MySQL) - tutorial do Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 > [!NOTE]
 > O cluster MariaDB Enterprise agora está disponível no Azure Marketplace.  A nova oferta implantará automaticamente um cluster MariaDB Galera em ARM. Você deve usar a nova oferta de https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/ 
@@ -328,12 +329,12 @@ Neste artigo, você criou um cluster MariaDB + Galera de 3 nós altamente dispon
 Talvez você queira dar uma olhada em [outra maneira de clusterizar o MySQL no Linux](virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) e nas formas de [otimizar e testar o desempenho do MySQL nas VMs Linux do Azure](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Anchors-->
-[Visão geral da arquitetura]: #architecture-overview
-[Criando o modelo]: #creating-the-template
-[Criando o cluster]: #creating-the-cluster
-[Balanceamento de carga do cluster]: #load-balancing-the-cluster
-[Validando o cluster]: #validating-the-cluster
-[Próximas etapas]: #next-steps
+[Architecture overview]: #architecture-overview
+[Creating the template]: #creating-the-template
+[Creating the cluster]: #creating-the-cluster
+[Load balancing the cluster]: #load-balancing-the-cluster
+[Validating the cluster]: #validating-the-cluster
+[Next steps]: #next-steps
 
 <!--Image references-->
 
@@ -345,6 +346,6 @@ Talvez você queira dar uma olhada em [outra maneira de clusterizar o MySQL no L
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

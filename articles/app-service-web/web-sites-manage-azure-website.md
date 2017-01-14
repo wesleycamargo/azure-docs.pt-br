@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dadae052868fcb0952b4480525efc0267a4a8e22
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 50630084a3df9bc1fed27efb41bc557d0e03916f
 
 
 ---
@@ -29,7 +29,7 @@ Muitas tarefas de gerenciamento de aplicativo Web podem ser realizadas no Portal
 
 ## <a name="before-you-deploy-your-web-app-to-production"></a>Antes de implantar seu aplicativo Web para produção
 ### <a name="choose-a-tier"></a>Escolha uma faixa
-O Serviço de Aplicativo do Azure é oferecido em cinco níveis: Gratuito, Compartilhado, Básico, Padrão e Premium. Para obter informações sobre os recursos e preços para cada faixa, consulte [Detalhes dos preços](/pricing/details/app-service/). 
+O Serviço de Aplicativo do Azure é oferecido em cinco níveis: Gratuito, Compartilhado, Básico, Padrão e Premium. Para obter informações sobre os recursos e preços para cada faixa, consulte [Detalhes dos preços](https://azure.microsoft.com/pricing/details/app-service/). 
 
 * [planos de Serviço de Aplicativo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) lhe permitem agrupar vários aplicativos Web na mesma camada.
 * Você sempre pode [alternar as camadas](web-sites-scale.md) após criar seu aplicativo Web.
@@ -83,14 +83,14 @@ Se você usar o Visual Studio Team Services, é possível configurar a implanta�
 
 <!-- Anchors. -->
 
-[Antes de você implantar seu site para produção]: #before-you-deploy-your-site-to-production
-[Enquanto seu site está em execução]: #while-your-website-is-running
-[Quando você atualiza seu site]: #when-you-update-your-website
+[Before you deploy your site to production]: #before-you-deploy-your-site-to-production
+[While your website is running]: #while-your-website-is-running
+[When you update your website]: #when-you-update-your-website
 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

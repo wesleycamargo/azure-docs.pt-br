@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/02/2016
 ms.author: stephpr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 044007fc099007ea64d958fb6c15a6ed29eccdcc
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 0de0314902805a2bdb37ce3c6f79ec221f3aed31
 
 
 ---
@@ -34,7 +34,7 @@ Você aprenderá a:
 > 
 > Se você não tiver uma conta do GitHub, poderá se inscrever [aqui](https://github.com/join).
 > 
-> Se você não tiver uma conta do [Microsoft Azure](https://azure.microsoft.com/), poderá se inscrever para uma avaliação GRATUITA [aqui](https://azure.microsoft.com/pricing/free-trial/). Isso também o guiará pelo processo de inscrição em uma [Conta da Microsoft](http://account.microsoft.com) se você já não tiver uma. Como alternativa, se você for um assinante do Visual Studio, poderá [ativar os benefícios do MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+> Se você não tiver uma conta do [Microsoft Azure](https://azure.microsoft.com/), poderá se inscrever para uma avaliação GRATUITA [aqui](https://azure.microsoft.com/pricing/free-trial/). Isso também o guiará pelo processo de inscrição em uma [Conta da Microsoft](http://account.microsoft.com) se você já não tiver uma. Como alternativa, se você for um assinante do Visual Studio, poderá [ativar os benefícios do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 > 
 > Se você não tiver o git na máquina de desenvolvimento e estiver usando um computador Windows ou Macintosh, instale o git [aqui](http://www.git-scm.com). Se você estiver usando o Linux, instale o git usando o mecanismo mais apropriado, como `sudo apt-get install git`.
 > 
@@ -261,6 +261,6 @@ Para obter mais informações sobre como desenvolver aplicativos do Node.js no A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
