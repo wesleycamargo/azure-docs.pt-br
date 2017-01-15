@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/6/2016
+ms.date: 12/7/2016
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: b9737c3da308aecf25d5f18088f96c319edeafd5
-ms.openlocfilehash: 76ec51a75240710b24c0e91042d6229e60eeada9
+ms.sourcegitcommit: 9de8032bc69b054d5d13857159ff994f505497a6
+ms.openlocfilehash: 08e7d4402ad52835d193b2083e3c9b2776e0332e
 
 
 ---
@@ -33,10 +33,11 @@ As soluções tradicionais de backup evoluíram para tratar a nuvem como um pont
 
 **Dimensionamento ilimitado** - o Backup do Azure usa o poder subjacente e a escala ilimitada de nuvem do Azure para proporcionar alta disponibilidade, sem manutenção ou sobrecarga de monitoramento. Você pode configurar alertas para fornecer informações sobre eventos, mas não precisa se preocupar com a alta disponibilidade de seus dados na nuvem.
 
-**Várias opções de armazenamento** -um aspecto de alta disponibilidade é a replicação de armazenamento. O Backup do Azure oferece dois tipos de replicação: [armazenamento localmente redundante](../storage/storage-redundancy.md#locally-redundant-storage) e [armazenamento replicado geograficamente](../storage/storage-redundancy.md#geo-redundant-storage). Escolha a opção de armazenamento de backup com base na necessidade:
+**Várias opções de armazenamento** -um aspecto de alta disponibilidade é a replicação de armazenamento. O Backup do Azure oferece dois tipos de replicação: [armazenamento com redundância local](../storage/storage-redundancy.md#locally-redundant-storage) e [armazenamento com redundância geográfica](../storage/storage-redundancy.md#geo-redundant-storage). Escolha a opção de armazenamento de backup com base na necessidade:
 
-* O Armazenamento com redundância local (LRS) replica seus dados três vezes (ele cria três cópias de seus dados) em um datacenter emparelhado na mesma região. O LRS é uma opção de baixo custo e é ideal para os clientes preocupados porque ele protege os dados contra falhas de hardware local.
-* O GRS (armazenamento com replicação geográfica) replica seus dados para uma região secundária (a centenas de quilômetros da região primária dos dados de origem). O GRS é mais caro do que o LRS, mas fornece um nível mais alto de durabilidade para seus dados, mesmo se houver uma interrupção regional.
+* O Armazenamento com redundância local (LRS) replica seus dados três vezes (ele cria três cópias de seus dados) em um datacenter emparelhado na mesma região. O LRS é uma opção de baixo custo para proteger seus dados contra falhas de hardware local.
+
+* O GRS (armazenamento com redundância geográfica) replica seus dados para uma região secundária (a centenas de quilômetros da região primária dos dados de origem). O GRS é mais caro do que o LRS, mas fornece um nível mais alto de durabilidade para seus dados, mesmo se houver uma interrupção regional.
 
 **Transferência de dados ilimitada** - o Backup do Azure não limita a quantidade de dados de entrada ou saída que você transfere. O Backup do Azure também não cobra pelos dados que são transferidos. No entanto, se você usar o serviço de Importação/Exportação do Azure para importar grandes quantidades de dados, haverá um custo associado aos dados de entrada. Para obter mais informações sobre esse custo, confira o [Fluxo de trabalho de backup offline no Backup do Azure](backup-azure-backup-import-export.md). Os dados de saída são aqueles transferidos de um cofre de Backup durante uma operação de restauração.
 
@@ -176,17 +177,26 @@ O agente do Backup do Azure fornece limitação de rede, o que permite controlar
 
 ### <a name="backup-and-retention"></a>Backup e retenção
 
-O Backup do Azure tem um limite de 9999 pontos de recuperação, também conhecido como cópias de backup ou instantâneos, por Cofre de Backup. A tabela a seguir mostra a frequência de backup máximo (no cofre) para cada componente. A configuração da política de backup determina a rapidez com a qual você pode consumir os pontos de recuperação. Por exemplo, se você criar um ponto de recuperação por dia, poderá depois retê-los por 27 anos antes de executá-los. Se você usar um ponto de recuperação por mês, poderá depois retê-los por 833 anos antes de executá-los. O serviço de Backup não define um limite de tempo de validade em um ponto de recuperação.
+O Backup do Azure tem um limite de 9999 pontos de recuperação, também conhecido como cópias de backup ou instantâneos, por *instância protegida*. Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho configurado para fazer backup de dados no Azure. Para obter mais informações, confira a seção [O que é uma instância protegida](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Uma instância está protegida depois que uma cópia de backup de dados foi salva. A cópia de backup de dados é a proteção. Se a fonte de dados foi perdida ou corrompida, a cópia de backup pode restaurar os dados de origem. A tabela a seguir mostra a frequência de backup máxima para cada componente. A configuração da política de backup determina a rapidez com a qual você pode consumir os pontos de recuperação. Por exemplo, se você criar um ponto de recuperação por dia, poderá depois retê-los por 27 anos antes de executá-los. Se você usar um ponto de recuperação por mês, poderá depois retê-los por 833 anos antes de executá-los. O serviço de Backup não define um limite de tempo de validade em um ponto de recuperação.
 
 |  | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
 | Frequência de backup<br/> (para cofre do Backup) |Três backups por dia |Dois backups por dia |Dois backups por dia |Um backup por dia |
 | Frequência de backup<br/> (para o disco) |Não aplicável |<li>A cada 15 minutos para o SQL Server <li>A cada hora para outras cargas de trabalho |<li>A cada 15 minutos para o SQL Server <li>A cada hora para outras cargas de trabalho</p> |Não aplicável |
 | Opções de retenção |Diária, semanal, mensal, anual |Diária, semanal, mensal, anual |Diária, semanal, mensal, anual |Diária, semanal, mensal, anual |
-| Pontos de recuperação máximos por servidor |9999|9999|9999|9999|
+| Pontos de recuperação máximos por instância protegida |9999|9999|9999|9999|
 | Período de retenção máximo |Depende da frequência de backup |Depende da frequência de backup |Depende da frequência de backup |Depende da frequência de backup |
 | Pontos de recuperação no disco local |Não aplicável |<li>64 para Servidores de Arquivos,<li>448 para Servidores de Aplicativos |<li>64 para Servidores de Arquivos,<li>448 para Servidores de Aplicativos |Não aplicável |
 | Pontos de recuperação em fita |Não aplicável |Ilimitado |Não aplicável |Não aplicável |
+
+## <a name="what-is-a-protected-instance"></a>O que é uma instância protegida
+Uma instância protegida é uma referência genérica para um computador Windows, um servidor (físico ou virtual) ou banco de dados SQL que tenha sido configurado para fazer backup do Azure. Uma instância está protegida quando você configura uma política de backup para o computador, servidor ou banco de dados e criar uma cópia de backup dos dados. Cópias subsequentes dos dados de backup para essa instância protegido (que são chamados de pontos de recuperação), aumentam a quantidade de armazenamento consumido. Você pode criar pontos de recuperação até 9999 para uma instância protegida. Se você excluir um ponto de recuperação de armazenamento, não conta com o total de pontos de recuperação de 9999.
+Alguns exemplos comuns de instâncias protegidas são máquinas virtuais, servidores de aplicativos, bancos de dados e computadores pessoais com o sistema operacional Windows. Por exemplo:
+
+* Uma máquina virtual executando a malha de hipervisor Hyper-V ou Azure IaaS. Os sistemas operacionais de convidados para a máquina virtual podem ser Windows Server ou Linux.
+* Um servidor de aplicativos: o servidor de aplicativos pode ser uma máquina física ou virtual executando o Windows Server e cargas de trabalho com dados em que é preciso ser feito backup. Cargas de trabalho comuns são: Microsoft SQL Server, Microsoft Exchange server, Microsoft SharePoint, Microsoft Dynamics e a função do Servidor de Arquivos do Windows Server. Para fazer o backup dessas cargas de trabalho você precisa do System Center Data Protection Manager (DPM) ou do servidor de Backup do Azure.
+* Um computador pessoal ou um laptop executando o sistema operacional Windows.
+
 
 ## <a name="what-is-the-vault-credential-file"></a>O que é o arquivo de credencial do cofre?
 O arquivo de credenciais do cofre é um certificado gerado pelo portal para cada cofre do Backup. O portal, em seguida, carrega a chave pública no ACS (Serviço de Controle de Acesso). A chave privada é fornecida a você ao baixar as credenciais. Use-a para registrar os computadores que você deseja proteger. A chave privada é o que permite que você autentique os servidores ou computadores para enviar dados de backup para um determinado cofre do Backup.
