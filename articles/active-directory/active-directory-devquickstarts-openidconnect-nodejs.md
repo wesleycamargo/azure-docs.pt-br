@@ -49,7 +49,7 @@ O aplicativo completo também é fornecido no final deste tutorial.
 * Clique na guia **Registros do Aplicativo** e clique em **Adicionar**.
 * Siga os prompts e crie um novo **Aplicativo Web e/ou WebAPI**.
   * O **nome** do aplicativo descreverá seu aplicativo para os usuários finais
-  * A **URL de logon** é a URL base do seu aplicativo.  O padrão do esqueleto é "http://localhost:3000/auth/openid/return".
+  * A **URL de logon** é a URL base do seu aplicativo.  O padrão do esqueleto é `http://localhost:3000/auth/openid/return``.
 * Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma ID do Aplicativo única.  Você precisará desse valor nas próximas seções, então copie-o da página do aplicativo.
 
 ## <a name="2-add-pre-requisities-to-your-directory"></a>2. Adicionar pré-requisitos ao seu diretório
