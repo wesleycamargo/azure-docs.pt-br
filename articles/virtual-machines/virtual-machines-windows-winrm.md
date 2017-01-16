@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 06/16/2016
 ms.author: singhkay
 translationtype: Human Translation
-ms.sourcegitcommit: 0f8bc125855bc5a5b67fde5b0b742c73b5da7610
-ms.openlocfilehash: 4333abeda4e78ae6aa01684f8eb8b2001f3c1ae3
+ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
+ms.openlocfilehash: 84a5272844b36951bb0132b21be9913ca50ee817
 
 
 ---
@@ -27,7 +27,7 @@ ms.openlocfilehash: 4333abeda4e78ae6aa01684f8eb8b2001f3c1ae3
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 * Para uma visão geral do Azure Resource Manager, veja este [artigo](../azure-resource-manager/resource-group-overview.md)
-* Para encontrar as diferenças entre o Gerenciamento de Serviços do Azure e o Azure Resource Manager, consulte este [artigo](../resource-manager-deployment-model.md)
+* Para encontrar as diferenças entre o Gerenciamento de Serviços do Azure e o Azure Resource Manager, consulte este [artigo](../azure-resource-manager/resource-manager-deployment-model.md)
 
 A principal diferença na definição da configuração do WinRM entre as duas pilhas é como o certificado é instalado na VM. Na pilha do Azure Resource Manager, os certificados são modelados como recursos gerenciados pelo Provedor de Recursos do Cofre de Chaves. Portanto, o usuário precisa fornecer seu próprio certificado e carregá-lo em um Cofre de Chaves antes de usá-lo em uma VM.
 
@@ -167,6 +167,6 @@ Quando a instalação estiver concluída, você poderá se conectar à VM usando
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

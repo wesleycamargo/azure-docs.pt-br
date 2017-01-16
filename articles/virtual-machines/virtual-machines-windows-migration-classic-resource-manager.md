@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 525e40a424afdf6ec7486bff249b11439a8cf740
+ms.sourcegitcommit: 66b1bcdf0f79ff4743f466c3737696f53ef6a44c
+ms.openlocfilehash: 8eb70339785ca15131b5ce8debd6a232a8a693b9
 
 
 ---
@@ -189,7 +189,7 @@ Não. As VMs (clássicas) são serviços com suporte total na disponibilidade ge
 
 **O que acontecerá com minhas VMs se eu não planejar a migração no futuro próximo?**
 
-Não estamos preterindo as APIs clássicas e o modelo de recursos existentes. Queremos simplificar a migração, considerando os recursos avançados disponíveis no modelo de implantação do Gerenciador de Recursos. É altamente recomendável que você examine [alguns dos avanços feitos](../resource-manager-deployment-model.md) como parte do IaaS no Gerenciador de Recursos.
+Não estamos preterindo as APIs clássicas e o modelo de recursos existentes. Queremos simplificar a migração, considerando os recursos avançados disponíveis no modelo de implantação do Gerenciador de Recursos. É altamente recomendável que você examine [alguns dos avanços feitos](../azure-resource-manager/resource-manager-deployment-model.md) como parte do IaaS no Gerenciador de Recursos.
 
 **O que este plano de migração significa para minhas ferramentas existentes?**
 
@@ -250,6 +250,6 @@ Agora que você compreende a migração de recursos clássicos de IaaS para o Ge
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
