@@ -157,6 +157,6 @@ Estes tópicos descrevem como criar aplicativos que são resistentes a falhas em
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
