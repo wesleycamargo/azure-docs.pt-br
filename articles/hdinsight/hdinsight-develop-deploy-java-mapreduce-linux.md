@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e22d28c76902fbfe549f2a7aeb22b62eb0a540fb
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: a63cedc57b863d03f65b99d4c2490d5e8aec25b5
 
 
 ---
@@ -31,8 +31,8 @@ Antes de começar este tutorial, você deve ter o seguinte:
 * [Apache Maven](http://maven.apache.org/)
 * **Uma assinatura do Azure**
 * **CLI do Azure**
-  
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 ## <a name="configure-environment-variables"></a>Configurar variáveis de ambiente
 As seguintes variáveis de ambiente podem ser definidas quando você instala o Java e o JDK. No entanto, você deve verificar se elas existem e se contêm os valores corretos para o seu sistema.
@@ -247,7 +247,7 @@ Isso copiará os arquivos do sistema local para o nó principal.
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Próximas etapas
 Neste documento, você aprendeu a desenvolver um trabalho MapReduce em Java. Consulte os seguintes documentos para ver outras maneiras de trabalhar com o HDInsight.
 
-* [Usar o hive com o HDInsight][hdinsight-use-hive]
+* [Usar o Hive com o HDInsight][hdinsight-use-hive]
 * [Usar o Pig com o HDInsight][hdinsight-use-pig]
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
@@ -272,6 +272,6 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

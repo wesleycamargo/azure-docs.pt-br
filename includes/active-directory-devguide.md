@@ -1,9 +1,9 @@
-> Este artigo faz parte do [Guia de Desenvolvedores do Azure Active Directory](../articles/active-directory/active-directory-developers-guide.md).
+> Este artigo faz parte do [Guia de Desenvolvedores do Azure Active Directory](../articles/active-directory/develop/active-directory-developers-guide.md).
 > 
 > 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

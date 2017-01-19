@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cad8626d920f51eba94da4a775c346488a2e17ec
+ms.sourcegitcommit: 3219df0e45d516ea332725b3e1955026cc1db231
+ms.openlocfilehash: 88fb93b8f3e196121b635d5ce7a21bf8f8c46be5
 
 
 ---
@@ -27,7 +27,6 @@ Confira [este artigo](cloud-services-startup-tasks.md) para entender o funcionam
 
 > [!NOTE]
 > As tarefas de inicialização não são aplicáveis às Máquinas Virtuais, apenas às funções Web e de Trabalho do Serviço de Nuvem.
-> 
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definir variáveis de ambiente antes de iniciar uma função
@@ -387,7 +386,7 @@ O Visual Studio não fornece um depurador para percorrer arquivos em lotes e, po
 
     "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 
-Para simplificar o xml, você pode criar um arquivo wrapper *cmd* que chama todas as tarefas de inicialização, juntamente com o registro em log, e garante que cada tarefa filho compartilhe as mesmas variáveis de ambiente. Isso pode ter um 
+Para simplificar o xml, você pode criar um arquivo wrapper *cmd* que chama todas as tarefas de inicialização, juntamente com o registro em log, e garante que cada tarefa filho compartilhe as mesmas variáveis de ambiente.
 
 Porém, talvez você ache incômodo usar `>> "%TEMP%\StartupLog.txt" 2>&1` ao fim de cada tarefa de inicialização. Você pode impor o log de tarefas criando um invólucro que manipula o registro em log para você. Este wrapper chama o arquivo de lote real que você deseja executar. Nenhuma saída do arquivo de lote de destino será redirecionada para o arquivo *startuplog*.
 
@@ -521,6 +520,6 @@ Saiba mais sobre o funcionamento de [Tarefas](cloud-services-startup-tasks.md) .
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

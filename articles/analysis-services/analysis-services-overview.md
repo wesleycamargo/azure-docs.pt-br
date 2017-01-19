@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 12/24/2016
 ms.author: owend
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a3380731657d151b8c6337764069890420927dfc
+ms.sourcegitcommit: 653c9a04016c0157b2107710e170ba63b3a499f7
+ms.openlocfilehash: 38f68d6df19d24492a234933e10d5d5cf34d1b23
 
 
 ---
@@ -106,7 +106,7 @@ Na visualização, as fontes de dados a seguir têm suporte em modelos tabulares
 | --- | --- |
 | Banco de dados SQL |SQL Server |
 | SQL Data Warehouse |APS |
-| Oracle | |
+| Oracle | Oracle |
 | Teradata | |
 
 ### <a name="data-source-providers"></a>Provedores de fonte de dados
@@ -123,6 +123,6 @@ Agora que você sabe mais sobre o Azure Analysis Services, é hora de começar. 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

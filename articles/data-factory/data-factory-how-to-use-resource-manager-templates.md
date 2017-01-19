@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6a9db545830faedfc52fb219801db68b50483fcc
+ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
+ms.openlocfilehash: db7066fb87175caa165d741b63f9b0e3f9ed851c
 
 
 ---
@@ -31,7 +31,7 @@ Nesse caso, uma tarefa precisa ser repetida dentro do mesmo ambiente, mas com va
 Além disso, como a organização deseja implantar essas 10 data factories diversas vezes em vários ambientes, os modelos podem usar a **reutilização** ao utilizar arquivos de parâmetros separados para ambientes de desenvolvimento, teste e produção.
 
 ## <a name="templating-with-azure-resource-manager"></a>Modelagem com o Azure Resource Manager
-[Modelos do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) são uma ótima maneira de obter modelagem no Azure Data Factory. Os modelos do Resource Manager definem a infraestrutura e a configuração de sua solução do Azure por meio de um arquivo JSON. Como modelos de Azure Resource Manager funcionam com todos/quase todos os serviços do Azure, eles podem ser amplamente usados para gerenciar facilmente todos os recursos dos ativos do Azure. Consulte [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md) para saber mais sobre os modelos do Resource Manager em geral.
+[Modelos do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) são uma ótima maneira de obter modelagem no Azure Data Factory. Os modelos do Resource Manager definem a infraestrutura e a configuração de sua solução do Azure por meio de um arquivo JSON. Como modelos de Azure Resource Manager funcionam com todos/quase todos os serviços do Azure, eles podem ser amplamente usados para gerenciar facilmente todos os recursos dos ativos do Azure. Consulte [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para saber mais sobre os modelos do Resource Manager em geral.
 
 ## <a name="tutorials"></a>Tutoriais
 Consulte os tutoriais a seguir para obter instruções passo a passo para criar entidades de Data Factory usando modelos do Resource Manager:
@@ -54,162 +54,178 @@ As seções a seguir fornecem detalhes sobre como definir recursos do Data Facto
 ## <a name="defining-data-factory-resources-in-templates"></a>Definir recursos de Data Factory em modelos
 O modelo de nível superior para definir um Data Factory é:
 
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": { ...
-    },
-    "variables": { ...
-    },
+```JSON
+"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+"contentVersion": "1.0.0.0",
+"parameters": { ...
+},
+"variables": { ...
+},
+"resources": [
+{
+    "name": "[parameters('dataFactoryName')]",
+    "apiVersion": "[variables('apiVersion')]",
+    "type": "Microsoft.DataFactory/datafactories",
+    "location": "westus",
     "resources": [
-    {
-        "name": "[parameters('dataFactoryName')]",
-        "apiVersion": "[variables('apiVersion')]",
-        "type": "Microsoft.DataFactory/datafactories",
-        "location": "westus",
-        "resources": [
-        { "type": "linkedservices",
-            ...
-        },
-        {"type": "datasets",
-            ...
-        },
-        {"type": "dataPipelines",
-            ...
-        }
+    { "type": "linkedservices",
+        ...
+    },
+    {"type": "datasets",
+        ...
+    },
+    {"type": "dataPipelines",
+        ...
     }
+}
+```
 
 ### <a name="define-data-factory"></a>Definir Data Factory
 Você pode definir um Data Factory no modelo do Resource Manager, conforme mostrado no exemplo a seguir:
 
-    "resources": [
-    {
-        "name": "[variables('<mydataFactoryName>')]",
-        "apiVersion": "2015-10-01",
-        "type": "Microsoft.DataFactory/datafactories",
-        "location": "East US"
-    }
-
+```JSON
+"resources": [
+{
+    "name": "[variables('<mydataFactoryName>')]",
+    "apiVersion": "2015-10-01",
+    "type": "Microsoft.DataFactory/datafactories",
+    "location": "East US"
+}
+```
 O dataFactoryName é definido em “variáveis” como:
 
-    "dataFactoryName": "[concat('<myDataFactoryName>', uniqueString(resourceGroup().id))]",
+```JSON
+"dataFactoryName": "[concat('<myDataFactoryName>', uniqueString(resourceGroup().id))]",
+```
 
 ### <a name="define-linked-services"></a>Definir serviços vinculados
-    "type": "linkedservices",
-    "name": "[variables('<LinkedServiceName>')]",
-    "apiVersion": "2015-10-01",
-    "dependsOn": [ "[variables('<dataFactoryName>')]" ],
-    "properties": {
-        ...
-    }
 
+```JSON
+"type": "linkedservices",
+"name": "[variables('<LinkedServiceName>')]",
+"apiVersion": "2015-10-01",
+"dependsOn": [ "[variables('<dataFactoryName>')]" ],
+"properties": {
+    ...
+}
+```
 
 Consulte [Serviço de Armazenamento Vinculado](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [Serviços de Computação Vinculados](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para obter detalhes sobre as propriedades JSON para o serviço vinculado específico que você deseja implantar. O parâmetro "dependsOn" especifica o nome do Data Factory correspondente. Um exemplo de definição de um serviço vinculado do Armazenamento do Azure é mostrado na definição de JSON a seguir:
 
 ### <a name="define-datasets"></a>Definir conjuntos de dados
-    "type": "datasets",
-    "name": "[variables('<myDatasetName>')]",
-    "dependsOn": [
-        "[variables('<dataFactoryName>')]",
-        "[variables('<myDatasetLinkedServiceName>')]"
-    ],
-    "apiVersion": "2015-10-01",
-    "properties": {
-        ...
-    }
 
+```JSON
+"type": "datasets",
+"name": "[variables('<myDatasetName>')]",
+"dependsOn": [
+    "[variables('<dataFactoryName>')]",
+    "[variables('<myDatasetLinkedServiceName>')]"
+],
+"apiVersion": "2015-10-01",
+"properties": {
+    ...
+}
+```
 Consulte [Armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para obter detalhes sobre as propriedades JSON para o tipo de conjunto de dados específico que você deseja implantar. Observe que o parâmetro "dependsOn" especifica o nome do Data Factory correspondente e o serviço de armazenamento vinculado. Um exemplo de definição de um tipo de conjunto de dados do armazenamento de blobs do Azure na seguinte definição JSON:
 
-    "type": "datasets",
-    "name": "[variables('storageDataset')]",
-    "dependsOn": [
-        "[variables('dataFactoryName')]",
-        "[variables('storageLinkedServiceName')]"
-    ],
-    "apiVersion": "2015-10-01",
-    "properties": {
-    "type": "AzureBlob",
-    "linkedServiceName": "[variables('storageLinkedServiceName')]",
-    "typeProperties": {
-        "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
-        "fileName": "[parameters('sourceBlobName')]",
-        "format": {
-            "type": "TextFormat"
-        }
-    },
-    "availability": {
-        "frequency": "Hour",
-        "interval": 1
+```JSON
+"type": "datasets",
+"name": "[variables('storageDataset')]",
+"dependsOn": [
+    "[variables('dataFactoryName')]",
+    "[variables('storageLinkedServiceName')]"
+],
+"apiVersion": "2015-10-01",
+"properties": {
+"type": "AzureBlob",
+"linkedServiceName": "[variables('storageLinkedServiceName')]",
+"typeProperties": {
+    "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
+    "fileName": "[parameters('sourceBlobName')]",
+    "format": {
+        "type": "TextFormat"
     }
+},
+"availability": {
+    "frequency": "Hour",
+    "interval": 1
+}
+```
 
 ### <a name="define-pipelines"></a>Definir pipelines
-    "type": "dataPipelines",
-    "name": "[variables('<mypipelineName>')]",
-    "dependsOn": [
-        "[variables('<dataFactoryName>')]",
-        "[variables('<inputDatasetLinkedServiceName>')]",
-        "[variables('<outputDatasetLinkedServiceName>')]",
-        "[variables('<inputDataset>')]",
-        "[variables('<outputDataset>')]"
-    ],
-    "apiVersion": "2015-10-01",
-    "properties": {
-        activities: {
-            ...
-        }
+
+```JSON
+"type": "dataPipelines",
+"name": "[variables('<mypipelineName>')]",
+"dependsOn": [
+    "[variables('<dataFactoryName>')]",
+    "[variables('<inputDatasetLinkedServiceName>')]",
+    "[variables('<outputDatasetLinkedServiceName>')]",
+    "[variables('<inputDataset>')]",
+    "[variables('<outputDataset>')]"
+],
+"apiVersion": "2015-10-01",
+"properties": {
+    activities: {
+        ...
     }
+}
+```
 
 Consulte [definindo pipelines](data-factory-create-pipelines.md#pipeline-json) para obter detalhes sobre as propriedades JSON para definir o pipeline específico e as atividades que você deseja implantar. Observe o parâmetro "dependsOn" especifica o nome do Data Factory e quaisquer serviços vinculados ou conjuntos de dados correspondentes. Um exemplo de um pipeline que copia dados do Armazenamento de Blobs do Azure para o Banco de Dados SQL é mostrado no seguinte trecho de JSON:
 
-    "type": "datapipelines",
-    "name": "[variables('pipelineName')]",
-    "dependsOn": [
-        "[variables('dataFactoryName')]",
-        "[variables('azureStorageLinkedServiceName')]",
-        "[variables('azureSqlLinkedServiceName')]",
-        "[variables('blobInputDatasetName')]",
-        "[variables('sqlOutputDatasetName')]"
-    ],
-    "apiVersion": "2015-10-01",
-    "properties": {
-        "activities": [
-        {
-            "name": "CopyFromAzureBlobToAzureSQL",
-            "description": "Copy data frm Azure blob to Azure SQL",
-            "type": "Copy",
-            "inputs": [
-                {
-                    "name": "[variables('blobInputDatasetName')]"
-                }
-            ],
-            "outputs": [
-                {
-                    "name": "[variables('sqlOutputDatasetName')]"
-                }
-            ],
-            "typeProperties": {
-                "source": {
-                    "type": "BlobSource"
-                },
-                "sink": {
-                    "type": "SqlSink",
-                    "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
-                },
-                "translator": {
-                    "type": "TabularTranslator",
-                    "columnMappings": "Column0:FirstName,Column1:LastName"
-                }
-            },
-            "Policy": {
-                "concurrency": 1,
-                "executionPriorityOrder": "NewestFirst",
-                "retry": 3,
-                "timeout": "01:00:00"
+```JSON
+"type": "datapipelines",
+"name": "[variables('pipelineName')]",
+"dependsOn": [
+    "[variables('dataFactoryName')]",
+    "[variables('azureStorageLinkedServiceName')]",
+    "[variables('azureSqlLinkedServiceName')]",
+    "[variables('blobInputDatasetName')]",
+    "[variables('sqlOutputDatasetName')]"
+],
+"apiVersion": "2015-10-01",
+"properties": {
+    "activities": [
+    {
+        "name": "CopyFromAzureBlobToAzureSQL",
+        "description": "Copy data frm Azure blob to Azure SQL",
+        "type": "Copy",
+        "inputs": [
+            {
+                "name": "[variables('blobInputDatasetName')]"
             }
-        }
         ],
-        "start": "2016-10-03T00:00:00Z",
-        "end": "2016-10-04T00:00:00Z"
-
+        "outputs": [
+            {
+                "name": "[variables('sqlOutputDatasetName')]"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource"
+            },
+            "sink": {
+                "type": "SqlSink",
+                "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
+            },
+            "translator": {
+                "type": "TabularTranslator",
+                "columnMappings": "Column0:FirstName,Column1:LastName"
+            }
+        },
+        "Policy": {
+            "concurrency": 1,
+            "executionPriorityOrder": "NewestFirst",
+            "retry": 3,
+            "timeout": "01:00:00"
+        }
+    }
+    ],
+    "start": "2016-10-03T00:00:00Z",
+    "end": "2016-10-04T00:00:00Z"
+}
+```
 ## <a name="parameterizing-data-factory-template"></a>Parametrizando o modelo de Data Factory
 Para obter as práticas recomendadas sobre parametrização, consulte o artigo [Práticas recomendadas para criar modelos do Azure Resource Manager](../azure-resource-manager/resource-manager-template-best-practices.md#parameters). Em geral, o uso do parâmetro deverá ser minimizado, especialmente se variáveis puderem ser usadas em vez disso. Apenas forneça parâmetros nos seguintes cenários:
 
@@ -218,17 +234,19 @@ Para obter as práticas recomendadas sobre parametrização, consulte o artigo [
 
 Se você precisar receber segredos do [Cofre de Chaves do Azure](../key-vault/key-vault-get-started.md) ao implantar entidades do Azure Data Factory usando modelos, especifique o **cofre de chaves** e **nome secreto** conforme mostrado no exemplo a seguir:
 
-    "parameters": {
-        "storageAccountKey": {
-            "reference": {
-                "keyVault": {
-                    "id":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.KeyVault/vaults/<keyVaultName>",
-                 },
-                "secretName": "<secretName>"
-               },
+```JSON
+"parameters": {
+    "storageAccountKey": {
+        "reference": {
+            "keyVault": {
+                "id":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.KeyVault/vaults/<keyVaultName>",
+             },
+            "secretName": "<secretName>"
            },
-           ...
-    }
+       },
+       ...
+}
+```
 
 > [!NOTE]
 > Embora ainda não haja suporte para exportar modelos para Data Factories existentes, ele ainda funciona.
@@ -237,6 +255,6 @@ Se você precisar receber segredos do [Cofre de Chaves do Azure](../key-vault/ke
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

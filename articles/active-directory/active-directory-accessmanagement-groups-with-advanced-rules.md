@@ -1,26 +1,38 @@
-
 ---
-title: Usar atributos para criar regras avançadas | Microsoft Docs
-description: Instruções para criar regras avançadas para um grupo, incluindo suporte para operadores de regra de expressões e parâmetros.
+title: "Usar atributos para criar regras avançadas | Microsoft Docs"
+description: "Instruções para criar regras avançadas para um grupo, incluindo suporte para operadores de regra de expressões e parâmetros."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 04813a42-d40a-48d6-ae96-15b7e5025884
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: d83372fbce5f49d7cd038a15bd271e9d8a463b7b
+ms.openlocfilehash: f1cff67f31da87d6361603f0216a68c55686db0e
+
 
 ---
 # <a name="using-attributes-to-create-advanced-rules"></a>Usar atributos para criar regras avançadas
 O portal clássico do Azure fornece a capacidade de criar regras avançadas para habilitar associações dinâmicas baseadas em atributos mais complexas de grupos do Azure Active Directory (Azure AD).  
 
 Quando os atributos de um usuário são alterados, o sistema avalia todas as regras de grupo dinâmicas em um diretório para ver se a alteração do atributo do usuário dispararia adições ou remoções de grupo. Se um usuário atender a uma regra em um grupo, ele será adicionado como membro a esse grupo. Se ele não satisfizer mais à regra de um grupo do qual é membro, será removido do grupo.
+
+> [!NOTE]
+> Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365. Atualmente não há suporte a associações de grupo aninhadas para atribuição com base em grupo para aplicativos.
+> 
+> As associações dinâmicas de grupos exigem que uma licença do Azure AD Premium seja atribuída a
+> 
+> * O administrador que gerencia a regra em um grupo
+> * Todos os membros do grupo
+> 
 
 ## <a name="to-create-the-advanced-rule"></a>Para criar a regra avançada
 1. No [portal clássico do Azure](https://manage.windowsazure.com), selecione **Active Directory**e abra o diretório da sua organização.
@@ -42,11 +54,18 @@ A seguir é exemplos de uma regra avançada construída de maneira adequada:
 
 Para a lista completa de parâmetros com suporte e operadores de regra de expressão, consulte as seções a seguir.
 
+Observe que a propriedade deve ser prefixada com o tipo de objeto correto: usuário ou dispositivo.
+A regra a seguir falhará na validação: mail –ne null
+
+A regra correta seria: 
+
+user.mail –ne null
+
 O comprimento total do corpo da sua regra avançada não pode exceder 2048 caracteres.
 
 > [!NOTE]
-> Operações de cadeia de caracteres e regex diferenciam maiúsculas de minúsculas. Você também pode executar verificações de Null, usando $null como uma constante, por exemplo, user.department - eq $null.
-> As cadeias de caracteres que contém aspas " devem ser ignoradas usando caracteres ', por exemplo, user.department -eq \`"Sales".
+> Operações de cadeia de caracteres e regex diferenciam maiúsculas de minúsculas. As cadeias de caracteres que contém aspas " devem ser ignoradas usando caracteres ', por exemplo, user.department -eq \`"Sales".
+> Use as aspas somente para valores do tipo string e use apenas as aspas inglesas.
 > 
 > 
 
@@ -64,13 +83,27 @@ A tabela a seguir lista todos os operadores de regra de expressão com suporte e
 | Não corresponde |-notMatch |
 | Corresponde |-match |
 
+## <a name="operator-precedence"></a>Precedência do operador
+
+Todos os operadores são listados abaixo da menor precedência para a maior, os operadores na mesma linha têm a mesma precedência. -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
+ 
+Todos os operadores podem ser usados com ou sem o prefixo de hífen.
+
+Observe que os parênteses nem sempre serão necessários, você só precisará adicionar os parênteses quando a precedência não atender às suas necessidades. Por exemplo:
+
+   user.department –eq "Marketing" –and user.country –eq "US" 
+   
+é equivalente a: 
+
+   (user.department –eq "Marketing") –and (user.country –eq "US")
+
 ## <a name="query-error-remediation"></a>Correção do erro de consulta
 A seguinte tabela relacionará os possíveis erros e como corrigi-los, se ocorrerem
 
 | Erro de análise de consulta | Erros de uso | Uso corrigido |
 | --- | --- | --- |
 | Erro: O atributo não tem suportado. |(user.invalidProperty -eq "Valor") |(user.department -eq "value") A propriedade <br/>deve corresponder a uma na [lista de propriedades com suporte](#supported-properties). |
-| Erro: Operador não é tem suportada no atributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true) A propriedade <br/> é do tipo booliano. Use os operadores com suporte (-eq or -ne) em um tipo booleano da lista acima. |
+| Erro: Operador não é tem suportada no atributo. |(user.accountEnabled -contains true) |(user.accountEnabled -eq true) A propriedade <br/>é do tipo booliano. Use os operadores com suporte (-eq or -ne) em um tipo booleano da lista acima. |
 | Erro: Erro de compilação de consulta. |(user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") |(user.department -eq "Sales") -and (user.department -eq "Marketing")<br/>O operador lógico deve corresponder a uma das propriedades com suporte listadas acima. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")Error na expressão regular. |
 | Erro: Expressão binária não está no formato correto. |user.department – eq ("Vendas") user.department - eq ("Vendas") user.department-eq ("Vendas") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>A consulta tem vários erros. Parênteses não no lugar certo. |
 | Erro: Ocorreu um erro desconhecido durante a configuração de membros dinâmicos. |(user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") |(user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")<br/>A consulta tem vários erros. Parênteses não no lugar certo. |
@@ -105,7 +138,7 @@ Operadores permitidos
 | --- | --- | --- |
 | city |Qualquer valor de cadeia de caracteres ou $null |(user.city -eq "valor") |
 | country |Qualquer valor de cadeia de caracteres ou $null |(user.country -eq "valor") |
-| department |Qualquer valor de cadeia de caracteres ou $null |(user.department -eq "value") A propriedade |
+| department |Qualquer valor de cadeia de caracteres ou $null |(user.department -eq "value") A propriedade  |
 | displayName |Um valor de cadeia de caracteres. |(user. DisplayName -eq "valor") |
 | facsimileTelephoneNumber |Qualquer valor de cadeia de caracteres ou $null |user.facsimileTelephoneNumber -eq ("valor") |
 | givenName |Qualquer valor de cadeia de caracteres ou $null |user.givenName -eq ("valor") |
@@ -138,6 +171,12 @@ Operadores permitidos
 | otherMails |Um valor de cadeia de caracteres. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## <a name="use-of-null-values"></a>Uso de valores nulos
+
+Para especificar um valor nulo em uma regra, você pode usar "null" ou $null. Exemplo: 
+
+   user.mail –ne null é equivalente a user.mail –ne $null
+
 ## <a name="extension-attributes-and-custom-attributes"></a>Atributos de extensão e atributos personalizados
 Os atributos de extensão e os atributos personalizados têm suporte das regras de associação dinâmica.
 
@@ -153,8 +192,14 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 O nome do atributo personalizado pode ser encontrado no diretório por meio da consulta do atributo de um usuário, usando o Graph Explorer e procurando o nome do atributo.
 
+## <a name="support-for-multi-value-properties"></a>Suporte para propriedades com vários valores
+
+Para incluir uma propriedade com vários valores em uma regra, use o operador "-any", como em
+
+  user.assignedPlans -any assignedPlan.service -startsWith "SCO"
+  
 ## <a name="direct-reports-rule"></a>Regra de relatórios diretos
-Agora você pode preencher os membros de um grupo com base no atributo gerenciador de um usuário.
+Você pode preencher os membros de um grupo com base no atributo gerenciador de um usuário.
 
 **Para configurar um grupo como "Gerenciador"**
 
@@ -178,16 +223,16 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
 | displayName |Um valor de cadeia de caracteres. |(device.displayName -eq "Rob Iphone”) |
 | deviceOSType |Um valor de cadeia de caracteres. |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |Um valor de cadeia de caracteres. |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq "true") |
-| isManaged |true false null |(device.isManaged -eq "false") |
-| isCompliant |true false null |(device.isCompliant -eq "true") |
+| isDirSynced |true false null |(device.isDirSynced -eq true) |
+| isManaged |true false null |(device.isManaged -eq false) |
+| isCompliant |true false null |(device.isCompliant -eq true) |
 | deviceCategory |Um valor de cadeia de caracteres. |(device.deviceCategory -eq "") |
 | deviceManufacturer |Um valor de cadeia de caracteres. |(device.deviceManufacturer -eq "Microsoft") |
 | deviceModel |Um valor de cadeia de caracteres. |(device.deviceModel -eq "IPhone 7+") |
 | deviceOwnership |Um valor de cadeia de caracteres. |(device.deviceOwnership -eq "") |
 | domainName |Um valor de cadeia de caracteres. |(device.domainName -eq "contoso.com") |
 | enrollmentProfileName |Um valor de cadeia de caracteres. |(device.enrollmentProfileName -eq "") |
-| isRooted |true false null |(device.deviceOSType -eq "true") |
+| isRooted |true false null |(device.isRooted -eq true) |
 | managementType |Um valor de cadeia de caracteres. |(device.managementType -eq "") |
 | organizationalUnit |Um valor de cadeia de caracteres. |(device.organizationalUnit -eq "") |
 | deviceId |um deviceId válido |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
@@ -206,6 +251,9 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -13,33 +13,33 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 6d3bbea1a891e1d2f41eedccd9b9a591dfe13855
-
+ms.sourcegitcommit: 702ea254c19d1f9782f83d8445b7f440f11963b9
+ms.openlocfilehash: 7f4bccda8a7cebff0d80627320d34062d4d55add
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Criar um índice de pesquisa do Azure usando a API REST
 > [!div class="op_single_selector"]
+>
 > * [Visão geral](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
-> 
-> 
+>
+>
 
-Este artigo o orientará ao longo do processo de criação de um [índice](https://msdn.microsoft.com/library/azure/dn798941.aspx) de Pesquisa do Azure usando a API REST da Pesquisa do Azure.
+Este artigo o orientará ao longo do processo de criação de um [índice](https://docs.microsoft.com/rest/api/searchservice/Create-Index) de Pesquisa do Azure usando a API REST da Pesquisa do Azure.
 
 Antes de seguir este guia e criar um índice, você já deverá ter [criado um serviço de Pesquisa do Azure](search-create-service-portal.md).
 
 Para criar um índice de Pesquisa do Azure usando a API REST, você emitirá uma única solicitação HTTP POST para o ponto de extremidade da URL do serviço de Pesquisa do Azure. A definição de índice estará contida no corpo da solicitação como conteúdo JSON bem formado.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Identificar a api-key do administrador de seu serviço de Pesquisa do Azure
-Agora que provisionou um serviço de Pesquisa do Azure, você pode emitir solicitações HTTP em relação ao ponto de extremidade de URL do serviço usando a API REST. No entanto, *todas* as solicitações de API devem incluir a api-key que foi gerada para o serviço de Pesquisa que você provisionou. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificar a chave de API do administrador de seu serviço de Pesquisa do Azure
+Agora que provisionou um serviço de Pesquisa do Azure, você pode emitir solicitações HTTP em relação ao ponto de extremidade de URL do serviço usando a API REST. *Todas* as solicitações de API devem incluir a api-key que foi gerada para o serviço de Pesquisa que você provisionou. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
-1. Para localizar as api-keys de seu serviço, você deve fazer logon no [Portal do Azure](https://portal.azure.com/)
+1. Para localizar as api-keys de seu serviço, você deve fazer logon no [portal do Azure](https://portal.azure.com/)
 2. Vá para a folha do serviço de Pesquisa do Azure
 3. Clique no ícone de "Chaves"
 
@@ -50,13 +50,13 @@ O serviço terá *chaves de administração* e *chaves de consulta*.
 
 Para criar um índice, você pode usar a chave de administração principal ou secundária.
 
-## <a name="ii-define-your-azure-search-index-using-wellformed-json"></a>II. Definir o índice de Pesquisa do Azure usando JSON bem formado
+## <a name="define-your-azure-search-index-using-well-formed-json"></a>Definir o índice de Pesquisa do Azure usando JSON bem formado
 Uma única solicitação HTTP POST para o serviço criará o índice. O corpo da solicitação HTTP POST conterá um único objeto JSON que define o índice de Pesquisa do Azure.
 
 1. A primeira propriedade desse objeto JSON é o nome do índice.
 2. A segunda propriedade do objeto JSON é uma matriz JSON chamada `fields` que contém um objeto JSON separado para cada campo no índice. Cada um desses objetos JSON contém vários pares de nome/valor para cada um dos atributos do campo, incluindo "nome", "tipo", etc.
 
-É importante ter em mente suas necessidades de negócios e experiência de usuário de pesquisa ao projetar o índice, pois cada campo deve ter os [atributos apropriados](https://msdn.microsoft.com/library/azure/dn798941.aspx). Esses atributos controlam quais recursos de pesquisa (filtragem, facetas, classificação, pesquisa de texto completo, etc.) se aplicam a quais campos. Para qualquer atributo que você não especificar, o padrão será habilitar o recurso de pesquisa correspondente, a menos que você o desabilite especificamente.
+É importante ter em mente suas necessidades de negócios e experiência de usuário de pesquisa ao projetar o índice, pois cada campo deve ter os [atributos apropriados](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Esses atributos controlam quais recursos de pesquisa (filtragem, facetas, classificação, pesquisa de texto completo, etc.) se aplicam a quais campos. Para qualquer atributo que você não especificar, o padrão será habilitar o recurso de pesquisa correspondente, a menos que você o desabilite especificamente.
 
 Para nosso exemplo, chamamos o índice de "hotels" e definimos os campos da seguinte maneira:
 
@@ -84,33 +84,32 @@ Escolhemos cuidadosamente os atributos de índice para cada campo com base em co
 
 Observe que exatamente um campo no índice do tipo `Edm.String` deve ser designado como o campo 'key'.
 
-A definição de índice acima usa um analisador de idioma personalizado para o campo `description_fr` porque ele se destina a armazenar texto em francês. Consulte [o tópico de Suporte a idiomas no MSDN](https://msdn.microsoft.com/library/azure/dn879793.aspx), além da [postagem do blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) correspondente para obter mais informações sobre os analistas de linguagem.
+A definição de índice acima usa um analisador de idioma para o campo `description_fr` porque ele se destina a armazenar texto em francês. Consulte [o tópico de Suporte a idiomas no](https://docs.microsoft.com/rest/api/searchservice/Language-support), bem como a [postagem do blog](https://azure.microsoft.com/blog/language-support-in-azure-search/) correspondente para obter mais informações sobre os analisadores de linguagem.
 
-## <a name="iii-issue-the-http-request"></a>III. Emitir a solicitação HTTP
-1. Usando a definição do índice como o corpo da solicitação, emita uma solicitação HTTP POST para a URL do ponto de extremidade do serviço de Pesquisa do Azure. Na URL, use o nome do serviço como o nome do host e coloque o `api-version` adequado como um parâmetro de cadeia de caracteres de consulta (a versão atual da API é `2015-02-28` no momento da publicação deste documento).
+## <a name="issue-the-http-request"></a>Emitir a solicitação HTTP
+1. Usando a definição do índice como o corpo da solicitação, emita uma solicitação HTTP POST para a URL do ponto de extremidade do serviço de Pesquisa do Azure. Na URL, use o nome do serviço como o nome do host e coloque o `api-version` adequado como um parâmetro de cadeia de caracteres de consulta (a versão atual da API é `2016-09-01` no momento da publicação deste documento).
 2. Nos cabeçalhos de solicitação, especifique o `Content-Type` como `application/json`. Você também precisará fornecer a chave de administração do serviço que identificou na Etapa I no cabeçalho `api-key` .
 
 Você terá que fornecer sua própria chave de api e o nome do serviço para emitir a solicitação abaixo:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [api-key]
 
 
-Para uma solicitação bem-sucedida, você deverá ver o código de status 201 (Criado). Para obter mais informações sobre como criar um índice por meio da API REST, acesse a referência de API no [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Pesquisa do Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Para uma solicitação bem-sucedida, você deverá ver o código de status 201 (Criado). Para obter mais informações sobre como criar um índice por meio da API REST, acesse a [referência de API](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Pesquisa do Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 Quando você terminar de usar um índice e desejar excluí-lo, bastará emitir uma solicitação HTTP DELETE. Por exemplo, veja como podemos excluir o índice "hotels":
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
+    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
     api-key: [api-key]
 
 
-## <a name="next"></a>Avançar
+## <a name="next-steps"></a>Próximas etapas
 Após criar um índice de Pesquisa do Azure, você estará pronto para [carregar o conteúdo no índice](search-what-is-data-import.md) para que possa começar a pesquisar os dados.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

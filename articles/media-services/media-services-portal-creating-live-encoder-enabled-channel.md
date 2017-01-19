@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: e764936afda8bd498f97a8dc3426136815c18a5a
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -54,9 +54,7 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
    
     Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 5. Crie um evento/programa (que também criará um ativo). 
-6. Publica o evento (que vai criar um localizador OnDemand para o ativo associado).  
-   
-    Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
+6. Publica o evento (que vai criar um localizador OnDemand para o ativo associado).    
 7. Inicie o evento quando estiver pronto para começar a transmissão e o arquivamento.
 8. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 9. Interrompa o evento sempre que você quiser parar a transmissão e o arquivamento do evento.
@@ -65,13 +63,12 @@ A seguir, as etapas gerais envolvidas na criação de aplicativos comuns de stre
 ## <a name="in-this-tutorial"></a>Neste tutorial
 Neste tutorial, o portal do Azure é usado para realizar as seguintes tarefas: 
 
-1. Configure os pontos de extremidade de streaming.
-2. Crie um canal que esteja habilitado para realizar a codificação ao vivo.
-3. Obtenha a URL de ingestão para fornecê-la ao codificador ao vivo. O codificador ao vivo usará essa URL para receber o fluxo para o canal. .
-4. Criar um evento/programa (e um ativo)
-5. Publicar o ativo e obter URLs de streaming  
-6. Reproduzir o conteúdo 
-7. Limpando
+1. Crie um canal que esteja habilitado para realizar a codificação ao vivo.
+2. Obtenha a URL de ingestão para fornecê-la ao codificador ao vivo. O codificador ao vivo usará essa URL para receber o fluxo para o canal.
+3. Criar um evento/programa (e um ativo).
+4. Publicar o ativo e obter URLs de streaming.  
+5. Reproduzir o conteúdo.
+6. Limpar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Os itens a seguir são necessários para concluir o tutorial.
@@ -80,28 +77,6 @@ Os itens a seguir são necessários para concluir o tutorial.
   Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, confira [Criar Conta](media-services-portal-create-account.md).
 * Uma webcam e um codificador que possa enviar um fluxo ao vivo de taxa de bits única.
-
-## <a name="configure-streaming-endpoints"></a>Configurar os pontos de extremidade de streaming
-Os Serviços de Mídia fornecem um empacotamento dinâmico que permite enviar seus MP4s de múltiplas taxas de bits nos seguintes formatos de transmissão: MPEG DASH, HLS, Smooth Streaming, sem a necessidade de recolocar nesses formatos de transmissão. Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia criarão e fornecerão a resposta apropriada com base nas solicitações de um cliente.
-
-Para aproveitar o empacotamento dinâmico, você precisa obter pelo menos uma unidade de transmissão para o ponto de extremidade da transmissão a partir do qual planeja fornecer seu conteúdo.  
-
-Para criar e alterar o número de unidades reservadas de transmissão, faça o seguinte:
-
-1. Entre no [Portal do Azure](https://portal.azure.com/) e selecione sua conta do AMS.
-2. Na janela **Configurações**, clique em **Pontos de extremidade de streaming**. 
-3. Clique no ponto de extremidade da transmissão padrão. 
-   
-    A janela **DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO** é exibida.
-4. Para especificar o número de unidades de transmissão, deslize o controle **Unidades de transmissão** .
-   
-    ![Unidades de transmissão](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
-5. Clique no botão **Salvar** para salvar as alterações.
-   
-   > [!NOTE]
-   > A alocação de quaisquer novas unidades leva cerca de 20 minutos para ser concluída.
-   > 
-   > 
 
 ## <a name="create-a-channel"></a>Criar um CANAL
 1. No [Portal do Azure](https://portal.azure.com/), selecione Serviços de Mídia e clique no nome da conta dos Serviços de Mídia.
@@ -172,6 +147,9 @@ Se desejar manter o conteúdo arquivado mas ele não está disponível para stre
 ### <a name="createstartstop-events"></a>Criar/iniciar/interromper eventos
 Uma vez que o fluxo está fluindo para o canal, você pode começar o evento de transmissão criando um ativo, programa e localizador de Streaming. Isso vai arquivar o fluxo e torná-lo disponível para usuários por meio do ponto de extremidade de Streaming. 
 
+>[!NOTE]
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
+
 Há duas maneiras de começar o evento: 
 
 1. Na página **Canal**, pressione **Evento Ativo** para adicionar um novo evento.
@@ -216,7 +194,7 @@ Para gerenciar os ativos, selecione **Configuração** e clique em **Ativos**.
 
 ## <a name="considerations"></a>Considerações
 * Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived na Microsoft.com se precisar executar um Canal por períodos mais longos.
-* Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
+* Verifique se o ponto de extremidade de streaming do qual você deseja transmitir seu conteúdo está no estado **Executando**.
 
 ## <a name="next-step"></a>Próxima etapa
 Revise os roteiros de aprendizagem dos Serviços de Mídia.
@@ -229,6 +207,6 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

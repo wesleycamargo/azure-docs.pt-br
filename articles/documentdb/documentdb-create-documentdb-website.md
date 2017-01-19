@@ -1,19 +1,23 @@
 ---
-title: Implantar Aplicativos Web do Serviço de Aplicativo do Azure e do Banco de Dados de Documentos usando um Modelo do Gerenciador de Recursos do Azure | Microsoft Docs
-description: Saiba como implantar uma conta do Banco de Dados de Documentos, aplicativos Web do Serviço de Aplicativo do Azure e aplicativo Web de exemplo usando um modelo do Gerenciador de Recursos do Azure.
+title: "Implantar Aplicativos Web do Serviço de Aplicativo do Azure e do DocumentDB usando um Modelo do Azure Resource Manager | Microsoft Docs"
+description: "Saiba como implantar uma conta do Banco de Dados de Documentos, aplicativos Web do Serviço de Aplicativo do Azure e aplicativo Web de exemplo usando um modelo do Gerenciador de Recursos do Azure."
 services: documentdb, app-service\web
 author: h0n
 manager: jhubbard
 editor: monicar
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 12/08/2016
 ms.author: hawong
+translationtype: Human Translation
+ms.sourcegitcommit: 08b101f42558280d8ffa690829570257d8d6deca
+ms.openlocfilehash: 6f519ac78d28fac69171b083f18d783cf1d9b24a
+
 
 ---
 # <a name="deploy-documentdb-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implantar Aplicativos Web do Serviço de Aplicativo do Azure e do Banco de Dados de Documentos usando um Modelo do Gerenciador de Recursos do Azure
@@ -38,7 +42,7 @@ Antes de seguir as instruções neste tutorial, certifique-se de ter o seguinte:
 
 * Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura.  Para obter mais informações sobre como adquirir uma assinatura, confira [Opções de compra](https://azure.microsoft.com/pricing/purchase-options/), [Ofertas para membros](https://azure.microsoft.com/pricing/member-offers/) ou [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="<a-id="createdb"></a>step-1:-download-the-template-files"></a><a id="CreateDB"></a>Etapa 1: Baixar os arquivos de modelo
+## <a name="a-idcreatedbastep-1-download-the-template-files"></a><a id="CreateDB"></a>Etapa 1: Baixar os arquivos de modelo
 Vamos começar baixando os arquivos de modelo que usaremos neste tutorial.
 
 1. Baixe o modelo [Criar uma conta do DocumentDB, Aplicativos Web e implantar uma amostra de aplicativo de demonstração](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) em uma pasta local (por exemplo, C:\DocumentDBTemplates). Este modelo implantará uma conta do Banco de Dados de Documentos, um aplicativo Web do Serviço de Aplicativo e um aplicativo Web.  Ele também configurará automaticamente o aplicativo Web para conectar-se à conta do Banco de Dados de Documentos.
@@ -46,7 +50,7 @@ Vamos começar baixando os arquivos de modelo que usaremos neste tutorial.
 
 <a id="Build"></a>
 
-## <a name="step-2:-deploy-the-documentdb-account,-app-service-web-app-and-demo-application-sample"></a>Etapa 2: Implantar a conta do Banco de Dados de Documentos, o aplicativo Web do Serviço de Aplicativo e uma amostra de aplicativo de demonstração
+## <a name="step-2-deploy-the-documentdb-account-app-service-web-app-and-demo-application-sample"></a>Etapa 2: Implantar a conta do Banco de Dados de Documentos, o aplicativo Web do Serviço de Aplicativo e uma amostra de aplicativo de demonstração
 Agora, vamos implantar nosso primeiro modelo.
 
 > [!TIP]
@@ -69,6 +73,7 @@ Agora, vamos implantar nosso primeiro modelo.
       
       ![Captura de tela da interface do usuário da implantação do modelo](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Escolha um Grupo de recursos existente ou forneça um nome para criar um novo grupo de recursos e escolha um local para ele.
+
     ![Captura de tela da interface do usuário da implantação do modelo](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Clique em **Examinar termos legais**, **Comprar** e em **Criar** para iniciar a implantação.  Selecione **Fixar no painel**, para que a implantação resultante seja facilmente visível em sua home page do portal do Azure.
    ![Captura de tela da interface do usuário da implantação do modelo](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -86,7 +91,7 @@ Agora, vamos implantar nosso primeiro modelo.
 
 <a id="Build"></a> 
 
-## <a name="step-3:-deploy-the-document-account-and-web-app-sample"></a>Etapa 3: Implantar a conta de documento e o exemplo de aplicativo Web
+## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>Etapa 3: Implantar a conta de documento e o exemplo de aplicativo Web
 Agora, vamos implantar nosso segundo modelo.  Esse modelo é útil para mostrar como é possível injetar informações de conexão do Banco de Dados de Documentos como ponto de extremidade da conta e a chave mestra em um aplicativo Web como configurações de aplicativo ou como uma cadeia de conexão personalizada. Por exemplo, talvez você tenha seu próprio aplicativo Web e queira implantá-lo com uma conta do Banco de Dados de Documentos e ter as informações de conexão populadas automaticamente durante a implantação.
 
 > [!TIP]
@@ -109,6 +114,7 @@ Agora, vamos implantar nosso segundo modelo.  Esse modelo é útil para mostrar 
       
       ![Captura de tela da interface do usuário da implantação do modelo](./media/documentdb-create-documentdb-website/TemplateDeployment4.png)
 5. Escolha um Grupo de recursos existente ou forneça um nome para criar um novo grupo de recursos e escolha um local para ele.
+
     ![Captura de tela da interface do usuário da implantação do modelo](./media/documentdb-create-documentdb-website/TemplateDeployment5.png)
 6. Clique em **Examinar termos legais**, **Comprar** e em **Criar** para iniciar a implantação.  Selecione **Fixar no painel**, para que a implantação resultante seja facilmente visível em sua home page do portal do Azure.
    ![Captura de tela da interface do usuário da implantação do modelo](./media/documentdb-create-documentdb-website/TemplateDeployment6.png)
@@ -117,6 +123,7 @@ Agora, vamos implantar nosso segundo modelo.  Esse modelo é útil para mostrar 
 8. Clique no recurso Aplicativo Web na lista Recursos e, em seguida, clique em **Configurações do Aplicativo**
     ![Captura de tela do grupo de recursos](./media/documentdb-create-documentdb-website/TemplateDeployment9.png)  
 9. Observe como há configurações de aplicativo presentes para o ponto de extremidade do DocumentDB e para cada uma das chaves mestra do DocumentDB.
+
     ![Captura de tela das configurações do aplicativo](./media/documentdb-create-documentdb-website/TemplateDeployment10.png)  
 10. Sinta-se à vontade para continuar a explorar o Portal do Azure ou seguir um de nossos [exemplos](http://go.microsoft.com/fwlink/?LinkID=402386) do Banco de Dados de Documentos para criar seu próprio aplicativo do Banco de Dados de Documentos.
 
@@ -129,7 +136,7 @@ Parabéns! Você implantou um Banco de Dados de Documentos, aplicativo Web do Se
 * Para saber mais sobre os aplicativos Web do Serviço de Aplicativo do Azure, clique [aqui](http://go.microsoft.com/fwlink/?LinkId=325362).
 * Para saber mais sobre modelos do Gerenciador de Recursos do Azure, clique [aqui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
-## <a name="what's-changed"></a>O que mudou
+## <a name="whats-changed"></a>O que mudou
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obter um guia sobre a alteração do portal antigo para o novo portal, veja: [Referência para navegar no Portal Clássico do Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
 
@@ -138,6 +145,9 @@ Parabéns! Você implantou um Banco de Dados de Documentos, aplicativo Web do Se
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO3-->
 
 

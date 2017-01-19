@@ -1,4 +1,4 @@
-## Como implantar com o CLI do Azure
+## <a name="how-to-deploy-with-azure-cli"></a>Como implantar com o CLI do Azure
 1. Faça logon em sua conta do Azure.
    
         azure login
@@ -62,4 +62,8 @@
    
          azure group log show -l -v ExampleResourceGroup
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

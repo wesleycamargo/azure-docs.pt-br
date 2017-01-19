@@ -1,8 +1,8 @@
-## Kit de ferramentas do Azure para Eclipse
+## <a name="azure-toolkit-for-eclipse"></a>Kit de ferramentas do Azure para Eclipse
 Pré-requisitos:
 
 1. Windows 7, Windows 8, Windows 10, Windows Server 2008 ou Windows Server 2012.
-2. Os sistemas operacionais Macintosh ou Linux listados no artigo [Novidades no Kit de Ferramentas do Azure para o Eclipse].
+2. Os sistemas operacionais Macintosh ou Linux listados no artigo [Novidades no Kit de Ferramentas do Azure para o Eclipse] .
 3. Eclipse Indigo ou posterior.
 
 Etapas de instalação:
@@ -19,4 +19,6 @@ Este plug-in usa a versão mais recente do SDK do Azure. Ele pode ser baixado us
 
 [WebPI (Web Platform Installer)]: http://go.microsoft.com/fwlink/?LinkID=252838
 
-<!---HONumber=AcomDC_0309_2016-->
+<!--HONumber=Jan17_HO3-->
+
+

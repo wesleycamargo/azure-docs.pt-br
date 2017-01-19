@@ -42,7 +42,7 @@ Se houver vários grupos de escopo definidos, cada usuário deverá passar em pe
 
 Em outras palavras, você pode pensar nos grupos de escopo como sendo agrupados por OR e pode considerar as cláusulas dentro deles como sendo agrupadas por AND. Por exemplo, considere o filtro de escopo abaixo:
 
-![Nome do grupo de escopo][2]  
+![Nome do grupo de escopo][3]  
 
 De acordo com esse filtro de escopo, os usuários devem atender aos seguintes critérios para serem provisionados:
 
@@ -62,7 +62,7 @@ De acordo com esse filtro de escopo, os usuários devem atender aos seguintes cr
 <!--Image references-->
 [1]: ./media/active-directory-saas-scoping-filters/ic782811.png
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
-[3]: ./active-directory-saas-scoping-filters/ic782813.png
+[3]: ./media/active-directory-saas-scoping-filters/ic782813.png
 
 
 
