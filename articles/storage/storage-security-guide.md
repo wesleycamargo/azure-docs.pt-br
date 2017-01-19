@@ -4,7 +4,7 @@ description: "Detalha os vários métodos de proteger o Armazenamento do Azure, 
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f674c34cfbfd5c107258d7acd33583947cd61d6
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: c5e6c3a63a7dbe0a598136a32990f65f7ee077d9
 
 
 ---
@@ -55,7 +55,7 @@ Ao criar uma nova conta de armazenamento, você seleciona um modelo de implanta�
 Este guia se concentra no modelo Resource Manager, que é o meio recomendado para a criação de contas de armazenamento. Com as contas de armazenamento do Gerenciador de Recursos, em vez de fornecer acesso à toda a assinatura, você pode controlar o acesso em um nível mais limitado no plano de gerenciamento usando o RBAC (Controle de Acesso Baseado em Função).
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Como proteger a conta de armazenamento com o RBAC (Controle de Acesso Baseado em Função)
-Vamos falar sobre o que é o RBAC e como você pode usá-lo. Cada assinatura do Azure tem um Azure Active Directory. Os usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure que usam o modelo de implantação Resource Manager. Esse acesso é chamado de RBAC (Controle de Acesso Baseado em Função). Para gerenciar esse acesso, é possível usar o [Portal do Azure](https://portal.azure.com/), as [ferramentas da CLI do Azure](../xplat-cli-install.md), o [PowerShell](../powershell-install-configure.md) ou as [APIs REST do Provedor de Recursos de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Vamos falar sobre o que é o RBAC e como você pode usá-lo. Cada assinatura do Azure tem um Azure Active Directory. Os usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure que usam o modelo de implantação Resource Manager. Esse acesso é chamado de RBAC (Controle de Acesso Baseado em Função). Para gerenciar esse acesso, é possível usar o [Portal do Azure](https://portal.azure.com/), as [ferramentas da CLI do Azure](../xplat-cli-install.md), o [PowerShell](/powershell/azureps-cmdlets-docs) ou as [APIs REST do Provedor de Recursos de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Com o modelo Resource Manager, você coloca a conta de armazenamento em um grupo de recursos e controla o acesso ao plano de gerenciamento dessa conta de armazenamento específica usando o Azure Active Directory. Por exemplo, é possível permitir que usuários específicos acessem as chaves da conta de armazenamento, enquanto outros usuários podem exibir informações sobre a conta de armazenamento, mas não podem acessar suas chaves.
 
@@ -89,7 +89,7 @@ Veja os principais pontos que você precisa saber sobre como usar o RBAC para ac
 * [RBAC: funções internas](../active-directory/role-based-access-built-in-roles.md)
   
   Esse artigo detalha todas as funções disponíveis internas no RBAC.
-* [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../resource-manager-deployment-model.md)
+* [Noções básicas sobre a implantação do Gerenciador de Recursos e a implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md)
   
   Esse artigo explica os modelos de implantação clássica e implantação Resource Manager, além de explicar os benefícios de usar o Resource Manager e os grupos de recursos. Explica como os Provedores de Computação, Rede e Armazenamento do Azure funcionam no modelo do Gerenciador de Recursos.
 * [Gerenciar o controle de acesso com base em função com a API REST](../active-directory/role-based-access-control-manage-access-rest.md)
@@ -259,7 +259,7 @@ Para obter informações mais detalhadas sobre como usar as Assinatura de Acesso
   * [SAS Getting Started Tutorial (Tutorial de introdução à SAS)](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ## <a name="encryption-in-transit"></a>Criptografia em trânsito
-### <a name="transport-level-encryption-using-https"></a>Criptografia no nível de transporte – usando HTTPS
+### <a name="transport-level-encryption--using-https"></a>Criptografia no nível de transporte – usando HTTPS
 Outra etapa que você deve executar para garantir a segurança dos dados do Armazenamento do Azure é criptografá-los entre o cliente e o Armazenamento do Azure. A primeira recomendação é sempre usar o protocolo [HTTPS](https://en.wikipedia.org/wiki/HTTPS) , que garante a comunicação segura na Internet pública.
 
 Você sempre deve usar HTTPS ao chamar as APIs REST ou ao acessar objetos no armazenamento. Além disso, as **Assinaturas de Acesso Compartilhado**, que podem ser usadas para delegar acesso a objetos do Armazenamento do Azure, incluem uma opção para especificar que apenas o protocolo HTTPS pode ser utilizado ao usar as Assinaturas de Acesso Compartilhado, garantindo que qualquer pessoa que envie links com tokens SAS usará o protocolo adequado.
@@ -527,6 +527,6 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
   Esse artigo fala sobre o uso do modo FIPS em computadores Windows antigos.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

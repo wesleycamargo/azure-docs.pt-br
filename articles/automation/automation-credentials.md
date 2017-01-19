@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/11/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 843f0862f9e4d8dc1d40e110710e48ad66716168
-ms.openlocfilehash: d714907184ccdde8d912ff8cf4240b8c6d2c45e5
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: afb6662e1b4af6cf66fd3c8e7b155b5b6bea85ff
 
 
 ---
@@ -27,7 +27,7 @@ Um ativo da credencial de Automação tem um objeto [PSCredential](http://msdn.m
 > Os ativos protegidos na Automação do Azure incluem credenciais, certificados, conexões e variáveis criptografadas. Esses ativos são criptografados e armazenados na Automação do Azure usando uma chave exclusiva que é gerada para cada conta de automação. Essa chave é criptografada por um certificado mestre e armazenada na Automação do Azure. Antes de armazenar um ativo seguro, a chave para a conta de automação é descriptografada usando o certificado mestre e usada para criptografar o ativo.  
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets do Windows PowerShell
-Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de credenciais de automação com o Windows PowerShell.  Eles são fornecidos como parte do [módulo do Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks e na configuração DSC da Automação.
+Os cmdlets na tabela a seguir são usados para criar e gerenciar ativos de credenciais de automação com o Windows PowerShell.  Eles são fornecidos como parte do [módulo do Azure PowerShell](/powershell/azureps-cmdlets-docs) que está disponível para uso em runbooks e na configuração DSC da Automação.
 
 | Cmdlets | Descrição |
 |:--- |:--- |
@@ -104,6 +104,6 @@ Embora as Configurações DSC na Automação do Azure possam fazer referência a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

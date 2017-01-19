@@ -8,6 +8,7 @@ manager: jhubbard
 editor: v-romcal
 ms.assetid: b50d232a-4225-46ed-91e7-75288f55ee84
 ms.service: sql-database
+ms.custom: secure and protect
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -15,8 +16,8 @@ ms.workload: data-services
 ms.date: 07/10/2016
 ms.author: ronmat; ronitr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 95cfe24cee2ed852662da418cf7c1256007e420e
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: ed606037846bfc28ec95333660e42ac66a18d53d
 
 
 ---
@@ -58,7 +59,7 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
    **Observação:** no Excel 2010 ou posterior, o Power Query e a configuração **Combinação Rápida** são necessários
    
     ![Painel de navegação][7]
-5. Para definir a configuração **Combinação Rápida** na guia da faixa de opções **POWER QUERY**, selecione **Opções** para exibir a caixa de diálogo Opções. Selecione a seção Privacidade e escolha a segunda opção - 'Ignorar os Níveis de Privacidade e melhorar potencialmente o desempenho':
+5. Para definir a configuração **Combinação Rápida**: na guia de faixa de opções **POWER QUERY**, selecione **Opções** para exibir a caixa de diálogo Opções. Selecione a seção Privacidade e escolha a segunda opção - 'Ignorar os Níveis de Privacidade e melhorar potencialmente o desempenho':
    
     ![Painel de navegação][8]
 6. Para carregar os logs de auditoria do SQL, verifique se os parâmetros na guia de configurações estão definidos corretamente e, em seguida, selecione a faixa de opções 'Dados' e clique no botão 'Atualizar Tudo'.
@@ -79,6 +80,6 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

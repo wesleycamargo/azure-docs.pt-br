@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: mikeray
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: f6be1d51f570467e0a7cdc26892a648d7f6ea225
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: a48bc18cb27e163f00cc94be8c6d6c44d57472e6
 
 
 ---
@@ -32,9 +32,8 @@ ms.openlocfilehash: f6be1d51f570467e0a7cdc26892a648d7f6ea225
 
 <br/>
 
-> [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-> 
-> 
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 Este tutorial completo mostra como implementar os grupos de disponibilidade usando o SQL Server AlwaysOn em execução em máquinas virtuais do Azure.
 
@@ -420,6 +419,6 @@ Para obter outras informações sobre como usar o SQL Server no Azure, veja [SQL
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -7,6 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 737d8d13-5632-4e18-9cb0-4d3b8a19e495
 ms.service: sql-database
+ms.custom: elastic
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92a986e9a5ff736408d1221143d38b117eab437f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4b40c4655efc029f7e16653302b606a96c0260a9
 
 
 ---
@@ -31,7 +32,7 @@ As APIs do PowerShell para o recurso **trabalhos de Banco de Dados Elástico** (
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Para obter uma avaliação gratuita, confira [Um mês de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Um conjunto de bancos de dados criados com as ferramentas do Banco de Dados Elástico. Consulte [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
-* PowerShell do Azure. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+* PowerShell do Azure. Para obter informações detalhadas, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 * **trabalhos de Banco de Dados Elástico** : consulte [Installing trabalhos de Banco de Dados Elástico](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selecionar sua assinatura do Azure
@@ -651,6 +652,6 @@ Após um DACPAC ter sido criado no recurso trabalhos de Banco de Dados Elástico
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

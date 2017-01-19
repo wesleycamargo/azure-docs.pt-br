@@ -3,7 +3,7 @@ title: "Dimensionar automaticamente os conjuntos de dimensionamento de máquinas
 description: "Configurar o dimensionamento automático para um conjunto de escala de máquina virtual do Windows usando o Azure PowerShell"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: da6a16f3c76f1029332c764227795852e6902941
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 0e57cba090fa51c2d0d77fd363d560ee0419f92c
 
 
 ---
 # <a name="automatically-scale-machines-in-a-virtual-machine-scale-set"></a>Dimensionar automaticamente máquinas em um conjunto de escala de máquina virtual
 Os conjuntos de escala de máquina virtual facilitam a implantação e o gerenciamento de máquinas virtuais idênticas como um conjunto. Os conjuntos de dimensionamento fornecem uma camada de computação altamente escalonável e personalizável para aplicativos de hiperescala e suporte a imagens da plataforma Windows, imagens da plataforma Linux, imagens personalizadas e extensões. Para obter mais informações sobre conjuntos de dimensionamento, confira [Conjuntos de Dimensionamento de Máquina Virtual](virtual-machine-scale-sets-overview.md).
 
-Este tutorial mostra como criar um conjunto de escala de máquinas virtuais do Windows e dimensionar automaticamente as máquinas no conjunto. Crie o conjunto de escala e defina o dimensionamento criando um modelo do Azure Resource Manager e implantando-o com o uso do Azure PowerShell. Para obter mais informações sobre modelos, confira [Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md). Para saber mais sobre o dimensionamento automático de conjuntos de escala, consulte [Dimensionamento automático e conjuntos de escala de máquina virtual](virtual-machine-scale-sets-autoscale-overview.md).
+Este tutorial mostra como criar um conjunto de escala de máquinas virtuais do Windows e dimensionar automaticamente as máquinas no conjunto. Crie o conjunto de escala e defina o dimensionamento criando um modelo do Azure Resource Manager e implantando-o com o uso do Azure PowerShell. Para obter mais informações sobre modelos, confira [Criação de modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md). Para saber mais sobre o dimensionamento automático de conjuntos de escala, consulte [Dimensionamento automático e conjuntos de escala de máquina virtual](virtual-machine-scale-sets-autoscale-overview.md).
 
 Neste artigo, você pode implantar os seguintes recursos e extensões:
 
@@ -38,10 +38,10 @@ Neste artigo, você pode implantar os seguintes recursos e extensões:
 * Microsoft.Insights.VMDiagnosticsSettings
 * Microsoft.Insights/autoscaleSettings
 
-Para obter mais informações sobre os recursos do Resource Manager, consulte [Azure Resource Manager versus implantação clássica](../resource-manager-deployment-model.md).
+Para obter mais informações sobre os recursos do Resource Manager, consulte [Azure Resource Manager versus implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="step-1-install-azure-powershell"></a>Etapa 1: instalar o PowerShell do Azure
-Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar no Azure.
+Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar no Azure.
 
 ## <a name="step-2-create-a-resource-group-and-a-storage-account"></a>Etapa 2: Criar um grupo de recursos e uma conta de armazenamento
 1. **Criar um grupo de recursos** – Todos os recursos devem ser implantados em um grupo de recursos. Use [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx) para criar um grupo de recursos chamado **vmsstestrg1**.
@@ -517,6 +517,6 @@ Se você quiser manter seu grupo de recursos, pode excluir somente o conjunto de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

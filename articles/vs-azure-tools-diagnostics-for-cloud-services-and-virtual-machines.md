@@ -67,6 +67,8 @@ Se você estiver atualizando seu projeto do SDK do Azure 2.4 para o SDK do Azure
 ## <a name="enable-diagnostics-in-cloud-service-projects-before-deploying-them"></a>Habilitar o diagnóstico em projetos de serviço de nuvem antes de implantá-los
 No Visual Studio, você pode escolher coletar dados de diagnóstico para funções executadas no Azure, quando executa o serviço no emulador antes de implantá-lo. Todas as alterações às configurações de diagnóstico no Visual Studio são salvas no arquivo de configuração diagnostics.wadcfgx. Essas definições de configurações especificam a conta de armazenamento na qual os dados de diagnóstico são salvos quando você implanta seu serviço de nuvem.
 
+[!INCLUDE [cloud-services-wad-warning](../includes/cloud-services-wad-warning.md)]
+
 ### <a name="to-enable-diagnostics-in-visual-studio-before-deployment"></a>Para habilitar o diagnóstico no Visual Studio antes da implantação
 1. No menu de atalho da função que lhe interessa, escolha **Propriedades** e, em seguida, escolha a guia **Configuração** na janela **Propriedades** da função.
 2. Na seção **Diagnóstico**, verifique se a caixa de seleção **Habilitar Diagnóstico** está marcada.
@@ -254,7 +256,7 @@ Se você estiver investigando um problema com um serviço de nuvem que já está
 ## <a name="troubleshoot-azure-cloud-service-issues"></a>Solucionar problemas do serviço de nuvem do Azure
 Se você tiver problemas com seus projetos de serviço de nuvem, como uma função travar no status "ocupado", repetidamente recicla ou lança um erro interno do servidor, existem ferramentas e técnicas que você pode usar para diagnosticar e corrigir esses problemas. Para obter exemplos específicos de problemas e soluções comuns, bem como uma visão geral dos conceitos e ferramentas usadas para diagnosticar e corrigir esses erros, consulte [Dados de diagnóstico de computação de PaaS do Azure](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
-## <a name="q-a"></a>Perguntas e respostas
+## <a name="q--a"></a>Perguntas e respostas
 **Qual é o tamanho do buffer e que tamanho o buffer deve ter?**
 
 Em cada instância de máquina virtual, as cotas limitam quantos dados de diagnóstico podem ser armazenados no sistema de arquivos local. Além disso, você pode especificar um tamanho do buffer para cada tipo de dados de diagnóstico disponíveis. Esse tamanho do buffer age como uma cota individual para esse tipo de dados. Verificando a parte inferior da caixa de diálogo, você pode determinar a cota geral e a quantidade de memória que permanece. Se você especificar buffers maiores ou mais tipos de dados, abordará a cota geral. Você pode alterar a cota geral modificando o arquivo de configuração diagnostics.wadcfg/.wadcfgx. Os dados de diagnóstico são armazenados no mesmo sistema de arquivos como os dados do seu aplicativo. Portanto, se seu aplicativo usa muito espaço em disco, você não deve aumentar a cota de diagnóstico geral.

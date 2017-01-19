@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 07/12/2016
 ms.author: MikeRayMSFT
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: ce5e8e5c2cc5014f45b9b3a5e5fd6eb07d361feb
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: b8fb24fe281dbaf1df3e5a55c0fbd9414bfbf8bc
 
 
 ---
@@ -32,7 +32,8 @@ Este tutorial pressupõe que você tenha o seguinte:
 * Um grupo de disponibilidade AlwaysOn local existente. Para obter mais informações sobre os grupos de disponibilidade, consulte [Grupos de disponibilidade AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 * Conectividade entre a rede local e sua rede virtual do Azure. Para obter mais informações sobre como criar essa rede virtual, consulte [Configurar um VPN site a site no portal clássico do Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ## <a name="add-azure-replica-wizard"></a>Assistente de adição de réplica do Azure
 Esta seção mostra como usar o **Assistente de Adição de Réplica do Azure** para estender sua solução do grupo de disponibilidade AlwaysOn para incluir réplicas do Azure.
@@ -93,6 +94,6 @@ Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

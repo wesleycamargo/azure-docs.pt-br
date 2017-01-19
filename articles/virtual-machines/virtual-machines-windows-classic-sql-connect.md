@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 91466cb10fc680dc289c73930c3f69e4ea8e9533
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 0221bdb095ec7d999fe002a23584c9dbbc1e8475
 
 
 ---
@@ -30,9 +30,8 @@ ms.openlocfilehash: 91466cb10fc680dc289c73930c3f69e4ea8e9533
 ## <a name="overview"></a>Visão geral
 Este tópico descreve como se conectar à instância do SQL Server em execução em uma máquina virtual do Azure. Ele aborda alguns [cenários gerais de conectividade](#connection-scenarios) e descreve [etapas detalhadas para configurar a conectividade com o SQL Server em uma VM do Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Se você estiver usando VMs do Resource Manager, veja [Conectar-se a uma máquina virtual do SQL Server no Azure usando o Resource Manager](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Se você estiver usando VMs do Resource Manager, veja [Conectar-se a uma máquina virtual do SQL Server no Azure usando o Resource Manager](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="connection-scenarios"></a>Cenários de conexão
 A maneira como um cliente se conecta ao SQL Server em execução em uma máquina virtual varia dependendo do local do cliente e da configuração da máquina/rede. Esses cenários incluem:
@@ -113,6 +112,6 @@ Para outros tópicos relacionados à execução do SQL Server em VMs do Azure, c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/18/2016
+ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
-ms.openlocfilehash: 2000ee9d88dc0f2f0f9046b1ef6b3d2a104e7d6b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 562e20d274079d221360d45302ff288190c1cd6e
 
 
 ---
@@ -34,7 +34,7 @@ Neste artigo, você aprenderá a:
 
 > [!NOTE]
 > * Os cmdlets do Windows PowerShell para StorSimple permitem gerenciar seu dispositivo StorSimple por um console serial ou remotamente por meio de comunicação remota do Windows PowerShell. Para obter mais informações sobre cada um dos cmdlets individuais que podem ser usados nessa interface, vá para [referência de cmdlets do Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
-> * Os cmdlets do Azure PowerShell StorSimple são um conjunto diferente de cmdlets que permite automatizar tarefas de nível de serviço e migração do StorSimple a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, vá para [referência do cmdlet do Azure StorSimple](https://msdn.microsoft.com/library/azure/dn920427.aspx).
+> * Os cmdlets do Azure PowerShell StorSimple são um conjunto diferente de cmdlets que permite automatizar tarefas de nível de serviço e migração do StorSimple a partir da linha de comando. Para obter mais informações sobre os cmdlets Azure PowerShell para StorSimple, vá para [referência do cmdlet do Azure StorSimple](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
 > 
 > 
 
@@ -144,7 +144,7 @@ A tabela a seguir mostra um resumo de todas as tarefas comuns de gerenciamento e
 | Instalar atualizações e hotfixes no modo de manutenção |[Atualizar seu dispositivo](storsimple-update-device.md) |
 | Entrar no modo de manutenção  </br> Sair do modo de manutenção |[Modos de dispositivo StorSimple](storsimple-device-modes.md) |
 | Criar um pacote de Suporte</br>Descriptografar e editar um pacote de suporte |[Criar e gerenciar pacotes de suporte](storsimple-create-manage-support-package.md) |
-| Iniciar uma sessão de suporte</br> |[Iniciar uma sessão de suporte no Windows PowerShell para StorSimple](/storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
+| Iniciar uma sessão de suporte</br> |[Iniciar uma sessão de suporte no Windows PowerShell para StorSimple](storsimple-create-manage-support-package.md#manually-create-a-support-package) |
 
 ## <a name="get-help-in-windows-powershell-for-storsimple"></a>Obter ajuda no Windows PowerShell para StorSimple
 No Windows PowerShell para StorSimple, a Ajuda de cmdlet está disponível. Uma versão atualizada online da Ajuda também está disponível, a qual pode ser usada para atualizar a Ajuda em seu sistema.
@@ -178,6 +178,6 @@ Se você tiver problemas com seu dispositivo StorSimple ao executar um dos fluxo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

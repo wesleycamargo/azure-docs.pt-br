@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: a6b72b96c241e3d459abad0d3986f2d757cf1752
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fe82db80f0efc02809bbd898e990860c7bcce8da
 
 ---
 
@@ -32,7 +32,7 @@ Este artigo explica o processo de criação de registros e conjuntos de registro
 
 ## <a name="verify-that-you-have-the-latest-version-of-powershell"></a>Verifique se você tem a última versão do PowerShell
 
-Verifique se você instalou a última versão dos cmdlets do PowerShell do Azure Resource Manager. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
+Verifique se você instalou a última versão dos cmdlets do PowerShell do Azure Resource Manager. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell.
 
 ## <a name="create-a-record-set-and-record"></a>Criar registro e um conjunto de registros
 
@@ -154,6 +154,6 @@ Os exemplos a seguir mostram como criar um conjunto de registros de cada tipo de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

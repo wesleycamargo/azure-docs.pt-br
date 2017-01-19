@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 11/14/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: f556fd0318accc19f0fa56fa7f2a8716ee6f1c02
-ms.openlocfilehash: 74925fe82d7f05799b7e850eb2807a7d4d7197a1
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 127df4a8f4c4031d40b8136b35237f48bfb527d3
 
 
 ---
 # <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>Como desanexar um disco de uma máquina virtual Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
@@ -35,6 +36,6 @@ Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
