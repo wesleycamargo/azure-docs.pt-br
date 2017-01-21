@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/07/2016
+ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: a31a1b7909ea7440780c9a7af4cb908c9aa6a449
-ms.openlocfilehash: 5557dbef45d8599010a909635eebf399a5bcd2c8
+ms.sourcegitcommit: 36e0a52013b8d12c7e66c5955756a61a2c72b7dc
+ms.openlocfilehash: c3507aed3cc44d6360b8ba3ddf172e1437c1227a
 
 
 ---
@@ -72,7 +72,7 @@ Os controles de acesso do plano de gerenciamento e do plano e dados funcionam de
 O plano de gerenciamento consiste em operações que afetam o cofre de chaves em si. Por exemplo, você pode criar ou excluir um cofre de chaves. Você pode obter uma lista de cofres em uma assinatura. Você pode recuperar as propriedades do cofre de chaves (como SKU e marcas) e definir políticas de acesso de cofre de chaves que controlam os usuários e os aplicativos que podem acessar chaves e segredos no cofre de chaves. O controle de acesso do plano de gerenciamento usa RBAC. Confira a lista completa das operações do cofre de chaves que podem ser executadas por meio do plano de gerenciamento na tabela da seção anterior. 
 
 ### <a name="role-based-access-control-rbac"></a>RBAC (Controle de Acesso Baseado em Função)
-Cada assinatura do Azure tem um Azure Active Directory. Os usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure que usam o modelo de implantação do Azure Resource Manager. Esse tipo de controle de acesso é chamado de RBAC (Controle de Acesso Baseado em função). Para gerenciar esse acesso, é possível usar o [Portal do Azure](https://portal.azure.com/), as [ferramentas da CLI do Azure](../xplat-cli-install.md), o [PowerShell](../powershell-install-configure.md) ou as [APIs REST do Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Cada assinatura do Azure tem um Azure Active Directory. Os usuários, grupos e aplicativos desse diretório podem receber acesso para gerenciar recursos na assinatura do Azure que usam o modelo de implantação do Azure Resource Manager. Esse tipo de controle de acesso é chamado de RBAC (Controle de Acesso Baseado em função). Para gerenciar esse acesso, é possível usar o [Portal do Azure](https://portal.azure.com/), as [ferramentas da CLI do Azure](../xplat-cli-install.md), o [PowerShell](/powershell/azureps-cmdlets-docs) ou as [APIs REST do Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Com o modelo do Azure Resource Manager, você pode criar o cofre de chaves em um grupo de recursos e controlar o acesso do plano de gerenciamento ao cofre de chaves usando o Azure Active Directory. Por exemplo, você pode conceder a usuários ou a um grupo a capacidade de gerenciar cofres de chaves em um grupo de recursos específico.
 
@@ -89,7 +89,7 @@ O plano de dados de cofre de chaves consiste em operações que afetam os objeto
 O acesso do dados do plano é concedido definindo políticas de acesso para um cofre de chaves. Um usuário, grupo ou aplicativo deve ter permissões de Colaborador (RBAC) para o plano de gerenciamento para um cofre de chaves para poder definir políticas de acesso para esse cofre de chaves. Um usuário, grupo ou aplicativo pode receber acesso para executar operações específicas para chaves ou segredos em um cofre de chaves. o cofre de chaves dá suporte a até 16 entradas de política de acesso para um cofre de chaves. Crie um grupo de segurança do Azure Active Directory e adicione usuários a esse grupo para conceder acesso do plano de dados para vários usuários em um cofre de chaves.
 
 ### <a name="key-vault-access-policies"></a>Políticas de Acesso de cofre de chaves
-as políticas de acesso de cofre de chaves concedem permissões para chaves, segredos e certificados separadamente. Por exemplo, você pode dar a um usuário acesso apenas a chaves, mas nenhuma permissão para segredos. No entanto, as permissões para acessar chaves, segredos ou certificados estão no nível de cofre. Em outras palavras, a política de acesso de cofre de chaves não dá suporte a permissões em nível de objeto. Você pode usar o [portal do Azure](https://portal.azure.com/), as [Ferramentas de CLI do Azure](../xplat-cli-install.md), o [PowerShell](../powershell-install-configure.md) ou as [APIs REST de Gerenciamento de cofre de chaves](https://msdn.microsoft.com/library/azure/mt620024.aspx) para definir políticas de acesso para um cofre de chaves.
+as políticas de acesso de cofre de chaves concedem permissões para chaves, segredos e certificados separadamente. Por exemplo, você pode dar a um usuário acesso apenas a chaves, mas nenhuma permissão para segredos. No entanto, as permissões para acessar chaves, segredos ou certificados estão no nível de cofre. Em outras palavras, a política de acesso de cofre de chaves não dá suporte a permissões em nível de objeto. Você pode usar o [portal do Azure](https://portal.azure.com/), as [Ferramentas de CLI do Azure](../xplat-cli-install.md), o [PowerShell](/powershell/azureps-cmdlets-docs) ou as [APIs REST de Gerenciamento de cofre de chaves](https://msdn.microsoft.com/library/azure/mt620024.aspx) para definir políticas de acesso para um cofre de chaves.
 
 > [!IMPORTANT]
 > Observe que as políticas de acesso de cofre de chaves se aplicam no nível de cofre. Por exemplo, quando uma usuária tem permissão para criar e excluir chaves, ela pode executar essas operações em todas as chaves no cofre de chaves.
@@ -233,7 +233,7 @@ Este exemplo ilustra um cenário simples. Cenários da vida real podem ser mais 
   Link para a documentação de referência de API REST do cofre de chaves.
 * [Controle de acesso a chave](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
   
-  Vincular à documentação de referência de controle de acesso de Chave.
+  Vincular à documentação de referência de controle de acesso de Segredo.
 * [Controle de acesso a segredo](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Vincular à documentação de referência de controle de acesso de Chave.
@@ -253,6 +253,6 @@ Se você tiver dúvidas sobre o cofre de chaves, acesse os [Fóruns do cofre de 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

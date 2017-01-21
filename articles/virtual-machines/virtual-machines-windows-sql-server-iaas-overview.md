@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 12/01/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: d5169c25d09966ca72ee49ca995a8453ad764177
-ms.openlocfilehash: 0e136d81ee3dbe57785d136755d3e800041aca1f
+ms.sourcegitcommit: 8368622c5b531cc2a4fe97359d40d95d7b4a2e90
+ms.openlocfilehash: 75b762d25910c402f475cc54a46c3c4c5839a11f
 
 
 ---
@@ -92,7 +92,7 @@ Também é possível usar sua própria licença (BYOL). Nesse cenário, você pa
 Além dessa lista, outras combinações de sistemas operacionais e versões do SQL Server estão disponíveis. Localize outras imagens por meio de uma pesquisa de mercado no portal do Azure (pesquise "{BYOL} SQL Server").
 
 > [!IMPORTANT]
-> Para usar as imagens da VM BYOL, você deve ter o Enterprise Agreement com [License Mobility por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Também é necessário uma licença válida para a versão/edição do SQL Server que você deseja usar. Você deve [fornecer as informações necessárias do BYOL à Microsoft](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) em **10** dias de provisionamento da VM.
+> Para usar as imagens da VM BYOL, você deve ter um Enterprise Agreement com [License Mobility por meio do Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Também é necessário uma licença válida para a versão/edição do SQL Server que você deseja usar. Você deve [fornecer as informações necessárias do BYOL à Microsoft](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) em **10** dias de provisionamento da VM.
 > 
 
 > [!NOTE]
@@ -133,6 +133,6 @@ Mais perguntas? Primeiro, consulte as [Perguntas Frequentes sobre o SQL Server n
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

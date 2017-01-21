@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: babanisa,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
-ms.openlocfilehash: 4329e0f99828f5a0651e6b03be0813d9e68debaa
+ms.sourcegitcommit: 14a5c029eef714134079b960109e58d821d0a609
+ms.openlocfilehash: 34b54d54b20d9aec69486c5ef98c97beee21bd94
 
 
 ---
@@ -40,7 +40,7 @@ Conexões Híbridas e Retransmissões de WCF habilitam conexão segura para ativ
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
-| **.NET Framework** |x |
+| **.NET Framework** |x |x |
 | **JavaScript/NodeJS*** | |x |
 | **Java*** | |x |
 | **Protocolo Aberto Baseado em Padrões** | |x |
@@ -55,7 +55,7 @@ A funcionalidade de [Conexões Híbridas de Retransmissão do Azure](relay-hybri
 A Retransmissão de WCF funciona para o todo o .NET Framework (NETFX) e o WCF. Você inicia a conexão entre o serviço local e o serviço de retransmissão usando um conjunto de associações de "retransmissão" WCF. Nos bastidores, as associações de retransmissão são mapeadas para novos elementos de ligação de transporte projetados para criar componentes de canal WCF que são integrados ao Barramento de Serviço na nuvem.
 
 ## <a name="service-history"></a>Histórico de serviço
-Conexões Híbridas suplantam primeiro recurso, denominado igualmente de "Serviços BizTalk", que foi criado na Retransmissão de WCF do Barramento de Serviço do Azure. A nova capacidade Conexões Híbridas complementa a Retransmissão de WCF existente e essas duas capacidades de serviços existirão lado a lado no serviço de Retransmissão no futuro; elas compartilham um gateway em comum, mas são, em outros aspectos, implementações diferentes.
+As Conexões Híbridas suplantam primeiro recurso, também denominado "Serviços BizTalk", que foi criado na Retransmissão de WCF do Barramento de Serviço do Azure. A nova capacidade Conexões Híbridas complementa o recurso Retransmissão de WCF existente e essas duas capacidades de serviços existirão lado a lado no serviço de Retransmissão no futuro. Eles compartilham um gateway comum, mas têm implementações diferentes.
 
 ## <a name="next-steps"></a>Próximas etapas:
 * [Perguntas frequentes sobre retransmissão](relay-faq.md)
@@ -66,6 +66,6 @@ Conexões Híbridas suplantam primeiro recurso, denominado igualmente de "Servi�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

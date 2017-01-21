@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a4882b6fcd75ecaa826cdda3e25ee690b85a0670
-ms.openlocfilehash: 34450e25941e0be97b72c1ba30ee348d73f4bc67
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Conectar a um cluster do Serviço de Contêiner do Azure
 Todos os clusters DC/OS, Kubernetes e Docker Swarm implantados pelo Serviço de Contêiner do Azure expõem os pontos de extremidade REST.  Para Kubernetes, esse ponto de extremidade é exposto de maneira segura na internet e você pode acessá-lo diretamente de qualquer computador conectado à Internet. Para DC/OS e Docker Swarm, você deve criar um túnel SSH para se conectar com segurança para o ponto de extremidade REST. Cada uma dessas conexões é descrita abaixo.
+
+> [!NOTE]
+> O suporte a Kubernetes no Serviço de Contêiner do Azure está atualmente em visualização.
+>
 
 ## <a name="connecting-to-a-kubernetes-cluster"></a>Conectando a um cluster Kubernetes.
 Para se conectar a um cluster Kubernetes, você precisa ter a ferramenta de linha de comando `kubectl` instalada.  A maneira mais fácil de instalar essa ferramenta é usar a ferramenta de linha de comando `az` do Azure 2.0.
@@ -51,13 +55,19 @@ scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 
 Se você estiver usando o Windows, você precisará usar Bash no Ubuntu no Windows ou a ferramenta Putty 'pscp'.
 
-Uma vez que `kubectl` estiver configurado, você poderá testar isso com:
+Uma vez que `kubectl` estiver configurado, você poderá testar isso listando os nós no cluster:
 
 ```console
 kubectl get nodes
 ```
 
-o qual deve mostrar a você os nós no cluster.
+Finalmente, você pode exibir o Painel do Kubernetes. Primeiro, execute:
+
+```console
+kubectl proxy
+```
+
+A interface do usuário do Kubernetes agora está disponível em: http://localhost:8001/ui
 
 Para obter mais instruções, você poderá ver o [início rápido do Kubernetes](http://kubernetes.io/docs/user-guide/quick-start/)
 
@@ -166,6 +176,6 @@ Implantar e gerenciar contêineres com DC/SO ou Swarm:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 
