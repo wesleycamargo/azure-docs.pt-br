@@ -1,3 +1,4 @@
+
 ---
 title: Perguntas frequentes do Backup do Azure | Microsoft Docs
 description: "Respostas para perguntas frequentes sobre o serviço de backup, o agente de backup, o backup e a retenção, a recuperação, a segurança e outras perguntas comuns sobre backup e recuperação de desastre."
@@ -16,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: be06f1eca1848ff6d00661cfc1166797649a98a4
-ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
+ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
+ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
 
 
 ---
@@ -33,6 +34,7 @@ O Backup do Azure dá suporte à seguinte lista de sistemas operacionais para ba
 | Windows 7 e SPs mais recentes |64 bits |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 e SPs mais recentes |64 bits |Enterprise, Pro |
 | Windows 10 |64 bits |Enterprise, Pro, Home |
+| Windows Server 2016 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 e SPs mais recentes |64 bits |Standard, Datacenter, Foundation |
 | Windows Server 2012 e SPs mais recentes |64 bits |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 e SPs mais recentes |64 bits |Standard, Workgroup |
@@ -172,7 +174,7 @@ Sim. Usando o DPM, você pode especificar o agendamento diário, semanal, mensal
 ## <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-ie-on-windows-server-without-dpmbr"></a>Há alguma diferença entre a política de retenção do DPM e do Windows Server/cliente Windows (ou seja, no Windows Server sem o DPM)?<br/>
 Não, o DPM e o Windows Server/cliente Windows têm políticas de retenção diárias, semanais, mensais e anuais.
 
-## <a name="can-i-configure-my-retention-policies-selectively-ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Posso configurar minhas políticas de retenção de forma seletiva – ou seja, configurar semanal e diária, mas não anual e mensal?<br/>
+## <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Posso configurar minhas políticas de retenção de forma seletiva – ou seja, configurar semanal e diária, mas não anual e mensal?<br/>
 Sim, a estrutura de retenção de Backup do Azure permite que você tenha total flexibilidade na definição da política de retenção de acordo com suas necessidades.
 
 ## <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Posso “agendar um backup” às 18h e especificar “políticas de retenção” em um momento diferente?<br/>
@@ -275,6 +277,6 @@ Os pontos de recuperação de VM em um cofre de backup não migrarão automatica
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
