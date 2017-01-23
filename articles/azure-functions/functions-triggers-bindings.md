@@ -14,20 +14,26 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/08/2016
+ms.date: 11/30/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: d809636cae48dd0ccca4c99370f41996430d89e4
-ms.openlocfilehash: b5d8d38f03514d89bf6c0b5e36adf0379f1bef1a
+ms.sourcegitcommit: ee24bcff625c5ea28dbf3cbc5332078721544ddc
+ms.openlocfilehash: ef6f3de0da6e051826bcb9bf4a6ebaa78fbaac7c
 
 
 ---
+
 # <a name="azure-functions-triggers-and-bindings-developer-reference"></a>Referências de gatilhos e de bindings do Azure Functions para desenvolvedores
 Este tópico fornece referência geral para associações e gatilhos. Ele inclui alguns dos recursos de associação avançada e sintaxe com suporte por todos os tipos de associação.  
 
-Se você estiver procurando por informações detalhadas sobre configuração e codificação de um tipo específico de associação ou gatilho, talvez queira clicar em um dos gatilhos ou associações listadas abaixo:
+Para obter informações detalhadas sobre como trabalhar com um tipo específico de associação ou gatilho, consulte um dos seguintes tópicos de referência:
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+| | | | |  
+| --- | --- | --- | --- |  
+| [HTTP/webhook](functions-bindings-http-webhook.md) | [Timer](functions-bindings-timer.md) | [Aplicativos Móveis](functions-bindings-mobile-apps.md) | [Barramento de Serviço](functions-bindings-service-bus.md)  |  
+| [DocumentDB](functions-bindings-documentdb.md) |  [Armazenamento de Blobs](functions-bindings-storage-blob.md) | [Storage Queue](functions-bindings-storage-queue.md) |  [Tabela de Armazenamento](functions-bindings-storage-table.md) |  
+| [Hubs de Evento](functions-bindings-event-hubs.md) | [Hubs de Notificação](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
+| | | | |  
 
 Este artigos pressupõem que você já tenha lido a [referência do desenvolvedor do Azure Functions](functions-reference.md) e os artigos de referência do [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) ou [Node.js](functions-reference-node.md) para desenvolvedores.
 
@@ -61,7 +67,7 @@ Uma associação de gatilho de fila contém essas informações para uma funçã
 }
 ```
 
-Seu código pode enviar diferentes tipos de saída, dependendo de como o novo item de fila é processado. Por exemplo, talvez você queira gravar um novo registro em uma tabela de armazenamento do Azure.  Para fazer isso, você pode configurar uma associação de saída para uma tabela de armazenamento do Azure. Aqui está um exemplo *function.json* que inclui uma associação de saída de tabela de armazenamento que pode ser usada com um gatilho de fila. 
+Seu código pode enviar diferentes tipos de saída, dependendo de como o novo item de fila é processado. Por exemplo, talvez você queira gravar um novo registro em uma tabela de armazenamento do Azure.  Para fazer isso, você pode criar uma associação de saída para uma tabela do Armazenamento do Azure. Aqui está um exemplo *function.json* que inclui uma associação de saída de tabela de armazenamento que pode ser usada com um gatilho de fila. 
 
 ```json
 {
@@ -125,7 +131,7 @@ Para obter mais exemplos de código e informações mais específicas sobre os t
 Para usar os recursos mais avançados de associação no portal do Azure, clique na opção **Editor avançado** na guia **Integrar** da sua função. O editor avançado permite que você edite o *function.json* diretamente no portal.
 
 ## <a name="random-guids"></a>GUIDs aleatórios
-O Azure Functions fornece uma sintaxe para gerar GUIDs aleatórios com suas associações. A seguinte sintaxe de associação gravará a saída para um novo BLOB com um nome exclusivo em um contêiner de armazenamento do Azure: 
+O Azure Functions fornece uma sintaxe para gerar GUIDs aleatórios com suas associações. A seguinte sintaxe de associação grava a saída para um novo BLOB com um nome exclusivo em um contêiner de Armazenamento: 
 
 ```json
 {
@@ -182,7 +188,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 ```
 
 
-Essa mesma abordagem é demonstrada abaixo com Node.js.
+Essa mesma abordagem é demonstrada a seguir com o Node.js:
 
 ```javascript
 module.exports = function (context, input) {
@@ -192,7 +198,7 @@ module.exports = function (context, input) {
 }
 ```
 
-Exemplo de F# fornecido abaixo.
+Este é um exemplo de F#:
 
 ```fsharp
 let Run(input: WorkItem, log: TraceWriter) =
@@ -256,7 +262,7 @@ Talvez você queira enviar uma mensagem de texto SMS ao cliente usando sua conta
 },
 ```
 
-Agora o código de função só precisa inicializar o parâmetro de saída da seguinte maneira. Durante a execução, as propriedades de saída serão vinculadas aos dados de entrada desejados.
+Agora o código de função só precisa inicializar o parâmetro de saída da seguinte maneira. Durante a execução, as propriedades de saída são associadas aos dados de entrada desejados.
 
 ```cs
 #r "Newtonsoft.Json"
@@ -305,7 +311,7 @@ module.exports = function (context, myNewOrderItem) {
 O padrão de associação de entrada e saída com a *function.json* é chamado associação [*declarativa*](https://en.wikipedia.org/wiki/Declarative_programming), em que a associação é definida pela declaração do JSON. No entanto, é possível usar a associação [obrigatória](https://en.wikipedia.org/wiki/Imperative_programming). Com esse padrão, associe a qualquer número de associações de entrada e saída com suporte imediatamente no código da função.
 Talvez você precise da associação obrigatória em casos em que o cálculo do caminho de associação ou de outras entradas precise ocorrer em tempo de execução na função, em vez de em tempo de design. 
 
-Para realizar a associação obrigatória, faça o seguinte:
+Defina uma associação obrigatória da seguinte maneira:
 
 - **Não** inclua uma entrada em *function.json* para as associações obrigatórias desejadas.
 - Passe um parâmetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) ou [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
@@ -316,7 +322,7 @@ Para realizar a associação obrigatória, faça o seguinte:
                 ...
         }
 
-em que `BindingTypeAttribute` é o atributo do .NET que define a associação e `T` é o tipo de entrada ou saída com suporte nesse tipo de associação. `T` também não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela dos Aplicativos Móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
+    em que `BindingTypeAttribute` é o atributo do .NET que define a associação e `T` é o tipo de entrada ou saída com suporte nesse tipo de associação. `T` também não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela dos Aplicativos Móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
     
 O código de exemplo a seguir cria uma [associação de saída do Armazenamento de Blobs](functions-bindings-storage-blob.md#storage-blob-output-binding) com o caminho do blob definido em tempo de execução e grava uma cadeia de caracteres no blob.
 
@@ -352,6 +358,7 @@ No estado em que se encontra, o código obtém a configuração de aplicativo pa
 
 A tabela a seguir mostra o atributo do .NET correspondente a ser usado para cada tipo de associação e a qual pacote será feita a referência.
 
+> [!div class="mx-codeBreakAll"]
 | Associação | Atributo | Adicionar referência |
 |------|------|------|
 | DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
@@ -362,7 +369,7 @@ A tabela a seguir mostra o atributo do .NET correspondente a ser usado para cada
 | Fila de armazenamento | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Armazenamento de blobs | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Tabela de armazenamento | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions"` |
+| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
 
 
@@ -375,6 +382,6 @@ Para saber mais, consulte os recursos a seguir:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

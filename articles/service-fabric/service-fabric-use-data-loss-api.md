@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/19/2016
 ms.author: lemai
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3cef3af0662ae12c301c6bca76bae05a61ce67e1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8771556954be77543b0eaa21b7201f93ffa0ed70
 
 
 ---
@@ -44,12 +44,12 @@ Para iniciar um comando, chame a API "Start" da API correspondente.  Essa API re
 
 1. Que seja concluído com êxito.  Se você chamar "GetProgress" dentro dele nesse caso, o estado do objeto de progresso será concluído.
 2. Que ele encontre um erro fatal.  Se você chamar "GetProgress" dentro dele nesse caso, a State do objeto de progresso será Faulted
-3. Você o cancela por meio da API [CancelTestCommandAsync][cancel] ou do cmdlet do PowerShell [Stop-ServiceFabricTestCommand][cancelps].  Se você chamar "GetProgress" dentro dele nesse caso, a State do objeto de progresso será Cancelled ou ForceCancelled, dependendo de um argumento para essa API.  Confira mais detalhes na documentação de [CancelTestCommandAsync][cancel].
+3. Você o cancela por meio da API [CancelTestCommandAsync][cancel] ou do cmdlet [Stop-ServiceFabricTestCommand][cancelps] do PowerShell.  Se você chamar "GetProgress" dentro dele nesse caso, a State do objeto de progresso será Cancelled ou ForceCancelled, dependendo de um argumento para essa API.  Confira a documentação de [CancelTestCommandAsync][cancel] para obter mais detalhes.
 
 ## <a name="details-of-running-a-command"></a>Detalhes da execução de um comando
 Para iniciar um comando, chame a API Start com os argumentos esperados.  Todas as APIs Start têm um argumento GUID chamado operationId.  É preciso controlar o argumento operationId, uma vez que ele é usado para rastrear o progresso desse comando.  Ele deve ser passado para a API "GetProgress" para rastrear o progresso do comando.  A operationId deve ser exclusiva.
 
-Depois de chamar a API Start com êxito, a API GetProgress deverá ser chamada em um loop até que a propriedade State do objeto de progresso seja Completed.  Todas as [FabricTransientException][fte] e OperationCanceledException devem ser recuperadas.
+Depois de chamar a API Start com êxito, a API GetProgress deverá ser chamada em um loop até que a propriedade State do objeto de progresso seja Completed.  Todas as [FabricTransientException’s][fte] e OperationCanceledException’s devem ser recuperadas.
 Quando o comando tiver atingido um estado terminal (Completed, Faulted ou Cancelled), a propriedade Result do objeto de progresso retornado terá informações adicionais.  Se o estado for Completed, Result.SelectedPartition.PartitionId conterá a id da partição que foi selecionada.  Result.Exception será nulo.  Se o estado for Faulted, Result.Exception apresentará o motivo pelo qual o comando do Serviço de Análise e Injeção de Falha falhou.  Result.SelectedPartition.PartitionId terá a id da partição que foi selecionada.  Em algumas situações, o comando pode não ser executado o suficiente para escolher uma partição.  Nesse caso, PartitionId será 0.  Se o estado for Cancelled, Result.Exception será nulo.  Assim como no caso de Faulted, Result.SelectedPartition.PartitionId terá a id da partição que foi escolhida, mas se o comando não tiver prosseguido o suficiente para isso, será 0.  Veja também o exemplo abaixo.
 
 O código de exemplo abaixo mostra como iniciar e depois verificar o progresso em um comando para causar a perda de dados em uma partição específica.
@@ -237,6 +237,6 @@ Depois que um comando tiver atingido um estado terminal, seus metadados permanec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

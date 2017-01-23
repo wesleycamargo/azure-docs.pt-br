@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e1075e73a67130453701842f3b328484a327f5ec
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4c6dac8b1c5968995de12e678434e158045d5cc6
 
 
 ---
@@ -48,17 +48,17 @@ Você pode configurar o parâmetro definido na etapa de inicialização de model
 ![Árvore de decisão aumentada de duas classes, intervalo de parâmetros](./media/machine-learning-algorithm-parameters-optimize/fig3.png)
 
 ## <a name="define-cross-validation-folds"></a>Definir dobras de validação cruzada
-O módulo [Partição e Exemplo][partition-and-sample] pode ser usado para atribuir aleatoriamente dobras aos dados. No exemplo de configuração a seguir para o módulo, definimos cinco dobras e atribuímos aleatoriamente um número de dobras para as instâncias de amostra.
+O módulo [Partição e Exemplo][partition-and-sample] pode ser usado para atribuir dobras aos dados aleatoriamente. No exemplo de configuração a seguir para o módulo, definimos cinco dobras e atribuímos aleatoriamente um número de dobras para as instâncias de amostra.
 
 ![Partição e exemplo](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
 ## <a name="define-the-metric"></a>Definir a métrica
-O módulo [Ajustar hiperparâmetros do modelo][tune-model-hyperparameters] dá suporte à escolha empírica do melhor conjunto de parâmetros para um determinado algoritmo e conjunto de dados. Além de outras informações sobre o treinamento do modelo, o painel **Propriedades** deste módulo inclui a métrica para determinar o melhor conjunto de parâmetros. Ele tem duas caixas de listagem suspensas diferentes para algoritmos de classificação e regressão, respectivamente. Se o algoritmo em questão for de classificação, a métrica de regressão será ignorada e vice-versa. Neste exemplo específico, a métrica é **Precisão**.   
+O módulo [Ajustar Hiperparâmetros do Modelo][tune-model-hyperparameters] dá suporte à escolha empírica do melhor conjunto de parâmetros para um determinado algoritmo e conjunto de dados. Além de outras informações sobre o treinamento do modelo, o painel **Propriedades** deste módulo inclui a métrica para determinar o melhor conjunto de parâmetros. Ele tem duas caixas de listagem suspensas diferentes para algoritmos de classificação e regressão, respectivamente. Se o algoritmo em questão for de classificação, a métrica de regressão será ignorada e vice-versa. Neste exemplo específico, a métrica é **Precisão**.   
 
 ![Parâmetros de limpeza](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
 ## <a name="train-evaluate-and-compare"></a>Treinar, avaliar e comparar
-O mesmo módulo [Ajustar hiperparâmetros de modelo][tune-model-hyperparameters] treina todos os modelos que correspondem ao conjunto de parâmetros, avalia diversas métricas e cria o modelo com melhor treinamento com base na métrica que você escolher. Este módulo tem duas entradas obrigatórias:
+O mesmo módulo [Ajustar Hiperparâmetros de Modelo][tune-model-hyperparameters] treina todos os modelos que correspondem ao conjunto de parâmetros, avalia diversas métricas e cria o modelo com melhor treinamento com base na métrica que você escolher. Este módulo tem duas entradas obrigatórias:
 
 * O aprendiz não treinado
 * O conjunto de dados
@@ -79,6 +79,6 @@ Você pode ver os parâmetros exatos escolhidos visualizando a porta de saída �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

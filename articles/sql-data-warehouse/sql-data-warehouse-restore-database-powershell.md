@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3f642b5b5b19887ebe373d1c0df809873abde503
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0b6f4fa657a16196ba8f42c2137dc3c245d25a07
 
 
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Restaurar um Azure SQL Data Warehouse (PowerShell)
 > [!div class="op_single_selector"]
-> * [Visão geral][Visão geral]
+> * [Visão geral][Overview]
 > * [Portal][Portal]
 > * [PowerShell][PowerShell]
 > * [REST][REST]
@@ -32,10 +32,10 @@ ms.openlocfilehash: 3f642b5b5b19887ebe373d1c0df809873abde503
 Neste artigo, você aprenderá como restaurar um Azure SQL Data Warehouse usando o PowerShell.
 
 ## <a name="before-you-begin"></a>Antes de começar
-**Verifique sua capacidade de DTU.**  Cada SQL Data Warehouse é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão.  Antes de restaurar um SQL Data Warehouse, verifique se o SQL Server tem cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU][Solicitar uma alteração de cota de DTU].
+**Verifique sua capacidade de DTU.** Cada SQL Data Warehouse é hospedado por um servidor SQL (por exemplo, myserver.database.windows.net) que tem uma cota de DTU padrão.  Antes de restaurar um SQL Data Warehouse, verifique se o SQL Server tem cota de DTU suficiente restante para o banco de dados que está sendo restaurado. Para saber como calcular a DTU necessária ou para solicitar mais DTU, veja [Solicitar uma alteração de cota de DTU][Request a DTU quota change].
 
 ### <a name="install-powershell"></a>Instalar o PowerShell
-Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar a versão 1.0 ou superior do Azure PowerShell.  Você pode verificar a versão executando **Get-Module -ListAvailable -Name AzureRM**.  A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][Como instalar e configurar o Azure PowerShell].
+Para usar o Azure PowerShell com o SQL Data Warehouse, você precisará instalar a versão 1.0 ou superior do Azure PowerShell.  Você pode verificar a versão executando **Get-Module -ListAvailable -Name AzureRM**.  A versão mais recente pode ser instalada pelo [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Para obter mais informações sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][How to install and configure Azure PowerShell].
 
 ## <a name="restore-an-active-or-paused-database"></a>Restaurar um banco de dados ativo ou pausado
 Para restaurar um banco de dados por meio de um instantâneo, use o cmdlet do PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
@@ -81,7 +81,7 @@ $RestoredDatabase.status
 ```
 
 > [!NOTE]
-> Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][Configurar o banco de dados após a recuperação].
+> Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][Configure your database after recovery].
 > 
 > 
 
@@ -117,7 +117,7 @@ $RestoredDatabase.status
 ```
 
 > [!NOTE]
-> Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][Configurar o banco de dados após a recuperação].
+> Depois que a restauração estiver concluída, você poderá configurar o banco de dados recuperado seguindo [Configurar o banco de dados após a recuperação][Configure your database after recovery].
 > 
 > 
 
@@ -147,37 +147,37 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Para configurar seu banco de dados após a conclusão da restauração, consulte [Configurar o banco de dados após a recuperação][Configurar o banco de dados após a recuperação].
+> Para configurar o banco de dados após a conclusão da restauração, veja [Configurar o banco de dados após a recuperação][Configure your database after recovery].
 > 
 > 
 
 O banco de dados recuperado será habilitado para TDE se o banco de dados de origem for habilitado para TDE.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre os recursos de continuidade dos negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure][Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure].
+Para saber mais sobre os recursos de continuidade dos negócios das edições do Banco de Dados SQL do Azure, leia a [Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure][Azure SQL Database business continuity overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral da continuidade dos negócios do Banco de Dados SQL do Azure]: ../sql-database/sql-database-business-continuity.md
-[Solicitar uma alteração de cota de DTU]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
-[Configurar o banco de dados após a recuperação]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Como instalar e configurar o Azure PowerShell]: ../powershell-install-configure.md
-[Visão geral]: ./sql-data-warehouse-restore-database-overview.md
+[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
+[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
+[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Overview]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configurar o banco de dados após a recuperação]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
+[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx
 
 <!--Other Web references-->
-[Portal do Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

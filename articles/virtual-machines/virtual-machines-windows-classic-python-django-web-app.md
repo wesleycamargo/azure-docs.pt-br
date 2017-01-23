@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/04/2015
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 6da2d82a2441f880ef3c1a27ea2778fa77c6d28d
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: bd3e269815628411ff51d0274eb8ba36f04e6fcb
 
 
 ---
@@ -30,9 +30,8 @@ ms.openlocfilehash: 6da2d82a2441f880ef3c1a27ea2778fa77c6d28d
 
 <br>
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para obter um modelo do Resource Manager para implantar o Django, clique [aqui](https://azure.microsoft.com/documentation/templates/django-app/).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter um modelo do Resource Manager para implantar o Django, clique [aqui](https://azure.microsoft.com/documentation/templates/django-app/).
 
 Este tutorial descreve como hospedar um site da web baseado no Django no Microsoft Azure usando uma máquina virtual do Windows Server. Este tutorial pressupõe que você não tem experiência anterior com o Azure. Após concluir este tutorial, você terá um aplicativo baseado no Django em funcionamento na nuvem.
 
@@ -65,7 +64,7 @@ Uma captura de tela do aplicativo concluído é exibida em seguida.
 ## <a id="setup"> </a>Instalando Python, Django, WFastCGI
 **Observação:** para fazer downloads usando o Internet Explorer, talvez você precise configurar IE ESC (Iniciar/Ferramentas Administrativas/Gerenciador de Servidores/Servidor Local, em seguida, clique em **Configuração de Segurança Reforçada do IE**, defina como Desabilitado).
 
-1. Instale o Python 2.7 ou 3.4 mais recente do [python.org][python.org].
+1. Instalar o Python 2.7 ou 3.4 mais recente de [python.org][python.org].
 2. Instale os pacotes wfastcgi e django usando pip.
    
     No Python 2.7, use o comando a seguir.
@@ -177,6 +176,6 @@ Depois que você concluir este tutorial, desligue e/ou remova sua máquina virtu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

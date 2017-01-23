@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dd898a35c64e350fafbf20b4de42a23eecf3f29b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 46a86bf99c1afd09ae3921a205d27532246171c9
 
 
 ---
@@ -46,8 +46,8 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como o M
 
 **Consulte também:**
 
-* [Documentação do SDK - Guias de integração][Link 5] 
-* [Guia de solução de problemas - Push][Link 23]
+* [Documentação do SDK ‑ Guias de Integração][Link 5] 
+* [Guia de solução de problemas – Push][Link 23]
 
 #### <a name="sdk-upgrade"></a>Atualização do SDK
 * É necessário atualizar o SDK para resolver problemas com versões anteriores do SDK (geralmente relacionadas às versões mais recentes do sistema operacional do dispositivo).
@@ -64,7 +64,7 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como o M
 
 **Consulte também:**
 
-* [Conceitos - Glossário][Link 6]
+* [Conceitos ‑ Glossário][Link 6]
 
 ## <a name="advanced-coding-issues"></a>Problemas de codificação avançados
 ### <a name="issue"></a>Problema
@@ -79,9 +79,9 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como o M
 * O Mobile Engagement do Azure publica uma lista completa dos pacotes internos usados pelo Mobile Engagement do Azure para iOS e Android para referência. Tenha em mente que alguns recursos do Mobile Engagement do Azure são específicos para a plataforma (Android, iOS, Web, Windows e Windows Phone).
 
 ### <a name="see-also"></a>Consulte também
-* [Guia de solução de problemas - Push][Link 23] 
-* [Documentação do SDK - Notas de versão][Link 5]
-* [Documentação do SDK - Guias de atualização][Link 5]
+* [Guia de solução de problemas – Push][Link 23] 
+* [Documentação do SDK – Notas de Versão][Link 5]
+* [Documentação do SDK ‑ Guias de Atualização][Link 5]
 
 ## <a name="application-crashes"></a>Falhas do aplicativo
 ### <a name="issue"></a>Problema
@@ -93,8 +93,8 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como o M
 * Problemas conhecidos com o SDK do Mobile Engagement do Azure que causam falhas de aplicativos são às vezes resolvidos com a atualização para a versão mais recente do SDK. Verifique as notas de versão sobre a plataforma ao investigar falhas.
 
 ### <a name="see-also"></a>Consulte também
-* [Documentação do SDK - Notas de versão][Link 5]
-* [Documentação do SDK - Guias de atualização][Link 5]
+* [Documentação do SDK – Notas de Versão][Link 5]
+* [Documentação do SDK ‑ Guias de Atualização][Link 5]
 
 ## <a name="app-store-upload-failures"></a>Falhas de carregamento nas lojas de aplicativos
 ### <a name="issue"></a>Problema
@@ -138,6 +138,6 @@ Estes são os possíveis problemas que podem ser encontrados na maneira como o M
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

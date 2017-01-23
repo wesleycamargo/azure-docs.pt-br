@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a83b4e910dbb8421d80416286c3d1eadcbf7bba7
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 37114071cb9c3da187e8d96d7a49680ee828832a
 
 
 ---
@@ -133,7 +133,7 @@ Você pode usar o bootstrap no modelo do Resource Manager:
 * [Criar clusters Hadoop no HDInsight][hdinsight-provision-cluster] fornece instruções sobre como criar um cluster HDInsight usando outras opções personalizadas.
 * [Desenvolver scripts de Ação de Script para o HDInsight][hdinsight-write-script]
 * [Instalar e usar o Spark em clusters HDInsight][hdinsight-install-spark]
-* [Instalar e usar o R nos clusters HDInsight][hdinsight-install-r]
+* [Instalar e usar R em clusters do HDInsight][hdinsight-install-r]
 * [Instalar e usar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md).
 * [Instalar e usar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md).
 
@@ -141,10 +141,10 @@ Você pode usar o bootstrap no modelo do Resource Manager:
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-provision-clusters.md
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Estágios durante a criação do cluster"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Estágios durante a criação de cluster"
 
 ## <a name="appx-a-powershell-sample"></a>Apêndice A: exemplo do PowerShell
 Esse script do PowerShell cria um cluster do HDInsight e personaliza uma configuração de Hive:
@@ -258,6 +258,6 @@ Esse script do PowerShell cria um cluster do HDInsight e personaliza uma configu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

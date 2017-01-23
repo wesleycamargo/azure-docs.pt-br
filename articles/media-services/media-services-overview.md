@@ -46,7 +46,7 @@ A imagem a seguir mostra alguns dos objetos mais usados ao desenvolver em relaç
 
 Clique na imagem para exibi-la em tamanho normal.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
 Você pode exibir todo o modelo [aqui](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -79,8 +79,8 @@ Esta seção descreve cenários comuns e fornece links para tópicos relevantes.
 ![Fluxo de trabalho VoD](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
-    
+>Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**.
+
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Proteja o conteúdo no armazenamento e forneça mídia de streaming sem proteção (não criptografada)
 1. Carregar um arquivo mezzanine de alta qualidade em um ativo.
 
@@ -184,7 +184,8 @@ Os Serviços de Mídia dão suporte à integração com o CDN do Azure. Para obt
 Você pode dimensionar os **Serviços de Mídia** especificando o número de **Unidades Reservadas para Streaming** e **Unidades Reservadas para Codificação** com as quais você deseja provisionar sua conta.
 
 Você também pode dimensionar sua conta dos Serviços de Mídia adicionando contas de armazenamento a ela. Cada conta de armazenamento é limitada a 500 TB. Para expandir o armazenamento além das limitações padrão, você pode optar por anexar diversas contas de armazenamento a uma única conta de serviços de mídia.
-Os clientes de Serviços de Mídia escolhem um ponto de extremidade de streaming **Standard** ou um ou mais pontos de extremidade de streaming **Premium** de acordo com suas necessidades. O Ponto de Extremidade de Streaming Standard é adequado para a maior parte de cargas de trabalho de streaming. Ele inclui os mesmos recursos das Unidades de Streaming Premium. O Ponto de Extremidade de Streaming Standard é adequado para a maior parte de cargas de trabalho de streaming. Se você tiver uma carga de trabalho avançada ou os requisitos de capacidade de streaming não se enquadrarem nas metas de produtividade do ponto de extremidade de streaming padrão ou se você desejar controlar a capacidade do serviço StreamingEndpoint para lidar com as crescentes necessidades de largura de banda ajustando as unidades de escala (também conhecidas como unidades de streaming premium), é recomendável alocar unidades de escala.
+Os clientes de Serviços de Mídia escolhem um ponto de extremidade de streaming **Standard** ou um ou mais pontos de extremidade de streaming **Premium** de acordo com suas necessidades. O Ponto de Extremidade de Streaming Standard é adequado para a maior parte de cargas de trabalho de streaming. Ele inclui os mesmos recursos das Unidades de Streaming Premium.
+O Ponto de Extremidade de Streaming Standard é adequado para a maior parte de cargas de trabalho de streaming. Se você tiver uma carga de trabalho avançada ou os requisitos de capacidade de streaming não se enquadrarem nas metas de produtividade do ponto de extremidade de streaming padrão ou se você desejar controlar a capacidade do serviço StreamingEndpoint para lidar com as crescentes necessidades de largura de banda ajustando as unidades de escala (também conhecidas como unidades de streaming premium), é recomendável alocar unidades de escala.
 
 [Este](media-services-portal-scale-streaming-endpoints.md) tópico fornece links para tópicos relevantes.
 

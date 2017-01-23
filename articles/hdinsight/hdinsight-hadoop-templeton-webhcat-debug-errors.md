@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b57bd17a8887dbf9bdecee4a3ad79b55ec7fb610
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6b50b1c0522db3efe3bb5a10fd978dfaa41e2987
 
 
 ---
@@ -86,6 +86,6 @@ Estes são os valores de configuração padrão que podem afetar o desempenho do
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
