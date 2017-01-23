@@ -1,9 +1,13 @@
-> [!div class="op_single_selector"]
-> * [Overview & data formats](../articles/machine-learning/machine-learning-data-science-import-data.md)
-> * [Import data from local files](../articles/machine-learning/machine-learning-import-data-from-local-file.md)
-> * [Import data from online sources](../articles/machine-learning/machine-learning-import-data-from-online-sources.md)
-> * [Import data from an experiment](../articles/machine-learning/machine-learning-import-data-from-an-experiment.md)
-> 
-> 
+> [!div class="op_single_selector" title1="Import data from various sources"]
+> * [Visão geral e formatos de dados](../articles/machine-learning/machine-learning-data-science-import-data.md)
+> * [De um arquivo local](../articles/machine-learning/machine-learning-import-data-from-local-file.md)
+> * [De fontes online](../articles/machine-learning/machine-learning-import-data-from-online-sources.md)
+> * [De um experimento](../articles/machine-learning/machine-learning-import-data-from-an-experiment.md)
+> * [De um banco de dados SQL local](../articles/machine-learning/machine-learning-use-data-from-an-on-premises-sql-server.md)
+>  
 
-<!---HONumber=Nov15_HO1-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
-ms.author: milangada;cenkdin;juliako
+ms.author: milanga;cenkdin;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: a979519dc617f40e6f090a412d17aa7778cbcf69
+ms.sourcegitcommit: 63669ba827771c75937568276f32b130980f3f65
+ms.openlocfilehash: e236c31e7fbce304ceaa069235b23efb180fb111
 
 
 ---
@@ -37,7 +37,7 @@ Os Serviços de Mídia dependem de uma chave de armazenamento fornecida a eles. 
 ## <a name="step-1-regenerate-secondary-storage-access-key"></a>Etapa 1: Regenerar a chave de acesso de armazenamento secundária
 Comece com a regeneração da chave de armazenamento secundária. Por padrão, a chave secundária não é usada pelos Serviços de Mídia.  Para obter informações sobre chaves de acesso do armazenamento, consulte [Como exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-## <a name="a-idstep2astep-2-update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Etapa 2: Atualizar os Serviços de Mídia para usar a nova chave de armazenamento secundária
+## <a name="a-idstep2astep-2--update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Etapa 2: Atualizar os Serviços de Mídia para usar a nova chave de armazenamento secundária
 Atualize os Serviços de Mídia para usar a chave de acesso de armazenamento secundária. Você pode usar um dos dois métodos a seguir para sincronizar a chave de armazenamento regenerada com os Serviços de Mídia.
 
 * Use o portal do Azure: Para localizar os valores de Nome e Chave, vá para o portal do Azure e selecione sua conta. A janela Configurações aparece à direita. Na janela Configurações, selecione Chaves. Dependendo de qual chave de armazenamento você desejar sincronizar com os Serviços de Mídia, selecione o botão para sincronizar a chave primária ou sincronizar a chave secundária. Nesse caso, use a chave secundária.
@@ -103,13 +103,25 @@ Observe que ao atualizar (ou recriar) um localizador SAS, a URL sempre vai mudar
 
 O exemplo .NET a seguir mostra como recriar um localizador com a mesma ID.
 
-private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator) { // Salvar propriedades de localizador existente.
-var asset = locator.Asset; var accessPolicy = locator.AccessPolicy; var locatorId = locator.Id; var startDate = locator.StartTime; var locatorType = locator.Type; var locatorName = locator.Name;
+    private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+    {
+    // Save properties of existing locator.
+    var asset = locator.Asset;
+    var accessPolicy = locator.AccessPolicy;
+    var locatorId = locator.Id;
+    var startDate = locator.StartTime;
+    var locatorType = locator.Type;
+    var locatorName = locator.Name;
 
-// Excluir localizador antigo.
-locator.Delete();
+    // Delete old locator.
+    locator.Delete();
 
-se (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.Format( "Não foi possível recriar a ID de localizador={0} porque a data de validade do localizador está no passado", locator.Id)); }
+    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+        {
+            throw new Exception(String.Format(
+                "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+                locator.Id));
+        }
 
         // Create new locator using saved properties.
         var newLocator = context.Locators.CreateLocator(
@@ -126,7 +138,7 @@ se (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.
     }
 
 
-## <a name="step-5-regenerate-primary-storage-access-key"></a>Etapa 5: Regenerar a chave de acesso de armazenamento primária
+## <a name="step-5-regenerate--primary-storage-access-key"></a>Etapa 5: Regenerar a chave de acesso de armazenamento primária
 Regenere a chave de acesso de armazenamento primária. Para obter informações sobre chaves de acesso do armazenamento, consulte [Como exibir, copiar e regenerar chaves de acesso de armazenamento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 ## <a name="step-6-update-media-services-to-use-the-new-primary-storage-key"></a>Etapa 6: Atualizar os Serviços de Mídia para usar a nova chave de armazenamento primária
@@ -153,6 +165,6 @@ Gostaríamos de agradecer às pessoas que contribuíram para a criação deste d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
