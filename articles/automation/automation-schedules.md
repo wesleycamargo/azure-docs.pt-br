@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: mgoedtel
+ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26cbd468e6aa1613bd5f6c9944aedaafbd865a14
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d12b1522e1935e4e9ebefd1a49fdfda8b339286c
 
 
 ---
@@ -29,7 +29,7 @@ Para agendar um runbook na Automação do Azure para iniciar em um horário espe
 > 
 
 ## <a name="windows-powershell-cmdlets"></a>Cmdlets do Windows PowerShell
-Os cmdlets na tabela a seguir são usados para criar e gerenciar agendas com o Windows PowerShell na Automação do Azure. Eles são enviados como parte do [módulo do PowerShell do Azure](../powershell-install-configure.md).
+Os cmdlets na tabela a seguir são usados para criar e gerenciar agendas com o Windows PowerShell na Automação do Azure. Eles são enviados como parte do [módulo do PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 
 | Cmdlets | Descrição |
 |:--- |:--- |
@@ -169,6 +169,6 @@ Os comandos de exemplo a seguir mostram como desabilitar uma agenda usando o cmd
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

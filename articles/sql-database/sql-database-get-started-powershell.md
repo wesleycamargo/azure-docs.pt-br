@@ -1,6 +1,6 @@
 ---
-title: "Nova configuração do Banco de Dados SQL com o PowerShell | Microsoft Docs"
-description: "Saiba como criar um banco de dados SQL com o PowerShell. As tarefas comuns de configuração de banco de dados podem ser gerenciadas por meio de cmdlets do PowerShell."
+title: "PowerShell: introdução ao Banco de Dados SQL do Azure | Microsoft Docs"
+description: "Aprenda a criar um servidor lógico do Banco de Dados SQL, uma regra de firewall de nível de servidor e bancos de dados usando o PowerShell. Você também aprenderá a consultar bancos de dados usando o PowerShell."
 keywords: "criar um novo banco de dados sql, configuração do banco de dados"
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: d00b7b543f105fd944e91f6ed27e6613366c6716
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: e3a9ba798639a9939d8c3d5330b21715ac4be53d
 
 
 ---
 
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-azure-powershell"></a>Introdução aos servidores do Banco de Dados SQL, bancos de dados e regras de firewall usando o Azure PowerShell
+# <a name="sql-database-tutorial-get-started-with-azure-sql-database-servers-databases-and-firewall-rules-using-powershell"></a>Tutorial do Banco de Dados SQL: introdução aos servidores do Banco de Dados SQL do Azure, bancos de dados e regras de firewall usando o PowerShell
 
 Neste tutorial de introdução, você aprenderá a usar o PowerShell para:
 
@@ -115,8 +115,8 @@ $serverResourceGroupName = $resourceGroupName
 $serverAdmin = "{server-admin}"
 $serverAdminPassword = "{server-admin-password}"
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -232,7 +232,7 @@ $storageKeyType = "StorageAccessKey"
 $storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
 $storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 
 Do {
@@ -385,8 +385,8 @@ $serverResourceGroupName = $myServerResourceGroupName
 $serverAdmin = $myServerAdmin
 $serverAdminPassword = $myServerAdminPassword
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -475,7 +475,7 @@ $storageKeyType = $myStorageKeyType
 $storageUri = $myStorageUri
 $storageKey = $myStorageKey
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 Do {
      $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -566,7 +566,7 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você concluiu este primeiro tutorial de introdução e criou um banco de dados com alguns dados de exemplo, há vários tutoriais adicionais que talvez queira explorar que compilam o que você aprendeu neste tutorial. 
 
-* Se quiser começar a explorar a segurança do Banco de Dados SQL do Azure, confira [Introdução à segurança](sql-database-get-started-security.md).
+* Se quiser começar a explorar a segurança do Banco de Dados SQL do Azure, confira [Introdução à segurança](sql-database-control-access-sql-authentication-get-started.md).
 * Se você conhece o Excel, saiba como [Conectar um banco de dados SQL no Azure com o Excel](sql-database-connect-excel.md).
 * Se você estiver pronto para começar a codificar, escolha a linguagem de programação em [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
 * Se você quiser mover seus bancos de dados SQL Server locais para o Azure, confira [Migrando um banco de dados para o Banco de Dados SQL](sql-database-cloud-migrate.md).
@@ -577,6 +577,7 @@ Agora que você concluiu este primeiro tutorial de introdução e criou um banco
 [O que é o Banco de Dados SQL?](sql-database-technical-overview.md)
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Jan17_HO3-->
 
 

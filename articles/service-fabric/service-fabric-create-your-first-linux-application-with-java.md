@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
-ms.openlocfilehash: 05361e08b93c93491111661b5fe997ebf5053d16
+ms.sourcegitcommit: 2cf98a0ef478a058c03122d3e027ef37e2404a09
+ms.openlocfilehash: 8a7b100a531ea1dd5420451064fdfb1eb3f21782
 
 
 ---
@@ -33,13 +33,18 @@ O Service Fabric fornece SDKs para compilação de serviços no Linux em .NET Co
 <img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
+> [!NOTE]
+> O Java como uma linguagem de programação de primeira classe interna tem suporte somente para a visualização do Linux (há planos para o suporte ao Windows). No entanto, os aplicativos, incluindo aplicativos Java, podem ser executados como executáveis convidados ou dentro de contêineres no Windows ou no Linux. Para saber mais, veja [Implantar um executável existente no Azure Service Fabric](service-fabric-deploy-existing-app.md) e [Implantar contêineres no Service Fabric](service-fabric-deploy-container.md).
+> 
+
+
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, verifique se você [configurar o ambiente de desenvolvimento Linux](service-fabric-get-started-linux.md). Se você estiver usando Mac OS X, poderá [configurar um ambiente de uma caixa do Linux em uma máquina virtual usando Vagrant](service-fabric-get-started-mac.md).
 
 ## <a name="create-the-application"></a>Criar o aplicativo
 Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com uma função específica no fornecimento de funcionalidade do aplicativo. O SDK do Service Fabric para Linux inclui um gerador [Yeoman](http://yeoman.io/) que facilita a criação de seu primeiro serviço e a adição de mais serviços posteriormente. Vamos usar Yeoman para criar um novo aplicativo com um único serviço.
 
-1. Em um terminal, digite **yo azuresfjava**.
+1. Em um terminal, digite ``yo azuresfjava``.
 2. Nome do seu aplicativo.
 3. Escolha o tipo de seu primeiro serviço e dê um nome para ele. Para os fins deste tutorial, escolheremos o Serviço Reliable Actor.
    
@@ -47,7 +52,6 @@ Um aplicativo do Service Fabric pode conter um ou mais serviços, cada um com um
 
 > [!NOTE]
 > Para obter mais informações sobre as opções, confira [Visão geral do modelo de programação do Service Fabric](service-fabric-choose-framework.md).
-> 
 > 
 
 ## <a name="build-the-application"></a>Compilar o aplicativo
@@ -66,12 +70,15 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local usa
     ```bash
     azure servicefabric cluster connect
     ```
+
 2. Use o script de instalação fornecido no modelo para copiar o pacote de aplicativo no repositório de imagens do cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.
    
     ```bash
     ./install.sh
     ```
+
 3. Abra um navegador e navegue até o Service Fabric Explorer em http://localhost:19080/Explorer (substitua localhost pelo IP privado da VM se estiver usando Vagrant no Mac OS X).
+
 4. Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Inicie o cliente de teste e execute um failover
@@ -83,21 +90,27 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
+
 2. No Service Fabric Explorer, localize o nó que hospeda a réplica primária para o serviço de ator. Na captura de tela abaixo, é o nó 3.
    
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
-3. Clique no nó encontrado na etapa anterior e selecione **Desativar (Reiniciar)** no menu Ações. Isso reiniciará um dos cinco nós no cluster local e forçará um failover para uma das réplicas secundárias em execução em outro nó. Ao fazer isso, preste atenção à saída do cliente de teste e observe que o contador continua a aumentar apesar do failover.
+
+3. Clique no nó encontrado na etapa anterior e selecione **Desativar (Reiniciar)** no menu Ações. Esta ação reiniciará um dos cinco nós no cluster local e forçará um failover para uma das réplicas secundárias em execução em outro nó. Ao fazer isso, preste atenção à saída do cliente de teste e observe que o contador continua a aumentar apesar do failover.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Compilar e implantar um aplicativo com o plug-in Eclipse Neon
+
 Se você instalou o [Plug-in Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) para Eclipse Neon, você pode usá-lo para criar, compilar e implantar aplicativos do Service Fabric compilados com o Java.  Ao instalar o Eclipse, escolha o **Eclipse IDE para desenvolvedores Java**.
 
 ### <a name="create-the-application"></a>Criar o aplicativo
+
 O Plug-in de serviço do Service Fabric está disponível por meio da extensibilidade do Eclipse.
 
 1. No Eclipse, escolha **Arquivo > Outros > Service Fabric**. Você verá um conjunto de opções, incluindo Atores e Contêineres.
    
     ![Modelos de Service Fabric no Eclipse][sf-eclipse-templates]
+
 2. Nesse caso, escolha Serviço Sem Estado.
+
 3. Você deve confirmar o uso da perspectiva do Service Fabric, que otimiza o Eclipse para uso com projetos do Service Fabric. Selecione “Sim”.
 
 ### <a name="deploy-the-application"></a>Implantar o aplicativo
@@ -120,6 +133,7 @@ Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as
 ## <a name="next-steps"></a>Próximas etapas
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interagindo com clusters do Service Fabric usando a CLI do Azure](service-fabric-azure-cli.md)
+* [Solução de problemas de implantação](service-fabric-azure-cli.md#troubleshooting)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 
 <!-- Images -->
@@ -129,6 +143,6 @@ Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

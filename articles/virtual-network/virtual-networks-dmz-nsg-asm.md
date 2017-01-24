@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 683adb57d22934f3a4785ded24a0d956c4f1d0dc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8d100aca58285c435435f9eda26cc7b6e1381e7a
 
 
 ---
-# <a name="example-1-build-a-simple-dmz-with-nsgs"></a>Exemplo 1: criar uma DMZ simples com NSGs
-[Voltar à página Práticas recomendadas de limite de segurança][INÍCIO]
+# <a name="example-1--build-a-simple-dmz-with-nsgs"></a>Exemplo 1: criar uma DMZ simples com NSGs
+[Voltar à página Práticas recomendadas de limite de segurança][HOME]
 
 Este exemplo criará uma DMZ simples com quatro Windows Servers e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da rede de perímetro. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários. 
 
@@ -233,7 +233,7 @@ Cada regra é abordada em mais detalhes como se segue (**Observação**: qualque
 ## <a name="conclusion"></a>Conclusão
 Essa é uma maneira relativamente simples e direta de isolar a sub-rede de back-end do tráfego de entrada.
 
-Mais exemplos e uma visão geral de limites de segurança de rede podem ser encontrados [aqui][INÍCIO].
+Mais exemplos e uma visão geral dos limites de segurança de rede podem ser encontrados [aqui][HOME].
 
 ## <a name="references"></a>Referências
 ### <a name="main-script-and-network-config"></a>Script principal e configuração de rede
@@ -549,18 +549,18 @@ Salve esse arquivo xml com localização atualizada e adicione o link a esse arq
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicativo de exemplo
-Se você desejar instalar um aplicativo de exemplo para esse e outros de DMZ, um deles foi fornecido no seguinte link: [Script de exemplo de aplicativo][SampleApp]
+Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos de DMZ, um deles foi fornecido no seguinte link: [Script de aplicativo de exemplo][SampleApp]
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "DMZ de entrada com NSG"
 
 <!--Link References-->
-[INÍCIO]: ../best-practices-network-security.md
+[HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

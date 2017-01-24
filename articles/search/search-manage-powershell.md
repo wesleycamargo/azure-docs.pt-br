@@ -16,8 +16,8 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b611bf4d5fadd6755b97dcaee441e13ae7e62481
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: f73bd0a6563f8411877b55182b01f2e3e42c883f
 
 
 ---
@@ -33,7 +33,7 @@ Este tópico descreve os comandos do PowerShell para executar muitas das tarefas
 Esses comandos são paralelos às opções de gerenciamento disponíveis na [API REST de Gerenciamento da Pesquisa do Azure](http://msdn.microsoft.com/library/dn832684.aspx).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* É necessário ter o Azure PowerShell 1.0 ou superior. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+* É necessário ter o Azure PowerShell 1.0 ou superior. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 * É necessário estar conectado à sua assinatura do Azure no PowerShell, conforme descrito abaixo.
 
 Primeiro, faça logon no Azure com este comando:
@@ -142,6 +142,6 @@ Agora que o serviço foi criado, você pode executar as próximas etapas: compil
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -4,7 +4,7 @@ description: "Este guia fornece um tutorial básico que descreve como você pode
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: b4e9ebe8-80f0-418e-a855-de7954668df7
 ms.service: log-analytics
@@ -12,44 +12,54 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 81dd7d9dc799f6f4c0dd54a12409724c182a0349
+ms.sourcegitcommit: b12f823d723b013755fc868b883faefa2072eb75
+ms.openlocfilehash: 9b21fed003f96dbf7ebd72d6f46fff91acbf039e
 
 
 ---
 # <a name="log-analytics-log-search-rest-api"></a>API REST de pesquisa de log do Log Analytics
-Este guia fornece um tutorial básico que descreve como você pode usar a API REST da Pesquisa do Log Analytics no OMS (Operations Management Suite) e fornece exemplos que mostram como usar os comandos. Alguns dos exemplos neste artigo fazem referência ao Operational Insights, que é o nome da versão anterior do Log Analytics.
+Este guia fornece um tutorial básico, incluindo exemplos de como você pode usar a API REST do Log Analytics Search. O Log Analytics faz parte do OMS (Operations Management Suite).
+
+> [!NOTE]
+> O Log Analytics chamava-se Operational Insights e é por isso que esse é o nome usado nos no provedor de recursos.
+>
+>
 
 ## <a name="overview-of-the-log-search-rest-api"></a>Visão geral da API REST de pesquisa de log
-A API REST de Pesquisa do Log Analytics é RESTful e pode ser acessada por meio da API do Azure Resource Manager. Neste documento, você encontrará exemplos em que a API é acessada por meio de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Gerenciador de Recursos do Azure. O uso do ARMClient e do PowerShell é uma das muitas opções para acessar a API de Pesquisa do Log Analytics. Outra opção é usar o módulo do Azure PowerShell para OperationalInsights, que inclui cmdlets para acessar a pesquisa. Com essas ferramentas, você pode utilizar a API RESTful do Azure Resource Manager para fazer chamadas aos espaços de trabalho do OMS e executar comandos de pesquisa dentro deles. A API produzirá resultados da pesquisa para você no formato JSON, permitindo que você use os resultados da pesquisa de diferentes maneiras por meio de programação.
+A API REST de Pesquisa do Log Analytics é RESTful e pode ser acessada por meio da API do Azure Resource Manager. Este artigo fornece exemplo de como acessar a API por meio do [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager. O uso do ARMClient é uma das muitas opções para acessar a API do Log Analytics Search. Outra opção é usar o módulo do Azure PowerShell para OperationalInsights, que inclui cmdlets para acessar a pesquisa. Com essas ferramentas, você pode utilizar a API do Azure Resource Manager para fazer chamadas aos espaços de trabalho do OMS e executar comandos de pesquisa dentro deles. A API produz resultados da pesquisa no formato JSON, permitindo que você use os resultados da pesquisa de diferentes maneiras por meio de programação.
 
-O Azure Resource Manager pode ser usado por meio de uma [Biblioteca para .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx), bem como por meio da [API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Examine as páginas da Web vinculadas para obter mais informações.
+O Azure Resource Manager pode ser usado por meio de uma [Biblioteca para .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx), bem como por meio da [API REST](https://msdn.microsoft.com/library/azure/mt163658.aspx). Para saber mais, leia as páginas da Web vinculadas.
+
+> [!NOTE]
+> Se você usar um comando de agregação como `|measure count()` ou `distinct`, cada chamada de pesquisa poderá retornar até 500.000 registros. Pesquisas que não incluem um comando de agregação retornam até 5.000 registros.
+>
+>
 
 ## <a name="basic-log-analytics-search-rest-api-tutorial"></a>Tutorial básico da API REST de Pesquisa do Log Analytics
-### <a name="to-use-the-arm-client"></a>Para usar o cliente ARM
+### <a name="to-use-armclient"></a>Para usar o ARMClient
 1. Instale o [Chocolatey](https://chocolatey.org/), que é um gerenciador de pacotes de software livre para Windows. Abra uma janela do prompt de comando como administrador e execute o seguinte comando:
-   
+
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
-2. Instale o Cliente do ARM executando o seguinte comando:
-   
+2. Instale o ARMClient executando o seguinte comando:
+
     ```
     choco install armclient
     ```
 
-### <a name="to-perform-a-simple-search-using-the-armclient"></a>Para realizar uma pesquisa simples usando o ARMClient
-1. Faça logon em sua conta da Microsoft ou OrgID:
-   
+### <a name="to-perform-a-search-using-armclient"></a>Para realizar uma pesquisa usando o ARMClient
+1. Entre usando a conta da Microsoft ou sua conta corporativa ou de estudante:
+
     ```
     armclient login
     ```
-   
+
     Um logon bem-sucedido lista todas as assinaturas vinculadas à conta especificada:
-   
+
     ```
     PS C:\Users\SampleUserName> armclient login
     Welcome YourEmail@ORG.com (Tenant: zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz)
@@ -60,13 +70,13 @@ O Azure Resource Manager pode ser usado por meio de uma [Biblioteca para .NET](h
     Subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (Example Name 3)
     ```
 2. Obtenha os espaços de trabalho do Operations Management Suite:
-   
+
     ```
     armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
-   
+
     Uma chamada Get bem-sucedida geraria todos os espaços de trabalho associados à assinatura:
-   
+
     ```
     {
     "value": [
@@ -84,12 +94,12 @@ O Azure Resource Manager pode ser usado por meio de uma [Biblioteca para .NET](h
     }
     ```
 3. Crie sua variável de pesquisa:
-   
+
     ```
     $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
 4. Pesquise usando sua nova variável de pesquisa:
-   
+
     ```
     armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
@@ -191,11 +201,11 @@ A tabela a seguir descreve as propriedades que estão disponíveis.
 ```
 
 > [!NOTE]
-> Se a pesquisa retornar com um status 'Pendente', a sondagem dos resultados atualizados poderá ser feita por essa API. Após seis minutos, o resultado da pesquisa será eliminado do cache e HTTP Gone será retornado. Se a solicitação inicial de pesquisa retornar um status 'Bem-sucedido' imediatamente, ela não será adicionada ao cache, fazendo essa API retornar HTTP Gone se consultada. O conteúdo de um resultado de HTTP 200 estará no mesmo formato que a solicitação inicial de pesquisa, apenas com valores atualizados.
-> 
-> 
+> Se a pesquisa retornar com um status 'Pendente', a sondagem dos resultados atualizados poderá ser feita por essa API. Após seis minutos, o resultado da pesquisa será eliminado do cache e HTTP Gone será retornado. Se a solicitação inicial de pesquisa retornar um status “Bem-sucedido” imediatamente, os resultados não serão adicionados ao cache, fazendo essa API retornar HTTP Gone se consultada. O conteúdo de um resultado de HTTP 200 estará no mesmo formato que a solicitação inicial de pesquisa, apenas com valores atualizados.
+>
+>
 
-### <a name="saved-searches---rest-only"></a>Pesquisas salvas - somente REST
+### <a name="saved-searches"></a>Pesquisas salvas
 **Solicite a lista de pesquisas salvas:**
 
 ```
@@ -213,13 +223,13 @@ A tabela a seguir descreve as propriedades que estão disponíveis.
 | ID |O identificador exclusivo. |
 | Etag |**Obrigatório para o Patch**. Atualizado pelo servidor em cada gravação. O valor deve ser igual ao valor armazenado atual ou '*' para atualizar. 409 retornado para valores antigos ou inválidos. |
 | properties.query |**Obrigatório**. A consulta de pesquisa. |
-| properties.displayName |**Obrigatório**. O nome de exibição da consulta definido pelo usuário. Se modelado como um recurso do Azure, isso seria uma marca. |
-| properties.category |**Obrigatório**. A categoria definida pelo usuário para a consulta. Se fosse modelada como um recurso do Azure, ela seria uma marca. |
+| properties.displayName |**Obrigatório**. O nome de exibição da consulta definido pelo usuário. |
+| properties.category |**Obrigatório**. A categoria definida pelo usuário para a consulta. |
 
 > [!NOTE]
-> A API de pesquisa do Log Analytics atualmente retorna pesquisas salvas criadas pelo usuário quando sondada para pesquisas salvas em um espaço de trabalho. A API não retornará pesquisas salvas fornecidas por soluções neste momento. Essa funcionalidade será adicionada em uma data posterior.
-> 
-> 
+> A API de pesquisa do Log Analytics atualmente retorna pesquisas salvas criadas pelo usuário quando sondada para pesquisas salvas em um espaço de trabalho. A API não retorna pesquisas salvas fornecidas por soluções.
+>
+>
 
 ### <a name="create-saved-searches"></a>Criar pesquisas salvas
 **Solicitação:**
@@ -245,7 +255,7 @@ A tabela a seguir descreve as propriedades que estão disponíveis.
 ```
 
 ### <a name="metadata---json-only"></a>Metadados - somente JSON
-Eis aqui uma maneira de ver os campos para todos os tipos de log para os dados coletados em seu espaço de trabalho. Por exemplo, se você quiser que saber se o tipo de Evento tem um campo chamado Computador, essa é uma maneira para pesquisar e confirmar.
+Eis aqui uma maneira de ver os campos para todos os tipos de log para os dados coletados em seu espaço de trabalho. Por exemplo, se você quiser saber se o tipo de Evento tiver um campo chamado Computador, essa consulta será uma maneira de verificar.
 
 **Solicitação por campos:**
 
@@ -345,13 +355,14 @@ Você pode especificar os marcadores de início e término que serão usados pel
     }
 ```
 
-Observe que o resultado acima contém uma mensagem de erro que foi acrescida de um prefixo e anexada.
+Observe que o resultado anterior contém uma mensagem de erro que foi acrescida de um prefixo e anexada.
 
 ## <a name="computer-groups"></a>Grupos de computadores
 Grupos de computadores são pesquisas especiais salvas que retornam um conjunto de computadores.  Você pode usar um grupo de computadores em outras consultas para limitar os resultados para os computadores no grupo.  Um grupo de computadores é implementado como uma pesquisa salva com uma marca de Grupo com um valor de Computador.
 
 A seguir está um exemplo de resposta para um grupo de computadores.
 
+```
     "etag": "W/\"datetime'2016-04-01T13%3A38%3A04.7763203Z'\"",
     "properties": {
         "Category": "My Computer Groups",
@@ -363,21 +374,23 @@ A seguir está um exemplo de resposta para um grupo de computadores.
           }],
     "Version": 1
     }
+```
 
 ### <a name="retrieving-computer-groups"></a>Recuperando grupos de computadores
-Use o método Get com a ID do grupo para recuperar um grupo de computadores.
+Para recuperar um grupo de computadores, use o método Get com a ID do grupo.
 
 ```
 armclient get /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Group ID}`?api-version=2015-03-20
 ```
 
 ### <a name="creating-or-updating-a-computer-group"></a>Criar ou atualizar um grupo de computadores
-Use o método Put com uma ID de pesquisa salva exclusiva para criar um novo grupo de computadores. Se você usar uma ID de grupo de computador existente, ele será modificado. Quando você cria um grupo de computadores no console do OMS, a ID é criada por meio do grupo e do nome.
+Para criar um grupo de computadores, use o método Put com uma ID de pesquisa salva exclusiva. Se você usar uma ID de grupo de computador existente, ela será modificada. Quando você cria um grupo de computadores no portal do Log Analytics, a ID é criada por meio do grupo e do nome.
 
-A consulta usada para a definição de grupo deve retornar um conjunto de computadores para o grupo funcionar corretamente.  É recomendável terminar sua consulta com *| Computador Distinto* para garantir que os dados corretos sejam retornados.
+A consulta usada para a definição de grupo deve retornar um conjunto de computadores para o grupo funcionar corretamente.  É recomendável terminar sua consulta com `| Distinct Computer` para garantir que os dados corretos sejam retornados.
 
 A definição da pesquisa salva deve incluir uma marca chamada Grupo com um valor de Computador para a pesquisa ser classificada como um grupo de computadores.
 
+```
     $etag=Get-Date -Format yyyy-MM-ddThh:mm:ss.msZ
     $groupName="My Computer Group"
     $groupQuery = "Computer=srv* | Distinct Computer"
@@ -387,9 +400,10 @@ A definição da pesquisa salva deve incluir uma marca chamada Grupo com um valo
     $groupJson = "{'etag': 'W/`"datetime\'" + $etag + "\'`"', 'properties': { 'Category': '" + $groupCategory + "', 'DisplayName':'"  + $groupName + "', 'Query':'" + $groupQuery + "', 'Tags': [{'Name': 'Group', 'Value': 'Computer'}], 'Version':'1'  }"
 
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/$groupId`?api-version=2015-03-20 $groupJson
+```
 
 ### <a name="deleting-computer-groups"></a>Excluindo grupos de computadores
-Use o método Delete com a ID do grupo para excluir um grupo de computadores.
+Para excluir um grupo de computadores, use o método Delete com a ID do grupo.
 
 ```
 armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/$groupId`?api-version=2015-03-20
@@ -401,7 +415,6 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{Resource Group
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

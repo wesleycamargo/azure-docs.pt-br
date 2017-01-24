@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: trinadhk; jimpark; markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8b22f1a70c516ae2b1a9d095670d1b6719590eaa
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8216106cf44016d355885d9117b6ac69127341c0
 
 
 ---
@@ -34,7 +34,8 @@ Este artigo aborda as etapas necessárias para executar dois tipos de operaçõe
 
 Em ambos os casos, os dados são recuperados do cofre de backup do Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ## <a name="recover-data-to-the-same-machine"></a>Recuperar dados para o mesmo computador
 Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo computador (do qual o backup foi feito), as etapas a seguir o ajudarão a recuperar os dados.
@@ -120,6 +121,6 @@ A terminologia usada nessas etapas inclui:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

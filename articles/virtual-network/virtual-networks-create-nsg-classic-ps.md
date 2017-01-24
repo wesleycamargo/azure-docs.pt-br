@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bbd1bcba9a56f4cee01101b333c11823d9bd30a0
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 460d989a75edab35950089ccc2aac5347c5c1a48
 
 
 ---
@@ -37,7 +37,7 @@ O exemplo de comando PowerShell abaixo espera um ambiente simples já criado com
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Como criar o NSG para a sub-rede front-end
 Para criar um NSG chamado **NSG-FrontEnd** com base no cenário acima, siga as etapas abaixo:
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 2. Crie um grupo de segurança de rede chamado **NSG-FrontEnd**.
    
         New-AzureNetworkSecurityGroup -Name "NSG-FrontEnd" -Location uswest `
@@ -208,6 +208,6 @@ Para criar um NSG chamado **NSG-FrontEnd** com base no cenário acima, siga as e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

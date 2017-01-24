@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 5a0cafee25948b1ae0778175dd8694d4082ac3b2
+ms.sourcegitcommit: b4fb534cf18fd17f636e88cc31d6c997a9f09e45
+ms.openlocfilehash: e72afd857025773b3aadc3de124b4e79ec6cd512
 
 
 ---
 # <a name="application-deployment-with-azure-resource-manager-templates"></a>Implantação de aplicativos com modelos do Azure Resource Manager
 Depois que todos os requisitos de infraestrutura do Azure foram identificados e convertidos em um modelo de implantação, a implantação real do aplicativo precisa ser resolvida. Implantação de aplicativo aqui se refere a instalar os binários do aplicativo real nos recursos do Azure. Para o exemplo de Loja de Música, o .Net Core e o IIS precisam ser instalados e configurados em cada máquina virtual. Os binários da Loja de Música precisam ser instalados na máquina virtual e o banco de dados da Loja de Música criado previamente.
 
-Este documento detalha como extensões de Máquina Virtual podem automatizar a implantação de aplicativos e configuração de máquinas virtuais do Azure. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-Windows).
+Este documento detalha como extensões de Máquina Virtual podem automatizar a implantação de aplicativos e configuração de máquinas virtuais do Azure. Todas as dependências e configurações exclusivas são realçadas. Para obter a melhor experiência, pré-implante uma instância da solução em sua assinatura do Azure e trabalhe com o modelo do Azure Resource Manager. O modelo completo pode ser encontrado aqui – [Implantação de Loja de Música no Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## <a name="configuration-script"></a>Script de configuração
 Extensões de máquina virtual são programas especializados executadas em máquinas virtuais para fornecer automação da configuração. As extensões estão disponíveis para várias finalidades específicas, como antivírus, configuração de registro e configuração do Docker. A extensão de Script personalizado pode ser usada para executar qualquer script em uma máquina virtual. Com o exemplo de Loja de Música, cabe à extensão de script personalizado configurar as máquinas virtuais do Windows e instalar o aplicativo de Loja de Música.
@@ -128,6 +128,6 @@ Para obter mais informações sobre como usar a extensão de script personalizad
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

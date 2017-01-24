@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 01/09/2017
 ms.author: onewth
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -209,8 +209,7 @@ Na resposta abaixo, você obtém a lista de frases-chave, associada às IDs do t
         "Errors":[]
     }
 
----
-
+- - -
 ### <a name="getlanguagebatch"></a>GetLanguageBatch
 
 Na chamada POST abaixo, solicitamos a detecção de idioma para duas entradas de texto:
@@ -249,14 +248,14 @@ Isso retorna a resposta a seguir, na qual o idioma inglês é detectado na prime
        }],
        "Errors": []
     }
----
 
+- - -
 ## <a name="topic-detection-apis"></a>APIs de detecção de tópico
 Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista dos registros de texto enviados. Um tópico é identificado com uma senha, que pode ser uma ou mais palavras relacionadas. Observe que essa API cobra uma transação por registro de texto enviado.
 
 Essa API requer o envio de, no mínimo, 100 registros de texto, mas foi projetada para detectar os tópicos em centenas ou em milhares de registros.
 
-### <a name="topics-submit-job"></a>Tópicos – enviar trabalho
+### <a name="topics--submit-job"></a>Tópicos – enviar trabalho
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/StartTopicDetection
@@ -287,7 +286,7 @@ Na resposta abaixo, você obtém a JobId do trabalho enviado:
 
 Uma lista de frases com uma ou mais palavras que não devem ser retornadas como tópicos. Pode ser usado para filtrar tópicos muito genéricos. Por exemplo, em um conjunto de dados sobre análises de hotéis, "hotel" e "hostel" podem ser frases de interrupção adequadas.  
 
-### <a name="topics-poll-for-job-results"></a>Tópicos – pesquisa de resultados do trabalho
+### <a name="topics--poll-for-job-results"></a>Tópicos – pesquisa de resultados do trabalho
 **URL**
 
     https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetTopicDetectionResult

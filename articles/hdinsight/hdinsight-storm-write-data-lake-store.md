@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.date: 09/06/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d90b80a7392db51335d099f685369ab825ad645
+ms.sourcegitcommit: 42d4f53aab9229890ddfadd64a7122cda9411686
+ms.openlocfilehash: a1e85a3525d164d55aaaaf8c09cdf752e22e75d8
 
 
 ---
 # <a name="use-azure-data-lake-store-with-apache-storm-with-hdinsight"></a>Usar o Armazenamento do Azure Data Lake com o Apache Storm com HDInsight
-O Armazenamento do Azure Data Lake é um serviço de armazenamento de nuvem compatível com HDFS que fornece confiabilidade, disponibilidade, durabilidade e alta taxa de transferência de dados. Neste documento, você aprenderá como usar uma topologia Storm baseada Java para gravar dados no Armazenamento do Azure Data Lake usando o componente [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) , que é fornecido como parte do Apache Storm.
+O Armazenamento do Azure Data Lake é um serviço de armazenamento de nuvem compatível com HDFS que fornece confiabilidade, disponibilidade, durabilidade e alta taxa de transferência de dados. Neste documento, você aprenderá como usar uma topologia Storm baseada Java para gravar dados no Armazenamento do Azure Data Lake usando o componente [HdfsBolt](http://storm.apache.org/releases/1.0.2/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) , que é fornecido como parte do Apache Storm.
 
 > [!IMPORTANT]
 > A topologia de exemplo usada neste documento depende dos componentes incluídos no Storm em clusters HDInsight e pode exigir modificações para funcionar com o Armazenamento do Azure Data Lake quando usado com outros clusters do Apache Storm.
@@ -55,7 +55,7 @@ O exemplo usado neste documento é escrito em Java e usa os seguintes componente
 * **TickSpout**: gera os dados usados por outros componentes na topologia.
 * **PartialCount**: conta os eventos gerados por TickSpout.
 * **FinalCount**: agrega a contagem de dados de PartialCount.
-* **ADLStoreBolt**: grava os dados no Azure Data Lake Store usando o componente [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html).
+* **ADLStoreBolt**: grava os dados no Azure Data Lake Store usando o componente [HdfsBolt](http://storm.apache.org/releases/1.0.2/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html).
 
 O projeto que contém essa topologia está disponível como um download em [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
@@ -222,6 +222,6 @@ Agora que você aprendeu a usar o Storm para gravar no Repositório Azure Data L
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

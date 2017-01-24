@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: f7b13374650eb0050e5b0a8522722541c423e71d
+ms.sourcegitcommit: 37b20ab17cc2b241e0d8a7d73dcd4433317cc0d8
+ms.openlocfilehash: 835399cfa3d6b9ce8e45cec76e5e8dc17cb59855
 
 
 ---
@@ -55,7 +55,7 @@ As pontuações de parâmetro de comparação SPECInt a seguir mostram o desempe
 | Standard_G5, Standard_GS5 |32 |2 |Intel Xeon E5-2698B v3 @ 2 GHz |22 |762.8 |3.7 |
 
 ## <a name="h-series"></a>Série H
-| Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Iterações/s | StdDev |
+| Tamanho | vCPUs | Nós NUMA | CPU | Execuções | Taxa base média  | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 |8 |1 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5 |297,4 |0.9 |
 | Standard_H16 |16 |2 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5 |575,8 |6,8 |
@@ -73,6 +73,6 @@ Os números do Windows foram calculados executando o [SPECint 2006](https://www.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

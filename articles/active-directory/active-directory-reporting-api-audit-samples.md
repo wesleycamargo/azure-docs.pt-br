@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 01/10/2017
 ms.author: dhanyahk;markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 665b613db31b15b6f6d2826a0795be6275c832ca
@@ -31,6 +31,7 @@ Consulte:
 * [Introdução à API de relatório do Azure Active Directory](active-directory-reporting-api-getting-started.md) para saber mais sobre a API de relatório.
 
 Para dúvidas, problemas ou comentários, entre em contato com a [Ajuda de relatório do AAD](mailto:aadreportinghelp@microsoft.com).
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de usar os exemplos deste tópico, você precisará atender os [pré-requisitos para acessar a API de relatório do Azure AD](active-directory-reporting-api-prerequisites.md).  
@@ -109,7 +110,7 @@ O script retorna a saída do relatório de auditoria no formato JSON. Ele també
 
     YESTERDAY=$(date --date='1 day ago' +'%Y-%m-%d')
 
-    URL="https://graph.windows.net/$TENANT_DOMAIN/activities/audit?api-version=beta&$filter=eventTime%20gt%20$YESTERDAY"
+    URL="https://graph.windows.net/$TENANT_DOMAIN/activities/audit?api-version=beta&$filter=activityDate%20gt%20$YESTERDAY"
 
 
     REPORT=$(curl -s --header "Authorization: $TOKEN_TYPE $ACCESS_TOKEN" $URL)
@@ -149,7 +150,7 @@ O script retorna a saída do relatório de auditoria no formato JSON. Ele també
     yesterday = datetime.date.strftime(datetime.date.today() - datetime.timedelta(days=1), '%Y-%m-%d')
 
     header_params = {'Authorization': token_type + ' ' + access_token}
-    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=eventTime%20gt%20' + yesterday   
+    request_string = 'https://graph.windows.net/' + tenant_domain + 'activities/audit?api-version=beta&$filter=activityDate%20gt%20' + yesterday   
     response = requests.get(request_string, headers = header_params)
 
     if response.status_code is 200:

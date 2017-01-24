@@ -1,28 +1,31 @@
 ---
-title: "Visão geral do monitoramento no Microsoft Azure | Microsoft Docs"
-description: "Visão geral de nível superior do monitoramento e diagnóstico no Microsoft Azure, incluindo alertas, webhooks, dimensionamento automático e muito mais."
+title: "Visão Geral do Azure Monitoring| Microsoft Docs"
+description: "Visão geral de nível superior do recurso Azure Monitor no Microsoft Azure, que inclui alertas, webhooks, dimensionamento automático e muito mais."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
 ms.service: monitoring-and-diagnostics
-l: 
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/05/2016
 ms.author: robb
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4a9e92330081bcf56b7e3755597f76d3530a823d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2f8ff117966b11e7415abaa5e7a0735742d7ef99
 
 
 ---
+
 # <a name="overview-of-monitoring-in-microsoft-azure"></a>Visão Geral do Monitoramento no Microsoft Azure
 Este artigo fornece uma visão geral conceitual dos recursos de monitoramento do Azure. Ele fornece links para informações sobre tipos específicos de recursos.  Para obter informações de alto nível sobre como monitorar seu aplicativo do ponto de vista não do Azure, consulte [Diretrizes de monitoramento e diagnóstico](../best-practices-monitoring.md).
+
+O vídeo passo a passo do Azure Monitor está disponível em  
+[Explore o monitoramento e diagnósticos do Microsoft Azure](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). O vídeo adicional explicando um cenário no qual você pode usar o Azure Monitor está disponível em [Explore o monitoramento e diagnósticos no Microsoft Azure](https://channel9.msdn.com/events/Ignite/2016/BRK2234).  
 
 Os aplicativos em nuvem são complexos com muitas partes móveis. O monitoramento fornece dados para garantir que seu aplicativo permaneça ativo e em execução em um estado íntegro. Ele também ajuda a afastar os problemas potenciais ou solucionar problemas antigos. Além disso, você pode usar os dados de monitoramento para obter mais informações sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a capacidade de manutenção do aplicativo ou automatizar ações que normalmente exigiriam intervenção manual.
 
@@ -145,7 +148,6 @@ Saiba mais sobre
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

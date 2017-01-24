@@ -16,8 +16,8 @@ ms.workload: azure-government
 ms.date: 08/25/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 628536e90ee682a1a1e64444f490fdaace6b125f
+ms.sourcegitcommit: 48f19f5085108b87d22951da049223ef9d4cd188
+ms.openlocfilehash: ea01213d375d93c47b9fa1e710f1e225adb85f92
 
 
 ---
@@ -69,7 +69,7 @@ A criptografia básica disponível para conectividade com o Azure Governamental 
 * VMs de IaaS: usar o Azure Disk Encryption. Ative a Criptografia do Serviço de Armazenamento para criptografar os arquivos VHD usados para fazer back-up dos discos no Armazenamento do Azure, mas ela só criptografa dados recém-criados. Isso significa que se você criar uma VM e habilitar a Criptografia do Serviço de Armazenamento na conta de armazenamento que mantém o arquivo VHD, somente as alterações serão criptografadas, não o arquivo VHD original.
 * Criptografia do Cliente: esse é o método mais seguro para criptografar dados, pois ele os criptografa antes da transferência, além de criptografar os dados em repouso. No entanto, ela exige a adição de código aos aplicativos usando armazenamento, o que talvez não seja conveniente. Nesses casos, é possível usar HTTPs para os dados em trânsito e a Criptografia do Serviço de Armazenamento para criptografar os dados em repouso. A Criptografia do Cliente também invoca mais carga no cliente, e você deve levar isso em conta em seus planos de escalabilidade, especialmente se estiver criptografando e transferindo muitos dados.
 
-Para saber mais sobre as opções de criptografia no Azure, confira o [Guia de Segurança do Armazenamento](/storage-security-guide).
+Para saber mais sobre as opções de criptografia no Azure, confira o [Guia de Segurança do Armazenamento](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
 
 ## <a name="protecting-customer-data-by-managing-secrets"></a>Proteção de dados do cliente por meio do gerenciamento de segredos
 O gerenciamento de chaves seguro é fundamental para proteger seus dados na nuvem. Os clientes devem se esforçar para simplificar o gerenciamento de chaves e manter o controle das chaves usadas por serviços e aplicativos em nuvem para criptografar dados.
@@ -99,6 +99,6 @@ Para obter informações complementares e atualizações, assine o <a href="http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -4,7 +4,7 @@ description: Descreve como fazer um pagamento se a sua assinatura do Azure tiver
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: narmstr
 editor: 
 tags: billing
 ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9

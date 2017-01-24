@@ -16,13 +16,14 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 75f130c20819c8bf89f9f850ec41f2f137180bcc
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 7e1002753a8bc954e11a678cefc9afd5dd5339d6
 
 
 ---
 # <a name="connect-windows-virtual-machines-created-with-the-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a>Conectar máquinas virtuais do Windows criadas com o modelo clássico de implantação com um serviço de nuvem ou de rede virtual
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 As máquinas virtuais do Windows criadas com o modelo de implantação clássico são sempre colocadas em um serviço de nuvem. O serviço de nuvem funciona como um contêiner e fornece um nome DNS público exclusivo, um endereço IP público e um conjunto de pontos de extremidade para acessar a máquina virtual pela Internet. O serviço de nuvem pode estar em uma rede virtual, mas isso não é um requisito. Você também pode [conectar máquinas virtuais Linux a uma rede virtual ou serviço de nuvem](virtual-machines-linux-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
@@ -38,6 +39,6 @@ Após criar uma máquina virtual, é uma boa ideia [adicionar um disco de dados]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

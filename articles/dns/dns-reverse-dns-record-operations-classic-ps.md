@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2016
 ms.author: smalone
 translationtype: Human Translation
-ms.sourcegitcommit: 7d640b2ffe600ce84e2ec867cd29930b26dab908
-ms.openlocfilehash: 1b5f6fa50a0a5a98d8eb5ecc7aeaa632e1183c38
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fe5c9cfe0edd769635301fdcb40fc1f71d430165
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 1b5f6fa50a0a5a98d8eb5ecc7aeaa632e1183c38
 [!INCLUDE [DNS-reverse-dns-record-operations-intro-include.md](../../includes/dns-reverse-dns-record-operations-intro-include.md)]
 
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Saiba como [executar estas etapas usando o modelo do Resource Manager](dns-reverse-dns-record-operations-ps.md).
+> [!IMPORTANT]
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](dns-reverse-dns-record-operations-ps.md).
 
 ## <a name="validation-of-reverse-dns-records"></a>Validação de registros DNS reversos
 Para garantir que um terceiro não crie registros DNS reversos que sejam mapeados para seus domínios DNS, o Azure permite apenas a criação de um registro DNS reverso, em que uma das seguintes opções é verdadeira:
@@ -66,6 +67,6 @@ Verificações de validação são executadas somente quando a propriedade de DN
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

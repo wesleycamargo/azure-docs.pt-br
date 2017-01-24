@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 06ce475a436aa00b6088f5714140eb96c3e75223
-ms.openlocfilehash: 1dc05de2c82ba052b2328ec9a6d5d9dd5791137e
+ms.sourcegitcommit: f198d295272c8c860bc455cfa300cad3ff375c5d
+ms.openlocfilehash: cb618cbc47748a002351caa3a5935c9824c2bc32
 
 
 ---
 # <a name="install-mongodb-on-a-windows-vm"></a>Instalar o MongoDB em uma VM do Windows
 > [!IMPORTANT]
-> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../articles/resource-manager-deployment-model.md).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para instalar e configurar o MongoDB usando o modelo de implantação do Resource Manager, consulte [este artigo](virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).  Este artigo aborda o uso do modelo de implantação clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para instalar e configurar o MongoDB usando o modelo de implantação do Resource Manager, consulte [este artigo](virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [O O O MongoDB][O O MongoDB] é um popular banco de dados NoSQL de código-fonte aberto e de alto desempenho. Este artigo orientará você a criar uma máquina virtual (VM) do Windows Server usando o [portal clássico do Azure][AzurePortal]. Em seguida, você poderá criar e anexar um disco de dados para a máquina virtual antes de instalar e configurar o MongoDB. Se houver uma VM existente no Azure que você deseja usar, você pode prosseguir diretamente para a [instalação e configuração do MongoDB](#install-and-run-mongodb-on-the-virtual-machine).
 
@@ -56,6 +56,6 @@ Neste tutorial você aprendeu a criar uma máquina virtual do Windows Server e a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

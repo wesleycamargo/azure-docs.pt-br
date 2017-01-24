@@ -3,7 +3,7 @@ title: "Monitorar um cluster do Serviço de Contêiner do Azure com Datadog | Mi
 description: "Monitore um cluster do Serviço de Contêiner do Azure com o Datadog. Use a interface do usuário da Web do DC/OS para implantar os agentes Datadog para seu cluster."
 services: container-service
 documentationcenter: 
-author: rbitia
+author: sauryadas
 manager: timlt
 editor: 
 tags: acs, azure-container-service
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 07/28/2016
-ms.author: t-ribhat
+ms.author: saudas
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: eeb257e00f89948c9623ac05303d46209454a615

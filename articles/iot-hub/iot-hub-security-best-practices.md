@@ -1,6 +1,6 @@
 ---
-title: "Práticas recomendadas de segurança de IoT | Microsoft Docs"
-description: "Práticas recomendadas de segurança para proteger sua infraestrutura de IoT"
+title: "Práticas recomendadas de segurança IoT do Azure | Microsoft Docs"
+description: "Práticas recomendadas de segurança IoT para proteger sua infraestrutura IoT. Inclui recomendações para desenvolvedores, implantadores e operadores de solução."
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3cb4764b6c824790bf5864d2446435168db4d708
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: b5c3257f6e2134a3e7e7eb9b4a12b95ebb70535e
 
 
 ---
@@ -30,7 +30,7 @@ Para saber mais sobre como proteger sua solução IoT, confira:
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Simulando um dispositivo com o SDK de Gateway IoT][lnk-gateway]
+* [Simulando um dispositivo com o SDK do Gateway do IoT][lnk-gateway]
 
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md
@@ -39,6 +39,6 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

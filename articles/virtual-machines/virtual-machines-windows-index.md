@@ -16,15 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 08/05/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a8de2f783bfde7f30e633ae4998cefaf1535e74a
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 00d2c2cb2d5f65880f79603954ac23c7efa253a4
 
 
 ---
 # <a name="technical-articles-for-windows-vms-in-the-classic-deployment-model"></a>Artigos técnicos para VMs do Windows no modelo de implantação clássico
 Localize toda a documentação necessária para criar e gerenciar máquinas virtuais do Azure baseadas no Windows no modelo de implantação clássica.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ## <a name="overview"></a>Visão geral
 [Sobre máquinas virtuais](virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -38,7 +39,7 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 ## <a name="environment-setup"></a>Configuração do ambiente
 [Conta gratuita](https://azure.microsoft.com/free/)
 
-[Instale o Azure PowerShell](../powershell-install-configure.md)
+[Instale o Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 [Instalar a CLI do Azure.](../xplat-cli-install.md)
 
@@ -169,6 +170,6 @@ Localize toda a documentação necessária para criar e gerenciar máquinas virt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

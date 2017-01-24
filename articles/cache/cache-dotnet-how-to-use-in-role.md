@@ -401,15 +401,15 @@ Agora que você aprendeu o básico do Cache na Função, siga os links para sabe
 [Ter Como Meta um Perfil do .NET Framework com Suporte]: #prepare-vs-target-net
 
 <!-- IMAGES --> 
-[Cache de função 1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
-[Cache de função 2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
-[Cache de função 3]: ./media/cache-dotnet-how-to-use-in-role/cache10.png
-[Cache de função 4]: ./media/cache-dotnet-how-to-use-in-role/cache11.png
-[Cache de função 5]: ./media/cache-dotnet-how-to-use-in-role/cache12.png
-[Cache de função 6]: ./media/cache-dotnet-how-to-use-in-role/cache13.png
-[Cache de função 7]: ./media/cache-dotnet-how-to-use-in-role/cache14.png
-[Cache de função 8]: ./media/cache-dotnet-how-to-use-in-role/cache15.png
-[Cache de função 10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
+[RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
+[RoleCache2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
+[RoleCache3]: ./media/cache-dotnet-how-to-use-in-role/cache10.png
+[RoleCache4]: ./media/cache-dotnet-how-to-use-in-role/cache11.png
+[RoleCache5]: ./media/cache-dotnet-how-to-use-in-role/cache12.png
+[RoleCache6]: ./media/cache-dotnet-how-to-use-in-role/cache13.png
+[RoleCache7]: ./media/cache-dotnet-how-to-use-in-role/cache14.png
+[RoleCache8]: ./media/cache-dotnet-how-to-use-in-role/cache15.png
+[RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
 
 <!-- LINKS -->
 [Como configurar tamanhos de máquinas virtuais]: http://go.microsoft.com/fwlink/?LinkId=164387

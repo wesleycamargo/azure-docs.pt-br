@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -27,10 +27,9 @@ Estamos felizes em anunciar que o Microsoft Azure agora reconhece especialistas 
 
 ![Microsoft MVP](./media/azure-security-mvp/azure-security-mvp-fig1.png)
 
-Embora não haja qualquer parâmetro para tornar-se um MVP, em parte porque ele varia segundo a tecnologia e seu ciclo de vida, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como Respostas da Microsoft, TechNet e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros. 
+Embora não haja qualquer parâmetro para tornar-se um MVP, em parte porque ele varia segundo a tecnologia e seu ciclo de vida, alguns dos critérios que avaliamos incluem o impacto das contribuições do candidato em fóruns online, como Respostas da Microsoft, TechNet e o MSDN; wikis e conteúdo online; conferências e grupos de usuários; podcasts, sites, blogs e mídia social; além de artigos e livros.
 
 Você é um especialista em segurança do Azure? Você conhece alguém que é? Então, [Nomeie a si mesmo ou a outra pessoa](https://mvp.microsoft.com/Nomination/nominate-an-mvp) para se tornar um MVP de segurança do Azure hoje mesmo!
-
 
 
 

@@ -4,7 +4,7 @@ description: "Use o recurso de Criptografia do Serviço de Armazenamento do Azur
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bdb016af2c21b06c6abf5af607e703e5f898f8f4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b582e7515ccc588b1381285bdf4bfae00554ac3f
 
 
 ---
@@ -65,7 +65,7 @@ A SSE tem as seguintes limitações:
 Você pode habilitar a criptografia usando o [portal do Azure](https://portal.azure.com).
 
 > [!NOTE]
-> Se você quiser habilitar ou desabilitar programaticamente a Criptografia do Serviço de Armazenamento em uma conta de armazenamento, use a [API REST do Provedor de Recursos de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx), a [Biblioteca de Cliente do Provedor de Recursos de Armazenamento do .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), o [Azure PowerShell](../powershell-install-configure.md) ou a [CLI do Azure](storage-azure-cli.md).
+> Se você quiser habilitar ou desabilitar programaticamente a Criptografia do Serviço de Armazenamento em uma conta de armazenamento, use a [API REST do Provedor de Recursos de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx), a [Biblioteca de Cliente do Provedor de Recursos de Armazenamento do .NET](https://msdn.microsoft.com/library/azure/mt131037.aspx), o [Azure PowerShell](/powershell/azureps-cmdlets-docs) ou a [CLI do Azure](storage-azure-cli.md).
 > 
 > 
 
@@ -182,6 +182,6 @@ O Armazenamento do Azure fornece um conjunto abrangente de recursos de seguranç
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ba7486f76710095a35d602805876cae0cde8694e
+ms.sourcegitcommit: 82e5a947d48f8a289deb2f6e85bbb47990a9fcd7
+ms.openlocfilehash: 76d52c52489cb3cc85223066fb5821b1b9915b96
 
 
 ---
@@ -128,7 +128,7 @@ O aplicativo The Funding Portal espera que as asserções de SAML contenham um a
    
     ![Configurar Logon Único](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_07.png)
 
-    a. Na caixa de texto URL de Entrada, digite uma URL usando o seguinte padrão: `https://<subdomain>.regenteducation.net/`.
+    a. Na caixa de texto **URL de Entrada**, digite uma URL usando o seguinte padrão: `https://<subdomain>.regenteducation.net/`.
 
     b. Clique em **Próximo**.
 
@@ -171,17 +171,18 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
     c. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_06.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-   d. Na lista **Função**, selecione **Usuário**.
+    d. Na lista **Função**, selecione **Usuário**.
    
-   e. Clique em **Próximo**.
+    e. Clique em **Próximo**.
+
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-thefundingportal-tutorial/create_aaduser_07.png) 
@@ -249,6 +250,6 @@ Quando você clicar no bloco do The Funding Portal no Painel de Acesso, deverá 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

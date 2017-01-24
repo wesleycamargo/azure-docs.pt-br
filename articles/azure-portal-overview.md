@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31bea465db1afb5efc22b2280d83d3b50bced329
+ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
+ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
 
 
 ---
@@ -60,16 +60,6 @@ A partir dessa folha, você pode se conectar à máquina virtual usando a área 
 
 ![Gerenciando um recurso][ManageResource]
 
-## <a name="how-to-customize-a-resource-blade"></a>Como personalizar uma folha de recurso
-O Azure pré-configura as folhas para seus recursos, mas os blocos nessas folhas são controlados por você.  Você pode facilmente entrar no modo de personalização para adicionar, remover, redimensionar ou reorganizar os blocos. Para personalizar uma folha, execute as seguintes ações:
-
-1. Procure o recurso.
-2. Clique em ‘…’ na parte superior da folha que deseja personalizar.
-3. Clique em ‘Adicionar componentes’.
-4. Comece a arrastar e soltar componentes.  
-
-![Personalizando folhas][CustomizeBlades]
-
 ## <a name="how-to-get-help"></a>Como obter ajuda
 Se você tiver um problema, estamos à sua disposição.  O portal tem uma página de ajuda e suporte que pode indicar a direção certa.  Dependendo do seu [plano de suporte](https://azure.microsoft.com/support/plans/), você também pode criar tíquetes de suporte diretamente no portal.  Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do tíquete de dentro do portal. Você pode acessar a página de ajuda e suporte navegando até Navegar -> Ajuda + suporte.  
 
@@ -97,6 +87,6 @@ O portal do Microsoft Azure simplifica radicalmente a criação e o gerenciament
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -134,6 +134,6 @@ Esse cenário de API Web encadeado pode ter suporte usando a concessão credenci
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

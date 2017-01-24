@@ -7,6 +7,7 @@ manager: jhubbard
 author: ddove
 ms.assetid: 204fd902-0397-4185-985a-dea3ed7c7d9f
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,8 +15,8 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d6fc4d314adf02e9c6d5a72b3b7d58db3c2f5731
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 00497f64feea692cf0f289991d1b905f39e1c880
 
 
 ---
@@ -55,7 +56,7 @@ A capacidade precisa ser reduzida devido à natureza sazonal de um negócio. A f
 
 Com vários locatários por banco de dados, a alocação de shardlets para fragmentos pode levar a afunilamentos de capacidade em alguns fragmentos. Isso exige a realocação de shardlets ou a movimentação de shardlets ocupados para fragmentos novos ou menos utilizados. 
 
-## <a name="concepts-key-features"></a>Principais recursos e conceitos
+## <a name="concepts--key-features"></a>Principais recursos e conceitos
 **Serviços hospedados no cliente**
 
 A divisão/mesclagem é fornecida como um serviço hospedado no cliente. Você deve implantar e hospedar o serviço na sua assinatura do Microsoft Azure. O pacote que você baixou do NuGet contém um modelo de configuração para concluir as informações da sua implantação específica. Veja o [tutorial de ﻿divisão/mesclagem](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obter mais detalhes. Uma vez que o serviço é executado na sua assinatura do Azure, você pode controlar e configurar a maioria dos aspectos de segurança do serviço. O modelo padrão inclui as opções para configurar o SSL, autenticação de cliente baseada no certificado, criptografia para credenciais armazenadas, proteção DoS e restrições de IP. Você pode encontrar mais informações sobre os aspectos de segurança no documento de [configuração de segurança de divisão/mesclagem](sql-database-elastic-scale-split-merge-security-configuration.md)a seguir.
@@ -200,7 +201,7 @@ Além disso, uma propriedade de exclusividade com a chave de fragmentação como
 
 Você não precisa provisionar um novo banco de dados de metadados para atualizar a divisão/mesclagem. A nova versão irá atualizar automaticamente seu banco de dados de metadados existentes para a nova versão. 
 
-## <a name="best-practices-troubleshooting"></a>Práticas recomendadas e solução de problemas
+## <a name="best-practices--troubleshooting"></a>Práticas recomendadas e solução de problemas
 * Defina um locatário de teste e exercite suas operações mais importantes de divisão/mesclagem/movimentação com o locatário de teste ao longo de vários fragmentos. Isso ajudará a garantir que todos os metadados sejam definidos corretamente no seu mapa de fragmentos e que as operações não violem restrições ou chaves estrangeiras.
 * Mantenha o tamanho dos dados de locatário de teste acima do tamanho máximo de dados do seu maior locatário para garantir que você não encontrará problemas relacionados ao tamanho dos dados. Isso também ajudará a avaliar um limite superior no tempo que leva para mover um único locatário. 
 * Certifique-se de que seu esquema permita exclusões. O serviço de divisão/mesclagem requer a capacidade de remover dados de fragmento de origem depois que os dados tiverem sido copiados com êxito para o destino. Por exemplo, **excluir gatilhos** pode impedir o serviço de excluir os dados na origem e causar falha nas operações.
@@ -218,6 +219,6 @@ Você não precisa provisionar um novo banco de dados de metadados para atualiza
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98498da5a8aaf10e37c355f05d6f6d83fd4df584
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 341e66158f1aeb5de02f3038a0c5d81240fad8d1
 
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-net"></a>Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o .NET
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Como executar a transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits com o .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
-> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+> Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > 
 
@@ -46,31 +46,32 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que possa produzir um fluxo de taxa de bits única em um dos seguintes protocolos: RTMP, Smooth Streaming ou RTP (MPEG-TS). Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Essa etapa também pode ser realizada após a criação do canal.
+    Essa etapa também pode ser realizada após a criação do canal.
 
-1. Crie e inicie um Canal.
-2. Recupere a URL de ingestão do canal.
+2. Crie e inicie um Canal.
+3. Recupere a URL de ingestão do canal.
 
-A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
+    A URL de ingestão é usada pelo codificador ao vivo para enviar o fluxo para o canal.
 
-1. Recupere a URL de visualização do canal.
+4. Recupere a URL de visualização do canal.
 
-Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
+    Use essa URL para verificar se o canal está recebendo corretamente o fluxo ao vivo.
 
-1. Crie um ativo.
-2. Se você quiser que o ativo seja criptografado dinamicamente durante a reprodução, faça o seguinte:
-3. Crie uma chave de conteúdo.
-4. Configure a política de autorização da chave de conteúdo.
-5. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
-6. Crie um programa e especifique o uso do ativo que você criou.
-7. Publique o ativo associado ao programa criando um localizador OnDemand.
+5. Crie um ativo.
+6. Se você quiser que o ativo seja criptografado dinamicamente durante a reprodução, faça o seguinte:
+7. Crie uma chave de conteúdo.
+8. Configure a política de autorização da chave de conteúdo.
+9. Configure a política de entrega de ativos (usada pelo empacotamento dinâmico e criptografia dinâmica).
+10. Crie um programa e especifique o uso do ativo que você criou.
+11. Publique o ativo associado ao programa criando um localizador OnDemand.
 
-Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
+    >[!NOTE]
+    >Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. O ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado **Executando**. 
 
-1. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
-2. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
-3. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
-4. Exclua o programa (e, opcionalmente, exclua o ativo).
+12. Inicie o programa quando estiver pronto para iniciar o streaming e o arquivamento.
+13. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
+14. Interrompa o programa sempre que você deseja parar o streaming e o arquivamento do evento.
+15. Exclua o programa (e, opcionalmente, exclua o ativo).
 
 ## <a name="what-youll-learn"></a>O que você aprenderá
 Este tópico mostra como executar operações diferentes em canais e programas usando o SDK dos Serviços de Mídia para .NET. Como muitas operações são demoradas, são usadas APIs do .NET que gerenciam operações de execução longa.
@@ -91,7 +92,7 @@ Os itens a seguir são necessários para concluir o tutorial.
 
 * Para concluir este tutorial, você precisa de uma conta do Azure.
 
-Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
+Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos do Azure gratuitos, como o recurso de aplicativos Web do Serviço de Aplicativo do Azure.
 
 * Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, confira [Criar Conta](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate ou Express) ou versões posteriores.
@@ -100,7 +101,6 @@ Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita e
 
 ## <a name="considerations"></a>Considerações
 * Atualmente, a duração máxima recomendada de um evento ao vivo é de 8 horas. Entre em contato com amslived na Microsoft.com se precisar executar um Canal por períodos mais longos.
-* Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
 
 ## <a name="download-sample"></a>Baixar exemplo
 Obtenha e execute um exemplo [aqui](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
@@ -524,12 +524,10 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Procurando outra coisa?
-Se este tópico não contiver o que você esperava, se estiver faltando alguma informação ou se não tiver atendido de alguma outra forma às suas necessidades, envie seus comentários usando o thread Disqus abaixo.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

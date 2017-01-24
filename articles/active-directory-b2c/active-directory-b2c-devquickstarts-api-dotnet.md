@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/22/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 370978187cffa2e5a9544bf99e6a15e13f97ac53
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1062af9abfd167dd251621a43943dea399aed027
 
 
 ---
@@ -34,11 +34,11 @@ Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornec
 * Inclua um **aplicativo Web** ou uma **API Web** no aplicativo.
 * Use o **uniform resource identifier de redirecionamento** `https://localhost:44316/` para o aplicativo Web. Esse é o local padrão do aplicativo Web cliente para este exemplo de código.
 * Copie a **ID do Aplicativo** atribuída ao seu aplicativo. Você precisará dela mais tarde.
-  
+
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Criar suas políticas
-No Azure AD B2C, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade - inscrição, entrada e perfil de edição. Você precisará criar uma política para cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Ao criar as três políticas, não deixe de:
+No Azure AD B2C, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Este exemplo de código contém três experiências de identidade - inscrição, entrada e perfil de edição. Você precisará criar uma política para cada tipo, conforme descrito no [artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Ao criar as três políticas, não deixe de:
 
 * Escolher a **Inscrição de ID de usuário** ou a **Inscrição de email** na folha de provedores de identidade.
 * Escolher **Nome de exibição** e outros atributos de inscrição na política de inscrição.
@@ -217,6 +217,6 @@ You can now move onto more advanced B2C topics. You may try:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

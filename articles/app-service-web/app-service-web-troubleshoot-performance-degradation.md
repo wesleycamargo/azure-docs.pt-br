@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0f49f7b9a1db2498d6a78031496a2d3c51888d8b
-ms.openlocfilehash: 926b0e9b75e84ecfef48d1c27524a8e33ef8c3fd
+ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
+ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
 
 
 ---
@@ -79,7 +79,7 @@ O tempo de atividade é monitorado usando códigos de resposta HTTP e o tempo de
 
 Para configurá-lo, veja [Monitorar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-monitor.md).
 
-Veja também um vídeo sobre monitoramento de pontos de extremidade em [Mantendo os sites do Azure ativos e monitorando pontos de extremidade - com Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+Veja também um vídeo sobre monitoramento de pontos de extremidade em [Mantendo os sites do Azure ativos e monitorando pontos de extremidade - com Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow)
 
 #### <a name="application-performance-monitoring-using-extensions"></a>Monitoramento de desempenho de aplicativos usando extensões
 Você também pode monitorar o desempenho do aplicativo utilizando *extensões de site*.
@@ -113,7 +113,7 @@ Para obter instruções detalhadas sobre como configurar seu aplicativo para reg
 #### <a name="use-remote-profiling"></a>Usar a criação de perfil remota
 No Serviço de Aplicativo do Azure, Aplicativos Web, Aplicativos de API e WebJobs podem ter perfis criados remotamente. Se o processo estiver sendo executado mais lentamente do que o esperado, ou a latência de solicitações HTTP estão acima do normal e o uso da CPU do processo também é alto, você pode remotamente criar o perfil de seu processo e obter as pilhas de chamadas de amostragem de CPU para analisar a atividade do processo e afunilamentos de código.
 
-Para saber mais, consulte [Suporte de criação de perfil remota no Serviço de Aplicativo do Azure](/blog/remote-profiling-support-in-azure-app-service).
+Para saber mais, consulte [Suporte de criação de perfil remota no Serviço de Aplicativo do Azure](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
 
 #### <a name="use-the-azure-app-service-support-portal"></a>Usar o Portal de Suporte do Serviço de Aplicativo do Azure
 Os Aplicativos Web fornecem a capacidade de solucionar problemas relacionados ao seu aplicativo Web examinando logs de HTTP, logs de eventos, despejos de processo e muito mais. Você pode acessar todas essas informações usando nosso portal de Suporte em **http://&lt;nome do aplicativo>.scm.azurewebsites.net/Support**
@@ -130,7 +130,7 @@ Depois que os dados são coletados, ele também executará uma análise dos dado
 
 Caso queira baixar os dados, por padrão, estariam armazenados na pasta D:\home\data\DaaS.
 
-Para saber mais sobre o portal de Suporte do Serviço de Aplicativo do Azure, consulte [Novas atualizações para suporte de extensão de sites para sites do Azure](/blog/new-updates-to-support-site-extension-for-azure-websites).
+Para saber mais sobre o portal de Suporte do Serviço de Aplicativo do Azure, consulte [Novas atualizações para suporte de extensão de sites para sites do Azure](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
 
 #### <a name="use-the-kudu-debug-console"></a>Usar o Console de Depuração Kudu
 Aplicativos Web vêm com um console de depuração que você pode usar para depuração, exploração, carregamento de arquivos, bem como para pontos de extremidade JSON para obter informações sobre seu ambiente. Chama-se *Console Kudu* ou *Painel SCM* de seu aplicativo Web.
@@ -146,7 +146,7 @@ Estas são algumas das coisas que o Kudu fornece:
 
 Outro recurso útil do Kudu é que, caso seu aplicativo esteja lançando exceções de primeira chance, você pode usar o Kudu e o despejo de processo da ferramenta SysInternals para criar despejos de memória. Esses despejos de memória são instantâneos do processo e podem frequentemente ajudá-lo a solucionar problemas mais complexos com seu aplicativo Web.
 
-Para saber mais sobre os recursos disponíveis no Kudu, veja [Ferramentas online do Azure Websites Team Services que você precisa conhecer](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Para saber mais sobre os recursos disponíveis no Kudu, veja [Ferramentas online do Azure Websites Team Services que você precisa conhecer](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 
@@ -163,7 +163,7 @@ Você pode definir a escala para ser Manual ou Automática.
 #### <a name="use-autoheal"></a>Usar AutoHeal
 O AutoHeal recicla o processo de trabalho para seu aplicativo com base nas configurações que você escolher (como alterações de configuração, solicitações, limites baseados na memória ou o tempo necessário para executar uma solicitação). Na maioria das vezes, reciclar o processo é a maneira mais rápida de resolver um problema. Embora você possa sempre reiniciar o aplicativo Web diretamente no Portal do Azure, o AutoHeal fará isso automaticamente. Tudo que você precisa fazer é adicionar alguns gatilhos na raiz web.config de seu aplicativo Web. Observe que essas configurações devem funcionar da mesma forma ainda que seu aplicativo não seja um .Net.
 
-Para saber mais, consulte [AutoHeal em sites do Azure](/blog/auto-healing-windows-azure-web-sites/).
+Para saber mais, consulte [AutoHeal em sites do Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
 #### <a name="restart-the-web-app"></a>Reiniciar o aplicativo Web
 Esta é geralmente a maneira mais simples de se recuperar de problemas de uso únicos. No [Portal do Azure](https://portal.azure.com/), na folha de seu aplicativo Web, existem as opções para parar ou reiniciar o aplicativo.
@@ -174,6 +174,6 @@ Você também pode gerenciar seu aplicativo Web usando o Azure Powershell. Para 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

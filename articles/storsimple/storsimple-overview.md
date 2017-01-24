@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96779fef9604a12609c53561e2591dfded3ef616
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: 34b09279785d87f75d16e3baf320ffb66cf9b682
 
 
 ---
@@ -133,7 +133,7 @@ Você pode acessar o Windows PowerShell para StorSimple em um console serial (em
 Para saber mais, veja [Usar o Windows PowerShell para StorSimple para administrar seu dispositivo](storsimple-windows-powershell-administration.md).
 
 ## <a name="azure-powershell-storsimple-cmdlets"></a>cmdlets Azure PowerShell StorSimple
-Os cmdlets do Azure PowerShell StorSimple são um conjunto de cmdlets do Windows PowerShell que permite automatizar tarefas de nível de serviço e migração na linha de comando. Para obter mais informações sobre os cmdlets do Azure PowerShell para StorSimple, vá para a [referência do cmdlet](https://msdn.microsoft.com/library/dn920427.aspx).
+Os cmdlets do Azure PowerShell StorSimple são um conjunto de cmdlets do Windows PowerShell que permite automatizar tarefas de nível de serviço e migração na linha de comando. Para obter mais informações sobre os cmdlets do Azure PowerShell para StorSimple, vá para a [referência do cmdlet](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
 
 ## <a name="storsimple-snapshot-manager"></a>StorSimple Snapshot Manager
 O Gerenciador de instantâneos do StorSimple é um snap-in do MMC (Console de Gerenciamento Microsoft) que você pode usar para criar cópias de backup consistentes de um ponto no tempo de dados locais e em nuvem. O snap-in é executado em um host baseado no Windows Server. Você pode usar o Gerenciador de instantâneos do StorSimple para:

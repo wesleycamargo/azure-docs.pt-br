@@ -1,5 +1,5 @@
 ---
-title: 'Experimentar o Banco de Dados SQL: Usar C# para criar um banco de dados SQL | Microsoft Docs'
+title: "C#: introdução ao Banco de Dados SQL do Azure | Microsoft Docs"
 description: Experimente o banco de dados SQL para o desenvolvimento de aplicativos SQL e C# e crie um banco de dados SQL do Azure com o C# usando a Biblioteca do Banco de Dados SQL para .NET.
 keywords: experimente o sql, sql c#
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: d55c08dbd1d2372e5396f40e74b4f63f3e2f0022
 
 
 ---
@@ -51,9 +51,9 @@ Para concluir as etapas neste artigo, você precisa do seguinte:
 Para criar um banco de dados SQL com o C#, carregue as bibliotecas de gerenciamento necessárias (usando o [console do gerenciador de pacotes](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. Clique em **Ferramentas** > **Gerenciador de Pacotes do NuGet** > **Console do Gerenciador de Pacotes**.
-2. Digite `Install-Package Microsoft.Azure.Management.Sql –Pre` para instalar a [Biblioteca de Gerenciamento SQL do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
-3. Digite `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` para instalar a [Biblioteca do Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-4. Digite `Install-Package Microsoft.Azure.Common.Authentication –Pre` para instalar a [Biblioteca de Autenticação Comum do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
+2. Digite `Install-Package Microsoft.Azure.Management.Sql -Pre` para instalar a [Biblioteca de Gerenciamento SQL do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Digite `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` para instalar a [Biblioteca do Microsoft Azure Resource Manager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Digite `Install-Package Microsoft.Azure.Common.Authentication -Pre` para instalar a [Biblioteca de Autenticação Comum do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 > [!NOTE]
 > Os exemplos neste artigo usam uma forma síncrona de cada solicitação de API e ficam bloqueados até a conclusão da chamada REST do serviço subjacente. Há métodos assíncronos disponíveis.
@@ -287,6 +287,6 @@ Agora que você já experimentou o Banco de Dados SQL e configurou um banco de d
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

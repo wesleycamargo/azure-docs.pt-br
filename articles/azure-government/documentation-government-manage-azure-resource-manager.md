@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/10/2016
-ms.author: brendalee
+ms.author: brendal
 translationtype: Human Translation
-ms.sourcegitcommit: 4febeb038f1007e1e20981d120debe4db1d7731a
-ms.openlocfilehash: dd511273e8ce3b9dd98b3d26534a9ddb7aee8ebf
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 89aa44df74effec7da2eb008faf8f01dda0d27ca
 
 
 ---
 # <a name="azure-resource-manager"></a>Gerenciador de Recursos do Azure
-Para obter informações detalhadas sobre provedores do Resource Manager, as versões de API e esquemas, clique [aqui](../resource-manager-supported-services.md). As tabelas a seguir listam os serviços que têm suporte do Resource Manager do Azure Governamental.
+Para obter informações detalhadas sobre provedores do Resource Manager, as versões de API e esquemas, clique [aqui](../azure-resource-manager/resource-manager-supported-services.md). As tabelas a seguir listam os serviços que têm suporte do Resource Manager do Azure Governamental.
 
 ## <a name="compute"></a>Computação
 | O Barramento de | Gerenciador de Recursos habilitado |
@@ -45,7 +45,7 @@ Para obter informações detalhadas sobre provedores do Resource Manager, as ver
 | Redes Virtuais |Sim |
 | Gateway de VPN |Sim |
 
-## <a name="data-storage"></a>Armazenamento de dados
+## <a name="data--storage"></a>Armazenamento de dados
 | O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
 | DocumentDB |Não |
@@ -56,7 +56,7 @@ Para obter informações detalhadas sobre provedores do Resource Manager, as ver
 | SQL Data Warehouse |sim |
 | StorSimple |Não |
 
-## <a name="web-mobile"></a>Web e serviços móveis
+## <a name="web--mobile"></a>Web e serviços móveis
 | O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
 | Aplicativos de API |Sim |
@@ -89,7 +89,7 @@ Para obter informações detalhadas sobre provedores do Resource Manager, as ver
 | IoTHubs |Não |
 | Hubs de Notificação |Não |
 
-## <a name="media-cdn"></a>Mídia e CDN
+## <a name="media--cdn"></a>Mídia e CDN
 | O Barramento de | Gerenciador de Recursos habilitado |
 | --- | --- |
 | CDN |Não |
@@ -131,6 +131,6 @@ Para obter informações complementares e atualizações, assine o <a href="http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

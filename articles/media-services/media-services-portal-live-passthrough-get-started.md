@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 7f22e8fb10f61cc0bb2e7d0a83449bf2e46a12d3
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: a00a75c6f4f45827a6e2ad22b96febc807590e57
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 7f22e8fb10f61cc0bb2e7d0a83449bf2e46a12d3
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -34,7 +34,7 @@ Este tutorial orienta você nas etapas de como usar o portal do Azure para criar
 Os itens a seguir são necessários para concluir o tutorial:
 
 * Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Uma conta dos Serviços de Mídia.    Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
+* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, consulte [Como criar uma conta de Serviços de Mídia](media-services-portal-create-account.md).
 * Uma Webcam. Por exemplo, [Codificador Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
 É recomendável revisar os seguintes artigos:
@@ -46,6 +46,9 @@ Os itens a seguir são necessários para concluir o tutorial:
 ## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Cenário comum de streaming ao vivo
 As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos comuns de transmissão ao vivo que usam canais configurados para entrega de passagem. Este tutorial mostra como criar e gerenciar um canal de passagem e eventos ao vivo.
 
+>[!NOTE]
+>Verifique se o ponto de extremidade de streaming do qual você deseja transmitir nosso conteúdo está no estado **Executando**. 
+    
 1. Conecte uma câmera de vídeo a um computador. Inicie e configure um codificador ao vivo local que gere um fluxo RTMP com múltiplas taxas de bits ou MP4 Fragmentado. Para obter mais informações, consulte [Suporte RTMP dos Serviços de Mídia do Azure e Codificadores ao Vivo](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Essa etapa também pode ser realizada após a criação do canal.
@@ -59,11 +62,7 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 5. Crie um evento ao vivo/programa. 
    
     Ao usar o portal do Azure, a criação de um evento ao vivo também cria um ativo. 
-   
-   > [!NOTE]
-   > Verifique se você tem pelo menos uma unidade reservada de streaming no ponto de extremidade de streaming do qual você deseja transmitir conteúdo.
-   > 
-   > 
+
 6. Inicie o evento/programa quando estiver pronto para iniciar a transmissão e o arquivamento.
 7. Opcionalmente, o codificador ao vivo pode ser sinalizado para iniciar um anúncio. O anúncio é inserido no fluxo de saída.
 8. Interrompa o evento/programa sempre que você quiser parar a transmissão e o arquivamento do evento.
@@ -78,28 +77,6 @@ As etapas a seguir descrevem as tarefas envolvidas na criação de aplicativos c
 Se você quiser exibir as notificações e erros produzidos pelo portal do Azure, clique no ícone Notificação.
 
 ![Notificações](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
-
-## <a name="configure-streaming-endpoints"></a>Configurar os pontos de extremidade de streaming
-Os Serviços de Mídia fornecem um empacotamento dinâmico que permite enviar seus MP4s de múltiplas taxas de bits nos seguintes formatos de transmissão: MPEG DASH, HLS, Smooth Streaming ou HDS, sem a necessidade de recolocar nesses formatos de transmissão. Com o empacotamento dinâmico, você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia compilam e fornecem a resposta adequada com base nas solicitações de um cliente.
-
-Para aproveitar o empacotamento dinâmico, você precisa obter pelo menos uma unidade de transmissão para o ponto de extremidade da transmissão a partir do qual planeja fornecer seu conteúdo.  
-
-Para criar e alterar o número de unidades reservadas de transmissão, faça o seguinte:
-
-1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. Na janela **Configurações**, clique em **Pontos de extremidade de streaming**. 
-3. Clique no ponto de extremidade da transmissão padrão. 
-   
-    A janela **DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO** é exibida.
-4. Para especificar o número de unidades de transmissão, deslize o controle **Unidades de transmissão** .
-   
-    ![Unidades de transmissão](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
-5. Clique no botão **Salvar** para salvar as alterações.
-   
-   > [!NOTE]
-   > A alocação de quaisquer novas unidades leva cerca de 20 minutos para ser concluída.
-   > 
-   > 
 
 ## <a name="create-and-start-pass-through-channels-and-events"></a>Criar e iniciar canais de passagem e eventos
 Um canal é associado a eventos/programas que permitem que você controle a publicação e o armazenamento de segmentos em um fluxo ao vivo. Os canais gerenciam os eventos. 
@@ -180,6 +157,6 @@ Revise os roteiros de aprendizagem dos Serviços de Mídia.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

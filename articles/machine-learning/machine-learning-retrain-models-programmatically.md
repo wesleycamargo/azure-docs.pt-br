@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 70004ff5c59427dfd5c58e5633cae95a08a18a3a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
 
 
 ---
@@ -185,6 +185,6 @@ Se você tiver implantado um Novo serviço Web clicando em **Implantar o Serviç
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

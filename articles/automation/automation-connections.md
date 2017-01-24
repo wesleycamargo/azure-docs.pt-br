@@ -1,12 +1,12 @@
 ---
-title: Ativos de conexão na Automação do Azure | Microsoft Docs
-description: Os ativos de conexão na Automação do Azure contêm as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou uma configuração DSC. Este artigo explica os detalhes de conexões e como trabalhar com elas na criação textual e gráfica.
+title: "Ativos de conexão na Automação do Azure | Microsoft Docs"
+description: "Os ativos de conexão na Automação do Azure contêm as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou uma configuração DSC. Este artigo explica os detalhes de conexões e como trabalhar com elas na criação textual e gráfica."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: stevenka
 editor: tysonn
-
+ms.assetid: f0239017-5c66-4165-8cca-5dcb249b8091
 ms.service: automation
 ms.devlang: na
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/27/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: efe77f2a98a64fbcea0880966dfad2e9e46da963
+
 
 ---
-# Ativos de conexão na Automação do Azure
-Um ativo de conexão da Automação contém as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou da configuração DSC. Isso pode incluir as informações necessárias para autenticação, como um nome de usuário e uma senha, além das informações de conexão, como uma URL ou uma porta. O valor de uma conexão é manter todas as propriedades para se conectar a um aplicativo específico em um ativo, em vez de criar diversas variáveis. O usuário pode editar os valores para uma conexão em um único local, e você pode transmitir o nome de uma conexão para um runbook ou uma configuração DSC em um único parâmetro. As propriedades de uma conexão podem ser acessadas no runbook ou na configuração DSC com a atividade **Get-AutomationConnection**.
+# <a name="connection-assets-in-azure-automation"></a>Ativos de conexão na Automação do Azure
+Um ativo de conexão da Automação contém as informações necessárias para se conectar a um aplicativo ou serviço externo de um runbook ou da configuração DSC. Isso pode incluir as informações necessárias para autenticação, como um nome de usuário e uma senha, além das informações de conexão, como uma URL ou uma porta. O valor de uma conexão é manter todas as propriedades para se conectar a um aplicativo específico em um ativo, em vez de criar diversas variáveis. O usuário pode editar os valores para uma conexão em um único local, e você pode transmitir o nome de uma conexão para um runbook ou uma configuração DSC em um único parâmetro. As propriedades de uma conexão podem ser acessadas no runbook ou na configuração DSC com a atividade **Get-AutomationConnection** .
 
 Ao criar uma conexão, você deve especificar um *tipo de conexão*. O tipo de conexão é um modelo que define um conjunto de propriedades. A conexão define valores para cada propriedade definida em seu tipo de conexão. Os tipos de conexão são adicionados à Automação do Azure nos módulos de integração ou criados com a [API da Automação do Azure](http://msdn.microsoft.com/library/azure/mt163818.aspx). Os únicos tipos de conexão que estão disponíveis quando você cria uma conexão são aqueles instalados em sua conta de Automação.
 
@@ -26,8 +30,8 @@ Ao criar uma conexão, você deve especificar um *tipo de conexão*. O tipo de c
 > 
 > 
 
-## Cmdlets do Windows PowerShell
-Os cmdlets na tabela a seguir são usados para criar e gerenciar conexões de Automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do Azure PowerShell](../powershell-install-configure.md) que está disponível para uso em runbooks e na configuração DSC da Automação.
+## <a name="windows-powershell-cmdlets"></a>Cmdlets do Windows PowerShell
+Os cmdlets na tabela a seguir são usados para criar e gerenciar conexões de Automação com o Windows PowerShell. Eles são fornecidos como parte do [módulo do Azure PowerShell](/powershell/azureps-cmdlets-docs) que está disponível para uso em runbooks e na configuração DSC da Automação.
 
 | Cmdlet | Descrição |
 |:--- |:--- |
@@ -36,7 +40,7 @@ Os cmdlets na tabela a seguir são usados para criar e gerenciar conexões de Au
 | [Remove-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921827.aspx) |Remove uma conexão existente. |
 | [Set-AzureAutomationConnectionFieldValue](http://msdn.microsoft.com/library/dn921826.aspx) |Define o valor de determinado campo para uma conexão existente. |
 
-## Atividades
+## <a name="activities"></a>Atividades
 As atividades na tabela a seguir são usadas para acessar conexões em um runbook ou em uma configuração DSC.
 
 | Atividades | Descrição |
@@ -44,29 +48,29 @@ As atividades na tabela a seguir são usadas para acessar conexões em um runboo
 | Get-AutomationConnection |Obtém uma conexão a ser usada. Retorna uma tabela de hash com as propriedades da conexão. |
 
 > [!NOTE]
-> Evite usar variáveis no parâmetro –Name de **Get-AutomationConnection**, pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de conexão no momento do design.
+> Evite usar variáveis no parâmetro –Name de **Get-AutomationConnection** , pois isso pode complicar a descoberta de dependências entre runbooks ou configurações DSC e ativos de conexão no momento do design.
 > 
 > 
 
-## Criando uma nova conexão
-### Para criar uma nova conexão com o portal clássico do Azure
+## <a name="creating-a-new-connection"></a>Criando uma nova conexão
+### <a name="to-create-a-new-connection-with-the-azure-classic-portal"></a>Para criar uma nova conexão com o portal clássico do Azure
 1. Em sua conta de automação, clique em **Ativos** na parte superior da janela.
-2. Clique em **Adicionar Configuração** na parte inferior da janela.
+2. Clique em **Adicionar Configuração**na parte inferior da janela.
 3. Clique em **Adicionar Conexão**.
-4. No menu suspenso **Tipo de Conexão**, selecione o tipo de conexão que você deseja criar. O assistente apresentará as propriedades para esse tipo específico.
+4. No menu suspenso **Tipo de Conexão** , selecione o tipo de conexão que você deseja criar.  O assistente apresentará as propriedades para esse tipo específico.
 5. Conclua o assistente e clique na caixa de seleção para salvar a nova conexão.
 
-### Para criar uma nova conexão com o portal do Azure
-1. Em sua conta de automação, clique na parte **Ativos** para abrir a folha de **Ativos**.
-2. Clique na parte **Conexões** para abrir a folha **Conexões**.
+### <a name="to-create-a-new-connection-with-the-azure-portal"></a>Para criar uma nova conexão com o portal do Azure
+1. Em sua conta de automação, clique na parte **Ativos** para abrir a folha **Ativos**.
+2. Clique na parte **Conexões** para abrir a folha **onexões**.
 3. Clique em **Adicionar uma conexão** na parte superior da folha.
-4. No menu suspenso **Tipo**, selecione o tipo de conexão que você deseja criar. O formulário apresentará as propriedades para esse tipo específico.
+4. No menu suspenso **Tipo** , selecione o tipo de conexão que você deseja criar. O formulário apresentará as propriedades para esse tipo específico.
 5. Preencha o formulário e clique em **Criar** para salvar a nova conexão.
 
-### Para criar uma nova conexão com o Windows PowerShell
-Criar uma nova conexão com o Windows PowerShell usando o cmdlet [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx). Esse cmdlet tem um parâmetro chamado **ConnectionFieldValues** que espera uma [tabela de hash](http://technet.microsoft.com/library/hh847780.aspx) definindo valores para cada uma das propriedades definidas pelo tipo de conexão.
+### <a name="to-create-a-new-connection-with-windows-powershell"></a>Para criar uma nova conexão com o Windows PowerShell
+Criar uma nova conexão com o Windows PowerShell usando o cmdlet [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx) . Esse cmdlet tem um parâmetro chamado **ConnectionFieldValues** que espera uma [tabela de hash](http://technet.microsoft.com/library/hh847780.aspx) definindo valores para cada uma das propriedades definidas pelo tipo de conexão.
 
-Os comandos de exemplo a seguir criam uma nova conexão para o [Twilio](http://www.twilio.com), um serviço de telefonia que permite enviar e receber mensagens de texto. Um módulo de integração de exemplo que inclui um tipo de conexão do Twilio está disponível no [Script Center](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8). Esse tipo de conexão define propriedades para o SID de Conta e o Token de Autorização, que são necessários para validar sua conta durante a conexão com o Twilio. Você deve [baixar este módulo](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) e instalá-lo em sua conta de automação para que esse código de exemplo funcione.
+Os comandos de exemplo a seguir criam uma nova conexão para o [Twilio](http://www.twilio.com) , um serviço de telefonia que permite enviar e receber mensagens de texto.  Um módulo de integração de exemplo que inclui um tipo de conexão do Twilio está disponível no [Script Center](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8).  Esse tipo de conexão define propriedades para o SID de Conta e o Token de Autorização, que são necessários para validar sua conta durante a conexão com o Twilio.  Você deve [baixar este módulo](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) e instalá-lo em sua conta de automação para que esse código de exemplo funcione.
 
     $AccountSid = "DAf5fed830c6f8fac3235c5b9d58ed7ac5"
     $AuthToken  = "17d4dadfce74153d5853725143c52fd1"
@@ -75,11 +79,11 @@ Os comandos de exemplo a seguir criam uma nova conexão para o [Twilio](http://w
     New-AzureAutomationConnection -AutomationAccountName "MyAutomationAccount" -Name "TwilioConnection" -ConnectionTypeName "Twilio" -ConnectionFieldValues $FieldValues
 
 
-## Usando uma conexão em um runbook ou configuração DSC
-Recupere uma conexão em um runbook ou configuração DSC com o cmdlet **Get-AutomationConnection**. Essa atividade recupera os valores dos diferentes campos na conexão e os retorna como um [tabela de hash](http://go.microsoft.com/fwlink/?LinkID=324844) que pode então ser usada com os comandos apropriados no runbook ou na configuração DSC.
+## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Usando uma conexão em um runbook ou configuração DSC
+Recupere uma conexão em um runbook ou configuração DSC com o cmdlet **Get-AutomationConnection** .  Essa atividade recupera os valores dos diferentes campos na conexão e os retorna como um [tabela de hash](http://go.microsoft.com/fwlink/?LinkID=324844) que pode então ser usada com os comandos apropriados no runbook ou na configuração DSC.
 
-### Exemplo de runbook textual
-Os comandos de exemplo a seguir mostram como usar a conexão do Twilio do exemplo anterior para enviar uma mensagem de texto de um runbook. A atividade Send-TwilioSMS usada aqui tem dois conjuntos de parâmetros, e cada um deles usa um método diferente para autenticação no serviço Twilio. Um usa um objeto de conexão e o outro usa parâmetros individuais para o SID de Conta e o Token de Autorização. Ambos os métodos são mostrados neste exemplo.
+### <a name="textual-runbook-sample"></a>Exemplo de runbook textual
+Os comandos de exemplo a seguir mostram como usar a conexão do Twilio do exemplo anterior para enviar uma mensagem de texto de um runbook.  A atividade Send-TwilioSMS usada aqui tem dois conjuntos de parâmetros, e cada um deles usa um método diferente para autenticação no serviço Twilio.  Um usa um objeto de conexão e o outro usa parâmetros individuais para o SID de Conta e o Token de Autorização.  Ambos os métodos são mostrados neste exemplo.
 
     $Con = Get-AutomationConnection -Name "TwilioConnection"
     $NumTo = "14255551212"
@@ -92,22 +96,27 @@ Os comandos de exemplo a seguir mostram como usar a conexão do Twilio do exempl
     #Send text with connection properties.
     Send-TwilioSMS -AccountSid $Con.AccountSid -AuthToken $Con.AuthToken -From $NumFrom -To $NumTo -Body $Body
 
-### Exemplos de runbook gráfico
-Você adiciona uma atividade **Get-AutomationConnection** a um runbook gráfico clicando com o botão direito do mouse na conexão no painel Biblioteca do editor gráfico e selecionando **Adicionar à tela**.
+### <a name="graphical-runbook-samples"></a>Exemplos de runbook gráfico
+Adicione uma atividade **Get-AutomationConnection** a um runbook gráfico clicando com o botão direito na conexão no painel Biblioteca do editor gráfico e selecionando **Adicionar à tela**.
 
 ![](media/automation-connections/connection-add-canvas.png)
 
-A imagem a seguir mostra um exemplo do uso de uma conexão em um runbook gráfico. Esse é o mesmo exemplo mostrado acima para enviar uma mensagem de texto usando o Twilio em um runbook textual. Esse exemplo usa o parâmetro **UseConnectionObject** definido para a atividade **Send-TwilioSMS** que usa um objeto de conexão para autenticação no serviço. Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) é usado aqui, pois o parâmetro Connection está esperando um único objeto.
+A imagem a seguir mostra um exemplo do uso de uma conexão em um runbook gráfico.  Esse é o mesmo exemplo mostrado acima para enviar uma mensagem de texto usando o Twilio em um runbook textual.  Este exemplo usa o parâmetro **UseConnectionObject** definido da atividade **Send-TwilioSMS**, que usa um objeto de conexão para a autenticação no serviço.  Um [link de pipeline](automation-graphical-authoring-intro.md#links-and-workflow) é usado aqui, pois o parâmetro Connection está esperando um único objeto.
 
-O motivo pelo qual uma expressão do PowerShell é usada para o valor o parâmetro **To** em vez de um valor Constante é que esse parâmetro espera um tipo de valor de matriz de cadeia de caracteres para que você possa enviar a vários números. Uma expressão de PowerShell permite que você forneça um único valor ou uma matriz.
+O motivo pelo qual uma expressão do PowerShell é usada para o valor o parâmetro **To** em vez de um valor Constante é que esse parâmetro espera um tipo de valor de matriz de cadeia de caracteres para que você possa enviar a vários números.  Uma expressão de PowerShell permite que você forneça um único valor ou uma matriz.
 
 ![](media/automation-connections/get-connection-object.png)
 
-A imagem abaixo mostra o mesmo exemplo mostrado acima, mas usa o conjunto de parâmetros **SpecifyConnectionFields** que espera que os parâmetros AccountSid e AuthToken sejam especificados individualmente, em vez de usar um objeto de conexão para autenticação. Nesse caso, os campos da conexão são especificados em vez do objeto propriamente dito.
+A imagem abaixo mostra o mesmo exemplo mostrado acima, mas usa o conjunto de parâmetros **SpecifyConnectionFields** que espera que os parâmetros AccountSid e AuthToken sejam especificados individualmente, em vez de usar um objeto de conexão para autenticação.  Nesse caso, os campos da conexão são especificados em vez do objeto propriamente dito.  
 
 ![](media/automation-connections/get-connection-properties.png)
 
-## Artigos relacionados
+## <a name="related-articles"></a>Artigos relacionados
 * [Links na criação gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
 
-<!---HONumber=AcomDC_0204_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

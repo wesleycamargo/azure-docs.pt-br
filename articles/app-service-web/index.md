@@ -1,14 +1,13 @@
 ---
 layout: LandingPage
-description: "Saiba como usar Aplicativos Web do Serviço de Aplicativo para criar e hospedar sites e aplicativos Web. Tutoriais, vídeos, referências de API e muito mais."
 translationtype: Human Translation
-ms.sourcegitcommit: c25534b4e5cda07ffe124ad151a3093a40137a6f
-ms.openlocfilehash: 4fda1c1635159a0bf6a502c4197b8523cd77a5f8
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: d6fc4fe4f47571cbb8114b3de5ed9bc9466123fe
 
 ---
 # <a name="azure-web-apps-documentation"></a>Documentação dos Aplicativos Web do Azure
 
-Saiba como usar Aplicativos Web do Serviço de Aplicativo para criar e hospedar sites e aplicativos Web. Vídeos, tutoriais, referências de API e outras documentações mostram como desenvolver nessa plataforma de computação totalmente gerenciada.
+Aplicativos Web do Serviço de Aplicativo é uma plataforma de computação totalmente gerenciada que é otimizada para hospedagem de sites e aplicativos Web. Essa oferta de PaaS (plataforma como serviço) do Microsoft Azure permite que você se concentre na lógica de negócios enquanto o Azure cuida da infraestrutura para executar e dimensionar os aplicativos.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -230,6 +229,6 @@ Baixar a documentação de Aplicativos Web </div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

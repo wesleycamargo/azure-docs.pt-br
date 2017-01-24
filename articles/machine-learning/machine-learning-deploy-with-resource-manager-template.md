@@ -1,30 +1,35 @@
 ---
-title: Implantar Espaço de Trabalho do Machine Learning usando o modelo do Azure Resource Manager | Microsoft Docs
-description: Como implantar um espaço de trabalho para o Aprendizado de Máquina do Azure usando o modelo do Azure Resource Manager
+title: "Implantar Espaço de Trabalho do Machine Learning usando o modelo do Azure Resource Manager | Microsoft Docs"
+description: "Como implantar um espaço de trabalho para o Aprendizado de Máquina do Azure usando o modelo do Azure Resource Manager"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: ahgyger
 manager: haining
 editor: garye
-
+ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 12/12/2016
 ms.author: ahgyger
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 72ec470c5539ad2e239836aa91d7afe43341b19a
+
 
 ---
-# Implantar Espaço de Trabalho do Machine Learning usando o Azure Resource Manager
-## Introdução
-Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar Espaço de Trabalho do Azure Machine Learning, por exemplo, você precisa configurar uma conta de armazenamento do Azure e implantar seu espaço de trabalho. Imagine fazer isso manualmente para centenas de espaços de trabalho. Uma alternativa mais fácil é usar um modelo do Azure Resource Manager para implantar um Espaço de Trabalho do Azure Machine Learning e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../resource-group-overview.md).
+# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Implantar Espaço de Trabalho do Machine Learning usando o Azure Resource Manager
+## <a name="introduction"></a>Introdução
+Usar um modelo de implantação do Azure Resource Manager poupa tempo fornecendo a você uma maneira escalonável de implantar componentes interconectados com um mecanismo de validação e repetição. Para configurar Espaço de Trabalho do Azure Machine Learning, por exemplo, você precisa configurar uma conta de armazenamento do Azure e implantar seu espaço de trabalho. Imagine fazer isso manualmente para centenas de espaços de trabalho. Uma alternativa mais fácil é usar um modelo do Azure Resource Manager para implantar um Espaço de Trabalho do Azure Machine Learning e todas as suas dependências. Este artigo guia você pelo passo a passo desse processo. Para obter uma excelente visão geral do Azure Resource Manager, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-## Passo a passo: criar um Espaço de Trabalho do Machine Learning
+## <a name="step-by-step-create-a-machine-learning-workspace"></a>Passo a passo: criar um Espaço de Trabalho do Machine Learning
 Criaremos um grupo de recursos do Azure, implantaremos uma nova conta de armazenamento do Azure e um novo Espaço de Trabalho do Azure Machine Learning usando um modelo do Resource Manager. Assim que a implantação estiver concluída, imprimiremos informações importantes sobre os espaços de trabalho que foram criados (a chave primária, a workspaceID e a URL para o espaço de trabalho).
 
-### Criar um modelo do Azure Resource Manager
-Um Espaço de Trabalho do Machine Learning exige uma conta de armazenamento do Azure para armazenar o conjunto de dados vinculado a ele. O modelo a seguir usa o nome do grupo de recursos para gerar o nome da conta de armazenamento e o nome do espaço de trabalho. Ele também usa o nome da conta de armazenamento como uma propriedade ao criar o espaço de trabalho.
+### <a name="create-an-azure-resource-manager-template"></a>Criar um modelo do Azure Resource Manager
+Um Espaço de Trabalho do Machine Learning exige uma conta de armazenamento do Azure para armazenar o conjunto de dados vinculado a ele.
+O modelo a seguir usa o nome do grupo de recursos para gerar o nome da conta de armazenamento e o nome do espaço de trabalho.  Ele também usa o nome da conta de armazenamento como uma propriedade ao criar o espaço de trabalho.
 
 ```
 {
@@ -71,11 +76,11 @@ Um Espaço de Trabalho do Machine Learning exige uma conta de armazenamento do A
 }
 
 ```
-Salve esse modelo como arquivo mlworkspace.json em c:\\temp.
+Salve esse modelo como arquivo mlworkspace.json em c:\temp\.
 
-### Implantar o grupo de recursos, com base no modelo
+### <a name="deploy-the-resource-group-based-on-the-template"></a>Implantar o grupo de recursos, com base no modelo
 * Abrir o PowerShell
-* Instale módulos do Azure Resource Manager e do Gerenciamento de Serviços do Azure
+* Instale módulos do Azure Resource Manager e do Gerenciamento de Serviços do Azure  
 
 ```
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
@@ -85,9 +90,9 @@ Install-Module AzureRM -Scope CurrentUser
 Install-Module Azure -Scope CurrentUser
 ```
 
-   Estas etapas baixam e instalam os módulos necessários para concluir as etapas restantes. Isso só precisa ser feito uma vez no ambiente em que você está executando os comandos do PowerShell.
+   Estas etapas baixam e instalam os módulos necessários para concluir as etapas restantes. Isso só precisa ser feito uma vez no ambiente em que você está executando os comandos do PowerShell.   
 
-* Autenticar-se no Azure
+* Autenticar-se no Azure  
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
@@ -106,7 +111,8 @@ $rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Ce
 $rg
 ```
 
-Verifique se o grupo de recursos está provisionado corretamente. **ProvisioningState** deve ser "Succeeded". O nome do grupo de recursos é usado pelo modelo para gerar o nome da conta de armazenamento. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas.
+Verifique se o grupo de recursos está provisionado corretamente. **ProvisioningState** deve ser "Succeeded".
+O nome do grupo de recursos é usado pelo modelo para gerar o nome da conta de armazenamento. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres, usar números e apenas letras minúsculas.
 
 ![Grupo de recursos][2]
 
@@ -132,10 +138,10 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 ```
 Depois que o espaço de trabalho estiver provisionado, você também poderá automatizar muitas tarefas do Estúdio de Aprendizado de Máquina do Azure usando o [Módulo do PowerShell para Aprendizado de Máquina do Azure](http://aka.ms/amlps).
 
-## Próximas etapas
-* Saiba mais sobre [como criar modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
-* Examine o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
-* Assista a este vídeo sobre o [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
+## <a name="next-steps"></a>Próximas etapas
+* Saiba mais sobre [como criar modelos do Azure Resource Manager](../resource-group-authoring-templates.md). 
+* Examine o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates). 
+* Assista a este vídeo sobre o [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
 
 <!--Image references-->
 [1]: ../media/machine-learning-deploy-with-resource-manager-template/azuresubscription.png
@@ -144,4 +150,8 @@ Depois que o espaço de trabalho estiver provisionado, você também poderá aut
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

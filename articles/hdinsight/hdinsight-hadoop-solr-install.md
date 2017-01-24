@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 600bc7182b1ce3eb3663ce986e128c6b04897dee
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: c0fcfc1087e8635f6ec2a0cdc246f1155c90ea53
 
 
 ---
@@ -34,7 +34,7 @@ O script de exemplo usado neste tópico cria um cluster do Solr baseado no Windo
 
 * [Instalar e usar o Solr em clusters Hadoop do HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md)
 * [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre como criar clusters HDInsight
-* [Personalizar o cluster HDInsight usando a Ação de Script][hdinsight-cluster-customize]: informações gerais sobre como personalizar os clusters HDInsight usando a Ação de Script.
+* [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]: informações gerais sobre como personalizar os clusters HDInsight usando a Ação de Script.
 * [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md)
 
 ## <a name="what-is-solr"></a>O que é Solr?
@@ -44,7 +44,7 @@ O <a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache S
 1. Comece a criar um cluster usando a opção **CUSTOM CREATE**, como descrito em [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md).
 2. Na página **Ações de Script** do assistente, clique em **adicionar ação de script** para fornecer detalhes sobre a ação de script, como mostrado abaixo:
 
-    ![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Use Script Action to customize a cluster")
+    ![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Usar Ação de Script para personalizar um cluster")
 
     <table border='1'>
         <tr><th>Propriedade</th><th>Valor</th></tr>
@@ -82,7 +82,7 @@ Você deve começar com indexação Solr, com alguns arquivos de dados. Em segui
    * Na caixa de texto **q**, digite **\*:**\*. Isso retornará como resultado todos os documentos que são indexados em Solr. Se você quiser procurar uma cadeia de caracteres específica dentro dos documentos, você pode inserir essa cadeia de caracteres aqui.
    * Na caixa de texto **wt** , selecione o formato de saída. O padrão é **json**. Clique em **Executar consulta**.
 
-     ![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Run a query on Solr dashboard")
+     ![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Executar uma consulta no painel do Solr")
 
      A saída retorna os dois documentos que foram usados para indexação do Solr. A saída é semelhante ao seguinte:
 
@@ -169,13 +169,13 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 ## <a name="see-also"></a>Confira também
 * [Instalar e usar o Solr em clusters Hadoop do HDInsight (Linux)](hdinsight-hadoop-solr-install-linux.md)
 * [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre como criar clusters HDInsight
-* [Personalizar o cluster HDInsight usando a Ação de Script][hdinsight-cluster-customize]: informações gerais sobre como personalizar os clusters HDInsight usando a Ação de Script.
+* [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]: informações gerais sobre como personalizar os clusters HDInsight usando a Ação de Script.
 * [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md)
 * [Instalar e usar o Spark em clusters HDInsight][hdinsight-install-spark]: exemplo de Ação de Script sobre a instalação do Spark.
-* [Instalar R nos clusters HDInsight][hdinsight-install-r]: exemplo de Ação de Script sobre a instalação do R.
+* [Instalar R em clusters HDInsight][hdinsight-install-r]: exemplo de Ação de Script sobre a instalação do R.
 * [Instalar Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md): exemplo de Ação de Script sobre a instalação do Giraph.
 
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
@@ -183,6 +183,6 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

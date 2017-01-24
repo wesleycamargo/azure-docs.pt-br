@@ -16,28 +16,27 @@ ms.topic: article
 ms.date: 11/14/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 99c36b40b16689e76a9b9af661cf1c5dd41d8321
-ms.openlocfilehash: bbf6f7ad4b7ee444787c464dae0f0fdc5db033be
+ms.sourcegitcommit: 17ddda372f3a232be62e565b700bb1be967fb8e3
+ms.openlocfilehash: 96ec97914784f53739b11b4ef7916de620b4ed6e
 
 
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Como anexar um disco de dados na máquina virtual Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Veja como [anexar um disco de dados usando o modelo de implantação do Resource Manager](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Veja como [anexar um disco de dados usando o modelo de implantação do Resource Manager](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Você pode anexar tanto discos vazios como discos que contenham dados às suas VMs do Azure. Ambos os tipos de discos são arquivos .vhd que residem em uma conta de armazenamento do Azure. Como acontece com a adição de qualquer disco a uma máquina Linux, depois que você anexar o disco, será necessário inicializá-lo e formatá-lo para que ele fique pronto para uso. Este artigo detalha a anexação de discos vazios e de discos que já contenham dados às suas VMs, e também como então inicializar e formatar um novo disco.
 
 > [!NOTE]
-> É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual Azure, há um disco do sistema operacional e um disco temporário. **Não use o disco temporário para armazenar dados persistentes.**  Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
-> O disco temporário é normalmente gerenciado pelo agente Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Por outro lado, um disco de dados pode ser chamado pelo kernel Linux como `/dev/sdc`, e você precisará fazer a partição, formatar e montar esse recurso. Consulte o [Guia do Usuário do Azure Linux Agent][Agente] para obter detalhes.
+> É uma prática recomendada usar um ou mais discos separados para armazenar dados de uma máquina virtual. Quando você cria uma máquina virtual Azure, há um disco do sistema operacional e um disco temporário. **Não use o disco temporário para armazenar dados persistentes.** Como seu nome quer dizer, ele oferece armazenamento apenas temporariamente. Não oferece redundância nem backup porque eles não residem no armazenamento do Azure.
+> O disco temporário é normalmente gerenciado pelo agente Linux do Azure e montado automaticamente em **/mnt/resource** (ou **/mnt** nas imagens do Ubuntu). Por outro lado, um disco de dados pode ser chamado pelo kernel Linux como `/dev/sdc`, e você precisará fazer a partição, formatar e montar esse recurso. Consulte o [Guia do Usuário do Agente do Linux do Azure][Agent] para obter detalhes.
 > 
 > 
 
 [!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## <a name="initialize-a-new-data-disk-in-linux"></a>Inicializar um novo disco de dados no Linux
-1. SSH para sua VM. Para obter mais informações, consulte [Como fazer logon em uma máquina virtual executando Linux][Logon].
+1. SSH para sua VM. Para obter mais informações, veja [Como fazer logon em uma Máquina Virtual que executa o Linux][Logon].
 2. Em seguida, você precisa localizar o identificador de dispositivo para inicializar o disco de dados. Há duas maneiras de fazer isso:
    
     a) Grep para dispositivos SCSI nos logs, como no comando a seguir:
@@ -204,7 +203,7 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
 
-* Como alternativa, você pode executar o comando `fstrim` manualmente na linha de comando ou adicioná-lo a crontab para ser executado normalmente:
+* Em alguns casos a opção `discard` pode afetar o desempenho. Como alternativa, você pode executar o comando `fstrim` manualmente na linha de comando ou adicioná-lo a crontab para ser executado normalmente:
   
     **Ubuntu**
   
@@ -226,16 +225,18 @@ Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de cost
 ## <a name="next-steps"></a>Próximas etapas
 Você pode ler mais sobre como usar sua VM do Linux nos seguintes artigos:
 
-* [Como fazer logon em uma máquina virtual executando o Linux][Logon]
+* [Como fazer logon em uma máquina virtual que executa o Linux][Logon]
 * [Como desanexar um disco de uma máquina virtual Linux](virtual-machines-linux-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Usando a CLI do Azure com o modelo de implantação Clássico](../virtual-machines-command-line-tools.md)
+* [Configurar o RAID em uma VM Linux no Azure](virtual-machines-linux-configure-raid.md)
+* [Configurar o LVM em uma VM Linux no Azure](virtual-machines-linux-configure-lvm.md)
 
 <!--Link references-->
-[Agente]: virtual-machines-linux-agent-user-guide.md
+[Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-mac-create-ssh-keys.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

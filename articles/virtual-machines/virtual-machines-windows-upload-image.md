@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: fe188671ff1cb5ba93edbff316afd7b6e23a2dd1
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 5aa6b2149170ef04af0ebde957feda5630c5d5eb
 
 
 ---
@@ -40,7 +40,7 @@ Você pode carregar VHDs generalizados e especializados no Azure. Cada tipo requ
   * Verifique se a VM está configurada para obter o endereço IP e as configurações de DNS por meio de DHCP. Isso garante que o servidor obtém um endereço IP na VNet quando ele é iniciado. 
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
-Se você ainda não tiver a versão 1.4 ou superior do PowerShell instalada, leia [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+Se você ainda não tiver a versão 1.4 ou superior do PowerShell instalada, leia [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 1. Abra o Azure PowerShell e conecte-se à sua conta do Azure. Uma janela pop-up é aberta para inserir as credenciais da conta do Azure.
    
@@ -132,6 +132,6 @@ Dependendo da conexão de rede e do tamanho do arquivo VHD, esse comando pode de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

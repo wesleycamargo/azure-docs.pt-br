@@ -16,15 +16,16 @@ ms.workload: big-compute
 ms.date: 07/07/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 5dcbadd1e7f855f72539a9b6cd619ed3f014119c
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: f2b4081a0a5b158714cb016fd46570a19dae5d00
 
 
 ---
 # <a name="create-a-linux-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Criar um cluster HPC (computação de alto desempenho) do Linux usando o script de implantação IaaS do HPC Pack
 Execute o script do PowerShell de implantação do Pacote HPC IaaS para implantar um cluster HPC completo de cargas de trabalho do Linux nas máquinas virtuais do Azure. O cluster consiste em um nó principal associado do Active Directory que executa o Windows Server e o Pacote HPC da Microsoft, e nós de computação que executam uma das distribuições do Linux com suporte do Pacote HPC. Se você desejar implantar um cluster de HPC Pack no Azure para cargas de trabalho do Linux, consulte [Criar um cluster de HPC Windows com o script de implantação do HPC Pack IaaS](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Você também pode usar um modelo do Gerenciador de Recursos do Azure para implantar um cluster Pacote HPC. Para obter um exemplo, consulte [Criar um cluster HPC com nós de computação Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -91,6 +92,6 @@ Substitua seus próprios valores para o nome da assinatura e os nomes da conta e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

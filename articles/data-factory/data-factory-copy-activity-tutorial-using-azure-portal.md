@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
+ms.sourcegitcommit: 71d165b8eaf4fe292577dce138d96ad049de61ab
+ms.openlocfilehash: 14032f3e54a078389d1be75742dda757d6a74a36
 
 
 ---
@@ -68,8 +68,8 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    2. Selecione sua **assinatura**do Azure.
    3. Para o Grupo de Recursos, execute uma das seguintes etapas:
       
-      1. Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
-      2. Selecione **Criar novo**e insira o nome de um grupo de recursos.   
+      - Selecione **Usar existente**e selecione um grupo de recursos existente na lista suspensa. 
+      - Selecione **Criar novo**e insira o nome de um grupo de recursos.   
          
           Algumas das etapas neste tutorial supõem que você usa o nome: **ADFTutorialResourceGroup** para o grupo de recursos. Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
    4. Selecione o **local** do data factory. Apenas as regiões com suporte pelo serviço Data Factory são mostradas na lista suspensa.
@@ -90,7 +90,7 @@ Nesta etapa, você usa o Portal do Azure para criar um data factory do Azure den
    ![Página inicial da data factory](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
-Serviços vinculados vinculam armazenamentos de dados ou serviços de computação para uma data factory do Azure. Confira [repositórios de dados com suporte](data-factory-data-movement-activities.md##supported-data-stores-and-formats) para ver todas as fontes e coletores com suporte da Atividade de Cópia. Confira os [serviços vinculados de computação](data-factory-compute-linked-services.md) para ver uma lista dos serviços de computação com suporte do Data Factory. Neste tutorial, você não usa nenhum serviço de computação. 
+Serviços vinculados vinculam armazenamentos de dados ou serviços de computação para uma data factory do Azure. Confira [repositórios de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver todas as fontes e coletores com suporte da Atividade de Cópia. Confira os [serviços vinculados de computação](data-factory-compute-linked-services.md) para ver uma lista dos serviços de computação com suporte do Data Factory. Neste tutorial, você não usa nenhum serviço de computação. 
 
 Nesta etapa, você cria dois serviços vinculados: **AzureStorageLinkedService** e **AzureSqlLinkedService**. O serviço vinculado AzureStorageLinkedService vincula uma conta de armazenamento do Azure e o AzureSqlLinkedService vincula um banco de dados SQL do Azure à **ADFTutorialDataFactory**. Você criará, posteriormente neste tutorial, um pipeline que copia dados de um contêiner de blob no AzureStorageLinkedService em uma tabela SQL no AzureSqlLinkedService.
 
@@ -135,38 +135,39 @@ Nesta etapa, você criará um conjunto de dados denominado **InputDataset** que 
     ![Menu Novo conjunto de dados](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
 2. Substitua JSON no painel direito pelo trecho JSON a seguir: 
    
-        {
-          "name": "InputDataset",
-          "properties": {
-            "structure": [
-              {
-                "name": "FirstName",
-                "type": "String"
-              },
-              {
-                "name": "LastName",
-                "type": "String"
-              }
-            ],
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-              "folderPath": "adftutorial/",
-              "fileName": "emp.txt",
-              "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ","
-              }
-            },
-            "external": true,
-            "availability": {
-              "frequency": "Hour",
-              "interval": 1
-            }
+    ```JSON
+    {
+      "name": "InputDataset",
+      "properties": {
+        "structure": [
+          {
+            "name": "FirstName",
+            "type": "String"
+          },
+          {
+            "name": "LastName",
+            "type": "String"
           }
+        ],
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+          "folderPath": "adftutorial/",
+          "fileName": "emp.txt",
+          "format": {
+            "type": "TextFormat",
+            "columnDelimiter": ","
+          }
+        },
+        "external": true,
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
         }
-   
-     Observe os seguintes pontos: 
+      }
+    }
+    ```   
+    Observe os seguintes pontos: 
    
    * O **tipo** do conjunto de dados foi definido como **AzureBlob**.
    * **linkedServiceName** é definido como **AzureStorageLinkedService**. Você criou esse serviço vinculado na Etapa 2.
@@ -177,19 +178,21 @@ Nesta etapa, você criará um conjunto de dados denominado **InputDataset** que 
      
      Se você não especificar um **fileName** para um conjunto de dados de **entrada**, todos os arquivos/blobs da pasta de entrada (**folderPath**) serão considerados como entradas. Se você especificar um nome de arquivo em JSON, apenas arquivo/blob especificado será considerado como entrada de asn.
      
-     Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.&lt;Guid\&gt;.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+     Se você não especificar um **fileName** para uma **tabela de saída**, os arquivos gerados no **folderPath** serão nomeados no seguinte formato: Data.&lt;Guid&gt;.txt (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
      
      Para definir **folderPath** e **fileName** dinamicamente com base no horário **SliceStart**, use a propriedade **partitionedBy**. No exemplo a seguir, folderPath usa o ano, mês e dia de SliceStart (hora de início da fatia que está sendo processada) e fileName usa a hora de SliceStart. Por exemplo, se uma fatia é produzida para 2016-09-20T08:00:00, o folderName é definido como wikidatagateway/wikisampledataout/2016/09/20 e o fileName é definido como 08.csv. 
-     
-           "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-           "fileName": "{Hour}.csv",
-           "partitionedBy": 
-           [
-               { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-               { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-               { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-               { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-           ],
+
+    ```JSON     
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
+    [
+       { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+       { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+       { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+       { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+    ],
+    ```
 3. Clique em **Implantar** na barra de ferramentas para criar e implantar o conjunto de dados **InputDataset**. Confirme que você vê o **InputDataset** na exibição de árvore.
 
 > [!NOTE]
@@ -202,33 +205,34 @@ Nesta parte da etapa, você cria um conjunto de dados de saída denominado **Out
 
 1. No **Editor** do Data Factory, clique em **... Mais**, clique em **Novo conjunto de dados** e clique em **SQL do Azure** no menu suspenso. 
 2. Substitua JSON no painel direito pelo trecho JSON a seguir:
-   
-        {
-          "name": "OutputDataset",
-          "properties": {
-            "structure": [
-              {
-                "name": "FirstName",
-                "type": "String"
-              },
-              {
-                "name": "LastName",
-                "type": "String"
-              }
-            ],
-            "type": "AzureSqlTable",
-            "linkedServiceName": "AzureSqlLinkedService",
-            "typeProperties": {
-              "tableName": "emp"
-            },
-            "availability": {
-              "frequency": "Hour",
-              "interval": 1
-            }
+
+    ```JSON   
+    {
+      "name": "OutputDataset",
+      "properties": {
+        "structure": [
+          {
+            "name": "FirstName",
+            "type": "String"
+          },
+          {
+            "name": "LastName",
+            "type": "String"
           }
+        ],
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+          "tableName": "emp"
+        },
+        "availability": {
+          "frequency": "Hour",
+          "interval": 1
         }
-   
-     Observe os seguintes pontos: 
+      }
+    }
+    ```     
+    Observe os seguintes pontos: 
    
    * O **tipo** do conjunto de dados foi definido como **AzureSQLTable**.
    * **linkedServiceName** é definido como **AzureSqlLinkedService** (você criou esse serviço vinculado na Etapa 2).
@@ -247,48 +251,50 @@ Nesta etapa, você cria um pipeline com uma **Atividade de Cópia** que usa **In
 
 1. No **Editor** do Data Factory, clique em **... Mais** e clique em **Novo pipeline**. Como alternativa, você pode clicar com o botão direito do mouse em **Pipelines** no modo de exibição de árvore e clicar em **Novo pipeline**.
 2. Substitua JSON no painel direito pelo trecho JSON a seguir: 
-   
-        {
-          "name": "ADFTutorialPipeline",
-          "properties": {
-            "description": "Copy data from a blob to Azure SQL table",
-            "activities": [
+
+    ```JSON   
+    {
+      "name": "ADFTutorialPipeline",
+      "properties": {
+        "description": "Copy data from a blob to Azure SQL table",
+        "activities": [
+          {
+            "name": "CopyFromBlobToSQL",
+            "type": "Copy",
+            "inputs": [
               {
-                "name": "CopyFromBlobToSQL",
-                "type": "Copy",
-                "inputs": [
-                  {
-                    "name": "InputDataset"
-                  }
-                ],
-                "outputs": [
-                  {
-                    "name": "OutputDataset"
-                  }
-                ],
-                "typeProperties": {
-                  "source": {
-                    "type": "BlobSource"
-                  },
-                  "sink": {
-                    "type": "SqlSink",
-                    "writeBatchSize": 10000,
-                    "writeBatchTimeout": "60:00:00"
-                  }
-                },
-                "Policy": {
-                  "concurrency": 1,
-                  "executionPriorityOrder": "NewestFirst",
-                  "retry": 0,
-                  "timeout": "01:00:00"
-                }
+                "name": "InputDataset"
               }
             ],
-            "start": "2016-07-12T00:00:00Z",
-            "end": "2016-07-13T00:00:00Z"
+            "outputs": [
+              {
+                "name": "OutputDataset"
+              }
+            ],
+            "typeProperties": {
+              "source": {
+                "type": "BlobSource"
+              },
+              "sink": {
+                "type": "SqlSink",
+                "writeBatchSize": 10000,
+                "writeBatchTimeout": "60:00:00"
+              }
+            },
+            "Policy": {
+              "concurrency": 1,
+              "executionPriorityOrder": "NewestFirst",
+              "retry": 0,
+              "timeout": "01:00:00"
+            }
           }
-        } 
-   
+        ],
+        "start": "2016-07-12T00:00:00Z",
+        "end": "2016-07-13T00:00:00Z"
+      }
+    } 
+    ```   
+    
     Observe os seguintes pontos:
    
    * Na seção de atividades, há apenas uma atividade cujo **tipo** é definido como **Copy**.
@@ -305,7 +311,7 @@ Nesta etapa, você cria um pipeline com uma **Atividade de Cópia** que usa **In
 3. Clique em **Implantar** na barra de ferramentas para criar e implantar o **ADFTutorialPipeline**. Confirme que você vê o pipeline no modo de exibição de árvore. 
 4. Agora, feche a folha **Editor** clicando em **X**. Clique em **X** novamente para ver a home page **Data Factory** do **ADFTutorialDataFactory**.
 
-**Parabéns!**  Você criou um data factory do Azure, serviços vinculados, tabelas e uma pipeline e a pipeline agendada com êxito.   
+**Parabéns!** Você criou um data factory do Azure, serviços vinculados, tabelas e uma pipeline e a pipeline agendada com êxito.   
 
 ### <a name="view-the-data-factory-in-a-diagram-view"></a>Exibir a data factory em um Modo de Exibição de Diagrama
 1. Na folha **Data Factory**, clique em **Diagrama**.
@@ -373,7 +379,7 @@ Nesta etapa, você utiliza o portal do Azure para monitorar o que está acontece
     
     ![resultados da consulta sql](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### <a name="monitor-pipeline-using-monitor-manage-app"></a>Monitorar o pipeline usando o aplicativo Monitorar e Gerenciar
+### <a name="monitor-pipeline-using-monitor--manage-app"></a>Monitorar o pipeline usando o aplicativo Monitorar e Gerenciar
 Você também pode usar o aplicativo Monitorar e Gerenciar para monitorar os pipelines. Para obter informações detalhadas sobre como usar esse aplicativo, confira [Monitorar e gerenciar pipelines do Azure Data Factory usando o aplicativo Monitorar e Gerenciar](data-factory-monitor-manage-app.md).
 
 1. Clique no bloco **Monitorar e Gerenciar** na home page do seu data factory.
@@ -407,6 +413,6 @@ Neste tutorial, você criou uma data factory do Azure para copiar dados de um bl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

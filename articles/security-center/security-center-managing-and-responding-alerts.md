@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c0a1cf550c46810624d9eee7722409ff19b75369
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 7a4413c6d2ecf497e72e2909e627761f0a9ff23a
 
 
 ---
@@ -42,20 +42,19 @@ Você pode examinar os alertas atuais observando o bloco **Alertas de segurança
 1. No painel Central de Segurança, você verá o bloco **Alertas de segurança** .
    
     ![Bloco Alertas de segurança na Central de Segurança](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
+
 2. Clique no bloco para abrir a folha **Alertas de segurança** , que contém mais detalhes sobre os alertas, conforme mostrado abaixo.
    
    ![A folha Alertas de segurança na Central de Segurança](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
 Na parte inferior dessa folha estão os detalhes de cada alerta. Para classificar, clique na coluna com base na qual você deseja classificar. A definição de cada coluna é mostrada abaixo:
 
-* **Alerta**: uma breve explicação sobre o alerta.
+* **Descrição**: uma breve explicação sobre o alerta.
 * **Contagem**: uma lista de todos os alertas desse tipo específico que foram detectados em um dia específico.
 * **Detectado por**: o serviço responsável por disparar o alerta.
 * **Data**: a data na qual o evento ocorreu.
 * **Estado**: o estado atual desse alerta. Há dois tipos de estado:
-  
   * **Ativo**: o alerta de segurança foi detectado.
-  * **Descartado**: o alerta de segurança foi fechado pelo usuário. Esse status costuma ser usado para alertas que foram investigados, mas que foram atenuados ou considerados como não sendo ataques reais
 * **Gravidade**: o nível de gravidade, que pode ser alta, média ou baixa.
 
 ### <a name="filtering-alerts"></a>Filtragem de alertas
@@ -63,10 +62,7 @@ Você pode filtrar com base na data, no estado e na gravidade dos alertas. A fil
 
 1. Clique em **Filtrar** na folha **Alertas de Segurança**. A folha **Filtrar** é aberta e você seleciona os valores de data, estado e gravidade que deseja ver.
    
-    ![Filtragem de alertas na Central de Segurança](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-ga.png)
-2. Após investigar um alerta de segurança, você pode achar que ele é um falso positivo para seu ambiente ou indica um comportamento esperado para determinado recurso. Seja qual for o caso, se determinar que um alerta de segurança não é aplicável, você poderá ignorá-lo e, em seguida, filtrá-lo da exibição. Há duas maneiras de ignorar um alerta de segurança. Clique com o botão direito do mouse em um alerta e selecione **Ignorar** ou passe o mouse sobre um item, clique nos três pontos que aparecem à direita e selecione **Ignorar**. Você pode exibir os alertas de segurança ignorados clicando em **Filtrar** e selecionando **Ignorados**.
-   
-   ![Como ignorar alertas na Central de Segurança](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4-ga.png)
+    ![Filtragem de alertas na Central de Segurança](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### <a name="respond-to-security-alerts"></a>Responder a alertas de segurança
 Selecione um alerta de segurança para saber mais sobre o evento que disparou o alerta e, se houver, as etapas necessárias para corrigir um ataque. Os alertas de segurança são agrupados por tipo e data. Um alerta de segurança permite abrir uma folha que contém uma lista dos alertas agrupados.
@@ -98,6 +94,6 @@ Neste documento, você aprendeu a configurar políticas de segurança na Central
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: big-compute
 ms.date: 08/25/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 1a8b813ce5f31f2ac26b7695560c35e98cc7d4e9
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 21ec1f15dc7055cdd3b281216abfbac8554abad0
 
 
 ---
@@ -86,7 +86,7 @@ O script de implantação do HPC Pack IaaS é outra forma versátil para implant
 
 **Pré-requisitos adicionais**
 
-* **Azure PowerShell** - [Instale e configure o Azure PowerShell](../powershell-install-configure.md) (versão 0.8.10 ou posterior) no computador cliente.
+* **Azure PowerShell** - [Instale e configure o Azure PowerShell](/powershell/azureps-cmdlets-docs) (versão 0.8.10 ou posterior) no computador cliente.
 * **Script de implantação do Pacote HPC IaaS** : baixe e descompacte a versão mais recente do script no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Verifique a versão do script executando `New-HPCIaaSCluster.ps1 –Version`. Este artigo se baseia na versão 4.5.0 ou posterior do script.
 
 **Criar o arquivo de configuração**
@@ -347,7 +347,7 @@ O aplicativo cliente SOA não requer alterações, exceto do nome principal para
 [template]: ./media/virtual-machines-windows-excel-cluster-hpcpack/template.png
 [parameters]: ./media/virtual-machines-windows-excel-cluster-hpcpack/parameters.png
 [create]: ./media/virtual-machines-windows-excel-cluster-hpcpack/create.png
-[conectar]: ./media/virtual-machines-windows-excel-cluster-hpcpack/connect.png
+[connect]: ./media/virtual-machines-windows-excel-cluster-hpcpack/connect.png
 [cert]: ./media/virtual-machines-windows-excel-cluster-hpcpack/cert.png
 [addin]: ./media/virtual-machines-windows-excel-cluster-hpcpack/addin.png
 [macro]: ./media/virtual-machines-windows-excel-cluster-hpcpack/macro.png
@@ -358,6 +358,6 @@ O aplicativo cliente SOA não requer alterações, exceto do nome principal para
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

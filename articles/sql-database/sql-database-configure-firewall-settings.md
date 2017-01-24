@@ -1,6 +1,6 @@
 ---
-title: Configurar uma regra de firewall no servidor de Banco de Dados SQL | Microsoft Docs
-description: "Saiba como configurar o firewall para endereços IP que acessam o Azure SQL Server."
+title: "Portal do Azure: regras de firewall no nível de servidor do Banco de Dados SQL do Azure | Microsoft Docs"
+description: "Saiba como configurar as regras de firewall de nível de servidor para os endereços IP que acessam o servidor SQL do Azure usando o portal do Azure."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
+ms.sourcegitcommit: 2a85b3dc1078bad9e5e2fc0ce0bec7e994b29150
+ms.openlocfilehash: 36938e642853d587cd28405f5e518ac9ac0697ac
 
 
 ---
@@ -51,7 +51,7 @@ Clique em **Salvar** para salvar as alterações.
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter um tutorial de introdução, confira [Tutorial do Banco de Dados SQL: criar um servidor, uma regra de firewall de nível de servidor, um banco de dados de exemplo, uma regra de firewall de nível de banco de dados e conectar-se com o SQL Server](sql-database-get-started.md).
-- Para obter uma introdução ao tutorial de segurança, confira [Introdução à segurança](sql-database-get-started-security.md)
+- Para obter uma introdução ao tutorial de segurança, confira [Introdução à segurança](sql-database-control-access-sql-authentication-get-started.md)
 - Para obter ajuda com a conexão de um Banco de Dados SQL do Azure a partir de aplicativos de fonte aberta ou de terceiros, consulte [Exemplos de código do cliente de início rápido para o Banco de Dados SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Para entender como criar usuários adicionais que podem se conectar aos bancos de dados, consulte [Autenticação e Autorização do Banco de Dados SQL: Concessão de Acesso](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -64,6 +64,6 @@ Clique em **Salvar** para salvar as alterações.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 587c39920ce658dc70034c15e3e847182a567559
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: bf4735cd0a56e7837a0dfd7d9bc8e50e09e5cf54
 
 
 ---
@@ -256,7 +256,7 @@ Depois de criar alguns anúncios ainda em execução na nuvem, você exibirá o 
     Você não vai conseguir usar o aplicativo Web até definir as cadeias de conexão no ambiente do Azure, na próxima seção. Será exibida uma página de erro ou a home page, dependendo das opções de criação do aplicativo Web e do banco de dados escolhidas anteriormente.
 
 ### <a name="configure-the-web-app-to-use-your-azure-sql-database-and-storage-account"></a>Configure o aplicativo Web para usar o banco de dados SQL do Azure e a conta de armazenamento.
-Trata-se de uma melhor prática de segurança [evitar colocar informações confidenciais como cadeias de conexão em arquivos armazenados em repositórios de código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). O Azure fornece uma maneira de fazer isso: é possível definir a cadeia de conexão e outros valores de configuração no ambiente do Azure e as APIs de configuração do ASP.NET separam automaticamente esses valores quando o aplicativo é executado no Azure. Você pode definir esses valores no Azure usando o **Gerenciador de Servidores**, o Portal do Azure, o Windows PowerShell ou a interface de linha de comando entre plataformas. Para saber mais, veja [Como funcionam as cadeias de caracteres de aplicativos e de conexão](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+Trata-se de uma melhor prática de segurança [evitar colocar informações confidenciais como cadeias de conexão em arquivos armazenados em repositórios de código-fonte](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). O Azure fornece uma maneira de fazer isso: é possível definir a cadeia de conexão e outros valores de configuração no ambiente do Azure e as APIs de configuração do ASP.NET separam automaticamente esses valores quando o aplicativo é executado no Azure. Você pode definir esses valores no Azure usando o **Gerenciador de Servidores**, o Portal do Azure, o Windows PowerShell ou a interface de linha de comando entre plataformas. Para saber mais, veja [Como funcionam as cadeias de caracteres de aplicativos e de conexão](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 Nesta seção, você usa o **Gerenciador de Servidores** para definir os valores da cadeia de conexão no Azure.
 
@@ -727,6 +727,6 @@ Para sabe r mais, consulte [Recursos de documentação de WebJobs do Azure](http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

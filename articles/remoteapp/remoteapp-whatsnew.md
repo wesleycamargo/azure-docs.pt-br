@@ -1,22 +1,25 @@
-
 ---
-title: O que há de novo no RemoteApp do Azure? | Microsoft Docs
-description: Saiba mais sobre alterações e aprimoramentos feitos ao Azure RemoteApp
+title: "O que há de novo no Azure RemoteApp? | Microsoft Docs"
+description: "Saiba mais sobre alterações e aprimoramentos feitos ao Azure RemoteApp"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 40f1ba79-80f1-47bd-bf39-f86c03e2306a
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: 05487c4bbdce24ea9f31ed451026531c16ead7c4
+
 
 ---
-# O que há de novo no Azure RemoteApp?
+# <a name="whats-new-in-azure-remoteapp"></a>O que há de novo no Azure RemoteApp?
 > [!IMPORTANT]
 > O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
@@ -24,10 +27,10 @@ ms.author: elizapo
 
 Uma das vantagens do Azure RemoteApp é que estamos sempre trabalhando para melhorá-lo. Sempre que isso for feito, anunciaremos as alterações aqui.
 
-## Atualizações futuras
-Oi, você sabia que a equipe do RemoteApp do Azure envia atualizações mensais para o blog do RDS? Você pode ver não apenas o que mudou no RemoteApp do Azure, mas também outras informações sobre como usar o RDS. Confira o [Blog de Serviços de Área de Trabalho Remota](https://blogs.msdn.microsoft.com/rds/) para obter informações. Por exemplo, duas semanas atrás, eles postaram uma entrada sobre [levantar e mudar cargas de trabalho com o Azure RemoteApp e o Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+## <a name="future-updates"></a>Atualizações futuras
+Oi, você sabia que a equipe do RemoteApp do Azure envia atualizações mensais para o blog do RDS? Você pode ver não apenas o que mudou no RemoteApp do Azure, mas também outras informações sobre como usar o RDS. Confira o [Blog de Serviços de Área de Trabalho Remota](https://blogs.msdn.microsoft.com/rds/)para obter informações. Por exemplo, duas semanas atrás, eles postaram uma entrada sobre [levantar e mudar cargas de trabalho com o Azure RemoteApp e o Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
 
-## Setembro de 2015
+## <a name="september-2015"></a>Setembro de 2015
 * O Infopath foi adicionado à imagem da galeria e ao modelo do Microsoft Office 365. Para compartilhar o Infopath, atualize suas coleções com a imagem mais recente.
 * Atualizações do cliente:
   * O cliente Windows foi atualizado para permitir que os usuários compartilhem comentários, principalmente sobre problemas de conexão.
@@ -36,27 +39,27 @@ Oi, você sabia que a equipe do RemoteApp do Azure envia atualizações mensais 
 * Foi publicado um novo artigo sobre o [as diferenças entre as coleções de nuvem e híbridos](remoteapp-collections.md) – isso o ajudará a escolher o tipo de coleção que funciona melhor para aplicativos – somente em nuvem, nuvem + VNET ou híbrida.
 * Deseja compartilhar QuickBooks usando o Azure RemoteApp, mas não tem certeza das etapas? Confira o [novo artigo do Eric](remoteapp-quickbooks.md) que lhe diz exatamente o que fazer.
 
-## Agosto de 2015
+## <a name="august-2015"></a>Agosto de 2015
 Grandes mudanças aconteceram em agosto – eis alguns destaques:
 
 * Agora você pode usar uma VNET do Azure com uma coleção de nuvem! Confira as [instruções de criação de nuvem](remoteapp-create-cloud-deployment.md) das novas etapas.
-* Agora é possível adicionar aplicativos ao menu **Iniciar** para o cliente Windows RemoteApp. Os aplicativos aparecerão na lista de aplicativos e você poderá fixá-los no menu **Iniciar** no Windows.
+* Agora é possível adicionar aplicativos ao menu **Iniciar **para o cliente Windows RemoteApp. Os aplicativos aparecerão na lista de aplicativos e você poderá fixá-los no menu **Iniciar **no Windows.
 * Uma nova imagem foi adicionada à galeria de VM do Azure – Host da Sessão da Área de Trabalho Remota do Windows Server com o Microsoft Office 365 ProPlus.
 * O cliente Mac foi corrigido para que aplicativos com janelas modais parem congelar.
 * Foram documentadas orientações de como usar a [assinatura do Office 365 ProPlus](remoteapp-officesubscription.md) com o Azure RemoteApp.
 * Foram detalhadas orientações de como [proteger aplicativos e dados](remoteapp-secure.md) na coleção Azure RemoteApp.
 
-## 2015 de julho
+## <a name="july-2015"></a>2015 de julho
 Julho prepara o terreno para mudanças planejadas em agosto, portanto, não há muito sobre o que discorrer no momento; o que há são principalmente atualizações de documento. Essas são as alterações mais recentes:
 
 * Uma guia **Suporte** foi adicionada ao portal para que você possa acessar mais facilmente recursos de suporte, como fóruns.
 * As informações de solução de problemas foram reformuladas para a criação de uma coleção híbrida. Confira as dicas [mais recentes e melhores](remoteapp-hybridtrouble.md) de solução de problemas, por exemplo, como identificar as portas corretas para configurar sua VNET.
 * O modo pelo qual os [dados de usuário](remoteapp-upd.md) são criados e salvos no Azure RemoteApp foi documentado.
-* A maneira de [bloquear aplicativos](remoteapp-secure.md) foi documentada.
-* Os [cmdlets do Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx) foram publicados.
+* A maneira de [bloquear aplicativos](remoteapp-secure.md)foi documentada.
+* Os [cmdlets do Azure RemoteApp](https://msdn.microsoft.com/library/mt428031.aspx)foram publicados.
 * E, finalmente, começamos uma conversa sobre terminologia com alguns usuários de RemoteApp do Azure. Procure por alterações no modo como fazemos referência às diferentes opções de coleção.
 
-## Junho de 2015
+## <a name="june-2015"></a>Junho de 2015
 Muitas mudanças! A equipe tem estado muito ocupada em junho:
 
 * A Azure RemoteApp [página de aterrissagem](https://www.remoteapp.windowsazure.com/) foi redesenhada, confira!
@@ -67,7 +70,7 @@ Muitas mudanças! A equipe tem estado muito ocupada em junho:
 
 Temos mais alterações preparadas para julho, pelo que voltaremos em breve com outra atualização.
 
-## Maio de 2015
+## <a name="may-2015"></a>Maio de 2015
 Houve várias adições (e meses) desde que criamos este tópico, então essa lista faz um pouco de batota e começa no início de março e vai até maio. Vejas esses novos recursos:
 
 * Automatize tudo - o Azure RemoteApp agora tem [cmdlets no módulo do Azure PowerShell](remoteapp-tutorial-arawithpowershell.md).
@@ -82,7 +85,12 @@ Precisa ver o Azure RemoteApp no mundo real? Confira o tutorial [Executar qualqu
 
 Obrigado por estar conosco - o mês que vem traz mais atualizações.
 
-### Ajude-nos a ajudar você
+### <a name="help-us-help-you"></a>Ajude-nos a ajudar você
 Você sabia que, além de classificar este artigo e fazer comentários, você pode alterar o próprio artigo? Falta alguma coisa? Há algo errado? Escrevi algo que não ficou muito claro? Role para cima e clique em **Editar no GitHub** para fazer alterações - elas serão enviadas para que as examinemos e, assim que elas forem desconectadas, você verá suas alterações e aprimoramentos bem aqui.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

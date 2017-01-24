@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/21/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: 5fc94be5e7be09432d735e1cf1293a4e65cbe99e
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: f3b16dcb6f48a2c9f9784f677ca2133837a56ca6
 
 
 ---
@@ -25,12 +25,12 @@ Primeiro iremos definir a uma Rede Virtual (VNet) no Azure. Em seguida, adiciona
 
 Antes de começar, algumas das coisas que você precisa ter em mente:
 
-1. Este tutorial usa o PowerShell; portanto, certifique-se de que o Azure PowerShell esteja instalado e pronto. Para obter ajuda na configuração do Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+1. Este tutorial usa o PowerShell; portanto, certifique-se de que o Azure PowerShell esteja instalado e pronto. Para obter ajuda na configuração do Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 2. As instâncias do controlador de domínio do AD e a função web/de trabalho precisam estar na VNet.
 
 Siga este guia passo a passo e, se tiver algum problema, deixe um comentário abaixo. Alguém entrará em contato com você (sim, lemos comentários).
 
-1. A rede que é referenciada pelo serviço de nuvem <mark>deve ser</mark> uma **rede virtual clássica**.
+A rede que é referenciada pelo serviço de nuvem deve ser uma **rede virtual clássica**.
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 Você pode criar uma Rede Virtual no Azure usando o portal clássico do Azure ou o PowerShell. Para este tutorial, usaremos o PowerShell. Para criar uma Rede virtual usando o portal clássico do Azure, confira [Criar uma rede virtual](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
@@ -149,7 +149,7 @@ Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-na
 
 E isso é tudo.
 
-Os serviços de nuvem agora devem ter ingressado no seu controlador de domínio personalizado. Se você gostaria de saber mais sobre as diferentes opções disponíveis para configurar a extensão do domínio do AD, use a Ajuda do PowerShell conforme mostrado abaixo.
+Os serviços de nuvem agora devem ser ingressados no seu controlador de domínio personalizado. Se você gostaria de saber mais sobre as diferentes opções disponíveis para configurar a extensão do domínio do AD, use a Ajuda do PowerShell conforme mostrado abaixo.
 
 ```powershell
 help Set-AzureServiceADDomainExtension
@@ -158,6 +158,6 @@ help New-AzureServiceADDomainExtensionConfig
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

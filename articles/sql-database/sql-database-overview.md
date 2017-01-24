@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: 3d45ec5a6636de4213c6c02dca0e5288ec3aa0e3
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 315fb49ba25c46afaa6571d9249ecd1c8da13e91
 
 
 ---
@@ -65,12 +65,12 @@ Você pode gerenciar servidores lógicos do Banco de Dados SQL do Azure usando v
 - Para obter uma visão geral dos servidores lógicos do SQL Azure, consulte [Visão geral do servidor lógico do Banco de Dados SQL](sql-database-server-overview.md)
 - Para obter informações sobre o suporte ao Transact-SQL e as diferenças, consulte [Diferenças do Transact-SQL do Banco de Dados SQL do Azure](sql-database-transact-sql-information.md).
 - Para obter informações sobre cotas e limitações de recursos específicos com base na **camada de serviço**. Para obter uma visão geral das camadas de serviço, consulte [Camadas de serviço do banco de dados SQL](sql-database-service-tiers.md).
-- Para obter diretrizes relacionadas à segurança, consulte [Diretrizes e limitações de segurança do Banco de Dados SQL do Azure](sql-database-security-guidelines.md).
+- Para obter uma visão geral de segurança, veja [Visão geral de segurança do Banco de Dados SQL do Azure](sql-database-security-overview.md).
 - Para obter informações sobre a disponibilidade de drivers e o suporte ao Banco de Dados SQL, veja [Bibliotecas de conexões para Banco de Dados SQL e SQL Server](sql-database-libraries.md).
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

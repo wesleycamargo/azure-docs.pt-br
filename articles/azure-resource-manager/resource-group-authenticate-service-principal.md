@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: a3643b9b6ae6c1750a7c7c900375fdf1dee06f8f
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 5b7c701cc7bd3c4ad586f2e7407fa45f102771d7
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: a3643b9b6ae6c1750a7c7c900375fdf1dee06f8f
 > 
 > 
 
-Quando você tiver um aplicativo ou script que precisa acessar recursos, provavelmente não desejará executar esse processo com suas próprias credenciais. Você pode ter permissões diferentes que deseja para o aplicativo e não quer que o aplicativo continue usando suas credenciais se alterar suas responsabilidades. Em vez disso, você cria uma identidade para o aplicativo que inclua as credenciais de autenticação e as atribuições de função. Sempre que o aplicativo for executado, ele se autenticará com essas credenciais. Este tópico mostra como usar o [Azure PowerShell](../powershell-install-configure.md) para configurar tudo que você precisa para um aplicativo ser executado com suas próprias credenciais e identidade.
+Quando você tiver um aplicativo ou script que precisa acessar recursos, provavelmente não desejará executar esse processo com suas próprias credenciais. Você pode ter permissões diferentes que deseja para o aplicativo e não quer que o aplicativo continue usando suas credenciais se alterar suas responsabilidades. Em vez disso, você cria uma identidade para o aplicativo que inclua as credenciais de autenticação e as atribuições de função. Sempre que o aplicativo for executado, ele se autenticará com essas credenciais. Este tópico mostra como usar o [Azure PowerShell](/powershell/azureps-cmdlets-docs) para configurar tudo que você precisa para um aplicativo ser executado com suas próprias credenciais e identidade.
 
 Com o PowerShell, você tem duas opções para autenticar seu aplicativo do AD:
 
@@ -274,6 +274,6 @@ Os aplicativos de exemplo a seguir mostram como fazer logon como a entidade de s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -39,7 +39,6 @@ Os programas de recompensa da Microsoft pagam os pesquisadores por técnicas de 
 Saiba mais sobre esses programas na página [MSRC Bug Bounty (Recompensas para detecção de bugs do MSRC)](https://technet.microsoft.com/security/dn425036) e o [blog do MSRC](https://blogs.technet.microsoft.com/msrc/).
 
 Para saber mais sobre o MSRC, visite a [home page do MSRC](https://technet.microsoft.com/library/dn440717.aspx).
-
 
 
 

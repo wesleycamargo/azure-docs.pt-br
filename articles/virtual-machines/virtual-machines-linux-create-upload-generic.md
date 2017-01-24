@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 12/02/2016
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 76d82d5bfc9c57583ea722e76f13bdd4b17ec444
+ms.sourcegitcommit: 8ba7633f7d5c4bf9e7160b27f5d5552676653d55
+ms.openlocfilehash: ad632fd894a56a490b48c81ae63d641412368f35
 
 
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações para as distribuições não endossadas
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-**Importante**: o SLA (contrato de nível de serviço) da plataforma do Azure aplica-se a máquinas virtuais com o sistema operacional Linux somente quando uma das [distribuições endossadas é usada](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) . Todas as distribuições do Linux fornecidas na galeria de imagens do Azure são distribuições endossadas com a configuração necessária.
+O SLA (contrato de nível de serviço) da plataforma do Azure aplica-se a máquinas virtuais com o sistema operacional Linux somente quando uma das [distribuições endossadas](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) é usada com os detalhes da configuração especificados neste artigo. Todas as distribuições do Linux fornecidas na galeria de imagens do Azure são distribuições endossadas com a configuração necessária.
 
 * [Linux no Azure - Distribuições endossadas](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Suporte para imagens Linux no Microsoft Azure](https://support.microsoft.com/kb/2941892)
@@ -80,6 +80,7 @@ Para corrigir isso, você pode redimensionar a VM usando o console do Gerenciado
 1. Redimensionar o VHD diretamente, usando ferramentas como `qemu-img` ou `vbox-manage` pode resultar em um VHD incapaz de ser inicializado.  Então convém primeiro converter o VHD para uma imagem de disco bruta.  Se a imagem VM já foi criada como imagem de disco bruta (o padrão para alguns Hypervisors como KVM), você pode ignorar esta etapa:
    
        # qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
+
 2. Calcule o tamanho necessário da imagem do disco para garantir que o tamanho virtual esteja alinhado para 1MB.  O seguinte script de bash shell pode ajudar com isso.  O script usa "`qemu-img info`" para determinar o tamanho virtual da imagem do disco e, em seguida, calcula o tamanho para o próximo 1 MB:
    
        rawdisk="MyLinuxVM.raw"
@@ -91,12 +92,18 @@ Para corrigir isso, você pode redimensionar a VM usando o console do Gerenciado
    
        rounded_size=$((($size/$MB + 1)*$MB))
        echo "Rounded Size = $rounded_size"
+
 3. Redimensione o disco bruto usando $rounded_size conforme definido no script acima:
    
        # qemu-img resize MyLinuxVM.raw $rounded_size
+
 4. Agora, converta o disco bruto em um VHD de tamanho fixo:
    
        # qemu-img convert -f raw -o subformat=fixed -O vpc MyLinuxVM.raw MyLinuxVM.vhd
+
+   Ou então, com a versão de qemu **2.6 ou superior**, inclui a opção `force_size`:
+
+       # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc MyLinuxVM.raw MyLinuxVM.vhd
 
 ## <a name="linux-kernel-requirements"></a>Requisitos do kernel do Linux
 Os drivers LIS (Serviços de Integração do Linux) para Hyper-V e Azure são obtidos diretamente no kernel upstream do Linux. Muitas distribuições que contam com uma versão recente do kernel do Linux (por exemplo, versões 3.x) já terão esses drivers ou fornecerão versões revertidas desses drivers com seus kernels.  Os drivers são atualizados constantemente no kernel upstream com reparos e recursos. Por isso, recomendamos que você execute, sempre que possível, uma [distribuição endossada](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que inclua esses reparos e essas atualizações.
@@ -177,6 +184,6 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazur
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

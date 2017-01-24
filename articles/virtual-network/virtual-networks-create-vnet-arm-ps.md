@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 3d854b5073909f30a1bf59e0986c7f0f926ee21c
-ms.openlocfilehash: 2ce6f0d280609dc62063f87d2ab17256b3ff67c4
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 955fefc75880006beee54bb59871b325ed4a9e18
 
 
 ---
@@ -44,7 +44,7 @@ Este artigo explica como criar uma rede virtual por meio do modelo de implantaç
 
 Para criar uma rede virtual usando o PowerShell, conclua as seguintes etapas:
 
-1. Instalar e configurar o Azure PowerShell executando as etapas a seguir no artigo [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+1. Instalar e configurar o Azure PowerShell executando as etapas a seguir no artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 2. Se necessário, crie um novo grupo de recursos, como mostrado abaixo. Para esse cenário, crie um grupo de recursos chamado *TestRG*. Para saber mais sobre grupos de recursos, acesse [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -182,6 +182,6 @@ Saiba como se conectar:
 - A rede virtual para uma rede local usando uma VPN (rede privada virtual) site a site ou um circuito ExpressRoute. Saiba como lendo os artigos [Conectar uma VNet a uma rede local usando uma VPN site a site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) e [Vincular uma VNet a um circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-arm.md).
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

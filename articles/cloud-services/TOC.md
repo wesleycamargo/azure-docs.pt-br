@@ -117,6 +117,6 @@
 ## [Roteiro de aprendizagem](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

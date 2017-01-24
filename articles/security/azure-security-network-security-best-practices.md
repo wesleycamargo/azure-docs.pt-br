@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2016
+ms.date: 01/09/2017
 ms.author: TomSh
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -75,8 +75,8 @@ Embora as rotas padrão do sistema sejam úteis para muitos cenários de implant
 
 > [!NOTE]
 > As Rotas Definidas pelo Usuário não são obrigatórias e as rotas de sistema padrão funcionarão na maioria dos casos.
-> 
-> 
+>
+>
 
 Você pode aprender mais sobre as Rotas Definidas pelo Usuário e sobre como configurá-las ao ler o artigo [O que são as Rotas Definidas pelo Usuário e o Encaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
 
@@ -235,7 +235,6 @@ No entanto, há muitos problemas de planejamento e de design que precisam ser ab
 A Microsoft criou o [Diagrama de arquitetura de referência de extensão do datacenter](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content) e material de apoio para ajudar você a entender a aparência de uma extensão do datacenter. Isso fornece um exemplo de implementação de referência que você pode usar para planejar e projetar uma extensão segura do datacenter corporativo para a nuvem. É recomendável que você leia este documento para ter uma ideia dos principais componentes de uma solução segura.
 
 Para saber mais sobre como estender com segurança seu data center para o Azure, veja o vídeo [Extensão do seu datacenter para o Microsoft Azure](https://www.youtube.com/watch?v=Th1oQQCb2KA).
-
 
 
 

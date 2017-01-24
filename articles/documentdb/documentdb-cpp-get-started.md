@@ -12,21 +12,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: cpp
 ms.topic: hero-article
-ms.date: 11/02/2016
+ms.date: 12/25/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8770e89cd54dae23ba05fb53382f7d89d19b029a
+ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
+ms.openlocfilehash: f622b9a35c370148a3472fa6924a50933d59601e
 
 
 ---
 # <a name="nosql-c-tutorial-documentdb-c-console-application"></a>Tutorial do NoSQL C++: aplicativo de console em C++ do DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
+>  
 > 
-> 
+ 
 
 Bem-vindo ao tutorial do C++ para o SDK aprovado pelo DocumentDB do Azure para C++! Após seguir este tutorial, você terá um aplicativo de console que cria e consulta recursos do DocumentDB, incluindo um banco de dados em C++.
 
@@ -276,7 +279,7 @@ Parabéns! Você concluiu o tutorial do C++ e tem seu primeiro aplicativo de con
 ## <a name="a-idgetsolutionaget-the-complete-c-tutorial-solution"></a><a id="GetSolution"></a>Obter a solução completa do tutorial de C++
 Para criar a solução de Introdução que contém todos os exemplos neste artigo, você precisa do seguinte:
 
-* [Conta do DocumentDB][documentdb-create-account].
+* [Conta de DocumentDB][documentdb-create-account].
 * A solução [GetStarted](https://github.com/stalker314314/DocumentDBCpp) disponível no GitHub.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -285,13 +288,11 @@ Para criar a solução de Introdução que contém todos os exemplos neste artig
 * Saiba mais sobre o modelo de programação na seção Desenvolvimento da [Página de documentação do Banco de Dados de Documentos](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 
 
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

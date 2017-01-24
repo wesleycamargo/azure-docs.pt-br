@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8885f776250d44419e73bcfecaa4c49359f198bf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ebb95d47e39b9ade3bc6ff5cac199ce5f552b335
 
 
 ---
@@ -61,19 +61,25 @@ Para configurar a integração do SECURE DELIVER ao Azure AD, você precisará a
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
    
     ![Active Directory][1]
+
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
     ![Aplicativos][2]
+
 4. Clique em **Adicionar** na parte inferior da página.
    
     ![Aplicativos][3]
+
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
     ![Aplicativos][4]
+
 6. Na caixa de pesquisa, digite **SECURE DELIVER**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_01.png)
+
 7. No painel de resultados, escolha **SECURE DELIVER** e clique em **Concluir** para adicionar o aplicativo.
    
     ![Logotipo do aplicativo e o Nome na galeria](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_06.png)
@@ -100,9 +106,11 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
 1. No portal clássico do Azure, na página de integração de aplicativos do **SECURE DELIVER**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Configurar Logon Único][6] 
+
 2. Na página **Como você deseja que os usuários façam logon no SECURE DELIVER**, escolha **Logon Único do Azure AD** e clique em **Avançar**.
    
     ![Configurar Logon Único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_03.png) 
+
 3. Na página de diálogo **Definir Configurações do Aplicativo**, execute as seguintes etapas e, em seguida, clique em **Avançar**:
    
     ![Configurar Logon Único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_04.png) 
@@ -114,6 +122,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     c. Na caixa de texto **Identificador** , digite a URL do locatário. 
    
     d. Clique em **Próximo**
+
 4. Na página **Configurar logon único no SECURE DELIVER**, execute as seguintes etapas e clique em **Avançar**:
    
     ![Configurar Logon Único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_05.png) 
@@ -121,6 +130,7 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     a. Clique em **Baixar certificado**e salve o arquivo em seu computador.
    
     b. Clique em **Avançar**.
+
 5. Para que o SSO seja configurado para seu aplicativo, contate a equipe de suporte do SECURE DELIVER pelo email [iw-sd-support@fujifilm.com](mailto:iw-sd-support@fujifilm.com) e forneça o seguinte:
    
     •  O arquivo de certificado baixado
@@ -130,9 +140,11 @@ O objetivo desta seção é habilitar o logon único do Azure AD no portal clás
     • A **URL do Serviço de Logon Único**
    
     • A **URL do Serviço de Logoff Único**
+
 6. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
+
 7. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![Logon Único do AD do Azure][11]
@@ -147,13 +159,17 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_09.png) 
+
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_03.png) 
+
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_04.png) 
+
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_05.png) 
@@ -163,22 +179,25 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
     c. Clique em **Próximo**.
+
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_06.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-   d. Na lista **Função**, selecione **Usuário**.
+    d. Na lista **Função**, selecione **Usuário**.
    
-   e. Clique em **Próximo**.
+    e. Clique em **Próximo**.
+
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_07.png) 
+
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-securedeliver-tutorial/create_aaduser_08.png) 
@@ -205,13 +224,17 @@ O objetivo desta seção é permitir que Brenda Fernandes use o logon único do 
 1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
    
     ![Atribuir usuário][201] 
+
 2. Na lista de aplicativos, escolha **SECURE DELIVER**.
    
     ![Configurar Logon Único](./media/active-directory-saas-securedeliver-tutorial/tutorial_securedeliver_50.png) 
+
 3. No menu na parte superior, clique em **Usuários**.
    
     ![Atribuir usuário][203] 
+
 4. Na lista de usuários, selecione **Brenda Fernandes**.
+
 5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
    
     ![Atribuir usuário][205]
@@ -244,6 +267,6 @@ Ao clicar no bloco do SECURE DELIVER no Painel de Acesso, você deverá ser cone
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2016
-ms.author: bwren
+ms.author: magoedte;bwren
+redirect_url: https://docs.microsoft.com/azure/automation/automation-solution-vm-management
+redirect_document_id: FALSE
 translationtype: Human Translation
 ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
 ms.openlocfilehash: ba67183cf0518bee102579a8ab16a9be92ed7b73
 
-
 ---
+
 # <a name="azure-automation-scenario---starting-and-stopping-virtual-machines"></a>Cenário de Automação do Azure — iniciando e parando máquinas virtuais
 Esse cenário de Automação do Azure inclui runbooks para iniciar e parar máquinas virtuais clássicas.  Você pode usar esse cenário para qualquer um destes objetivos:  
 

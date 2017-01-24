@@ -14,10 +14,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: narayanannamalai;annahar
+ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ae62a2e657e3b20e258b5afaa1d03b6825e8019
-ms.openlocfilehash: e40af1e363f7add88ead6e552290926abe4db328
+ms.sourcegitcommit: ed7c37ee5482b3ec91489b7aba9b5a9d5df5c97e
+ms.openlocfilehash: 06130f18bad86dbbe009548ac95ac0e6c4953db2
 
 
 ---
@@ -82,8 +82,7 @@ Cada link no emparelhamento VNet tem um conjunto das propriedades acima. No port
 4. Na folha Adicionar acesso, escolha uma função e escolha Colaborador de Rede, clique em Adicionar Usuários, digite o nome de entrada do UserB e clique em OK.
    
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
-   
-    Isso não é obrigatório, o emparelhamento pode ser estabelecido mesmo se os usuários acionarem solicitações de emparelhamento para suas respectivas Vnets, desde que as solicitações coincidam. A adição de um usuário com privilégios da outra VNet como usuários na VNet local facilita a configuração no portal.
+
 5. Em seguida, faça logon no Portal do Azure com UserB, que é o usuário com privilégios na AssinaturaB. Execute as etapas acima para adicionar UserA como Colaborador de Rede.
    
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
@@ -138,6 +137,6 @@ Cada link no emparelhamento VNet tem um conjunto das propriedades acima. No port
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

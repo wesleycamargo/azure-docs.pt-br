@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2016
+ms.date: 01/12/2017
 ms.author: alkohli
 translationtype: Human Translation
 ms.sourcegitcommit: fd73672f97b4c16e49b2fad5e53042764f5793ca
@@ -194,7 +194,7 @@ Execute as etapas a seguir para iniciar a matriz virtual e conectar-se a ela.
 
     1. Para habilitar o modo FIPS, execute o seguinte cmdlet:
 
-        `Enter-HcsFIPSMode`
+        `Enable-HcsFIPSMode`
     2. Reinicialize o dispositivo após ter habilitado o modo FIPS para que as validações criptográficas tenham efeito.
 
        > [!NOTE]

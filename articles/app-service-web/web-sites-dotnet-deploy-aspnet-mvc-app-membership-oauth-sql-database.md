@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: riande
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3aaddd0b8ff500e3417a0ae7dd21207be45ade64
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: f0bffc2a77ef5f91c6c637e8ab247b559fb59d5c
 
 
 ---
@@ -46,7 +46,7 @@ O que você aprenderá:
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se em uma avaliação gratuita](/pricing/free-trial/?WT.mc_id=A261C142F).
+Para concluir este tutorial, você precisa de uma conta do Microsoft Azure. Se não tiver uma conta, você poderá [ativar os benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [inscrever-se em uma avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
 Para configurar o ambiente de desenvolvimento, você deve instalar o [Visual Studio 2013 Atualização 5](http://go.microsoft.com/fwlink/?LinkId=390521) ou superior e a versão mais recente do [SDK do Azure para .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Este artigo foi escrito para o Visual Studio Atualização 4 e para o SDK 2.8.1. As mesmas instruções servem para o Visual Studio 2015 com a versão mais recente do [SDK do Azure para .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) instalado, mas algumas telas terão uma aparência diferente das ilustrações.
 
@@ -603,10 +603,10 @@ Este tutorial foi escrito por [Rick Anderson](http://blogs.msdn.com/b/rickandy/)
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- bookmarks -->
-[Adicionar um provedor de OAuth]: #addOauth
-[Usando a API de Associação]:#mbrDB
-[Criar um Script de Implantação de Dados]:#ppd
-[Atualizar o Banco de Dados de Associação]:#ppd2
+[Add an OAuth Provider]: #addOauth
+[Using the Membership API]:#mbrDB
+[Create a Data Deployment Script]:#ppd
+[Update the Membership Database]:#ppd2
 
 [setupwindowsazureenv]: #bkmk_setupwindowsazure
 [createapplication]: #bkmk_createmvc4app
@@ -655,14 +655,14 @@ Este tutorial foi escrito por [Rick Anderson](http://blogs.msdn.com/b/rickandy/)
 [addcode009]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/dntutmobile-migrations-package-manager-console.png
 
 
-[Informações importantes sobre o ASP.NET em aplicativos Web do Azure]: #aspnetwindowsazureinfo
-[Próximas etapas]: #nextsteps
+[Important information about ASP.NET in Azure web apps]: #aspnetwindowsazureinfo
+[Next steps]: #nextsteps
 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 16f4e287a955b787a08cc6949094bd0f5224421a
-ms.openlocfilehash: 29488482f3e6c5f3dcf0eac04fe7e5e33fb832ce
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 4be8e4f81965fa4d872e29fdb9aaa45909d18c37
 
 
 ---
@@ -89,7 +89,7 @@ Depois de definir o tipo de preço, clique em Configurar pool, onde você adicio
 
     Se os bancos de dados nos quais você está trabalhando tiverem telemetria de uso histórico suficiente, o gráfico **Uso estimado de eDTU e GB** e o gráfico de barras **Uso real de eDTU** serão atualizados para ajudá-lo a tomar decisões de configuração. Além disso, o serviço pode fornecer uma mensagem de recomendação para ajudá-lo a planejar o tamanho do pool. Veja [Recomendações dinâmicas](#dynamic-recommendations).
 
-3. Use os controles na página **Configurar pool** para explorar as configurações e configurar o pool. Confira [Limites dos pools elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases) para saber mais sobre os limites de cada camada de serviço, e confira as [Considerações de preço e desempenho dos pools elásticos](sql-database-elastic-pool-guidance.md) para obter uma orientação detalhada sobre o tamanho correto de um pool. Para obter mais detalhes sobre as configurações do pool, veja [Propriedades do pool elástico](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties).
+3. Use os controles na página **Configurar pool** para explorar as configurações e configurar o pool. Confira [Limites dos pools elásticos](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools) para saber mais sobre os limites de cada camada de serviço, e confira as [Considerações de preço e desempenho dos pools elásticos](sql-database-elastic-pool-guidance.md) para obter uma orientação detalhada sobre o tamanho correto de um pool. Para obter mais detalhes sobre as configurações do pool, veja [Propriedades do pool elástico](sql-database-elastic-pool.md#elastic-pool-properties).
 
     ![Configurar pool elástico](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -129,6 +129,6 @@ Depois de adicionar os bancos de dados ao pool, as recomendações serão dinami
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

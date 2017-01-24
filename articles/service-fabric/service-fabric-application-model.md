@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2016
+ms.date: 12/01/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 4917f58f9e179b6adca0886e7d278055e5c3d281
-ms.openlocfilehash: 4218b8e066d8323444695aca3c970f4f21fadea4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b27f818d5f91fe1272017cf6b7e859bc1673fe92
 
 
 ---
@@ -52,7 +52,7 @@ O diagrama a seguir mostra a relação entre aplicativos e instâncias de servi�
 ## <a name="describe-a-service"></a>Descrever um serviço
 O manifesto do serviço declarativamente define o tipo de serviço e a versão. Ele especifica os metadados de serviço, como o tipo de serviço, propriedades de integridade, métricas de balanceamento de carga, binários de serviço e arquivos de configuração.  Trocando em miúdos, ele descreve os pacotes de código, de configuração e de dados que compõem um pacote de serviço para dar suporte a um ou mais tipos de serviço. Aqui está um manifesto do serviço de exemplo simples:
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ServiceManifest Name="MyServiceManifest" Version="SvcManifestVersion1" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest</Description>
@@ -74,7 +74,7 @@ O manifesto do serviço declarativamente define o tipo de serviço e a versão. 
   <ConfigPackage Name="MyConfig" Version="ConfigVersion1" />
   <DataPackage Name="MyData" Version="DataVersion1" />
 </ServiceManifest>
-~~~
+```
 
 **Version** são cadeias de caracteres não estruturadas e não analisadas pelo sistema. Eles são usados para fazer a versão de cada componente para atualizações.
 
@@ -86,14 +86,14 @@ O manifesto do serviço declarativamente define o tipo de serviço e a versão. 
 
 **ConfigPackage** declara uma pasta nomeada pelo atributo **Name**, que contém um arquivo *Settings.xml*. Esse arquivo contém seções de configurações de par chave-valor, definido pelo usuário, que o processo pode ler de volta no tempo de execução. Durante a atualização, se apenas a **versão** do **ConfigPackage** tiver sido alterada, o processo de execução não será reiniciado. Em vez disso, um retorno de chamada notifica o processo de que as definições de configuração foram alteradas para que possam ser recarregadas dinamicamente. Eis um exemplo do arquivo *Settings.xml* :
 
-~~~
+```xml
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSecion">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
   </Section>
 </Settings>
-~~~
+```
 
 > [!NOTE]
 > Um manifesto do serviço pode conter vários pacotes de código, de configuração e de dados. Cada um deles pode ser transformado em versão independentemente.
@@ -115,7 +115,7 @@ O manifesto do aplicativo declarativamente descreve o tipo de aplicativo e a ver
 
 Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicativo e faz referência a um ou mais manifestos do serviço para compor um tipo de aplicativo. Aqui está um manifesto de aplicativo de exemplo simples:
 
-~~~
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <ApplicationManifest
       ApplicationTypeName="MyApplicationType"
@@ -134,7 +134,7 @@ Portanto, um manifesto de aplicativo descreve os elementos no nível do aplicati
      </Service>
   </DefaultServices>
 </ApplicationManifest>
-~~~
+```
 
 Manifestos de serviço, como atributos **Versão** , são cadeias de caracteres não estruturadas e não analisadas pelo sistema. Eles também são usados para a fazer a versão de cada componente para atualizações.
 
@@ -161,7 +161,7 @@ For more information about other features supported by application manifests, re
 ### <a name="package-layout"></a>Layout do pacote
 O manifesto do aplicativo, os manifestos do serviço e outros arquivos de pacote necessários devem ser organizados em um layout específico para a implantação em um cluster Malha do Serviço. Os manifestos de exemplo neste artigo precisariam estar organizados na seguinte estrutura de diretórios:
 
-~~~
+```
 PS D:\temp> tree /f .\MyApplicationType
 
 D:\TEMP\MYAPPLICATIONTYPE
@@ -178,7 +178,7 @@ D:\TEMP\MYAPPLICATIONTYPE
     │
     └───MyData
             init.dat
-~~~
+```
 
 As pastas são nomeadas para corresponder a atributos **Name** de cada elemento correspondente. Por exemplo, se o manifesto do serviço contiver dois pacotes de códigos com os nomes **MyCodeA** e **MyCodeB**, então, duas pastas com os mesmos nomes conteriam os binários necessários para cada pacote de códigos.
 
@@ -200,16 +200,16 @@ Quando o empacotamento estiver concluído, você encontrará o local do pacote n
 ### <a name="test-the-package"></a>Teste o pacote
 Você pode verificar a estrutura do pacote localmente por meio do PowerShell usando o comando **Test-ServiceFabricApplicationPackage** . Esse comando verificará se há problemas de análise de manifesto e também todas as referências. Observe que esse comando só verifica a correção estrutural de diretórios e arquivos no pacote. Ele não verificará qualquer código ou dados de conteúdo do pacote além de verificar se todos os arquivos necessários estão presentes.
 
-~~~
+```
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
 False
 Test-ServiceFabricApplicationPackage : The EntryPoint MySetup.bat is not found.
 FileName: C:\Users\servicefabric\AppData\Local\Temp\TestApplicationPackage_7195781181\nrri205a.e2h\MyApplicationType\MyServiceManifest\ServiceManifest.xml
-~~~
+```
 
 Esse erro mostra que o arquivo *MySetup.bat* referenciado no manifesto do serviço **SetupEntryPoint** está ausente do pacote de código. Depois de adicionar o arquivo que está faltando, a verificação do aplicativo é aprovada:
 
-~~~
+```
 PS D:\temp> tree /f .\MyApplicationType
 
 D:\TEMP\MYAPPLICATIONTYPE
@@ -231,7 +231,7 @@ D:\TEMP\MYAPPLICATIONTYPE
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
 True
 PS D:\temp>
-~~~
+```
 
 Depois que o aplicativo é empacotado corretamente e passa pela verificação, ele está pronto para implantação.
 
@@ -240,7 +240,7 @@ Depois que o aplicativo é empacotado corretamente e passa pela verificação, e
 
 [Gerenciando parâmetros do aplicativo para vários ambientes][11]
 
-[RunAs: executando um aplicativo do Service Fabric com permissões de segurança diferentes][12]
+[RunAs: executando um aplicativo de Service Fabric com permissões de segurança diferentes][12]
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
@@ -255,6 +255,6 @@ Depois que o aplicativo é empacotado corretamente e passa pela verificação, e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

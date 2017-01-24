@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a533ebe181134b9c251b1fde76be61a4a3959487
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 575bad188834f46ff7fb2ba31f1f01028bb9857d
 
 
 ---
 # <a name="using-load-balanced-sets-to-clusterize-mysql-on-linux"></a>Usando conjuntos de carga balanceada para clusterizar MySQL em Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para obter um modelo do Resource Manager para implantar um cluster do MySQL, consulte [aqui](https://azure.microsoft.com/documentation/templates/mysql-replication/).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter um modelo do Resource Manager para implantar um cluster do MySQL, consulte [aqui](https://azure.microsoft.com/documentation/templates/mysql-replication/).
 
 A finalidade deste artigo é explorar e ilustrar as diferentes abordagens disponíveis para implantar serviços com base em Linux, altamente disponíveis no Microsoft Azure, explorando a alta disponibilidade do MySQL Server como elemento principal. Há um vídeo ilustrando essa abordagem disponível no [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
@@ -141,7 +140,8 @@ Se não pretende usar failover no DRBD agora, a primeira opção é mais fácil,
     INSERT INTO things VALUES (1, "Yet another entity");
     GRANT ALL ON things.\* TO root;
 
-**Aviso**: a última instrução desabilita efetivamente a autenticação para o usuário raiz nessa tabela. Ela deve ser substituída pelas instruções GRANT de nível de produção e só é incluída para fins de ilustração.
+> [!WARNING]
+> Esta última instrução desabilita efetivamente a autenticação para o usuário raiz nessa tabela. Ela deve ser substituída pelas instruções GRANT de nível de produção e só é incluída para fins de ilustração.
 
 Você também precisa habilitar a rede para MySQL caso queira fazer consultas externas às VMs, que é a finalidade deste guia. Em ambas as VMs, abra `/etc/mysql/my.cnf` e navegue até `bind-address`; altere-as de 127.0.0.1 para 0.0.0.0. Depois de salvar o arquivo, emita uma `sudo service mysql restart` no primário atual.
 
@@ -177,7 +177,8 @@ A restrição principal do Corosync no Azure é que o Corosync prefere comunica�
 
 Felizmente, o Corosync tem um modo unicast funcional, a única restrição real é que, como todos os nós não estão se comunicando entre si *automaticamente*, você precisa definir os nós em arquivos de configuração, inclusive seus endereços IP. Podemos usar os arquivos de exemplo do Corosync para unicast e apenas alterar o endereço de associação, as listas de nós e o diretório do registro em log (o Ubuntu usa `/var/log/corosync` e os arquivos de exemplo usam `/var/log/cluster`), além de habilitar as ferramentas de quorum.
 
-**Observe a diretiva `transport: udpu` abaixo e os endereços IP definidos manualmente para os nós**.
+> [!NOTE]
+> A diretiva `transport: udpu` abaixo e os endereços IP definidos manualmente para os nós**.
 
 Em `/etc/corosync/corosync.conf` para ambos os nós:
 
@@ -314,7 +315,8 @@ Código de exemplo para o recurso disponível em [GitHub](https://github.com/bur
       property stonith-enabled=true \
       commit
 
-**Observação:** o script não realiza verificações para cima/para baixo. O recurso SSH original apresentava 15 verificações de ping, mas o tempo de recuperação de uma VM do Azure pode ser mais variável.
+> [!NOTE]
+> O script não realiza verificações de ligado/desligado. O recurso SSH original apresentava 15 verificações de ping, mas o tempo de recuperação de uma VM do Azure pode ser mais variável.
 
 ## <a name="limitations"></a>Limitações
 As seguintes limitações se aplicam:
@@ -329,6 +331,6 @@ As seguintes limitações se aplicam:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

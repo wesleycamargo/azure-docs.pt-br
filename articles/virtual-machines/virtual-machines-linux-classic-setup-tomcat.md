@@ -16,17 +16,16 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f32ad29c105c3713b8e3138914f8fc1a781cd75
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 954e971878f8ece5d67247e65f11ff9242f9f621
 
 
 ---
 # <a name="how-to-set-up-tomcat7-on-a-linux-virtual-machine-with-microsoft-azure"></a>Como configurar o Tomcat7 em uma máquina virtual Linux com o Microsoft Azure
 Apache Tomcat (ou simplesmente Tomcat, anteriormente também Tomcat Jacarta) é um servidor Web de software livre e o contêiner de servlet desenvolvidos pelo Apache Software Foundation (ASF). Tomcat implementa o Servlet Java e especificações de JavaServer Pages (JSP) da Sun Microsystems e fornece um ambiente de servidor Web HTTP Java puro na qual executará o código Java. Na configuração mais simples, o Tomcat é executado em um único processo do sistema operacional. Esse processo é executado em uma máquina virtual Java (JVM). Todas as solicitações HTTP de um navegador para o Tomcat são processadas como um thread separado do processo do Tomcat.  
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para um modelo do Resource Manager para implantar uma VM Ubuntu com Open JDK e Tomcat, veja [aqui](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para um modelo do Resource Manager para implantar uma VM Ubuntu com Open JDK e Tomcat, veja [aqui](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
 
 Neste guia, você instalará o tomcat7 em uma imagem do Linux e vai implantá-lo no Microsoft Azure.  
 
@@ -128,9 +127,8 @@ Nesta fase, você pode instalar o Java runtime environment, o tomcat e outros co
 ### <a name="java-runtime-environment"></a>Java runtime environment
 O tomcat é escrito em Java. Há dois tipos de Kits de desenvolvimento Java (JDKs) (OpenJDK e JDK do Oracle), e você pode escolher o que você deseja.  
 
-> OBSERVAÇÃO.DO.AZURE: Ambos os JDKs têm quase o mesmo código para as classes na API do Java, mas o código para a máquina virtual é, na verdade, diferente. Quando se trata de bibliotecas, o OpenJDK tende a usar bibliotecas abertas enquanto Oracle tende a usar aquelas fechadas. Mas o JDK do Oracle tem mais classes e alguns bugs corrigidos e o JDK do Oracle é mais estável que o OpenJDK.
-> 
-> 
+> [!NOTE] 
+> Ambos os JDKs têm quase o mesmo código para as classes na API do Java, mas o código para a máquina virtual é, na verdade, diferente. Quando se trata de bibliotecas, o OpenJDK tende a usar bibliotecas abertas enquanto Oracle tende a usar aquelas fechadas. Mas o JDK do Oracle tem mais classes e alguns bugs corrigidos e o JDK do Oracle é mais estável que o OpenJDK.
 
 Os seguintes comandos baixam os diferentes JDKs.  
 
@@ -208,12 +206,11 @@ Você pode editar o arquivo de configuração de usuário do Tomcat para configu
 
     sudo vi  /etc/tomcat7/tomcat-users.xml   
 
-Veja um exemplo:   
+Veja um exemplo:  
 ![][17]  
 
-> OBSERVAÇÃO.DO.AZURE: Crie uma senha forte para o nome de usuário administrativo.  
-> 
-> 
+> [!NOTE] 
+> Crie uma senha forte para o nome de usuário administrativo.  
 
 Depois de editar esse arquivo, você deverá reiniciar serviços do tomcat7 com o comando a seguir para garantir que as alterações entrem em vigor:  
 
@@ -313,6 +310,6 @@ Após conectar, você deverá ver algo semelhante ao seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

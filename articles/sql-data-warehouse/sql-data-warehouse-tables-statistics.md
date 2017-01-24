@@ -15,20 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fb76a6b58a88b2c80958c867f02a0f43d3b0fe25
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b2b99ec031ea26b4ab19e7327da035788661a0a8
 
 
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Gerenciamento de estatísticas em tabelas no SQL Data Warehouse
 > [!div class="op_single_selector"]
-> * [Visão geral][Visão geral]
-> * [Tipos de dados][Tipos de dados]
-> * [Distribuir][Distribuir]
-> * [Índice][Índice]
-> * [Partition][Partition]
-> * [Estatísticas][Estatísticas]
-> * [Temporário][Temporário]
+> * [Visão geral][Overview]
+> * [Tipos de Dados][Data Types]
+> * [Distribuir][Distribute]
+> * [Índice][Index]
+> * [Partição][Partition]
+> * [Estatísticas][Statistics]
+> * [Temporário][Temporary]
 > 
 > 
 
@@ -95,7 +95,7 @@ WHERE
 
 As colunas de data em um data warehouse, por exemplo, normalmente precisam de atualizações frequentes de estatísticas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas.  Por outro lado, talvez as estatísticas em uma coluna de gênero de uma tabela de clientes nunca precisem ser atualizadas. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se o data warehouse contiver apenas um gênero, e um novo requisito resultar em vários gêneros, será definitivamente necessário atualizar as estatísticas na coluna gênero.
 
-Para obter mais explicações, confira [Estatísticas][Estatísticas] no MSDN.
+Para obter mais explicações, veja [Estatísticas][Statistics] no MSDN.
 
 ## <a name="implementing-statistics-management"></a>Implementação do gerenciamento de estatísticas
 Geralmente, convém estender os processos de carregamento de dados a fim de garantir que as estatísticas estejam atualizadas ao final do carregamento. É no carregamento de dados que as tabelas frequentemente mudam de tamanho e/ou distribuição de valores. Portanto, esse é um momento lógico para implementar alguns processos de gerenciamento.
@@ -113,7 +113,7 @@ Veja abaixo alguns princípios importantes para atualizar as estatísticas duran
 > 
 > 
 
-Para obter mais explicações, confira [Estimativa de cardinalidade][Estimativa de cardinalidade] no MSDN.
+Para obter mais explicações, veja [Estimativa de cardinalidade][Cardinality Estimation] no MSDN.
 
 ## <a name="examples-create-statistics"></a>Exemplos: criar estatísticas
 Estes exemplos mostram como usar várias opções para a criação de estatísticas. As opções usadas para cada coluna dependem das características dos dados e de como a coluna será usada em consultas.
@@ -178,7 +178,7 @@ Obviamente, você pode combinar as opções. O exemplo abaixo cria um objeto de 
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Para obter a referência completa, confira [CREATE STATISTICS][CREATE STATISTICS] no MSDN.
+Para obter a referência completa, veja [CREATE STATISTICS][CREATE STATISTICS] no MSDN.
 
 ### <a name="f-create-multi-column-statistics"></a>F. Criar estatísticas de várias colunas
 Para criar estatísticas de várias colunas, basta usar os exemplos anteriores, mas especificar mais colunas.
@@ -350,9 +350,9 @@ Esta instrução é fácil de usar. Lembre-se de que isso atualizará todas as e
 > 
 > 
 
-Para a implementação de um procedimento `UPDATE STATISTICS` , confira o artigo [tabelas temporárias][Temporário] . O método de implementação é ligeiramente diferente para o procedimento `CREATE STATISTICS` acima, mas o resultado final é o mesmo.
+Para a implementação de um procedimento `UPDATE STATISTICS`, leia o artigo [Tabelas Temporárias][Temporary]. O método de implementação é ligeiramente diferente para o procedimento `CREATE STATISTICS` acima, mas o resultado final é o mesmo.
 
-Para obter a sintaxe completa, confira [Atualizar estatísticas][Atualizar estatísticas] no MSDN.
+Para obter a sintaxe completa, veja [Atualizar estatísticas][Update Statistics] no MSDN.
 
 ## <a name="statistics-metadata"></a>Metadados de estatísticas
 Há várias funções e exibições do sistema que você pode usar para localizar informações sobre estatísticas. Por exemplo, você pode ver se um objeto de estatísticas está desatualizado usando a função stats-date para ver quando as estatísticas foram criadas ou atualizadas pela última vez.
@@ -464,25 +464,25 @@ DBCC SHOW_STATISTICS() é implementado mais estritamente no SQL Data Warehouse c
 7. Não há suporte para o erro personalizado 2767
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais detalhes, confira [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] no MSDN.  Para saber mais, confira os artigos em [Visão Geral da Tabela][Visão geral], [Tipos de Dados da Tabela][Tipos de dados], [Distribuindo uma Tabela][Distribuir],  [Indexando uma Tabela][Índice], [Particionando uma Tabela][Partition] e [Tabelas Temporárias][Temporário].  Para saber mais sobre as práticas recomendadas, consulte [Práticas Recomendadas do SQL Data Warehouse][Práticas Recomendadas do SQL Data Warehouse].  
+Para obter mais detalhes, veja [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] no MSDN.  Para saber mais, consulte os artigos sobre [Visão geral da tabela][Overview], [Tipos de dados da tabela][Data Types], [Distribuição de uma tabela][Distribute], [Indexação de uma tabela][Index], [Particionamento de uma tabela][Partition] e [Tabelas temporárias][Temporary].  Para saber mais sobre as práticas recomendadas, consulte [Práticas Recomendadas do SQL Data Warehouse][SQL Data Warehouse Best Practices].  
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral]: ./sql-data-warehouse-tables-overview.md
-[Tipos de dados]: ./sql-data-warehouse-tables-data-types.md
-[Distribuir]: ./sql-data-warehouse-tables-distribute.md
-[Índice]: ./sql-data-warehouse-tables-index.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Estatísticas]: ./sql-data-warehouse-tables-statistics.md
-[Temporário]: ./sql-data-warehouse-tables-temporary.md
-[Práticas Recomendadas do SQL Data Warehouse]: ./sql-data-warehouse-best-practices.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!--MSDN references-->  
-[Estimativa de cardinalidade]: https://msdn.microsoft.com/library/dn600374.aspx
+[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
 [DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Estatísticas]: https://msdn.microsoft.com/library/ms190397.aspx
+[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
 [STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
@@ -497,6 +497,6 @@ Para obter mais detalhes, confira [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] n
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -23,7 +23,7 @@ ms.openlocfilehash: 0b63ea1e6308732f6993357466d7e372ec53a78f
 # <a name="batch-feature-overview-for-developers"></a>Visão geral do recurso de Lote para desenvolvedores
 Nesta visão geral dos componentes principais do serviço de Lote do Azure, vamos abordar os recursos do serviço primário que os desenvolvedores do Lote podem usar para criar soluções de computação paralela em grande escala.
 
-Se você estiver desenvolvendo um aplicativo de computador distribuído ou serviço que faz chamadas diretas da [API REST] [ batch_rest_api] ou estiver usando um dos [SDKs de Lote](batch-technical-overview.md#batch-development-apis), usará muitos dos recursos analisados neste artigo.
+Se você estiver desenvolvendo um aplicativo de computador distribuído ou serviço que faz chamadas diretas da [API REST][batch_rest_api] ou estiver usando um dos [SDKs de Lote](batch-technical-overview.md#batch-development-apis), usará muitos dos recursos analisados neste artigo.
 
 > [!TIP]
 > Para obter uma introdução de nível superior do serviço de Lote, consulte os [Fundamentos do Lote do Azure](batch-technical-overview.md).
@@ -160,7 +160,7 @@ Um trabalho é uma coleção de tarefas. Ele gerencia como a computação é rea
     Observe que o serviço de Lote considera que um trabalho *sem* tarefas tem todas as suas tarefas concluídas. Portanto, essa opção é mais comumente usada com uma [tarefa do gerenciador de trabalhos](#job-manager-task). Se você quiser usar o encerramento automático de trabalho sem um gerenciador de trabalhos, defina inicialmente a propriedade **onAllTasksComplete** de um novo trabalho como *noaction*. Depois, defina-a como *terminatejob* somente depois que você terminar de adicionar tarefas ao trabalho.
 
 ### <a name="job-priority"></a>prioridade de trabalho
-Você pode atribuir uma prioridade a trabalhos criados no Lote. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Para atualizar a prioridade de um trabalho, chame a operação [Atualizar as propriedades de um trabalho] [ rest_update_job] (REST do Lote) ou modifique a propriedade [CloudJob.Priority] [ net_cloudjob_priority] (.NET do Lote).
+Você pode atribuir uma prioridade a trabalhos criados no Lote. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Para atualizar a prioridade de um trabalho, chame a operação [Atualizar as propriedades de um trabalho] [rest_update_job] \(REST do Lote) ou modifique a propriedade [CloudJob.Priority] [net_cloudjob_priority] \(.NET do Lote).
 
 Em uma mesma conta, os trabalhos com prioridade mais alta têm precedência no agendamento sobre aqueles com prioridade mais baixa. Um trabalho com valor de prioridade mais alto em uma conta não tem precedência no agendamento sobre outro trabalho com valor de prioridade mais baixo em uma conta diferente.
 

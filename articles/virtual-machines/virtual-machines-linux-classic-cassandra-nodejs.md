@@ -13,18 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: hanuk;robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 57c4eb16fbb0e3038c1a5988a8ae9b04a56f99cb
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: cc20606655321826f24ffeab80920a8a4caaf50d
 
 
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Executando Cassandra com Linux no Azure e acessando-a do Node.js
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Consulte modelos do Resource Manager para [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) e [Cluster Spark e Cassandra CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Consulte modelos do Resource Manager para [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) e [Cluster Spark e Cassandra CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
 ## <a name="overview"></a>Visão geral
 O Microsoft Azure é uma plataforma de nuvem aberta que executa tanto os softwares da Microsoft quanto os não pertencentes à Microsoft, que inclui sistemas operacionais, servidores de aplicativos, middlewares de mensagens, bem como bancos de dados SQL e NoSQL de ambos os modelos de software livre e comercial. A criação de serviços resilientes em nuvens públicas, incluindo o Azure, requer um planejamento cuidadoso e uma arquitetura deliberada para ambos os servidores de aplicativos, bem como camadas de armazenamento. A arquitetura de armazenamento distribuída de Cassandra naturalmente ajuda na criação de sistemas altamente disponíveis que são tolerantes a falhas para as falhas de cluster. Cassandra é um banco de dados NoSQL de escala na nuvem mantido pela Apache Software Foundation em cassandra.apache.org; Cassandra é escrito em Java e, portanto, pode ser executado em ambas as plataformas Windows e Linux.
@@ -689,6 +688,6 @@ O Microsoft Azure é uma plataforma flexível que permite a execução tanto de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

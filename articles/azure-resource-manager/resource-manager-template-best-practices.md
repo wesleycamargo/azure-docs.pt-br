@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: 049436b35346c355509398f7bb105dc1511eb8f7
+ms.sourcegitcommit: 311eeee882e64bc9fb2e7c1ecb4706de351e7753
+ms.openlocfilehash: c774a249d37c489ad53665ad6432122c8fdd1c32
 
 
 ---
@@ -52,8 +52,6 @@ Se você fornecer um parâmetro para esses nomes de recursos, você deverá imag
     "variables": {
         "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
     }
-
-Contas de armazenamento com um prefixo uniqueString não são clusterizadas nos mesmos racks.
 
 ### <a name="resource-names-for-identification"></a>Nomes de recurso para identificação
 Para os tipos de recursos que você deseja nomear, mas para os quais não precisa garantir exclusividade, basta fornecer um nome que identifique o contexto e o tipo de recurso. Convém fornecer um nome descritivo que ajude você a reconhecê-lo em uma lista de nomes de recursos. Se você precisa variar o nome do recurso durante as implantações, use um parâmetro para o nome:
@@ -352,6 +350,6 @@ Você pode criar links condicionais para modelos aninhados usando um parâmetro 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

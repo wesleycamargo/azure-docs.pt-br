@@ -1,4 +1,4 @@
-## <a name="setupdevenv"></a>Configurar o ambiente de desenvolvimento
+## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Configurar o ambiente de desenvolvimento
 Para começar, configure o ambiente de desenvolvimento instalando o [SDK do Azure para o Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003).
 
 Se você não tiver o Visual Studio instalado, o Visual Studio Express para a Web será instalado com o SDK.
@@ -8,4 +8,8 @@ Se você não tiver o Visual Studio instalado, o Visual Studio Express para a We
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

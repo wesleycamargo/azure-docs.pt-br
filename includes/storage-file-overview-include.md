@@ -7,6 +7,6 @@ Você pode criar compartilhamentos de arquivos do Azure usando o [Portal do Azur
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

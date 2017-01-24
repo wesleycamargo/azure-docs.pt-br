@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: chrande; glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: f5ea64ffc044faceec08e9a2b756a414e446a1b1
+ms.sourcegitcommit: 7ff4286d6006eb362b6fba705e2afca1fd872f72
+ms.openlocfilehash: afefa826577999897a537add7a6c6301144fa38c
 
 
 ---
@@ -43,7 +43,7 @@ Os gatilhos de fila e de tópico dos Hubs de Notificação para uma função usa
         "name" : "<Name of input parameter in function signature>",
         "queueName" : "<Name of the queue>",
         "connection" : "<Name of app setting that has your queue's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
@@ -57,7 +57,7 @@ Os gatilhos de fila e de tópico dos Hubs de Notificação para uma função usa
         "topicName" : "<Name of the topic>",
         "subscriptionName" : "<Name of the subscription>",
         "connection" : "<Name of app setting that has your topic's connection string - see below>",
-        "accessRights" : "<Access rights for the connection string - see below>"
+        "accessRights" : "<Access rights for the connection string - see below>",
         "type" : "serviceBusTrigger",
         "direction" : "in"
     }
@@ -196,7 +196,7 @@ Em C# e F#, o Azure Functions pode criar uma mensagem de fila do Barramento de S
   O Functions desserializa o objeto em uma mensagem JSON. Se o valor de saída for nulo quando a função existir, o Functions cria a mensagem com um objeto nulo.
 * `string` - A definição de parâmetro se parece com `out string paraName` (C#). Se o valor de parâmetro não for nulo quando a função existir, o Functions criará uma mensagem.
 * `byte[]` - A definição de parâmetro se parece com `out byte[] paraName` (C#). Se o valor de parâmetro não for nulo quando a função existir, o Functions criará uma mensagem.
-* `BrokeredMessage` A definição de parâmetro se parece com `out byte[] paraName` (C#). Se o valor de parâmetro não for nulo quando a função existir, o Functions criará uma mensagem.
+* `BrokeredMessage` A definição de parâmetro se parece com `out BrokeredMessage paraName` (C#). Se o valor de parâmetro não for nulo quando a função existir, o Functions criará uma mensagem.
 
 Para criar várias mensagens em uma função C#, você pode usar `ICollector<T>` ou `IAsyncCollector<T>`. Uma mensagem é criada quando você chama o método `Add` .
 
@@ -303,6 +303,6 @@ module.exports = function (context, myTimer) {
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

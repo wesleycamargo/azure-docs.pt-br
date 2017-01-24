@@ -3,8 +3,8 @@ title: "Introdução ao armazenamento de Tabelas do Azure usando o .NET | Micros
 description: "Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
 services: storage
 documentationcenter: .net
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: storage
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: fe4b9c356e5f7d56cb7e1fa62344095353d0b699
-ms.openlocfilehash: c4a8e4eee864dab592baf1797d69778160ab456e
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 98307e924927655c8a7de0e8fc6a7c0c2b57af00
 
 
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>Introdução ao armazenamento de Tabelas do Azure usando o .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="overview"></a>Visão geral
 O Armazenamento de Tabelas do Azure é um serviço que armazena dados NoSQL estruturados na nuvem. O armazenamento de Tabelas é um repositório de chaves/atributos com um design sem esquema. Como o armazenamento de Tabelas não tem um esquema, é fácil adaptar seus dados à medida que as necessidades de seu aplicativo evoluem. O acesso aos dados é rápido e econômico para todos os tipos de aplicativos. O armazenamento de tabela normalmente tem um custo significativamente mais baixo do que o SQL tradicional para volumes de dados semelhantes.
@@ -347,7 +347,7 @@ else
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>consultar um subconjunto de propriedades da entidade
-Uma consulta de tabela pode recuperar apenas algumas propriedades de uma entidade em vez de todas as propriedades da entidade. Essa técnica, chamada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. A consulta no código a seguir retorna somente os endereços de email das entidades na tabela. Isso é feito por meio de uma consulta de **DynamicTableEntity** e também de **EntityResolver**. Saiba mais sobre projeção na [postagem do blog, Apresentando a projeção de Upsert e de Consulta][postagem do blog, Apresentando a projeção de Upsert e de Consulta]. Observe que a projeção não é compatível com o emulador de armazenamento local, portanto, esse código é executado somente ao usar uma conta no serviço Tabela.
+Uma consulta de tabela pode recuperar apenas algumas propriedades de uma entidade em vez de todas as propriedades da entidade. Essa técnica, chamada projeção, reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente para grandes entidades. A consulta no código a seguir retorna somente os endereços de email das entidades na tabela. Isso é feito por meio de uma consulta de **DynamicTableEntity** e também de **EntityResolver**. Saiba mais sobre projeção na [postagem de blog Apresentando a projeção de upsert e de consulta][Introducing Upsert and Query Projection blog post]. Observe que a projeção não é compatível com o emulador de armazenamento local, portanto, esse código é executado somente ao usar uma conta no serviço Tabela.
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -467,8 +467,8 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
   * [Introdução ao armazenamento de Blobs do Azure usando o .NET](storage-dotnet-how-to-use-blobs.md) para armazenar dados não estruturados.
   * [Conectar-se ao Banco de Dados SQL usando .NET (C#)](../sql-database/sql-database-develop-dotnet-simple.md) para armazenar dados relacionais.
 
-[Baixe e instale o SDK do Azure para .NET]: /develop/net/
-[Criar um projeto do Azure no Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
+[Download and install the Azure SDK for .NET]: /develop/net/
+[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
 
 [Blob5]: ./media/storage-dotnet-how-to-use-table-storage/blob5.png
 [Blob6]: ./media/storage-dotnet-how-to-use-table-storage/blob6.png
@@ -476,17 +476,17 @@ Agora que você aprendeu os conceitos básicos do armazenamento de Tabela, siga 
 [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
 [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-[postagem do blog, Apresentando a projeção de Upsert e de Consulta]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-[Referência da Biblioteca do Cliente do .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[Introducing Upsert and Query Projection blog post]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
 [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Configurar cadeias de conexão do Armazenamento do Azure]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+[Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Espacial]: http://nuget.org/packages/System.Spatial/5.0.2
-[Como acessar programaticamente o armazenamento de Tabelas]: #tablestorage
+[Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+[How to: Programmatically access Table storage]: #tablestorage
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 
