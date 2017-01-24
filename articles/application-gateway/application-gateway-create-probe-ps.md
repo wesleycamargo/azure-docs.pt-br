@@ -4,7 +4,7 @@ description: "Saiba como criar uma investigação personalizada para o gateway d
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
+ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
+ms.openlocfilehash: d6856256a9ab272e0620e82d140c5ec735e5eabc
 
 
 ---
@@ -27,8 +27,6 @@ ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
 > * [Portal do Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
-> 
-> 
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -39,7 +37,7 @@ ms.openlocfilehash: c766763e4633c4905595ae15aca0679b5ecaf5bd
 
 ### <a name="step-1"></a>Etapa 1
 
-Use Login-AzureRmAccount para se autenticar.
+Use `Login-AzureRmAccount` para autenticar.
 
 ```powershell
 Login-AzureRmAccount
@@ -55,7 +53,7 @@ Get-AzureRmSubscription
 
 ### <a name="step-3"></a>Etapa 3
 
-Escolha quais das suas assinaturas do Azure deseja usar. <BR>
+Escolha quais das suas assinaturas do Azure deseja usar.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -192,11 +190,8 @@ Configure o tamanho da instância do gateway de aplicativo.
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-
 > [!NOTE]
-> O valor padrão para **InstanceCount** é 2, com um valor máximo de 10. O valor padrão para **GatewaySize** é Medium. Você pode escolher entre **Standard_Small**, **Standard_Medium** e **Standard_Large**.
-> 
-> 
+> O valor padrão para **InstanceCount** é 2, com um valor máximo de 10. O valor padrão para **GatewaySize** é Medium. Você pode escolher entre **Standard_Small**, **Standard_Medium** e **Standard_Large**. 
 
 ## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Criar um gateway de aplicativo usando New-AzureRmApplicationGateway
 
@@ -255,7 +250,6 @@ Carregue o recurso do gateway de aplicativo em uma variável do PowerShell usand
 ```powershell
 $getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
-
 
 ### <a name="step-2"></a>Etapa 2
 
@@ -318,6 +312,6 @@ Saiba como configurar o descarregamento de SSL ao visitar [Configurar descarrega
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

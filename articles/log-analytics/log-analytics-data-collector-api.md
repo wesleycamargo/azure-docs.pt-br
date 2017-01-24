@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 12/15/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f574a3cd837e4fc9cf292d672432a7960cae177b
+ms.sourcegitcommit: 8867cda9d4b35fa908db8749aaad74d85cec67f3
+ms.openlocfilehash: 5f82274838de2e6d2a753a685760b5f144065d94
 
 
 ---
@@ -156,13 +156,13 @@ Há algumas restrições sobre os dados publicados na API de coleta de dados do 
 * O número máximo recomendado de campos para um determinado tipo é 50. Este é um limite prático de uma perspectiva de experiência de pesquisa e usabilidade.  
 
 ## <a name="return-codes"></a>Códigos de retorno
-O código de status HTTP 202 significa que a solicitação foi aceita para processamento, mas o processamento ainda não foi concluído. Isso indica que a operação foi concluída com êxito.
+O código de status HTTP 200 significa que a solicitação foi recebida para processamento. Isso indica que a operação foi concluída com êxito.
 
 Esta tabela lista o conjunto completo de códigos de status que o serviço pode retornar:
 
 | Código | Status | Código do erro | Descrição |
 |:--- |:--- |:--- |:--- |
-| 202 |Aceita | |A solicitação foi aceita com êxito. |
+| 200 |OK | |A solicitação foi aceita com êxito. |
 | 400 |Solicitação incorreta |InactiveCustomer |O espaço de trabalho foi fechado. |
 | 400 |Solicitação incorreta |InvalidApiVersion |A versão da API que você especificou não foi reconhecida pelo serviço. |
 | 400 |Solicitação incorreta |InvalidCustomerId |A ID do espaço de trabalho especificada é inválida. |
@@ -173,6 +173,8 @@ Esta tabela lista o conjunto completo de códigos de status que o serviço pode 
 | 400 |Solicitação incorreta |MissingLogType |O tipo de log de valor necessário não foi especificado. |
 | 400 |Solicitação incorreta |UnsupportedContentType |O tipo de conteúdo não foi definido como **application/json**. |
 | 403 |Proibido |InvalidAuthorization |O serviço falhou ao autenticar a solicitação. Verifique se a chave de conexão e a ID do espaço de trabalho são válidos. |
+| 404 |Não encontrado | | A URL fornecida está incorreta ou a solicitação é muito grande. |
+| 429 |Número Excessivo de Solicitações | | O serviço está recebendo um alto volume de dados da sua conta. Tente fazer novamente a solicitação. |
 | 500 |Erro interno do servidor |UnspecifiedError |O serviço encontrou um erro interno. Tente novamente a solicitação. |
 | 503 |Serviço indisponível |ServiceUnavailable |No momento, o serviço está indisponível para receber solicitações. Tente novamente a sua solicitação. |
 
@@ -416,7 +418,7 @@ def post_data(customer_id, shared_key, body, log_type):
     }
 
     response = requests.post(uri,data=body, headers=headers)
-    if (response.status_code == 202):
+    if (response.status_code >= 200 and response.status_code <= 299):
         print 'Accepted'
     else:
         print "Response code: {}".format(response.status_code)
@@ -430,6 +432,6 @@ post_data(customer_id, shared_key, body, log_type)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: zhangya;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ec9a07a26f6c0cd100d963063304d96b75d71dd
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: a30620c8a6ec52fd9b3268c4c83f89181cf6d9f5
 
 
 ---
@@ -25,9 +25,7 @@ Este artigo explica as finalidades da seleção de recursos e fornece exemplos d
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Este tópico explica as finalidades da seleção de recursos e fornece exemplos de sua função no processo de aperfeiçoamento de dados do aprendizado de máquina. Esses exemplos foram extraídos do Estúdio de Aprendizado de Máquina do Azure. 
-
-A engenharia e a seleção de recursos faz parte do processo de TDSP descrito em [O que é o Processo de Ciência de Dados de Equipe?](data-science-process-overview.md). A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do TDSP.
+A engenharia e a seleção de recursos faz parte do Processo de Ciência de Dados de Equipe (TDSP) descrito em [O que é o Processo de Ciência de Dados de Equipe?](data-science-process-overview.md). A engenharia e a seleção de recursos fazem parte da etapa **Desenvolver recursos** do TDSP.
 
 * **engenharia de recursos**: esse processo tenta criar outros recursos relevantes por meio dos recursos brutos existentes nos dados e aumentar a capacidade de previsão do algoritmo de aprendizado.
 * **seleção de recursos**: este processo seleciona o subconjunto principal de recursos de dados originais para tentar reduzir a dimensionalidade do problema de treinamento.
@@ -48,7 +46,7 @@ No Estúdio do Aprendizado de Máquina do Azure, há módulos fornecidos para se
 
 ![Exemplo de seleção de recursos](./media/machine-learning-data-science-select-features/feature-Selection.png)
 
-Considere, por exemplo, o uso do módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection] module. Para fins de conveniência, continuamos usando o exemplo de mineração de texto descrito acima. Suponha que desejamos criar um modelo de regressão após a criação de um conjunto de 256 recursos por meio do módulo [Hash de Recursos][feature-hashing], e que a variável de resposta é "Col1" e representa as resenhas de um livro que variam de 1 a 5. Ao definir o "Método de pontuação de recursos" como "Correlação de Pearson", a “Coluna de destino" como "Col1" e o "Número de recursos desejados" como 50. O módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection] produzirá um conjunto de dados que contém 50 recursos juntamente com o atributo de destino "Col1". A figura a seguir mostra o fluxo desse experimento e os parâmetros de entrada que acabamos de descrever.
+Considere, por exemplo, o uso do módulo [Seleção de Recursos Baseada em Filtro][filter-based-feature-selection]. Para fins de conveniência, continuamos usando o exemplo de mineração de texto descrito acima. Suponha que desejamos criar um modelo de regressão após a criação de um conjunto de 256 recursos por meio do módulo [Hash de Recursos][feature-hashing] e que a variável de resposta é "Col1" e representa as avaliações de um livro, que variam de 1 a 5. Ao definir o "Método de pontuação de recursos" como "Correlação de Pearson", a “Coluna de destino" como "Col1" e o "Número de recursos desejados" como 50. O módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection] produzirá um conjunto de dados que contém 50 recursos, em conjunto com o atributo de destino "Col1". A figura a seguir mostra o fluxo desse experimento e os parâmetros de entrada que acabamos de descrever.
 
 ![Exemplo de seleção de recursos](./media/machine-learning-data-science-select-features/feature-Selection1.png)
 
@@ -60,7 +58,7 @@ As pontuações dos recursos selecionados são mostradas na figura a seguir.
 
 ![Exemplo de seleção de recursos](./media/machine-learning-data-science-select-features/feature-Selection3.png)
 
-Ao aplicar este módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection], 50 dos 256 recursos são selecionados, porque eles têm os recursos mais correlacionados à variável de destino "Col1", com base no método de pontuação "Correlação de Pearson".
+Ao aplicar o módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection], 50 dos 256 recursos são selecionados, porque eles têm o maior número de recursos correlacionados à variável de destino "Col1", com base no método de pontuação "Correlação de Pearson".
 
 ## <a name="conclusion"></a>Conclusão
 A engenharia de recursos e a seleção de recursos são dois recursos de engenharia e seleção comuns que aumentam a eficiência do processo de treinamento, que tenta extrair as informações importantes contidas nos dados. Eles também melhoram a capacidade desses modelos de classificar os dados de entrada com precisão e prever resultados de interesse com mais robustez. Também é possível combinar seleção e engenharia de recursos para que o aprendizado seja mais tratável por computação. Ele faz isso aperfeiçoando e, em seguida, reduzindo o número de recursos necessários para calibrar ou treinar um modelo. Matematicamente, os recursos selecionados para treinar o modelo são um conjunto mínimo de variáveis independentes que explicam os padrões dos dados e preveem os resultados com êxito.
@@ -75,6 +73,6 @@ Observe que nem sempre é necessário realizar a engenharia ou a seleção de re
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

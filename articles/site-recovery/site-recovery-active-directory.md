@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/16/2016
+ms.date: 12/19/2016
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e9b7dcc2c7011a616d96c8623335c913f647a9b
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 9f3d87fe08b13f08622b4bd169240a2ec0683b00
 
 
 ---
@@ -75,17 +75,21 @@ O failover de teste ocorre em uma rede isolada da rede de produção para que n�
 A maioria dos aplicativos também exige a presença de um controlador de domínio e um servidor DNS para funcionar; portanto, antes do failover do aplicativo, um controlador de domínio precisa ser criado na rede isolada a ser usada para failover de teste. A maneira mais fácil de fazer isso é habilitar a proteção na máquina virtual do DNS/controlador de domínio com o Site Recovery e executar um failover de teste dessa máquina virtual, antes de executar um failover de teste do plano de recuperação para o aplicativo. Veja como fazer isso:
 
 1. Habilite a proteção na Recuperação de Site da máquina virtual do DNS/controlador de domínio.
-2. Crie uma rede isolada. Qualquer rede virtual criada no Azure é isolada por padrão de outras redes. Recomendamos que o intervalo de endereços IP dessa rede seja o mesmo de sua rede de produção. Não habilite a conectividade site a site nessa rede.
-3. Forneça um endereço IP de DNS na rede criada, como o endereço IP que você espera que a máquina virtual DNS obtenha. Se estiver replicando para o Azure, forneça o endereço IP da VM que será usada no failover na configuração **IP de Destino** nas propriedades da VM. Se você estiver replicando para outro site local e estiver usando o DHCP, siga as instruções para [configurar o DNS e o DHCP para failover de teste](site-recovery-failover.md#prepare-dhcp)
+1. Crie uma rede isolada. Qualquer rede virtual criada no Azure é isolada por padrão de outras redes. Recomendamos que o intervalo de endereços IP dessa rede seja o mesmo de sua rede de produção. Não habilite a conectividade site a site nessa rede.
+1. Forneça um endereço IP de DNS na rede criada, como o endereço IP que você espera que a máquina virtual DNS obtenha. Se estiver replicando para o Azure, forneça o endereço IP da VM que será usada no failover na configuração **IP de Destino** nas propriedades da VM. Se você estiver replicando para outro site local e estiver usando o DHCP, siga as instruções para [configurar o DNS e o DHCP para failover de teste](site-recovery-failover.md#prepare-dhcp)
 
-> [!NOTE]
-> O endereço IP alocado a uma máquina virtual durante um failover de teste é o mesmo endereço IP que ela obteria durante um failover planejado ou não planejado se o endereço IP estivesse disponível na rede de failover de teste. Caso contrário, a máquina virtual receberá um endereço IP diferente disponível na rede de failover de teste.
-> 
-> 
+    > [!NOTE]
+    > O endereço IP alocado a uma máquina virtual durante um failover de teste é o mesmo endereço IP que ela obteria durante um failover planejado ou não planejado se o endereço IP estivesse disponível na rede de failover de teste. Caso contrário, a máquina virtual receberá um endereço IP diferente disponível na rede de failover de teste.
+    > 
+    > 
 
-1. Na máquina virtual do controlador de domínio, execute um failover de teste na rede isolada. Use o ponto de recuperação consistente de aplicativo mais recente disponível da máquina virtual do controlador de domínio para fazer o failover de teste. 
-2. Execute um failover de teste para o plano de recuperação do aplicativo.
-3. Após a conclusão do teste, marque o trabalho de failover de teste da máquina virtual do controlador de domínio e do plano de recuperação como "Concluído" na guia **Trabalhos** do portal do Site Recovery.
+1. Na máquina virtual do controlador de domínio, execute um failover de teste na rede isolada. Use o ponto de recuperação **consistente com o aplicativo** mais recente disponível da máquina virtual do controlador de domínio para fazer o failover de teste. 
+1. Execute um failover de teste para o plano de recuperação do aplicativo.
+1. Após a conclusão do teste, marque o trabalho de failover de teste da máquina virtual do controlador de domínio e do plano de recuperação como "Concluído" na guia **Trabalhos** do portal do Site Recovery.
+
+### <a name="removing-reference-to-other-domain-controllers"></a>Remover a referência a outros controladores de domínio
+Ao fazer um failover de teste, não coloque todos os controladores de domínio na rede de teste. Para remover a referência a outros controladores de domínio no ambiente de produção, será necessário [capturar as funções FSMO do Active Directory e fazer a limpeza dos metadados](http://aka.ms/ad_seize_fsmo) para controladores de domínio ausentes. 
+
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS e controlador de domínio em computadores diferentes
 Caso o DNS não esteja na mesma máquina virtual que o controlador de domínio, será necessário criar uma VM do DNS para o failover de teste. Caso eles estejam na mesma VM, você pode ignorar esta seção.
@@ -114,6 +118,6 @@ Leia [Quais cargas de trabalho posso proteger?](site-recovery-workload.md) para 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

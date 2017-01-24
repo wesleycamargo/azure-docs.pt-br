@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: fashah;garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 94b109fdc2c902f1452c143a84b20356e9d58df0
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: 44ad1c9fb54231a3942889fc24bfc92554ead6fa
 
 
 ---
@@ -30,12 +30,12 @@ A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/
 > 
 > 
 
-**Por que fazer amostragem dos dados?**
- Se o conjunto de dados que você deseja analisar é grande, geralmente é uma boa ideia reduzir a amostra de dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
-
-O **menu** abaixo leva a tópicos que descrevem como obter amostras de dados de vários ambientes de armazenamento. 
+O **menu** a seguir leva a tópicos que descrevem como obter dados de exemplo de vários ambientes de armazenamento. 
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+**Por que fazer amostragem dos dados?**
+Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
 Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
@@ -65,7 +65,7 @@ TABLESAMPLE pode ser usado para amostragem conforme demonstrado a seguir. Isso p
 > 
 
 ### <a name="a-namesql-amlaconnecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Conectando ao Aprendizado de Máquina do Azure
-Use diretamente as consultas de exemplo acima no módulo [Importar Dados][import-data] do Azure Machine Learning para buscar os dados dinamicamente e colocá-los em um teste do Azure Machine Learning. Uma captura de tela usando o módulo do leitor para ler os dados de amostra é mostrada abaixo:
+É possível usar diretamente as consultas de exemplo acima no módulo [Importar Dados][import-data] do Azure Machine Learning para buscar os dados dinamicamente e colocá-los em um teste do Azure Machine Learning. Uma captura de tela usando o módulo do leitor para ler os dados de amostra é mostrada abaixo:
 
 ![sql leitor][1]
 
@@ -86,7 +86,7 @@ A biblioteca [Pandas](http://pandas.pydata.org/) no Python fornece um conjunto a
 Agora você pode trabalhar com os dados de amostra no quadro de dados Pandas. 
 
 ### <a name="a-namepython-amlaconnecting-to-azure-machine-learning"></a><a name="python-aml"></a>Conectando ao Aprendizado de Máquina do Azure
-Você pode usar o código de exemplo a seguir para salvar os dados convertidos em um arquivo e carregá-los para um blob do Azure. Os dados no blob podem ser lidos diretamente em um teste do Azure Machine Learning usando o [Módulo Importar Dados][import-data]. As etapas são as seguintes: 
+Você pode usar o código de exemplo a seguir para salvar os dados convertidos em um arquivo e carregá-los para um blob do Azure. Os dados no blob podem ser lidos diretamente em um Teste do Azure Machine Learning usando o módulo [Importar Dados][import-data]. As etapas são as seguintes: 
 
 1. Gravar o quadro de dados Pandas em um arquivo local
    
@@ -112,7 +112,7 @@ Você pode usar o código de exemplo a seguir para salvar os dados convertidos e
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Leia os dados do blob do Azure usando o módulo [Importar Dados][import-data] do Azure Machine Learning, como mostra a captura de tela abaixo:
+3. Leia dados do blob do Azure usando o módulo [Importar Dados][import-data] do Azure Machine Learning, como mostrado na captura de tela abaixo:
 
 ![blob de leitor][2]
 
@@ -126,6 +126,6 @@ Para obter um exemplo passo a passo completo do Processo de Ciência de Dados de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

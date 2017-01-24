@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 12/20/2016
 ms.author: johnkem; magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
+ms.sourcegitcommit: 142aa206431d05505c7990c5e5b07b3766fb0a37
+ms.openlocfilehash: 0b5458c64226007b058bcd185b3880f72cf9613c
 
 
 ---
@@ -28,16 +28,18 @@ ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>O que você pode fazer com os Logs de Diagnóstico
 Aqui estão algumas coisas que você pode fazer com os Logs de Diagnóstico:
 
-* Salve-os em uma **Conta de Armazenamento** para inspeção manual ou de auditoria. Você pode especificar o tempo (em dias) de retenção usando as **Configurações de Diagnóstico**.
+* Salve-os em uma [**Conta de Armazenamento**](monitoring-archive-diagnostic-logs.md) para auditoria ou inspeção manual. Você pode especificar o tempo (em dias) de retenção usando as **Configurações de Diagnóstico**.
 * [Transmita-os para os **Hubs de Eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md) para o consumo por um serviço de terceiros ou uma solução de análises personalizadas, como o PowerBI.
 * Analise-os com o [Log Analytics do OMS](../log-analytics/log-analytics-azure-storage-json.md)
+
+O namespace da conta de armazenamento ou do hub de eventos não precisa estar na mesma assinatura em que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 ## <a name="diagnostic-settings"></a>Configurações de Diagnóstico
 Os Logs de Diagnóstico para os recursos de Não Computação são configurados usando as Configurações de Diagnóstico. **Configurações de Diagnóstico** para um controle de recursos:
 
 * Para onde os Logs de Diagnóstico são enviados (Conta de Armazenamento, Hubs de Eventos e/ou Log Analytics do OMS).
 * Quais Categorias de Log são enviadas.
-* Quanto tempo cada categoria de log deve ser mantida em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs são mantidos para sempre. Esse valor pode variar de 1 a 2147483647. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito.
+* Quanto tempo cada categoria de log deve ser mantida em uma Conta de Armazenamento – uma retenção de zero dias significa que os logs são mantidos para sempre. Esse valor pode variar de 1 a 2147483647. Se as políticas de retenção são definidas, mas o armazenamento dos logs em uma Conta de Armazenamento está desabilitado (por exemplo, se apenas as opções Hubs de Eventos ou OMS estão selecionadas), as políticas de retenção não têm nenhum efeito. As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos.
 
 Essas configurações são facilmente definidas via folha Diagnóstico para um recurso no Portal do Azure, via Azure PowerShell e comandos da CLI ou via [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
@@ -91,14 +93,13 @@ A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este for
 
 Para habilitar o envio dos Logs de Diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 
-> [!NOTE]
-> O parâmetro WorkspaceId não está disponível na versão de outubro. Ele estará disponível na versão de novembro.
-> 
-> 
+É possível obter a ID de recurso do seu espaço de trabalho do Log Analytics usando o seguinte comando:
 
-Você pode obter a ID do espaço de trabalho do Log Analytics no portal do Azure.
+```powershell
+(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+```
 
 Você pode combinar esses parâmetros para permitir várias opções de saída.
 
@@ -119,14 +120,7 @@ A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este for
 
 Para habilitar o envio dos Logs de Diagnóstico para um espaço de trabalho do Log Analytics, use este comando:
 
-    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
-
-> [!NOTE]
-> O parâmetro workspaceId não está disponível na versão de outubro. Ele estará disponível na versão de novembro.
-> 
-> 
-
-Você pode obter a ID do espaço de trabalho do Log Analytics no portal do Azure.
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
 
 Você pode combinar esses parâmetros para permitir várias opções de saída.
 
@@ -160,7 +154,7 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 
 | O Barramento de | Esquema e Documentos |
 | --- | --- |
-| Balanceador de Carga do Software |[Análise de log para o Balanceador de Carga do Azure (Preview)](../load-balancer/load-balancer-monitor-log.md) |
+| Balanceador de carga |[Análise de log para o Balanceador de Carga do Azure (Preview)](../load-balancer/load-balancer-monitor-log.md) |
 | Grupos de segurança de rede |[Análise de logs para NSGs (grupos de segurança de rede)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Gateways do Aplicativo |[Log de diagnóstico do Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Cofre da Chave |[Logs do Cofre da Chave do Azure](../key-vault/key-vault-logging.md) |
@@ -175,41 +169,42 @@ O esquema para os Logs de Diagnóstico varia dependendo do recurso e da categori
 | Análise de fluxo |Nenhum esquema disponível. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso
-| Tipo de recurso | Categoria | Nome de exibição da categoria |
-| --- | --- | --- |
-| Microsoft.Automation/automationAccounts |JobLogs |Logs de trabalho |
-| Microsoft.Automation/automationAccounts |JobStreams |Transmissões de trabalho |
-| Microsoft.Batch/batchAccounts |ServiceLog |Logs de serviço |
-| Microsoft.DataLakeAnalytics/accounts |Audit |Logs de Auditoria |
-| Microsoft.DataLakeAnalytics/accounts |Solicitações |Logs de solicitação |
-| Microsoft.DataLakeStore/accounts |Audit |Logs de Auditoria |
-| Microsoft.DataLakeStore/accounts |Solicitações |Logs de solicitação |
-| Microsoft.EventHub/namespaces |ArchiveLogs |Logs de arquivo |
-| Microsoft.EventHub/namespaces |OperationalLogs |Logs operacionais |
-| Microsoft.KeyVault/vaults |AuditEvent |Logs de Auditoria |
-| Microsoft.Logic/workflows |WorkflowRuntime |Eventos de diagnóstico de tempo de execução do fluxo de trabalho |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupEvent |Network Security Group Event |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupRuleCounter |Contador de regras de grupo de segurança de rede |
-| Microsoft.Network/networksecuritygroups |NetworkSecurityGroupFlowEvent |Evento de fluxo de regra de grupo de segurança de rede |
-| Microsoft.Network/loadBalancers |LoadBalancerAlertEvent |Eventos de alerta do Load Balancer |
-| Microsoft.Network/loadBalancers |LoadBalancerProbeHealthStatus |Status de integridade da investigação do Load Balancer |
-| Microsoft.Network/applicationGateways |ApplicationGatewayAccessLog |Log de acesso do Gateway de Aplicativo |
-| Microsoft.Network/applicationGateways |ApplicationGatewayPerformanceLog |Log de desempenho do Gateway de Aplicativo |
-| Microsoft.Network/applicationGateways |ApplicationGatewayFirewallLog |Log de firewall do Gateway de Aplicativo |
-| Microsoft.Search/searchServices |OperationLogs |Logs de operação |
-| Microsoft.ServerManagement/nodes |RequestLogs |Logs de solicitação |
-| Microsoft.ServiceBus/namespaces |OperationalLogs |Logs operacionais |
-| Microsoft.StreamAnalytics/streamingjobs |Execução |Execução |
-| Microsoft.StreamAnalytics/streamingjobs |Criação |Criação |
+|Tipo de recurso|Categoria|Nome de exibição da categoria|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Logs de trabalho|
+|Microsoft.Automation/automationAccounts|JobStreams|Transmissões de trabalho|
+|Microsoft.Batch/batchAccounts|ServiceLog|Logs de serviço|
+|Microsoft.DataLakeAnalytics/accounts|Audit|Logs de Auditoria|
+|Microsoft.DataLakeAnalytics/accounts|Solicitações|Logs de solicitação|
+|Microsoft.DataLakeStore/accounts|Audit|Logs de Auditoria|
+|Microsoft.DataLakeStore/accounts|Solicitações|Logs de solicitação|
+|Microsoft.EventHub/namespaces|ArchiveLogs|Logs de arquivo|
+|Microsoft.EventHub/namespaces|OperationalLogs|Logs operacionais|
+|Microsoft.KeyVault/vaults|AuditEvent|Logs de Auditoria|
+|Microsoft.Logic/workflows|WorkflowRuntime|Eventos de diagnóstico de tempo de execução do fluxo de trabalho|
+|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Acompanhar os eventos da Conta de Integração|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de regras de grupo de segurança de rede|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento de fluxo de regra de grupo de segurança de rede|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta do Load Balancer|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Status de integridade da investigação do Load Balancer|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log de acesso do Gateway de Aplicativo|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log de desempenho do Gateway de Aplicativo|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log de firewall do Gateway de Aplicativo|
+|Microsoft.Search/searchServices|OperationLogs|Logs de operação|
+|Microsoft.ServerManagement/nodes|RequestLogs|Logs de solicitação|
+|Microsoft.ServiceBus/namespaces|OperationalLogs|Logs operacionais|
+|Microsoft.StreamAnalytics/streamingjobs|Execução|Execução|
+|Microsoft.StreamAnalytics/streamingjobs|Criação|Criação|
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Transmitir Logs de Diagnóstico para os **Hubs de Eventos**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Alterar as configurações de diagnóstico usando a API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analise os logs com o Log Analytics do OMS](../log-analytics/log-analytics-azure-storage-json.md)
+* [Analise os logs com o Log Analytics do OMS](../log-analytics/log-analytics-azure-storage.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

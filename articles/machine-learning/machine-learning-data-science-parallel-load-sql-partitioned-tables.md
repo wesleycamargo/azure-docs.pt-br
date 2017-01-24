@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
+ms.sourcegitcommit: e6c45f4be168cef1a05958624f666097779e76f6
+ms.openlocfilehash: 2486a00482ca873ccb5198b5ca13cdc104bd1505
 
 
 ---
@@ -27,7 +27,7 @@ Este documento descreve como compilar tabelas particionadas para rápida importa
 * [Criar um novo banco de dados](https://technet.microsoft.com/library/ms176061.aspx) (se ainda não houver um)
 * Adicionar grupos de arquivos de banco de dados ao banco de dados que vai conter os arquivos físicos particionados
   
-  Observação: isso poderá ser feito com [CRIAR BANCO DE DADOS](https://technet.microsoft.com/library/ms176061.aspx) se for novo ou [ALTERAR BANCO DE DADOS](https://msdn.microsoft.com/library/bb522682.aspx) se o banco de dados já existir
+  Isso poderá ser feito com [CRIAR BANCO DE DADOS](https://technet.microsoft.com/library/ms176061.aspx), se for novo, ou [ALTERAR BANCO DE DADOS](https://msdn.microsoft.com/library/bb522682.aspx), se o banco de dados já existir
 * Adicione um ou mais arquivos (conforme necessário) para cada grupo de arquivos de banco de dados
   
   > [!NOTE]
@@ -76,7 +76,7 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
         <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
         <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
   
-  Dica: para verificar se os intervalos em vigor em cada partição de acordo com a função/esquema, execute a seguinte consulta:
+  Para verificar se os intervalos em vigor em cada partição de acordo com a função/esquema, execute a seguinte consulta:
   
         SELECT psch.name as PartitionScheme,
             prng.value AS ParitionValue,
@@ -185,6 +185,6 @@ Para obter um exemplo passo a passo completo do Processo de Análise do Cortana 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

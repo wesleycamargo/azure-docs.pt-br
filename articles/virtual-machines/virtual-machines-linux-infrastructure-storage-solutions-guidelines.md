@@ -1,5 +1,5 @@
 ---
-title: "Diretrizes de soluções de armazenamento | Microsoft Docs"
+title: "Diretrizes de soluções de armazenamento do Azure | Microsoft Docs"
 description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de soluções de armazenamento em serviços de infraestrutura do Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: ad01dd5585eab70404d476e234b8d2dcee93f2a9
+ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
+ms.openlocfilehash: 8b4ee1634981a449d9968f9156df10a9d40baae9
 
 
 ---
-# <a name="storage-infrastructure-guidelines"></a>Diretrizes de infraestrutura de armazenamento
+# <a name="azure-storage-infrastructure-guidelines"></a>Diretrizes de infraestrutura de armazenamento do Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Este artigo destaca as noções básicas sobre as necessidades de armazenamento e considerações de design para atingir o desempenho de VM (máquina virtual) ideal.
@@ -59,7 +59,7 @@ Você pode ler [mais sobre as opções de replicação para alta disponibilidade
 
 Discos do sistema operacional e discos de dados têm um tamanho máximo de 1023 GB (gigabytes). O tamanho máximo de um blob é de 1024 GB e deve conter os metadados (rodapé) do arquivo VHD (um GB tem 1024<sup>3</sup> bytes). É possível usar o LVM (Gerenciador de Volume Lógico) para ultrapassar esse limite com o pool de discos de dados para apresentar volumes lógicos maiores que 1.023 GB à sua VM.
 
-Há alguns limites de escalabilidade ao projetar suas implantações do Armazenamento do Azure – veja [Assinatura, limite de serviços, cotas e restrições do Microsoft Azure](../azure-subscription-service-limits.md#storage-limits) para obter mais detalhes. Consulte também [Metas de desempenho e escalabilidade do armazenamento do Azure](../storage/storage-scalability-targets.md).
+Há alguns limites de escalabilidade ao projetar suas implantações do Armazenamento do Azure. Para obter mais informações, consulte [Assinatura do Microsoft Azure e limite de serviços, cotas e restrições](../azure-subscription-service-limits.md#storage-limits). Consulte também [Metas de desempenho e escalabilidade do armazenamento do Azure](../storage/storage-scalability-targets.md).
 
 Para armazenamento de aplicativos, é possível armazenar dados de objeto não estruturados, como documentos, imagens, backups, dados de configuração, logs etc. usando o armazenamento de blobs. Em vez de seu aplicativo gravar em um disco virtual anexado à VM, o aplicativo poderá gravar diretamente no armazenamento de blobs do Azure. O armazenamento de blobs também oferece a opção de [camadas de armazenamento quentes e frias](../storage/storage-blob-storage-tiers.md) dependendo de suas necessidades de disponibilidade e restrições de custo.
 
@@ -88,6 +88,6 @@ Para saber mais sobre as funcionalidades de E/S das diferentes opções do Armaz
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

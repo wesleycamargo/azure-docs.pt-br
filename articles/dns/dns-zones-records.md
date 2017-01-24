@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/17/2016
-ms.author: jtuliani
+ms.date: 12/05/2016
+ms.author: jonatul
 translationtype: Human Translation
-ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
-ms.openlocfilehash: b99bc20b66787c7a87fa49143b4cbf861e0e68a2
+ms.sourcegitcommit: f4c17d03ff637659a7bc7cde378878d8a4827b80
+ms.openlocfilehash: 38ff556271a84fbf385dab03a7551b3eb7413c81
 
 ---
 
@@ -28,7 +28,7 @@ Esta página explica os principais conceitos de domínios, zonas DNS, conjuntos 
 
 O Sistema de Nomes de Domínio é uma hierarquia de domínios. A hierarquia começa no domínio 'raiz', cujo nome é simplesmente '**.**'.  Abaixo dele vêm domínios de nível superior, como 'com', 'net', 'org', 'uk' ou 'jp'.  Abaixo desses estão domínios de segundo nível, como 'org.uk' ou 'co.jp'. Os domínios na hierarquia de DNS são distribuídos globalmente, hospedados por servidores de nomes DNS em todo o mundo.
 
-Um registrador de nomes de domínio é uma organização que permite a você adquirir um nome de domínio, como 'contoso.com'.  A aquisição de um nome de domínio lhe dá o direito de controlar a hierarquia de DNS com esse nome, por exemplo, permitindo que você direcione o nome 'www.contoso.com' para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou você pode especificar os servidores de nomes alternativos.
+Um registrador de nomes de domínio é uma organização que permite a você adquirir um nome de domínio, como 'contoso.com'.  A aquisição de um nome de domínio lhe dá o direito de controlar a hierarquia de DNS com esse nome, por exemplo, permitindo que você direcione o nome 'www.contoso.com' para o site da sua empresa. O registrador pode hospedar o domínio em seus próprios servidores de nomes em seu nome ou você permitir que você especifique servidores de nomes alternativos.
 
 O DNS do Azure fornece uma infraestrutura de servidores de nomes de alta disponibilidade e distribuída globalmente que você pode usar para hospedar seu domínio. Ao hospedar seus domínios no DNS do Azure, você poderá gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas, cobrança e suporte que seus outros serviços do Azure.
 
@@ -36,43 +36,11 @@ O DNS do Azure não dá suporte a compra de nomes de domínio. Se você deseja a
 
 ## <a name="dns-zones"></a>Zonas DNS
 
-Uma zona DNS é usada para hospedar os registros DNS para um domínio específico. Para iniciar a hospedagem do seu domínio no DNS do Azure, você precisará criar uma zona DNS para esse nome de domínio. Cada registro DNS para seu domínio é criado dentro dessa zona DNS.
-
-Por exemplo, o domínio 'contoso.com' pode conter vários registros DNS, como 'mail.contoso.com' (para um servidor de email) e 'www.contoso.com' (para um site da Web).
-
-Ao criar uma zona DNS no DNS do Azure, o nome da zona deverá ser exclusivo no grupo de recursos. O mesmo nome de zona pode ser reutilizado em outro grupo de recursos ou uma assinatura do Azure diferente. Quando várias zonas têm o mesmo nome, cada instância recebe endereços de servidor de nomes diferentes. Apenas um conjunto de endereços pode ser configurado com o registrador de nome de domínio.
-
-> [!NOTE]
-> Você não precisa ter um nome de domínio para criar uma zona DNS com esse nome de domínio no DNS do Azure. No entanto, você precisa ser o proprietário do domínio para configurar os servidores de nomes do DNS do Azure como os servidores de nome corretos para o nome de domínio no registrador de nome de domínio.
-
-Confira [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md)para saber mais.
+[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 ## <a name="dns-records"></a>Registros DNS
 
-### <a name="record-types"></a>Tipos de registro
-
-Cada registro DNS tem um nome e um tipo. Os registros são organizados em vários tipos de acordo com os dados que eles contêm. O tipo mais comum é um registro 'A', que mapeia um nome para um endereço IPv4. Outro tipo comum é um registro 'MX', que mapeia um nome para um servidor de email.
-
-O DNS do Azure dá suporte a todos os tipos de registro DNS comuns: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV e TXT.
-
-### <a name="record-names"></a>Nomes de registros
-
-No DNS do Azure, os registros são especificados usando nomes relativos. Um FQDN (nome de domínio *totalmente qualificado*) inclui o nome da zona, enquanto um nome *relativo* não o inclui. Por exemplo, o nome relativo do registro 'www' na zona 'contoso.com' fornece o nome totalmente qualificado do registro 'www.contoso.com'.
-
-Um registro *apex* é um registro DNS na raiz (ou *apex*) de uma zona DNS. Por exemplo, na zona DNS ‘contoso.com’, um registro apex também tem o nome totalmente qualificado 'contoso.com' (ele às vezes é chamado de domínio *sem www*).  Por convenção, o nome relativo '@' é usado para criar registros apex.
-
-### <a name="record-sets"></a>Conjuntos de registros
-
-Às vezes, você precisa criar mais de um registro DNS com determinado nome e tipo. Por exemplo, vamos supor que o site 'www.contoso.com' seja hospedado em dois endereços IP diferentes. O site exige dois registros A diferentes, um para cada endereço IP. Este é um exemplo de um conjunto de registros:
-
-    www.contoso.com.        3600    IN    A    134.170.185.46
-    www.contoso.com.        3600    IN    A    134.170.188.221
-
-O DNS do Azure gerencia registros DNS usando *conjuntos de registros*. Um conjunto de registros (também conhecido como conjunto de registros de *recurso*) é uma coleção de registros DNS em uma zona que tem o mesmo nome e o mesmo tipo. A maioria dos conjuntos de registros contém um único registro, mas exemplos como este, nos quais um conjunto de registros contém mais de um registro de exemplos, não são incomuns.
-
-Por exemplo, digamos que você já criou um registro 'www' A na zona 'contoso.com' apontando para o endereço IP '134.170.185.46' (o primeiro registro acima).  Para criar o segundo registro, você deve adicioná-lo ao conjunto de registros existente em vez de criar um novo conjunto de registros.
-
-Os conjuntos de registros SOA e CNAME são exceções. Os padrões DNS não permitem vários registros com o mesmo nome para esses tipos e, portanto, esses conjuntos de registros podem conter apenas um único registro.
+[!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
 ### <a name="time-to-live"></a>Vida útil
 
@@ -82,7 +50,7 @@ No DNS do Azure, o TTL é especificado para o conjunto de registros, não para c
 
 ### <a name="wildcard-records"></a>Registros curinga
 
-O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Registros curinga são retornados como resposta a consultas com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga). Conjuntos de registros curinga têm suporte para todos os tipos de registro, exceto NS e SOA.
+O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Registros curinga são retornados como resposta a consultas com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga). O DNS do Azure dá suporte a conjuntos de registros curinga para todos os tipos de registro, exceto NS e SOA.
 
 Para criar um conjunto de registros curinga, use o nome do conjunto de registros '\*'. Como alternativa, você também pode usar um nome com '\*'como seu rótulo na extremidade esquerda, por exemplo,'\*.foo '.
 
@@ -98,7 +66,7 @@ Essas restrições são provenientes dos padrões DNS e não são limitações d
 
 Um conjunto de registros NS é criado automaticamente no apex de cada zona (nome = '@'),) e é excluído automaticamente quando a zona é excluída (ele não pode ser excluído separadamente).  Você pode modificar o TTL desse conjunto de registros, mas não pode modificar os registros que são pré-configurados para se referirem aos servidores de nomes do DNS do Azure atribuídos à zona.
 
-Você pode criar e excluir outros registros NS dentro da zona, não no apex da zona.  Isso permite que você configure zonas filho (confira [Delegando subdomínios no DNS do Azure](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns)).
+Você pode criar e excluir outros registros NS dentro da zona, mas não no ápice da zona.  Isso permite que você configure zonas filho (confira [Delegando subdomínios no DNS do Azure](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns)).
 
 ### <a name="soa-records"></a>Registros SOA
 
@@ -110,7 +78,7 @@ Você pode modificar todas as propriedades do registro SOA, exceto a propriedade
 
 Os registros SPF (Sender Policy Framework) são usados para especificar quais servidores de email têm permissão para enviar email em nome de um nome de domínio específico.  A configuração correta dos registros SPF é importante para evitar que os destinatários marquem seu email como 'lixo'.
 
-As RFCs do DNS originalmente introduziram um novo tipo de registro 'SPF' para dar suporte a esse cenário. Para dar suporte a servidores de nomes mais antigos, eles também permitiram o uso do tipo de registro TXT para especificar registros SPF.  Essa ambiguidade causou confusão, que foi resolvida pela [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  Ela definiu que os registros SPF só devem ser criados com o tipo de registro TXT e substituiu o tipo de registro SPF.
+As RFCs do DNS originalmente introduziram um novo tipo de registro 'SPF' para dar suporte a esse cenário. Para dar suporte a servidores de nomes mais antigos, eles também permitiram o uso do tipo de registro TXT para especificar registros SPF.  Essa ambiguidade causou confusão, que foi resolvida pela [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  Ela define que os registros SPF só devem ser criados com o tipo de registro TXT e que o tipo de registro SPF é preterido.
 
 **Os registros SPF têm suporte do DNS do Azure e devem ser criados usando o tipo de registro TXT.** Não há suporte para o tipo de registro SPF obsoleto. Ao [importar um arquivo de zona DNS](dns-import-export.md), eventuais registros SPF que usam o tipo de registro SPF serão convertidos para o tipo de registro TXT.
 
@@ -118,20 +86,48 @@ As RFCs do DNS originalmente introduziram um novo tipo de registro 'SPF' para da
 
 Os [registros SRV](https://en.wikipedia.org/wiki/SRV_record) são usados por vários serviços para especificar locais de servidor. Ao especificar um registro SRV no DNS do Azure:
 
-* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registros, prefixado com sublinhados.  Por exemplo, '\_sip.\_tcp.nome'.  Para um registro no apex da zona, não é necessário especificar '@' no nome do registro; basta usar o serviço e o protocolo, por exemplo, '\_sip.\_tcp'.
+* O *serviço* e o *protocolo* devem ser especificados como parte do nome do conjunto de registros, prefixado com sublinhados.  Por exemplo, '\_sip.\_tcp.nome'.  Para um registro no ápice da zona, não é necessário especificar '@' no nome do registro; basta usar o serviço e o protocolo, por exemplo, '\_sip.\_tcp'.
 * A *prioridade*, o *peso*, a *porta* e o *destino* são especificados como parâmetros de cada registro no conjunto de registros.
+
+### <a name="txt-records"></a>Registros TXT
+
+Os registros TXT são usados para mapear nomes de domínio em cadeias de caracteres de texto arbitrárias. Eles são usados em vários aplicativos, em particular relacionados à configuração de email, como o [SPF (Sender Policy Framework)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) e o [DKIM (DomainKeys Identified Mail)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail).
+
+Os padrões do DNS permitem que um único registro TXT contenha várias cadeias de caracteres, cada uma delas pode ter até 254 caracteres. Quando várias cadeias de caracteres são usadas, elas são concatenadas pelos clientes e tratadas como uma única cadeia de caracteres.
+
+Ao chamar a API REST de DNS do Azure, é necessário especificar cada cadeia de caracteres TXT separadamente.  Ao usar interfaces do Portal do Azure, PowerShell ou CLI é necessário especificar uma cadeia de caracteres única por registro, que é dividida automaticamente em segmentos de 254 caracteres, se necessário.
+
+As várias cadeias de caracteres em um registro DNS não devem ser confundidas com os vários registros TXT em um conjunto de registros TXT.  Um conjunto de registros TXT pode conter vários registros e *cada um deles* pode conter várias cadeias de caracteres.  O DNS do Azure dá suporte a um tamanho total de até 1024 caracteres em cada conjunto de registros TXT (entre todos os registros combinados). 
 
 ## <a name="tags-and-metadata"></a>Marcas e metadados
 
 ### <a name="tags"></a>Marcas
 
-As marcas consistem em uma lista de pares de nome/valor e são usadas pelo Azure Resource Manager na rotulagem de recursos.  O Azure Resource Manager usa marcas para habilitar exibições filtradas de sua fatura do Azure e também permite que você defina uma política sobre as marcas que são obrigatórias. Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](../resource-group-using-tags.md).
+As marcas consistem em uma lista de pares de nome/valor e são usadas pelo Azure Resource Manager na rotulagem de recursos.  O Azure Resource Manager usa marcas para habilitar exibições filtradas de sua fatura do Azure e também permite que você defina uma política sobre as marcas que são obrigatórias. Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 
-O DNS do Azure dá suporte ao uso de marcas do Azure Resource Manager em recursos de zona DNS.  Ele não dá suporte a marcas em conjuntos de registros DNS.
+O DNS do Azure dá suporte ao uso de marcas do Azure Resource Manager em recursos de zona DNS.  Ele não oferece suporte a marcas em conjuntos de registros DNS, embora "metadados" tenham suporte nos Conjuntos de registros DNS como uma alternativa, conforme explicado abaixo.
 
 ### <a name="metadata"></a>Metadados
 
 Como uma alternativa às marcas de conjunto de registros, o DNS do Azure dá suporte à anotação de conjuntos de registros usando 'metadados'.  Semelhante às marcas, os metadados permitem que você associe pares de nome-valor a cada conjunto de registros.  Isso pode ser útil, por exemplo, para registrar a finalidade de cada conjunto de registros.  Diferentemente das marcas, os metadados não podem ser usados para fornecer uma exibição filtrada de sua fatura do Azure e não podem ser especificados em uma política do Azure Resource Manager.
+
+## <a name="etags"></a>ETags
+
+Suponha que duas pessoas ou dois processos tentem modificar um registro DNS ao mesmo tempo. Qual vence? E o vencedor sabe que substituiu as alterações criadas por outra pessoa?
+
+O DNS do Azure usa as Etags para tratar alterações simultâneas para o mesmo recurso com segurança. As Etags são separadas das ["Marcações" do Azure Resource Manager](#tags). Cada recurso DNS (zona ou conjunto de registros) tem uma Etag associada a ele. Sempre que um recurso é recuperado, a Etag também é recuperada. Ao atualizar um recurso, você pode escolher devolver a Etag para que o DNS do Azure possa verificar se a Etag no servidor é correspondente. Uma vez que cada atualização a um recurso resulta em uma Etag sendo gerada novamente, uma incompatibilidade de Etag indica que ocorreu uma alteração simultânea. As Etags também podem ser usadas ao criar um novo recurso para garantir que o recurso ainda não existe.
+
+Por padrão, o PowerShell do DNS do Azure usa as Etags bloquear alterações simultâneas às zonas e conjuntos de registro. O switch opcional *-Overwrite* pode ser usado para suprimir as verificações de Etag. Nesse caso, as alterações simultâneas que ocorrerem são substituídas.
+
+No nível da API REST do DNS do Azure, as Etags são especificadas usando cabeçalhos HTTP.  Seu comportamento é descrito na tabela a seguir:
+
+| Cabeçalho | Comportamento |
+| --- | --- |
+| Nenhum |PUT sempre terá êxito (nenhuma verificação de Etag) |
+| If-match <etag> |PUT só terá êxito se o recurso existir e a Etag corresponder |
+| If-match * |PUT só terá êxito se houver recursos |
+| If-none-match * |PUT só terá êxito se não houver recursos |
+
 
 ## <a name="limits"></a>limites
 
@@ -142,11 +138,11 @@ Os limites padrão abaixo se aplicam ao usar o DNS do Azure:
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para começar a usar o DNS do Azure, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e a [criar registros DNS](dns-getstarted-create-recordset-portal.md).
-* Para migrar uma zona DNS existente, aprenda a [importar um arquivo de zona DNS](dns-import-export.md).
+* Para migrar uma zona DNS existente, saiba como [importar e exportar um arquivo de zona DNS](dns-import-export.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

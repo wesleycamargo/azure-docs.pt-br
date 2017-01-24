@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+ms.date: 12/15/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 7e7dc6b6d58da556dfa07d5d21b3e70483d36ef9
-ms.openlocfilehash: 688f3f0885606949a265300af215f416e8f94155
+ms.sourcegitcommit: f4c29b292ecd97b51620b5e41cbcd6a096a7768e
+ms.openlocfilehash: e96d26e458f3b8f88ba88a5839dff9c48a755ffa
 
 
 ---
@@ -36,6 +36,23 @@ Um cluster Microsoft HPC Pack 2016 requer um certificado PFX (Troca de Informaç
 * Ele deve ter uma chave privada capaz de fazer a troca das chaves
 * O uso da chave inclui a Assinatura Digital e a Codificação de Chave
 * O uso avançado de chave inclui a Autenticação de Servidor e a Autenticação de Cliente
+
+Se você ainda não tiver um certificado que atende a esses requisitos, solicite o certificado de uma autoridade de certificação. Como alternativa, você pode usar os comandos a seguir para gerar o certificado autoassinado com base no sistema operacional em que o comando é executado e exportar o certificado em formato PFX com a chave privada.
+
+* **Para o Windows 10 ou Windows Server 2016**, execute o cmdlet **New-SelfSignedCertificate** interno do PowerShell da seguinte maneira:
+
+  ```PowerShell
+  New-SelfSignedCertificate -Subject "CN=HPC Pack 2016 Communication" -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2") -CertStoreLocation cert:\CurrentUser\My -KeyExportPolicy Exportable -NotAfter (Get-Date).AddYears(5)
+  ```
+* **Para sistemas operacionais anteriores ao Windows 10 ou Windows Server 2016**, baixe o [gerador de certificado autoassinado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) no Microsoft Script Center. Extraia o conteúdo e execute os seguintes comandos em um prompt do PowerShell:
+
+    ```PowerShell 
+    Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
+  
+    New-SelfSignedCertificateEx -Subject "CN=HPC Pack 2016 Communication" -KeySpec Exchange -KeyUsage "DigitalSignature,KeyEncipherment" -EnhancedKeyUsage "Server Authentication","Client Authentication" -StoreLocation CurrentUser -Exportable -NotAfter (Get-Date).AddYears(5)
+    ```
+
+### <a name="upload-certificate-to-an-azure-key-vault"></a>Carregar o certificado em um Azure Key Vault
 
 Antes de implantar o cluster HPC, carregue o certificado em um [cofre de chaves do Azure](../key-vault/index.md) como um segredo e registre as seguintes informações para uso durante a implantação: **Nome do cofre**, **Grupo de recursos do cofre**, **URL do certificado** e **Impressão digital do certificado**.
 
@@ -122,7 +139,7 @@ Digite ou modifique os valores dos parâmetros do modelo. Clique no ícone ao la
 
 Especifique os valores registrados nos pré-requisitos para os seguintes parâmetros: **Nome do cofre**, **Grupo de recursos do cofre**, **URL do certificado** e **Impressão digital do certificado**.
 
-###<a name="step-3-review-legal-terms-and-create"></a>Etapa 3. Examinar os termos legais e criar
+### <a name="step-3-review-legal-terms-and-create"></a>Etapa 3. Examinar os termos legais e criar
 Clique em **Examinar termos legais** para examinar os termos. Se você concordar, clique em **Comprar** e clique em **Criar** para iniciar a implantação.
 
 ## <a name="connect-to-the-cluster"></a>Conectar-se ao cluster
@@ -142,6 +159,6 @@ Clique em **Examinar termos legais** para examinar os termos. Se você concordar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

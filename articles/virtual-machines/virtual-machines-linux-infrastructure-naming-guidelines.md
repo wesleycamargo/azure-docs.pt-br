@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de nomenclatura de infraestrutura | Microsoft Docs
+title: Diretrizes de nomenclatura de infraestrutura do Azure | Microsoft Docs
 description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à nomenclatura em serviços de infraestrutura do Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8eaca7d1f942af7b36891f7ee0d9a455283bfc36
+ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
+ms.openlocfilehash: 16447489a2923851a0f404c247d7b8132d68fe4c
 
 
 ---
-# <a name="infrastructure-naming-guidelines"></a>Diretrizes de nomenclatura de infraestrutura
+# <a name="azure-infrastructure-naming-guidelines"></a>Diretrizes de nomenclatura de infraestrutura do Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Este artigo destaca as noções básicas sobre como abordar as convenções de nomenclatura para todos os vários recursos do Azure para compilar um conjunto de recursos lógico e facilmente identificável em seu ambiente.
@@ -95,7 +95,7 @@ Se uma VM for criada por meio de um arquivo de imagem .vhd que já contenha um s
 Recomendamos que o nome da VM do Azure seja igual ao nome do computador do sistema operacional subjacente.
 
 ## <a name="storage-account-names"></a>Nomes de contas de armazenamento
-As contas de armazenamento têm regras especiais para os nomes. Você pode usar apenas letras minúsculas e números. Consulte [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) para saber mais. Além disso, o nome da conta de armazenamento com core.windows.net deve ser um nome DNS exclusivo e globalmente válido. Por exemplo, se a conta de armazenamento for chamada de mystorageaccount, os seguintes nomes DNS resultantes devem ser exclusivos:
+As contas de armazenamento têm regras especiais para os nomes. Você pode usar apenas letras minúsculas e números. Para obter mais informações, consulte [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account). Além disso, o nome da conta de armazenamento com core.windows.net deve ser um nome DNS exclusivo e globalmente válido. Por exemplo, se a conta de armazenamento for chamada de mystorageaccount, os seguintes nomes DNS resultantes devem ser exclusivos:
 
 * minhacontadearmazenamento.blob.core.windows.net
 * minhacontadearmazenamento.table.core.windows.net
@@ -107,6 +107,6 @@ As contas de armazenamento têm regras especiais para os nomes. Você pode usar 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

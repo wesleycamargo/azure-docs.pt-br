@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: hangzh;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b42658bde128dec9bdc54ffc59c624e957527d5b
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: 0f3264abf6216270aa9cdd62ce3acf8640e2375a
 
 
 ---
@@ -27,12 +27,12 @@ Neste artigo, descreveremos como reduzir os dados de amostra armazenados nas tab
 * Amostragem aleatória por grupos
 * Amostragem estratificada
 
-**Por que fazer amostragem dos dados?**
- Se o conjunto de dados que você deseja analisar é grande, geralmente é uma boa ideia reduzir a amostra de dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Ciência de Dados de Equipe é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
-
-O **menu** abaixo leva a tópicos que descrevem como obter amostras de dados de vários ambientes de armazenamento.
+O **menu** a seguir leva a tópicos que descrevem como obter dados de exemplo de vários ambientes de armazenamento.
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+**Por que fazer amostragem dos dados?**
+Se o conjunto de dados que você deseja analisar for grande, geralmente, é uma boa ideia reduzir os dados para um tamanho menor, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, exploração e engenharia de recursos. Sua função no Processo de Ciência de Dados de Equipe é permitir a rápida criação de protótipos de funções de processamento de dados e modelos de aprendizado de máquina.
 
 Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados de Equipe)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
@@ -111,6 +111,6 @@ Para obter informações sobre os métodos de amostragem mais avançados dispon�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

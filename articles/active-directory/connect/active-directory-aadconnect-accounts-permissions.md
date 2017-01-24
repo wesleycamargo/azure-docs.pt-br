@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
+ms.sourcegitcommit: 68e475891a91e4ae45a467cbda2b7b51c8020dbd
+ms.openlocfilehash: e5f643d444fb2bf00aa91083f5d09962372e0dbb
 
 
 ---
@@ -29,11 +29,13 @@ O assistente de instalação do Azure AD Connect oferece dois caminhos diferente
 ## <a name="related-documentation"></a>Documentação relacionada
 Se você não leu a documentação em [Integrando suas identidades locais com o Azure Active Directory](../active-directory-aadconnect.md), a tabela a seguir fornece links para tópicos relacionados.
 
-| Tópico |
+|Tópico |Link|  
 | --- | --- |
-| Instalar usando as Configurações expressas |
-| Instalar usando Configurações personalizadas |
-| Atualização do DirSync |
+|Baixar o Azure AD Connect | [Baixar o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Instalar usando as Configurações expressas | [Instalação expressa do Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
+|Instalar usando Configurações personalizadas | [Instalação personalizada do Azure AD Connect](./active-directory-aadconnect-get-started-custom.md)|
+|Atualização do DirSync | [Atualizar a partir da ferramenta de sincronização do AD do Azure (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|Após a instalação | [Verifique a instalação e atribua licenças ](active-directory-aadconnect-whats-next.md)|
 
 ## <a name="express-settings-installation"></a>Instalação das configurações expressas
 As configurações expressas do assistente de instalação solicita credenciais de administrador corporativo do AD DS para que o Active Directory local possa ser configurado com as permissões necessárias para o Azure AD Connect. Se você estiver atualizando o DirSync, as credenciais de administrador corporativo do AD DS serão usadas para redefinir a senha da conta usada pelo DirSync. Você também precisa de credenciais de Administrador Global do Azure AD.
@@ -45,7 +47,7 @@ As configurações expressas do assistente de instalação solicita credenciais 
 | Conectar-se ao AD DS |Credenciais do Active Directory local |Membro do grupo EA (Administradores de Empresa) no Active Directory |<li>Cria uma [conta](#active-directory-account) no Active Directory e concede permissões a ela. Essa conta criada é usada para ler e gravar informações de diretório durante a sincronização.</li> |
 
 ### <a name="enterprise-admin-credentials"></a>Credenciais de administrador corporativo
-Essas credenciais são usadas apenas durante a instalação e são usadas após a conclusão da instalação. São de administrador corporativo e não administrador de domínio, para garantir que as permissões no Active Directory possam ser definidas em todos os domínios.
+Essas credenciais são usadas apenas durante a instalação e não são usadas após a conclusão da instalação. O Admin Corporativo e não Administrador de Domínio, deve garantir que as permissões no Active Directory possam ser definidas em todos os domínios.
 
 ### <a name="global-admin-credentials"></a>Credenciais de administrador global
 Essas credenciais são usadas apenas durante a instalação e não são usadas após a conclusão da instalação. São usadas para criar a [conta do AD do Azure](#azure-ad-service-account) usada para sincronizar alterações com o AD do Azure. A conta também habilita a sincronização como um recurso no Azure AD.
@@ -84,9 +86,9 @@ As permissões de que você precisa dependem dos recursos opcionais que habilita
 | Recurso | Permissões |
 | --- | --- |
 | Sincronização de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
-| Implantação híbrida do Exchange |Permissões de gravação para os atributos documentados em [Write-back híbrido do Exchange](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
+| Implantação híbrida do Exchange |Permissões de gravação para os atributos documentados em [Write-back híbrido do Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
 | Write-back de senha |Permissões de gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../active-directory-passwords-getting-started.md#step-4-set-up-the-appropriate-active-directory-permissions) para usuários. |
-| Write-back de dispositivo |Permissões concedidas com um script do PowerShell, conforme descrito em [Write-back do dispositivo](../active-directory-aadconnect-feature-device-writeback.md). |
+| Write-back de dispositivo |Permissões concedidas com um script do PowerShell, conforme descrito em [Write-back do dispositivo](active-directory-aadconnect-feature-device-writeback.md). |
 | Write-back de grupo |Ler, criar, atualizar e excluir objetos de grupo na UO em que os grupos de distribuição devem estar localizados. |
 
 ## <a name="upgrade"></a>Atualizar
@@ -134,6 +136,6 @@ Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do A
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
