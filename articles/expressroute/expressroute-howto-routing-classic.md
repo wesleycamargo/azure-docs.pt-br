@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
-ms.openlocfilehash: 1442295477760e7f528621be42b72f1c02625c50
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: df4b11210aca695a04abf145b6efd9e98c870b67
 
 
 ---
@@ -36,7 +36,7 @@ Este artigo fornece uma orientação pelas etapas de criação e de gerenciament
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
-* Você precisará da versão mais recente dos módulos do Azure PowerShell. Baixe o módulo mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](https://azure.microsoft.com/downloads/). Siga as instruções na página [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para obter orientações passo a passo sobre como configurar seu computador para usar os módulos do Azure PowerShell. 
+* Você precisará da versão mais recente dos módulos do Azure PowerShell. Baixe o módulo mais recente do PowerShell na seção PowerShell da [página Downloads do Azure](https://azure.microsoft.com/downloads/). Siga as instruções na página [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para obter orientações passo a passo sobre como configurar seu computador para usar os módulos do Azure PowerShell. 
 * Verifique se você leu a página de [pré-requisitos](expressroute-prerequisites.md), a página de [requisitos do roteamento](expressroute-routing.md) e a página [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 * Você deve ter um circuito da Rota Expressa ativo. Antes de continuar, siga as instruções para [criar um circuito da Rota Expressa](expressroute-howto-circuit-classic.md) e para que o circuito seja habilitado pelo provedor de conectividade. O circuito da Rota Expressa deve estar em um estado provisionado e habilitado e para que você possa executar os cmdlets descritos abaixo.
 
@@ -310,6 +310,6 @@ Em seguida, [Vincular uma Rede Virtual a um circuito da Rota Expressa](expressro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

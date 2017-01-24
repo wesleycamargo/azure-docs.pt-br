@@ -16,15 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 205812cdd4aa7cd5858075c642188a37de456ba7
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 0daa75e1d4fccf7d7c7785422a9607787e55ca8b
 
 
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>Usando a extensão VM Docker da interface de linha de comando do Azure (CLI do Azure)
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para obter informações sobre como usar a extensão de VM do Docker com o modelo do Resource Manager, veja [aqui](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como usar a extensão de VM do Docker com o modelo do Resource Manager, veja [aqui](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Este tópico descreve como criar uma máquina virtual com a extensão de VM do Docker do modo de gerenciamento de serviço (asm) na CLI do Azure em qualquer plataforma. O [Docker](https://www.docker.com/) é uma das abordagens de virtualização mais populares que utiliza [contêineres Linux](http://en.wikipedia.org/wiki/LXC) em vez de máquinas virtuais como forma de isolar dados e computar recursos compartilhados. Você pode usar a extensão da VM do Docker e o [Agente Linux do Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para criar uma VM do Docker que hospede diversos contêineres para seus aplicativos no Azure. Para participar de um debate de alto nível sobre contêineres e suas vantagens, confira o [Quadro de comunicações de alto nível do Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
@@ -162,21 +161,21 @@ O daemon do Docker no host é configurado para escutar e autenticar conexões cl
 * A extensão de VM do Docker do Azure também oferece suporte ao Docker Compose, que usa um arquivo YAML declarativo para utilizar um aplicativo modelado por desenvolvedores em qualquer ambiente e gerar uma implantação consistente. Consulte [Introdução ao Docker e Redigir para definir e executar um aplicativo de contêiner múltiplos em uma máquina virtual do Azure].  
 
 <!--Anchors-->
-[Subtítulo 1]: #subheading-1
-[Subtítulo 2]: #subheading-2
-[Subtítulo 3]: #subheading-3
-[Próximas etapas]: #next-steps
+[Subheading 1]: #subheading-1
+[Subheading 2]: #subheading-2
+[Subheading 3]: #subheading-3
+[Next steps]: #next-steps
 
-[Como usar a Extensão de VM Docker com o Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
-[Extensões de máquina virtual para Linux e Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
-[Contêiner e Recursos de gerenciamento de contêiner para o Azure]: #Container-and-Container-Management-Resources-for-Azure
+[How to use the Docker VM Extension with Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
+[Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
+[Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
 
 
 
 <!--Link references-->
-[Link 1 para outro tópico de documentação azure.microsoft.com]: virtual-machines-windows-hero-tutorial.md
-[Link 2 para outro tópico de documentação azure.microsoft.com]: ../web-sites-custom-domain-name.md
-[Link 3 para outro tópico de documentação azure.microsoft.com]: ../storage-whatis-account.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-hero-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 [Como usar a extensão de máquina virtual Docker com o Portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Guia do usuário do Docker]: https://docs.docker.com/userguide/
@@ -185,6 +184,6 @@ O daemon do Docker no host é configurado para escutar e autenticar conexões cl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,21 +16,20 @@ ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 35c52c7679559cc59e54667e8c15eacfa42cd7ca
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 0c0db476389611be616cfaa4e470319db8386670
 
 
 ---
 # <a name="injecting-custom-data-into-an-azure-virtual-machine"></a>Injetando dados personalizados em uma máquina virtual do Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para obter informações sobre como usar a Extensão de Script personalizado com o modelo do Resource Manager, veja [aqui](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como usar a Extensão de Script personalizado com o modelo do Resource Manager, veja [aqui](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-inject-custom-data](../../includes/virtual-machines-common-classic-inject-custom-data.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,27 +1,30 @@
 ---
-title: Referência do Analytics no Application Insights | Microsoft Docs
-description: 'Referência de instruções na Análise, a ferramenta de pesquisa avançada do Application Insights. '
+title: "Referência do Analytics no Azure Application Insights | Microsoft Docs"
+description: "Referência de instruções na Análise, a ferramenta de pesquisa avançada do Application Insights. "
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
-manager: douge
-
+manager: carmonm
+ms.assetid: eea324de-d5e5-4064-9933-beb3a97b350b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 11/23/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
+ms.openlocfilehash: 1b153af33ef2f7c112336a2de2a3710613ad3887
+
 
 ---
 # <a name="reference-for-analytics"></a>Referência da Análise
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta da Análise.
 
-> [!NOTE]
-> [Faça um test drive do Analytics com nossos dados simulados](https://analytics.applicationinsights.io/demo) se seu aplicativo ainda não estiver enviando dados para o Application Insights.
-> 
-> 
+* [Roteiro dos usuários do SQL](https://aka.ms/sql-analytics) converte as linguagens mais comuns.
+* [Faça um test drive do Analytics com nossos dados simulados](https://analytics.applicationinsights.io/demo) se seu aplicativo ainda não estiver enviando dados para o Application Insights.
+ 
 
 ## <a name="index"></a>Índice
 **Permitir** [let](#let-clause)
@@ -36,7 +39,7 @@ O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [
 
 **Data e hora** [Data e tempo expressões](#date-and-time-expressions) | [Data e hora literais](#date-and-time-literals) | [atrás](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [agora](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
-**Cadeia de caracteres** [GUIDs](#guids) | [literais de cadeia de caracteres ofuscados](#obfuscated-string-literals) | [literais de cadeia de caracteres](#string-literals) | [comparações de cadeia de caracteres](#string-comparisons) | [countof](#countof) | [extrair](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [substituir](#replace) | [Dividir](#split) | [strcat](#strcat) | [strlen](#strlen) | [subcadeia de caracteres](#substring) | [tolower](#tolower) | [toupper](#toupper)
+**Cadeia de caracteres** [GUIDs](#guids) | [literais de cadeia de caracteres ofuscados](#obfuscated-string-literals) | [literais de cadeia de caracteres](#string-literals) | [comparações de cadeia de caracteres](#string-comparisons) | [countof](#countof) | [extrair](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty)| [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
 
 **Matrizes, objetos e dinâmica** [Literais de matriz e objeto](#array-and-object-literals) | [Funções de objeto dinâmico](#dynamic-object-functions) | [Objetos dinâmicos em cláusulas let](#dynamic-objects-in-let-clauses) | [Expressões de caminho JSON](#json-path-expressions) | [Names](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
 
@@ -58,8 +61,14 @@ O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
-    requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
+    let us_date = (t:datetime)
+    {
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
+    };
+    requests 
+    | summarize count() by bin(timestamp, 1h) 
+    | project count_, pacificTime=us_date(timestamp-8h)
 
 Uma cláusula let associa um [nome](#names) a um resultado tabular, um valor escalar ou uma função. A cláusula é um prefixo para uma consulta e o escopo da associação é essa consulta. (Let não fornece uma maneira de nomear itens que você usa mais tarde na sessão.)
 
@@ -86,12 +95,12 @@ Self-join:
 
     let Recent = events | where timestamp > ago(7d);
     Recent | where name contains "session_started" 
-      | project start = timestamp, session_id
-      | join (Recent 
+    | project start = timestamp, session_id
+    | join (Recent 
         | where name contains "session_ended" 
         | project stop = timestamp, session_id)
       on session_id
-      | extend duration = stop - start 
+    | extend duration = stop - start 
 
 
 ## <a name="queries-and-operators"></a>Consultas e operadores
@@ -395,11 +404,15 @@ Se houver várias linhas com os mesmos valores para esses campos, você obterá 
 
 **Dicas**
 
+Há um limite de 64 MB para a tabela de resultados.
+
 Para obter o melhor desempenho:
 
 * Use `where` e `project` para reduzir o número de linhas e colunas nas tabelas de entrada, antes de `join`. 
 * Se uma tabela sempre for menor do que a outra, use-a como o lado esquerdo (com barras verticais) da junção.
 * As colunas para a correspondência de junção devem ter o mesmo nome. Use o operador de projeto se for necessário renomear uma coluna em uma das tabelas.
+
+
 
 **Exemplo**
 
@@ -408,13 +421,13 @@ Obtenha atividades estendidas a partir de um log em que algumas entradas marcam 
 ```AIQL
     let Events = MyLogTable | where type=="Event" ;
     Events
-      | where Name == "Start"
-      | project Name, City, ActivityId, StartTime=timestamp
-      | join (Events
+    | where Name == "Start"
+    | project Name, City, ActivityId, StartTime=timestamp
+    | join (Events
            | where Name == "Stop"
            | project StopTime=timestamp, ActivityId)
         on ActivityId
-      | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
+    | project City, ActivityId, StartTime, StopTime, Duration, StopTime, StartTime
 
 ```
 
@@ -493,7 +506,7 @@ Há suporte para dois modos de expansões de recipiente de propriedades:
 **Exemplos**
 
     exceptions | take 1 
-      | mvexpand details[0]
+    | mvexpand details[0]
 
 Divide um registro de exceção em linhas para cada item no campo de detalhes.
 
@@ -507,7 +520,7 @@ Divide um registro de exceção em linhas para cada item no campo de detalhes.
     with * "got" counter:long " " present "for" * "was" year:long * 
 
     T |  parse kind=regex "I got socks for my 63rd birthday" 
-    with "(I|She) got" present "for .*?" year:long * 
+    with "(I|She) got " present " for .*?" year:long * 
 
 Extrai valores de uma cadeia de caracteres. Pode usar a correspondência de expressões regulares ou simples.
 
@@ -603,21 +616,21 @@ Quando a entrada contém uma correspondência correta para cada coluna com tipo,
 // Run a test without reading a table:
 range x from 1 to 1 step 1 
 // Test string:
-| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 08:41, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 08:40:00)" 
+| extend s = "Event: NotifySliceRelease (resourceName=Scheduler, totalSlices=27, sliceNumber=16, lockTime=02/17/2016 07:31, releaseTime=02/17/2016 08:41:00, previousLockTime=02/17/2016 06:20:00 ) }" 
 // Parse it:
 | parse kind=regex s 
-  with ".*?[a-zA-Z]*=" resource 
+  with ".*?=" resource 
        ", total.*?sliceNumber=" slice:long *
        "lockTime=" lock
        ",.*?releaseTime=" release 
        ",.*?previousLockTime=" previous:date 
-       ".*\\)"
+       @".*\)" *
 | project-away x, s
 ```
 
 | recurso | fatia | lock | release | previous |
 | --- | --- | --- | --- | --- |
-| Agendador |16 |02/17/2016 08:41:00 |02/17/2016 08:41 |2016-02-17T08:40:00Z |
+| Agendador |16 |02/17/2016 07:31:00 |02/17/2016 08:41 |17/02/2016T06:20:00Z |
 
 ### <a name="project-operator"></a>operador project
     T | project cost=price*quantity, price
@@ -791,7 +804,7 @@ Todas as linhas na tabela Traces com um `ActivityId`específico, classificadas p
 Produz uma tabela que agrega o conteúdo da tabela de entrada.
 
     requests
-      | summarize count(), avg(duration), makeset(client_City) 
+    | summarize count(), avg(duration), makeset(client_City) 
       by client_CountryOrRegion
 
 Uma tabela que mostra o número, a duração média da solicitação e o conjunto de cidades em cada país. Há uma linha na saída para cada país distinto. As colunas de saída mostram a contagem, a duração média, as cidades e o país. Todas as outras colunas de entrada são ignoradas.
@@ -852,10 +865,10 @@ Retorna os primeiros *N* registros classificados pelas colunas especificadas.
 
 ### <a name="top-nested-operator"></a>operador top-nested
     requests 
-      | top-nested 5 of name by count()  
+    | top-nested 5 of name by count()  
     , top-nested 3 of performanceBucket by count() 
     , top-nested 3 of client_CountryOrRegion by count()
-      | render barchart 
+    | render barchart 
 
 Produz resultados hierárquicos, onde cada nível é uma busca detalhada do nível anterior. É útil para responder a perguntas como "quais são as cinco solicitações principais e, para cada uma delas, quais são os três principais buckets de desempenho e, para cada um deles, quais são os três países principais de onde vêm as solicitações?”
 
@@ -895,35 +908,51 @@ Usa duas ou mais tabelas e retorna as linhas de todas elas.
 
 Uma tabela com tantas linhas quanto houver em todas as tabelas de entrada e tantas colunas quantos nomes de coluna exclusivos constarem nas entradas.
 
-**Exemplo**
-
-```AIQL
-
-let ttrr = requests | where timestamp > ago(1h);
-let ttee = exceptions | where timestamp > ago(1h);
-union tt* | count
-```
-União de todas as tabelas cujos nomes começam por "tt".
+Não há ordem garantida nas linhas.
 
 **Exemplo**
 
-```AIQL
-
-union withsource=SourceTable kind=outer Query, Command
-| where Timestamp > ago(1d)
-| summarize dcount(UserId)
-```
-O número de usuários distintos que produziram um evento `exceptions` ou um evento `traces` no dia anterior. No resultado, a coluna “SourceTable” indicará "Query" ou "Command".
+União de todas as tabelas cujos nomes começam por "tt":
 
 ```AIQL
-exceptions
-| where Timestamp > ago(1d)
-| union withsource=SourceTable kind=outer 
-   (Command | where Timestamp > ago(1d))
-| summarize dcount(UserId)
+
+    let ttrr = requests | where timestamp > ago(1h);
+    let ttee = exceptions | where timestamp > ago(1h);
+    union tt* | count
 ```
 
-Esta versão mais eficiente produz o mesmo resultado. Ela filtra cada tabela antes de criar a união.
+**Exemplo**
+
+O número de usuários distintos que produziram um evento `exceptions` ou um evento `traces` no dia anterior. No resultado, a coluna "SourceTable" indicará "Query" ou "Command":
+
+```AIQL
+
+    union withsource=SourceTable kind=outer Query, Command
+    | where Timestamp > ago(1d)
+    | summarize dcount(UserId)
+```
+
+Esta versão mais eficiente produz o mesmo resultado. Ela filtra cada tabela antes de criar a união:
+
+```AIQL
+
+    exceptions
+    | where Timestamp > ago(1d)
+    | union withsource=SourceTable kind=outer 
+       (Command | where Timestamp > ago(1d))
+    | summarize dcount(UserId)
+```
+
+### <a name="forcing-an-order-of-results"></a>Forçando uma ordem de resultados
+
+A união não garante uma ordem específica nas linhas dos resultados.
+Para obter a mesma ordem toda vez que você executar a consulta, acrescente uma coluna de marcação a cada tabela de entrada:
+
+    let r1 = (traces | count | extend tag = 'r1');
+    let r2 = (requests | count| extend tag = 'r2');
+    let r3 = (pageViews | count | extend tag = 'r3');
+    r1 | union r2,r3 | sort by tag
+
 
 ### <a name="where-operator"></a>operador where
      requests | where resultCode==200
@@ -1011,7 +1040,7 @@ traces
 <a name="argmin"></a>
 <a name="argmax"></a>
 
-### <a name="argmin,-argmax"></a>argmin, argmax
+### <a name="argmin-argmax"></a>argmin, argmax
     argmin(ExprToMinimize, * | ExprToReturn  [ , ... ] )
     argmax(ExprToMaximize, * | ExprToReturn  [ , ... ] ) 
 
@@ -1033,7 +1062,7 @@ Mostre todos os detalhes da solicitação mais longa, não apenas o carimbo de h
 Encontre o menor valor de cada métrica, junto com seu carimbo de hora e outros dados:
 
     metrics 
-      | summarize minValue=argmin(value, *) 
+    | summarize minValue=argmin(value, *) 
       by name
 
 
@@ -1167,7 +1196,7 @@ Retorna uma estimativa do número de valores distintos de *Expr* no grupo. (Para
 **Exemplo**
 
     pageViews 
-      | summarize cities=dcount(client_City) 
+    | summarize cities=dcount(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-reference/dcount.png)
@@ -1186,7 +1215,7 @@ Retorna uma estimativa do número de valores distintos de *Expr* de linhas no gr
 **Exemplo**
 
     pageViews 
-      | summarize cities=dcountif(client_City, client_City startswith "St") 
+    | summarize cities=dcountif(client_City, client_City startswith "St") 
       by client_CountryOrRegion
 
 
@@ -1207,14 +1236,14 @@ Retorna uma matriz `dynamic` (JSON) do conjunto de valores distintos que *Expr* 
 **Exemplo**
 
     pageViews 
-      | summarize cities=makeset(client_City) 
+    | summarize cities=makeset(client_City) 
       by client_CountryOrRegion
 
 ![](./media/app-insights-analytics-reference/makeset.png)
 
 Veja também o [`mvexpand`](#mvexpand-operator) da função oposta.
 
-### <a name="max,-min"></a>max, min
+### <a name="max-min"></a>max, min
     max(Expr)
 
 Calcula o número máximo de *Expr*.
@@ -1230,7 +1259,7 @@ Calcula o número mínimo de *Expr*.
 <a name="percentilew"></a>
 <a name="percentilesw"></a>
 
-### <a name="percentile,-percentiles,-percentilew,-percentilesw"></a>percentile, percentiles, percentilew, percentilesw
+### <a name="percentile-percentiles-percentilew-percentilesw"></a>percentile, percentiles, percentilew, percentilesw
     percentile(Expression, Percentile)
 
 Retorna uma estimativa para a *Expression* do percentil especificado no grupo. A precisão depende da densidade da população na região do percentil.
@@ -1252,7 +1281,7 @@ Como `percentilew()`, mas calcula um número de valores de percentil.
 O valor de `duration` , que é maior do que 95% do conjunto de exemplo e menor do que 5% do conjunto de exemplo, calculado para cada nome de solicitação:
 
     request 
-      | summarize percentile(duration, 95)
+    | summarize percentile(duration, 95)
       by name
 
 Omita "by..." para calcular toda a tabela.
@@ -1260,7 +1289,7 @@ Omita "by..." para calcular toda a tabela.
 Calcule simultaneamente vários percentuais para nomes de solicitação diferentes:
 
     requests 
-      | summarize 
+    | summarize 
         percentiles(duration, 5, 20, 50, 80, 95) 
       by name
 
@@ -1271,7 +1300,7 @@ Os resultados mostram que para a solicitação /Events/Index, 5% das solicitaç�
 Calcule várias estatísticas:
 
     requests 
-      | summarize 
+    | summarize 
         count(), 
         avg(Duration),
         percentiles(Duration, 5, 50, 95)
@@ -1459,7 +1488,7 @@ iff(floor(timestamp, 1d)==floor(now(), 1d), "today", "anotherday")
 <a name="isnotnull"/></a>
 <a name="notnull"/></a>
 
-### <a name="isnull,-isnotnull,-notnull"></a>isnull, isnotnull, notnull
+### <a name="isnull-isnotnull-notnull"></a>isnull, isnotnull, notnull
     isnull(parsejson("")) == true
 
 Aceita um único argumento e informa se ele é nulo.
@@ -1515,7 +1544,7 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
         | where floor(timestamp, 1d) == floor(ago(5d),1d) | count);
     // List the counts relative to that baseline:
     requests | summarize daycount = count() by floor(timestamp, 1d)  
-      | extend relative = daycount - baseline
+    | extend relative = daycount - baseline
 ```
 
 
@@ -1551,7 +1580,6 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
 | * |Multiplicar |
 | / |Dividir |
 | % |Módulo |
-|  | |
 | `<` |Menor |
 | `<=` |Menor ou igual a |
 | `>` |Maior |
@@ -1574,7 +1602,7 @@ O argumento avaliado. Se o argumento for uma tabela, retornará a primeira colun
 
 <a name="bin"></a><a name="floor"></a>
 
-### <a name="bin,-floor"></a>bin, arredmultb
+### <a name="bin-floor"></a>bin, arredmultb
 Arredonda os valores até um número inteiro múltiplo de um determinado tamanho de compartimentalização. Muito usado na consulta [`summarize by`](#summarize-operator) . Se você tiver um conjunto disperso de valores, eles serão agrupados em um conjunto menor de valores específicos.
 
 Alias `floor`.
@@ -1836,7 +1864,7 @@ O número ordinal do dia do ano.
 
 <a name="endofday"></a><a name="endofweek"></a><a name="endofmonth"></a><a name="endofyear"></a>
 
-### <a name="endofday,-endofweek,-endofmonth,-endofyear"></a>endofday, endofweek, endofmonth, endofyear
+### <a name="endofday-endofweek-endofmonth-endofyear"></a>endofday, endofweek, endofmonth, endofyear
     dt = datetime("2016-05-23 12:34")
 
     endofday(dt) == 2016-05-23T23:59:59.999
@@ -1893,7 +1921,7 @@ T | where ... | extend Elapsed=now() - timestamp
 
 <a name="startofday"></a><a name="startofweek"></a><a name="startofmonth"></a><a name="startofyear"></a>
 
-### <a name="startofday,-startofweek,-startofmonth,-startofyear"></a>startofday, startofweek, startofmonth, startofyear
+### <a name="startofday-startofweek-startofmonth-startofyear"></a>startofday, startofweek, startofmonth, startofyear
     date=datetime("2016-05-23 12:34:56")
 
     startofday(date) == datetime("2016-05-23")
@@ -1935,7 +1963,7 @@ Alias `timespan()`.
 O resultado inteiro representa o número da semana, de acordo com o padrão ISO 8601. O primeiro dia da semana é domingo e a primeira semana do ano é a que contém a primeira quinta-feira desse ano. (Os últimos dias de um ano, portanto, podem conter alguns dos dias da semana 1 do ano seguinte, ou os primeiros dias podem conter alguns dias da semana 52 ou 53 do ano anterior).
 
 ## <a name="string"></a>Cadeia de caracteres
-[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
+[countof](#countof) | [extract](#extract) | [extractjson](#extractjson)  | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [parseurl](#parseurl) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [tostring](#tostring) | [toupper](#toupper)
 
 ### <a name="string-literals"></a>Literais de cadeia de caracteres
 As regras são as mesmas do JavaScript.
@@ -2066,7 +2094,7 @@ extract("^.{2,2}(.{4,4})", 1, Text)
 <a name="isnotempty"></a>
 <a name="isempty"></a>
 
-### <a name="isempty,-isnotempty,-notempty"></a>isempty, isnotempty, notempty
+### <a name="isempty-isnotempty-notempty"></a>isempty, isnotempty, notempty
     isempty("") == true
 
 True se o argumento for uma cadeia de caracteres vazia ou nula.
@@ -2099,7 +2127,35 @@ Indica se o argumento é uma cadeia de caracteres vazia ou isnull.
     T | where isempty(fieldName) | count
 
 
+### <a name="parseurl"></a>parseurl
+Divida uma URL em suas partes.
 
+**Sintaxe**
+
+    parseurl(urlstring)
+
+**Argumentos**
+
+* *urlstring:* Uma URL.
+
+**Retorna**
+
+Um objeto contendo as partes como cadeias de caracteres.
+
+**Exemplo**
+
+    parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
+
+    {
+    "Scheme" : "http",
+    "Host" : "contoso.com",
+    "Port" : "80",
+    "Path" : "/icecream/buy.aspx",
+    "Username" : "user",
+    "Password" : "pass",
+    "Query Parameters" : {"a":"1","b":"2"},
+    "Fragment" : "tag"
+    }
 
 ### <a name="replace"></a>substitui
 Substitua todas as correspondências de regex por outra cadeia de caracteres.
@@ -2221,7 +2277,7 @@ Converte uma cadeia de caracteres em letras maiúsculas.
     guid(00000000-1111-2222-3333-055567f333de)
 
 
-## <a name="arrays,-objects-and-dynamic"></a>Matrizes, objetos e dinâmica
+## <a name="arrays-objects-and-dynamic"></a>Matrizes, objetos e dinâmica
 [literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
 <br/>
 [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic) | [zip](#zip)
@@ -2233,7 +2289,7 @@ Este é o resultado de uma consulta em uma exceção do Application Insights. O 
 **Indexing:** indexar matrizes e objetos, assim como no JavaScript:
 
     exceptions | take 1
-      | extend 
+    | extend 
         line = details[0].parsedStack[0].line,
         stackdepth = arraylength(details[0].parsedStack)
 
@@ -2242,11 +2298,11 @@ Este é o resultado de uma consulta em uma exceção do Application Insights. O 
 **Casting** : em alguns casos, é necessário converter um elemento que você extraiu de um objeto, pois seu tipo pode variar. Por exemplo, `summarize...to` precisa de um tipo específico:
 
     exceptions 
-      | summarize count() 
+    | summarize count() 
       by toint(details[0].parsedStack[0].line)
 
     exceptions 
-      | summarize count() 
+    | summarize count() 
       by tostring(details[0].parsedStack[0].assembly)
 
 **Literals** : para criar uma matriz explícita ou um objeto de recipiente de propriedades, escreva-o como uma cadeia de caracteres JSON e o converta:
@@ -2257,7 +2313,7 @@ Este é o resultado de uma consulta em uma exceção do Application Insights. O 
 **mvexpand:** para extrair e separar as propriedades de um objeto em linhas separadas, use mvexpand:
 
     exceptions | take 1 
-      | mvexpand details[0].parsedStack[0]
+    | mvexpand details[0].parsedStack[0]
 
 
 ![](./media/app-insights-analytics-reference/410.png)
@@ -2265,8 +2321,8 @@ Este é o resultado de uma consulta em uma exceção do Application Insights. O 
 **treepath:** para localizar todos os caminhos em um objeto complexo:
 
     exceptions | take 1 | project timestamp, details 
-      | extend path = treepath(details) 
-      | mvexpand path
+    | extend path = treepath(details) 
+    | mvexpand path
 
 
 ![](./media/app-insights-analytics-reference/420.png)
@@ -2548,6 +2604,9 @@ Citeu m nome usando ['... '] ou [" ... "] para incluir outros caracteres ou usar
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

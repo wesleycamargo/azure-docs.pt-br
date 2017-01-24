@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
 
 Neste artigo, você encontra uma visão geral das tarefas de gerenciamento de backup disponíveis no portal clássico do Azure e o agente de Backup do Microsoft Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
 
 ## <a name="management-portal-tasks"></a>Tarefas do portal de gerenciamento
 1. Entre no [Portal de Gerenciamento](https://manage.windowsazure.com).
@@ -195,6 +196,6 @@ Para habilitar a limitação:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

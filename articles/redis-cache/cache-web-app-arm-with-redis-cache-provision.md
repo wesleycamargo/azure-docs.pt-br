@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/25/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4c8982461142223f0b339fa542b0bfb6b4ce68a8
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: a58aa47c21b34f3b54877bb12ceb1b6e20953ea7
 
 
 ---
@@ -43,7 +43,7 @@ Para executar a implantação automaticamente, clique no seguinte botão:
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Nomes de variáveis
-Este modelo usa variáveis para construir nomes para os recursos. Ele usa a função [uniqueString](../resource-group-template-functions.md#uniquestring) para construir um valor com base na ID de grupo de recursos.
+Este modelo usa variáveis para construir nomes para os recursos. Ele usa a função [uniqueString](../azure-resource-manager/resource-group-template-functions.md#uniquestring) para construir um valor com base na ID de grupo de recursos.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -58,7 +58,7 @@ Este modelo usa variáveis para construir nomes para os recursos. Ele usa a fun�
 ### <a name="redis-cache"></a>Cache Redis
 Cria o Cache Redis do Azure que é usado com o aplicativo Web. O nome do cache é especificado na variável **cacheName** .
 
-O modelo cria o cache no mesmo local que o grupo de recursos. 
+O modelo cria o cache no mesmo local que o grupo de recursos.
 
     {
       "name": "[variables('cacheName')]",
@@ -128,8 +128,6 @@ Observe que o aplicativo Web está configurado com as propriedades de configura�
 
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

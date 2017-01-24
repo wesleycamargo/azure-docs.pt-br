@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 63ed48c874d75904cb7ea56b7ae1e50311f6b7f2
+ms.sourcegitcommit: 4d6bdffe23905f5507332b95e1dc12e2c00c017d
+ms.openlocfilehash: b6fe6dd15dd73e8874ded8b9481ea8a14733e34c
 
 
 ---
@@ -450,17 +450,17 @@ Clique com o botão direito do mouse na porta de saída do módulo **Importar Da
 
 Para selecionar o conjunto de dados salvo para uso em um teste de aprendizado de máquina, localize os conjuntos de dados usando a caixa **Pesquisa** mostrada abaixo. Em seguida, basta digitar parcialmente o nome do conjunto de dados para acessá-lo e arrastar o conjunto de dados para o painel principal. Soltá-lo no painel principal o seleciona para uso na modelagem do aprendizado de máquina.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
+![Conjunto de dados Drage no painel principal](./media/machine-learning-data-science-process-hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Faça isso para os conjuntos de dados de treinamento e de teste. Além disso, lembre-se de usar o nome do banco de dados e das tabelas que você atribuiu para essa finalidade. Os valores usados na figura são somente para fins de ilustração.**
 > 
 > 
 
-### <a name="a-namestep2a-step-2-create-a-simple-experiment-in-azure-machine-learning-to-predict-clicks-no-clicks"></a><a name="step2"></a> Etapa 2: criar um experimento simples no Estúdio de Aprendizado de Máquina do Azure para predizer cliques/nenhum clique
+### <a name="a-namestep2a-step-2-create-a-simple-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a> Etapa 2: criar um experimento simples no Estúdio de Aprendizado de Máquina do Azure para predizer cliques/nenhum clique
 Nosso experimento do AM do Azure tem esta aparência:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
+![Teste do Machine Learning](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
 
 Agora, vamos examinar os principais componentes nesse experimento. Como lembrete, primeiro precisamos arrastar nosso treinamento salvo e os conjuntos de dados de teste para a nossa tela de experimento.
 
@@ -477,56 +477,56 @@ Pode haver milhões de valores exclusivos para alguns recursos categóricos de g
 ##### <a name="building-counting-transforms"></a>Criando transformações de contagem
 Para criar recursos de contagem, usamos o módulo **Criar transformação de contagem** que está disponível no Aprendizado de Máquina do Azure. O módulo tem esta aparência:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
+![Módulo Compilar Transformação de Contagem](./media/machine-learning-data-science-process-hive-criteo-walkthrough/e0eqKtZ.png)
+![Módulo Compilar Transformação de Contagem](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OdDN0vw.png)
 
 **Observação importante**: na caixa **Contar colunas**, inserimos as colunas nas quais desejamos realizar contagens. Geralmente, essas são (conforme mencionado) colunas categóricas altamente dimensionais. No início, mencionamos que o conjunto de dados Criteo tem 26 colunas categóricas: de Col15 para Col40. Aqui, podemos contar todas elas e dar a elas seus índices (de 15 a 40 separados por vírgulas, como mostrado).
 
 Para usar o módulo no modo MapReduce (apropriado para grandes conjuntos de dados), precisamos de acesso a um cluster HDInsight Hadoop (aquele usado para a exploração de recurso também pode ser reutilizado para essa finalidade) e suas credenciais. Os valores anteriores ilustram a aparência dos valores preenchidos (substitua os valores fornecidos como ilustração por aqueles relevantes para seu próprio caso de uso).
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
+![Parâmetros do módulo](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
 
 Na figura acima, vamos mostrar como inserir o local do blob de entrada. Esse local tem os dados reservados para a criação de tabelas de contagem.
 
 Após a execução desse módulo, podemos salvar a transformação para mais tarde clicando com botão direito do mouse no módulo e selecionando a opção **Salvar como Transformação** :
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
+![Opção “Salvar como transformação”](./media/machine-learning-data-science-process-hive-criteo-walkthrough/IcVgvHR.png)
 
 Em nossa arquitetura de experimento mostrada acima, o conjunto de dados "ytransform2" corresponde exatamente a uma transformação de contagem salva. Para o restante desse experimento, assumimos que o leitor usou um módulo **Compilar transformação de contagem** em alguns dados para gerar contagens e usá-las para gerar recursos de contagem em conjuntos de dados de treinamento e de teste.
 
 ##### <a name="choosing-what-count-features-to-include-as-part-of-the-train-and-test-datasets"></a>Escolhendo quais recursos de contagem incluir como parte dos conjuntos de dados de treinamento e de teste
 Assim que tivermos uma transformação de contagem pronta, o usuário pode escolher quais recursos incluir nos seus conjuntos de dados de treinamento e de teste usando o módulo **Modificar parâmetros da tabela de contagem** . Vamos mostrar esse módulo aqui para fins de conclusão, mas, para manter a simplicidade, não use de fato no nosso experimento.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
+![Parâmetros Modificar Tabela de Contagem](./media/machine-learning-data-science-process-hive-criteo-walkthrough/PfCHkVg.png)
 
 Nesse caso, como se vê, optamos por usar somente os log-possibilidades e ignorar a coluna de retirada. Também podemos definir parâmetros, como o limite da lixeira, quantos exemplos pseudo anteriores adicionar para suavização e se o ruído Laplaciano deve ser usado ou não. Todos esses são recursos avançados e deve-se observar que os valores padrão são um bom ponto de partida para usuários não familiarizados com esse tipo de geração de recurso.
 
 ##### <a name="data-transformation-before-generating-the-count-features"></a>Transformação de dados antes de gerar os recursos de contagem
 Agora vamos nos concentrar em um ponto importante sobre como transformar nossos dados de treinamento e de teste antes de realmente gerar recursos de contagem. Observe que há dois módulos **Executar Script R** usados antes de podermos aplicar a transformação de contagem aos nossos dados.
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
+![Executar Script R](./media/machine-learning-data-science-process-hive-criteo-walkthrough/aF59wbc.png)
 
 Veja o primeiro script R:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
+![Primeiro script R](./media/machine-learning-data-science-process-hive-criteo-walkthrough/3hkIoMx.png)
 
 Nesse script R, renomeamos nossas colunas para nomes "Col1" a "Col40". Isso ocorre porque a transformação de contagem espera nomes nesse formato.
 
 No segundo script R, podemos equilibrar a distribuição entre classes positivas e negativas (classes 1 e 0, respectivamente) reduzindo a classe negativa. O script R aqui mostra como fazer isso:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
+![Segundo script R](./media/machine-learning-data-science-process-hive-criteo-walkthrough/91wvcwN.png)
 
 Nesse script R simples, usamos "pos\_neg\_ratio" para definir a quantidade de equilíbrio entre as classes positiva e negativa. Isso é importante, já que melhorar o desequilíbrio de classe normalmente tem benefícios de desempenho para problemas de classificação em que a distribuição de classe está distorcida (lembre-se de que em nosso caso, temos classes positivo 3,3% e 96,7% negativo).
 
 ##### <a name="applying-the-count-transformation-on-our-data"></a>Aplicando a transformação de contagem aos nossos dados
 Por fim, podemos usar o módulo **Aplicar transformação** para aplicar as transformações de contagem aos nossos conjuntos de dados de treino e de teste. Este módulo usa a transformação da contagem salva como uma entrada e os conjuntos de dados de treinamento ou de teste como outra entrada e retorna dados com recursos de contagem. Isso é mostrado aqui:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
+![Aplicar o módulo de transformação](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xnQvsYf.png)
 
 ##### <a name="an-excerpt-of-what-the-count-features-look-like"></a>Um trecho de como os recursos de contagem se parecem
 É instrutivo observar a aparência dos recursos de contagem em nosso caso. Mostramos aqui um trecho disso:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
+![Recursos de contagem](./media/machine-learning-data-science-process-hive-criteo-walkthrough/FO1nNfw.png)
 
 Nesse trecho, mostramos que para as colunas que pudemos contar, obtivemos as contagens e possibilidades de log além de qualquer retirada relevante.
 
@@ -536,19 +536,19 @@ Agora estamos prontos para criar um modelo de Aprendizado de Máquina do Azure u
 ##### <a name="choice-of-learner"></a>Opção do aprendiz
 Primeiro precisamos escolher um aprendiz. Vamos usar uma árvore de decisão aumentada, de duas classes, como nosso aprendiz. Aqui estão as opções padrão para esse aprendiz:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
+![Parâmetros da árvore de decisão aumentada de duas classes](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
 
 Para nosso experimento, vamos escolher os valores padrão. Podemos observar que os padrões são geralmente significativos e uma boa maneira de se obter linhas de base rápidas sobre o desempenho. Se desejar, depois de ter uma linha de base, você pode melhorar o desempenho varrendo parâmetros.
 
 #### <a name="train-the-model"></a>Treinar o modelo
 Para obter treinamento, podemos simplesmente invocar um módulo **Modelo de treinamento** . As duas entradas para ele são o aprendiz Árvore de Decisão Aumentada de Duas Classes e nosso conjunto de dados de treinamento. Isso é mostrado aqui:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
+![Módulo Treinar Modelo](./media/machine-learning-data-science-process-hive-criteo-walkthrough/2bZDZTy.png)
 
 #### <a name="score-the-model"></a>Pontuar o modelo
 Assim que tivermos um modelo treinado, estamos prontos para avaliar o conjunto de dados de teste e seu desempenho. Podemos fazer isso usando o módulo **Modelo de pontuação** mostrado na figura a seguir, junto com um módulo **Avaliar modelo**:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
+![Módulo de Modelo de Pontuação](./media/machine-learning-data-science-process-hive-criteo-walkthrough/fydcv6u.png)
 
 ### <a name="a-namestep5a-step-5-evaluate-the-model"></a><a name="step5"></a> Etapa 5: Avaliar o modelo
 Por fim, gostaríamos de analisar o desempenho do modelo. Normalmente, para problemas de classificação de duas classes (binária), uma boa medida é o AUC. Para visualizá-lo, vinculamos o módulo **Modelo de classificação** a um módulo **Modelo de avaliação**. Clicar em **Visualizar** no módulo **Modelo de avaliação** produz um gráfico semelhante ao seguinte exemplo:
@@ -602,7 +602,7 @@ Para obter as portas de entrada e de saída azuis, basta clicar em **preparar se
 
 Após o serviço Web ser publicado, somos redirecionados para uma página parecida com esta:
 
-![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
+![Painel de serviço Web](./media/machine-learning-data-science-process-hive-criteo-walkthrough/YKzxAA5.png)
 
 Vemos dois links para serviços Web no lado esquerdo:
 
@@ -628,6 +628,6 @@ Isso conclui nosso passo a passo total mostrando como lidar com o conjunto de da
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 12/08/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
-ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
+ms.sourcegitcommit: 8b82801a26c15248480a261945b37a0c38e3fa47
+ms.openlocfilehash: e32d21efd8d90bac223cbc0a213df65d19c40670
 
 
 ---
@@ -37,7 +37,7 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de Rota Expr
 | --- | --- | --- |
 | **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, Nova York, Seattle, Vale do Silício, Washington, D.C., Montreal+, Cidade de Quebec+, Toronto |
 | **América do Sul** |Sul do Brasil |São Paulo |
-| **Europa** |Europa Setentrional, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Dublin, Londres, Newport(Gales) +, Paris |
+| **Europa** |Europa Setentrional, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amsterdã, Dublin, Londres, Newport(Gales), Paris |
 | **Ásia** |Ásia Oriental, Sudeste Asiático |Hong Kong, Cingapura |
 | **Japão** |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Austrália** |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney |
@@ -83,11 +83,11 @@ Não há suporte para conectividade entre regiões geopolíticas no SKU de Rota 
 | **Paris** |Interxion, Equinix+ |
 | **São Paulo** |Equinix, Telefonica |
 | **Seattle** |Equinix, Level 3 Communications, Megaport |
-| **Vale do Silício** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
+| **Vale do Silício** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon, Zayo Group |
 | **Cingapura** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sydney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation, Verizon |
 | **Tóquio** |Aryaka Networks, British Telecom, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank, Verizon |
-| **Toronto** |Cologix, Equinix, Megaport, Zayo Group |
+| **Toronto** |Bell Canada, Cologix, Equinix, Megaport, Zayo Group |
 | **Washington, D.C.** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** indica que haverá em breve
@@ -134,11 +134,13 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 
 | **Localidade** | **Exchange** | **Provedores de conectividade** |
 | --- | --- | --- |
+| **Londres** | Equinix | E Exponencial |
 | **Nova Iorque** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Vale do Silício** |Equinix |XO Communications |
 | **Cingapura** |Equinix |1CLOUDSTAR |
-| **Washington, D.C.** |Equinix |Lightower |
+| **Sydney** | Megaport | Macquarie |
+| **Washington, D.C.** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>Integradores de sistema de Rota Expressa
 Habilitar a conectividade privada para atender às suas necessidades pode ser desafiador, dependendo da escala de sua rede. Você pode trabalhar com qualquer dos integradores de sistema listados na tabela a seguir para ajudá-lo com integração à Rota Expressa.
@@ -158,6 +160,6 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

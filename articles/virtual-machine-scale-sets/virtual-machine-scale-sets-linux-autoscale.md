@@ -3,7 +3,7 @@ title: "Dimensionar automaticamente os conjuntos de dimensionamento de máquinas
 description: "Configurar o dimensionamento automático para um conjunto de escala de máquina virtual do Linux usando a CLI do Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 744be588b3ff731fb983d3eddb50056e8bba0e4f
+ms.sourcegitcommit: 655bb950ad21ab2df0e88db52b8f54b89d35f871
+ms.openlocfilehash: d095814e32b7354419d454d0d7bd3df772b6f01e
 
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Dimensionar automaticamente computadores Linux em um conjunto de escala de máquina virtual
 Os conjuntos de escala de máquina virtual facilitam a implantação e o gerenciamento de máquinas virtuais idênticas como um conjunto. Os conjuntos de dimensionamento fornecem uma camada de computação altamente escalonável e personalizável para aplicativos de hiperescala e suporte a imagens da plataforma Windows, imagens da plataforma Linux, imagens personalizadas e extensões. Para saber mais, consulte [Visão geral de conjuntos de escala de máquina virtual](virtual-machine-scale-sets-overview.md).
 
-Este tutorial mostra como criar um conjunto de escala de máquinas virtuais Linux usando a versão mais recente do Ubuntu Linux. O tutorial também mostra como dimensionar automaticamente as máquinas no conjunto. Crie o conjunto de escala e defina o dimensionamento criando um modelo do Azure Resource Manager e implantando-o com o uso da CLI do Azure. Para obter mais informações sobre modelos, confira [Criação de modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md). Para saber mais sobre o dimensionamento automático de conjuntos de escala, consulte [Dimensionamento automático e conjuntos de escala de máquina virtual](virtual-machine-scale-sets-autoscale-overview.md).
+Este tutorial mostra como criar um conjunto de escala de máquinas virtuais Linux usando a versão mais recente do Ubuntu Linux. O tutorial também mostra como dimensionar automaticamente as máquinas no conjunto. Crie o conjunto de escala e defina o dimensionamento criando um modelo do Azure Resource Manager e implantando-o com o uso da CLI do Azure. Para obter mais informações sobre modelos, confira [Criação de modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md). Para saber mais sobre o dimensionamento automático de conjuntos de escala, consulte [Dimensionamento automático e conjuntos de escala de máquina virtual](virtual-machine-scale-sets-autoscale-overview.md).
 
 Neste tutorial, você pode implantar os seguintes recursos e extensões:
 
@@ -38,7 +38,7 @@ Neste tutorial, você pode implantar os seguintes recursos e extensões:
 * Microsoft.Insights.VMDiagnosticsSettings
 * Microsoft.Insights/autoscaleSettings
 
-Para obter mais informações sobre os recursos do Resource Manager, consulte [Azure Resource Manager versus implantação clássica](../resource-manager-deployment-model.md).
+Para obter mais informações sobre os recursos do Resource Manager, consulte [Azure Resource Manager versus implantação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Antes de começar as etapas neste tutorial, [instale a CLI do Azure](../xplat-cli-install.md).
 
@@ -513,6 +513,6 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

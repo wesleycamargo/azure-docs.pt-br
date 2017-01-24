@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: aac0354a8fbfb73bab3e7b5da7d9aefa69c9eb16
-ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
+ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
+ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 
 ---
@@ -35,7 +35,7 @@ No bloco **Integridade da segurança do recurso**, você pode monitorar o estado
 
 ![Bloco de integridade de segurança de recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-Se a Central de Segurança identificar uma vulnerabilidade que precisa ser resolvida, como uma máquina virtual sem atualizações de segurança ou uma sub-rede sem um [grupo de segurança de rede](../virtual-network/virtual-networks-nsg.md), ela será listada aqui.
+Se a Central de Segurança identificar uma vulnerabilidade que precisa ser resolvida, como uma máquina virtual sem atualizações de segurança ou uma sub-rede sem um [grupo de segurança de rede](/virtual-network/virtual-networks-nsg.md), ela será listada aqui.
 
 ### <a name="monitor-virtual-machines"></a>Monitorar máquinas virtuais
 Quando você clica em **Máquinas virtuais** no bloco **Integridade da segurança de recursos**, a folha **Máquinas virtuais** é aberta com mais detalhes sobre integração, etapas de prevenção e uma lista de todas as máquinas virtuais que a Central de Segurança monitora, conforme mostrado na captura de tela a seguir.
@@ -162,22 +162,22 @@ Essa tabela é classificada (máquinas virtuais e sub-redes) por severidade:
 * Laranja: prioridade média e deve ser endereçado assim que possível
 * Verde (último): estado íntegro
 
-Nessa exibição da topologia, o primeiro nível tem as [redes virtuai](../virtual-network/virtual-networks-overview.md), [gateways da rede virtual](../vpn-gateway/vpn-gateway-site-to-site-create.md) e [rede virtual (clássica)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). O segundo nível tem sub-redes, e o terceiro nível tem as máquinas virtuais que pertencem a essas sub-redes. A coluna da direita tem o status atual do grupo de segurança da rede para esses recursos, como mostrado neste exemplo:
+Nessa exibição da topologia, o primeiro nível tem as [redes virtuai](../virtual-network/virtual-networks-overview.md), [gateways da rede virtual](/vpn-gateway/vpn-gateway-site-to-site-create.md) e [rede virtual (clássica)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). O segundo nível tem sub-redes, e o terceiro nível tem as máquinas virtuais que pertencem a essas sub-redes. A coluna da direita tem o status atual do grupo de segurança da rede para esses recursos, como mostrado neste exemplo:
 
 ![O status do grupo de segurança de rede na seção de Topologia de rede](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 A parte inferior da folha tem as recomendações para essa máquina virtual, que é semelhante ao que foi descrito anteriormente. Você pode clicar em uma recomendação para obter mais informações ou aplicar a configuração ou controle de segurança necessário.
 
 ### <a name="monitor-data"></a>Dados de monitoramento
-Quando você clica em **Dados** no bloco **Integridade de segurança dos recursos**, a folha **SQL** é aberta com recomendações para problemas como a não habilitação da auditoria e criptografia de dados transparente. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados.
+Quando você clica em **Dados** no bloco **Integridade de segurança de recursos** a folha **Recursos de Dados** é aberta com recomendações para SQL e Armazenamento. Ela também contém [recomendações](security-center-sql-service-recommendations.md) para o estado de integridade geral do banco de dados. Para saber mais sobre criptografia de armazenamento, leia Habilitar a criptografia para a conta de armazenamento do Azure na Central de Segurança do Azure.
 
-![Integridade de recursos do SQL](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![Recursos de dados](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
-Você pode clicar em qualquer recomendação e obter mais detalhes sobre uma ação adicional para resolver um problema. O exemplo a seguir mostra a expansão da recomendação **Auditoria do Banco de Dados não habilitada** .
+Em **Recomendações de SQL**, você pode clicar em qualquer recomendação e obter mais detalhes sobre uma ação adicional para resolver um problema. O exemplo a seguir mostra a expansão da recomendação **Auditoria e Detecção de ameaças do banco de dados em bancos de dados SQL**.
 
-![Detalhes sobre uma recomendação de SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![Detalhes sobre uma recomendação de SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-A folha **Habilitar Auditoria nos bancos de dados SQL** contém as seguintes informações:
+A folha **Habilitar Auditoria e Detecção de ameaças nos bancos de dados SQL** contém as seguintes informações:
 
 * Uma lista de bancos de dados SQL
 * O servidor no qual eles estão localizados
@@ -185,13 +185,14 @@ A folha **Habilitar Auditoria nos bancos de dados SQL** contém as seguintes inf
 * O estado atual
 * A gravidade do problema
 
-Quando você clicar no banco de dados para lidar com essa recomendação, a folha **Auditoria e Detecção de Ameaças** será aberta, conforme mostrado na captura de tela a seguir.
+Quando você clicar no banco de dados para lidar com essa recomendação, a folha **Auditoria e Detecção de Ameaças** será aberta, conforme mostrado na tela a seguir.
 
 ![Folha de Auditoria e Detecção de Ameaça](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Para habilitar a auditoria, selecione **ATIVADO** na opção **Auditoria**.
 
 ### <a name="monitor-applications"></a>Monitorar aplicativos
+
 Se sua carga de trabalho do Azure tiver aplicativos localizados em [máquinas virtuais (criadas por meio do Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) com portas Web expostas (portas TCP 80 e 443), a Central de Segurança poderá monitorá-los para identificar os problemas de segurança em potencial e as etapas recomendáveis de correção. Quando você clicar no bloco **Aplicativos**, a folha **Aplicativos** será aberta com uma série de recomendações na seção **Recomendações do Aplicativo**. Ele também mostra a divisão de aplicativo por IP virtual/host, conforme mostrado na captura de tela a seguir.
 
 ![Integridade da segurança de aplicativos](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
@@ -216,6 +217,6 @@ Neste artigo, você aprendeu como usar os recursos de monitoramento na Central d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

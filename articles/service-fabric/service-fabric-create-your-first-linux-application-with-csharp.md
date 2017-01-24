@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
-ms.openlocfilehash: 046cc1286d894e28ed4d560c7c0b815f582e1e77
+ms.sourcegitcommit: 6d8f489ac053db4898741671df73b6abfabeb0dd
+ms.openlocfilehash: e3632d89501c1c25b76e9160f0ad82f2b76327d7
 
 
 ---
@@ -85,20 +85,16 @@ Projetos de atores não fazem nada por conta própria. Eles exigem outro serviç
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
 3. Clique no nó encontrado na etapa anterior e selecione **Desativar (Reiniciar)** no menu Ações. Esta ação reiniciará um nó no cluster local e forçará um failover para uma das réplicas secundárias em execução em outro nó. Ao fazer isso, preste atenção à saída do cliente de teste e observe que o contador continua a aumentar apesar do failover.
 
-
-
 ## <a name="adding-more-services-to-an-existing-application"></a>Adicionando mais serviços a um aplicativo existente
 
 Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as seguintes etapas: 
 1. Altere o diretório para a raiz do aplicativo existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
 2. Execute o `yo azuresfcsharp:AddService`
 
-
-
-
 ## <a name="next-steps"></a>Próximas etapas
 * [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interagindo com clusters do Service Fabric usando a CLI do Azure](service-fabric-azure-cli.md)
+* Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
@@ -106,6 +102,6 @@ Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

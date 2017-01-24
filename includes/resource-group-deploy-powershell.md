@@ -1,4 +1,4 @@
-## Como implantar com o PowerShell
+## <a name="how-to-deploy-with-powershell"></a>Como implantar com o PowerShell
 1. Faça logon em sua conta do Azure.
    
           Add-AzureAccount
@@ -31,7 +31,7 @@
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 5. Para criar uma nova implantação para seu grupo de recursos, execute o comando **New-AzureResourceGroupDeployment** e forneça os parâmetros necessários. Os parâmetros incluirão um nome para sua implantação, o nome do seu grupo de recursos, o caminho ou a URL para o modelo criado e qualquer outro parâmetro necessário para seu cenário. 
    
-   Você tem as seguintes opções para fornecer valores de parâmetro:
+   Você tem as seguintes opções para fornecer valores de parâmetro: 
    
    * Use parâmetros embutidos.
      
@@ -59,4 +59,8 @@
    
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

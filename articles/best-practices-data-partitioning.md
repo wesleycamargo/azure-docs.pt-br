@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/14/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: 3e3d9daf8a45f87f0d1d666dc1054cd1b530e35f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 738c6ecb40118491dd2e833443c91891e99941d3
 
 
 ---
@@ -566,7 +566,7 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 [Data Types]: http://redis.io/topics/data-types
 [Limites e cotas do Banco de Dados de Documentos]: documentdb/documentdb-limits.md
 [Visão geral dos recursos do Banco de Dados Elástico]: sql-database/sql-database-elastic-scale-introduction.md
-[Utilitário de Migração de Federações]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
+[Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [Index Table Pattern]: http://aka.ms/Index-Table-Pattern
 [Manage DocumentDB capacity needs]: documentdb/documentdb-manage.md
 [Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
@@ -588,6 +588,6 @@ Ao considerar estratégias para implementar a consistência de dados, os seguint
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -3,8 +3,8 @@ title: "Implantar o serviço do StorSimple Manager | Microsoft Docs"
 description: "Explica como criar e excluir o serviço StorSimple Manager no portal clássico do Azure, além de descrever como gerenciar a chave de registro de serviço."
 services: storsimple
 documentationcenter: 
-author: SharS
-manager: carmonm
+author: alkohli
+manager: byronr
 editor: 
 ms.assetid: bc1d5650-275c-42ed-bc77-cdb596f85943
 ms.service: storsimple
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2016
-ms.author: v-sharos
+ms.date: 12/05/2016
+ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: 51c414bacb825dd51bcd76a06e1f9e0f0c001b93
+ms.sourcegitcommit: f507eb6986f7c62965dc00673ee5ebe38e70f1d7
+ms.openlocfilehash: 1858fa9e1223d0938bb1eb6195c42fb1ec3b007d
 
 
 ---
@@ -51,6 +51,9 @@ Também é possível optar por gerar uma conta de armazenamento padrão ao criar
 
 Um único serviço pode gerenciar vários dispositivos. No entanto, um dispositivo não pode abranger vários serviços. Uma grande empresa pode ter várias instâncias do serviço para trabalhar com diferentes assinaturas, organizações ou até mesmo locais de implantação. Observe que você precisa de instâncias separadas do serviço StorSimple Manager para gerenciar as Matrizes Virtuais e os dispositivos da série 8000 do StorSimple.
 
+> [!IMPORTANT] 
+> Se você tiver um serviço não utilizado criado (nenhuma operação de dispositivo foi realizada nesse recurso) antes de agosto de 2016, ele não poderá ser gerenciado por meio do Portal do Azure ou do Portal Clássico do Azure. É recomendável que você crie um novo serviço no Portal do Azure.
+
 Execute as etapas a seguir para criar um serviço.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -58,7 +61,8 @@ Execute as etapas a seguir para criar um serviço.
 ## <a name="delete-a-service"></a>Excluir um serviço
 Antes de excluir um serviço, verifique se nenhum dispositivo conectado está usando ele. Se o serviço estiver em uso, desative os dispositivos conectados. A operação de desativação desfaz a conexão entre o dispositivo e o serviço, mas preserva os dados do dispositivo na nuvem.
 
-[AZURE.IMPORTANT] Depois que um serviço é excluído, a operação não pode ser revertida. Qualquer dispositivo que estava usando o serviço precisará ser redefinida para as configurações de fábrica para que possa ser usado com outro serviço. Nesse cenário, os dados locais no dispositivo, bem como a configuração, serão perdidos.
+> [!IMPORTANT] 
+> Depois que um serviço é excluído, a operação não pode ser revertida. Qualquer dispositivo que estava usando o serviço precisará ser redefinida para as configurações de fábrica para que possa ser usado com outro serviço. Nesse cenário, os dados locais no dispositivo, bem como a configuração, serão perdidos.
 
 Execute as etapas a seguir para excluir um serviço.
 
@@ -89,15 +93,15 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 3. Você verá uma mensagem de confirmação. Clique em **OK** para continuar com a regeneração.
 4. Uma nova chave de registro de serviço será exibida.
 5. Copie essa chave e salve-a para registrar todos os novos dispositivos nesse serviço.
-6. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-service/HCS_CheckIcon.png)  para fechar essa caixa de diálogo.
+6. Clique no ícone de verificação  ![Ícone de verificação](./media/storsimple-manage-service/HCS_CheckIcon.png) para fechar essa caixa de diálogo.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre o [processo de implantação do StorSimple](storsimple-deployment-walkthrough.md).
+* Saiba mais sobre o [processo de implantação do StorSimple](storsimple-deployment-walkthrough-u2.md).
 * [Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-manage-storage-accounts.md).
 * Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

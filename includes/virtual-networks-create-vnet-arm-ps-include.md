@@ -1,7 +1,7 @@
 ## <a name="how-to-create-a-vnet-using-powershell"></a>Como criar uma VNet usando o PowerShell
 Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../articles/powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 2. Se necessário, crie um novo grupo de recursos, como mostrado abaixo. Para o nosso cenário, crie um grupo de recursos chamado *TestRG*. Para saber mais sobre grupos de recursos, acesse [Visão geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
@@ -117,6 +117,6 @@ Para criar uma VNet usando o PowerShell, siga as etapas abaixo.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

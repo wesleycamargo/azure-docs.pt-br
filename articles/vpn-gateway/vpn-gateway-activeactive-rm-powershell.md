@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d1c1fa1638a37c23bb4c37933b74bf703290f7ca
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 397928e851524fb43d3ffa114b45024b0158a410
 
 
 ---
@@ -56,7 +56,7 @@ As outras propriedades são as mesmas que os gateways não ativo-ativo.
 
 ### <a name="before-you-begin"></a>Antes de começar
 * Verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Você precisará instalar os cmdlets do Azure Resource Manager PowerShell. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
+* Você precisará instalar os cmdlets do Azure Resource Manager PowerShell. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell.
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Etapa 1 - Criar e configurar VNet1
 #### <a name="1-declare-your-variables"></a>1. Declare as variáveis
@@ -381,6 +381,6 @@ Quando sua conexão for concluída, você poderá adicionar máquinas virtuais �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

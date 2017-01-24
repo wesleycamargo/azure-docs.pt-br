@@ -5,25 +5,25 @@ services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 01/11/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5c387c5355957fea0ccffe58e707fae3d2e77c34
+ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
+ms.openlocfilehash: 8fb880a03548540059ad896925adb57577d1aed2
 
 
 ---
 # <a name="automatic-device-registration-with-azure-active-directory-for-windows-domain-joined-devices"></a>Registro de dispositivo automático com o Azure Active Directory para dispositivos ingressados no domínio do Windows
 Como um administrador de TI, você pode escolher registrar automaticamente e silenciosamente seus dispositivos do Windows ingressados no domínio com o AD do Azure (Active Directory do Azure). Isso pode ser útil se você tiver configurado acesso condicional do dispositivo com base em políticas para aplicativos do Office365 ou aplicativos gerenciados localmente pelo AD FS. Você pode aprender mais sobre os cenários de registro de dispositivo lendo a [Visão geral de registro de dispositivo do Active Directory do Azure](active-directory-conditional-access-device-registration-overview.md).
 
-> AZURE.OBSERVAÇÃO Para obter instruções mais recentes sobre como configurar o registro automático de dispositivos, veja [Como configurar o registro automático de domínio do Windows associado a dispositivos com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+> [!NOTE]
+>  Para obter instruções mais recentes sobre como configurar o registro automático de dispositivos, veja [Como configurar o registro automático de domínio do Windows associado a dispositivos com o Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 > 
 > 
 
@@ -31,7 +31,6 @@ O Registro Automático de Dispositivo com o Active Directory do Azure está disp
 
 Para começar a registrar seus dispositivos do Windows ingressados no domínio com o AD do Azure, siga os pré-requisitos a seguir. Depois de concluir os pré-requisitos, configure o registro de dispositivos automático para os dispositivos do Windows ingressados no seu domínio.
 
-## <a name="prerequisites-for-automatic-device-registration-of-domain-joined-windows-devices-with-azure-active-directory"></a>Pré-requisitos para registro automático de dispositivo de dispositivos do Windows ingressados no domínio com o Azure Active Directory
 ## <a name="deploy-ad-fs-and-connect-to-azure-active-directory-using-azure-active-directory-connect"></a>Implantar o AD FS e conectar ao Active Directory do Azure usando o Azure Active Directory Connect
 1. Use o Azure Active Directory Connect para implantar os AD FS (Serviços de Federação do Active Directory) com o Windows Server 2012 R2 e configurar uma relação de federação com o Active Directory do Azure.
 2. Configure uma regra de declaração de objeto de confiança de terceira parte confiável adicional do Active Directory do Azure.
@@ -100,6 +99,6 @@ Você pode saber mais sobre como implantar o registro de dispositivos com o AD F
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

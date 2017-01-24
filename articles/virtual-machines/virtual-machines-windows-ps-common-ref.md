@@ -16,15 +16,15 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 39739902815dacd40d4d57d503344217d4fa112d
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: d86db0f0487c8c3627fa91b656db6a4c1576348c
 
 
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-vms"></a>Comandos comuns do PowerShell para criação e gerenciamento de VMs
 Este artigo aborda alguns dos comandos do Azure PowerShell que você pode usar para criar e gerenciar máquinas virtuais em sua assinatura do Azure.  Para obter uma ajuda mais detalhada com opções específicas de linha de comando, você pode usar o *comando* **Get-Help**.
 
-Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
+Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar a versão mais recente do Azure PowerShell, selecionar a assinatura e entrar em sua conta.
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 | Tarefa | Get-Help |
@@ -66,6 +66,6 @@ Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

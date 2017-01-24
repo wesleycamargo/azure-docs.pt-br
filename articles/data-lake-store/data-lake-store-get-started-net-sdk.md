@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: ad50c6c12bc3b328d776f37fc31f44d90a0915a3
-ms.openlocfilehash: 990f899681b6828edac6fccfd4509f20812edbdf
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: 03faf2594c9c3d7612127d46bdaa99b937c78475
 
 
 ---
@@ -62,7 +62,7 @@ Saiba como usar o [SDK do .NET para o Azure Data Lake Store](https://msdn.micros
       * `Microsoft.Azure.Management.DataLake.StoreUploader` - este tutorial usa a versão 0.10.6-preview.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - este tutorial usa a versão 2.2.8-preview.
         
-        ![Adicionar uma fonte do NuGet](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
+        ![Adicionar uma origem de Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Criar uma nova conta do Azure Data Lake")
    4. Feche o **Gerenciador de Pacotes NuGet**.
 6. Abra **Program.cs**, exclua o código existente e inclua as instruções a seguir para adicionar referências aos namespaces.
    
@@ -126,7 +126,7 @@ Algumas coisas sobre o trecho acima.
 > 
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-client-secret"></a>Se você está usando autenticação serviço a serviço com o segredo do cliente
-O trecho a seguir pode ser usado para autenticar seu aplicativo de forma não interativa, usando segredo/chave do cliente para entidade de segurança/aplicativo. Use-o com um [”aplicativo Web” Azure AD](../resource-group-create-service-principal-portal.md).
+O trecho a seguir pode ser usado para autenticar seu aplicativo de forma não interativa, usando segredo/chave do cliente para entidade de segurança/aplicativo. Use-o com um [”aplicativo Web” Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -138,7 +138,7 @@ O trecho a seguir pode ser usado para autenticar seu aplicativo de forma não in
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
 ### <a name="if-you-are-using-service-to-service-authentication-with-certificate"></a>Se você está usando a autenticação serviço a serviço com certificado
-Como alternativa, o trecho a seguir pode ser usado para autenticar seu aplicativo de forma não interativa, usando o certificado para entidade de segurança/aplicativo. Use-o com um [”aplicativo Web” Azure AD](../resource-group-create-service-principal-portal.md).
+Como alternativa, o trecho a seguir pode ser usado para autenticar seu aplicativo de forma não interativa, usando o certificado para entidade de segurança/aplicativo. Use-o com um [”aplicativo Web” Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
     // Use the client ID and certificate of an existing AAD "Web App" application.
@@ -261,6 +261,6 @@ O trecho a seguir mostra um método `DownloadFile` que você pode usar para baix
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

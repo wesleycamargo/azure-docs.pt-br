@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7ab38d9fb438a5629e0a9c2388a2ce296ab7ba03
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: 4dca50c6a0e6809876357edee8c6475796984c70
 
 
 ---
@@ -112,7 +112,7 @@ Este dispositivo foi projetado para operar com dois PCMs. Cada PCMs tem uma font
 
 Para reduzir a probabilidade de lesões, choque elétrico ou morte:
 
-* Não remova as tampas do PCM. Há risco de choque elétrico no interior. Para devolver o PCM e obter um substituto, [contate o Suporte da Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+* Não remova as tampas do PCM. Há risco de choque elétrico no interior. Para devolver o PCM e obter um substituto, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 
 ![Ícone de observação](./media/storsimple-safety/IC740881.png) **OBSERVAÇÃO:**
 

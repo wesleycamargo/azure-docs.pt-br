@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/15/2016
 ms.author: casoper
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 49eb28ad017d2422295171f534292d0880b9acf8
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 751db56ee29ebc635d4d2a27dd18f99f7efb5a34
 
 
 ---
@@ -41,7 +41,7 @@ O [serviço blob](../storage/storage-introduction.md#blob-storage) no [Armazenam
 Este tutorial demonstra várias maneiras que você pode definir o TTL em um blob no Armazenamento do Azure.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](../powershell-install-configure.md) é uma das maneiras mais rápidas e eficientes de administrar os serviços do Azure.  Use o cmdlet `Get-AzureStorageBlob` para obter uma referência para o blob, em seguida, defina a propriedade `.ICloudBlob.Properties.CacheControl`. 
+[Azure PowerShell](/powershell/azureps-cmdlets-docs) é uma das maneiras mais rápidas e eficientes de administrar os serviços do Azure.  Use o cmdlet `Get-AzureStorageBlob` para obter uma referência para o blob, em seguida, defina a propriedade `.ICloudBlob.Properties.CacheControl`. 
 
 ```powershell
 # Create a storage context
@@ -122,6 +122,6 @@ Você pode verificar facilmente a TTL de seus blobs.  Usando as [ferramentas de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

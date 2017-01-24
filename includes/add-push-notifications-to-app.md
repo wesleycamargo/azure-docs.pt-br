@@ -1,5 +1,5 @@
 
-## <a id="add-push"></a>Adicionar notificações por push ao aplicativo
+## <a name="a-idadd-pushaadd-push-notifications-to-app"></a><a id="add-push"></a>Adicionar notificações por push ao aplicativo
 * Em QSAppDelegate.m, importe o QSTodoService.h e SDK do iOS:
 
 ```
@@ -56,4 +56,7 @@
         }
 ```
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+

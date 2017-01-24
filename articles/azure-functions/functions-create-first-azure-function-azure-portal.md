@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 8d7823b6ecbc1a762839fc620f76d0bf4687d8fa
-ms.openlocfilehash: 5b33a36a3415efd2bc4673999806aa797f4a1c9f
+ms.sourcegitcommit: 91e19b321026840a062078d7af2a55967fb3904b
+ms.openlocfilehash: 417c545e34f1d652594c8527a3c8b0a845a4e8fa
 
 
 ---
@@ -30,7 +30,7 @@ Este tópico mostra como usar o portal do Azure para criar uma Azure Function "h
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 Um aplicativo de funções hospeda a execução de suas funções no Azure. Siga estas etapas para criar um aplicativo de funções no portal do Azure.
 
-Antes de criar sua primeira função, você precisará ter uma conta ativa do Azure. Se ainda não tiver uma conta do Azure, saiba que [há contas gratuitas disponíveis](https://azure.microsoft.com/free/).
+Um aplicativo de função hospeda a execução de suas funções no Azure. Se você ainda não tiver uma conta do Azure, confira a experiência [Experimentar Funções](https://functions.azure.com/try) ou [criar uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
 1. Vá para o [portal do Azure](https://portal.azure.com) e entre com sua conta do Azure.
 2. Clique em **+Novo** > **Computação** > **Aplicativo de Funções**, selecione sua **Assinatura**, digite um **Nome do aplicativo** exclusivo que identifica seu aplicativo de funções e especifique as seguintes configurações:
@@ -86,6 +86,6 @@ Este início rápido demonstra uma execução simples de uma função básica di
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

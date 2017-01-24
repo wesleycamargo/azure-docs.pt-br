@@ -1,12 +1,12 @@
 ---
-title: Integração do SDK do Engagement do Windows Universal
+title: "Integração do SDK do Engagement do Windows Universal"
 description: Como integrar o Mobile Engagement do Azure com aplicativos do Windows Universal
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 71236b68-5ebd-44aa-8c82-c7ca8098ea05
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
@@ -14,22 +14,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: bbd6ddeeeff949afe0cb66adc37982c036fc5c46
+
 
 ---
-# Integração do SDK do Engagement do Windows Universal
+# <a name="windows-universal-apps-engagement-sdk-integration"></a>Integração do SDK do Engagement do Windows Universal
 > [!div class="op_single_selector"]
-> * [Universal do Windows](mobile-engagement-windows-store-integrate-engagement.md)
-> * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
-> * [iOS](mobile-engagement-ios-integrate-engagement.md)
-> * [Android](mobile-engagement-android-integrate-engagement.md)
+> * [Universal do Windows](mobile-engagement-windows-store-integrate-engagement.md) 
+> * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+> * [iOS](mobile-engagement-ios-integrate-engagement.md) 
+> * [Android](mobile-engagement-android-integrate-engagement.md) 
 > 
 > 
 
 Este procedimento descreve a maneira mais simples para ativar as funções de monitoramento e de análise do Engagement em seu aplicativo do Windows Universal.
 
-As etapas a seguir são suficientes para ativar o relatório de logs necessários para calcular todas as estatísticas sobre usuários, sessões, atividades, falhas e técnicas. O relatório de logs necessário para calcular outras estatísticas, como eventos, erros e trabalhos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement no aplicativo Windows Universal](mobile-engagement-windows-store-use-engagement-api.md)) já que essas estatísticas são dependentes do aplicativo.
+As etapas a seguir são suficientes para ativar o relatório de logs necessários para calcular todas as estatísticas sobre usuários, sessões, atividades, falhas e técnicas. O relatório de logs necessário para calcular outras estatísticas, como eventos, erros e trabalhos deve ser feito manualmente usando a API do Engagement (consulte [Como usar a marcação avançada de API do Mobile Engagement no aplicativo Windows Universal](mobile-engagement-windows-store-use-engagement-api.md) ) já que essas estatísticas são dependentes do aplicativo.
 
-## Versões com suporte
+## <a name="supported-versions"></a>Versões com suporte
 O SDK do Mobile Engagement dos Aplicativos do Windows Universal só pode ser integrado a aplicativos do Tempo de Execução do Windows e da Plataforma do Windows Universal destinados ao:
 
 * Windows 8
@@ -42,36 +46,36 @@ O SDK do Mobile Engagement dos Aplicativos do Windows Universal só pode ser int
 > 
 > 
 
-## Instalação do SDK do Mobile Engagement do Universal
-### Todas as plataformas
+## <a name="install-the-mobile-engagement-universal-apps-sdk"></a>Instalação do SDK do Mobile Engagement do Universal
+### <a name="all-platforms"></a>Todas as plataformas
 O SDK do Mobile Engagement para o aplicativo do Windows Universal está disponível como um pacote do Nuget chamado *MicrosoftAzure.MobileEngagement*. Você pode instalá-lo do Visual Studio Nuget Package Manager.
 
-### Windows 8.x e Windows Phone 8.1
+### <a name="windows-8x-and-windows-phone-81"></a>Windows 8.x e Windows Phone 8.1
 O NuGet implanta automaticamente os recursos do SDK na pasta `Resources` na raiz de seu projeto de aplicativo.
 
-### Aplicativos da Plataforma do Windows Universal do Windows 10
+### <a name="windows-10-universal-windows-platform-applications"></a>Aplicativos da Plataforma do Windows Universal do Windows 10
 O NuGet ainda não implantará automaticamente os recursos do SDK em seu aplicativo UWP. Você deve fazê-lo manualmente até que a implantação de recursos seja reintroduzida no NuGet:
 
 1. Abra o Explorador de Arquivos.
-2. Navegue até o seguinte local (**x.x.x** é a versão do Engagement que você está instalando): *%USERPROFILE%\\.nuget\\packages\\MicrosoftAzure.MobileEngagement\**x.x.x**\\content\\win81*
+2. Navegue até o seguinte local (**x.x.x** é a versão do Engagement que você está instalando): *%USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\\**x.x.x**\\content\win81*
 3. Arraste e solte a pasta **Recursos** do Gerenciador de Arquivos para a raiz de seu projeto no Visual Studio.
 4. No Visual Studio, selecione o projeto e ative o ícone **Mostrar Todos os Arquivos** na parte superior do **Gerenciados de Soluções**.
 5. Alguns arquivos não estão incluídos no projeto. Para importá-los de uma só vez, clique com botão direito do mouse na pasta **Recursos**, **Excluir do projeto** e clique novamente com o botão direito do mouse na pasta **Recursos**, **Incluir no projeto** para voltar a incluir toda a pasta. Todos os arquivos da pasta **Recursos** agora estão incluídos em seu projeto.
 
-## Adicione recursos
+## <a name="add-the-capabilities"></a>Adicione recursos
 O SDK do Engagement precisa de alguns recursos do SDK do Windows para funcionar corretamente.
 
 Abra o seu arquivo `Package.appxmanifest` e certifique-se de que os seguintes recursos estão declarados:
 
 * `Internet (Client)`
 
-## Inicialize o SDK do Engagement
-### Configuração do Engagement
+## <a name="initialize-the-engagement-sdk"></a>Inicialize o SDK do Engagement
+### <a name="engagement-configuration"></a>Configuração do Engagement
 A configuração do Engagement está centralizada no arquivo `Resources\EngagementConfiguration.xml` do seu projeto.
 
 Edite esse arquivo para especificar:
 
-* A cadeia de conexão do aplicativo entre as marcas `<connectionString>` e `<\connectionString>`.
+* A cadeia de conexão do aplicativo entre as marcas `<connectionString>` and `<\connectionString>`.
 
 Se você quiser especificá-lo em tempo de execução, você pode chamar o método a seguir antes da inicialização do agente do Engagement:
 
@@ -86,12 +90,12 @@ Se você quiser especificá-lo em tempo de execução, você pode chamar o méto
 
 A cadeia de conexão do seu aplicativo é exibida no Portal Clássico do Azure.
 
-### Inicialização do Engagement
+### <a name="engagement-initialization"></a>Inicialização do Engagement
 Quando você cria um novo projeto, um arquivo `App.xaml.cs` é gerado. Essa classe herda de `Application` e contém vários métodos importantes. Também poderá ser usado para inicializar o SDK do Engagement.
 
 Modifique o `App.xaml.cs`:
 
-* Adicione às suas instruções `using`:
+* Adicione às suas instruções `using` :
   
       using Microsoft.Azure.Engagement;
 * Defina um método para compartilhar a inicialização de Engagement uma vez para todas as chamadas:
@@ -110,7 +114,7 @@ Modifique o `App.xaml.cs`:
       {
         InitEngagement(e);
       }
-* Quando o aplicativo é iniciado usando um esquema personalizado, outro aplicativo ou a linha de comando, então o método `OnActivated` é chamado. Você também precisa iniciar o SDK do Engagement quando seu aplicativo é ativado. Para fazer isso, substitua o método `OnActivated`:
+* Quando o aplicativo é iniciado usando um esquema personalizado, outro aplicativo ou a linha de comando, então o método `OnActivated` é chamado. Você também precisa iniciar o SDK do Engagement quando seu aplicativo é ativado. Para fazer isso, substitua o método `OnActivated` :
   
       protected override void OnActivated(IActivatedEventArgs args)
       {
@@ -122,13 +126,13 @@ Modifique o `App.xaml.cs`:
 > 
 > 
 
-## Relatórios básicos
-### Método recomendado: sobrecarregar suas classes `Page`
+## <a name="basic-reporting"></a>Relatórios básicos
+### <a name="recommended-method-overload-your-page-classes"></a>Método recomendado: sobrecarregar suas classes `Page`
 Para ativar o relatório de todos os logs exigidos pelo Engagement para computar os usuários, sessões, atividades, falhas e das estatísticas técnicas, você pode simplesmente fazer todas as suas subclasses `Page` herdarem das classes `EngagementPage`.
 
 Este é um exemplo de como fazer isso em uma página do seu aplicativo. Você pode fazer a mesma coisa em todas as páginas do seu aplicativo.
 
-#### Arquivo de código-fonte C
+#### <a name="c-source-file"></a>Arquivo de código-fonte C#
 Modifique o arquivo `.xaml.cs` de paginação:
 
 * Adicione às suas instruções `using`:
@@ -159,11 +163,11 @@ Modifique o arquivo `.xaml.cs` de paginação:
         }
 
 > [!IMPORTANT]
-> Se sua página substitui o método `OnNavigatedTo`, certifique-se de chamar `base.OnNavigatedTo(e)`. Caso contrário, a atividade não será registrada (a `EngagementPage` chama `StartActivity` dentro de seu método `OnNavigatedTo`).
+> Se sua página substitui o método `OnNavigatedTo`, certifique-se de chamar `base.OnNavigatedTo(e)`. Caso contrário, a atividade não será relatada (o `EngagementPage` chama o `StartActivity` dentro do seu `OnNavigatedTo`).
 > 
 > 
 
-#### Arquivo XAML
+#### <a name="xaml-file"></a>Arquivo XAML
 Modifique o arquivo `.xaml` de paginação:
 
 * Adicione às suas declarações de namespaces:
@@ -186,7 +190,7 @@ Modifique o arquivo `.xaml` de paginação:
             ...
         </engagement:EngagementPage >
 
-#### Substituir o comportamento padrão
+#### <a name="override-the-default-behaviour"></a>Substituir o comportamento padrão
 Por padrão, o nome da classe da página é relatado como o nome da atividade, com e sem extras. Se a classe usa o sufixo "Página", o Engagement irá removê-lo também.
 
 Se você quiser substituir o comportamento padrão para o nome, basta adicionar isso ao seu código:
@@ -209,7 +213,7 @@ Se você desejar relatar algumas informações adicionais com a sua atividade, v
 
 Esses métodos são chamados de dentro do método `OnNavigatedTo` da página.
 
-### Método alternativo: chame `StartActivity()` manualmente
+### <a name="alternate-method-call-startactivity-manually"></a>Método alternativo: chame `StartActivity()` manualmente
 Se você não pode ou não quer sobrecarregar as classes `Page`, em vez disso, você pode iniciar suas atividades chamando os métodos `EngagementAgent` diretamente.
 
 É recomendável chamar `StartActivity` dentro de seu método `OnNavigatedTo` da sua Página.
@@ -223,17 +227,17 @@ Se você não pode ou não quer sobrecarregar as classes `Page`, em vez disso, v
 > [!IMPORTANT]
 > Certifique-se de encerrar a sua sessão corretamente.
 > 
-> O SDK do Windows Universal chama automaticamente o método `EndActivity` quando o aplicativo é fechado. Desse modo, é **ALTAMENTE** recomendável chamar o método `StartActivity` sempre na atividade de alteração de usuário e **NUNCA** chamar o método `EndActivity`, esse método envia ao servidor do Engagement esse usuário atual que deixa o aplicativo e isso afeta todos os logs de aplicativo.
+> O SDK do Windows Universal chama automaticamente o método `EndActivity` quando o aplicativo é fechado. Desse modo, será **ALTAMENTE** recomendável chamar o método `StartActivity` sempre que a atividade do usuário for alterada e **NUNCA** chamar o método `EndActivity`. Esse método envia ao servidor do Engagement esse usuário atual que deixa o aplicativo e isso afeta todos os logs de aplicativo.
 > 
 > 
 
-## Relatórios avançados
-Opcionalmente, convém relatar eventos específicos do aplicativo, erros e trabalhos, para fazer isso, use os outros métodos encontrados na classe `EngagementAgent`. A API do Engagement permite usar todos os recursos avançados do Engagement.
+## <a name="advanced-reporting"></a>Relatórios avançados
+Opcionalmente, convém relatar eventos específicos do aplicativo, erros e trabalhos, para fazer isso, use os outros métodos encontrados na classe `EngagementAgent` . A API do Engagement permite usar todos os recursos avançados do Engagement.
 
 Para obter mais informações, consulte [Como usar a API de marcação avançada do Mobile Engagement em seu aplicativo do Windows Universal](mobile-engagement-windows-store-use-engagement-api.md).
 
-## Configuração avançada
-### Desabilitar o relatório de falhas automático
+## <a name="advanced-configuration"></a>Configuração avançada
+### <a name="disable-automatic-crash-reporting"></a>Desabilitar o relatório de falhas automático
 Você pode desabilitar a recurso relatório de falhas automático do Engagement. Então, quando uma exceção não tratada ocorrer, o Engagement não fará nada.
 
 > [!WARNING]
@@ -243,10 +247,10 @@ Você pode desabilitar a recurso relatório de falhas automático do Engagement.
 
 Para desativar o relatório de falhas automático, apenas personalize a configuração dependendo de como você o declarou:
 
-#### No arquivo `EngagementConfiguration.xml`
+#### <a name="from-engagementconfigurationxml-file"></a>No arquivo `EngagementConfiguration.xml`
 Defina a falha do relatório para `false` entre as marcas `<reportCrash>` e `</reportCrash>`.
 
-#### No objeto `EngagementConfiguration` em tempo de execução
+#### <a name="from-engagementconfiguration-object-at-run-time"></a>No objeto `EngagementConfiguration` em tempo de execução
 Defina a falha do relatório como false usando o objeto EngagementConfiguration.
 
         /* Engagement configuration. */
@@ -256,7 +260,7 @@ Defina a falha do relatório como false usando o objeto EngagementConfiguration.
         /* Disable Engagement crash reporting. */
         engagementConfiguration.Agent.ReportCrash = false;
 
-### Modo intermitente
+### <a name="burst-mode"></a>Modo intermitente
 Por padrão, o serviço Engagement reporta logs em tempo real. Se seu aplicativo relata logs com muita frequência, é melhor armazenar em buffer os logs e relatá-los todos de uma vez regularmente (isso é chamado de "modo intermitente").
 
 Para fazer isso, chame o método:
@@ -272,8 +276,12 @@ O modo de intermitência aumenta ligeiramente a vida útil da bateria, mas tem u
 > 
 > 
 
-[here]: http://www.nuget.org/packages/Capptain.WindowsCS
-[NuGet website]: http://docs.nuget.org/docs/start-here/overview
+[here]:http://www.nuget.org/packages/Capptain.WindowsCS
+[NuGet website]:http://docs.nuget.org/docs/start-here/overview
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

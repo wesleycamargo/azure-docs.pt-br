@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 06/28/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4c5b3b8d4e5e35aaef1a61530ee148db9e67e5a7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f9b2192dfb40e2dd3cd2afa308f1cf84491e0580
 
 
 ---
@@ -42,11 +42,11 @@ Para ver em vídeo:
 > 
 > 
 
-Este tutorial faz parte da [série][hdinsight-hbase-replication] sobre a criação da replicação geográfica do HBase. 
+Este tutorial faz parte da [série][hdinsight-hbase-replication] sobre a criação de replicação geográfica do HBase. 
 
 * Configurar uma conectividade VPN entre duas redes virtuais (este tutorial)
 * [Configurar o DNS para as redes virtuais][hdinsight-hbase-geo-replication-dns]
-* [Configurar a replicação geográfica do HBase][hdinsight-hbase-geo-replication]
+* [Configurar a replicação geográfica HBase][hdinsight-hbase-geo-replication]
 
 O diagrama a seguir ilustra as duas redes virtuais que você criará neste tutorial:
 
@@ -214,7 +214,7 @@ Sem nenhuma VM implantada nas VNets, você pode usar o diagrama visual da rede v
 Neste tutorial, você aprendeu como configurar uma conexão VPN entre duas redes virtuais do Azure. Os outros dois artigos da série abrangem:
 
 * [Configurar o DNS entre duas redes virtuais do Azure][hdinsight-hbase-geo-replication-dns]
-* [Configurar a replicação geográfica do HBase][hdinsight-hbase-geo-replication]
+* [Configurar a replicação geográfica HBase][hdinsight-hbase-geo-replication]
 
 [hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
@@ -239,6 +239,6 @@ Neste tutorial, você aprendeu como configurar uma conexão VPN entre duas redes
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

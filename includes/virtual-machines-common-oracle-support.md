@@ -1,6 +1,10 @@
 > [!IMPORTANT]
-> Este conteúdo foi preterido e não será mais mantido. Para obter um resumo de suporte da Oracle no Azure, confira [esta declaração de suporte publicada.](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
+> Este conteúdo foi preterido e não será mais mantido.  Para obter um resumo de suporte da Oracle no Azure, confira [esta declaração de suporte publicada.](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support)
 > 
 > 
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

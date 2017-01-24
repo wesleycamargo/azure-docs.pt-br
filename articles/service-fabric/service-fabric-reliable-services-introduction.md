@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 03/25/2016
 ms.author: masnider;vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 843ad30a895a0cf6d427acfc99b17a4facb9e809
+ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
+ms.openlocfilehash: 1b11cc06cab082949002c456690ab89ce56c8cac
 
 
 ---
@@ -39,6 +39,10 @@ Os Reliable Services fornecem um modelo de programação simples, potente e de n
 * Para serviços com estado, o modelo de programação dos Reliable Services permite que você armazene de forma consistente e confiável o seu estado diretamente de seu serviço usando o Reliable Collections. O Reliable Collections são um conjunto simples de classes de coleção altamente disponíveis que serão familiares para as pessoas que já utilizaram as coleções C#. Tradicionalmente, os serviços precisavam de sistemas externos para um gerenciamento de estado confiável. Com o Reliable Collections, você pode armazenar o estado próximo ao computador com a mesma alta disponibilidade e confiabilidade que você espera dos armazenamentos externos altamente disponíveis e com os aprimoramentos de latência adicionais fornecidos pela colocalização da computação e do estado.
 * Um modelo simples para execução de seu próprio código que parece com os modelos de programação com os quais você está acostumado. Seu código tem um ponto de entrada bem definido e um ciclo de vida fácil de gerenciar.
 * Um modelo de comunicação conectável. Use o transporte de sua escolha, como HTTP com [API Web](service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolos TCP personalizados, etc. O Reliable Services oferece excelentes opções de utilização ou permite que você forneça suas próprias.
+
+Assista a este vídeo da Microsoft Virtual Academy para ter uma visão geral dos Reliable Services: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">  
+<img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="what-makes-reliable-services-different"></a>O que torna o Reliable Services diferente?
 O Reliable Services no Service Fabric é diferente dos serviços que você já desenvolveu anteriormente. A Malha de Serviços fornece confiabilidade, disponibilidade, consistência e escalabilidade.  
@@ -130,6 +134,6 @@ Se um dos itens a seguir caracterizar as necessidades de serviço do aplicativo,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

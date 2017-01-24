@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e86afaa9813a45c31d7c1d8725995ba5fc73f574
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 89e517a17417475f975dbaa0cee8517145a7c6c3
 
 
 ---
@@ -28,7 +28,7 @@ Este artigo explica como criar rapidamente um contêiner de Serviços de Nuvem u
 3. Use [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) para entrar.
 
    > [!NOTE]
-   > Para obter mais instruções sobre a instalação do cmdlet do Azure PowerShell e conectar-se à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+   > Para obter mais instruções sobre a instalação do cmdlet do Azure PowerShell e conectar-se à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
    >
    >
 4. Use **New-AzureService** para criar um contêiner de serviço de nuvem do Azure vazio.
@@ -55,6 +55,6 @@ Get-help New-AzureService
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

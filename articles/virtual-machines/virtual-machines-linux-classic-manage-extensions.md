@@ -16,23 +16,22 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 745561dca53b6832926730baf9d0388445ca5d3b
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 4cef8ac3cf2dd7ecbb7a520daa42799bdcb9eb80
 
 
 ---
 # <a name="manage-virtual-machine-extensions"></a>Gerenciar extensões de máquina virtual
 Descreve como localizar, adicionar, modificar ou remover extensões de VM com máquinas virtuais Windows ou Linux no Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Para obter informações sobre como usar extensões de VM com o modelo do Resource Manager, veja [aqui](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Para obter informações sobre como usar extensões de VM com o modelo do Resource Manager, veja [aqui](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

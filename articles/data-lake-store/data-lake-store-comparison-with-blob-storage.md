@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/28/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 267b281c33049e65e82a5e5b2453ff1a80983453
-ms.openlocfilehash: 744e5a093cb99463224d42a69711f41f6132a2ee
+ms.sourcegitcommit: e82cc23dac2b765ee3dc8ae2eb1e4f7f2e49675a
+ms.openlocfilehash: 9e7dbb2b218796e3484bee05c6026c801c7780b7
 
 
 ---
@@ -36,7 +36,7 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Ar
 | Operações de dados – protocolo de autenticação |OAuth 2.0. As chamadas devem conter um JWT (Token Web JSON) válido emitido pelo Azure Active Directory |HMAC (Código de Autenticação de Mensagem Baseado em Hash). As chamadas devem conter um hash SHA-256 codificado na Base64 em uma parte da solicitação HTTP. |
 | Operações de dados – autorização |ACLs (Listas de Controle de Acesso) POSIX.  ACLs baseadas em Identidades do Azure Active Directory podem ser definidas com nível de arquivo e pasta. |Para autorização no nível de conta — use [Chaves de Acesso da Conta](../storage/storage-create-storage-account.md#manage-your-storage-account)<br>Para autorização de conta, contêiner ou blob — use [Chaves de Assinatura de Acesso Compartilhado](../storage/storage-dotnet-shared-access-signature-part-1.md) |
 | Operações de dados – auditoria |Disponível. Veja mais informações [aqui](data-lake-store-diagnostic-logs.md) . |Disponível |
-| Dados de criptografia em repouso |Transparente, no servidor (em breve)<ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciados pelo cliente no Cofre de Chaves do Azure</li></ul> |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciados pelo cliente no Cofre de Chaves do Azure (em breve)</li></ul><li>Criptografia do cliente</li></ul> |
+| Dados de criptografia em repouso |Transparente, lado do servidor <ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciados pelo cliente no Cofre de Chaves do Azure</li></ul> |<ul><li>Transparente, lado do servidor</li> <ul><li>Com chaves gerenciadas pelo serviço</li><li>Com chaves gerenciados pelo cliente no Cofre de Chaves do Azure (em breve)</li></ul><li>Criptografia do cliente</li></ul> |
 | Operações de gerenciamento (por exemplo, Criar Conta) |[Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) ) fornecido pelo Azure para gerenciamento de contas |[Controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md) ) fornecido pelo Azure para gerenciamento de contas |
 | SDKs de desenvolvedor |.NET, Java, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
 | Desempenho de Carga de Trabalho de Análise |Desempenho otimizado para cargas de trabalho de análise paralela. Alta taxa de transferência e IOPS. |Não otimizado para cargas de trabalho de análise |
@@ -53,6 +53,6 @@ A tabela neste artigo resume as diferenças entre o Azure Data Lake Store e o Ar
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

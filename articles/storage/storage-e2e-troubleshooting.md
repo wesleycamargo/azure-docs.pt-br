@@ -4,18 +4,18 @@ description: "Um tutorial que demonstra a solução de problemas ponta a ponta c
 services: storage
 documentationcenter: dotnet
 author: robinsh
-manager: carmonm
+manager: timlt
 ms.assetid: 643372a3-1c07-4e88-b4ef-042512a43086
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: f2032f3a4fa559b9772ee63d39d66408b3f92175
-ms.openlocfilehash: 12cacb0abebf69a644aa34d78c047e99b23d4aaf
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 2c8b4226b89c196fa69a1ab3fdeb11b110192a20
 
 
 ---
@@ -103,7 +103,7 @@ Para configurar o registro em log e as métricas para sua conta de armazenamento
 
 **Por meio do PowerShell**
 
-Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+Para começar com o PowerShell do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 1. Use o cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) para adicionar sua conta de usuário do Azure à janela do PowerShell:
    
@@ -374,6 +374,6 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
 * [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

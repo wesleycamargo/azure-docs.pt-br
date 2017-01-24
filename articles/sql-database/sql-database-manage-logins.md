@@ -1,5 +1,5 @@
 ---
-title: "Autenticação e autorização do Banco de Dados SQL: concessão de acesso | Microsoft Docs"
+title: "Autenticação e Autorização do Banco de Dados SQL | Microsoft Docs"
 description: "Saiba mais sobre o gerenciamento de segurança de banco de dados SQL, especialmente sobre como gerenciar o acesso ao banco de dados e a segurança de logon por meio da conta de entidade de segurança no nível do servidor."
 keywords: "segurança do banco de dados SQL, gerenciamento de segurança de banco de dados, segurança de logon, segurança de banco de dados, acesso ao banco de dados"
 services: sql-database
@@ -18,51 +18,47 @@ ms.workload: data-management
 ms.date: 09/14/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cec54dbc46194ff13fcafaa90f8a435edbd66598
+ms.sourcegitcommit: a3c3aabc6b1817df3bacb98a769ff167036ef3e6
+ms.openlocfilehash: d54c7c6160e3c51f34bf2c7ba2661ab1e8a51bfa
 
 
 ---
-# <a name="sql-database-authentication-and-authorization-granting-access"></a>Autenticação e Autorização do Banco de Dados SQL: Concessão de Acesso
-> [!div class="op_single_selector"]
-> * [Tutorial de introdução](sql-database-get-started-security.md)
-> * [Conceder acesso](sql-database-manage-logins.md)
-> 
-> 
+# <a name="controlling-and-granting-database-access"></a>Controle e concessão de acesso de banco de dados
 
-Comece aqui para obter uma visão geral dos conceitos de acesso do Banco de Dados SQL para administradores, não administradores e funções.
+Os usuários autenticados podem obter o acesso usando alguns mecanismos diferentes. 
 
 ## <a name="unrestricted-administrative-accounts"></a>Contas administrativas irrestritas
 Há duas contas administrativas possíveis com permissões irrestritas de acesso ao banco de dados mestre virtual e a todos os bancos de dados do usuário. Essas contas são chamadas de contas de entidade no nível do servidor.
 
 ### <a name="azure-sql-database-subscriber-account"></a>Conta de assinante do Banco de Dados SQL do Azure
-Uma conta de logon único é criada quando uma instância lógica do SQL é criada, chamada Conta de assinante do Banco de Dados SQL. Essa conta é conectada usando a autenticação do SQL Server (nome de usuário e senha). Essa conta é um administrador na instância do servidor lógico e em todos os bancos de dados do usuário conectados a essa instância. As permissões da Conta de assinante não podem ser restringidas. Só pode existir uma dessas contas.
+O Banco de Dados SQL cria uma conta de logon única no banco de dados mestre, quando uma instância SQL lógica é criada. Algumas vezes, essa conta é chamada de Conta do Assinante do Banco de Dados SQL. Essa conta é conectada usando a autenticação do SQL Server (nome de usuário e senha). Essa conta é um administrador na instância do servidor lógico e em todos os bancos de dados do usuário conectados a essa instância. As permissões da Conta de assinante não podem ser restringidas. Só pode existir uma dessas contas.
 
 ### <a name="azure-active-directory-administrator"></a>Administrador do Azure Active Directory
-Uma conta do Azure Active Directory também pode ser configurada como um administrador. Essa conta pode ser um Usuário individual do Azure AD ou pode ser um Grupo do Azure AD contendo vários usuários do Azure AD. A configuração de um administrador do Azure AD é opcional, mas é necessário configurar um administrador do Azure AD a fim de usar a Autenticação do Windows para contas do Azure AD para se conectar ao Banco de Dados SQL. Para saber mais sobre como configurar o acesso ao Azure Active Directory, consulte [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md) e [Suporte do SSMS para MFA do Azure AD com o Banco de Dados SQL e o SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+Uma conta individual ou de grupo do Azure Active Directory também pode ser configurada como um administrador. A configuração de um administrador do Azure AD é opcional, mas é necessário configurar um administrador do Azure AD a fim de usar as contas do Azure AD para se conectar ao Banco de Dados SQL. Para saber mais sobre como configurar o acesso ao Azure Active Directory, consulte [Conexão ao Banco de Dados SQL ou ao SQL Data Warehouse usando a autenticação do Azure Active Directory](sql-database-aad-authentication.md) e [Suporte do SSMS para MFA do Azure AD com o Banco de Dados SQL e o SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 ### <a name="configuring-the-firewall"></a>Configuração do firewall
-Quando o firewall no nível do servidor é configurado, a Conta de assinante do Banco de Dados SQL do Azure e a conta do Azure Active Directory podem se conectar ao banco de dados mestre e a todos os bancos de dados do usuário. O firewall no nível do servidor pode ser configurado por meio do portal. Depois que uma conexão é estabelecida, as regras de firewall adicionais no nível do servidor também podem ser configuradas usando a instrução Transact-SQL [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx). Para saber mais sobre como configurar o firewall, confira [Como configurar um firewall do Banco de Dados SQL do Azure usando o Portal do Azure](sql-database-configure-firewall-settings.md).
+Quando o firewall no nível do servidor é configurado para um endereço IP individual ou para um intervalo de endereços IP, a Conta de assinante do Banco de Dados SQL do Azure e a conta do Azure Active Directory podem se conectar ao banco de dados mestre e a todos os bancos de dados do usuário. O firewall no nível do servidor inicial pode ser configurado por meio do [portal do Azure](sql-database-configure-firewall-settings.md), usando o [PowerShell](sql-database-configure-firewall-settings-powershell.md) ou usando a [API REST](sql-database-configure-firewall-settings-rest.md). Depois que uma conexão é estabelecida, as regras de firewall adicionais no nível do servidor também podem ser configuradas usando o [Transact-SQL](sql-database-configure-firewall-settings-tsql.md).
 
 ### <a name="administrator-access-path"></a>Caminho de acesso do administrador
 Quando o firewall no nível de servidor é configurado corretamente, a Conta de assinante do Banco de Dados SQL e os Administradores de SQL Server do Azure Active Directory podem se conectar usando ferramentas de cliente, como o SQL Server Management Studio ou o SQL Server Data Tools. Somente as ferramentas mais recentes fornecem todos os recursos e capacidades. O diagrama a seguir mostra uma configuração típica para as duas contas de administrador.
-    ![Caminho de acesso do administrador](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+
+![Caminho de acesso do administrador](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
 Ao usar uma porta aberta no firewall no nível do servidor, os administradores podem se conectar a qualquer Banco de Dados SQL.
 
 ### <a name="connecting-to-a-database-by-using-sql-server-management-studio"></a>Conectar-se a um banco de dados usando o SQL Server Management Studio
-Para conferir um passo a passo de como se conectar usando o SQL Server Management Studio, consulte [Conectar-se ao Banco de Dados SQL com o SQL Server Management Studio e executar um exemplo de consulta T-SQL](sql-database-connect-query-ssms.md).
+Para obter uma explicação passo a passo da criação de um servidor, de um banco de dados, de regras de firewall no nível do servidor e do uso do SQL Server Management Studio para consultar um banco de dados, veja [Introdução aos servidores, bancos de dados e regras de firewall do Banco de Dados SQL usando o portal do Azure e o SQL Server Management Studio](sql-database-get-started.md).
 
 > [!IMPORTANT]
 > Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Microsoft Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 > 
 > 
 
-## <a name="additional-special-accounts"></a>Contas especiais adicionais
-Banco de Dados SQL fornece duas funções administrativas restritas no banco de dados mestre virtual as quais as contas de usuário podem ser adicionadas.
+## <a name="additional-server-level-administrative-roles"></a>Funções administrativas no nível do servidor adicionais
+Além das funções administrativas no nível do servidor discutidas anteriormente, o Banco de Dados SQL fornece duas funções administrativas restritas no banco de dados mestre virtual às quais as contas de usuário podem ser adicionadas para a concessão de permissões para manter o banco de dados ou gerenciar logons.
 
 ### <a name="database-creators"></a>Criadores de Banco de Dados
-As contas administrativas podem criar novos bancos de dados. Para criar uma conta adicional que pode criar bancos de dados, você deve criar um usuário no mestre e adicionar o usuário à função especial do banco de dados **dbmanager** . O usuário pode ser um usuário de banco de dados independente ou um usuário com base em um logon do SQL Server no banco de dados mestre virtual.
+Uma dessas funções administrativas é a função dbmanager. Os membros dessa função podem criar novos bancos de dados. Para usar essa função, você cria um usuário no banco de dados mestre e, em seguida, adiciona o usuário para a função de banco de dados **dbmanager**. O usuário pode ser um usuário de banco de dados independente ou um usuário com base em um logon do SQL Server no banco de dados mestre virtual.
 
 1. Com uma conta de administrador, conecte-se ao banco de dados mestre virtual.
 2. Etapa opcional: crie um logon de autenticação do SQL Server usando a instrução [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) . Exemplo de instrução:
@@ -100,7 +96,7 @@ As contas administrativas podem criar novos bancos de dados. Para criar uma cont
 Agora o usuário pode se conectar ao banco de dados mestre virtual e criar novos bancos de dados. A conta de criação do banco de dados se torna o proprietário do banco de dados.
 
 ### <a name="login-managers"></a>Gerentes de logon
-Se quiser, você poderá concluir as mesmas etapas (criar um logon e usuário e adicionar um usuário à função **loginmanager** ) para permitir que um usuário crie novos logons no mestre virtual. Normalmente, isso não é necessário, pois a Microsoft recomenda o uso de usuários de banco de dados independente, que são autenticados no nível do banco de dados em vez de usar os usuários baseados em logons. Para obter mais informações, veja [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+A outra função administrativa é a função de gerente de logon. Os membros dessa função podem criar novos logons no banco de dados mestre. Se quiser, você poderá concluir as mesmas etapas (criar um logon e usuário e adicionar um usuário à função **loginmanager** ) para permitir que um usuário crie novos logons no mestre virtual. Normalmente, isso não é necessário, pois a Microsoft recomenda o uso de usuários de banco de dados independente, que são autenticados no nível do banco de dados em vez de usar os usuários baseados em logons. Para obter mais informações, veja [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 
 ## <a name="non-administrator-users"></a>Usuários não administradores
 Em geral, contas que não são de administrador não precisam de acesso ao banco de dados mestre virtual. Crie usuários do banco de dados independente no nível do banco de dados usando a instrução [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) . O usuário pode ser usuário de banco de dados independente de autenticação no Azure Active Directory (se você tiver configurado o ambiente para autenticação do Azure AD), ou um usuário de banco de dados independente de autenticação do SQL Server, ou um usuário de autenticação do SQL Server com base em um logon de autenticação do SQL Server (criado na etapa anterior). Para obter mais informações, consulte [Usuários do banco de dados independente - Tornando o banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx). 
@@ -130,43 +126,59 @@ Como prática recomendada, os usuários não administradores só devem ter acess
 
 ### <a name="non-administrator-access-path"></a>Caminho de acesso do não administrador
 Quando o firewall no nível do banco de dados está configurado corretamente, os usuários do banco de dados podem se conectar usando as ferramentas de cliente como o SQL Server Management Studio ou o SQL Server Data Tools. Somente as ferramentas mais recentes fornecem todos os recursos e capacidades. O diagrama a seguir mostra um caminho de acesso não do administrador típico.
+
 ![Caminho de acesso do não administrador](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
 
 ## <a name="groups-and-roles"></a>Grupos e funções
-O gerenciamento de acesso eficiente usa as permissões atribuídas a grupos e funções, em vez de usuários individuais. Por exemplo, ao usar a autenticação do Azure Active Directory:
+O gerenciamento de acesso eficiente usa as permissões atribuídas a grupos e funções, em vez de usuários individuais. 
 
-* Coloque os usuários do Azure Active Directory em um grupo do Azure Active Directory. Crie um usuário de banco de dados independente para o grupo. Coloque um ou mais usuários de banco de dados em uma função de banco de dados. E, em seguida, atribua permissões à função de banco de dados.
+- Ao usar a autenticação do Azure Active Directory, coloque os usuários do Azure Active Directory em um grupo do Azure Active Directory. Crie um usuário de banco de dados independente para o grupo. Coloque um ou mais usuários de banco de dados em uma [função de banco de dados](https://msdn.microsoft.com/library/ms189121) e então atribua [permissões](https://msdn.microsoft.com/library/ms191291.aspx) à função de banco de dados.
 
-Ao usar a autenticação do SQL Server:
-
-* Crie usuários de banco de dados independentes no banco de dados. Coloque um ou mais usuários de banco de dados em uma função de banco de dados. E, em seguida, atribua permissões à função de banco de dados.
+- Ao usar a autenticação do SQL Server, crie usuários de banco de dados independentes no banco de dados. Coloque um ou mais usuários de banco de dados em uma [função de banco de dados](https://msdn.microsoft.com/library/ms189121) e então atribua [permissões](https://msdn.microsoft.com/library/ms191291.aspx) à função de banco de dados.
 
 As funções do banco de dados podem ser funções internas, como **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** e **db_denydatareader**. **db_owner** é usada normalmente para conceder permissão total a apenas alguns usuários. As outras funções fixas de banco de dados são úteis para mover rapidamente um banco de dados simples para desenvolvimento, mas não são recomendadas para a maioria dos bancos de dados de produção. Por exemplo, a função do banco de dados fixa **db_datareader** concede acesso de leitura a todas as tabelas no banco de dados, sendo, em geral, mais do que é estritamente necessário. É muito melhor usar a instrução [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) para criar suas próprias funções do banco de dados definidas pelo usuário e conceder cuidadosamente a cada função as permissões mínimas necessárias para o negócio. Quando um usuário for membro de várias funções, ele agregará as permissões de todas elas.
 
 ## <a name="permissions"></a>Permissões
 Há mais de 100 permissões que podem ser concedidas ou negadas individualmente no Banco de Dados SQL. Muitas dessas permissões são aninhadas. Por exemplo, a permissão `UPDATE` em um esquema inclui a permissão `UPDATE` em cada tabela dentro desse esquema. Assim como ocorre na maioria dos sistemas de permissão, a negação de uma permissão substitui uma concessão. Devido à natureza aninhada e ao número de permissões, talvez seja necessário realizar um estudo cuidadoso para criar um sistema de permissões apropriado a fim de proteger corretamente o banco de dados. Comece com a lista de permissões em [Permissões (Mecanismo do Banco de Dados)](https://msdn.microsoft.com/library/ms191291.aspx) e examine o [gráfico com tamanho de pôster](http://go.microsoft.com/fwlink/?LinkId=229142) das permissões.
 
+
+### <a name="considerations-and-restrictions"></a>Considerações e restrições
+Ao gerenciar logons e usuários no Banco de Dados SQL, considere o seguinte:
+
+* É necessário estar conectado ao banco de dados **mestre** ao executar as instruções ``CREATE/ALTER/DROP DATABASE``. - O usuário de banco de dados no banco de dados mestre correspondente para o logon principal no nível de servidor não pode ser alterado ou descartado. 
+* O inglês (EUA) é o idioma padrão do logon principal do nível do servidor.
+* Somente os administradores (logon na entidade de segurança no nível do servidor ou o administrador do Azure AD) e os membros da função **dbmanager** do banco de dados no banco de dados **mestre** têm permissão para executar as instruções ``CREATE DATABASE`` e ``DROP DATABASE``.
+* Você deve estar conectado ao banco de dados mestre ao executar as instruções ``CREATE/ALTER/DROP LOGIN`` . No entanto, não é recomendado usar logons. Utilize os usuários de bancos de dados independentes.
+* Para se conectar a um banco de dados do usuário, é necessário fornecer o nome do banco de dados na cadeia de conexão.
+* Somente o logon da entidade de segurança no nível do servidor e os membros da função **loginmanager** do banco de dados no banco de dados **mestre** têm permissão para executar as instruções ``CREATE LOGIN``, ``ALTER LOGIN`` e ``DROP LOGIN``.
+* Ao executar as instruções ``CREATE/ALTER/DROP LOGIN`` e ``CREATE/ALTER/DROP DATABASE`` em um aplicativo do ADO.NET, o uso de comandos parametrizados não é permitido. Para obter mais informações, veja [Comandos e parâmetros](https://msdn.microsoft.com/library/ms254953.aspx).
+* Ao executar as instruções ``CREATE/ALTER/DROP DATABASE`` e ``CREATE/ALTER/DROP LOGIN``, cada uma dessas instruções deve ser a única instrução em um lote do Transact-SQL. Caso contrário, ocorrerá um erro. Por exemplo, o Transact-SQL a seguir verifica se o banco de dados existe. Se ele existir, uma instrução ``DROP DATABASE`` é chamada para remover o banco de dados. Como a instrução ``DROP DATABASE`` não é a única instrução no lote, a execução da seguinte instrução Transact-SQL resulta em um erro.
+
+```
+IF EXISTS (SELECT [name]
+           FROM   [sys].[databases]
+           WHERE  [name] = N'database_name')
+     DROP DATABASE [database_name];
+GO
+```
+
+* Ao executar a instrução ``CREATE USER`` com a opção ``FOR/FROM LOGIN``, ela deve ser a única instrução em um lote do Transact-SQL.
+* Ao executar a instrução ``ALTER USER`` com a opção ``WITH LOGIN``, ela deve ser a única instrução em um lote do Transact-SQL.
+* Para o ``CREATE/ALTER/DROP``, um usuário requer a permissão ``ALTER ANY USER`` no banco de dados.
+* Quando o proprietário de uma função de banco de dados tenta adicionar ou remover outro usuário de banco de dados de ou para essa função de banco de dados, pode ocorrer o seguinte erro: **O usuário ou a função “Nome” não existe neste banco de dados.**  Esse erro ocorre porque o usuário não está visível para o proprietário. Para resolver esse problema, conceda ao proprietário da função a permissão ``VIEW DEFINITION`` no usuário. 
+
+
 ## <a name="next-steps"></a>Próximas etapas
-[Protegendo o Banco de Dados SQL](sql-database-security.md)
 
-[Criando uma tabela\(Tutorial\)](https://msdn.microsoft.com/library/ms365315.aspx)
-
-[Inserindo e atualizando dados em uma tabela\(Tutorial\)](https://msdn.microsoft.com/library/ms365309.aspx)
-
-[Lendo os dados em uma tabela\(Tutorial\)](https://msdn.microsoft.com/library/ms365310.aspx)
-
-[Criação de exibições e procedimentos armazenados](https://msdn.microsoft.com/library/ms365311.aspx)
-
-[Concessão de acesso a um objeto de banco de dados](https://msdn.microsoft.com/library/ms365327.aspx)
-
-## <a name="additional-resources"></a>Recursos adicionais
-[Protegendo o Banco de Dados SQL](sql-database-security.md)
-
-[Central de segurança do mecanismo de banco de dados do SQL Server e banco de dados SQL do Azure](https://msdn.microsoft.com/library/bb510589.aspx) 
+- Para saber mais sobre regras de firewall, veja [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md).
+- Para obter uma visão geral de todos os recursos de segurança do Banco de Dados SQL, veja [Visão geral de segurança do SQL](sql-database-security-overview.md).
+- Para obter um tutorial, veja [Introdução à segurança do SQL](sql-database-get-started-security.md)
+- Para saber mais sobre exibições e procedimentos armazenados, veja [Criação de exibições e procedimentos armazenados](https://msdn.microsoft.com/library/ms365311.aspx)
+- Para saber mais sobre como conceder acesso a um objeto de banco de dados, veja [Concessão de acesso a um objeto de banco de dados](https://msdn.microsoft.com/library/ms365327.aspx)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

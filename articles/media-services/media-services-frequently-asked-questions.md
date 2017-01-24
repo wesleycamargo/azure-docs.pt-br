@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7ea1ec9bddff60d91bdd47d7d9e5312563386ae4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6972550d74965fa6a7c69a5903b3287d5d219851
 
 
 ---
@@ -40,7 +40,7 @@ R: Os Serviços de Mídia dão suporte à integração com o Azure CDN (para obt
 
 P: Os Serviços de Mídia do Azure dão suporte ao armazenamento de imagens?
 
-R: Se quiser apenas armazenar imagens JPEG ou PNG, você deverá mantê-las no Armazenamento de Blob do Azure. Não há benefício em colocá-las em sua conta dos Serviços de Mídia, a menos que deseje mantê-las associadas a seus ativos de vídeo ou áudio. Ou, se você puder precisar usar as imagens como sobreposições no codificador de vídeo, o Media Encoder Standard oferece suporte à sobreposição de imagens sobre vídeos, assim, ele lista JPEG e PNG como formatos de entrada com suporte. Para obter mais informações, consulte [Criando sobreposições](media-services-custom-mes-presets-with-dotnet.md#overlay).
+R: Se quiser apenas armazenar imagens JPEG ou PNG, você deverá mantê-las no Armazenamento de Blob do Azure. Não há benefício em colocá-las em sua conta dos Serviços de Mídia, a menos que deseje mantê-las associadas a seus ativos de vídeo ou áudio. Ou, se você puder precisar usar as imagens como sobreposições no codificador de vídeo, o Media Encoder Standard oferece suporte à sobreposição de imagens sobre vídeos, assim, ele lista JPEG e PNG como formatos de entrada com suporte. Para obter mais informações, consulte [Criando sobreposições](media-services-advanced-encoding-with-mes.md#overlay).
 
 P: Como posso copiar ativos de uma conta de serviços de mídia para outra.
 
@@ -52,7 +52,7 @@ R: os Serviços de Mídia usam o valor da propriedade IAssetFile.Name ao constru
 
 P: como se conectar usando o REST?
 
-R: depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md). 
+R: depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos Serviços de Mídia. Você deve fazer chamadas subsequentes para o novo URI, conforme descrito em [Conectando-se aos Serviços de Mídia usando a API REST](media-services-rest-connect-programmatically.md).
 
 P: Como é possível girar um vídeo durante o processo de codificação.
 
@@ -82,7 +82,6 @@ R: o [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-st
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

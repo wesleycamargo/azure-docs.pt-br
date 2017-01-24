@@ -1,12 +1,12 @@
 ---
 title: Como paginar os resultados da pesquisa na Pesquisa do Azure | Microsoft Docs
-description: Paginação na Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure.
+description: "Paginação na Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: a0a1d315-8624-4cdf-b38e-ba12569c6fcc
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
@@ -14,9 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
+
 
 ---
-# Como paginar os resultados da pesquisa na Pesquisa do Azure
+# <a name="how-to-page-search-results-in-azure-search"></a>Como paginar os resultados da pesquisa na Pesquisa do Azure
 Este artigo fornece orientação sobre como usar a API REST do Serviço de Pesquisa do Azure para implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação.
 
 Em cada caso mencionado abaixo, as opções relacionadas à página que colaboram com dados ou informações para sua página de resultados da pesquisa são especificadas por meio de solicitações de [Documento de Pesquisa](http://msdn.microsoft.com/library/azure/dn798927.aspx) enviadas ao Serviço de Pesquisa do Azure. As solicitações incluem um comando GET, um caminho e os parâmetros de consulta que informam ao serviço que está sendo solicitado, e como formular a resposta.
@@ -26,7 +30,7 @@ Em cada caso mencionado abaixo, as opções relacionadas à página que colabora
 > 
 > 
 
-## Total de ocorrências e contagens de página
+## <a name="total-hits-and-page-counts"></a>Total de ocorrências e contagens de página
 Mostrar o número total de resultados retornados por uma consulta e, em seguida, retornar esses resultados em pedaços menores, é fundamental para praticamente todas as páginas de pesquisa.
 
 ![][1]
@@ -39,7 +43,7 @@ Recupera documentos em grupos de 15 e também mostra o total de ocorrências, co
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
-A paginação de resultados exige `$top` e `$skip`, sendo que `$top` especifica quantos itens devem retornar em um lote, e `$skip` especifica quantos itens ignorar. No exemplo a seguir, cada página mostra os próximos 15 itens, indicados por saltos incrementais no parâmetro `$skip`.
+A paginação de resultados exige `$top` e `$skip`, sendo que `$top` especifica quantos itens devem retornar em um lote, e `$skip` especifica quantos itens ignorar. No exemplo a seguir, cada página mostra os próximos 15 itens, indicados por saltos incrementais no parâmetro `$skip` .
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
@@ -47,7 +51,7 @@ A paginação de resultados exige `$top` e `$skip`, sendo que `$top` especifica 
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=30&$count=true
 
-## Layout
+## <a name="layout"></a>Layout
 Talvez você queira mostrar em uma página de resultados da pesquisa uma imagem em miniatura, um subconjunto dos campos e um link para uma página completa sobre um produto.
 
  ![][2]
@@ -60,11 +64,11 @@ Para retornar um subconjunto dos campos para um layout lado a lado:
 
 Arquivos de imagem e de mídia não são diretamente pesquisáveis e devem ser armazenados em outra plataforma de armazenamento, por exemplo, o armazenamento do Blob do Azure, para reduzir os custos. No índice e nos documentos, defina um campo que armazena o endereço da URL do conteúdo externo. Em seguida, use o campo como uma referência de imagem. A URL da imagem deve estar no documento.
 
-Para recuperar uma página de descrição de produto em um evento **onClick**, use [Pesquisar Documento](http://msdn.microsoft.com/library/azure/dn798929.aspx) para passar a chave do documento que será recuperada. O tipo de dados da chave é `Edm.String`. Neste exemplo, é *246810*.
+Para recuperar uma página de descrição de produto em um evento **onClick** , use [Pesquisar Documento](http://msdn.microsoft.com/library/azure/dn798929.aspx) para passar a chave do documento que será recuperada. O tipo de dados da chave é `Edm.String`. Neste exemplo, é *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
-## Classificar por relevância, por classificação ou por preço
+## <a name="sort-by-relevance-rating-or-price"></a>Classificar por relevância, por classificação ou por preço
 Por padrão, as ordens de classificação normalmente usam a opção de relevância, mas é comum disponibilizar ordens de classificação alternativas para que os clientes possam reorganizar rapidamente esses resultados em uma ordem de classificação diferente.
 
  ![][3]
@@ -82,23 +86,23 @@ Você criaria um método que aceitasse a opção de classificação selecionada 
  ![][5]
 
 > [!NOTE]
-> Embora a pontuação padrão seja suficiente para muitos cenários, recomendamos basear a relevância em um perfil personalizado de pontuação. Um perfil personalizado de pontuação permite um aumento dos itens mais úteis para o seu negócio. Confira [Adicionar um perfil de pontuação](http://msdn.microsoft.com/library/azure/dn798928.aspx) para saber mais.
+> Embora a pontuação padrão seja suficiente para muitos cenários, recomendamos basear a relevância em um perfil personalizado de pontuação. Um perfil personalizado de pontuação permite um aumento dos itens mais úteis para o seu negócio. Confira [Adicionar um perfil de pontuação](http://msdn.microsoft.com/library/azure/dn798928.aspx) para saber mais. 
 > 
 > 
 
-## Navegação facetada
+## <a name="faceted-navigation"></a>Navegação facetada
 A navegação de pesquisa é comum em uma página de resultados, e normalmente fica na lateral ou na parte superior de uma página. Na Pesquisa do Azure, a navegação facetada proporciona uma pesquisa autodirecionada com base em filtros predefinidos. Confira [Navegação facetada na Pesquisa do Azure](search-faceted-navigation.md) para mais detalhes.
 
-## Filtros no nível da página
-Se o design da solução incluir páginas de pesquisa dedicada para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online com os departamentos relacionados na parte superior da página), você poderá inserir uma expressão de filtro, junto com um evento **onClick**, para abrir uma página em um estado pré-filtrado.
+## <a name="filters-at-the-page-level"></a>Filtros no nível da página
+Se o design da solução incluir páginas de pesquisa dedicada para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online com os departamentos relacionados na parte superior da página), você poderá inserir uma expressão de filtro, junto com um evento **onClick** , para abrir uma página em um estado pré-filtrado. 
 
 Você pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, a seguinte solicitação filtrará o nome da marca, retornando somente os documentos que correspondem a ele.
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Confira [Pesquisar Documentos (API de Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para saber mais sobre `$filter` expressões.
+Confira [Pesquisar Documentos (API de Pesquisa do Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para saber mais sobre expressões `$filter`.
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
 * [API REST do Serviço de Pesquisa do Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
 * [Operações de índice](http://msdn.microsoft.com/library/azure/dn798918.aspx)
 * [Operações de documento.](http://msdn.microsoft.com/library/azure/dn800962.aspx)
@@ -110,6 +114,10 @@ Confira [Pesquisar Documentos (API de Pesquisa do Azure)](http://msdn.microsoft.
 [2]: ./media/search-pagination-page-layout/Pages-2-Tiled.PNG
 [3]: ./media/search-pagination-page-layout/Pages-3-SortBy.png
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
-[5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
+[5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

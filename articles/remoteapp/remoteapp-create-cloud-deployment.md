@@ -3,7 +3,7 @@ title: "Como criar uma coleção na nuvem do Azure RemoteApp | Microsoft Docs"
 description: "Saiba como criar uma implantação de nuvem do RemoteApp do Azure que salva dados na nuvem do Azure."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: 4d7c6956-7e4a-4a41-b7f2-7e5832bf01e3
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 21d6cabf44d2a2b63b158f1ebd567cc8945e0333
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 59619d78959f9fcc3144a30af883021a8f5f3044
 
 
 ---
@@ -94,7 +94,7 @@ Agora que você criou sua coleção, precisa adicionar os usuários que você qu
    
    **Observações:** 
    
-   Use o formato “user@domain.com”.
+   Lembre-se de usar o formato *user@domain.com*.
    
    Se você estiver usando o Office 365 ProPlus em sua coleção, você deve usar as identidades do Active Directory para os usuários. Isso ajuda a validar o licenciamento. 
 3. Depois que os usuários são validados, clique em **Salvar**.
@@ -108,6 +108,6 @@ Você sabia que, além de classificar este artigo e fazer comentários, você po
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

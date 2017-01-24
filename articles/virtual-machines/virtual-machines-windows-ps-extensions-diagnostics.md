@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 79728621afcf1cfc744499160c07130eb4555d7f
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 8c4bc48c6ddb9bc03198f0f6c630b05d987a4b43
 
 
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Usar o PowerShell para habilitar o Diagnóstico do Azure em uma máquina virtual que executa o Windows
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-O Diagnóstico do Azure é a capacidade do Azure que habilita a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico para coletar dados de diagnóstico como logs de aplicativo ou contadores de desempenho de uma máquina virtual (VM) do Azure que executa o Windows. Este artigo descreve como usar o Windows PowerShell para habilitar a extensão de diagnóstico para uma VM. Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para os pré-requisitos necessários para este artigo.
+O Diagnóstico do Azure é a capacidade do Azure que habilita a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico para coletar dados de diagnóstico como logs de aplicativo ou contadores de desempenho de uma máquina virtual (VM) do Azure que executa o Windows. Este artigo descreve como usar o Windows PowerShell para habilitar a extensão de diagnóstico para uma VM. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para os pré-requisitos necessários para este artigo.
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Habilitar a extensão de diagnóstico se você usar o modelo de implantação do Gerenciador de Recursos
 Você pode habilitar a extensão de diagnóstico enquanto cria uma VM do Windows por meio do modelo de implantação do Gerenciador de Recursos do Azure adicionando a configuração da extensão ao modelo do Gerenciador de Recursos. Consulte [Criar uma máquina virtual do Windows com monitoramento e diagnóstico usando o modelo do Azure Resource Manager](virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -201,6 +201,6 @@ A configuração precisa ser atualizada para incluir o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

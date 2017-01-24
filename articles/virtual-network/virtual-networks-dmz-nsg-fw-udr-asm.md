@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 649984be9aee5253dcd1f3ed3be31795212aa3ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 24d6a25e872eabb7d64d57d5ee66969401e4f1cd
 
 
 ---
-# <a name="example-3-build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemplo 3 - Criar uma rede de perímetro para proteger as redes com um Firewall, um UDR e um NSG
-[Voltar à página Práticas recomendadas de limite de segurança][INÍCIO]
+# <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemplo 3 - Criar uma rede de perímetro para proteger as redes com um Firewall, um UDR e um NSG
+[Voltar à página Práticas recomendadas de limite de segurança][HOME]
 
 Este exemplo criará uma rede de perímetro com um firewall, quatro servidores Windows, Roteamento Definido pelo Usuário, Reencaminhamento IP e Grupos de Segurança de Rede. Ele também orientará você em cada um dos comandos relevantes para fornecer um entendimento mais profundo de cada etapa. Também há uma seção Cenário de Tráfego para fornecer um passo a passo detalhado sobre como o tráfego passa pelas camadas de defesa da rede de perímetro. Por fim, na seção de referências, há o código e as instruções completas para criar este ambiente para testar e experimentar diversos cenários. 
 
@@ -958,34 +958,34 @@ Salve esse arquivo xml com localização atualizada e adicione o link a esse arq
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicativo de exemplo
-Se você desejar instalar um aplicativo de exemplo para esse e outros de DMZ, um deles foi fornecido no seguinte link: [Script de exemplo de aplicativo][SampleApp]
+Se você desejar instalar um aplicativo de exemplo para esse e outros Exemplos de DMZ, um deles foi fornecido no seguinte link: [Script de aplicativo de exemplo][SampleApp]
 
 <!--Image References-->
-[1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "Rede de perímetro bidirecional com NVA, NSG e UDR"
+[1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "DMZ bidirecional com NVA, NSG e UDR"
 [2]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3firewalllogical.png "Exibição lógica das regras de firewall"
 [3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "Criar um objeto de rede de front-end"
 [4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectdns.png "Criar um objeto de servidor DNS"
-[5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "Cópia de regra RDP padrão"
-[6]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpb.png "Regra AppVM01"
+[5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "Cópia da regra RDP padrão"
+[6]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpb.png "Regra de AppVM01"
 [7]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconapplicationredirect.png "Ícone de redirecionamento do aplicativo"
 [8]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/icondestinationnat.png "Ícone de NAT de destino"
-[9]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconpass.png "Ícone de passar"
+[9]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconpass.png "Ícone de passagem"
 [10]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulefirewall.png "Regra de Gerenciamento de Firewall"
 [11]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulerdp.png "Regra RDP do firewall"
 [12]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleweb.png "Regra Web do firewall"
-[13]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleappvm01.png "Regra da AppVM01 do firewall"
+[13]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleappvm01.png "Regra de AppVM01 do firewall"
 [14]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleoutbound.png "Regra de saída do firewall"
-[15]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledns.png "Regra DNS do firewall"
+[15]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledns.png "Regra de DNS do firewall"
 [16]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruleintravnet.png "Regra entre VNets do firewall"
 [17]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/ruledeny.png "Regra Negar do firewall"
 [18]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/firewallruleactivate.png "Ativação de regra de firewall"
 
 <!--Link References-->
-[INÍCIO]: ../best-practices-network-security.md
+[HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

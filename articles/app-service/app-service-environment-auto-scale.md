@@ -1,34 +1,38 @@
 ---
-title: Dimensionamento automático e Ambiente do Serviço de Aplicativo | Microsoft Docs
-description: Dimensionamento automático e Ambiente de Serviço de Aplicativo
+title: "Dimensionamento automático e Ambiente do Serviço de Aplicativo | Microsoft Docs"
+description: "Dimensionamento automático e Ambiente de Serviço de Aplicativo"
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: btardif
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2016
+ms.date: 10/24/2016
 ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 41ad9eb4d248b1f3e6c888c3037b121511799193
+
 
 ---
-# Dimensionamento automático e Ambiente de Serviço de Aplicativo
+# <a name="autoscaling-and-app-service-environment"></a>Dimensionamento automático e Ambiente de Serviço de Aplicativo
 Os ambientes de Serviço de Aplicativo do Azure dão suporte ao *dimensionamento automático*. Você pode dimensionar automaticamente pools de trabalho individuais com base em métricas ou na agenda.
 
 ![Opções de dimensionamento automático para um pool de trabalho.][intro]
 
 O dimensionamento automático otimiza a utilização de recursos, escalar e reduzir verticalmente um ambiente de Serviço de Aplicativo de forma automática para ajustar seu orçamento e/ou perfil de carregamento.
 
-## Configurar o dimensionamento automático de pool de trabalho
+## <a name="configure-worker-pool-autoscale"></a>Configurar o dimensionamento automático de pool de trabalho
 Você pode acessar a funcionalidade de dimensionamento automático na guia **Configurações** do pool de trabalho.
 
 ![Guia de configurações do pool de trabalho.][settings-scale]
 
-A partir daí, a interface deve ser bastante familiar, já que é a mesma experiência que você vê quando dimensiona um plano do Serviço de Aplicativo. Você pode inserir manualmente um valor de escala.
+A partir daí, a interface deve ser bastante familiar, já que é a mesma experiência que você vê quando dimensiona um Plano do Serviço de Aplicativo. 
 
 ![Configurações manuais de escala.][scale-manual]
 
@@ -44,26 +48,26 @@ Depois de definir um perfil, você pode adicionar regras de dimensionamento auto
 
 ![Regra de escala.][scale-rule]
 
- Qualquer métrica de pool de trabalho ou de front-end pode ser usada para definir regras de dimensionamento automático. Essas são as mesmas métricas que você pode monitorar nos gráficos de folha de recursos e para as quais pode definir alertas.
+ Qualquer métrica de pool de trabalho ou de front-end pode ser usada para definir regras de dimensionamento automático. Essas métricas são as mesmas que você pode monitorar nos gráficos de folha de recursos e para as quais pode definir alertas.
 
-## Exemplo de dimensionamento automático
+## <a name="autoscale-example"></a>Exemplo de dimensionamento automático
 O dimensionamento automático de um ambiente de Serviço de Aplicativo pode ser melhor ilustrado examinando um cenário.
 
-Este artigo explica todas as considerações necessárias quando você configura o dimensionamento automático e todas as interações que entram em jogo quando você fatora em ambientes de Serviço de Aplicativo de dimensionamento automático hospedados no Ambiente de Serviço de Aplicativo.
+Este artigo explica todas as considerações necessárias ao configurar o dimensionamento automático. Este artigo aborda as interações que entram em jogo quando você fatora em ambientes de Serviço de Aplicativo de dimensionamento automático hospedados no Ambiente de Serviço de Aplicativo.
 
-### Introdução ao cenário
+### <a name="scenario-introduction"></a>Introdução ao cenário
 Matheus é um SysAdmin de uma empresa que migrou uma parte das cargas de trabalho que ele gerencia para um ambiente de Serviço de Aplicativo.
 
 O ambiente do Serviço de Aplicativo está configurado para a escala manual da seguinte maneira:
 
 * **Front-ends:** 3
 * **Pool de trabalho 1**: 10
-* **Pool de trabalho 2:** 5
-* **Pool de trabalho 3:** 5
+* **Pool de trabalho 2:**5
+* **Pool de trabalho 3:**5
 
 O pool de trabalho 1 é usado para cargas de trabalho de produção, embora o pool de trabalho 2 e o pool de trabalho 3 sejam usados para garantia de qualidade (QA) e cargas de trabalho de desenvolvimento.
 
-Os planos do Serviço de Aplicativo para QA e desenvolvimento são configurados para escala manual, mas o plano do Serviço de Aplicativo de produção é definido como dimensionamento automático para lidar com variações na carga e tráfego.
+Os Planos do Serviço de Aplicativo para controle de qualidade e desenvolvimento são configurados para escala manual. O Plano do Serviço de Aplicativo de produção é definido para dimensionamento automático para lidar com variações de carga e tráfego.
 
 Matheus está familiarizado com o aplicativo. Ele sabe que as horas de pico de carga ocorrem entre 9:00 e 18:00, porque este é um aplicativo de linha de negócios (LOB) que os funcionários usam enquanto estão no escritório. O uso é reduzido depois disso, quando os usuários param de trabalhar naquele dia. Fora do horário de pico, ainda há alguma carga porque os usuários podem acessar o aplicativo remotamente, usando seus dispositivos móveis ou computadores domésticos. O plano do Serviço de Aplicativo de produção já está configurado para dimensionamento automático com base no uso de CPU com as seguintes regras:
 
@@ -98,8 +102,8 @@ Matheus está familiarizado com o aplicativo. Ele sabe que as horas de pico de c
 | **Ação:** Reduzir a contagem em 1 |**Ação:** Reduzir a contagem em 1 |
 | **Tempo de resfriamento (minutos):** 20 |**Tempo de resfriamento (minutos):** 10 |
 
-### Taxa de inflação do plano do Serviço de Aplicativo
-Os planos do Serviço de Aplicativo configurados para dimensionamento automático escalam ou reduzem a uma taxa máxima por hora. Essa taxa pode ser calculada com base nos valores fornecidos na regra de dimensionamento automático.
+### <a name="app-service-plan-inflation-rate"></a>Taxa de inflação do plano do Serviço de Aplicativo
+Os planos do Serviço de Aplicativo configurados para dimensionamento automático o fazem a uma taxa máxima por hora. Essa taxa pode ser calculada com base nos valores fornecidos na regra de dimensionamento automático.
 
 Compreender e calcular a *taxa de inflação do plano do Serviço de Aplicativo* é importante para o dimensionamento automático do ambiente de Serviço de Aplicativo, já que as alterações de escala em um pool de trabalho não são instantâneas.
 
@@ -107,7 +111,7 @@ A taxa de inflação do plano do Serviço de Aplicativo é calculada da seguinte
 
 ![Cálculo da taxa de inflação do plano do Serviço de Aplicativo.][ASP-Inflation]
 
-Com base na regra Dimensionamento automático - Escalar verticalmente do perfil dia da semana perfil do plano do Serviço de Aplicativo de produção, seria semelhante ao seguinte:
+Com base na regra Dimensionamento automático – Escalar verticalmente para o perfil de Dia da semana do Plano do Serviço de Aplicativo de produção:
 
 ![Taxa de inflação de plano do Serviço de Aplicativo para dias da semana com base em Dimensionamento automático – regra Escalar Verticalmente.][Equation1]
 
@@ -121,18 +125,18 @@ Com base na regra Dimensionamento automático - Reduzir verticalmente do perfil 
 
 ![Taxa de inflação de plano do Serviço de Aplicativo para dias da semana com base em Dimensionamento automático – regra Reduzir Verticalmente.][Equation3]
 
-No caso da regra Dimensionamento automático - Reduzir verticalmente do perfil Finais de semana do plano do Serviço de Aplicativo de produção, a fórmula resolveria para:
+No caso da regra Dimensionamento automático - Reduzir verticalmente do perfil Finais de semana do plano do Serviço de Aplicativo de produção, a fórmula resolveria para:  
 
 ![Taxa de inflação de plano do Serviço de Aplicativo para fins de semana com base em Dimensionamento automático – regra Reduzir Verticalmente.][Equation4]
 
-Isso significa que o plano do Serviço de Aplicativo pode crescer em uma taxa máxima de oito instâncias por hora durante a semana e quatro instâncias por hora durante o fim de semana. E ele pode liberar instâncias em uma taxa máxima de quatro instâncias por hora durante a semana e seis instâncias por hora durante os finais de semana.
+O Plano do Serviço de Aplicativo de produção pode crescer em uma taxa máxima de oito instâncias/hora durante a semana e quatro instâncias/hora durante o fim de semana. Ele pode liberar instâncias em uma taxa máxima de quatro instâncias/hora durante a semana e seis instâncias/hora durante os finais de semana.
 
 Se vários planos do Serviço de Aplicativo estiverem sendo hospedados em um pool de trabalho, você precisará calcular a *taxa total de inflação* como a soma da taxa de inflação de todos os planos do Serviço de Aplicativo hospedados nesse pool de trabalho.
 
 ![Cálculo da taxa total de inflação para vários planos do Serviço de Aplicativo hospedados em um pool de trabalho.][ASP-Total-Inflation]
 
-### Usar a taxa de inflação do plano do Serviço de Aplicativo para definir regras de dimensionamento automático do pool de trabalho
-Os pools de trabalho que hospedam planos do Serviço de Aplicativo configurados para o dimensionamento automático precisarão receber um buffer de capacidade. O buffer permite que as operações de dimensionamento automático aumentem ou reduzam o plano do Serviço de Aplicativo, conforme necessário. O buffer mínimo seria a Taxa de Inflação Total do Plano do Serviço de Aplicativo calculada.
+### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Usar a taxa de inflação do plano do Serviço de Aplicativo para definir regras de dimensionamento automático do pool de trabalho
+Os pools de trabalho que hospedam Planos do Serviço de Aplicativo configurados para o dimensionamento automático precisam ter um buffer de capacidade alocado. O buffer permite que as operações de dimensionamento automático aumentem ou reduzam o plano do Serviço de Aplicativo, conforme necessário. O buffer mínimo seria a Taxa de Inflação Total do Plano do Serviço de Aplicativo calculada.
 
 Como as operações de dimensionamento do ambiente de Serviço de Aplicativo demoram algum tempo para serem aplicadas, qualquer alteração deve levar em consideração outras alterações sob demanda que poderiam acontecer enquanto uma operação de escala está em andamento. Para acomodar essa latência, recomendamos que você use a Taxa de Inflação do Plano do Serviço de Aplicativo Total como o número mínimo de instâncias adicionadas para cada operação de dimensionamento automático.
 
@@ -177,10 +181,11 @@ A contagem de Aumento das regras de escala vertical deve ser definida como, pelo
 
 A contagem de redução pode ser ajustada para algo entre 1/2x ou 1x a taxa de inflação do plano do Serviço de Aplicativo para reduzir verticalmente.
 
-### Dimensionamento automático para o pool de front-end
-As regras de dimensionamento automático de front-end são mais simples para pools de trabalho. Basicamente, verifique se a duração da medição e se os temporizadores de resfriamento considerem que as operações de escala em um plano do Serviço de Aplicativo não sejam instantâneas.
+### <a name="autoscale-for-front-end-pool"></a>Dimensionamento automático para o pool de front-end
+As regras de dimensionamento automático de front-end são mais simples para pools de trabalho. Basicamente, você deve  
+verifique se a duração da medição e se os temporizadores de resfriamento consideram que as operações de escala em um Plano do Serviço de Aplicativo não são instantâneas.
 
-Para este cenário, Matheus sabe que a taxa de erro aumenta depois que os front-ends atingem 80% de utilização da CPU. Para evitar isso, ele define a regra de dimensionamento automático para aumentar o número de instâncias da seguinte maneira:
+Para este cenário, Frank sabe que a taxa de erro aumenta depois que os front-ends alcançam 80% de utilização de CPU e define a regra de dimensionamento automático para aumentar o número de instâncias da seguinte maneira:
 
 ![Configurações de dimensionamento automático para o pool de front-end.][Front-End-Scale]
 
@@ -230,4 +235,8 @@ Para este cenário, Matheus sabe que a taxa de erro aumenta depois que os front-
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

@@ -8,8 +8,8 @@ author: sacha
 manager: jobruno
 editor: 
 translationtype: Human Translation
-ms.sourcegitcommit: ccbcf15eaf9b13625338ea1d66554eae7dc7d2eb
-ms.openlocfilehash: 0d010bb21d807239da37172bc2885ddadc5c8028
+ms.sourcegitcommit: 1f44321bc0ec33362c64da9a19d3309c45783ed2
+ms.openlocfilehash: fb38649d6f40e24849ba5a8de371b1c911089fc7
 
 ---
 
@@ -40,7 +40,7 @@ Você pode conectar VMs do Azure ao OMS diretamente por meio do Portal. Instruç
 Você também pode conectá-los por meio de programação e/ou configurar a extensão do OMS diretamente em seus modelos do Azure Resource Manager. Instruções para computador com base no Windows [aqui](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) e com base no Linux [aqui](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents).
 
 ## <a name="onboarding-storage-accounts-and-scom-to-oms"></a>Integrar contas de armazenamento e SCOM ao OMS
-O OMS também pode se conectar à sua conta de armazenamento e/ou implantações existentes do SCOM 2013 a fim de oferecer a você o gerenciamento de operações em cenários híbridos (entre provedores na nuvem ou em infraestruturas de nuvem/locais).
+O OMS também pode se conectar à sua conta de armazenamento e/ou implantações existentes do System Center Operations Manager a fim de oferecer a você o gerenciamento de operações em cenários híbridos (entre provedores na nuvem ou em infraestruturas de nuvem/locais).
 
 ![Figura 2: Conexão do Armazenamento do Azure e o SCOM ao OMS](./media/documentation-government-oms-figure2.png)
 <p align="center">Figura 2: Conexão do Armazenamento do Azure e o SCOM ao OMS</p>
@@ -105,6 +105,6 @@ Para saber mais sobre o OMS, veja nossa página de documentação: [https://azur
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

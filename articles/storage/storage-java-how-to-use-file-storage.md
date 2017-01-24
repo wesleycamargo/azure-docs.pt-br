@@ -23,7 +23,7 @@ ms.openlocfilehash: 60d4bcafa51a6eedea06901a0557d13b4e85ec7a
 # <a name="how-to-use-file-storage-from-java"></a>Como usar o Armazenamento de Arquivo no Java
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="overview"></a>Visão geral
 Neste guia você aprenderá a executar operações básicas no serviço de armazenamento de arquivos do Microsoft Azure. Por meio de exemplos escritos em Java, você aprenderá a criar compartilhamentos e diretórios, carregar, listar e excluir arquivos. Se você for novo no serviço de armazenamento de arquivos do Microsoft Azure, será muito útil percorrer os conceitos das seções a seguir para compreender os exemplos.

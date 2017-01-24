@@ -12,21 +12,22 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
+ms.date: 11/22/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2a3f912b9c3532c41219c68a948acea8416624a
+ms.sourcegitcommit: a40453394f0178f41e6ebf2ad47950763f1dde93
+ms.openlocfilehash: 330770854cdd0431d4b4c34760ef92b114751c9c
 
 
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Habilitar a Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell
 > [!div class="op_single_selector"]
+> * [Portal do Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [Portal clássico do Azure](cloud-services-role-enable-remote-desktop.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
-> 
-> 
+>
+>
 
 A área de trabalho remota permite que você acesse a área de trabalho de uma função em execução no Azure. Você pode usar a conexão da área de trabalho remota para solucionar e diagnosticar problemas com seu aplicativo durante a execução.
 
@@ -53,8 +54,8 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 
 > [!IMPORTANT]
 > Ao definir a senha, atenda aos [requisitos de complexidade](https://technet.microsoft.com/library/cc786468.aspx).
-> 
-> 
+>
+>
 
 Para criar o objeto de credencial com base no arquivo de senha segura, você deve ler os conteúdos do arquivo e convertê-los novamente em uma cadeia de caracteres segura, usando [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
@@ -100,17 +101,16 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 > [!NOTE]
 > Para remover completamente a configuração de extensão, você deve chamar o cmdlet *remove* com o parâmetro **UninstallConfiguration** .
-> 
+>
 > O parâmetro **UninstallConfiguration** desinstala qualquer configuração de extensão aplicada ao serviço. Todas as configurações de extensão estão associadas à configuração do serviço. Chamar o cmdlet *remove* sem **UninstallConfiguration** dissocia a <mark>implantação</mark> da configuração de extensão, removendo assim efetivamente a extensão. No entanto, a configuração de extensão permanece associada ao serviço.
-> 
-> 
+>
+>
 
 ## <a name="additional-resources"></a>Recursos adicionais
 [Como configurar serviços de nuvem](cloud-services-how-to-configure.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

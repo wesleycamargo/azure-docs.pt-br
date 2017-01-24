@@ -4,7 +4,7 @@ description: "Saiba como resolver problemas quando seu cartão de crédito ou d�
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: mbaldwin
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 keywords: "cartão de crédito recusado, cartão de débito recusado, seu cartão de crédito foi recusado, não aceita o cartão de crédito"

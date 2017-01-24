@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: bc36f38c0089940e8f4f53a0abb13d9bb756eb1e
+ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
+ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
 
 
 ---
@@ -104,11 +104,10 @@ Neste tutorial de introdução, você aprenderá a usar o portal do Azure para:
 
 * Você concluiu a [Introdução aos servidores do Banco de Dados SQL do Azure, bancos de dados e regras de firewall usando o portal do Azure e o SQL Server Management Studio](sql-database-get-started.md) ou a versão equivalente do [PowerShell](sql-database-get-started-powershell.md) deste tutorial. Do contrário, conclua este tutorial de pré-requisito ou execute o script do PowerShell no final da [versão do PowerShell](sql-database-get-started-powershell.md) deste tutorial antes de continuar.
 
-<!------------------
+
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
--------------------->
+> Você pode executar as mesmas tarefas em um tutorial guia de Introdução usando o [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+
 
 ## <a name="sign-in-by-using-your-existing-account"></a>Entrar usando sua conta existente
 Usando a [assinatura existente](https://account.windowsazure.com/Home/Index), siga estas etapas para se conectar ao portal do Azure.
@@ -179,6 +178,11 @@ Nesta seção do tutorial, você restaura o banco de dados para um novo banco de
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Configurar a retenção de longo prazo dos backups automatizados em um cofre dos Serviços de Recuperação do Azure 
 
 Nesta seção do tutorial, você [configura um cofre dos Serviços de Recuperação do Azure para manter os backups automatizados](sql-database-long-term-retention.md) por um período maior que o período de retenção da camada de serviços. 
+
+
+> [!TIP]
+> Para excluir backups, veja [Excluir backups de retenção de longo prazo](sql-database-long-term-retention-delete.md).
+
 
 1. Abra a folha **SQL Server** de seu servidor, **sqldbtutorialserver**.
 
@@ -299,12 +303,12 @@ Nesta seção do tutorial, você restaura o banco de dados para um novo banco de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre os backups automáticos gerados pelo serviço, consulte [backups automáticos](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD)
+- Para saber mais sobre backups automáticos gerados pelo serviço, veja [backups automáticos](sql-database-automated-backups.md)
 - Para saber mais sobre a retenção de backup de longo prazo, consulte [retenção de backup de longo prazo](sql-database-long-term-retention.md)
 - Para saber mais sobre a restauração a partir de backups, consulte [restaurar a partir do backup](sql-database-recovery-using-backups.md)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

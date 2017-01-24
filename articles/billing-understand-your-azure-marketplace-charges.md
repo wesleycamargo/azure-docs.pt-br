@@ -4,7 +4,7 @@ description: "Saiba mais sobre a cobrança de serviços externos, anteriormente 
 services: 
 documentationcenter: 
 author: adpick
-manager: felixwu
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: 5e0e2a3c-d111-4054-8508-0c111c1b749b

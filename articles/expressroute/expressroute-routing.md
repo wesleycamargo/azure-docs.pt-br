@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/12/2016
+ms.date: 01/03/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 6adb1dd25c24b18b834dd921c2586ef29d56dc81
-ms.openlocfilehash: e04763fa711eed4c699f2bc3f20834849dfe52e0
+ms.sourcegitcommit: 4f67c67639eaf33bb1f2aa236164e98030f5b555
+ms.openlocfilehash: c76471f4c0f4e1b751d623f691578d354008d863
 
 
 ---
@@ -126,9 +126,7 @@ Por exemplo, se você estiver conectado à Microsoft em Amsterdã por meio da Ro
 
 Consulte a página [Locais de emparelhamento e parceiros da Rota Expressa](expressroute-locations.md) para obter uma lista detalhada das regiões geopolíticas, regiões associadas do Azure e locais de emparelhamento correspondentes da Rota Expressa.
 
-Você pode adquirir mais de um circuito da Rota Expressa por região geopolítica. Ter várias conexões oferece vantagens significativas para a alta disponibilidade devido à redundância geográfica. Em casos em que há vários circuitos da Rota Expressa, você recebe o mesmo conjunto de prefixos anunciados da Microsoft nos caminhos de emparelhamento público e da Microsoft. Isso significa que você terá vários caminhos de sua rede até a Microsoft. Potencialmente, isso pode fazer com que decisões de roteamento não ideais sejam tomadas em sua rede. Como resultado, você pode ter experiências de conectividade não ideal para diferentes serviços. 
-
-A Microsoft marcará prefixos anunciados por meio do emparelhamento público e do emparelhamento da Microsoft com valores de comunidade BGP apropriados indicando a região em que os prefixos estão hospedados. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o [roteamento ideal aos clientes](expressroute-optimize-routing.md).
+Você pode adquirir mais de um circuito da Rota Expressa por região geopolítica. Ter várias conexões oferece vantagens significativas para a alta disponibilidade devido à redundância geográfica. Em casos em que há vários circuitos da Rota Expressa, você recebe o mesmo conjunto de prefixos anunciados da Microsoft nos caminhos de emparelhamento público e da Microsoft. Isso significa que você terá vários caminhos de sua rede até a Microsoft. Potencialmente, isso pode fazer com que decisões de roteamento não ideais sejam tomadas em sua rede. Como resultado, você pode ter experiências de conectividade não ideal para diferentes serviços. Você pode contar com os valores de comunidade para tomar decisões de roteamento apropriadas e oferecer o [roteamento ideal aos clientes](expressroute-optimize-routing.md).
 
 | **Região do Microsoft Azure** | **Valor de comunidade BGP** |
 | --- | --- |
@@ -214,6 +212,6 @@ Além disso, a Microsoft também marcará prefixos com base no serviço ao qual 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

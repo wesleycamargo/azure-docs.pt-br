@@ -6,18 +6,18 @@ documentationcenter:
 author: mgoedtel
 manager: jwhit
 editor: 
-keywords: "nome principal do serviço, setspn, autenticação do azure"
+keywords: "nome de entidade do serviço, setspn, autenticação do azure"
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e7529de2968b2745b42001cc16b54d70b2a5b86
+ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
+ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
 
 
 ---
@@ -54,7 +54,7 @@ Antes de fazermos isso, há algumas coisas que você deve entender e considerar 
 Nesta seção, você executará as etapas a seguir para criar uma nova conta de Automação do Azure no portal do Azure.  Isso cria a conta Executar como e a conta Executar como clássica.  
 
 > [!NOTE]
-> O usuário que estiver executando estas etapas *deve* ser um membro da função de Administradores de Assinatura e o coadministrador da assinatura que está concedendo acesso à assinatura para o usuário.  O usuário também deve ser adicionado como um Usuário ao Active Directory padrão dessas assinaturas; a conta não precisa ser atribuída a uma função com privilégios.
+> O usuário que estiver executando estas etapas deve ser um membro da função Administradores de Serviço ou coadministrador da assinatura que está concedendo acesso à assinatura para o usuário. O usuário também deve ser adicionado como um Usuário ao Active Directory padrão dessas assinaturas; a conta não precisa ser atribuída a uma função com privilégios. Os usuários que não fazem parte do Active Directory da Assinatura, antes de serem adicionados à função Coadministrador da assinatura, serão adicionados ao Active Directory como Convidados e você verá "Você não tem permissões para criar..." aviso na folha **Adicionar Conta de Automação**. Os usuários adicionados à função de coadministrador primeiro podem ser removidos das assinaturas do Active Directory e adicionados novamente para torná-los Usuários completos no Active Directory. Essa situação pode ser verificada no painel **Azure Active Directory** no portal do Azure, selecionando **Usuários e grupos**, selecione **Todos os usuários** e depois de selecionar o usuário específico, selecione **Perfil**.  O valor do atributo **Tipo de usuário** sob o perfil de usuários não deve ser igual a **Convidado**.  
 > 
 > 
 
@@ -137,7 +137,7 @@ Antes de prosseguir, verifique o seguinte:
 
 1. Você baixou e instalou o [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) se estiver executando o Windows 7.   
     Se você estiver executando o Windows Server 2012 R2, o Windows Server 2012, o Windows 2008 R2, o Windows 8.1 e o Windows 7 SP1, o [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) estará disponível para instalação.
-2. Azure PowerShell 1.0. Para saber mais sobre esta versão e como instalá-la, veja [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+2. Azure PowerShell 1.0. Para saber mais sobre esta versão e como instalá-la, veja [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 3. Você criou uma conta de automação.  Essa conta será mencionada como o valor para os parâmetros –AutomationAccountName e -ApplicationDisplayName nos scripts abaixo.
 
 Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccountName*, que são os parâmetros obrigatórios para os scripts, no portal do Azure, selecione sua conta de Automação na folha **Conta de automação** e selecione **Todas as configurações**.  Na folha **Todas as configurações**, em **Configurações de Conta**, selecione **Propriedades**.  Na folha **Propriedades**, você pode observar esses valores.<br> ![Propriedades da Conta de Automação](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
@@ -394,6 +394,6 @@ Você pode usar o código de exemplo atualizado abaixo, obtido do runbook **Azur
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

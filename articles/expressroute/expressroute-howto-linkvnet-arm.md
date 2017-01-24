@@ -1,13 +1,13 @@
 ---
-title: Vincular uma rede virtual a um circuito de Rota Expressa usando o PowerShell | Microsoft Docs
-description: Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de Rota Expressa usando o modelo de implantação do Gerenciador de Recursos e do PowerShell.
+title: Vincular uma rede virtual a um circuito do ExpressRoute usando o PowerShell | Microsoft Docs
+description: "Este documento fornece uma visão geral de como vincular as redes virtuais (VNets) aos circuitos de Rota Expressa usando o modelo de implantação do Gerenciador de Recursos e do PowerShell."
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: daacb6e5-705a-456f-9a03-c4fc3f8c1f7e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: ba71cabd6b9ed88813c65c4ce82e5809606699b9
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Vincular uma rede virtual a um circuito de Rota Expressa
@@ -32,7 +36,7 @@ Este artigo o ajudará a vincular as redes virtuais (VNets) aos circuitos de Rot
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos de configuração
-* Você precisará da versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0). Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
+* Você precisará da versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0). Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell.
 * Leia os [pré-requisitos](expressroute-prerequisites.md), os [requisitos de roteamento](expressroute-routing.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 * Você deve ter um circuito da Rota Expressa ativo. 
   * Siga as instruções para [criar um circuito da Rota Expressa](expressroute-howto-circuit-arm.md) e para que o circuito seja habilitado pelo provedor de conectividade. 
@@ -69,7 +73,9 @@ O *proprietário do circuito* é um usuário avançado autorizado do recurso de 
 O *proprietário do circuito* tem a capacidade de modificar e revogar autorizações a qualquer momento. Revogar uma autorização faz com que todas as conexões de links sejam excluídas da assinatura cujo acesso foi revogado.
 
 ### <a name="circuit-owner-operations"></a>Operações do proprietário do circuito
-#### <a name="creating-an-authorization"></a>Criando uma autorização
+
+**Criando uma autorização**
+
 O proprietário do circuito cria uma autorização. Isso resulta na criação de uma chave de autorização que pode ser usada por um usuário do circuito para conectar seus gateways de rede virtual ao circuito da Rota Expressa. Uma autorização é válida apenas para uma conexão.
 
 O seguinte trecho de cmdlet mostra como criar uma autorização:
@@ -93,14 +99,16 @@ A resposta para isso conterá a chave de autorização e o status:
 
 
 
-#### <a name="reviewing-authorizations"></a>Examinando autorizações
+**Revisando autorizações**
+
 O proprietário do circuito pode examinar todas as autorizações emitidas em um circuito específico executando o seguinte cmdlet:
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### <a name="adding-authorizations"></a>Adicionando autorizações
+**Adicionando autorizações**
+
 O proprietário do circuito pode adicionar autorizações usando o cmdlet a seguir.
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
@@ -111,32 +119,39 @@ O proprietário do circuito pode adicionar autorizações usando o cmdlet a segu
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### <a name="deleting-authorizations"></a>Excluindo autorizações
+**Excluindo autorizações**
+
 O proprietário do circuito pode revogar/excluir autorizações usando o seguinte cmdlet:
 
     Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit    
 
-### <a name="circuit-user-operations"></a>Operações do usuário do circuito
+**Operações de usuário do circuito**
+
 O usuário do circuito precisa da ID do par e de uma chave de autorização do proprietário do circuito. A chave de autorização é um GUID.
 
 A ID de Par pode ser verificada com o seguinte comando.
 
     Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
-#### <a name="redeeming-connection-authorizations"></a>Resgatando autorizações de conexão
+**Resgatando as autorizações de conexão**
+
 O usuário de circuito pode executar o seguinte cmdlet para resgatar uma autorização de vínculo:
 
-    $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"  
+    $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
     $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
     $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
-#### <a name="releasing-connection-authorizations"></a>Liberando autorizações de conexão
+**Liberando as autorizações da conexão**
+
 É possível liberar uma autorização excluindo a conexão que vincula o circuito da Rota Expressa à rede virtual.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a Rota Expressa, consulte [Perguntas Frequentes sobre Rota Expressa](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

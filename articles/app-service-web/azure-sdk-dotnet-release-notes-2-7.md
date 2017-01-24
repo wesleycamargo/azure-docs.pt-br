@@ -1,13 +1,12 @@
-
 ---
-title: Notas de versão do SDK do Azure para .NET 2.7 e .NET 2.7.1
-description: Notas de versão do SDK do Azure para .NET 2.7 e .NET 2.7.1
+title: "Notas de versão do SDK do Azure para .NET 2.7 e .NET 2.7.1"
+description: "Notas de versão do SDK do Azure para .NET 2.7 e .NET 2.7.1"
 services: app-service\web
 documentationcenter: .net
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 877d070a-9bd5-49b3-8fac-6bb5f65c3554
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -15,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 877fb34d2fe5d4b85157a8338e180358d2226ef1
+
 
 ---
-# <a name="azure-sdk-for-.net-2.7-and-.net-2.7.1-release-notes"></a>Notas de versão do SDK do Azure para .NET 2.7 e .NET 2.7.1
+# <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Notas de versão do SDK do Azure para .NET 2.7 e .NET 2.7.1
 ## <a name="overview"></a>Visão geral
 Este documento contém as notas de versão do SDK do Azure para .NET 2.7. 
 
@@ -27,7 +30,7 @@ O SDK 2.7 do Azure tem suporte apenas no Visual Studio 2015 e Visual Studio 2013
 
 Para obter informações detalhadas sobre esta versão, confira a [postagem de anúncio do SDK 2.7 do Azure](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) e a [postagem de anúncio do SDK 2.7.1 do Azure](http://go.microsoft.com/fwlink/?LinkId=623850).
 
-## <a name="azure-sdk-for-.net-2.7"></a>SDK do Azure para .NET 2.7
+## <a name="azure-sdk-for-net-27"></a>SDK do Azure para .NET 2.7
 ### <a name="sign-in-improvements-for-visual-studio-2015"></a>Aprimoramentos de inscrição do Visual Studio 2015
 O SDK 2.7 do Azure para Visual Studio 2015 dá suporte aos novos recursos de gerenciamento de identidade do Visual Studio 2015.  Isso inclui suporte para contas que acessam o Azure por meio do controle de acesso com base em função, provedores de soluções de nuvem, DreamSpark e outros tipos de conta e assinatura.
 
@@ -61,7 +64,7 @@ Nesta versão, as seguintes atualizações foram feitas às extensões de ferram
 #### <a name="known-issues"></a>Problemas conhecidos
 Nós de slot de implantação de aplicativo Web não aparecem sob o nó de Slots no Gerenciador de Servidores, e nós filho de slots de implantação de aplicativo Web não carregaram no Gerenciador de nuvem. Esse problema foi resolvido e preparado para a próxima versão do SDK. 
 
-### <a name="<a-name="cloud_explorer"></a>cloud-explorer-for-visual-studio-2015"></a><a name="cloud_explorer"></a>Gerenciador de nuvem para Visual Studio 2015
+### <a name="a-namecloudexploreracloud-explorer-for-visual-studio-2015"></a><a name="cloud_explorer"></a>Gerenciador de nuvem para Visual Studio 2015
 O SDK 2.7 do Azure inclui o Gerenciador de Nuvem para Visual Studio 2015, que permite exibir os recursos do Azure, inspecionar suas propriedades e executar ações chave do desenvolvedor de dentro do Visual Studio. 
 
 O Gerenciador de Nuvem dá suporte a:
@@ -95,7 +98,7 @@ Introdução às **Ferramentas da Azure Data Factory** para o Visual Studio. Aba
 * **Publicação em vários ambientes**: publique pipelines criados em ambientes de desenvolvimento, teste ou produção criando arquivos de configuração separados para cada ambiente.
 * **Suporte ao processamento de dados com base em Pig, Hive e .Net**: suporte para scripts Pig e Hive no projeto de Data Factory. Suporte para referenciar o Projeto C# para gerenciar atividade do .Net.
 
-## <a name="azure-sdk-for-.net-2.7.1"></a>SDK do Azure para .NET 2.7.1
+## <a name="azure-sdk-for-net-271"></a>SDK do Azure para .NET 2.7.1
 A seção a seguir contém atualizações que foram introduzidas com o SDK do Azure para a versão .NET 2.7.1.
 
 ### <a name="hdinsight-tools"></a>Ferramentas do HDInsight
@@ -135,6 +138,9 @@ Projetos do LightSwitch não são compatíveis com esta versão. Esse problema s
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

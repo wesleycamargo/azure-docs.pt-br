@@ -1,5 +1,5 @@
 ---
-title: "Solução de Problemas e Perguntas sobre o Application Insights"
+title: "Solução de Problemas e Perguntas sobre o Azure Application Insights | Microsoft Docs"
 description: "Há algo no Azure Application Insights que não esteja claro ou não esteja funcionando? Tente aqui."
 services: application-insights
 documentationcenter: .net
@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 0d860856b4c871c2c8e3622597ba3753bf62cf4f
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
 
 
 ---
@@ -36,20 +36,16 @@ ms.openlocfilehash: 0d860856b4c871c2c8e3622597ba3753bf62cf4f
 * [Configurar um servidor Java](app-insights-java-agent.md)
 
 ## <a name="can-i-use-application-insights-with-"></a>É possível usar o Application Insights com...?
-[Consulte Plataformas][plataformas]
+[Consultar Plataformas][platforms]
 
 ## <a name="is-it-free"></a>É gratuito?
-* Sim, se você escolher a [faixa de preços](app-insights-pricing.md)gratuita. Você obtém a maioria dos recursos e uma cota mais ampla de dados.
-* Você deve fornecer os dados de cartão de crédito para se registrar com o Microsoft Azure, mas nenhum encargo será cobrado, a menos que você use outro serviço do Azure pago ou explicitamente atualize para uma faixa cobrada.
-* Se seu aplicativo enviar mais dados do que a cota mensal por camada gratuita, eles deixarão de ser registrados em log. Se isso acontecer, você pode optar por começar a pagar ou aguardar até que a cota seja reiniciada no final do mês.
-* Dados básicos de uso e da sessão não estão sujeitos a uma cota.
-* Há também uma avaliação gratuita de 30 dias, durante a qual você obtém os recursos pagos gratuitamente.
-* Cada recurso de aplicativo tem uma cota separada, e você define sua faixa de preço de modo independente dos outros.
 
-#### <a name="what-do-i-get-if-i-pay"></a>O que obtenho se pagar?
-* Uma maior [cota mensal de dados](https://azure.microsoft.com/pricing/details/application-insights/).
-* Opção de pagamento excedente para continuar coletando dados acima da cota mensal. Se os seus dados ficarem acima da cota, você será cobrado por Mb.
-* [Exportação contínua](app-insights-export-telemetry.md).
+Sim, para uso experimental. No plano de preço padrão, seu aplicativo pode enviar uma determinada margem de dados por mês gratuitamente. A margem gratuita é grande o suficiente para cobrir o desenvolvimento e publicação de um aplicativo para um número reduzido de usuários. Você pode definir um limite para impedir que mais de uma determinada quantidade de dados seja processada.
+
+Você precisa usar o plano Enterprise para obter determinados recursos, como a Exportação Contínua. Ela incorre em um custo diário.
+
+[Leia o plano de preço](https://azure.microsoft.com/pricing/details/application-insights/).
+
 
 ## <a name="a-nameq14awhat-does-application-insights-modify-in-my-project"></a><a name="q14"></a>O que o Application Insights modifica no meu projeto?
 Os detalhes dependem do tipo de projeto. Para um aplicativo Web:
@@ -71,7 +67,7 @@ Os detalhes dependem do tipo de projeto. Para um aplicativo Web:
   
   * Web.config
   * packages.config
-* (Somente novos projetos - se [adicionar o Application Insights a um projeto existente][iniciar], você precisará fazer isso manualmente.) Insere trechos no código do cliente e do servidor para inicializá-los com a ID de recurso do Application Insights. Por exemplo, em um aplicativo MVC, o código é inserido na página mestra Views/Shared/_Layout.cshtml
+* (Somente novos projetos ‑ se você [adicionar o Application Insights a um projeto existente][start], precisará fazer isso manualmente.) Insere trechos no código do cliente e do servidor para inicializá-los com a ID de recurso do Application Insights. Por exemplo, em um aplicativo MVC, o código é inserido na página mestra Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Como atualizar de versões anteriores do SDK?
 Consulte as [notas de versão](app-insights-release-notes.md) para o SDK adequado ao seu tipo de aplicativo.
@@ -80,7 +76,7 @@ Consulte as [notas de versão](app-insights-release-notes.md) para o SDK adequad
 No Gerenciador de Soluções, clique com o botão direito do mouse em `ApplicationInsights.config` e escolha **Atualizar o Application Insights**. Você pode enviar os dados para um recurso novo ou existente no Azure. O assistente de atualização altera a chave de instrumentação em Applicationinsights. config, que por sua vez determina para onde o SDK do servidor envia seus dados. A menos que você desmarque a opção "Atualizar tudo", a chave onde ele aparece em suas páginas da Web também será alterada.
 
 #### <a name="a-namedataahow-long-is-data-retained-in-the-portal-is-it-secure"></a><a name="data"></a>Por quanto tempo os dados são mantidos no portal? É seguro?
-Consulte [Privacidade e Retenção de Dados][dados].
+Veja [Privacidade e Retenção de Dados][data].
 
 ## <a name="logging"></a>Registro em log
 #### <a name="a-namepostahow-do-i-see-post-data-in-diagnostic-search"></a><a name="post"></a>Como eu vejo dados de POST na pesquisa de Diagnóstico?
@@ -88,7 +84,7 @@ Nós não registramos dados de POST automaticamente, mas você pode usar uma cha
 
 ## <a name="security"></a>Segurança
 #### <a name="is-my-data-secure-in-the-portal-how-long-is-it-retained"></a>Meus dados estão seguros no portal? Por quanto tempo eles estão retidos?
-Consulte [Privacidade e retenção de dados][dados].
+Consulte [Privacidade e Retenção de Dados][data].
 
 ## <a name="a-nameq17a-have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Eu habilitei tudo no Application Insights?
 | O que você deverá ver | Como obter isso | Por que você deseja isso |
@@ -110,13 +106,13 @@ Você pode [gravar scripts do PowerShell](app-insights-powershell.md) para criar
 
 <!--Link references-->
 
-[dados]: app-insights-data-retention-privacy.md
-[plataformas]: app-insights-platforms.md
-[iniciar]: app-insights-overview.md
+[data]: app-insights-data-retention-privacy.md
+[platforms]: app-insights-platforms.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

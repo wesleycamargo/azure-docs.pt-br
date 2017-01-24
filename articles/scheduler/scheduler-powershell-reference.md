@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e36a52f44bc30662a01299d2d4a2f3c36d9033a7
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 26eb1469bc508ef518103a955fa0fbc6db2be46d
 
 
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Referência de cmdlets do PowerShell do Agendador
 A tabela a seguir descreve a página de referência de cada um dos principais cmdlets no Agendador do Azure e contém links para eles.
 
-Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). 
+Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs). 
 
 Para obter mais informações sobre os [Cmdlets do Azure Resource Manager](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx), consulte [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md) (Usando o Azure PowerShell com o Azure Resource Manager).
 
@@ -79,6 +79,6 @@ Get-Help <cmdlet name> -Full
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

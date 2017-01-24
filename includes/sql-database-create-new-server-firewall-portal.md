@@ -10,7 +10,7 @@ articles/sql-database/sql-database-configure-firewall-settings
 articles/sql-data-warehouse-get-started-provision.md
 
 -->
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Criar uma regra de firewall de nível de servidor no portal do Azure
+### <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Criar uma regra de firewall de nível de servidor no portal do Azure
 
 1. Na folha do SQL server, em Configurações, clique em **Firewall** para abrir a folha de Firewall para o SQL server.
 

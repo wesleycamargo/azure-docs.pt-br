@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 1a95c3589d5843635667007aaca8209eeae894c2
-ms.openlocfilehash: 4c5b76ec652035e8357765de87cb240e94b59a56
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 705d548661fd0a33a077aab563af415d959b6ebf
 
 
 ---
@@ -53,8 +53,8 @@ Neste tutorial, você aprenderá a reunir os seguintes cenários para testar seu
 > [!NOTE]
 > Você de uma conta do Azure para concluir este tutorial:
 >
-> * É possível [abrir uma conta do Azure gratuitamente](/pricing/free-trial/) – você obtém créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, é possível manter a conta e utilizar os serviços gratuitos do Azure, como Aplicativos Web.
-> * É possível [ativar os benefícios para assinantes do Visual Studio](/pricing/member-offers/msdn-benefits-details/) – todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
+> * É possível [abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/) – você obtém créditos que podem ser usados para experimentar serviços pagos do Azure e, mesmo após eles serem utilizados, é possível manter a conta e utilizar os serviços gratuitos do Azure, como Aplicativos Web.
+> * É possível [ativar os benefícios para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) – todos os meses, sua assinatura do Visual Studio concede créditos que podem ser usados para experimentar serviços pagos do Azure.
 >
 > Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 >
@@ -354,11 +354,11 @@ O Serviço de Aplicativo do Azure facilita para as empresas de pequeno a médio 
 * [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md)
 * [JSONLint - o validador JSON](http://jsonlint.com/)
 * [Ramificação Git – Conceitos básicos de ramificação e mesclagem](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
-* [PowerShell do Azure](../powershell-install-configure.md)
+* [PowerShell do Azure](/powershell/azureps-cmdlets-docs)
 * [Projeto Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

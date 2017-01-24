@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: cawams
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: faecd892-eb54-4d9c-8023-c67442afb8e8
 ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e7bd4398503566684187831bde1e82f334a59f32
+
 
 ---
 # <a name="publish-an-application-to-a-remote-cluster-by-using-visual-studio"></a>Publicar um aplicativo em um cluster remoto usando o Visual Studio
@@ -28,7 +32,7 @@ ms.author: cawa
 A extensão do Service Fabric do Azure para Visual Studio permite facilmente repetir e executar por script a publicação de um aplicativo em um cluster do Service Fabric.
 
 ## <a name="the-artifacts-required-for-publishing"></a>Os artefatos necessários para publicação
-### <a name="deploy-fabricapplication.ps1"></a>Deploy-FabricApplication.ps1
+### <a name="deploy-fabricapplicationps1"></a>Deploy-FabricApplication.ps1
 Este é um script do PowerShell que usa um caminho de perfil de publicação como um parâmetro para a publicação de aplicativos do Service Fabric. Como esse script faz parte do seu aplicativo, fique à vontade para modificá-lo como achar melhor para ele.
 
 ### <a name="publish-profiles"></a>Perfis de publicação
@@ -84,7 +88,7 @@ As etapas a seguir demonstram como publicar um aplicativo usando a caixa de diá
    > 
 6. Quando você terminar de especificar todas as configurações necessárias, escolha o botão **Publicar** para publicar seu aplicativo no cluster do Service Fabric selecionado. As configurações especificadas por você são aplicadas ao processo de publicação.
 
-## <a name="publish-to-an-arbitrary-cluster-endpoint-(including-party-clusters)"></a>Publicar em um ponto de extremidade de cluster arbitrário (incluindo clusters de terceiros)
+## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>Publicar em um ponto de extremidade de cluster arbitrário (incluindo clusters de terceiros)
 A experiência de publicação do Visual Studio é otimizada para publicação em clusters remotos associados a uma de suas assinaturas do Azure. No entanto, é possível publicar em pontos de extremidade arbitrários (como clusters de parte do Service Fabric) editando diretamente o XML do perfil de publicação. Como descrito acima, dois perfis de publicação são fornecidos por padrão, **Local.xml** e **Cloud.xml**, mas você pode criar perfis adicionais para ambientes diferentes. Por exemplo, você pode querer criar um perfil de publicação em clusters de terceiros, talvez chamado **Party.xml**.
 
 Se você está se conectando a um cluster não seguro, tudo de que precisa é o ponto de extremidade de conexão do cluster, como `partycluster1.eastus.cloudapp.azure.com:19000`. Nesse caso, o ponto de extremidade de conexão no perfil de publicação se assemelharia a este:
@@ -112,6 +116,6 @@ Para saber como automatizar o processo de publicação em um ambiente de integra
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

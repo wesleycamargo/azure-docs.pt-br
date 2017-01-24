@@ -17,8 +17,8 @@ ms.topic: support-article
 ms.date: 10/26/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 5ec7286f577f7a822a29839ce246c6140fad6280
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 592d6b0168b9ebb47ed841f7e2b55d55a07500aa
 
 
 ---
@@ -113,7 +113,7 @@ Após cada etapa de solução de problemas, tente se conectar à VM novamente. C
 Caso ainda esteja tendo problemas de RDP, você poderá [abrir uma solicitação](https://azure.microsoft.com/support/options/) de suporte ou ler [conceitos e etapas de solução de problemas de RDP mais detalhados](virtual-machines-windows-detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Solucionar problemas usando o Azure PowerShell
-Se você ainda não fez isso, [instale e configure o último Azure PowerShell](../powershell-install-configure.md).
+Se você ainda não fez isso, [instale e configure o último Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Os exemplos a seguir usam variáveis como `myResourceGroup`, `myVM` e `myVMAccessExtension`. Substitua essas localizações e nomes de variáveis por seus próprios valores.
 
@@ -256,6 +256,6 @@ Se nenhum desses erros ocorreu e ainda não for possível se conectar à VM por 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

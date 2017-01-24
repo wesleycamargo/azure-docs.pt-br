@@ -1,46 +1,50 @@
 ---
-title: 'Saídas do Stream Analytics: opções de armazenamento, análise | Microsoft Docs'
-description: Saiba mais sobre opções de saídas de dados do Stream Analytics, incluindo Power BI para resultados da análise.
-keywords: transformação de dados, resultados da análise, opções de armazenamento de dados
+title: "Saídas do Stream Analytics: opções de armazenamento e análise | Microsoft Docs"
+description: "Saiba mais sobre opções de saídas de dados do Stream Analytics, incluindo Power BI para resultados da análise."
+keywords: "transformação de dados, resultados da análise, opções de armazenamento de dados"
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 12/05/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3a42093a67fe1ded29e97343affa5df89ea5fd1a
+
 
 ---
-# Saídas do Stream Analytics: opções de armazenamento, análise
+# <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Saídas do Stream Analytics: opções de armazenamento, análise
 Ao criar um trabalho do Stream Analytics, considere como os dados resultantes serão consumidos. Como você exibirá os resultados do trabalho do Stream Analytics e onde os armazenará?
 
 Para poder habilitar vários padrões de aplicativo, o Stream Analytics do Azure disponibiliza opções diferentes de armazenamento de saída e de exibição dos resultados da análise. Isso facilita a exibição da saída do trabalho e proporciona flexibilidade no consumo e armazenamento da saída do trabalho para data warehouse e outras finalidades. Qualquer saída configurada no trabalho deve existir antes do trabalho ser iniciado e dos eventos começarem a fluir. Por exemplo, se você usar o armazenamento de Blobs como uma saída, o trabalho não criará uma conta de armazenamento automaticamente. Ele precisa ser criado pelo usuário antes do trabalho ASA ser iniciado.
 
-## Repositório Azure Data Lake
-O Stream Analytics dá suporte ao [Repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). Esse armazenamento permite que você armazene dados de qualquer tamanho, tipo e velocidade de ingestão para análises operacionais e exploratórias. No momento, há suporte para a criação e configuração das saídas do Repositório Data Lake apenas no Portal Clássico do Azure. Além disso, o Stream Analytics deve estar autorizado a acessar o Repositório Data Lake. Detalhes sobre a autorização e como se inscrever para a Preview do Repositório Data Lake (se necessário) são discutidos no [artigo sobre as saídas do Data Lake](stream-analytics-data-lake-output.md).
+## <a name="azure-data-lake-store"></a>Repositório Azure Data Lake
+O Stream Analytics dá suporte ao [Repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). Esse armazenamento permite que você armazene dados de qualquer tamanho, tipo e velocidade de ingestão para análises operacionais e exploratórias. Além disso, o Stream Analytics deve estar autorizado a acessar o Repositório Data Lake. Detalhes sobre a autorização e como se inscrever no Data Lake Store (se necessário) são abordados no [artigo sobre a saída do Data Lake](stream-analytics-data-lake-output.md).
 
-### Autorizar um Azure Data Lake Store
-Quando o Data Lake Store é selecionado como uma saída no portal de Gerenciamento do Azure, você será solicitado a autorizar uma conexão com um Data Lake Store existente.
+### <a name="authorize-an-azure-data-lake-store"></a>Autorizar um Azure Data Lake Store
+Quando o Data Lake Store é selecionado como uma saída no portal de Gerenciamento do Azure, você será solicitado a autorizar uma conexão com um Data Lake Store existente.  
 
-![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)
+![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
 Em seguida, preencha as propriedades da saída do Data Lake Store, conforme mostrado abaixo:
 
-![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)
+![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 A tabela abaixo lista os nomes de propriedade e sua descrição para a criação de uma saída do Repositório Data Lake.
 
 <table>
 <tbody>
 <tr>
-<td><B>NOME DA PROPRIEDADE</B></td>
-<td><B>DESCRIÇÃO</B></td>
+<td><B>Nome da Propriedade</B></td>
+<td><B>Descrição</B></td>
 </tr>
 <tr>
 <td>Alias de saída</td>
@@ -81,13 +85,13 @@ A tabela abaixo lista os nomes de propriedade e sua descrição para a criação
 </tbody>
 </table>
 
-### Renovar autorização do Repositório Data Lake
+### <a name="renew-data-lake-store-authorization"></a>Renovar autorização do Repositório Data Lake
 Você precisará autenticar novamente sua conta do Data Lake Store caso sua senha tenha sido alterada depois de seu trabalho ser criado ou autenticado pela última vez.
 
-![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)
+![Autorizar o Repositório Data Lake](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
-## Banco de Dados SQL
-Um [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) pode ser usado como saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam de o conteúdo ser hospedado em um banco de dados relacional. Os trabalhos do Stream Analytics gravarão em uma tabela existente em um banco de dados SQL do Azure. Observe que o esquema da tabela deve corresponder exatamente aos campos e seus tipos sendo a saída do seu trabalho. Um [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) também pode ser especificado como uma saída por meio da opção de saída do Banco de Dados SQL (esse é um recurso na fase de visualização). A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de dados SQL.
+## <a name="sql-database"></a>Banco de Dados SQL
+[banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) pode ser usado como saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam de o conteúdo ser hospedado em um banco de dados relacional. Os trabalhos do Stream Analytics gravarão em uma tabela existente em um banco de dados SQL do Azure.  Observe que o esquema da tabela deve corresponder exatamente aos campos e seus tipos sendo a saída do seu trabalho. Um [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) também pode ser especificado como uma saída por meio da opção de saída do Banco de Dados SQL (esse é um recurso na fase de visualização). A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de dados SQL.
 
 | Nome da Propriedade | Descrição |
 | --- | --- |
@@ -103,16 +107,16 @@ Um [banco de dados SQL do Azure](https://azure.microsoft.com/services/sql-databa
 > 
 > 
 
-## Armazenamento de blob
-O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o Armazenamento de blob do Azure e seu uso, confira a documentação em [Como usar blobs](../storage/storage-dotnet-how-to-use-blobs.md).
+## <a name="blob-storage"></a>Armazenamento de blob
+O armazenamento de Blob oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem.  Para obter uma introdução sobre o Armazenamento de blob do Azure e seu uso, confira a documentação em [Como usar blobs](../storage/storage-dotnet-how-to-use-blobs.md).
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída de banco de blob.
 
 <table>
 <tbody>
 <tr>
-<td>NOME DA PROPRIEDADE</td>
-<td>DESCRIÇÃO</td>
+<td>Nome da Propriedade</td>
+<td>Descrição</td>
 </tr>
 <tr>
 <td>Alias de saída</td>
@@ -144,7 +148,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 </tr>
 <tr>
 <td>Formato de serialização do evento</td>
-<td>Formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro.</td>
+<td>Formato de serialização para dados de saída.  Há suporte para JSON, CSV e Avro.</td>
 </tr>
 <tr>
 <td>Codificação</td>
@@ -161,8 +165,8 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 </tbody>
 </table>
 
-## Hub de evento
-Os [Hubs de Eventos](https://azure.microsoft.com/services/event-hubs/) são um ingestor de eventos altamente escalonável de publicação/assinatura. Ele pode coletar milhões de eventos por segundo. Uma utilização de um Hub de Eventos como saída é quando a saída de um trabalho do Stream Analytics será a entrada de outro trabalho de streaming.
+## <a name="event-hub"></a>Hub de evento
+[Hubs de Eventos](https://azure.microsoft.com/services/event-hubs/) são um ingestor de eventos altamente escalonável de publicação/assinatura. Ele pode coletar milhões de eventos por segundo.  Uma utilização de um Hub de Eventos como saída é quando a saída de um trabalho do Stream Analytics será a entrada de outro trabalho de streaming.
 
 Há alguns parâmetros que são necessários para configurar fluxos de dados de Hub de Eventos como uma saída.
 
@@ -174,51 +178,82 @@ Há alguns parâmetros que são necessários para configurar fluxos de dados de 
 | Nome da política do Hub de Eventos. |A política de acesso compartilhada, que pode ser criada na guia Configurar o Hub de Eventos. Cada política de acesso compartilhado terá um nome, as permissões definidas por você e as chaves de acesso. |
 | Chave de política do Hub de eventos |A chave de acesso compartilhado usada para autenticar o acesso ao namespace do Barramento de Serviço |
 | Coluna de chave de partição [opcional] |Esta coluna contém a chave de partição para saída do Hub de Eventos. |
-| Formato de serialização do evento |Formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro. |
+| Formato de serialização do evento |Formato de serialização para dados de saída.  Há suporte para JSON, CSV e Avro. |
 | Codificação |Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
 | Delimitador |Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
 | Formatar |Aplicável somente para o tipo JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON. |
 
-## Power BI
-O [Power BI](https://powerbi.microsoft.com/) pode ser usado como saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização dos resultados da análise. Essa funcionalidade pode ser usada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
+## <a name="power-bi"></a>Power BI
+[Power BI](https://powerbi.microsoft.com/) pode ser usado como saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização dos resultados da análise. Essa funcionalidade pode ser usada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
 
-### Autorizar uma conta do Power BI
-1. Quando o Power BI é selecionado como uma saída no portal de Gerenciamento do Azure, você será solicitado a autorizar um usuário existente do Power BI ou criar uma nova conta do Power BI.
+### <a name="authorize-a-power-bi-account"></a>Autorizar uma conta do Power BI
+1. Quando o Power BI é selecionado como uma saída no portal de Gerenciamento do Azure, você será solicitado a autorizar um usuário existente do Power BI ou criar uma nova conta do Power BI.  
    
-   ![Autorizar usuário do Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
-2. Crie uma nova conta se você não ainda tiver uma e, em seguida, clique em Autorizar agora. Uma tela como essa será apresentada.
+   ![Autorizar usuário do Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
+2. Crie uma nova conta se você não ainda tiver uma e, em seguida, clique em Autorizar agora.  Uma tela como essa será apresentada.  
    
-   ![Conta do Azure Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)
+   ![Conta do Azure Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
 3. Nesta etapa, forneça a conta corporativa ou de estudante para autorizar a saída do Power BI. Se você não se inscreveu ainda no Power BI, escolha a opção Inscreva-se agora. A conta de trabalho ou escolar usada para o Power BI poderia ser diferente da conta de assinatura do Azure na qual você está conectado.
 
-### Configurar as propriedades de saída do Power BI
+### <a name="configure-the-power-bi-output-properties"></a>Configurar as propriedades de saída do Power BI
 Uma vez que a conta do Power BI foi autenticada, você pode configurar as propriedades de saída do Power BI. A tabela a seguir é a lista de nomes de propriedade e sua descrição para configurar a saída do Power BI.
 
 | Nome da Propriedade | Descrição |
 | --- | --- |
 | Alias de saída |Esse é um nome amigável utilizado em consultas para direcionar a saída da consulta para essa saída do Power BI. |
-| Agrupar o espaço de trabalho |Para permitir o compartilhamento de dados com outros usuários do Power BI, você pode selecionar grupos dentro de sua conta do Power BI ou escolher "Meu espaço de trabalho" se não quiser gravar em um grupo. Atualizar um grupo existente requer a renovação da autenticação do Power BI. |
+| Agrupar o espaço de trabalho |Para permitir o compartilhamento de dados com outros usuários do Power BI, você pode selecionar grupos dentro de sua conta do Power BI ou escolher "Meu espaço de trabalho" se não quiser gravar em um grupo.  Atualizar um grupo existente requer a renovação da autenticação do Power BI. |
 | Nome do conjunto de dados |Forneça um nome de conjunto de dados que você deseja que seja usada para a saída do Power BI |
 | Nome da tabela |Forneça um nome de tabela sob o conjunto de dados da saída do Power BI. Atualmente, a saída do Power BI de trabalhos do Stream Analytics só podem ter uma tabela em um conjunto de dados. |
 
-Para um guia passo a passo de configuração de uma saída do Power BI e do painel, consulte o artigo [Power BI e Stream Analytics do Azure](stream-analytics-power-bi-dashboard.md).
+Para obter um passo a passo de configuração de uma saída e de um painel do Power BI, consulte o artigo [Stream Analytics do Azure e Power BI](stream-analytics-power-bi-dashboard.md).
 
 > [!NOTE]
 > Não crie explicitamente o conjunto de dados e a tabela no painel do Power BI. O conjunto de dados e a tabela serão preenchidos automaticamente quando o trabalho é iniciado e o trabalho começa a produzir a saída no Power BI. Observe que se a consulta de trabalho não gerar resultados, o conjunto de dados e a tabela não serão criados. Tenha em mente também que se o Power BI já tiver um conjunto de dados e uma tabela com o mesmo nome fornecido no trabalho do Stream Analytics, os dados existentes serão substituídos.
 > 
 > 
 
-### Renovar a autorização do Power BI
+### <a name="schema-creation"></a>Criação de Esquema
+O Stream Analytics do Azure cria um conjunto de dados do Power BI e uma tabela em nome do usuário, se eles ainda não existirem. Em todos os outros casos, a tabela é atualizada com os novos valores. No momento, há uma limitação de apenas uma tabela dentro de um conjunto de dados.
+
+### <a name="data-type-conversion-from-asa-to-power-bi"></a>Conversão de tipo de dados do ASA para o Power BI
+O Stream Analytics do Azure atualiza o modelo de dados dinamicamente no tempo de execução se o esquema de saída mudar. Alterações de nome de coluna, alterações de tipo de coluna e a adição ou remoção de colunas são controladas.
+
+Esta tabela abrange as conversões de tipo de dados dos [Tipos de dados do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) para Power BIs [Tipos de EDM (Modelo de Dados de Entidade)](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) se um conjunto de dados do POWER BI e uma tabela não existirem.
+
+
+Do Stream Analytics | Para o Power BI
+-----|-----|------------
+bigint | Int64
+nvarchar(max) | Cadeia de caracteres
+datetime | DateTime
+flutuante | Duplo
+Matriz de registro | Tipo de cadeia de caracteres, Valor da constante “IRecord” ou “IArray”
+
+### <a name="schema-update"></a>Atualização do Esquema
+o Stream Analytics infere o esquema do modelo de dados com base no primeiro conjunto de eventos na saída. Posteriormente, se necessário, o esquema do modelo de dados é atualizado para acomodar os eventos de entrada que não se encaixam no esquema original.
+
+A consulta `SELECT *` deve ser evitada para impedir que o esquema dinâmico atualize as linhas. Além das possíveis implicações de desempenho, ela também pode resultar na indeterminação do tempo necessário para obter os resultados. Os campos exatos que precisam ser mostradas no painel do Power BI devem ser selecionados. Além disso, os valores de dados devem estar em conformidade com o tipo de dados escolhido.
+
+
+Anterior/Atual | Int64 | Cadeia de caracteres | DateTime | Duplo
+-----------------|-------|--------|----------|-------
+Int64 | Int64 | Cadeia de caracteres | Cadeia de caracteres | Duplo
+Duplo | Duplo | Cadeia de caracteres | Cadeia de caracteres | Duplo
+Cadeia de caracteres | Cadeia de caracteres | Cadeia de caracteres | Cadeia de caracteres |  | Cadeia de caracteres | 
+DateTime | Cadeia de caracteres | Cadeia de caracteres |  DateTime | Cadeia de caracteres
+
+
+### <a name="renew-power-bi-authorization"></a>Renovar a autorização do Power BI
 Você precisará autenticar novamente sua conta do Power BI caso sua senha tenha sido alterada depois de seu trabalho ser criado ou autenticado pela última vez. Se a MFA (Multi-Factor Authentication) estiver configurada no locatário do AAD (Azure Active Directory) também será necessário renovar a autorização do Power BI a cada 2 semanas. Um sintoma desse problema é nenhuma saída de trabalho e um "erro de Autenticar usuário" nos Logs de Operação:
 
-  ![Erro de token de atualização do Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)
+  ![Erro de token de atualização do Power BI](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
-Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Power BI. Clique no link "Renovar autorização" e reinicie o trabalho a partir da Hora da Última Interrupção para evitar a perda de dados.
+Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Power BI.  Clique no link "Renovar autorização" e reinicie o trabalho a partir da Hora da Última Interrupção para evitar a perda de dados.
 
-  ![Autorização de renovação do Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)
+  ![Autorização de renovação do Power BI](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
-## Armazenamento de tabela
-[Armazenamento de Tabelas do Azure](../storage/storage-introduction.md) oferece armazenamento altamente disponível e altamente escalonável, para que um aplicativo possa ser dimensionado automaticamente para atender à demanda dos usuários. O Armazenamento de tabela é um repositório de chave/atributo NoSQL da Microsoft que pode ser utilizado por alguém com dados estruturados, com menos restrições no esquema. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente.
+## <a name="table-storage"></a>Armazenamento de tabela
+O [armazenamento de Tabelas do Azure](../storage/storage-introduction.md) oferece armazenamento altamente disponível e altamente escalonável, para que um aplicativo possa ser escalado automaticamente para atender à demanda dos usuários. O Armazenamento de tabela é um repositório de chave/atributo NoSQL da Microsoft que pode ser utilizado por alguém com dados estruturados, com menos restrições no esquema. O armazenamento de Tabela do Azure pode ser usado para armazenar dados de persistência e para recuperação eficiente.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da tabela.
 
@@ -232,7 +267,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 | Chave de linha |O nome da coluna de saída que contém a chave de linha. A chave de linha é um identificador exclusivo para uma entidade em uma determinada partição. Ela forma a segunda parte da chave primária da entidade. A chave de linha é um valor de cadeia de caracteres que pode ter até 1 KB em tamanho. |
 | Tamanho do lote |É o número de registros para uma operação em lote. Normalmente, o padrão é suficiente para a maioria dos trabalhos; consulte a [especificação da Operação em Lote de Tabela](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes sobre como modificar essa configuração. |
 
-## Filas de barramento de serviço
+## <a name="service-bus-queues"></a>Filas de barramento de serviço
 [Filas do barramento de serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) oferecem entrega de mensagem do tipo PEPS (primeiro a entrar, primeiro a sair) para um ou mais consumidores concorrentes. Normalmente, espera-se que as mensagens sejam recebidas e processadas pelos receptores na ordem cronológica em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da fila.
@@ -244,12 +279,12 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 | Nome da fila |O nome da fila do Barramento de Serviço. |
 | Nome da política da fila |Ao criar uma fila, você também pode criar políticas de acesso compartilhado na guia Configurar fila. Cada política de acesso compartilhado terá um nome, as permissões definidas por você e as chaves de acesso. |
 | Chave de política de fila |A chave de acesso compartilhado usada para autenticar o acesso ao namespace do Barramento de Serviço |
-| Formato de serialização do evento |Formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro. |
+| Formato de serialização do evento |Formato de serialização para dados de saída.  Há suporte para JSON, CSV e Avro. |
 | Codificação |Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
 | Delimitador |Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
 | Formatar |Aplicável somente para o tipo JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON. |
 
-## Tópicos do Service Bus
+## <a name="service-bus-topics"></a>Tópicos do Service Bus
 Enquanto as Filas do Barramento de Serviço fornecem um método de comunicação de um-para-um do remetente para o receptor, os [Tópicos sobre o Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) fornecem uma forma de comunicação de um-para-muitos.
 
 A tabela a seguir lista os nomes de propriedade e sua descrição para a criação de uma saída da tabela.
@@ -261,11 +296,11 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 | Nome do tópico |Tópicos são entidades de envio de mensagens, semelhantes a filas e hubs de eventos. Eles são projetados para coletar fluxos de eventos de alguns dispositivos e serviços diferentes. Quando um tópico é criado, ele também recebe um nome específico. As mensagens enviadas para um tópico não estarão disponíveis a menos que uma assinatura seja criada, portanto, certifique-se de que há uma ou mais assinaturas sob o tópico |
 | Nome da política de tópico |Ao criar um tópico, você também pode criar políticas de acesso compartilhado na guia Configurar tópico. Cada política de acesso compartilhado terá um nome, as permissões definidas por você e as chaves de acesso. |
 | Chave de política do tópico |A chave de acesso compartilhado usada para autenticar o acesso ao namespace do Barramento de Serviço |
-| Formato de serialização do evento |Formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro. |
+| Formato de serialização do evento |Formato de serialização para dados de saída.  Há suporte para JSON, CSV e Avro. |
 | Codificação |Se o formato for CSV ou JSON, uma codificação deve ser especificada. UTF-8 é o único formato de codificação com suporte no momento. |
 | Delimitador |Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
 
-## Banco de Dados de Documentos
+## <a name="documentdb"></a>Banco de Dados de Documentos
 [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/) é um serviço de Banco de Dados de Documentos NoSQL totalmente gerenciado, que oferece transações e consulta de dados sem esquema, desempenho previsível e confiável e rápido desenvolvimento.
 
 A tabela abaixo lista os nomes de propriedade e sua descrição para a criação de uma saída do Banco de Dados de Documentos.
@@ -273,12 +308,12 @@ A tabela abaixo lista os nomes de propriedade e sua descrição para a criação
 <table>
 <tbody>
 <tr>
-<td>NOME DA PROPRIEDADE</td>
+<td>Nome da Propriedade</td>
 <td>DESCRIÇÃO</td>
 </tr>
 <tr>
 <td>Nome da conta</td>
-<td>O nome da conta do Banco de Dados de Documentos. Ele também pode ser o ponto de extremidade da conta.</td>
+<td>O nome da conta do Banco de Dados de Documentos.  Ele também pode ser o ponto de extremidade da conta.</td>
 </tr>
 <tr>
 <td>Chave de conta</td>
@@ -304,10 +339,10 @@ A tabela abaixo lista os nomes de propriedade e sua descrição para a criação
 </table>
 
 
-## Obter ajuda
-Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/pt-BR/home?forum=AzureStreamAnalytics)
+## <a name="get-help"></a>Obter ajuda
+Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise de streaming em dados da Internet das coisas. Para saber mais sobre esse serviço, consulte:
 
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-get-started.md)
@@ -323,4 +358,8 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

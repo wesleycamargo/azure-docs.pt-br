@@ -1,4 +1,10 @@
-1. Faça logon no [portal do Azure][portal do Azure].
+## <a name="create-a-service-namespace"></a>Criar um namespace de serviço
+
+Para começar a usar as filas do Barramento de Serviço no Azure, primeiro é necessário criar um namespace. Um namespace fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo. 
+
+Para criar um namespace:
+
+1. Faça logon no [Portal do Azure][Azure portal].
 2. No painel de navegação esquerdo do portal, clique em **Novo**, depois em **Integração Corporativa** e em **Barramento de Serviço**.
 3. Na caixa de diálogo **Criar um namespace** , digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 4. Depois de verificar se o nome do namespace está disponível, escolha o tipo de preço (Básico, Standard ou Premium).
@@ -26,8 +32,8 @@
 [connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 8be23107d3a377854a4bd17d99652fb5b84c99dc
-ms.openlocfilehash: d1b92b46b23dc4410089c5b842439d81b989d1d1
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 8ba5713731c5e62a9eac0ced9f50a2af0c165bc4
 
 
 ---
@@ -114,7 +114,7 @@ Você também precisa garantir que a VM **FW1** tenha a propriedade de encaminha
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Implantar o modelo usando o clique para implantar
 O modelo de exemplo disponível no repositório público usa um arquivo de parâmetro que contém os valores padrão usados para gerar o cenário descrito acima. Para implantar esse modelo usando a opção de clique para implantar, acesse [este link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), clique em **Implantar no Azure**, substitua os valores de parâmetro padrão, se necessário, e siga as instruções no portal.
 
-1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](../powershell-install-configure.md) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
+1. Se você nunca usou o Azure PowerShell, consulte [Como Instalar e Configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
 2. Execute o seguinte comando para criar um grupo de recursos:
 
     ```powershell
@@ -409,6 +409,6 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas a seguir:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

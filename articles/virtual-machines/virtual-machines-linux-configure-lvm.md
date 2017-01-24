@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2016
+ms.date: 12/02/2016
 ms.author: szark
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 0113eb896b4549e61526f6bf1450aaf5ad00edfd
+ms.sourcegitcommit: 9b77d0e6d21ece908960a60d17a0460b806399ee
+ms.openlocfilehash: df7a1f44f5c7733a4c4b889db13291f8d3d1a3d8
 
 
 ---
@@ -151,8 +151,35 @@ Neste guia, supomos que você tem três discos de dados anexados, que chamaremos
     /dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
     ```
 
+## <a name="trimunmap-support"></a>Suporte a TRIM/UNMAP
+Alguns kernels Linux permitem operações TRIM/UNMAP para descartar os blocos não utilizados no disco. Essas operações são úteis principalmente no Armazenamento Standard, para informar o Azure de que as páginas excluídas não são mais válidas e podem ser descartadas. Descartar páginas poderá representar uma economia de dinheiro se você criar arquivos grandes e, em seguida, excluí-los.
+
+Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de costume, consulte sua distribuição para obter a abordagem recomendada:
+
+- Use a opção de montagem `discard` em `/etc/fstab`, por exemplo:
+
+    ```bash 
+    /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
+    ```
+
+- Em alguns casos a opção `discard` pode afetar o desempenho. Como alternativa, você pode executar o comando `fstrim` manualmente na linha de comando ou adicioná-lo a crontab para ser executado normalmente:
+
+    **Ubuntu**
+
+    ```bash 
+    # sudo apt-get install util-linux
+    # sudo fstrim /datadrive
+    ```
+
+    **RHEL/CentOS**
+
+    ```bash 
+    # sudo yum install util-linux
+    # sudo fstrim /datadrive
+    ```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO1-->
 
 

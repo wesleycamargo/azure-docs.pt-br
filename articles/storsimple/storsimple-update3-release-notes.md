@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/14/2016
+ms.date: 11/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3a2795fd08b838edcf255e518f705683cc2df15e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4d3609ae1ea5fba89a9c0222586f578fdaeea757
 
 
 ---
@@ -39,7 +39,7 @@ Veja a seguir as principais melhorias e correções de bugs feitas na Atualizaç
 
 * **Alterações de reclamação de espaço automatizadas** – a partir da Atualização 3, os algoritmos de reclamação de espaço são executados no controlador em espera do sistema, resultando em uma execução mais rápida. Para obter mais informações sobre as portas que são necessárias para trabalhar com a recuperação de espaço, consulte os [requisitos de rede do StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 * **Aprimoramentos de desempenho** – a Atualização 3 melhorou o desempenho de leitura/gravação para a nuvem.
-* **Melhorias relacionadas à migração** – nesta versão, várias correções de bugs e aprimoramentos foram feitos para o recurso de migração de dispositivos da série 5000/7000 para dispositivos da série 8000. Para saber mais sobre como usar o recurso de migração, vá para [Migração do dispositivo série 5000/7000 para dispositivos da série 8000](https://www.microsoft.com/en-us/download/details.aspx?id=47322). 
+* **Melhorias relacionadas à migração** – nesta versão, várias correções de bugs e aprimoramentos foram feitos para o recurso de migração de dispositivos da série 5000/7000 para dispositivos da série 8000. Para saber mais sobre como usar o recurso de migração, vá para [Migração do dispositivo série 5000/7000 para dispositivos da série 8000](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b). 
 * **Correções relacionadas a monitoramento** – nesta versão, bugs relacionados a gráficos de monitoramento, painel de serviço e painel de dispositivo foram corrigidos.
 
 ## <a name="issues-fixed-in-update-3"></a>Problemas corrigidos na Atualização 3
@@ -94,6 +94,6 @@ Saiba como [instalar a Atualização 3](storsimple-install-update-3.md) no dispo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

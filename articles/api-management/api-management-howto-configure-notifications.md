@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: d99e2d885d56e3752a3b1caf51e52c801acaab52
-ms.openlocfilehash: 8e3c98108672dcd2ae48da7b2a9eeb174cee76e1
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 5d52b7609eb5ade1850e78868cbe0929c40c3c4f
 
 
 ---
@@ -29,7 +29,7 @@ Para configurar notificações, clique no **portal do Editor** no Portal do Azur
 ![Portal do editor][api-management-management-console]
 
 > [!NOTE] 
-> Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+> Se ainda não criou uma instância de serviço de Gerenciamento de API, confira [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
 
 Clique em **Notificações** no menu **Gerenciamento de API** à esquerda para ver as notificações disponíveis.
 
@@ -111,17 +111,17 @@ Para salvar as alterações feitas no modelo de email, clique em **Salvar** ou, 
 [api-management-email-template]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
 
 
-[Configurar notificações do editor]: #publisher-notifications
-[Configurar modelos de email]: #email-templates
+[Configure publisher notifications]: #publisher-notifications
+[Configure email templates]: #email-templates
 
-[Como criar e utilizar grupos]: api-management-howto-create-groups.md
-[Como associar grupos a desenvolvedores]: api-management-howto-create-groups.md#associate-group-developer
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/08/2015
-ms.author: cawaMS
+ms.author: cawa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d0009e23a9eb3a87628c8b4b70ba1d00f8a4fa2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a02d3840555df0d9c16d179023b3bc763274701a
 
 
 ---
@@ -41,7 +41,7 @@ A caixa de diálogo **Selecionar Cluster do Service Fabric** valida automaticame
 1. Verifique se você pode acessar um dos certificados de cliente nos quais o cluster de destino confia. Normalmente, o certificado é compartilhado como um arquivo de Troca de Informações Pessoais (.pfx). Veja [Configurando um cluster do Service Fabric do Portal do Azure](service-fabric-cluster-creation-via-portal.md) para saber como configurar o servidor para conceder acesso a um cliente.
 2. Instale o certificado confiável. Para fazer isso, clique duas vezes no arquivo .pfx ou use o script do PowerShell, Import-PfxCertificate, para importar os certificados. Instale o certificado em **Cert:\LocalMachine\My**. É possível aceitar todas as configurações padrão durante a importação do certificado.
 3. Escolha o comando **Publicar...** no menu de atalho do projeto para abrir a caixa de diálogo **Publicar Aplicativo do Azure** e selecione o cluster de destino. A ferramenta resolve automaticamente a conexão e salva os parâmetros da conexão segura no perfil de publicação.
-4. [Opcional]: You can edit the publish profile to specify a secure cluster connection.
+4. [Optional]: You can edit the publish profile to specify a secure cluster connection.
    
    Como você está editando manualmente o arquivo XML do Perfil de Publicação a fim de especificar as informações do certificado, anote o nome do repositório de certificados, do local de armazenamento e a impressão digital do certificado. Você precisará fornecer esses valores para o nome e o local do repositório do certificado. Confira [Como recuperar a impressão digital de um certificado](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) para saber mais.
    
@@ -53,7 +53,7 @@ A caixa de diálogo **Selecionar Cluster do Service Fabric** valida automaticame
    
    Este é um exemplo para se conectar a um cluster seguro baseado em certificado X509:
    
-   ```
+   ```xml
    <ClusterConnectionParameters
    ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000"
    X509Credential="true"
@@ -74,6 +74,6 @@ Para saber mais sobre como acessar os clusters do Service Fabric, confira [Visua
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
