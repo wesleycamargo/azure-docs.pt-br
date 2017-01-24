@@ -21,7 +21,7 @@ ms.openlocfilehash: 5f3a4e49646063b41af5a9941f27291762f5336e
 
 
 ---
-# <a name="connect-to-sql-database-by-using-python"></a>Conectar-se ao Banco de Dados SQL usando Phyton
+# <a name="connect-to-sql-database-by-using-python"></a>Conectar-se ao Banco de Dados SQL usando Python
 [!INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 Este tópico mostra como conectar e consultar um Banco de Dados SQL do Azure usando o Python. Você pode executar essa amostra de plataformas Windows, Ubuntu Linux ou Mac.
