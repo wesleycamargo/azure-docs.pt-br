@@ -2,7 +2,7 @@
 title: "Dimensionar manualmente a contagem de instância ou com dimensionamento automático com o Portal do Azure | Microsoft Docs"
 description: "Saiba como dimensionar seus serviços do Azure."
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

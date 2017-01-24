@@ -235,7 +235,7 @@ Em vez de uma definição de configuração estática para as propriedades de as
 ```json
 {
   "name" : "Customer Name",
-  "address" : "Customer's Address".
+  "address" : "Customer's Address",
   "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
 }
 ```
@@ -317,44 +317,51 @@ Defina uma associação obrigatória da seguinte maneira:
 - Passe um parâmetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) ou [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
 - Use o padrão de C# a seguir para realizar a associação de dados.
 
-        using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-        {
-                ...
-        }
+```cs
+using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+{
+    ...
+}
+```
 
-    em que `BindingTypeAttribute` é o atributo do .NET que define a associação e `T` é o tipo de entrada ou saída com suporte nesse tipo de associação. `T` também não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela dos Aplicativos Móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
+em que `BindingTypeAttribute` é o atributo do .NET que define a associação e `T` é o tipo de entrada ou saída com suporte nesse tipo de associação. `T` também não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela dos Aplicativos Móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
     
 O código de exemplo a seguir cria uma [associação de saída do Armazenamento de Blobs](functions-bindings-storage-blob.md#storage-blob-output-binding) com o caminho do blob definido em tempo de execução e grava uma cadeia de caracteres no blob.
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-                {
-                        writer.Write("Hello World!!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
+    {
+        writer.Write("Hello World!!");
+    }
+}
+```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define a associação de entrada ou saída do [Armazenamento de Blobs](functions-bindings-storage-blob.md) e [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) é um tipo de associação de saída com suporte.
 No estado em que se encontra, o código obtém a configuração de aplicativo padrão para a cadeia de conexão da conta de armazenamento (`AzureWebJobsStorage`). Especifique uma configuração de aplicativo personalizada a ser usada adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributo para `BindAsync<T>()`. Por exemplo,
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                var attributes = new Attribute[]
-                {
-                        new BlobAttribute("samples-output/path"),
-                        new StorageAccountAttribute("MyStorageAccount")
-                };
-                using (var writer = await binder.BindAsync<TextWriter>(attributes))
-                {
-                        writer.Write("Hello World!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    var attributes = new Attribute[]
+    {    
+        new BlobAttribute("samples-output/path"),
+        new StorageAccountAttribute("MyStorageAccount")
+    };
+
+    using (var writer = await binder.BindAsync<TextWriter>(attributes))
+    {
+        writer.Write("Hello World!");
+    }
+}
+```
 
 A tabela a seguir mostra o atributo do .NET correspondente a ser usado para cada tipo de associação e a qual pacote será feita a referência.
 
