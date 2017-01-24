@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 1f6691944205de9e59070b3ffedb3572e8eff21d
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: d3fc1370751065eb954abe249017ef204038bd07
 
 
 ---
@@ -30,7 +30,7 @@ O Azure fornece três modelos de computação para a execução de aplicativos: 
 Para obter mais informações sobre essas opções, consulte [Opções de hospedagem de computação fornecidas pelo Azure](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>Baixar o SDK do Azure para PHP
-O [SDK do Azure para PHP] consiste em vários componentes. Este artigo usará dois deles: o Azure PowerShell e os emuladores do Azure. Esses dois componentes podem ser instalados pelo Microsoft Web Platform Installer. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
+O [SDK do Azure para PHP] consiste em vários componentes. Este artigo usará dois deles: o Azure PowerShell e os emuladores do Azure. Esses dois componentes podem ser instalados pelo Microsoft Web Platform Installer. Para obter mais informações, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-a-cloud-services-project"></a>Criar um projeto de Serviço de Nuvem
 A primeira etapa na criação de uma função Web ou de trabalho do PHP é criar um projeto de Serviço do Azure. um projeto de Serviço do Azure serve como um contêiner lógico para as funções da Web e de trabalho, e contém os arquivos de [definição do serviço (.csdef) ] e [configuração do serviço (.cscfg)] do projeto.
@@ -108,10 +108,10 @@ Para configurar uma função web para usar um tempo de execução do PHP forneci
 
 1. Crie um projeto de Serviço do Azure e adicione uma função Web do PHP conforme descrito anteriormente neste tópico.
 2. Crie uma pasta `php` na pasta `bin` que está no diretório raiz de sua função web e adicione o tempo de execução do PHP (todos os binários, arquivos de configuração, subpastas etc.) à pasta `php`.
-3. (OPCIONAL) Se a execução do PHP usar os [Drivers da Microsoft para PHP do SQL Server][drivers sqlsrv], você precisará configurar a função Web para instalar o [SQL Server Native Client 2012][cliente sql nativo] quando ele for provisionado. Para fazer isso, adicione o [instalador sqlncli.msi x64] à pasta `bin` no diretório-raiz de sua função Web. O script de inicialização descrito na próxima etapa executará o instalador silenciosamente quando a função for provisionada. Se o tempo de execução do PHP não usar os Drivers Microsoft para PHP para SQL Server, você poderá remover a seguinte linha do script mostrado na próxima etapa:
+3. (OPCIONAL) Se o tempo de execução do PHP usar os [Drivers da Microsoft para PHP para SQL Server][sqlsrv drivers], você precisará configurar a função Web para instalar o [SQL Server Native Client 2012][sql native client] quando ela for provisionada. Para fazer isso, adicione o [instalador sqlncli.msi x64] à pasta `bin` no diretório-raiz de sua função Web. O script de inicialização descrito na próxima etapa executará o instalador silenciosamente quando a função for provisionada. Se o tempo de execução do PHP não usar os Drivers Microsoft para PHP para SQL Server, você poderá remover a seguinte linha do script mostrado na próxima etapa:
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
-4. Defina uma tarefa de inicialização que configura os [Serviços de Informações da Internet (IIS)][iis.net]para usar sua execução do PHP para lidar com as solicitações das páginas `.php`. Para fazer isso, abra o arquivo `setup_web.cmd` (no arquivo `bin` do diretório raiz da função web) em um editor de texto e substitua seu conteúdo pelo script a seguir:
+4. Defina uma tarefa de inicialização que configura os [Serviços de Informações da Internet (IIS)][iis.net] para usar o tempo de execução do PHP para manipular solicitações de páginas `.php`. Para fazer isso, abra o arquivo `setup_web.cmd` (no arquivo `bin` do diretório raiz da função web) em um editor de texto e substitua seu conteúdo pelo script a seguir:
 
     ```cmd
     @ECHO ON
@@ -143,7 +143,7 @@ Para configurar uma função de trabalho para usar um tempo de execução do PHP
 
 1. Crie um projeto de Serviço do Azure e adicione uma função de trabalho do PHP conforme descrito anteriormente neste tópico.
 2. Crie uma pasta `php` no diretório raiz de sua função de trabalho e adicione o tempo de execução do PHP (todos os binários, arquivos de configuração, subpastas etc.) para a pasta `php`.
-3. (OPCIONAL) Se a execução do PHP usar os [Drivers da Microsoft para PHP do SQL Server][drivers sqlsrv], você precisará configurar a função de trabalho para instalar o [SQL Server Native Client 2012][cliente sql nativo] quando ele for provisionado. Para fazer isso, adicione o [instalador sqlncli.msi x64] ao diretório raiz da função de trabalho. O script de inicialização descrito na próxima etapa executará o instalador silenciosamente quando a função for provisionada. Se o tempo de execução do PHP não usar os Drivers Microsoft para PHP para SQL Server, você poderá remover a seguinte linha do script mostrado na próxima etapa:
+3. (OPCIONAL) Se o tempo de execução do PHP usar [Drivers da Microsoft para PHP para SQL Server][sqlsrv drivers], você precisará configurar a função de trabalho para instalar o [SQL Server Native Client 2012][sql native client] quando ela for provisionada. Para fazer isso, adicione o [instalador sqlncli.msi x64] ao diretório raiz da função de trabalho. O script de inicialização descrito na próxima etapa executará o instalador silenciosamente quando a função for provisionada. Se o tempo de execução do PHP não usar os Drivers Microsoft para PHP para SQL Server, você poderá remover a seguinte linha do script mostrado na próxima etapa:
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 4. Defina uma tarefa de inicialização que adiciona o executável `php.exe` à variável de ambiente PATH da função de trabalho quando a função é configurada. Para fazer isso, abra o arquivo `setup_worker.cmd` (no diretório raiz da função de trabalho) em um editor de texto e substitua seu conteúdo pelo script a seguir:
@@ -200,22 +200,22 @@ Para parar os emuladores, execute este comando:
     PS C:\MyProject> Stop-AzureEmulator
 
 ## <a name="publish-your-application"></a>Publicar seu aplicativo
-Para publicar seu aplicativo, você precisa primeiro importar suas configurações de publicação usando o cmdlet [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) . Em seguida, você pode publicar o aplicativo usando o cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) . Para obter informações sobre como entrar, confira [Como instalar e configurar o Azure PowerShell](powershell-install-configure.md).
+Para publicar seu aplicativo, você precisa primeiro importar suas configurações de publicação usando o cmdlet [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) . Em seguida, você pode publicar o aplicativo usando o cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) . Para obter informações sobre como entrar, confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
 
 [SDK do Azure para PHP]: /develop/php/common-tasks/download-php-sdk/
-[instalar ps e emuladores]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
+[install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [definição do serviço (.csdef) ]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [configuração do serviço (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
-[cliente sql nativo]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
-[drivers sqlsrv]: http://php.net/sqlsrv
+[sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
+[sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

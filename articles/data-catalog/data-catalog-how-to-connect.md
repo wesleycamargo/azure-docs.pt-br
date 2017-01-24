@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/15/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -69,7 +69,6 @@ O registro de uma fonte de dados no **Catálogo de Dados do Azure** torna os dad
 
 ## <a name="see-also"></a>Confira também
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como conectar as fontes de dados.
-
 
 
 

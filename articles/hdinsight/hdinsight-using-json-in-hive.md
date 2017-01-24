@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 06/22/2015
 ms.author: rashimg
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a79029fef54dc8beaaa9daea690a67ae1940c44
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 89618f7549d8589d5ac684772832748ab9765d1a
 
 
 ---
@@ -100,7 +100,7 @@ O Hive fornece três mecanismos diferentes para executar consultas em documentos
 * usar a UDF (Função Definida pelo Usuário) GET\_JSON\_OBJECT
 * usar a UDF JSON_TUPLE
 * usar SerDe personalizado
-* gravar sua própria UDF usando Python ou outras linguagens. Consulte [neste artigo][hdinsight-python] como executar seu próprio código Python com o Hive.
+* gravar sua própria UDF usando Python ou outras linguagens. Consulte [este artigo][hdinsight-python] sobre como executar seu próprio código Python com o Hive.
 
 ### <a name="use-the-getjsonobject-udf"></a>Usar a UDF GET\_JSON_OBJECT
 O Hive fornece uma UDF interna chamada [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) que pode executar consultas JSON durante o tempo de execução. Esse método requer dois argumentos: o nome da tabela e o nome do método que tem o documento JSON nivelado, e o campo JSON que precisa ser analisado. Vejamos um exemplo para ver como essa UDF funciona.
@@ -260,6 +260,6 @@ Para outros artigos relacionados, consulte
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

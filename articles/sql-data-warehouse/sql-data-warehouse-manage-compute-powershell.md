@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 32e48964cb8b6dabac74d0f07e04a151ab444728
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5749b37408be8eeab6a3fba40d6768ca1d035096
 
 
 ---
@@ -38,12 +38,12 @@ Esta coleção de tarefas usa o portal do Azure para:
 * Pausar computação
 * Retomar a computação
 
-Para saber mais sobre isso, consulte [Visão geral sobre gerenciar computação][Visão geral sobre gerenciar computação].
+Para saber mais sobre isso, consulte [Visão geral sobre o gerenciamento de computação][Manage compute overview].
 
 ## <a name="before-you-begin"></a>Antes de começar
 ### <a name="install-the-latest-version-of-azure-powershell"></a>Instale a versão mais recente do Azure PowerShell
 > [!NOTE]
-> Para usar o Azure PowerShell com o SQL Data Warehouse, você precisa instalar a versão 1.0.3 ou superior do Azure PowerShell.  Para verificar a versão atual, execute o comando **Get-Module -ListAvailable -Name Azure**. Você pode instalar a versão mais recente do [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Para saber mais sobre como instalar a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][Como instalar e configurar o Azure PowerShell].
+> Para usar o Azure PowerShell com o SQL Data Warehouse, você precisa instalar a versão 1.0.3 ou superior do Azure PowerShell.  Para verificar a versão atual, execute o comando **Get-Module -ListAvailable -Name Azure**. Você pode instalar a versão mais recente do [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Para saber mais, consulte [Como instalar e configurar o Azure PowerShell][How to install and configure Azure PowerShell].
 > 
 > 
 
@@ -65,7 +65,7 @@ Introdução:
 ## <a name="scale-compute-power"></a>Dimensionar poder de computação
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Para alterar DWUs, use o cmdlet do PowerShell [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW, que está hospedado no servidor MyServer.
+Para alterar as DWUs, use o cmdlet do PowerShell [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW, que está hospedado no servidor MyServer.
 
 ```Powershell
 Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
@@ -108,7 +108,7 @@ Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-Uma variação, o próximo exemplo recupera o banco de dados para o objeto $database. Ele então redireciona o objeto [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase] e armazena os resultados em $resultDatabase. O comando final mostra os resultados.
+Uma variação, o próximo exemplo recupera o banco de dados para o objeto $database. Ele redireciona o objeto para [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase] e armazena os resultados em $resultDatabase. O comando final mostra os resultados.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -120,15 +120,15 @@ $resultDatabase
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Próximas etapas
-Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][Visão geral de gerenciamento].
+Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][Management overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Limites de capacidade do serviço]: ./sql-data-warehouse-service-capacity-limits.md
-[Visão geral de gerenciamento]: ./sql-data-warehouse-overview-manage.md
-[Como instalar e configurar o Azure PowerShell]: ../powershell-install-configure.md
-[Visão geral sobre gerenciar computação]: ./sql-data-warehouse-manage-compute-overview.md
+[Service capacity limits]: ./sql-data-warehouse-service-capacity-limits.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 [Resume-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619347.aspx
@@ -137,10 +137,10 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][V
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
-[Portal do Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/18/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a800d23208c190a381689a2417bbe9952343bc16
+ms.sourcegitcommit: 3549272a74ebf7b5e37a70dbb8d7ce3b539c8103
+ms.openlocfilehash: b5161e7e4b8b0127d63804161bfd82e3b057e3f0
 
 
 ---
@@ -69,6 +69,23 @@ Antes de excluir um arquivo .vhd de origem, você precisará remover a concessã
 > 
 > 
 
+## <a name="use-trim-with-standard-storage"></a>Usar TRIM com o armazenamento padrão
+
+Se você usar o armazenamento padrão (HDD), será necessário habilitar o TRIM. O TRIM descarta os blocos não usados do disco para que você seja cobrado apenas pelo armazenamento que está efetivamente sendo usado. Isso poderá representar uma economia dos custos se você criar arquivos grandes e, em seguida, excluí-los. 
+
+Você pode executar esse comando para verificar a configuração de TRIM. Abra um prompt de comando na sua VM do Windows e digite:
+
+```
+fsutil behavior query DisableDeleteNotify
+```
+
+Se o comando retornar 0, o TRIM estará habilitado corretamente. Se ele retornar 1, execute o seguinte comando para habilitar o TRIM:
+```
+fsutil behavior set DisableDeleteNotify 0
+```
+
+
+
 ## <a name="next-steps"></a>Próximas etapas
 * [Anexar um disco](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para adicionar mais armazenamento à sua VM.
 * [Carregue uma imagem de VM do Windows no Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para utilização durante a criação de uma nova VM.
@@ -77,6 +94,6 @@ Antes de excluir um arquivo .vhd de origem, você precisará remover a concessã
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

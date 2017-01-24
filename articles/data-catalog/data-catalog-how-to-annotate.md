@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -55,8 +55,8 @@ Ao selecionarem vários ativos de dados no portal do Catálogo de Dados, os usu�
 
 > [!NOTE]
 > Marcas e especialistas também podem ser fornecidos durante o registro de ativos de dados por meio da ferramenta de registro de fontes de dados do Catálogo de Dados.
-> 
-> 
+>
+>
 
 Quando várias tabelas e exibições forem selecionadas, somente as colunas que todos os ativos de dados selecionados tiverem em comum serão exibidas no portal do Catálogo de Dados. Isso permite que os usuários forneçam marcas e descrições de todas as colunas com o mesmo nome para todos os ativos selecionados.
 
@@ -68,7 +68,6 @@ O registro de uma fonte de dados no Catálogo de Dados torna os dados descobrív
 
 ## <a name="see-also"></a>Confira também
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como anotar fontes de dados.
-
 
 
 

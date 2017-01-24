@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 89c2a155-c2fb-4b67-bc19-9b4e03c6d3bc
 ms.service: sql-database
+ms.custom: secure and protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: CarlRabeler; ronitr; giladm
 translationtype: Human Translation
-ms.sourcegitcommit: 80680647559fe8b42cfa09985b9da3713b9c9305
-ms.openlocfilehash: cf0152b0cbcc85befa1b753b92f1593af958dd89
+ms.sourcegitcommit: 7b3c6d29ad7ded2ea65f378a1f807235c688d738
+ms.openlocfilehash: 9f51fcdb291021064dc02a71afdf849f1f4a3d85
 
 
 ---
-# <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
+# <a name="get-started-with-sql-database--auditing"></a>Introdução à auditoria do banco de dados SQL
 A Auditoria do Azure SQL Database rastreia eventos do banco de dados e os grava em um log de auditoria em sua conta do Azure Storage.
 
 A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
@@ -183,7 +184,7 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 3. Volte para a folha de configuração de auditoria, altere a **Chave de Acesso de Armazenamento** de *Secundária* para *Primária* e clique em **OK** na parte inferior. Em seguida, clique em **SALVAR** na parte superior da folha de configuração de auditoria.
 4. Volte para a folha de configuração de armazenamento e **regenere** a *Chave de Acesso Secundária* (como preparação para o próximo ciclo de atualização de chaves).
 
-## <a name="a-idsubheading-7aautomation-powershell-rest-api"></a><a id="subheading-7"></a>Automação (PowerShell/API REST)
+## <a name="a-idsubheading-7aautomation-powershell--rest-api"></a><a id="subheading-7"></a>Automação (PowerShell/API REST)
 Você também pode configurar a Auditoria no Azure SQL Database usando as seguintes ferramentas de automação:
 
 1. **Cmdlets do PowerShell**
@@ -213,9 +214,9 @@ Você também pode configurar a Auditoria no Azure SQL Database usando as seguin
 [Visão geral da Auditoria do Azure SQL Database]: #subheading-1
 [Configurar a auditoria do banco de dados]: #subheading-2
 [Analisar os logs e relatórios de auditoria]: #subheading-3
-[Práticas para uso em produção]: #subheading-5
-[Regeneração de Chave de Armazenamento]: #subheading-6
-[Automação (PowerShell/API REST)]: #subheading-7
+[Practices for usage in production]: #subheading-5
+[Storage Key Regeneration]: #subheading-6
+[Automation (PowerShell / REST API)]: #subheading-7
 
 
 <!--Image references-->
@@ -241,6 +242,6 @@ Você também pode configurar a Auditoria no Azure SQL Database usando as seguin
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 98c7e7e4d14a52787ef76d17c38a08d8f11a21e2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 82e28b06fad6e4461c399e4f878bef8ecfd28247
 
 
 ---
@@ -305,13 +305,13 @@ O exemplo a seguir chama a função UploadFile e especifica a criptografia de ar
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Próxima etapa
-Agora que você carregou um ativo nos Serviços de Mídia, vá para o tópico [Como obter um processador de mídia][Como obter um processador de mídia].
+Agora que você carregou um ativo nos Serviços de Mídia, acesse o tópico [Como obter um processador de mídia][How to Get a Media Processor].
 
-[Como obter um processador de mídia]: media-services-get-media-processor.md
-
-
+[How to Get a Media Processor]: media-services-get-media-processor.md
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Dec16_HO2-->
 
 

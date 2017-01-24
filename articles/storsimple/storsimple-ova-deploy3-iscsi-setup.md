@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a5d3d1c9afd8023b201ff37318a3905b5fe791a2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 715720d22b58ddd3d0e5042de151219e49549c5e
 
 
 ---
-# <a name="deploy-storsimple-virtual-array-set-up-your-virtual-device-as-an-iscsi-server"></a>Implantar o StorSimple Virtual Array – Configurar seu dispositivo virtual como um servidor iSCSI
+# <a name="deploy-storsimple-virtual-array--set-up-your-virtual-device-as-an-iscsi-server"></a>Implantar o StorSimple Virtual Array – Configurar seu dispositivo virtual como um servidor iSCSI
 ![fluxo do processo de instalação iscsi](./media/storsimple-ova-deploy3-iscsi-setup/iscsi4.png)
 
 ## <a name="overview"></a>Visão geral
@@ -91,7 +91,7 @@ Use as instruções passo a passo a seguir para preparar e configurar seu dispos
    
     Na página **Proxy Web** :
    
-   1. Forneça a **URL do proxy Web** neste formato: *http://endereço IP do host* ou *FDQN: Número da porta*. Observe que não há suporte para URLs HTTPS.
+   1. Forneça a **URL do proxy Web** neste formato: *http://endereço IP do host * or *FDQN: Número de porta*. Observe que não há suporte para URLs HTTPS.
    2. Especifique a **Autenticação** como **Básica** ou **Nenhuma**.
    3. Se estiver usando a autenticação, também será necessário fornecer um **Nome de Usuário** e uma **Senha**.
    4. Clique em **Aplicar**. Isso validará e aplicará as configurações de proxy Web definidas.
@@ -163,7 +163,7 @@ Execute as etapas a seguir no portal clássico do Azure para criar um volume.
    4. Especifique a capacidade provisionada para o seu volume. Observe que a capacidade especificada deve ser menor do que a capacidade disponível. Se você estiver criando um volume em camadas, o tamanho deverá estar entre 500 GB e 5 TB. Para um volume fixo localmente, especifique um tamanho de volume entre 50 e 500 GB. Use a capacidade disponível como um guia para o provisionamento de um volume. Se a capacidade local disponível é 0 GB, você não terá permissão para provisionar um volume fixado localmente ou em camadas.
       
        ![Configurações Básicas](./media/storsimple-ova-deploy3-iscsi-setup/image17.png)
-   5. Clique no ícone de seta  ![ícone de seta](./media/storsimple-ova-deploy3-iscsi-setup/image18.png)  para ir para a próxima página.
+   5. Clique no ícone de seta  ![ícone de seta](./media/storsimple-ova-deploy3-iscsi-setup/image18.png) para ir para a próxima página.
 3. Na página **Configurações adicionais** , adicione um novo registro de controle de acesso (ACR):
    
    1. Dê um **Nome** para o seu ACR.
@@ -214,7 +214,7 @@ Execute as etapas a seguir para montar, inicializar e formatar os volumes StorSi
 12. Atribua uma letra da unidade ao volume e clique em **Avançar**.
     
     ![assistente de novo volume 2](./media/storsimple-ova-deploy3-iscsi-setup/image30.png)
-13. Insira os parâmetros para formatar o volume. **No Windows Server, há suporte somente para NTFS.**  Defina AUS como 64K. Forneça um rótulo para o volume. É uma melhor prática recomendada que esse nome seja idêntico ao nome do volume fornecido em seu dispositivo virtual StorSimple. Clique em **Próximo**.
+13. Insira os parâmetros para formatar o volume. **No Windows Server, há suporte somente para NTFS.** Defina AUS como 64K. Forneça um rótulo para o volume. É uma melhor prática recomendada que esse nome seja idêntico ao nome do volume fornecido em seu dispositivo virtual StorSimple. Clique em **Próximo**.
     
     ![assistente de novo volume 3](./media/storsimple-ova-deploy3-iscsi-setup/image31.png)
 14. Verifique os valores do volume e clique em **Concluir**.
@@ -246,6 +246,6 @@ Execute as etapas a seguir para obter o iSCSI IQN (Nome Qualificado) de um host 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

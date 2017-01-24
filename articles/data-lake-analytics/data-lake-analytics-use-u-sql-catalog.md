@@ -1,5 +1,5 @@
 ---
-title: "Introdução ao catálogo do U-SQL do Azure Data Lake Analytics | Microsoft Docs"
+title: "Introdução ao catálogo do U-SQL da Análise Azure Data Lake | Microsoft Docs"
 description: "Introdução ao catálogo do U-SQL da Análise Azure Data Lake"
 services: data-lake-analytics
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 15b22d577343667c9232b3394cf64bc307ccd777
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 64427583dba57716c23e1a01df820a263c5e7298
 
 
 ---
-# <a name="use-u-sql-catalog"></a>Usar o catálogo do U-SQL
+# <a name="use-azure-data-lake-analytics-u-sql-catalog"></a>Usar o catálogo do Azure Data Lake Analytics (U-SQL)
 O catálogo do U-SQL é usado para estruturar dados e código para que eles possam ser compartilhados por scripts U-SQL. O catálogo possibilita o melhor desempenho possível com dados no Azure Data Lake.
 
 Cada conta da Análise Azure Data Lake tem exatamente um Catálogo do U-SQL associado a ela. Não é possível excluir o Catálogo do U-SQL. Atualmente, os Catálogos do U-SQL não podem ser compartilhados entre contas do Repositório Data Lake.
@@ -51,9 +51,9 @@ Você pode usar as Ferramentas do Data Lake para Visual Studio para gerenciar o 
 
     - Para adicionar um novo Banco de Dados, clique com o botão direito do mouse em **Banco de Dados** e clique em **Criar Banco de Dados**.
     - Para adicionar um novo assembly, clique com o botão direito do mouse em **Assemblies** e clique em **Registrar Assembly**.
-    - Para adicionar um novo esquema, clique com o botão direito do mouse em **Esquemas**e clique em “Criar esquema”**.
-    - Para adicionar uma nova tabela, clique com o botão direito do mouse em **Tabelas**e clique em “Criar Tabela”**.
-    - Para adicionar uma nova função com valor de tabela, confira [Desenvolver operadores U-SQL definidos pelo usuário para trabalhos de Análise do Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+    - Para adicionar um novo esquema, clique com o botão direito do mouse em **Esquemas** e, em seguida, em **Criar Esquema**.
+    - Para adicionar uma nova tabela, clique com o botão direito do mouse em **Tabelas** e, em seguida, em **Criar Tabela**.
+    - Para adicionar uma nova função com valor de tabela, confira [Desenvolver operadores U-SQL definidos pelo usuário para trabalhos do Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
 
 ![Procurar catálogos do U-SQL do Visual Studio](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
@@ -70,7 +70,7 @@ Você pode usar as Ferramentas do Data Lake para Visual Studio para gerenciar o 
   
   * [Introdução à linguagem U-SQL da Análise Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
   * [Usar funções da janela do U-SQL para trabalhos da Análise do Azure Data Lake](data-lake-analytics-use-window-functions.md)
-  * [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos da Análise Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+  * [Desenvolver operadores do U-SQL definidos pelo usuário para trabalhos do Data Lake Analytics](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 * Gerenciamento
   
   * [Gerenciar o Azure Data Lake Analytics usando o portal do Azure](data-lake-analytics-manage-use-portal.md)
@@ -84,6 +84,6 @@ Você pode usar as Ferramentas do Data Lake para Visual Studio para gerenciar o 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

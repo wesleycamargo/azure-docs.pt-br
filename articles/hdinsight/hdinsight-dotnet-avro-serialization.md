@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/14/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cdc03ca462125ca379f7c0dd2460da719dce0c63
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2d3250eb1c0855d185228b0bca990b255f9aa9bd
 
 
 ---
@@ -359,7 +359,7 @@ Este exemplo é semelhante ao cenário do <a href="#Scenario1"> primeiro exemplo
 
 Os dados são serializados neste exemplo com [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx) e desserializados com [**SequentialReader<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx). O resultado é, então, comparado com as instâncias iniciais para garantir a identidade.
 
-Os dados no arquivo do contêiner de objetos são compactados pelo codec de compactação [**Deflate**][deflate-100] padrão do .NET Framework 4. Consulte o <a href="#Scenario5"> quinto exemplo</a> neste tópico para aprender a usar uma versão mais recente e superior do codec de compactação [**Deflate**][deflate-110] disponível no .NET Framework 4.5.
+Os dados no arquivo contêiner de objetos são compactados pelo codec de compactação padrão [**Deflate**][deflate-100] do .NET Framework 4. Consulte o <a href="#Scenario5"> quinto exemplo</a> neste tópico para aprender a usar uma versão mais recente e superior do codec de compactação [**Deflate**][deflate-110], disponível no .NET Framework 4.5.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -859,7 +859,7 @@ Em seguida, os dados são lidos a partir do arquivo e desserializados em uma col
 ### <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>Exemplo 5: serialização usando arquivos do contêiner de objetos com um codec de compactação personalizado
 O quinto exemplo mostra como usar um codec de compactação personalizado para arquivos contêiner de objetos do Avro. Uma amostra contendo o código para esse exemplo pode ser baixada no site [Exemplos de código do Azure](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) .
 
-A [Especificação Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) permite o uso de um codec de compactação opcional (além dos padrões **Null** e **Deflate**). Este exemplo não implementa um codec totalmente novo como o Snappy (mencionado como codec opcional compatível na [Especificação do Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Ele mostra como usar a implementação do .NET Framework 4.5 do codec [**Deflate**][deflate-110], que fornece um algoritmo de compactação melhor, baseado na biblioteca de compactação [zlib](http://zlib.net/), que a versão padrão do .NET Framework 4.
+A [Especificação Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) permite o uso de um codec de compactação opcional (além dos padrões **Null** e **Deflate**). Este exemplo não implementa um codec totalmente novo como o Snappy (mencionado como codec opcional compatível na [Especificação do Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Ele mostra como usar a implementação do .NET Framework 4.5 do codec [**Deflate**][deflate-110], que oferece um algoritmo de compactação baseado na biblioteca de compactação [zlib](http://zlib.net/) melhor do que a versão padrão do .NET Framework 4.
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1390,6 +1390,6 @@ Para limpar o cluster, execute este comando:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

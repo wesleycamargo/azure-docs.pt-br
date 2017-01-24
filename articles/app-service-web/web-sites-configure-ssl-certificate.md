@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 48696644e3a6c5fc2d84538c9c247d080cd7c6f4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cb8d77588bbac30a67dab9a20e0e81d2537c977f
 
 
 ---
@@ -91,7 +91,7 @@ Se quiser testar a configuração no Serviço de Aplicativo antes de comprar um 
         KeyLength = 2048              ; Required minimum is 2048
         KeySpec = 1
         KeyUsage = 0xA0
-        MachineKeySet = True
+        MachineKeySet = FALSE
         ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
         ProviderType = 12
         HashAlgorithm = SHA256
@@ -138,9 +138,9 @@ Agora, você está pronto para carregar o arquivo PFX exportado no Serviço de A
 <a name="bkmk_iismgr"></a>
 
 ### <a name="get-a-certificate-using-the-iis-manager"></a>Obtenha um certificado usando o Gerenciador do IIS
-1. Gere uma CSR com o IIS Manager para enviar à AC. Para obter mais informações sobre como gerar um CSR, consulte [Solicitar um certificado do servidor para a Internet (IIS 7)][iiscsr].
+1. Gere uma CSR com o IIS Manager para enviar à AC. Para obter mais informações sobre como gerar um CSR, consulte [Solicitar um Certificado do Servidor para a Internet (IIS 7)][iiscsr].
 2. Envie sua CSR a uma AC para obter um certificado SSL. Para obter uma lista de ACs em que a Microsoft confia, consulte [Programa de Certificado Raiz Confiável da Microsoft: participantes][cas].
-3. Conclua a CSR com o certificado que a AC lhe enviar. Para obter mais informações sobre a conclusão do CSR, consulte [Instalar um certificado do servidor para a Internet (IIS 7)][installcertiis].
+3. Conclua a CSR com o certificado que a AC lhe enviar. Para obter mais informações sobre a conclusão do CSR, consulte [Instalar um Certificado do Servidor para a Internet (IIS 7)][installcertiis].
 4. Se a sua AC usar certificados intermediários, instale-os antes de continuar. Geralmente, eles são fornecidos como um download separado pela AC, em vários formatos para diferentes tipos de servidor Web. Selecione a versão relativa ao IIS da Microsoft.
    
     Depois que você tiver baixado os certificados, clique com o botão direito do mouse em cada um deles no Windows Explorer e selecione **Instalar certificado**. 
@@ -519,7 +519,7 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 
 ## <a name="more-resources"></a>Mais Recursos
 * [Central de confiabilidade do Microsoft Azure](/support/trust-center/security/)
-* [Opções de configuração desbloqueadas nos Sites do Azure](/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+* [Opções de configuração desbloqueadas nos Sites do Azure](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 * [Habilitar registro em log de diagnóstico](web-sites-enable-diagnostic-log.md)
 * [Configurar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-configure.md)
 * [Portal de Gerenciamento do Azure](https://manage.windowsazure.com)
@@ -541,7 +541,7 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 [website]: ./media/web-sites-configure-ssl-certificate/sslwebsite.png
 [scale]: ./media/web-sites-configure-ssl-certificate/sslscale.png
 [standard]: ./media/web-sites-configure-ssl-certificate/sslreserved.png
-[preço]: /pricing/details/
+[pricing]: /pricing/details/
 [configure]: ./media/web-sites-configure-ssl-certificate/sslconfig.png
 [uploadcert]: ./media/web-sites-configure-ssl-certificate/ssluploadcert.png
 [uploadcertdlg]: ./media/web-sites-configure-ssl-certificate/ssluploaddlg.png
@@ -557,6 +557,6 @@ Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consul
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

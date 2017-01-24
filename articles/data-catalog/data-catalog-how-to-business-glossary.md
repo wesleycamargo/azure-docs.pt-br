@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -38,8 +38,8 @@ O Glossário de Negócios do Catálogo de Dados permite que às organizações d
 
 > [!NOTE]
 > A funcionalidade descrita neste artigo está disponível apenas na Edição Standard do Catálogo de Dados do Azure. A Edição Gratuita não fornece recursos para marcação controlada ou um glossário de negócios.
-> 
-> 
+>
+>
 
 ## <a name="glossary-availability-and-privileges"></a>Disponibilidade de glossário e privilégios
 *O glossário de negócios está disponível na Edição Standard do Catálogo de Dados do Azure. A Edição Gratuita do Catálogo de Dados não inclui um glossário.*
@@ -74,8 +74,8 @@ Depois que termos glossário tiverem sido definidos no catálogo, a experiência
 
 > [!NOTE]
 > Marcas de usuário são o único tipo de marca com suporte na Edição Gratuita do Catálogo de Dados.
-> 
-> 
+>
+>
 
 ### <a name="hover-behavior-on-tags"></a>Comportamento ao passar o mouse sobre marcas
 No portal do Catálogo de Dados, os dois tipos de marcas são visualmente distintas, com comportamentos diferentes ao passar o mouse sobre elas. Quando o usuário passa o mouse sobre uma marca de usuário, ele pode ver o texto da marca e o usuário que a adicionou. Quando o usuário passa o mouse sobre uma marca de glossário, ele também vê a definição do termo e um link para abrir o glossário de negócios para exibir a definição completa do termo.
@@ -88,7 +88,6 @@ O glossário de negócios no Catálogo de Dados do Azure, e a marcação habilit
 
 ## <a name="see-also"></a>Consulte também
 * [Documentação da API REST para operações de glossário de negócios](https://msdn.microsoft.com/library/mt708855.aspx)
-
 
 
 

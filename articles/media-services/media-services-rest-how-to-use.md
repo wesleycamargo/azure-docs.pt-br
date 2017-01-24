@@ -1,5 +1,5 @@
 ---
-title: "Visão geral da API de REST de Serviços de Mídia | Microsoft Docs"
+title: "Visão geral da API REST das Operações dos Serviços de Mídia | Microsoft Docs"
 description: "Visão geral da API de REST de serviços de mídia"
 services: media-services
 documentationcenter: 
@@ -12,20 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/29/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900c8fe2710d02d117c1b8155623ed911796203b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8b6e19e3c495eec4e16187524df0b13e4ffce9de
 
 
 ---
-# <a name="media-services-rest-api-overview"></a>Visão geral da API de REST de serviços de mídia
+# <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST das Operações dos Serviços de Mídia
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
+
+A API **REST das Operações dos Serviços de Mídia** é usada para criar trabalhos, ativos, políticas de acesso e outras operações em objetos em uma conta de Serviço de Mídia. Para saber mais, consulte [Referência da API REST das Operações dos Serviços de Mídia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
 Os serviços de mídia do Microsoft Azure é um serviço que aceita solicitações HTTP com base em OData e pode responder em verbose JSON ou atom+pub. Como os serviços de mídia estão em conformidade com as diretrizes de design do Azure, há um conjunto de cabeçalhos HTTP necessários que cada cliente deve usar ao se conectar aos serviços de mídia, bem como um conjunto de cabeçalhos opcionais que podem ser usados. As seções a seguir descrevem os cabeçalhos e verbos HTTP que podem ser usados ao criar solicitações e receber respostas dos serviços de mídia.
 
+
 ## <a name="considerations"></a>Considerações
+
 As seguintes considerações se aplicam ao usar REST.
 
 * Ao consultar entidades, um limite de 1.000 entidades podem ser retornadas ao mesmo tempo porque a REST v2 pública limita os resultados da consulta a 1.000 resultados. Você precisa usar **Skip** e **Take** (.NET)/ **top** (REST), conforme descrito [neste exemplo de .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) e [neste exemplo de API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
@@ -66,7 +70,7 @@ Este é um conjunto de cabeçalhos opcional:
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
 | Data |Data do RFC 1123 |Carimbo de hora da solicitação |
-| Aceitar |Tipo de conteúdo |O conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> - application/atom+xml<p>  As respostas podem ter tipos de conteúdo diferentes como uma busca de blob, em que uma resposta bem-sucedida conterá o fluxo de blob como carga. |
+| Aceitar |Tipo de conteúdo |O conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> - application/atom+xml<p> As respostas podem ter tipos de conteúdo diferentes como uma busca de blob, em que uma resposta bem-sucedida conterá o fluxo de blob como carga. |
 | Codificação aceita |Gzip, deflate |Codificar GZIP e DEFLATE, quando aplicável. Observação: para grandes recursos, os Serviços de Mídia podem ignorar esse cabeçalho e retornar dados não compactados. |
 | Idioma aceito |"en", "es", e assim por diante. |Especifica o idioma preferencial para a resposta. |
 | Conjunto de caracteres aceito |Tipo de conjunto de caracteres como "UTF-8" |Padrão é UTF-8. |
@@ -114,6 +118,6 @@ Você deve acrescentar "?api-version=2.x" ao final do URI se desejar exibir os m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

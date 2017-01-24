@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -54,8 +54,8 @@ A ferramenta de registro de fonte de dados do **Catálogo de Dados do Azure** pe
 
 > [!NOTE]
 > Tabelas largas com um grande número de colunas podem ter menos de 20 registros incluídos na sua visualização.
-> 
-> 
+>
+>
 
 ## <a name="including-data-profiles"></a>Incluindo perfis de dados
 Assim como incluir visualizações pode fornecer um contexto valioso aos usuários que pesquisam fontes de dados no **Catálogo de Dados do Azure**, incluir um perfil de dados também pode facilitar a compreensão das fontes de dados descobertas.
@@ -71,8 +71,8 @@ Essas estatísticas são copiadas no catálogo com os metadados estruturais e de
 
 > [!NOTE]
 > As colunas de data e texto não incluirão estatísticas de desvio médio ou padrão no respectivo perfil de dados.
-> 
-> 
+>
+>
 
 ## <a name="updating-registrations"></a>Atualização de registros
 Registrar uma fonte de dados a tornará detectável no **Catálogo de Dados do Azure** usando os metadados e a visualização opcional extraídos durante o registro. Se a fonte de dados precisa ser atualizada no catálogo (por exemplo, se o esquema de um objeto foi alterado, ou tabelas originalmente excluídas devem ser incluídas ou um usuário quiser atualizar os dados incluídos nas visualizações), a ferramenta de registro da fonte de dados pode ser executada novamente.
@@ -84,7 +84,6 @@ Registrar uma fonte de dados no **Catálogo de Dados do Azure** facilita a desco
 
 ## <a name="see-also"></a>Consulte também
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como registrar fontes de dados.
-
 
 
 

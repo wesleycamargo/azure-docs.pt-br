@@ -1,12 +1,12 @@
 ---
 title: Ciclo de vida de Reliable Actors | Microsoft Docs
-description: Explica o ciclo de vida, a coleta de lixo e a exclusão manual de atores e seu estado de Reliable Actor do Service Fabric
+description: "Explica o ciclo de vida, a coleta de lixo e a exclusão manual de atores e seu estado de Reliable Actor do Service Fabric"
 services: service-fabric
 documentationcenter: .net
 author: amanbha
 manager: timlt
 editor: vturecek
-
+ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2016
 ms.author: amanbha
+translationtype: Human Translation
+ms.sourcegitcommit: e39c130b1abb0b2c31511abdd51f02446d3898f6
+ms.openlocfilehash: 681c9aa628ea9364f73e6a41f0f71139d3b983d7
+
 
 ---
-# Ciclo de vida, coleta automática de lixo e exclusão manual do ator
+# <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida, coleta automática de lixo e exclusão manual do ator
 Um ator é ativado na primeira vez que uma chamada é feita para qualquer um de seus métodos. Um ator será desativado (lixo coletado pelo tempo de execução dos Atores) se ele não for usado pelo período configurável. Um ator e seu estado também podem ser excluídos manualmente a qualquer momento.
 
-## Ativação do ator
+## <a name="actor-activation"></a>Ativação do ator
 Quando um ator é ativado, ocorre o seguinte:
 
 * Quando uma chamada chega para um ator e ele ainda não está ativo, é criado um novo ator.
@@ -27,29 +31,29 @@ Quando um ator é ativado, ocorre o seguinte:
 * O método `OnActivateAsync` (que pode ser substituído na implementação do ator) é chamado.
 * Agora, o ator é considerado ativo.
 
-## Desativação do ator
+## <a name="actor-deactivation"></a>Desativação do ator
 Quando um ator é desativado, ocorre o seguinte:
 
 * Quando um ator não é usado por algum tempo, ele é removido da tabela de Atores Ativos.
 * O método `OnDeactivateAsync` (que pode ser substituído na implementação do ator) é chamado. Isso limpa todos os medidores de tempo do ator. Operações de ator, como alterações de estado, não devem ser chamadas por meio desse método.
 
 > [!TIP]
-> O tempo de execução da malha atores emite alguns eventos de [ relacionados à desativação e ativação de ator](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). Eles são úteis no diagnóstico e monitoramento de desempenho.
-> 
-> 
+> O tempo de execução do Fabric Actors emite alguns [eventos de relacionados à ativação e à desativação de ator](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Eles são úteis no diagnóstico e monitoramento de desempenho.
+>
+>
 
-### Coleta de Lixo de Ator
+### <a name="actor-garbage-collection"></a>Coleta de Lixo de Ator
 Quando um ator é desativado, as referências ao objeto do ator são liberadas e ele pode ter seu lixo coletado normalmente pelo coletor de lixo CLR (common language runtime). A coleta de lixo elimina apenas o objeto do ator; ela **não** remove o estado armazenado no Gerenciador de Estado do ator. Na próxima vez que o ator for ativado, um novo objeto de ator será criado e seu estado será restaurado.
 
 O que conta como "está sendo usado" para fins de desativação e coleta de lixo?
 
 * Recebimento de chamadas
-* O método `IRemindable.ReceiveReminderAsync` que está sendo invocado (aplicável somente se o ator usar lembretes).
+* `IRemindable.ReceiveReminderAsync` que está sendo invocado (aplicável somente se o ator usar lembretes).
 
 > [!NOTE]
 > Se o ator usar temporizadores e o retorno de chamada de seu temporizador for invocado, ele **não** será contado como "está sendo usado".
-> 
-> 
+>
+>
 
 Antes de entrar nos detalhes da desativação, é importante definir os seguintes termos:
 
@@ -79,7 +83,7 @@ public class Program
 
 Para cada ator ativo, o tempo de execução do ator controla por quanto tempo ele permanece ocioso (ou seja, não usado). O tempo de execução do ator verifica cada um dos atores a cada `ScanIntervalInSeconds` para saber se o lixo pode ser coletado e o coleta se ele estiver ocioso por `IdleTimeoutInSeconds`.
 
-Sempre que um ator é usado, seu tempo ocioso é redefinido como 0. Depois disso, o ator só pode ter seu lixo coletado se permanecer ocioso novamente por `IdleTimeoutInSeconds`. Lembre-se de que um ator é considerado como usado se o método de interface ator ou um retorno de chamada de lembrete de ator for executado. Um ator **não** é considerado usado se seu retorno de chamada do temporizador for executado.
+Sempre que um ator é usado, seu tempo ocioso é redefinido como 0. Depois disso, o ator só pode ter seu lixo coletado se permanecer ocioso novamente por `IdleTimeoutInSeconds`. Lembre-se de que um ator é considerado como usado se o método de interface de ator ou um retorno de chamada de lembrete de ator for executado. Um ator **não** é considerado usado se seu retorno de chamada do temporizador for executado.
 
 O diagrama a seguir mostra o ciclo de vida de um único ator para ilustrar esses conceitos.
 
@@ -96,7 +100,7 @@ O exemplo mostra o impacto das chamadas de método de ator, lembretes e medidore
 
 Um ator nunca terá o lixo coletado durante a execução de um de seus métodos, não importa quanto tempo seja gasto na execução do método. Como mencionado anteriormente, a execução de métodos de interface de ator e retornos de chamada de lembrete impede a coleta de lixo, redefinindo o tempo ocioso do ator como 0. A execução de retornos de chamada do temporizador não redefine o tempo ocioso para 0. No entanto, a coleta de lixo do ator é adiada até que o retorno de chamada do temporizador tenha concluído a execução.
 
-## Excluindo atores e seu estado
+## <a name="deleting-actors-and-their-state"></a>Excluindo atores e seu estado
 A coleta de lixo dos atores desativados elimina apenas o objeto do ator, mas não remove os dados que são armazenados no Gerenciador de Estado de um ator. Quando um ator é reativado, seus dados são disponibilizados novamente para ele por meio do Gerenciador de Estado. Nos casos em que atores armazenam dados no Gerenciador de Estado e são desativados, mas nunca reativados, pode ser necessário eliminar seus dados.
 
 O [Serviço de Ator](service-fabric-reliable-actors-platform.md) fornece uma função para excluir atores de um chamador remoto:
@@ -120,7 +124,7 @@ Os efeitos de excluir um ator são descritos abaixo de acordo com o estado, ativ
 
 Observe que um ator não pode chamar delete por si só de um de seus métodos, pois ele não pode ser excluído enquanto estiver em execução em um contexto de chamada de ator, no qual o tempo de execução obteve um bloqueio em torno da chamada do ator para impor o acesso single-threaded.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * [Lembretes e temporizadores de ator](service-fabric-reliable-actors-timers-reminders.md)
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
 * [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
@@ -131,4 +135,8 @@ Observe que um ator não pode chamar delete por si só de um de seus métodos, p
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3c20ee0d5abb40d7650eeaa722e87142275448d
 
 
 ---
@@ -40,7 +40,7 @@ Permite selecionar todos os projetos em que você quer que o aplicativo apareça
 
 Você também pode pesquisar um projeto e exibir o nome, descrição, proprietário e as permissões da função de qualquer projeto de que seu aplicativo faz parte.
 
-Para obter mais informações, consulte: [UI Documentation – Home (Documentação da interface do usuário – Página inicial)][Link 13]
+Para obter mais informações, veja: [Documentação da Interface do Usuário – Página Inicial][Link 13]
 
   ![settings3][48]
 
@@ -52,7 +52,7 @@ Após fornecer as credenciais ou certificados para pelo menos um serviço de pus
 ### <a name="apple-push-notification-service-apns"></a>Serviço de notificação por push da Apple (APNS)
 Para habilitar o envio nativo usando o serviço de notificação por push da Apple você precisará registrar seu certificado. Você precisará especificar o tipo de certificado como desenvolvimento (DES) ou de produção (PROD). Em seguida, você precisará carregar o certificado e a senha.
 
-Para obter mais informações, consulte: [SDK Documentation - iOS - How to Prepare your Application for Apple Push notifications (Documentação do SDK – iOS – Como preparar seu aplicativo para notificações por push da Apple)][Link 5]
+Para obter mais informações, veja: [Documentação do SDK – iOS – Como preparar seu aplicativo para notificações por push da Apple][Link 5]
 
 ![settings4][49]
 
@@ -90,7 +90,7 @@ Mostra a velocidade de push atual do seu aplicativo e permite que você defina a
 ## <a name="commercial-pressure"></a>Pressão comercial
 ![settings12][57]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 * [Conceitos][Link 6]
 * [Serviço do Guia de Solução de Problemas][Link 24]
 
@@ -192,6 +192,6 @@ Mostra a velocidade de push atual do seu aplicativo e permite que você defina a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

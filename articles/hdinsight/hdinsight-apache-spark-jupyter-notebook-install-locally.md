@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a5008302306f6024d69ea82c537990ef4360495d
+ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
+ms.openlocfilehash: e6aeacd091e58a010348c031294f7b7c98df57fb
 
 
 ---
@@ -43,30 +43,35 @@ Você deve instalar o Python antes de instalar notebooks do Jupyter. Python e Ju
 
 1. Baixe o [instalador do Anaconda](https://www.continuum.io/downloads) para sua plataforma e execute a instalação. Ao executar o assistente de instalação, não deixe de selecionar a opção de adicionar o Anaconda à variável PATH.
 2. Execute o comando a seguir para instalar o Jupyter.
-   
+
         conda install jupyter
-   
+
     Para saber mais sobre a instalação do Jupyter, confira [Installing Jupyter using Anaconda](http://jupyter.readthedocs.io/en/latest/install.html)(Instalando o Jupyter usando Anaconda).
 
 ## <a name="install-the-kernels-and-spark-magic"></a>Instalar os kernels e a mágica do Spark
 Para obter instruções sobre como instalar a mágica do Spark, os kernels PySpark e Spark, confira a [documentação do sparkmagic](https://github.com/jupyter-incubator/sparkmagic#installation) no GitHub.
 
+Para clusters v3.4, instale o sparkmagic 0.5.0 executando `pip install sparkmagic==0.2.3`.
+
+Para clusters v3.5, instale o sparkmagic 0.8.4 executando `pip install sparkmagic==0.8.4`.
+
 ## <a name="configure-spark-magic-to-access-the-hdinsight-spark-cluster"></a>Configurar a mágica do Spark para acessar o cluster HDInsight Spark
 Nesta seção, você configura a mágica do Spark instalada anteriormente para se conectar a um cluster Apache Spark que já deve ter criado no Azure HDInsight.
 
 1. As informações de configuração do Jupyter normalmente são armazenadas no diretório base dos usuários. Para localizar seu diretório base em qualquer plataforma de sistema operacional, digite os comandos a seguir.
-   
+
     Inicie o shell do Python. Em uma janela de comando, digite o seguinte:
-   
+
         python
-   
+
     No shell do Python, digite o comando a seguir para localizar o diretório base.
-   
+
         import os
         print(os.path.expanduser('~'))
+
 2. Navegue até o diretório base e crie uma pasta chamada **.sparkmagic** , caso ela ainda não exista.
 3. Dentro da pasta, crie um arquivo chamado **config.json** e adicione o trecho de código JSON a seguir dentro dele.
-   
+
         {
           "kernel_python_credentials" : {
             "username": "{USERNAME}",
@@ -79,16 +84,36 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
             "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
           }
         }
+
 4. Substitua **{USERNAME}**, **{CLUSTERDNSNAME}** e **{BASE64ENCODEDPASSWORD}** pelos valores apropriados. Você pode usar vários utilitários em sua linguagem de programação favorita ou online para gerar uma senha codificada em base64 para sua senha real. Um trecho de código Python simples para executar do prompt de comando seria:
-   
+
         python -c "import base64; print(base64.b64encode('{YOURPASSWORD}'))"
-5. Inicie o Jupyter. Use o comando do prompt de comando a seguir.
-   
+
+5. Defina as configurações corretas de Pulsação em `config.json`:
+
+    * Para `sparkmagic 0.5.0` (clusters v3.4), incluem:
+
+            "should_heartbeat": true,
+            "heartbeat_refresh_seconds": 5,
+            "heartbeat_retry_seconds": 1
+
+    * Para `sparkmagic 0.8.4` (clusters v3.5), incluem:
+
+            "heartbeat_refresh_seconds": 5,
+            "livy_server_heartbeat_timeout_seconds": 60,
+            "heartbeat_retry_seconds": 1
+
+    >[!TIP]
+    >As pulsações são enviadas para garantir que as sessões não sejam perdidas. Observe que, quando um computador entra em suspensão ou está desligado, a pulsação não será enviada, resultando na limpeza da sessão. Para clusters v3.4, se desejar desabilitar esse comportamento, você poderá definir a configuração Livy `livy.server.interactive.heartbeat.timeout` para `0` da interface do usuário do Ambari. Para clusters v3.5, se você não definir a configuração de 3.5 ou acima, a sessão não será excluída.
+
+6. Inicie o Jupyter. Use o comando do prompt de comando a seguir.
+
         jupyter notebook
-6. Verifique se você pode se conectar ao cluster usando o bloco de notas Jupyter e se você pode usar a mágica Spark disponível com os kernels. Execute as seguintes etapas:
-   
+
+7. Verifique se você pode se conectar ao cluster usando o bloco de notas Jupyter e se você pode usar a mágica Spark disponível com os kernels. Execute as seguintes etapas:
+
    1. Crie um novo bloco de anotações. No canto direito, clique em **Novo**. Você deve ver o kernel padrão **Python2** e os dois kernels novos instalados, **PySpark** e **Spark**.
-      
+
        ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Create a new Jupyter notebook")
 
         Clique em **PySpark**.
@@ -101,7 +126,8 @@ Nesta seção, você configura a mágica do Spark instalada anteriormente para s
 
         Se você puder recuperar a saída com êxito, a conexão com o cluster HDInsight será testada.
 
-    >[AZURE.TIP] Se você quiser atualizar a configuração do bloco de notas para se conectar a um cluster diferente, atualize o config.json com o novo conjunto de valores, conforme mostrado na Etapa 3 acima. 
+    >[!TIP]
+    >Se você quiser atualizar a configuração do bloco de notas para se conectar a um cluster diferente, atualize o config.json com o novo conjunto de valores, conforme mostrado na Etapa 3 acima.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Por que devo instalar o Jupyter no meu computador?
 Pode haver vários motivos pelos quais você possa querer instalar o Jupyter no computador e conectá-lo a um cluster Spark no HDInsight.
@@ -114,8 +140,8 @@ Pode haver vários motivos pelos quais você possa querer instalar o Jupyter no 
 
 > [!WARNING]
 > Com o Jupyter instalado no computador local, vários usuários podem executar o mesmo bloco de notas no mesmo cluster Spark ao mesmo tempo. Nessa situação, várias sessões Livy são criadas. Se você tiver um problema e desejar depurá-lo, será uma tarefa complexa rastrear qual sessão Livy pertence a qual usuário.
-> 
-> 
+>
+>
 
 ## <a name="a-nameseealsoasee-also"></a><a name="seealso"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](hdinsight-apache-spark-overview.md)
@@ -144,7 +170,6 @@ Pode haver vários motivos pelos quais você possa querer instalar o Jupyter no 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
