@@ -3,7 +3,7 @@ title: Usar as Ferramentas do Azure Data Lake para Visual Studio Code | Microsof
 description: 'Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio Code para criar, testar e executar scripts U-SQL. '
 services: data-lake-analytics
 documentationcenter: 
-author: mumian
+author: jejiang
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/22/2016
-ms.author: jgao
+ms.date: 11/30/2016
+ms.author: jejiang
 translationtype: Human Translation
-ms.sourcegitcommit: fe5ef9bba31abdf9b29ad7c817a376407309f289
-ms.openlocfilehash: 59f2e4473aac85a8476055d2d955f576c099d787
+ms.sourcegitcommit: e79513590bb37570764f398e716182a11c74612a
+ms.openlocfilehash: 59cc35bc740625ed0582c1557fac9a04bf0cb8bc
 
 ---
 
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-code"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio Code
 
-Saiba como usar as Ferramentas do Azure Data Lake para VSCode (Visual Studio Code) para criar, testar e executar scripts U-SQL.
+Saiba como usar as Ferramentas do Azure Data Lake para VSCode (Visual Studio Code) para criar, testar e executar scripts U-SQL.  As informações também são abordadas no vídeo a seguir:
 
+<a href="https://www.youtube.com/watch?v=J_gWuyFnaGA&feature=youtu.be"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -187,7 +188,7 @@ Para dar suporte ao code-behind, uma pasta de trabalho deve ser aberta.
 2. Abra a paleta de comandos pressionando **CTRL+SHIFT+P**.
 3. Insira **ADL: Gerar Code-Behind**.  Um arquivo code-behind é criado na mesma pasta. 
 
-Também é possível clicar com o botão direito do mouse em um arquivo de script e clicar em **ADL: Gerar Code-Behind** para enviar um trabalho do U-SQL. 
+Também é possível clicar com o botão direito do mouse em um arquivo de script e clicar em **ADL: Gerar Code-Behind** para gerar um arquivo de code-behind. 
 
 Compilar e enviar um script U-SQL com code-behind é o mesmo que o script U-SQL autônomo.
 
@@ -197,9 +198,11 @@ As duas capturas de tela que se seguem mostram um arquivo code-behind e seu arqu
 
 ![Code-behind das Ferramentas do Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
 
-## <a name="register-assemblies"></a>Registrar assemblies
+## <a name="use-assemblies"></a>Usar assemblies
 
-Usando as Ferramentas do Data Lake, você pode registrar assemblies de código personalizado no metastore do Data Lake Analytics.
+Para obter informações sobre como desenvolver assemblies, confira [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md) (Desenvolver assemblies U-SQL para trabalhos do Azure Data Lake Analytics).
+
+Usando as Ferramentas do Data Lake, você pode registrar assemblies de código personalizado no catálogo do Data Lake Analytics.
 
 **Para registrar um assembly**
 
@@ -209,9 +212,26 @@ Usando as Ferramentas do Data Lake, você pode registrar assemblies de código p
 4.  Selecione um banco de dados.
 5.  Especifique o caminho do assembly local.
 
-## <a name="access-data-lake-analytics-metadata"></a>Acessar metadados do Data Lake Analytics
+O código de U-SQL a seguir demonstra como chamar um assembly. No exemplo, o nome do assembly é *teste*.
 
-Depois que estiver conectado ao Azure, você poderá usar as seguintes etapas para acessar os metadados do U-SQL:
+    REFERENCE ASSEMBLY [test];
+    @a=EXTRACT Iid int,Starts DateTime,Region string,Query string,DwellTime int,Results string,ClickedUrls string 
+    FROM @"ruoxin/SearchLog.txt" USING Extractors.Tsv();
+    
+    @d=SELECT DISTINCT Region FROM @a;
+    
+    @d1=PROCESS @d
+        PRODUCE Region string,
+                Mkt string
+                USING new USQLApplication_codebehind.MyProcessor();
+    
+    OUTPUT @d1 TO @"ruoxin/SearchLogtest.txt" USING Outputters.Tsv();
+
+
+
+## <a name="access-data-lake-analytics-catalog"></a>Acessar o catálogo do Data Lake Analytics
+
+Depois que estiver conectado ao Azure, você poderá usar as seguintes etapas para acessar o catálogo do U-SQL:
 
 **Para acessar os metadados do U-SQL**
 
@@ -250,12 +270,13 @@ As Ferramentas do Data Lake para VSCode dão suporte aos seguintes recursos:
 
 - Para obter informações introdutórias sobre o Data Lake Analytics, veja [Tutorial: Introdução ao Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 - Para saber mais sobre como usar as Ferramentas do Data Lake para Visual Studio, confira [Tutorial: Desenvolver scripts U-SQL usando as Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- Para obter informações sobre como desenvolver assemblies, confira [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md) (Desenvolver assemblies U-SQL para trabalhos do Azure Data Lake Analytics).
 
 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

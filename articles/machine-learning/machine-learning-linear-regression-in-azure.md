@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/09/2016
 ms.author: kbaroni;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: eb6fc4b1451d9c1ba17d1787bc8a77507b694258
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b519769502f9883c5be59dc453bce872660774b5
 
 
 ---
@@ -159,6 +159,6 @@ São listados alguns recursos para ajudá-lo a trabalhar com a regressão:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
