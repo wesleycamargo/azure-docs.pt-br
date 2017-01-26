@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
+ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
 
 
 ---
@@ -41,7 +41,7 @@ Embora o Serviço de Aplicativo ofereça suporte a várias maneiras de implantar
    
     A API de exemplo fornece dois pontos de extremidade: uma solicitação Get para `/contacts` retorna uma lista de nomes e endereços de email no formato JSON, enquanto `/contacts/{id}` retorna apenas o contato selecionado.
 
-## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Código do Node.js em scaffolding (gerado automaticamente) baseado nos metadados do Swagger
+## <a name="scaffold-auto-generate-nodejs-code-based-on-swagger-metadata"></a>Código do Node.js em scaffolding (gerado automaticamente) baseado nos metadados do Swagger
 [Swagger](http://swagger.io/) é um formato de arquivo para metadados que descreve uma API RESTful. O Serviço de Aplicativo do Azure tem [suporte interno para metadados do Swagger](app-service-api-metadata.md). Esta seção do tutorial modela um fluxo de trabalho de desenvolvimento de API em que você cria primeiro os metadados do Swagger e os utiliza para gerar automaticamente o código de servidor para a API. 
 
 > [!NOTE]
@@ -131,7 +131,7 @@ Embora o Serviço de Aplicativo ofereça suporte a várias maneiras de implantar
         app.use(bodyParser.json());
    
         app.use(swaggerize({
-            api: path.resolve('./config/api.json'), // third change
+            api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));
@@ -230,23 +230,29 @@ Nesta seção, você criará um repositório Git local com o código do servidor
         git init
    
      ![Novo Repositório Git local](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
-3. Execute o comando a seguir para adicionar um Git remoto ao repositório do seu aplicativo de API. 
+3. Se você fez a primeira parte deste tutorial e copiou a pasta `ContactList`, a cópia provavelmente incluiu a pasta `node_modules`. Você não deseja incluir a pasta `node_modules` no controle de origem porque ela é criada para você durante o processo de implantação por meio do arquivo `package.json` e `npm install`. Portanto, adicione um arquivo `.gitignore` executando o seguinte comando na raiz do diretório do projeto.
+
+         touch .gitignore
+      
+   Abra o arquivo .gitignore e adicione `node_modules` à primeira linha do arquivo. Você pode confirmar se a pasta `node_modules` está sendo ignorada pelo controle de origem se executar `git status` e não vir o diretório na lista. Há um (projeto do GitHub)[https://github.com/github/gitignore/blob/master/Node.gitignore] para arquivos que é recomendável ignorar em um projeto NodeJS se você quiser adicionar mais regras.
+ 
+4. Execute o comando a seguir para adicionar um Git remoto ao repositório do seu aplicativo de API. 
    
         git remote add azure YOUR_GIT_CLONE_URL_HERE
    
     **Observação**: substitua a cadeia de caracteres "SUA_URL_CLONE_GIT_AQUI" por sua própria URL de clone do Git copiada anteriormente. 
-4. Execute os comandos a seguir para criar uma confirmação que contém todo o código. 
+5. Execute os comandos a seguir para criar uma confirmação que contém todo o código. 
    
         git add .
         git commit -m "initial revision"
    
     ![Saída da confirmação Git](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. Execute o comando para enviar o seu código no Azure por push. Quando for solicitada uma senha, digite aquela que você criou anteriormente no portal do Azure.
+6. Execute o comando para enviar o seu código no Azure por push. Quando for solicitada uma senha, digite aquela que você criou anteriormente no portal do Azure.
    
         git push azure master
    
     Isso dispara uma implantação para o aplicativo de API.  
-6. No navegador, volte à folha **Implantação** do Aplicativo de API e você verá que a implantação está ocorrendo. 
+7. No navegador, volte à folha **Implantação** do Aplicativo de API e você verá que a implantação está ocorrendo. 
    
     ![Implantação acontecendo](media/app-service-api-nodejs-api-app/deployment-happening.png)
    
@@ -275,6 +281,6 @@ Agora, você já criou e implantou com êxito seu primeiro Aplicativo de API usa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
