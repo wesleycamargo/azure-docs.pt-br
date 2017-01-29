@@ -1,5 +1,5 @@
 ---
-title: Instalar o MongoDB em uma VM do Linux | Microsoft Docs
+title: Instalar o MongoDB em uma VM Linux no Azure | Microsoft Docs
 description: "Aprenda a instalar e configurar o MongoDB em uma máquina virtual do Linux no Azure usando o modelo de implantação do Resource Manager."
 services: virtual-machines-linux
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/29/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: bec9f1fb0797b0c073dde9e65ab6bbffe8e3b5c2
+ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
+ms.openlocfilehash: fd323a828ee879d6093e2473accbea883f861420
 
 
 ---
@@ -35,10 +35,10 @@ Este artigo exige o seguinte:
 * a CLI do Azure *deve estar* no modo Azure Resource Manager usando `azure config mode arm`
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Instalar e configurar manualmente o MongoDB em uma VM
-O MongoDB [fornece instruções de instalação](https://docs.mongodb.com/manual/administration/install-on-linux/) para distribuições de Linux incluindo Red Hat/CentOS, SUSE, Ubuntu e Debian. O exemplo a seguir cria uma VM `CoreOS` usando uma chave SSH armazenada no `.ssh/azure_id_rsa.pub`. Responda aos prompts para o nome da conta de armazenamento, nome DNS e credenciais de administrador:
+O MongoDB [fornece instruções de instalação](https://docs.mongodb.com/manual/administration/install-on-linux/) para distribuições de Linux incluindo Red Hat/CentOS, SUSE, Ubuntu e Debian. O exemplo a seguir cria uma VM `CentOS` usando uma chave SSH armazenada no `~/.ssh/id_rsa.pub`. Responda aos prompts para o nome da conta de armazenamento, nome DNS e credenciais de administrador:
 
 ```azurecli
-azure vm quick-create --ssh-publickey-file .ssh/azure_id_rsa.pub --image-urn CentOS
+azure vm quick-create --ssh-publickey-file ~/.ssh/id_rsa.pub --image-urn CentOS
 ```
 
 Faça logon na VM usando o endereço IP público exibido no final da etapa anterior de criação da VM:
@@ -127,7 +127,7 @@ azure group create --name myResourceGroup --location WestUS \
 Depois que a implantação for concluída, acesse a VM via SSH. Obtenha o endereço IP da sua VM usando o comando `azure vm show` como no exemplo a seguir:
 
 ```azurecli
-azure vm show --resource-group myResourceGroup --name myVM
+azure vm show --resource-group myResourceGroup --name myLinuxVM
 ```
 
 Próximo ao final da saída, o `Public IP address` é exibido. Acesse a VM via SSH com o endereço IP da VM:
@@ -186,6 +186,6 @@ Os modelos do Azure Resource Manager usam a Extensão de Script Personalizado pa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -13,31 +13,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d9cceb28de1cfd43a2d2de79de3a59517908ec9
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: a35bc89044ebe8ea8e4a0e4a883c30fb8e8d879a
 
 
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importar os dados de treinamento para o Estúdio de Aprendizado de Máquina do Azure de diferentes fontes de dados
 Para usar seus próprios dados no Estúdio de Aprendizado de Máquina para desenvolver e treinar uma solução de análise preditiva, você pode: 
 
-* carregar dados de um **arquivo local** antes do tempo por meio do disco rígido para criar um módulo de conjunto de dados no espaço de trabalho.  
-* acessar dados de uma das várias **fontes de dados online** enquanto o teste é executado usando o módulo [Importar Dados][import-data]. 
-* usar dados de outro teste de Aprendizado de Máquina do Azure salvo como um **conjunto de dados**. 
+* carregar dados de um **arquivo local** antes do tempo por meio do disco rígido para criar um módulo de conjunto de dados no espaço de trabalho
+* acessar dados de uma das várias **fontes de dados online** enquanto o teste é executado usando o módulo [Importar Dados][import-data] 
+* usar dados de outro **teste** do Azure Machine Learning salvo como um conjunto de dados
+* usar dados de um **banco de dados do SQL Server** local
+
+Cada uma dessas opções são descritas em um dos tópicos no menu abaixo. Esse tópicos mostram como importar dados de várias fontes de dados para usar no Machine Learning Studio. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Cada uma dessas opções são descritas em um dos tópicos no menu acima. Este tópico mostra como importar dados de várias fontes de dados para usar no Estúdio de Aprendizado de Máquina. 
-
 > [!NOTE]
-> Há diversos conjuntos de dados de exemplo disponíveis no Estúdio de Aprendizado de Máquina que você pode usar para essa finalidade. Para obter informações, consulte [Usar os conjuntos de dados de amostra no Estúdio de Aprendizado de Máquina do Azure](machine-learning-use-sample-datasets.md).
+> Há diversos conjuntos de dados de exemplo disponíveis no Machine Learning Studio que você pode usar para treinamento de dados. Para obter informações, consulte [Usar os conjuntos de dados de amostra no Estúdio de Aprendizado de Máquina do Azure](machine-learning-use-sample-datasets.md).
 > 
 > 
 
-Este tópico introdutório também mostra como obter dados prontos para uso no Estúdio de Aprendizado de Máquina e descreve quais formatos de dados e tipos de dados são compatíveis. 
+Este tópico introdutório também mostra como preparar dados para uso no Machine Learning Studio e descreve quais formatos e tipos de dados tem suporte. 
 
 > [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 > 
@@ -50,7 +51,7 @@ O Estúdio de Aprendizado de Máquina foi criado para trabalhar com dados tabula
 
 No entanto, há módulos disponíveis no Estúdio de Aprendizado de Máquina que permitem fazer alguma manipulação de dados dentro do teste. Dependendo dos algoritmos de aprendizado de máquina que for usar, talvez seja necessário decidir como você lidará com problemas estruturais dos dados, como valores ausentes e dados esparsos, e há módulos que podem ajudar com isso. Veja a seção **Transformação de Dados** da paleta de módulos para ver os módulos que executam essas funções.
 
-A qualquer momento do experimento, você pode exibir ou baixar os dados que são produzidos por um módulo clicando com o botão direito na porta de saída. Dependendo do módulo, pode haver opções de download diferentes disponíveis, ou você poderá exibir os dados no seu navegador da Web no Estúdio de Aprendizado de Máquina.
+A qualquer momento do teste, é possível exibir ou baixar os dados produzidos por um módulo clicando na porta de saída. Dependendo do módulo, pode haver opções de download diferentes disponíveis ou a possibilidade de visualizar os dados no seu navegador da Web no Machine Learning Studio.
 
 ## <a name="data-formats-and-data-types-supported"></a>Formatos e tipos de dados compatíveis
 Você pode importar vários tipos de dados para seu experimento, dependendo de qual mecanismo usar para importar os dados e de onde eles estão vindo:
@@ -72,7 +73,7 @@ Se você importar dados em um formato como ARFF, que inclui metadados, o Estúdi
 
 Se você importar dados em um formato como TSV ou CSV, que não incluem esses metadados, o Estúdio de Aprendizado de Máquina infere o tipo de dados de cada coluna por amostragem dos dados. Se os dados também não tiverem os cabeçalhos das colunas, o Estúdio de Aprendizado de Máquina fornece nomes padrão.
 
-Você pode especificar explicitamente ou alterar os cabeçalhos e tipos de dados das colunas usando [Editar Metadados][edit-metadata].
+É possível especificar explicitamente ou alterar os cabeçalhos e tipos de dados das colunas usando [Editar Metadados][edit-metadata].
 
 Os **tipos de dados** a seguir são reconhecidos pelo Estúdio de Aprendizado de Máquina:
 
@@ -83,7 +84,7 @@ Os **tipos de dados** a seguir são reconhecidos pelo Estúdio de Aprendizado de
 * DateTime
 * TimeSpan
 
-O Machine Learning Studio usa um tipo de dados interno chamado ***Tabela de Dados*** para transmitir dados entre módulos. Você pode converter explicitamente os dados para o formato Data Table usando o módulo [Converter para conjunto de dados][convert-to-dataset].
+O Machine Learning Studio usa um tipo de dados interno chamado ***Tabela de Dados*** para transmitir dados entre módulos. É possível converter explicitamente os dados para o formato de tabela de dados usando o módulo [Converter para Conjunto de Dados][convert-to-dataset].
 
 Qualquer módulo que aceitar formatos diferentes do Data Table converterá os dados para Data Table silenciosamente antes de transmiti-los para o módulo seguinte.
 
@@ -97,6 +98,6 @@ Veja a seção **Conversões de Formato de Dados** da paleta de módulos para ve
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

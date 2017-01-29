@@ -1,26 +1,31 @@
 ---
-title: Banco de Dados SQL do Azure de desempenho para bancos de dados únicos | Microsoft Docs
-description: Este artigo pode ajudar você a escolher a camada de serviço para seu aplicativo. Nele, também recomendamos formas de ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure.
+title: "Banco de Dados SQL do Azure de desempenho para bancos de dados únicos | Microsoft Docs"
+description: "Este artigo pode ajudar você a escolher a camada de serviço para seu aplicativo. Nele, também recomendamos formas de ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: dd8d95fa-24b2-4233-b3f1-8e8952a7a22b
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/13/2016
+ms.date: 12/06/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: 51cebc84593aec8d7c12dd4061b78354f785d153
+
 
 ---
 # <a name="azure-sql-database-and-performance-for-single-databases"></a>Banco de Dados SQL do Azure e desempenho para bancos de dados únicos
 O Banco de Dados SQL do Azure oferece três [camadas de serviço](sql-database-service-tiers.md): Básica, Standard e Premium. Cada camada de serviço isola os recursos que o banco de dados SQL pode usar e garante um desempenho previsível para o nível de serviço em questão. Neste artigo, oferecemos orientações que podem ajudá-lo a escolher a camada de serviço para seu aplicativo. Também abordamos de que formas você pode ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure.
 
 > [!NOTE]
-> Este artigo se concentra em fornecer orientações sobre o desempenho de bancos de dados únicos no Banco de Dados SQL do Azure. Para obter orientações de desempenho relacionadas a pools de bancos de dados elásticos, consulte [Considerações de preço e desempenho para um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md). No entanto, observe que você pode aplicar muitas das recomendações de ajuste neste artigo a bancos de dados em um pool de banco de dados elástico e obter benefícios de desempenho semelhantes.
+> Este artigo se concentra em fornecer orientações sobre o desempenho de bancos de dados únicos no Banco de Dados SQL do Azure. Para obter as diretrizes de desempenho relacionadas aos pools elásticos, consulte [Considerações de preço e desempenho para pools elásticos](sql-database-elastic-pool-guidance.md). No entanto, observe que você pode aplicar muitas das recomendações de ajuste neste artigo a bancos de dados em um pool elástico e obter benefícios de desempenho semelhantes.
 > 
 > 
 
@@ -32,7 +37,7 @@ Estas são as três camadas de serviço do Banco de Dados SQL do Azure entre as 
 
 Em cada camada de serviço, você define o nível de desempenho, de modo que você tem a flexibilidade de pagar apenas pela capacidade de que precisa. Você pode [ajustar a capacidade](sql-database-scale-up.md), aumentando ou reduzindo-a, conforme a carga de trabalho mudar. Por exemplo, se a carga de trabalho do banco de dados for intensa durante a temporada de compras de volta às aulas, você poderá aumentar o nível de desempenho do banco de dados durante um período definido, de julho a setembro. Você pode reduzi-lo quando sua temporada de pico terminar. Você pode minimizar o que pagará otimizando seu ambiente de nuvem para a periodicidade dos seus negócios. Esse modelo também funciona bem para ciclos de lançamento de produto de software. Uma equipe de teste pode alocar capacidade ao executar testes e liberar essa capacidade quando os testes forem concluídos. Em um modelo de solicitação de capacidade, você paga pela capacidade conforme precisa dela e evita gastos com recursos dedicados que raramente são usados.
 
-## <a name="why-service-tiers?"></a>Por que usar camadas de serviço?
+## <a name="why-service-tiers"></a>Por que usar camadas de serviço?
 Embora cada carga de trabalho de banco de dados possa ser diferente, a finalidade das camadas de serviço é fornecer previsibilidade de desempenho em vários níveis de desempenho. Clientes com requisitos de recursos de bancos de dados de grande escala podem trabalhar em um ambiente de computação mais dedicado.
 
 ### <a name="common-service-tier-use-cases"></a>Casos de uso comuns das camadas de serviço
@@ -63,7 +68,7 @@ As seções a seguir trazem mais informações sobre como ver o uso relacionado 
 Você pode usar a exibição **sys.dm_db_resource_stats** para monitorar o uso de armazenamento do Azure na memória. Para obter mais informações sobre o monitoramento, consulte [Monitorar o armazenamento OLTP na memória](sql-database-in-memory-oltp-monitoring.md).
 
 > [!NOTE]
-> Atualmente, a visualização de OLTP (transação online) do Azure na memória tem suporte apenas para bancos de dados individuais. Você não pode usá-la em bancos de dados em pools de bancos de dados elásticos.
+> Atualmente, a visualização de OLTP (transação online) do Azure na memória tem suporte apenas para bancos de dados individuais. Você não pode usá-la em bancos de dados em pools elásticos.
 > 
 > 
 
@@ -88,7 +93,7 @@ Você pode analisar seus padrões de usuário e de aplicativo para ter uma ideia
 Se vários clientes usarem a mesma cadeia de conexão, o serviço autenticará cada logon. Se 10 usuários se conectassem simultaneamente a um banco de dados usando o mesmo nome de usuário e senha, existiriam 10 logons simultâneos. Esse limite é aplicado apenas durante o logon e a autenticação. Se os mesmos 10 usuários se conectassem ao banco de dados sequencialmente, o número de logons simultâneos nunca seria maior do que 1.
 
 > [!NOTE]
-> Atualmente, esse limite não se aplica a bancos de dados em pools de bancos de dados elásticos.
+> Atualmente, esse limite não se aplica a bancos de dados em pools elásticos.
 > 
 > 
 
@@ -116,7 +121,7 @@ Duas exibições podem ajudar a monitorar o uso de recursos para um banco de dad
 * [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 * [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sys.dm_db_resource_stats"></a>sys.dm_db_resource_stats
+### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
 Você pode usar a exibição [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) em cada banco de dados SQL. A exibição **sys.dm_db_resource_stats** mostra dados de uso de recursos recentes em relação à camada de serviço. A porcentagem média de CPU, E/S de dados, gravações de log e memória é registrada a cada 15 segundos e armazenada por 1 hora.
 
 Como essa exibição oferece uma visão mais granular do uso de recursos, use **sys.dm_db_resource_stats** primeiro para qualquer análise de estado atual ou para solução de problemas. Por exemplo, esta consulta mostra o uso médio e máximo dos recursos do banco de dados atual durante a última hora:
@@ -134,7 +139,7 @@ Como essa exibição oferece uma visão mais granular do uso de recursos, use **
 
 Para outras consultas, consulte os exemplos em [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### <a name="sys.resource_stats"></a>sys.resource_stats
+### <a name="sysresourcestats"></a>sys.resource_stats
 A exibição [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) no banco de dados **mestre** tem mais informações que podem ajudá-lo a monitorar o desempenho do banco de dados SQL em sua camada de serviço e nível de desempenho específicos. Os dados são coletados a cada 5 minutos e são mantidos por aproximadamente 35 dias. Essa exibição é útil para uma análise de histórico de longo prazo de como seu banco de dados SQL usa recursos.
 
 O gráfico a seguir mostra o uso de recursos da CPU para um banco de dados Premium com o nível de desempenho P2 para cada hora em uma semana. Esse gráfico começa em uma segunda-feira, mostra 5 dias úteis e, depois, um fim de semana, em que ocorrem muito menos atividades no aplicativo.
@@ -210,7 +215,7 @@ O exemplo seguinte mostra diferentes maneiras de usar o modo de exibição de ca
    
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent’
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
@@ -434,9 +439,12 @@ Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter mais informações sobre as camadas de serviço, consulte [Opções e desempenho de Banco de Dados SQL](sql-database-service-tiers.md)
-* Para obter mais informações sobre pools de banco de dados elástico, consulte [O que é um pool de banco de dados elástico do Azure?](sql-database-elastic-pool.md)
-* Para obter informações sobre desempenho e pools de banco de dados elástico, consulte [Quando considerar um pool de banco de dados elástico](sql-database-elastic-pool-guidance.md)
+* Para saber mais sobre pools elásticos, consulte [O que é um pool elástico do Azure?](sql-database-elastic-pool.md)
+* Para obter informações sobre desempenho e pools elásticos, consulte [Quando considerar um pool elástico](sql-database-elastic-pool-guidance.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO3-->
 
 

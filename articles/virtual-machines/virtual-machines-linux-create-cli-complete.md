@@ -1,27 +1,30 @@
-
 ---
-title: Criar um ambiente Linux completo usando a CLI do Azure | Microsoft Docs
-description: Crie um armazenamento, uma VM Linux, uma rede virtual e uma sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo do zero usando a CLI do Azure.
+title: "Criar um ambiente Linux completo usando a CLI 2.0 Visualização do Azure | Microsoft Docs"
+description: "Crie um armazenamento, uma VM Linux, uma rede virtual e uma sub-rede, um balanceador de carga, uma NIC, um IP público e um grupo de segurança de rede, tudo do zero usando a CLI 2.0 Visualização do Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/23/2016
+ms.date: 12/8/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 6e12a41a9e08fe132526fb3ba517c4c6aa13ffff
+ms.openlocfilehash: b4afa8c4a86b9a8ab0df6918443e18f2a758c928
+
 
 ---
-# Criar um ambiente Linux completo usando a CLI do Azure
+# <a name="create-a-complete-linux-environment-by-using-the-azure-cli-20-preview"></a>Criar um ambiente Linux completo usando a CLI 2.0 do Azure (Visualização)
 Neste artigo, vamos criar uma rede simples com um balanceador de carga e com um par de VMs úteis para desenvolvimento e computação simples. Percorreremos o processo, comando por comando, até que você tenha duas VMs do Linux funcionais e seguras às quais possa se conectar de qualquer lugar na Internet. Em seguida, você poderá passar para redes e ambientes mais complexos.
 
-Durante o processo, você entenderá sobre a hierarquia de dependência que o modelo de implantação do Gerenciador de Recursos lhe oferece e todos os recursos que proporciona. Após ver como o sistema é criado, você poderá recriá-lo muito mais rapidamente usando [modelos do Azure Resource Manager](../resource-group-authoring-templates.md). Além disso, após aprender como as partes de seu ambiente se encaixam, fica mais fácil criar modelos para automatizá-las.
+Durante o processo, você entenderá sobre a hierarquia de dependência que o modelo de implantação do Gerenciador de Recursos lhe oferece e todos os recursos que proporciona. Após ver como o sistema é criado, você poderá recriá-lo muito mais rapidamente usando [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Além disso, após aprender como as partes de seu ambiente se encaixam, fica mais fácil criar modelos para automatizá-las.
 
 O ambiente contém:
 
@@ -31,452 +34,309 @@ O ambiente contém:
 
 ![Visão geral do ambiente básico](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-Para criar esse ambiente personalizado, você precisará da versão mais recente da [CLI do Azure](../xplat-cli-install.md) no modo do Gerenciador de Recursos (`azure config mode arm`). Você também precisará de uma ferramenta de análise de JSON. Este exemplo usa [jq](https://stedolan.github.io/jq/).
+## <a name="cli-versions-to-complete-the-task"></a>Versões da CLI para concluir a tarefa
+Você pode concluir a tarefa usando uma das seguintes versões da CLI:
 
-## Comandos rápidos
-Você pode usar os seguintes comandos rápidos para criar seu ambiente personalizado. Para saber mais sobre o que cada comando está fazendo à medida que você cria o ambiente, leia as [etapas detalhadas do seguinte passo a passo](#detailed-walkthrough).
+- [CLI do Azure 1.0](virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – nossa CLI para os modelos de implantação clássico e de gerenciamento de recursos
+- [CLI 2.0 do Azure (Visualização)](#quick-commands) – nossa CLI da próxima geração para o modelo de implantação de gerenciamento de recursos (este artigo)
 
-Crie o grupo de recursos:
+## <a name="quick-commands"></a>Comandos rápidos
+Se você precisar realizar rapidamente a tarefa, a seção a seguir detalha a base de dados de comandos para carregar uma VM no Azure. Mais informações detalhadas e contexto para cada etapa podem ser encontrados no restante do documento, começando [aqui](#detailed-walkthrough).
 
-```bash
-azure group create TestRG -l westeurope
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem `myResourceGroup`, `mystorageaccount` e `myVM`.
+
+Para criar esse ambiente personalizado, é necessário ter a [CLI 2.0 do Azure (Visualização)](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
+
+Primeiro, crie o grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `westeurope`:
+
+```azurecli
+az group create --name myResourceGroup --location westeurope
 ```
 
-Verificar o grupo de recursos usando o analisador JSON:
+Crie a conta de armazenamento com [az storage account create](/cli/azure/storage/account#create). O exemplo a seguir cria uma conta de armazenamento chamada `mystorageaccount`. (O nome da conta de armazenamento deve ser exclusivo; portanto, forneça seu próprio nome exclusivo.)
 
-```bash
-azure group show TestRG --json | jq '.'
+```azurecli
+az storage account create --resource-group myResourceGroup --location westeurope \
+  --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
-Criar a conta de armazenamento:
+Crie a rede virtual com [az network vnet create](/cli/azure/network/vnet#create). O exemplo a seguir cria uma rede virtual chamada `myVnet` e uma sub-rede chamada `mySubnet`:
 
-```bash
-azure storage account create -g TestRG -l westeurope --kind Storage --sku-name GRS computeteststore
+```azurecli
+az network vnet create --resource-group myResourceGroup --location westeurope --name myVnet \
+  --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
 ```
 
-Verificar a conta de armazenamento usando o analisador JSON:
+Crie um IP público com [az network public-ip create](/cli/azure/network/public-ip#create). O exemplo a seguir cria um IP público chamado `myPublicIP` com o nome DNS de `mypublicdns`. (O nome DNS deve ser exclusivo; portanto, forneça seu próprio nome exclusivo.)
 
-```bash
-azure storage account show -g TestRG computeteststore --json | jq '.'
+```azurecli
+az network public-ip create --resource-group myResourceGroup --location westeurope \
+  --name myPublicIP --dns-name mypublicdns --allocation-method static --idle-timeout 4
 ```
 
-Crie a rede virtual:
+Crie o balanceador de carga com [az network lb create](/cli/azure/network/lb#create). O exemplo a seguir:
 
-```bash
-azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
+- cria um balanceador de carga chamado `myLoadBalancer`
+- associa o IP público `myPublicIP`
+- cria um pool de IPs de front-end chamado `mySubnetPool`
+- cria um pool de IPs de back-end chamado `myBackEndPool`
+
+```azurecli
+az network lb create --resource-group myResourceGroup --location westeurope \
+  --name myLoadBalancer --public-ip-address myPublicIP \
+  --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool
 ```
 
-Criar a sub-rede:
+Crie regras de NAT (conversão de endereço de rede) de entrada de SSH para o balanceador de carga com [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#create). O exemplo a seguir cria duas regras de balanceador de carga, `myLoadBalancerRuleSSH1` e `myLoadBalancerRuleSSH2`:
 
-```bash
-azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
+```azurecli
+az network lb inbound-nat-rule create --resource-group myResourceGroup \
+  --lb-name myLoadBalancer --name myLoadBalancerRuleSSH1 --protocol tcp \
+  --frontend-port 4222 --backend-port 22 --frontend-ip-name myFrontEndPool
+az network lb inbound-nat-rule create --resource-group myResourceGroup \
+  --lb-name myLoadBalancer --name myLoadBalancerRuleSSH2 --protocol tcp \
+  --frontend-port 4223 --backend-port 22 --frontend-ip-name myFrontEndPool
 ```
 
-Verificar a rede virtual e a sub-rede usando o analisador JSON:
+Cria a investigação de integridade do balanceador de carga com [az network lb probe create](/cli/azure/network/lb/probe#create). O exemplo a seguir cria uma investigação de TCP chamada `myHealthProbe`:
 
-```bash
-azure network vnet show TestRG TestVNet --json | jq '.'
+```azurecli
+az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
+  --name myHealthProbe --protocol tcp --port 80 --interval 15 --threshold 4
 ```
 
-Criar um IP público:
+Crie as regras de NAT de entrada da Web para o balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule#create). O exemplo a seguir cria uma regra do balanceador de carga chamada `myLoadBalancerRuleWeb` e a associa com a investigação `myHealthProbe`:
 
-```bash
-azure network public-ip create -g TestRG -n TestLBPIP -l westeurope -d testlb -a static -i 4
+```azurecli
+az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer \
+  --name myLoadBalancerRuleWeb --protocol tcp --frontend-port 80 --backend-port 80 \
+  --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool \
+  --probe-name myHealthProbe
 ```
 
-Criar o balanceador de carga:
+Verifique o balanceador de carga, os pools de IPs e as regras de NAT com [az network lb show](/cli/azure/network/lb#show):
 
-```bash
-azure network lb create -g TestRG -n TestLB -l westeurope
+```azurecli
+az network lb show --resource-group myResourceGroup --name myLoadBalancer
 ```
 
-Criar um pool de IPs de front-end para o balanceador de carga e associar o IP público:
+Crie o grupo de segurança de rede com [az network nsg create](/cli/azure/network/nsg#create). O exemplo a seguir cria um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
 
-```bash
-azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
+```azurecli
+az network nsg create --resource-group myResourceGroup --location westeurope \
+  --name myNetworkSecurityGroup
 ```
 
-Criar o pool de IPs de back-end para o balanceador de carga:
+Adicione duas regras de entrada para o grupo de segurança de rede com [az network nsg rule create](/cli/azure/network/nsg/rule#create). O exemplo a seguir cria duas regras, `myNetworkSecurityGroupRuleSSH` e `myNetworkSecurityGroupRuleHTTP`:
 
-```bash
-azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
+```azurecli
+az network nsg rule create --resource-group myResourceGroup \
+  --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleSSH \
+  --protocol tcp --direction inbound --priority 1000 --source-address-prefix '*' \
+  --source-port-range '*' --destination-address-prefix '*' --destination-port-range 22 \
+  --access allow
+az network nsg rule create --resource-group myResourceGroup \
+  --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleHTTP \
+  --protocol tcp --direction inbound --priority 1001 --source-address-prefix '*' \
+  --source-port-range '*' --destination-address-prefix '*' --destination-port-range 80 \
+  --access allow
 ```
 
-Criar regras NAT de entrada SSH para o balanceador de carga:
+Crie a primeira NIC (placa de adaptador de rede) com [az network nic create](/cli/azure/network/nic#create). O exemplo a seguir cria uma NIC chamada `myNic1` e a anexa ao balanceador de carga `myLoadBalancer` e aos pools apropriados, além de anexá-la ao `myNetworkSecurityGroup`:
 
-```bash
-azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
-azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
+```azurecli
+az network nic create --resource-group myResourceGroup --location westeurope --name myNic1 \
+  --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup \
+  --lb-name myLoadBalancer --lb-address-pools myBackEndPool \
+  --lb-inbound-nat-rules myLoadBalancerRuleSSH1
 ```
 
-Criar as regras NAT de entrada Web para o balanceador de carga:
+Crie a segunda NIC, novamente com **az network nic create**. O exemplo a seguir cria uma NIC chamada `myNic2`:
 
-```bash
-azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
-     -t TestFrontEndPool -o TestBackEndPool
+```azurecli
+az network nic create --resource-group myResourceGroup --location westeurope --name myNic2 \
+  --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup \
+  --lb-name myLoadBalancer --lb-address-pools myBackEndPool \
+  --lb-inbound-nat-rules myLoadBalancerRuleSSH2
 ```
 
-Criar a investigação de integridade do balanceador de carga:
+Crie a conjunto de disponibilidade com [az vm availability-set create](/cli/azure/vm/availability-set#create). O exemplo a seguir cria um conjunto de disponibilidade chamado `myAvailabilitySet`:
 
-```bash
-azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
+```azurecli
+az vm availability-set create --resource-group myResourceGroup --location westeurope \
+  --name myAvailabilitySet
 ```
 
-Verificar o balanceador de carga, os pools de IPs e as regras NAT usando o analisador JSON:
+Crie a primeira VM do Linux com [az vm create](/cli/azure/vm#create). O exemplo a seguir cria uma VM chamada `myVM1`:
 
-```bash
-azure network lb show -g TestRG -n TestLB --json | jq '.'
-```
-
-Criar a primeira NIC (placa de interface de rede):
-
-```bash
-azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
-    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" \
-    -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
-```
-
-Criar a segunda NIC:
-
-```bash
-azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
-    -d "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool" \
-    -e "/subscriptions/########-####-####-####-############/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
-```
-
-Verificar as NICs usando o analisador JSON:
-
-```bash
-azure network nic show TestRG LB-NIC1 --json | jq '.'
-azure network nic show TestRG LB-NIC2 --json | jq '.'
-```
-
-Criar o NSG:
-
-```bash
-azure network nsg create -g TestRG -n TestNSG -l westeurope
-```
-
-Adicionar as regras de entrada para o NSG:
-
-```bash
-azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
-    --destination-port-range 22 --access allow -g TestRG -a TestNSG -n SSHRule
-azure network nsg rule create --protocol tcp --direction inbound --priority 1001 \
-    --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
-```
-
-Verificar o NSG e as regras de entrada usando o analisador JSON:
-
-```bash
-azure network nsg show -g TestRG -n TestNSG --json | jq '.'
-```
-
-Associe o NSG às NICs:
-
-```bash
-azure network nic set -g TestRG -n LB-NIC1 -o TestNSG
-azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
-```
-
-Criar o conjunto de disponibilidade:
-
-```bash
-azure availset create -g TestRG -n TestAvailSet -l westeurope
-```
-
-Criar a primeira VM Linux:
-
-```bash
-azure vm create \
-    --resource-group TestRG \
-    --name TestVM1 \
+```azurecli
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM1 \
     --location westeurope \
-    --os-type linux \
-    --availset-name TestAvailSet \
-    --nic-name LB-NIC1 \
-    --vnet-name TestVnet \
-    --vnet-subnet-name FrontEnd \
-    --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
-    --ssh-publickey-file ~/.ssh/id_rsa.pub \
+    --availability-set myAvailabilitySet \
+    --nics myNic1 \
+    --vnet myVnet \
+    --subnet-name mySubnet \
+    --nsg myNetworkSecurityGroup \
+    --storage-account mystorageaccount \
+    --image UbuntuLTS \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
 
-Criar a segunda VM Linux:
+Crie a segunda VM do Linux, novamente com **az vm create**. O exemplo a seguir cria uma VM chamada `myVM2`:
 
-```bash
-azure vm create \
-    --resource-group TestRG \
-    --name TestVM2 \
+```azurecli
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM2 \
     --location westeurope \
-    --os-type linux \
-    --availset-name TestAvailSet \
-    --nic-name LB-NIC2 \
-    --vnet-name TestVnet \
-    --vnet-subnet-name FrontEnd \
-    --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
-    --ssh-publickey-file ~/.ssh/id_rsa.pub \
+    --availability-set myAvailabilitySet \
+    --nics myNic2 \
+    --vnet myVnet \
+    --subnet-name mySubnet \
+    --nsg myNetworkSecurityGroup \
+    --storage-account mystorageaccount \
+    --image UbuntuLTS \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
 
-Usar o analisador JSON para verificar tudo o que foi criado:
+Verifique se tudo foi criado corretamente com [az vm show](/cli/azure/vm#show):
 
-```bash
-azure vm show -g TestRG -n TestVM1 --json | jq '.'
-azure vm show -g TestRG -n TestVM2 --json | jq '.'
+```azurecli
+az vm show --resource-group myResourceGroup --name myVM1
+az vm show --resource-group myResourceGroup --name myVM2
 ```
 
-Exportar o ambiente que você criou para um modelo para recriar novas instâncias rapidamente:
+Exporte seu novo ambiente para um modelo com [az resource group export](/cli/azure/resource/group#export) para recriar novas instâncias rapidamente:
 
-```bash
-azure resource export TestRG
+```azurecli
+az resource group export --name myResourceGroup > myResourceGroup.json
 ```
 
-## Passo a passo detalhado
+## <a name="detailed-walkthrough"></a>Passo a passo detalhado
 As etapas detalhadas a seguir explicam o que cada comando faz enquanto você cria seu ambiente. Esses conceitos são úteis durante a criação de seus próprios ambientes personalizados para desenvolvimento ou produção.
 
-## Criar grupos de recursos e escolher locais de implantação
-Os grupos de recursos do Azure são entidades de implantação lógica que contêm metadados e informações de configuração para habilitar o gerenciamento lógico de implantações de recursos.
+Certifique-se de que você instalou a versão mais recente da [CLI 2.0 do Azure (Visualização)](/cli/azure/install-az-cli2) e entrou em uma conta do Azure com [az login](/cli/azure/#login).
 
-```bash
-azure group create TestRG westeurope
+Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem `myResourceGroup`, `mystorageaccount` e `myVM`.
+
+## <a name="create-resource-groups-and-choose-deployment-locations"></a>Criar grupos de recursos e escolher locais de implantação
+Os grupos de recursos do Azure são entidades de implantação lógica que contêm metadados e informações de configuração para habilitar o gerenciamento lógico de implantações de recursos. Crie o grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos denominado `myResourceGroup` no local `westeurope`:
+
+```azurecli
+az group create --name myResourceGroup --location westeurope
 ```
 
-Saída:
+Por padrão, a saída é em JSON (JavaScript Object Notation). Para gerar a saída como uma lista ou tabela, por exemplo, use [az configure --output](/cli/azure/#configure). Você também pode adicionar `--output` a qualquer comando para realizar uma alteração uma única vez no formato da saída. O exemplo a seguir mostra a saída JSON do comando **az resource group create**:
 
-```bash                        
-info:    Executing command group create
-+ Getting resource group TestRG
-+ Creating resource group TestRG
-info:    Created resource group TestRG
-data:    Id:                  /subscriptions/<yoursub>/resourceGroups/TestRG
-data:    Name:                TestRG
-data:    Location:            westeurope
-data:    Provisioning State:  Succeeded
-data:    Tags: null
-data:
-info:    group create command OK
+```json                       
+{
+  "id": "/subscriptions/guid/resourceGroups/myResourceGroup",
+  "location": "westeurope",
+  "name": "myResourceGroup",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
 ```
 
-## Criar uma conta de armazenamento
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Você precisa de contas de armazenamento para seus discos de VM e quaisquer discos de dados adicionais que deseje adicionar. Você cria contas de armazenamento quase que imediatamente depois de criar grupos de recursos.
 
-Aqui, usamos o comando `azure storage account create`, passando a localização da conta, o grupo de recursos que a controla e o tipo de suporte de armazenamento que você deseja.
+Aqui, usamos [az storage account create](/cli/azure/storage/account#create) e passamos a localização da conta, o grupo de recursos que a controla e o tipo de suporte de armazenamento que você deseja. O exemplo a seguir cria uma conta de armazenamento chamada `mystorageaccount`:
 
-```bash
-azure storage account create \  
---location westeurope \
---resource-group TestRG \
---kind Storage --sku-name GRS \
-computeteststore
+```azurecli
+az storage account create --resource-group myResourceGroup --location westeurope \
+  --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
 Saída:
 
-```bash
-info:    Executing command storage account create
-+ Creating storage account
-info:    storage account create command OK
-ahmet•~/workspace/keygen» azure group show testrg
-info:    Executing command group show
-+ Listing resource groups
-+ Listing resources for the group
-data:    Id:                  /subscriptions/<guid>/resourceGroups/TestRG
-data:    Name:                TestRG
-data:    Location:            westeurope
-data:    Provisioning State:  Succeeded
-data:    Tags: null
-data:    Resources:
-data:
-data:      Id      : /subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/computeteststore
-data:      Name    : computeteststore
-data:      Type    : storageAccounts
-data:      Location: westeurope
-data:      Tags    :
-data:
-data:    Permissions:
-data:      Actions: *
-data:      NotActions:
-data:
-info:    group show command OK
-```
-
-Para examinar nosso grupo de recursos usando o comando `azure group show`, vamos usar a ferramenta [jq](https://stedolan.github.io/jq/) junto com a opção `--json` da CLI do Azure. (Você pode usar **jsawk** ou qualquer biblioteca de linguagem que preferir para analisar o JSON.)
-
-```bash
-azure group show TestRG --json | jq                                                                                      
-```
-
-
-Saída:
-
-```bash
+```json
 {
-  "tags": {},
-  "id": "/subscriptions/<guid>/resourceGroups/TestRG",
-  "name": "TestRG",
-  "provisioningState": "Succeeded",
+  "accessTier": null,
+  "creationTime": "2016-12-07T17:59:50.090092+00:00",
+  "customDomain": null,
+  "encryption": null,
+  "id": "/subscriptions/guid/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
+  "kind": "Storage",
+  "lastGeoFailoverTime": null,
   "location": "westeurope",
-  "properties": {
-    "provisioningState": "Succeeded"
+  "name": "mystorageaccount",
+  "primaryEndpoints": {
+    "blob": "https://mystorageaccount.blob.core.windows.net/",
+    "file": "https://mystorageaccount.file.core.windows.net/",
+    "queue": "https://mystorageaccount.queue.core.windows.net/",
+    "table": "https://mystorageaccount.table.core.windows.net/"
   },
-  "resources": [
-    {
-      "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/computeteststore",
-      "name": "computeteststore",
-      "type": "storageAccounts",
-      "location": "westeurope",
-      "tags": null
-    }
-  ],
-  "permissions": [
-    {
-      "actions": [
-        "*"
-      ],
-      "notActions": []
-    }
-  ]
+  "primaryLocation": "westeurope",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myresourcegroup",
+  "secondaryEndpoints": null,
+  "secondaryLocation": null,
+  "sku": {
+    "name": "Standard_LRS",
+    "tier": "Standard"
+  },
+  "statusOfPrimary": "Available",
+  "statusOfSecondary": null,
+  "tags": {},
+  "type": "Microsoft.Storage/storageAccounts"
 }
 ```
 
-Para investigar a conta de armazenamento usando a CLI, primeiro você precisa definir os nomes e as chaves da conta usando uma variação do comando a seguir. Substitua o nome da conta de armazenamento no exemplo a seguir pelo nome que você escolher:
-
-```
-AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show computeteststore --resource-group testrg --json | jq -r '.string')"
-```
-
-Em seguida, você poderá exibir as informações de armazenamento facilmente:
+Para investigar a conta de armazenamento usando a CLI, primeiro, você precisa definir os nomes e as chaves da conta. Use [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Substitua o nome da conta de armazenamento no exemplo a seguir pelo nome que você escolher:
 
 ```bash
-azure storage container list
+export AZURE_STORAGE_CONNECTION_STRING="$(az storage account show-connection-string --resource-group myResourceGroup --name mystorageaccount --query connectionString)"
+```
+
+Em seguida, você pode exibir suas informações de armazenamento com [az storage container list](/cli/azure/storage/container#list):
+
+```azurecli
+az storage container list
 ```
 
 Saída:
 
-```bash
-info:    Executing command storage container list
-+ Getting storage containers
-data:    Name  Public-Access  Last-Modified
-data:    ----  -------------  -----------------------------
-data:    vhds  Off            Sun, 27 Sep 2015 19:03:54 GMT
-info:    storage container list command OK
+```azurecli
+[
+  {
+    "metadata": null,
+    "name": "vhds",
+    "properties": {
+      "etag": "\"0x8D41F912D472F94\"",
+      "lastModified": "2016-12-08T17:39:35+00:00",
+      "lease": {
+        "duration": null,
+        "state": null,
+        "status": null
+      },
+      "leaseDuration": "infinite",
+      "leaseState": "leased",
+      "leaseStatus": "locked"
+    }
+  }
+]
 ```
 
-## Criar a rede virtual e a sub-rede
-Em seguida, você precisará criar uma rede virtual em execução no Azure e uma sub-rede na qual possa instalar suas VMs.
+## <a name="create-a-virtual-network-and-subnet"></a>Criar a rede virtual e a sub-rede
+Em seguida, você precisará criar uma rede virtual em execução no Azure e uma sub-rede na qual possa criar suas VMs. O exemplo a seguir usa [az network vnet create](/cli/azure/network/vnet#create) para criar uma rede virtual chamada `myVnet` com o prefixo de endereço `192.168.0.0/16`, e uma sub-rede chamada `mySubnet` com o prefixo de endereço de sub-rede `192.168.1.0/24`:
 
-```bash
-azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l westeurope
+```azurecli
+az network vnet create --resource-group myResourceGroup --location westeurope \
+  --name myVnet --address-prefix 192.168.0.0/16 \
+  --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
 ```
 
-Saída:
+A saída mostra a sub-rede logicamente criada dentro da rede virtual:
 
-```bash
-info:    Executing command network vnet create
-+ Looking up virtual network "TestVNet"
-+ Creating virtual network "TestVNet"
-+ Loading virtual network state
-data:    Id                              : /subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-data:    Name                            : TestVNet
-data:    Type                            : Microsoft.Network/virtualNetworks
-data:    Location                        : westeurope
-data:    ProvisioningState               : Succeeded
-data:    Address prefixes:
-data:      192.168.0.0/16
-info:    network vnet create command OK
-```
-
-Novamente, vamos usar a opção --json `azure group show` e **jq** para ver como estamos criando nossos recursos. Agora, temos um recurso `storageAccounts` e um recurso `virtualNetworks`.
-
-```bash
-azure group show TestRG --json | jq '.'
-```
-
-Saída:
-
-```bash
+```json
 {
-  "tags": {},
-  "id": "/subscriptions/<guid>/resourceGroups/TestRG",
-  "name": "TestRG",
-  "provisioningState": "Succeeded",
-  "location": "westeurope",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "resources": [
-    {
-      "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet",
-      "name": "TestVNet",
-      "type": "virtualNetworks",
-      "location": "westeurope",
-      "tags": null
-    },
-    {
-      "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/computeteststore",
-      "name": "computeteststore",
-      "type": "storageAccounts",
-      "location": "westeurope",
-      "tags": null
-    }
-  ],
-  "permissions": [
-    {
-      "actions": [
-        "*"
-      ],
-      "notActions": []
-    }
-  ]
-}
-```
-
-Agora vamos criar uma sub-rede na rede virtual `TestVnet` na qual as VMs são implantadas. Usamos o comando `azure network vnet subnet create`, em conjunto com os recursos que já criamos: o grupo de recursos `TestRG` e a rede virtual `TestVNet`. Adicionamos o nome da sub-rede `FrontEnd` e o prefixo de endereço da sub-rede `192.168.1.0/24`, da seguinte maneira:
-
-```bash
-azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
-```
-
-Saída:
-
-```bash
-info:    Executing command network vnet subnet create
-+ Looking up the subnet "FrontEnd"
-+ Creating subnet "FrontEnd"
-+ Looking up the subnet "FrontEnd"
-data:    Id                              : /subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-data:    Type                            : Microsoft.Network/virtualNetworks/subnets
-data:    ProvisioningState               : Succeeded
-data:    Name                            : FrontEnd
-data:    Address prefix                  : 192.168.1.0/24
-data:
-info:    network vnet subnet create command OK
-```
-
-Como a sub-rede está logicamente dentro da rede virtual, vamos buscar as informações da sub-rede com um comando ligeiramente diferente. O comando que usaremos é `azure network vnet show`, mas continuaremos examinando a saída JSON usando **jq**.
-
-```bash
-azure network vnet show TestRG TestVNet --json | jq '.'
-```
-
-Saída:
-
-```bash
-{
-  "subnets": [
-    {
-      "ipConfigurations": [],
-      "addressPrefix": "192.168.1.0/24",
-      "provisioningState": "Succeeded",
-      "name": "FrontEnd",
-      "etag": "W/"974f3e2c-028e-4b35-832b-a4b16ad25eb6"",
-      "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
-    }
-  ],
-  "tags": {},
   "addressSpace": {
     "addressPrefixes": [
       "192.168.0.0/16"
@@ -485,656 +345,703 @@ Saída:
   "dhcpOptions": {
     "dnsServers": []
   },
-  "provisioningState": "Succeeded",
-  "etag": "W/"974f3e2c-028e-4b35-832b-a4b16ad25eb6"",
-  "id": "/subscriptions/<guid>/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet",
-  "name": "TestVNet",
-  "location": "westeurope"
-}
-```
-
-## Criar um PIP (endereço IP público)
-Agora, vamos criar o PIP (endereço IP público) que atribuiremos ao seu balanceador de carga. Ele permite que você conecte suas VMs da Internet usando o comando `azure network public-ip create`. Como o endereço padrão é dinâmico, criaremos uma entrada DNS nomeada no domínio **cloudapp.azure.com** usando a opção `-d testsubdomain`.
-
-```bash
-azure network public-ip create -d testsubdomain TestRG TestPIP westeurope
-```
-
-Saída:
-
-```bash
-info:    Executing command network public-ip create
-+ Looking up the public ip "TestPIP"
-+ Creating public ip address "TestPIP"
-+ Looking up the public ip "TestPIP"
-data:    Id                              : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP
-data:    Name                            : TestPIP
-data:    Type                            : Microsoft.Network/publicIPAddresses
-data:    Location                        : westeurope
-data:    Provisioning state              : Succeeded
-data:    Allocation method               : Dynamic
-data:    Idle timeout                    : 4
-data:    Domain name label               : testsubdomain
-data:    FQDN                            : testsubdomain.westeurope.cloudapp.azure.com
-info:    network public-ip create command OK
-```
-
-O endereço IP público também é um recurso de nível superior, então você pode vê-lo com `azure group show`.
-
-```bash
-azure group show TestRG --json | jq '.'
-```
-
-Saída:
-
-```bash
-{
-"tags": {},
-"id": "/subscriptions/guid/resourceGroups/TestRG",
-"name": "TestRG",
-"provisioningState": "Succeeded",
-"location": "westeurope",
-"properties": {
-    "provisioningState": "Succeeded"
-},
-"resources": [
-    {
-    "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC",
-    "name": "TestNIC",
-    "type": "networkInterfaces",
-    "location": "westeurope",
-    "tags": null
-    },
-    {
-    "id": "/subscriptions/guid/resourceGroups/testrg/providers/Microsoft.Network/publicIPAddresses/testpip",
-    "name": "testpip",
-    "type": "publicIPAddresses",
-    "location": "westeurope",
-    "tags": null
-    },
-    {
-    "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet",
-    "name": "TestVNet",
-    "type": "virtualNetworks",
-    "location": "westeurope",
-    "tags": null
-    },
-    {
-    "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/computeteststore",
-    "name": "computeteststore",
-    "type": "storageAccounts",
-    "location": "westeurope",
-    "tags": null
-    }
-],
-"permissions": [
-    {
-    "actions": [
-        "*"
-    ],
-    "notActions": []
-    }
-]
-}
-```
-
-Você pode investigar mais detalhes do recurso, incluindo o FQDN (nome de domínio totalmente qualificado) do subdomínio usando o comando completo `azure network public-ip show`. O recurso de endereço IP público foi alocado logicamente, mas ainda não há um endereço específico atribuído. Para obter um endereço IP, você precisará de um balanceador de carga, que nós ainda não criamos.
-
-```bash
-azure network public-ip show TestRG TestPIP --json | jq '.'
-```
-
-Saída:
-
-```bash
-{
-"tags": {},
-"publicIpAllocationMethod": "Dynamic",
-"dnsSettings": {
-    "domainNameLabel": "testsubdomain",
-    "fqdn": "testsubdomain.westeurope.cloudapp.azure.com"
-},
-"idleTimeoutInMinutes": 4,
-"provisioningState": "Succeeded",
-"etag": "W/"c63154b3-1130-49b9-a887-877d74d5ebc5"",
-"id": "/subscriptions/guid/resourceGroups/testrg/providers/Microsoft.Network/publicIPAddresses/testpip",
-"name": "testpip",
-"location": "westeurope"
-}
-```
-
-## Criar um balanceador de carga e pools de IPs
-Quando você cria um balanceador de carga, ele permite que você distribua o tráfego entre várias VMs. Ele também fornece redundância para seu aplicativo ao executar várias VMs que respondem às solicitações dos usuários em caso de manutenção ou cargas pesadas.
-
-Nós criamos nosso balanceador de carga com:
-
-```bash
-azure network lb create -g TestRG -n TestLB -l westeurope
-```
-
-```bash
-azure network lb create -g TestRG -n TestLB -l westeurope
-```
-
-Saída:
-
-```bash
-info:    Executing command network lb create
-+ Looking up the load balancer "TestLB"
-+ Creating load balancer "TestLB"
-data:    Id                              : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB
-data:    Name                            : TestLB
-data:    Type                            : Microsoft.Network/loadBalancers
-data:    Location                        : westeurope
-data:    Provisioning state              : Succeeded
-info:    network lb create command OK
-```
-Nosso balanceador de carga está bem vazio, então vamos criar alguns pools de IPs. Queremos criar dois pools de IPs para nosso balanceador de carga - um para o front-end e um para o back-end. O pool de IPs de front-end fica visível publicamente. Também é o local ao qual atribuiremos o PIP que criamos anteriormente. Em seguida, usaremos o pool de back-end como uma localização à qual nossas VMs se conectarão. Dessa forma, o tráfego pode fluir por meio do balanceador de carga para as VMs.
-
-Primeiro, vamos criar nosso pool de IPs de front-end:
-
-```bash
-azure network lb frontend-ip create -g TestRG -l TestLB -n TestFrontEndPool -i TestLBPIP
-```
-
-Saída:
-
-```bash
-info:    Executing command network lb frontend-ip create
-+ Looking up the load balancer "TestLB"
-+ Looking up the public ip "TestLBPIP"
-+ Updating load balancer "TestLB"
-data:    Name                            : TestFrontEndPool
-data:    Provisioning state              : Succeeded
-data:    Private IP allocation method    : Dynamic
-data:    Public IP address id            : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestLBPIP
-info:    network lb frontend-ip create command OK
-```
-
-Observe como usamos a opção `--public-ip-name` para passar o TestLBPIP que criamos anteriormente. A atribuição do endereço IP público ao balanceador de carga permite que você acesse suas VMs pela Internet.
-
-Em seguida, vamos criar nosso segundo pool de IPs, desta vez para o tráfego de back-end:
-
-```bash
-azure network lb address-pool create -g TestRG -l TestLB -n TestBackEndPool
-```
-
-Saída:
-
-```bash
-info:    Executing command network lb address-pool create
-+ Looking up the load balancer "TestLB"
-+ Updating load balancer "TestLB"
-data:    Name                            : TestBackEndPool
-data:    Provisioning state              : Succeeded
-info:    network lb address-pool create command OK
-```
-
-Podemos ver como está nosso balanceador de carga usando `azure network lb show` e examinando a saída JSON:
-
-```bash
-azure network lb show TestRG TestLB --json | jq '.'
-```
-
-Saída:
-
-```bash
-{
-  "etag": "W/"29c38649-77d6-43ff-ab8f-977536b0047c"",
-  "provisioningState": "Succeeded",
-  "resourceGuid": "f1446acb-09ba-44d9-b8b6-849d9983dc09",
-  "outboundNatRules": [],
-  "inboundNatPools": [],
-  "inboundNatRules": [],
-  "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB",
-  "name": "TestLB",
-  "type": "Microsoft.Network/loadBalancers",
+  "etag": "W/\"e95496fc-f417-426e-a4d8-c9e4d27fc2ee\"",
+  "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet",
   "location": "westeurope",
-  "frontendIPConfigurations": [
+  "name": "myVnet",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "resourceGuid": "ed62fd03-e9de-430b-84df-8a3b87cacdbb",
+  "subnets": [
     {
-      "etag": "W/"29c38649-77d6-43ff-ab8f-977536b0047c"",
-      "name": "TestFrontEndPool",
+      "addressPrefix": "192.168.1.0/24",
+      "etag": "W/\"e95496fc-f417-426e-a4d8-c9e4d27fc2ee\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+      "ipConfigurations": null,
+      "name": "mySubnet",
+      "networkSecurityGroup": null,
       "provisioningState": "Succeeded",
-      "publicIPAddress": {
-        "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestLBPIP"
-      },
-      "privateIPAllocationMethod": "Dynamic",
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/frontendIPConfigurations/TestFrontEndPool"
+      "resourceGroup": "myResourceGroup",
+      "resourceNavigationLinks": null,
+      "routeTable": null
     }
   ],
+  "tags": {},
+  "type": "Microsoft.Network/virtualNetworks",
+  "virtualNetworkPeerings": null
+}
+```
+
+
+## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
+Agora, vamos criar o PIP (endereço IP público) que atribuiremos ao seu balanceador de carga. Ele permite que você se conecte às suas VMs a partir da Internet usando o comando [az network public-ip create](/cli/azure/network/public-ip#create). Como o endereço padrão é dinâmico, criaremos uma entrada DNS nomeada no domínio **cloudapp.azure.com** usando a opção `--domain-name-label`. O exemplo a seguir cria um IP público chamado `myPublicIP` com o nome DNS de `mypublicdns`. Como o nome DNS deve ser exclusivo, forneça seu próprio nome DNS exclusivo:
+
+```azurecli
+az network public-ip create --resource-group myResourceGroup --location westeurope \
+  --name myPublicIP --dns-name mypublicdns --allocation-method static --idle-timeout 4
+```
+
+Saída:
+
+```json
+{
+  "publicIp": {
+    "dnsSettings": {
+      "domainNameLabel": "mypublicdns",
+      "fqdn": "mypublicdns.westeurope.cloudapp.azure.com",
+      "reverseFqdn": ""
+    },
+    "idleTimeoutInMinutes": 4,
+    "ipAddress": "52.174.48.109",
+    "provisioningState": "Succeeded",
+    "publicIPAllocationMethod": "Static",
+    "resourceGuid": "78218510-ea54-42d7-b2c2-44773fc14af5"
+  }
+}
+```
+
+O recurso de endereço IP público foi alocado logicamente, mas ainda não há um endereço específico atribuído. Para obter um endereço IP, você precisará de um balanceador de carga, que nós ainda não criamos.
+
+## <a name="create-a-load-balancer-and-ip-pools"></a>Criar um balanceador de carga e pools de IPs
+Quando você cria um balanceador de carga, ele permite que você distribua o tráfego entre várias VMs. Ele também fornece redundância para seu aplicativo ao executar várias VMs que respondem às solicitações dos usuários em caso de manutenção ou cargas pesadas. O exemplo a seguir usa [az network lb create](/cli/azure/network/lb#create) para criar um balanceador de carga chamado `myLoadBalancer`, um pool de IPs front-end denominado `myFrontEndPool` e conecta o recurso `myPublicIP`:
+
+```azurecli
+az network lb create --resource-group myResourceGroup --location westeurope \
+  --name myLoadBalancer --public-ip-address myPublicIP --frontend-ip-name myFrontEndPool
+```
+
+Saída:
+
+```json
+{
+  "loadBalancer": {
+    "backendAddressPools": [
+      {
+        "etag": "W/\"7a05df7a-5ee2-4581-b411-4b6f048ab291\"",
+        "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myLoadBalancerbepool",
+        "name": "myLoadBalancerbepool",
+        "properties": {
+          "provisioningState": "Succeeded"
+        },
+        "resourceGroup": "myResourceGroup"
+      }
+    ],
+    "frontendIPConfigurations": [
+      {
+        "etag": "W/\"7a05df7a-5ee2-4581-b411-4b6f048ab291\"",
+        "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/frontendIPConfigurations/myFrontEndPool",
+        "name": "myFrontEndPool",
+        "properties": {
+          "privateIPAllocationMethod": "Dynamic",
+          "provisioningState": "Succeeded",
+          "publicIPAddress": {
+            "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP",
+            "resourceGroup": "myResourceGroup"
+          }
+        },
+        "resourceGroup": "myResourceGroup"
+      }
+    ],
+    "inboundNatPools": [],
+    "inboundNatRules": [],
+    "loadBalancingRules": [],
+    "outboundNatRules": [],
+    "probes": [],
+    "provisioningState": "Succeeded",
+    "resourceGuid": "f4879d84-5ae8-4e06-8b9b-1419baa875d9"
+  }
+}
+```
+
+Observe como usamos a opção `--public-ip-address` para passar o `myPublicIP` que criamos anteriormente. A atribuição do endereço IP público ao balanceador de carga permite que você acesse suas VMs pela Internet.
+
+Usaremos o pool de back-end como uma localização à qual nossas VMs se conectarão. Dessa forma, o tráfego pode fluir por meio do balanceador de carga para as VMs. Vamos criar o pool de IPs para nosso tráfego de back-end com [az network lb address-pool create](/cli/azure/network/lb/address-pool#create). O exemplo a seguir cria um pool de back-end chamado `myBackEndPool`:
+
+```azurecli
+az network lb address-pool create --resource-group myResourceGroup \
+  --lb-name myLoadBalancer --name myBackEndPool
+```
+
+Saída em trechos:
+
+```json
   "backendAddressPools": [
     {
-      "etag": "W/"29c38649-77d6-43ff-ab8f-977536b0047c"",
-      "name": "TestBackEndPool",
+      "backendIpConfigurations": null,
+      "etag": "W/\"a61814bc-ce4c-4fb2-9d6a-5b1949078345\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myLoadBalancerbepool",
+      "loadBalancingRules": null,
+      "name": "myLoadBalancerbepool",
+      "outboundNatRule": null,
       "provisioningState": "Succeeded",
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+      "resourceGroup": "myResourceGroup"
+    },
+    {
+      "backendIpConfigurations": null,
+      "etag": "W/\"a61814bc-ce4c-4fb2-9d6a-5b1949078345\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myBackEndPool",
+      "loadBalancingRules": null,
+      "name": "myBackEndPool",
+      "outboundNatRule": null,
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup"
     }
   ],
-  "loadBalancingRules": [],
-  "probes": []
+  "etag": "W/\"a61814bc-ce4c-4fb2-9d6a-5b1949078345\"",
+```
+
+
+## <a name="create-load-balancer-nat-rules"></a>Criar regras NAT do balanceador de carga
+Para fazer com que o tráfego flua pelo balanceador de carga, precisamos criar regras de conversão de endereço de rede (NAT) que especifiquem as ações de entrada ou de saída. Você pode especificar o protocolo a ser usado e mapear portas externas para portas internas conforme desejado. Para nosso ambiente, vamos criar algumas regras que permitem que o SSH passe pelo balanceador de carga e chegue às VMs com [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#create). Vamos configurar as portas TCP 4222 e 4223 para direcionar para a porta TCP 22 em nossas VMs (que criaremos posteriormente). O exemplo a seguir cria uma regra chamada `myLoadBalancerRuleSSH1` para mapear a porta TCP 4222 para a porta 22:
+
+```azurecli
+az network lb inbound-nat-rule create --resource-group myResourceGroup \
+  --lb-name myLoadBalancer --name myLoadBalancerRuleSSH1 --protocol tcp \
+  --frontend-port 4222 --backend-port 22 --frontend-ip-name myFrontEndPool
+```
+
+Saída:
+
+```json
+{
+  "backendIpConfiguration": null,
+  "backendPort": 22,
+  "enableFloatingIp": false,
+  "etag": "W/\"72843cf8-b5fb-4655-9ac8-9cbbbbf1205a\"",
+  "frontendIpConfiguration": {
+    "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/frontendIPConfigurations/myFrontEndPool",
+    "resourceGroup": "myResourceGroup"
+  },
+  "frontendPort": 4222,
+  "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1",
+  "idleTimeoutInMinutes": 4,
+  "name": "myLoadBalancerRuleSSH1",
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup"
 }
 ```
 
-## Criar regras NAT do balanceador de carga
-Para fazer com que o tráfego flua pelo balanceador de carga, precisamos criar regras NAT que especifiquem as ações de entrada ou de saída. Você pode especificar o protocolo a ser usado e mapear portas externas para portas internas conforme desejado. Para nosso ambiente, vamos criar algumas regras que permitem que o SSH passe pelo balanceador de carga e chegue às VMs. Vamos configurar as portas TCP 4222 e 4223 para direcionar para a porta TCP 22 em nossas VMs (que criaremos posteriormente):
+Repita o procedimento para sua segunda regra de NAT para o SSH. O exemplo a seguir cria uma regra chamada `myLoadBalancerRuleSSH2` para mapear a porta TCP 4223 para a porta 22:
 
-```bash
-azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM1-SSH -p tcp -f 4222 -b 22
+```azurecli
+az network lb inbound-nat-rule create --resource-group myResourceGroup \
+  --lb-name myLoadBalancer --name myLoadBalancerRuleSSH2 --protocol tcp \
+  --frontend-port 4223 --backend-port 22 --frontend-ip-name myFrontEndPool
+```
+
+## <a name="create-a-load-balancer-health-probe"></a>Criar uma investigação de integridade do balanceador de carga
+Uma investigação de integridade verifica periodicamente as máquinas virtuais que estão por trás de nosso balanceador de carga para garantir que elas estejam em operação e estejam respondendo às solicitações da forma definida. Se não estiverem, elas serão removidas da operação para garantir que os usuários não sejam direcionados a elas. Você pode definir verificações personalizadas para a investigação de integridade, bem como valores de tempo limite e intervalos. Para obter mais informações sobre investigações de integridade, consulte [Investigações do Balanceador de Carga](../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). O exemplo a seguir usa [az network lb probe create](/cli/azure/network/lb/probe#create) para criar uma investigação de integridade TCP chamada `myHealthProbe`:
+
+```azurecli
+az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
+  --name myHealthProbe --protocol tcp --port 80 --interval 15 --threshold 4
 ```
 
 Saída:
 
-```bash
-info:    Executing command network lb inbound-nat-rule create
-+ Looking up the load balancer "TestLB"
-warn:    Using default enable floating ip: false
-warn:    Using default idle timeout: 4
-warn:    Using default frontend IP configuration "TestFrontEndPool"
-+ Updating load balancer "TestLB"
-data:    Name                            : VM1-SSH
-data:    Provisioning state              : Succeeded
-data:    Protocol                        : Tcp
-data:    Frontend port                   : 4222
-data:    Backend port                    : 22
-data:    Enable floating IP              : false
-data:    Idle timeout in minutes         : 4
-data:    Frontend IP configuration id    : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/frontendIPConfigurations/TestFrontEndPool
-info:    network lb inbound-nat-rule create command OK
-```
-
-Repita o procedimento para sua segunda regra de NAT para o SSH:
-
-```bash
-azure network lb inbound-nat-rule create -g TestRG -l TestLB -n VM2-SSH -p tcp -f 4223 -b 22
-```
-
-Também vamos aproveitar e criar uma regra de NAT para a porta TCP 80, vinculando a regra aos nossos pools de IPs. Se vincularmos a regra ao pool de IPs, em vez de vincular a regra a nossas VMs individualmente, poderemos simplesmente adicionar ou remover VMs do pool de IPs. Em seguida, o balanceador de carga ajusta automaticamente o fluxo de tráfego:
-
-```bash
-azure network lb rule create -g TestRG -l TestLB -n WebRule -p tcp -f 80 -b 80 \
-     -t TestFrontEndPool -o TestBackEndPool
-```
-
-Saída:
-
-```bash
-info:    Executing command network lb rule create
-+ Looking up the load balancer "TestLB"
-warn:    Using default idle timeout: 4
-warn:    Using default enable floating ip: false
-warn:    Using default load distribution: Default
-+ Updating load balancer "TestLB"
-data:    Name                            : WebRule
-data:    Provisioning state              : Succeeded
-data:    Protocol                        : Tcp
-data:    Frontend port                   : 80
-data:    Backend port                    : 80
-data:    Enable floating IP              : false
-data:    Load distribution               : Default
-data:    Idle timeout in minutes         : 4
-data:    Frontend IP configuration id    : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/frontendIPConfigurations/TestFrontEndPool
-data:    Backend address pool id         : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool
-info:    network lb rule create command OK
-```
-
-## Criar uma investigação de integridade do balanceador de carga
-Uma investigação de integridade verifica periodicamente as máquinas virtuais que estão por trás de nosso balanceador de carga para garantir que elas estejam em operação e estejam respondendo às solicitações da forma definida. Se não estiverem, elas serão removidas da operação para garantir que os usuários não sejam direcionados a elas. Você pode definir verificações personalizadas para a investigação de integridade, bem como valores de tempo limite e intervalos. Para obter mais informações sobre investigações de integridade, consulte [Investigações do Balanceador de Carga](../load-balancer/load-balancer-custom-probe-overview.md).
-
-```bash
-azure network lb probe create -g TestRG -l TestLB -n HealthProbe -p "tcp" -i 15 -c 4
-```
-
-Saída:
-
-```bash
-info:    Executing command network lb probe create
-warn:    Using default probe port: 80
-+ Looking up the load balancer "TestLB"
-+ Updating load balancer "TestLB"
-data:    Name                            : HealthProbe
-data:    Provisioning state              : Succeeded
-data:    Protocol                        : Tcp
-data:    Port                            : 80
-data:    Interval in seconds             : 15
-data:    Number of probes                : 4
-info:    network lb probe create command OK
+```json
+{
+  "etag": "W/\"757018f6-b70a-4651-b717-48b511d82ba0\"",
+  "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/probes/myHealthProbe",
+  "intervalInSeconds": 15,
+  "loadBalancingRules": null,
+  "name": "myHealthProbe",
+  "numberOfProbes": 4,
+  "port": 80,
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "requestPath": null,
+  "resourceGroup": "myResourceGroup"
+}
 ```
 
 Aqui, especificamos um intervalo de 15 segundos para nossas verificações de integridade. Podemos perder um máximo de quatro investigações (um minuto) antes que o balanceador de carga considere que o host não está mais funcionando.
 
-## Verificar o balanceador de carga
+Também vamos aproveitar e criar uma regra de NAT para a porta TCP 80 para tráfego da Web, vinculando a regra aos nossos pools de IPs. Se vincularmos a regra a um pool de IPs, em vez de vincular a regra às nossas VMs individualmente, poderemos adicionar ou remover VMs do pool de IPs. O balanceador de carga ajusta automaticamente o fluxo de tráfego. O exemplo a seguir usa [az network lb rule create](/cli/azure/network/lb/rule#create) para criar uma regra chamada `myLoadBalancerRuleWeb` para mapear a porta TCP 80 para a porta 80, e conecta a investigação de integridade chamada `myHealthProbe`:
+
+```azurecli
+az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer \
+  --name myLoadBalancerRuleWeb --protocol tcp --frontend-port 80 --backend-port 80 \
+  --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool \
+  --probe-name myHealthProbe
+```
+
+Saída:
+
+```json
+{
+  "backendAddressPool": {
+    "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myBackEndPool",
+    "resourceGroup": "myResourceGroup"
+  },
+  "backendPort": 80,
+  "enableFloatingIp": false,
+  "etag": "W/\"f0d77680-bf42-4d11-bfab-5d2c541bee56\"",
+  "frontendIpConfiguration": {
+    "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/frontendIPConfigurations/myFrontEndPool",
+    "resourceGroup": "myResourceGroup"
+  },
+  "frontendPort": 80,
+  "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/loadBalancingRules/myLoadBalancerRuleWeb",
+  "idleTimeoutInMinutes": 4,
+  "loadDistribution": "Default",
+  "name": "myLoadBalancerRuleWeb",
+  "probe": {
+    "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/probes/myHealthProbe",
+    "resourceGroup": "myResourceGroup"
+  },
+  "protocol": "Tcp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup"
+}
+```
+
+## <a name="verify-the-load-balancer"></a>Verificar o balanceador de carga
 Agora, a configuração do balanceador de carga está concluída. Estas são as etapas que você seguiu:
 
-1. Primeiro, você criou um balanceador de carga.
-2. Depois, você criou um pool de IPs de front-end e atribuiu um IP público a ele.
-3. Em seguida, você criou um pool de IPs de back-end ao qual as VMs podem se conectar.
-4. Depois disso, você criou regras NAT que permitem o SSH para as VMs para fins de gerenciamento, em conjunto com uma regra que permite a porta TCP 80 para nosso aplicativo Web.
-5. Por fim, você adicionou uma investigação de integridade para verificar periodicamente as VMs. Essa investigação de integridade que os usuários não tentem acessar uma VM que não está mais funcionando ou fornecendo conteúdo.
+1. Você criou um balanceador de carga.
+2. Você criou um pool de IPs de front-end e atribuiu um IP público a ele.
+3. Você criou um pool de IPs de back-end ao qual as VMs podem se conectar.
+4. Você criou regras NAT que permitem o SSH para as VMs para gerenciamento, junto com uma regra que permite a porta TCP 80 para nosso aplicativo Web.
+5. Você adicionou uma investigação de integridade para verificar as VMs periodicamente. Essa investigação de integridade que os usuários não tentem acessar uma VM que não está mais funcionando ou fornecendo conteúdo.
 
-Vamos ver como seu balanceador de carga está agora:
+Vamos ver como o seu balanceador de carga está agora com [az network lb show](/cli/azure/network/lb#show):
 
-```bash
-azure network lb show -g TestRG -n TestLB --json | jq '.'
+```azurecli
+az network lb show --resource-group myResourceGroup --name myLoadBalancer
 ```
 
 Saída:
 
-```bash
+```json
 {
-  "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
-  "provisioningState": "Succeeded",
-  "resourceGuid": "f1446acb-09ba-44d9-b8b6-849d9983dc09",
-  "outboundNatRules": [],
-  "inboundNatPools": [],
-  "inboundNatRules": [
-    {
-      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
-      "name": "VM1-SSH",
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH",
-      "frontendIPConfiguration": {
-        "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/frontendIPConfigurations/TestFrontEndPool"
-      },
-      "protocol": "Tcp",
-      "frontendPort": 4222,
-      "backendPort": 22,
-      "idleTimeoutInMinutes": 4,
-      "enableFloatingIP": false,
-      "provisioningState": "Succeeded"
-    },
-    {
-      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
-      "name": "VM2-SSH",
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH",
-      "frontendIPConfiguration": {
-        "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/frontendIPConfigurations/TestFrontEndPool"
-      },
-      "protocol": "Tcp",
-      "frontendPort": 4223,
-      "backendPort": 22,
-      "idleTimeoutInMinutes": 4,
-      "enableFloatingIP": false,
-      "provisioningState": "Succeeded"
-    }
-  ],
-  "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB",
-  "name": "TestLB",
-  "type": "Microsoft.Network/loadBalancers",
-  "location": "westeurope",
-  "frontendIPConfigurations": [
-    {
-      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
-      "name": "TestFrontEndPool",
-      "provisioningState": "Succeeded",
-      "publicIPAddress": {
-        "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestLBPIP"
-      },
-      "privateIPAllocationMethod": "Dynamic",
-      "loadBalancingRules": [
-        {
-          "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/loadBalancingRules/WebRule"
-        }
-      ],
-      "inboundNatRules": [
-        {
-          "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
-        },
-        {
-          "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH"
-        }
-      ],
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/frontendIPConfigurations/TestFrontEndPool"
-    }
-  ],
   "backendAddressPools": [
     {
-      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
-      "name": "TestBackEndPool",
+      "backendIpConfigurations": null,
+      "etag": "W/\"a0e313a1-6de1-48be-aeb6-df57188d708c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myLoadBalancerbepool",
+      "loadBalancingRules": null,
+      "name": "myLoadBalancerbepool",
+      "outboundNatRule": null,
       "provisioningState": "Succeeded",
-      "loadBalancingRules": [
-        {
-          "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/loadBalancingRules/WebRule"
-        }
-      ],
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+      "resourceGroup": "myResourceGroup"
+    },
+    {
+      "backendIpConfigurations": null,
+      "etag": "W/\"a0e313a1-6de1-48be-aeb6-df57188d708c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myBackEndPool",
+      "loadBalancingRules": null,
+      "name": "myBackEndPool",
+      "outboundNatRule": null,
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup"
     }
   ],
-  "loadBalancingRules": [
+  "etag": "W/\"a0e313a1-6de1-48be-aeb6-df57188d708c\"",
+  "frontendIpConfigurations": [
     {
-      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
-      "name": "WebRule",
+      "etag": "W/\"a0e313a1-6de1-48be-aeb6-df57188d708c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/frontendIPConfigurations/LoadBalancerFrontEnd",
+      "inboundNatPools": null,
+      "inboundNatRules": null,
+      "loadBalancingRules": null,
+      "name": "LoadBalancerFrontEnd",
+      "outboundNatRules": null,
+      "privateIpAddress": null,
+      "privateIpAllocationMethod": "Dynamic",
       "provisioningState": "Succeeded",
-      "enableFloatingIP": false,
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/loadBalancingRules/WebRule",
-      "frontendIPConfiguration": {
-        "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/frontendIPConfigurations/TestFrontEndPool"
+      "publicIpAddress": {
+        "dnsSettings": null,
+        "etag": null,
+        "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/PublicIPmyLoadBalancer",
+        "idleTimeoutInMinutes": null,
+        "ipAddress": null,
+        "ipConfiguration": null,
+        "location": null,
+        "name": null,
+        "provisioningState": null,
+        "publicIpAddressVersion": null,
+        "publicIpAllocationMethod": null,
+        "resourceGroup": "myResourceGroup",
+        "resourceGuid": null,
+        "tags": null,
+        "type": null
       },
-      "backendAddressPool": {
-        "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
+      "resourceGroup": "myResourceGroup",
+      "subnet": null
+    },
+    {
+      "etag": "W/\"a0e313a1-6de1-48be-aeb6-df57188d708c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/frontendIPConfigurations/myFrontEndPool",
+      "inboundNatPools": null,
+      "inboundNatRules": null,
+      "loadBalancingRules": null,
+      "name": "myFrontEndPool",
+      "outboundNatRules": null,
+      "privateIpAddress": null,
+      "privateIpAllocationMethod": "Dynamic",
+      "provisioningState": "Succeeded",
+      "publicIpAddress": {
+        "dnsSettings": null,
+        "etag": null,
+        "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP",
+        "idleTimeoutInMinutes": null,
+        "ipAddress": null,
+        "ipConfiguration": null,
+        "location": null,
+        "name": null,
+        "provisioningState": null,
+        "publicIpAddressVersion": null,
+        "publicIpAllocationMethod": null,
+        "resourceGroup": "myResourceGroup",
+        "resourceGuid": null,
+        "tags": null,
+        "type": null
       },
-      "protocol": "Tcp",
-      "loadDistribution": "Default",
-      "frontendPort": 80,
-      "backendPort": 80,
-      "idleTimeoutInMinutes": 4
+      "resourceGroup": "myResourceGroup",
+      "subnet": null
     }
   ],
-  "probes": [
-    {
-      "etag": "W/"62a7c8e7-859c-48d3-8e76-5e078c5e4a02"",
-      "name": "HealthProbe",
-      "provisioningState": "Succeeded",
-      "numberOfProbes": 4,
-      "intervalInSeconds": 15,
-      "port": 80,
-      "protocol": "Tcp",
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/probes/HealthProbe"
-    }
-  ]
-}
-```
-
-## Criar uma NIC para usar com a VM Linux
- As NICs estão disponíveis por meio de programação porque você pode aplicar regras ao seu uso. Você também pode ter mais de uma. No comando `azure network nic create` a seguir, você vincula nossa NIC ao pool de IPs de back-end de carga e a associa a nossa regra de NAT para permitir o tráfego SSH. Para fazer isso, você precisa especificar a ID da sua assinatura do Azure no lugar de `<GUID>`:
-
-```bash
-azure network nic create -g TestRG -n LB-NIC1 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
-     -d /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool \
-     -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
-```
-
-Saída:
-
-```bash
-info:    Executing command network nic create
-+ Looking up the subnet "FrontEnd"
-+ Looking up the network interface "LB-NIC1"
-+ Creating network interface "LB-NIC1"
-data:    Id                              : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/LB-NIC1
-data:    Name                            : LB-NIC1
-data:    Type                            : Microsoft.Network/networkInterfaces
-data:    Location                        : westeurope
-data:    Provisioning state              : Succeeded
-data:    Enable IP forwarding            : false
-data:    IP configurations:
-data:      Name                          : Nic-IP-config
-data:      Provisioning state            : Succeeded
-data:      Private IP address            : 192.168.1.4
-data:      Private IP allocation method  : Dynamic
-data:      Subnet                        : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd
-data:      Load balancer backend address pools:
-data:        Id                          : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool
-data:      Load balancer inbound NAT rules:
-data:        Id                          : /subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH
-data:
-info:    network nic create command OK
-```
-
-Você pode ver os detalhes examinando o recurso diretamente. Examine os recursos usando o comando `azure network nic show`:
-
-```bash
-azure network nic show TestRG LB-NIC1 --json | jq '.'
-```
-
-Saída:
-
-```bash
-{
-  "etag": "W/"fc1eaaa1-ee55-45bd-b847-5a08c7f4264a"",
-  "provisioningState": "Succeeded",
-  "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/LB-NIC1",
-  "name": "LB-NIC1",
-  "type": "Microsoft.Network/networkInterfaces",
+  "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer",
+  "inboundNatPools": [],
+  "inboundNatRules": [],
+  "loadBalancingRules": [],
   "location": "westeurope",
-  "ipConfigurations": [
-    {
-      "etag": "W/"fc1eaaa1-ee55-45bd-b847-5a08c7f4264a"",
-      "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/LB-NIC1/ipConfigurations/Nic-IP-config",
-      "loadBalancerBackendAddressPools": [
-        {
-          "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool"
-        }
-      ],
-      "loadBalancerInboundNatRules": [
-        {
-          "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM1-SSH"
-        }
-      ],
-      "privateIPAddress": "192.168.1.4",
-      "privateIPAllocationMethod": "Dynamic",
-      "subnet": {
-        "id": "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
-      },
-      "provisioningState": "Succeeded",
-      "name": "Nic-IP-config"
-    }
-  ],
-  "dnsSettings": {
-    "appliedDnsServers": [],
-    "dnsServers": []
-  },
-  "enableIPForwarding": false,
-  "resourceGuid": "a20258b8-6361-45f6-b1b4-27ffed28798c"
+  "name": "myLoadBalancer",
+  "outboundNatRules": [],
+  "probes": [],
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "resourceGuid": "b5815801-b53d-4c22-aafc-2a9064f90f3c",
+  "tags": {},
+  "type": "Microsoft.Network/loadBalancers"
 }
 ```
 
-Agora, vamos criar a segunda NIC, vinculando-a novamente ao nosso pool de IPs de back-end. Desta vez, a segunda regra NAT permite tráfego SSH:
+## <a name="create-a-network-security-group-and-rules"></a>Criar um grupo de segurança de rede e suas regras
+Agora, criamos um grupo de segurança de rede e as regras de entrada que regem o acesso à NIC. Um grupo de segurança de rede pode ser aplicado a uma NIC ou sub-rede. Defina regras para controlar o fluxo de tráfego dentro e fora de suas VMs. O exemplo a seguir usa [az network nsg create](/cli/azure/network/nsg#create) para criar um grupo de segurança de rede chamado `myNetworkSecurityGroup`:
 
-```bash
-azure network nic create -g TestRG -n LB-NIC2 -l westeurope --subnet-vnet-name TestVNet --subnet-name FrontEnd \
-    -d  /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/backendAddressPools/TestBackEndPool \
-    -e /subscriptions/<GUID>/resourceGroups/TestRG/providers/Microsoft.Network/loadBalancers/TestLB/inboundNatRules/VM2-SSH
+```azurecli
+az network nsg create --resource-group myResourceGroup --location westeurope \
+  --name myNetworkSecurityGroup
 ```
 
-## Criar um grupo de segurança de rede e suas regras
-Agora, criamos seu NSG e as regras de entrada que regulam o acesso à NIC.
+Vamos adicionar a regra de entrada para o NSG com [az network nsg rule create](/cli/azure/network/nsg/rule#create) para permitir conexões de entrada na porta 22 (para dar suporte ao SSH). O seguinte exemplo cria uma regra chamada `myNetworkSecurityGroupRuleSSH` para permitir o TCP na porta 22:
 
-```bash
-azure network nsg create TestRG TestNSG westeurope
+```azurecli
+az network nsg rule create --resource-group myResourceGroup \
+  --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleSSH \
+  --protocol tcp --direction inbound --priority 1000 \
+  --source-address-prefix '*' --source-port-range '*' \
+  --destination-address-prefix '*' --destination-port-range 22 --access allow
 ```
 
-Vamos adicionar a regra de entrada para o NSG para permitir conexões de entrada na porta 22 (para dar suporte ao SSH):
+Agora, vamos adicionar a regra de entrada para o NSG para permitir conexões de entrada na porta 80 (para dar suporte ao tráfego da Web). O seguinte exemplo cria uma regra chamada `myNetworkSecurityGroupRuleHTTP` para permitir o TCP na porta 80:
 
-```bash
-azure network nsg rule create --protocol tcp --direction inbound --priority 1000 \
-    --destination-port-range 22 --access allow TestRG TestNSG SSHRule
-```
-
-```bash
-azure network nsg rule create --protocol tcp --direction inbound --priority 1001 \
-    --destination-port-range 80 --access allow -g TestRG -a TestNSG -n HTTPRule
+```azurecli
+az network nsg rule create --resource-group myResourceGroup \
+  --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleHTTP \
+  --protocol tcp --direction inbound --priority 1001 \
+  --source-address-prefix '*' --source-port-range '*' \
+  --destination-address-prefix '*' --destination-port-range 80 --access allow
 ```
 
 > [!NOTE]
-> A regra de entrada é um filtro para conexões de rede de entrada. Neste exemplo, associaremos o NSG à NIC virtual das VMs, o que significa que qualquer solicitação para a porta 22 será passada para a NIC na nossa VM. Essa regra de entrada é sobre uma conexão de rede e não sobre um ponto de extremidade, que seria o caso em implantações clássicas. Para abrir uma porta, você deve deixar `--source-port-range` definido como “*” (o valor padrão) para aceitar solicitações de entrada de **qualquer** porta de solicitação. Normalmente, as portas são dinâmicas.
-> 
-> 
+> A regra de entrada é um filtro para conexões de rede de entrada. Neste exemplo, associaremos o NSG à NIC virtual das VMs, o que significa que qualquer solicitação para a porta 22 será passada para a NIC na nossa VM. Essa regra de entrada é sobre uma conexão de rede e não sobre um ponto de extremidade, que seria o caso em implantações clássicas. Para abrir uma porta, você deve deixar `--source-port-range` definido como “\*” (o valor padrão) para aceitar solicitações de entrada de **qualquer** porta de solicitação. Normalmente, as portas são dinâmicas.
 
-## Associar à NIC
-Associe o NSG às NICs:
+Examine o grupo de segurança de rede e as regras com [az network nsg show](/cli/azure/network/nsg#show):
 
-```bash
-azure network nic set -g TestRG -n LB-NIC1 -o TestNSG
+```azurecli
+az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
-```bash
-azure network nic set -g TestRG -n LB-NIC2 -o TestNSG
+Saída:
+
+```json
+{
+  "defaultSecurityRules": [
+    {
+      "access": "Allow",
+      "description": "Allow inbound traffic from all VMs in VNET",
+      "destinationAddressPrefix": "VirtualNetwork",
+      "destinationPortRange": "*",
+      "direction": "Inbound",
+      "etag": "W/\"2b656589-f332-4ba4-92f3-afb3be5c192c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowVnetInBound",
+      "name": "AllowVnetInBound",
+      "priority": 65000,
+      "protocol": "*",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup",
+      "sourceAddressPrefix": "VirtualNetwork",
+      "sourcePortRange": "*"
+    },
+    {
+      "access": "Allow",
+      "description": "Allow inbound traffic from azure load balancer",
+      "destinationAddressPrefix": "*",
+      "destinationPortRange": "*",
+      "direction": "Inbound",
+      "etag": "W/\"2b656589-f332-4ba4-92f3-afb3be5c192c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowAzureLoadBalancerInBound",
+      "name": "AllowAzureLoadBalancerInBound",
+      "priority": 65001,
+      "protocol": "*",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup",
+      "sourceAddressPrefix": "AzureLoadBalancer",
+      "sourcePortRange": "*"
+    },
+    {
+      "access": "Deny",
+      "description": "Deny all inbound traffic",
+      "destinationAddressPrefix": "*",
+      "destinationPortRange": "*",
+      "direction": "Inbound",
+      "etag": "W/\"2b656589-f332-4ba4-92f3-afb3be5c192c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/DenyAllInBound",
+      "name": "DenyAllInBound",
+      "priority": 65500,
+      "protocol": "*",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup",
+      "sourceAddressPrefix": "*",
+      "sourcePortRange": "*"
+    },
+    {
+      "access": "Allow",
+      "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+      "destinationAddressPrefix": "VirtualNetwork",
+      "destinationPortRange": "*",
+      "direction": "Outbound",
+      "etag": "W/\"2b656589-f332-4ba4-92f3-afb3be5c192c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowVnetOutBound",
+      "name": "AllowVnetOutBound",
+      "priority": 65000,
+      "protocol": "*",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup",
+      "sourceAddressPrefix": "VirtualNetwork",
+      "sourcePortRange": "*"
+    },
+    {
+      "access": "Allow",
+      "description": "Allow outbound traffic from all VMs to Internet",
+      "destinationAddressPrefix": "Internet",
+      "destinationPortRange": "*",
+      "direction": "Outbound",
+      "etag": "W/\"2b656589-f332-4ba4-92f3-afb3be5c192c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowInternetOutBound",
+      "name": "AllowInternetOutBound",
+      "priority": 65001,
+      "protocol": "*",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup",
+      "sourceAddressPrefix": "*",
+      "sourcePortRange": "*"
+    },
+    {
+      "access": "Deny",
+      "description": "Deny all outbound traffic",
+      "destinationAddressPrefix": "*",
+      "destinationPortRange": "*",
+      "direction": "Outbound",
+      "etag": "W/\"2b656589-f332-4ba4-92f3-afb3be5c192c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/DenyAllOutBound",
+      "name": "DenyAllOutBound",
+      "priority": 65500,
+      "protocol": "*",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup",
+      "sourceAddressPrefix": "*",
+      "sourcePortRange": "*"
+    }
+  ],
+  "etag": "W/\"2b656589-f332-4ba4-92f3-afb3be5c192c\"",
+  "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup",
+  "location": "westeurope",
+  "name": "myNetworkSecurityGroup",
+  "networkInterfaces": null,
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "resourceGuid": "79c2c293-ee3e-4616-bf9c-4741ff1f708a",
+  "securityRules": [
+    {
+      "access": "Allow",
+      "description": null,
+      "destinationAddressPrefix": "*",
+      "destinationPortRange": "22",
+      "direction": "Inbound",
+      "etag": "W/\"2b656589-f332-4ba4-92f3-afb3be5c192c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/securityRules/myNetworkSecurityGroupRuleSSH",
+      "name": "myNetworkSecurityGroupRuleSSH",
+      "priority": 1000,
+      "protocol": "tcp",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup",
+      "sourceAddressPrefix": "*",
+      "sourcePortRange": "*"
+    },
+    {
+      "access": "Allow",
+      "description": null,
+      "destinationAddressPrefix": "*",
+      "destinationPortRange": "80",
+      "direction": "Inbound",
+      "etag": "W/\"2b656589-f332-4ba4-92f3-afb3be5c192c\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/securityRules/myNetworkSecurityGroupRuleHTTP",
+      "name": "myNetworkSecurityGroupRuleHTTP",
+      "priority": 1001,
+      "protocol": "tcp",
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup",
+      "sourceAddressPrefix": "*",
+      "sourcePortRange": "*"
+    }
+  ],
+  "subnets": null,
+  "tags": {},
+  "type": "Microsoft.Network/networkSecurityGroups"
+}
 ```
 
-## Criar um conjunto de disponibilidade
-Conjuntos de disponibilidade ajudam a difundir suas VMs em domínios de falha e domínios de atualização. Vamos criar um conjunto de disponibilidade para suas VMs:
+## <a name="create-an-nic-to-use-with-the-linux-vm"></a>Criar uma NIC para usar com a VM Linux
+As NICs estão disponíveis por meio de programação porque você pode aplicar regras ao seu uso. Você também pode ter mais de uma. No comando [az network nic create](https://docs.microsoft.com/en-us/cli/azure/network/nic#create) a seguir, você vincula a NIC ao pool de IPs de back-end da carga e a associa à regra de NAT para permitir o tráfego SSH e o grupo de segurança de rede.
 
-```bash
-azure availset create -g TestRG -n TestAvailSet -l westeurope
+O exemplo a seguir cria uma NIC chamada `myNic1`:
+
+```azurecli
+az network nic create --resource-group myResourceGroup --location westeurope --name myNic1 \
+  --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup \
+  --lb-name myLoadBalancer --lb-address-pools myBackEndPool \
+  --lb-inbound-nat-rules myLoadBalancerRuleSSH1
+```
+
+Saída:
+
+```json
+{
+  "newNIC": {
+    "dnsSettings": {
+      "appliedDnsServers": [],
+      "dnsServers": []
+    },
+    "enableIPForwarding": false,
+    "ipConfigurations": [
+      {
+        "etag": "W/\"a76b5c0d-14e1-4a99-afd4-5cd8ac0465ca\"",
+        "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic1/ipConfigurations/ipconfig1",
+        "name": "ipconfig1",
+        "properties": {
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myBackEndPool",
+              "resourceGroup": "myResourceGroup"
+            }
+          ],
+          "loadBalancerInboundNatRules": [
+            {
+              "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1",
+              "resourceGroup": "myResourceGroup"
+            }
+          ],
+          "primary": true,
+          "privateIPAddress": "192.168.1.4",
+          "privateIPAllocationMethod": "Dynamic",
+          "provisioningState": "Succeeded",
+          "subnet": {
+            "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+            "resourceGroup": "myResourceGroup"
+          }
+        },
+        "resourceGroup": "myResourceGroup"
+      }
+    ],
+    "networkSecurityGroup": {
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup",
+      "resourceGroup": "myResourceGroup"
+    },
+    "provisioningState": "Succeeded",
+    "resourceGuid": "838977cb-cf4b-4c4a-9a32-0ddec7dc818b"
+  }
+}
+```
+
+Agora, vamos criar a segunda NIC, vinculando-a novamente ao nosso pool de IPs de back-end. Desta vez, a segunda regra NAT permite o tráfego SSH. O exemplo a seguir cria uma NIC chamada `myNic2`:
+
+```azurecli
+az network nic create --resource-group myResourceGroup --location westeurope --name myNic2 \
+  --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup \
+  --lb-name myLoadBalancer --lb-address-pools myBackEndPool \
+  --lb-inbound-nat-rules myLoadBalancerRuleSSH2
+```
+
+
+## <a name="create-an-availability-set"></a>Criar um conjunto de disponibilidade
+Conjuntos de disponibilidade ajudam a difundir suas VMs em domínios de falha e domínios de atualização. Vamos criar um conjunto de disponibilidade para suas VMs com [az vm availability-set create](/cli/azure/vm/availability-set#create). O exemplo a seguir cria um conjunto de disponibilidade chamado `myAvailabilitySet`:
+
+```azurecli
+az vm availability-set create --resource-group myResourceGroup --location westeurope \
+  --name myAvailabilitySet
 ```
 
 Os domínios de falha definem um agrupamento de máquinas virtuais que compartilham uma mesma fonte de alimentação e um mesmo comutador de rede. Por padrão, as máquinas virtuais que são configuradas dentro do seu conjunto de disponibilidade são separadas entre até três domínios de falha. A ideia é que um problema de hardware em um desses domínios de falha não afete todas as VMs que estiverem executando seu aplicativo. O Azure distribui automaticamente as VMs entre os domínios de falha ao colocá-las em um conjunto de disponibilidade.
 
 Domínios de atualização indicam grupos de máquinas virtuais e o hardware físico subjacente que podem ser reinicializados ao mesmo tempo. A ordem de reinicialização dos domínios de atualização pode não ser sequencial durante a manutenção planejada, mas apenas uma atualização será reinicializada por vez. Mais uma vez, o Azure distribui automaticamente as VMs entre os domínios de atualização ao colocá-las em um site de disponibilidade.
 
-Leia mais sobre como [gerenciar a disponibilidade de VMs](virtual-machines-linux-manage-availability.md).
+Leia mais sobre como [gerenciar a disponibilidade de VMs](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## Criar as VMs Linux
-Você criou os recursos de armazenamento e rede para dar suporte a VMs que podem ser acessadas pela Internet. Agora, vamos criar essas VMs e protegê-las com uma chave SSH que não tem senha. Nesse caso, vamos criar uma VM do Ubuntu com base no LTS mais recente. Localizaremos as informações dessa imagem usando `azure vm image list`, conforme descrito em [localização de imagens de VM do Azure](virtual-machines-linux-cli-ps-findimage.md).
 
-Selecionamos uma imagem usando o comando `azure vm image list westeurope canonical | grep LTS`. Neste caso, usamos `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. Para o último campo, vamos passar `latest` para que no futuro sempre tenhamos o build mais recente. (A cadeia de caracteres usada é `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
+## <a name="create-the-linux-vms"></a>Criar as VMs Linux
+Você criou os recursos de armazenamento e rede para dar suporte a VMs que podem ser acessadas pela Internet. Agora, vamos criar essas VMs e protegê-las com uma chave SSH que não tem senha. Nesse caso, vamos criar uma VM do Ubuntu com base no LTS mais recente. Localizaremos as informações dessa imagem usando [az vm image list](/cli/azure/vm/image#list), conforme descrito em [localização de imagens de VM do Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-A próxima etapa é familiar para qualquer pessoa que já tenha criado um par de chaves privada e pública rsa ssh no Linux ou Mac usando **ssh-keygen -t rsa -b 2048**. Se não tiver pares de chave de certificado no seu diretório `~/.ssh`, você poderá criá-los:
+Também especificamos uma chave SSH a ser usada para autenticação. Se você não tiver uma chave SSH, poderá criá-la usando [estas instruções](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Como alternativa, você pode usar o método `--admin-password` para autenticar suas conexões SSH após a criação da VM. Esse método normalmente é menos seguro.
 
-* Automaticamente, usando a opção `azure vm create --generate-ssh-keys`.
-* Manualmente, usando [as instruções para criá-las você mesmo](virtual-machines-linux-mac-create-ssh-keys.md).
+Criamos a VM reunindo todos os nossos recursos e informações com o comando [az vm create](/cli/azure/vm#create):
 
-Como alternativa, você pode usar o método --admin--password para autenticar suas conexões SSH após a criação da VM. Esse método normalmente é menos seguro.
-
-Criamos a VM reunindo todos os nossos recursos e informações com o comando `azure vm create`:
-
-```bash
-azure vm create \            
-    --resource-group TestRG \
-    --name TestVM1 \
+```azurecli
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM1 \
     --location westeurope \
-    --os-type linux \
-    --availset-name TestAvailSet \
-    --nic-name LB-NIC1 \
-    --vnet-name TestVnet \
-    --vnet-subnet-name FrontEnd \
-    --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
-    --ssh-publickey-file ~/.ssh/id_rsa.pub \
+    --availability-set myAvailabilitySet \
+    --nics myNic1 \
+    --vnet myVnet \
+    --subnet-name mySubnet \
+    --nsg myNetworkSecurityGroup \
+    --storage-account mystorageaccount \
+    --image UbuntuLTS \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
 
 Saída:
 
-```bash
-info:    Executing command vm create
-+ Looking up the VM "TestVM1"
-info:    Verifying the public key SSH file: /home/ahmet/.ssh/id_rsa.pub
-info:    Using the VM Size "Standard_DS1"
-info:    The [OS, Data] Disk or image configuration requires storage account
-+ Looking up the storage account computeteststore
-+ Looking up the availability set "TestAvailSet"
-info:    Found an Availability set "TestAvailSet"
-+ Looking up the NIC "LB-NIC1"
-info:    Found an existing NIC "LB-NIC1"
-info:    Found an IP configuration with virtual network subnet id "/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd" in the NIC "LB-NIC1"
-info:    This is an NIC without publicIP configured
-info:    The storage URI 'https://computeteststore.blob.core.windows.net/' will be used for boot diagnostics settings, and it can be overwritten by the parameter input of '--boot-diagnostics-storage-uri'.
-info:    vm create command OK
+```json
+{
+  "fqdn": "",
+  "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM1",
+  "macAddress": "",
+  "privateIpAddress": "",
+  "publicIpAddress": "",
+  "resourceGroup": "myResourceGroup"
+}
 ```
 
-Você pode se conectar à sua VM imediatamente usando suas chaves SSH padrão. Certifique-se de especificar a porta apropriada, uma vez que estamos passando pelo balanceador de carga. (Para nossa primeira VM, configuramos a regra NAT para encaminhar a porta 4222 para nossa VM):
+Você pode se conectar à sua VM imediatamente usando suas chaves SSH padrão. Certifique-se de especificar a porta apropriada, uma vez que estamos passando pelo balanceador de carga. (Para nossa primeira VM, configuramos a regra NAT para encaminhar a porta 4222 para nossa VM.)
 
 ```bash
- ssh ops@testlb.westeurope.cloudapp.azure.com -p 4222
+ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222 -i ~/.ssh/id_rsa.pub
 ```
 
 Saída:
 
 ```bash
-The authenticity of host '[testlb.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
+The authenticity of host '[mypublicdns.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
 ECDSA key fingerprint is 94:2d:d0:ce:6b:fb:7f:ad:5b:3c:78:93:75:82:12:f9.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added '[testlb.westeurope.cloudapp.azure.com]:4222,[xx.xx.xx.xx]:4222' (ECDSA) to the list of known hosts.
+Warning: Permanently added '[mypublicdns.westeurope.cloudapp.azure.com]:4222,[xx.xx.xx.xx]:4222' (ECDSA) to the list of known hosts.
 Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -1147,120 +1054,53 @@ Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 0 packages can be updated.
 0 updates are security updates.
 
-
-The programs included with the Ubuntu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
-
-To run a command as administrator (user "root"), use "sudo <command>".
-See "man sudo_root" for details.
-
-ops@TestVM1:~$
+ops@myVM1:~$
 ```
 
 Prossiga e crie sua segunda VM da mesma maneira:
 
-```bash
-azure vm create \            
-    --resource-group TestRG \
-    --name TestVM2 \
+```azurecli
+az vm create \
+    --resource-group myResourceGroup \
+    --name myVM2 \
     --location westeurope \
-    --os-type linux \
-    --availset-name TestAvailSet \
-    --nic-name LB-NIC2 \
-    --vnet-name TestVnet \
-    --vnet-subnet-name FrontEnd \
-    --storage-account-name computeteststore \
-    --image-urn canonical:UbuntuServer:16.04.0-LTS:latest \
-    --ssh-publickey-file ~/.ssh/id_rsa.pub \
+    --availability-set myAvailabilitySet \
+    --nics myNic2 \
+    --vnet myVnet \
+    --subnet-name mySubnet \
+    --nsg myNetworkSecurityGroup \
+    --storage-account mystorageaccount \
+    --image UbuntuLTS \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
 
-E agora você pode usar o comando `azure vm show testrg testvm` para examinar o que criou. Neste ponto, você está executando suas VMs Ubuntu atrás de um balanceador de carga no Azure, em que só pode fazer logon com seu par de chaves SSH (porque as senhas estão desabilitadas). Você pode instalar nginx ou httpd e implantar um aplicativo Web para ver o fluxo do tráfego por meio do balanceador de carga para ambas as VMs.
+Neste ponto, você está executando suas VMs Ubuntu atrás de um balanceador de carga no Azure, em que só pode fazer logon com seu par de chaves SSH (porque as senhas estão desabilitadas). Você pode instalar nginx ou httpd e implantar um aplicativo Web para ver o fluxo do tráfego por meio do balanceador de carga para ambas as VMs.
 
-```bash
-azure vm show TestRG TestVM1
+
+## <a name="export-the-environment-as-a-template"></a>Exportar o ambiente como um modelo
+Agora que criou esse ambiente, e se você quiser criar um ambiente de desenvolvimento adicional usando os mesmos parâmetros ou um ambiente de produção corresponde? O Gerenciador de Recursos usa modelos JSON que definem todos os parâmetros para seu ambiente. Crie ambientes inteiros fazendo referência a esse modelo JSON. Você pode [criar modelos JSON manualmente](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou exportar um ambiente existente para criar o modelo JSON para você. Use [az resource group export](/cli/azure/resource/group#export) para exportar seu grupo de recursos da seguinte maneira:
+
+```azurecli
+az resource group export --name myResourceGroup > myResourceGroup.json
 ```
 
-Saída:
+Esse comando cria o arquivo `myResourceGroup.json` no diretório de trabalho atual. Ao criar um ambiente com base nesse modelo, você receberá uma solicitação para fornecer todos os nomes de recursos, incluindo os nomes do balanceador de carga, das interfaces de rede ou VMs. Você pode preencher esses nomes em seu arquivo de modelo adicionando o parâmetro `--include-parameter-default-value` ao comando **az resource group export** mostrado anteriormente. Edite seu modelo JSON para especificar os nomes dos recursos, ou [crie um arquivo parameters.json](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que especifica os nomes dos recursos.
 
-```bash
-info:    Executing command vm show
-+ Looking up the VM "TestVM1"
-+ Looking up the NIC "LB-NIC1"
-data:    Id                              :/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/TestVM1
-data:    ProvisioningState               :Succeeded
-data:    Name                            :TestVM1
-data:    Location                        :westeurope
-data:    Type                            :Microsoft.Compute/virtualMachines
-data:
-data:    Hardware Profile:
-data:      Size                          :Standard_DS1
-data:
-data:    Storage Profile:
-data:      Image reference:
-data:        Publisher                   :canonical
-data:        Offer                       :UbuntuServer
-data:        Sku                         :16.04.0-LTS
-data:        Version                     :latest
-data:
-data:      OS Disk:
-data:        OSType                      :Linux
-data:        Name                        :clib45a8b650f4428a1-os-1471973896525
-data:        Caching                     :ReadWrite
-data:        CreateOption                :FromImage
-data:        Vhd:
-data:          Uri                       :https://computeteststore.blob.core.windows.net/vhds/clib45a8b650f4428a1-os-1471973896525.vhd
-data:
-data:    OS Profile:
-data:      Computer Name                 :TestVM1
-data:      User Name                     :ops
-data:      Linux Configuration:
-data:        Disable Password Auth       :true
-data:
-data:    Network Profile:
-data:      Network Interfaces:
-data:        Network Interface #1:
-data:          Primary                   :true
-data:          MAC Address               :00-0D-3A-24-D4-AA
-data:          Provisioning State        :Succeeded
-data:          Name                      :LB-NIC1
-data:          Location                  :westeurope
-data:
-data:    AvailabilitySet:
-data:      Id                            :/subscriptions/guid/resourceGroups/TestRG/providers/Microsoft.Compute/availabilitySets/TESTAVAILSET
-data:
-data:    Diagnostics Profile:
-data:      BootDiagnostics Enabled       :true
-data:      BootDiagnostics StorageUri    :https://computeteststore.blob.core.windows.net/
-data:
-data:      Diagnostics Instance View:
-info:    vm show command OK
+Para criar um ambiente a partir de seu modelo, use [az resource group deployment create](/cli/azure/resource/group/deployment#create) da seguinte maneira:
 
+```azurecli
+az resource group deployment create --resource-group myNewResourceGroup \
+  --template-file myResourceGroup.json
 ```
 
+Pode ser útil ler [mais detalhes sobre a implantações de modelos](../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Saiba como atualizar ambientes gradativamente, usar o arquivo de parâmetros e acessar os modelos de uma única localização de armazenamento.
 
-## Exportar o ambiente como um modelo
-Agora que criou esse ambiente, e se você quiser criar um ambiente de desenvolvimento adicional usando os mesmos parâmetros ou um ambiente de produção corresponde? O Gerenciador de Recursos usa modelos JSON que definem todos os parâmetros para seu ambiente. Crie ambientes inteiros fazendo referência a esse modelo JSON. Você pode [criar modelos JSON manualmente](../resource-group-authoring-templates.md) ou simplesmente exportar um ambiente existente para criar o modelo JSON para você:
-
-```bash
-azure group export TestRG
-```
-
-Esse comando cria o arquivo `TestRG.json` no diretório de trabalho atual. Ao criar um ambiente com base nesse modelo, você receberá uma solicitação para fornecer todos os nomes de recursos, incluindo os nomes do balanceador de carga, das interfaces de rede ou VMs. Você pode preencher esses nomes em seu arquivo de modelo adicionando o parâmetro `-p` ou `--includeParameterDefaultValue` ao comando `azure group export` que foi mostrado anteriormente. Edite seu modelo JSON para especificar os nomes dos recursos, ou [crie um arquivo parameters.json](../resource-group-authoring-templates.md#parameters) que especifica os nomes dos recursos.
-
-Para criar um ambiente a partir de seu modelo:
-
-```bash
-azure group deployment create -f TestRG.json -g NewRGFromTemplate
-```
-
-Pode ser útil ler [mais detalhes sobre a implantações de modelos](../resource-group-template-deploy-cli.md). Saiba como atualizar ambientes gradativamente, usar o arquivo de parâmetros e acessar os modelos de uma única localização de armazenamento.
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora, você está pronto para começar a trabalhar com vários componentes de rede e VMs. Você pode usar esse ambiente de exemplo para criar seu aplicativo usando os principais componentes introduzidos aqui.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Dec16_HO3-->
+
+

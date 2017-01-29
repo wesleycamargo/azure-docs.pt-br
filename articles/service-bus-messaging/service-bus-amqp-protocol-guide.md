@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 07/01/2016
 ms.author: clemensv;jotaub;hillaryc;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 946384b5986ee56f16f5b3fe3be07d09f9837076
+ms.sourcegitcommit: 3cd9b1e94bde10b4da8fcb91c39abdcc2591d5ba
+ms.openlocfilehash: a93eb9a3afa0ceaa42b42b4274f2164da2d7faa8
 
 
 ---
@@ -48,7 +48,7 @@ O protocolo AMQP 1.0 foi projetado para ser extensível, permitindo que mais esp
 ## <a name="basic-amqp-scenarios"></a>Cenários básicos de AMQP
 Esta seção explica o uso básico do AMQP 1.0 com o Barramento de Serviço do Azure, que inclui a criação de conexões, sessões e links, e a transferência de mensagens de e para entidades do Barramento de Serviço, como filas, tópicos e assinaturas.
 
-A fonte mais confiável para saber mais sobre o funcionamento do AMQP é a especificação AMQP 1.0, mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [este curso de vídeo][este curso de vídeo].
+A fonte mais confiável para saber mais sobre o funcionamento do AMQP é a especificação AMQP 1.0, mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [este curso em vídeo][this video course].
 
 ### <a name="connections-and-sessions"></a>Conexões e sessões
 ![][1]
@@ -218,7 +218,7 @@ As seções a seguir explicam quais propriedades das seções padrão de mensage
 Esta seção aborda os recursos avançados do Barramento de Serviço do Azure baseados em extensões de rascunho para AMQP atualmente sendo desenvolvidos no Comitê Técnico OASIS para AMQP. O Barramento de Serviço do Azure implementa o status mais recente desses rascunhos e adotará as alterações introduzidas quando esses rascunhos atingirem o status padrão.
 
 > [!NOTE]
-> As operações avançadas de Mensagens do barramento de serviço têm suporte de um padrão de solicitação/resposta. Os detalhes dessas operações estão descritos no documento [AMQP 1.0 no Barramento de Serviço: operações baseadas em solicitação/resposta](https://msdn.microsoft.com/library/azure/mt727956.aspx).
+> As operações avançadas de Mensagens do Barramento de Serviço têm suporte por meio de um padrão de solicitação/resposta. Os detalhes dessas operações estão descritos no documento [AMQP 1.0 no Barramento de Serviço: operações baseadas em solicitação/resposta](https://msdn.microsoft.com/library/azure/mt727956.aspx).
 > 
 > 
 
@@ -301,7 +301,7 @@ Para saber mais sobre o AMQP, confira o seguinte:
 * [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]
 * [AMQP no Barramento de Serviço para Windows Server]
 
-[este curso de vídeo]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
+[this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp/amqp1.png
 [2]: ./media/service-bus-amqp/amqp2.png
 [3]: ./media/service-bus-amqp/amqp3.png
@@ -313,6 +313,6 @@ Para saber mais sobre o AMQP, confira o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

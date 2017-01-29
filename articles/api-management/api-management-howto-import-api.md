@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 126fd84259c604785cdd5db0543f78539c1db9c7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: b69c8e918bb0380a10b1505fbf9792e284149de0
 
 
 ---
@@ -28,10 +28,10 @@ As APIs e suas operações podem ser importadas usando os formatos a seguir.
 * WADL
 * Swagger
 
-Este guia mostra como criar uma nova API e importar suas operações em uma etapa. Para obter mais informações sobre como criar uma API e adicionar operações manualmente, consulte [Como criar APIs][Como criar APIs] e [Como adicionar operações a uma API][Como adicionar operações a uma API].
+Este guia mostra como criar uma nova API e importar suas operações em uma etapa. Para obter mais informações sobre como criar uma API e adicionar operações manualmente, consulte [Como criar APIs][How to create APIs] e [Como adicionar operações a uma API][How to add operations to an API].
 
 ## <a name="import-api"> </a>Importar uma API
-APIs são criadas e configuradas no Portal do editor. Para acessar o portal do editor, clique em **Portal do editor** no Portal do Azure para acessar o serviço Gerenciamento de API. Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+APIs são criadas e configuradas no Portal do editor. Para acessar o portal do editor, clique em **Portal do editor** no Portal do Azure para acessar o serviço Gerenciamento de API. Se ainda não criou uma instância de serviço de Gerenciamento de API, confira [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
 
 ![Portal do editor][api-management-management-console]
 
@@ -73,8 +73,8 @@ As APIs podem ser exportadas usando WADL ou Swagger. Selecione o formato desejad
 ## <a name="next-steps"> </a>Próximas etapas
 Após criar a API e importar as operações, você pode revisar e definir quaisquer configurações adicionais, adicionar a API a um produto e publicá-la para que fique disponível para desenvolvedores. Para obter mais informações, consulte os guias a seguir.
 
-* [Como definir configurações de API][Como definir configurações de API]
-* [Como criar e publicar um produto][Como criar e publicar um produto]
+* [Como definir configurações de API][How to configure API settings]
+* [Como criar e publicar um produto][How to create and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-import-api/api-management-management-console.png
 [api-management-import-apis]: ./media/api-management-howto-import-api/api-management-api-import-apis.png
@@ -82,21 +82,21 @@ Após criar a API e importar as operações, você pode revisar e definir quaisq
 [api-management-export-api]: ./media/api-management-howto-import-api/api-management-export-api.png
 [api-management-export-api-format]: ./media/api-management-howto-import-api/api-management-export-api-format.png
 
-[Importar uma API]: #import-api
-[Exportar uma API]: #export-api
-[Definir configurações de API]: #configure-api-settings
-[Próximas etapas]: #next-steps
+[Import an API]: #import-api
+[Export an API]: #export-api
+[Configure API settings]: #configure-api-settings
+[Next steps]: #next-steps
 
-[Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Como adicionar operações a uma API]: api-management-howto-add-operations.md
-[Como criar e publicar um produto]: api-management-howto-add-products.md
-[Como criar APIs]: api-management-howto-create-apis.md
-[Como definir configurações de API]: api-management-howto-create-apis.md#configure-api-settings
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create APIs]: api-management-howto-create-apis.md
+[How to configure API settings]: api-management-howto-create-apis.md#configure-api-settings
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

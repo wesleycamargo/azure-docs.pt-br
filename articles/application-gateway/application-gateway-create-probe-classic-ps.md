@@ -4,7 +4,7 @@ description: "Saiba como criar uma investigação personalizada para o Applicati
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
-ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
+ms.sourcegitcommit: aaf13418331f29287399621cb911e4b9f5b33dc0
+ms.openlocfilehash: a995495f003edbff6cd0a4a15d09585458664f78
 
 
 ---
@@ -27,14 +27,12 @@ ms.openlocfilehash: 7812179e56372237f9760eccea5ebf8db2cb8d2d
 > * [Portal do Azure](application-gateway-create-probe-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
-> 
-> 
+
 
 [!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Saiba como [executar estas etapas usando o modelo do Resource Manager](application-gateway-create-probe-ps.md).
+> [!IMPORTANT]
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Saiba como [executar estas etapas usando o modelo do Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -48,7 +46,7 @@ Para criar um Application Gateway:
 
 ### <a name="create-an-application-gateway-resource"></a>Criar um recurso de Application Gateway
 
-Para criar o gateway, use o cmdlet **New-AzureApplicationGateway** , substituindo os valores pelos seus próprios. A cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
+Para criar o gateway, use o cmdlet `New-AzureApplicationGateway`, substituindo os valores pelos seus próprios. A cobrança pelo gateway não se inicia neste momento. A cobrança é iniciada em uma etapa posterior, quando o gateway é iniciado com êxito.
 
 O exemplo a seguir cria um novo Application Gateway usando uma rede virtual chamada "testvnet1" e uma sub-rede chamada "subnet-1".
 
@@ -56,7 +54,7 @@ O exemplo a seguir cria um novo Application Gateway usando uma rede virtual cham
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
 
-Para validar que esse gateway foi criado, você poderá usar o cmdlet **Get-AzureApplicationGateway** .
+Para validar esse gateway que foi criado, você pode usar o cmdlet `Get-AzureApplicationGateway`.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -67,7 +65,7 @@ Get-AzureApplicationGateway AppGwTest
 > 
 > 
 
-*VirtualIPs* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Eles serão criados depois que o gateway estiver em estado de execução.
+*VirtualIPs* e *DnsName* são mostrados em branco porque o gateway ainda não foi iniciado. Esses valores serão criados depois que o gateway estiver em estado de execução.
 
 ## <a name="configure-an-application-gateway"></a>Configurar um Application Gateway
 
@@ -88,7 +86,7 @@ Copie o seguinte texto no bloco de notas.
         <Name>fip1</Name>
         <Type>Private</Type>
     </FrontendIPConfiguration>
-</FrontendIPConfigurations>    
+</FrontendIPConfigurations>
 <FrontendPorts>
     <FrontendPort>
         <Name>port1</Name>
@@ -151,8 +149,6 @@ O exemplo a seguir mostra como usar um arquivo de configuração configurando o 
 
 > [!IMPORTANT]
 > O item de protocolo Http ou Https diferencia maiúsculas de minúsculas.
-> 
-> 
 
 Um novo item de configuração \<Probe\> é adicionado para configurar investigações personalizadas.
 
@@ -165,7 +161,7 @@ Os parâmetros de configuração são:
 * **Timeout** : define o tempo limite da investigação para uma verificação de resposta HTTP.
 * **UnhealthyThreshold** : o número de respostas HTTP com falha necessárias para sinalizar a instância de back-end como *unhealthy*.
 
-O nome da investigação é referenciado na configuração <BackendHttpSettings> para atribuir qual pool de back-end usará as configurações da investigação personalizada.
+O nome da investigação é referenciado na configuração \<BackendHttpSettings\> para atribuir qual pool de back-end usa as configurações da investigação personalizada.
 
 ## <a name="add-a-custom-probe-configuration-to-an-existing-application-gateway"></a>Adicionar uma configuração de investigação personalizada a um Application Gateway existente
 
@@ -173,7 +169,7 @@ Alterar a configuração atual de um Application Gateway exige três etapas: obt
 
 ### <a name="step-1"></a>Etapa 1
 
-Obtenha o arquivo XML usando get-AzureApplicationGatewayConfig. Isso exporta o XML de configuração a ser modificada para adicionar uma configuração de investigação.
+Obtenha o arquivo XML usando `Get-AzureApplicationGatewayConfig`. Este cmdlet exporta o XML de configuração a ser modificado para adicionar uma configuração de investigação.
 
 ```powershell
 Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
@@ -214,7 +210,7 @@ Salve o arquivo XML.
 
 ### <a name="step-3"></a>Etapa 3
 
-Atualize a configuração do Application Gateway com o novo arquivo XML usando **Set-AzureApplicationGatewayConfig**. Isso atualiza seu Application Gateway com a nova configuração.
+Atualize a configuração do Gateway de Aplicativo com o novo arquivo XML usando `Set-AzureApplicationGatewayConfig`. Este cmdlet atualiza seu Gateway de Aplicativo com a nova configuração.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
@@ -229,6 +225,6 @@ Para configurar um gateway de aplicativo para usar com um balanceador de carga i
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

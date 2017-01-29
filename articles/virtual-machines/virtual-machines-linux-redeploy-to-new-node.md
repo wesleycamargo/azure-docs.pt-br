@@ -1,6 +1,6 @@
 ---
-title: "Reimplantar as máquinas virtuais Linux | Microsoft Docs"
-description: "Descreve como reimplantar máquinas virtuais Linux para atenuar problemas de conexão SSH."
+title: "Reimplantar Máquinas Virtuais Linux no Azure | Microsoft Docs"
+description: "Como reimplantar máquinas virtuais Linux no Azure para atenuar problemas de conexão SSH."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -12,37 +12,29 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 1cd81944ff1e8b6048315946220adee4bf68e576
+ms.sourcegitcommit: 3295120664e409440641818b13dd1abab6f2f72f
+ms.openlocfilehash: 3864148ecd09b5bc4199185bc0e5a781703f3fdb
 
 
 ---
-# <a name="redeploy-virtual-machine-to-new-azure-node"></a>Reimplantar a máquina virtual em um novo nó do Azure
-Se você enfrentou dificuldades para solucionar problemas de SSH ou de acesso ao aplicativo em uma VM (máquina virtual) do Azure, reimplantar a VM pode ajudar. Quando você reimplanta uma VM, ela é movida para um novo nó dentro da infraestrutura do Azure e, depois, é ligada novamente, mantendo todas as suas opções de configuração e recursos associados. Este artigo mostra como reimplantar uma VM usando a CLI do Azure ou o Portal do Azure.
+# <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Reimplantar uma máquina virtual Linux em um novo nó do Azure
+Se você tiver tendo dificuldades em solucionar problemas de SSH ou de acesso do aplicativo a uma VM (máquina virtual) Linux no Azure, reimplantar a VM poderá ajudar. Quando você reimplanta uma VM, ela é movida para um novo nó dentro da infraestrutura do Azure e, depois, é ligada novamente, mantendo todas as suas opções de configuração e recursos associados. Este artigo mostra como reimplantar uma VM usando a CLI do Azure ou o Portal do Azure.
 
 > [!NOTE]
 > Depois que você reimplanta uma VM, o disco temporário será perdido e os endereços IP dinâmicos associados ao adaptador de rede virtual serão atualizados. 
-> 
-> 
+
 
 ## <a name="using-azure-cli"></a>Usando a CLI do Azure
 Verifique se você tem a [CLI do Azure mais recente instalada](../xplat-cli-install.md) em seu computador e se você está no modo do Resource Manager (`azure config mode arm`).
 
-Use o seguinte comando da CLI do Azure para reimplantar sua máquina virtual:
+O seguinte exemplo reimplanta a VM chamada `myVM` no grupo de recursos chamado `myResourceGroup`:
 
-```bash
-azure vm redeploy --resourcegroup <resourcegroup> --vm-name <vmname> 
+```azurecli
+azure vm redeploy --resource-group myResourceGroup --vm-name myVM 
 ```
-
-Você pode ver o status da VM mudar enquanto percorre o processo de reimplantação. O `PowerState` da VM muda de 'Em execução' para 'Atualizando', depois para 'Iniciando' e finalmente para 'Em execução' enquanto percorre o processo de reimplantação para um novo host. Verifique o status das VMs dentro de um grupo de recursos com:
-
-```bash
-azure vm list -g <resourcegroup>
-```
-
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
@@ -52,6 +44,6 @@ Se você estiver enfrentando problemas para se conectar à sua VM., encontre aju
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

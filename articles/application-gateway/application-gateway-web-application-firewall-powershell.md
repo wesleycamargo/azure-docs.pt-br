@@ -4,7 +4,7 @@ description: "Este artigo oferece orientação sobre como começar a usar o fire
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 486ed096bba7accfb3ca54aa97fb0b57b756d291
-ms.openlocfilehash: ba7bff77a52c8e432b175d1db3d9dec66ec36a2b
+ms.sourcegitcommit: ce40a93372205a4b7c6b0c753ebf30c2b3d51d7a
+ms.openlocfilehash: bdfb45de4ca7f4005314115d9cd260029779b3b0
 
 
 ---
@@ -25,8 +25,6 @@ ms.openlocfilehash: ba7bff77a52c8e432b175d1db3d9dec66ec36a2b
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-web-application-firewall-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 O firewall de aplicativo Web (WAF) no Gateway de Aplicativo do Azure protege os aplicativos Web contra ataques comuns baseados na Web, como injeção de SQL, ataques de scripts entre sites e sequestros de sessão.
 
@@ -148,8 +146,6 @@ No exemplo anterior, criamos um grupo de recursos denominado "appgw-RG" e o loca
 
 > [!NOTE]
 > Se você precisar configurar uma investigação personalizada para o gateway de aplicativo, veja [Criar um gateway de aplicativo com investigações personalizadas usando o PowerShell](application-gateway-create-probe-ps.md). Confira [investigações personalizadas e monitoramento de integridade](application-gateway-probe-overview.md) para saber mais.
-> 
-> 
 
 ### <a name="step-5"></a>Etapa 5
 
@@ -161,8 +157,7 @@ $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPr
 
 > [!NOTE]
 > Uma sub-rede para um aplicativo deve ter um mínimo de 28 bits de máscara. Esse valor deixa 10 endereços disponíveis na sub-rede para instâncias do Gateway de Aplicativo. Com uma sub-rede menor, talvez você não consiga adicionar mais instâncias do seu gateway de aplicativo no futuro.
-> 
-> 
+
 
 ### <a name="step-6"></a>Etapa 6
 
@@ -200,8 +195,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwp
 
 > [!IMPORTANT]
 > O Gateway de Aplicativo não dá suporte ao uso de um endereço IP público criado com um rótulo de domínio definido. Há suporte para apenas para um endereço IP público com um rótulo de domínio criado dinamicamente. Se você precisar de um nome amigável de dns para o gateway de aplicativo, é recomendável usar um registro cname como alias.
-> 
-> 
+
 
 ### <a name="step-10"></a>Etapa 10
 
@@ -287,15 +281,13 @@ $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 
 > [!NOTE]
 > Você pode escolher entre **WAF\_Medium** e **WAF\_Large**, a camada ao usar WAF sempre será **WAF**. A capacidade é qualquer número entre 1 e 10.
-> 
-> 
 
 ### <a name="step-20"></a>Etapa 20
 
 Configure o modo de WAF, os valores aceitáveis são **Prevenção** e **Detecção**.
 
 ```powershell
-$config = New-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention"
+$config = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
 ### <a name="step-21"></a>Etapa 21
@@ -340,10 +332,10 @@ DnsSettings              : {
 
 Saiba como configurar o log de diagnóstico para registrar os eventos detectados ou impedidos pelo Firewall do Aplicativo Web ao visitar o [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md)
 
-[cenário]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
+[scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

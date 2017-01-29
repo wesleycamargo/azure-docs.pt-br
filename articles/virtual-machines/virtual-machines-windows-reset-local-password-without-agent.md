@@ -1,5 +1,5 @@
 ---
-title: "Redefinir uma senha local do Windows quando o agente convidado do Azure não estiver instalado | Microsoft Docs"
+title: Redefinir uma senha local do Windows sem o agente do Azure | Microsoft Docs
 description: "Como redefinir a senha de uma conta de usuário local do Windows quando o agente convidado do Azure não estiver instalado ou funcionando em uma VM"
 services: virtual-machines-windows
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/05/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: ea637c05a0b30efcce40822556f7bfc58d4e87d9
+ms.sourcegitcommit: 370bcf5189c855185f11277518e0cbd5377993ab
+ms.openlocfilehash: 74b1282bf205bc38f13c51c5e05f55987d0cd12e
 
 
 ---
@@ -125,7 +125,7 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
      ![Copiar URI do disco](./media/virtual-machines-windows-reset-local-password-without-guest-agent/copy_source_vhd_uri.png)
 9. Crie uma VM usando o disco do SO da VM de origem:
    
-   * Use [este modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) para criar uma VM de um VHD especializado. Clique no botão `Deploy to Azure` para abrir o portal do Azure com os detalhes do modelo que você populou.
+   * Use [este modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) para criar uma VM de um VHD especializado. Clique no botão `Deploy to Azure` para abrir o portal do Azure com os detalhes do modelo que você populou.
    * Se quiser manter todas as configurações anteriores para a VM, escolha *Editar modelo* para fornecer a VNet, a sub-rede, o adaptador de rede ou o IP público existentes.
    * Na caixa de texto do parâmetro `OSDISKVHDURI`, cole o URI do VHD de origem obtido na etapa anterior:
      
@@ -146,6 +146,6 @@ Se você ainda não conseguir conectar usando a Área de Trabalho Remota, confir
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

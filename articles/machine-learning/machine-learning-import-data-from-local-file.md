@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/14/2016
 ms.author: garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d4ab1fd19d0c865e8920ae3079df1683aaa4be7d
+ms.sourcegitcommit: 844dafe79c71594212d966286c74aa7f916ba60e
+ms.openlocfilehash: e17a3dd8b70f22ab0c68eecde50a7506167188b9
 
 
 ---
@@ -32,18 +32,18 @@ Você pode importar dados de um disco rígido local fazendo o seguinte:
 1. clique em **+NOVO** na parte inferior da janela do Estúdio de Aprendizado de Máquina.
 2. Selecione **CONJUNTO DE DADOS** e **DO ARQUIVO LOCAL**.
 3. Na caixa de diálogo **Carregar um novo conjunto de dados** , navegue até o arquivo que deseja carregar
-4. Digite um nome, identifique o tipo de dados e, opcionalmente, insira uma descrição. Uma descrição é recomendada - ela permite que você registre quaisquer características sobre os dados que você desejará lembrar ao usar os dados no futuro.
-5. A caixa de seleção **Esta é a nova versão de um conjunto de dados existente** permite que você atualize um conjunto de dados existente com novos dados. Basta clicar nesta caixa de seleção e digitar o nome de um conjunto de dados existente.
+4. Digite um nome, identifique o tipo de dados e, opcionalmente, insira uma descrição. Uma descrição é recomendada – ela permite registrar características sobre os dados que você deseja lembrar ao usar os dados no futuro.
+5. A caixa de seleção **Esta é a nova versão de um conjunto de dados existente** permite que você atualize um conjunto de dados existente com novos dados. Clique nesta caixa de seleção e digite o nome de um conjunto de dados existente.
 
-Durante o carregamento, você verá uma mensagem de que seu arquivo está sendo carregado. O tempo de carregamento depende do tamanho de seus dados e da velocidade da sua conexão com o serviço.
-Se souber que o arquivo levará muito tempo, você pode fazer outras coisas dentro do Estúdio de Aprendizado de Máquina enquanto espera. No entanto, fechar o navegador fará com que o carregamento de dados falhe.
+Durante o upload, você verá uma mensagem informando que seu arquivo está sendo carregado. O tempo de upload depende do tamanho dos dados e da velocidade da conexão com o serviço.
+Se souber que o arquivo levará muito tempo, você pode fazer outras coisas dentro do Estúdio de Aprendizado de Máquina enquanto espera. No entanto, fechar o navegador fará com que o upload de dados falhe.
 
 Uma vez carregados, seus dados são armazenados em um módulo de conjunto de dados e ficam disponíveis para qualquer experimento em seu espaço de trabalho.
-Quando estiver editando um experimento, você pode encontrar os conjuntos de dados criados na lista **Meus Conjuntos de Dados**, na lista **Conjuntos de Dados Salvos** na paleta de módulos. Você pode arrastar e soltar o conjunto de dados na tela do experimento quando quiser usar esse conjunto de dados para outras análises e aprendizado de máquina.
+Quando estiver editando um experimento, você pode encontrar os conjuntos de dados criados na lista **Meus Conjuntos de Dados**, na lista **Conjuntos de Dados Salvos** na paleta de módulos. É possível arrastar e soltar o conjunto de dados na tela de teste quando você desejar usá-lo para outras análises e aprendizado de máquina.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

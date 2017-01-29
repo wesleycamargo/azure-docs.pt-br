@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 11/10/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: c2b0a0554b2899b082079f75e9d235edc0f71042
+ms.sourcegitcommit: 42e682eb8e0a740393648e9fe49244c3a02a9867
+ms.openlocfilehash: eb6bce9be34467e472fbae6cbf154f3b789b6ddc
 
 
 ---
@@ -33,13 +33,13 @@ Você precisará de uma assinatura do [Microsoft Azure](https://azure.com).
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Obter uma chave de instrumentação do Application Insights
 1. Entre no [Portal do Microsoft Azure](https://portal.azure.com)
-2. Criar um novo recurso do Application Insights
-   
-    ![Clique em + e escolha Application Insights](./media/app-insights-java-live/01-create.png)
-3. Defina o tipo de aplicativo para aplicativo Web Java.
+2. Crie um novo recurso do Application Insights e defina o tipo de aplicativo para aplicativo Web Java.
    
     ![Preencha um nome, escolha o aplicativo Java da Web e clique em Criar](./media/app-insights-java-live/02-create.png)
-4. Localize a chave de instrumentação do novo recurso. Você precisará colar essa chave no código de seu projeto em breve.
+
+    O recurso é criado em alguns segundos.
+
+4. Abr o novo recurso e obtenha sua chave de instrumentação. Você precisará colar essa chave no código de seu projeto em breve.
    
     ![Na visão geral do novo recurso, clique em Propriedades e copie a chave de instrumentação](./media/app-insights-java-live/03-key.png)
 
@@ -53,6 +53,8 @@ Observe que você precisa repetir isso em cada instância do servidor e para cad
 Crie o ApplicationInsights.xml na pasta em que você adicionou o SDK. Coloque dentro dela o XML a seguir.
 
 Substitua a chave de instrumentação que você obteve no Portal do Azure.
+
+```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -83,7 +85,7 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
 
       </TelemetryInitializers>
     </ApplicationInsights>
-
+```
 
 * A chave de instrumentação é enviada junto com todos os itens de telemetria e orienta o Application Insights a exibi-los em seu recurso.
 * O componente de solicitação HTTP é opcional. Ele envia automaticamente a telemetria sobre solicitações e tempos de resposta para o portal.
@@ -93,6 +95,8 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
 Localize e abra o arquivo web.xml em seu projeto, então mescle o trecho de código a seguir sob o nó do aplicativo Web, no qual seus filtros de aplicativo estão configurados.
 
 Para obter os resultados mais precisos, o filtro deve ser mapeado antes de todos os outros filtros.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -104,6 +108,7 @@ Para obter os resultados mais precisos, o filtro deve ser mapeado antes de todos
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 ## <a name="5-check-firewall-exceptions"></a>5. Verificar exceções do firewall
 Talvez você precise [definir exceções de firewall para enviar dados de saída](app-insights-ip-addresses.md).
@@ -135,6 +140,6 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

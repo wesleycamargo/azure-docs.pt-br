@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 4f39739fe94afe4659e8fd8b1306dda74dcb5a5b
+ms.sourcegitcommit: a7ff82a47b4e972db96929acb47fcce760b244b3
+ms.openlocfilehash: 73bb12643a5c94e364ac4040f6e1678cb1495fb2
 
 
 ---
@@ -71,28 +71,30 @@ Clique em **Permissões delegadas** ao lado do aplicativo recém-adicionado **AP
 
 Antes de chamar as APIs que geram o backup e o restauram, é necessário obter um token. O exemplo a seguir usa o pacote do nuget [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) para recuperar o token.
 
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System;
+```c#
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 
-    namespace GetTokenResourceManagerRequests
+namespace GetTokenResourceManagerRequests
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
-                var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenant id}");
+            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
 
-                if (result == null) {
-                    throw new InvalidOperationException("Failed to obtain the JWT token");
-                }
-
-                Console.WriteLine(result.AccessToken);
-
-                Console.ReadLine();
+            if (result == null) {
+                throw new InvalidOperationException("Failed to obtain the JWT token");
             }
+
+            Console.WriteLine(result.AccessToken);
+
+            Console.ReadLine();
         }
     }
+}
+```
 
 Substitua `{tentand id}`, `{application id}` e `{redirect uri}` usando as instruções a seguir.
 
@@ -112,7 +114,9 @@ Depois que os valores são especificados, o exemplo de código deve retornar um 
 
 Antes de chamar as operações de backup e restauração descritas nas seções a seguir, defina o cabeçalho de solicitação de autorização para a chamada de REST.
 
-    request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```c#
+request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
+```
 
 ## <a name="step1"> </a>Fazer backup de um serviço de Gerenciamento de API
 Para fazer backup de um serviço de Gerenciamento de API, execute a seguinte solicitação HTTP:
@@ -128,23 +132,25 @@ onde:
 
 No corpo da solicitação, especifique o nome da conta de armazenamento de destino do Azure, a chave de acesso, o nome do contêiner Blob e o nome de backup:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Defina o valor do cabeçalho de solicitação `Content-Type` para `application/json`.
 
 O backup é uma operação longa de execução que pode levar vários minutos para concluir.  Se a solicitação foi bem sucedida e o processo de backup foi iniciado, você receberá um código de status de resposta `202 Accepted` com um cabeçalho `Location`.  Faça solicitações “GET” para a URL no cabeçalho do `Location` para descobrir o status da operação. Enquanto o backup está em andamento, você continuará a receber um código de status “202 Aceito”. Um código de resposta de `200 OK` indicará a conclusão com sucesso da operação de backup.
 
-**Observação**:
+Observe as restrições a seguir ao fazer uma solicitação de backup.
 
 * O **contêiner** especificado no corpo solicitado **tem que existir**.
 * Enquanto o backup está em andamento, você **não deve tentar quaisquer operações de gerenciamento de serviço** , como atualização ou downgrade de SKU, alteração do nome do domínio, etc.
 * A restauração de um **backup é garantida somente por 7 dias** desde o momento de sua criação.
-* Os **dados de uso** utilizados para a criação de relatórios de análise **não estão incluídos** no backup. Use a [API REST de Gerenciamento de API do Azure][API REST de Gerenciamento de API do Azure] para recuperar periodicamente os relatórios de análise por questões de segurança.
+* Os **dados de uso** utilizados para a criação de relatórios de análise **não estão incluídos** no backup. Use o [API REST de Gerenciamento de API do Azure][Azure API Management REST API] para recuperar periodicamente os relatórios analíticos por questões de segurança.
 * A frequência com que você executa os backups de serviço afetarão seu objetivo do ponto de recuperação. Para minimizar, aconselhamos a implementação de backups regular, bem como a execução de backups sob demanda depois de fazer alterações importantes para seu serviço de Gerenciamento de API.
 * As **alterações** feitas à configuração de serviço (por exemplo, APIs, políticas, aparência do portal do desenvolvedor) enquanto a operação de backup está em andamento **podem não ser incluídas no backup e, portanto, serão perdidas**.
 
@@ -162,12 +168,14 @@ onde:
 
 No corpo da solicitação, especifique o local de arquivo de backup, por exemplo, o nome da conta de armazenamento do Azure, chave de acesso, nome do contêiner Blob e nome de backup:
 
-    '{  
-        storageAccount : {storage account name for the backup},  
-        accessKey : {access key for the account},  
-        containerName : {backup container name},  
-        backupName : {backup blob name}  
-    }'
+```
+'{  
+    storageAccount : {storage account name for the backup},  
+    accessKey : {access key for the account},  
+    containerName : {backup container name},  
+    backupName : {backup blob name}  
+}'
+```
 
 Defina o valor do cabeçalho de solicitação `Content-Type` para `application/json`.
 
@@ -188,11 +196,11 @@ Confira os seguintes blogs da Microsoft para duas diferentes orientações passo
 * [Gerenciamento de API do Azure: Fazendo backup e restaurando a configuração](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
   * A abordagem detalhada por Stuart não coincide com as diretrizes oficiais, mas é muito interessante.
 
-[Fazer backup de um serviço de Gerenciamento de API]: #step1
-[Restaurar um serviço de Gerenciamento de API]: #step2
+[Backup an API Management service]: #step1
+[Restore an API Management service]: #step2
 
 
-[API REST de Gerenciamento de API do Azure]: http://msdn.microsoft.com/library/azure/dn781421.aspx
+[Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 
 [api-management-add-aad-application]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-add-aad-application.png
 
@@ -206,6 +214,6 @@ Confira os seguintes blogs da Microsoft para duas diferentes orientações passo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apipm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4d1b2f7b798e4cabfaa604358c2a380e8ed04fc6
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 44d51c80dd7db16d16fa3aa44d6179bc539bb50a
 
 
 ---
@@ -33,7 +33,7 @@ Para começar, clique em **Portal do Editor** no Portal do Azure para acessar o 
 
 ![Portal do editor][api-management-management-console]
 
-> Se você ainda não criou uma instância do serviço de Gerenciamento de API, consulte [Criar uma instância do serviço de Gerenciamento de API][Criar uma instância do serviço de Gerenciamento de API] no tutorial [Introdução ao Gerenciamento de API do Azure][Introdução ao Gerenciamento de API do Azure].
+> Se ainda não criou uma instância de serviço de Gerenciamento de API, confira [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
 > 
 > 
 
@@ -79,7 +79,7 @@ Selecione a lista suspensa **Delegar permissões** e marque **Habilitar logon e 
 
 ![Permissões delegadas][api-management-aad-delegated-permissions]
 
-> Para obter mais informações sobre o aplicativo e as permissões delegadas, consulte [Acessando a Graph API][Acessando a Graph API].
+> Para obter mais informações sobre o aplicativo e permissões delegadas, consulte [Acessando a API do Graph][Accessing the Graph API].
 > 
 > 
 
@@ -123,7 +123,7 @@ Depois que a configuração desejada for especificada, clique em **Salvar**.
 
 ![Salvar][api-management-client-allowed-tenants-save]
 
-Depois das alterações serem salvas, os usuários no Azure Active Directory especificado poderão fazer logon no portal do Desenvolvedor seguindo as etapas em [Efetuar logon no portal do desenvolvedor usando uma conta do Active Directory do Azure][Efetuar logon no portal do desenvolvedor usando uma conta do Active Directory do Azure].
+Depois que as alterações são salvas, os usuários no Azure Active Directory especificado podem fazer logon no portal do desenvolvedor, seguindo as etapas em [Efetuar logon no portal do desenvolvedor usando uma conta do Azure Active Directory][Log in to the Developer portal using an Azure Active Directory account].
 
 ## <a name="how-to-add-an-external-azure-active-directory-group"></a>Como adicionar um grupo externo do Active Directory do Azure
 Depois de habilitar o acesso de usuários em um Active Directory do Azure, você pode adicionar grupos do Active Directory do Azure a Gerenciamento de API para gerenciar com mais facilidade a associação dos desenvolvedores no grupo com os produtos desejados.
@@ -214,31 +214,31 @@ Agora, o usuário está conectado no portal do desenvolvedor para a instância d
 [api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
 [api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
-[Como adicionar operações a uma API]: api-management-howto-add-operations.md
-[Como adicionar e publicar um produto]: api-management-howto-add-products.md
-[Monitoramento e análise]: api-management-monitoring.md
-[Adicionar APIs a um produto]: api-management-howto-add-products.md#add-apis
-[Publicar um produto]: api-management-howto-add-products.md#publish-product
-[Introdução ao Gerenciamento de API do Azure]: api-management-get-started.md
-[referência de política de Gerenciamento de API]: api-management-policy-reference.md
-[Políticas de cache]: api-management-policy-reference.md#caching-policies
-[Criar uma instância do serviço de Gerenciamento de API]: api-management-get-started.md#create-service-instance
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Acessando a Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
+[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 
-[Pré-requisitos]: #prerequisites
-[Configurar um servidor de autorização do OAuth 2.0 no Gerenciamento de API]: #step1
-[Configurar uma API para usar a autorização do usuário do OAuth 2.0]: #step2
-[Testar a autorização do usuário do OAuth 2.0 no Portal do Desenvolvedor]: #step3
-[Próximas etapas]: #next-steps
+[Prerequisites]: #prerequisites
+[Configure an OAuth 2.0 authorization server in API Management]: #step1
+[Configure an API to use OAuth 2.0 user authorization]: #step2
+[Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
+[Next steps]: #next-steps
 
-[Efetuar logon no portal do desenvolvedor usando uma conta do Active Directory do Azure]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-
-
+[Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Dec16_HO3-->
 
 

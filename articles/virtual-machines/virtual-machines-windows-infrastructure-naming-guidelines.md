@@ -1,5 +1,5 @@
 ---
-title: Diretrizes de nomenclatura de infraestrutura | Microsoft Docs
+title: Diretrizes de nomenclatura de infraestrutura do Azure | Microsoft Docs
 description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à nomenclatura em serviços de infraestrutura do Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0ad6e170a52d29cb85ec6de57a39f08b30c25b03
+ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
+ms.openlocfilehash: 1f456fc982f185e1c68aca91650f73e2d1bb5947
 
 
 ---
-# <a name="infrastructure-naming-guidelines"></a>Diretrizes de nomenclatura de infraestrutura
+# <a name="azure-infrastructure-naming-guidelines"></a>Diretrizes de nomenclatura de infraestrutura do Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artigo destaca as noções básicas sobre como abordar as convenções de nomenclatura para todos os vários recursos do Azure para compilar um conjunto de recursos lógico e facilmente identificável em seu ambiente.
@@ -42,7 +42,7 @@ Você deve ter uma boa convenção de nomenclatura definida para criar qualquer 
 
 Você pode optar por seguir um conjunto específico de convenções de nomenclatura definido para toda a organização ou para uma determinada conta ou assinatura do Azure. Embora seja fácil para os indivíduos das organizações estabelecerem regras implícitas ao trabalharem com os recursos do Azure, quando uma equipe precisa trabalhar em um projeto no Azure, esse modelo não se adapta bem.
 
-Entrem em um acordo sobre um conjunto de convenções de nomenclatura antecipadamente. Há algumas considerações sobre convenções de nomenclatura que abrangem vários conjuntos de regras.
+Entrem em um acordo sobre um conjunto de convenções de nomenclatura antecipadamente. Há algumas considerações sobre as convenções de nomenclatura que abrangem esses conjuntos de regras.
 
 ## <a name="affixes"></a>Afixos
 Durante a definição de uma convenção de nomenclatura, surge uma decisão sobre se o afixo deverá ficar:
@@ -95,7 +95,7 @@ No caso de uma VM ser criada por meio de um arquivo de imagem .vhd que já conte
 Recomendamos que o nome da VM do Azure seja igual ao nome do computador do sistema operacional subjacente.
 
 ## <a name="storage-account-names"></a>Nomes de contas de armazenamento
-As contas de armazenamento têm regras especiais para os nomes. Você pode usar apenas letras minúsculas e números. Consulte [Como criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) para saber mais. Além disso, o nome da conta de armazenamento com core.windows.net deve ser um nome DNS exclusivo e globalmente válido. Por exemplo, se a conta de armazenamento for chamada de mystorageaccount, os seguintes nomes DNS resultantes devem ser exclusivos:
+As contas de armazenamento têm regras especiais para os nomes. Você pode usar apenas letras minúsculas e números. Para obter mais informações, consulte [Criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account). Além disso, o nome da conta de armazenamento com core.windows.net deve ser um nome DNS exclusivo e globalmente válido. Por exemplo, se a conta de armazenamento for chamada de mystorageaccount, os seguintes nomes DNS resultantes devem ser exclusivos:
 
 * minhacontadearmazenamento.blob.core.windows.net
 * minhacontadearmazenamento.table.core.windows.net
@@ -107,6 +107,6 @@ As contas de armazenamento têm regras especiais para os nomes. Você pode usar 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

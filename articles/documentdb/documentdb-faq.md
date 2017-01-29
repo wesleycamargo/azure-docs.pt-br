@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 248a205b0cca42642014069269e20a52af52b7bf
+ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
+ms.openlocfilehash: ed520532e7a035baa0283f829ec13540194d136e
 
 
 ---
@@ -52,10 +52,10 @@ Cada coleção do Banco de Dados de Documentos pode ser reservada com produtivid
 Sim, o DocumentDB é compatível com HIPAA. A HIPAA estabelece os requisitos para o uso, a divulgação e a proteção de informações de integridade individualmente identificáveis. Para saber mais, confira o [Centro de Confiabilidade da Microsoft](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
 
 ### <a name="what-are-the-storage-limits-of-documentdb"></a>Quais são os limites de armazenamento do Banco de Dados de Documentos?
-Não há limite para a quantidade total de dados que uma coleção pode armazenar no DocumentDB. Se você deseja armazenar mais de 250 GB de dados em uma única coleção, [entre em contato com o suporte](documentdb-increase-limits.md) para que a cota da sua conta seja aumentada.
+Não há limite para a quantidade total de dados que uma coleção pode armazenar no DocumentDB.
 
 ### <a name="what-are-the-throughput-limits-of-documentdb"></a>Quais são os limites de produtividade do Banco de Dados de Documentos?
-Não há limite para a quantidade total de produtividade à qual uma coleção pode dar suporte no DocumentDB, se sua carga de trabalho puder ser distribuída quase que de maneira uniforme entre um número suficientemente grande de chaves de partição. Se você quiser exceder 250.000 unidades de solicitação/segundo por coleção ou conta, [entre em contato com o suporte](documentdb-increase-limits.md) para que a cota da sua conta seja aumentada.
+Não há limite para a quantidade total de produtividade à qual uma coleção pode dar suporte no DocumentDB, se sua carga de trabalho puder ser distribuída quase que de maneira uniforme entre um número suficientemente grande de chaves de partição.
 
 ### <a name="how-much-does-microsoft-azure-documentdb-cost"></a>Quanto custa o Banco de Dados de Documentos do Microsoft Azure?
 Consulte a página [Detalhes de preços do Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/) para obter mais informações. Os encargos pelo do uso do Banco de Dados de Documentos são determinados pelo número de coleções em uso, pelo número de horas que as coleções estiveram online e pelo armazenamento consumido e produtividade provisionada para cada coleção.
@@ -124,6 +124,6 @@ Sim. O [Emulador do Azure DocumentDB](documentdb-nosql-local-emulator.md) fornec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
