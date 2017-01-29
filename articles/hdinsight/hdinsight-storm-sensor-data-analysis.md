@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ec3384dd68a28117cc00de20e4c08ad0ccd67bad
-ms.openlocfilehash: 92e4094c5125d922a106c65d2cb3cd5b654856a5
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 0d2743f10d828aaf5ef401ac5378c94384e0a46b
 
 
 ---
@@ -27,8 +27,8 @@ O modelo do Azure Resource Manager usado neste documento demonstra como criar v�
 
 > [!NOTE]
 > As informações neste documento e o exemplo fornecido foram testados usando os versões de cluster 3.3 e 3.4 do HDInsight baseado em Linux.
-> 
-> 
+>
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -272,7 +272,7 @@ Antes de testar, você deve iniciar o painel de controle para exibir a saída da
 3. Depois de verificar se funcionou, pare a topologia usando Ctrl+C. Você também pode usar Ctrl+C para parar o servidor Web local.
 
 ## <a name="create-a-storm-and-hbase-cluster"></a>Criar um cluster Storm e HBase
-Para executar a topologia no HDInsight e habilitar o bolt HBase, você deve criar um novo cluster Storm e um cluster HBase. As etapas nesta seção usam um [o modelo do Azure Resource Manager](../resource-group-template-deploy.md) para criar uma nova Rede Virtual do Azure e um cluster Storm e HBase na rede virtual. O modelo também cria um aplicativo Web e implanta uma cópia do painel nele.
+Para executar a topologia no HDInsight e habilitar o bolt HBase, você deve criar um novo cluster Storm e um cluster HBase. As etapas nesta seção usam um [o modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) para criar uma nova Rede Virtual do Azure e um cluster Storm e HBase na rede virtual. O modelo também cria um aplicativo Web e implanta uma cópia do painel nele.
 
 > [!NOTE]
 > Uma rede virtual é usada para que a topologia em execução no cluster Storm possa se comunicar diretamente com o cluster HBase usando a API Java do HBase.
@@ -499,6 +499,6 @@ Agora, você aprendeu como usar o Storm para ler dados de Hubs de Eventos, armaz
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
