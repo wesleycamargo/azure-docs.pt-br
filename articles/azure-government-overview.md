@@ -1,19 +1,18 @@
 ---
 title: "Visão geral do Azure Governamental | Microsoft Docs"
 description: "Este artigo fornece uma visão geral de como os recursos da Nuvem de Governo do Azure e o design e a segurança confiável são usados para oferecer suporte a conformidade aplicável a órgãos do governo federal, estadual e local e seus parceiros. "
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: c579ece3-a46c-4cdc-b650-453fd36b211a
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/18/2016
+ms.date: 11/14/2016
 ms.author: ryansoc
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
