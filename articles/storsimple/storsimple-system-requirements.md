@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/31/2016
+ms.date: 12/13/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e5f0062d630a3b54b6c493f19877606e85f52eaa
+ms.sourcegitcommit: 52f2bf14c60dbb062a6f4aec26403c5064bba036
+ms.openlocfilehash: 3dc513e99ad3ac0f4f18f70666ee299a95ee9294
 
 
 ---
@@ -71,7 +71,7 @@ Seu dispositivo StorSimple é um dispositivo bloqueado. No entanto, é preciso a
 
 <sup>2</sup> Se várias portas tiverem uma configuração de gateway, a ordem do tráfego de saída roteado será determinada com base na ordem de roteamento da porta descrita em [Roteamento de porta](#routing-metric) abaixo.
 
-<sup>3</sup> Os IPs fixos do controlador em seu dispositivo StorSimple devem ser roteáveis e conseguirem se conectar à Internet. Os endereços IP fixos são usados para fornecer as atualizações ao dispositivo. Se os controladores de dispositivo não puderem se conectar à Internet através de IPs fixa, não será possível atualizar o dispositivo StorSimple.
+<sup>3</sup> Os IPs fixos do controlador no dispositivo StorSimple devem ser roteáveis e conseguir se conectarem à Internet diretamente ou pelo proxy Web configurado. Os endereços IP fixos são usados para fornecer as atualizações ao dispositivo. Se os controladores de dispositivo não puderem se conectar à Internet através de IPs fixa, não será possível atualizar o dispositivo StorSimple.
 
 > [!IMPORTANT]
 > Verifique se o firewall não modifica nem descriptografa nenhum tráfego SSL entre o dispositivo StorSimple e o Azure.
@@ -253,6 +253,6 @@ Leia com atenção essas práticas recomendadas para garantir a alta disponibili
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

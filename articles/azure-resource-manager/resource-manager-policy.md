@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2016
+ms.date: 12/07/2016
 ms.author: gauravbh;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
+ms.sourcegitcommit: 223a890fd18405b2d1331e526403da89354a68f2
+ms.openlocfilehash: 467e9f4f7372c619f41bb64445784485de18a863
 
 
 ---
 # <a name="use-policy-to-manage-resources-and-control-access"></a>Usar a política para gerenciar recursos e controlar o acesso
-O Gerenciador de Recursos do Azure agora permite que você controle o acesso por meio de políticas personalizadas. Com as políticas, você pode impedir que os usuários em sua organização violem convenções que são necessárias para gerenciar os recursos de sua organização. 
+O Azure Resource Manager permite que você controle o acesso por meio de políticas personalizadas. Com as políticas, você pode impedir que os usuários em sua organização violem convenções que são necessárias para gerenciar os recursos de sua organização. 
 
 Crie definições de política que descrevem as ações ou os recursos que são especificados negados. Atribua essas definições de política no escopo desejado, como a assinatura, grupo de recursos ou um recurso individual. As políticas são herdadas por todos os recursos filho. Então, se uma política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos desse grupo de recursos.
 
@@ -46,7 +46,41 @@ Usando políticas, esses cenários podem ser facilmente obtidos.
 ## <a name="policy-definition-structure"></a>Estrutura da definição de política
 A definição de política é criada usando JSON. Consiste em uma ou mais condições/operadores lógicos que definem as ações e o efeito que informa o que acontece quando as condições são atendidas. O esquema é publicado em [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 
-Basicamente, uma política contém os seguintes elementos:
+O seguinte exemplo mostra uma política que pode ser usada para limitar os locais em que os recursos são implantados:
+
+```json
+{
+  "properties": {
+    "parameters": {
+      "listOfAllowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "An array of permitted locations for resources.",
+          "strongType": "location",
+          "displayName": "List of locations"
+        }
+      }
+    },
+    "displayName": "Geo-compliance policy template",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('listOfAllowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+Basicamente, uma política contém as seguintes seções:
+
+**Parâmetros:** valores especificados quando a política é atribuída.
 
 **Condição/Operadores lógicos:** um conjunto de condições que podem ser manipuladas por meio de um conjunto de operadores lógicos.
 
@@ -68,6 +102,30 @@ As políticas são avaliadas quando os recursos são criados. Para a implantaç�
 > Atualmente, a política não avalia os tipos de recursos que não dão suporte a marcas, tipo e local, como o tipo de recurso Microsoft.Resources/deployments. Esse suporte será adicionado no futuro. Para evitar problemas de compatibilidade com versões anteriores, você deve especificar explicitamente o tipo ao criar políticas. Por exemplo, uma política de marcação que não especifica tipos é aplicada a todos os tipos. Nesse caso, uma implantação de modelo poderá falhar se houver um recurso aninhado que não dê suporte a marcas e o tipo de recurso de implantação tiver sido adicionado à avaliação da política. 
 > 
 > 
+
+## <a name="parameters"></a>Parâmetros
+Na versão de API 2016-12-01, é possível usar parâmetros na definição de política. O uso de parâmetros ajuda a simplificar o gerenciamento de política, reduzindo o número de definições de política. Forneça valores para os parâmetros ao atribuir a política.
+
+Declare parâmetros ao criar definições de política.
+
+    "parameters": {
+      "listOfLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "An array of permitted locations for resources.",
+          "displayName": "List Of Locations"
+        }
+      }
+    }
+
+O tipo de um parâmetro pode ser cadeia de caracteres ou matriz. A propriedade de metadados é usada para que ferramentas como o portal do Azure exibam informações amigáveis ao usuário. 
+
+Na regra de política, é possível fazer referência aos parâmetros de forma semelhante ao que você faz em modelos. Por exemplo: 
+        
+    { 
+        "field" : "location",
+        "in" : "[parameters(listOfLocations)]"
+    }
 
 ## <a name="logical-operators"></a>Operadores lógicos
 Os operadores lógicos com suporte juntamente com a sintaxe são:
@@ -148,7 +206,6 @@ Atualmente, os aliases com suporte são:
 | Microsoft.SQL/servers/elasticPools/dtu | |
 | Microsoft.SQL/servers/elasticPools/edition | |
 
-Atualmente, a política só funciona em solicitações PUT. 
 
 ## <a name="effect"></a>Efeito
 A política dá suporte a três tipos de efeito: **negar**, **auditar** e **acrescentar**. 
@@ -159,7 +216,6 @@ A política dá suporte a três tipos de efeito: **negar**, **auditar** e **acre
 
 Para **acrescentar**, você precisa fornecer os detalhes abaixo:
 
-    ....
     "effect": "append",
     "details": [
       {
@@ -169,6 +225,7 @@ Para **acrescentar**, você precisa fornecer os detalhes abaixo:
     ]
 
 O valor pode ser uma cadeia de caracteres ou um objeto no formato JSON. 
+
 
 ## <a name="policy-definition-examples"></a>Exemplos de definições de política
 Agora vamos ver como podemos definir a política para obter os cenários anteriores.
@@ -356,25 +413,34 @@ Para criar uma política, execute:
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-Para a api-version, use *2016-04-01*. Inclua um corpo de solicitação semelhante ao exemplo a seguir:
+Para api-version, use *2016-04-01* ou *2016-12-01*. Inclua um corpo de solicitação semelhante ao exemplo a seguir:
 
     {
-      "properties":{
-        "policyType":"Custom",
-        "description":"Test Policy",
-        "policyRule":{
-          "if" : {
-            "not" : {
-              "field" : "tags",
-              "containsKey" : "costCenter"
+      "properties": {
+        "parameters": {
+          "listOfAllowedLocations": {
+            "type": "array",
+            "metadata": {
+              "description": "An array of permitted locations for resources.",
+              "strongType": "location",
+              "displayName": "List Of Locations"
+            }
+          }
+        },
+        "displayName": "Geo-compliance policy template",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+        "policyRule": {
+          "if": {
+            "not": {
+              "field": "location",
+              "in": "[parameters('listOfAllowedLocations')]"
             }
           },
-          "then" : {
-            "effect" : "deny"
+          "then": {
+            "effect": "deny"
           }
         }
-      },
-      "name":"testdefinition"
+      }
     }
 
 Você pode aplicar a definição de política no escopo desejado por meio da [API REST para atribuições de política](https://docs.microsoft.com/rest/api/resources/policyassignments). A API REST permite que você crie e exclua as atribuições de políticas e obtenha informações sobre as atribuições existentes.
@@ -383,17 +449,20 @@ Para criar uma atribuição de política, execute:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-A {Atribuição da política} é o nome da atribuição da política. Para a api-version, use *2016-04-01*. 
+A {Atribuição da política} é o nome da atribuição da política. Para api-version, use *2016-04-01* ou *2016-12-01* (para parâmetros). 
 
 Com um corpo de solicitação semelhante ao exemplo a seguir:
 
     {
       "properties":{
-        "displayName":"VM_Policy_Assignment",
+        "displayName":"West US only policy assignment on the subscription ",
+        "description":"Resources can only be provisioned in West US regions",
+        "parameters": {
+             "listOfAllowedLocations": ["West US", "West US2"]
+         },
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "name":"VMPolicyAssignment"
     }
 
 ### <a name="powershell"></a>PowerShell
@@ -510,6 +579,6 @@ Para obter uma política, use a operação [Obter definição de política](http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

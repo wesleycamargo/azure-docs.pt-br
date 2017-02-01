@@ -16,12 +16,15 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: bac1b01a40b3e7bed2edaf1f694daf0ab70de68c
-ms.openlocfilehash: 26353f84e22aec1964f520edc60d036c2ab57c28
+ms.sourcegitcommit: 701c54bac16cbf208fd655fd72f2d4acfc0ba891
+ms.openlocfilehash: 89856f6509d0d2e2e472a61db70b9b04dc1ac7b7
 
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importar os dados para o Estúdio do Aprendizado de Máquina do Azure de diferentes fontes de dados online com o módulo Importar Dados
+
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+
 Este artigo descreve o suporte para a importação de dados online de diversas fontes e as informações necessárias para a transmissão de dados dessas fontes para um experimento de Aprendizado de Máquina do Azure.
 
 > [!NOTE]
@@ -31,10 +34,8 @@ Este artigo descreve o suporte para a importação de dados online de diversas f
 
 <!-- -->
 
-[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
 ## <a name="introduction"></a>Introdução
-Você pode acessar dados do Machine Learning Studio do Azure de uma das várias fontes de dados online enquanto seu experimento é executado usando o módulo [Importar Dados][import-data]:
+É possível acessar dados do Azure Machine Learning Studio de uma de várias fontes de dados online enquanto seu experimento é executado usando o módulo [Importar Dados][import-data]:
 
 * Uma URL da Web usando HTTP
 * Hadoop usando HiveQL
@@ -44,7 +45,7 @@ Você pode acessar dados do Machine Learning Studio do Azure de uma das várias 
 * Banco de dados local do SQL Server
 * Um provedor de feed de dados, atualmente OData
 
-O fluxo de trabalho para a condução de experiências no Estúdio de Aprendizado de Máquina do Azure consiste em arrastar e soltar componentes na tela. Para acessar fontes de dados online, adicione o módulo [Importar Dados][import-data] ao seu experimento, escolha a **Fonte de dados** e forneça os parâmetros necessários para acessar os dados. As fontes de dados online com suporte são detalhadas na tabela a seguir. Esta tabela também resume os formatos de arquivo e os parâmetros com suporte usados para acessar os dados.
+O fluxo de trabalho para a condução de experiências no Estúdio de Aprendizado de Máquina do Azure consiste em arrastar e soltar componentes na tela. Para acessar fontes de dados online, adicione o módulo [Importar Dados][import-data] ao seu experimento, selecione a **Fonte de dados** e forneça os parâmetros necessários para acessar os dados. As fontes de dados online com suporte são detalhadas na tabela a seguir. Esta tabela também resume os formatos de arquivo e os parâmetros com suporte usados para acessar os dados.
 
 Observe que como os dados deste treinamento são acessados enquanto seu experimento está em execução, eles só estarão disponíveis nesse experimento. Por comparação, os dados que foram armazenados em um módulo do conjunto de dados estarão disponíveis para todos os experimentos em seu espaço de trabalho.
 
@@ -82,6 +83,6 @@ O módulo **Import Data** (Importar Dados) do Aprendizado de Máquina do Azure �
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

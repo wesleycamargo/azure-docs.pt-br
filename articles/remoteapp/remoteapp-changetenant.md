@@ -1,22 +1,25 @@
-
 ---
-title: Alterar o locatário do Active Directory do Azure no RemoteApp do Azure | Microsoft Docs
-description: Saiba como alterar o locatário do Active Directory do Azure associado ao RemoteApp do Azure
+title: "Alterar o locatário do Azure Active Directory no Azure RemoteApp | Microsoft Docs"
+description: "Saiba como alterar o locatário do Active Directory do Azure associado ao RemoteApp do Azure"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 20faf169-6e48-428a-8bdd-f231daff19fa
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 5326c779d766e075a54f5ec43f92b6c5c973be8b
+
 
 ---
-# Alterar o locatário do Active Directory do Azure no RemoteApp do Azure
+# <a name="change-the-azure-active-directory-tenant-in-azure-remoteapp"></a>Alterar o locatário do Active Directory do Azure no RemoteApp do Azure
 > [!IMPORTANT]
 > O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
 > 
@@ -32,7 +35,7 @@ O RemoteApp do Azure usa o Active Directory do Azure (Azure AD) para permitir o 
 Se você quiser usar um locatário diferente, siga estas etapas para alterar a associação à sua assinatura:
 
 1. No portal, remova os usuários do Azure AD para os quais você deu acesso aos serviços do RemoteApp. (Veja a observação acima para obter as etapas para fazer isso).
-2. Defina uma conta da Microsoft (anteriormente chamada de Live ID) como o Administrador de serviços. (Não sabe se você já é o administrador de serviço? É possível descobrir isso clicando em **Configurações -> Administradores**). Veja como você pode alterar isso:
+2. Defina uma conta da Microsoft (anteriormente chamada de Live ID) como o Administrador de serviços. (Não sabe se você já é o administrador de serviço? É possível descobrir isso clicando em **Configurações -> Administradores**.) Veja como você pode alterar isso:
    
    1. Clique no usuário no canto superior direito e clique em **Exibir minha cobrança**.
    2. Clique na assinatura. Em seguida, na nova página, role para baixo e clique em **Editar detalhes da assinatura** no canto direito. (Classifique a partir da metade inferior direita, se isso ajudá-lo a encontrar).
@@ -46,4 +49,9 @@ Se você quiser usar um locatário diferente, siga estas etapas para alterar a a
 
 Agora, você pode usar o novo locatário do Azure AD para controlar o acesso à assinatura do Azure e configurar o acesso do usuário no Azure RemoteApp.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+
