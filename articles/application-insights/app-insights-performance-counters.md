@@ -62,7 +62,7 @@ Se o contador de desempenho desejado não for mostrado na lista de métricas, é
    * Se você usou o Status Monitor para instrumentar um aplicativo Web em tempo de execução, localize applicationinsights.config no diretório raiz do aplicativo no IIS. Atualize-o em cada instância de servidor.
 3. Edite a diretiva do coletor de desempenho:
    
-   ```XML
+```XML
    
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
@@ -84,17 +84,23 @@ Se você especificar uma instância, ela será coletada como uma dimensão "Coun
 ### <a name="collecting-performance-counters-in-code"></a>Coletando contadores de desempenho no código
 Para coletar contadores de desempenho do sistema e enviá-los ao Application Insights, você pode adaptar o trecho a seguir:
 
+
+``` C#
+
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+```
 
 Ou você pode fazer a mesma coisa com métricas personalizadas que você criou:
 
+``` C#
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+```
 
 ## <a name="performance-counters-in-analytics"></a>Contadores de desempenho no Analytics
 Você pode pesquisar e exibir relatórios do contador de desempenho no [Analytics](app-insights-analytics.md).
