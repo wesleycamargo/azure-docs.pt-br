@@ -4,7 +4,7 @@ description: Descreve como solucionar alguns problemas comuns de logon na assina
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: d1545298-99db-4941-8e97-f24a06bb7cb6
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/2/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1ef20a830c96b0f0d5e85186f757441f256746f5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 030b41eaa405ff70081a4c15cabded08a1b0b07a
 
 
 ---
@@ -36,7 +36,7 @@ Se a página do navegador da Internet parar, experimente cada uma das etapas a s
   B.    Navegue até o [portal do Azure](https://portal.azure.com)e entre no portal.
 
 ## <a name="error-message-no-subscriptions-found"></a>Mensagem de erro "Nenhuma assinatura encontrada"
-Se sua conta não tiver permissões suficientes, talvez você veja uma mensagem de erro **Nenhuma assinatura encontrada**. Somente um administrador de contas pode acessar o [Centro de Contas](https://account.windowsazure.com/), e não os administradores de serviços (SA) ou os coadministradores (CA).
+Se sua conta não tiver permissões suficientes, talvez você veja uma mensagem de erro **Nenhuma assinatura encontrada**. Lembre-se de fazer logon como o administrador correto. Um Administrador da Conta só pode acessar o [Centro de Contas](https://account.windowsazure.com/Subscriptions). Os SA (Administradores de Serviço) e CA (Coadministradores) têm acesso apenas ao [Portal do Azure](https://portal.azure.com) ou ao Portal Clássico do Azure.
 
 **Cenário 1: a mensagem de erro é recebida no [portal do Azure](https://portal.azure.com)**
 
@@ -66,6 +66,6 @@ Se ainda tiver dúvidas, [entre em contato com o suporte](http://go.microsoft.co
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

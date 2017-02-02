@@ -4,7 +4,7 @@ description: Saiba como criar uma regra com base no caminho para um application 
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 87bd93bc-e1a6-45db-a226-555948f1feb7
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/13/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0cae4172b9317784e7ed6f671c5722304e2f0e92
+ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
+ms.openlocfilehash: 2889716d6b5b6079c311d6a7f1eb97b001098b45
 
 
 ---
@@ -26,8 +26,6 @@ ms.openlocfilehash: 0cae4172b9317784e7ed6f671c5722304e2f0e92
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-url-route-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-url-route-arm-ps.md)
-> 
-> 
 
 O Roteamento com base em caminho de URL permite que você associe rotas com base no caminho de URL da solicitação Http. Ele verifica se há uma rota para um pool de back-end configurado para as listas de URLs no Application Gateway, e envia o tráfego de rede para o pool de back-end definido. Um uso comum para o roteamento com base em URL é balancear a carga das solicitações para tipos de conteúdo diferentes para pools de servidores back-end diferentes.
 
@@ -46,7 +44,7 @@ Uma regra com base no caminho exige seu próprio ouvinte. Antes da criação da 
 
 ### <a name="step-1"></a>Etapa 1
 
-Vá para http://portal.azure.com e selecione um gateway de aplicativo existente. Clique em **Regras**
+Navegue até o [Portal do Azure](http://portal.azure.com) e selecione um gateway de aplicativo existente. Clique em **Regras**
 
 ![Visão geral do Application Gateway][1]
 
@@ -74,8 +72,6 @@ A folha **Adicionar regra com base no caminho** tem duas seções. A primeira se
 
 > [!IMPORTANT]
 > Caminhos: a lista de padrões de caminho para correspondência. Cada um deve começar com /, e o único lugar no qual um "\*" é permitido é no final. Exemplos válidos são /xyz, /xyz* ou /xyz/*.  
-> 
-> 
 
 ![Folha Adicionar regra com base no caminho com informações preenchidas][2]
 
@@ -94,6 +90,6 @@ Para saber como configurar o descarregamento SSL com o Azure Application Gateway
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

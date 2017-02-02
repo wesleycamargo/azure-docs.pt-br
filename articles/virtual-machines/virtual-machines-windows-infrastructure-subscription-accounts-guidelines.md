@@ -1,5 +1,5 @@
 ---
-title: Diretrizes para assinatura e contas | Microsoft Docs
+title: Diretrizes de contas e assinaturas do Azure | Microsoft Docs
 description: "Saiba mais sobre as principais diretrizes de design e de implementação para assinaturas e contas no Azure."
 documentationcenter: 
 services: virtual-machines-windows
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b410436de11550aab2160421abfb27107f7874b0
+ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
+ms.openlocfilehash: bfa4f4938a52a7a1b9ebe5ee9efd37198468a0a6
 
 
 ---
-# <a name="subscription-and-accounts-guidelines"></a>Diretrizes para contas e assinaturas
+# <a name="azure-subscription-and-accounts-guidelines"></a>Diretrizes de contas e assinaturas do Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artigo se concentra em explicar como abordar o gerenciamento de assinaturas e de contas à medida que seu ambiente e sua base de usuários aumentam.
@@ -57,7 +57,7 @@ Se uma região decide ter mais de uma assinatura associada a um determinado grup
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-A organização pode ser semelhante a:
+A organização pode ser parecida com o seguinte exemplo:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
@@ -69,6 +69,6 @@ Fornecemos cobrança detalhada por meio de um arquivo para download, para uma ú
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

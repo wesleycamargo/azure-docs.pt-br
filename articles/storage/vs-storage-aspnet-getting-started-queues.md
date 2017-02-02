@@ -1,6 +1,6 @@
 ---
-title: "Introdução ao armazenamento de filas e aos serviços conectados do Visual Studio (ASP.NET) | Microsoft Docs"
-description: "Como começar a usar o armazenamento de Fila do Azure em um projeto do ASP.NET no Visual Studio após a conexão a uma conta de armazenamento usando os serviços conectados do Visual Studio"
+title: "Introdução ao Armazenamento de Filas do Azure e aos Serviços Conectados do Visual Studio (ASP.NET) | Microsoft Docs"
+description: "Como começar a usar o Armazenamento de Filas do Azure em um projeto do ASP.NET no Visual Studio após a conexão a uma conta de armazenamento usando os Serviços Conectados do Visual Studio"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -12,138 +12,206 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 12/02/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b8fb1f835aecd35d83ce3bb58dbf139e6a926675
+ms.sourcegitcommit: f58c2b522f81dc2dc86f0d2c6bc4872504cf7377
+ms.openlocfilehash: 70875287e79aaf49e1b8802cf2953cd5381b97f4
 
 
 ---
-# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services"></a>Introdução ao armazenamento de Fila do Azure e serviços conectados do Visual Studio
+# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Armazenamento de Filas do Azure e aos Serviços Conectados do Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Visão geral
-Este artigo descreve como começar a usar Armazenamento de Filas do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto ASP.NET usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio.
 
-Mostraremos como criar e acessar uma Fila do Azure em sua conta de armazenamento. Também mostraremos como realizar operações básicas de fila, como adicionar, modificar, ler e remover entidades de fila. Os exemplos são escritos em código C# e usam a [Biblioteca de Cliente do Armazenamento do Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Para saber mais sobre ASP.NET, confira [ASP.NET](http://www.asp.net).
+Armazenamento de Filas do Azure é um serviço para armazenar grandes quantidades de dados não estruturados que podem ser acessados via HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter uma quantidade ilimitada de mensagens, até o limite de capacidade total de uma conta de armazenamento.
 
-O armazenamento de filas do Azure é um serviço para armazenamento de um grande número de mensagens que podem ser acessadas de qualquer lugar do mundo por meio de chamadas autenticadas usando HTTP ou HTTPS. Uma única mensagem de fila pode ter até 64 KB de tamanho e uma fila pode conter milhões de mensagens, até o limite de capacidade total de uma conta de armazenamento.
+Este artigo descreve como gerenciar programaticamente entidades do Armazenamento de Filas do Azure, executar tarefas comuns como criar uma fila do Azure e adicionar, modificar, ler e remover mensagens da fila.
 
-## <a name="access-queues-in-code"></a>Acessar filas em código
-Para acessar filas em projetos do ASP.NET, você precisa incluir os itens a seguir para qualquer arquivo de origem C# que acesse o armazenamento de Fila do Azure.
+> [!NOTE]
+> 
+> As seções de código neste artigo pressupõem que você já se conectou a uma conta de armazenamento do Azure usando os Serviços Conectados. Os Serviços Conectados são configurados abrindo o Gerenciador de Soluções do Visual Studio, clicando no projeto e, no menu de contexto, selecionando a opção **Adicionar->Serviço Conectado**. A partir daí, siga as instruções da caixa de diálogo para conectar-se à conta de armazenamento desejada do Azure.      
 
-1. Verifique se as declarações de namespace na parte superior do arquivo C# incluem estas instruções de **uso** .
+## <a name="create-a-queue"></a>Criar uma fila
+
+As etapas a seguir ilustram como criar programaticamente uma fila. Em um aplicativo ASP.NET MVC, o código iria em um controlador.
+
+1. Adicione as seguintes diretivas *using*:
    
-        using Microsoft.Framework.Configuration;
+        using Microsoft.Azure;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Queue;
-2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a sua cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure.
-   
+
+2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure. (Mude *<storage-account-name>* para o nome da conta de armazenamento do Azure que você está acessando.)
+
          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
-3. Obtenha um objeto **CloudQueueClient** para referenciar objetos de fila em sua conta de armazenamento.  
-   
-        // Create the CloudQueueClient object for this storage account.
+
+3. Obtenha um objeto **CloudQueueClient** que representa um cliente do serviço de fila.
+
         CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-4. Obtenha um objeto **CloudQueue** para referenciar uma fila específica.
-   
-        // Get a reference to a queue named "messageQueue"
-        CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**OBSERVAÇÃO:** use todos os códigos acima diante do código nos exemplos a seguir.
+4. Obtenha um objeto **CloudQueue** que representa uma referência ao nome da fila desejada. (Mude *<queue-name>* para o nome da fila que você deseja criar.)
 
-## <a name="create-a-queue-in-code"></a>Criar uma fila em código
-Para criar uma fila do Azure no código, basta adicionar uma chamada para **CreateIfNotExists** ao código acima.
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
 
-    // Create the messageQueue if it does not exist
-    messageQueue.CreateIfNotExists();
+5. Chame o método **CloudQueue.CreateIfNotExists** para criar a fila se ela ainda não existir. 
+
+        queue.CreateIfNotExists();
+
 
 ## <a name="add-a-message-to-a-queue"></a>Adicionar uma mensagem a uma fila
-Para inserir uma mensagem em uma fila existente, crie um novo objeto **CloudQueueMessage** e chame o método **AddMessage**.
 
-Um objeto **CloudQueueMessage** pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes.
+As etapas a seguir ilustram como adicionar programaticamente uma mensagem a uma fila. Em um aplicativo ASP.NET MVC, o código iria em um controlador.
 
-Aqui está um exemplo que insere a mensagem “Hello, World”.
+1. Adicione as seguintes diretivas *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-    // Create a message and add it to the queue.
-    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    messageQueue.AddMessage(message);
+2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure. (Mude *<storage-account-name>* para o nome da conta de armazenamento do Azure que você está acessando.)
 
-## <a name="read-a-message-in-a-queue"></a>Ler uma mensagem em uma fila
-Você pode espiar a mensagem na frente de uma fila sem removê-la da fila, chamando o método PeekMessage().
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    // Peek at the next message
-    CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
+3. Obtenha um objeto **CloudQueueClient** que representa um cliente do serviço de fila.
 
-## <a name="read-and-remove-a-message-in-a-queue"></a>Ler e remover uma mensagem em uma fila
-Seu código pode remover uma mensagem de uma fila em duas etapas.
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-1. Chame GetMessage() para obter a próxima mensagem em uma fila. As mensagens retornadas de GetMessage() tornam-se invisíveis para todas as outras mensagens de leitura de código da fila. Por padrão, essa mensagem permanece invisível por 30 segundos.
-2. Para concluir a remoção da mensagem da fila, chame **DeleteMessage**.
+4. Obtenha um objeto **CloudQueue** que representa uma referência ao nome da fila desejada. (Mude *<queue-name>* para o nome da fila a qual você deseja adicionar a mensagem.)
 
-Este processo de duas etapas de remover uma mensagem garante que quando o código não processa uma mensagem devido à falhas de hardware ou de software, outra instância do seu código pode receber a mesma mensagem e tentar novamente. O código a seguir chamará **DeleteMessage** logo depois que a mensagem tiver sido processada.
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
 
-    // Get the next message in the queue.
-    CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
+5. Crie o objeto **CloudQueueMessage** que representa a mensagem que você deseja adicionar à fila. Um objeto **CloudQueueMessage** pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes. (Mude * <queue-message> * para a mensagem que você deseja adicionar.
 
-    // Process the message in less than 30 seconds
+        CloudQueueMessage message = new CloudQueueMessage(<queue-message>);
 
-    // Then delete the message.
-    await messageQueue.DeleteMessage(retrievedMessage);
+6. Chame o método **CloudQueue.AddMessage** para adicionar a mensagem à fila.
 
+        queue.AddMessage(message);
 
-## <a name="use-additional-options-for-de-queuing-messages"></a>Use opções adicionais para remover mensagens da fila
-Há duas maneiras de personalizar a recuperação da mensagem de uma fila.
-Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O exemplo de código a seguir usa o método **GetMessages** para receber 20 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop **foreach** . Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem. Observe que os 5 minutos começam para todas as mensagens ao mesmo tempo; portanto, depois de 5 minutos desde a chamada para **GetMessages**, todas as mensagens que não tenham sido excluídas se tornarão visíveis novamente.
+## <a name="read-a-message-from-a-queue-without-removing-it"></a>Ler uma mensagem de uma fila sem removê-la
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+As etapas a seguir ilustram como espiar programaticamente uma mensagem em fila (ler a primeira mensagem sem removê-la). Em um aplicativo ASP.NET MVC, o código iria em um controlador. 
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+1. Adicione as seguintes diretivas *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-    foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes(5)))
-    {
-        // Process all messages in less than 5 minutes, deleting each message after processing.
+2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure. (Mude *<storage-account-name>* para o nome da conta de armazenamento do Azure que você está acessando.)
+
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+
+3. Obtenha um objeto **CloudQueueClient** que representa um cliente do serviço de fila.
+
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+4. Obtenha um objeto **CloudQueue** que representa uma referência à fila. (Mude *<queue-name>* para o nome da fila da qual você deseja ler uma mensagem.)
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. Chame o método **CloudQueue.PeekMessage** para ler a mensagem no início de uma fila sem removê-la da fila.
+
+        CloudQueueMessage message = queue.PeekMessage();
+
+6. Acesse o valor do objeto **CloudQueueMessage** usando a propriedade **CloudQueueMessage.AsBytes** ou **CloudQueueMessage.AsString**.
+
+        string messageAsString = message.AsString;
+        byte[] messageAsBytes = message.AsBytes;
+
+## <a name="read-and-remove-a-message-from-a-queue"></a>Ler e remover uma mensagem de uma fila
+
+As etapas a seguir ilustram como ler programaticamente uma mensagem em fila e, depois, exclui-la. Em um aplicativo ASP.NET MVC, o código iria em um controlador. 
+
+1. Adicione as seguintes diretivas *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
+
+2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure. (Mude *<storage-account-name>* para o nome da conta de armazenamento do Azure que você está acessando.)
+
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+
+3. Obtenha um objeto **CloudQueueClient** que representa um cliente do serviço de fila.
+
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+4. Obtenha um objeto **CloudQueue** que representa uma referência à fila. (Mude *<queue-name>* para o nome da fila da qual você deseja ler uma mensagem.)
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. Chame o método **CloudQueue.GetMessage** para ler a primeira mensagem na fila. O método **CloudQueue.GetMessage** torna a mensagem invisível por 30 segundos (por padrão) para qualquer outro código que esteja lendo as mensagens, para que nenhum outro código possa modificar ou excluir a mensagem durante o seu processamento. Para alterar o tempo durante o qual a mensagem fica invisível, modifique o parâmetro **visibilityTimeout** que está sendo passado para o método **CloudQueue.GetMessage**.
+
+        // This message will be invisible to other code for 30 seconds.
+        CloudQueueMessage message = queue.GetMessage();     
+
+6. Chame o método **CloudQueueMessage.Delete** para excluir a mensagem da fila.
+
         queue.DeleteMessage(message);
-    }
 
 ## <a name="get-the-queue-length"></a>Obter o tamanho da fila
-Você pode obter uma estimativa do número de mensagens em uma fila. O método **FetchAttributes** solicita que o serviço fila recupere os atributos da fila, incluindo a contagem de mensagens. A propriedade **ApproximateMethodCount** retorna o último valor recuperado pelo método **FetchAttributes**, sem chamar o queueservice.
 
-    // Fetch the queue attributes.
-    messageQueue.FetchAttributes();
+As etapas a seguir ilustram como obter programaticamente o tamanho da fila (número de mensagens). Em um aplicativo ASP.NET MVC, o código iria em um controlador. 
 
-    // Retrieve the cached approximate message count.
-    int? cachedMessageCount = messageQueue.ApproximateMessageCount;
+1. Adicione as seguintes diretivas *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-    // Display number of messages.
-    Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure. (Mude *<storage-account-name>* para o nome da conta de armazenamento do Azure que você está acessando.)
 
-## <a name="use-async-await-pattern-with-common-queueapis"></a>Usar padrão Async-Await com APIs comuns de fila
-Este exemplo mostra como usar o padrão Async-Await com APIs de fila comuns. O exemplo chama a versão assíncrona de cada um dos métodos determinados, o que pode ser visto pela pós-correção Async de cada método. Quando um método assíncrono é usado, o padrão async-await suspende a execução local até que a chamada seja concluída. Esse comportamento permite que o thread atual faça outro trabalho que ajude a evitar gargalos de desempenho e melhora a capacidade de resposta geral do aplicativo. Para obter mais detalhes sobre como usar o padrão Async-Await no .NET, confira [Async e Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    // Create a message to put in the queue
-    CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
+3. Obtenha um objeto **CloudQueueClient** que representa um cliente do serviço de fila.
 
-    // Async enqueue the message
-    await messageQueue.AddMessageAsync(cloudQueueMessage);
-    Console.WriteLine("Message added");
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Async dequeue the message
-    CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
-    Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
+4. Obtenha um objeto **CloudQueue** que representa uma referência à fila. (Mude *<queue-name>* para o nome da fila cujo tamanho você está consultando.)
 
-    // Async delete the message
-    await messageQueue.DeleteMessageAsync(retrievedMessage);
-    Console.WriteLine("Deleted message");
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. Chame o método **CloudQueue.FetchAttributes** para recuperar os atributos da fila (incluindo seu tamanho). 
+
+        queue.FetchAttributes();
+
+6. Acesse a propriedade **CloudQueue.ApproximateMessageCount** para alterar o tamanho da fila.
+ 
+        int? nMessages = queue.ApproximateMessageCount;
 
 ## <a name="delete-a-queue"></a>Excluir uma fila
-Para excluir uma fila e todas as mensagens que ela contém, chame o método **Delete** no objeto fila.
+As etapas a seguir ilustram como excluir programaticamente uma fila. 
 
-    // Delete the queue.
-    messageQueue.Delete();
+1. Adicione as seguintes diretivas *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
+
+2. Obtenha um objeto **CloudStorageAccount** que represente as informações da conta de armazenamento. Use o seguinte código para obter a cadeia de conexão de armazenamento e informações de conta de armazenamento da configuração do serviço do Azure. (Mude *<storage-account-name>* para o nome da conta de armazenamento do Azure que você está acessando.)
+
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+
+3. Obtenha um objeto **CloudQueueClient** que representa um cliente do serviço de fila.
+
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+4. Obtenha um objeto **CloudQueue** que representa uma referência à fila. (Mude *<queue-name>* para o nome da fila cujo tamanho você está consultando.)
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. Chame o método **CloudQueue.Delete** para excluir a fila representada pelo objeto **CloudQueue**.
+
+        messageQueue.Delete();
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
@@ -151,6 +219,6 @@ Para excluir uma fila e todas as mensagens que ela contém, chame o método **De
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

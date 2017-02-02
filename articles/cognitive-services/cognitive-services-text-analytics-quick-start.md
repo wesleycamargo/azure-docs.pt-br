@@ -1,25 +1,30 @@
 ---
-title: 'Guia de início rápido: APIs de Análise de Texto do Aprendizado de Máquina | Microsoft Docs'
-description: Análise de Texto do Aprendizado de Máquina do Azure - Guia de Início Rápido
+title: "Guia de início rápido: APIs de Análise de Texto do Machine Learning | Microsoft Docs"
+description: "Análise de Texto do Aprendizado de Máquina do Azure - Guia de Início Rápido"
 services: cognitive-services
-documentationcenter: ''
+documentationcenter: 
 author: onewth
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e8b9e98c-40e7-4425-ae16-d1eaa7d2f837
 ms.service: cognitive-services
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 10/04/2016
 ms.author: onewth
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 663b99c2491bebf49f950605152604b040ade070
+
 
 ---
-# Introdução às APIs de Análise de Texto para detectar o sentimento, senhas, tópicos e idioma
+# <a name="getting-started-with-the-text-analytics-apis-to-detect-sentiment-key-phrases-topics-and-language"></a>Introdução às APIs de Análise de Texto para detectar o sentimento, senhas, tópicos e idioma
 <a name="HOLTop"></a>
 
-Este documento descreve como integrar seu serviço ou aplicativo para usar as [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711). Você pode usar essas APIs para detectar o sentimento, senhas, tópicos e idioma de seu texto. [Clique aqui para ver uma demonstração interativa da experiência.](//go.microsoft.com/fwlink/?LinkID=759712)
+Este documento descreve como integrar seu serviço ou aplicativo para usar as [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711).
+Você pode usar essas APIs para detectar o sentimento, senhas, tópicos e idioma de seu texto. [Clique aqui para ver uma demonstração interativa da experiência.](//go.microsoft.com/fwlink/?LinkID=759712)
 
 Confira as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para obter a documentação técnica das APIs.
 
@@ -36,22 +41,22 @@ Observe que essa API cobra uma transação por documento enviado. Por exemplo, s
 
 <a name="Overview"></a>
 
-## Visão geral
+## <a name="general-overview"></a>Visão geral
 Este documento é um guia passo a passo. Nosso objetivo é apresentar as etapas necessárias para treinar um modelo e indicar recursos que lhe permitirão colocá-lo em produção. Esse exercício levará cerca de 30 minutos.
 
 Para essas tarefas, você necessita de um editor e precisa chamar os pontos de extremidade RESTful na linguagem de sua escolha.
 
 Vamos começar!
 
-## Tarefa 1 - inscrever-se para as APIs de Análise de Texto
+## <a name="task-1---signing-up-for-the-text-analytics-apis"></a>Tarefa 1 - inscrever-se para as APIs de Análise de Texto
 Nessa tarefa, você se inscreverá para obter o serviço de análise de texto.
 
-1. Navegue até **Serviços Cognitivos** no [Portal do Azure](//go.microsoft.com/fwlink/?LinkId=761108) e verifique se a opção **Análise de Texto** está selecionada como o “Tipo de API”.
-2. Escolha um plano. Você pode escolher a **camada gratuita para 5.000 transações/mês**. Por ser um plano gratuito, você não será cobrado pelo uso do serviço. Você precisará fazer logon em sua assinatura do Azure.
+1. Navegue até **Serviços Cognitivos** no [Portal do Azure](//go.microsoft.com/fwlink/?LinkId=761108) e verifique se a **Análise de Texto** está selecionada como o ‘tipo de API’.
+2. Escolha um plano. Você pode escolher a **camada gratuita para 5.000 transações/mês**. Por ser um plano gratuito, você não será cobrado pelo uso do serviço. Você precisará fazer logon em sua assinatura do Azure. 
 3. Preencha os outros campos e crie sua conta.
 4. Após inscrever-se para obter a Análise de Texto, localize a **Chave de API**. Copie a chave primária, pois você precisará dela ao usar os serviços de API.
 
-## Tarefa 2 - detectar sentimento, frases-chave e idiomas
+## <a name="task-2---detect-sentiment-key-phrases-and-languages"></a>Tarefa 2 - detectar sentimento, frases-chave e idiomas
 É fácil detectar o sentimento, as frases-chave e os idiomas no texto. Você obterá de forma programática os mesmos resultados que a [experiência de demonstração](//go.microsoft.com/fwlink/?LinkID=759712) retornar.
 
 > [!TIP]
@@ -152,14 +157,14 @@ Observe que os idiomas com suporte são os seguintes:
             ]
         }
 
-## Tarefa 3 - detectar tópicos no corpo de texto
+## <a name="task-3---detect-topics-in-a-corpus-of-text"></a>Tarefa 3 - detectar tópicos no corpo de texto
 Essa é uma API recém-lançada que retorna os principais tópicos detectados para obter uma lista dos registros de texto enviados. Um tópico é identificado com uma senha, que pode ser uma ou mais palavras relacionadas. A API é projetada para funcionar bem com textos curto escritos por humanos, como revisões e comentários do usuário.
 
-Essa API requer o envio de **,no mínimo, 100 registros de texto**, mas foi projetada para detectar os tópicos em centenas ou milhares de registros. Quaisquer registros que não estejam em inglês ou tenham menos de três palavras serão descartados e, assim, não serão atribuídos aos tópicos. Para a detecção dos tópicos, o tamanho máximo de um único documento que pode ser enviado é de 30 KB e o tamanho máximo total da entrada enviada é de 30 MB. A detecção do tópico tem uma taxa limitada a cinco envios a cada 5 minutos.
+Essa API requer o envio de **,no mínimo, 100 registros de texto** , mas foi projetada para detectar os tópicos em centenas ou milhares de registros. Quaisquer registros que não estejam em inglês ou tenham menos de três palavras serão descartados e, assim, não serão atribuídos aos tópicos. Para a detecção dos tópicos, o tamanho máximo de um único documento que pode ser enviado é de 30 KB e o tamanho máximo total da entrada enviada é de 30 MB. A detecção do tópico tem uma taxa limitada a cinco envios a cada 5 minutos.
 
 Há mais dois parâmetros de entrada **opcionais** que podem ajudar a melhorar a qualidade dos resultados:
 
-* **Palavras irrelevantes.** Essas palavras e suas formas aproximadas (por exemplo, plurais) serão excluídas do pipeline inteiro de detecção de tópicos. Use esse recurso para palavras comuns (por exemplo, "problema", "erro" e "usuário" podem ser opções apropriadas para reclamações do cliente sobre o software). Cada cadeia de caracteres deve ser uma única palavra.
+* **Palavras irrelevantes.**   Essas palavras e suas formas aproximadas (por exemplo, plurais) serão excluídas do pipeline inteiro de detecção de tópicos. Use esse recurso para palavras comuns (por exemplo, "problema", "erro" e "usuário" podem ser opções apropriadas para reclamações do cliente sobre o software). Cada cadeia de caracteres deve ser uma única palavra.
 * **Frases irrelevantes** - essas frases serão excluídas da lista de tópicos retornados. Use esse recurso para excluir os tópicos genéricos que você não deseja ver nos resultados. Por exemplo, "Microsoft" e "Azure" seriam opções adequadas para os tópicos a excluir. As cadeias de caracteres podem conter várias palavras.
 
 Siga estas etapas para detectar os tópicos no texto.
@@ -191,7 +196,7 @@ Siga estas etapas para detectar os tópicos no texto.
 3. Isso retornará um `operation-location` como o cabeçalho na resposta, no qual o valor é a URL para consultar os tópicos resultantes:
    
         'operation-location': 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>'
-4. Confira periodicamente o `operation-location` retornado com uma solicitação **GET**. O intervalo recomendado é uma vez por minuto.
+4. Confira periodicamente o `operation-location` retornado com uma solicitação **GET** . O intervalo recomendado é uma vez por minuto.
    
         GET https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/operations/<operationId>
 5. O ponto de extremidade retornará uma resposta, incluindo `{"status": "notstarted"}` antes do processamento, `{"status": "running"}` durante o processamento e `{"status": "succeeded"}` com a saída após a conclusão. Em seguida, você pode consumir a saída, que deverá estar no seguinte formato (observe que detalhes como formato de erro e datas foram excluídos deste exemplo):
@@ -254,7 +259,7 @@ Explicações de cada parte da resposta são as seguintes:
 | Chave | Descrição |
 |:--- |:--- |
 | ID |Um identificador exclusivo para cada tópico. |
-| para seu app's |Contagem de documentos atribuídos ao tópico. |
+| para seu app&#39;s |Contagem de documentos atribuídos ao tópico. |
 | keyPhrase |Uma palavra ou frase que resume o tópico. |
 
 **topicAssignments**
@@ -272,9 +277,14 @@ Explicações de cada parte da resposta são as seguintes:
 | ID |O identificador exclusivo do documento de entrada a que o erro se refere. |
 | message |Mensagem de erro. |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Parabéns! Você concluiu o uso da análise de texto em seus dados. Agora convém examinar o uso de uma ferramenta como o [Power BI](//powerbi.microsoft.com) para visualizar os dados e para automatizar as percepções para fornecer uma exibição em tempo real dos dados de texto.
 
-Para ver como os recursos de Análise de Texto, como o sentimento, podem ser usados como parte de um bot, consulte o exemplo de [Bot Emocional](http://docs.botframework.com/pt-BR/bot-intelligence/language/#example-emotional-bot) no site da Estrutura de Bot.
+Para ver como os recursos da Análise de Texto, como o sentimento, podem ser usados como parte de um bot, consulte o exemplo [Bot Emocional](http://docs.botframework.com/en-us/bot-intelligence/language/#example-emotional-bot) no site do Bot Framework.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,20 +1,19 @@
 ---
 title: Marketplace do Azure Governamental | Microsoft Docs
 description: "Este guia oferece uma comparação das funcionalidades e das orientações sobre como desenvolver aplicativos para o Azure Governamental."
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: VybavaRamadoss
 manager: asimm
-editor: 
 ms.assetid: b4ffa6c1-30c9-4aef-8938-10326e9f7d1e
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/20/2016
-ms.author: zakramer;vybavar
+ms.date: 11/14/2016
+ms.author: vybavar
 translationtype: Human Translation
 ms.sourcegitcommit: ed6b53a04e5eae593dbcc08d4aa5410f1e2fe3ab
 ms.openlocfilehash: bbb2f3e928124a4da238ad887461d35f69771436

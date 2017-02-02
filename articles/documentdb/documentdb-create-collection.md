@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/13/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: f8e0b05301b83223a7cb15d55be7001f3299213f
+ms.sourcegitcommit: 8f3e6b271f3ca5973a00f2a5a9e11dafeb9637aa
+ms.openlocfilehash: 45371ca337f291f37e1ac5c388170b7079dfad52
 
 
 ---
@@ -41,9 +41,9 @@ Não sabe direito o que é uma coleção? Confira [O que é uma coleção do Ban
 
     Uma **partição única** tem uma capacidade de armazenamento reservado de 10 GB e pode ter níveis de taxa de transferência de 400 a 10.000 unidades de solicitação/segundo (RU/s). Uma RU corresponde à taxa de transferência de uma leitura de um documento de 1 KB. Para obter mais informações sobre unidades de solicitação, confira [Unidades de solicitação](documentdb-request-units.md).
 
-    Uma **coleção particionada** pode ser dimensionada para lidar com uma quantidade ilimitada de armazenamento em várias partições e pode ter níveis de produtividade começando em 10.100 RU/s. No portal, o maior armazenamento que você pode reservar é de 250 GB e a maior taxa de transferência que você pode reservar é de 250.000 RU/s. Para aumentar uma das cotas, envie uma solicitação, conforme descrito em [Solicitar maiores cotas de conta do Banco de Dados de Documentos](documentdb-increase-limits.md). Para obter mais informações sobre coleções particionadas, veja [Partição única e coleções particionadas](documentdb-partition-data.md#single-partition-and-partitioned-collections).
+    Uma **coleção particionada** pode ser dimensionada para lidar com uma quantidade ilimitada de armazenamento em várias partições e pode ter níveis de produtividade começando em 10.100 RU/s. Para obter mais informações sobre coleções particionadas, veja [Partição única e coleções particionadas](documentdb-partition-data.md#single-partition-and-partitioned-collections).
 
-    Por padrão, a taxa de transferência para uma nova coleção de partição única é definida como 1000 RU/s com uma capacidade de armazenamento de 10 GB. Para uma coleção particionada, a taxa de transferência da coleção é definida como 10100 RU/s com a capacidade de armazenamento de 250 GB. Você pode alterar a taxa de transferência e o armazenamento da coleção após a criação da coleção.
+    Por padrão, a taxa de transferência para uma nova coleção de partição única é definida como 1000 RU/s com uma capacidade de armazenamento de 10 GB. Para uma coleção particionada, a taxa de transferência da coleção é definida como 10100 RU/s sem limite superior na capacidade ou na taxa de transferência.
 6. Se você estiver criando uma coleção particionada, selecione a **Chave de Partição** para a coleção. É importante selecionar a chave de partição correta ao criar uma coleção de alto desempenho. Para obter mais informações sobre como selecionar uma chave de partição, veja [Design para particionamento](documentdb-partition-data.md#designing-for-partitioning).
 7. Na folha **Banco de dados**, crie um novo banco de dados ou use uma existente. Os nomes de banco de dados devem ter entre um e 255 caracteres e não podem conter `/ \ # ?` nem espaços à direita. Para validar o nome, clique fora da caixa de texto. Quando o nome for validado, uma marca de seleção verde será exibida na caixa.
 8. Clique em **OK** na parte inferior da tela para criar uma nova coleção.
@@ -83,6 +83,6 @@ Depois que os documentos estiverem em uma coleção, você poderá usar o [SQL d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

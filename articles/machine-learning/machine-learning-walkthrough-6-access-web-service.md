@@ -1,6 +1,6 @@
 ---
 title: "Etapa 6: Acessar o serviço Web do Machine Learning | Microsoft Docs"
-description: "Etapa 6: desenvolver um passo a passo de solução de previsão: acessar um serviço Web do Aprendizado de Máquina do Azure ativo."
+description: "Etapa 6 do desenvolvimento de um passo a passo de solução de previsão: acessar um serviço Web do Azure Machine Learning ativo."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 12/16/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 80f722c536c822189c1ab2a8160f560a78e7ca01
+ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
+ms.openlocfilehash: 4953b9cb4db2fe0f5bf75589145fde39a6f35a68
 
 
 ---
-# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Etapa 6 do passo a passo: acessar o serviço Web do Aprendizado de Máquina do Azure
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Etapa 6 do Passo a Passo: acessar o serviço Web do Azure Machine Learning
 Esta é a última etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Aprendizado de Máquina do Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Criar um espaço de trabalho do Aprendizado de Máquina](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -31,24 +31,24 @@ Esta é a última etapa do passo a passo, [Desenvolver uma solução de análise
 6. **Acessar o serviço Web**
 
 - - -
-Na etapa anterior neste passo a passo, implantamos um serviço Web que usa o nosso modelo de previsão de risco de crédito. Agora, os usuários precisam poder enviar dados a ele e receber os resultados. 
+Na etapa anterior deste passo a passo, implantamos um serviço Web que usa o nosso modelo de previsão de risco de crédito. Agora, os usuários podem enviar dados a ele e receber os resultados. 
 
 O serviço Web é um serviço Web do Azure que pode receber e retornar dados usando as APIs REST de uma das duas maneiras:  
 
 * **Solicitação/Resposta** – O usuário envia uma ou mais linhas de dados de crédito para o serviço usando um protocolo HTTP, e o serviço responde com um ou mais conjunto de resultados.
 * **Execução em lote** - o usuário armazena uma ou mais linhas de dados de crédito em um blob do Azure e envia o local do blob ao serviço. O serviço pontua todas as linhas de dados no blob de entrada, armazena os resultados em outro blob e retorna a URL desse contêiner.  
 
-A maneira mais rápida e fácil de acessar o serviço Web é por meio dos modelos de aplicativos Web disponíveis no [Marketplace de Aplicativos Web do Azure](https://azure.microsoft.com/marketplace/web-applications/all/).
-Esses modelos de aplicativo Web podem compilar um aplicativo Web personalizado que conhece os dados de entrada do seu serviço Web e o que ele retornará. Basta fornecer acesso aos dados e ao serviço Web, para que o modelo faça o resto.
+A maneira mais rápida e fácil de acessar o serviço Web é por meio do [aplicativo Web de Serviço de Solicitação-Resposta do Azure ML](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) ou do [Modelo do aplicativo Web do Serviço de Execução em Lote do Azure ML](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
+Esses modelos de aplicativo Web podem compilar um aplicativo Web personalizado que conhece os dados de entrada do seu serviço Web e o que ele retornará. Basta fornecer acesso aos dados e ao serviço Web para que o modelo faça o resto.
 
-Para obter mais informações sobre como usar modelos de aplicativos da Web, consulte [Consumir um serviço Web de Aprendizado de Máquina do Azure com um modelo de aplicativo Web](machine-learning-consume-web-service-with-web-app-template.md).
+Para obter mais informações sobre como usar modelos de aplicativos Web, consulte [Consumir um serviço Web do Azure Machine Learning com um modelo de aplicativo Web](machine-learning-consume-web-service-with-web-app-template.md).
 
-Você também pode desenvolver um aplicativo personalizado para acessar o serviço Web usando código inicial fornecido nas linguagens de programação R, C# e Python.
-Você pode ver todos os detalhes em [Como consumir um serviço Web de Aprendizado de Máquina do Azure que foi publicado por meio de um experimento de Aprendizado de Máquina](machine-learning-consume-web-services.md).
-
-
+Você também pode desenvolver um aplicativo personalizado para acessar o serviço Web usando o código inicial fornecido nas linguagens de programação R, C# e Python.
+É possível ver todos os detalhes em [Como consumir um serviço Web do Azure Machine Learning publicado por meio de um teste do Machine Learning](machine-learning-consume-web-services.md).
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Dec16_HO3-->
 
 

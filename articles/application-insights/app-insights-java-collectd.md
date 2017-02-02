@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 8c5324742e42a1f82bb3031af4380fc5f0241d7f
-ms.openlocfilehash: 6a9edd88dd49dd8d8edd687f8808f7d49b774139
+ms.sourcegitcommit: 193c1836fc8076c2486684a7ec4a92ece948050c
+ms.openlocfilehash: 2419f7bd69b9d7fab1a37330b68283012e43f5fd
 
 
 ---
@@ -47,7 +47,7 @@ Em seus computadores com o servidor Linux:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * Adicione esse trecho usando a chave de instrumentação do seu recurso:
 
-```
+```XML
 
      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
@@ -56,6 +56,8 @@ Em seus computadores com o servidor Linux:
 ```
 
 Veja o exemplo de parte de um arquivo de configuração:
+
+```XML
 
     ...
     # collectd plugins
@@ -83,14 +85,15 @@ Veja o exemplo de parte de um arquivo de configuração:
       # Other plugin configurations ...
       ...
     </Plugin>
-.   ...
+    ...
+```
 
 Configure outros [plug-ins collectd](https://collectd.org/wiki/index.php/Table_of_Plugins), que possam coletar vários dados de diferentes fontes.
 
 Reinicie o collectd, de acordo com seu [manual](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Exibir os dados no Application Insights
-No recurso Application Insights, abra o [Metrics Explorer e adicione gráficos][métricas], selecionando as métricas que deseja ver na categoria Personalizado.
+No recurso Application Insights, abra o [Metrics Explorer e adicione gráficos][metrics], selecionando as métricas que deseja ver na categoria Personalizado.
 
 ![](./media/app-insights-java-collectd/result.png)
 
@@ -114,7 +117,7 @@ Diretivas separadas por uma nova linha.
 ## <a name="problems"></a>Problemas?
 *Não vejo dados no portal*
 
-* Abra [Pesquisar][diagnóstico] para ver se os eventos brutos aparecem. Às vezes, eles levam mais tempo para aparecer no Metrics Explorer.
+* Abra [Pesquisar][diagnostic] para ver se os eventos brutos aparecem. Às vezes, eles levam mais tempo para aparecer no Metrics Explorer.
 * Talvez você precise [definir exceções de firewall para dados de saída](app-insights-ip-addresses.md)
 * Habilite o rastreamento no plug-in do Application Insights. Adicione esta linha em `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
@@ -126,17 +129,17 @@ Diretivas separadas por uma nova linha.
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
-[diagnóstico]: app-insights-diagnostic-search.md
+[diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
-[métricas]: app-insights-metrics-explorer.md
+[metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Rastrear mensagens B2B no portal do OMS | Microsoft Docs
-description: Como rastrear mensagens B2B no portal do OMS
+title: Rastrear mensagens B2B no portal do Operations Management Suite usando uma consulta | Microsoft Docs
+description: Saiba mais sobre acompanhamento de mensagens B2B no portal do Operations Management Suite por meio de uma consulta.
 author: padmavc
 manager: erikre
 editor: 
@@ -15,52 +15,53 @@ ms.topic: article
 ms.date: 11/13/2016
 ms.author: padmavc
 translationtype: Human Translation
-ms.sourcegitcommit: 6e56dae0ab30612a7794bd39e6eba2f84bcecc19
-ms.openlocfilehash: eae37a357e3e1c00310c7c638d3164118403ee9f
+ms.sourcegitcommit: 684ab31903369070a235b35eb0b8c9adffd309e7
+ms.openlocfilehash: 08689b8f57d5b29a47b98eac812eaee285cd13a0
 
 
 ---
-# <a name="create-a-query-in-oms-portal"></a>Criar uma consulta no portal do OMS 
-Etapas para criar uma consulta que filtra os dados para um número específico de controle de intercâmbio
+# <a name="track-b2b-messages-in-the-operations-management-suite-portal-by-using-a-query"></a>Acompanhar mensagens B2B no portal do Operations Management Suite por meio de uma consulta
+Para controlar mensagens do business-to-business (B2B) no portal do Operations Management Suite, você pode criar uma consulta que filtra os dados para um número de controle de intercâmbio específico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Habilite o diagnóstico para sua [Conta de Integração](app-service-logic-monitor-b2b-message.md), os [aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) que têm conectores X12, para obter detalhes mais ricos e depuração.  Siga [estas](app-service-logic-track-b2b-messages-omsportal.md) etapas para publicar dados de diagnóstico no portal do OMS.
+Para depuração e para obter mais informações de diagnóstico, ative o diagnóstico em sua [conta de integração](app-service-logic-monitor-b2b-message.md) para seus [aplicativos lógicos](app-service-logic-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) que têm conectores X12. Em seguida, siga as etapas para [publicar dados de diagnóstico](app-service-logic-track-b2b-messages-omsportal.md) no portal do Operations Management Suite.
 
-## <a name="create-a-query-to-search-data-for-a-specific-interchange-control-number"></a>Criar uma consulta para pesquisar dados de um número específico de controle de intercâmbio
+## <a name="to-create-a-query-to-search-for-a-specific-interchange-control-number"></a>Para criar uma consulta para pesquisar um número específico de controle de intercâmbio
 
-1. Selecionando a **Pesquisa de Log** na home page  
+1. Na página inicial, selecione **Pesquisar Logs**.  
 ![Selecionar pesquisa de log](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
-2. Digite **Type="AzureDiagnostics"** na janela de pesquisa para efetuar pull de todos os dados.  Clique em **Adicionar** para filtrar os dados  
+2. Na caixa de pesquisa, digite **Type="AzureDiagnostics"**. Para filtrar os dados, selecione **Adicionar**.  
 ![Selecionar consulta](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-3. Digite **intercâmbio**, selecione **event_record_messageProperties_interchangeControlNumber_s** e clique em **Adicionar**  
-![Selecionar número de controle](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query2.png)
+3. Digite **interchange**, selecione **event_record_messageProperties_interchangeControlNumber_s** e clique em **Adicionar**.  
+![Adicionar filtro](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query2.png)
 
-4. Selecione o número de controle para o qual você quer filtrar dados e clique em **Aplicar**  
-![Selecionar número de controle](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query3.png)
+4. Selecione o número de controle para o qual você quer filtrar dados e clique em **Aplicar**.  
+![Pesquisar o número de controle](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query3.png)
 
-5. Você pode encontrar a consulta criada para filtrar dados para o número de controle selecionado   
-![Selecionar número de controle](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query4.png)
+5. Localize a consulta criada por você para filtrar dados para o número de controle selecionado.   
+![Localizar a consulta](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query4.png)
 
-6. Dê um nome para a consulta e salve-a   
-![Selecionar número de controle](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query5.png) 
+6. Digite um nome para a consulta e, em seguida, salve-a.   
+![Salvar a consulta](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query5.png)
 
-7. Selecione **favoritos** para exibir a consulta e usar em pesquisas futuras  
-![Selecionar número de controle](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query7.png)
+7. Selecione **favoritos** para exibir a consulta e usá-la em pesquisas futuras.  
+![Exibir a consulta](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query7.png)
 
-8. A consulta pode ser atualizada para procurar um novo número de controle de intercâmbio  
-![Selecionar número de controle](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query6.png) 
+8. A consulta pode ser atualizada para pesquisar por um novo número de controle de intercâmbio.  
+![Atualizar a consulta](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query6.png)
 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Esquema de Controle Personalizado](app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Tracking Schema")   
-[Esquema de Controle do AS2](app-service-logic-track-integration-account-as2-tracking-shemas.md "Learn about AS2 Tracking Schema")    
-[Esquema de Controle do X12](app-service-logic-track-integration-account-x12-tracking-shemas.md "Learn about X12 Tracking Schema")  
-[Saiba mais sobre o Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
+* Saiba mais sobre [esquemas de acompanhamento personalizado](app-service-logic-track-integration-account-custom-tracking-shema.md).   
+* Saiba mais sobre os [esquemas de acompanhamento AS2](app-service-logic-track-integration-account-as2-tracking-shemas.md).    
+* Saiba mais sobre os [esquemas de acompanhamento X12](app-service-logic-track-integration-account-x12-tracking-shemas.md).  
+* Saiba mais sobre o [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO3-->
 
 

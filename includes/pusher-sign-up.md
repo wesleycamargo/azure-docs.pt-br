@@ -1,21 +1,21 @@
 A primeira etapa é criar uma nova conta a ser usada para o tutorial. Você pode usar o plano GRATUITO de Área Restrita, ele é perfeito para este tutorial.
 
-### Para inscrever-se em uma conta de Pusher
-1. Faça logon no [Portal de Gerenciamento do Azure][Portal de Gerenciamento do Azure].
+### <a name="to-sign-up-for-a-pusher-account"></a>Para inscrever-se em uma conta de Pusher
+1. Faça logon no [Portal de Gerenciamento do Azure][Azure Management Portal].
 2. No painel inferior do portal de gerenciamento, clique em **Novo**.
    
     ![command-bar-new][command-bar-new]
 3. Clique em **Repositório**.
    
     ![pusher-store][pusher-store]
-4. Na caixa de diálogo **Escolher um complemento**, selecione **Pusher** e clique na seta à direita.
-5. Na caixa de diálogo **Personalizar complemento**, selecione o plano **Pusher** no qual você deseja se inscrever.
-6. Digite um nome para identificar o serviço de **Pusher** nas suas configurações do Azure ou use o valor padrão de **Pusher**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na sua lista de itens inscritos da Azure Store.
+4. Na caixa de diálogo **Escolher um Complemento**, selecione **Pusher** e clique na seta à direita.
+5. Na caixa de diálogo **Personalizar Complemento**, selecione o plano **Pusher** no qual você deseja se inscrever.
+6. Insira um nome para identificar o serviço de **Pusher** nas suas configurações do Azure ou use o valor padrão de **Pusher**. Os nomes devem ter entre 1 e 100 caracteres e conter somente caracteres alfanuméricos, traços, pontos e caracteres de sublinhado. O nome deve ser exclusivo na sua lista de itens inscritos da Azure Store.
    
     ![store-screen-1][store-screen-1]
-7. Escolha um valor para a região; por exemplo, oeste dos Estados Unidos.
+7. Escolha um valor para a região; por exemplo, oeste dos Estados Unidos. 
 8. Clique na seta à direita.
-9. Na guia **Revisar Compra**, revise o plano e as informações sobre preços, bem como os termos legais. Se você concordar com os termos, clique na marca de seleção. Depois que você clicar na marca de seleção, a sua conta de Pusher iniciará o processo de provisionamento.
+9. Na guia **Revisar Compra** , revise o plano e as informações sobre preços, bem como os termos legais. Se você concordar com os termos, clique na marca de seleção. Depois que você clicar na marca de seleção, a sua conta de Pusher iniciará o processo de provisionamento. 
    
    ![store-screen-2][store-screen-2]
 10. Depois de confirmar sua compra, você será redirecionado para o painel de complementos e verá a mensagem **Compra de Pusher**
@@ -30,15 +30,15 @@ Para modificar o plano de assinatura ou consultar as configurações de contato 
 
 Ao usar o Pusher, você precisará fornecer as configurações de conexão do aplicativo de Pusher.
 
-### Para localizar as configurações de conexão de Pusher
+### <a name="to-find-your-pusher-connection-settings"></a>Para localizar as configurações de conexão de Pusher
 1. Clique em **Informações de Conexão**.
    
     ![pusher-connection-info-button][pusher-connection-info-button]
-2. Na caixa de diálogo *Informações de Conexão*, você verá sua ID de aplicativo, a chave e o segredo. Você usará esses valores posteriormente no tutorial, então copie-os para uso posterior.
+2. Na caixa de diálogo *Informações de Conexão* , você verá sua ID de aplicativo, a chave e o segredo. Você usará esses valores posteriormente no tutorial, então copie-os para uso posterior.
    
     ![pusher-connection-info][pusher-connection-info]
 
-Para obter mais informações sobre como começar com o Pusher, consulte [Noções básicas sobre Pusher][Noções básicas sobre Pusher].
+Para saber mais sobre como começar com o Pusher, consulte [Noções básicas sobre Pusher][Understanding Pusher].
 
 <!--images-->
 
@@ -53,7 +53,11 @@ Para obter mais informações sobre como começar com o Pusher, consulte [Noçõ
 
 <!--Links-->
 
-[Portal de Gerenciamento do Azure]: https://manage.windowsazure.com
-[Noções básicas sobre Pusher]: http://pusher.com/docs
+[Azure Management Portal]: https://manage.windowsazure.com
+[Understanding Pusher]: http://pusher.com/docs
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

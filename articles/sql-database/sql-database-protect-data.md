@@ -116,12 +116,12 @@ A Detecção de Ameaças do Banco de Dados SQL fornece uma camada adicional de s
 ## <a name="compliance"></a>Conformidade
 Além dos recursos e funcionalidades acima, que podem ajudar seu aplicativo a atender a vários requisitos de conformidade de segurança, o Banco de Dados SQL do Azure também participa de auditorias regulares e foi certificado em relação a vários padrões de conformidade. Para saber mais, confira a [Central de Confiabilidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/), onde é possível encontrar a lista mais atual de [certificações de conformidade do Banco de Dados SQL](https://azure.microsoft.com/support/trust-center/services/).
 
+
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral de todos os recursos de segurança do Banco de Dados SQL, veja [Visão geral de segurança do SQL](sql-database-security-overview.md).
 - Para uma discussão sobre o uso de recursos de controle de acesso no Banco de Dados SQL, veja [Controlar o acesso](sql-database-control-access.md).
 - Para obter uma discussão sobre monitoramento proativo, veja [Introdução à Auditoria do Banco de Dados SQL](sql-database-auditing-get-started.md) e [Introdução à Detecção de Ameaças do Banco de Dados SQL](sql-database-threat-detection-get-started.md).
-
 
 
 

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -52,8 +52,8 @@ Ao serem exibidos resultados de pesquisa, todas as propriedades exibidas que cor
 
 > [!NOTE]
 > Os usuários podem desativar o realce de ocorrências, se desejado, usando a opção "Realce" no portal do **Catálogo de Dados do Azure** .
-> 
-> 
+>
+>
 
 Ao serem exibidos resultados de pesquisa, talvez não seja sempre óbvio o motivo pelo qual um ativo de dados é incluído, mesmo com o realce de ocorrências habilitado. Como todas as propriedades são pesquisadas por padrão, um ativo de dados pode ser retornado devido a uma correspondência em uma propriedade de nível de coluna. E como vários usuários podem anotar ativos de dados registrados com suas próprias marcas e descrições, talvez nem todos os metadados sejam exibidos na lista de resultados de pesquisa.
 
@@ -66,7 +66,6 @@ O registro de uma fonte de dados no **Catálogo de Dados do Azure** facilita a d
 
 ## <a name="see-also"></a>Consulte também
 * [Introdução ao Catálogo de Dados do Azure](data-catalog-get-started.md) para obter detalhes passo a passo sobre como descobrir fontes de dados.
-
 
 
 

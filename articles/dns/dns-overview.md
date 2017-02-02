@@ -1,6 +1,6 @@
 ---
 title: "Visão geral do DNS do Azure | Microsoft Docs"
-description: "Visão geral do DNS do Azure que hospeda os serviços no Microsoft Azure. Hospede seu domínio no Microsoft Azure."
+description: "Visão geral do Serviço de hospedagem de DNS no Microsoft Azure. Hospede seu domínio no Microsoft Azure."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/05/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
-ms.openlocfilehash: 32b6c12a07f67d39d7a1dcf213f0372d3c3cd40c
+ms.sourcegitcommit: 87122cb432f90573fdb0a35943ce14c8d62e84a5
+ms.openlocfilehash: f8ccf5c0fab1e4aca85b22b99a1a5b48f35dfcbc
 
 ---
 
@@ -26,17 +26,17 @@ O sistema de nomes de domínio, ou DNS, é responsável por converter (ou seja, 
 
 Domínios DNS no DNS do Azure são hospedados na rede global do Azure de servidores de nomes DNS. Podemos usar a rede Anycast, para que cada consulta DNS seja atendida pelo servidor DNS mais próximo disponível. Isso fornece desempenho rápido e alta disponibilidade para seu domínio.
 
-O serviço Azure DNS se baseia no ARM (Azure Resource Manager, Gerenciador de Recursos do Azure). Como tal, ele aproveita os recursos do ARM, como o controle de acesso baseado em função, os logs de auditoria e o bloqueio de recursos. Seus domínios e registros podem ser gerenciados por meio do portal do Azure, cmdlets do Azure PowerShell e a CLI do Azure de plataforma cruzada. Aplicativos que requerem gerenciamento automático de DNS podem se integrar com o serviço por meio da API REST e dos SDKs.
+O serviço DNS do Azure baseia-se no Azure Resource Manager. Sendo assim, ele aproveita recursos do Resource Manager, como o controle de acesso baseado em função, os logs de auditoria e o bloqueio de recursos. Seus domínios e registros podem ser gerenciados por meio do portal do Azure, cmdlets do Azure PowerShell e a CLI do Azure de plataforma cruzada. Aplicativos que requerem gerenciamento automático de DNS podem se integrar com o serviço por meio da API REST e dos SDKs.
 
-O DNS do Azure não dá suporte a compra de nomes de domínio. Se você deseja adquirir domínios, precisará usar um registrador de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para gerenciamento de registros DNS. Consulte [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
+O DNS do Azure não dá suporte a compra de nomes de domínio. Se você deseja adquirir domínios, será necessário usar um registrador de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para gerenciamento de registros DNS. Consulte [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md) para obter detalhes.
 
-## <a name="next-steps"></a>Próximas etapas
+### <a name="next-steps"></a>Próximas etapas
 
-[Criar uma zona DNS](dns-getstarted-create-dnszone-portal.md)
-
-
+[Criar uma zona DNS](./dns-getstarted-create-dnszone-portal.md)
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Dec16_HO3-->
 
 

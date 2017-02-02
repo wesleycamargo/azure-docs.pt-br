@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/09/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 55c85d95a16e0c0ea7bb11d6f47ae85aeb80577d
+ms.sourcegitcommit: 307ed83dc1f47bb86af4a476acbb51876012ff25
+ms.openlocfilehash: e4311a740ccb4cac2c1d6e7e1197a736d3a4a777
 
 
 ---
@@ -26,7 +26,7 @@ Este **menu** fornece links para os capítulos deste manual.
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 ## <a name="overview"></a>Visão geral
-Os supercomputadores foram retirados do laboratório e agora estão estacionados em nossa garagem! Esses automóveis de ponta contêm uma infinidade de sensores, dando-lhes a capacidade de acompanhar e monitorar milhões de eventos por segundo. Esperamos que até 2020, a maioria desses carros esteja conectada à Internet. Imagine-se explorando essa riqueza de dados para fornecer o melhor da segurança, confiabilidade e experiência de condução! A Microsoft tornou esse sonho uma realidade por meio do Cortana Intelligence.
+Os supercomputadores foram retirados do laboratório e agora estão estacionados em nossa garagem! Esses automóveis de ponta contêm uma infinidade de sensores, dando-lhes a capacidade de acompanhar e monitorar milhões de eventos por segundo. Esperamos que até 2020, a maioria desses carros esteja conectada à Internet. Imagine-se explorando essa riqueza de dados para fornecer maior segurança, confiabilidade e uma experiência melhor de condução! A Microsoft tornou esse sonho uma realidade por meio do Cortana Intelligence.
 
 O Cortana Intelligence da Microsoft é um pacote de análise avançada e de Big Data totalmente gerenciado que o habilita a transformar seus dados em ação inteligente. Gostaríamos de apresentar o Modelo de Solução de Análise de Telemetria do Veículo do Cortana Intelligence. Esta solução demonstra como concessionárias, fabricantes de automóveis e seguradoras podem usar os recursos do Cortana Intelligence para obter informações preditivas em tempo real sobre a integridade do veículo e hábitos de condução. 
 
@@ -41,10 +41,10 @@ A solução é implementada como um [padrão de arquitetura lambda](https://en.w
 * fornece essa solução a um painel avançado para os dados em tempo real e as visualizações da análise preditiva usando Power BI
 
 ## <a name="architecture"></a>Arquitetura
-![](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
+![Diagrama de arquitetura da solução](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 *Figura 1 – Arquitetura da Solução de Análise da Telemetria do Veículo*
 
-Essa solução inclui os seguintes **componentes do Cortana Intelligence** e apresenta sua integração de ponta a ponta
+Essa solução inclui os seguintes **componentes do Cortana Intelligence** e apresenta sua integração de ponta a ponta:
 
 * **Hubs de Eventos** para a ingestão de milhões de eventos de telemetria do veículo no Azure.
 * **Stream Analytics** para obter informações em tempo real sobre a integridade do veículo e persistir esses dados no armazenamento de longo prazo para uma análise de lote mais avançada.
@@ -61,6 +61,6 @@ Essa solução acessa duas **fontes de dados**diferentes:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

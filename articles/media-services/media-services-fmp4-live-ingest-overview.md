@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
-ms.author: cenkdin;juliako
+ms.date: 12/07/2016
+ms.author: cenkd;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d312fe973f0de2a17c9203ebcd6b8bae1cb14b0
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 307c9a377fce32c056a54d35f173efd1bafc4df5
 
 
 ---
@@ -32,11 +32,11 @@ O diagrama a seguir mostra a arquitetura de alto nível do serviço de transmiss
 1. O Codificador Dinâmico envia por push feeds dinâmicos para os Canais que são criados e provisionados pelo SDK dos Serviços de Mídia do Microsoft Azure.
 2. O ponto de extremidade de Canais, Programas e Streaming nos Serviços de Mídia do Microsoft Azure trata de todas as funcionalidades de transmissão ao vivo, incluindo ingestão, formatação, DVR na nuvem, segurança, escalabilidade e redundância.
 3. Se preferirem, os clientes podem optar por implantar uma camada CDN entre o ponto de extremidade do Streaming e os pontos de extremidade do cliente.
-4. Os pontos de extremidade do cliente transmitem do ponto de extremidade do Streaming usando protocolos de Streaming Adaptável HTTP (por exemplo, Streaming Suave, DASH, HDS ou HLS).
+4. Os pontos de extremidade do cliente transmitem do ponto de extremidade de Streaming usando protocolos de Streaming adaptável HTTP (por exemplo, Smooth Streaming, DASH ou HLS).
 
 ![image1][image1]
 
-## <a name="3-bit-stream-format-iso-14496-12-fragmented-mp4"></a>3. Formato de fluxo de bits – MP4 fragmentado ISO 14496-12
+## <a name="3-bit-stream-format--iso-14496-12-fragmented-mp4"></a>3. Formato de fluxo de bits – MP4 fragmentado ISO 14496-12
 O formato de conexão para ingestão de transmissão ao vivo que é abordado neste documento se baseia no [ISO-14496-12]. Consulte [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) para ver uma explicação detalhada do formato MP4 fragmentado e das extensões para arquivos de vídeo sob demanda e ingestão de transmissão ao vivo.
 
 ### <a name="live-ingest-format-definitions"></a>Definições de formato de ingestão ao vivo
@@ -46,12 +46,12 @@ Veja abaixo uma lista de definições de formato especial que se aplicam à inge
 2. A Seção 3.3.2 em [1] define uma caixa opcional chamada StreamManifestBox para ingestão dinâmica. Devido à lógica de roteamento do balanceador de carga do Microsoft Azure, o uso dessa caixa foi preterido e NÃO DEVE estar presente durante a ingestão no Serviço de Mídia do Microsoft Azure. Se essa caixa estiver presente, os Serviços de Mídia do Azure vai ignorá-la silenciosamente.
 3. O TrackFragmentExtendedHeaderBox definido na Seção 3.2.3.2 em [1] DEVE estar presente em cada fragmento.
 4. A versão 2 do TrackFragmentExtendedHeaderBox DEVE ser usada para gerar segmentos de mídia com URLs idênticas em vários datacenters. O campo do índice de fragmento é OBRIGATÓRIO para failover entre datacenters de formatos de streaming baseados em índice, como HTTP Live Streaming (HLS) da Apple e MPEG-DASH baseado em índice.  Para habilitar o failover entre datacenters, o índice de fragmento DEVE ser sincronizado em vários codificadores e aumentado em incrementos de 1 para cada fragmento de mídia sucessivo, mesmo entre reinícios ou falhas do codificador.
-5. A Seção 3.3.6 em [1] define a caixa chamada MovieFragmentRandomAccessBox (‘mfra’) que PODE ser enviada no fim da ingestão ao vivo para indicar o EOS (Fim do Fluxo) para o canal. Devido à lógica de ingestão dos Serviços de Mídia do Azure, o uso do EOS foi preterido e a caixa ‘mfra’ para ingestão dinâmica NÃO DEVE ser enviada. Se enviada, os Serviços de Mídia do Azure vão ignorá-la silenciosamente. É recomendável usar [Redefinir Canais](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) para redefinir o estado do ponto de ingestão, assim como é recomendável usar [Parar Programas](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) para encerrar uma apresentação e um fluxo.
+5. A Seção 3.3.6 em [1] define a caixa chamada MovieFragmentRandomAccessBox (‘mfra’) que PODE ser enviada no fim da ingestão ao vivo para indicar o EOS (Fim do Fluxo) para o canal. Devido à lógica de ingestão dos Serviços de Mídia do Azure, o uso do EOS foi preterido e a caixa ‘mfra’ para ingestão dinâmica NÃO DEVE ser enviada. Se enviada, os Serviços de Mídia do Azure vão ignorá-la silenciosamente. É recomendável usar [Redefinir Canais](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels) para redefinir o estado do ponto de ingestão, assim como é recomendável usar [Parar Programas](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) para encerrar uma apresentação e um fluxo.
 6. A duração do fragmento MP4 DEVE ser constante para reduzir o tamanho dos manifestos do cliente e aprimorar a heurística de download do cliente por meio do uso de marcas de repetição.  A duração PODE flutuar para compensar as taxas de quadro de números não inteiros.
 7. A duração do fragmento MP4 DEVE estar entre segundos 2 e 6 segundos, aproximadamente.
 8. Os carimbos de data/hora e índices do fragmento MP4 (TrackFragmentExtendedHeaderBox fragment_absolute_time e fragment_index) DEVEM chegar na ordem crescente.  Embora os Serviços de Mídia do Azure sejam resilientes a fragmentos duplicados, sua capacidade de reordenar os fragmentos de acordo com a linha do tempo da mídia é bastante limitada.
 
-## <a name="4-protocol-format-http"></a>4. Formato de protocolo – HTTP
+## <a name="4-protocol-format--http"></a>4. Formato de protocolo – HTTP
 A ingestão dinâmica com base no MP4 fragmentado ISO para Serviços de Mídia do Microsoft Azure usa uma solicitação HTTP POST padrão de longa execução para transmitir ao serviço dados de mídia codificados empacotados no formato MP4 fragmentado. Cada HTTP POST envia um fluxo de bits (“Fluxo”) MP4 fragmentado completo, começando do início com as caixas de cabeçalho ( caixa ‘ftyp’, “Live Server Manifest Box” e ‘moov’) e continuando com uma sequência de fragmentos (caixas ‘moof’ e ‘mdat’). Consulte a seção 9.2 em [1] para ver a sintaxe de URL da solicitação HTTP POST. Veja um exemplo de URL de POST: 
 
     http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
@@ -194,6 +194,6 @@ Veja abaixo uma implementação recomendada para faixas de áudio redundantes:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

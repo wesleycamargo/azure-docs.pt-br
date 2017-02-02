@@ -12,27 +12,36 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/15/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1a7f34989dce97f32bfbbbede9acd96a1dd58e14
+ms.sourcegitcommit: ea24ad915b3d6f5180182a454c03edc578f7b761
+ms.openlocfilehash: 3751d1a24684bbf9b7230eb3ab4827ee2ba52379
 
 
 ---
 # <a name="monitor-documentdb-requests-usage-and-storage"></a>Monitorar as solicitações, uso e armazenamento do Banco de Dados de Documentos
 Você pode monitorar as contas do seu DocumentDB no [portal do Azure](https://portal.azure.com/). Para cada conta do Banco de Dados de Documentos, tanto as métricas de desempenho (como as solicitações e erros de servidor) quanto as métricas de utilização (como consumo de armazenamento) estão disponíveis.
 
-As métricas podem ser examinadas na folha da Conta ou na nova folha de Métricas.
+As métricas podem ser examinadas na folha da Conta, na nova folha de Métricas o no Azure Monitor.
 
 ## <a name="view-performance-metrics-on-the-metrics-blade"></a>Visualizar métricas de desempenho na folha de Métricas
-1. Em uma nova janela, abra o [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, **DocumentDB (NoSQL)** e clique no nome da conta do DocumentDB cujas métricas de desempenho você deseja exibir.
-2. No menu de recursos, clique em **Métricas**.
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, role até **Bancos de Dados**, clique em **NoSQL (DocumentDB)** e, em seguida, clique no nome da conta do DocumentDB cujas métricas de desempenho você deseja exibir.
+2. No menu de recursos, em **Monitoramento**, clique em **Métricas**.
 
 A folha de Métricas é aberta e você pode selecionar a coleção para examinar. Você pode analisar as métricas de disponibilidade, solicitações, taxa de transferência e armazenamento e compará-las com os SLAs do DocumentDB.
 
+## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Exibir métricas de desempenho usando o Azure Monitor
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Monitorar** na barra de navegação.
+2. No menu de recursos, clique em **Métricas**.
+3. Na janela **Monitorar – Métricas**, no menu suspenso **Grupo de recursos**, selecione o grupo de recursos associado à conta DocumentDB que você deseja monitorar. 
+4. No menu suspenso **Recursos**, selecione a conta de banco de dados para monitorar.
+5. Na lista de **Métricas disponíveis**, selecione as métricas para exibir. Use o botão CTRL para selecionar várias métricas. 
+
+    As métricas são exibidas na janela **Plotar**. 
+
 ## <a name="view-performance-metrics-on-the-account-blade"></a>Visualizar métricas de desempenho na folha de contas
-1. Em uma nova janela, abra o [portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, **DocumentDB (NoSQL)** e clique no nome da conta do DocumentDB cujas métricas de desempenho você deseja exibir.
+1. No [Portal do Azure](https://portal.azure.com/), clique em **Mais Serviços**, role até **Bancos de Dados**, clique em **NoSQL (DocumentDB)** e, em seguida, clique no nome da conta do DocumentDB cujas métricas de desempenho você deseja exibir.
 2. A lente de **Monitoramento** exibe os seguintes blocos por padrão:
    
    * Solicitações totais para o dia de hoje.
@@ -41,7 +50,7 @@ A folha de Métricas é aberta e você pode selecionar a coleção para examinar
    Se sua tabela exibir **Não há dados disponíveis** e você acreditar que há dados no banco de dados, confira a seção [Solucionando problemas](#troubleshooting) .
    
    ![Captura de tela da lente de Monitoramento que mostra as solicitações e o uso de armazenamento](./media/documentdb-monitor-accounts/documentdb-total-requests-and-usage.png)
-3. Clicar no bloco **Solicitações** ou **Armazenamento** abre uma folha **Métrica** detalhada.
+3. Clicar no bloco **Solicitações** ou **Cota de Uso** abre uma folha detalhada de **Métrica**.
 4. A folha **Métrica** mostra detalhes das métricas que você selecionou.  Na parte superior da folha há um gráfico de solicitações por hora e, abaixo dele, há uma tabela que mostra os valores de agregação para solicitações limitadas e totais.  A folha Métrica também exibe a lista de alertas que foram definidos, filtrados para as métricas que aparecem na folha de métricas atual (desse modo, se você possui um determinado número de alertas, você verá apenas aqueles relevantes apresentados aqui).   
    
    ![Captura de tela da folha Métricas que inclui solicitações limitadas](./media/documentdb-monitor-accounts/documentdb-metric-blade.png)
@@ -118,6 +127,6 @@ Para saber mais sobre a capacidade do Banco de Dados de Documentos, consulte [Ge
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

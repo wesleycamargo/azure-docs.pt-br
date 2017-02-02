@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: antonba
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3016778f22597921f716cfcf7845c550d6d822d5
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 98e88b1c69de8732f1a4ae54c8ecd0b11a547f35
 
 
 ---
@@ -29,11 +29,11 @@ O suporte a VPN do Gerenciamento de API permite que você conecte seu gateway de
 > 
 
 ## <a name="enable-vpn"> </a>Habilitar conexões VPN
-> A conectividade VPN só está disponível nos tipos **Premium** e **Developer**. Para alternar para ela, abra o serviço Gerenciamento de API no [Portal Clássico do Azure][Portal Clássico do Azure] e, em seguida, abra a guia **Escala**. Na seção **Geral** , selecione a camada Premium e clique em Salvar.
+> A conectividade VPN só está disponível nos tipos **Premium** e **Developer**. Para mudar para ela, abra o serviço de Gerenciamento de API no [Portal Clássico do Azure][Azure Classic Portal] e, em seguida, abra a guia **Escala**. Na seção **Geral** , selecione a camada Premium e clique em Salvar.
 > 
 > 
 
-Para habilitar a conectividade VPN, abra o serviço Gerenciamento de API no [Portal Clássico do Azure][Portal Clássico do Azure] e alterne para a guia **Configurar**. 
+Para habilitar a conectividade VPN, abra o serviço de Gerenciamento de API no [Portal Clássico do Azure][Azure Classic Portal] e mude para a guia **Configurar**. 
 
 Na seção VPN, alterne o status de **Conexão VPN** para **Ativa**.
 
@@ -71,24 +71,24 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 O Gerenciamento de API depende de uma série de serviços do Azure. Quando uma instância do serviço de Gerenciamento de API é hospedada em uma rede virtual em que um servidor DNS personalizado é usado, precisa ser capaz de resolver nomes de host dos serviços do Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) orientações sobre a configuração de DNS personalizada.  
 
 ## <a name="related-content"> </a>Conteúdo relacionado
-* [Criar uma rede virtual com uma conexão VPN site a site usando o Portal Clássico do Azure][Criar uma rede virtual com uma conexão VPN site a site usando o Portal Clássico do Azure]
-* [Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure][Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure]
+* [Criar uma rede virtual com uma conexão VPN site a site usando o Portal Clássico do Azure][Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal]
+* [Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure][How to use the API Inspector to trace calls in Azure API Management]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-add-api.png
 
-[Habilitar conexões VPN]: #enable-vpn
-[Conectar a um serviço Web via VPN]: #connect-vpn
-[Conteúdo relacionado]: #related-content
+[Enable VPN connections]: #enable-vpn
+[Connect to a web service behind VPN]: #connect-vpn
+[Related content]: #related-content
 
-[Portal Clássico do Azure]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
-[Criar uma rede virtual com uma conexão VPN site a site usando o Portal Clássico do Azure]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
-[Como usar o Inspetor de API para rastrear chamadas no Gerenciamento de API do Azure]: api-management-howto-api-inspector.md
+[Create a virtual network with a site-to-site VPN connection using the Azure Classic Portal]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
+[How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

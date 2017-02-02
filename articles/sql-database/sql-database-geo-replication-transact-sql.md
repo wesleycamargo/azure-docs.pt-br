@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: d94d89a6-3234-46c5-8279-5eb8daad10ac
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,12 +16,12 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 702a01f7ea56e8af6286149bcb42590294cb618b
+ms.sourcegitcommit: 7b9803d7d0b4982dece276d6f5a7ec8293ce4361
+ms.openlocfilehash: 37725b1abe0ad13124b9206c9aa6fcf1185b6db4
 
 
 ---
-# <a name="configure-geo-replication-for-azure-sql-database-with-transact-sql"></a>Configurar a Replicação Geográfica para o Banco de Dados SQL do Azure com o Transact-SQL
+# <a name="configure-active-geo-replication-for-azure-sql-database-with-transact-sql"></a>Configurar a replicação geográfica ativa para o Banco de Dados SQL do Azure com o Transact-SQL
 > [!div class="op_single_selector"]
 > * [Visão geral](sql-database-geo-replication-overview.md)
 > * [Portal do Azure](sql-database-geo-replication-portal.md)
@@ -30,12 +30,12 @@ ms.openlocfilehash: 702a01f7ea56e8af6286149bcb42590294cb618b
 > 
 > 
 
-Este artigo mostra como configurar a Replicação Geográfica Ativa para um Banco de Dados SQL do Azure com o Transact-SQL.
+Este artigo mostra como configurar a replicação geográfica ativa para um Banco de Dados SQL do Azure com o Transact-SQL.
 
 Para iniciar o failover usando o Transact-SQL, veja [Iniciar um failover planejado ou não planejado para o Banco de Dados SQL do Azure com o Transact-SQL](sql-database-geo-replication-failover-transact-sql.md).
 
 > [!NOTE]
-> Replicação Geográfica Ativa (secundários legíveis) agora está disponível para todos os bancos de dados em todas as camadas de serviço. Em abril de 2017 o tipo de secundário não legível será descontinuado e bancos de dados não legíveis existentes serão automaticamente atualizados para secundários legíveis.
+> A replicação geográfica ativa (secundários legíveis) agora está disponível para todos os bancos de dados em todas as camadas de serviço. Em abril de 2017 o tipo de secundário não legível será descontinuado e bancos de dados não legíveis existentes serão automaticamente atualizados para secundários legíveis.
 > 
 > 
 
@@ -53,8 +53,8 @@ Para configurar a replicação geográfica ativa usando Transact-SQL, você prec
 > 
 
 ## <a name="add-secondary-database"></a>Adicionar banco de dados secundário
-Você pode usar a instrução **ALTER DATABASE** para criar um banco de dados secundário replicado geograficamente em um servidor parceiro. Você executa essa instrução no banco de dados mestre do servidor que contém o banco de dados a ser replicado. O banco de dados replicado geograficamente (o "banco de dados primário") terá o mesmo nome do banco de dados sendo replicado e, por padrão, terá o mesmo nível de serviço do banco de dados primário. O banco de dados secundário pode ser legível ou não legível, e pode ser um único banco de dados ou um banco de dados elástico. Para saber mais, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de Serviço](sql-database-service-tiers.md).
-Depois do banco de dados secundário ser criado e propagado, os dados começarão a replicação assíncrona a partir do banco de dados primário. As etapas a seguir descrevem como configurar a Replicação Geográfica usando o Management Studio. As etapas para criar secundários não legíveis e legíveis, com um banco de dados individual ou um banco de dados elástico, são fornecidas.
+Você pode usar a instrução **ALTER DATABASE** para criar um banco de dados secundário replicado geograficamente em um servidor parceiro. Você executa essa instrução no banco de dados mestre do servidor que contém o banco de dados a ser replicado. O banco de dados replicado geograficamente (o "banco de dados primário") terá o mesmo nome do banco de dados sendo replicado e, por padrão, terá o mesmo nível de serviço do banco de dados primário. O banco de dados secundário pode ser legível ou não legível e pode ser um banco de dados individual ou estar em um pool elástico. Para saber mais, confira [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) e [Camadas de Serviço](sql-database-service-tiers.md).
+Depois do banco de dados secundário ser criado e propagado, os dados começarão a replicação assíncrona a partir do banco de dados primário. As etapas a seguir descrevem como configurar a Replicação Geográfica usando o Management Studio. As etapas para criar secundários não legíveis e legíveis, seja como um banco de dados individual ou em um pool elástico, são fornecidas.
 
 > [!NOTE]
 > Se existir um banco de dados no servidor do parceiro especificado com o mesmo nome do banco de dados primário, o comando falhará.
@@ -88,8 +88,8 @@ Use as seguintes etapas para criar um secundário legível como um banco de dado
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
 4. Clique em **Execute** para executar a consulta.
 
-### <a name="add-non-readable-secondary-elastic-database"></a>Adicionar um secundário não legível (banco de dados elástico)
-Use as seguintes etapas para criar um secundário não legível como um banco de dados elástico.
+### <a name="add-non-readable-secondary-elastic-pool"></a>Adicionar um secundário não legível (pool elástico)
+Use as seguintes etapas para criar um secundário não legível em um pool elástico.
 
 1. No Management Studio, conecte seu servidor lógico do Banco de Dados SQL do Azure.
 2. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **mestre** e, em seguida, clique em **Nova Consulta**.
@@ -100,8 +100,8 @@ Use as seguintes etapas para criar um secundário não legível como um banco de
            , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 4. Clique em **Execute** para executar a consulta.
 
-### <a name="add-readable-secondary-elastic-database"></a>Adicionar um secundário legível (banco de dados elástico)
-Use as seguintes etapas para criar um secundário legível como um banco de dados elástico.
+### <a name="add-readable-secondary-elastic-pool"></a>Adicionar um secundário legível (pool elástico)
+Use as seguintes etapas para criar um secundário legível em um pool elástico.
 
 1. No Management Studio, conecte seu servidor lógico do Banco de Dados SQL do Azure.
 2. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **mestre** e, em seguida, clique em **Nova Consulta**.
@@ -125,10 +125,11 @@ Use as seguintes etapas para remover um secundário replicado geograficamente de
            REMOVE SECONDARY ON SERVER <MySecondaryServer1>;
 4. Clique em **Execute** para executar a consulta.
 
-## <a name="monitor-geo-replication-configuration-and-health"></a>Monitorar a configuração e a integridade da Replicação Geográfica
+## <a name="monitor-active-geo-replication-configuration-and-health"></a>Monitorar a configuração e a integridade da replicação geográfica ativa
+
 Monitorar as tarefas inclui o monitoramento da configuração de Replicação Geográfica e da integridade da replicação dos dados.  Você pode usar a exibição de gerenciamento dinâmica **sys.dm_geo_replication_links** no banco de dados mestre para retornar informações sobre todos os links de replicação existentes para cada banco de dados no servidor lógico do Banco de Dados SQL do Azure. Essa exibição contém uma linha para cada link de replicação entre os bancos de dados primários e secundários. Você pode usar a exibição de gerenciamento dinâmica **sys.dm_replication_link_status** para retornar uma linha para cada Banco de Dados SQL do Azure atualmente envolvido em um link de replicação. Isso inclui os bancos de dados primários e secundários. Se houver mais de um link de replicação contínua para um determinado banco de dados primário, essa tabela conterá uma linha para cada uma das relações. A exibição é criada em todos os bancos de dados, incluindo o mestre lógico. No entanto, consultar essa exibição no mestre lógico retorna um conjunto vazio. Você pode usar a exibição de gerenciamento dinâmica **sys.dm_operation_status** para mostrar o status de todas as operações do banco de dados, incluindo o status dos links de replicação. Para saber mais, confira [sys.geo_replication_links (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt575501.aspx), [sys.dm_geo_replication_link_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/mt575504.aspx) e [sys.dm_operation_status (Banco de Dados SQL do Azure)](https://msdn.microsoft.com/library/dn270022.aspx).
 
-Use as etapas a seguir para monitorar uma parceria de Replicação Geográfica.
+Use as etapas a seguir para monitorar uma parceria de replicação geográfica ativa.
 
 1. No Management Studio, conecte seu servidor lógico do Banco de Dados SQL do Azure.
 2. Abra a pasta Bancos de Dados, expanda a pasta **Bancos de Dados do Sistema**, clique com o botão direito do mouse em **mestre** e, em seguida, clique em **Nova Consulta**.
@@ -164,12 +165,12 @@ Em abril de 2017 o tipo de secundário não legível será descontinuado e banco
             ADD SECONDARY ON SERVER <MySecondaryServer> WITH (ALLOW_CONNECTIONS = ALL);
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre a Replicação Geográfica Ativa, consulte [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md)
+* Para saber mais sobre a replicação geográfica ativa, consulte [Replicação geográfica ativa](sql-database-geo-replication-overview.md)
 * Para obter uma visão geral e os cenários de continuidade dos negócios, confira [Visão geral da continuidade dos negócios](sql-database-business-continuity.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

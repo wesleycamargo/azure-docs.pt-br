@@ -15,8 +15,8 @@ ms.workload: required
 ms.date: 10/04/2016
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fcc939fc1a70e179f714e73bc5757ed750974f17
+ms.sourcegitcommit: dbc03f9951a5a76da98f4e3097c16cf373aaf146
+ms.openlocfilehash: b3fc83b83655f270be6bad08a99a99503aa14042
 
 
 ---
@@ -39,15 +39,15 @@ O proxy inverno do Service Fabric é executado em todos os nós no cluster. Ele 
 ![Comunicação interna][1]
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>Alcançar Microsserviços de fora do cluster
-O modelo de comunicação externa padrão para microsserviços é **aceitação**, em que cada serviço, por padrão, não pode ser acessado diretamente de clientes externos. O [Azure Load Balancer](../load-balancer/load-balancer-overview.md) é um limite de rede entre microsserviços e clientes externos, que executa a conversão de endereços de rede e encaminha as solicitações externas para pontos de extremidade de **IP: porta** internos. Para tornar o ponto de extremidade do microsserviço diretamente acessível para clientes externos, o Azure Load Balancer primeiro deve ser configurado para encaminhar o tráfego para cada porta usada pelo serviço do cluster. Além disso, a maioria dos microsserviços (especialmente microsserviços com estado) não vivemos em todos os nós do cluster e podem mover entre nós de failover, assim, nesses casos, o Azure Load Balancer não pode efetivamente determinar o nó de destino das réplicas estão localizadas para encaminhar o tráfego.
+O modelo de comunicação externa padrão para microsserviços é **aceitação**, em que cada serviço, por padrão, não pode ser acessado diretamente de clientes externos. O [Azure Load Balancer](../load-balancer/load-balancer-overview.md) é um limite de rede entre microsserviços e clientes externos, que executa a conversão de endereços de rede e encaminha as solicitações externas para pontos de extremidade de **IP: porta** internos. Para tornar o ponto de extremidade do microsserviço diretamente acessível para clientes externos, o Azure Load Balancer primeiro deve ser configurado para encaminhar o tráfego para cada porta usada pelo serviço do cluster. Além disso, a maioria dos microsserviços (especialmente microsserviços com estado) não vivem em todos os nós do cluster e podem se mover entre nós de failover, assim, nesses casos, o Azure Load Balancer não pode determinar efetivamente o nó de destino em que as réplicas estão localizadas para encaminhar o tráfego.
 
 ### <a name="reaching-microservices-via-the-sf-reverse-proxy-from-outside-the-cluster"></a>Acessar os Microsserviços por meio do proxy inverso do SF de fora do cluster
-Em vez de configurar portas de serviço individuais no Azure Load Balancer, apenas a porta de proxy inverso do SF pode ser configurada nele. Isso permite que clientes fora do cluster acessem serviços dentro do cluster por meio do proxy inverso sem configurações adicionais.
+Em vez de configurar portas de serviço individuais no Azure Load Balancer, apenas a porta de proxy inverso do SF pode ser configurada nele. Isso permite que clientes fora do cluster alcancem serviços dentro do cluster por meio do proxy reverso sem configurações adicionais.
 
 ![Comunicação externa][0]
 
 > [!WARNING]
-> Configurar a porta de proxy inverso no balanceador de carga faz com que todos os micosserviços no cluster que expor um ponto de extremidade http, como abordáveis fora do cluster.
+> Configurar a porta do proxy reverso no balanceador de carga faz com que todos os microsserviços no cluster que expõem um ponto de extremidade HTTP se tornem endereçáveis da parte externa do cluster.
 > 
 > 
 
@@ -58,7 +58,7 @@ O proxy Inverso usa um formato de URI específico para identificar para qual par
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
 ```
 
-* **http (s):** o proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. No caso de tráfego HTTPS, terminação SSL ocorre no proxy inverso. Solicitações que são encaminhadas pelo proxy inverso para serviços no cluster são por http.
+* **http (s):** o proxy inverso pode ser configurado para aceitar o tráfego HTTP ou HTTPS. No caso do tráfego HTTPS, a terminação SSL ocorre no proxy reverso. Solicitações que são encaminhadas pelo proxy inverso para serviços no cluster são por http. **Atualmente, não há suporte para serviços HTTPS.**
 * **FQDN do cluster | IP interno:** para clientes externos, o proxy reverso pode ser configurado para que seja acessível por meio do domínio do cluster (por exemplo, mycluster.eastus.cloudapp.azure.com). Por padrão, o proxy reverso é executado em cada nó, então para o tráfego interno, ele pode ser acessado no host local ou em qualquer nó interno de IP (por exemplo, 10.0.0.1).
 * **Porta:** a porta que foi especificada para o proxy inverso. Por exemplo, 19008.
 * **ServiceInstanceName:** esse é o nome da instância de serviço implantado totalmente qualificado do serviço que você está tentando acessar do esquema "fabric:/". Por exemplo, para alcançar o serviço *fabric:/myapp/myservice/*, você usaria *myapp/myservice*.
@@ -129,7 +129,7 @@ Esse cabeçalho de resposta HTTP indica uma situação de HTTP 404 normal em que
 ## <a name="setup-and-configuration"></a>Instalação e configuração
 O proxy inverso do Service Fabric pode ser habilitado para o cluster por meio do [modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
-Depois de obter o modelo do cluster que você deseja implantar (de modelos de exemplo ou criando um modelo do Resource Manager personalizado), o proxy inverso poderá ser habilitado no modelo ao seguir as etapas a seguir.
+Depois de obter o modelo do cluster que você deseja implantar (de modelos de exemplo ou criando um modelo do Resource Manager personalizado), o proxy reverso poderá ser habilitado no modelo por meio das seguintes etapas.
 
 1. Defina uma porta para o proxy inverso na [seção Parâmetros](../resource-group-authoring-templates.md) do modelo.
    
@@ -287,6 +287,6 @@ Depois de obter o modelo do cluster que você deseja implantar (de modelos de ex
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

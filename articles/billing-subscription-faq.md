@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 12/06/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: a38f4a1742748deb11967b9f06a4726e57963d92
+ms.sourcegitcommit: 7583a1c81802bdedabdb70c125aac536b879204d
+ms.openlocfilehash: 38531c1b3cb7c7de9b832b4fbedd8991f40e3424
 
 
 ---
@@ -145,7 +145,7 @@ Os Contratos de Nível de Serviço do Azure são independentes de nossos contrat
 Pode haver diversos motivos para isso:
 
 * Faz menos de 30 dias que você se inscreveu no Azure.
-* O tipo de assinatura é Avaliação Gratuita ou uma das ofertas de membro (MSDN/Open/BizSpark/DreamSpark) que não têm um cartão de crédito ou outro meio de pagamento associado a ele.
+* O tipo de assinatura é Avaliação Gratuita ou uma das ofertas de membro (crédito mensal para assinante do Visual Studio/Open/BizSpark/Imagine) que não têm um cartão de crédito ou outro meio de pagamento associado a ele.
 * A data de geração da fatura ainda não chegou.
 
 ### <a name="i-am-unable-to-log-in-to-the-azure-portal"></a>Não consigo fazer logon no portal do Azure
@@ -195,7 +195,7 @@ Contate o [suporte do Azure](https://azure.microsoft.com/support/options/) para 
 O RBAC (controle de acesso baseado em função) do Azure permite o gerenciamento de acesso refinado para o Azure. Com o RBAC, você pode separar as tarefas dentro de sua equipe de operação de desenvolvimento e conceder somente a quantidade de acesso que os usuários precisam para realizar seus trabalhos. Para saber mais, confira [Controle de acesso baseado em função no Azure](active-directory/role-based-access-control-configure.md).
 
 ### <a name="how-do-i-transfer-ownership-of-my-subscriptions"></a>Como faço para transferir a propriedade das minhas assinaturas?
-Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure, para assinaturas pré-pagas, do MSDN, Action Pack ou BizSpark. Adicionamos a capacidade de transferir sua assinatura para outro usuário. Em outras palavras, agora você pode alterar o administrador da conta em qualquer assinatura pré-paga, do MSDN, Action Pack ou BizSpark que você possuir. Observe que a conta de usuário do destinatário deve estar no mesmo país e que não é possível transferir as assinaturas que estão associadas a uma compra no marketplace.
+Agora você pode fazer isso facilmente no Centro de Contas do Microsoft Azure para crédito mensal pré-pago para assinantes do Visual Studio ou assinaturas do Microsoft Partner Network ou BizSpark. Adicionamos a capacidade de transferir sua assinatura para outro usuário. Em outras palavras, agora você pode alterar o administrador da conta em qualquer crédito mensal pré-pago para assinantes do Visual Studio ou assinaturas do Microsoft Partner Network ou BizSpark que você possui. Observe que a conta de usuário do destinatário deve estar no mesmo país e que não é possível transferir as assinaturas que estão associadas a uma compra no marketplace.
 Para obter detalhes, confira o artigo [Transferindo a propriedade de uma assinatura do Azure](billing-subscription-transfer.md).
 
 ### <a name="can-i-use-my-existing-windows-licenses-that-i-bought-outside-of-azure"></a>Posso usar minhas licenças existentes do Windows que comprei fora do Azure?
@@ -242,14 +242,14 @@ Para exibir e editar as informações de conta do Azure, você deve entrar no Ce
 O Azure destina-se a ser usado por empresas para compilar aplicativos e serviços de escala de nuvem. No entanto, qualquer pessoa pode adquirir serviços do Azure.
 
 ### <a name="can-i-try-azure-for-free-without-any-risk-of-being-charged"></a>Posso experimentar o Azure gratuitamente sem nenhum risco de ser cobrado?
-Sim. Com o nosso [recurso Limite de Gastos](https://azure.microsoft.com/pricing/spending-limits/), os clientes que assinam a oferta Avaliação Gratuita, MSDN, MPN ou BizSpark podem utilizar o Azure sem ser cobrados, desde que mantenham ativado o recurso Limite de Gastos. Todos os novos clientes que se inscreverem para essas ofertas terão o Limite de Gastos ativado com um valor de $0.
+Sim. Com o nosso [recurso de Limite de Gastos](https://azure.microsoft.com/pricing/spending-limits/), os clientes que assinam a oferta de Avaliação Gratuita, crédito mensal para assinantes do Visual Studio, Microsoft Partner Network ou BizSpark podem utilizar o Azure sem cobranças, desde que mantenham o recurso de Limite de Gastos ativado. Todos os novos clientes que se inscreverem para essas ofertas terão o Limite de Gastos ativado com um valor de $0.
 
 ### <a name="can-i-turn-the-spending-limit-back-on-if-i-turn-off-it"></a>Se eu habilitar o Limite de Gastos, posso habilitá-lo novamente?
-Para aqueles em nossas ofertas de benefícios para membros ( por exemplo, MSDN), você terá o recurso Limite de Gastos habilitado novamente no início de seu próximo ciclo de cobrança. O Limite de Gastos não pode ser habilitado novamente para o período de cobrança atual quando for desligado.
+Para aqueles que usam nossas ofertas de benefícios para membros (por exemplo, crédito mensal para assinantes do Visual Studio), você terá o recurso de Limite de Gastos habilitado novamente no início de seu próximo ciclo de cobrança. O Limite de Gastos não pode ser habilitado novamente para o período de cobrança atual quando for desligado.
 Para saber mais, consulte [Alterar o Limite de Gastos do Azure](https://msdn.microsoft.com/library/azure/dn465781.aspx).
 
 ### <a name="can-i-adjust-the-amount-of-the-spending-limit"></a>Posso ajustar o valor do Limite de Gastos?
-Na versão inicial desse recurso, o Limite de Gastos foi definido como R$ 0 e não pode ser ajustado. Ele foi desenvolvido para permitir que os clientes em nossas ofertas de Avaliação Gratuita, MSDN, MPN ou BizSpark possam utilizar o Azure com garantia total de não serem cobrados.
+Na versão inicial desse recurso, o Limite de Gastos foi definido como R$ 0 e não pode ser ajustado. Ele foi desenvolvido para permitir que os clientes em nossas ofertas de Avaliação Gratuita, crédito mensal para assinantes do Visual Studio, Microsoft Partner Network ou BizSpark possam utilizar o Azure com garantia total de não serem cobrados.
 Para saber mais, confira [Limite de Gastos do Azure](https://azure.microsoft.com/pricing/spending-limits/).
 
 ### <a name="in-which-countries-and-regions-is-microsoft-azure-commercially-available-and-what-currencies-can-be-used-to-purchase-azure"></a>Em quais países e regiões o Microsoft Azure está disponível comercialmente e quais moedas podem ser usadas para comprar o Azure?
@@ -297,6 +297,6 @@ Se a sua configuração for usar um [modo de pagamento de fatura](https://azure.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

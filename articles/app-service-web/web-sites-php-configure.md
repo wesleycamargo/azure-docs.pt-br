@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/16/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ece7ee4f0235f5677e03526cef8935809770cd93
+ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
+ms.openlocfilehash: 402670a16b5dabc653c943737abdf2621db6a50b
 
 
 ---
@@ -48,10 +48,10 @@ Versões 5.5 e 5.6 do PHP também estão disponíveis, mas não são habilitadas
         PS C:\> Login-AzureRmAccount
 2. Defina a versão PHP do aplicativo Web.
    
-        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+        PS C:\> Set-AzureWebsite -PhpVersion {5.4 | 5.5 | 5.6} -Name {app-name}
 3. A versão do PHP agora está definida. Você pode confirmar essas configurações:
    
-        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
+        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
 ### <a name="azure-command-line-interface-linux-mac-windows"></a>Interface de linha de comando do Azure (Linux, Mac, Windows)
 Para usar a Interface de Linha de Comando do Azure, é necessário ter **Node.js** instalado no computador.
@@ -61,10 +61,20 @@ Para usar a Interface de Linha de Comando do Azure, é necessário ter **Node.js
         azure login
 2. Defina a versão PHP do aplicativo Web.
    
-        azure site set --php-version [5.4 | 5.5] {site-name}
+        azure site set --php-version {5.4 | 5.5 | 5.6} {app-name}
+
 3. A versão do PHP agora está definida. Você pode confirmar essas configurações:
    
-        azure site show {site-name}
+        azure site show {app-name}
+
+> [!NOTE] 
+> Os comandos da [CLI 2.0 do Azure (Visualização)](https://github.com/Azure/azure-cli) equivalentes aos mencionados acima são:
+>
+>
+
+    az login
+    az appservice web config update --php-version {5.5 | 5.6 | 7.0} -g {resource-group-name} -n {app-name}
+    az appservice web config show -g {resource-group-name} -n {app-name}
 
 ## <a name="how-to-change-the-built-in-php-configurations"></a>Como: alterar as configurações internas do PHP
 Para qualquer tempo de execução interno do PHP, é possível alterar qualquer uma das opções de configuração seguindo as etapas abaixo. (Para obter informações sobre diretrizes de php. ini, consulte [Lista de diretrizes de php. ini].)
@@ -197,6 +207,6 @@ Para obter mais informações, veja o [Centro de Desenvolvimento PHP](/develop/p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

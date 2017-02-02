@@ -12,23 +12,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2016
+ms.date: 12/20/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: f1d7df6163336cd66600dc22ff72a2bc1f29a1d5
-ms.openlocfilehash: 138ac79846a2e7d0ae4af59ce13b6d36cce05047
+ms.sourcegitcommit: 55c988bf74ff0f2e519e895a735dc68f3dc99855
+ms.openlocfilehash: e2deed13106db9467eef181f25a0a226034df5a2
 
 ---
 
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Enviar dados para um índice do Azure Search usando o Azure Data Factory
 Este artigo descreve como usar a atividade de cópia para enviar dados por push de um armazenamento de dados local compatível com o serviço Data Factory ao índice do Azure Search. Armazenamentos de dados de origem com suporte listados na coluna de origem a [fontes e coletores com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabela. Este artigo se baseia no artigo de [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral de movimentação de dados com a Atividade de Cópia e combinações de armazenamentos de dados com suporte.
 
-Atualmente, o Azure Data Factory dá suporte apenas à movimentação de dados para o Azure Search de [armazenamentos de dados de origem local com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Ele não dá suporte à movimentação de dados do Azure Search para outros armazenamentos de dados.
-
 ## <a name="enabling-connectivity"></a>Habilitando a conectividade
-Para permitir que o serviço se conecte a um armazenamento de dados local do Data Factory, instale o Gateway de Gerenciamento de Dados em seu ambiente local. Você pode instalar o gateway na mesma máquina que hospeda o banco de dados ou em uma máquina separada para evitar a concorrência por recursos com o armazenamento de dados. 
+Para permitir que o serviço se conecte a um armazenamento de dados local do Data Factory, instale o Gateway de Gerenciamento de Dados em seu ambiente local. Você pode instalar o gateway na mesma máquina que hospeda o banco de dados ou em uma máquina separada para evitar a concorrência por recursos com o armazenamento de dados.
 
-O Gateway de Gerenciamento de Dados conecta fontes de dados locais a serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre o Gateway de Gerenciamento de Dados. 
+O Gateway de Gerenciamento de Dados conecta fontes de dados locais a serviços de nuvem de maneira segura e gerenciada. Consulte o artigo [Mover dados entre local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter detalhes sobre o Gateway de Gerenciamento de Dados.
 
 ## <a name="copy-data-wizard"></a>Assistente para Copiar Dados
 A maneira mais fácil de criar um pipeline que copie dados para o Azure Search de qualquer um dos armazenamentos de dados com suporte é usar o assistente para Copiar Dados. Veja o [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para obter um passo a passo rápido.
@@ -45,14 +43,14 @@ O exemplo a seguir mostra:
 4.  Um [conjunto de dados](data-factory-create-datasets.md) de saída do tipo [AzureSearchIndex](#azure-search-index-dataset-properties).
 4.  Um [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que usa [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) e [AzureSearchIndexSink](#azure-search-index-sink-properties).
 
-O exemplo copia dados de série temporal de um banco de dados do SQL Server local para um índice do Azure Search por hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos. 
+O exemplo copia dados de série temporal de um banco de dados do SQL Server local para um índice do Azure Search por hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
 Como uma primeira etapa, configure o gateway de gerenciamento de dados em seu computador local. As instruções estão no artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) .
 
 **Serviço vinculado ao Azure Search:**
 
 ```JSON
-{   
+{
     "name": "AzureSearchLinkedService",
     "properties": {
         "type": "AzureSearch",
@@ -182,6 +180,19 @@ O pipeline contém uma Atividade de Cópia que está configurada para usar os co
 }
 ```
 
+Se você estiver copiando dados de um armazenamento de dados de nuvem para o Azure Search, a propriedade `executionLocation` será necessária. Abaixo está a alteração necessária em Copiar atividade `typeProperties` como exemplo. Verifique a seção [Copiar dados entre armazenamentos de dados de nuvem](data-factory-data-movement-activities.md#global) para obter mais detalhes e valores com suporte.
+
+```JSON
+"typeProperties": {
+  "source": {
+    "type": "BlobSource"
+  },
+  "sink": {
+    "type": "AzureSearchIndexSink"
+  },
+  "executionLocation": "West US"
+}
+```
 
 ## <a name="azure-search-linked-service-properties"></a>Propriedades do serviço vinculado Azure Search
 
@@ -210,7 +221,7 @@ Na Atividade de Cópia, quando a fonte é do tipo **AzureSearchIndexSink**, as s
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).| Merge (padrão)<br/>Carregar| Não | 
+| WriteBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).| Merge (padrão)<br/>Carregar| Não |
 | WriteBatchSize | Carrega dados para o índice do Azure Search quando o tamanho do buffer atinge writeBatchSize. Veja a [propriedade WriteBatchSize](#writebatchsize-property) para obter detalhes. | 1 a 1.000. O valor padrão é 1000. | Não |
 
 ### <a name="writebehavior-property"></a>Propriedade WriteBehavior
@@ -226,22 +237,37 @@ O comportamento padrão é **Mesclar**.
 ### <a name="writebatchsize-property"></a>Propriedade WriteBatchSize
 O serviço de Azure Search oferece suporte a escrever documentos como um lote. Um lote pode conter de 1 a 1.000 ações. Uma ação manipula um documento para executar a operação de carregamento/mesclagem.
 
-### <a name="data-type-support"></a>Suporte ao tipo de dados 
-A tabela a seguir especifica se um tipo de dados do Azure Search tem suporte ou não. 
+### <a name="data-type-support"></a>Suporte ao tipo de dados
+A tabela a seguir especifica se um tipo de dados do Azure Search tem suporte ou não.
 
 | Tipo de dados do Azure Search | Suporte no coletor do Azure Search |
 | ---------------------- | ------------------------------ |
-| Cadeia de caracteres | S | 
+| Cadeia de caracteres | S |
 | Int32 | S |
 | Int64 | S |
 | Duplo | S |
 | Booliano | S |
-| DataTimeOffset | S | 
-| Matriz de cadeia de caracteres | N | 
+| DataTimeOffset | S |
+| Matriz de cadeia de caracteres | N |
 | GeographyPoint | N |
 
+## <a name="copy-from-a-cloud-source"></a>Copiar de uma origem de nuvem
+Se você estiver copiando dados de um armazenamento de dados de nuvem para o Azure Search, a propriedade `executionLocation` será necessária. Abaixo está a alteração necessária em Copiar atividade `typeProperties` como exemplo. Verifique a seção [Copiar dados entre armazenamentos de dados de nuvem](data-factory-data-movement-activities.md#global) para obter mais detalhes e valores com suporte.
+
+```JSON
+"typeProperties": {
+  "source": {
+    "type": "BlobSource"
+  },
+  "sink": {
+    "type": "AzureSearchIndexSink"
+  },
+  "executionLocation": "West US"
+}
+```
+
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especifica a definição de estrutura para conjuntos de dados retangulares
-A seção de estrutura em conjuntos de dados JSON é uma seção **opvional** para tabelas retangulares (com linhas e colunas) e contém uma coleção de colunas para a tabela. Use a seção de estrutura tanto para fornecer informações de tipo para conversões de tipo quanto para fazer mapeamentos de coluna. As seções a seguir descrevem esses recursos detalhadamente. 
+A seção de estrutura em conjuntos de dados JSON é uma seção **opvional** para tabelas retangulares (com linhas e colunas) e contém uma coleção de colunas para a tabela. Use a seção de estrutura tanto para fornecer informações de tipo para conversões de tipo quanto para fazer mapeamentos de coluna. As seções a seguir descrevem esses recursos detalhadamente.
 
 Cada coluna contém as seguintes propriedades:
 
@@ -255,7 +281,7 @@ Cada coluna contém as seguintes propriedades:
 O exemplo a seguir mostra a seção da estrutura JSON para uma tabela que tem três colunas `userid`, `name` e `lastlogindate`.
 
 ```JSON
-"structure": 
+"structure":
 [
     { "name": "userid"},
     { "name": "name"},
@@ -264,27 +290,27 @@ O exemplo a seguir mostra a seção da estrutura JSON para uma tabela que tem tr
 ```
 Use as diretrizes a seguir referentes a quando incluir informações de "estrutura" e o que incluir na seção **estrutura**.
 
-- **Para fontes de dados estruturados** que armazenam as informações sobre o esquema e o tipo junto com os dados em si (por exemplo: SQL Server, Oracle, tabela do Azure etc.): especifique a seção "estrutura" apenas se quiser mapear colunas de origem específicas para colunas específicas no coletor e seus nomes não são iguais. Consulte detalhes na seção de mapeamento de coluna. 
+- **Para fontes de dados estruturados** que armazenam as informações sobre o esquema e o tipo junto com os dados em si (por exemplo: SQL Server, Oracle, tabela do Azure etc.): especifique a seção "estrutura" apenas se quiser mapear colunas de origem específicas para colunas específicas no coletor e seus nomes não são iguais. Consulte detalhes na seção de mapeamento de coluna.
 
     Como mencionado acima, as informações de tipo são opcionais na seção "estrutura". Para fontes estruturadas, as informações de tipo estão disponíveis como parte da definição de conjunto de dados no repositório de dados, portanto, você não deve incluir informações de tipo quando você incluir a seção "estrutura".
 - **Para esquema de fontes de dados de leitura (especificamente o blob do Azure)** , você pode optar por armazenar os dados sem armazenar nenhuma informação de tipo ou esquema juntamente com esses dados. Para esses tipos de fontes de dados, você deve incluir "estrutura" nos dois casos a seguir:
     - Mapeie colunas de origem para colunas de coletor.
     - Quando o conjunto de dados é uma fonte em uma atividade de cópia, você pode fornecer informações de tipo em "estrutura". O Data Factory usa essas informações de tipo para conversão em tipos nativos para o coletor. Para saber mais, veja [Mover dados de e para o Blob do Azure](data-factory-azure-blob-connector.md).
 
-### <a name="supported-net-based-types"></a>Tipos baseados em .NET para os quais há suporte 
+### <a name="supported-net-based-types"></a>Tipos baseados em .NET para os quais há suporte
 O Data Factory dá suporte aos valores de tipo baseados em .NET compatíveis com CLS a seguir, para fornecer informações de tipo em "estrutura" para esquema de fontes de dados de leitura, como blob do Azure.
 
 - Int16
-- Int32 
+- Int32
 - Int64
 - Single
 - Duplo
 - Decimal
 - Bool
-- string 
+- string
 - Datetime
 - Datetimeoffset
-- Timespan 
+- Timespan
 
 Para Datetime e Datetimeoffset, você também pode especificar as cadeias de caracteres para "cultura" e "formato" para facilitar a análise de sua cadeia de caracteres Datetime personalizada. Consulte o exemplo de conversão de tipo na seção a seguir:
 
@@ -298,12 +324,12 @@ Para Datetime e Datetimeoffset, você também pode especificar as cadeias de car
 Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-activity-performance.md) para saber mais sobre os principais fatores que afetam o desempenho e a movimentação dos dados (Atividade de Cópia), além de várias maneiras de otimizar.
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira os seguintes artigos: 
+Confira os seguintes artigos:
 
-* [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criação de um pipeline com uma Atividade de cópia. 
+* [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criação de um pipeline com uma Atividade de cópia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

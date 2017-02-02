@@ -1,12 +1,12 @@
 ---
-title: Substituindo o comportamento HTTP padrão na CDN do Azure usando o mecanismo de regras | Microsoft Docs
-description: O mecanismo de regras permite que você personalize a forma como as solicitações HTTP são manipuladas pela CDN do Azure, como o bloqueio da entrega de certos tipos de conteúdo, definição de uma política de cache e modificação dos cabeçalhos HTTP.
+title: "Substituir o comportamento HTTP padrão usando o Mecanismo de Regras da CDN (Rede de Distribuição de Conteúdo) do Azure | Microsoft Docs"
+description: "O mecanismo de regras permite que você personalize a forma como as solicitações HTTP são manipuladas pela CDN do Azure, como o bloqueio da entrega de certos tipos de conteúdo, definição de uma política de cache e modificação dos cabeçalhos HTTP."
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,16 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
+ms.openlocfilehash: 41e17c4aeda48c1ff7db1206bf52bb709b109bea
+
 
 ---
-# Substituir o comportamento HTTP padrão usando o mecanismo de regras
+# <a name="override-default-http-behavior-using-the-azure-content-delivery-network-cdn-rules-engine"></a>Substituir o comportamento HTTP padrão usando o Mecanismo de Regras da CDN (Rede de Distribuição de Conteúdo) do Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## Visão geral
-O mecanismo de regras permite personalizar a forma como as solicitações HTTP são manipuladas, como o bloqueio de entrega de alguns tipos de conteúdo, definição de uma política de caching e modificação dos cabeçalhos HTTP. Este tutorial demonstrará a criação de uma regra que irá alterar o comportamento de caching dos ativos da CDN. Também há conteúdo de vídeo disponível na seção "[Veja também](#see-also)".
+## <a name="overview"></a>Visão geral
+O mecanismo de regras permite personalizar a forma como as solicitações HTTP são manipuladas, como o bloqueio de entrega de alguns tipos de conteúdo, definição de uma política de caching e modificação dos cabeçalhos HTTP.  Este tutorial demonstrará a criação de uma regra que irá alterar o comportamento de caching dos ativos da CDN.  Também há conteúdo de vídeo disponível na seção "[Veja também](#see-also)".
 
-## Tutorial
-1. Na folha do perfil CDN, clique no botão **Gerenciar**.
+   > [!TIP] 
+   > Para obter uma referência para a sintaxe em detalhes, consulte [Referência do Mecanismo de Regras](cdn-rules-engine-reference.md).
+   > 
+
+
+## <a name="tutorial"></a>Tutorial
+1. Na folha do perfil CDN, clique no botão **Gerenciar** .
    
     ![botão gerenciar da folha Perfil CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
@@ -38,36 +47,46 @@ O mecanismo de regras permite personalizar a forma como as solicitações HTTP s
    > A ordem na qual são listadas várias regras afeta como elas são manipuladas. Uma regra subsequente poderá substituir as ações especificadas por uma regra anterior.
    > 
    > 
-3. Insira um nome na caixa de texto **Nome/Descrição**.
-4. Identifique o tipo de solicitações às quais a regra será aplicada. Por padrão, a condição de correspondência **Sempre** é selecionada. Você usará **Sempre** para este tutorial; portanto, deixe essa opção marcada.
+3. Insira um nome na caixa de texto **Nome/Descrição** .
+4. Identifique o tipo de solicitações às quais a regra será aplicada.  Por padrão, a condição de correspondência **Sempre** é selecionada.  Você usará **Sempre** para este tutorial; portanto, deixe essa opção marcada.
    
-    ![Condição de correspondência CDN](./media/cdn-rules-engine/cdn-request-type.png)
+   ![Condição de correspondência CDN](./media/cdn-rules-engine/cdn-request-type.png)
    
    > [!TIP]
-   > Há vários tipos de condições de correspondência disponíveis no menu suspenso. Clicar no ícone de informação azul à esquerda da condição de correspondência explicará a condição atualmente selecionada em detalhes.
+   > Há vários tipos de condições de correspondência disponíveis no menu suspenso.  Clicar no ícone de informação azul à esquerda da condição de correspondência explicará a condição atualmente selecionada em detalhes.
    > 
-   > Para obter a lista completa de condições de correspondência em detalhes, veja [Detalhes de recursos e condição de correspondência do mecanismo de regras](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_0).
+   >  Para obter a lista completa de expressões condicionais em detalhes, consulte [Expressões condicionais do Mecanismo de regras](cdn-rules-engine-reference-match-conditions.md).
+   >  
+   > Para obter a lista completa de condições de correspondência em detalhes, veja [Condições de correspondência do Mecanismo de regras](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-5. Clique no botão **+** próximo aos **Recursos** para adicionar um novo recurso. Na lista suspensa à esquerda, selecione **Force Internal Max-Age**. Na caixa de texto que aparece, digite **300**. Mantenha os valores padrão restantes.
+5. Clique no botão **+** próximo aos **Recursos** para adicionar um novo recurso.  Na lista suspensa à esquerda, selecione **Force Internal Max-Age**.  Na caixa de texto que aparece, digite **300**.  Mantenha os valores padrão restantes.
    
    ![Recurso CDN](./media/cdn-rules-engine/cdn-new-feature.png)
    
    > [!NOTE]
-   > Assim como ocorre com condições de correspondência, clicando no ícone de informação azul à esquerda do novo recurso para exibir detalhes sobre esse recurso. No caso de **Force Internal Max-Age**, estamos substituindo os cabeçalhos **Cache-Control** e **Expires** do ativo para controlar quando o nó de borda da CDN atualizará o ativo da origem. Nosso exemplo de 300 segundos significa que o nó de borda da CDN armazenará em cache o ativo por 5 minutos antes de atualizar o ativo de sua origem.
+   > Assim como ocorre com condições de correspondência, clicando no ícone de informação azul à esquerda do novo recurso para exibir detalhes sobre esse recurso.  No caso de **Force Internal Max-Age**, estamos substituindo os cabeçalhos **Cache-Control** e **Expires** do ativo para controlar quando o nó de borda da CDN atualizará o ativo da origem.  Nosso exemplo de 300 segundos significa que o nó de borda da CDN armazenará em cache o ativo por 5 minutos antes de atualizar o ativo de sua origem.
    > 
-   > Para obter a lista completa de recursos em detalhes, veja [Detalhes de recursos e condição de correspondência do mecanismo de regras](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1).
+   > Para obter a lista completa de recursos em detalhes, veja [Detalhes de recursos do Mecanismo de regras](cdn-rules-engine-reference-features.md).
    > 
    > 
-6. Clique no botão **Adicionar** para salvar a nova regra. A nova regra agora está aguardando aprovação. Depois de aprovado, o status será alterado de **XML Pendente** para **XML Ativo**.
+6. Clique no botão **Adicionar** para salvar a nova regra.  A nova regra agora está aguardando aprovação. Depois de aprovado, o status será alterado de **XML Pendente** para **XML Ativo**.
    
    > [!IMPORTANT]
    > Alterações de regras podem levar até 90 minutos para propagar por meio da CDN.
    > 
    > 
 
-## Consulte também
+## <a name="see-also"></a>Consulte também
+* [Visão geral da CDN do Azure](cdn-overview.md)
+* [Referência do Mecanismo de Regras](cdn-rules-engine-reference.md)
+* [Condições de correspondência do Mecanismo de regras](cdn-rules-engine-reference-match-conditions.md)
+* [Expressões condicionais do Mecanismo de regras](cdn-rules-engine-reference-conditional-expressions.md)
+* [Recursos do Mecanismo de regras](cdn-rules-engine-reference-features.md)
+* [Substituindo o comportamento HTTP padrão usando o mecanismo de regras](cdn-rules-engine.md)
 * [Azure Fridays: novos recursos Premium poderosos do Azure CDN](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)
-* [Condição de correspondência do mecanismo de regras e detalhes do recurso](https://msdn.microsoft.com/library/mt757336.aspx)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Dec16_HO3-->
+
+

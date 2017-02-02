@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: a425de26cacc9525d0dc9a6842b5060f8c37a462
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 2c19472c93d097f29692af18063404f3bf28b6bd
 
 
 ---
-# <a name="designing-your-network-infrastructure-for-disaster-recovery"></a>Criando sua infraestrutura de rede para a recuperação de desastres
+# <a name="designing-your-network-for-disaster-recovery"></a>Projetar sua rede para recuperação de desastre
 Este artigo é direcionado a profissionais de TI que são responsáveis pela arquitetura, implementação e suporte para a infraestrutura da continuidade de negócios e recuperação de desastres (BCDR), e que desejam aproveitar o Microsoft Azure Site Recovery (ASR) para dar suporte e fortalecer seus serviços BCDR. Este documento analisa as considerações práticas para a implantação do servidor do System Center Virtual Machine Manager, os prós e contras das sub-redes ampliadas vs. o  failover da sub-rede e como estruturar a recuperação de desastres para os sites virtuais no Microsoft Azure.
 
 ## <a name="overview"></a>Visão geral
@@ -83,9 +83,8 @@ Se o site secundário está no local e você está usando um servidor VMM para g
 
 ![Manter o endereço IP](./media/site-recovery-network-design/network-design4.png)
 
-Figura 5
 
-A Figura 5 mostra as configurações do TCP/IP de Failover para a máquina virtual de réplica (no console do Hyper-V). Essas configurações seriam preenchidas antes da máquina virtual ser iniciada após um failover
+A figura acima mostra as configurações do TCP/IP de Failover para a máquina virtual de réplica (no console do Hyper-V). Essas configurações seriam preenchidas antes da máquina virtual ser iniciada após um failover
 
 Se o mesmo IP não estiver disponível, o ASR alocará outro endereço IP disponível a partir do pool de endereços IP definido.
 
@@ -137,15 +136,13 @@ Vejamos o cenário no qual você planeja usar diferentes IPs nos sites primário
 
 ![IP diferente - antes do failover](./media/site-recovery-network-design/network-design10.png)
 
-Figura 11
 
-Na Figura 11, há alguns aplicativos hospedados na sub-rede 192.168.1.0/24 no site primário e eles foram configurados para aparecerem no site de recuperação na sub-rede 172.16.1.0/24 após um failover. Rotas de rede/conexões de VPN foram configuradas corretamente para que todos os três sites possam acessar um ao outro.
+Na figura acima, há alguns aplicativos hospedados na sub-rede 192.168.1.0/24 no site primário e eles foram configurados para aparecerem no site de recuperação na sub-rede 172.16.1.0/24 após um failover. Rotas de rede/conexões de VPN foram configuradas corretamente para que todos os três sites possam acessar um ao outro.
 
-Como a Figura 12 mostra, depois do failover de um ou mais aplicativos, eles serão restaurados na sub-rede de recuperação. Nesse caso, não estamos restritos ao failover na sub-rede inteira ao mesmo tempo. Nenhuma alteração é necessária para reconfigurar a VPN nem as rotas da rede. Um failover e algumas atualizações DNS manterão os aplicativos acessíveis. Se o DNS for configurado para permitir atualizações dinâmicas, então, as máquinas virtuais se registrarão usando o novo IP assim que iniciarem após um failover.
+Como mostrado na figura abaixo, após o failover de um ou mais aplicativos, eles serão restaurados na sub-rede de recuperação. Nesse caso, não estamos restritos ao failover na sub-rede inteira ao mesmo tempo. Nenhuma alteração é necessária para reconfigurar a VPN nem as rotas da rede. Um failover e algumas atualizações DNS manterão os aplicativos acessíveis. Se o DNS for configurado para permitir atualizações dinâmicas, então, as máquinas virtuais se registrarão usando o novo IP assim que iniciarem após um failover.
 
 ![IP diferente - após o failover](./media/site-recovery-network-design/network-design11.png)
 
-Figura 12
 
 Após o failover, a máquina virtual de réplica pode ter um endereço IP que não é igual ao endereço IP da máquina virtual primária. As máquinas virtuais atualizarão o servidor DNS que estiverem usando depois que forem iniciadas. As entradas DNS normalmente precisam ser alteradas ou liberadas em toda a rede e as entradas em cache nas tabelas de rede precisam ser atualizadas ou liberadas, portanto, não é incomum enfrentar tempo de inatividade enquanto ocorrem essas alterações de estado. Esse problema pode ser reduzido:
 
@@ -162,7 +159,7 @@ Após o failover, a máquina virtual de réplica pode ter um endereço IP que n�
         $newrecord.RecordData[0].IPv4Address  =  $IP
         Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-### <a name="changing-the-ip-addresses-dr-to-azure"></a>Alterar os endereços IP – DR (recuperação de desastres) para o Azure
+### <a name="changing-the-ip-addresses--dr-to-azure"></a>Alterar os endereços IP – DR (recuperação de desastres) para o Azure
 A postagem [Configuração da Infraestrutura de Rede como um Site de Recuperação de Desastres](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) do blog explica como configurar a infraestrutura de rede do Microsoft Azure necessária quando manter os endereços IP não é um requisito. Começa descrevendo o aplicativo, depois, examina como configurar a rede no local e no Azure, em seguida, termina com como fazer um failover de teste e um failover planejado.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -170,6 +167,6 @@ A postagem [Configuração da Infraestrutura de Rede como um Site de Recuperaç�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

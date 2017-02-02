@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -37,8 +37,8 @@ O Active Directory do Azure (AD do Azure) fornece uma maneira fácil para a sua 
 
 > [!NOTE]
 > O [portal do Azure](http://portal.azure.com/) permite que os usuários entrem usando uma Conta pessoal da Microsoft ou uma conta corporativa ou de estudante do Azure Active Directory. Para configurar o Catálogo de Dados do Azure usando o portal do Azure ou usando o [portal do Catálogo de Dados](http://www.azuredatacatalog.com) , você deve estar conectado usando uma conta do Azure Active Directory, não uma conta pessoal.
-> 
-> 
+>
+>
 
 ## <a name="active-directory-policy-configuration"></a>Configuração de política do Active Directory
 Em algumas situações, os usuários podem encontrar uma situação em que podem acessar o portal do Catálogo de Dados do Azure, mas quando tentam fazer logon na ferramenta de registro da fonte de dados encontram uma mensagem de erro que impede o logon. Esse comportamento de problema pode ocorrer apenas quando o usuário está na rede da empresa, ou quando está se conectando de fora da rede da empresa.
@@ -50,7 +50,6 @@ A Política de Autenticação Global permite que os métodos de autenticação s
  ![Política de Autenticação Global do Active Directory](./media/data-catalog-prerequisites/global-auth-policy.png)
 
 Para obter mais informações, consulte [Configurando políticas de autenticação](https://technet.microsoft.com/library/dn486781.aspx).
-
 
 
 

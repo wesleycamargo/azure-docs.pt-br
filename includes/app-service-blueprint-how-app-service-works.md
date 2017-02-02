@@ -2,7 +2,7 @@
   * [Aplicativo Web](../articles/app-service-web/app-service-web-overview.md)
   * [Aplicativo Móvel](../articles/app-service-mobile/app-service-mobile-value-prop.md)
   * [Aplicativo de API](../articles/app-service-api/app-service-api-apps-why-best-platform.md)
-  * [Aplicativo Lógico](../articles/app-service-logic/app-service-logic-what-are-logic-apps.md)
+  * [Aplicativo Lógico](../articles/logic-apps/logic-apps-what-are-logic-apps.md)
 * [Arquitetura de Serviço de Aplicativo do Azure (apresentação)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)
 * [Comparação de Serviço de Aplicativo, Serviços de nuvem e Máquinas virtuais do Azure](../articles/app-service-web/choose-web-site-cloud-service-vm.md)
 * [Noções básicas sobre Aplicativos Móveis do Serviço de Aplicativo](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
@@ -15,6 +15,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

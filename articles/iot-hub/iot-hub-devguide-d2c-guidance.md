@@ -1,6 +1,6 @@
 ---
-title: "Orientação para comunicações do dispositivo para a nuvem do Hub IoT do Azure | Microsoft Docs"
-description: "Guia do desenvolvedor do Hub IoT do Azure - orientação sobre quando usar mensagens do dispositivo para a nuvem, as propriedades relatadas ou carregamento do arquivo."
+title: "Opções do dispositivo para a nuvem do Hub IoT do Azure| Microsoft Docs"
+description: "Guia do desenvolvedor ‑ diretrizes sobre quando usar mensagens do dispositivo para a nuvem, as propriedades relatadas ou upload do arquivo para comunicações da nuvem para o dispositivo."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 53f14e6fe115ed5f96d25b9ec5ab04abe23712d5
-ms.openlocfilehash: 6d5608cd86e3f042a7d63bd4e43e75a06141dfab
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 8c3479e29b55eacc30842ffdfee23b4a00a13126
 
 
 ---
-# <a name="device-to-cloud-communications-guidance"></a>Orientação de comunicações do dispositivo para a nuvem
-Ao enviar informações do aplicativo do dispositivo para o back-end, o Hub IoT expõe três opções:
+# <a name="device-to-cloud-communications-guidance"></a>Diretrizes de comunicações do dispositivo para a nuvem
+Ao enviar informações do aplicativo do dispositivo para o back-end da solução, o Hub IoT expõe três opções:
 
 * [Mensagens do dispositivo para a nuvem (D2C)][lnk-d2c], para telemetria de série de tempo e alertas;
 * [Propriedades relatadas][lnk-twins], para relatar informações de estado do dispositivo, como recursos disponíveis, condições e estado de fluxos de trabalho de longa duração (por exemplo, configuração e atualizações de software);
@@ -38,7 +38,7 @@ Aqui está uma comparação detalhada das várias opções de comunicação do d
 | Protocolo | Disponível em todos os protocolos. | Disponível atualmente somente ao usar MQTT. | Disponível ao usar qualquer protocolo, mas requer HTTP no dispositivo. |
 
 > [!NOTE]
-> É possível que um aplicativo exija o envio de informações como uma série de tempo de telemetria ou alerta, e também a disponibilização no dispositivo gêmeo. Nesses casos, o aplicativo do dispositivo pode enviar uma mensagem D2C e relatar uma alteração de propriedade, ou o back-end pode armazenar as informações nas marcas do dispositivo gêmeo quando ele recebe a mensagem. Como as mensagens D2C permitem uma taxa de transferência muito mais alta do que as atualizações do dispositivo gêmeo, às vezes é desejável evitar a atualização do dispositivo gêmeo para cada mensagem D2C.
+> É possível que um aplicativo exija o envio de informações como uma série de tempo de telemetria ou alerta, e também a disponibilização no dispositivo gêmeo. Nesses casos, o aplicativo do dispositivo pode enviar uma mensagem D2C e relatar uma alteração de propriedade ou o back-end da solução pode armazenar as informações nas marcas do dispositivo gêmeo quando ele recebe a mensagem. Como as mensagens D2C permitem uma taxa de transferência muito mais alta do que as atualizações do dispositivo gêmeo, às vezes é desejável evitar a atualização do dispositivo gêmeo para cada mensagem D2C.
 > 
 > 
 
@@ -50,6 +50,6 @@ Aqui está uma comparação detalhada das várias opções de comunicação do d
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

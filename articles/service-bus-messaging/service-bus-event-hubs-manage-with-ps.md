@@ -1,19 +1,23 @@
 ---
-title: Usar o PowerShell para gerenciar recursos do Barramento de Serviço e dos Hubs de Eventos | Microsoft Docs
-description: Usando o PowerShell para criar e gerenciar recursos do Barramento de Serviço e dos Hubs de Eventos
-services: service-bus,event-hubs
+title: "Usar o PowerShell para gerenciar recursos do Barramento de Serviço e dos Hubs de Eventos | Microsoft Docs"
+description: "Usando o PowerShell para criar e gerenciar recursos do Barramento de Serviço e dos Hubs de Eventos"
+services: service-bus-messaging,event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: f6436f6f-2156-41ea-a4ca-08cfaecbb778
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
+ms.openlocfilehash: 41bef0e62c86e5cc3c27d02702a1b330fc76c915
+
 
 ---
 # <a name="use-powershell-to-manage-service-bus-and-event-hubs-resources"></a>Usar o PowerShell para gerenciar recursos do Barramento de Serviço e dos Hubs de Eventos
@@ -22,11 +26,11 @@ O PowerShell do Microsoft Azure é um ambiente de script que você pode usar par
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, você precisará do seguinte:
 
-* Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para saber mais sobre como adquirir uma assinatura, confira [Opções de compra][Opções de compra], [ofertas para membros][ofertas para membros] ou [conta gratuita][conta gratuita].
-* Um computador com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure][Instalar e configurar o PowerShell do Azure].
+* Uma assinatura do Azure. O Azure é uma plataforma baseada em assinatura. Para saber mais sobre como adquirir uma assinatura, confira [Opções de compra][purchase options], [ofertas para membros][member offers] ou [conta gratuita][free account].
+* Um computador com o PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o Azure PowerShell][Install and configure Azure PowerShell].
 * Um entendimento geral dos scripts do PowerShell, dos pacotes NuGet e do .NET Framework.
 
-## <a name="include-a-reference-to-the-.net-assembly-for-service-bus"></a>Incluir uma referência no assembly .NET para Barramento de Serviço
+## <a name="include-a-reference-to-the-net-assembly-for-service-bus"></a>Incluir uma referência no assembly .NET para Barramento de Serviço
 Há um número limitado de cmdlets do PowerShell para gerenciar o Barramento de Serviço. Para provisionar entidades que não são expostas pelos cmdlets existentes, você pode usar o cliente .NET para Barramento de Serviço no PowerShell fazendo referência ao [pacote NuGet do Barramento de Serviço].
 
 Em primeiro lugar, verifique se o script pode localizar o assembly **Microsoft.ServiceBus.dll** , que é instalado com o pacote NuGet. Para que seja flexível, o script executa estas etapas:
@@ -109,7 +113,7 @@ Esta parte do script tem a seguinte função:
     ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>Provisionamento de outras entidades do Barramento de Serviço
-Para provisionar outras entidades, como filas, tópicos e Hubs de Eventos, é possível usar a [API do .NET para Barramento de Serviço][]. Há referências de exemplos mais detalhados, incluindo outras entidades, no fim deste artigo.
+Para provisionar outras entidades, como filas, tópicos e Hubs de Eventos, é possível usar a [API do .NET para Barramento de Serviço][.NET API for Service Bus]. Há referências de exemplos mais detalhados, incluindo outras entidades, no fim deste artigo.
 
 ### <a name="create-an-event-hub"></a>Criar um Hub de Evento
 Essa parte do script cria mais quatro variáveis locais. Essas variáveis serão usadas para criar uma instância de um objeto `EventHubDescription` . O script tem a seguinte função:
@@ -255,18 +259,18 @@ Alguns scripts prontos também estão disponíveis para download:
 
 <!--Anchors-->
 
-[opções de compra]: http://azure.microsoft.com/pricing/purchase-options/
-[ofertas para membros]: http://azure.microsoft.com/pricing/member-offers/
-[conta gratuita]: http://azure.microsoft.com/pricing/free-trial/
+[purchase options]: http://azure.microsoft.com/pricing/purchase-options/
+[member offers]: http://azure.microsoft.com/pricing/member-offers/
+[free account]: http://azure.microsoft.com/pricing/free-trial/
 [pacote NuGet do Barramento de Serviço]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API do .NET para o Barramento de Serviço]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
-[Instalar e configurar o PowerShell do Azure]: ../powershell-install-configure.md
+[.NET API for Service Bus]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
+[Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

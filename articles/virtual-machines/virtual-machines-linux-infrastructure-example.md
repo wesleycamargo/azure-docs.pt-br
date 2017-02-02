@@ -1,5 +1,5 @@
 ---
-title: Passo a passo da infraestrutura de exemplo | Microsoft Docs
+title: Passo a passo da infraestrutura do Azure de exemplo | Microsoft Docs
 description: "Saiba mais sobre as principais diretrizes de design e implementação referentes à implantação de uma infraestrutura de exemplo no Azure."
 documentationcenter: 
 services: virtual-machines-linux
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e909f7b0c0abe9063322c40b6bdb11494952621
+ms.sourcegitcommit: 70e52cefccee4b963e512724b96525bcbacf330c
+ms.openlocfilehash: e8ef1e52dec358fae00096df26b16fb9e3f46c2b
 
 
 ---
@@ -124,6 +124,6 @@ Essa configuração inclui:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

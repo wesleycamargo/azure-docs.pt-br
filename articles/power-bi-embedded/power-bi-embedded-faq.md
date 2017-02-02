@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2204034d9a39f9773a6e12ca5ed9504939a6ebf6
+ms.sourcegitcommit: f57b400dc20dc08221c0a8a770fd78f5885f634c
+ms.openlocfilehash: 0beb98220f043dc7c66cc494c3de00e0993798a6
 
 
 ---
@@ -52,16 +52,6 @@ Power BI Embedded com SLA padrão do Azure. Confira [Contratos de Nível de Serv
 ## <a name="how-is-this-service-priced"></a>Como esse serviço é cobrado?
 Confira [Preços do Power BI Embedded](http://go.microsoft.com/fwlink/?LinkId=760527) para obter informações sobre preços.
 
-## <a name="what-is-a-render-and-how-is-it-billed"></a>O que é uma renderização e como ela é cobrada?
-> [!NOTE]
-> O desconto no preço por renderização foi oferecido durante a visualização do Power BI Embedded e, devido a comentários do usuário, será interrompido em favor do preço por sessão. A mudança do preço por renderização para o preço por sessão entrará em vigor em 1º de setembro de 2016.
-> 
-> 
-
-Uma renderização consiste em um elemento visual exibido para um usuário final que resulta em uma consulta para o serviço. Por exemplo, se um usuário exibisse um relatório contendo quatro visuais, teríamos quatro renderizações como resultado. Se o usuário atualizasse o relatório e mais consultas fossem enviadas ao serviço, teríamos mais quatro renderizações. O proprietário do serviço terá controle sobre a extensão pela qual os usuários finais podem conduzir novas consultas que resultam em renderizações pagas para limitar a exposição do custo e minimizar os custos em cenários de dados estáticos.
-
-As renderizações são cobradas a cada 1.000 unidades. Para quantidades de renderizações inferiores a 1.000, a cobrança ocorre proporcionalmente. Os clientes recebem 1.000 renderizações gratuitas por mês. Os clientes que compram por contratos de Licenciamento por Volume devem consultar seu vendedor ou parceiro da Microsoft para obter informações sobre preços.
-
 ## <a name="what-is-a-report-session-and-how-is-it-billed"></a>O que é uma sessão de relatório e como ela é cobrada?
 Uma sessão é um conjunto de interações entre um usuário final e um relatório do Power BI Embedded. Sempre que um relatório do Power BI Embedded for exibido para um usuário, uma sessão será iniciada e uma sessão do titular da assinatura será cobrada. As sessões são cobradas a uma taxa fixa, independentemente da quantidade de elementos visuais em um relatório ou da frequência com que o conteúdo do relatório é atualizado. Uma sessão termina quando o usuário fecha o relatório ou quando a sessão expira após uma hora.
 
@@ -85,7 +75,7 @@ O serviço Power BI Embedded usa Tokens de Aplicativo para autenticação e auto
 e envia os Tokens de Aplicativo, que ordenam ao nosso serviço a renderização do relatório solicitado. Esse design não requer que o aplicativo use o Azure AD para autorização e autenticação de usuário, embora você possa fazer isso. Você pode aprender mais sobre Tokens de Aplicativo [aqui](power-bi-embedded-app-token-flow.md). Também introduzimos o recurso RLS (segurança em nível de linha) no Power BI Embedded para cenários de filtragem de segurança avançada.
 
 ## <a name="what-data-sources-are-currently-supported-with-power-bi-embedded"></a>Para quais fontes de dados há suporte com o Power BI Embedded?
-Daremos suporte ao acesso a fontes de dados em nuvem que usem credenciais básicas por meio de Consulta Direta. Isso significa que fontes como BD SQL do Azure e DW do Azure SQL têm suporte no momento. Adicionaremos suporte para outras fontes de dados e tipos de acesso nos próximos meses. Anunciaremos novas fontes de dados com suporte no fórum do desenvolvedor do Power BI em [http://dev.powerbi.com](https://dev.powerbi.com/).
+Daremos suporte ao acesso a fontes de dados em nuvem que usem credenciais básicas por meio de Consulta Direta. Isso significa que fontes como BD SQL do Azure e DW do Azure SQL têm suporte no momento. Adicionaremos suporte para outras fontes de dados e tipos de acesso nos próximos meses. Para saber mais, consulte [Conectar-se a uma fonte de dados](power-bi-embedded-connect-datasource.md).
 
 ## <a name="how-does-the-tenancy-model-work-for-power-bi-embedded"></a>Como funciona o modelo de locação para o Power BI Embedded?
 No modelo do Power BI Embedded, não há nenhum requisito explícito para ter seus clientes em locatários do Azure AD. Você pode optar por exigir ou não o Azure AD dos seus clientes. Como resultado, a arquitetura do seu aplicativo e a infraestrutura serão os fatores determinantes para o modelo de locação exigido para o Power BI Embedded.
@@ -102,9 +92,11 @@ Você pode começar gratuitamente agora! Se tiver uma assinatura do Azure, agora
 * [O que é o Microsoft Power BI Embedded](power-bi-embedded-what-is-power-bi-embedded.md)
 * [Introdução ao Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 
+Mais perguntas? [Experimentar a comunidade do Power BI](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO3-->
 
 

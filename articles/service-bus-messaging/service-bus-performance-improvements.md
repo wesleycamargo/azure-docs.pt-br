@@ -1,32 +1,40 @@
 ---
-title: Práticas recomendadas para melhorar o desempenho usando o Barramento de Serviço | Microsoft Docs
-description: Descreve como usar o Barramento de Serviço do Azure para otimizar o desempenho na troca de mensagens agenciadas.
-services: service-bus
+title: "Melhores práticas para melhorar o desempenho usando o Barramento de Serviço | Microsoft Docs"
+description: "Descreve como usar o Barramento de Serviço do Azure para otimizar o desempenho na troca de mensagens agenciadas."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/08/2016
+ms.date: 10/25/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a696120a5891f53ee8ff7db80fb53acba213978f
+
 
 ---
-# <a name="best-practices-for-performance-improvements-using-service-bus-brokered-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o sistema de mensagens agenciado do Barramento de Serviço
-Este tópico descreve como usar o Barramento de Serviço do Azure para otimizar o desempenho na troca de mensagens agenciadas. A primeira parte deste tópico descreve os diferentes mecanismos oferecidos para ajudar a melhorar o desempenho. A segunda parte oferece orientação sobre como usar o Barramento de Serviço de uma maneira que possa oferecer o melhor desempenho em um determinado cenário.
+# <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Práticas recomendadas para melhorias de desempenho usando o Sistema de Mensagens do Barramento de Serviço
+Este tópico descreve como usar o Sistema de Mensagens do Barramento de Serviço do Azure para otimizar o desempenho na troca de mensagens agenciadas. A primeira parte deste tópico descreve os diferentes mecanismos oferecidos para ajudar a melhorar o desempenho. A segunda parte oferece orientação sobre como usar o Barramento de Serviço de uma maneira que possa oferecer o melhor desempenho em um determinado cenário.
 
 Ao longo deste tópico, o termo "cliente" refere-se a qualquer entidade que acesse o Barramento de Serviço. Um cliente pode assumir a função de um remetente ou de um receptor. O termo "remetente" é usado para um cliente de fila ou de tópico do Barramento de Serviço que envia mensagens para uma fila ou um tópico do Barramento de Serviço. O termo "receptor" refere-se a um cliente de fila ou de assinatura do Barramento de Serviço que recebe mensagens de uma fila ou uma assinatura do Barramento de Serviço.
 
 Estas seções apresentam vários conceitos usados pelo Barramento de Serviço para melhorar o desempenho.
 
 ## <a name="protocols"></a>Protocolos
-O Barramento de Serviço permite que os clientes enviem e recebam mensagens por meio de dois protocolos: o protocolo de cliente do Barramento de Serviço e o HTTP (REST). O protocolo de cliente do Barramento de Serviço é mais eficiente porque manterá a conexão com o serviço Barramento de Serviço enquanto a fábrica de mensagens existir. Ele também implementa o envio em lote e a pré-busca. O protocolo de cliente do Barramento de Serviço está disponível para aplicativos .NET usando as APIs do .NET.
+O Barramento de Serviço permite que os clientes enviem e recebam mensagens por meio de três protocolos
 
-A menos que mencionado explicitamente, todo o conteúdo deste tópico supõe o uso do protocolo de cliente do Barramento de Serviço.
+1. Advanced Message Queuing Protocol (AMQP)
+2. Protocolo do sistema de mensagens do Barramento de Serviço (SBMP)
+3. HTTP
+
+AMQP e SBMP são mais eficientes, pois eles mantêm a conexão com o Barramento de Serviço enquanto existe a fábrica do sistema de mensagens. Ele também implementa o envio em lote e a pré-busca. A menos que mencionado explicitamente, todo o conteúdo deste tópico supõe o uso do AMQP ou do SBMP.
 
 ## <a name="reusing-factories-and-clients"></a>Reutilizando fábricas e clientes
 Os objetos de cliente do Barramento de Serviço, como [QueueClient][QueueClient] ou [MessageSender][MessageSender], são criados por meio de um objeto [MessagingFactory][MessagingFactory], que também oferece gerenciamento interno de conexões. Você não deve fechar fábricas do sistema de mensagens ou os clientes de fila, de tópico e de assinatura depois de enviar uma mensagem e então recriá-los ao enviar a próxima mensagem. Fechar uma fábrica do sistema de mensagens exclui a conexão com o serviço Barramento de Serviço e uma nova conexão é estabelecida na recriação da fábrica. O estabelecimento de uma conexão é uma operação cara que você pode evitar usando a mesma fábrica e objetos de cliente para diversas operações. É possível usar com segurança o objeto [QueueClient][QueueClient] para enviar mensagens de operações assíncronas simultâneas e de vários threads. 
@@ -81,7 +89,7 @@ O Barramento de Serviço não dá suporte a transações para operações de rec
 ## <a name="client-side-batching"></a>Envio em lote no lado do cliente
 O envio em lote no lado do cliente permite que um cliente de fila ou de tópico atrase o envio de uma mensagem por um determinado período. Se o cliente enviar mensagens adicionais durante esse período, ele transmitirá as mensagens em um único lote. O envio em lote no lado do cliente também faz com que um cliente de fila/assinatura agrupe em lote diversas solicitações **Concluir** em uma única solicitação. O envio em lote está disponível apenas para operações **Enviar** e **Concluir** assíncronas. As operações síncronas são imediatamente enviadas para o serviço Barramento de Serviço. O envio em lote não ocorre para as operações de pico ou de recebimento, e também não ocorre entre clientes.
 
-Se o lote exceder o tamanho máximo da mensagem, a última mensagem será removida do lote e o cliente enviará o lote imediatamente. A última mensagem se tornará a primeira mensagem do próximo lote. Por padrão, um cliente usa um intervalo de lote de 20 ms. Você pode alterar o intervalo de lote definindo a propriedade [BatchFlushInterval][BatchFlushInterval] antes de criar a fábrica de mensagens. Essa configuração afeta todos os clientes criados por essa fábrica.
+Por padrão, um cliente usa um intervalo de lote de 20 ms. Você pode alterar o intervalo de lote definindo a propriedade [BatchFlushInterval][BatchFlushInterval] antes de criar a fábrica de mensagens. Essa configuração afeta todos os clientes criados por essa fábrica.
 
 Para desabilitar o envio em lote, defina a propriedade [BatchFlushInterval][BatchFlushInterval] como **TimeSpan.Zero**. Por exemplo:
 
@@ -132,7 +140,7 @@ namespaceManager.CreateTopic(td);
 Se uma mensagem com informações importantes que não devem ser perdidas for enviada para uma entidade expressa, o remetente poderá impor o Barramento de Serviço para persistir imediatamente a mensagem em armazenamento estável ao definir a propriedade [ForcePersistence][ForcePersistence] como **true**.
 
 ## <a name="use-of-partitioned-queues-or-topics"></a>Uso de filas ou tópicos particionados
-Internamente, o Barramento de Serviço usa o mesmo nó e o repositório de mensagens para processar e armazenar todas as mensagens para uma entidade de mensagens (fila ou tópico). Uma fila ou tópico particionado, por outro lado, é distribuído entre vários nós e repositórios de mensagens. As filas e tópicos particionados não só geram uma taxa de transferência mais alta do que as filas e os tópicos normais, como também exibem disponibilidade superior. Para criar uma entidade particionada, defina a propriedade [EnablePartitioning][EnablePartitioning] como **true**, como mostrado no exemplo a seguir. Para obter mais informações sobre entidades particionadas, veja as [Entidades de mensagens particionadas][Entidades de mensagens particionadas].
+Internamente, o Barramento de Serviço usa o mesmo nó e o repositório de mensagens para processar e armazenar todas as mensagens para uma entidade de mensagens (fila ou tópico). Uma fila ou tópico particionado, por outro lado, é distribuído entre vários nós e repositórios de mensagens. As filas e tópicos particionados não só geram uma taxa de transferência mais alta do que as filas e os tópicos normais, como também exibem disponibilidade superior. Para criar uma entidade particionada, defina a propriedade [EnablePartitioning][EnablePartitioning] como **true**, como mostrado no exemplo a seguir. Para obter mais informações sobre entidades particionadas, veja as [Entidades de Mensagens Particionadas][Partitioned messaging entities].
 
 ```
 // Create partitioned queue.
@@ -143,6 +151,13 @@ namespaceManager.CreateQueue(qd);
 
 ## <a name="use-of-multiple-queues"></a>Uso de várias filas
 Se não for possível usar uma fila ou tópico particionado, ou se a carga esperada não puder ser manipulada por uma única fila ou tópico particionada, você deverá usar várias entidades de mensagens. Ao usar várias entidades, crie um cliente dedicado para cada entidade em vez de usar o mesmo cliente para todas as entidades.
+
+## <a name="development--testing-features"></a>Recursos de desenvolvimento e teste
+O Barramento de Serviço tem um recurso usado especificamente para desenvolvimento que **nunca deve ser usado em configurações de produção**.
+
+[TopicDescription.EnableFilteringMessagesBeforePublishing](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablefilteringmessagesbeforepublishing.aspx)
+
+* Quando novas regras ou filtros são adicionados ao tópico, EnableFilteringMessagesBeforePublishing pode ser usado para verificar se a nova expressão de filtro está funcionando conforme o esperado.
 
 ## <a name="scenarios"></a>Cenários
 As seções a seguir descrevem cenários típicos de mensagens e as configurações preferenciais do Barramento de Serviço. As taxas de transferência são classificadas como pequena (menos de 1 mensagem/segundo), moderada (1 mensagem/segundo ou mais, mas menos de 100 mensagens por segundo) e alta (100 mensagens/segundo ou mais). O número de clientes é classificado como pequeno (5 ou menos), moderado (de 5 a 20) e grande (mais de 20).
@@ -226,7 +241,7 @@ Para maximizar a taxa de transferência, faça o seguinte:
 * Defina a contagem de pré-busca como 20 vezes a taxa de recebimento esperada em segundos. Isso reduz o número de transmissões de protocolo de cliente do Barramento de Serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como otimizar o desempenho do Barramento de Serviço, veja [Entidades de mensagens particionadas][Entidades de mensagens particionadas].
+Para saber mais sobre como otimizar o desempenho do Barramento de Serviço, veja [Entidades de mensagens particionadas][Partitioned messaging entities].
 
 [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
 [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -239,10 +254,10 @@ Para saber mais sobre como otimizar o desempenho do Barramento de Serviço, veja
 [SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
 [ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
 [EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
-[Entidades de mensagens particionadas]: service-bus-partitioning.md
+[Partitioned messaging entities]: service-bus-partitioning.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

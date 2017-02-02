@@ -1,5 +1,5 @@
 ---
-title: "Implantar seu aplicativo no Serviço de Aplicativo do Azure"
+title: "Implantar seu aplicativo no Serviço de Aplicativo do Azure | Microsoft Docs"
 description: "Saiba como implantar seu aplicativo no Serviço de Aplicativo do Azure."
 services: app-service
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: cephalin;dariac
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1473f805bdb87a6c5e85174b1c7a91b67ca446b2
+ms.sourcegitcommit: 471bb707a3126eabb82e060a614beb87b95dfd72
+ms.openlocfilehash: fca6ff6c97c70422a1e90f3861f4be24786c844c
 
 
 ---
@@ -60,19 +60,6 @@ Os contras de copiar manualmente os arquivos são:
 * Tempos de implantação potencialmente longos porque várias ferramentas de FTP não oferecem a cópia apenas da diferença e simplesmente copiam todos os arquivos.  
 
 ### <a name="a-namehowtoftpahow-to-deploy-by-copying-files-to-azure-manually"></a><a name="howtoftp"></a>Como implantar ao copiar arquivos manualmente para o Azure
-A cópia de arquivos para o Azure envolve algumas etapas simples:
-
-1. Supondo que você já tenha estabelecido credenciais de implantação, obtenha as informações de conexão do FTP acessando **Configurações** > **Propriedades** e, em seguida, copie os valores de **FTP/Usuário de Implantação**, **Nome do Host FTP** e **Nome do Host FTPS**. Copie o valor de usuário **FTP/Usuário de Implantação** como exibido pelo Portal do Azure, incluindo o nome do aplicativo a fim de fornecer contexto adequado ao servidor FTP.
-   
-    ![Informações de conexão FTP](./media/web-sites-deploy/FTP-Connection-Info.PNG)
-    ![Credenciais de implantação de FTP](./media/web-sites-deploy/FTP-UID-PWD.PNG)
-2. De seu cliente FTP, use as informações de conexão coletadas para conectar-se ao seu aplicativo.
-3. Copie seus arquivos e a respectiva estrutura de diretórios para o diretório [**/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) no Azure (ou o diretório **/site/wwwroot/App_Data/Jobs/** para Trabalhos Web).
-4. Navegue até a URL do aplicativo para verificar se ele está sendo executado corretamente. 
-
-Para obter mais informações, consulte o recurso a seguir:
-
-* [Criar um aplicativo Web do PHP-MySQL e implantá-lo usando o FTP](web-sites-php-mysql-deploy-use-ftp.md).
 
 ## <a name="a-namedropboxadeploy-by-syncing-with-a-cloud-folder"></a><a name="dropbox"></a>Implantar ao sincronizar com uma pasta de nuvem
 Uma boa alternativa à [cópia manual dos arquivos](#ftp) é sincronizar os arquivos e pastas no Serviço de Aplicativo de um serviço de armazenamento em nuvem, como o OneDrive e o Dropbox. A sincronização com uma pasta de nuvem utiliza o processo Kudu para implantação (confira [Visão geral dos processos de implantação](#overview)).
@@ -209,7 +196,7 @@ Para obter mais informações, consulte o recurso a seguir:
 
 Para obter mais informações, consulte o recurso a seguir:
 
-* [Ferramentas de linha de comando do Azure.](/downloads/#cmd-line-tools). Página de portal em Azure.com que fornece informações da ferramenta de linha de comando.
+* [Ferramentas de linha de comando do Azure.](https://azure.microsoft.com/downloads/). Página de portal em Azure.com que fornece informações da ferramenta de linha de comando.
 
 ### <a name="a-namewebdeployadeploy-from-web-deploy-command-line"></a><a name="webdeploy"></a>Implantar por meio da linha de comando de Implantação da Web
 [Implantação da Web](http://www.iis.net/downloads/microsoft/web-deploy) é o software da Microsoft para a implantação do IIS que não só fornece recursos de sincronização de arquivos inteligentes, mas também pode executar ou coordenar várias outras tarefas relacionadas à implantação que não poderão ser automatizadas quando você usar o FTP. Por exemplo, a Implantação da Web pode implantar um novo banco de dados ou atualizações de banco de dados junto com seu aplicativo Web. A Implantação da Web também pode minimizar o tempo necessário para atualizar um site existente, pois ele pode copiar apenas os arquivos alterados de forma inteligente. O Microsoft Visual Studio e o Team Foundation Server têm suporte para a Implantação da Web interna, mas você também pode usar a Implantação da Web diretamente da linha de comando para automatizar a implantação. Os comandos de Implantação da Web são muito avançados, mas a curva de aprendizado pode ser acentuada.
@@ -239,6 +226,6 @@ Para obter mais informações sobre como usar o Azure com o Java, confira a [Cen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
