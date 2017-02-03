@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a5bcc177d298aecd9fd474bd15fc0331b26e887
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
 
 
 ---
@@ -33,25 +33,30 @@ Para desenvolver um modelo de análise preditiva, normalmente você usa dados de
 
 **Estúdio de Aprendizado de Máquina do Azure** oferece um espaço de trabalho visual e interativo para compilar, testar e iterar em um modelo de análise preditivo. Você arrasta e solta ***conjuntos de dados*** e ***módulos*** de análise em telas interativas conectando-as para formar um ***teste***, o qual você executa no Azure Machine Learning Studio. Para iterar em seu design de modelo, você edita o teste, salva uma cópia, se desejado, e executa-o novamente. Quando você estiver pronto, você poderá converter seu ***teste de treinamento*** em uma ***experiência preditiva*** e, em seguida, publicá-la como um ***serviço Web*** para que seu modelo possa ser acessado por outras pessoas.
 
+Não há necessidade de programação, basta conectar visualmente os conjuntos de dados e módulos para construir seu modelo de análise preditivo.
+
 > [!TIP]
 > Para baixar e imprimir um diagrama que fornece uma visão geral dos recursos do Estúdio de Aprendizado de Máquina, consulte [Diagrama de visão geral dos recursos do Estúdio de Aprendizado de Máquina do Azure](machine-learning-studio-overview-diagram.md).
 > 
 > 
-
-Não há necessidade de programação, basta conectar visualmente os conjuntos de dados e módulos para construir seu modelo de análise preditivo.
 
 ![Diagrama do Estúdio AM do Azure: criar testes, ler dados de várias fontes, gravar dados de pontuação, escrever modelos.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introdução ao Estúdio de Aprendizado de Máquina
 Ao entrar pela primeira vez no [Estúdio de Aprendizado de Máquina,](https://studio.azureml.net) você verá a página **Inicial** . Aqui você pode exibir a documentação, vídeos, seminários na Web e obter outros recursos valiosos.
 
-Existem três guias na parte superior: **Página inicial** (onde iniciar), **Estúdio**, e **Galeria**.
+Clique no menu superior esquerdo ![Menu](media/machine-learning-what-is-ml-studio/menu.png) e você verá várias opções.
 
-### <a name="studio"></a>Estúdio
-Clique na guia **Estúdio** e será solicitado que você entre usando a conta da Microsoft, ou sua conta de trabalho ou escola. Depois de conectado, você verá as seguintes guias à esquerda:
+### <a name="cortana-intelligence"></a>Cortana Intelligence
+Clique em **Cortana Intelligence** e você será levado para a página inicial do [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite). O Cortana Intelligence Suite é um pacote de análise avançada e de big data totalmente gerenciado que permite transformar seus dados em ação inteligente. Consulte a página do Suite para obter a documentação completa, inclusive histórias de clientes.
+
+### <a name="azure-machine-learning"></a>Aprendizado de Máquina do Azure
+Há duas opções aqui, **Home**, a página onde você começou, e **Studio**.
+
+Clique em **Studio** e você será levado para o **Azure Machine Learning Studio**. Em primeiro lugar, será solicitado que você entre usando a conta da Microsoft, ou sua conta de trabalho ou escola. Depois de conectado, você verá as seguintes guias à esquerda:
 
 * **PROJETOS** - coleções de testes, conjuntos de dados, blocos de anotações e outros recursos que representam um único projeto
-* **TESTES** – Testes criados, executados e salvos como rascunhos
+* **TESTES** – Testes que você criou e executou ou salvou como rascunhos
 * **SERVIÇOS WEB** -serviços Web que você implantou dos testes
 * **NOTEBOOKS** - Notebooks Jupyter que você criou
 * **CONJUNTOS DE DADOS** - Conjuntos de dados que você carregou no Estúdio
@@ -59,7 +64,7 @@ Clique na guia **Estúdio** e será solicitado que você entre usando a conta da
 * **CONFIGURAÇÕES** – Uma coleção das configurações que você pode usar para configurar sua conta e recursos.
 
 ### <a name="gallery"></a>Galeria
-Clique na guia **Galeria** guia e você será levado para a Galeria do Cortana Intelligence. A Galeria é um lugar no qual uma comunidade de desenvolvedores e cientistas de dados pode compartilhar soluções criadas usando os componentes do Cortana Intelligence Suite.
+Clique em **Gallery** e você será levado para a **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. A Galeria é um lugar no qual uma comunidade de desenvolvedores e cientistas de dados podem compartilhar soluções criadas usando os componentes do Cortana Intelligence Suite.
 
 Para saber mais sobre a Galeria, consulte as [Soluções de compartilhamento e descoberta na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
 
@@ -92,7 +97,7 @@ Para obter uma lista de conjuntos de dados de exemplo incluídos no Estúdio de 
 ### <a name="modules"></a>Módulos
 Um módulo é um algoritmo que você pode executar em seus dados. O Estúdio de Aprendizado de Máquina tem uma série de módulos, desde funções de ingresso até treinamento, pontuação e processos de validação. Aqui estão alguns exemplos dos módulos incluídos:
 
-* [Converter em ARFF][convert-to-arff] – converte um conjunto de dados serializados .NET para o formato ARFF (Arquivo de Atributo-Relação).
+* [Converter em ARFF][convert-to-arff] – converte um conjunto de dados serializados .NET no formato ARFF (Arquivo de Atributo-Relação).
 * [Calcular Estatísticas Elementares][elementary-statistics] – calcula as estatísticas elementares como média, desvio padrão etc.
 * [Regressão Linear][linear-regression] – cria um modelo online de regressão linear com base em descendência gradiente.
 * [Modelo de Pontuação][score-model] – pontua uma classificação treinada ou modelo de regressão.
@@ -116,6 +121,6 @@ Quando seu modelo de análise preditiva estiver pronto, você pode implantá-lo 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -10,22 +10,25 @@ tags: azure-resource-manager
 ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
 ms.service: expressroute
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/05/2016
+ms.date: 12/13/2016
 ms.author: ganesr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 45c0646f6eb1067f49bc185f1592cd1c94fc9470
+ms.sourcegitcommit: ec5e547b88bedd50f451997616c7d72b0b1b4bd4
+ms.openlocfilehash: 2a1215b5065fc690e539000aa1e89049617f8902
 
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Criar e modificar o roteamento de um circuito da Rota Expressa
 > [!div class="op_single_selector"]
-> [Portal do Azure - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell - Clássico](expressroute-howto-routing-classic.md)
+> * [Resource Manager – Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Resource Manager - PowerShell](expressroute-howto-routing-arm.md)
+> * [Clássico – PowerShell](expressroute-howto-routing-classic.md)
+> * [Vídeo – Emparelhamento privado](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vídeo – Emparelhamento público](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Vídeo – Emparelhamento da Microsoft](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > 
 > 
 
@@ -249,7 +252,9 @@ Esta seção fornece instruções sobre como criar, obter, atualizar e excluir a
      
        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-    >[AZURE.IMPORTANT] Especifique o número de AS como um ASN de emparelhamento e não um ASN de cliente.
+    > [!IMPORTANT]
+    > Especifique o número de AS como um ASN de emparelhamento, não um ASN de cliente.
+
 
 ### <a name="to-view-azure-public-peering-details"></a>Para exibir detalhes sobre o emparelhamento público do Azure
 Você pode obter detalhes de configuração usando o seguinte cmdlet
@@ -387,6 +392,6 @@ A próxima etapa será [Vincular uma Rede Virtual a um circuito da Rota Expressa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

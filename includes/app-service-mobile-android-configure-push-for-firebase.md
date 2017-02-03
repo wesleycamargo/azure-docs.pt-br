@@ -1,12 +1,17 @@
 
-1. In the [Azure portal](https://azure.portal.com/), click **App Services**, locate and click your Mobile App backend, then in the next column under **Mobile** click **Push**.
-2. In Push notification services, click **Google (GCM)**, enter the **Server Key** value that you obtained from Firebase in the previous procedure, then click **Save**.
-   
-    ![Set the GCM API key in the portal](./media/app-service-mobile-android-configure-push/mobile-push-api-key.png)
+1. No [portal do Azure](https://portal.azure.com/), clique em **Procurar Tudo** > **Serviços de Aplicativos** e clique em seu back-end de Aplicativos Móveis. Em **Configurações**, clique em **Push do Serviço de Aplicativo** e clique no nome do hub de notificação.
+2. Vá para **Google (GCM)**, insira o valor **Chave do Servidor** obtido do Firebase no procedimento anterior e clique em **Salvar**.
 
-The Mobile App backend is now configured to use Firebase Cloud Messaging to send push notifications to your app running on an Android device using the notification hub.
+    ![Defina a chave de API do GCM no portal](./media/app-service-mobile-android-configure-push/mobile-push-api-key.png)
+
+O back-end de Aplicativos Móveis agora está configurado para usar o Firebase Cloud Messaging. Isso permite que você envie notificações por push para seu aplicativo em execução em um dispositivo Android usando o hub de notificação.
 
 <!-- URLs. -->
 
 
 <!-- images -->
+
+
+<!--HONumber=Dec16_HO2-->
+
+
