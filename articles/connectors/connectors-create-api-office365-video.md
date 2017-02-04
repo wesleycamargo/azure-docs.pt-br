@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 959eaca7aafd8516cfc6f3b5dd2a44ce21ec4825
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: e6f569355dd73919824f22c88ce3eead10e5b853
 
 
 ---
@@ -36,7 +36,7 @@ Com o Vídeo do Office 365, é possível:
 * Criar seu fluxo de negócios baseado nos dados obtidos do Vídeo do Office 365. 
 * Usar ações que verificam o status do portal do vídeo, obter uma lista de todos os vídeos em um canal e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, é possível usar o conector da Pesquisa do Bing para pesquisar vídeos do Office 365 e usar o conector do Vídeo do Office 365 para obter informações sobre determinado vídeo. Se o vídeo atender às suas necessidades, você poderá postá-lo no Facebook. 
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Gatilhos e ações
 O conector de Vídeo do Office 365 tem as ações a seguir disponíveis. Não há nenhum gatilho.
@@ -47,7 +47,7 @@ O conector de Vídeo do Office 365 tem as ações a seguir disponíveis. Não h�
 
 Todos os conectores dão suporte a dados nos formatos JSON e XML. 
 
-## <a name="create-a-connection-to-office365-video-connector"></a>Criar uma conexão com o conector do Vídeo do Office 365
+## <a name="create-a-connection-to-office365-video-connector"></a>Criar uma conexão com o conector do Vídeo do Office&365;
 Ao adicionar esse conector aos seus aplicativos lógicos, é necessário entrar em sua conta de Vídeo do Office 365 e permitir que os aplicativos lógicos se conectem à sua conta.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
@@ -203,11 +203,11 @@ Obtém o token de portador para ter acesso para descriptografar o vídeo.
 | ViewCount |inteiro |não |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

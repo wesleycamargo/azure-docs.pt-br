@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ee1f42cd54e191fa30813d972a664208124c971
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 98e5764f84f23ec586ebd823634b9024e4689c5c
 
 
 ---
@@ -170,7 +170,7 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 [modo de pipeline]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
-[Experimentar o Serviço de Aplicativo]: http://go.microsoft.com/fwlink/?LinkId=523751
+[Experimentar o Serviço de Aplicativo]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 
@@ -180,6 +180,6 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

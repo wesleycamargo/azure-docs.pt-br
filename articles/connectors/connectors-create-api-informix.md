@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b9ea0593e0ae6dc9e1b6b07665fc3b3fad264bf
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 614400a8787fdd2081fa8e981c0fc6b6dd794a58
 
 
 ---
@@ -40,7 +40,7 @@ O conector oferece suporte às seguintes operações de banco de dados:
 
 Este tópico mostra como usar o Conector em um aplicativo lógico para processar as operações do banco de dados.
 
-Para saber mais sobre os Aplicativos Lógicos, consulte como [criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para saber mais sobre os Aplicativos Lógicos, consulte como [criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="available-actions"></a>Ações disponíveis
 Este conector dá suporte às seguintes ações do aplicativo lógico:
@@ -404,11 +404,11 @@ Este conector dá suporte às versões do IBM Informix à seguir quando configur
 * IBM Informix 11.7
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

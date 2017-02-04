@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5675c2e0c44356002595620df9b06c38a771af56
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: b00c320eeb1e8b30a0fad9634844ceeca60d1c29
 
 
 ---
@@ -169,7 +169,7 @@ O backup de banco de dados do aplicativo é armazenado na raiz do arquivo .zip. 
 Para obter informações sobre como restaurar um aplicativo por um backup, veja [Restaurar um aplicativo no Serviço de Aplicativo do Azure](web-sites-restore.md). Você também pode fazer backup e restaurar aplicativos do Serviço de Aplicativo usando a API REST (veja [Usar a REST para fazer backup e restaurar aplicativos do Serviço de Aplicativo](websites-csm-backup.md)).
 
 > [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -180,7 +180,7 @@ Para obter informações sobre como restaurar um aplicativo por um backup, veja 
 [BackUpNow]: ./media/web-sites-backup/04BackUpNow.png
 [BackupProgress]: ./media/web-sites-backup/05BackupProgress.png
 [SetAutomatedBackupOn]: ./media/web-sites-backup/06SetAutomatedBackupOn.png
-[Frequência]: ./media/web-sites-backup/07Frequency.png
+[Frequency]: ./media/web-sites-backup/07Frequency.png
 [StartDate]: ./media/web-sites-backup/08StartDate.png
 [StartTime]: ./media/web-sites-backup/09StartTime.png
 [SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
@@ -191,6 +191,6 @@ Para obter informações sobre como restaurar um aplicativo por um backup, veja 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

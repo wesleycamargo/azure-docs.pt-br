@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/09/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e3c1440cc2b669c574c2c0160a0d282b5f27bca
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c940f490908a3b934c108b214b5ef2af44698059
 
 
 ---
@@ -26,7 +26,7 @@ As conexões híbridas podem conectar aplicativos Web do [Serviço de Aplicativo
 Neste tutorial, você aprenderá a criar um aplicativo Web dos Serviços de Aplicativo no [portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715), conectar o aplicativo Web a seu banco de dados local SQL Server local usando o novo recurso de conexão híbrida, criar um aplicativo ASP.NET simples que usará a conexão híbrida e implantar o aplicativo para o aplicativo Web do Serviço de Aplicativo. O aplicativo Web completo no Azure armazena credenciais de usuário em um banco de dados de associação local. O tutorial pressupõe que você não tem nenhuma experiência anterior com o Azure nem com o ASP.NET.
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > A parte de aplicativos Web do recurso de conexões híbridas está disponível apenas no [Portal do Azure](https://portal.azure.com). Para criar uma conexão nos Serviços BizTalk, consulte [Conexões Híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 > 
@@ -289,7 +289,7 @@ Agora você criou e implantou um aplicativo Web ASP.NET que utiliza uma conexão
 [SSMScreateNewDB]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A05SSMScreateNewDBlh.png
 [SSMSprovideDBname]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A06SSMSprovideDBname.png
 [SSMSMembershipDBCreated]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A07SSMSMembershipDBCreated.png
-[Novo]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B01New.png
+[New]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B01New.png
 [NewWebsite]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B02NewWebsite.png
 [WebsiteCreationBlade]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B03WebsiteCreationBlade.png
 [WebSiteRunningBlade]:./media/web-sites-hybrid-connection-connect-on-premises-sql-server/B04WebSiteRunningBlade.png
@@ -335,6 +335,6 @@ Agora você criou e implantou um aplicativo Web ASP.NET que utiliza uma conexão
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

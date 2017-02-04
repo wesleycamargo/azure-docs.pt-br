@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/03/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a27a8eed4ed5814cec3880567f506d0854ddbd62
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: cb656dd952e76ee29e102fff531d34a45e4630e4
 
 
 ---
@@ -33,7 +33,7 @@ Você pode conectar um aplicativo do Serviço de Aplicativo do Azure a qualquer 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma assinatura do Azure. Para uma assinatura gratuita, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
   
-    Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+    Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 * Para usar um banco de dados local SQL Server ou SQL Server Express com uma conexão híbrida, o TCP/IP precisa ser habilitado em uma porta estática. É recomendado usar uma instância padrão no SQL Server porque ele usa a porta estática 1433. Para informações sobre a instalação e a configuração do SQL Server Express para uso com conexões híbridas, consulte [Conectar-se a um SQL Server local por meio de um Site do Azure usando Conexões Híbridas](http://go.microsoft.com/fwlink/?LinkID=397979).
 * O computador no qual você instala o agente do Hybrid Connection Manager local, descrito posteriormente neste artigo:
   
@@ -224,7 +224,7 @@ Neste ponto, você pode publicar novamente o projeto do servidor e testar a nova
 * Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!-- IMAGES -->
-[Novo]:./media/web-sites-hybrid-connection-get-started/B01New.png
+[New]:./media/web-sites-hybrid-connection-get-started/B01New.png
 [NewWebsite]:./media/web-sites-hybrid-connection-get-started/B02NewWebsite.png
 [WebsiteCreationBlade]:./media/web-sites-hybrid-connection-get-started/B03WebsiteCreationBlade.png
 [WebSiteRunningBlade]:./media/web-sites-hybrid-connection-get-started/B04WebSiteRunningBlade.png
@@ -250,6 +250,6 @@ Neste ponto, você pode publicar novamente o projeto do servidor e testar a nova
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
