@@ -1,23 +1,28 @@
 ---
-title: Replicação Geográfica Ativa para o Banco de Dados SQL do Azure
-description: A Replicação Geográfica Ativa permite configurar 4 réplicas de seu banco de dados em qualquer um dos datacenters do Azure.
+title: "Replicação Geográfica Ativa para o Banco de Dados SQL do Azure"
+description: "A Replicação Geográfica Ativa permite configurar 4 réplicas de seu banco de dados em qualquer um dos datacenters do Azure."
 services: sql-database
 documentationcenter: na
-author: stevestein
+author: anosov1960
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/26/2016
-ms.author: sstein
+ms.author: sashan
+translationtype: Human Translation
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: e580886bae72aee3bb3569299a831529ef18821c
+
 
 ---
-# <a name="overview:-sql-database-active-geo-replication"></a>Visão geral: Replicação Geográfica Ativa para o Banco de Dados SQL
-A Replicação Geográfica Ativa permite que você configure até quatro bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis para consulta e failover no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário.
+# <a name="overview-sql-database-active-geo-replication"></a>Visão geral: Replicação Geográfica Ativa para o Banco de Dados SQL
+A Replicação Geográfica Ativa permite que você configure até quatro bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis para consulta e failover no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário. A replicação geográfica ativa deve estar entre bancos de dados da mesma assinatura.
 
 > [!NOTE]
 > Replicação Geográfica Ativa (secundários legíveis) agora está disponível para todos os bancos de dados em todas as camadas de serviço. Em abril de 2017 o tipo de secundário não legível será descontinuado e bancos de dados não legíveis existentes serão automaticamente atualizados para secundários legíveis.
@@ -73,7 +78,7 @@ O recurso de Replicação Geográfica Ativa fornece os seguintes recursos essenc
 > 
 > 
 
-* **Replicação Geográfica Ativa de bancos de dados do pool elástico**: a Replicação Geográfica Ativa pode ser configurada para qualquer banco de dados em qualquer pool de banco de dados elástico. O banco de dados secundário pode estar em outro pool de banco de dados elástico. Para bancos de dados regulares, o secundário pode ser um pool de banco de dados elástico e vice-versa, contanto que as camadas de serviço sejam as mesmas. 
+* **Replicação geográfica ativa de bancos de dados do pool elástico**: a Replicação Geográfica Ativa pode ser configurada para qualquer banco de dados em qualquer pool elástico. O banco de dados secundário pode estar em outro pool elástico. Para bancos de dados regulares, o secundário pode ser um pool elástico e vice-versa, desde que as camadas de serviço sejam as mesmas. 
 * **Nível de desempenho configurável do banco de dados secundário**: um banco de dados secundário pode ser criado com um nível de desempenho menor do que o do primário. Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Essa opção não é recomendada para aplicativos com atividade de gravação de banco de dados elevada, pois o retardo maior de replicação aumenta o risco de perda de dados substancial após o failover. Além disso, após o failover, o desempenho do aplicativo será afetado até que o novo primário seja atualizado para um nível mais alto de desempenho. O gráfico de percentual de E/S de log no Portal do Azure fornece uma boa maneira de estimar o nível mínimo de desempenho do banco de dados secundário que será necessário para sustentar a carga de replicação. Por exemplo, se o banco de dados Primário for P6 (1000 DTUS) e seu percentual de E/S de log for 50%, o secundário precisará ser pelo menos P4 (500 DTU). Você também pode recuperar os dados de E/S de log usando as exibições de banco de dados [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) ou [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).  Para obter mais informações sobre os níveis de desempenho do Banco de Dados SQL, confira [Opções de Banco de Dados SQL e desempenho](sql-database-service-tiers.md). 
 * **Failover e failback controlados pelo usuário**: um banco de dados secundário pode ser alternado explicitamente para a função primária a qualquer momento pelo aplicativo ou pelo usuário. Durante uma interrupção real a opção "não planejada" deve ser usada, o que promoverá imediatamente um secundário para primário. Quando o primário com falha se recuperar e estiver disponível novamente, o sistema o marcará automaticamente como um secundário e o atualizará de acordo com o novo primário. Devido à natureza assíncrona da replicação, uma pequena quantidade de dados poderá ser perdida durante failovers não planejados se o primário falhar antes de replicar as alterações mais recentes para o secundário. Quando um primário com vários secundários passar por failover, o sistema automaticamente reconfigurará as relações de replicação e vinculará os secundários restantes para o primário recém-promovido, sem a necessidade de intervenção do usuário. Depois que a interrupção que causou o failover for reduzida, poderá ser desejável retornar o aplicativo para a região primária. Para fazer isso, o comando de failover deve ser invocado com a opção "planejada". 
 * **Como manter regras de firewall e credenciais em sincronia**: recomendamos o uso de [regras de firewall de banco de dados](sql-database-firewall-configure.md) para bancos de dados com replicação geográfica, de modo que essas regras possam ser replicadas com o banco de dados para garantir que todos os bancos de dados secundários tenham as mesmas regras de firewall que o primário. Essa abordagem elimina a necessidade de os clientes configurarem manualmente e manterem as regras de firewall nos servidores que hospedam os bancos de dados primários e secundários. Da mesma forma, usar [usuários de banco de dados independente](sql-database-manage-logins.md) para o acesso a dados garante que os bancos de dados primários e secundários sempre tenham as mesmas credenciais de usuário para que, durante failovers, não haja interrupções devido à incompatibilidade nos logons e senhas. Com a adição de [Azure Active Directory](../active-directory/active-directory-whatis.md), os clientes podem gerenciar o acesso do usuário aos bancos de dados primários e secundários, eliminando a necessidade de gerenciamento de credenciais em todos os bancos de dados juntos.
@@ -97,7 +102,7 @@ Conforme discutido anteriormente, a Replicação geográfica ativa pode ser gere
 * **API do Azure Resource Manager e segurança baseada em funções**: a Replicação Geográfica Ativa inclui um conjunto de [APIs do Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) para gerenciamento, incluindo [cmdlets do PowerShell baseados no Azure Resource Manager](sql-database-geo-replication-powershell.md). Essas APIs exigem o uso de grupos de recursos e dão suporte a RBAC (segurança baseada em funções). Para obter mais informações sobre como implementar funções de acesso, confira [Controle de Acesso Baseado em Funções do Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
-> Muitos dos novos recursos de Replicação Geográfica Ativa só têm suporte usando a [API REST do Azure SQL](../resource-group-overview.md) e [cmdlets do PowerShell do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) baseados em [Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt574084.aspx). A API REST (clássica) (https://msdn.microsoft.com/library/azure/dn505719.aspx) e os [cmdlets do Banco de Dados SQL do Azure (clássico)](https://msdn.microsoft.com/library/azure/dn546723.aspx) são compatíveis com versões anteriores. Portanto, por isso é recomendável usar as APIs baseadas no Azure Resource Manager. 
+> Muitos dos novos recursos de Replicação Geográfica Ativa só têm suporte usando a [API REST do Azure SQL](../azure-resource-manager/resource-group-overview.md) e [cmdlets do PowerShell do Banco de Dados SQL do Azure](https://msdn.microsoft.com/library/azure/mt163571.aspx) baseados em [Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt574084.aspx). A API REST (clássica) (https://msdn.microsoft.com/library/azure/dn505719.aspx) e os [cmdlets do Banco de Dados SQL do Azure (clássico)](https://msdn.microsoft.com/library/azure/dn546723.aspx) são compatíveis com versões anteriores. Portanto, por isso é recomendável usar as APIs baseadas no Azure Resource Manager. 
 > 
 > 
 
@@ -141,6 +146,9 @@ Conforme discutido anteriormente, a Replicação geográfica ativa pode ser gere
 * Para saber mais sobre como usar backups automatizados para arquivamento, confira [Cópia de banco de dados](sql-database-copy.md).
 * Para saber mais sobre requisitos de autenticação para um novo servidor primário e banco de dados, consulte [Segurança do Banco de Dados SQL após a recuperação de desastres](sql-database-geo-replication-security-config.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

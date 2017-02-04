@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 7ab51f4834f3112d4f3379acbaa16a386276cdb8
+ms.sourcegitcommit: bbfe4dc74b9743b89ea6a7a99f5fa17672f3c706
+ms.openlocfilehash: 94db8988acacd93518e96a81e177882852379fb0
 
 
 ---
@@ -44,7 +44,9 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 2. Clique com o botão direito do mouse no projeto no lado esquerdo da tela e clique em **Adicionar Suporte da Estrutura**. Escolha **Maven** e clique em **OK**.
 3. Abra o arquivo **"pom.xml"** recém-criado e adicione o seguinte trecho de texto entre as marcas **\</version>** e **\</project>**:
 
-    OBSERVAÇÃO: esta etapa é temporária até que o SDK da Análise Azure Data Lake esteja disponível no Maven. Este artigo será atualizado quando o SDK estiver disponível no Maven. Todas as futuras atualizações para esse SDK estarão disponíveis por meio do Maven.
+    >[!NOTE]
+    >Esta etapa é temporária até que o SDK do Azure Data Lake Analytics esteja disponível no Maven. Este artigo será atualizado quando o SDK estiver disponível no Maven. Todas as futuras atualizações para esse SDK estarão disponíveis por meio do Maven.
+    >
 
         <repositories>
             <repository>
@@ -351,6 +353,6 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

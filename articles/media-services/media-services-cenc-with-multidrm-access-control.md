@@ -12,43 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/11/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: a4f363fcd05e8596f445ce7d40638c5e27c896e6
+ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
+ms.openlocfilehash: 32c792c097e44d46fef9d161ef8d361e97167224
 
 
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC com vários DRM e Controle de Acesso: design e implementação de referência no Azure e nos Serviços de Mídia do Azure
-## <a name="key-words"></a>Palavras-chave
-Active Directory do Azure, Serviços de Mídia do Azure, Azure Media Player, Criptografia Dinâmica, Entrega de licença, PlayReady, Widevine, FairPlay, CENC (criptografia comum), vários DRM, Axinom, DASH, EME, MSE, JWT (Token Web JSON), Declarações, Navegadores Modernos, Substituição de Chave, Chave Simétrica, Chave Assimétrica, OpenID Connect, Certificado X509.
-
-## <a name="in-this-article"></a>Neste artigo
-Os tópicos a seguir são abordados neste artigo:
-
-* [Introdução](media-services-cenc-with-multidrm-access-control.md#introduction)
-  * [Visão geral deste artigo](media-services-cenc-with-multidrm-access-control.md#overview-of-this-article)
-* [Um design de referência](media-services-cenc-with-multidrm-access-control.md#a-reference-design)
-* [Mapeando design à tecnologia para implementação](media-services-cenc-with-multidrm-access-control.md#mapping-design-to-technology-for-implementation)
-* [Implementação](media-services-cenc-with-multidrm-access-control.md#implementation)
-  * [Procedimentos de implementação](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
-  * [Algumas pegadinhas na implementação](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
-* [Tópicos Adicionais para Implementação](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
-  * [HTTP ou HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
-  * [Substituição de chave de assinatura do Active Directory do Azure](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
-  * [Onde está o Token de Acesso?](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
-  * [E quanto à Transmissão ao Vivo?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
-  * [E os servidores de licença fora dos Serviços de Mídia do Azure?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
-  * [E se eu quiser usar um STS personalizado?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-* [Sistema concluído e teste](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
-  * [Logon de usuário](media-services-cenc-with-multidrm-access-control.md#user-login)
-  * [Usando Extensões de Mídia Criptografada para PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensions-for-playready)
-  * [Usando EME para Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
-  * [Usuários não qualificados](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
-  * [Executando Serviço de Token Seguro personalizado](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
-* [Resumo](media-services-cenc-with-multidrm-access-control.md#summary)
-
+ 
 ## <a name="introduction"></a>Introdução
 Todos sabem que é uma tarefa complexa projetar e criar um subsistema DRM para OTT ou solução de streaming online. E uma prática comum usada pelos provedores/operadores de vídeo online é a terceirização desta parte para provedores de serviço DRM especializados. O objetivo deste documento é apresentar um design e uma implementação de referência do subsistema DRM ponta a ponta em OTT ou solução de streaming online.
 
@@ -75,7 +48,7 @@ No artigo, "várias DRM" abordam o seguinte:
 
 1. Microsoft PlayReady
 2. Google Widevine
-3. Apple FairPlay (ainda sem suporte pelos Serviços de Mídia do Azure)
+3. Apple FairPlay 
 
 A tabela a seguir resume o aplicativo nativo/plataforma nativa e navegadores com suporte de cada DRM.
 
@@ -85,7 +58,7 @@ A tabela a seguir resume o aplicativo nativo/plataforma nativa e navegadores com
 | **Dispositivos com Windows 10 (computadores Windows, tablets Windows, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH (No HLS, o PlayReady não tem suporte)<br/><br/>DASH, Smooth Streaming (No HLS, o PlayReady não tem suporte) |
 | **Dispositivos com Android (telefone, tablet, TV)** |Widevine |Chrome/EME |DASH |
 | **iOS (iPhone, iPad), clientes OS X e Apple TV** |FairPlay |Safari 8+/EME |HLS |
-| **Plug-in: Adobe Primetime** |Acesso Primetime |Plug-in de navegador |HDS, HLS |
+
 
 Considerando o estado atual da implantação para cada DRM, um serviço geralmente desejará implementar 2 ou 3 DRMs para se certificar de que você resolva todos os tipos de ponto de extremidade da melhor maneira.
 
@@ -142,7 +115,7 @@ Antes de passar para o próximo tópico, algumas palavras sobre o design do gere
 
 | **ContentKey-para-ativo** | **Cenário** |
 | --- | --- |
-| 1 para 1 |O caso mais simples. Ele fornece o controle mais refinado. Mas isso geralmente resulta no custo de entrega de licença mais alto. Pelo menos uma solicitação de licença é necessária para cada ativo protegido. |
+| 1 para&1; |O caso mais simples. Ele fornece o controle mais refinado. Mas isso geralmente resulta no custo de entrega de licença mais alto. Pelo menos uma solicitação de licença é necessária para cada ativo protegido. |
 | 1-para-muitos |Você pode usar a mesma chave de conteúdo para vários ativos. Por exemplo, para todos os ativos em um grupo lógico, como um gênero ou um subconjunto de gênero (ou Gênero de Filme), você pode usar uma única chave de conteúdo. |
 | Muitos-para-1 |Várias chaves de conteúdo são necessárias para cada ativo. <br/><br/>Por exemplo, se você precisar aplicar proteção CENC dinâmica com vários DRMs para MPEG-DASH e criptografia dinâmica AES-128 para HLS, será preciso duas chaves de conteúdo separadas, cada uma com seu próprio ContentKeyType. (Para a chave de conteúdo usada na proteção CENC dinâmica, é preciso usar ContentKeyType.CommonEncryption; já para a chave de conteúdo usada na criptografia dinâmica AES-128, é preciso usar ContentKeyType.EnvelopeEncryption.)<br/><br/>Outro exemplo: na proteção CENC de conteúdo DASH, teoricamente, uma chave de conteúdo pode ser usada para proteger a transmissão de vídeo e outra chave de conteúdo para proteger a transmissão de áudio. |
 | Muitos-para-muitos |Combinação dos dois cenários acima: um conjunto de chaves de conteúdo é usado para cada um dos vários ativos no mesmo "grupo" de ativos. |
@@ -453,7 +426,7 @@ Observe que o Widevine não impede a captura de tela de vídeo protegido.
 ![Usando EME para Widevine](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-widevine2.png)
 
 ### <a name="not-entitled-users"></a>Usuários não qualificados
-Se um usuário não for um membro do grupo "Usuários Qualificados", ele não será capaz de passar na "verificação de autorização" e o serviço de licença de vários DRM se recusarão emitir a licença solicitada, como mostrado abaixo. A descrição detalhada é "falha na aquisição de licença", que está de acordo com o design.
+Se não for membro do grupo "Usuários Qualificados", o usuário não será capaz de passar na "verificação de autorização" e o serviço de licença com vários DRMs se recusará a emitir a licença solicitada, como mostrado abaixo. A descrição detalhada é "falha na aquisição de licença", que está de acordo com o design.
 
 ![Usuários não qualificados](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
@@ -482,12 +455,9 @@ Neste documento, vimos CENC com vários DRM nativos e controle de acesso por mei
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-### <a name="acknowledgments"></a>Agradecimentos
-William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
+ 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

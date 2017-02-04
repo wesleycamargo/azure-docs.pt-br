@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea5025cf031afb2a6d13356059d090c2d63f1665
+ms.sourcegitcommit: c4b5b8bc05365ddc63b0d7a6a3c63eaee31af957
+ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
 
 
 ---
@@ -89,12 +89,15 @@ por:
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-### <a name="if-you-already-have-your-own-unusernotificationcenterdelegate-implementation"></a>Se você já tiver sua própria implementação de UNUserNotificationCenterDelegate
-O SDK também tem sua própria implementação do protocolo UNUserNotificationCenterDelegate. Ele é usado pelo SDK para monitorar o ciclo de vida de notificações do Engagement em dispositivos que executam o iOS 10 ou superior. Se o SDK detectar seu representante, ele não usará sua própria implementação porque poderá haver apenas um delegado UNUserNotificationCenter por aplicativo. Isso significa que você precisa adicionar a lógica do Engagement a seu próprio delegado.
+### <a name="resolve-unusernotificationcenter-delegate-conflicts"></a>Resolver conflitos de delegado UNUserNotificationCenter
+
+*Se o aplicativo nem uma das bibliotecas de terceiros implementar um `UNUserNotificationCenterDelegate`, ignore esta parte.*
+
+Um delegado `UNUserNotificationCenter` é usado pelo SDK para monitorar o ciclo de vida das notificações do Engagement em dispositivos que executam o iOS 10 ou superior. O SDK tem sua própria implementação do protocolo `UNUserNotificationCenterDelegate`, mas pode haver apenas um delegado `UNUserNotificationCenter` por aplicativo. Qualquer outro delegado adicionado ao objeto `UNUserNotificationCenter` entrará em conflito com o do Engagement. Se o SDK detectar seu delegado ou qualquer delegado de terceiros, ele não usará sua própria implementação, para lhe dar uma chance para resolver os conflitos. Você precisará adicionar a lógica do Engagement ao seu próprio delegado para resolver os conflitos.
 
 Há duas maneiras de fazer isso.
 
-Encaminhando suas chamadas delegadas ao SDK:
+Proposta 1: apenas encaminhando as chamadas do delegado para o SDK:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -121,7 +124,7 @@ Encaminhando suas chamadas delegadas ao SDK:
     }
     @end
 
-Ou herdando da classe `AEUserNotificationHandler`
+Ou proposta 2: herdando da classe `AEUserNotificationHandler`
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -149,8 +152,16 @@ Ou herdando da classe `AEUserNotificationHandler`
 
 > [!NOTE]
 > Você pode determinar se uma notificação vem do Engagement ou não passando seu dicionário `userInfo` para o método da classe `isEngagementPushPayload:` do Agent.
-> 
-> 
+
+Verifique se o delegado do objeto `UNUserNotificationCenter` é definido como seu delegado no método `application:willFinishLaunchingWithOptions:` ou `application:didFinishLaunchingWithOptions:` do delegado do aplicativo.
+Por exemplo, se você implementou a proposta 1 acima:
+
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+        // Any other code
+  
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        return YES;
+      }
 
 ## <a name="from-200-to-300"></a>De 2.0.0 a 3.0.0
 Suporte removido para iOS 4.X. A partir de esta versão, o destino da implantação do seu aplicativo deve ter pelo menos o iOS 6.
@@ -207,6 +218,6 @@ Exemplos:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
