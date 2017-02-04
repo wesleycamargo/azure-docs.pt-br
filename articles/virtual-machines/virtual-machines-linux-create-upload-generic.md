@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
 ms.sourcegitcommit: 8ba7633f7d5c4bf9e7160b27f5d5552676653d55
@@ -143,6 +143,7 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazur
 * Em alguns casos, é possível que o agente Linux do Azure não seja compatível com o NetworkManager. Muitos pacotes RPM/DEB fornecidos pelas distribuições configuram o NetworkManager como um conflito para o pacote do waagent e, portanto, desinstalam o NetworkManager quando você instala o pacote do agente Linux.
 
 ## <a name="general-linux-system-requirements"></a>Requisitos gerais do sistema Linux
+
 * Modifique a linha de inicialização do kernel no GRUB ou GRUB2 para incluir os parâmetros a seguir. Isso garantirá que todas as mensagens do console sejam enviadas para a primeira porta serial, que pode auxiliar o suporte do Azure com problemas de depuração:
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
@@ -153,13 +154,14 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazur
   
         rhgb quiet crashkernel=auto
   
-    As inicializações gráfica e silenciosa não são úteis em ambientes de rede, quando queremos que todos os logs sejam enviados para a porta serial.
-  
-    Você pode deixar configurada a opção `crashkernel` , mas esse parâmetro reduz a memória disponível na máquina virtual em 128 MB ou mais, o que pode ser um problema em máquinas virtuais menores.
+    As inicializações gráfica e silenciosa não são úteis em ambientes de rede, quando queremos que todos os logs sejam enviados para a porta serial. Você pode deixar configurada a opção `crashkernel` , mas esse parâmetro reduz a memória disponível na máquina virtual em 128 MB ou mais, o que pode ser um problema em máquinas virtuais menores.
+
 * Instalando o agente Linux do Azure
   
     O agente Linux do Azure é necessário para garantir o provisionamento de uma imagem Linux no Azure.  Muitas distribuições fornecem o agente como um pacote RPM ou DEB (o pacote geralmente recebe o nome de "WALinuxAgent" ou "walinuxagent").  Você também pode seguir as etapas descritas no [Guia do agente Linux](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)para instalar o agente manualmente.
+
 * Confira se o servidor SSH está instalado e configurado para iniciar no tempo de inicialização.  Geralmente, esse é o padrão.
+
 * Não crie espaço swap no disco do sistema operacional
   
     O Agente Linux do Azure pode configurar automaticamente o espaço de permuta usando o disco de recurso local que é anexado à VM após o provisionamento no Azure. Observe que o disco de recurso local é um disco *temporário* e pode ser esvaziado quando a VM é desprovisionada. Depois de instalar o Agente Linux do Azure (consulte a etapa anterior), modifique os seguintes parâmetros em /etc/waagent.conf de maneira apropriada:
@@ -169,6 +171,7 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazur
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
 * Por fim, execute os comandos a seguir para desprovisionar a máquina virtual:
   
         # sudo waagent -force -deprovision
@@ -179,6 +182,7 @@ O [agente Linux do Azure](virtual-machines-linux-agent-user-guide.md?toc=%2fazur
   > No Virtualbox, você pode ver o seguinte erro após executar 'waagent -force -deprovision': `[Errno 5] Input/output error`. Essa mensagem de erro não é crítica e pode ser ignorada.
   > 
   > 
+
 * Em seguida, você deverá desligar a máquina virtual e carregar o VHD no Azure.
 
 
