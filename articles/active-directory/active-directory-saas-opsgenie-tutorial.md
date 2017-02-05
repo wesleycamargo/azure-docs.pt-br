@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com o OpsGenie | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Active Directory do Azure e o OpsGenie.
+title: "Tutorial: Integração do Azure Active Directory com o OpsGenie | Microsoft Docs"
+description: "Saiba como configurar o logon único entre o Active Directory do Azure e o OpsGenie."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7ab60cc289d5202be4c22b4adf46bd2aff7a7d24
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Active Directory do Azure com o OpsGenie
+# <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Active Directory do Azure com o OpsGenie
 O objetivo desse tutorial é mostrar como integrar o OpsGenie ao Azure AD (Azure Active Directory).
 
 A integração do OpsGenie ao Azure AD oferece os seguintes benefícios:
@@ -192,7 +196,7 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
    d. Na lista **Função**, selecione **Usuário**.
    
    e. Clique em **Próximo**.
-7. Na página da caixa de diálogo **Obter senha temporária**, clique em **criar**.
+7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-opsgenie-tutorial/create_aaduser_07.png) 
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
@@ -273,6 +277,6 @@ Ao clicar no bloco do OpsGenie no Painel de Acesso, você deverá ser conectado 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

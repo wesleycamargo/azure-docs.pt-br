@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 07/25/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 112e64a740354feb55692212e964d33be8f9c9b6
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 2a6ecff86695d4e36a1bcd0326a785b237714906
 
 
 ---
@@ -24,9 +24,7 @@ ms.openlocfilehash: 112e64a740354feb55692212e964d33be8f9c9b6
 > [!div class="op_single_selector"]
 > * [Configurar conectividade VPN](hdinsight-hbase-geo-replication-configure-vnets.md)
 > * [Configurar DNS](hdinsight-hbase-geo-replication-configure-dns.md)
-> * [Configurar replicação HBase](hdinsight-hbase-geo-replication.md) 
-> 
-> 
+> * [Configurar replicação HBase](hdinsight-hbase-geo-replication.md)
 
 Saiba como configurar a replicação do HBase em dois datacenters. Alguns casos de uso para a replicação em cluster incluem:
 
@@ -43,7 +41,7 @@ Esta é a terceira parte da série:
 * [Configurar o DNS para as redes virtuais][hdinsight-hbase-replication-dns]
 * Configure a replicação geográfica de HBase (este tutorial)
 
-O diagrama a seguir ilustra as duas redes virtuais e a conectividade de rede que você criou em [Configurar uma conectividade VPN entre duas redes virtuais][hdinsight-hbase-geo-replication-vnet] e [Configurar o DNS para as redes virtuais][hdinsight-hbase-replication-dns]: 
+O diagrama a seguir ilustra as duas redes virtuais e a conectividade de rede que você criou em [Configurar uma conectividade VPN entre duas redes virtuais][hdinsight-hbase-geo-replication-vnet] e [Configurar DNS para as redes virtuais][hdinsight-hbase-replication-dns]:
 
 ![Diagrama de rede virtual de replicação de HBase do HDInsight][img-vnet-diagram]
 
@@ -52,11 +50,15 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Uma estação de trabalho com o PowerShell do Azure**.
-  
+
     Para executar scripts do PowerShell, você deve executar o PowerShell do Azure como administrador e configurar a política de execução como *RemoteSigned*. Consulte Usando o cmdlet Set-ExecutionPolicy.
-  
-    [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-* **Duas redes virtuais do Azure com conectividade VPN com o DNS configurada**.  Para obter instruções, consulte [Configurar uma conexão VPN entre duas redes virtuais do Azure][hdinsight-hbase-replication-vnet] e [Configurar o DNS entre duas redes virtuais do Azure][hdinsight-hbase-replication-dns].
+
+    > [!IMPORTANT]
+    > O suporte do Azure PowerShell para gerenciar os recursos do HDInsight usando o Gerenciador de Serviços do Azure está **preterido** e será removido em 1º de janeiro de 2017. As etapas neste documento usam os novos cmdlets do HDInsight que funcionam com o Azure Resource Manager.
+    >
+    > Siga as etapas em [Instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalar a versão mais recente do Azure PowerShell. Se você tiver scripts que precisam ser modificados para usar os novos cmdlets que funcionam com o Azure Resource Manager, confira [Migrando para as ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters de HDInsight](hdinsight-hadoop-development-using-azure-resource-manager.md) para obter mais informações.
+
+* **Duas redes virtuais do Azure com conectividade VPN com o DNS configurada**.  Para obter instruções, consulte [Configurar uma conexão VPN entre duas redes virtuais do Azure][hdinsight-hbase-replication-vnet] e [Configurar DNS entre duas redes virtuais do Azure][hdinsight-hbase-replication-dns].
 
     Antes de executar scripts do PowerShell, verifique se você está conectado à sua assinatura do Azure usando o seguinte cmdlet:
 
@@ -66,94 +68,98 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
         Select-AzureSubscription <AzureSubscriptionName>
 
-
-
 ## <a name="provision-hbase-clusters-in-hdinsight"></a>Provisionar os clusters do HBase em HDInsight
 Em [Configurar uma conexão VPN entre duas redes virtuais do Azure][hdinsight-hbase-replication-vnet], você criou uma rede virtual em um datacenter na Europa e uma rede virtual em um datacenter nos EUA. As duas redes virtuais são conectadas via VPN. Nesta sessão, você provisionará um cluster HBase em cada uma das redes virtuais. Posteriormente neste tutorial, você criará um dos clusters HBase para replicar o cluster HBase.
 
 O Portal Clássico do Azure não dá suporte ao provisionamento de clusters HDInsight com opções de configuração personalizadas. Por exemplo, defina *hbase.replication* para *true*. Se definir o valor no arquivo de configuração depois que um cluster for configurado, você perderá a configuração após o cluster ter tido a sua imagem recriada. Para obter mais informações, consulte [Provisionar clusters Hadoop no HDInsight][hdinsight-provision]. Uma das opções para provisionar o cluster HDInsight com opções personalizadas é usando o PowerShell do Azure.
 
-**Para provisionar um HBase Cluster em Contoso-VNet-EU** 
+**Para provisionar um HBase Cluster em Contoso-VNet-EU**
 
 1. Na sua estação de trabalho, abra o ISE do Windows PowerShell.
 2. Defina as variáveis no início do script e, em seguida, execute o script.
-   
-        # create hbase cluster with replication enabled
-   
-        $azureSubscriptionName = "[AzureSubscriptionName]"
-   
-        $hbaseClusterName = "Contoso-HBase-EU" # This is the HBase cluster name to be used.
-        $hbaseClusterSize = 1   # You must provision a cluster that contains at least 3 nodes for high availability of the HBase services.
-        $hadoopUserLogin = "[HadoopUserName]"
-        $hadoopUserpw = "[HadoopUserPassword]"
-   
-        $vNetName = "Contoso-VNet-EU"  # This name must match your Europe virtual network name.
-        $subNetName = 'Subnet-1' # This name must match your Europe virtual network subnet name.  The default name is "Subnet-1".
-   
-        $storageAccountName = 'ContosoStoreEU'  # The script will create this storage account for you.  The storage account name doesn't support hyphens. 
-        $storageAccountName = $storageAccountName.ToLower() #Storage account name must be in lower case.
-        $blobContainerName = $hbaseClusterName.ToLower()  #Use the cluster name as the default container name.
-   
-        #connect to your Azure subscription
-        Add-AzureAccount 
-        Select-AzureSubscription $azureSubscriptionName
-   
-        # Create a storage account used by the HBase cluster
-        $location = Get-AzureVNetSite -VNetName $vNetName | %{$_.Location} # use the virtual network location
-        New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
-   
-        # Create a blob container used by the HBase cluster
-        $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{$_.Primary}
-        $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-        New-AzureStorageContainer -Name $blobContainerName -Context $storageContext
-   
-        # Create provision configuration object
-        $hbaseConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHBaseConfiguration'
-   
-        $hbaseConfigValues.Configuration = @{ "hbase.replication"="true" } #this modifies the hbase-site.xml file
-   
-        # retrieve vnet id based on vnetname
-        $vNetID = Get-AzureVNetSite -VNetName $vNetName | %{$_.id}
-   
-        $config = New-AzureHDInsightClusterConfig `
-                        -ClusterSizeInNodes $hbaseClusterSize `
-                        -ClusterType HBase `
-                        -VirtualNetworkId $vNetID `
-                        -SubnetName $subNetName `
-                    | Set-AzureHDInsightDefaultStorage `
-                        -StorageAccountName $storageAccountName `
-                        -StorageAccountKey $storageAccountKey `
-                        -StorageContainerName $blobContainerName `
-                    | Add-AzureHDInsightConfigValues `
-                        -HBase $hbaseConfigValues
-   
-        # provision HDInsight cluster
-        $hadoopUserPassword = ConvertTo-SecureString -String $hadoopUserpw -AsPlainText -Force     
-        $credential = New-Object System.Management.Automation.PSCredential($hadoopUserLogin,$hadoopUserPassword)
-   
-        $config | New-AzureHDInsightCluster -Name $hbaseClusterName -Location $location -Credential $credential
 
-**Para provisionar um HBase Cluster em Contoso-VNet-US** 
+    ```powershell
+    # create hbase cluster with replication enabled
+
+    $azureSubscriptionName = "[AzureSubscriptionName]"
+
+    $hbaseClusterName = "Contoso-HBase-EU" # This is the HBase cluster name to be used.
+    $hbaseClusterSize = 1   # You must provision a cluster that contains at least 3 nodes for high availability of the HBase services.
+    $hadoopUserLogin = "[HadoopUserName]"
+    $hadoopUserpw = "[HadoopUserPassword]"
+
+    $vNetName = "Contoso-VNet-EU"  # This name must match your Europe virtual network name.
+    $subNetName = 'Subnet-1' # This name must match your Europe virtual network subnet name.  The default name is "Subnet-1".
+
+    $storageAccountName = 'ContosoStoreEU'  # The script will create this storage account for you.  The storage account name doesn't support hyphens.
+    $storageAccountName = $storageAccountName.ToLower() #Storage account name must be in lower case.
+    $blobContainerName = $hbaseClusterName.ToLower()  #Use the cluster name as the default container name.
+
+    #connect to your Azure subscription
+    Add-AzureAccount
+    Select-AzureSubscription $azureSubscriptionName
+
+    # Create a storage account used by the HBase cluster
+    $location = Get-AzureVNetSite -VNetName $vNetName | %{$_.Location} # use the virtual network location
+    New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
+
+    # Create a blob container used by the HBase cluster
+    $storageAccountKey = Get-AzureStorageKey -StorageAccountName $storageAccountName | %{$_.Primary}
+    $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+    New-AzureStorageContainer -Name $blobContainerName -Context $storageContext
+
+    # Create provision configuration object
+    $hbaseConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHBaseConfiguration'
+
+    $hbaseConfigValues.Configuration = @{ "hbase.replication"="true" } #this modifies the hbase-site.xml file
+
+    # retrieve vnet id based on vnetname
+    $vNetID = Get-AzureVNetSite -VNetName $vNetName | %{$_.id}
+
+    $config = New-AzureHDInsightClusterConfig `
+                    -ClusterSizeInNodes $hbaseClusterSize `
+                    -ClusterType HBase `
+                    -VirtualNetworkId $vNetID `
+                    -SubnetName $subNetName `
+                | Set-AzureHDInsightDefaultStorage `
+                    -StorageAccountName $storageAccountName `
+                    -StorageAccountKey $storageAccountKey `
+                    -StorageContainerName $blobContainerName `
+                | Add-AzureHDInsightConfigValues `
+                    -HBase $hbaseConfigValues
+
+    # provision HDInsight cluster
+    $hadoopUserPassword = ConvertTo-SecureString -String $hadoopUserpw -AsPlainText -Force
+    $credential = New-Object System.Management.Automation.PSCredential($hadoopUserLogin,$hadoopUserPassword)
+
+    $config | New-AzureHDInsightCluster -Name $hbaseClusterName -Location $location -Credential $credential
+    ```
+
+**Para provisionar um HBase Cluster em Contoso-VNet-US**
 
 * Use o mesmo script com os seguintes valores:
-  
-        $hbaseClusterName = "Contoso-HBase-US" # This is the HBase cluster name to be used.
-        $vNetName = "Contoso-VNet-US"  # This name must match your Europe virtual network name.
-        $storageAccountName = 'ContosoStoreUS'    
-  
+
+    ```powershell
+    $hbaseClusterName = "Contoso-HBase-US" # This is the HBase cluster name to be used.
+    $vNetName = "Contoso-VNet-US"  # This name must match your Europe virtual network name.
+    $storageAccountName = 'ContosoStoreUS'
+    ```
+
     Como já se conectou à sua conta do Azure, você não precisa mais executar os comlets a seguir:
-  
-        Add-AzureAccount 
-        Select-AzureSubscription $azureSubscriptionName
+
+    ```powershell
+    Add-AzureAccount
+    Select-AzureSubscription $azureSubscriptionName
+    ```
 
 ## <a name="configure-dns-conditional-forwarder"></a>Configure o encaminhador condicional DNS
 Em [Configurar DNS para as redes virtuais][hdinsight-hbase-replication-dns], você configurou os servidores DNS para as duas redes. Os clusters HBase têm sufixos de domínio diferentes. Portanto, você precisa configurar os encaminhadores condicionais DNS adicionais.
 
-Para configurar o encaminhador condicional, você precisa saber os sufixos de domínio dos dois clusters HBase. 
+Para configurar o encaminhador condicional, você precisa saber os sufixos de domínio dos dois clusters HBase.
 
 **Para localizar os sufixos de domínio dos dois clusters HBase**
 
-1. RDP no **Contoso-HBase-EU**.  Para obter instruções, consulte [Gerenciar os clusters Hadoop no HDInsight usando o Portal Clássico do Azure][hdinsight-manage-portal]. É realmente o headnode0 do cluster.
+1. RDP no **Contoso-HBase-EU**.  Para obter instruções, veja [Gerenciar clusters Hadoop no HDInsight usando o Portal Clássico do Azure][hdinsight-manage-portal]. É realmente o headnode0 do cluster.
 2. Abra um console do Windows PowerShell ou um prompt de comando.
 3. Execute **ipconfig** e anote o **sufixo DNS específico da conexão**.
 4. Não feche a sessão RDP.  Você precisará dela posteriormente para testar a resolução de nome de domínio.
@@ -161,18 +167,18 @@ Para configurar o encaminhador condicional, você precisa saber os sufixos de do
 
 **Para configurar os encaminhadores DNS**
 
-1. RDP no **Contoso-DNS-EU**. 
+1. RDP no **Contoso-DNS-EU**.
 2. Clique na chave do Windows na parte inferior esquerda.
 3. Clique em **Ferramentas administrativas**.
 4. Clique em **DNS**.
 5. No painel esquerdo, expanda **DSN**, **Contoso-DNS-EU**.
-6. Clique com botão direito em **Encaminhadores Condicionais**, em seguida, clique em **Novo Encaminhador Condicional**. 
+6. Clique com botão direito em **Encaminhadores Condicionais**, em seguida, clique em **Novo Encaminhador Condicional**.
 7. Insira as seguintes informações:
    * **Domínio DNS**: insira o sufixo DNS do Contoso-HBase-US. Por exemplo: Contoso-HBase-US.f5.internal.cloudapp.net.
    * **Endereços IP dos servidores mestres**: insira 10.2.0.4, que é o endereço IP do Contoso-DNS-US. Verifique se o IP. O servidor DNS pode ter um endereço IP diferente.
 8. Pressione **ENTER**, em seguida, clique em **OK**.  Agora você poderá resolver o endereço IP do Contoso-DNS-US por meio do Contoso-DNS-EU.
 9. Repita as etapas para adicionar um encaminhador condicional do DNS ao serviço DNS na máquina virtual Contoso-DNS-US com os seguintes valores:
-   * **Domínio DNS**: insira o sufixo DNS do Contoso-HBase-EU. 
+   * **Domínio DNS**: insira o sufixo DNS do Contoso-HBase-EU.
    * **Endereços IP dos servidores mestres**: insira 10.2.0.4, que é o endereço IP do Contoso-DNS-EU.
 
 **Para testar a resolução de nome de domínio**
@@ -180,37 +186,35 @@ Para configurar o encaminhador condicional, você precisa saber os sufixos de do
 1. Alterne para a janela RDP do Contoso-HBase-EU.
 2. Abra um prompt de comando.
 3. Execute o comando ping:
-   
+
         ping headnode0.[DNS suffix of Contoso-HBase-US]
-   
+
     O Protocolo ICM está ativado nos nós de trabalho dos clusters HBase
 4. Não feche a sessão RDP. Você ainda precisará dele posteriormente no tutorial.
 5. Repita as mesmas etapas para executar o ping headnode0 do Contoso-HBase-EU por meio do Contoso-HBase-US.
 
 > [!IMPORTANT]
 > O DNS deve funcionar antes de você passar para as próximas etapas.
-> 
-> 
 
 ## <a name="enable-replication-between-hbase-tables"></a>Habilitar a replicação entre as tabelas do HBase
-Agora, é possível criar uma tabela do HBase de exemplo, habilitar a replicação e, em seguida, testá-lo com alguns dados. A tabela de exemplo usará duas famílias de coluna: Pessoal e do Escritório. 
+Agora, é possível criar uma tabela do HBase de exemplo, habilitar a replicação e, em seguida, testá-lo com alguns dados. A tabela de exemplo usará duas famílias de coluna: Pessoal e do Escritório.
 
 Neste tutorial, você fará o cluster HBase da Europa como o cluster de origem e nos EUA. O cluster HBase como o cluster de destino.
 
-Crie tabelas de HBase com os mesmos nomes e famílias de coluna nos clusters de origem e de destino, para que o cluster de destino saiba onde armazenar os dados que serão exibidos. Para obter mais informações sobre como usar o shell do HBase, consulte [Introdução ao Apache HBase no HDInsight][hdinsight-hbase-get-started].
+Crie tabelas de HBase com os mesmos nomes e famílias de coluna nos clusters de origem e de destino, para que o cluster de destino saiba onde armazenar os dados que serão exibidos. Para obter mais informações sobre como usar o shell do HBase, consulte [Introdução ao Apache HBase em HDInsight][hdinsight-hbase-get-started].
 
 **Para criar uma tabela do HBase no Contoso-HBase-EU**
 
 1. Alterne para a janela RDP do **Contoso-HBase-EU** .
 2. Na área de trabalho, clique em **Linha de Comando do Hadoop**.
 3. Altere a pasta para o diretório inicial HBase:
-   
+
         cd %HBASE_HOME%\bin
 4. Abra o shell HBase:
-   
+
         hbase shell
 5. Crie uma tabela do HBase:
-   
+
         create 'Contacts', 'Personal', 'Office'
 6. Não feche a sessão RDP nem a janela da linha de comando do Hadoop. Você ainda precisará deles posteriormente no tutorial.
 
@@ -222,15 +226,15 @@ Crie tabelas de HBase com os mesmos nomes e famílias de coluna nos clusters de 
 
 1. Alterne para a janela RDP **Contoso HBase_EU**.
 2. Na janela do shell do HBase, adicione o cluster de destino (Contoso-HBase-US) como um par, por exemplo:
-   
+
         add_peer '1', 'zookeeper0.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper1.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper2.contoso-hbase-us.d4.internal.cloudapp.net:2181:/hbase'
-   
+
     No exemplo, o sufixo de domínio é *contoso-hbase-us.d4.internal.cloudapp.net*. Você precisa atualizá-lo para coincidir com o sufixo de domínio do cluster no HBase dos EUA. Certifique-se de que não haja nenhum espaço entre os nomes de host.
 
 **Para configurar cada família de coluna a ser replicada no cluster de origem**
 
 1. Na janela do shell do HBase da sessão RDP do **Contoso-HBase-EU**, configure cada família de colunas a ser replicada:
-   
+
         disable 'Contacts'
         alter 'Contacts', {NAME => 'Personal', REPLICATION_SCOPE => '1'}
         alter 'Contacts', {NAME => 'Office', REPLICATION_SCOPE => '1'}
@@ -260,12 +264,12 @@ Você pode carregar o mesmo arquivo de dados em seu cluster HBase e importar os 
 1. Alterne para a janela RDP do **Contoso-HBase-EU** .
 2. Na área de trabalho, clique em **Linha de Comando do Hadoop**.
 3. Altere a pasta para o diretório inicial HBase:
-   
+
         cd %HBASE_HOME%\bin
 4. carregar os dados:
-   
+
         hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
-   
+
         hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
 
 ## <a name="verify-that-data-replication-is-taking-place"></a>Verifique se a replicação de dados está sendo executada
@@ -273,25 +277,23 @@ Você pode verificar que a replicação está ocorrendo examinando as tabelas de
 
         Scan 'Contacts'
 
-
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu a configurar a replicação do HBase entre dois datacenters. Para saber mais sobre HDInsight e HBase, consulte:
 
 * [Página do serviço HDInsight](https://azure.microsoft.com/services/hdinsight/)
 * [Documentação do HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [Introdução ao Apache HBase no HDInsight][hdinsight-hbase-get-started]
-* [Visão geral do HBase no HDInsight][hdinsight-hbase-overview]
+* [Visão geral do HDInsight HBase][hdinsight-hbase-overview]
 * [Provisionar clusters do HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet]
-* [Analisar o sentimento do Twitter em tempo real com HBase][hdinsight-hbase-twitter-sentiment]
-* [Analisando os dados do sensor com Storm e HBase no HDInsight (Hadoop)][hdinsight-sensor-data]
+* [Analisar o sentimento do Twitter em tempo real com o HBase][hdinsight-hbase-twitter-sentiment]
+* [Analisando dados de sensor com o Storm e o HBase em HDInsight (Hadoop)][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
 [hdinsight-hbase-geo-replication-dns]: ../hdinsight-hbase-geo-replication-configure-VNet.md
 
-
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -304,6 +306,6 @@ Neste tutorial, você aprendeu a configurar a replicação do HBase entre dois d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
