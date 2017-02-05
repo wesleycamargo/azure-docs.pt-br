@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: bbfe4dc74b9743b89ea6a7a99f5fa17672f3c706
-ms.openlocfilehash: 94db8988acacd93518e96a81e177882852379fb0
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: 99e1c8956968264fbea696b85ac084281d75f02a
 
 
 ---
@@ -32,7 +32,7 @@ Neste tutorial, você desenvolverá um aplicativo de console Java que contém ex
 * IntelliJ ou outro ambiente de desenvolvimento Java adequado. Isto é opcional, mas recomendado. As instruções abaixo usam o IntelliJ.
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Habilitar sua assinatura do Azure** para a visualização pública do Data Lake Analytics. Veja [instruções](data-lake-analytics-get-started-portal.md).
-* Crie um aplicativo do AAD (Azure Active Directory) e recupere a **ID do Cliente**, a **ID de Locatário** e a **Chave**. Para saber mais sobre os aplicativos do AAD e obter instruções sobre como obter uma ID do cliente, confira [Criar o aplicativo do Active Directory e a entidade de serviço usando o portal](../resource-group-create-service-principal-portal.md). O URI de Resposta e a Chave também estarão disponíveis no portal depois do aplicativo ser criado e a chave ser gerada.
+* Crie um aplicativo do AAD (Azure Active Directory) e recupere a **ID do Cliente**, a **ID de Locatário** e a **Chave**. Para saber mais sobre os aplicativos do AAD e obter instruções sobre como obter uma ID do cliente, confira [Criar o aplicativo do Active Directory e a entidade de serviço usando o portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). O URI de Resposta e a Chave também estarão disponíveis no portal depois do aplicativo ser criado e a chave ser gerada.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Como faço para me autenticar usando o Azure Active Directory?
 O trecho de código a seguir fornece o código para a autenticação **não interativa** , em que o aplicativo fornece suas próprias credenciais.
@@ -353,6 +353,6 @@ Você precisará conceder permissão ao seu aplicativo para criar recursos no Az
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

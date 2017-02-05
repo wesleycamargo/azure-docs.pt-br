@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 39b4ccba7ad3ba6734dd23548db3c506c8095759
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 8b2d13dd16f629fbb2108856cd1e1b2954ece8bf
 
 
 ---
@@ -224,13 +224,12 @@ Se você tiver mais de um cliente operando cumulativamente acima da taxa de soli
 Para saber mais sobre a produtividade reservada com os bancos de dados do Banco de Dados de Documentos do Azure, explore estes recursos:
 
 * [Definição de preços no Banco de Dados de Documentos](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Gerenciando a capacidade no Banco de Dados de Documentos](documentdb-manage.md) 
 * [Modelando dados no Banco de Dados de Documentos](documentdb-modeling-data.md)
 * [Níveis de desempenho do Banco de Dados de Documentos](documentdb-partition-data.md)
 
 Para saber mais sobre o Banco de Dados de Documentos, veja a [documentação](https://azure.microsoft.com/documentation/services/documentdb/)do Banco de Dados de Documentos do Azure. 
 
-Para começar os testes de desempenho e de escalabilidade com o Banco de Dados de Documentos, confira [Teste de desempenho e escalabilidade com o Banco de Dados de Documentos do Azure](documentdb-performance-testing.md).
+Para começar com os testes de desempenho e escala com o DocumentDB, confira [Teste de desempenho e escalabilidade com o Azure DocumentDB](documentdb-performance-testing.md).
 
 [1]: ./media/documentdb-request-units/queryexplorer.png 
 [2]: ./media/documentdb-request-units/RUEstimatorUpload.png
@@ -240,6 +239,6 @@ Para começar os testes de desempenho e de escalabilidade com o Banco de Dados d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

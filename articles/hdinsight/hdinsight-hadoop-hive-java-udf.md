@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 240ba2289ededf7a65c71e2f5007cf3a52ca4f84
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: ec7e5d3229d623ce08a72439317a6a515ee3e373
 
 
 ---
@@ -24,21 +24,20 @@ ms.openlocfilehash: 240ba2289ededf7a65c71e2f5007cf3a52ca4f84
 O Hive é ótimos para trabalhar com dados no HDInsight, mas algumas vezes você precisa de uma linguagem de propósito mais geral. O Hive permite que você crie UDF (funções definidas pelo usuário) usando uma variedade de linguagens de programação. Neste documento, você aprenderá a usar um Java UDF do Hive.
 
 ## <a name="requirements"></a>Requisitos
-* Uma assinatura do Azure
+
 * Um cluster HDInsight (Windows ou Linux)
   
-  > [!NOTE]
-  > A maioria das etapas neste documento funcionará em ambos os tipos de cluster; no entanto, as etapas usadas para carregar o UDF compilado ao cluster e executá-lo são específicas para clusters baseados em Linux. São fornecidos links para informações que podem ser usados com clusters baseados em Windows.
-  > 
-  > 
+  > [!IMPORTANT]
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+  
+  A maioria das etapas neste documento funcionará em ambos os tipos de cluster; no entanto, as etapas usadas para carregar o UDF compilado ao cluster e executá-lo são específicas para clusters baseados em Linux. São fornecidos links para informações que podem ser usados com clusters baseados em Windows.
+
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 7 ou posterior (ou um equivalente, como OpenJDK)
 * [Apache Maven](http://maven.apache.org/)
 * Um editor de texto ou Java IDE
   
   > [!IMPORTANT]
   > Se estiver usando um servidor HDInsight baseado em Linux, mas criando os arquivos de Python em um cliente Windows, você deverá usar um editor que usa LF como uma terminação de linha. Se você não tem certeza se o seu editor usa LF ou CRLF, veja a seção de [Solução de problemas](#troubleshooting) para ver as etapas para remover o caractere CR usando utilitários no cluster HDInsight.
-  > 
-  > 
 
 ## <a name="create-an-example-udf"></a>Criar um exemplo de UDF
 1. Na linha de comando, use o seguinte para criar um novo projeto Maven:
@@ -216,6 +215,6 @@ Para obter mais informações sobre funções definidas pelo usuário do Hive, c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

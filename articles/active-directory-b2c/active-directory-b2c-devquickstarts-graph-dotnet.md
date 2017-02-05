@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 271e2bd40fb605dc6be229bea8fb479effae4298
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: a932b617d57184ef714bf18f1e1e23599db52487
 
 
 ---
@@ -26,7 +26,7 @@ Os locatários do Azure Active Directory (Azure AD) B2C tendem a ser muito grand
 Para locatários B2C, existem basicamente dois modos de se comunicar com a API do Graph.
 
 * Para tarefas de execução única, interativas, você deverá agir como uma conta de administrador no locatário B2C quando executar as tarefas. Esse modo requer que um administrador entre com credenciais antes de poder executar todas as chamadas à API do Graph.
-* Para tarefas automatizadas, contínuas, você deve usar algum tipo de conta de serviço fornecida com os privilégios necessários para executar tarefas de gerenciamento. No Azure AD, você pode fazer isso registrando um aplicativo e autenticando no Azure AD. Isso é feito usando uma **ID de aplicativo** que usa a [concessão de credenciais do cliente OAuth 2.0](../active-directory/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Nesse caso, o aplicativo atua em nome próprio, e não como usuário, para chamar a API do Graph.
+* Para tarefas automatizadas, contínuas, você deve usar algum tipo de conta de serviço fornecida com os privilégios necessários para executar tarefas de gerenciamento. No Azure AD, você pode fazer isso registrando um aplicativo e autenticando no Azure AD. Isso é feito usando uma **ID de aplicativo** que usa a [concessão de credenciais do cliente OAuth 2.0](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). Nesse caso, o aplicativo atua em nome próprio, e não como usuário, para chamar a API do Graph.
 
 Neste artigo, discutiremos como executar o caso de uso automatizado. Para demonstrar isso, vamos criar um .NET 4.5 `B2CGraphClient` que executa as operações CRUD (criar, ler, atualizar e excluir) do usuário. O cliente terá uma CLI (interface de linha de comando) do Windows que permite que você chame vários métodos. No entanto, o código é gravado para se comportar de forma não interativa e automatizada.
 
@@ -364,6 +364,6 @@ Se você tiver perguntas ou solicitações de ações que deseja executar usando
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,18 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 01/09/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a9509b159941c9784fb91f624312f11fe0af2818
+ms.sourcegitcommit: 610dab0af17f927d86b677f647acd0dfe2569583
+ms.openlocfilehash: 53b98aaf67b874b0af7d0e94e29bcbe23fc6fc5b
 
 
 ---
 # <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Sincronização do Azure AD Connect: Synchronization Service Manager
-| [Operações](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Designer de Metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Pesquisa de Metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
-|  | | | |
 
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/operations.png)
 
@@ -46,7 +43,7 @@ Quando você seleciona uma linha, a parte inferior é atualizada para mostrar os
 
 ## <a name="troubleshoot-errors-in-operations-tab"></a>Solucionar problemas de erros na guia Operações
 ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorsync.png)  
- Quando houver erros, o objeto com erro e o próprio erro serão exibidos como links que fornecerão mais informações.
+Quando houver erros, o objeto com erro e o próprio erro serão exibidos como links que fornecerão mais informações.
 
 Comece clicando na cadeia de caracteres de erro (**sync-rule-error-function-triggered** na imagem). Primeiro, você vê uma visão geral do objeto. Para ver o erro real, clique no botão **Rastreamento de Pilha**. Esse rastreamento fornece informações de nível de depuração sobre o erro.
 
@@ -54,7 +51,7 @@ Comece clicando na cadeia de caracteres de erro (**sync-rule-error-function-trig
 
 * Se o erro for proveniente de **SyncRulesEngine**, as informações da pilha de chamadas primeiro terão uma lista de todos os atributos no objeto. Role para baixo até ver o cabeçalho **InnerException =>**.  
   ![Synchronization Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorinnerexception.png)  
-   A linha posterior mostra o erro. Na figura acima, o erro é proveniente de uma Regra de Sincronização personalizada criada pela Fabrikam.
+  A linha posterior mostra o erro. Na figura acima, o erro é proveniente de uma Regra de Sincronização personalizada criada pela Fabrikam.
 
 Se o erro em si não fornecer informações suficientes, será o momento de examinar os próprios dados. É possível clicar no link com o identificador de objeto e [Seguir um objeto e seus dados por meio do sistema](active-directory-aadconnectsync-service-manager-ui-connectors.md#follow-an-object-and-its-data-through-the-system).
 
@@ -65,7 +62,6 @@ Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do A
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

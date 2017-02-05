@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 01/09/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 354648461adf77ccf753cf24721ab7dd82b34d3c
-ms.openlocfilehash: 0af729f798a88aa299becd474fff69ad36436521
+ms.sourcegitcommit: 3451bdde3be60df0f1e1ed977f23db65d39f535f
+ms.openlocfilehash: eb4f55ab1f463d3351c74d9996eb8611281abe41
 
 
 ---
@@ -65,8 +65,8 @@ Use o SSO para habilitar os usuários a acessar seus [aplicativos de SaaS](../ac
 
 > [!NOTE]
 > a decisão de usar o SSO terá impacto sobre como você integra seu diretório local a seu diretório na nuvem. Se quiser o SSO, você precisará usar a federação, pois a sincronização de diretórios só fornecerá a [mesma experiência de logon](../active-directory/active-directory-aadconnect.md).
-> 
-> 
+>
+>
 
 As organizações que não impõem o SSO para seus usuários e aplicativos estão mais expostas a cenários em que os usuários terão várias senhas, o que aumenta diretamente a probabilidade de reutilização de senhas ou o uso de senhas de fracas.
 
@@ -108,14 +108,14 @@ Para fazer isso, as organizações podem criar políticas de segurança com defi
 
 > [!NOTE]
 > isso não é o mesmo que o RBAC; na verdade, tira proveito do RBAC para autenticar os usuários que têm o privilégio para criar esses recursos.
-> 
-> 
+>
+>
 
 Aproveite o [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para criar políticas personalizadas também para cenários em que a organização deseja permitir operações apenas quando o centro de custo apropriado estiver associado; caso contrário, elas negarão a solicitação.
 
 As organizações que não estão controlando como os recursos são criados são mais suscetíveis a usuários que podem usar o serviço de maneira imprópria, criando mais recursos do que o necessário. Proteger o processo de criação de recursos é uma etapa importante para proteger um cenário de multilocatário.
 
-Você pode saber mais sobre como criar políticas com o Azure Resource Manager lendo o artigo [Usar Política para gerenciar recursos e controlar o acesso](../resource-manager-policy.md).
+Você pode saber mais sobre como criar políticas com o Azure Resource Manager lendo o artigo [Usar Política para gerenciar recursos e controlar o acesso](../azure-resource-manager/resource-manager-policy.md).
 
 ## <a name="guide-developers-to-leverage-identity-capabilities-for-saas-apps"></a>Guiar os desenvolvedores para aproveitar os recursos de identidade para aplicativos SaaS
 A identidade do usuário será aproveitada em muitos cenários, quando os usuários acessam [aplicativos de SaaS](https://azure.microsoft.com/marketplace/active-directory/all/) que pode ser integrados ao diretório local ou na nuvem. Em primeiro lugar, é recomendável que os desenvolvedores usem uma metodologia segura para desenvolver esses aplicativos, como o [Microsoft SDL (Security Development Lifecycle)](https://www.microsoft.com/sdl/default.aspx). O Azure AD simplifica a autenticação para os desenvolvedores fornecendo identidade como um serviço, com suporte para protocolos de padrão do setor, como [OAuth 2.0](http://oauth.net/2/) e [OpenID Connect](http://openid.net/connect/), bem como bibliotecas de software livre para plataformas diferentes.
@@ -138,7 +138,6 @@ Você pode saber mais sobre a proteção de identidade do Azure lendo [Proteçã
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,31 +1,35 @@
 ---
 title: Como dimensionar o Cache Redis do Azure | Microsoft Docs
-description: Saiba como dimensionar suas instâncias do Cache Redis do Azure
+description: "Saiba como dimensionar suas instâncias do Cache Redis do Azure"
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 01/06/2017
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: 022916bacd93d283a6495a60ca1afa0c27e34e0c
+
 
 ---
-# Como dimensionar o Cache Redis do Azure
+# <a name="how-to-scale-azure-redis-cache"></a>Como dimensionar o Cache Redis do Azure
 > [!NOTE]
-> O recurso de dimensionamento do Cache Redis do Azure está atualmente na visualização.
+> O recurso de dimensionamento do Cache Redis do Azure está atualmente na visualização. 
 > 
 > 
 
 O Cache Redis do Azure tem diferentes ofertas de cache que fornecem flexibilidade na escolha do tamanho do e dos recursos de cache. Se os requisitos de seu aplicativo se alterarem depois que um cache for criado, você poderá dimensionar o tamanho do cache usando a folha **Alterar camada de preços** no [portal do Azure](https://portal.azure.com).
 
-## Quando dimensionar
-Você pode usar os recursos de [monitoramento](cache-how-to-monitor.md) do Cache Redis do Azure para monitorar a integridade e o desempenho de seus aplicativos de cache e para ajudar a determinar se é necessário dimensionar o cache.
+## <a name="when-to-scale"></a>Quando dimensionar
+Você pode usar os recursos de [monitoramento](cache-how-to-monitor.md) do Cache Redis do Azure para monitorar a integridade e o desempenho de seus aplicativos de cache e para ajudar a determinar se é necessário dimensionar o cache. 
 
 Você pode monitorar as métricas a seguir para ajudá-lo a determinar se é preciso dimensionar.
 
@@ -36,14 +40,14 @@ Você pode monitorar as métricas a seguir para ajudá-lo a determinar se é pre
 
 Se determinar que o cache não atende mais aos requisitos de seu aplicativo, você poderá mudar para uma camada de preços cache maior ou menor que seja adequada ao aplicativo. Para obter mais informações sobre como determinar qual camada de preços de cache usar, consulte [Qual oferta e tamanho do Cache Redis devo usar](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
-## Dimensionar um cache
+## <a name="scale-a-cache"></a>Dimensionar um cache
 Para dimensionar o cache, [navegue até ele](cache-configure.md#configure-redis-cache-settings) no [portal do Azure](https://portal.azure.com) e clique em **Configurações**, **Tipo de preço**.
 
-Você também pode clicar na parte **Camada de preços** da folha **Cache Redis**.
+Você também pode clicar na parte **Tipo de preços** da folha **Cache Redis**.
 
 ![Tipo de preço][redis-cache-pricing-tier-part]
 
-Selecione a camada de preços desejada na folha **Camada de preços** e clique em **Selecionar**.
+Selecione a camada de preços desejada na folha **Tipo de preços** e clique em **Selecionar**.
 
 ![Tipo de preço][redis-cache-pricing-tier-blade]
 
@@ -55,36 +59,36 @@ Selecione a camada de preços desejada na folha **Camada de preços** e clique e
 > * Você não pode dimensionar de um cache **Standard** para um cache **Básico**.
 > * É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
 > * Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
-> * Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)**.
+> * Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)** .
 > 
 > 
 
-Enquanto o cache é dimensionado para a nova camada de preços, um status **Dimensionando** é exibido na folha do **Cache Redis**.
+Enquanto o cache é dimensionado para o novo tipo de preços, um status **Dimensionando** é exibido na folha do **Cache Redis**.
 
 ![Dimensionamento][redis-cache-scaling]
 
 Quando o dimensionamento for concluído, o status será alterado de **Dimensionando** para **Executando**.
 
-## Como automatizar uma operação de dimensionamento
-Além de dimensionar as instâncias do Cache Redis do Azure no portal do Azure, você pode dimensionar usando cmdlets do PowerShell do Cache Redis do Azure, a CLI do Azure e a MAML (Bibliotecas de Gerenciamento do Microsoft Azure).
+## <a name="how-to-automate-a-scaling-operation"></a>Como automatizar uma operação de dimensionamento
+Além de dimensionar as instâncias do Cache Redis do Azure no portal do Azure, você pode dimensionar usando cmdlets do PowerShell do Cache Redis do Azure, a CLI do Azure e a MAML (Bibliotecas de Gerenciamento do Microsoft Azure). 
 
 * [Dimensionar usando o PowerShell](#scale-using-powershell)
 * [Dimensionar usando a CLI do Azure](#scale-using-azure-cli)
 * [Dimensionar usando MAML](#scale-using-maml)
 
-### Dimensionar usando o PowerShell
-É possível dimensionar as instâncias do Cache Redis do Azure com o PowerShell usando o cmdlet [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) quando as propriedades `Size`, `Sku` ou `ShardCount` forem modificadas. O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB.
+### <a name="scale-using-powershell"></a>Dimensionar usando o PowerShell
+É possível dimensionar as instâncias do Cache Redis do Azure com o PowerShell usando o cmdlet [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) quando as propriedades `Size`, `Sku` ou `ShardCount` forem modificadas. O exemplo a seguir mostra como dimensionar um cache denominado `myCache` para um cache de 2,5 GB. 
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 Para obter mais informações sobre o dimensionamento com o PowerShell, confira [To scale a Redis cache using Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
 
-### Dimensionar usando a CLI do Azure
+### <a name="scale-using-azure-cli"></a>Dimensionar usando a CLI do Azure
 Para dimensionar instâncias do Cache Redis do Azure usando a CLI do Azure, chame o comando `azure rediscache set` e transmita as mudanças de configuração desejadas que incluam novo tamanho, SKU ou tamanho de cluster, de acordo com a operação de dimensionamento desejada.
 
 Para obter mais informações sobre o dimensionamento com CLI do Azure, confira [Alterar as configurações de um Cache Redis existente](cache-manage-cli.md#scale).
 
-### Dimensionar usando MAML
+### <a name="scale-using-maml"></a>Dimensionar usando MAML
 Para dimensionar as instâncias do Cache Redis do Azure usando a [MAML (Bibliotecas de Gerenciamento do Microsoft Azure)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), chame o método `IRedisOperations.CreateOrUpdate` e transmita o novo tamanho para `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
@@ -105,9 +109,9 @@ Para dimensionar as instâncias do Cache Redis do Azure usando a [MAML (Bibliote
         client.Redis.CreateOrUpdate(resourceGroupName,cacheName, redisParams);
     }
 
-Para obter mais informações, consulte o exemplo [Gerenciar o Cache Redis usando MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML).
+Para obter mais informações, consulte o exemplo [Gerenciar o Cache Redis usando MAML](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) .
 
-## Perguntas frequentes sobre dimensionamento
+## <a name="scaling-faq"></a>Perguntas frequentes sobre dimensionamento
 A lista a seguir contém as respostas a perguntas frequentes sobre o dimensionamento do Cache Redis do Azure.
 
 * [Posso escalonar para um cache Premium, por meio dele ou nele?](#can-i-scale-to-from-or-within-a-premium-cache)
@@ -121,29 +125,29 @@ A lista a seguir contém as respostas a perguntas frequentes sobre o dimensionam
 * [Como saber quando o dimensionamento é concluído?](#how-can-i-tell-when-scaling-is-complete)
 * [Por que esse recurso está na visualização?](#why-is-this-feature-in-preview)
 
-### Posso escalonar para um cache Premium, por meio dele ou nele?
+### <a name="can-i-scale-to-from-or-within-a-premium-cache"></a>Posso escalonar para um cache Premium, por meio dele ou nele?
 * Você não pode dimensionar de um cache **Premium** para um tipo de preço **Básico** ou **Standard**.
 * Você pode dimensionar de um tipo de preço de cache **Premium** para outro.
 * Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Primeiro, você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
-* Se você habilitou o clustering quando criou o cache **Premium**, será possível [alterar o tamanho do cluster](cache-how-to-premium-clustering.md#cluster-size). Neste momento, você não pode habilitar clustering em um cache existente que foi criado sem cluster.
+* Se você habilitou o clustering quando criou o cache **Premium** , será possível [alterar o tamanho do cluster](cache-how-to-premium-clustering.md#cluster-size). Neste momento, você não pode habilitar clustering em um cache existente que foi criado sem cluster.
   
   Para obter mais informações, confira [Como configurar o clustering do Redis para um Cache Redis do Azure Premium](cache-how-to-premium-clustering.md).
 
-### Depois do dimensionamento, é necessário alterar minhas chaves de acesso ou o nome do cache?
+### <a name="after-scaling-do-i-have-to-change-my-cache-name-or-access-keys"></a>Depois do dimensionamento, é necessário alterar minhas chaves de acesso ou o nome do cache?
 Não, o nome do cache e as chaves permanecem inalterados durante uma operação de dimensionamento.
 
-### Como funciona o dimensionamento?
+### <a name="how-does-scaling-work"></a>Como funciona o dimensionamento?
 * Quando um cache **Básico** é escalonado para um tamanho diferente, ele é desligado e um novo cache é provisionado usando o novo tamanho. Durante esse tempo, o cache não está disponível e todos os dados em cache são perdidos.
 * Quando um cache **Básico** é escalonado para um cache **Standard**, um cache de réplica é provisionado e os dados são copiados do cache primário no cache de réplica. O cache permanece disponível durante o processo de dimensionamento.
 * Quando um cache **Standard** é dimensionado para um tamanho diferente ou para um cache **Premium**, uma das réplicas é desligada e provisionada novamente para o novo tamanho, os dados são transferidos e a outra réplica executa um failover antes de ser provisionada novamente, de forma semelhante ao processo que ocorre durante uma falha em um dos nós de cache.
 
-### Perderei dados de meu cache durante o dimensionamento?
+### <a name="will-i-lose-data-from-my-cache-during-scaling"></a>Perderei dados de meu cache durante o dimensionamento?
 * Quando um cache **Básico** é escalonado para um novo tamanho, todos os dados são perdidos, e o cache fica indisponível durante a operação de colocação em escala.
-* Quando um cache **Básico** é dimensionado para um cache **Padrão**, os dados no cache geralmente são preservados.
-* Quando um cache **Standard** é dimensionado para uma camada ou tamanho maior, ou quando um cache **Premium** é dimensionado para um tamanho maior, todos os dados normalmente são preservados. Ao se dimensionar um cache **Standard** ou **Premium** para um tamanho menor, dados podem ser perdidos, dependendo da quantidade de dados estão no cache em relação ao novo tamanho quando ele for dimensionado. Se dados forem perdidos ao se reduzir, as chaves serão removidas usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache).
+* Quando um cache **Básico** é dimensionado para um cache **Standard**, os dados no cache geralmente são preservados.
+* Quando um cache **Standard** é dimensionado para uma camada ou tamanho maior, ou quando um cache **Premium** é dimensionado para um tamanho maior, todos os dados normalmente são preservados. Ao se dimensionar um cache **Standard** ou **Premium** para um tamanho menor, dados podem ser perdidos, dependendo da quantidade de dados estão no cache em relação ao novo tamanho quando ele for dimensionado. Se dados forem perdidos ao se reduzir, as chaves serão removidas usando a política de remoção [allkeys-lru](http://redis.io/topics/lru-cache) . 
 
-### A configuração dos meus bancos de dados personalizados foi afetada durante o dimensionamento?
-Alguns tipos de preço têm diferentes [limites de bancos de dados](cache-configure.md#databases), portanto, há algumas considerações a fazer ao reduzir verticalmente um valor personalizado para a configuração `databases` durante a criação do cache.
+### <a name="is-my-custom-databases-setting-affected-during-scaling"></a>A configuração dos meus bancos de dados personalizados foi afetada durante o dimensionamento?
+Alguns tipos de preço têm diferentes [limites de bancos de dados`databases`, portanto, há algumas considerações a fazer ao reduzir verticalmente um valor personalizado para a configuração ](cache-configure.md#databases) durante a criação do cache.
 
 * Ao escalar para um tipo de preço com menos `databases` limite do que a camada atual:
   * Se você estiver usando o número padrão de `databases`, que é 16 para todos os tipos de preço, nenhum dado será perdido.
@@ -153,27 +157,27 @@ Alguns tipos de preço têm diferentes [limites de bancos de dados](cache-config
 
 Observe que, embora os caches Standard e Premium tenham um SLA de 99,9% de disponibilidade, não há SLA para perda de dados.
 
-### O cache estará disponível durante o dimensionamento?
+### <a name="will-my-cache-be-available-during-scaling"></a>O cache estará disponível durante o dimensionamento?
 * Os caches **Standard** e **Premium** permanecem disponíveis durante a operação de dimensionamento.
 * Os caches **Básicos** ficam offline durante as operações de dimensionamento para um tamanho diferente, mas permanecem disponíveis durante o dimensionamento do **Básico** para **Standard**.
 
-### Operações que não têm suporte
+### <a name="operations-that-are-not-supported"></a>Operações que não têm suporte
 * Você não pode dimensionar de uma camada de preços mais alta para uma camada de preços mais baixa.
   * Você não pode dimensionar de um cache **Premium** para um cache **Standard** ou **Básico**.
   * Você não pode dimensionar de um cache **Standard** para um cache **Básico**.
 * É possível dimensionar de um cache **Básico** para um cache **Standard**, mas não é possível alterar o tamanho simultaneamente. Se precisar de um tamanho diferente, você pode fazer uma operação de dimensionamento subsequente para o tamanho desejado.
 * Você não pode dimensionar de um cache **Básico** diretamente para um cache **Premium**. Você deve dimensionar do **Básico** para o **Standard** em uma única operação de dimensionamento e do **Standard** para o **Premium** em uma operação de dimensionamento subsequente.
-* Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)**.
+* Não é possível dimensionar de um tamanho maior para o tamanho **C0 (250 MB)** .
 
 Se uma operação de dimensionamento falhar, o serviço tentará reverter a operação, e o cache será revertido para o tamanho original.
 
-### Quanto tempo o dimensionamento leva?
+### <a name="how-long-does-scaling-take"></a>Quanto tempo o dimensionamento leva?
 O dimensionamento leva aproximadamente 20 minutos, dependendo da quantidade de dados no cache.
 
-### Como saber quando o dimensionamento é concluído?
+### <a name="how-can-i-tell-when-scaling-is-complete"></a>Como saber quando o dimensionamento é concluído?
 No portal do Azure, você pode ver a operação de dimensionamento em andamento. Quando o dimensionamento for concluído, o status do cache será alterado para **Executando**.
 
-### Por que esse recurso está na visualização?
+### <a name="why-is-this-feature-in-preview"></a>Por que esse recurso está na visualização?
 Estamos lançando esse recurso para obter comentários. Com base nos comentários, lançaremos esse recurso para Disponibilidade Geral em breve.
 
 <!-- IMAGES -->
@@ -183,4 +187,11 @@ Estamos lançando esse recurso para obter comentários. Com base nos comentário
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+
+
+<!--HONumber=Jan17_HO2-->
+
+

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/20/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
-ms.openlocfilehash: 2409bd1bedf0da2aabbd847312322e6360aa2265
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 35eb6b7c8a2aa3ddfb1723eebdb92dc47a49f65a
 
 
 ---
@@ -63,10 +63,10 @@ Não tem tempo para fazer o tutorial e quer apenas a amostra completa de scripts
 Antes de seguir as instruções neste tutorial, certifique-se de ter o seguinte:
 
 * Uma conta do Banco de Dados de Documentos, um banco de dados e uma coleção com documentos. Para saber mais, consulte o [Guia de Introdução ao DocumentDB][getting-started]. Importe dados de exemplo para sua conta do DocumentDB com a [ferramenta de importação do DocumentDB][documentdb-import-data].
-* Produtividade. Leituras e gravações do HDInsight serão contabilizadas de acordo com suas unidades de solicitação alocadas para suas coleções. Para saber mais, consulte [Produtividade provisionada, unidades de solicitação e operações de banco de dados][documentdb-manage-throughput].
-* Capacidade para um procedimento armazenado adicional dentro de cada coleção de saída. Os procedimentos armazenados são usados para transferir os documentos resultantes. Para saber mais, consulte [Coleções e produtividade provisionada][documentdb-manage-document-storage].
-* Capacidade para os documentos resultantes dos trabalhos de Hive, Pig ou MapReduce. Para saber mais, consulte [Gerenciar a capacidade e o desempenho do DocumentDB][documentdb-manage-collections].
-* [*Opcional*] Capacidade para uma coleção adicional. Para saber mais, consulte [Armazenamento de documentos provisionado e sobrecarga de índice][documentdb-manage-document-storage].
+* Produtividade. Leituras e gravações do HDInsight serão contabilizadas de acordo com suas unidades de solicitação alocadas para suas coleções.
+* Capacidade para um procedimento armazenado adicional dentro de cada coleção de saída. Os procedimentos armazenados são usados para transferir os documentos resultantes.
+* Capacidade para os documentos resultantes dos trabalhos de Hive, Pig ou MapReduce.
+* [*Opcional*] Capacidade para uma coleção adicional.
 
 > [!WARNING]
 > Para evitar a criação de uma nova coleção durante um dos trabalhos, você pode imprimir os resultados no StdOut, salvar a saída no seu contêiner WASB ou especificar um coleção que já existe. Caso você especifique uma coleção existente, novos documentos serão criados dentro da coleção e os documentos existentes serão afetados somente se houver conflitos entre as *IDs*. **O conector substitui automaticamente documentos existentes com conflitos de ID**. Você pode desativar esse recurso definindo a opção de upsert como falsa. Se upsert estiver definido como falso e houver um conflito, o trabalho do Hadoop falhará, retornando um erro de conflito de ID.
@@ -416,9 +416,6 @@ Para saber mais, consulte os seguintes artigos:
 [documentdb-hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [documentdb-github]: https://github.com/Azure/azure-documentdb-hadoop
 [documentdb-java-application]: documentdb-java-application.md
-[documentdb-manage-collections]: documentdb-manage.md#database-collections
-[documentdb-manage-document-storage]: documentdb-manage.md#provisioned-document-storage-and-index-overhead
-[documentdb-manage-throughput]: documentdb-manage.md#request-units-and-database-operations
 [documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md
@@ -439,6 +436,6 @@ Para saber mais, consulte os seguintes artigos:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

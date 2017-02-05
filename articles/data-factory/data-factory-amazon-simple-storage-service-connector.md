@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 01/24/2017
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
-ms.openlocfilehash: 05a9466ba2a2d4a495d2e9a4f3ca4c9d08ddcadb
+ms.sourcegitcommit: d49d7e6b4a9485c2371eb02ac8068adfde9bad6b
+ms.openlocfilehash: 92195f4479f429f0911d9e2ca7be29c1aef7785e
 
 
 ---
@@ -238,8 +238,9 @@ A seção **typeProperties** é diferente para cada tipo de conjunto de dados e 
 | chave |A chave do objeto S3. |string |Não |
 | prefixo |Prefixo da chave do objeto S3. Objetos cujas chaves começam com esse prefixo serão selecionados. Aplica-se apenas quando a chave está vazia. |string |Não |
 | version |A versão do objeto S3 se o controle de versão do S3 está habilitado. |string |Não |
-| formato |Há suporte para os seguintes tipos de formato: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Confira as seções [Especificando TextFormat](#specifying-textformat), [Especificando AvroFormat](#specifying-avroformat), [Especificando JsonFormat](#specifying-jsonformat), [Especificando OrcFormat](#specifying-orcformat) e [Especificando ParquetFormat](#specifying-parquetformat) para obter detalhes. Se você quiser copiar arquivos no estado em que se encontram entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não | |
-| compactação |Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate** e **BZip2** e os níveis permitidos são: **Melhor** e **Mais rápido**. Atualmente, as configurações de compactação não são compatíveis para dados em **AvroFormat** ou **OrcFormat**. Para saber mais, confira a seção [Suporte à compactação](#compression-support) . |Não | |
+| formato | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](#specifying-textformat), [Formato Json](#specifying-jsonformat), [Formato Avro](#specifying-avroformat), [Formato Orc](#specifying-orcformat), e [Formato Parquet](#specifying-parquetformat). <br><br> Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída. |Não | |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Os tipos compatíveis são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**; e os níveis permitidos são: **Ideal** e **Mais rápido**. Para saber mais, veja a seção [Especificação de compactação](#specifying-compression). |Não | |
+
 
 > [!NOTE]
 > bucketName + chave especifica a localização do objeto S3 em que bucket é o contêiner raiz para objetos S3 e a chave é o caminho completo para o objeto S3.
@@ -342,6 +343,6 @@ Confira os seguintes artigos:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
