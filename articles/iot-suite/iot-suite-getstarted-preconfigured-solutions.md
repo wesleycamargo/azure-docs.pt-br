@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
 
 
 ---
@@ -32,7 +32,7 @@ Este tutorial mostra como provisionar a solução pré-configurada de monitorame
 Para concluir este tutorial, você precisa de uma assinatura ativa do Azure.
 
 > [!NOTE]
-> Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, veja [Avaliação gratuita do Aure][lnk_free_trial].
+> Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
 > 
 > 
 
@@ -112,7 +112,7 @@ As etapas a seguir mostram como adicionar um dispositivo simulado à solução:
     ![Exibir telemetria do novo dispositivo][img-runningnew-2]
 
 ## <a name="edit-the-device-metadata"></a>Editar os metadados do dispositivo
-Quando o dispositivo se conecta à solução pela primeira vez, ele envia os metadados à solução. Quando você edita os metadados de dispositivo por meio do painel de solução, ele envia os novos valores de metadados ao dispositivo e armazena os novos valores no banco de dados do Banco de Dados de Documentos da solução. Para saber mais, confira [Registro de identidade do dispositivo e o DocumentDB][lnk-devicemetadata].
+Quando o dispositivo se conecta à solução pela primeira vez, ele envia os metadados à solução. Quando você edita os metadados de dispositivo por meio do painel de solução, ele envia os novos valores de metadados ao dispositivo e armazena os novos valores no banco de dados do Banco de Dados de Documentos da solução. Para saber mais, confira [Registro de identidade do dispositivo e o Banco de Dados de Documentos][lnk-devicemetadata].
 
 1. Navegue de volta para a lista de dispositivos.
 2. Selecione o novo dispositivo na **Lista de Dispositivos** e clique em **Editar** para editar as **Propriedades do Dispositivo**:
@@ -165,7 +165,7 @@ Você pode desabilitar um dispositivo e depois que ele for desabilitado, poderá
 ![Desabilitar e remover um dispositivo][img-disable]
 
 ## <a name="behind-the-scenes"></a>Nos bastidores
-Ao implantar uma solução pré-configurada, o processo de implantação criará vários recursos na assinatura do Azure que você selecionou. Você pode exibir esses recursos no [portal] do Azure[lnk-portal]. O processo de implantação cria um **grupo de recursos** com um nome baseado no nome escolhido para sua solução pré-configurada:
+Ao implantar uma solução pré-configurada, o processo de implantação criará vários recursos na assinatura do Azure que você selecionou. Você pode exibir esses recursos no [portal][lnk-portal] do Azure. O processo de implantação cria um **grupo de recursos** com um nome baseado no nome escolhido para sua solução pré-configurada:
 
 ![Solução pré-configurada no portal do Azure][img-portal]
 
@@ -229,6 +229,6 @@ Agora que você implantou uma solução de trabalho pré-configurada, poderá co
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

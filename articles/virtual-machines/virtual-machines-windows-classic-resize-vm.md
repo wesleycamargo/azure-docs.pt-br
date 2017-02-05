@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: abac11a9e88918db3e5f051350a668185e04a184
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 9e874689e15fa1cd289a01c7781e3c9d1ad7ac67
 
 
 ---
@@ -26,9 +26,8 @@ Este artigo mostra como redimensionar uma VM do Windows criada no modelo de impl
 
 Ao considerar a capacidade de redimensionar uma VM, há dois conceitos que controlam o intervalo de tamanhos disponíveis para redimensionar a máquina virtual. O primeiro conceito é a região na qual a VM está implantada. A lista de tamanhos de VM disponíveis na região está na guia Serviços da página da Web Regiões do Azure. O segundo conceito é o hardware físico que atualmente hospeda sua VM. Os servidores físicos que hospedam as VMs são agrupados em clusters de hardware físico comum. O método para alterar o tamanho de uma VM varia dependendo de se o cluster de hardware que atualmente hospeda a VM tem suporte para o novo tamanho de VM desejado.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Você também pode [redimensionar uma VM criada no modelo de implantação do Resource Manager](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Você também pode [redimensionar uma VM criada no modelo de implantação do Resource Manager](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="add-your-account"></a>Adicionar sua conta
 Você deve configurar o Azure PowerShell para trabalhar com os recursos clássicos do Azure. Siga as etapas abaixo para configurar o Azure PowerShell para gerenciar os recursos clássicos.
@@ -73,6 +72,6 @@ Um exemplo de script para excluir e recriar um serviço de nuvem usando um novo 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

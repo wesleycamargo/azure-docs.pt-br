@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ee868c5ba1a8429a733633edbc7efaa74e512135
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
 
 
 ---
-# <a name="remote-desktop-gateway-and-azure-multifactor-authentication-server-using-radius"></a>Gateway de Área de Trabalho Remota e Servidor Azure Multi-Factor Authentication usando RADIUS
+# <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Gateway de Área de Trabalho Remota e Servidor Azure Multi-Factor Authentication usando RADIUS
 Em muitos casos, o Gateway de Área de Trabalho Remota usa o NPS local para autenticar usuários. Este documento descreve como rotear a solicitação RADIUS do Gateway de Área de Trabalho Remota (por meio do NPS local) até o Servidor Multi-Factor Authentication.
 
 O Servidor Multi-Factor Authentication deve estar instalado em um servidor separado, que enviará a solicitação RADIUS de volta ao NPS no Servidor do Gateway de Área de Trabalho Remota. Depois que o NPS validar o nome de usuário e a senha, ele retornará uma resposta ao Servidor Multi-Factor Authentication que executa o segundo fator da autenticação antes de retornar um resultado ao gateway.
@@ -36,7 +36,7 @@ O Gateway de Área de Trabalho Remota usa o NPS para enviar a solicitação RADI
 3. Expanda a seção Políticas no painel de navegação esquerdo e clique em Políticas de Solicitação de Conexão. Você deve encontrar uma Política de Solicitação de Conexão chamada POLÍTICA DE AUTORIZAÇÃO DO GATEWAY TS que foi criada quando o Gateway de Área de Trabalho Remota foi configurado. Essa política encaminha as solicitações RADIUS para o Servidor Multi-Factor Authentication.
 4. Copie essa política para criar uma nova. Na nova política, adicione uma condição que corresponda o Nome Amigável do Cliente ao Nome amigável definido na etapa 2 acima para o cliente RADIUS do Servidor Azure Multi-Factor Authentication. Altere o Provedor de Autenticação para Computador Local. Essa política garante que quando um solicitação RADIUS é recebida do Servidor Azure Multi-Factor Authentication, a autenticação ocorra localmente em vez de enviar uma solicitação RADIUS de volta ao Servidor Azure Multi-Factor Authentication, que resulta em uma condição de loop. Para evitar a condição de loop, essa nova política deve ser ordenada ACIMA da política original que é encaminhada para o Servidor Multi-Factor Authentication.
 
-## <a name="configure-azure-multifactor-authentication"></a>Configurar o Azure Multi-Factor Authentication
+## <a name="configure-azure-multi-factor-authentication"></a>Configurar o Azure Multi-Factor Authentication
 - - -
 O Servidor Azure Multi-Factor Authentication é configurado como um proxy RADIUS entre o Gateway de Área de Trabalho Remota e o NPS.  Ele deve ser instalado em um servidor de domínio que esteja separado do servidor do Gateway de Área de Trabalho Remota. Use o procedimento a seguir para configurar o Servidor Azure Multi-Factor Authentication.
 
@@ -50,6 +50,6 @@ O Servidor Azure Multi-Factor Authentication é configurado como um proxy RADIUS
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
