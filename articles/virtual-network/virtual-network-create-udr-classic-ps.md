@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 80b452bd96e3a328899ed455b71cf68da8bfde54
-ms.openlocfilehash: b411a31b1e972f3a614735ef53d593f9f8f442cd
+ms.sourcegitcommit: ba7a67b8ae57da165f45bd3552a3dfac5f4ef64b
+ms.openlocfilehash: 0bf0f3b64319a42a3b693f64ae705756b10be64e
 
 
 ---
@@ -33,7 +33,7 @@ ms.openlocfilehash: b411a31b1e972f3a614735ef53d593f9f8f442cd
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Azure Resource Manager e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../resource-manager-deployment-model.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes selecionando uma opção na parte superior deste artigo. Este artigo aborda o modelo de implantação clássico.
+> Antes de trabalhar com os recursos do Azure, é importante entender que, no momento, o Azure apresenta dois modelos de implantação: Azure Resource Manager e clássico. Verifique se você entendeu [os modelos e as ferramentas de implantação](../azure-resource-manager/resource-manager-deployment-model.md) antes de trabalhar com qualquer recurso do Azure. Você pode exibir a documentação para ferramentas diferentes selecionando uma opção na parte superior deste artigo. Este artigo aborda o modelo de implantação clássico.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
@@ -134,6 +134,6 @@ Para habilitar o encaminhamento de IP na VM FW1, siga as seguintes etapas:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

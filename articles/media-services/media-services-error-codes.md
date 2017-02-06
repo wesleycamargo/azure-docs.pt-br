@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3ee46dc265669d3520677b474181c9c7c720644c
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: eae360dd3e627a82986cef32ef39860f60ffe51f
 
 
 ---
@@ -33,13 +33,13 @@ A solicitação contém informações inválidas e foi rejeitada devido a um dos
   > Se você estiver usando os SDKs do .NET ou Java para se conectar aos Serviços de Mídia, a versão da API será especificada sempre que você tentar e executar alguma ação nos Serviços de Mídia.
   > 
   > 
-* Uma propriedade indefinida foi especificada. O nome da propriedade está na mensagem de erro. Somente as propriedades que são membros de uma determinada entidade podem ser especificadas. Confira [Azure Media Services REST API Reference](http://msdn.microsoft.com/library/azure/hh973617.aspx) (Referência da API REST dos Serviços de Mídia do Azure) para obter uma lista de entidades e suas propriedades.
+* Uma propriedade indefinida foi especificada. O nome da propriedade está na mensagem de erro. Somente as propriedades que são membros de uma determinada entidade podem ser especificadas. Confira [Azure Media Services REST API Reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) (Referência da API REST dos Serviços de Mídia do Azure) para obter uma lista de entidades e suas propriedades.
 * Um valor de propriedade inválido foi especificado. O nome da propriedade está na mensagem de erro. Confira o link anterior para ver os tipos de propriedade válidos e seus valores.
 * Um valor de propriedade está ausente e é obrigatório.
 * Parte da URL especificada contém um valor inválido.
 * Foi feita uma tentativa de atualizar uma propriedade WriteOnce.
 * Foi feita uma tentativa de criar um Job que tem uma entrada Asset com um AssetFile primário que não foi especificado ou não pôde ser determinado.
-* Foi feita uma tentativa de atualizar um Localizador SAS. Localizadores SAS só podem ser criados ou excluídos. Os localizadores de streaming podem ser atualizados. Para saber mais, confira [Locators](http://msdn.microsoft.com/library/azure/hh974308.aspx) (Localizadores).
+* Foi feita uma tentativa de atualizar um Localizador SAS. Localizadores SAS só podem ser criados ou excluídos. Os localizadores de streaming podem ser atualizados. Para saber mais, confira [Locators](https://docs.microsoft.com/rest/api/media/operations/locator) (Localizadores).
 * Uma operação ou consulta sem suporte foi enviada.
 
 ## <a name="401-unauthorized"></a>401 Não Autorizado
@@ -127,6 +127,6 @@ Para resolver esse erro, é recomendável usar a lógica de repetição de retir
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

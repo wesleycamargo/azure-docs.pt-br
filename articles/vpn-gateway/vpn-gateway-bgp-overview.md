@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/16/2016
+ms.date: 01/12/2017
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5f270d383750dc6308f01807e04469e3873d70f9
-ms.openlocfilehash: 6d2a72831726f59ff79a7f4c1ff0e258275bfe4f
+ms.sourcegitcommit: 5961c73c3f147ab6b3eca4e9d920003df1ca2c82
+ms.openlocfilehash: 298eab8ad562cfb32edf8609ac29052dc403f406
 
 
 ---
@@ -35,11 +35,6 @@ Há várias vantagens e novos recursos com o BGP:
 Com o BGP, você só precisa declarar um prefixo mínimo para um par de BGP específico através do túnel de VPN S2S IPsec. Ele pode ser tão pequeno quanto um prefixo de host (/32) do endereço IP do par de BGP do dispositivo VPN local. Você pode controlar quais prefixos de rede locais deseja anunciar ao Azure para permitir que sua Rede Virtual do Azure os acesse.
 
 Você também pode anunciar prefixos maiores que podem incluir alguns de seus prefixos de endereço de VNet, como um espaço de endereço IP privado grande (por exemplo, 10.0.0.0/8). Observe que os prefixos não podem ser idênticos a nenhum de seus prefixos de VNet. As rotas idênticas aos prefixos de VNet serão rejeitadas.
-
-> [!IMPORTANT]
-> No momento, o anúncio da rota padrão (0.0.0.0/0) para gateways de VPN do Azure estará bloqueado. Outra atualização será fornecida quando esse recurso for habilitado.
-> 
-> 
 
 ### <a name="support-multiple-tunnels-between-a-vnet-and-an-on-premises-site-with-automatic-failover-based-on-bgp"></a>Suporte a vários túneis entre uma VNet e um site local com failover automático com base em BGP
 Você pode estabelecer várias conexões entre sua VNet do Azure e os dispositivos de VPN locais no mesmo local. Esse recurso fornece vários túneis (caminhos) entre as duas redes em uma configuração ativo-ativo. Se um dos túneis for desconectado, as rotas correspondentes serão retiradas por meio do BGP, e o tráfego mudará automaticamente para os túneis restantes.
@@ -64,6 +59,6 @@ Confira [Introdução ao BGP em gateways de VPN do Azure](vpn-gateway-bgp-resour
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

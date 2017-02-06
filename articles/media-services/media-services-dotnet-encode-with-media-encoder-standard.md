@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6031391dddc9f5c283974bd22ad22d60d0697a4d
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 775578cb4e89f561449eea10b21a300f20646424
 
 
 ---
@@ -25,7 +25,7 @@ Os trabalhos de codificação são uma das operações de processamento mais com
 
 Este tópico mostra como usar o .NET para codificar seus ativos com o MES (Codificador de Mídia Padrão). O Codificador de Mídia Padrão é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-Convém sempre codificar arquivos de mezanino em uma conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md). Para tirar proveito do empacotamento dinâmico, você precisa obter primeiro pelo menos uma unidade de streaming OnDemand para o ponto de extremidade de streaming por meio do qual você planeja fornecer seu conteúdo. Para obter mais informações, consulte [Como dimensionar os Serviços de Mídia](media-services-portal-manage-streaming-endpoints.md).
+Convém sempre codificar arquivos de mezanino em uma conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md). 
 
 Se seu ativo de saída tiver o armazenamento criptografado, você deverá configurar a política de entrega de ativos. Para obter mais informações, consulte [Configurando a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
 
@@ -43,9 +43,9 @@ O Codificador de Mídia Padrão é configurado usando um dos codificadores prede
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saída
 Ao codificar um ativo (ou ativos) de entrada usando MES, você obtém um ativo de saída na conclusão bem-sucedida da tarefa de codificação. O ativo de saída contém vídeo, áudio, miniaturas, manifesto, etc., com base na predefinição de codificação utilizada.
 
-O ativo de saída também contém um arquivo com metadados sobre o ativo de entrada. O nome do arquivo XML de metadados tem o seguinte formato: <asset_id>_metadata.xml (por exemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), em que <asset_id> é o valor de AssetId do ativo de entrada. O esquema desse XML de metadados de entrada é descrito [aqui](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+O ativo de saída também contém um arquivo com metadados sobre o ativo de entrada. O nome do arquivo XML de metadados tem o seguinte formato: <asset_id>_metadata.xml (por exemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), em que <asset_id> é o valor de AssetId do ativo de entrada. O esquema desse XML de metadados de entrada é descrito [aqui](media-services-input-metadata-schema.md).
 
-O ativo de saída também contém um arquivo com metadados sobre o ativo de saída. O nome do arquivo XML de metadados tem o seguinte formato: <nome_arquivo_origem>_manifest.xml (por exemplo, BigBuckBunny_manifest.xml). O esquema desse XML de metadados de saída é descrito [aqui](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+O ativo de saída também contém um arquivo com metadados sobre o ativo de saída. O nome do arquivo XML de metadados tem o seguinte formato: <nome_arquivo_origem>_manifest.xml (por exemplo, BigBuckBunny_manifest.xml). O esquema desse XML de metadados de saída é descrito [aqui](media-services-output-metadata-schema.md).
 
 Se desejar examinar qualquer um dos dois arquivos de metadados, você poderá criar um localizador SAS e baixe o arquivo em seu computador local. É possível encontrar um exemplo de como criar um localizador SAS e baixar um arquivo usando as Extensões do SDK do .NET para os Serviços de Mídia.
 
@@ -150,6 +150,6 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

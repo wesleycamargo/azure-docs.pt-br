@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f8018587ffa44ea759ff2c960cb7f1bfd539bfa6
+ms.sourcegitcommit: 9af9f95e9638eda71fbc4508bea8e35ce5191734
+ms.openlocfilehash: 3caabe366db4def4f8332c64d08f86f271c31bb2
 
 
 ---
 # <a name="best-practices-for-configuring-and-using-azure-remoteapp"></a>Práticas recomendadas para configurar e usar o RemoteApp do Azure
 > [!IMPORTANT]
-> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://go.microsoft.com/fwlink/?linkid=821148) para obter detalhes.
+> O Azure RemoteApp está sendo descontinuado. Leia o [comunicado](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/12/application-remoting-and-the-cloud/) para obter detalhes.
 > 
 > 
 
@@ -48,6 +48,6 @@ As informações a seguir podem ajudá-lo a configurar e usar o RemoteApp do Azu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

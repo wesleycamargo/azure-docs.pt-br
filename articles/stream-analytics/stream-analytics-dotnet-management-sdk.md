@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3f3f7633f5ef863d42e1f0e3e26b58f38817ac01
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: 55fc17009a31c84f7ef23140b31bf53858e56ec7
 
 
 ---
@@ -33,7 +33,7 @@ Antes de começar este artigo, você deve ter o seguinte:
 
 * Instale o Visual Studio 2012 ou 2013.
 * Baixe e instale o [Azure .NET SDK](https://azure.microsoft.com/downloads/).
-* Crie um grupo de recursos do Azure em sua assinatura. O seguinte é um exemplo de script do PowerShell do Azure. Para obter mais informações sobre o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).  
+* Crie um grupo de recursos do Azure em sua assinatura. O seguinte é um exemplo de script do PowerShell do Azure. Para obter mais informações sobre o PowerShell do Azure, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).  
 
         # Log in to your Azure account
         Add-AzureAccount
@@ -85,42 +85,45 @@ Para criar um trabalho de análise, use a API do Stream Analytics para .NET. Pri
         using Microsoft.Azure.Management.StreamAnalytics.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 2. Adicione um método auxiliar de autenticação:
+
+   ```   
+   public static string GetAuthorizationHeader()
+   {
    
-     public static string GetAuthorizationHeader()   {
+       AuthenticationResult result = null;
+       var thread = new Thread(() =>
+       {
+           try
+           {
+               var context = new AuthenticationContext(
+                   ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+                   ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
    
-         AuthenticationResult result = null;
-         var thread = new Thread(() =>
-         {
-             try
-             {
-                 var context = new AuthenticationContext(
-                     ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                     ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+               result = context.AcquireToken(
+                   resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+                   clientId: ConfigurationManager.AppSettings["AsaClientId"],
+                   redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+                   promptBehavior: PromptBehavior.Always);
+           }
+           catch (Exception threadEx)
+           {
+               Console.WriteLine(threadEx.Message);
+           }
+       });
    
-                 result = context.AcquireToken(
-                     resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                     clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                     redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                     promptBehavior: PromptBehavior.Always);
-             }
-             catch (Exception threadEx)
-             {
-                 Console.WriteLine(threadEx.Message);
-             }
-         });
+       thread.SetApartmentState(ApartmentState.STA);
+       thread.Name = "AcquireTokenThread";
+       thread.Start();
+       thread.Join();
    
-         thread.SetApartmentState(ApartmentState.STA);
-         thread.Name = "AcquireTokenThread";
-         thread.Start();
-         thread.Join();
+       if (result != null)
+       {
+           return result.AccessToken;
+       }
    
-         if (result != null)
-         {
-             return result.AccessToken;
-         }
-   
-         throw new InvalidOperationException("Failed to acquire token");
-     }  
+       throw new InvalidOperationException("Failed to acquire token");
+   }
+   ```  
 
 ## <a name="create-a-stream-analytics-management-client"></a>Crie um cliente de gerenciamento do Stream Analytics
 Um objeto **StreamAnalyticsManagementClient** permite que você gerencie o trabalho e os componentes de trabalho, como entrada, saída e transformação.
@@ -144,7 +147,7 @@ Adicione o seguinte código ao início do método **Main** :
 
 O valor da variável **resourceGroupName** deve ser igual ao nome do grupo de recursos que você criou ou escolheu nas etapas de pré-requisito.
 
-Para automatizar o aspecto de apresentação de credencial da criação do trabalho, consulte [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](../resource-group-authenticate-service-principal.md).
+Para automatizar o aspecto de apresentação de credencial da criação do trabalho, consulte [Autenticação de uma entidade de serviço com o Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 As seções restantes deste artigo pressupõem que esse código esteja no início do método **Main** .
 
@@ -350,6 +353,6 @@ Você tem de aprender as Noções básicas do uso de um SDK do .NET para criar e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

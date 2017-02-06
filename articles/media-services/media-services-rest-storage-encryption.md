@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8b0758e1fa5f12dc49d8548b733aefdf1f43d6f0
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: d649ce6bcb5629cb820befd3478afa3f70293ccb
 
 
 ---
@@ -59,7 +59,7 @@ A seguir estão as etapas gerais para gerar chaves de conteúdo que você associ
 1. Na criptografia de armazenamento, gere uma chave AES de 32 bytes aleatoriamente. 
    
     Esta será a chave de conteúdo para o seu ativo, o que significa que será necessário usar a mesma chave de conteúdo com todos os arquivos associados a esse ativo durante a descriptografia. 
-2. Chame os métodos [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obter o Certificado X.509 correto que deve ser usado para criptografar sua chave de conteúdo.
+2. Chame os métodos [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obter o Certificado X.509 correto que deve ser usado para criptografar sua chave de conteúdo.
 3. Criptografe a chave de conteúdo com a chave pública do certificado X.509. 
    
    O SDK do .NET dos serviços de mídia usa RSA com OAEP ao fazer a criptografia.  Você pode ver um exemplo do .NET na [função EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -300,7 +300,7 @@ Resposta:
     HTTP/1.1 204 No Content 
 
 ## <a name="create-an-assetfile"></a>Criar um AssetFile
-A entidade [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo e um ativo pode conter um ou vários arquivos de ativo. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
+A entidade [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representa um arquivo de áudio ou vídeo que é armazenado em um contêiner de blob. Um arquivo de ativo está sempre associado a um ativo e um ativo pode conter um ou vários arquivos de ativo. A tarefa do Codificador dos serviços de mídia falha se um objeto de arquivo de ativo não estiver associado um arquivo digital em um contêiner de blob.
 
 Observe que a instância de **AssetFile** e o arquivo de mídia real são dois objetos diferentes. A instância de AssetFile contém metadados sobre o arquivo de mídia, enquanto o arquivo de mídia contém o conteúdo de mídia real.
 
@@ -368,6 +368,6 @@ Depois de carregar seu arquivo de mídia digital em um contêiner de blobs, voc�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

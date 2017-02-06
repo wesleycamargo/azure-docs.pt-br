@@ -16,8 +16,8 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: f73bd0a6563f8411877b55182b01f2e3e42c883f
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 618d067bf3b4ab279c7d4fcc72454fe4e69d0364
 
 
 ---
@@ -42,7 +42,7 @@ Primeiro, faça logon no Azure com este comando:
 
 Especifique o endereço de email de sua conta do Azure e sua senha no diálogo de logon do Microsoft Azure.
 
-Como alternativa, é possível fazer [logon de forma não interativa com uma entidade de serviço](../resource-group-authenticate-service-principal.md).
+Como alternativa, é possível fazer [logon de forma não interativa com uma entidade de serviço](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 Se tiver várias assinaturas do Azure, você precisará definir sua assinatura do Azure. Para ver uma lista de suas assinaturas atuais, execute este comando.
 
@@ -142,6 +142,6 @@ Agora que o serviço foi criado, você pode executar as próximas etapas: compil
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

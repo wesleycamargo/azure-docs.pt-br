@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c1e8a4befdf4d233bf00d1697ea3d9ff64cc6bbd
+ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
+ms.openlocfilehash: 69fa0a7802ca39f86ada0af47b7a99e56436f973
 
 
 ---
@@ -62,11 +62,6 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
   
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
 
-### <a name="problem-unable-to-playback-the-published-stream"></a>Problema: não é possível reproduzir a transmissão publicada.
-* **Possível problema**: não há nenhum Ponto de Extremidade de Transmissão em execução ou não há nenhuma unidade de transmissão (unidades de escala) alocada. 
-  
-    **Etapas de solução de problemas**: navegue até a guia “Ponto de Extremidade de Transmissão” na ferramenta AMSE e confirme se há um Ponto de Extremidade de Transmissão com uma unidade de transmissão. 
-
 > [!NOTE]
 > Se, depois de seguir as etapas de solução de problemas, você ainda não conseguir realizar a transmissão, envie um tíquete de suporte usando o Portal do Azure.
 > 
@@ -81,6 +76,6 @@ Esta seção fornece sugestões sobre como solucionar problemas relacionados aos
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

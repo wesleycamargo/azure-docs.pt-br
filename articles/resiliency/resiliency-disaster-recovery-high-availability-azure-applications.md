@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 448a1728b94c695d719acafdf4ef9e1d577414db
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: ee3e7103bd647c2d8651ec912fbb764a342781e2
 
 
 ---
@@ -112,7 +112,7 @@ Ao criar seu plano de recuperação de desastres e disponibilidade do aplicativo
 
 [Visão geral: continuidade de negócios em nuvem e recuperação de desastre do banco de dados com o banco de dados SQL](../sql-database/sql-database-business-continuity.md)
 
-[Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Alta disponibilidade e recuperação de desastres para SQL Server em Máquinas Virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)
 
 [Failsafe: Diretrizes para arquiteturas de nuvem resilientes](https://channel9.msdn.com/Series/FailSafe)
 
@@ -124,6 +124,6 @@ Este artigo faz parte de uma série de artigos com foco na recuperação de desa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

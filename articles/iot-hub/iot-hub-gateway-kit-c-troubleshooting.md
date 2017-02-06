@@ -7,7 +7,7 @@ author: shizn
 manager: timtl
 tags: 
 keywords: problemas de iot, problemas internet das coisas
-ms.assetid: 3ee8f4b0-5799-40a3-8cf0-8d5aa44dbc2b
+ms.assetid: 5f742c38-0e33-465a-9a0d-1e41e8d17187
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
@@ -17,7 +17,7 @@ ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
 ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
-ms.openlocfilehash: 1c747085e47e997f549eff36a9f8d96cb243e228
+ms.openlocfilehash: c1c7679af9a931c46d25a2e1509e67b781b00f35
 
 
 ---

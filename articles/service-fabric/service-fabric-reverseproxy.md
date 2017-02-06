@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/04/2016
-ms.author: vturecek
+ms.date: 01/04/2017
+ms.author: bharatn
 translationtype: Human Translation
-ms.sourcegitcommit: dbc03f9951a5a76da98f4e3097c16cf373aaf146
-ms.openlocfilehash: b3fc83b83655f270be6bad08a99a99503aa14042
+ms.sourcegitcommit: c738b9d6461da032f216b8a51c69204066d5cfd3
+ms.openlocfilehash: 9487209a8e5d976d56da50b8c70e69950d0ad129
 
 
 ---
@@ -131,7 +131,7 @@ O proxy inverso do Service Fabric pode ser habilitado para o cluster por meio do
 
 Depois de obter o modelo do cluster que você deseja implantar (de modelos de exemplo ou criando um modelo do Resource Manager personalizado), o proxy reverso poderá ser habilitado no modelo por meio das seguintes etapas.
 
-1. Defina uma porta para o proxy inverso na [seção Parâmetros](../resource-group-authoring-templates.md) do modelo.
+1. Defina uma porta para o proxy inverso na [seção Parâmetros](../azure-resource-manager/resource-group-authoring-templates.md) do modelo.
    
     ```json
     "SFReverseProxyPort": {
@@ -142,7 +142,7 @@ Depois de obter o modelo do cluster que você deseja implantar (de modelos de ex
         }
     },
     ```
-2. Especifique a porta para cada um dos objetos nodetype no **Cluster** [seção Tipo de recurso](../resource-group-authoring-templates.md)
+2. Especifique a porta para cada um dos objetos nodetype no **Cluster** [seção Tipo de recurso](../azure-resource-manager/resource-group-authoring-templates.md)
    
     Para a apiVersion anterior a “01/09/2016”, a porta é identificada pelo nome do parâmetro ***httpApplicationGatewayEndpointPort***
    
@@ -229,7 +229,7 @@ Depois de obter o modelo do cluster que você deseja implantar (de modelos de ex
         ]
     }
     ```
-4. Para configurar certificados SSL na porta de proxy Inverso, adicione o certificado à propriedade httpApplicationGatewayCertificate no **Cluster** [seção Tipo de recurso](../resource-group-authoring-templates.md)
+4. Para configurar certificados SSL na porta de proxy Inverso, adicione o certificado à propriedade httpApplicationGatewayCertificate no **Cluster** [seção Tipo de recurso](../azure-resource-manager/resource-group-authoring-templates.md)
    
     Para a apiVersion anterior a “01/09/2016”, o certificado é identificado pelo nome do parâmetro ***httpApplicationGatewayCertificate***
    
@@ -287,6 +287,6 @@ Depois de obter o modelo do cluster que você deseja implantar (de modelos de ex
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

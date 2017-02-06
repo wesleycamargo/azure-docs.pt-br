@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 05e9e10d9a37f90b679175a3ed9d78ed05d9e447
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
 
 
 ---
@@ -121,7 +121,7 @@ Usando o Azure Resource Manager, você pode criar um modelo simples (no formato 
 
 Ao incluir o agente do Log Analytics como parte do seu modelo do Resource Manager, você pode assegurar que cada máquina virtual seja pré-configurada para gerar relatórios para seu espaço de trabalho do Log Analytics.
 
-Para obter mais informações sobre os modelos do Resource Manager, veja [Criação de Modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
+Para obter mais informações sobre os modelos do Resource Manager, veja [Criação de Modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 A seguir está um exemplo de um modelo do Resource Manager que é usado para implantar uma máquina virtual que esteja executando o Windows com a extensão Microsoft Monitoring Agent instalada. Este é um modelo de máquina virtual típico, com as seguintes adições:
 
@@ -161,7 +161,7 @@ A seguir está um exemplo de um modelo do Resource Manager que é usado para imp
     "workspaceName": {
       "type": "string",
       "metadata": {
-         "description": "OMD workspace name"
+         "description": "OMS workspace name"
       }
     },
     "windowsOSVersion": {
@@ -404,6 +404,6 @@ Para computadores que não estão no Azure, você pode instalar o agente do Log 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

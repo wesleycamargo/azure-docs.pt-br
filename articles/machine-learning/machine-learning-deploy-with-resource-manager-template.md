@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: ahgyger
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 72ec470c5539ad2e239836aa91d7afe43341b19a
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: e0a06c070159a87932cda4b31d9363e54c008a35
 
 
 ---
@@ -139,7 +139,7 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 Depois que o espaço de trabalho estiver provisionado, você também poderá automatizar muitas tarefas do Estúdio de Aprendizado de Máquina do Azure usando o [Módulo do PowerShell para Aprendizado de Máquina do Azure](http://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [como criar modelos do Azure Resource Manager](../resource-group-authoring-templates.md). 
+* Saiba mais sobre [como criar modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). 
 * Examine o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates). 
 * Assista a este vídeo sobre o [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
 
@@ -152,6 +152,6 @@ Depois que o espaço de trabalho estiver provisionado, você também poderá aut
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
