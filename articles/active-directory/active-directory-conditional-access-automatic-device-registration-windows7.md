@@ -1,5 +1,5 @@
 ---
-title: "# Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7| Microsoft Docs"
+title: "# Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 7| Microsoft Docscs"
 description: "Etapas para configurar os dispositivos ingressados no domínio do Windows 7 para registrar automaticamente no Azure AD. e etapas para implantar o pacote de software do registro de dispositivo nos dispositivos ingressados no domínio do Windows 7 usando um sistema de distribuição de software, como o System Center Configuration Manager."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: MarkVi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2bc945283ca99dc91ae7e824606886a5389f20a6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e31a22237fb6b715c1d5c24d75f645edfbeb7c9e
 
 
 ---
@@ -75,6 +75,6 @@ O Log de Eventos do Windows no computador Windows 7 exibirá as mensagens relaci
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

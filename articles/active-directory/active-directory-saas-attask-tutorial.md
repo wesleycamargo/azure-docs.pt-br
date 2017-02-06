@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: integração do Azure Active Directory ao @Task| Microsoft Docs"
-description: "Saiba como configurar o logon único entre o Active Directory do Azure e o @Task."
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o @Task."
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d729d0859a3cdd0e676507c4fa772b7b8d3ed181
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: cba595704af8e48506a25d592770ec273cb9bd30
 
 
 ---
@@ -82,7 +82,7 @@ Para configurar a integração de @Task ao AD do Azure, você precisa adicionar 
 O objetivo desta seção é mostrar como configurar e testar o logon único do AD do Azure com @Task, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o AD do Azure precisa saber qual usuário de @Task é equivalente a um usuário do AD do Azure. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do AD do Azure e o usuário relacionado em @Task.   
-Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao AD do Azure como sendo o valor de **nome de usuário** em @Task.
+Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** ao Azure AD como sendo o valor de **Nome de usuário** no @Task.
 
 Para configurar e testar o logon único do AD do Azure com @Task,, você precisa concluir os seguintes blocos de construção:
 
@@ -165,16 +165,18 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
     c. Clique em **Próximo**.
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas: 
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_06.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-   d. Na lista **Função**, selecione **Usuário**.
-   e. Clique em **Próximo**.
+    d. Na lista **Função**, selecione **Usuário**.
+
+    e. Clique em **Próximo**.
+
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-attask-tutorial/create_aaduser_07.png) 
@@ -207,7 +209,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no @Task.
     d. Clique em **Adicionar Pessoa**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do Azure, concedendo a ela acesso ao @Task.
+O objetivo desta seção é habilitar Brenda Fernandes para usar o logon único do Azure, concedendo a ela acesso ao @Task.
 
 ![Atribuir usuário][200] 
 
@@ -272,6 +274,6 @@ Ao clicar no bloco de @Task no Painel de Acesso, você deverá ser conectado aut
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 
