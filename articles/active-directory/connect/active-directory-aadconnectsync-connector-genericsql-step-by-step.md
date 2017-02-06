@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2016
+ms.date: 02/04/2017
 ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
@@ -34,7 +34,7 @@ O Conector do SQL Genérico está usando o ODBC para se conectar ao servidor rem
 
 1. Inicie o utilitário de gerenciamento ODBC no servidor:   
    ![ODBC](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc.png)
-2. Selecione a guia **DSN de Arquivo**. Clique em **Adicionar...**.
+2. Selecione a guia **DSN de Arquivo**. Clique em **Adicionar...**.  
    ![ODBC1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc1.png)
 3. O driver pronto para uso funciona bem, então, selecione-o e clique em **Avançar>**.  
    ![ODBC2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc2.png)
@@ -87,7 +87,7 @@ Agora temos o arquivo necessário e podemos começar a criar o Conector.
    ![Runprofile2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile2.png)
 3. Selecione a partição **OBJECT=User**.  
    ![Runprofile3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile3.png)
-4. Selecione **Tabela** e digite **[USERS]**. Role para baixo até a seção de tipo de objeto com vários valores e insira os dados como na imagem a seguir. Selecione **Concluir** para salvar a etapa.
+4. Selecione **Tabela** e digite **[USERS]**. Role para baixo até a seção de tipo de objeto com vários valores e insira os dados como na imagem a seguir. Selecione **Concluir** para salvar a etapa.  
    ![Runprofile4a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4a.png)  
    ![Runprofile4b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4b.png)  
 5. Selecione **Nova Etapa**. Desta vez, selecione **OBJECT=Group**. Na última página, use a configuração como na imagem a seguir. Clique em **Concluir**.  

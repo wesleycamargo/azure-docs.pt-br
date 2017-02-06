@@ -180,6 +180,6 @@ Para saber mais, consulte [Como monitorar o status de pontos de extremidade da W
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

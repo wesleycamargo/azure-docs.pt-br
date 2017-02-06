@@ -159,6 +159,6 @@ Você pode serializar o estado do particionador como JSON e armazená-lo em arqu
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
