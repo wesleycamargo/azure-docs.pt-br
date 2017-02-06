@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 12/13/2016
 ms.author: yijichen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 22a44e1c47748a54950d9ad732a04c08bbcefd87
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c8d02cdd50c7f44991aeabee1999a81ec18bf59c
 
 
 ---
@@ -88,7 +88,7 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 > 
 > 
 
-De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criado. Os dados de entrada de amostra foram carregados com um esquema de dados predefinido. Há um módulo [Executar Script do R][execute-r-script] vinculado ao esquema de dados que gera o modelo de previsão ARIMA usando as funções 'auto.arima' e 'forecast' do R. 
+De dentro do Aprendizado de Máquina do Azure, um novo teste em branco foi criado. Os dados de entrada de amostra foram carregados com um esquema de dados predefinido. Vinculado ao esquema de dados está um módulo de [Executar Script R][execute-r-script] que gera o modelo de previsão ARIMA usando as funções “auto.arima” e “forecast” de R. 
 
 ### <a name="experiment-flow"></a>Fluxo de teste:
 ![Criar espaço de trabalho][2]
@@ -142,6 +142,6 @@ Para perguntas frequentes sobre o consumo do serviço Web ou a publicação no m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

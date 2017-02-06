@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: dac614de38447bfeaf92f15f156217c9bd44b4ff
-ms.openlocfilehash: 580b4b67cf2180e32b2c7d9eb1359d0a9036e3d0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cc669e18d702e5cb59a4ee292f8b0fdb22e1b7fa
 
 
 ---
@@ -93,8 +93,8 @@ Há várias maneiras de começar a usar o Cache Redis do Azure.
 
 Se ainda não tiver uma conta do Azure, você poderá:
 
-* [Abrir uma conta do Azure gratuitamente](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos gratuitos do Azure.
-* [Ativar benefícios de assinante do Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Todos os meses, sua assinatura do MSDN lhe oferece créditos que podem ser usados para serviços pagos do Azure.
+* [Abrir uma conta do Azure gratuitamente](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Obtenha créditos que possam ser usados para experimentar os serviços pagos do Azure. Mesmo depois que os créditos são usados, você pode manter a conta e usar os serviços e recursos gratuitos do Azure.
+* [Ativar benefícios de assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Todos os meses, sua assinatura do MSDN lhe oferece créditos que podem ser usados para serviços pagos do Azure.
 
 <a name="cache-size"></a>
 
@@ -352,7 +352,7 @@ Dadas essas informações, recomendamos fortemente que os clientes definam o val
 
 Como definir essa configuração:
 
-* No ASP.NET, use a [Definição de configuração "minIoThreads"][Definição de configuração "minIoThreads"] no `<processModel>` elemento de configuração no web.config. Se você estiver executando nos Sites do Azure, essa configuração não será exposta pelas opções de configuração. No entanto, você deve ainda ser capaz de definir isso por meio de programação (veja abaixo) do seu método Application_Start em global.asax.cs.
+* No ASP.NET, use a [configuração “minIoThreads”]["minIoThreads" configuration setting] no elemento de configuração `<processModel>` no web.config. Se você estiver executando nos Sites do Azure, essa configuração não será exposta pelas opções de configuração. No entanto, você deve ainda ser capaz de definir isso por meio de programação (veja abaixo) do seu método Application_Start em global.asax.cs.
 
 > **Observação importante:** o valor especificado nesse elemento de configuração é uma configuração *por núcleo* . Por exemplo, se você tiver um computador com quatro núcleos e desejar que sua configuração minIOThreads seja de 200 no tempo de execução, use `<processModel minIoThreads="50"/>`.
 >
@@ -435,10 +435,10 @@ Para saber mais sobre como começar a usar o Cache Redis do Azure, confira [Como
 ### <a name="in-role-cache"></a>Cache em Função
 [O Cache na Função está programado para desativação em 30 de novembro de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-[Definição de configuração "minIoThreads"]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
+["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
