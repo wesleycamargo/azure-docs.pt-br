@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0374fea21dbecabc0008cf6cd9096cd8c2d3f206
 
 
 ---
@@ -75,10 +75,10 @@ Antes de instalar o Serviço Web de Aplicativos Móveis, esteja ciente do seguin
 
 <li>Abra um navegador Web em qualquer computador e navegue até a URL onde o Serviço Web de Aplicativos Móveis foi instalado (por exemplo, https://www.publicwebsite.com/PA). Certifique-se de que nenhum aviso de certificado ou erro seja exibido.</li>
 
-### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Configurar as definições do aplicativo móvel no Servidor Azure Multi-Factor Authentication
+### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Configurar as definições do aplicativo móvel no Servidor Azure Multi-Factor Authentication
 Agora que o Serviço Web de Aplicativos Móveis está instalado, você precisa configurar o Servidor Azure Multi-Factor Authentication para trabalhar com o portal.
 
-#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Para configurar as definições do aplicativo móvel no Servidor Azure Multi-Factor Authentication
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Para configurar as definições do aplicativo móvel no Servidor Azure Multi-Factor Authentication
 1. No Servidor Azure Multi-Factor Authentication, clique no ícone Portal do Usuário. Se os usuários têm permissão para controlar seus métodos de autenticação, na guia Configurações, em Permitir que usuários selecionem o método, marque Aplicativos Móveis. Sem esse recurso habilitado, os usuários finais precisarão entrar em contato com o Suporte Técnico para concluir a ativação para Aplicativos Móveis.
 2. Marque a caixa Permitir que usuários ativem o aplicativo móvel.
 3. Marque a caixa Permitir registro de usuário.
@@ -89,6 +89,6 @@ Agora que o Serviço Web de Aplicativos Móveis está instalado, você precisa c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

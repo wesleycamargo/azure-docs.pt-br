@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc4561516490b9b285220e7ae688bf97384fe6e
-ms.openlocfilehash: c900840e419c06b70e3a2f53a6aa8314145324fe
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 
 ---
@@ -55,8 +55,6 @@ Se o seu projeto já estiver configurado para usar o Maven para compilação, re
 
 Em seguida, atualize as dependências do projeto para obter os binários baixados.
 
-```XML
-
     <repositories>
        <repository>
           <id>central</id>
@@ -73,7 +71,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
         <version>[1.0,)</version>
       </dependency>
     </dependencies>
-```
+
 
 * *Erros de build ou validação de soma de verificação?* Tente usar uma versão específica, como: `<version>1.0.n</version>`. Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos nossos [artefatos Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Precisa atualizar para um novo SDK?*  Atualize as dependências do seu projeto.
@@ -83,8 +81,6 @@ Se o seu projeto já estiver configurado para usar o Gradle para compilação, r
 
 Em seguida, atualize as dependências do projeto para obter os binários baixados.
 
-```JSON
-
     repositories {
       mavenCentral()
     }
@@ -93,7 +89,6 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
       compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.+'
       // or applicationinsights-core for bare API
     }
-```
 
 * *Erros de validação de soma de verificação ou compilação? Tente usar uma versão específica, como: * * `version:'1.0.n'`. *Você encontrará a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
 * *Para atualizar para um novo SDK*
@@ -119,8 +114,6 @@ Adicione manualmente o SDK:
 Adicione o ApplicationInsights.xml à pasta de recursos em seu projeto; caso contrário, verifique se ele é adicionado ao caminho de classe de implantação do projeto. Copie o XML a seguir nele.
 
 Substitua a chave de instrumentação que você obteve no Portal do Azure.
-
-```XML
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
@@ -151,7 +144,6 @@ Substitua a chave de instrumentação que você obteve no Portal do Azure.
 
       </TelemetryInitializers>
     </ApplicationInsights>
-```
 
 
 * A chave de instrumentação é enviada junto com todos os itens de telemetria e orienta o Application Insights a exibi-los em seu recurso.
@@ -168,10 +160,8 @@ O SDK do Application Insights procura a chave nesta ordem:
 
 Você também pode [defini-lo no código](app-insights-api-custom-events-metrics.md#ikey):
 
-```Java
-
     telemetryClient.InstrumentationKey = "...";
-```
+
 
 ## <a name="4-add-an-http-filter"></a>4. Adicionar um filtro HTTP
 A última etapa de configuração permite que o componente de solicitação HTTP registre cada solicitação da Web. (Não obrigatório se você quiser apenas a API vazia.)
@@ -179,8 +169,6 @@ A última etapa de configuração permite que o componente de solicitação HTTP
 Localize e abra o arquivo web.xml em seu projeto. Em seguida, mescle o código a seguir com o nó do aplicativo Web no qual seus filtros de aplicativo estão configurados.
 
 Para obter os resultados mais precisos, o filtro deve ser mapeado antes de todos os outros filtros.
-
-```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -192,12 +180,9 @@ Para obter os resultados mais precisos, o filtro deve ser mapeado antes de todos
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
-```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Se você estiver usando Spring Web MVC 3.1 ou posterior
 Edite estes elementos em *-servlet.xml para incluir o pacote do Application Insights:
-
-```XML
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -207,18 +192,14 @@ Edite estes elementos em *-servlet.xml para incluir o pacote do Application Insi
             <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
         </mvc:interceptor>
     </mvc:interceptors>
-```
 
 #### <a name="if-youre-using-struts-2"></a>Se você estiver usando o Struts 2
 Adicione este item ao arquivo de configuração do Struts (geralmente chamado de struts.xml ou struts-default.xml):
-
-```XML
 
      <interceptors>
        <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
      </interceptors>
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
-```
 
 (Se você tiver interceptores definidos em uma pilha padrão, o interceptador pode simplesmente ser adicionado àquela pilha.)
 
@@ -252,7 +233,7 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Análise: linguagem de consulta poderosa
-À medida que acumular mais dados, você poderá executar consultas para agregar dados e localizar instâncias individuais.  [Análise](app-insights-analytics.md) é uma ferramenta poderosa para entender o desempenho e o uso e para fins de diagnóstico.
+À medida que acumular mais dados, você poderá executar consultas para agregar dados e localizar instâncias individuais. [Análise]() é uma ferramenta poderosa para entender o desempenho e o uso e para fins de diagnóstico.
 
 ![Exemplo de Análise](./media/app-insights-java-get-started/025.png)
 
@@ -294,25 +275,20 @@ Abra **Configurações**, **Servidores** para ver um intervalo de contadores de 
 ### <a name="customize-performance-counter-collection"></a>Personalizar a coleta do contador de desempenho
 Para desabilitar a coleta do conjunto padrão de contadores de desempenho, adicione o seguinte trecho no nó raiz do arquivo ApplicationInsights.xml:
 
-```XML
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
-```
 
 ### <a name="collect-additional-performance-counters"></a>Coletar contadores de desempenho adicionais
 Você pode especificar contadores de desempenho adicionais a serem coletados.
 
 #### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>Contadores JMX (expostos pela Máquina Virtual Java)
-
-```XML
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
         <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
       </Jmx>
     </PerformanceCounters>
-```
 
 * `displayName` – o nome exibido no portal do Application Insights.
 * `objectName` – o nome do objeto JMX.
@@ -325,14 +301,12 @@ Você pode especificar contadores de desempenho adicionais a serem coletados.
 #### <a name="windows-performance-counters"></a>Contadores de desempenho do Windows
 Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) é membro de uma categoria (do mesmo modo que um campo é um membro de uma classe). Categorias podem ser globais, ou podem ter instâncias numeradas ou nomeadas.
 
-```XML
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
         <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
       </Windows>
     </PerformanceCounters>
-```
 
 * displayName - o nome exibido no portal do Application Insights.
 * categoryName – a categoria de contador de desempenho (objeto de desempenho) a qual este contador de desempenho está associado
@@ -381,7 +355,7 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 * Adicionar [monitoramento a suas páginas da Web](app-insights-javascript.md) para monitorar tempos de carregamento de página, chamadas AJAX e exceções do navegador.
 * Gravar [telemetria personalizada](app-insights-api-custom-events-metrics.md) para controlar o uso no navegador ou no servidor.
 * Criar [painéis](app-insights-dashboards.md) para reunir os gráficos de chave para seu sistema de monitoramento.
-* Usar [Análise](app-insights-analytics.md) para consultas avançadas por telemetria a o aplicativo
+* Usar [Análise](app-insights-analytics.md) para consultas avançadas por telemetria a seu aplicativo
 * Para obter mais informações, consulte o [Centro de desenvolvedores do Java](/develop/java/).
 
 <!--Link references-->
@@ -397,6 +371,6 @@ Se seu site ficar inativo, você obterá gráficos de tempos de resposta e tamb�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

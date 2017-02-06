@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 
 ---
-# <a name="azure-active-directory-reporting-preview"></a>Relatórios do Azure Active Directory - visualização
+# <a name="azure-active-directory-reporting---preview"></a>Relatórios do Azure Active Directory - visualização
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-reporting-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-reporting-guide.md)
@@ -38,8 +38,8 @@ Há duas áreas principais de relatórios:
 
 Dependendo do escopo dos dados que você estiver procurando, será possível acessar esses relatórios clicando em **Usuários e grupos** ou em **Aplicativos empresariais** na lista de serviços no [Portal do Azure](https://portal.azure.com).
 
-## <a name="signin-activities"></a>Atividades de entrada
-### <a name="user-signin-activities"></a>Atividades de entrada do usuário
+## <a name="sign-in-activities"></a>Atividades de entrada
+### <a name="user-sign-in-activities"></a>Atividades de entrada do usuário
 Com as informações fornecidas pelo relatório de entrada de usuário, você encontra respostas para perguntas como:
 
 * O que é o padrão de entrada de um usuário?
@@ -97,7 +97,7 @@ Usando o seletor de coluna, você pode selecionar os campos de dados que deseja 
 
 ![Relatórios](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-signins"></a>Filtragem de entradas
+### <a name="filtering-sign-ins"></a>Filtragem de entradas
 Você pode filtrar entradas para limitar a quantidade de dados exibidos, usando os campos a seguir:
 
 * Data e hora 
@@ -203,6 +203,6 @@ Veja o [Guia de relatórios do Azure Active Directory](active-directory-reportin
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

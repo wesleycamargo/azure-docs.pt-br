@@ -1,23 +1,22 @@
 ---
 title: "Computação do Azure Governamental | Microsoft Docs"
 description: "Este guia fornece uma comparação dos recursos e orientações sobre como desenvolver aplicativos para o Azure Government"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: 
 ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/29/2016
+ms.date: 11/18/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: a0374d6aeae42641e906a7f8e39bfc58eaacf096
-ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
+ms.sourcegitcommit: ca01baebd755e92aff1ef080af1fcd4606b9a2ec
+ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
 
 
 ---
@@ -26,16 +25,18 @@ ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
 Para obter detalhes sobre esse serviço e como usá-lo, consulte [Tamanhos de máquinas virtuais do Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="variations"></a>Variações
-Os seguintes SKUs de VM estão disponíveis de forma geral (GA) no Azure Government:
+Os produtos (VMs) estão disponíveis no Azure Governamental:
 
-| SKU da VM | Gov do VA nos EUA | Gov do IA nos EUA | Observações |
-| --- | --- | --- | --- |
-| Uma |GA |GA |Nenhum |
-| Dv1 |GA |- |Nenhum |
-| DSv1 |GA |- |Nenhum |
-| Dv2 |GA |GA |15 estará disponível em breve |
-| F |GA |GA |Nenhum |
-| G |Planejado |- |Nenhum |
+| Produtos (VMs) | Gov do VA nos EUA | Gov do IA nos EUA |
+| --- | --- | --- |
+| A0-A7 |S |S |
+| Série D |S |N |
+| Série Dv2 |S |S |
+| Série DS |S |N |
+| Série F |S |S |
+| Série FS |N |N |
+| Série G |S |N |
+| Série GS |S |N |
 
 ### <a name="data-considerations"></a>Considerações de dados
 As informações a seguir identificam o limite do Azure Governamental para o máquinas virtuais do Azure:
@@ -50,6 +51,6 @@ Para obter informações complementares e atualizações, assine o <a href="http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
