@@ -47,16 +47,16 @@ O objetivo desta seção é descrever como habilitar a integração de aplicativ
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
-   ![Aplicativos](./media/active-directory-saas-airwatch-tutorial/IC700994.png "Applications")
+   ![Aplicativos](./media/active-directory-saas-airwatch-tutorial/IC700994.png "Aplicativos")
 4. Clique em **Adicionar** na parte inferior da página.
    
-   ![Adicionar aplicativo](./media/active-directory-saas-airwatch-tutorial/IC749321.png "Add application")
+   ![Adicionar aplicativo](./media/active-directory-saas-airwatch-tutorial/IC749321.png "Adicionar aplicativo")
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
-   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-airwatch-tutorial/IC749322.png "Add an application from gallerry")
+   ![Adicionar um aplicativo da galeria](./media/active-directory-saas-airwatch-tutorial/IC749322.png "Adicionar um aplicativo da galeria")
 6. Na **caixa de pesquisa**, digite **AirWatch**.
    
-   ![Galeria de Aplicativos](./media/active-directory-saas-airwatch-tutorial/IC791914.png "Application Gallery")
+   ![Galeria de Aplicativos](./media/active-directory-saas-airwatch-tutorial/IC791914.png "Galeria de Aplicativos")
 7. No painel de resultados, selecione **AirWatch** e clique em **Concluir** para adicionar o aplicativo.
    
    ![AirWatch](./media/active-directory-saas-airwatch-tutorial/IC791915.png "AirWatch")
@@ -70,39 +70,39 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Para configurar o logon único, execute as seguintes etapas:
 1. No portal clássico do Azure, na página de integração do aplicativo **AirWatch**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
    
-   ![Configurar Logon Único](./media/active-directory-saas-airwatch-tutorial/IC791916.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-airwatch-tutorial/IC791916.png "Configurar Logon Único")
 2. Na página **Como você deseja que os usuários façam logon no AirWatch**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
    
-   ![Configurar Logon Único](./media/active-directory-saas-airwatch-tutorial/IC791917.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-airwatch-tutorial/IC791917.png "Configurar Logon Único")
 3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de Logon do AirWatch**, digite a URL usada pelos usuários para entrar no aplicativo AirWatch (por exemplo: "*https:// companycode.awmdm.com/AirWatch/Login?gid=companycode*") e clique em **Avançar**.
    
-   ![Configurar a URL do Aplicativo](./media/active-directory-saas-airwatch-tutorial/IC791918.png "Configure App URL")
+   ![Configurar URL do Aplicativo](./media/active-directory-saas-airwatch-tutorial/IC791918.png "Configurar URL do Aplicativo")
 4. Na página **Configurar logon único no AirWatch**, clique em **Baixar certificado** e salve o arquivo de certificado no computador.
    
-   ![Configurar o logon único](./media/active-directory-saas-airwatch-tutorial/IC791919.png "Configure Single Sign-On")
+   ![Configurar Logon Único](./media/active-directory-saas-airwatch-tutorial/IC791919.png "Configurar Logon Único")
 5. Em outra janela do navegador da Web, faça logon em seu site de empresa AirWatch! como um administrador.
 6. No painel de navegação à esquerda, clique em **Contas** e em **Administradores**.
    
-   ![Administradores](./media/active-directory-saas-airwatch-tutorial/IC791920.png "Administrators")
+   ![Administradores](./media/active-directory-saas-airwatch-tutorial/IC791920.png "Administradores")
 7. Expanda o menu **Configurações** e clique em **Serviços de Diretório**.
    
-   ![Configurações](./media/active-directory-saas-airwatch-tutorial/IC791921.png "Settings")
+   ![Configurações](./media/active-directory-saas-airwatch-tutorial/IC791921.png "Configurações")
 8. Clique na guia **Usuário**, no campo de texto **DN Base**, digite seu nome de domínio e clique em **Salvar**.
    
-   ![Usuário](./media/active-directory-saas-airwatch-tutorial/IC791922.png "User")
+   ![Usuário](./media/active-directory-saas-airwatch-tutorial/IC791922.png "Usuário")
 9. Clique na guia **Servidor** .
    
-   ![Servidor](./media/active-directory-saas-airwatch-tutorial/IC791923.png "Server")
+   ![Servidor](./media/active-directory-saas-airwatch-tutorial/IC791923.png "Servidor")
 10. Execute as seguintes etapas:
     
-    ![Carregar](./media/active-directory-saas-airwatch-tutorial/IC791924.png "Upload")
+    ![Upload](./media/active-directory-saas-airwatch-tutorial/IC791924.png "Upload")
     
     1. Para **Tipo de Diretório**, selecione **Nenhum**.
     2. Selecione **Usar SAML para Autenticação**.
     3. Para carregar o certificado baixado, clique em **Carregar**.
 11. Na seção **Solicitar** , realize as seguintes etapas:
     
-    ![Solicitação](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Request")
+    ![Solicitação](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Solicitação")
     
     1. Para **Tipo de Associação de Solicitação**, selecione **POST**.
     2. No portal clássico do Azure, na página do diálogo **Configurar logon único no AirWatch**, copie o valor da **URL do Serviço de Logon Único** e cole-o na caixa de texto **URL de Logon Único do Provedor de Identidade**.
@@ -110,10 +110,10 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
     4. Clique em **Salvar**.
 12. Clique na guia **Usuário** novamente.
     
-    ![Usuário](./media/active-directory-saas-airwatch-tutorial/IC791926.png "User")
+    ![Usuário](./media/active-directory-saas-airwatch-tutorial/IC791926.png "Usuário")
 13. Na seção **Atributo** , realize as seguintes etapas:
     
-    ![Atributo](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Attribute")
+    ![Atributo](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Atributo")
     
     1. Na caixa de texto **Identificador de Objeto**, digite **http://schemas.microsoft.com/identity/claims/objectidentifier**.
     2. Na caixa de texto **Nome de Usuário**, digite **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
@@ -124,7 +124,7 @@ Se você não estiver familiarizado com este procedimento, consulte [Como conver
     7. Clique em **Salvar**.
 14. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
     
-    ![Configurar Logon Único](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Configure Single Sign-On")
+    ![Configurar Logon Único](./media/active-directory-saas-airwatch-tutorial/IC791928.png "Configurar Logon Único")
     
     ## <a name="configuring-user-provisioning"></a>Configurando o provisionamento de usuários
 
@@ -135,13 +135,13 @@ No caso do AirWatch, o provisionamento é uma tarefa manual.
 1. Faça logon em seu site de empresa do **AirWatch** como administrador.
 2. No painel de navegação à esquerda, clique em **Contas** e em **Usuários**.
    
-   ![Usuários](./media/active-directory-saas-airwatch-tutorial/IC791929.png "Users")
+   ![Usuários](./media/active-directory-saas-airwatch-tutorial/IC791929.png "Usuários")
 3. No menu **Usuários**, clique em **Exibição de Lista** e em **Adicionar \> Adicionar Usuário**.
    
-   ![Adicionar usuário](./media/active-directory-saas-airwatch-tutorial/IC791930.png "Add User")
+   ![Adicionar Usuário](./media/active-directory-saas-airwatch-tutorial/IC791930.png "Adicionar Usuário")
 4. No diálogo **Adicionar/Editar Usuário** , realize as seguintes etapas:
    
-   ![Adicionar usuário](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Add User")
+   ![Adicionar Usuário](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Adicionar Usuário")
    
    1. Digite **Nome**, **Senha**, **Confirmar Senha**, **Nome**, **Sobrenome** e **Endereço de Email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
    2. Clique em **Salvar**.
@@ -158,16 +158,16 @@ Para testar sua configuração, é necessário conceder acesso ao aplicativo aos
 1. No Portal clássico do Azure, crie uma conta de teste.
 2. Na página de integração de aplicativos **AirWatch**, clique em **Atribuir usuários**.
    
-   ![Atribuir usuários](./media/active-directory-saas-airwatch-tutorial/IC791932.png "Assign Users")
+   ![Atribuir Usuários](./media/active-directory-saas-airwatch-tutorial/IC791932.png "Atribuir Usuários")
 3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
    
-   ![Sim](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Yes")
+   ![Sim](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Sim")
 
 Se você quiser testar suas configurações de logon único, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

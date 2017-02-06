@@ -90,7 +90,7 @@ Execute as seguintes etapas para ingressar a máquina virtual do Windows Server 
     ![Especificar credenciais para ingresso no domínio](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 6. Você pode especificar as credenciais das seguintes maneiras:
    
-   * Formato UPN: especifique o sufixo UPN para a conta de usuário, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do usuário 'bob' é 'bob@domainservicespreview.onmicrosoft.com'.
+   * Formato UPN: especifique o sufixo UPN para a conta de usuário, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do usuário 'pedro' é 'bob@domainservicespreview.onmicrosoft.com'.
    * Formato SAMAccountName: você pode especificar o nome da conta no formato SAMAccountName. Neste exemplo, o usuário 'bob' precisaria inserir 'CONTOSO100\bob'.
      
      > [!NOTE]
@@ -128,6 +128,6 @@ Consulte as etapas a seguir se você estiver enfrentando problemas com as creden
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

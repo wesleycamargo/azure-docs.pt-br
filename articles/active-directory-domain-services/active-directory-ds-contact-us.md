@@ -1,12 +1,12 @@
 ---
 title: 'Azure Active Directory Domain Services: entre em contato conosco | Microsoft Docs'
-description: Entre em contato com a equipe de produto de Serviços de Domínio do Azure AD
+description: "Entre em contato com a equipe de produto de Serviços de Domínio do Azure AD"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dddcd8baea7694d957820870b2f991a35200d0ca
+
 
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD Domain Services: entre em contato conosco
@@ -32,6 +36,9 @@ Apreciamos seus comentários sobre os Serviços de Domínio do Azure AD por meio
 
 Verifique se você prefixou sua pergunta ou seus comentários com as palavras **'AADDS'**para que chegue até nós.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO5-->
 
 

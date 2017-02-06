@@ -219,7 +219,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 O objetivo desta seção é testar o logon único do Azure AD.
 
-Vá para a página de logon do Asana. Na caixa de texto Endereço de email, insira o endereço de email britta.simon@contoso.com. Deixe a caixa de texto de senha em branco e clique em **Fazer logon**. Você será redirecionado à página de logon do Azure AD. Preencha suas credenciais do Azure AD. Agora, você está conectado ao Asana.
+Vá para a página de logon do Asana. Na caixa de texto Endereço de email, insira o endereço de email britta.simon@contoso.com. Deixe a caixa de texto de senha em branco e clique em **Fazer Logon**. Você será redirecionado à página de logon do Azure AD. Preencha suas credenciais do Azure AD. Agora, você está conectado ao Asana.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
@@ -248,6 +248,6 @@ Vá para a página de logon do Asana. Na caixa de texto Endereço de email, insi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

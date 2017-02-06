@@ -50,6 +50,6 @@ Se já estiver usando o Windows 7 ou Windows 8 e o computador ou dispositivo tiv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

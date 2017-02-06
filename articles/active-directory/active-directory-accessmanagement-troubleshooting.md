@@ -1,28 +1,31 @@
-
 ---
-title: Solução de problemas de associação dinâmica para grupos| Microsoft Docs
-description: Solução de problemas para a associação dinâmica para grupos no Azure AD.
+title: "Solução de problemas de associação dinâmica para grupos| Microsoft Docs"
+description: "Solução de problemas para a associação dinâmica para grupos no Azure AD."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 89bb04b6-a379-49c2-8465-fe386641816a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: c796550f4e47793285ba7d97cbb866c3820f32cf
+
 
 ---
-# Solucionando problemas de associações dinâmicas a grupos
-**Configurei uma regra em um grupo, mas nenhuma associação é atualizada no grupo**<br/>Verifique se a configuração **Habilitar gerenciamento de grupo delegado** está definida como **Sim** na guia **Configurar**. Você verá essa configuração somente se estiver conectado como um usuário que recebe uma licença do Azure Active Directory Premium. Verifique os valores dos atributos de usuário na regra: há usuários que atendem à regra?
+# <a name="troubleshooting-dynamic-memberships-for-groups"></a>Solucionando problemas de associações dinâmicas a grupos
+**Configurei uma regra em um grupo, mas nenhuma associação foi atualizada no grupo**<br/>Verifique se a configuração **Habilitar gerenciamento do grupo delegado** está definida para **Sim** na guia **Configurar**. Você verá essa configuração somente se estiver conectado como um usuário que recebe uma licença do Azure Active Directory Premium. Verifique os valores dos atributos de usuário na regra: há usuários que atendem à regra?
 
-**Configurei uma regra, mas agora os membros existentes da regra foram removidos**<br/>Este comportamento é esperado. Membros existentes do grupo são removidos quando uma regra é habilitada ou alterada. Os usuários retornados da avaliação da regra são adicionados como membros ao grupo.
+**Configurei uma regra, mas agora os membros da regra existentes foram removidos**<br/>Este comportamento é esperado. Membros existentes do grupo são removidos quando uma regra é habilitada ou alterada. Os usuários retornados da avaliação da regra são adicionados como membros ao grupo.     
 
-**Não vejo as alterações de associação instantaneamente quando adiciono ou altero uma regra. Por quê?**<br/>A avaliação de associação dedicada é feita periodicamente em um processo assíncrono em segundo plano. O tempo que o processo leva é determinado pelo número de usuários no diretório e pelo tamanho do grupo criado como resultado da regra. Normalmente, os diretórios com um pequeno número de usuários verão as alterações de associação de grupo em poucos minutos. Os diretórios com um grande número de usuários podem levar até 30 minutos ou mais para serem populados.
+**Não vejo as alterações da associação instantaneamente quando adiciono ou altero uma regra, por que não?**<br/>A avaliação de associação dedicada é feita periodicamente em um processo assíncrono em segundo plano. O tempo que o processo leva é determinado pelo número de usuários no diretório e pelo tamanho do grupo criado como resultado da regra. Normalmente, os diretórios com um pequeno número de usuários verão as alterações de associação de grupo em poucos minutos. Os diretórios com um grande número de usuários podem levar até 30 minutos ou mais para serem populados.
 
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
@@ -31,4 +34,9 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO5-->
+
+
