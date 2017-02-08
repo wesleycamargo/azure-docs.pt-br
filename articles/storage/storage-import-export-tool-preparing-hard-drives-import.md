@@ -1,8 +1,8 @@
 ---
 title: "Preparação de discos rígidos para um trabalho de importação da Importação/Exportação do Azure | Microsoft Docs"
 description: "Saiba como preparar os discos rígidos usando a ferramenta WAImportExport para criar um trabalho de importação para o serviço Importação/Exportação do Azure."
-author: renashahmsft
-manager: aungoo
+author: muralikk
+manager: syadav
 editor: tysonn
 services: storage
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2016
-ms.author: renash
+ms.date: 01/15/2017
+ms.author: muralikk
 translationtype: Human Translation
-ms.sourcegitcommit: 005e0ab8ec8dce52d9fc13d018f985cb0d6033a7
-ms.openlocfilehash: 80e7af5c874dca9390a2588664334b61dc57701a
+ms.sourcegitcommit: 48ee2a2bd2ecd2f487748588ef2ad3138dd9983b
+ms.openlocfilehash: a113120381c4e83bd64a41fd30beb138cb1dd5fa
 
 
 ---
@@ -89,7 +89,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | BlobType | **[Opcional]** block &#124; page<br/>Atualmente, o serviço de Importação/Exportação oferece suporte a dois tipos de Blobs. Blobs de página e Blobs de bloco. Por padrão, todos os arquivos serão importados como Blobs de blocos. E \*.vhd e \*.vhdx serão importados como Blobs de página. Há um limite para o tamanho permitido para o blob de bloco e o blob de página. Confira [Metas de escalabilidade do armazenamento](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) para saber mais.  |
 | Disposition | **[Opcional]** rename &#124; no-overwrite &#124; overwrite <br/> Este campo especifica o comportamento de cópia durante a importação, ou seja quando os dados estão sendo carregados para a conta de armazenamento do disco. As opções disponíveis são: rename&#124;overwite&#124;no-overwrite. O padrão será "rename", se nada for especificado. <br/><br/>**Rename**: se houver um objeto com o mesmo nome presente, isso cria uma cópia no destino.<br/>Overwrite: substitui o arquivo por um arquivo mais recente. O arquivo com a última modificação vence.<br/>**No-overwrite**: ignora a substituição do arquivo, se ele já estiver presente.|
 | MetadataFile | **[Opcional]** <br/>O valor para esse campo é o arquivo de metadados, que pode ser fornecido se for necessário preservar os metadados dos objetos ou fornecer metadados personalizados. Caminho até o arquivo de metadados para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados do serviço de Importação-Exportação](storage-import-export-file-format-metadata-and-properties.md) para saber mais |
-| PropertiesFile | **[Opcional]** <br/>Caminho até o arquivo de propriedades para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados do serviço de Importação-Exportação](/rest/api/storageservices/importexport/import-export-service-metadata-and-properties-file-format) para saber mais. |
+| PropertiesFile | **[Opcional]** <br/>Caminho até o arquivo de propriedades para os blobs de destino. Confira [Formato de arquivo de propriedades e metadados do serviço de Importação-Exportação](storage-import-export-file-format-metadata-and-properties.md) para saber mais. |
 
 ## <a name="prepare-initialdriveset-or-additionaldriveset-csv-file"></a>Preparar o arquivo CSV AdditionalDriveSet ou InitialDriveSet
 
@@ -409,6 +409,7 @@ A ferramenta de WAImportExport lê e grava arquivos, lote por lote, um lote cont
 **.jrn** - o arquivo de diário com o sufixo .jrn contém o status de todas as sessões de cópia de um disco rígido. Ele também contém as informações necessárias para criar o trabalho de importação. Você deve sempre especificar um arquivo de diário ao executar a ferramenta WAImportExport, bem como uma ID da sessão de cópia.
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Jan17_HO3-->
 
 

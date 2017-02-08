@@ -1,26 +1,26 @@
 ---
-title: Explore os logs de rastreamento de Java no Application Insights
+title: Explorar os logs de rastreamento do Java no Azure Application Insights | Microsoft Docs
 description: Pesquisar rastreamentos Log4J ou Logback no Application Insights
 services: application-insights
 documentationcenter: java
 author: alancameronwills
-manager: douge
+manager: carmonm
 ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 12/12/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 1f16fb273261892bdcb8780c3ef1954d00951c5a
+ms.sourcegitcommit: 086091bb3be6659436ec8e371acbe4b8e86bfacb
+ms.openlocfilehash: 3ef5f6240d7e4704118b86fb0cfee8cf502859ff
 
 
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore os logs de rastreamento de Java no Application Insights
-Se você estiver usando Logback ou Log4J (v 1.2 ou 2.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
+Se você estiver usando Logback ou Log4J (v&1;.2 ou&2;.0) para rastreamento, você pode enviar seus logs de rastreamento automaticamente para o Application Insights, no qual você pode explorá-los e pesquisar o conteúdo deles.
 
 ## <a name="install-the-java-sdk"></a>Instalar o SDK do Java
 
@@ -39,6 +39,8 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 
 *Logback*
 
+```XML
+
     <dependencies>
        <dependency>
           <groupId>com.microsoft.azure</groupId>
@@ -46,8 +48,11 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
           <version>[1.0,)</version>
        </dependency>
     </dependencies>
+```
 
 *Log4J v2.0*
+
+```XML
 
     <dependencies>
        <dependency>
@@ -56,8 +61,11 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
           <version>[1.0,)</version>
        </dependency>
     </dependencies>
+```
 
 *Log4J v1.2*
+
+```XML
 
     <dependencies>
        <dependency>
@@ -66,6 +74,7 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
           <version>[1.0,)</version>
        </dependency>
     </dependencies>
+```
 
 #### <a name="if-youre-using-gradle"></a>Se você estiver usando o Gradle...
 Se seu projeto já está configurado para usar Gradle para compilação, adicione uma das linhas a seguir para o grupo `dependencies` em seu arquivo build.gradle:
@@ -74,15 +83,22 @@ Em seguida, atualize as dependências do projeto para obter os binários baixado
 
 **Logback**
 
+```
+
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '1.0.+'
+```
 
 **Log4J v2.0**
 
+```
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '1.0.+'
+```
 
 **Log4J v1.2**
 
+```
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
+```
 
 #### <a name="otherwise-"></a>Caso contrário...
 Baixe e extraia o appender apropriado, em seguida adicione a biblioteca apropriada ao seu projeto:
@@ -98,15 +114,19 @@ Para começar a obter rastreamentos, mescle o trecho de código relevante ao arq
 
 *Logback*
 
+```XML
+
     <appender name="aiAppender" 
       class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender">
     </appender>
     <root level="trace">
       <appender-ref ref="aiAppender" />
     </root>
-
+```
 
 *Log4J v2.0*
+
+```XML
 
     <Configuration packages="com.microsoft.applicationinsights.Log4j">
       <Appenders>
@@ -118,9 +138,11 @@ Para começar a obter rastreamentos, mescle o trecho de código relevante ao arq
         </Root>
       </Loggers>
     </Configuration>
-
+```
 
 *Log4J v1.2*
+
+```XML
 
     <appender name="aiAppender" 
          class="com.microsoft.applicationinsights.log4j.v1_2.ApplicationInsightsAppender">
@@ -129,16 +151,17 @@ Para começar a obter rastreamentos, mescle o trecho de código relevante ao arq
       <priority value ="trace" />
       <appender-ref ref="aiAppender" />
     </root>
+```
 
 Os appenders Application Insights podem ser referenciados por qualquer agente configurado e não necessariamente pelo agente raiz (conforme mostrado nos exemplos de código acima).
 
 ## <a name="explore-your-traces-in-the-application-insights-portal"></a>Explorar seus rastreamentos no portal do Application Insights
-Agora que configurou seu projeto para enviar rastreamentos para o Application Insights, você poderá exibir e pesquisar esses rastreamentos no portal do Application Insights, na folha [Pesquisa][diagnostic].
+Agora que você configurou o projeto para enviar os rastreamentos para o Application Insights, é possível exibir e pesquisar esses rastreamentos no portal do Application Insights, na folha [Pesquisa][diagnostic].
 
 ![No portal do Application Insights, abra a Pesquisa](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Pesquisa][diagnostic]
+[Usando a Pesquisa no Application Insights][diagnostic]
 
 <!--Link references-->
 
@@ -149,6 +172,6 @@ Agora que configurou seu projeto para enviar rastreamentos para o Application In
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 09293d71b99e325a417edf59172550ef6e5f5b71
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
 
 
 ---
-# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>Adicionar novos usuários ou usuários com contas da Microsoft ao Azure Active Directory
+# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>Adicionar novos usuários ou usuários com contas da Microsoft ao Azure Active Directory
 Adicione usuários para preencher seu diretório. Este artigo explica como adicionar novos usuários na sua organização e como adicionar usuários que tenham contas da Microsoft. Para saber mais sobre como adicionar usuários de outros diretórios ao Azure Active Directory ou como adicionar usuários de empresas parceiras, veja [Adicionar usuários de outros diretórios ou de empresas parceiras ao Azure Active Directory](active-directory-create-users-external.md). Os usuários adicionados não têm permissões de administrador, mas você pode atribuir funções a eles a qualquer momento.
 
 ## <a name="add-a-user"></a>Adicionar um usuário
@@ -79,7 +79,7 @@ Então você pode editar as opções para controlar o acesso para os usuários c
 * [Adicionar usuários de outros diretórios ou de empresas parceiras no Azure Active Directory](active-directory-create-users-external.md)
 * [Administrando o Azure AD](active-directory-administer.md)
 * [Gerenciar senhas no Azure AD](active-directory-manage-passwords.md)
-* [Gerenciar grupos no AD do Azure](active-directory-manage-groups.md)
+* [Gerenciar grupos no Azure AD](active-directory-manage-groups.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
@@ -87,6 +87,6 @@ Então você pode editar as opções para controlar o acesso para os usuários c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

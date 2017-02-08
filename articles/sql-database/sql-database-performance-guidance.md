@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/06/2016
+ms.date: 01/04/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: 51cebc84593aec8d7c12dd4061b78354f785d153
+ms.sourcegitcommit: ec13e72de7ccebefbaa88309f8248f29b569ef2f
+ms.openlocfilehash: e14b037f962afb803a2271b221e6309c7e8220cd
 
 
 ---
@@ -62,15 +62,8 @@ Cada camada de serviço e nível de desempenho é associado a limites e caracter
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-As seções a seguir trazem mais informações sobre como ver o uso relacionado a esses limites.
-
 ### <a name="maximum-in-memory-oltp-storage"></a>Armazenamento OLTP in-memory máximo
 Você pode usar a exibição **sys.dm_db_resource_stats** para monitorar o uso de armazenamento do Azure na memória. Para obter mais informações sobre o monitoramento, consulte [Monitorar o armazenamento OLTP na memória](sql-database-in-memory-oltp-monitoring.md).
-
-> [!NOTE]
-> Atualmente, a visualização de OLTP (transação online) do Azure na memória tem suporte apenas para bancos de dados individuais. Você não pode usá-la em bancos de dados em pools elásticos.
-> 
-> 
 
 ### <a name="maximum-concurrent-requests"></a>Máximo de solicitações simultâneas
 Para ver o número de solicitações simultâneas, execute esta consulta Transact-SQL em seu banco de dados SQL:
@@ -445,6 +438,6 @@ Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

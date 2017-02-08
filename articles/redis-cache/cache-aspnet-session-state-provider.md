@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 12/13/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 034539eabb6ec7110dd584c42cf35157d39446b6
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: a2f124de8a35f6fdff23fa8b3c816b8c0b44acdd
 
 
 ---
@@ -118,6 +118,6 @@ Confira o [Provedor de cache de saída ASP.NET para o Cache Redis do Azure](cach
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

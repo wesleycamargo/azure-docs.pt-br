@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 12/12/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: f5f3e76711a93b9b8b0fadd08b051758a7c71619
+ms.sourcegitcommit: cb2b7bc626294e12c6e19647c1e787e1f671595b
+ms.openlocfilehash: a49a93b11ab3e965ac1ddaec919bfcbf43381dee
 
 
 ---
 # <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>Habilitando política de SSL e SSL de ponta a ponta no gateway de aplicativo
 
+O gateway de aplicativo dá suporte a terminação SSL no gateway, pelo qual o tráfego flui geralmente descriptografado até os servidores de back-end. Esse recurso permite que os servidores Web fiquem livres da sobrecarga dispendiosa de criptografia/descriptografia. No entanto, para alguns clientes, a comunicação descriptografada com os servidores de back-end não é uma opção aceitável. Essa comunicação não criptografada pode ocorrer devido a requisitos de segurança/conformidade ou o aplicativo pode só aceitar conexões seguras. Para tais aplicativos, o gateway de aplicativo agora dá suporte a criptografia SSL de ponta a ponta.
+
 ## <a name="overview"></a>Visão geral
 
-O gateway de aplicativo dá suporte a terminação SSL no gateway, pelo qual o tráfego flui geralmente descriptografado até os servidores de back-end. Isso permite que os servidores Web fiquem livres da sobrecarga dispendiosa de criptografia/descriptografia. No entanto, para alguns clientes, a comunicação descriptografada com os servidores de back-end não é uma opção aceitável. Isso pode ser devido a requisitos de segurança/conformidade ou o aplicativo pode só aceitar conexões seguras. Para tais aplicativos, o gateway de aplicativo agora dá suporte a criptografia SSL de ponta a ponta.
-
-O SSL de ponta a ponta permite transmitir com segurança dados confidenciais para o back-end criptografado aproveitando as vantagens dos recursos de balanceamento de carga da Camada 7 que o gateway de aplicativo fornece, como a afinidade de cookies, roteamento baseado em URL, suporte ao roteamento baseado em sites ou capacidade de injetar cabeçalhos X-Forwarded-*.
+O SSL de ponta a ponta permite transmitir com segurança dados confidenciais para o back-end criptografado aproveitando as vantagens dos recursos de balanceamento de carga da Camada 7 que o gateway de aplicativo fornece. Alguns desses recursos são afinidade de cookie, roteamento baseado em URL, suporte para roteamento com base em sites ou capacidade de injetar cabeçalhos X-Forwarded-*.
 
 Quando configurado com o modo de comunicação SSL de ponta a ponta, o gateway de aplicativo encerra as sessões de SSL de usuário no gateway e descriptografa o tráfego do usuário. Ele aplica as regras configuradas para selecionar uma instância de pool de back-end apropriada para rotear o tráfego. O gateway de aplicativo, em seguida, inicia uma nova conexão SSL com o servidor de back-end e criptografa novamente os dados usando o certificado de chave pública do servidor de back-end antes de transmitir a solicitação para o back-end. O SSL de ponta a ponta SSL é habilitado ao definir a configuração de protocolo no BackendHTTPSetting como Https, que é então aplicado a um pool de back-end. Cada servidor de back-end no pool de back-end com SSL de ponta a ponta habilitado deve ser configurado com um certificado para permitir uma comunicação segura.
 
@@ -36,7 +36,7 @@ Neste exemplo, as solicitações que usam o TLS1.2 são roteadas para os servido
 
 ## <a name="end-to-end-ssl-and-whitelisting-of-certificates"></a>SSL de ponta a ponta e lista de exceções de certificados
 
-O gateway de aplicativo se comunica somente com as instâncias de back-end conhecidas que têm o certificado na lista de exceções do gateway. Para habilitar a lista de exceções dos certificados, você precisa carregar a chave pública dos certificados do servidor de back-end no gateway de aplicativo (não no certificado-raiz). Somente as conexões com os back-ends conhecidos e na lista de exceções são permitidas. O back-ends restantes resultam em um erro de gateway. Os certificados autoassinados servem somente para teste e não são recomendados para cargas de trabalho de produção. Esses certificados também devem estar na lista de exceções do gateway de aplicativo, conforme descrito nas etapas acima, antes de poder ser usados.
+O gateway de aplicativo se comunica somente com as instâncias de back-end conhecidas que têm o certificado na lista de exceções do gateway. Para habilitar a lista de exceções dos certificados, você precisa carregar a chave pública dos certificados do servidor de back-end no gateway de aplicativo (não no certificado-raiz). Somente as conexões com os back-ends conhecidos e na lista de exceções são permitidas. O back-ends restantes resultam em um erro de gateway. Os certificados autoassinados servem somente para teste e não são recomendados para cargas de trabalho de produção. Esses certificados devem estar na lista de exceções do gateway de aplicativo, conforme descrito nas etapas acima, antes de poder ser usados.
 
 ## <a name="application-gateway-ssl-policy"></a>Política de SSL do Gateway de Aplicativo
 
@@ -48,7 +48,7 @@ O gateway de aplicativo também dá suporte às políticas de negociação de SS
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de aprender sobre o SSL de ponta a ponta e a política de SSL, vá para [habilitar o SSL de ponta a ponta no gateway de aplicativo](application-gateway-end-to-end-ssl-powershell.md) para criar um gateway de aplicativo com capacidade de enviar o tráfego para os back-ends de forma criptografada.
+Depois de aprender sobre SSL de ponta a ponta e política de SSL, vá para [Habilitar o SSL de ponta a ponta no gateway de aplicativo](application-gateway-end-to-end-ssl-powershell.md) a fim de criar um gateway de aplicativo usando SSL de ponta a ponta.
 
 <!--Image references-->
 
@@ -56,6 +56,6 @@ Depois de aprender sobre o SSL de ponta a ponta e a política de SSL, vá para [
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

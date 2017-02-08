@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/13/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 274f874ba17914b4422c06f92be3d305b3d484e0
+ms.sourcegitcommit: f9d423e87938e55daeb07268b11c930fb62755b6
+ms.openlocfilehash: 8fa7ca18fd2ea3a3f672854a0b2e0397cfdbb2bc
 
 
 ---
@@ -27,7 +27,7 @@ O teste em produção, ou teste dinâmico do seu aplicativo Web usando o tráfeg
 Com o recurso Roteamento de Tráfego no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714), é possível direcionar uma parte do tráfego do usuário em tempo real para um ou mais [slots de implantação](web-sites-staged-publishing.md) e analisar seu aplicativo com o [Azure Application Insights](/services/application-insights/), [Azure HDInsight](/services/hdinsight/) ou uma ferramenta de terceiros como o [New Relic](/marketplace/partners/newrelic/newrelic/) para validar a alteração. Por exemplo, é possível implementar os seguintes cenários com o Serviço de Aplicativo:
 
 * Descobrir bugs funcionais ou identificar afunilamentos de desempenho em suas atualizações antes da implantação em todo o site
-* Execute “voos de teste controlado” de suas alterações, medindo métricas de usabilidade no aplicativo beta
+* Realize “voos de teste controlado” de suas alterações, medindo métricas de usabilidade no aplicativo beta
 * Aumente gradualmente para uma nova atualização e normalmente volte para a versão atual se ocorrer um erro 
 * Otimize os resultados de negócios do seu aplicativo executando [testes A/B](https://en.wikipedia.org/wiki/A/B_testing) ou [testes multivariados](https://en.wikipedia.org/wiki/Multivariate_testing_in_marketing) em vários slots de implantação
 
@@ -88,6 +88,6 @@ Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâ
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

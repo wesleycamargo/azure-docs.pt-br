@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 9be227415ee18b6333d5a469e571b3802a3d87ef
-ms.openlocfilehash: 30926a9937cd7dce0e38558d7880d1d22997ddd4
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: 62d5b9d1698dc8f0331fc9ced8fc9611055db06e
 
 
 ---
@@ -36,7 +36,7 @@ Antes de começar este tutorial, você deve ter o seguinte:
 
 
 ## <a name="install-azure-powershell-10-or-greater"></a>Instalar o Azure PowerShell 1.0 ou superior
-Veja [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
+Confira a seção de pré-requisitos em [Usando o Azure PowerShell com o Gerenciador de Recursos do Azure](../powershell-azure-resource-manager.md).
 
 ## <a name="manage-accounts"></a>Gerenciar contas
 Antes de executar qualquer trabalho da Análise Data Lake, você deve ter uma conta da Análise Data Lake. Ao contrário do Azure HDInsight, você não paga por uma conta da Análise quando ela não estiver executando um trabalho.  Você paga apenas pelo tempo em que um trabalho é executado.  Para saber mais, consulte [Visão geral sobre a Análise Azure Data Lake](data-lake-analytics-overview.md).  
@@ -56,7 +56,7 @@ Antes de executar qualquer trabalho da Análise Data Lake, você deve ter uma co
     New-AzureRmDataLakeStoreAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $dataLakeStoreName `
-        -Location $location
+        -Location $location 
 
     Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
     New-AzureRmDataLakeAnalyticsAccount `
@@ -80,7 +80,7 @@ Você também pode usar um modelo do Grupo de Recursos do Azure. Um modelo para 
     $DataLakeAnalyticsAccountName = "<New Data Lake Analytics Account Name>"
 
     $DeploymentName = "MyDataLakeAnalyticsDeployment"
-    $ARMTemplateFile = "E:\Tutorials\ADL\ARMTemplate\azuredeploy.json"  # update the Json template path
+    $ARMTemplateFile = "E:\Tutorials\ADL\ARMTemplate\azuredeploy.json"  # update the Json template path 
 
     Login-AzureRmAccount
 
@@ -91,7 +91,7 @@ Você também pode usar um modelo do Grupo de Recursos do Azure. Um modelo para 
 
     # Create the Data Lake Analytics account with the default Data Lake Store account.
     $parameters = @{"adlAnalyticsName"=$DataLakeAnalyticsAccountName; "adlStoreName"=$DefaultDataLakeStoreAccountName}
-    New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters
+    New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters 
 
 
 ### <a name="list-account"></a>Listar conta
@@ -126,7 +126,7 @@ O cmdlet retornará **True** ou **False**.
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
-    Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName
+    Remove-AzureRmDataLakeAnalyticsAccount -Name $dataLakeAnalyticsAccountName 
 
 A exclusão de uma conta da Análise de Data Lake não excluirá a conta dependente do Armazenamento do Data Lake. O exemplo a seguir exclui a conta da Análise Data Lake e a conta padrão do Repositório Data Lake
 
@@ -134,7 +134,7 @@ A exclusão de uma conta da Análise de Data Lake não excluirá a conta depende
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
-    Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName
+    Remove-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName 
     Remove-AzureRmDataLakeStoreAccount -ResourceGroupName $resourceGroupName -Name $dataLakeStoreName
 
 <!-- ################################ -->
@@ -145,7 +145,7 @@ No momento, a Análise Data Lake dá suporte às seguintes fontes de dados:
 * [Repositório Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
 * [Armazenamento do Azure](../storage/storage-introduction.md)
 
-Quando você cria uma conta da Análise, é necessário designar uma conta do Armazenamento do Azure Data Lake como a conta de armazenamento padrão. A conta padrão do Repositório Data Lake é usada para armazenar metadados de trabalho e logs de auditoria de trabalho. Depois de criar uma conta da Análise, é possíveis adicionar outras contas do Armazenamento do Data Lake e/ou uma conta do Armazenamento do Azure.
+Quando você cria uma conta da Análise, é necessário designar uma conta do Armazenamento do Azure Data Lake como a conta de armazenamento padrão. A conta padrão do Repositório Data Lake é usada para armazenar metadados de trabalho e logs de auditoria de trabalho. Depois de criar uma conta da Análise, é possíveis adicionar outras contas do Armazenamento do Data Lake e/ou uma conta do Armazenamento do Azure. 
 
 ### <a name="find-the-default-data-lake-store-account"></a>Encontrar a conta padrão do Repositório Data Lake
     $resourceGroupName = "<ResourceGroupName>"
@@ -166,7 +166,7 @@ Quando você cria uma conta da Análise, é necessário designar uma conta do Ar
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $AzureDataLakeName = "<DataLakeStoreName>"
 
-    Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -DataLake $AzureDataLakeName
+    Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -DataLake $AzureDataLakeName 
 
 ### <a name="list-data-sources"></a>Listar fontes de dados:
     $resourceGroupName = "<ResourceGroupName>"
@@ -191,7 +191,7 @@ Você deve ter uma conta da Análise Data Lake antes de criar um trabalho.  Para
     #States: Accepted, Compiling, Ended, New, Paused, Queued, Running, Scheduling, Starting
 
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Result Cancelled
-    #Results: Cancelled, Failed, None, Successed
+    #Results: Cancelled, Failed, None, Successed 
 
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Name <Job Name>
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -Submitter <Job submitter>
@@ -231,8 +231,8 @@ Você deve ter uma conta da Análise Data Lake antes de criar um trabalho.  Para
 
 > [!NOTE]
 > A prioridade padrão de um trabalho é de 1.000 e o nível padrão de paralelismo de um trabalho é 1.
->
->
+> 
+> 
 
 ### <a name="cancel-jobs"></a>Cancelar trabalhos
     Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
@@ -296,7 +296,7 @@ O catálogo do U-SQL é usado para estruturar dados e código para que eles poss
 
 
 ## <a name="use-azure-resource-manager-groups"></a>Usar os grupos do Gerenciador de Recursos do Azure
-Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md).
+Aplicativos normalmente são compostos por vários componentes, como, por exemplo, um aplicativo Web, banco de dados, servidor de banco de dados, armazenamento e serviços de terceiros. O Gerenciador de Recursos do Azure (ARM) permite trabalhar com os recursos do seu aplicativo como um grupo, designado um Grupo de Recursos do Azure. Você pode implantar, atualizar, monitorar ou excluir todos os recursos do seu aplicativo com uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. Você pode esclarecer a cobrança para sua organização exibindo os custos acumulados para todo o grupo. Para saber mais, consulte [Visão geral do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md). 
 
 Um serviço de Análise Data Lake pode incluir os seguintes componentes:
 
@@ -319,7 +319,7 @@ No entanto, o grupo ARM pode estar localizado em um data center diferente.
 * [Monitorar e solucionar problemas em trabalhos da Análise do Azure Data Lake usando o Portal do Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## <a name="appendix-a---data-lake-analytics-arm-template"></a>Apêndice A - modelo do ARM da Análise Data Lake
-O modelo ARM a seguir pode ser usado para implantar uma conta da Análise Data Lake e sua conta dependente do Repositório Data Lake.  Salve-o como um arquivo .json e use o script do PowerShell para chamar o modelo. Para saber mais, confira [Implantar um aplicativo com um modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-template-deploy.md#deploy) e [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md).
+O modelo ARM a seguir pode ser usado para implantar uma conta da Análise Data Lake e sua conta dependente do Repositório Data Lake.  Salve-o como um arquivo .json e use o script do PowerShell para chamar o modelo. Para saber mais, confira [Implantar um aplicativo com um modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-template-deploy.md) e [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -376,6 +376,7 @@ O modelo ARM a seguir pode ser usado para implantar uma conta da Análise Data L
 
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO4-->
 
 

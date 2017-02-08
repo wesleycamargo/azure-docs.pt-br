@@ -11,12 +11,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/12/2016
+ms.topic: deprecated
+ms.date: 01/18/2017
 ms.author: zhangya;bradsev
+ROBOTS: NOINDEX, NOFOLLOW
+redirect_url: machine-learning-data-science-create-features
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1d29f416fe7d5ef3f74cf64122a84acc4a4535da
+ms.sourcegitcommit: ba61d00f277af579c87a130336ead9879b82a6de
+ms.openlocfilehash: c6b88355df430e78594fc1283c9df01ad6e27e20
 
 
 ---
@@ -52,7 +54,7 @@ Que tipos de recursos devem ser criados para aperfeiçoar o conjunto de dados ao
 Ao começar a usar o Azure Machine Learning, é mais fácil entender esse processo concretamente usando exemplos fornecidos no Machine Learning Studio. Dois exemplos são apresentados aqui:
 
 * Um exemplo de regressão ([previsão do número de locações de bicicletas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4)) em um experimento supervisionado em que os valores de destino são conhecidos
-* Um exemplo de classificação de mineração de texto usando [Hash de recursos][feature-hashing]
+* Um exemplo de classificação de mineração de texto usando [Hash de Recursos][feature-hashing]
 
 ### <a name="example-1-adding-temporal-features-for-a-regression-model"></a>Exemplo 1: adição de recursos temporais para um modelo de regressão
 Vamos usar o experimento "Previsão de demanda de bicicletas" no Estúdio do Azure Machine Learning para demonstrar como fazer a engenharia de recursos em uma tarefa de regressão. O objetivo desse experimento é prever a demanda de bicicletas, ou seja, o número de locações de bicicletas dentro de um mês, dia ou hora específica. O conjunto de dados de **UCI de locação de bicicletas** é usado como os dados brutos de entrada.
@@ -81,7 +83,7 @@ A engenharia de recursos é amplamente aplicada a tarefas relacionadas à minera
 
 Para realizar essa tarefa, uma técnica chamada *hash de recursos* é aplicada para transformar de maneira eficiente recursos de texto arbitrários em índices. Em vez de associar cada recurso de texto (palavras ou expressões) a um índice em particular, este método funciona aplicando uma função de hash aos recursos e usando seus valores de hash como índices diretamente.
 
-No Azure Machine Learning, há um módulo [Hash de Recursos][feature-hashing] que cria esses recursos de palavra ou expressão. A figura a seguir mostra um exemplo de uso deste módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro, que varia de 1 a 5, e o conteúdo real da resenha. O objetivo desse módulo de [Hash de Recursos][feature-hashing] é recuperar novos recursos que mostram a frequência de ocorrência das palavras ou expressões correspondentes dentro de uma resenha de livro. Para usar este módulo, é necessário concluir as seguintes etapas:
+No Azure Machine Learning, há um módulo de [Hash de Recursos][feature-hashing] que cria esses recursos de palavra ou expressão. A figura a seguir mostra um exemplo de uso deste módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro, que varia de 1 a 5, e o conteúdo real da resenha. A meta desse módulo de [Hash de Recursos][feature-hashing] é recuperar novos recursos que mostram a frequência de ocorrência das palavras ou expressões correspondentes dentro de uma resenha de livro. Para usar este módulo, é necessário concluir as seguintes etapas:
 
 1. Selecione a coluna que contém o texto de entrada (**Col2** neste exemplo).
 2. Defina *Bitsize de hashing* como 8, o que significa que 2^8 = 256 recursos serão criados. A palavra ou expressão no texto será colocada em hash em 256 índices. O parâmetro *Bitsize de hashing* varia de 1 a 31. Se o parâmetro for definido para um número maior, as palavras ou frases são menos prováveis de serem colocadas em hash no mesmo índice.
@@ -107,7 +109,7 @@ O Azure Machine Learning Studio fornece módulos para seleção de recursos. Con
 
 ![Exemplo de seleção de recursos](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
 
-Por exemplo, use o módulo [Seleção de Recursos baseada em Filtro][filter-based-feature-selection] com o exemplo de mineração de texto descrito anteriormente. Suponha que você deseja compilar um modelo de regressão após a criação de um conjunto de 256 recursos por meio do módulo [Hash de Recursos][feature-hashing], e que a variável de resposta é **Col1** e representa as resenhas de um livro que variam de 1 a 5. Defina **Método de pontuação de recursos** como **Correlação de Pearson**, a **Coluna de destino** como **Col1** e o **Número de recursos desejados** como **50**. O módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection] produz um conjunto de dados que contém 50 recursos, em conjunto com o atributo de destino **Col1**. A figura a seguir mostra o fluxo desse experimento e os parâmetros de entrada.
+Por exemplo, use o módulo [Seleção de Recursos baseada em Filtro][filter-based-feature-selection] com o exemplo de mineração de texto descrito anteriormente. Suponha que você deseja compilar um modelo de regressão após a criação de um conjunto de 256 recursos por meio do módulo [Hash de Recursos][feature-hashing] e que a variável de resposta é **Col1** e representa as resenhas de um livro que variam de 1 a 5. Defina **Método de pontuação de recursos** como **Correlação de Pearson**, a **Coluna de destino** como **Col1** e o **Número de recursos desejados** como **50**. O módulo [Seleção de Recursos Baseada em Filtros][filter-based-feature-selection] produz um conjunto de dados que contém 50 recursos, em conjunto com o atributo de destino **Col1**. A figura a seguir mostra o fluxo desse experimento e os parâmetros de entrada.
 
 ![Exemplo de seleção de recursos](./media/machine-learning-feature-selection-and-engineering/feature-Selection1.png)
 
@@ -134,6 +136,6 @@ Nem sempre é necessário realizar a engenharia ou a seleção de recursos. Essa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

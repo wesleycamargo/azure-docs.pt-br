@@ -16,8 +16,8 @@ ms.workload: integration
 ms.date: 09/19/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0999d96b4819d6bf03faa843750c5c4b19649774
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: 6770aa8387fe3d381fd9c566ca0c38c88a4b1e55
 
 
 ---
@@ -34,7 +34,7 @@ Com o Twilio, você pode:
 * Compile seu fluxo de negócios baseado nos dados obtidos do Twilio. 
 * Use ações para obter uma mensagem, listar mensagens e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando você recebe uma nova mensagem do Twilio, você pode obtê-la e usá-la como um fluxo de trabalho do Barramento de Serviço. 
 
-Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para adicionar uma operação a aplicativos lógicos, confira [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Gatilhos e ações
 O Conector do Twilio inclui as ações a seguir. Não há nenhum gatilho. 
@@ -91,7 +91,7 @@ Retorna uma lista de mensagens associadas à sua conta.
 | --- | --- | --- | --- | --- | --- |
 | Para |string |não |query |Nenhum |Para o número de telefone |
 | Da |string |não |query |Nenhum |Do número de telefone |
-| DateSent |string |não |query |Nenhum |Mostrar apenas as mensagens enviadas nessa data (no formato GMT), indicado como AAAA-MM-DD. Exemplo: DateSent = 2009-07-06. Você também pode especificar desigualdade, como DateSent < = AAAA-MM-DD para mensagens que foram enviadas até a meia-noite (inclusive) em uma data e DateSent > = AAAA-MM-DD para mensagens enviadas a partir da meia-noite (inclusive) em uma data. |
+| DateSent |string |não |query |Nenhum |Mostrar apenas as mensagens enviadas nessa data (no formato GMT), indicado como AAAA-MM-DD. Exemplo: DateSent =&2009;-07-06. Você também pode especificar desigualdade, como DateSent < = AAAA-MM-DD para mensagens que foram enviadas até a meia-noite (inclusive) em uma data e DateSent > = AAAA-MM-DD para mensagens enviadas a partir da meia-noite (inclusive) em uma data. |
 | PageSize |inteiro |não |query |50 |Quantos recursos devem ser retornados em cada página da lista. O padrão é 50. |
 | Página |inteiro |não |query |0 |Número da página. O padrão é 0. |
 
@@ -238,11 +238,11 @@ Enviar uma nova mensagem para um número de celular.
 | end_date |string |não |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/31/2016
+ms.date: 01/07/2017
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 
 
 ---
@@ -48,7 +48,7 @@ Para obter informações gerais sobre o Cofre da Chave do Azure, consulte [O que
 Para concluir este tutorial, você precisará do seguinte:
 
 * Um cofre da chave existente que você esteja usando.  
-* Azure PowerShell, **versão mínima: 1.0.1**. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md). Se você já tiver instalado o Azure PowerShell e não souber a versão, no console do Azure PowerShell, digite `(Get-Module azure -ListAvailable).Version`.  
+* Azure PowerShell, **versão mínima: 1.0.1**. Para instalar o Azure PowerShell e associá-lo à sua assinatura do Azure, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs). Se você já tiver instalado o Azure PowerShell e não souber a versão, no console do Azure PowerShell, digite `(Get-Module azure -ListAvailable).Version`.  
 * Armazenamento suficiente no Azure para seus logs do Cofre da Chave.
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Conectar-se a suas assinaturas
@@ -66,7 +66,7 @@ Em seguida, para especificar a assinatura associada ao cofre de chaves do qual o
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Para saber mais sobre a configuração do Azure PowerShell, veja [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md).
+Para saber mais sobre a configuração do Azure PowerShell, veja [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Criar uma nova conta de armazenamento para seus logs
 Embora você possa usar uma conta de armazenamento existente para seus logs, criaremos uma nova conta de armazenamento que será dedicada aos logs do Cofre da Chave. Para conveniência quando tivermos de especificar isso posteriormente, armazenaremos os detalhes em uma variável chamada **sa**.
@@ -266,6 +266,6 @@ Para obter um tutorial sobre a rotação de chaves e o log de auditoria com o Co
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

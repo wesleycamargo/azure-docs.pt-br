@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 705d548661fd0a33a077aab563af415d959b6ebf
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 152b08cf72c48109f17b5c4715e4ca5fafbb1b7b
 
 
 ---
@@ -351,7 +351,7 @@ O Serviço de Aplicativo do Azure facilita para as empresas de pequeno a médio 
 * [Desenvolvimento de software Agile com o Serviço de Aplicativo do Azure](app-service-agile-software-development.md)
 * [Configurar ambientes de preparo para aplicativos Web no Serviço de Aplicativo do Azure](web-sites-staged-publishing.md)
 * [Implantar um aplicativo complexo de modo previsível no Azure](app-service-deploy-complex-application-predictably.md)
-* [Criando modelos do Azure Resource Manager](../resource-group-authoring-templates.md)
+* [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - o validador JSON](http://jsonlint.com/)
 * [Ramificação Git – Conceitos básicos de ramificação e mesclagem](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [PowerShell do Azure](/powershell/azureps-cmdlets-docs)
@@ -359,6 +359,6 @@ O Serviço de Aplicativo do Azure facilita para as empresas de pequeno a médio 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,10 +1,10 @@
 ---
-title: "Noções básicas sobre sua fatura | Microsoft Docs"
+title: Entendendo sua fatura do Azure | Microsoft Docs
 description: Saiba como ler e entender o uso e a fatura da sua assinatura do Azure
 services: 
 documentationcenter: 
 author: genlin
-manager: stevenpo
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
@@ -13,79 +13,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2016
+ms.date: 12/2/2016
 ms.author: erihur;genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8768ccd5a1d04566c5f2e1f26ab328cea570cc61
+ms.sourcegitcommit: 71240b7bb978ca0831a4e23cafa64a96d64dc3cd
+ms.openlocfilehash: cf0b3ce6b24eace40138d586378864dd4eeca5b1
 
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Entenda sua fatura do Microsoft Azure
-> [!NOTE]
-> Se você precisar de mais ajuda a qualquer momento neste artigo, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-> 
-> 
+Para entender sua fatura do Azure, examine o resumo dos encargos e o arquivo separado de uso diário detalhado. Este artigo descreve a maioria dos termos mostrados na fatura e o arquivo de uso diário. Para obter esses arquivos, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](../billing-download-azure-invoice-daily-usage-date.md). Se você estiver usando uma assinatura de avaliação gratuita, poderá obter suas informações de uso diário, mas não terá uma fatura.
 
 Os encargos das assinaturas do Microsoft Azure variam de acordo com o plano de tarifas. Alguns planos de tarifas, como as assinaturas do MPN (Visual Studio Enterprise), incluem créditos mensais que podem ser usados em qualquer serviço do Azure com base em suas necessidades.
 
-Observe que até 24 horas do uso latente do seu período de cobrança anterior podem ser registradas em seu período atual de cobrança.
+Sua fatura atual pode apresentar até 24 horas de uso do final do período de cobrança anterior. Os encargos listados nos demonstrativos de cobrança para clientes internacionais servem somente para fins de estimativa. Os bancos têm custos diferentes para as taxas de conversão.
 
-Para obter mais informações sobre os planos de taxa e consumo, confira a [página Opções de Compra do Microsoft Azure](https://azure.microsoft.com/pricing/purchase-options/).
+## <a name="a-namepdfa-understand-your-invoice-pdf"></a><a name="pdf"></a>Entenda sua fatura (.pdf)
+A fatura fornece um resumo dos seus encargos. Ele está disponível para download no formato .pdf (Portable Document Format) no [Portal do Azure](https://portal.azure.com). Para ver mais informações, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](../billing-download-azure-invoice-daily-usage-date.md). 
 
-<!-- The below links cover a complete list of all Microsoft Azure services.
+As seções a seguir listam a maioria dos termos existentes em sua fatura, junto com descrições para cada termo.
 
-<!-- - [Service Details list (csv1)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
-<!-- - [Service Details list (csv2)](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
-
-<!-- *NOTE: The **csv1** link refers to the column header names for csv version 1 and **csv2** link refers to the new column header names for csv version 2.  These files are updated monthly.*-->
-
-### <a name="view-or-download-a-bill-for-microsoft-azure"></a>Exibir ou baixar uma fatura do Microsoft Azure:
-1. Entre no [Centro de Contas](https://account.windowsazure.com/subscriptions) usando sua Conta da Microsoft ou ID Organizacional.
-2. Clique na assinatura na qual você gostaria de ver os detalhes e o uso.
-3. Clique em **Histórico de Cobrança**
-   
-    ![Resumo - histórico de cobrança -1](./media/billing-understand-your-bill/ContentViewaBillforMA1.png)
-4. A seção **Histórico de Cobrança** lista os demonstrativos dos períodos de cobrança anteriores, além do período não cobrado atual. O demonstrativo do período atual é uma estimativa dos seus encargos no momento em que a estimativa foi gerada. Essas informações são atualizadas diariamente e talvez não incluam todo o uso incorrido até o momento. Sua fatura mensal pode ser diferente dessa estimativa.  
-   
-    ![Resumo - histórico de cobrança 2](./media/billing-understand-your-bill/ContentViewaBillforMA2.png)
-5. Clique em **Exibir Demonstrativo Atual** para exibir uma estimativa dos seus encargos no momento em que a estimativa foi gerada. Essas informações são atualizadas diariamente e talvez não incluam todo o uso incorrido até o momento. Sua fatura mensal pode ser diferente dessa estimativa.
-   
-    ![Resumo - histórico de cobrança 3](./media/billing-understand-your-bill/ContentViewaBillforMA3.png)
-   
-    ![Resumo - histórico de cobrança 4](./media/billing-understand-your-bill/ContentViewaBillforMA4.png)
-6. Clique em **Baixar Fatura** para exibir uma cópia da sua fatura anterior.
-   
-    ![Resumo -histórico de cobrança 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
-
-> [!NOTE]
-> Os encargos listados nos demonstrativos de cobrança para clientes internacionais servem somente para fins de estimativa, já que os bancos têm custos diferentes para as taxas de conversão.
-> 
-> 
-
-Veja a seguir algumas instruções de exemplo para duas ofertas diferentes disponíveis no Microsoft Azure.
-
-| Tipo de oferta | Descrição | Baixar |
-|:--- |:--- |:--- |
-| Pré-paga |Pagar com atraso de pagamento mensal |[Arquivo de exemplo](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_ccinvoice_Sample.pdf) |
-| Oferta de compromisso |Gastar com dedução do seu compromisso pré-pago |[Arquivo de exemplo](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_invoice_Sample.pdf) |
-
-## <a name="account-information"></a>Informações da conta
-A seção de informações da conta identifica informações pertinentes relacionadas ao seu uso e perfil.
+### <a name="account-information"></a>Informações da conta
+A seção de informações da conta mostra informações sobre seu uso e perfil.
 
 ![cabeçalho](./media/billing-understand-your-bill/Header.png)
 
 | Termo | Descrição |
 | --- | --- |
 | Nº da Fatura |Um identificador de fatura único para fins de acompanhamento |
-| Ciclo de cobrança |O intervalo de tempo em que ocorreu o uso |
+| Ciclo de cobrança |Intervalo de datas coberto por esta nota fiscal |
 | Data da fatura |A data em que a fatura foi gerada |
-| Método de pagamento |Tipo de pagamento usado na conta (fatura ou cartão de crédito) |
-| Enviar cobrança para |Endereço de pagamentos do Microsoft Azure |
-| Oferta de assinatura |Tipo de oferta de assinatura que tiver sido adquirida (Pré-pago, BizSpark Plus, Azure Pass etc.) |
-| Email do proprietário da conta |O endereço de email da conta no qual a conta do Microsoft Azure está registrada |
+| Método de pagamento |Tipo de pagamento usado na conta (fatura ou cartão de crédito). Se você precisar atualizar seu cartão de crédito, confira [Como mudar o cartão de crédito usado para pagar por uma assinatura do Azure](../billing-how-to-change-credit-card.md). Se você representa uma empresa, pode pagar sua assinatura do Azure com métodos de pagamento de fatura, como cheques ou transferências bancárias. Confira [Cobrança do Azure – Como faturar](https://azure.microsoft.com/pricing/invoicing/). |
+| Enviar cobrança para |Endereço de pagamentos do Microsoft Azure. Você pode atualizar o endereço de cobrança associado ao seu cartão de crédito acessando a [página de assinatura](https://account.windowsazure.com/subscriptions) no Centro de Contas do Azure. |
+| Oferta de assinatura |Tipo de oferta de assinatura que tiver sido adquirida (Pré-pago, BizSpark Plus, Azure Pass etc.). Se você quiser alterar de pré-pago para uma oferta de assinatura diferente, confira [Trocar sua assinatura do Azure por outra oferta](../billing-how-to-switch-azure-offer.md). |
+| Email do proprietário da conta |O endereço de email da conta no qual a conta do Microsoft Azure está registrada. Para alterar seu endereço de email, confira [Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone](../billing-how-to-change-azure-account-profile.md). |
 
-## <a name="understand-the-invoice-summary"></a>Entender o resumo da fatura
+### <a name="understand-the-invoice-summary"></a>Entender o resumo da fatura
 A seção **Resumo da Fatura** da fatura resume as transações desde sua última fatura e os encargos de uso atuais.
 
 ![Resumo da Fatura](./media/billing-understand-your-bill/InvoiceSummary.png)
@@ -98,140 +61,103 @@ A seção saldo anterior, pagamentos e saldo pendente da fatura resume as transa
 | Pagamentos |Os pagamentos totais aplicados à sua última fatura |
 | Saldo pendente (do ciclo de cobrança anterior) |Qualquer ajuste de fatura (créditos ou saldos) aplicado à sua conta desde sua última fatura |
 
-## <a name="understand-the-current-charges"></a>Entender os encargos atuais
-A seção Encargos Atuais da fatura contém detalhes sobre seus encargos mensais. Os links são organizados nas subseções a seguir.
+### <a name="understand-the-current-charges"></a>Entender os encargos atuais
+A seção Encargos Atuais da fatura mostra detalhes sobre seus encargos mensais. 
 
 | Termo | Descrição |
 | --- | --- |
-| Encargos de uso |Encargos de uso são o total de encargos mensais em uma assinatura. Você é cobrado com atraso de pagamento para uso do seu mês anterior. |
-| Descontos |Descontos de serviço aplicados à sua fatura atual são refletidos nesse item de linha. |
-| Ajustes |Ajustes diversos são créditos diversos ou encargos pendentes aplicados à sua fatura atual. Por exemplo, se você tivesse a oferta Visual Studio Enterprise com MSDN, veria um crédito mensal neste item de linha. Se cancelar sua assinatura, você verá encargos para o uso mensal que excede o crédito mensal incluído na sua oferta desde o início do período de cobrança atual até a data de cancelamento da assinatura. |
+| Encargos de uso |Encargos de uso são o total de encargos mensais em uma assinatura. Você é cobrado pelo uso do mês anterior. |
+| Descontos |Descontos de serviço aplicados à sua fatura atual. |
+| Ajustes |Créditos diversos ou encargos pendentes aplicados à sua cobrança atual. Por exemplo, se você tiver a oferta Visual Studio Enterprise com MSDN, verá um crédito mensal. Se você cancelar sua assinatura, verá quaisquer encargos mensais pelo uso que excedem o crédito mensal obtido com sua oferta de assinatura. Os encargos são do começo de seu período de cobrança atual até a data de cancelamento da assinatura. |
 
-## <a name="footer-information"></a>Informações do rodapé
-![rodapé](./media/billing-understand-your-bill/footerinformation.png)
 
-## <a name="understand-the-additional-information"></a>Entender as informações adicionais
-A página de informações adicionais fornece referências a outros recursos para explicar sua fatura e links para exibir seu uso, bem como outras informações relevantes da sua fatura.
-
-![informações adicionais](./media/billing-understand-your-bill/AdditionalInformation.png)
-
-### <a name="detailed-usage"></a>Uso detalhado
-Um link na descrição em **Uso Detalhado** direciona você para o Centro de Contas, em que é possível exibir o uso detalhado dessa assinatura.  Agora há duas versões disponíveis para download: a **versão 1 .csv** contém os campos de uso e a antiga convenção de nomenclatura e a **versão 2 .csv** contém nomes amigáveis de cliente para cada uma das categorias mais campos adicionais que o ajudam a compreender quais serviços você está usando no Microsoft Azure. Observe que no. csv versão 1 que não há detalhe algum do Azure Resource Manager. Informações do Azure Resource Manager podem ser encontradas no. csv versão 2.
-
-### <a name="additional-information-and-useful-resources"></a>Informações adicionais e recursos úteis
-Esta seção contém links para perguntas simples sobre tamanhos de instância de computação, encargos de Banco de Dados SQL e links úteis para ajudá-lo a responder a perguntas adicionais.
+### <a name="sold-to-and-payment-instructions"></a>Instruções de venda e pagamento
+A tabela a seguir descreve as instruções de venda e pagamento mostradas em sua fatura.
 
 | Termo | Descrição |
 | --- | --- |
-| Vendido para |Isso é pré-preenchido com o endereço do perfil na conta |
-| Instruções de pagamento |Esta seção é composta pelas instruções de pagamento. Por exemplo, para onde enviar cheques, transferências eletrônicas ou pagamentos em 24 horas se o método de pagamento for fatura |
+| Vendido para |Isso é pré-preenchido com o endereço do perfil na conta. Se você precisar alterar isso, confira [Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone](../billing-how-to-change-azure-account-profile.md). |
+| Instruções de pagamento |Se a sua forma de pagamento for fatura, esta seção conterá instruções sobre transferências eletrônicas, pagamentos em&24; horas ou para onde enviar cheques. Para saber mais, confira [Cobrança do Azure – Como faturar](https://azure.microsoft.com/pricing/invoicing/) |
 
-## <a name="understand-detailed-usage-charges"></a>Entender os encargos de uso detalhados
-Como parte do nosso compromisso contínuo para ajudar os clientes a gerenciar facilmente o uso do Azure, aprimoramos o arquivo de uso de download com os relatórios sobre o uso dos serviços do Azure e os custos.  O link de download contém duas versões do arquivo de uso:
+## <a name="a-namecsva-understand-detailed-usage-charges-csv"></a><a name="csv"></a> Entender os encargos de uso detalhados (.csv)
+O arquivo de uso mostra o quanto de cada recurso foi usado no período de faturamento atual. Ele está disponível em um formato de arquivo .csv (valores separados por vírgulas) que pode ser aberto em um aplicativo de planilhas. Se você vir duas versões disponíveis, baixe a versão 2. Esse é o formato de arquivo mais recente. Para ver mais informações, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](../billing-download-azure-invoice-daily-usage-date.md).
 
-* **Versão 1** usa o formato preexistente
-* **Versão 2** inclui informações adicionais e nomes de coluna atualizadas na seção Uso Diário.  
+Encargos de uso são o total de encargos **mensais** em uma assinatura, menos créditos ou descontos. Você é cobrado pelo uso do mês anterior.  
 
-Encargos de uso são o total de encargos **mensais** em uma assinatura, menos créditos ou descontos. Você é cobrado com atraso de pagamento para uso do seu mês anterior.  A seção superior do arquivo exibe os detalhes sobre os serviços que estão sendo cobrados durante o ciclo de cobrança do mês anterior.  A tabela anterior lista os nomes das colunas para cada um dos arquivos da versão .csv.
+As seções a seguir descrevem a maioria dos termos mostrados na versão 2 do arquivo de uso detalhado.
 
-| Versão 1 | Versão 2 | Descrição |
-|:--- |:--- | --- |
-| Período de Cobrança |Período de Cobrança |O período de cobrança quando o recurso foi consumido. |
-| Nome |Categoria de medidor |Identifica o serviço de nível superior ao qual esse uso pertence. |
-| Tipo |Subcategoria de medidor |O serviço do Azure pode ser ainda mais definido pelo tipo nesta coluna, que pode afetar a tarifa. |
-| Recurso |Nome do medidor |Identifica a unidade de medida para o recurso sendo consumido. |
-| Região |Região do medidor |Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter. |
-| SKU |SKU |Identifica o identificador de sistema exclusivo para cada recurso do Azure. |
-| Unidade |Unidade |Identifica a unidade em que o serviço é cobrado. Por exemplo, GB, horas, 10.000s. |
-| Consumido |Quantidade consumida |Contém a quantidade do recurso que foi consumida durante o período de cobrança. |
-| Incluso |Quantidade incluída |Contém a quantidade do recurso que está incluída gratuitamente em seu período de cobrança atual. |
-| Faturável |Quantidade de excesso |Se a quantidade consumida exceder a quantidade incluída, esta coluna exibirá a diferença. Você é cobrado por essa quantidade. Para ofertas pré-pagas sem quantidade incluída na oferta, esse total será igual à quantidade consumida. |
-| Dentro do Compromisso |Dentro do Compromisso |Contém os encargos do recurso que são reduzidos do valor de compromisso associado à sua oferta de 6 ou 12 meses. Os encargos de recurso são reduzidos do valor de compromisso em ordem cronológica. |
-| Moeda |Moeda |Identifica a moeda refletida no período de cobrança atual. |
-| Excedente |Excedente |Contém os encargos de recurso que excedem o valor de compromisso associado à sua oferta de 6 ou 12 meses. |
-| Tarifa de Compromisso |Tarifa de Compromisso |Contém a tarifa de compromisso com base no valor de compromisso total associado à sua oferta de 6 ou 12 meses. |
-| Tarifa |Tarifa |Tarifa exibe a tarifa com a qual você é cobrado por unidade faturável. |
-| Valor |Valor |Exibe o resultado da multiplicação da coluna Faturável pela coluna Tarifa. Se a quantidade consumida não exceder a quantidade incluída, não haverá cobrança nessa coluna. |
+### <a name="statement"></a>Instrução 
+A seção superior do arquivo mostra os serviços que você usou durante o ciclo de faturamento do mês anterior. A tabela a seguir lista os termos e as descrições mostradas nesta seção.
 
-## <a name="analyze-daily-usage-data"></a>Analisar os dados de uso diário
-Dependendo de seu uso, pode haver milhares de linhas de dados de uso diário. Se você quiser analisar esses dados, clique em **Baixar Uso** e escolha uma versão de arquivo de variáveis separado por vírgulas (.csv) para ver seus dados de uso diário para o período de faturamento apropriado.  Para referência, você pode baixar um arquivo. csv de exemplo para cada versão abaixo.
+| Termo | Descrição |
+| --- | --- |
+|Período de Cobrança |O período de cobrança quando o recurso ou serviço foi usado. |
+|Categoria de medidor |Identifica o serviço de nível superior ao qual esse uso pertence. |
+|Subcategoria de medidor |Define o tipo de serviço do Azure e pode afetar a tarifa. |
+|Nome do medidor |Identifica a unidade de medida para o recurso sendo consumido. |
+|Região do medidor |Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter. |
+|SKU |Identifica o identificador de sistema exclusivo para cada recurso do Azure. |
+|Unidade |Identifica a unidade em que o serviço é cobrado. Por exemplo, GB, horas, 10.000s. |
+|Quantidade consumida |O valor do recurso usado durante o período de cobrança. |
+|Quantidade incluída |A quantidade do recurso que está incluída gratuitamente em seu período de cobrança atual. |
+|Quantidade de excesso |Mostra a diferença entre a Quantidade Consumida e a Quantidade Incluída. A cobrança é feita com base nessa quantidade. Para ofertas pré-pagas sem quantidade incluída na oferta, esse total será igual à Quantidade Consumida. |
+|Dentro do Compromisso |Mostra os encargos do recurso que são subtraídos do valor de compromisso associado à sua oferta de 6 ou 12 meses. Os encargos do recurso são subtraídos em ordem cronológica. |
+|Moeda |A moeda usada em seu período de cobrança atual. |
+|Excedente |Mostra os encargos de recurso que excedem o valor de compromisso associado à sua oferta de 6 ou 12 meses. |
+|Tarifa de Compromisso |Mostra a tarifa de compromisso com base no valor de compromisso total associado à sua oferta de 6 ou 12 meses. |
+|Tarifa |A tarifa cobrada por unidade faturável. |
+|Valor |Mostra o resultado da multiplicação da coluna Quantidade Excedente pela coluna Tarifa. Se a Quantidade Consumida não exceder a Quantidade Incluída, nenhum encargo será exibido nessa coluna. |
 
-| Nome | Baixar |
-|:---:|:---:|
-|   Uso detalhado. csv Versão 1 |[Arquivo de exemplo](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx) |
-|   Uso detalhado. csv Versão 2 |[Arquivo de exemplo](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx) |
+### <a name="daily-usage"></a>Uso diário 
 
-![csv2screenshot](./media/billing-understand-your-bill/csv2screenshot.png)
+A seção de Uso diário do arquivo mostra os detalhes de uso que afetam as taxas de cobrança. A tabela a seguir lista os termos e as descrições mostradas nesta seção. 
 
-No arquivo .csv, os itens são divididos para exibir uma lista de quanto de cada recurso foi consumido dentro do período de cobrança atual.
+| Termo| Descrição |
+| --- | --- |
+|Data de Uso |A data na qual o recurso foi usado. |
+|Categoria de medidor |Identifica o serviço de nível superior ao qual esse uso pertence. |
+|ID de medidor |O identificador de medidor cobrado. O identificador usado para precificar a cobrança pelo uso. |
+|Subcategoria de medidor |Define o tipo de serviço do Azure e pode afetar a tarifa. |
+|Nome do medidor |Identifica a unidade de medida para o recurso sendo consumido. |
+|Região do medidor|Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter. |
+|Unidade |Identifica a unidade em que o serviço é cobrado. Por exemplo, GB, horas, 10.000s. |
+|Quantidade consumida |A quantidade do recurso que foi consumida naquele dia. |
+|Local do recurso |Identifica o datacenter onde o recurso está sendo executado. |
+|Serviço consumido |O serviço da plataforma do Azure que você usou. |
+|Grupo de recursos |O grupo de recursos no qual o recurso implantado está sendo executado. Para saber mais, consulte [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). |
+|ID da instância |O identificador do recurso. O identificador contém o nome especificado para o recurso quando ele foi criado. É o nome do recurso ou a ID do Recurso totalmente qualificada. Para saber mais, confira [API do Azure Resource Manager](/rest/api/resources/resources). |
+|Marcas |Marca atribuída ao recurso. Use marcas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos entre os departamentos que usam o recurso. Os serviços que dão suporte à emissão de marcas são as máquinas virtuais, armazenamento e serviços de rede provisionados com a [API do Azure Resource Manager](/rest/api/resources/resources). Para saber mais, confira [Organizar os recursos do Azure com marcas](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Informações Adicionais |Metadados específicos ao serviço. Por exemplo, um tipo de imagem para uma máquina virtual. |
+|Informações do Serviço 1 |O nome do projeto ao qual o serviço pertence em sua assinatura. |
+|Informações do Serviço 2 |Esse é um campo herdado que captura os metadados específicos do serviço opcional. |
 
-![instantâneo de csv](./media/billing-understand-your-bill/csvsnapshotportal.png)
+## <a name="tips-for-cost-management"></a>Dicas para gerenciamento de custos
+É bom ser proativo sobre como controlar os custos:
 
-As colunas a seguir exibem detalhes que afetam as tarifas no início do período de cobrança:
+- Custos estimados usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/), o [custo total de calculadora de propriedade](https://aka.ms/azure-tco-calculator) e quando você adiciona um serviço
+- [Configurar alertas de cobrança](../billing-set-up-alerts.md)
+- [Analise o uso e os custos regularmente no portal do Azure](./billing-getting-started.md#costs)
 
-| Versão 1 | Versão 2 | Descrição |
-|:--- |:--- | --- |
-| Data de Uso |Data de Uso |A data em que o recurso foi emitido. |
-| Nome |Categoria de medidor |Identifica o serviço de nível superior ao qual esse uso pertence. |
-| GUID de recurso |ID de medidor |O identificador de medidor cobrado.  Isso é usado como o identificador usado para cobrança do uso de preços. |
-| Tipo |Subcategoria de medidor |O serviço do Azure pode ser ainda mais definido pelo tipo nesta coluna, que pode afetar a tarifa. |
-| Recurso |Nome do medidor |Identifica a unidade de medida para o recurso sendo consumido. |
-| Região |Região do medidor |Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter. |
-| Unidade |Unidade |Identifica a unidade em que o serviço é cobrado. Por exemplo, GB, horas, 10.000s. |
-| Consumido |Quantidade consumida |Contém a quantidade do recurso que foi consumida naquele dia. |
-| Sub-região |Local do recurso |Identifica o datacenter onde o recurso está sendo executado. |
-| O Barramento de |Serviço consumido |Esta coluna é utilizada para controlar o serviço da plataforma do Azure individual que não pode ser especificamente identificado na coluna Nome. Essa coluna Serviço indica a qual serviço específico o uso pertence. |
-| N/D |Grupo de recursos |***Adição de nova coluna.***  O grupo de recursos no qual o recurso implantado está sendo executado. Confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) |
-| Componente |ID da instância |O identificador do recurso em execução. O identificador contém o nome especificado para o recurso quando ele foi criado. |
-| N/D |Marcas |***Adição de nova coluna.***  Novos tipos de recursos no Azure permitem recursos de marca. Confira [Organize your Azure resources with tags (Organizar recursos do Azure com marcações)](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) |
-| Informações Adicionais |Informações Adicionais |Metadados adicionais relacionados ao serviço. |
-| Informações do Serviço 1 |Informações do Serviço 1 |Essa coluna fornece o nome do projeto ao qual o serviço pertence na sua assinatura. |
-| Informações do Serviço 2 |Informações do Serviço 2 |Esse é um campo herdado que captura os metadados específicos do serviço opcional. |
+Para saber mais, veja [Introdução ao gerenciamento de custos e de cobrança do Azure](./billing-getting-started.md).
 
-Além de alguns novos campos e as alterações de nome do arquivo csv versão 2, haverá uma formatação padronizada para os dados nos campos abaixo:
+## <a name="how-do-i-make-a-payment"></a>Como faço um pagamento?
+Se você tiver configurado um cartão de crédito ou débito como forma de pagamento, o pagamento será feito automaticamente. Se a sua configuração for usar um [modo de pagamento de fatura](https://azure.microsoft.com/pricing/invoicing/), envie seu pagamento para o local indicado na parte inferior de sua fatura. Para obter mais ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-* **ID da instância**: o campo ID de instância representa o identificador especificado pelo usuário para o serviço provisionado. Atualmente, há dois formatos em que a ID de instância é representada: é o nome do recurso ou ID do recurso totalmente qualificado. Os serviços do Microsoft Azure estão fazendo a transição para representar a ID de instância em um formato de ID do Recurso totalmente qualificado padronizado ***(/subscriptions/<subscription id>/resourcegroups/<resourcegroupname>/providers/<providername>/<resourcename>)***. Durante a transição para o novo formato de serviços você verá o campo de dados da ID da instância mudar de apenas o nome do recurso para a ID do recurso. A ID do Recurso é o formato usado pela [API do Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790567.aspx) para identificar recursos em um uma assinatura.
+## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Como faço para verificar o status de um pagamento feito com cartão de crédito?
+[Crie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar o status do pagamento. 
 
-![instanceId](./media/billing-understand-your-bill/instanceid.png)
+## <a name="what-about-marketplace-orders-or-external-service-charges"></a>E quanto a pedidos no Marketplace ou encargos de serviços externos?
+Os serviços externos costumavam ser chamados de pedidos do Marketplace. Os serviços externos são fornecidos por prestadores de serviços independentes, mas estão integrados ao ecossistema do Azure. Para saber mais, confira [Entender os encargos dos serviços externos do Azure](../billing-understand-your-azure-marketplace-charges.md).
 
-* **Informações adicionais**: a coluna Informações Adicionais no .csv de uso especifica os metadados específicos do serviço. Por exemplo, um tipo de imagem para uma VM. Atualmente, um serviço emite metadados específicos do serviço em várias colunas: campos Informações Adicionais, Informações do Serviço 1 e Informações do Serviço 2. Os serviços do Microsoft Azure vão padronizar a emissão de metadados específicos do serviço somente na coluna Informações Adicionais.  Consulte o instantâneo abaixo do formato padronizado:
-
-![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
-
-* **Marcações**: essa coluna contém as marcações de recurso especificadas pelo usuário. As marcas podem ser usadas para agrupar registros de cobrança. Por exemplo, você pode usar marcas para distribuir os custos por departamento usando o serviço. Saiba mais sobre [como usar marcações para organizar os Recursos do Azure](../resource-group-using-tags.md). Serviços que oferecem suporte a marcas de emissão são:  
-  
-  * Máquinas Virtuais
-  * Armazenamento e
-  * Serviços de rede fornecidos com o [API do Gerenciador de Recursos do Azure](https://msdn.microsoft.com/library/azure/dn790567.aspx)
-
-![Marcas](./media/billing-understand-your-bill/tags.png)
-
-## <a name="next-steps"></a>Próximas etapas
-* [Configurar alertas de cobrança](../billing-set-up-alerts.md)
-* [Gerenciar seus métodos de pagamento](../billing-how-to-change-credit-card.md)
-* [Entenda os encargos do Azure Marketplace](../billing-understand-your-azure-marketplace-charges.md)
-* [Perguntas Frequentes sobre Assinatura e Cobrança do Azure](../billing-subscription-faq.md)
-
-> [!NOTE]
-> Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-> 
-> 
-
-<!--
-OLD MSDN Articles
-- [What do I do if my Azure subscription become disabled?](https://msdn.microsoft.com/library/azure/dn736049.aspx)
-- [Edit payment information for an existing credit card](https://msdn.microsoft.com/library/azure/dn736053.aspx)
-- [Add a new credit card to use as a payment method](https://msdn.microsoft.com/library/azure/dn736057.aspx)
-- [Change the credit card on your Microsoft Azure account](https://msdn.microsoft.com/library/azure/dn736050.aspx)
-- [Manage your payment method](https://msdn.microsoft.com/library/azure/dn736054.aspx)
--->
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte. 
+Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
+ 
 
 
 
-<!--Image references-->
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

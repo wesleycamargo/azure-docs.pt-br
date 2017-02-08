@@ -1,6 +1,6 @@
 ---
-title: "Expressões condicionais do mecanismo de regras da Rede de Distribuição de Conteúdo do Azure | Microsoft Docs"
-description: "Este tópico descreve os recursos e condições de correspondência do Mecanismo de regras"
+title: "Expressões condicionais do mecanismo de regras da CDN do Azure | Microsoft Docs"
+description: "Documentação de referência para recursos e condições de correspondência do mecanismo de regras da CDN do Azure."
 services: cdn
 documentationcenter: 
 author: Lichard
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/23/2017
 ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 8a5d98bdc737fd9476b9db42100f58ed28619879
-ms.openlocfilehash: 92cb8832de934c19164bc26e688142538a8ba96c
+ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
+ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
 
 
 ---
 
-# <a name="conditional-expressions-for-azure-content-delivery-network-cdn-rules-engine"></a>Expressões condicionais para o Mecanismo de regras da CDN (Rede de Distribuição de Conteúdo) do Azure
+# <a name="azure-cdn-rules-engine-conditional-expressions"></a>Expressões condicionais do mecanismo de regras da CDN do Azure
 Este tópico lista descrições detalhadas das Expressões condicionais para o [Mecanismo de regras](cdn-rules-engine.md) da CDN (Rede de Distribuição de Conteúdo) do Azure.
 
 A primeira parte de uma regra é a Expressão condicional.
@@ -46,6 +46,6 @@ ELSE IF| Uma expressão ELSE IF especifica uma condição de alternativa que dev
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

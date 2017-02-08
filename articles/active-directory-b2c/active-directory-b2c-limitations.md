@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b12985be3822bb605004fc70490f6cf9cb803ec7
+ms.sourcegitcommit: 3ff8fba42e6455b33103c931da731b0affa8a0fb
+ms.openlocfilehash: b5fbd15729da2674b34a227861e65b89548dad39
 
 
 ---
@@ -34,13 +34,13 @@ Por padrão, o número de usuários em um locatário do B2C é limitado a 50.000
 ## <a name="branding-issues-on-verification-email"></a>Problemas de identidade visual no email de verificação
 O email de verificação padrão contém a identidade visual da Microsoft. Nós a removeremos no futuro. Por enquanto, você poderá removê-la usando o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md).
 
+## <a name="branding-issues-on-local-account-sign-in-page-in-a-sign-in-policy"></a>Problemas de identidade visual na página entrada de conta local em uma política de entrada
+A página de entrada de conta local em uma política de entrada pode ser personalizada usando apenas o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md)e não pelo recurso de personalização de interface do usuário de página descrito [aqui](active-directory-b2c-reference-ui-customization.md). Além disso, não há rótulos ou espaços reservados disponíveis nos campos de nome de usuário e de senha. Como alternativa, é recomendável que você use a "política Assinar ou Entrar" totalmente personalizável. Se você estiver interessado em personalizar totalmente a página de entrada de conta local em uma política de entrada, vote no recurso em [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13062033-b2c-fully-customizable-sign-in-page).
+
 ## <a name="restrictions-on-applications"></a>Restrições em aplicativos
 Os seguintes tipos de aplicativos não têm suporte atualmente no Azure AD B2C. Para obter uma descrição dos tipos de aplicativos com suporte, confira [Azure AD B2C: tipos de aplicativos](active-directory-b2c-apps.md).
 
-### <a name="single-page-applications-javascript"></a>Aplicativos de Página Única (JavaScript)
-Muitos aplicativos modernos têm um front-end de SPA (Aplicativo de Página Única) escrito principalmente em JavaScript e que usa com frequência estruturas do SPA, como AngularJS, Ember.js, Durandal etc. Esse fluxo ainda não está disponível no Azure AD B2C.
-
-### <a name="daemons-server-side-applications"></a>Aplicativos daemons/do lado do servidor
+### <a name="daemons--server-side-applications"></a>Aplicativos daemons/do lado do servidor
 Os aplicativos que contêm processos de longa duração ou que operam sem a presença de um usuário também precisam encontrar uma maneira de acessar os recursos protegidos, tais como APIs Web. Esses aplicativos podem autenticar e obter tokens pelo uso da identidade do aplicativo (em vez de usar a identidade delegada do consumidor), usando o [fluxo de credenciais de cliente do OAuth 2.0](active-directory-b2c-reference-protocols.md). Esse fluxo ainda não está disponível no Azure AD B2C. Portanto, os aplicativos só poderão obter tokens após um fluxo de entrada interativa do consumidor.
 
 ### <a name="standalone-web-apis"></a>APIs da Web autônomas
@@ -96,6 +96,6 @@ Solicitações para políticas de entrada (com MFA ativado) falham intermitentem
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

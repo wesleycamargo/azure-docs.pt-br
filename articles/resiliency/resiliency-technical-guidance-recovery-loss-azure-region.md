@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 15f0183d8ada59227a412788f1d53a9db0e712c8
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 0062dc90d8e1a823e17183e96a91a9f224e8cf48
 
 
 ---
@@ -97,7 +97,7 @@ O Banco de Dados SQL do Azure fornece dois tipos de recuperação: Restauração
 [Replicação geográfica ativa](../sql-database/sql-database-geo-replication-overview.md) está disponível para todas as camadas de banco de dados. Ela foi criada para aplicativos que têm requisitos de recuperação mais agressivos do que a Restauração Geográfica pode oferecer. Com a replicação geográfica ativa, você pode criar até quatro secundários legíveis nos servidores em regiões diferentes. Você pode iniciar o failover para qualquer um dos secundários. Além disso, a replicação geográfica ativa pode ser usada para suportar a atualização do aplicativo ou os cenários de realocação, bem como o balanceamento de carga para cargas de trabalho somente leitura. Para obter detalhes, veja [configurar a Replicação Geográfica](../sql-database/sql-database-geo-replication-portal.md) e [failover para o banco de dados secundário](../sql-database/sql-database-geo-replication-failover-portal.md). Confira [Criar um aplicativo para recuperação de desastre na nuvem usando a Replicação Geográfica ativa no Banco de Dados SQL](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Gerenciando as atualizações sem interrupção de aplicativos na nuvem usando a Replicação Geográfica Ativa do Banco de Dados SQL](../sql-database/sql-database-manage-application-rolling-upgrade.md) para obter detalhes sobre como criar e implementar aplicativos e a atualização de aplicativos sem tempo de inatividade.
 
 ### <a name="sql-server-on-virtual-machines"></a>SQL Server em máquinas virtuais
-Várias opções estão disponíveis para recuperação e alta disponibilidade para o SQL Server 2012 (e posterior) em execução em Máquinas Virtuais do Azure. Para saber mais, confira [Alta disponibilidade e recuperação de desastres para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Várias opções estão disponíveis para recuperação e alta disponibilidade para o SQL Server 2012 (e posterior) em execução em Máquinas Virtuais do Azure. Para saber mais, confira [Alta disponibilidade e recuperação de desastres para o SQL Server em Máquinas Virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 ## <a name="other-azure-platform-services"></a>Outros serviços da plataforma Azure
 Ao tentar executar seu serviço de nuvem em várias regiões do Azure, você deve considerar as implicações para cada uma de suas dependências. Nas seções a seguir, as diretrizes específicas do serviço pressupõem que você deve usar o mesmo serviço do Azure em um datacenter alternativo do Azure. Isso envolve tanto tarefas de configuração quanto de replicação de dados.
@@ -188,6 +188,6 @@ Este artigo faz parte de uma série que tem como foco [Orientações técnicas d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

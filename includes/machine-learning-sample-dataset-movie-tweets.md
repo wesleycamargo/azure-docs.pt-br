@@ -1,3 +1,0 @@
-O conjunto de dados é uma versão estendida do conjunto de dados de Movie Tweetings. O conjunto de dados tem as classificações de 170 mil de filmes, extraídos de tweets bem estruturados no Twitter. Cada instância representa uma tweet e é uma tupla: ID de usuário, ID de filme IMDB, classificação, carimbo de hora, número de Favoritos para este tweet e número de retweets desse tweet. O conjunto de dados foi disponibilizado por A. Said, S. Dooms, B. Loni e D. Tikk para desafio de sistemas de recomendação 2014.
-
-<!---HONumber=Oct15_HO3-->

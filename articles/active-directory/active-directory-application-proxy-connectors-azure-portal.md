@@ -1,33 +1,33 @@
 ---
-title: Trabalhando com conectores do Proxy de Aplicativo do Azure AD | Microsoft Docs
+title: Instalar e gerenciar conectores - Proxy de aplicativo do Azure AD | Microsoft Docs
 description: Aborda como criar e gerenciar grupos de conectores no Proxy de Aplicativo do Azure AD.
 services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
+editor: harshja
 ms.assetid: 5404372d-3092-4054-aeee-26afb1399f33
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ba87b73be45cb0893f418453bc0efb3293772c95
+ms.sourcegitcommit: 7ed296a6773763f7aaae55e9a1667efca7d9e590
+ms.openlocfilehash: c4fd1eb4637c310ff0c012a3aad5f4b8af47d50f
 
 
 ---
-# <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups---public-preview"></a>Publicar aplicativos em redes e locais separados usando grupos de Conectores – Visualização Pública
+# <a name="publish-applications-on-separate-networks-and-locations-using-connectors---public-preview"></a>Publicar aplicativos em redes e locais separados usando conectores – Visualização Pública
 > [!div class="op_single_selector"]
 > * [Portal do Azure](active-directory-application-proxy-connectors-azure-portal.md)
 > * [Portal clássico do Azure](active-directory-application-proxy-connectors.md)
-> 
-> 
+>
+>
 
-Os grupos de conectores são úteis para diversos cenários, incluindo:
+Os conectores e grupos de conectores são úteis para diversos cenários, incluindo:
 
 * Sites com vários datacenters interconectados. Nesses casos, você deseja manter o tráfego dentro do datacenter o máximo possível, porque links entre datacenters são caros e lentos. Você pode implantar conectores em cada datacenter para servir apenas os aplicativos que residem dentro do datacenter. Essa abordagem minimiza os links entre datacenters e fornece uma experiência totalmente transparente para os usuários.
 * Gerenciar aplicativos instalados em redes isoladas que não fazem parte da rede corporativa principal. Você pode usar grupos de conectores para instalar conectores dedicados em redes isoladas para isolar também os aplicativos para a rede.
@@ -64,7 +64,6 @@ Para obter as últimas notícias e atualizações, confira o [blog do Proxy de A
 
 
 
-
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

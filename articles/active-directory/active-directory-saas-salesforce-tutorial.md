@@ -39,13 +39,13 @@ Se você estiver usando um ambiente de área restrita do Salesforce, consulte o 
 ## <a name="video-tutorials"></a>Tutoriais em vídeo
 Você pode acompanhar este tutorial usando os vídeos abaixo.
 
-**Tutorial em vídeo parte 1: Como Habilitar o Logon Único**
+**Tutorial em vídeo parte&1;: Como Habilitar o Logon Único**
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-enable-Single-Sign-On-12/player]
 > 
 > 
 
-**Tutorial em vídeo parte 2: Como Automatizar o Provisionamento de Usuários**
+**Tutorial em vídeo parte&2;: Como Automatizar o Provisionamento de Usuários**
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Integrating-Salesforce-with-Azure-AD-How-to-automate-User-Provisioning-22/player]
 > 

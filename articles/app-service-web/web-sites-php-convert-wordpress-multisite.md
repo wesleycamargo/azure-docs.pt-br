@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5a0d7d5143879eaf0ee42a70a04d865a33879733
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 45a5c8f16dd70f65967907c18752f4f98ffa75ea
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: 5a0d7d5143879eaf0ee42a70a04d865a33879733
 
 Neste tutorial, você aprenderá converter um aplicativo Web do WordPress criado por meio da galeria no Azure em uma instalação multissite do WordPress. Além disso, você aprenderá a atribuir um domínio personalizado para cada um dos subsites dentro de sua instalação.
 
-Presume-se que você tem uma instalação existente do WordPress. Se você não tiver, siga as diretrizes apresentadas em [Criar um site do WordPress da galeria no Azure][website-from-gallery].
+Presume-se que você tem uma instalação existente do WordPress. Se você não fizer isso, siga as orientações apresentadas no [criar um site do WordPress da galeria no Azure][website-from-gallery].
 
-A conversão de uma instalação de site única de um WordPress existente para um Multissite geralmente é bastante simples e muitas das etapas iniciais provêm diretamente da página [Criar uma rede][wordpress-codex-create-a-network] no [Codex do WordPress](http://codex.wordpress.org).
+Convertendo um WordPress existente instalar único site multissite geralmente é bastante simple e muitas das etapas iniciais são provenientes diretamente o [Criar uma rede][wordpress-codex-create-a-network] página no [WordPress Codex](http://codex.wordpress.org).
 
 Vamos começar.
 
@@ -53,7 +53,7 @@ Faça logon na área *wp-admin* de seu aplicativo Web e você verá um novo item
 
 Este tutorial usa a *subdiretórios* site esquema porque ele sempre deve funcionar, e vão configurar domínios personalizados para cada subsite posteriormente no tutorial. No entanto, deve ser possível configurar uma instalação de subdomínio se você mapear adequadamente um domínio por meio do [Portal do Azure](https://portal.azure.com) e do DNS curinga de configuração.
 
-Para obter mais informações sobre configurações de subdomínio vs. configurações de subpasta, consulte o artigo [Tipos de rede multissite][wordpress-codex-types-of-networks] no Codex do WordPress.
+Para obter mais informações sobre o subdomínio vs subpasta configurações Consulte o [Tipos de rede multissite][wordpress-codex-types-of-networks] artigo sobre o WordPress Codex.
 
 ## <a name="enable-the-network"></a>Ativar a rede
 A rede agora está configurada no banco de dados, mas há uma etapa restante para habilitar a funcionalidade de rede. Finalize as configurações `wp-config.php` e verifique se `web.config` roteia corretamente cada site.
@@ -65,7 +65,7 @@ Depois de fazer essas atualizações, você precisará fazer logoff e depois faz
 Agora deve haver um menu adicional na barra de administrador com o rótulo **Meus Sites**. Esse menu permite que você controle sua nova rede através do painel **Administrador de rede**.
 
 ## <a name="adding-custom-domains"></a>Adicionando domínios personalizados
-O plug-in [Mapeamento de domínio do WordPress MU (Multiusuário)][wordpress-plugin-wordpress-mu-domain-mapping] torna bem fácil adicionar domínios personalizados a qualquer site na sua rede. O plug-in funcionar corretamente, é necessário fazer algumas configurações adicionais no Portal e também em seu registrador de domínio.
+O [Mapeamento de domínio do WordPress MU][wordpress-plugin-wordpress-mu-domain-mapping] plug-in facilita adicionar domínios personalizados para qualquer site na sua rede. O plug-in funcionar corretamente, é necessário fazer algumas configurações adicionais no Portal e também em seu registrador de domínio.
 
 ## <a name="enable-domain-mapping-to-the-web-app"></a>Habilitar o mapeamento de domínio para o aplicativo Web
 O **Gratuito** [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) não dá suporte a adição de domínios personalizados para aplicativos Web. Você precisará mudar para o modo **Compartilhado** ou **Padrão**. Para fazer isso:
@@ -120,7 +120,7 @@ Por padrão, o novo domínio será regravado no domínio do site gerado automati
 Aplicativos Web do Azure permitem que você adicione um número ilimitado de domínios a um aplicativo Web. Para adicionar outro domínio, você precisará executar as seções **Verifique se seu domínio** e **Configurar registro do domínio A** para cada domínio.    
 
 > [!NOTE]
-> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar a usar o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, vá até [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -143,6 +143,6 @@ Aplicativos Web do Azure permitem que você adicione um número ilimitado de dom
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

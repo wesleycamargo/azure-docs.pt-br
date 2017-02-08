@@ -1,6 +1,6 @@
 ---
-title: "Gerenciar registros DNS reversos para seus serviços do Azure (clássico) usando o PowerShell | Microsoft Docs"
-description: "Como gerenciar registros DNS reversos ou registros PTR para os serviços do Azure usando o PowerShell no modelo de implantação clássica. "
+title: "Registros DNS reversos para seus serviços do Azure clássico usando o PowerShell | Microsoft Docs"
+description: "O DNS do Azure permite gerenciar registros DNS reversos ou registros PTR para os serviços do Azure usando o PowerShell no modelo de implantação clássica."
 services: DNS
 documentationcenter: na
 author: s-malone
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2016
 ms.author: smalone
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: fe5c9cfe0edd769635301fdcb40fc1f71d430165
+ms.sourcegitcommit: efa52b5f30cab16bfde4202dbfe2c95f4464e2c4
+ms.openlocfilehash: fda4e223667099cedb62c189f75d2ba91cc898f0
 
 
 ---
@@ -67,6 +67,6 @@ Verificações de validação são executadas somente quando a propriedade de DN
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

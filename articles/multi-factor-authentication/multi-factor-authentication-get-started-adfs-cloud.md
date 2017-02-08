@@ -15,18 +15,18 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
 
 
 ---
-# <a name="securing-cloud-resources-with-azure-multifactor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando o Azure Multi-Factor Authentication e o AD FS
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando o Azure Multi-Factor Authentication e o AD FS
 Se sua organização for federada com o Azure Active Directory, use a Autenticação Multifator do Azure ou ps Serviços de Federação do Active Directory para proteger os recursos que são acessados pelo Azure AD. Use os procedimentos a seguir para proteger os recursos do Azure Active Directory com Autenticação Multifator do Azure ou os Serviços de Federação do Active Directory.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Proteger recursos do Azure AD usando o AD FS
 Para proteger seus recursos de nuvem, primeiro habilite uma conta para usuários e configure uma regra de declaração. Siga este procedimento para percorrer as etapas:
 
-1. Use as etapas descritas em [Ativar autenticação multifator](multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users) para que os usuários habilitem uma conta.
+1. Use as etapas descritas em [Ativar autenticação multifator](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) para que os usuários habilitem uma conta.
 2. Inicie o Console de gerenciamento do AD FS.
    ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 3. Navegue até **Terceira Parte Confiável** e clique com o botão direito do mouse em Terceira Parte Confiável. Selecione **Editar Regras de Declaração...**
@@ -34,13 +34,13 @@ Para proteger seus recursos de nuvem, primeiro habilite uma conta para usuários
 5. No menu suspenso, selecione **Enviar Declarações Usando uma Regra Personalizada** e clique em **Avançar**.
 6. Insira um nome para a regra de declaração.
 7. Em Regra personalizada: adicione o seguinte texto:
-   
+
     ```
     => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
     ```
-   
+
     Declaração correspondente:
-   
+
     ```
     <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
     <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
@@ -74,7 +74,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 10. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Enviar Declarações Usando uma Regra Personalizada** da lista suspensa e clique em **Avançar**.
 11. Na caixa abaixo do nome da regra de declaração: insira *Manter Usuários Conectados*.
 12. Na caixa de regra Personalizada, digite:
-    
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -83,7 +83,7 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 15. Clique em **OK**.
 16. Feche o gerenciamento do AD FS.
 
-### <a name="configure-azure-multifactor-authentication-trusted-ips-with-federated-users"></a>Configurar IPs confiáveis do Azure Multi-Factor Authentication com usuários federados
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurar IPs confiáveis do Azure Multi-Factor Authentication com usuários federados
 Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
 1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
@@ -100,7 +100,6 @@ Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

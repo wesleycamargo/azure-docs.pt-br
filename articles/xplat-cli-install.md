@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: a3b1b65ff1d61adfbbcc70bece938f71a83d0812
-ms.openlocfilehash: dce83b58c7127362232dce9af3a0a6f97044602a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2053470f0a54a0a9b388d020b416df1ff2bfd084
 
 
 ---
 # <a name="install-the-azure-cli"></a>Instalar a CLI do Azure
 > [!div class="op_single_selector"]
-> * [PowerShell](powershell-install-configure.md)
+> * [PowerShell](/powershell/azureps-cmdlets-docs)
 > * [CLI do Azure](xplat-cli-install.md)
 
 Instale rapidamente a CLI (Interface de linha de comando) do Azure para usar um conjunto de comandos de software livre baseados em shell para criar e gerenciar os recursos do Microsoft Azure. Você tem várias opções para instalar essas ferramentas de plataforma cruzada em seu computador: 
@@ -52,7 +52,7 @@ sudo npm install -g azure-cli
 > [!NOTE]
 > Se precisar instalar ou atualizar o Node.js e o npm em sua distribuição ou SO do Linux, é recomendável que você instale a versão mais recente do Node.js LTS (4. x). Se você usar uma versão mais antiga, poderá obter erros de instalação. 
 
-Se preferir, baixe o [arquivo tar][linux-installer] mais recente do Linux para o pacote npm localmente. Em seguida, instale o pacote npm baixado da seguinte maneira (em distribuições Linux, talvez seja necessário usar **sudo**):
+Se preferir, baixe o [arquivo tar][linux-installer] do Linux mais recente para o pacote npm localmente. Em seguida, instale o pacote npm baixado da seguinte maneira (em distribuições Linux, talvez seja necessário usar **sudo**):
 
 ```bash
 npm install -g <path to downloaded tar file>
@@ -132,11 +132,11 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli
 [linux-installer]: http://aka.ms/linux-azure-cli
-[cliasm]: virtual-machines-command-line-tools.md
+[cliasm]: /cli/azure/get-started-with-az-cli2
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

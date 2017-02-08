@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7f2e5bbd2516c0f697084a802d6963c3d1023914
+ms.sourcegitcommit: ccd1dffda19718a434fc09bb74a536714799740a
+ms.openlocfilehash: 6187106a9aa98107d89e65fe4c7a0e8a27befa87
 
 
 ---
@@ -31,7 +31,11 @@ As Assinaturas de Acesso Compartilhado (SAS) são recursos das contas de armazen
   
   * A versão do Visual Studio deve ser a 2013 ou 2015
   * A versão do Python deverá ser a 2.7 ou superior
-* Um cluster HDInsight baseado em Linux OU o [Azure PowerShell][powershell] - se você tiver um cluster baseado em Linux existente, poderá usar o Ambari para adicionar uma Assinatura de Acesso Compartilhado ao cluster. Caso contrário, você poderá usar o Azure PowerShell para criar um novo cluster e adicionar uma Assinatura de Acesso Compartilhado durante a criação do cluster.
+* Um cluster HDInsight baseado em Linux OU o [Azure PowerShell][powershell] ‑ Se você tiver um cluster existente baseado em Linux, poderá usar o Ambari para adicionar uma Assinatura de Acesso Compartilhado ao cluster. Caso contrário, você poderá usar o Azure PowerShell para criar um novo cluster e adicionar uma Assinatura de Acesso Compartilhado durante a criação do cluster.
+
+    > [!IMPORTANT]
+    > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Os arquivos de exemplo de [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Esse repositório possui o seguinte:
   
   * Um projeto do Visual Studio que pode criar um contêiner de armazenamento, a política armazenada e a SAS a ser usada com o HDInsight
@@ -249,10 +253,10 @@ Agora que você aprendeu a adicionar armazenamento de acesso limitado ao seu clu
 * [Usar o Pig com o HDInsight](hdinsight-use-pig.md)
 * [Usar o MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
 
-[powershell]: ../powershell-install-configure.md
+[powershell]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

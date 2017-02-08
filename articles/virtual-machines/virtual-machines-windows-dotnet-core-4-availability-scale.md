@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: nepeters
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: c41251040d7b2ac96376a9a3a0c58f7263ff37e2
+ms.sourcegitcommit: 9f944edcafb55634c9338bc8dd518a5f032f56e0
+ms.openlocfilehash: e714a7e941b25dfb0926934a3dff387363f306d8
 
 
 ---
@@ -243,7 +243,7 @@ Siga este link para ver o exemplo JSON no modelo do Resource Manager – [Funç�
 
 A função `copyIndex` é usada várias vezes no modelo de exemplo da Loja de Música. Recursos e funções utilizando `copyIndex` incluem qualquer coisa específica a uma única instância da máquina virtual como adaptador de rede, regras de balanceador de carga e qualquer uma depende de funções. 
 
-Para obter mais informações sobre a função de cópia, consulte [Criar várias instâncias de recursos no Azure Resource Manager](../resource-group-create-multiple.md).
+Para obter mais informações sobre a função de cópia, consulte [Criar várias instâncias de recursos no Azure Resource Manager](../azure-resource-manager/resource-group-create-multiple.md).
 
 ## <a name="next-step"></a>Próxima etapa
 <hr>
@@ -253,6 +253,6 @@ Para obter mais informações sobre a função de cópia, consulte [Criar vária
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

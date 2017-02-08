@@ -30,7 +30,7 @@ Este tópico mostra como usar o início rápido do Azure Functions no portal par
 ## <a name="watch-the-video"></a>Assista ao vídeo
 O vídeo a seguir mostra como executar as etapas básicas deste tutorial. 
 
-> [!VÍDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-your-first-Azure-Function-simple/player]
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-your-first-Azure-Function-simple/player]
 > 
 > 
 
@@ -64,13 +64,13 @@ Este início rápido demonstra uma execução simples de uma função básica di
 
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)  
-   Referência do programador para codificação de funções e definição de gatilhos e de associações.
+  Referência do programador para codificação de funções e definição de gatilhos e de associações.
 * [Testando o Azure Functions](functions-test-a-function.md)  
-   Descreve várias ferramentas e técnicas para testar suas funções.
+  Descreve várias ferramentas e técnicas para testar suas funções.
 * [Como escalar o Azure Functions](functions-scale.md)  
   Discute os planos de serviço disponíveis com o Azure Functions, incluindo o plano de hospedagem de consumo e como escolher o plano certo. 
 * [O que é o Serviço de Aplicativo do Azure?](../app-service/app-service-value-prop-what-is.md)  
-   O Azure Functions utiliza a plataforma Serviço de Aplicativo do Azure para a funcionalidade básica, como implantações, variáveis de ambiente e diagnóstico. 
+  O Azure Functions utiliza a plataforma Serviço de Aplicativo do Azure para a funcionalidade básica, como implantações, variáveis de ambiente e diagnóstico. 
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 

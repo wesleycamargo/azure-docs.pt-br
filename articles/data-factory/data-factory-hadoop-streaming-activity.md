@@ -1,6 +1,6 @@
 ---
-title: "Atividade de Transmissão do Hadoop"
-description: "Saiba como usar a Atividade de Transmissão do Hadoop em um Azure Data Factory para executar programas de Transmissão do Hadoop em um cluster HDInsight sob demanda ou em seu próprio cluster HDInsight."
+title: Transformar dados usando a Atividade de Streaming do Hadoop - Azure | Microsoft Docs
+description: "Saiba como usar a Atividade de Streaming do Hadoop em um Azure Data Factory para transformar dados executando programas de Streaming do Hadoop em um cluster HDInsight sob demanda ou em seu próprio cluster HDInsight."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
-ms.openlocfilehash: 58c0e0cfd862bc421c3b4a9ad042283a22656460
+ms.sourcegitcommit: 49545648a069f25820f6a6e483072be8410b091e
+ms.openlocfilehash: 56754bde961708f04477be74e1ae80acddf2c0cd
 
 
 ---
-# <a name="hadoop-streaming-activity"></a>Atividade de Transmissão do Hadoop
+# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade de Streaming do Hadoop no Azure Data Factory
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  
@@ -224,6 +224,6 @@ O cluster HDInsight é preenchido automaticamente com os programas de exemplo (w
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

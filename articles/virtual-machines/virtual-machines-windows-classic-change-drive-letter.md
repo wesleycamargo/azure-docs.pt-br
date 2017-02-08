@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 002e7fe3a0573898fff2552264a318d528eec25c
+ms.sourcegitcommit: 808343035c2554a3cd01cf3fe0ef6ebba2c54e23
+ms.openlocfilehash: 5b4443a8746bc8c88e2c5b58068c200aafc4beea
 
 
 ---
@@ -52,20 +52,9 @@ Primeiro, você precisará anexar o disco de dados à máquina virtual.
 1. Depois que a VM for reiniciada, faça logon novamente na VM.
 2. Clique no menu **Iniciar**, digite **diskmgmt.msc** e pressione Enter. O Gerenciamento de Disco será iniciado.
 3. Clique com o botão direito do mouse em **D**, a unidade de Armazenamento Temporário e selecione **Alterar Letra da Unidade e Caminhos**.
-4. Na Letra da unidade, selecione a unidade **G** e clique em **OK**. 
+4. Na Letra da unidade, selecione uma nova unidade como, por exemplo, **T** e clique em **OK**. 
 5. Clique com o botão direito do mouse no disco de dados e selecione **Alterar Letra da Unidade e Caminhos**.
 6. Na Letra da unidade, selecione a unidade **D** e clique em **OK**. 
-7. Clique com o botão direito do mouse em **G**, a unidade de Armazenamento Temporário e selecione **Alterar Letra da Unidade e Caminhos**.
-8. Na Letra da unidade, selecione a unidade **E** e clique em **OK**. 
-
-> [!NOTE]
-> Se sua VM tiver outros discos ou unidades, use o mesmo método para reatribuir as letras da unidade dos outros discos e unidades. Você quer que a configuração de disco seja:  
-> 
-> * C: disco do sistema operacional  
-> * D: disco de dados  
-> * E: disco temporário
-> 
-> 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Mova o pagefile.sys de volta para a unidade de armazenamento temporário
 1. Clique com o botão direito do mouse no menu **Iniciar** e selecione **Sistema**
@@ -74,7 +63,7 @@ Primeiro, você precisará anexar o disco de dados à máquina virtual.
 4. Selecione a guia **Avançado** .
 5. Na seção **Memória virtual**, selecione **Alterar**.
 6. Selecione a unidade **C** do SO, em seguida, clique em **Nenhum arquivo de paginação** e clique em **Definir**.
-7. Selecione a unidade **E** de armazenamento temporário, em seguida, clique em **Tamanho gerenciado pelo sistema** e clique em **Definir**.
+7. Selecione a unidade **T** de armazenamento temporário, em seguida, clique em **Tamanho gerenciado pelo sistema** e clique em **Definir**.
 8. Clique em **Aplicar**. Você receberá um aviso de que o computador precisa ser reiniciado para que as alterações entrem em vigor.
 9. Reinicie a máquina virtual.
 
@@ -84,6 +73,6 @@ Primeiro, você precisará anexar o disco de dados à máquina virtual.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

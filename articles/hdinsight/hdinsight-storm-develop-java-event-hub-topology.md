@@ -15,12 +15,13 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eaa86b706a538543816b59d8cd09ee54df43b26d
+ms.sourcegitcommit: 8c07f0da21eab0c90ad9608dfaeb29dd4a01a6b7
+ms.openlocfilehash: abeafaaabb7449916313ee3805b18e9ec0da765e
 
 
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>Processar eventos dos Hubs de Eventos do Azure com o Storm no HDInsight (Java)
+
 Os Hubs de Eventos do Azure permitem processar grandes quantidades de dados de sites, aplicativos e dispositivos. O spout dos Hubs de Eventos facilita o uso do Apache Storm no HDInsight para analisar esses dados em tempo real. Você pode também gravar dados no Hub de Eventos usando o bolt dos Hubs de Eventos.
 
 Neste tutorial, você aprenderá a usar o spout e bolt dos Hubs de Eventos para ler e gravar dados em uma topologia Storm baseada em Java.
@@ -28,15 +29,11 @@ Neste tutorial, você aprenderá a usar o spout e bolt dos Hubs de Eventos para 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um Apache Storm no cluster HDInsight. Use um dos seguintes artigos de introdução para criar um cluster:
   
-  * Um [Storm baseado em Linux em cluster HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md): selecione esta opção se quiser utilizar o SSH para trabalhar com o cluster de clientes Linux, Unix, OS X ou Windows
-  * Um [Storm baseado em Windows em cluster HDInsight](hdinsight-apache-storm-tutorial-get-started.md): selecione esta opção se quiser utilizar o PowerShell para trabalhar com o cluster de um cliente Windows
+  * Um cluster HDInsight. Veja [Introdução ao cluster Storm no HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) para saber mais sobre como criar um novo cluster.
     
-    > [!NOTE]
-    > As etapas neste documento baseiam-se no uso de um Storm em cluster HDInsight 3.3 ou 3.4. Esses clusters fornecem Storm 0.10.0 e Hadoop 2.7, o que reduz o número de etapas necessárias para que esse exemplo funcione.
-    > 
-    > Para obter uma versão desse exemplo que funcione com o Storm 0.9.3 no HDInsight 3.2, confira a ramificação [Storm v0.9.3](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub/tree/Storm_v0.9.3) do repositório de exemplo.
-    > 
-    > 
+    > [!IMPORTANT]
+    > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Um [Hub de Eventos do Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Oracle Java Developer Kit (JDK) versão 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou equivalente, como [OpenJDK](http://openjdk.java.net/)
 * [Maven](https://maven.apache.org/download.cgi): o Maven é um sistema de criação de projetos para projetos Java
@@ -44,8 +41,6 @@ Neste tutorial, você aprenderá a usar o spout e bolt dos Hubs de Eventos para 
   
   > [!NOTE]
   > Seu editor ou IDE pode ter uma funcionalidade específica para trabalhar com o Maven que não é abordada neste documento. Para obter informações sobre os recursos do seu ambiente de edição, consulte a documentação do produto que você está usando.
-  > 
-  > 
   
   * Um cliente SSH. Consulte um dos artigos a seguir para obter mais informações sobre a utilização do SSH com o HDInsight:
     
@@ -185,7 +180,7 @@ Isso informa ao Maven que o projeto deve ser compilado com compatibilidade para 
 
 Usado para empacotar a solução para um jar uber com o código do projeto e as dependências necessárias. Também é usado para:
 
-* Renomear os arquivos de licença para as dependências: se isso não for feito, poderá resultar em um erro em tempo de execução em clusters HDInsight baseados no Windows.
+* Renomear os arquivos de licença para as dependências: se isso não for feito, poderá resultar em um erro em tempo de execução.
 * Excluir segurança/assinaturas: se isso não for feito, poderá resultar em um erro em tempo de execução no cluster HDInsight.
 * Verifique se as várias implementações da mesma interface estão mescladas em uma entrada. Se isso não for feito, você receberá erros informando que o bolt Storm-HDFS não sabe como se comunicar com o sistema de arquivos do WASB.
 
@@ -362,7 +357,11 @@ O jar criado por este projeto contém duas topologias; **com.microsoft.example.E
         storm kill reader
         storm kill writer
 
-### <a name="if-using-a-windows-based-cluster"></a>Se você estiver usando um cluster baseado no Windows
+### <a name="if-using-a-windows-based-hdinsight-cluster"></a>Se estiver usando um cluster HDInsight baseado no Windows
+
+> [!IMPORTANT]
+> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 1. Abra seu navegador para https://CLUSTERNAME.azurehdinsight.net. Quando solicitado, insira as credenciais do administrador do cluster HDInsight. Você chegará ao Painel do Storm.
 2. Use a lista suspensa **Jar File** para procurar e selecionar o arquivo EventHubExample-1.0-SNAPSHOT.jar do seu ambiente de compilação.
 3. Em **Nome da Classe**, insira `com.mirosoft.example.EventHubWriter`.
@@ -436,6 +435,6 @@ Para saber mais sobre como usar a interface do usuário Storm, consulte estes t�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

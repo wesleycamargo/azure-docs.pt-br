@@ -1,5 +1,5 @@
 ---
-title: "Usar o Apache Spark para criar aplicativos de aprendizado de máquina no HDInsight | Microsoft Docs"
+title: "Usar o Apache Spark para criar aplicativos de aprendizado de máquina no Azure HDInsight | Microsoft Docs"
 description: "Instruções passo a passo sobre como usar blocos de anotações com o Apache Spark para criar aplicativos de aprendizado de máquina"
 services: hdinsight
 documentationcenter: 
@@ -13,30 +13,31 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59775fc056285b72b1c6e6d5d45f6a9c0ede2d3f
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 94c7aca175543b94742ad57af6949b3fcdda6356
 
 
 ---
-# <a name="build-machine-learning-applications-to-run-on-apache-spark-clusters-on-hdinsight-linux"></a>Crie aplicativos de Aprendizado de Máquina para serem executados em clusters do Apache Spark no HDInsight Linux
+# <a name="build-machine-learning-applications-to-run-on-apache-spark-clusters-on-hdinsight"></a>Crie aplicativos de Machine Learning para serem executados em clusters do Apache Spark no HDInsight
+
 Aprenda a criar uma aplicativo de aprendizado de máquina usando um cluster do Apache Spark no HDInsight. Este artigo mostra como usar o bloco de anotações do Jupyter disponível com o cluster para compilar e testar o aplicativo. O aplicativo usa os dados de HVAC.csv de exemplo que estão disponíveis em todos os clusters por padrão.
 
 **Pré-requisitos:**
 
 Você deve ter o seguinte:
 
-* Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Um cluster do Apache Spark no HDInsight no Linux. Para obter instruções, confira [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md). 
+* Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md). 
 
 ## <a name="a-namedataashow-me-the-data"></a><a name="data"></a>Mostrar-me os dados
 Antes de começarmos a criação do aplicativo, vamos entender a estrutura dos dados e o tipo de análise que vamos fazer nos dados. 
 
 Neste artigo, usamos o exemplo arquivo de dados de exemplo **HVAC.csv** que está disponível na conta de Armazenamento do Azure que você associou ao cluster HDInsight. Na conta de armazenamento, o arquivo está em **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Baixe e abra o arquivo CSV para obter um instantâneo dos dados.  
 
-![Instantâneo de dados de HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Snapshot of the HVAC data")
+![Instantâneo dos dados de HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Instantâneo dos dados de HVAC")
 
 Os dados mostram a temperatura de destino e a temperatura real de um prédio com sistemas de HVAC instalados. Vamos supor que a coluna **System** representa a ID do sistema e a coluna **SystemAge** representa o número de anos que o sistema HVAC foi instalado no prédio.
 
@@ -56,10 +57,10 @@ Neste aplicativo, usamos um pipeline ML do Spark para executar uma classificaç�
    > 
 3. Crie um novo bloco de anotações. Clique em **Novo** e em **PySpark**.
    
-    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+    ![Criar um novo bloco de anotações do Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.createnotebook.png "Criar um novo bloco de anotações do Jupyter")
 4. Um novo bloco de anotações é criado e aberto com o nome Untitled.pynb. Clique no nome do bloco de anotações na parte superior e digite um nome amigável.
    
-    ![Fornecer um nome para o bloco de anotações](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+    ![Fornecer um nome para o bloco de anotações](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.note.jupyter.notebook.name.png "Fornecer um nome para o bloco de anotações")
 5. Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive serão criados automaticamente para você ao executar a primeira célula do código. Você pode começar importando os tipos que são obrigatórios para este cenário. Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**. 
    
         from pyspark.ml import Pipeline
@@ -78,7 +79,7 @@ Neste aplicativo, usamos um pipeline ML do Spark para executar uma classificaç�
    
     Cole o trecho a seguir em uma célula vazia e pressione **SHIFT+ENTER**.
 
-        # List the structure of data for better understanding. Becuase the data will be
+        # List the structure of data for better understanding. Because the data will be
         # loaded as an array, this structure makes it easy to understand what each element
         # in the array corresponds to
 
@@ -156,7 +157,7 @@ Neste aplicativo, usamos um pipeline ML do Spark para executar uma classificaç�
 
     Volte e verifique se a saída em relação ao arquivo CSV bruto. Por exemplo, a primeira linha do arquivo CSV tem esses dados:
 
-    ![Instantâneo de dados de HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.first.row.png "Snapshot of the HVAC data")
+    ![Instantâneo dos dados de HVAC](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.first.row.png "Instantâneo dos dados de HVAC")
 
     Observe como a temperatura real é menor que a temperatura de destino sugerindo que o prédio está frio. Portanto, no resultado do treinamento, o valor para o **rótulo** na primeira linha é **0,0**, o que significa que o prédio não está quente.
 
@@ -189,7 +190,7 @@ Neste aplicativo, usamos um pipeline ML do Spark para executar uma classificaç�
        Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
        Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
    
-   Na primeira linha na previsão, você pode ver que para um sistema HVAC com ID 20 e sistema de 25 anos, o prédio estará quente (**previsão = 1,0**). O primeiro valor de DenseVector (0,49999) corresponde à previsão 0,0 e o segundo valor (0,5001) corresponde à previsão 1,0. Na saída, mesmo que o segundo valor seja apenas um pouco mais alto, o modelo mostra **previsão = 1,0**.
+   Na primeira linha na previsão, você pode ver que para um sistema HVAC com ID 20 e sistema de 25 anos, o prédio estará quente (**previsão = 1,0**). O primeiro valor de DenseVector (0,49999) corresponde à previsão 0,0 e o segundo valor (0,5001) corresponde à previsão 1,0. Na saída, mesmo que o segundo valor seja apenas um pouco mais alto, o modelo mostra **previsão =&1;,0**.
 4. Depois de concluir a execução do aplicativo, você deve encerrar o notebook para liberar os recursos. Para isso, no menu **Arquivo** do bloco de anotações, clique em **Fechar e Interromper**. Isso desligará e fechará o bloco de anotações.
 
 ## <a name="a-nameanacondaause-anaconda-scikit-learn-library-for-machine-learning"></a><a name="anaconda"></a>Use a biblioteca Anaconda scikit-learn para Aprendizado de Máquina
@@ -235,6 +236,6 @@ Os clusters Apache Spark no HDInsight incluem bibliotecas Anaconda. Isso também
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

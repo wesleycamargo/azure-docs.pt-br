@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 497d8b17fe29328008fd2d13cf61432a913aa898
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5172ce4edbea0f5587075308c97d07aac98e9699
 
 
 ---
@@ -393,7 +393,7 @@ Por razões de desempenho e tolerância a falhas, é ideal instalar o serviço D
 
 As máquinas virtuais registram automaticamente seu nome DNS na inicialização ou quando há uma alteração no nome.
 
-Para saber mais sobre este exemplo e outro exemplo que mostra como provisionar a primeira VM e instalar o AD DS, confira [Instalar uma nova floresta do Active Directory no Microsoft Azure](active-directory-new-forest-virtual-machine.md). Para saber mais sobre como usar o Windows PowerShell, confira [Instalar o Azure PowerShell](../powershell-install-configure.md) e [Cmdlets de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/jj152841).
+Para saber mais sobre este exemplo e outro exemplo que mostra como provisionar a primeira VM e instalar o AD DS, confira [Instalar uma nova floresta do Active Directory no Microsoft Azure](active-directory-new-forest-virtual-machine.md). Para saber mais sobre como usar o Windows PowerShell, confira [Instalar o Azure PowerShell](/powershell/azureps-cmdlets-docs) e [Cmdlets de gerenciamento do Azure](https://msdn.microsoft.com/library/azure/jj152841).
 
 ### <a name="a-namebkmkdistributeddcsageo-distributed-dcs"></a><a name="BKMK_DistributedDCs"></a>Controladores de domínio distribuídos geograficamente
 O Azure oferece vantagens ao hospedar vários controladores de domínio em redes virtuais diferentes:
@@ -501,6 +501,6 @@ Confira [Considerações de topologia da implantação do AD FS 2.0](https://tec
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

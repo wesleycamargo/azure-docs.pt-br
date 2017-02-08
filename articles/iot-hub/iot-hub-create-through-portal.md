@@ -1,6 +1,6 @@
 ---
 title: Usar o Portal do Azure para criar um Hub IoT | Microsoft Docs
-description: "Uma visão geral de como criar e gerenciar os Hubs IoT do Azure por meio do portal do Azure"
+description: "Como criar, gerenciar e excluir Hubs IoT do Azure por meio do Portal do Azure. Inclui informações sobre tipos de preço, escala, segurança e configurações de mensagens."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 53f14e6fe115ed5f96d25b9ec5ab04abe23712d5
-ms.openlocfilehash: ee072749e080264b4fa2b6cd0305071ed33b665e
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: f91f694dc8660cc55a9aa02bb4941083441d8acf
 
 
 ---
@@ -39,7 +39,7 @@ Você pode criar um Hub IoT usando os métodos a seguir:
 * Criação de um Hub IoT por meio do Marketplace: clicar em **Criar** abre uma folha idêntica à folha anterior da experiência de **+Novo**. As próximas seções listam as várias etapas envolvidas na criação de um Hub IoT.
 
 ### <a name="choose-the-name-of-the-iot-hub"></a>Escolher o nome do Hub IoT
-Para criar um Hub IoT, você deve dar um nome a ele. Esse nome deve ser exclusivo entre os Hubs IoT. Não é permitida a duplicação de hubs no back-end, portanto é recomendável que esse hub tenha o nome mais exclusivo possível.
+Para criar um Hub IoT, você deve dar um nome a ele. Esse nome deve ser exclusivo entre os Hubs IoT. Não é permitida a duplicação de hubs no back-end da solução, portanto é recomendável que esse hub tenha o nome mais exclusivo possível.
 
 ### <a name="choose-the-pricing-tier"></a>Escolher a camada de preços
 Você pode escolher entre quatro camadas: **Gratuita**, **Padrão 1**, **Padrão 2** e **Padrão S3**. O tipo gratuito só permite a conexão de 500 dispositivos ao Hub IoT e até 8000 mensagens por dia.
@@ -133,13 +133,13 @@ Você pode navegar até o Hub IoT que deseja excluir clicando em **Procurar**e e
 Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 
 * [Gerenciamento em massa de dispositivos IoT][lnk-bulk]
-* [Métricas de uso][lnk-metrics]
+* [Métricas do Hub IoT][lnk-metrics]
 * [Monitoramento de operações][lnk-monitor]
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
-* [Guia do desenvolvedor][lnk-devguide]
-* [Simulando um dispositivo com o SDK de Gateway IoT][lnk-gateway]
+* [Guia do desenvolvedor do Hub IoT][lnk-devguide]
+* [Simulando um dispositivo com o SDK do Gateway do IoT][lnk-gateway]
 * [Proteger sua solução de IoT desde o início][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
@@ -159,6 +159,6 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

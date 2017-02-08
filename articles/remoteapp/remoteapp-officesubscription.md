@@ -1,19 +1,22 @@
-
 ---
 title: Como usar sua assinatura do Office 365 com o Azure RemoteApp | Microsoft Docs
 description: Saiba como usar sua assinatura do Office 365 no Azure RemoteApp para compartilhar aplicativos do Office.
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: piotrci
 manager: mbaldwin
-
+ms.assetid: f82b6e23-2b71-47be-846d-fd93f2652f3c
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: 4ad7970b94949bf105ddf549279d4d1bcbad5f40
+
 
 ---
 # <a name="how-to-use-your-office-365-subscription-with-azure-remoteapp"></a>Como usar sua assinatura do Office 365 com o Azure RemoteApp
@@ -24,10 +27,10 @@ ms.author: elizapo
 
 Você sabia que você pode usar sua assinatura do Office 365 existente no Azure RemoteApp para compartilhar aplicativos do Office da nuvem? Continue lendo para obter informações sobre as opções do Office 365 com o Azure RemoteApp, incluindo links para artigos sobre o Office 365 que ajudarão você a aproveitar ao máximo sua assinatura.
 
-## <a name="how-do-i-use-office-365-accounts-for-azure-remoteapp?"></a>Como usar contas do Office 365 para o Azure RemoteApp?
+## <a name="how-do-i-use-office-365-accounts-for-azure-remoteapp"></a>Como usar contas do Office 365 para o Azure RemoteApp?
 Veja o novo artigo de Peter para todas as informações: [Como usar o Azure RemoteApp com contas de usuário do Office 365](remoteapp-o365user.md)
 
-## <a name="can-i-use-my-office-365-subscription-to-run-office-applications-in-azure-remoteapp?"></a>Posso usar minha assinatura do Office 365 para executar aplicativos do Office no Azure RemoteApp?
+## <a name="can-i-use-my-office-365-subscription-to-run-office-applications-in-azure-remoteapp"></a>Posso usar minha assinatura do Office 365 para executar aplicativos do Office no Azure RemoteApp?
 Sim! Na verdade, usar sua assinatura do Office 365 é a única maneira de levar seus aplicativos do Office para o Azure RemoteApp.
 
 (Observação: se a sua implantação do Azure RemoteApp for entregue por um parceiro de hospedagem, ele poderá conseguir fornecer licenças do Office com base em um [Contrato de Licença do Provedor de Serviço](http://www.microsoft.com/en-us/Licensing/licensing-programs/spla-program.aspx))
@@ -38,22 +41,22 @@ O Office 365 ProPlus permite a [ativação de computador compartilhado](https://
 
 Quais planos do Office 365 incluem o Office 365 ProPlus? Confira a tabela de [Disponibilidade de serviço em cada plano](https://technet.microsoft.com/library/office-365-plan-options.aspx) . Vale lembrar que nem todos os planos incluem o Office 365 ProPlus (por exemplo, o plano Office 365 Business). Se o seu plano não incluí-lo, considere a atualização para um plano que o inclua (por exemplo, Office 365 Education E3).
 
-## <a name="ok,-so-how-are-my-office-365-proplus-licenses-used-with-azure-remoteapp?"></a>OK. Como as minhas licenças do Office 365 ProPlus são usadas com o Azure RemoteApp?
+## <a name="ok-so-how-are-my-office-365-proplus-licenses-used-with-azure-remoteapp"></a>OK. Como as minhas licenças do Office 365 ProPlus são usadas com o Azure RemoteApp?
 Cada licença de usuário para o Office 365 ProPlus permite que um único usuário ative os aplicativos do Office em até cinco computadores, além de tablets e telefones. Cada ativação é registrada com o usuário até que ele desative o Office no dispositivo. (Os usuários podem gerenciar seus dispositivos no [portal do Office 365](https://portal.office365.com/).)
 
 Com o Azure RemoteApp, um único usuário pode fazer logon em vários computadores no mesmo dia sem perceber. Isso ocorre porque o serviço gerencia e dimensiona automaticamente os recursos na nuvem, enquanto o usuário vê apenas os aplicativos e programas que você compartilhou. Para este cenário, o Office 365 ProPlus oferece um modo de ativação do computador compartilhado – isso significa que o usuário não precisa realizar nenhum gerenciamento de licenças para acessar esses recursos e que os computadores individuais não contam para o limite de ativação de cinco computadores.
 
 Contanto que você (o administrador) atribua licenças do Office 365 ProPlus aos seus usuários, eles podem usar o Office em seus dispositivos pessoais, bem como por meio de sua coleção do Azure RemoteApp.
 
-## <a name="which-office-applications-can-i-use-with-office-365-and-azure-remoteapp?"></a>Quais aplicativos do Office posso usar com o Office 365 e o Azure RemoteApp?
+## <a name="which-office-applications-can-i-use-with-office-365-and-azure-remoteapp"></a>Quais aplicativos do Office posso usar com o Office 365 e o Azure RemoteApp?
 Você pode usar sua assinatura do Office 365 para ativar e compartilhar o Office 2013 em implantações do Azure RemoteApp. Atualmente, não há suporte ao uso de outras versões do Office com o Azure RemoteApp. Isso inclui o Office 2003, Office 2007, Office 2010 e Office 2016.
 
-## <a name="what-about-visio-pro-or-project-pro?"></a>E quanto ao Visio Pro ou o Project Pro?
+## <a name="what-about-visio-pro-or-project-pro"></a>E quanto ao Visio Pro ou o Project Pro?
 A imagem do Office 365 ProPlus incluída em sua assinatura do RemoteApp inclui tanto o Visio Pro como o Project Pro. Mas você não pode usar sua assinatura do Office 365 ProPlus para ativar esses programas – cada um deles tem sua própria licença. Você pode ativá-los no [portal do Office 365](https://portal.office365.com/). 
 
 Você não precisa licenciar esses programas se não desejar usá-los. Ative apenas os programas que deseja usar – e ignore os outros. Você ainda poderá vê-los na imagem, mas não poderá usá-los. 
 
-## <a name="how-do-i-get-started-with-office-365-and-azure-remoteapp?"></a>Como posso começar a usar o Office 365 e o Azure RemoteApp?
+## <a name="how-do-i-get-started-with-office-365-and-azure-remoteapp"></a>Como posso começar a usar o Office 365 e o Azure RemoteApp?
 Agora que você conhece os detalhes do licenciamento do Office 365, vamos mostrar como você pode usá-lo no Azure RemoteApp – é muito fácil:
 
 Ao criar sua coleção do Azure RemoteApp, use a imagem do **Office 365 ProPlus (Assinatura necessária)** .
@@ -62,7 +65,7 @@ Ao criar sua coleção do Azure RemoteApp, use a imagem do **Office 365 ProPlus 
 
 Esta imagem contém a versão mais recente do Windows Server e do Office 365 ProPlus. Depois de configurar sua coleção (incluindo aplicativos de publicação), seus usuários apenas fazem logon no Azure RemoteApp (usando seu cliente do RemoteApp) e fornecem suas credenciais do Office 365 para todos os aplicativos do Office. As licenças serão entregues automaticamente sem que haja a necessidade de configuração ou gerenciamento.
 
-## <a name="can-i-create-a-custom-image-with-office-365-proplus?"></a>Posso criar uma imagem personalizada com o Office 365 ProPlus?
+## <a name="can-i-create-a-custom-image-with-office-365-proplus"></a>Posso criar uma imagem personalizada com o Office 365 ProPlus?
 Você pode criar uma imagem personalizada para a sua coleção que contém o Office 365 ProPlus. Há duas opções: use a imagem da galeria do Azure que fornecemos ou crie sua própria imagem personalizada e instale o Office 365 ProPlus nela.
 
 ### <a name="use-the-azure-gallery-image"></a>Usar a imagem da galeria do Azure
@@ -84,7 +87,7 @@ Agora, o arquivo de configuração deve conter estas linhas:
         <Property Name="SharedComputerLicensing" Value="1" />
         <Updates Enabled="FALSE" />
 
-## <a name="so-how-can-i-update-an-image-with-office-365-proplus?"></a>Como é possível atualizar uma imagem com o Office 365 ProPlus?
+## <a name="so-how-can-i-update-an-image-with-office-365-proplus"></a>Como é possível atualizar uma imagem com o Office 365 ProPlus?
 Há muitas razões para atualizar a imagem em sua coleção. Veja abaixo algumas delas:
 
 * Obter as atualizações mais recentes do Windows 
@@ -96,7 +99,7 @@ Para obter as etapas completas para atualizar sua coleção para usar a imagem a
 
 Você tem duas opções para atualizar sua imagem: substituir a imagem por uma totalmente nova ou atualizar manualmente a imagem existente.
 
-### <a name="replace-your-image-with-the-latest-azure-gallery-image-+-add-customizations"></a>Substituir a imagem pela imagem mais recente da galeria do Azure e adicionar personalizações
+### <a name="replace-your-image-with-the-latest-azure-gallery-image--add-customizations"></a>Substituir a imagem pela imagem mais recente da galeria do Azure e adicionar personalizações
 Com essa opção, você permite que a Microsoft se encarregue das atualizações do Windows Server e do Office 365 ProPlus. Em vez de atualizar a imagem existente, você criará uma imagem totalmente nova com base na imagem mais recente da galeria. Depois, repita as etapas anteriores para personalizar a imagem – instalar aplicativos personalizados, modificar a configuração da imagem, etc.
 
 As imagens da galeria são atualizadas regularmente, por isso você pode ficar tranquilo e saber que os seus aplicativos do Windows Server e do Office 365 ProPlus estão atualizados. Claro que a desvantagem é que você precisará aplicar suas personalizações sempre que tiver uma nova imagem. Você pode criar scripts para automatizar a configuração de suas personalizações.
@@ -115,6 +118,9 @@ Precisa de mais informações sobre como usar a Ferramenta de implantação do O
 * [Implantando e atualizando o Office 365 ProPlus usando a Ferramenta de Implantação do Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vídeo)
 * [Definir configurações de atualização para o Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

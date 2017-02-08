@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: kipandya
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a0b1418168d493ce0e669a9eb0594d37e741df7d
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: d7ed490157eff98e31c824daf1f9af98ae1afeaa
 
 
 ---
@@ -152,13 +152,12 @@ Saiba mais sobre como distribuir dados globalmente com o Banco de Dados de Docum
 
 * [Distribute data globally with DocumentDBs (Distribuir dados globalmente com o Banco de Dados de Documentos)](documentdb-distribute-data-globally.md)
 * [Níveis de consistência](documentdb-consistency-levels.md)
-* [Como a produtividade funciona com várias regiões](documentdb-manage.md)
 * [Adicionar regiões usando o portal do Azure](documentdb-portal-global-replication.md)
 
 [regions]: https://azure.microsoft.com/regions/
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

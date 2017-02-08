@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 10/24/2016
 ms.author: sstein; sashan
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3e6152f6539962653a582ba4921af82e4447fd76
+ms.sourcegitcommit: 3686f262a0a3fc01abd179aef337c272e97c0b3c
+ms.openlocfilehash: b12bf1a08780c6888f518a800aea1065fd1283c5
 
 
 ---
@@ -29,7 +30,7 @@ ms.openlocfilehash: 3e6152f6539962653a582ba4921af82e4447fd76
 > 
 > 
 
-Você pode usar os [backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md) do Azure para criar uma cópia do seu banco de dados SQL. A cópia do banco de dados usa a mesma tecnologia como o recurso de replicação geográfica. Mas, ao contrário da replicação geográfica, ela encerra o link de replicação após a conclusão da fase de propagação. Portanto, o banco de dados de cópia é um instantâneo do banco de dados de origem a partir do momento da solicitação de cópia.  
+Você pode usar o recurso de [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) do Azure para criar uma cópia do seu Banco de Dados SQL. Mas, ao contrário da replicação geográfica, ela encerra o link de replicação após a conclusão da fase de propagação. Portanto, o banco de dados de cópia é um instantâneo do banco de dados de origem a partir do momento da solicitação de cópia.  
 Você pode criar a cópia do banco de dados no mesmo servidor ou em outro servidor. O nível de desempenho e a camada de serviço (tipo de preço) da cópia do banco de dados são iguais aos do banco de dados de origem por padrão. Ao usar a API, é possível selecionar um nível de desempenho diferente na mesma camada de serviço (edição). Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Neste ponto, é possível atualizar ou fazer o downgrade para qualquer edição. Os logons, os usuários e as permissões podem ser gerenciados independentemente.  
 
 Quando você copia um banco de dados no mesmo servidor lógico, os mesmos logons podem ser usados em ambos os bancos de dados. A entidade de segurança usada para copiar o banco de dados se tornará o proprietário do banco de dados (DBO) do banco de dados. Todos os usuários do banco de dados, suas permissões e seus identificadores de segurança (SIDs) são copiados para a cópia do banco de dados.  
@@ -57,6 +58,6 @@ Para copiar um banco de dados SQL, será necessário o seguinte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 60d3225f276b54e08946744838a5028a02666149
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a853b4dbd1952ba4ea8ee68ea3ca98f588bb71a2
 
 
 ---
 # <a name="mapping-an-existing-web-service-to-odata-through-csdl"></a>Mapeamento de um serviço Web existente para OData por meio de CSDL
 > [!IMPORTANT]
-> **Neste momento, não estamos mais realizando a integração de novos editores de Serviço de Dados. Novos serviços de dados não serão ser aprovados para listagem.** Se você tiver um aplicativo de negócios de SaaS que deseja publicar no AppSource, encontre mais informações [aqui](https://appsource.microsoft.com/partners). Se você tiver aplicativos de IaaS ou serviços de desenvolvedor para publicar no Azure Marketplace, encontre mais informações [aqui](https://azure.microsoft.com/marketplace/programs/certified/).
+> **Neste momento, não estamos mais realizando a integração de novos editores de Serviço de Dados. Novos serviços de dados não serão ser aprovados para listagem.** Se você tiver um aplicativo de negócios de SaaS que quer publicar no AppSource, encontre mais informações [aqui](https://appsource.microsoft.com/partners). Se você tiver aplicativos de IaaS ou serviços de desenvolvedor para publicar no Azure Marketplace, encontre mais informações [aqui](https://azure.microsoft.com/marketplace/programs/certified/).
 > 
 > 
 
@@ -93,7 +93,7 @@ Veja a seguir o fluxo detalhado da Esquerda para a Direita de onde o cliente ins
   ![desenho](media/marketplace-publishing-data-service-creation-odata-mapping/figure-3.png)
 
 ## <a name="csdl-basics"></a>Noções básicas de CSDL
-Uma CSDL (Linguagem de Definição de Esquema Conceitual) é uma especificação que define como descrever o serviço Web ou o serviço de banco de dados em argumentação XML comum no Azure Marketplace. A CSDL descreve as partes críticas que **possibilitam a transferência de dados da Fonte de Dados para o Azure Marketplace.**  As principais partes estão descritas aqui:
+Uma CSDL (Linguagem de Definição de Esquema Conceitual) é uma especificação que define como descrever o serviço Web ou o serviço de banco de dados em argumentação XML comum no Azure Marketplace. A CSDL descreve as partes críticas que **possibilitam a transferência de dados da Fonte de Dados para o Azure Marketplace.** As principais partes estão descritas aqui:
 
 * Informações de interface que descrevem todas as funções disponíveis publicamente (Nó FunctionImport)
 * Informações de tipo de dados para todas as solicitações (entrada) e respostas (saídas) de mensagem (nós EntitySet/EntityContainer/EntityType)
@@ -321,6 +321,6 @@ Conecta-se a um serviço que expõe uma tabela ou modo de exibição de banco de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

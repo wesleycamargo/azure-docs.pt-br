@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/22/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f08180c196a1f573529c9fed52c7ae5c3869da6d
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 2634d0101c1cd4535922e8844f0beb6b523e2dea
 
 
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Introdução ao conector de FTP
 Use o conector de FTP para monitorar, gerenciar e criar arquivos em um servidor FTP. 
 
-Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-ftp"></a>Conectar-se ao FTP
 Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](connectors-overview.md) fornece uma conectividade entre um aplicativo lógico e outro serviço.  
@@ -35,7 +35,7 @@ Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Usar o gatilho de FTP
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > O conector de FTP exige um servidor FTP que possa ser acessado pela Internet e esteja configurado para operar com o modo PASSIVO. Além disso, o conector de FTP **não é compatível com FTPS implícito (FTP por SSL)**. O conector de FTP permite apenas FTPS explícito (FTP por SSL).  
@@ -61,7 +61,7 @@ Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará
 > 
 
 ## <a name="use-a-ftp-action"></a>Usar uma ação de FTP
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 Agora que você adicionou um gatilho, siga estas etapas para adicionar uma ação que obterá o conteúdo do arquivo novo ou modificado encontrado pelo gatilho.    
 
@@ -370,11 +370,11 @@ As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos 
 | padrão |Falha na Operação. |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

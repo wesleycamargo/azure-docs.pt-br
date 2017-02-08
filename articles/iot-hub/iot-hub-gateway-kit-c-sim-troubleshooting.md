@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/21/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: 44b61dbdad51e3d6b5505477c97de75c8fc5a1a4
-ms.openlocfilehash: ade52e99fd054ac79106742fc9a65769f6ff9893
+ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
+ms.openlocfilehash: 1c747085e47e997f549eff36a9f8d96cb243e228
 
 
 ---
@@ -140,7 +140,7 @@ Se você tiver provisionado com êxito o Hub IoT do Azure com a CLI do Azure e p
 
 ### <a name="device-explorer"></a>Gerenciador de Dispositivos
 
-O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) é executado no computador local do Windows e se conecta ao seu hub IoT no Azure. Ele se comunica com os seguintes [pontos de extremidade de Hub IoT](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
+O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) é executado no computador local do Windows e se conecta ao seu hub IoT no Azure. Ele se comunica com os seguintes [pontos de extremidade de Hub IoT](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
 
 - Gerenciamento de identidade do dispositivo para provisionar e gerenciar dispositivos registrados com o Hub IoT.
 - Receber do dispositivo para nuvem para que você possa monitorar as mensagens enviadas de seu dispositivo ao Hub IoT.
@@ -150,7 +150,7 @@ Configure a cadeia de conexão do Hub IoT dentro desta ferramenta para usar todo
 
 ### <a name="iothub-explorer"></a>iothub-explorer
 
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) é uma ferramenta de CLI de várias plataformas de exemplo para gerenciar clientes de dispositivo. Use a ferramenta para gerenciar os dispositivos no registro de identidade, monitorar mensagens de dispositivo para a nuvem e enviar comandos de nuvem para o dispositivo.
+[iothub-explorer](https://github.com/Azure/iothub-explorer) é uma ferramenta de CLI de várias plataformas de exemplo para gerenciar clientes de dispositivo. Use a ferramenta para gerenciar os dispositivos no registro de identidade, monitorar mensagens de dispositivo para a nuvem e enviar comandos de nuvem para o dispositivo.
 
 Para instalar a versão mais recente (pré-lançamento) da ferramenta iothub-explorer, execute o comando a seguir:
 
@@ -174,6 +174,6 @@ Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recurs
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 11/21/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 98f5a017221f0aaba04e2b90afc674e4c42d1bb3
-ms.openlocfilehash: 1c768e4e09f2b452804c65f751963a8d0c312c64
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 687da15bdaf854254321b59350f47549781676f5
 
 
 ---
 # <a name="migrate-automation-account-and-resources"></a>Migrar de Conta de Automação e recursos
-Para contas de Automação e seus recursos associados (ou seja, ativos, runbooks, módulos, etc.) que você criou no portal do Azure e deseja migrar de um grupo de recursos para outro ou de uma assinatura para outra, você pode fazer isso facilmente com a funcionalidade [mover recursos](../resource-group-move-resources.md) disponível no portal do Azure. No entanto, antes de prosseguir com esta ação, consulte primeiro a seguinte [lista de verificação antes de mover os recursos](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) e, além dessa, a lista abaixo específica para Automação.   
+Para contas de Automação e seus recursos associados (ou seja, ativos, runbooks, módulos, etc.) que você criou no portal do Azure e deseja migrar de um grupo de recursos para outro ou de uma assinatura para outra, você pode fazer isso facilmente com a funcionalidade [mover recursos](../azure-resource-manager/resource-group-move-resources.md) disponível no portal do Azure. No entanto, antes de prosseguir com esta ação, consulte primeiro a seguinte [lista de verificação antes de mover os recursos](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) e, além dessa, a lista abaixo específica para Automação.   
 
 1. A assinatura/grupo de recursos de destino deve estar na mesma região que a origem.  Isso significa que contas de Automação não podem ser movidas entre regiões.
 2. Ao mover recursos (como runbooks, trabalhos, etc.), ambos o grupo de origem e o grupo de destino estão bloqueados pela duração da operação. As operações de gravação e exclusão são bloqueadas nos grupos até que a migração seja concluída.  
@@ -61,13 +61,13 @@ Para mover para uma nova assinatura, inclua um valor para o parâmetro *Destinat
 Assim como no exemplo anterior, será solicitado que você confirme a mudança.  
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre como mover os recursos para um novo grupo de recursos ou assinatura, consulte [Mover recursos para um novo grupo de recursos ou assinatura](../resource-group-move-resources.md)
+* Para saber mais sobre como mover os recursos para um novo grupo de recursos ou assinatura, consulte [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md)
 * Para saber mais sobre o Controle de Acesso baseado em Função na Automação do Azure, consulte [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md).
-* Para saber mais sobre os cmdlets do PowerShell para gerenciar sua assinatura, consulte [Como usar o Azure PowerShell com o Resource Manager](../powershell-azure-resource-manager.md)
-* Para saber mais sobre os recursos do portal para gerenciar sua assinatura, consulte [Como usar o Portal do Azure para gerenciar recursos](../azure-portal/resource-group-portal.md).
+* Para saber mais sobre os cmdlets do PowerShell para gerenciar sua assinatura, consulte [Como usar o Azure PowerShell com o Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* Para saber mais sobre os recursos do portal para gerenciar sua assinatura, consulte [Como usar o Portal do Azure para gerenciar recursos](../azure-resource-manager/resource-group-portal.md).
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

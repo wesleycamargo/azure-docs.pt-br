@@ -11,14 +11,14 @@ keywords: "Docker, Contêineres, Microsserviços, Mesos, Azure"
 ms.assetid: 52da4163-1182-4b2e-be00-4951e5c1da16
 ms.service: container-service
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 12/20/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 3edc4bf663244805fc184d9598621b3fbca72d5d
-ms.openlocfilehash: 430f895a783cbbe6b7454ccd24c2dd8d99f6228b
+ms.sourcegitcommit: f8a2b63c381ceafb23b31697916796066ea549f9
+ms.openlocfilehash: d5652134cc2c660395cfb83a1a2727acf306f5e9
 
 
 ---
@@ -27,7 +27,11 @@ O Serviço de Contêiner do Azure simplifica a criação, a configuração e o g
 
 ![O Serviço de Contêiner do Azure fornece um meio para gerenciar os aplicativos contidos em vários hosts no Azure.](./media/acs-intro/acs-cluster-new.png)
 
-O Serviço de Contêiner do Azure utiliza o formato de contêiner do Docker para garantir que os contêineres de seu aplicativo são totalmente portáteis. Ele também dá suporte à opção de selecionar o Marathon e DC/SO ou Docker Swarm ou Kubernetes para que você possa dimensionar esses aplicativos para milhares de contêineres ou até mesmo dezenas de milhares.
+O Serviço de Contêiner do Azure utiliza o formato de contêiner do Docker para garantir que os contêineres de seu aplicativo são totalmente portáteis. também dá suporte à opção de selecionar o Marathon e DC/SO, Docker Swarm ou Kubernetes para que você possa dimensionar esses aplicativos para milhares de contêineres ou até mesmo dezenas de milhares.
+
+>[!NOTE]
+> O suporte a Kubernetes no Serviço de Contêiner do Azure está atualmente em visualização.
+>
 
 Usando o Serviço de Contêiner do Azure, você pode aproveitar as vantagens dos recursos de nível empresarial do Azure e ainda manter a portabilidade do aplicativo, incluindo a portabilidade nas camadas de orquestração.
 
@@ -89,7 +93,7 @@ Ele tem um conjunto avançado de recursos, incluindo:
 * Segredos e gerenciamento de configuração
 * Reversões e implementações automatizadas baseadas em API
 * Autorrecuperação 
-* e muito mais...
+* e muito mais.
 
 
 
@@ -109,6 +113,6 @@ Criação de aplicativos com o serviço de contêiner do Azure (Compilação 201
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

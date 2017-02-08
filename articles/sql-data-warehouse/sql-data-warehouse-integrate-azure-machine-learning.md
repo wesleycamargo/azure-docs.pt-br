@@ -15,15 +15,15 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f30cfab50407e31ccad61888d7de40e4f0fcba24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 30dcbe33b359afc3f118effce07f6574bb35d5d5
 
 
 ---
 # <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Use o Aprendizado de Máquina do Azure com o SQL Data Warehouse
-O Aprendizado de Máquina do Azure é um serviço de análise preditiva totalmente gerenciado que você pode usar para criar modelos preditivos em relação aos dados do SQL Data Warehouse e publicá-los como serviços Web prontos para consumo. Você pode aprender os fundamentos da análise preditiva e machine learning lendo [Introdução a Machine Learning no Azure][Introdução a Machine Learning no Azure].  Em seguida, você pode aprender a criar, treinar, pontuar e testar um modelo de machine learning usando o [Criar tutorial de teste][Criar tutorial de teste].
+O Aprendizado de Máquina do Azure é um serviço de análise preditiva totalmente gerenciado que você pode usar para criar modelos preditivos em relação aos dados do SQL Data Warehouse e publicá-los como serviços Web prontos para consumo. Você pode aprender os fundamentos da análise preditiva e aprendizado de máquina lendo [Introdução ao Machine Learning no Azure][Introduction to Machine Learning on Azure].  Em seguida, você pode aprender a criar, treinar, pontuar e testar um modelo de aprendizado de máquina usando [Tutorial de criação de teste][Create experiment tutorial].
 
-Nesse artigo, você aprenderá a fazer o seguinte usando o [Estúdio de Aprendizado de Máquina do Azure][Estúdio de Aprendizado de Máquina do Azure]:
+Neste artigo, você aprenderá a fazer o seguinte usando o [Azure Machine Learning Studio][Azure Machine Learning Studio]:
 
 * Ler dados de seu banco de dados para criar, treinar e pontuar um modelo de previsão
 * Gravar dados em seu banco de dados
@@ -42,7 +42,7 @@ Procure o módulo Leitor na paleta de conjuntos de dados e módulos à esquerda 
 Selecione o módulo Leitor e preencha o painel de propriedades.
 
 1. Selecione o Banco de Dados SQL do Azure como a Fonte de dados.
-2. Nome do servidor de banco de dados: digite o nome do servidor. Você pode usar o [Portal do Azure][Portal do Azure] para localizar isso.
+2. Nome do servidor de banco de dados: digite o nome do servidor. Você pode usar o [Portal do Azure][Azure portal] para encontrar isso.
 
 ![][server_name]
 
@@ -78,7 +78,7 @@ Agora você pode usar esse conjunto de dados para:
 
 ![][model]
 
-Para saber mais sobre como criar, treinar, pontuar e testar um modelo de machine learning, use o [Criar tutorial de teste][Criar tutorial de teste].
+Para saber mais sobre como criar, treinar, pontuar e testar uma modelo de aprendizado de máquina, use o [Tutorial de criação de teste][Create experiment tutorial].
 
 ## <a name="write-data-to-azure-sql-data-warehouse"></a>Grave dados no SQL Data Warehouse do Azure
 Gravaremos o conjunto de resultados na tabela ProductPriceForecast no banco de dados AdventureWorksDW.
@@ -92,7 +92,7 @@ Procure o módulo Gravador na paleta de conjuntos de dados e módulos à esquerd
 Selecione o módulo Gravador e preencha o painel de propriedades.
 
 1. Selecione o Banco de Dados do SQL Azure como o Destino de Dados.
-2. Nome do servidor de banco de dados: digite o nome do servidor. Você pode usar o [Portal do Azure][Portal do Azure] para localizar isso.
+2. Nome do servidor de banco de dados: digite o nome do servidor. Você pode usar o [Portal do Azure][Azure portal] para encontrar isso.
 3. Nome do banco de dados: digite o nome do banco de dados no servidor especificado.
 4. Nome de conta de usuário do servidor: digite o nome de usuário de uma conta que tenha permissões de gravação para o banco de dados.
 5. Senha de conta de usuário do servidor: forneça a senha da conta de usuário especificada.
@@ -109,7 +109,7 @@ Selecione o módulo Gravador e preencha o painel de propriedades.
 2. Quando o experimento for concluído, todos os módulos terão uma marca de seleção verde para indicar que foram concluídos com sucesso.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][Visão geral de desenvolvimento do SQL Data Warehouse].
+Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvimento do SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
@@ -117,26 +117,26 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvime
 [server_name]: ./media/sql-data-warehouse-integrate-azure-machine-learning/dw-server-name.png
 [reader_properties]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-reader-properties.png
 [run]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-finished-running.png
-[modelo]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-create-train-score-model.png
+[model]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-create-train-score-model.png
 [drag_writer]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-drag-writer.png
 [writer_properties]: ./media/sql-data-warehouse-integrate-azure-machine-learning/ml-writer-properties.png
 
 <!--Article references-->
 
-[Visão geral de desenvolvimento do SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
-[Criar tutorial de teste]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Create experiment tutorial]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
 [Introduction to machine learning on Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[Estúdio de Aprendizado de Máquina do Azure]: https://studio.azureml.net/Home
-[Portal do Azure]: https://portal.azure.com/
+[Azure Machine Learning Studio]: https://studio.azureml.net/Home
+[Azure portal]: https://portal.azure.com/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-[Documentação do Azure Machine Learning]: http://azure.microsoft.com/documentation/services/machine-learning/
+[Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

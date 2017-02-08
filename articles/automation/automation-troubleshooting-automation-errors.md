@@ -17,8 +17,8 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: sngun; v-reagie
 translationtype: Human Translation
-ms.sourcegitcommit: 15a8ff89ae7a7d335c9d8584aaef0b21f092566f
-ms.openlocfilehash: f86942e399385efbb8c9cb6f250a8668fe260602
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: f5db3c68122185eabb2168d9be582c3e0b17f9ff
 
 
 ---
@@ -61,7 +61,7 @@ Este artigo fornece ajuda para solucionar erros comuns quem pode ser encontrados
 
 **Motivo do erro:** se você tiver a autenticação multifator em sua conta do Azure, não poderá usar um usuário do Azure Active Directory para se autenticar no Azure.  Em vez disso, você precisa usar um certificado ou uma entidade de serviço para se autenticar no Azure.
 
-**Dicas de solução de problemas:** para usar um certificado com os cmdlets do Azure Service Management, veja [criando e adicionando um certificado para gerenciar os serviços do Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para usar uma entidade de serviço com os cmdlets do Azure Resource Manager, veja [criando entidades de serviço usando o portal do Azure](../resource-group-create-service-principal-portal.md) e [autenticando uma entidade de serviço com o Azure Resource Manager.](../resource-group-authenticate-service-principal.md)
+**Dicas de solução de problemas:** para usar um certificado com os cmdlets do Azure Service Management, veja [criando e adicionando um certificado para gerenciar os serviços do Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para usar uma entidade de serviço com os cmdlets do Azure Resource Manager, veja [criando entidades de serviço usando o portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [autenticando uma entidade de serviço com o Azure Resource Manager.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erros comuns ao trabalhar com runbooks
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Cenário: O Runbook falha devido a objeto desserializado
@@ -175,6 +175,6 @@ Se tiver seguido as etapas de solução de problemas acima e não tiver encontra
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

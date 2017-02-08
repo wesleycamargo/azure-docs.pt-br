@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 8d149069c95b5b68904ab6a5a47b1fa6215da23d
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 0eb72af5c0f904655fc4a0d8fd44d6e481c73645
 
 
 ---
@@ -703,13 +703,13 @@ Em muitos casos, os processos em lotes podem gerar relatórios de acordo com um 
 * [Habilitando o Diagnostics nos Serviços de nuvem do Azure e Máquinas virtuais](cloud-services/cloud-services-dotnet-diagnostics.md)
 * [Cache Redis do Azure](https://azure.microsoft.com/services/cache/), [DocumentDB do Azure](https://azure.microsoft.com/services/documentdb/) e [HDInsight](https://azure.microsoft.com/services/hdinsight/)
 * [Como usar filas do Barramento de Serviço](service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
-* [Business intelligence do SQL Server em máquinas virtuais do Azure](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Business intelligence do SQL Server em máquinas virtuais do Azure](virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md)
 * [Receber notificações de alerta](monitoring-and-diagnostics/insights-receive-alert-notifications.md) e [Controlar a integridade do serviço](monitoring-and-diagnostics/insights-service-health.md)
 * [Application Insights](application-insights/app-insights-overview.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

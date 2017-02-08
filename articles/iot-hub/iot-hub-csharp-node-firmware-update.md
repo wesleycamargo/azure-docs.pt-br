@@ -1,6 +1,6 @@
 ---
-title: "Como realizar uma atualização de firmware com o Hub IoT do Azure | Microsoft Docs"
-description: "Este tutorial mostra como realizar uma atualização de firmware"
+title: "Atualização de firmware do dispositivo com o Hub IoT do Azure (.NET/Node) | Microsoft Docs"
+description: "Como usar o gerenciamento de dispositivos no Hub IoT do Azure para iniciar uma atualização de firmware do dispositivo. Use o SDK do dispositivo IoT do Azure para Node.js para implementar um aplicativo de dispositivo simulado e o SDK do serviço do IoT do Azure para .NET para implementar um aplicativo de serviço que dispara a atualização de firmware."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 7cbb823f2d8b9a337bd987ae3fc41a85ddb6ae80
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 5b8aaa7e7b04224fd51c264822d619866e0161af
 
 
 ---
-# <a name="tutorial-how-to-do-a-firmware-update"></a>Tutorial: Como realizar uma atualização de firmware
+# <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>Use o gerenciamento de dispositivos para iniciar uma atualização de firmware do dispositivo (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Introdução
@@ -28,7 +28,7 @@ No tutorial [Introdução ao gerenciamento de dispositivo][lnk-dm-getstarted], v
 
 Este tutorial mostra como:
 
-* Criar um aplicativo de console que chama o método direto firmwareUpdate no dispositivo simulado por meio do Hub IoT.
+* Criar um aplicativo de console .NET que chama o método direto firmwareUpdate no aplicativo de dispositivo simulado por meio do Hub IoT.
 * Criar um aplicativo dispositivo simulado que implementa um método direto de firmwareUpdate que passa por um processo de várias etapas e que espera para baixar a imagem do firmware, baixa a imagem do firmware e, por fim, aplica a imagem de firmware.  Durante a execução de cada etapa, o dispositivo usa as propriedades relatadas para atualizar o progresso.
 
 Ao final deste tutorial, você terá um aplicativo de dispositivo de console Node.js e um aplicativo de back-end do console .NET (C#):
@@ -43,7 +43,7 @@ Para concluir este tutorial, você precisará do seguinte:
 * Node.js versão 0.12.x ou posterior. <br/>  [Preparar o ambiente de desenvolvimento][lnk-dev-setup] descreve como instalar o Node.js para este tutorial no Windows ou no Linux.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
-Consulte o artigo [Introdução ao gerenciamento de dispositivo](iot-hub-csharp-node-device-management-get-started.md) para criar seu hub IoT e obter a cadeia de conexão.
+Consulte o artigo [Introdução ao gerenciamento de dispositivo](iot-hub-csharp-node-device-management-get-started.md) para criar seu hub IoT e obter a cadeia de conexão dele.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -56,15 +56,15 @@ Nesta seção, você cria um aplicativo de console do .NET (usando C#) que inici
 
     ![Novo projeto da Área de Trabalho Clássica do Windows no Visual C#][img-createapp]
 
-2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **TriggerFWUpdate**, em seguida, clique em **Gerenciar Pacotes Nuget**.
-3. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao pacote Nuget do [SDK de Serviço IoT do Microsoft Azure][lnk-nuget-service-sdk] e suas dependências.
+2. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **TriggerFWUpdate**, em seguida, clique em **Gerenciar Pacotes NuGet**.
+3. Na janela **Gerenciador de Pacotes Nuget**, selecione **Procurar**, procure **microsoft.azure.devices**, selecione **Instalar** para instalar o pacote **Microsoft.Azure.Devices** e aceite os termos de uso. O procedimento baixa, instala e adiciona uma referência ao [pacote Nuget do SDK do Dispositivo IoT do Azure][lnk-nuget-service-sdk] e suas dependências.
 
-    ![Janela Gerenciador de Pacotes Nuget][img-servicenuget]
+    ![Janela do Gerenciador de Pacotes NuGet][img-servicenuget]
 4. Adicione as instruções `using` abaixo na parte superior do arquivo **Program.cs** :
    
         using Microsoft.Azure.Devices;
         
-5. Adicione os seguintes campos à classe **Program** . Substitua o valor múltiplo do espaço reservado pela cadeia de conexão do hub IoT criado na seção anterior.
+5. Adicione os seguintes campos à classe **Program** . Substitua o valor múltiplo do espaço reservado pela cadeia de conexão do Hub IoT criado na seção anterior.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -133,7 +133,7 @@ Nesta seção, você irá
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Adicione uma variável **connectionString** e use-a para criar um cliente do dispositivo.  
+5. Adicione uma variável **connectionString** e use-a para criar um **Cliente** do dispositivo.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -346,13 +346,13 @@ Para saber como estender sua solução de IoT e agendar chamadas de método em v
 [lnk-dm-getstarted]: iot-hub-node-node-device-management-get-started.md
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
+[lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

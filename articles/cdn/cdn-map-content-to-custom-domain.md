@@ -1,9 +1,9 @@
 ---
-title: "Como Mapear o Conteúdo da CDN (Rede de Distribuição de Conteúdo) para um Domínio Personalizado | Microsoft Docs"
-description: "Este tópico demonstra como mapear conteúdo da CDN para um domínio personalizado."
+title: "Mapear o conteúdo da CDN do Azure para um domínio personalizado | Microsoft Docs"
+description: "Saiba como mapear o conteúdo da CDN do Azure para um domínio personalizado."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 289f8d9e-8839-4e21-b248-bef320f9dbfc
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567e72805c22c8100ef2d8d97c1e26a77f214ca3
+ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
+ms.openlocfilehash: 36099a7c52508cd5115a527f5ef6e40fbfd6c323
 
 
 ---
-# <a name="how-to-map-custom-domain-to-content-delivery-network-cdn-endpoint"></a>Como mapear o domínio personalizado para o ponto de extremidade da CDN (Rede de Distribuição de Conteúdo)
+# <a name="map-azure-cdn-content-to-a-custom-domain"></a>Conteúdo da CDN do Azure para um domínio personalizado
 Você pode mapear um domínio personalizado para um ponto de extremidade da CDN para usar seu próprio nome de domínio em URLs para o conteúdo armazenado em cache, em vez de usar um subdomínio do azureedge.net.
 
 Há duas maneiras de mapear seu domínio personalizado para um ponto de extremidade da CDN.
@@ -84,6 +84,6 @@ Depois de registrar seu domínio personalizado usando um dos procedimentos acima
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

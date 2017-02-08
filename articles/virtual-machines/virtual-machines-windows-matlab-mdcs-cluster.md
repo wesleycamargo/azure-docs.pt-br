@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 410ac5fbbd244494f9925fdba2a85aca51c8e097
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: de1fa2afdff9c16b59febfcd00d7dd73776c4ada
 
 
 ---
@@ -30,7 +30,7 @@ Usando máquinas virtuais do Azure, você pode criar clusters de Servidor de Com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Computador cliente** : você precisará de um computador cliente baseado no Windows para se comunicar com o Azure e o cluster de Servidor de Computação Distribuída MATLAB após a implantação. 
-* **Azure PowerShell** : consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para instalá-lo no computador cliente. 
+* **Azure PowerShell** : consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalá-lo no computador cliente. 
 * **Assinatura do Azure** : se você não tiver uma assinatura, poderá criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos. Para clusters maiores, considere uma assinatura pré-paga ou outras opções de compra. 
 * **Cota de núcleos** : talvez seja necessário aumentar a cota de núcleos para implantar um cluster grande ou mais de um cluster de Servidor de Computação Distribuída MATLAB. Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente. 
 * **Licenças da MATLAB, Caixa de Ferramentas de Computação Paralela e Servidor de Computação Distribuída MATLAB** : os scripts assumem que o [Gerenciador de Licença Hospedada MathWorks](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) é usado para todas as licenças.  
@@ -77,6 +77,6 @@ Como com outros tipos de clusters de Servidor de Computação Distribuída MATLA
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

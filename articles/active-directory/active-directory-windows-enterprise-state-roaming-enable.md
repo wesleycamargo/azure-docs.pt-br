@@ -1,3 +1,4 @@
+
 ---
 title: Habilitar o Enterprise State Roaming no Azure Active Directory | Microsoft Docs
 description: "Perguntas frequentes sobre as configurações do Enterprise State Roaming em dispositivos do Windows. O Enterprise State Roaming fornece aos usuários uma experiência unificada em seus dispositivos Windows e reduz o tempo necessário para configurar um novo dispositivo."
@@ -16,8 +17,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7b7cc0fda8ee2acb417052b501afb0e6e3d0a199
+ms.sourcegitcommit: 0628dafc9cc4cb05e678f741d913e00116013459
+ms.openlocfilehash: 435f801b254a6c423a6ec3e96037ade62e14af29
 
 
 ---
@@ -74,10 +75,10 @@ Os dados sincronizados com o Azure por meio do Enterprise State Roaming serão m
 * [Perguntas frequentes sobre configurações e roaming de dados](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Política de grupo e as configurações do MDM para a sincronização de configurações](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Referência de configurações de roaming do Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Solução de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

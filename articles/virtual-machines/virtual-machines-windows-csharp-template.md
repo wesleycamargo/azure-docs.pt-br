@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: e04b6871a119c9022aeb42a8e3063a224ff50db0
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: aeea0c65a3332197efcd823e29c8f0c4fe0426b3
 
 
 ---
@@ -44,13 +44,13 @@ No Visual Studio, siga estas etapas:
 3. Clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções, clique em **Adicionar** > **Novo Item**.
 4. Clique em Web, selecione Arquivo JSON, digite *VirtualMachineTemplate.json* para o nome e clique em **Adicionar**.
 5. Nos colchetes de abertura e fechamento do arquivo VirtualMachineTemplate.json, adicione o elemento de esquema e o elemento contentVersion obrigatórios:
-   
+
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
         }
-6. [Parâmetros](../resource-group-authoring-templates.md#parameters) nem sempre são necessários, mas eles fornecem uma maneira de entrar valores quando o modelo é implantado. Adicione o elemento parameters e seus elementos filho após o elemento contentVersion:
-   
+6. [Parâmetros](../azure-resource-manager/resource-group-authoring-templates.md#parameters) nem sempre são necessários, mas eles fornecem uma maneira de entrar valores quando o modelo é implantado. Adicione o elemento parameters e seus elementos filho após o elemento contentVersion:
+
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -59,8 +59,8 @@ No Visual Studio, siga estas etapas:
             "adminPassword": { "type": "securestring" }
           },
         }
-7. [Variáveis](../resource-group-authoring-templates.md#variables) podem ser usadas em um modelo para especificar valores que podem ser alterados com frequência ou que precisam ser criados com base em uma combinação de valores de parâmetros. Adicione o elemento variables após a seção de parâmetros:
-   
+7. [Variáveis](../azure-resource-manager/resource-group-authoring-templates.md#variables) podem ser usadas em um modelo para especificar valores que podem ser alterados com frequência ou que precisam ser criados com base em uma combinação de valores de parâmetros. Adicione o elemento variables após a seção de parâmetros:
+
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -73,8 +73,8 @@ No Visual Studio, siga estas etapas:
             "subnetRef": "[concat(variables('vnetID'),'/subnets/mysn1')]"  
           },
         }
-8. [Recursos](../resource-group-authoring-templates.md#resources) como a máquina virtual, a rede virtual e a conta de armazenamento são definidos no modelo em seguida. Adicione a seção de recursos após a seção de variáveis:
-   
+8. [Recursos](../azure-resource-manager/resource-group-authoring-templates.md#resources) como a máquina virtual, a rede virtual e a conta de armazenamento são definidos no modelo em seguida. Adicione a seção de recursos após a seção de variáveis:
+
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -187,7 +187,7 @@ Para especificar valores para os parâmetros de recursos que foram definidos no 
 1. Clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções, clique em **Adicionar** > **Novo Item**.
 2. Clique em Web, selecione Arquivo JSON, digite *Parameters.json* para o Nome e clique em **Adicionar**.
 3. Abra o arquivo parameters.json e adicione o seguinte conteúdo JSON:
-   
+
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -196,11 +196,11 @@ Para especificar valores para os parâmetros de recursos que foram definidos no 
             "adminPassword": { "value": "mytestpass1" }
           }
         }
-   
+
    > [!NOTE]
    > Este artigo cria uma máquina virtual executando uma versão do sistema operacional do Windows Server. Para saber mais sobre a seleção de outras imagens, veja [Navegar e selecionar imagens de máquina virtual do Azure com o Windows PowerShell e a CLI do Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-   > 
-   > 
+   >
+   >
 4. Salve o arquivo de parâmetros que você criou.
 
 ## <a name="step-2-install-the-libraries"></a>Etapa 2: Instalar as bibliotecas
@@ -216,7 +216,7 @@ Agora você está pronto para começar a usar as bibliotecas para criar seu apli
 O aplicativo do Azure Active Directory é criado e a biblioteca de autenticação está instalada. Agora você pode formatar as informações do aplicativo em credenciais que são usadas para autenticar solicitações para o Azure Resource Manager.
 
 1. Abra o arquivo Program.cs para o projeto que você criou e, em seguida, adicione o seguinte usando instruções na parte superior do arquivo:
-   
+
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Azure.Management.ResourceManager;
@@ -224,9 +224,9 @@ O aplicativo do Azure Active Directory é criado e a biblioteca de autenticaçã
         using Microsoft.Rest;
         using System.IO;
 2. Adicione este método à classe Programa para obter o token necessário para criar as credenciais:
-   
+
      private static async Task<AuthenticationResult> GetAccessTokenAsync()   {
-   
+
        var cc = new ClientCredential("{client-id}", "{client-secret}");
        var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
        var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
@@ -236,10 +236,10 @@ O aplicativo do Azure Active Directory é criado e a biblioteca de autenticaçã
        }
        return token;
      }
-   
+
    Substitua {client-id} pelo identificador do aplicativo do Azure Active Directory, {client-secret} pela chave de acesso do aplicativo do AD e {tenant-id} pelo identificador do locatário da sua assinatura. Você pode encontrar a ID do locatário executando Get-AzureRmSubscription. Você pode encontrar a chave de acesso usando o portal do Azure.
 3. Para criar as credenciais, adicione este código ao método Main no arquivo Program.cs:
-   
+
         var token = GetAccessTokenAsync();
         var credential = new TokenCredentials(token.Result.AccessToken);
 4. Salve o arquivo Program.cs.
@@ -248,14 +248,14 @@ O aplicativo do Azure Active Directory é criado e a biblioteca de autenticaçã
 Nesta etapa, você usa o grupo de recursos que você criou anteriormente, mas você também pode criar um grupo de recursos usando as classes [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) e [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx).
 
 1. Adicione variáveis ao método Principal da classe Programa para especificar os nomes dos recursos que você criou anteriormente, o nome da implantação e o identificador da assinatura:
-   
+
         var groupName = "resource group name";
         var subscriptionId = "subsciption id";
         var deploymentName = "deployment name";
-   
+
     Substitua o valor groupName pelo nome do novo grupo de recursos. Substitua o valor de deploymentName pelo nome que você deseja usar para a implantação. Você pode encontrar o identificador da assinatura executando Get-AzureRmSubscription.
 2. Adicione este método à classe Programa para implantar os recursos no grupo de recursos usando o modelo que você definiu:
-   
+
         public static async Task<DeploymentExtended> CreateTemplateDeploymentAsync(
           TokenCredentials credential,
           string groupName,
@@ -270,17 +270,17 @@ Nesta etapa, você usa o grupo de recursos que você criou anteriormente, mas vo
             Template = File.ReadAllText("..\\..\\VirtualMachineTemplate.json"),
             Parameters = File.ReadAllText("..\\..\\Parameters.json")
           };
-          var resourceManagementClient = new ResourceManagementClient(credential) 
+          var resourceManagementClient = new ResourceManagementClient(credential)
             { SubscriptionId = subscriptionId };
           return await resourceManagementClient.Deployments.CreateOrUpdateAsync(
             groupName,
             deploymentName,
             deployment);
         }
-   
+
     Se você quiser implantar o modelo de uma conta de armazenamento, você pode substituir a propriedade Template pela propriedade TemplateLink.
 3. Para chamar o método que você acabou de adicionar, adicione este código ao método Main:
-   
+
         var dpResult = CreateTemplateDeploymentAsync(
           credential,
           groupName,
@@ -293,23 +293,23 @@ Nesta etapa, você usa o grupo de recursos que você criou anteriormente, mas vo
 Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática excluir os recursos que não são mais necessários. Você não precisa excluir cada recurso separadamente de um grupo de recursos. Exclua o grupo de recursos e todos os seus recursos serão excluídos automaticamente.
 
 1. Para excluir o grupo de recursos, adicione este método à classe Programa:
-   
+
      public static async void DeleteResourceGroupAsync(
-   
+
        TokenCredentials credential,
        string groupName,
        string subscriptionId)
      {
-   
+
        Console.WriteLine("Deleting resource group...");
        var resourceManagementClient = new ResourceManagementClient(credential)
          { SubscriptionId = subscriptionId };
        await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
      }
 2. Para chamar o método que você acabou de adicionar, adicione este código ao método Main:
-   
+
      DeleteResourceGroupAsync(
-   
+
        credential,
        groupName,
        subscriptionId);
@@ -318,10 +318,10 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 ## <a name="step-6-run-the-console-application"></a>Etapa 6: executar o aplicativo de console
 1. Para executar o aplicativo de console, clique em **Iniciar** no Visual Studio e, em seguida, entre no AD do Azure usando as mesmas credenciais que você usa com sua assinatura.
 2. Pressione **Enter** depois que o status Aceito for exibido.
-   
+
    Devem ser necessários cerca de cinco minutos para o aplicativo de console executar completamente do início ao fim. Antes de pressionar Enter para iniciar a exclusão de recursos, você pode levar alguns minutos para verificar a criação de recursos no portal do Azure antes de excluí-los.
 3. Para ver o status dos recursos, Procure os Logs de Auditoria no portal do Azure:
-   
+
     ![Procurar logs de auditoria no Portal do Azure](./media/virtual-machines-windows-csharp-template/crpportal.png)
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -330,7 +330,6 @@ Como você é cobrado pelos recursos usados no Azure, sempre é uma boa prática
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

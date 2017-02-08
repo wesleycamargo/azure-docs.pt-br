@@ -3,8 +3,8 @@ title: Como usar o Armazenamento de Blobs do Azure (armazenamento de objeto) do 
 description: "Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
 services: storage
 documentationcenter: java
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 2e223b38-92de-4c2f-9254-346374545d32
 ms.service: storage
@@ -12,28 +12,28 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 3e1994888816047f0097d21072c1ebb4e9277061
-ms.openlocfilehash: d679218de355d6f0f2b43fae9ab1745e13ae0431
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 1dd0736634c23658b8e3fc0f2ff4dbf9740db47f
 
 
 ---
 # <a name="how-to-use-blob-storage-from-java"></a>Como usar o Armazenamento de Blob do Java
 [!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-check-out-samples-java](../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="overview"></a>Visão geral
 O Armazenamento de Blobs do Azure é um serviço que armazena dados não estruturados na nuvem como objetos/blobs. O Armazenamento de Blobs pode conter qualquer tipo de texto ou de dados binários, como um documento, um arquivo de mídia ou um instalador de aplicativo. O Armazenamento de Blobs também é chamado de armazenamento de objeto.
 
-Este artigo mostra como executar cenários comuns usando o armazenamento de Blob do Microsoft Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][SDK de Armazenamento do Azure para Java]. Os cenários abrangidos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas](#Next-Steps) .
+Este artigo mostra como executar cenários comuns usando o armazenamento de Blob do Microsoft Azure. As amostras são escritas em Java e usam o [SDK de Armazenamento do Azure para Java][Azure Storage SDK for Java]. Os cenários abrangidos incluem **carregamento**, **listagem**, **download** e **exclusão** de blobs. Para obter mais informações sobre blobs, consulte a seção [Próximas etapas](#Next-Steps) .
 
 > [!NOTE]
-> Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte o [SDK de Armazenamento do Azure para Android][SDK de Armazenamento do Azure para Android].
-> 
-> 
+> Um SDK está disponível para os desenvolvedores que usam o Armazenamento do Azure em dispositivos Android. Para obter mais informações, consulte [Azure Storage SDK for Android][Azure Storage SDK for Android] (SDK de Armazenamento do Azure para Android).
+>
+>
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -42,7 +42,7 @@ Este artigo mostra como executar cenários comuns usando o armazenamento de Blob
 ## <a name="create-a-java-application"></a>Criar um aplicativo Java
 Neste artigo, você usará os recursos de armazenamento que podem ser executados em um aplicativo Java localmente ou no código em execução em uma função web ou de trabalho do Azure.
 
-Para isso, você precisará instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Depois disso, você terá de verificar se o seu sistema de desenvolvimento atende aos requisitos mínimos e às dependências que estão listadas no repositório [SDK de Armazenamento do Azure para Java][SDK de Armazenamento do Azure para Java] no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
+Para isso, você precisará instalar o JDK (Java Development Kit) e criar uma conta de armazenamento do Azure na sua assinatura do Azure. Depois disso, você precisará verificar se o sistema de desenvolvimento atende aos requisitos mínimos e às dependências listadas no repositório [Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java) no GitHub. Se o seu sistema atender a esses requisitos, você poderá seguir as instruções para baixar e instalar as Bibliotecas de Armazenamento do Azure para Java em seu sistema por meio desse repositório. Depois de concluir essas tarefas, você poderá criar um aplicativo Java que usa os exemplos neste artigo.
 
 ## <a name="configure-your-application-to-access-blob-storage"></a>Configurar seu aplicativo para acessar o armazenamento de blobs
 Adicione as seguintes instruções de importação à parte superior do arquivo Java no qual deseja usar as APIs de Armazenamento do Azure para acessar blobs.
@@ -54,7 +54,7 @@ import com.microsoft.azure.storage.blob.*;
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Configurar uma cadeia de conexão de Armazenamento do Azure
-Um cliente de Armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao ser executado em um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome da sua conta de armazenamento e a chave de Acesso primário da conta de armazenamento listada no [Portal do Azure](https://portal.azure.com) para os valores *AccountName* e *AccountKey*. O exemplo a seguir mostra como é possível declarar um campo estático para armazenar a cadeia de conexão.
+Um cliente de Armazenamento do Azure usa uma cadeia de conexão para armazenar pontos de extremidade e credenciais para acessar serviços de gerenciamento de dados. Ao executar um aplicativo cliente, é necessário fornecer a cadeia de conexão de armazenamento no formato a seguir, usando o nome de sua conta de armazenamento e a tecla de Acesso primário da conta de armazenamento listada no [portal do Azure](https://portal.azure.com) para os valores *AccountName* e *AccountKey*. O exemplo a seguir mostra como é possível declarar um campo estático para armazenar a cadeia de conexão.
 
 ```java
 // Define the connection-string with your values
@@ -64,7 +64,7 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-Em um aplicativo que esteja sendo executado em uma função no Microsoft Azure, essa cadeia pode ser armazenada no arquivo de configuração do serviço, *ServiceConfiguration.cscfg*, podendo ser acessada com uma chamada para o método **RoleEnvironment.getConfigurationSettings** . O exemplo a seguir mostra como obter a cadeia de conexão de um elemento **Setting** denominado *StorageConnectionString* no arquivo de configuração de serviço.
+Em um aplicativo que esteja sendo executado em uma função no Microsoft Azure, essa cadeia pode ser armazenada no arquivo de configuração do serviço, *ServiceConfiguration.cscfg*, podendo ser acessada com uma chamada para o método **RoleEnvironment.getConfigurationSettings** . O exemplo a seguir obtém a cadeia de conexão de um elemento **Setting** chamado *StorageConnectionString* no arquivo de configuração de serviço.
 
 ```java
 // Retrieve storage account from connection-string.
@@ -79,8 +79,8 @@ Um objeto **CloudBlobClient** permite que você obtenha os objetos de referênci
 
 > [!NOTE]
 > Existem outras maneiras de criar objetos **CloudStorageAccount**. Para obter mais informações, confira **CloudStorageAccount** na [Referência de SDK do cliente de armazenamento do Azure].
-> 
-> 
+>
+>
 
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -274,22 +274,22 @@ catch (Exception e)
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos do armazenamento de blob, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
-* [SDK de Armazenamento do Azure para Java][SDK de Armazenamento do Azure para Java]
+* [Microsoft Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK de Armazenamento do Microsoft Azure para Java)
 * [Referência de SDK do cliente de armazenamento do Azure][Referência de SDK do cliente de armazenamento do Azure]
-* [API REST de Armazenamento do Azure][API REST de Armazenamento do Azure]
-* [Blog da equipe de Armazenamento do Azure][Blog da equipe de Armazenamento do Azure]
+* [Azure Storage REST API Reference][Azure Storage REST API] (Referência de API REST do Armazenamento do Azure)
+* [Microsoft Azure Storage Team Blog][Azure Storage Team Blog] (Blog da equipe de Armazenamento do Microsoft Azure)
 
 Para obter mais informações, consulte também o [Centro de desenvolvedores do Java](/develop/java/).
 
-[SDK do Azure para Java]: http://go.microsoft.com/fwlink/?LinkID=525671
-[SDK de Armazenamento do Azure para Java]: https://github.com/azure/azure-storage-java
-[SDK de Armazenamento do Azure para Android]: https://github.com/azure/azure-storage-android
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+[Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Referência de SDK do cliente de armazenamento do Azure]: http://dl.windowsazure.com/storage/javadoc/
-[API REST de Armazenamento do Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

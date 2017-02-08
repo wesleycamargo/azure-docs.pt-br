@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 93cfd92687fdcad3f1f593a5c5c098850af4762f
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 134239990df959fe2657340eca4f2a8bf646a7b0
 
 
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-ftp"></a>Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando FTP
-Este tutorial mostra como criar um aplicativo Web PHP-MySQL e como implantá-lo usando FTP. Este tutorial presume que você tenha o [PHP][install-php], o [MySQL][install-mysql], um servidor Web e um cliente FTP instalado no seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo Windows, Mac e Linux. Após a conclusão deste guia, você terá um aplicativo Web PHP/MySQL em execução no Azure.
+Este tutorial mostra como criar um aplicativo Web PHP-MySQL e como implantá-lo usando FTP. Este tutorial presume que você tenha [PHP][install-php], [MySQL][install-mysql], um servidor Web e um cliente de FTP instalado no seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo Windows, Mac e Linux. Após a conclusão deste guia, você terá um aplicativo Web PHP/MySQL em execução no Azure.
 
 Você aprenderá:
 
@@ -33,14 +33,14 @@ Seguindo este tutorial, você compilará um aplicativo Web de registro simples e
 ![Site PHP do Azure][running-app]
 
 > [!NOTE]
-> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta, vá para [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos. 
+> Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos. 
 > 
 > 
 
 ## <a name="create-a-web-app-and-set-up-ftp-publishing"></a>Criar um aplicativo Web e configurar a publicação por FTP
 Siga estas etapas para criar um aplicativo Web e um Banco de Dados MySQL:
 
-1. Faça logon no [Portal do Azure][management-portal].
+1. Faça logon no [portal do Azure][management-portal].
 2. Clique no ícone **+ Novo** no canto superior esquerdo do Portal do Azure.
    
     ![Criar um novo site do Azure][new-website]
@@ -67,7 +67,7 @@ O aplicativo Registro é um aplicativo simples do PHP que permite que você se r
 * **index.php**: exibe um formulário de registro e uma tabela contendo informações sobre o inscrito.
 * **createtable.php**: cria a tabela MySQL para o aplicativo. Este arquivo será usado apenas uma vez.
 
-Para compilar e executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas pressupõem que você tenha o PHP, o MySQL e um servidor Web definido no seu computador local e que habilitou a [extensão PDO para MySQL][pdo-mysql].
+Para compilar e executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas pressupõem que você tem PHP, MySQL e um servidor Web definido na sua máquina local, e que você tenha habilitado a [extensão PDO para MySQL][pdo-mysql].
 
 1. Crie um banco de dados MySQL chamado `registration`. Você pode fazer isso no prompt de comando MySQL com este comando:
    
@@ -102,7 +102,7 @@ Para compilar e executar o aplicativo localmente, siga as etapas abaixo. Observe
    > Será necessário atualizar os valores de <code>$user</code> e <code>$pwd</code> com seu nome de usuário e senha do MySQL local.
    > 
    > 
-4. Abra um navegador da Web e navegue até [http://localhost/registration/createtable.php][localhost-createtable]. Isso criará a tabela `registration_tbl` no banco de dados.
+4. Abra um navegador da web e navegue para [http://localhost/registration/createtable.php][localhost-createtable]. Isso criará a tabela `registration_tbl` no banco de dados.
 5. Abra o arquivo **index.php** em um editor de texto ou IDE e adicione o código básico de HTML e CSS para a página (o código PHP será adicionado em várias etapas).
    
         <html>
@@ -197,7 +197,7 @@ Para compilar e executar o aplicativo localmente, siga as etapas abaixo. Observe
             echo "<h3>No one is currently registered.</h3>";
         }
 
-Agora você pode navegar até [http://localhost/registration/index.php][localhost-index] para testar o aplicativo.
+Agora você pode navegar para [http://localhost/registration/index.php][localhost-index] para testar o aplicativo.
 
 ## <a name="get-mysql-and-ftp-connection-information"></a>Obter informações de conexão do MySQL e FTP
 Para conectar-se ao Banco de Dados MySQL que está em execução nos Aplicativos Web, você precisará das informações da conexão. Para obter informações sobre a conexão MySQL, siga estas etapas:
@@ -276,6 +276,6 @@ Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/devel
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

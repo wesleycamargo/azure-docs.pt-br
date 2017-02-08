@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/12/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d7307d4d1823f6422e62ebf2969c3d57bbe6f931
+ms.sourcegitcommit: 69473976eb0a9b6a0e9aa929581c0a7cf0c8d188
+ms.openlocfilehash: e9d59c593c3637d72611516fd8a6b03f3f5f917b
 
 
 ---
@@ -61,19 +61,25 @@ Para configurar a integração do Allocadia ao Azure AD, você precisará adicio
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**. 
    
     ![Active Directory][1]
+
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
     ![Aplicativos][2]
+
 4. Clique em **Adicionar** na parte inferior da página.
    
     ![Aplicativos][3]
+
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
     ![Aplicativos][4]
+
 6. Na caixa de pesquisa, digite **Allocadia**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_01.png)
+
 7. No painel de resultados, selecione **Allocadia**, em seguida, clique em **Concluir** para adicionar o aplicativo.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_06.png)
@@ -104,18 +110,18 @@ O aplicativo Allocadia espera que as declarações SAML estejam em um formato es
 1. No portal clássico do Azure, na página de integração de aplicativos **Allocadia**, no menu na parte superior, clique em **Atributos**.
    
     ![Configurar Logon Único](./media/active-directory-saas-allocadia-tutorial/tutorial_general_80.png) 
+
 2. Na caixa de diálogo **Atributos de token SAML** , para cada linha mostrada na tabela a seguir, execute as seguintes etapas:
    
-   | Nome do atributo | Valor do atributo |
-   | --- | --- |
-   | nome |user.givenname |
-   | sobrenome |user.surname |
-   | email |user.mail |
+    | Nome do atributo | Valor do atributo |
+    | --- | --- |
+    | nome |user.givenname |
+    | sobrenome |user.surname |
+    | email |user.mail |
 
     a. Clique em **adicionar atributo de usuário** para abrir a caixa de diálogo **Adicionar Atributo de Usuário**.
 
     ![Configurar Logon Único](./media/active-directory-saas-allocadia-tutorial/tutorial_general_81.png) 
-
 
     b. Na caixa de texto **Nome do Atributo** , digite o nome do atributo mostrado nessa linha.
 
@@ -127,9 +133,11 @@ O aplicativo Allocadia espera que as declarações SAML estejam em um formato es
 1. No menu na parte superior, clique em **Início Rápido**.
    
     ![Configurar Logon Único](./media/active-directory-saas-allocadia-tutorial/tutorial_general_83.png)  
+
 2. Na página **Como você gostaria que os usuários fizessem logon no Allocadia**, selecione **Logon Único do Azure AD**, em seguida, clique em **Próximo**.
    
     ![Configurar Logon Único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_03.png) 
+
 3. Na página do diálogo **Definir Configurações do Aplicativo** , realize as seguintes etapas:
    
     ![Configurar Logon Único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_04.png) 
@@ -137,6 +145,7 @@ O aplicativo Allocadia espera que as declarações SAML estejam em um formato es
     a. Na caixa IDENTIFICADOR, digite a URL no seguinte padrão: para o ambiente de teste, use a URL como **"https://na2standby.allocadia.com"** e para o ambiente de produção, use **"https://na2.allocadia.com"**
    
     b. Na URL de resposta, digite a URL no seguinte padrão: para o ambiente de teste, use o padrão de URL como  **"https://na2standby.allocadia.com/allocadia/saml/SSO"** e para o ambiente de produção, use **"https://na2.allocadia.com/allocadia/saml/SSO"**
+
 4. Na página **Configure single sign-on at Allocadia (Configurar logon único no Allocadia)** , execute as seguintes etapas:
    
     ![Configurar o logon único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_05.png) 
@@ -144,15 +153,18 @@ O aplicativo Allocadia espera que as declarações SAML estejam em um formato es
     a. Clique em **Baixar metadados**e salve o arquivo no computador.
    
     b. Clique em **Avançar**.
+
 5. Para configurar o SSO para seu aplicativo, entre em contato com a equipe de [Suporte do Allocadia](mailTo:support@allocadia.com) e ela auxiliará na configuração do SSO. Observe que você precisa enviar o email e anexar o arquivo de metadados baixado para configurar o SSO no lado do Allocadia.
    
-   > [!NOTE]
-   > Verifique se a equipe Allocadia definiu o valor do Identificador no ambiente de teste como **"https://na2standby.allocadia.com"** e para o ambiente de produção, deve ser: **"https://na2.allocadia.com"**
-   > 
-   > 
+    > [!NOTE]
+    > Verifique se a equipe Allocadia definiu o valor do Identificador no ambiente de teste como **"https://na2standby.allocadia.com"** e para o ambiente de produção, deve ser: **"https://na2.allocadia.com"**
+    > 
+    > 
+
 6. No portal clássico, selecione a confirmação da configuração de logon único e clique em **Avançar**.
    
     ![Logon Único do AD do Azure][10]
+
 7. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![Logon Único do AD do Azure][11]
@@ -168,13 +180,17 @@ Na lista de usuários, selecione **Brenda Fernandes**.
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-allocadia-tutorial/create_aaduser_09.png) 
+
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-allocadia-tutorial/create_aaduser_03.png) 
+
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-allocadia-tutorial/create_aaduser_04.png) 
+
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-allocadia-tutorial/create_aaduser_05.png) 
@@ -184,22 +200,25 @@ Na lista de usuários, selecione **Brenda Fernandes**.
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
     c. Clique em **Próximo**.
+
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas:
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-allocadia-tutorial/create_aaduser_06.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-allocadia-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-   d. Na lista **Função**, selecione **Usuário**.
+    d. Na lista **Função**, selecione **Usuário**.
    
-   e. Clique em **Próximo**.
+    e. Clique em **Próximo**.
+
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-allocadia-tutorial/create_aaduser_07.png) 
+
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-allocadia-tutorial/create_aaduser_08.png) 
@@ -226,13 +245,17 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 1. No portal clássico, para abrir a exibição de aplicativos, na exibição de diretório, clique em **Aplicativos** no menu superior.
    
     ![Atribuir usuário][201] 
+
 2. Na lista de aplicativos, selecione **Allocadia**.
    
     ![Configurar o logon único](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_50.png) 
+
 3. No menu na parte superior, clique em **Usuários**.
    
     ![Atribuir usuário][203] 
+
 4. Na lista de usuários, selecione **Brenda Fernandes**.
+
 5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
    
     ![Atribuir usuário][205]
@@ -265,6 +288,6 @@ Ao clicar no bloco Allocadia no Painel de Acesso, você deverá ser conectado au
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

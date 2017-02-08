@@ -16,15 +16,15 @@ ms.workload: big-data
 ms.date: 10/19/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: c387472d961fa42d1fc085c1c83d0095fb965f71
+ms.sourcegitcommit: 756369d219c34e5530edc91de0dc74cbf88c02c5
+ms.openlocfilehash: 9fb4862f3ba38058bd07d5a2e0bebcf78477e2d1
 
 
 ---
 # <a name="create-windows-based-hadoop-clusters-in-hdinsight-using-azure-resource-manager-templates"></a>Criar clusters Hadoop baseados em Windows no HDInsight usando modelos do Azure Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Aprenda a criar clusters do HDInsight usando modelos do Azure Resource Manager. Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../resource-group-template-deploy.md). Para outros recursos e ferramentas de criação de cluster, clique na guia Selecionar na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
+Aprenda a criar clusters do HDInsight usando modelos do Azure Resource Manager. Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-template-deploy.md). Para outros recursos e ferramentas de criação de cluster, clique na guia Selecionar na parte superior dessa página ou consulte [Métodos de criação de cluster](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ## <a name="prerequisites"></a>Pré-requisitos:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -34,7 +34,7 @@ Antes de começar a seguir as instruções neste artigo, você deve ter o seguin
 * [Assinatura do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * CLI do Azure ou Azure PowerShell
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ### <a name="access-control-requirements"></a>Requisitos de controle de acesso
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
@@ -46,8 +46,8 @@ Um modelo do Resource Manager para a criação de um cluster do HDInsight e a co
 
 Para obter mais informações sobre o modelo do Resource Manager, consulte
 
-* [Criar modelos do Gerenciador de Recursos do Azure](../resource-group-authoring-templates.md)
-* [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../resource-group-template-deploy.md)
+* [Criar modelos do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-template-deploy.md)
 
 ## <a name="deploy-with-powershell"></a>Implantação com o PowerShell
 O procedimento a seguir cria um cluster do HDInsight.
@@ -108,7 +108,7 @@ O procedimento a seguir cria um cluster do HDInsight.
 
     O script do PowerShell configura apenas o nome do cluster e o nome da conta de armazenamento.  Você pode definir outros valores no modelo do Resource Manager.
 
-Para obter mais informações, veja [Implantar com o PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
+Para obter mais informações, veja [Implantar com o PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
 
 ## <a name="deploy-with-azure-cli"></a>Implantar com a CLI do Azure
 O exemplo a seguir cria um cluster e sua conta de armazenamento dependente e o contêiner chamando um modelo do Resource Manager:
@@ -123,7 +123,7 @@ O exemplo a seguir cria um cluster e sua conta de armazenamento dependente e o c
 
 
 ## <a name="deploy-with-rest-api"></a>Implantar com a API REST
-Veja [Implantar com a API REST](../resource-group-template-deploy-rest.md).
+Veja [Implantar com a API REST](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
 ## <a name="deploy-with-visual-studio"></a>Implantação com o Visual Studio
 Com o Visual Studio você pode criar um projeto do grupo de recursos e implantá-lo ao Azure por meio da interface do usuário. Selecione o tipo de recursos a serem incluídos em seu projeto e os recursos serão adicionados automaticamente ao modelo do Gerenciador de recursos. O projeto também fornece um script do PowerShell para implantar o modelo.
@@ -136,8 +136,8 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 * Para obter um exemplo de como implantar recursos por meio da biblioteca de cliente do .NET, veja [Implantar recursos usando bibliotecas do .NET e um modelo](../virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Para obter um exemplo detalhado de implantação de um aplicativo, confira [Provisionar e implantar microsserviços de forma previsível no Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
 * Para obter orientação sobre como implantar a solução em ambientes diferentes, confira [Ambientes de desenvolvimento e de teste no Microsoft Azure](../solution-dev-test-environments.md).
-* Para saber mais sobre as seções do modelo do Azure Resource Manager, veja [Criando modelos](../resource-group-authoring-templates.md).
-* Para obter uma lista das funções que podem ser usadas em um modelo do Azure Resource Manager, veja [Funções do modelo](../resource-group-template-functions.md).
+* Para saber mais sobre as seções do modelo do Azure Resource Manager, veja [Criando modelos](../azure-resource-manager/resource-group-authoring-templates.md).
+* Para obter uma lista das funções que podem ser usadas em um modelo do Azure Resource Manager, veja [Funções do modelo](../azure-resource-manager/resource-group-template-functions.md).
 
 ## <a name="appx-a-resource-manager-template"></a>Appx-A: modelo do Resource Manager
 O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop baseado em Windows com a conta de armazenamento do Azure dependente.
@@ -290,6 +290,6 @@ O modelo a seguir do Gerenciador de Recursos do Azure cria um cluster Hadoop bas
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

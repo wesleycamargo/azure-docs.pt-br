@@ -1,6 +1,6 @@
 ---
-title: "Política de armazenamento em cache de CDN na extensão dos Serviços de Mídia"
-description: "Este tópico fornece uma visão geral de uma política de armazenamento em cache de CDN na extensão dos Serviços de Mídia."
+title: "Gerenciar a política de caching da CDN do Azure nos Serviços de Mídia do Azure | Microsoft Docs"
+description: "Saiba como gerenciar a política de caching da CDN do Azure nos Serviços de Mídia do Azure."
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d8e5fa4f3de86be0a8ef65971e42c8b20f61f0b2
+ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
+ms.openlocfilehash: 4a225332995bdf7ed03817faf5da89a98eaf1967
 
 
 ---
-# <a name="cdn-caching-policy-in-media-services-extension"></a>Política de armazenamento em cache de CDN na extensão dos Serviços de Mídia
+# <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gerenciar a política de caching da CDN do Azure nos Serviços de Mídia do Azure
 Os Serviços de Mídia do Azure fornecem streaming adaptável e download progressivo com base em HTTP. Streaming com base em HTTP é altamente escalonável, com os benefícios do armazenamento em cache em camadas proxy e CDN, bem como armazenamento em cache no lado do cliente. Pontos de extremidade de streaming fornecem recursos de streaming gerais e também a configuração de cabeçalhos de cache HTTP. Pontos de extremidade de streaming definem o Controle de Cache HTTP: cabeçalhos idade máxima e Vencimento. Saiba mais sobre os cabeçalhos de cache HTTP em [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
 ## <a name="default-caching-headers"></a>Cabeçalhos de armazenamento em cache padrão
@@ -49,6 +49,6 @@ Você pode usar o Portal de Gerenciamento do Azure ou as APIs de Serviços de M�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bd378c8dedd3d2bfed540be0fa009f751bcc5d1c
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: dc5b6f194a7e34d5061b9fa2e4a6123f54f6c14a
 
 
 ---
@@ -33,7 +33,7 @@ Para criar um painel, selecione o botão **Novo painel** ao lado do nome do pain
 
 ![criar painel](./media/azure-portal-dashboards/new-dashboard.png)
 
-Essa ação cria um painel novo, vazio, privado e coloca você no modo de personalização onde é possível nomear seu painel e adicionar ou reorganizar blocos.  Nesse modo, a galeria de blocos recolhíveis assume o menu de navegação à esquerda.  A galeria de blocos permite que você encontre blocos para os recursos do Azure de várias maneiras: você pode procurar por [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups), pelo tipo de recurso, por [marca](../resource-group-using-tags.md) ou procurando por seus recursos por nome.  
+Essa ação cria um painel novo, vazio, privado e coloca você no modo de personalização onde é possível nomear seu painel e adicionar ou reorganizar blocos.  Nesse modo, a galeria de blocos recolhíveis assume o menu de navegação à esquerda.  A galeria de blocos permite que você encontre blocos para os recursos do Azure de várias maneiras: você pode procurar por [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups), pelo tipo de recurso, por [marca](../azure-resource-manager/resource-group-using-tags.md) ou procurando por seus recursos por nome.  
 
 ![personalizar painel](./media/azure-portal-dashboards/customize-dashboard.png)
 
@@ -97,12 +97,12 @@ Depois que o painel é publicado, o painel de controle **Compartilhamento + aces
 ![gerenciar o controle de acesso](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para gerenciar recursos, veja [Gerenciar recursos do Azure pelo portal](resource-group-portal.md).
-* Para implantar recursos, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](../resource-group-template-deploy-portal.md).
+* Para gerenciar recursos, veja [Gerenciar recursos do Azure pelo portal](../azure-resource-manager/resource-group-portal.md).
+* Para implantar recursos, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

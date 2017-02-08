@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2016
+ms.date: 01/17/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6a03b5ce95d2bcdf0bd7b3007acedb1e030a379
+ms.sourcegitcommit: 93990e342f6bd8fcfe9781bcb021aabfd33e8572
+ms.openlocfilehash: 271a15d258177c98ad72be007c20ae278df6236b
 
 
 ---
@@ -30,13 +30,16 @@ A linguagem de programação Pig Latin permite descrever as transformações que
 
 > [!NOTE]
 > Se você já estiver familiarizado com o uso de servidores Hadoop baseados em Linux, mas é novo no HDInsight, consulte [Dicas do HDInsight baseado em Linux](hdinsight-hadoop-linux-information.md).
-> 
-> 
+
 
 ## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Pré-requisitos
 Para concluir as etapas neste artigo, você precisará do seguinte.
 
 * Um cluster HDInsight baseado em Linux (Hadoop no HDInsight).
+
+  > [!IMPORTANT]
+  > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 * Um cliente SSH. Sistemas operacionais Linux, Unix e Mac devem ser acompanhados de um cliente SSH. Os usuários do Windows devem baixar um cliente, como [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 ## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Conexão com o SSH
@@ -150,6 +153,6 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 21adeddc5896a4c9123bf3525e9b9ab4abbf6fa5
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 56dd9b73a31d27c2c953bf4350e55e851f634b79
 
 
 ---
@@ -45,7 +45,7 @@ Os DCs se replicam entre si e com os DCs locais por meio da replicação do Acti
 
 ## <a name="create-an-azure-virtual-network"></a>Crie uma rede virtual do Azure
 1. No [portal clássico do Azure](https://manage.windowsazure.com), clique em **Novo** > **Serviços de Rede** > **Rede Virtual** > ** Criação Personalizada** e use os seguintes valores para concluir o assistente.
-   
+
    | Nesta página do assistente… | Especifique esses valores |
    | --- | --- |
    |  **Detalhes de rede virtual** |<p>Nome: digite um nome para a rede virtual, como WestUSVNet.</p><p>Região: escolha a região mais próxima.</p> |
@@ -60,7 +60,7 @@ Repita as etapas a seguir para criar VMs para hospedar a função de controlador
 Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface do usuário, consulte [Usar o Azure PowerShell para criar e pré-configurar máquinas virtuais baseadas em Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 1. No [Portal clássico do Azure](https://manage.windowsazure.com), clique em **Novo** > **Computação** > **Máquina Virtual** > **Da Galeria**. Use os valores a seguir para concluir o assistente. Aceite o valor padrão para uma configuração, a menos que outro valor seja sugerido ou necessário.
-   
+
    | Nesta página do assistente… | Especifique esses valores |
    | --- | --- |
    |  **Escolha uma imagem** |Windows Server 2012 R2 Datacenter |
@@ -69,8 +69,8 @@ Para criar as máquinas virtuais usando o Windows PowerShell em vez de interface
    |  **Configuração de máquina virtual** |<p>Selecione <b>Instalar o Agente de VM</b> e quaisquer outras extensões que você precisa.</p> |
 2. Anexe um disco a cada máquina virtual que executará a função de servidor de controlador de domínio. O disco adicional é necessário para armazenar o banco de dados, logs e SYSVOL do AD. Especifique um tamanho para o disco (por exemplo, 10 GB) e deixe a **Preferência de Cache do Host** definida como **Nenhum**. Consulte [Como anexar um disco de dados a uma máquina virtual Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Depois de entrar na VM pela primeira vez, abra o **Gerenciador do Servidor** > **Serviços de Arquivo e Armazenamento** para criar um volume nesse disco usando o NTFS.
-4. Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o PowerShell do Azure](../powershell-install-configure.md) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
-   
+4. Reserve um endereço IP estático para VMs que executarão a função de controlador de domínio. Para reservar um endereço IP estático, baixe o Microsoft Web Platform Installer, [instale o PowerShell do Azure](/powershell/azureps-cmdlets-docs) e execute o cmdlet Set-AzureStaticVNetIP. Por exemplo:
+
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
 Para obter mais informações sobre como definir um endereço IP estático, consulte [Configurar um endereço IP interno estático para uma VM](../virtual-network/virtual-networks-reserved-private-ip.md).
@@ -84,7 +84,7 @@ Conecte-se a uma VM e verifique se tem conectividade através da conexão VPN si
 
 ## <a name="create-vms-for-application-servers"></a>Crie VMs para servidores de aplicativos
 1. Repita as etapas a seguir para criar VMs para executar como servidores de aplicativos. Aceite o valor padrão para uma configuração, a menos que outro valor seja sugerido ou necessário.
-   
+
    | Nesta página do assistente… | Especifique esses valores |
    | --- | --- |
    |  **Escolha uma imagem** |Windows Server 2012 R2 Datacenter |
@@ -112,6 +112,6 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

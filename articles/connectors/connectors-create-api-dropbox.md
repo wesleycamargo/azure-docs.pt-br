@@ -8,7 +8,7 @@ manager: erikre
 editor: 
 tags: connectors
 ms.assetid: cb0ae033-aba7-4ac9-beaa-be561a0f0cac
-ms.service: app-service-logic
+ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/15/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0038c582d1a597dfcbb1fe8255b3a0fac1235e25
+ms.sourcegitcommit: 9c74b25a2ac5e2088a841d97920035376b7f3f11
+ms.openlocfilehash: a8ecad3552f35c02c07fe33aa8531fb462b27002
 
 
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Introdução ao conector do Dropbox
 Conecte-se ao Dropbox para gerenciar seus arquivos. Você pode executar várias ações, como carregar, atualizar, obter e excluir arquivos no Dropbox.
 
-Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-dropbox"></a>Conectar-se ao Dropbox
 Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma conexão fornece uma conectividade entre um aplicativo lógico e outro serviço. Por exemplo, para se conectar ao Dropbox, é preciso ter uma *conexão* com o Dropbox. Para criar uma conexão, é preciso fornecer as credenciais normalmente usadas para acessar o serviço ao qual você deseja se conectar. Desse modo, no exemplo do Dropbox, são necessárias as credenciais da sua conta no Dropbox para criar a conexão com o Dropbox. [Saiba mais sobre conexões]()
@@ -35,7 +35,7 @@ Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma
 > 
 
 ## <a name="use-a-dropbox-trigger"></a>Usar um gatilho do Dropbox
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 Neste exemplo, usaremos o gatilho **Quando um arquivo é criado**. Quando esse gatilho ocorrer, chamaremos a ação do Dropbox **Obter conteúdo do arquivo usando o caminho**. 
 
@@ -45,7 +45,7 @@ Neste exemplo, usaremos o gatilho **Quando um arquivo é criado**. Quando esse g
    ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
 
 ## <a name="use-a-dropbox-action"></a>Usar uma ação do Dropbox
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).
 
 Agora que o gatilho foi adicionado, siga estas etapas para adicionar uma ação que obterá o novo conteúdo do arquivo.
 
@@ -354,11 +354,11 @@ As ações e os gatilhos acima podem retornar um ou mais dos seguintes códigos 
 | padrão |Falha na Operação. |
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

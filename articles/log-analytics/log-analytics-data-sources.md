@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 412483cfbce7621612a7283b8a72c24d23b851b5
+ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
+ms.openlocfilehash: ad9cc8765f1a8b83c9dbf5caca573811c6e7f10e
 
 
 ---
@@ -52,7 +52,7 @@ As fontes de dados são configuradas do menu **Dados** nas **Configurações** d
 ## <a name="data-collection"></a>Coleta de dados
 As configurações de fonte de dados são entregues aos agentes que estão diretamente conectados ao OMS dentro de alguns minutos.  Os dados especificados são coletados do agente e entregues diretamente para o Log Analytics em intervalos específicos para cada fonte de dados.  Consulte a documentação para cada fonte de dados para encontrar essas especificações.
 
-Para agentes do SCOM (System Center Operations Manager) em um grupo de gerenciamento conectado, as configurações de fonte de dados são convertidas em pacotes de gerenciamento e entregues ao grupo de gerenciamento a cada cinco minutos por padrão.  O agente baixa o pacote de gerenciamento como qualquer outro e coleta os dados especificados. Dependendo da fonte de dados, os dados serão enviados para um servidor de gerenciamento que os encaminha para o Log Analytics ou o agente enviará os dados para o Log Analytics sem passar pelo servidor de gerenciamento. Consulte os [detalhes da coleta de dados para recursos e soluções do OMS](log-analytics-add-solutions.md#data-collection-details-for-oms-features-and-solutions) para obter mais detalhes.  Você pode ler sobre os detalhes da conexão do SCOM e do OMS e a modificação da frequência com que a configuração é entregue em [Configure Integration with System Center Operations Manager](log-analytics-om-agents.md)(Configurar a integração com o System Center Operations Manager).
+Para agentes do SCOM (System Center Operations Manager) em um grupo de gerenciamento conectado, as configurações de fonte de dados são convertidas em pacotes de gerenciamento e entregues ao grupo de gerenciamento a cada cinco minutos por padrão.  O agente baixa o pacote de gerenciamento como qualquer outro e coleta os dados especificados. Dependendo da fonte de dados, os dados serão enviados para um servidor de gerenciamento que os encaminha para o Log Analytics ou o agente enviará os dados para o Log Analytics sem passar pelo servidor de gerenciamento. Consulte os [detalhes da coleta de dados para recursos e soluções do OMS](log-analytics-add-solutions.md#data-collection-details) para obter mais detalhes.  Você pode ler sobre os detalhes da conexão do SCOM e do OMS e a modificação da frequência com que a configuração é entregue em [Configure Integration with System Center Operations Manager](log-analytics-om-agents.md)(Configurar a integração com o System Center Operations Manager).
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
 Todos os dados coletados pelo Log Analytics são armazenados no repositório do OMS como registros.  Registros coletados por diferentes fontes de dados terão seu próprio conjunto de propriedades e serão identificados por sua propriedade **Type** .  Consulte a documentação para cada fonte de dados e a solução para obter detalhes sobre cada tipo de registro.
@@ -64,7 +64,6 @@ Todos os dados coletados pelo Log Analytics são armazenados no repositório do 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
 translationtype: Human Translation
-ms.sourcegitcommit: 2a361774095b20aacff91e9926ead2c1a53b8835
-ms.openlocfilehash: eedfdea0bcc3f0c69d2fe87b3cf2e2bc4e0ed3a6
+ms.sourcegitcommit: fd3699e4ce423ae9490d5bf788729c43eaa623eb
+ms.openlocfilehash: 19ebfae5de8576402348e3163f99a54b9308a078
 
 
 ---
@@ -45,13 +45,11 @@ Este tópico é a base das informações sobre funcionalidades relacionadas à F
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-* [Implantação do AD FS no Azure](active-directory-aadconnect-
-* azure-adfs.md)
+* [Implantação do AD FS no Azure](active-directory-aadconnect-azure-adfs.md)
 * [Implantação do AD FS de alta disponibilidade entre fronteiras geográficas no Azure com o Gerenciador de Tráfego do Azure](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
 
 
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

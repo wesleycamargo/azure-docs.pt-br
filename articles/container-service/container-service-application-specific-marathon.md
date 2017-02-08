@@ -11,18 +11,18 @@ keywords: "Contêineres, Marathon, microsserviços, DC/OS, Azure"
 ms.assetid: 16ecc16e-e504-480e-8dc3-cac14e9e1561
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: befd26888b653c660cc614221684732771496aed
+ms.sourcegitcommit: 3f6bc85230b57d7b9523a87f90783c27039ef820
+ms.openlocfilehash: 1ea024d83c1d8881467be1556675a47c605fee66
 
 
 ---
-# <a name="create-an-application-or-userspecific-marathon-service"></a>Criar um aplicativo ou serviço do Marathon específico do usuário
+# <a name="create-an-application-or-user-specific-marathon-service"></a>Criar um aplicativo ou serviço do Marathon específico do usuário
 O Serviço de Contêiner do Azure fornece um conjunto de servidores mestres no qual podemos pré-configurar o Apache Mesos e o Marathon. Eles podem ser usados para orquestrar seus aplicativos no cluster, mas é melhor não usar os servidores mestres para essa finalidade. Por exemplo, para fazer o ajuste da configuração do Marathon é necessário fazer o logon nos próprios servidores mestres e então fazer as alterações; isso incentiva a existência de servidores mestres exclusivos que sejam um pouco diferentes do padrão e que precisam ser cuidados e gerenciados de forma independente. Além disso, a configuração exigida por uma equipe pode não ser a configuração ideal para outra equipe.
 
 Neste artigo, explicaremos como adicionar um aplicativo ou serviço do Marathon específico do usuário.
@@ -34,7 +34,7 @@ Como esse serviço pertencerá a um único usuário ou a uma única equipe, pode
 
 [!INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)]
 
-## <a name="create-an-application-or-userspecific-marathon-service"></a>Criar um aplicativo ou serviço do Marathon específico do usuário
+## <a name="create-an-application-or-user-specific-marathon-service"></a>Criar um aplicativo ou serviço do Marathon específico do usuário
 Comece pela criação de um arquivo de configuração JSON que defina o nome do serviço de aplicativo que você deseja criar. Aqui usamos `marathon-alice` como o nome da estrutura. Salve o arquivo com um nome como `marathon-alice.json`:
 
 ```json
@@ -61,6 +61,6 @@ Você pode verificar em qual instância do Marathon a CLI está funcionando com 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

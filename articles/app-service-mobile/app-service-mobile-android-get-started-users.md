@@ -1,6 +1,6 @@
 ---
 title: "Adicionar autenticação no Android com os Aplicativos Móveis| Microsoft Docs"
-description: "Aprenda a usar os Aplicativos Móveis no Serviço de Aplicativo do Azure para autenticar usuários de seu aplicativo Android usando uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft."
+description: "Saiba como usar o recurso Aplicativos Móveis do Serviço de Aplicativo do Azure para autenticar usuários de seu aplicativo Android por meio de uma variedade de provedores de identidade, incluindo Google, Facebook, Twitter e Microsoft."
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3caf6edb1e3a33a451ec8773b1e14fe0c95734a1
+ms.sourcegitcommit: 817626dd3fc87db61280075b80cedf8b9ed77684
+ms.openlocfilehash: e638495c10742388804e75f3277c50cf1e20c6a6
 
 
 ---
@@ -24,19 +24,19 @@ ms.openlocfilehash: 3caf6edb1e3a33a451ec8773b1e14fe0c95734a1
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="summary"></a>Resumo
-Neste tutorial, você adiciona a autenticação ao projeto de início rápido todolist usando um provedor de identidade com suporte. Este tutorial se baseia no tutorial [Introdução aos Aplicativos Móveis] , que você deve concluir primeiro.
+Neste tutorial, você adiciona autenticação ao projeto de início rápido da lista de tarefas pendentes no Android usando um provedor de identidade com suporte. Este tutorial se baseia no tutorial [Introdução aos Aplicativos Móveis] , que você deve concluir primeiro.
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo
+## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-azure-app-service"></a><a name="register"></a>Registrar seu aplicativo para autenticação e configurar o Serviço de Aplicativo do Azure
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* No Android Studio, abra o projeto concluído com o tutorial [Introdução aos Aplicativos Móveis]. No menu **Executar**, clique em **Executar aplicativo**. Verifique se uma exceção sem tratamento com um código de status de 401 (Não autorizado) é acionada depois que o aplicativo é iniciado.
-  
-     Essa exceção acontece porque o aplicativo tenta acessar o back-end como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
+* No Android Studio, abra o projeto concluído com o tutorial [Introdução aos Aplicativos Móveis]. No menu **Executar**, clique em **Executar aplicativo** e verifique se uma exceção sem tratamento com um código de status 401 (Não autorizado) é acionada depois que o aplicativo é iniciado.
 
-Em seguida, você atualiza o aplicativo para autenticar os usuários antes de solicitar recursos do back-end do Aplicativo Móvel.
+     Essa exceção ocorre porque o aplicativo tenta acessar o back-end como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
+
+Em seguida, você atualiza o aplicativo para autenticar os usuários antes de solicitar recursos do back-end dos Aplicativos Móveis. 
 
 ## <a name="add-authentication-to-the-app"></a>Adicionar autenticação ao aplicativo
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -47,15 +47,17 @@ Em seguida, você atualiza o aplicativo para autenticar os usuários antes de so
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você concluiu este tutorial de autenticação básica, considere continuar com um dos seguintes tutoriais:
 
-* [Adicione notificações por push ao seu aplicativo Android](app-service-mobile-android-get-started-push.md) Saiba como configurar o back-end do Aplicativo Móvel para usar os Hubs de Notificação do Azure para enviar notificações por push.
-* [Habilitar sincronização offline para seu aplicativo Android](app-service-mobile-android-get-started-offline-data.md) Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de Aplicativo Móvel. A sincronização offline permite que os usuários finais interajam com um aplicativo móvel, &mdash;exibindo, adicionando ou modificando dados&mdash;, mesmo quando não há conexão de rede.
+* [Adicionar notificações por push ao aplicativo Android](app-service-mobile-android-get-started-push.md).
+  Saiba como configurar o back-end dos Aplicativos Móveis para usar os hubs de notificação do Azure para enviar notificações por push.
+* [Habilitar a sincronização offline para o aplicativo móvel Android](app-service-mobile-android-get-started-offline-data.md).
+  Saiba como adicionar suporte offline ao aplicativo usando um back-end dos Aplicativos Móveis. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel &mdash; exibindo, adicionando ou modificando dados &mdash; mesmo quando não há nenhuma conexão de rede.
 
 <!-- Anchors. -->
-[Registrar seu aplicativo para autenticação e configurar os Serviços Móveis]: #register
-[Restringir permissões de tabela para usuários autenticados]: #permissions
-[Adicionar autenticação ao aplicativo]: #add-authentication
-[Armazenar os tokens de autenticação no cliente]: #cache-tokens
-[Atualizar tokens expirados]: #refresh-tokens
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Store authentication tokens on the client]: #cache-tokens
+[Refresh expired tokens]: #refresh-tokens
 [Next Steps]:#next-steps
 
 
@@ -64,6 +66,6 @@ Agora que você concluiu este tutorial de autenticação básica, considere cont
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
 translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
-ms.openlocfilehash: 81564726dd03dbbb93629ebd296e288290d37778
+ms.sourcegitcommit: 1fe845d442c7010580d4592f205e92e8ef70e34a
+ms.openlocfilehash: 6d66a8fa6eac5bc0ecdddc12b67697045556bf46
 
 
 ---
@@ -30,7 +30,7 @@ Além de trabalhar com vários pontos de dados de métrica, como mostra este art
 ## <a name="authenticating-azure-monitor-requests"></a>Autenticação de solicitações do Azure Monitor
 A primeira etapa é autenticar a solicitação.
 
-Todas as tarefas executadas em relação à API do Azure Monitor usam o modelo de autenticação do Azure Resource Manager. Portanto, todas as solicitações devem ser autenticadas com o Azure Active Directory (Azure AD). Uma abordagem para autenticar o aplicativo cliente é criar uma entidade de serviço do Azure AD e recuperar o token de autenticação (JWT). O script de exemplo a seguir demonstra como criar uma entidade de serviço do Azure AD por meio do PowerShell. Para obter instruções mais detalhadas, consulte a documentação sobre como [usar o Azure PowerShell para criar uma entidade de serviço para acessar recursos](../resource-group-authenticate-service-principal.md#create-service-principal-with-password). Também é possível [criar uma entidade de serviço por meio do portal do Azure](../resource-group-create-service-principal-portal.md).
+Todas as tarefas executadas em relação à API do Azure Monitor usam o modelo de autenticação do Azure Resource Manager. Portanto, todas as solicitações devem ser autenticadas com o Azure Active Directory (Azure AD). Uma abordagem para autenticar o aplicativo cliente é criar uma entidade de serviço do Azure AD e recuperar o token de autenticação (JWT). O script de exemplo a seguir demonstra como criar uma entidade de serviço do Azure AD por meio do PowerShell. Para obter instruções mais detalhadas, consulte a documentação sobre como [usar o Azure PowerShell para criar uma entidade de serviço para acessar recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password). Também é possível [criar uma entidade de serviço por meio do portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -191,12 +191,12 @@ A ID do recurso também pode ser obtida no portal do Azure. Para fazer isso, nav
 ### <a name="azure-powershell"></a>Azure PowerShell
 A ID do recurso também pode ser recuperada usando cmdlets do Azure PowerShell. Por exemplo, para obter a ID do recurso para um aplicativo Web do Azure, execute o cmdlet Get-AzureRmWebApp, como na tela a seguir:
 
-![Alt "ID do recurso obtido por meio do PowerShell"](./media\\monitoring-rest-api-walkthrough\\resourceid_powershell.png)
+![Alt "ID do recurso obtido por meio do PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_powershell.png)
 
 ### <a name="azure-cli"></a>CLI do Azure
 Para recuperar a ID do recurso usando a CLI do Azure, execute o comando “azure webapp show”, especificando a opção “-json”, conforme mostrado na captura de tela a seguir:
 
-![Alt "ID do recurso obtido por meio do PowerShell"](./media\\monitoring-rest-api-walkthrough\\resourceid_azurecli.png)
+![Alt "ID do recurso obtido por meio do PowerShell"](./media/monitoring-rest-api-walkthrough/resourceid_azurecli.png)
 
 ## <a name="retrieve-activity-log-data"></a>Recuperar dados de Log de atividade
 Além de trabalhar com definições de métricas e valores relacionados, também é possível recuperar informações interessantes adicionais relacionadas aos recursos do Azure. Por exemplo, é possível consultar os dados do [log de atividades](https://msdn.microsoft.com/library/azure/dn931934.aspx) . O exemplo a seguir demonstra como usar o API REST do Azure Monitor para consultar dados de log de atividade dentro de um intervalo de datas específico para uma assinatura do Azure:
@@ -219,6 +219,6 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

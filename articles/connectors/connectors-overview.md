@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3fc0c959f4e0af62a0bcde1b38caa37d8246b9ac
+ms.sourcegitcommit: 44a756ba437b2ce9f625017998d9ae7d09acae1f
+ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
 
 
 ---
@@ -31,7 +31,7 @@ Os conectores são serviços hospedados que você pode acessar como parte de um 
 
 Cada gatilho ou ação de conector terá seu conjunto de propriedades a ser configurado.  É possível clicar nos botões de informação para saber mais sobre a ação ou consultar a respectiva documentação [para saber mais](apis-list.md).
 
-Se desejar fazer a integração a um serviço ou uma API que ainda não seja um conector, você também poderá estender aplicativos lógicos por meio de um [conector personalizado](../app-service-logic/app-service-logic-create-api-app.md) ou apenas chamar diretamente o serviço por um protocolo como HTTP.
+Se desejar fazer a integração a um serviço ou uma API que ainda não seja um conector, você também poderá estender aplicativos lógicos por meio de um [conector personalizado](../logic-apps/logic-apps-create-api-app.md) ou apenas chamar diretamente o serviço por um protocolo como HTTP.
 
 ## <a name="triggers"></a>Gatilhos
 Alguns conectores têm um gatilho, o que significa que um evento nesse conector acionará um aplicativo lógico e transmitirá todos os dados como parte do gatilho.  Um gatilho é sempre a primeira etapa em um aplicativo lógico.  Gatilhos populares incluem operações como:
@@ -56,9 +56,9 @@ A maioria dos conectores exige a configuração de uma *conexão* para que você
 As conexões podem ser exibidas e gerenciadas no Azure clicando em **Procurar** e selecionando **Conexões de API**.  No recurso Conexões de API, você pode exibir, editar, atualizar ou autorizar novamente todas as conexões que criou.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Criar seu primeiro aplicativo lógico](../app-service-logic/app-service-logic-create-a-logic-app.md)
-* [Veja os usos comuns e exemplos de aplicativos lógicos](../app-service-logic/app-service-logic-examples-and-scenarios.md)
-* [Introdução aos gatilhos e ações de integração corporativa](../app-service-logic/app-service-logic-enterprise-integration-overview.md)
+* [Criar seu primeiro aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md)
+* [Veja os usos comuns e exemplos de aplicativos lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [Introdução aos gatilhos e ações de integração corporativa](../logic-apps/logic-apps-enterprise-integration-overview.md)
 
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
@@ -66,6 +66,6 @@ As conexões podem ser exibidas e gerenciadas no Azure clicando em **Procurar** 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

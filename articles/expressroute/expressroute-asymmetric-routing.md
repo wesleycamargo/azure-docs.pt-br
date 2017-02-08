@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 10166e6b8b9144f0a5dde4f2fc10b492120e85d7
 
 
 ---
@@ -64,7 +64,7 @@ Verifique se seus endereços IP públicos são anunciados para os devidos links 
 
 Se você quiser usar o ExpressRoute para a autenticação, verifique se está anunciando os endereços IP públicos do AD FS no ExpressRoute sem a NAT. Dessa forma, o tráfego que se origina na Microsoft e vai para um servidor AD FS local passa pelo ExpressRoute. O tráfego de retorno do cliente para a Microsoft usa o ExpressRoute porque é a rota preferida na Internet.
 
-### <a name="sourcebased-nat"></a>NAT com base em origem
+### <a name="source-based-nat"></a>NAT com base em origem
 Outra maneira de solucionar os problemas do roteamento assimétrico é usando a SNAT. Por exemplo, você não anunciou o endereço IP público de um servidor SMTP (Simple Mail Transfer Protocol) local no ExpressRoute porque pretende usar a Internet para esse tipo de comunicação. Uma solicitação que se origina na Microsoft e vai para o servidor SMTP local atravessa a Internet. Você usa a SNAT na solicitação de entrada para um endereço IP interno. O tráfego reverso do servidor SMTP vai para o firewall da borda (que você usa para a NAT), em vez de passar pelo ExpressRoute. O tráfego de retorno volta via Internet.
 
 ![Configuração de rede da NAT com base na origem](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -75,6 +75,6 @@ O rastreamento de rotas é a melhor maneira de garantir que o tráfego de rede e
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

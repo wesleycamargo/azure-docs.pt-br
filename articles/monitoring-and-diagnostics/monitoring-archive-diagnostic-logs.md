@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 08/26/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 551074551f1a3ed21b5bc014c3affab9e5be1c1c
+ms.sourcegitcommit: 3e82377c36da1563931bc0301daa4534e6f82377
+ms.openlocfilehash: e3413236445f3f6034a228dc93624d3fdc9b87ad
 
 
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar Logs de Diagnóstico do Azure
-Neste artigo, mostraremos como você pode usar o Portal do Azure, os cmdlets do PowerShell, CLI ou API REST para arquivar seu [Log de Diagnósticos do Azure](monitoring-overview-of-diagnostic-logs.md) em uma conta de armazenamento. Essa opção será útil se você quiser manter seu Log de Diagnósticos com uma política de retenção opcional para auditoria, análise estática ou backup.
+Neste artigo, mostraremos como você pode usar o Portal do Azure, os cmdlets do PowerShell, CLI ou API REST para arquivar seu [Log de Diagnósticos do Azure](monitoring-overview-of-diagnostic-logs.md) em uma conta de armazenamento. Essa opção será útil se você quiser manter seu Log de Diagnósticos com uma política de retenção opcional para auditoria, análise estática ou backup. A conta de armazenamento não precisa estar na mesma assinatura que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, você precisará [criar uma conta de armazenamento](../storage/storage-create-storage-account.md#create-a-storage-account) na qual é possível arquivar o seu Logs de Diagnósticos. É altamente recomendável que você não use uma conta de armazenamento existente que tenha outros dados sem monitoramento armazenados para que você possa controlar melhor o acesso aos dados de monitoramento. No entanto, se você estiver arquivando também os Logs de Atividade e as métricas de diagnóstico em uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para o Log de Diagnósticos, bem como manter todos os dados de monitoramento em um local central. A conta de armazenamento usada deve ser uma conta de armazenamento de finalidade geral e não uma conta de armazenamento de blobs.
 
 ## <a name="diagnostic-settings"></a>Configurações de Diagnóstico
-Para arquivar os Logs de Diagnóstico usando qualquer um dos métodos abaixo, defina uma **Configuração de Diagnóstico** para um determinado recurso. Uma configuração de diagnóstico para um recurso define as categorias de logs que são transmitidas ou armazenadas e as saídas—hub de eventos e/ou contas de armazenamento. Ela também define a política de retenção (número de dias para armazenamento) para eventos de cada categoria de log armazenados em uma conta de armazenamento. Se uma política de retenção for definida como zero, os eventos para essa categoria de log serão armazenados indefinidamente (ou seja, para sempre). Uma política de retenção pode ser qualquer quantidade de dias, entre 1 e 2147483647. [Leia mais sobre configurações de diagnóstico aqui](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+Para arquivar os Logs de Diagnóstico usando qualquer um dos métodos abaixo, defina uma **Configuração de Diagnóstico** para um determinado recurso. Uma configuração de diagnóstico para um recurso define as categorias de logs que são transmitidas ou armazenadas e as saídas—hub de eventos e/ou contas de armazenamento. Ela também define a política de retenção (número de dias para armazenamento) para eventos de cada categoria de log armazenados em uma conta de armazenamento. Se uma política de retenção for definida como zero, os eventos para essa categoria de log serão armazenados indefinidamente (ou seja, para sempre). Uma política de retenção pode ser qualquer quantidade de dias, entre 1 e 2147483647. [Leia mais sobre configurações de diagnóstico aqui](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). As políticas de retenção são aplicadas por dia, para que, ao final de um dia (UTC), os logs do dia após a política de retenção sejam excluídos. Por exemplo, se você tiver uma política de retenção de um dia, no início do dia de hoje, os logs de anteontem serão excluídos
 
 ## <a name="archive-diagnostic-logs-using-the-portal"></a>Arquivar logs de diagnóstico usando o portal
 1. No portal, clique na folha de recursos do recurso no qual você gostaria de habilitar o arquivamento de Logs de Diagnóstico.
@@ -55,7 +55,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | RetentionEnabled |Não |Booliano indicando se há uma política de retenção habilitada nesse recurso. |
 | RetentionInDays |Não |Número de dias durante os quais os eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente. |
 
-## <a name="archive-the-activity-log-via-the-cross-platform-cli"></a>Arquivar o Log de Atividades por meio da CLI de plataforma cruzada
+## <a name="archive-diagnostic-logs-via-the-cross-platform-cli"></a>Arquivar os logs de diagnóstico por meio da CLI de plataforma cruzada
 ```
 azure insights diagnostic set --resourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg --storageId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage –categories networksecuritygroupevent,networksecuritygrouprulecounter --enabled true
 ```
@@ -137,6 +137,6 @@ No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguin
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

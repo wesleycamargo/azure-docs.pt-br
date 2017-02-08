@@ -15,8 +15,8 @@ ms.workload: integration
 ms.date: 07/05/2016
 ms.author: jehollan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 814ad11e130c197f91e597091fca3afbe8f61cbd
+ms.sourcegitcommit: fc61aa855fbcdb8f3ee90f64cbfc73f070f4bbfe
+ms.openlocfilehash: f0d079fd13be7fb2b10d1a3556046f93d59b640c
 
 
 ---
@@ -24,16 +24,10 @@ ms.openlocfilehash: 814ad11e130c197f91e597091fca3afbe8f61cbd
 Conectores de aplicativos lógicos compatíveis permitem que você configure a conexão para acessar os dados no local por meio do gateway de dados local.  As etapas a seguir explicam como instalar e configurar o gateway de dados local para trabalhar com um aplicativo lógico.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* É necessário usar um endereço de email corporativo ou de estudante no Azure para associar o gateway de dados local com sua conta (conta do Azure Active Directory)
-  * Se estiver usando uma Conta da Microsoft (por exemplo, @outlook.com, @live.com)), você poderá usar sua conta do Azure para criar um endereço de email corporativo ou de estudante [seguindo estas etapas](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal)
-
-> [!WARNING]
-> No momento, há uma limitação em que a instalação do gateway só será concluída quando usando uma conta que tenha sido registrada com o Power BI.  Enquanto isso, registre qualquer conta com "Power BI Gratuito" para concluir a instalação.
-> 
-> 
-
-* É necessário ter o gateway de dados local [instalado em um computador local](app-service-logic-gateway-install.md).
-* O gateway não deve ter sido declarado por outro gateway de dados local do Azure ([a declaração ocorre com a criação da etapa 2 abaixo](#2-create-an-azure-on-premises-data-gateway-resource)) - uma instalação só pode ser associada a um recurso de gateway.
+  * É necessário usar um endereço de email corporativo ou de estudante no Azure para associar o gateway de dados local com sua conta (conta do Azure Active Directory)
+  * Se estiver usando uma Conta da Microsoft (por exemplo, @outlook.com, @live.com)), você poderá usar sua conta do Azure para criar um endereço de email corporativo ou de estudante [seguindo estas etapas](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal) 
+  * É necessário ter o gateway de dados local [instalado em um computador local](app-service-logic-gateway-install.md).
+  * O gateway não deve ter sido declarado por outro gateway de dados local do Azure ([a declaração ocorre com a criação da etapa 2 abaixo](#2-create-an-azure-on-premises-data-gateway-resource)) - uma instalação só pode ser associada a um recurso de gateway.
 
 ## <a name="installing-and-configuring-the-connection"></a>Instalando e configurando a conexão
 ### <a name="1-install-the-on-premises-data-gateway"></a>1. Instale o gateway de dados local
@@ -73,6 +67,6 @@ A conexão deve ter sido configurada com êxito para uso em seu aplicativo lógi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

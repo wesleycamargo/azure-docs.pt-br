@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 7ee42899d1f50d562a8e776c840f0cbde12b13fe
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 09c4c9d43d6e29872ed6484b27334c8e9aa428b5
 
 
 ---
@@ -43,9 +43,10 @@ Este tópico demonstra como usar os Serviços de Mídia do Azure para criptograf
 >
 
 ## <a name="requirements-and-considerations"></a>Requisitos e considerações
+
 * O seguinte é necessário ao usar o AMS para fornecer o HLS criptografado com o FairPlay e para entregar as licenças do FairPlay.
 
-  * Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+  * Uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
   * Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, confira [Criar Conta](media-services-portal-create-account.md).
   * Inscreva-se no [Programa de Desenvolvimento da Apple](https://developer.apple.com/).
   * A Apple exige que o proprietário do conteúdo obtenha o [pacote de implantação](https://developer.apple.com/contact/fps/). Informe a solicitação na qual você já implementou o KSM (Módulo de Segurança de Chave) com os Serviços de Mídia do Azure e que você está solicitando o pacote FPS final. Haverá instruções no pacote FPS final para gerar a certificação e obter o ASK, que você usará para configurar o FairPlay.
@@ -162,8 +163,7 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Obter pelo menos uma unidade de streaming para o ponto de extremidade de streaming do qual você planeja fornecer seu conteúdo. Para saber mais, consulte [configurar pontos de extremidade de transmissão](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
-6. Substitua o código no seu arquivo Program.cs pelo código mostrado nesta seção.
+7. Substitua o código no seu arquivo Program.cs pelo código mostrado nesta seção.
 
         using System;
         using System.Collections.Generic;
@@ -566,6 +566,6 @@ O exemplo a seguir demonstra a funcionalidade que foi introduzida no SDK dos Ser
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

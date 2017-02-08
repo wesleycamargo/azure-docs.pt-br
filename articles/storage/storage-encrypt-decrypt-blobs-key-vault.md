@@ -1,10 +1,10 @@
 ---
-title: 'Tutorial: criptografar e descriptografar blobs no Armazenamento do Microsoft Azure usando o Cofre de Chaves do Azure | Microsoft Docs'
-description: Este tutorial explica como criptografar e descriptografar um blob usando a criptografia do lado do cliente para o armazenamento da Cofre da Chave do Armazenamento do Microsoft Azure.
+title: 'Tutorial: Criptografar e descriptografar blobs no Armazenamento do Azure usando o Azure Key Vault | Microsoft Docs'
+description: Como criptografar e descriptografar um blob usando a criptografia do lado do cliente para o Armazenamento do Microsoft Azure com o Azure Key Vault.
 services: storage
 documentationcenter: 
-author: robinsh
-manager: carmonm
+author: adhurwit
+manager: jasonsav
 editor: tysonn
 ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
 ms.service: storage
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 10/18/2016
-ms.author: lakasa;robinsh
+ms.date: 01/23/2017
+ms.author: adhurwit
 translationtype: Human Translation
-ms.sourcegitcommit: fc037886a6c78ef1052c69d71be46904401ad493
-ms.openlocfilehash: 9fd334c125c2eac9f775f9952e1438e6ba1259fc
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: 0c33742a0212e670072a947a2d2ab8304c77b973
 
 
 ---
@@ -63,72 +63,77 @@ Crie ambas as chaves no cofre da chave. Vamos supor pelo restante do tutorial qu
 No Visual Studio, crie um novo aplicativo de console.
 
 Adicione pacotes nuget necessários no Console do Gerenciador de Pacotes.
+
 ```
-    Install-Package WindowsAzure.Storage
+Install-Package WindowsAzure.Storage
 
-    // This is the latest stable release for ADAL.
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+// This is the latest stable release for ADAL.
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-    Install-Package Microsoft.Azure.KeyVault
-    Install-Package Microsoft.Azure.KeyVault.Extensions
+Install-Package Microsoft.Azure.KeyVault
+Install-Package Microsoft.Azure.KeyVault.Extensions
 ```
 
 Adicione AppSettings a App.Config.
+
 ```xml
-    <appSettings>
-        <add key="accountName" value="myaccount"/>
-        <add key="accountKey" value="theaccountkey"/>
-        <add key="clientId" value="theclientid"/>
-        <add key="clientSecret" value="theclientsecret"/>
-        <add key="container" value="stuff"/>
-    </appSettings>
+<appSettings>
+    <add key="accountName" value="myaccount"/>
+    <add key="accountKey" value="theaccountkey"/>
+    <add key="clientId" value="theclientid"/>
+    <add key="clientSecret" value="theclientsecret"/>
+    <add key="container" value="stuff"/>
+</appSettings>
 ```
+
 Adicione as seguintes instruções `using` e certifique-se de adicionar uma referência a System.Configuration ao projeto.
 
 ```csharp
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System.Configuration;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Blob;
-    using Microsoft.Azure.KeyVault;
-    using System.Threading;        
-    using System.IO;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System.Configuration;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure.KeyVault;
+using System.Threading;        
+using System.IO;
 ```
+
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>Adicione um método para obter um token para o aplicativo de console
 O método a seguir é usado pelas classes do Cofre da Chave que precisam ser autenticadas para acessar seu cofre da chave.
 
 ```csharp
-    private async static Task<string> GetToken(string authority, string resource, string scope)
-    {
-        var authContext = new AuthenticationContext(authority);
-        ClientCredential clientCred = new ClientCredential(
-            ConfigurationManager.AppSettings["clientId"],
-            ConfigurationManager.AppSettings["clientSecret"]);
-        AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
+private async static Task<string> GetToken(string authority, string resource, string scope)
+{
+    var authContext = new AuthenticationContext(authority);
+    ClientCredential clientCred = new ClientCredential(
+        ConfigurationManager.AppSettings["clientId"],
+        ConfigurationManager.AppSettings["clientSecret"]);
+    AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
 
-        if (result == null)
-            throw new InvalidOperationException("Failed to obtain the JWT token");
+    if (result == null)
+        throw new InvalidOperationException("Failed to obtain the JWT token");
 
-        return result.AccessToken;
-    }
+    return result.AccessToken;
+}
 ```
+
 ## <a name="access-storage-and-key-vault-in-your-program"></a>Acessar o Armazenamento e o Cofre da Chave em seu programa
 Na função Main, adicione o código a seguir.
 
 ```csharp
-    // This is standard code to interact with Blob storage.
-    StorageCredentials creds = new StorageCredentials(
-        ConfigurationManager.AppSettings["accountName"],
-           ConfigurationManager.AppSettings["accountKey"]);
-    CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
-    CloudBlobClient client = account.CreateCloudBlobClient();
-    CloudBlobContainer contain = client.GetContainerReference(ConfigurationManager.AppSettings["container"]);
-    contain.CreateIfNotExists();
+// This is standard code to interact with Blob storage.
+StorageCredentials creds = new StorageCredentials(
+    ConfigurationManager.AppSettings["accountName"],
+       ConfigurationManager.AppSettings["accountKey"]);
+CloudStorageAccount account = new CloudStorageAccount(creds, useHttps: true);
+CloudBlobClient client = account.CreateCloudBlobClient();
+CloudBlobContainer contain = client.GetContainerReference(ConfigurationManager.AppSettings["container"]);
+contain.CreateIfNotExists();
 
-    // The Resolver object is used to interact with Key Vault for Azure Storage.
-    // This is where the GetToken method from above is used.
-    KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
+// The Resolver object is used to interact with Key Vault for Azure Storage.
+// This is where the GetToken method from above is used.
+KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 ```
 
 > [!NOTE]
@@ -146,21 +151,21 @@ Na função Main, adicione o código a seguir.
 Adicione o seguinte código para criptografar um blob e carregá-lo à sua conta de armazenamento do Azure. O método **ResolveKeyAsync** usado retorna uma IKey.
 
 ```csharp
-    // Retrieve the key that you created previously.
-    // The IKey that is returned here is an RsaKey.
-    // Remember that we used the names contosokeyvault and testrsakey1.
-    var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
+// Retrieve the key that you created previously.
+// The IKey that is returned here is an RsaKey.
+// Remember that we used the names contosokeyvault and testrsakey1.
+var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
 
-    // Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
-    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
-    BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
+// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
+BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
+BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
-    // Reference a block blob.
-    CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
+// Reference a block blob.
+CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 
-    // Upload using the UploadFromStream method.
-    using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
-        blob.UploadFromStream(stream, stream.Length, null, options, null);
+// Upload using the UploadFromStream method.
+using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
+    blob.UploadFromStream(stream, stream.Length, null, options, null);
 ```
 
 A seguir está uma captura de tela do [Portal Clássico do Azure](https://manage.windowsazure.com) de um blob que foi criptografado usando a criptografia de cliente com uma chave armazenada no Cofre de Chaves. A propriedade **KeyId** é a URI para a chave no Cofre de Chaves que atua como a KEK. A propriedade **EncryptedKey** contém a versão criptografada da CEK.
@@ -180,13 +185,13 @@ A chave privada de uma Chave RSA permanece no Cofre da Chave de modo que, para a
 Adicione o seguinte para descriptografar o blob que você acabou de carregar.
 
 ```csharp
-    // In this case, we will not pass a key and only pass the resolver because
-    // this policy will only be used for downloading / decrypting.
-    BlobEncryptionPolicy policy = new BlobEncryptionPolicy(null, cloudResolver);
-    BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
+// In this case, we will not pass a key and only pass the resolver because
+// this policy will only be used for downloading / decrypting.
+BlobEncryptionPolicy policy = new BlobEncryptionPolicy(null, cloudResolver);
+BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
-    using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
-        blob.DownloadToStream(np, null, options, null);
+using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
+    blob.DownloadToStream(np, null, options, null);
 ```
 
 > [!NOTE]
@@ -202,26 +207,27 @@ A maneira de usar um segredo com criptografia do lado do cliente é por meio da 
 * Um segredo do Cofre da Chave que será usado como uma SymmetricKey deve ter um tipo de conteúdo de "application/octet-stream" no Cofre da Chave.
 
 Aqui está um exemplo no PowerShell sobre a criação de um segredo no Cofre da Chave que pode ser usado como uma SymmetricKey.
-OBSERVAÇÃO: o valor codificado, $key, é apenas para fins de demonstração. Em seu próprio código, você desejará gerar essa chave.
+Observe que o valor codificado, $key, serve apenas para demonstração. Em seu próprio código, você desejará gerar essa chave.
 
 ```csharp
-    // Here we are making a 128-bit key so we have 16 characters.
-    //     The characters are in the ASCII range of UTF8 so they are
-    //    each 1 byte. 16 x 8 = 128.
-    $key = "qwertyuiopasdfgh"
-    $b = [System.Text.Encoding]::UTF8.GetBytes($key)
-    $enc = [System.Convert]::ToBase64String($b)
-    $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
+// Here we are making a 128-bit key so we have 16 characters.
+//     The characters are in the ASCII range of UTF8 so they are
+//    each 1 byte. 16 x 8 = 128.
+$key = "qwertyuiopasdfgh"
+$b = [System.Text.Encoding]::UTF8.GetBytes($key)
+$enc = [System.Convert]::ToBase64String($b)
+$secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
-    // Substitute the VaultName and Name in this command.
-    $secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
+// Substitute the VaultName and Name in this command.
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
+
 Em seu aplicativo de console, você pode usar a mesma chamada como antes, para recuperar esse segredo como uma SymmetricKey.
 
 ```csharp
-    SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
-        "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
-        CancellationToken.None).GetAwaiter().GetResult();
+SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
+    "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
+    CancellationToken.None).GetAwaiter().GetResult();
 ```
 É isso. Aproveite!
 
@@ -234,6 +240,6 @@ Para obter as informações mais recentes sobre o Armazenamento do Microsoft Azu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

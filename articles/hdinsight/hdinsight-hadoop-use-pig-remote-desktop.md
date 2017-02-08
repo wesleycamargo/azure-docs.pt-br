@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 28499d1778db75fa164afe20ae1adc6736f7bb93
+ms.sourcegitcommit: 57df4ab0b2a1df6631eb6e67a90f69cebb1dfe75
+ms.openlocfilehash: 6b0ef7ea076c835a19d6b67aa3b51c975ba21644
 
 
 ---
@@ -35,29 +35,29 @@ Para concluir as etapas neste artigo, você precisará do seguinte.
 * Um computador cliente executando o Windows 7, Windows 8 ou Windows 10
 
 ## <a name="a-idconnectaconnect-with-remote-desktop"></a><a id="connect"></a>Conectar com a área de trabalho remota
-Habilite a área de trabalho remota para o cluster HDInsight e conecte-se a ele seguindo as instruções em [Conectar aos clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#rdp).
+Habilite a área de trabalho remota para o cluster HDInsight e conecte-se a ele seguindo as instruções em [Conectar aos clusters HDInsight usando o RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
 ## <a name="a-idpigause-the-pig-command"></a><a id="pig"></a>Usar o comando Pig
 1. Após ter estabelecido uma conexão de área de trabalho remota, inicie a **Linha de Comando do Hadoop** usando o ícone correspondente na área de trabalho.
 2. Use o seguinte para iniciar o comando do Pig:
-   
+
         %pig_home%\bin\pig
-   
+
     Você verá um prompt `grunt>` .
 3. Insira a instrução a seguir:
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
-   
+
     Esse comando carrega o conteúdo do arquivo sample.log no arquivo LOGS. Você pode exibir o conteúdo do arquivo usando o seguinte comando:
-   
+
         DUMP LOGS;
 4. Transforme os dados aplicando uma expressão regular para extrair apenas o nível de registro em log de cada registro:
-   
+
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-   
+
     Você pode usar **DUMP** para exibir os dados após a transformação. Nesse caso, `DUMP LEVELS;`.
 5. Continue a aplicar transformações usando as instruções a seguir. Use `DUMP` para exibir o resultado da transformação após cada etapa.
-   
+
     <table>
     <tr>
     <th>Instrução</th><th>O que faz</th>
@@ -76,15 +76,15 @@ Habilite a área de trabalho remota para o cluster HDInsight e conecte-se a ele 
     </tr>
     </table>
 6. Você também pode salvar os resultados de uma transformação usando a instrução `STORE` . Por exemplo, o comando a seguir salva o `RESULT` no diretório **/example/data/pigout** , no contêiner de armazenamento padrão para seu cluster:
-   
+
         STORE RESULT into 'wasbs:///example/data/pigout'
-   
+
    > [!NOTE]
    > Os dados são armazenados no diretório especificado nos arquivos chamados **part-nnnnn**. Se o diretório já existir, você receberá uma mensagem de erro.
-   > 
-   > 
+   >
+   >
 7. Para sair do prompt do assistente, insira a instrução a seguir.
-   
+
         QUIT;
 
 ### <a name="pig-latin-batch-files"></a>Arquivos de lote do Pig Latin
@@ -92,7 +92,7 @@ Você também pode usar o comando Pig para executar o Pig Latin contido em um ar
 
 1. Depois de sair do prompt do grunt, abra o **Bloco de Notas** e crie um novo arquivo chamado **pigbatch.pig** no diretório **%PIG_HOME%**.
 2. Digite ou cole as seguintes linhas no arquivo **pigbatch.pig** e salve-o quando terminar:
-   
+
         LOGS = LOAD 'wasbs:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
         FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
@@ -101,11 +101,11 @@ Você também pode usar o comando Pig para executar o Pig Latin contido em um ar
         RESULT = order FREQUENCIES by COUNT desc;
         DUMP RESULT;
 3. Use o demonstrado a seguir para executar o arquivo **pigbatch.pig** utilizando o comando pig.
-   
+
         pig %PIG_HOME%\pigbatch.pig
-   
+
     Quando o trabalho em lotes for concluído, você verá a seguinte saída, que deverá ser igual àquela de quando você usou `DUMP RESULT;` nas etapas anteriores:
-   
+
         (TRACE,816)
         (DEBUG,434)
         (INFO,96)
@@ -128,7 +128,6 @@ Para obter informações sobre outros modos possíveis de trabalhar com Hadoop n
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

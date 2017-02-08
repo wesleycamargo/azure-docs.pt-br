@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: adb787b4ff1b4164bcf7ac08e7b6a227acfce423
-ms.openlocfilehash: 1f29554cce2ba5fe7b02c546c705cce3d9e13019
+ms.sourcegitcommit: 83b9f84ed017b4777b70777c653cc24ca19ab648
+ms.openlocfilehash: aadd8ec3d4d6d70c8ba7c28cd00fa21379b48929
 
 ---
 
@@ -159,7 +159,7 @@ Para configurar as variáveis destacadas anteriormente, execute as seguintes eta
 
 ### <a name="modifying-the-startup-and-shutdown-schedule"></a>Modificando o agendamento de inicialização e desligamento
 
-O gerenciamento da agenda de inicialização e desligamento nesta solução segue as mesmas etapas descritas em [Agendando um runbook na Automação do Azure](automation-scheduling-a-runbook.md).  Lembre-se de que você não pode modificar a configuração de agenda.  Você precisará desabilitar o agendamento existente, criar um novo e vincular o runbook **StartByResourceGroup-MS-Mgmt-VM** ou **StopByResourceGroup-MS-Mgmt-VM** que deseja que seja aplicado pela agenda.   
+O gerenciamento da agenda de inicialização e desligamento nesta solução segue as mesmas etapas descritas em [Agendando um runbook na Automação do Azure](automation-schedules.md).  Lembre-se de que você não pode modificar a configuração de agenda.  Você precisará desabilitar o agendamento existente, criar um novo e vincular o runbook **StartByResourceGroup-MS-Mgmt-VM** ou **StopByResourceGroup-MS-Mgmt-VM** que deseja que seja aplicado pela agenda.   
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
 
@@ -247,6 +247,6 @@ A conta de Automação e o espaço de trabalho do OMS não serão excluídos com
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
