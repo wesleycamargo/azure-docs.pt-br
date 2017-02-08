@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 98333c8721274c207ed3d7f2bd05cc20bcd10562
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: be19590bca7c7fb45e32f5a5e29c88ab5dd21deb
 
 
 ---
@@ -30,6 +30,10 @@ Uma das vantagens da execução do Banco de Dados SQL no Microsoft Azure é a ca
 
 ## <a name="when-your-app-is-an-overnight-success"></a>Quando seu aplicativo é um sucesso instantâneo
 O Banco de Dados SQL facilita o dimensionamento imediato. Portanto, se seu aplicativo se torna um sucesso instantâneo, é necessário apenas um clique para acomodar as novas necessidades de desempenho. Além disso, com um tempo mínimo de inatividade você não precisa se preocupar com seu aplicativo tendo um impacto quando chega o momento de se dimensionar na horizontal ou na vertical.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+>
 
 [Ler a documentação](http://go.microsoft.com/fwlink/?LinkID=787569)
 
@@ -57,6 +61,6 @@ Examine a [visão geral técnica do Banco de Dados SQL](sql-database-technical-o
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

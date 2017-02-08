@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2016
+ms.date: 12/01/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ca54dd1a03ebcfb9f51654a2c21ad8ff1612d58d
+ms.sourcegitcommit: f454e7e218764e00cc19ca67b0edade213834b75
+ms.openlocfilehash: cf030c5f6d5b3d3cb6c33ba741df08723a4db779
 
 
 ---
@@ -61,19 +61,25 @@ Para configurar a integração do Kindling ao AD do Azure, você precisará adic
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Active Directory][1]
+
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+
 3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
    
     ![Aplicativos][2]
+
 4. Clique em **Adicionar** na parte inferior da página.
    
     ![Aplicativos][3]
+
 5. Na caixa de diálogo **O que você deseja fazer**, clique em **Adicionar um aplicativo da galeria**.
    
     ![Aplicativos][4]
+
 6. Na caixa de pesquisa, digite **Kindling**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_01.png)
+
 7. No painel de resultados, selecione **Kindling** e clique em **Concluir** para adicionar o aplicativo.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_02.png)
@@ -102,9 +108,11 @@ Para configurar o logon único para o Kindling, você precisa de um domínio reg
 1. No portal clássico do Azure, na página de integração de aplicativo do **Kindling**, clique em **Configurar logon único** para abrir a caixa de diálogo **Configurar Logon Único**.
    
     ![Configurar Logon Único][6] 
+
 2. Na página **Como você deseja que os usuários façam logon no Kindling**, selecione **Logon único do Azure AD** e clique em **Avançar**.
    
     ![Configurar Logon Único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_03.png) 
+
 3. Na página de diálogo **Definir Configurações de Aplicativo** , execute as seguintes etapas:
    
     ![Configurar Logon Único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_04.png) 
@@ -127,15 +135,18 @@ Para configurar o logon único para o Kindling, você precisa de um domínio reg
     a. Clique em **Baixar certificado**e salve o arquivo em seu computador.
    
     b. Clique em **Próximo**.
+
 2. Entre em contato com a equipe de suporte da Kindling em [support@kindlingapp.com](mailto:support@kindlingapp.com) e forneça o seguinte:
    
-   * O certificado baixado
-   * O valor de **URL de Emissor** que é mapeado para a **ID de Entidade** do Kindling
-   * A **URL de Serviço de Logon Único** que faz o mapeamento para a **URL de Logon do SSO** do Kindling 
-   * A **URL de Serviço de Logoff Único** que faz o mapeamento para a **URL de Logoff do SSO** do Kindling. 
+    - O certificado baixado
+    - O valor de **URL de Emissor** que é mapeado para a **ID de Entidade** do Kindling
+    - A **URL de Serviço de Logon Único** que faz o mapeamento para a **URL de Logon do SSO** do Kindling 
+    - A **URL de Serviço de Logoff Único** que faz o mapeamento para a **URL de Logoff do SSO** do Kindling. 
+
 3. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Avançar**. 
    
     ![Logon Único do AD do Azure][10]
+
 4. Na página **Confirmação de logon único**, clique em **Concluir**.  
    
     ![Logon Único do AD do Azure][11]
@@ -150,13 +161,17 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
 1. No **portal clássico do Azure**, no painel de navegação à esquerda, clique em **Active Directory**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_09.png) 
+
 2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
+
 3. Para exibir a lista de usuários, no menu na parte superior, clique em **Usuários**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_03.png) 
+
 4. Para abrir a caixa de diálogo **Adicionar Usuário**, na barra de ferramentas na parte inferior, clique em **Adicionar Usuário**. 
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_04.png) 
+
 5. Na página do diálogo **Conte-nos sobre este usuário** , realize as seguintes etapas: 
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_05.png)  
@@ -166,21 +181,25 @@ O objetivo desta seção é criar um usuário de teste no Portal Clássico do Az
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
     c. Clique em **Próximo**.
+
 6. Na página do diálogo **Perfil do Usuário** , realize as seguintes etapas: 
    
-   ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_06.png) 
+    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-   d. Na lista **Função**, selecione **Usuário**.
-   e. Clique em **Próximo**.
+    d. Na lista **Função**, selecione **Usuário**.
+
+    e. Clique em **Próximo**.
+
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_07.png) 
+
 8. Na página de caixa de diálogo **Obter senha temporária** , execute as seguintes etapas:
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-kindling-tutorial/create_aaduser_08.png) 
@@ -205,13 +224,17 @@ O objetivo desta seção é habilitar Brenda Fernandes a usar o logon único do 
 1. No portal clássico do Azure, para abrir o modo de exibição de aplicativos, no modo de exibição de diretório, clique em **Aplicativos** no menu superior.
    
     ![Atribuir usuário][201] 
+
 2. Na lista de aplicativos, selecione **Kindling**.
    
     ![Configurar Logon Único](./media/active-directory-saas-kindling-tutorial/tutorial_kindling_50.png) 
+
 3. No menu na parte superior, clique em **Usuários**.
    
     ![Atribuir usuário][203] 
+
 4. Na lista de usuários, selecione **Brenda Fernandes**.
+
 5. Na barra de ferramentas na parte inferior, clique em **Atribuir**.
    
     ![Atribuir usuário][205]
@@ -250,6 +273,6 @@ Quando você clica no bloco Kindling no Painel de Acesso, deve fazer logon autom
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

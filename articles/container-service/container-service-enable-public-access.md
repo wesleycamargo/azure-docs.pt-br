@@ -1,6 +1,6 @@
 ---
-title: "Habilitar o acesso público a um aplicativo ACS | Microsoft Docs"
-description: "Como habilitar o acesso público a um Serviço de Contêiner do Azure."
+title: "Habilitar o acesso ao aplicativo de contêiner de DC/OS do Azure | Microsoft Docs"
+description: "Como habilitar o acesso público aos contêineres de DC/OS no Serviço de Contêiner do Azure."
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9491ffb2683063169ab25c38b3db5de06282d654
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: b432755bdae235228a9b677783a8cad94142b6ca
 
 
 ---
@@ -91,6 +91,6 @@ Leia mais informações sobre [como gerenciar seus contêineres de DC/OS](contai
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

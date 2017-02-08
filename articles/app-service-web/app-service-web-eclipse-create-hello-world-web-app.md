@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicativo Web Hello World para o Azure no Eclipse | Microsoft Docs
+title: "Criar um aplicativo web básico do Azure usando o Eclipse | Microsoft Docs"
 description: Este tutorial mostra como usar o Kit de Ferramentas do Azure para Eclipse para criar um aplicativo Web Hello World para o Azure.
 services: app-service\web
 documentationcenter: java
@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/01/2016
-ms.author: robmcm
+ms.date: 12/22/2016
+ms.author: robmcm;asirveda
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d3549bca22266aab2deca1d9fcaabfc4034956cf
+ms.sourcegitcommit: 9bb0b5fa32cd6dabd6c41106db38a587b0a55eed
+ms.openlocfilehash: 18299966173f030f615049eaf11a55a1f71305a0
 
 
 ---
-# <a name="create-a-hello-world-web-app-for-azure-in-eclipse"></a>Criar uma aplicativo Web Hello World para o Azure no Eclipse
-Este tutorial mostra como criar e implantar um aplicativo Hello World básico para o Azure como um aplicativo Web usando o [Kit de Ferramentas do Azure para Eclipse]. Um exemplo básico de JSP é exibido para manter a simplicidade, mas etapas muito semelhantes podem ser apropriadas para um servlet Java quando o assunto é a implantação do Azure.
+# <a name="create-a-basic-azure-web-app-using-eclipse"></a>Criar um aplicativo web básico do Azure usando o Eclipse
+Este tutorial mostra como criar e implantar um aplicativo Hello World básico para o Azure como um aplicativo Web usando o [Kit de Ferramentas do Azure para Eclipse]. Um exemplo básico de JSP é exibido para manter a simplicidade, mas etapas semelhantes podem ser apropriadas para um servlet Java quando o assunto é a implantação do Azure.
 
 Após a conclusão deste tutorial, seu aplicativo será semelhante à ilustração a seguir quando exibido em um navegador da Web:
 
@@ -30,9 +30,9 @@ Após a conclusão deste tutorial, seu aplicativo será semelhante à ilustraç�
 ## <a name="prerequisites"></a>Pré-requisitos
 * Um JDK (Java Developer Kit) versão 1.8 ou posterior.
 * IDE do Eclipse para desenvolvedores de Java EE, Luna ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>.
-* Uma distribuição de um servidor Web ou de um servidor de aplicativo baseado em Java, como o Apache Tomcat ou o Jetty.
+* Uma distribuição de um servidor Web ou de um servidor de aplicativo baseado em Java, como o [Apache Tomcat] ou o [Jetty].
 * Uma assinatura do Azure, que pode ser adquirida em <https://azure.microsoft.com/free/> ou <http://azure.microsoft.com/pricing/purchase-options/>.
-* O Kit de Ferramentas do Azure para Eclipse. Para saber mais, confira [Instalação do Kit de Ferramentas do Azure para Eclipse].
+* O [Kit de Ferramentas do Azure para Eclipse]. Para saber informações sobre a instalação do Kit de ferramentas do Azure para, veja [Instalando o Kit de ferramentas do Azure para Eclipse].
 
 ## <a name="to-create-a-hello-world-application"></a>Para criar um aplicativo Hello World
 Primeiro, vamos começar com a criação de um projeto Java.
@@ -148,17 +148,17 @@ Em ambos os casos, o processo é idêntico e demora apenas alguns segundos:
 
 Após alguns segundos, o modo de exibição do **Log de Atividades do Azure** mostrará a implantação atualizada como **Publicada** e será possível verificar o aplicativo atualizado em um navegador da Web.
 
-## <a name="stopping-an-existing-web-app"></a>Interromper um aplicativo Web existente
-Para interromper um contêiner do Aplicativo Web do Azure existente, (incluindo todos os aplicativos Java implantados nele), é possível usar o modo de exibição do **Azure Explorer** .
+## <a name="starting-stopping-or-restarting-an-existing-web-app"></a>Iniciar, parar ou reiniciar o aplicativo Web existente
+Para iniciar ou parar um contêiner do Aplicativo Web do Azure existente, (incluindo todos os aplicativos Java implantados nele), é possível usar o modo de exibição do **Azure Explorer** .
 
 Se o modo de exibição do **Azure Explorer** ainda não estiver aberto, você poderá abri-lo clicando no menu **Janela** no Eclipse, clicando em **Mostrar Modo de Exibição**, em **Outros...**, em **Azure** e em **Azure Explorer**. Se você não tiver feito logon anteriormente, receberá uma solicitação para fazê-lo.
 
-Quando o modo de exibição do **Azure Explorer** for exibido, use estas etapas para interromper o Aplicativo Web: 
+Quando o modo de exibição do **Azure Explorer** for exibido, use estas etapas para iniciar ou parar o Aplicativo Web: 
 
 1. Expanda o nó **Azure** .
 2. Expanda o nó **Aplicativos Web** . 
 3. Clique com botão direito do mouse no Aplicativo Web desejado.
-4. Quando o menu de contexto for exibido, clique em **Parar**.
+4. Quando o menu de contexto for exibido, clique em **Iniciar**, **Parar** ou **Reiniciar**. Observe que as opções de menu são sensíveis ao contexto, para que você só possa parar um aplicativo Web que esteja em execução ou iniciar um aplicativo Web que não esteja em execução no momento.
    
     ![Interromper um aplicativo Web existente][13]
 
@@ -166,7 +166,7 @@ Quando o modo de exibição do **Azure Explorer** for exibido, use estas etapas 
 Para obter mais informações sobre os kits de ferramentas do Azure para Java IDEs, confira os links a seguir:
 
 * [Kit de Ferramentas do Azure para Eclipse]
-  * [Instalação do Kit de Ferramentas do Azure para Eclipse]
+  * [Instalando o Kit de ferramentas do Azure para Eclipse]
   * *Criar uma aplicativo Web Hello World para o Azure no Eclipse (este artigo)*
   * [Novidades no Kit de Ferramentas do Azure para o Eclipse]
 * [Kit de Ferramentas do Azure para IntelliJ]
@@ -184,15 +184,17 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, confira
 
 [Kit de Ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse.md
 [Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij.md
-[Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Criar um aplicativo Web Hello World para o Azure no IntelliJ]: ./app-service-web-intellij-create-hello-world-web-app.md
-[Instalação do Kit de Ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse-installation.md
+[Instalando o Kit de ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Instalação do Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij-installation.md
 [Novidades no Kit de Ferramentas do Azure para o Eclipse]: ../azure-toolkit-for-eclipse-whats-new.md
 [Novidades no Kit de Ferramentas do Azure para IntelliJ]: ../azure-toolkit-for-intellij-whats-new.md
 
 [Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
 [Visão geral de Aplicativos Web]: ./app-service-web-overview.md
+[Apache Tomcat]: http://tomcat.apache.org/
+[Jetty]: http://www.eclipse.org/jetty/
 
 <!-- IMG List -->
 
@@ -215,6 +217,6 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, confira
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

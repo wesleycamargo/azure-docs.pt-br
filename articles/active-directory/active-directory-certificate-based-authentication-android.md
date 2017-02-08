@@ -14,8 +14,8 @@ ms.workload: identity
 ms.date: 10/10/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9ab8558808dc509855d075c6bba305b8524407ff
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d73b4ad270f868b3ec1d99c142f35688a80abbe1
 
 
 ---
@@ -208,6 +208,6 @@ A data que você define deve estar no futuro. Se a data não estiver no futuro, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

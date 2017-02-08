@@ -109,7 +109,7 @@ O diagrama a seguir ilustra as operações principais executadas pelos scripts d
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarefa baixa seus dados de entrada do Armazenamento do Azure e então inicia a execução.<br/>
 [**Etapa 6.**](#step-6-monitor-tasks) Monitore as tarefas.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** À medida que as tarefas são concluídas, elas carregam os dados de saída no Armazenamento do Azure.<br/>
-[**Etapa 7.**](#step-7-download-task-output)  Baixe a saída da tarefa do Armazenamento.
+[**Etapa 7.**](#step-7-download-task-output) Baixe a saída da tarefa do Armazenamento.
 
 Como mencionado, nem todas as soluções do Lote executam essas etapas exatas, e elas podem incluir muitas outras, mas este exemplo demonstra os processos comuns encontrados em uma solução do Lote.
 

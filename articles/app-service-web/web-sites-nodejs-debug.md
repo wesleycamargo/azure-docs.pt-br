@@ -13,11 +13,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 257d8d872dcdea2a8135f03ed655cf7d61b549d7
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 9ff06539e6280e857a2101891202ef96ca139bfe
 
 
 ---
@@ -131,8 +131,8 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
-[Como usar a interface de linha de comando do Azure]: ../xplat-cli-install.md
-[usando o Node. js módulos com aplicativos do Azure]: ../nodejs-use-node-modules-azure-apps.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
+[Using Node.js Modules with Azure Applications]: ../nodejs-use-node-modules-azure-apps.md
 [Especificar uma versão do Node.js em um aplicativo do Azure]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
@@ -140,6 +140,6 @@ Para obter mais informações, consulte também o [Centro de desenvolvedores do 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

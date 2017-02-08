@@ -1,5 +1,5 @@
 ---
-title: "Integração contínua e implantação de aplicativos de vários contêineres Docker ao Serviço de Contêiner do Azure | Microsoft Docs"
+title: "CI/CD com Serviço de Contêiner do Azure e DC/OS | Microsoft Docs"
 description: "Como automatizar completamente a criação e a implantação de um aplicativo de vários contêineres Docker em um cluster do Serviço de Contêiner do Azure executando DC/SO."
 services: container-service
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: johnsta
 translationtype: Human Translation
-ms.sourcegitcommit: 71fdc7b13fd3b42b136b4907c3d747887fde1a19
-ms.openlocfilehash: cdcb2a8493c6790a395251c4cf05f2a6c0770c8d
+ms.sourcegitcommit: 831f585a9591338c2f404f7ec031d40937731eab
+ms.openlocfilehash: dcf4c0b67bc7a6596070cdf44644a6c451e3afc1
 
 
 ---
@@ -47,15 +47,18 @@ Vamos abordar alguns aspectos fundamentais do aplicativo e seu fluxo de implanta
 ## <a name="create-an-azure-container-service-cluster-configured-with-dcos"></a>Criar um cluster do Serviço de Contêiner do Azure configurado com DC/SO
 
 >[!IMPORTANT]
-> Para criar um cluster seguro você passa o arquivo de chave pública SSH ao chamar `az acs create`. O Azure CLI 2.0 pode gerar as chaves para você e passá-las ao mesmo tempo usando a opção `--generate-ssh-keys`, ou você pode passar o caminho para suas chaves usando a opção `--ssh-key-value` (o local padrão no Linux é `~/.ssh/id_rsa.pub` e no Windows `%HOMEPATH%\.ssh\id_rsa.pub`, mas isso pode ser alterado). Para criar os arquivos de chave privada e pública SSH no Linux, consulte [Criar chaves SSH no Linux e Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). Para criar os arquivos de chave privada e pública SSH no Windows, consulte [Criar chaves SSH no Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Para criar um cluster seguro você passa o arquivo de chave pública SSH ao chamar `az acs create`. O Azure CLI 2.0 pode gerar as chaves para você e passá-las ao mesmo tempo usando a opção `--generate-ssh-keys`, ou você pode passar o caminho para suas chaves usando a opção `--ssh-key-value` (o local padrão no Linux é `~/.ssh/id_rsa.pub` e no Windows `%HOMEPATH%\.ssh\id_rsa.pub`, mas isso pode ser alterado).
+<!---Loc Comment: What do you mean by "you pass your SSH public key file to pass"? Thank you.--->
+> Para criar os arquivos de chave privada e pública SSH no Linux, consulte [Criar chaves SSH no Linux e Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> Para criar os arquivos de chave privada e pública SSH no Windows, consulte [Criar chaves SSH no Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
 
 1. Primeiro, digite o comando [logon az](/cli/azure/#login) em uma janela de terminal para fazer logon em sua assinatura do Azure com o Azure CLI: 
 
     `az login`
 
-1. Crie um grupo de recursos no qual podemos colocar nosso cluster usando [criar grupo de recursos az](/cli/azure/resource/group#create):
+1. Criar um grupo de recursos no qual podemos colocar nosso cluster usando [criar grupo de az](/cli/azure/group#create):
     
-    `az resource group create --name myacs-rg --location westus`
+    `az group create --name myacs-rg --location westus`
 
     Você talvez queira especificar a [região do datacenter do Azure](https://azure.microsoft.com/regions) mais próxima de você. 
 
@@ -325,26 +328,26 @@ Excluir o cluster do ACS:
 1. Procure o grupo de recursos que contém seu clusters do ACS.
 1. Abra a interface do usuário da folha do grupo de recursos e clique em **Excluir** na barra de comandos da folha.
 
-Excluir o Registro de Contêiner do Azure:
-1. No portal do Azure, pesquise o Registro de Contêiner do Azure e exclua-o. 
+Excluir o Registro de Contêiner do Azure: No portal do Azure, pesquise o Registro de Contêiner do Azure e exclua-o. 
 
 A [conta do Visual Studio Team Services oferece Nível de Acesso Básico gratuito para os cinco primeiros usuários](https://azure.microsoft.com/en-us/pricing/details/visual-studio-team-services/), mas você pode excluir as definições de build e versão.
-1. Excluir a Definição de Build do VSTS:
+
+Excluir a Definição de Build do VSTS:
         
-    * Abra a URL de Definição de Compilação em seu navegador, clique no link **Definições de build** (ao lado do nome da definição de build que você está exibindo no momento).
-    * Clique no menu de ação ao lado da definição de build que você deseja excluir e selecione **Excluir Definição**
+1. Abra a URL de Definição de Compilação em seu navegador, clique no link **Definições de build** (ao lado do nome da definição de build que você está exibindo no momento).
+2. Clique no menu de ação ao lado da definição de build que você deseja excluir e selecione **Excluir Definição**
 
-    ![Exclua a Definição de Build do VSTS](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
+`![Exclua a Definição de Build do VSTS](media/container-service-setup-ci-cd/vsts-delete-build-def.png) 
 
-1. Excluir a Definição de Versão do VSTS:
+Excluir a Definição de Versão do VSTS:
 
-    * Abra a URL de Definição de Versão no seu navegador.
-    * Na lista Definições de Versão no lado esquerdo, clique na lista suspensa ao lado da definição de versão que você deseja excluir e selecione **Excluir**.
+1. Abra a URL de Definição de Versão no seu navegador.
+2. Na lista Definições de Versão no lado esquerdo, clique na lista suspensa ao lado da definição de versão que você deseja excluir e selecione **Excluir**.
 
-    ![Exclua a Definição de Versão do VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
+`![Exclua a Definição de Versão do VSTS](media/container-service-setup-ci-cd/vsts-delete-release-def.png)
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

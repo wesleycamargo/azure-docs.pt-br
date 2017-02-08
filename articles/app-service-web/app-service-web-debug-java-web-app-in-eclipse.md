@@ -5,34 +5,38 @@ services: app-service\web
 documentationcenter: java
 author: selvasingh
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 321d2d19-9ce0-4165-8555-b6b15e671393
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/22/2016
 ms.author: asirveda;robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 8a4f22442d030dae602171555bafb3733d61ebd7
+
 
 ---
-# Depurar um aplicativo Web Java no Azure no Eclipse
+# <a name="debug-a-java-web-app-on-azure-in-eclipse"></a>Depurar um aplicativo Web Java no Azure no Eclipse
 Este tutorial mostra como depurar um aplicativo Web Java em execução no Azure usando o [Kit de ferramentas do Azure para Eclipse]. Para simplificar, você usará um exemplo básico de JSP (Java Server Page) neste tutorial, mas as etapas seriam semelhantes para um servlet Java, ao depurar no Azure.
 
 Após a conclusão deste tutorial, seu aplicativo será semelhante à ilustração a seguir ao depurá-lo no Eclipse:
 
 ![][01]
 
-## Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Um JDK (Java Developer Kit) versão 1.8 ou posterior.
 * Um IDE do Eclipse para desenvolvedores do Java EE, Indigo ou posterior. Isso pode ser baixado em <http://www.eclipse.org/downloads/>.
 * Uma distribuição de um servidor Web ou de um servidor de aplicativo baseado em Java, como o Apache Tomcat ou o Jetty.
-* Uma assinatura do Azure, que pode ser adquirida de <https://azure.microsoft.com/free/> ou de <http://azure.microsoft.com/pricing/purchase-options/>.
+* Uma assinatura do Azure, que pode ser adquirida em <https://azure.microsoft.com/en-us/free/> ou <http://azure.microsoft.com/pricing/purchase-options/>.
 * O Kit de Ferramentas do Azure para Eclipse. Para saber mais, confira [Instalação do Kit de Ferramentas do Azure para Eclipse].
 * Um Projeto Web Dinâmico criado e implantado no Serviço de Aplicativo do Azure; por exemplo, confira [Criar um aplicativo Web Hello World do Azure no Eclipse].
 
-## Para depurar um aplicativo Web Java no Azure
-Para concluir as etapas desta seção, você pode usar um Projeto Web Dinâmico existente, que você já implantou como um Aplicativo Web Java no Azure. Baixe um [Projeto Web Dinâmico de Exemplo] e execute as etapas em [Criar um aplicativo Web Hello World para o Azure no Eclipse] a fim de implantá-lo no Azure.
+## <a name="to-debug-a-java-web-app-on-azure"></a>Para depurar um aplicativo Web Java no Azure
+Para concluir as etapas desta seção, você pode usar um Projeto Web Dinâmico existente, que você já implantou como um Aplicativo Web Java no Azure. Baixe um [Projeto Web Dinâmico de Exemplo] e execute as etapas em [Criar um aplicativo Web Hello World do Azure no Eclipse] a fim de implantá-lo no Azure. 
 
 1. Abra o Eclipse.
 2. Configure tempos limites para a depuração remota:
@@ -64,7 +68,7 @@ Para concluir as etapas desta seção, você pode usar um Projeto Web Dinâmico 
    3. Clique com o botão direito do mouse no aplicativo Web e clique em **Abrir no Navegador**.
    4. Agora, o Eclipse entrará no modo de depuração.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre como usar o Azure com o Java, confira a [Central de desenvolvimento Java do Azure].
 
 Para obter mais informações sobre como criar aplicativos Web do Azure, confira a [Visão geral de Aplicativos Web].
@@ -77,7 +81,6 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, confira
 [Kit de ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse.md
 [Instalação do Kit de Ferramentas do Azure para Eclipse]: ../azure-toolkit-for-eclipse-installation.md
 [Criar um aplicativo Web Hello World do Azure no Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
-[Criar um aplicativo Web Hello World para o Azure no Eclipse]: ./app-service-web-eclipse-create-hello-world-web-app.md
 [Projeto Web Dinâmico de Exemplo]: http://go.microsoft.com/fwlink/?LinkId=817337
 
 [Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
@@ -92,4 +95,8 @@ Para obter mais informações sobre como criar aplicativos Web do Azure, confira
 [05]: ./media/app-service-web-debug-java-web-app-in-eclipse/05-ready-for-remote-debugging.png
 [06]: ./media/app-service-web-debug-java-web-app-in-eclipse/06-windows-command-prompt-connection-successful-to-remote.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Jan17_HO1-->
+
+

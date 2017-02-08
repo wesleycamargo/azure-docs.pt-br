@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jonor;sivae
 translationtype: Human Translation
-ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
-ms.openlocfilehash: 634f0c28c833612fdd1a6cd656c364eb3f5e43e5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 42fe3f1789344f98782c3e24cdc19fe299ac7c02
 
 
 ---
@@ -33,7 +33,7 @@ O gráfico lógico a seguir pode direcioná-lo a um exemplo específico das vár
 [Exemplo 4: adicione uma conexão híbrida com uma VPN (rede privada virtual) site a site de solução de virtualização.](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-virtual-private-network)</br>
 [Exemplo 5: adicione uma conexão híbrida com uma VPN site a site de gateway do Azure.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br>
 [Exemplo 6: adicione uma conexão híbrida com o ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
- Exemplos para adicionar conexões entre redes virtuais, alta disponibilidade e encadeamento de serviços serão adicionados a esse documento durante os próximos meses.
+Exemplos para adicionar conexões entre redes virtuais, alta disponibilidade e encadeamento de serviços serão adicionados a esse documento durante os próximos meses.
 
 ## <a name="microsoft-compliance-and-infrastructure-protection"></a>Proteção de infraestrutura e conformidade da Microsoft
 A Microsoft tomou uma posição de liderança dando suporte às iniciativas de conformidade exigidas pelos clientes corporativos. Seguem algumas das certificações de conformidade do Azure: ![notificações de conformidade do Azure][1]
@@ -199,7 +199,7 @@ Neste exemplo, há uma assinatura que contém o seguinte:
 * Dois servidores Windows que representam servidores de back-end de aplicativos ("AppVM01", "AppVM02")
 * Um servidor Windows que representa um servidor DNS ("DNS01")
 
-Para scripts e um modelo do Azure Resource Manager, consulte as [instruções detalhadas de build][Example1].
+Para ver scripts e um modelo do Azure Resource Manager, consulte as [instruções detalhadas de build][Example1].
 
 #### <a name="nsg-description"></a>Descrição de NSG
 Neste exemplo, um grupo NSG é criado e então carregado com seis regras.
@@ -246,7 +246,7 @@ Neste exemplo, há uma assinatura que contém o seguinte:
 * Dois servidores Windows que representam servidores de back-end de aplicativos ("AppVM01", "AppVM02")
 * Um servidor Windows que representa um servidor DNS ("DNS01")
 
-Para scripts e um modelo do Azure Resource Manager, consulte as [instruções detalhadas de build][Example2].
+Para ver scripts e um modelo do Azure Resource Manager, consulte as [instruções detalhadas de build][Example2].
 
 #### <a name="nsg-description"></a>Descrição de NSG
 Neste exemplo, um grupo NSG é criado e então carregado com seis regras.
@@ -297,7 +297,7 @@ Neste exemplo, há uma assinatura que contém o seguinte:
 * Dois servidores Windows que representam servidores de back-end de aplicativos ("AppVM01", "AppVM02")
 * Um servidor Windows que representa um servidor DNS ("DNS01")
 
-Para scripts e um modelo do Azure Resource Manager, consulte as [instruções detalhadas de build][Example3].
+Para ver scripts e um modelo do Azure Resource Manager, consulte as [instruções detalhadas de build][Example3].
 
 #### <a name="udr-description"></a>Descrição de UDR
 Por padrão, as rotas do sistema a seguir são definidas como:
@@ -512,7 +512,7 @@ A adição de uma conexão de rede de emparelhamento privado de Rota Expressa po
 ## <a name="references"></a>Referências
 ### <a name="helpful-websites-and-documentation"></a>Sites úteis e documentação
 * Acesse o Azure com o Azure Resource Manager:
-* Acessando o Azure com o PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](powershell-install-configure.md)
+* Acessando o Azure com o PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](/powershell/azureps-cmdlets-docs)
 * Documentação de rede virtual: [https://azure.microsoft.com/documentation/services/virtual-network/](https://azure.microsoft.com/documentation/services/virtual-network/)
 * Documentação do grupo de segurança de rede: [https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/](virtual-network/virtual-networks-nsg.md)
 * Documentação do roteamento definido pelo usuário: [https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/](virtual-network/virtual-networks-udr-overview.md)
@@ -533,12 +533,12 @@ A adição de uma conexão de rede de emparelhamento privado de Rota Expressa po
 [9]: ./media/best-practices-network-security/example3design.png "DMZ bidirecional com NVA, NSG e UDR"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Exibição lógica das regras de firewall"
 [11]: ./media/best-practices-network-security/example4designoptions.png "DMZ com rede híbrida conectada com NVA"
-[12]: ./media/best-practices-network-security/example4designs2s.png "DMZ com NVA conectado usando uma VPN site a site"
+[12]: ./media/best-practices-network-security/example4designs2s.png "DMZ com NVA conectado usando VPN site a site"
 [13]: ./media/best-practices-network-security/example4networklogical.png "Rede lógica da perspectiva de NVA"
 [14]: ./media/best-practices-network-security/example5designoptions.png "DMZ com rede híbrida site a site conectada ao Gateway do Azure"
 [15]: ./media/best-practices-network-security/example5designs2s.png "DMZ com Gateway do Azure usando VPN site a site"
-[16]: ./media/best-practices-network-security/example6designoptions.png "DMZ com rede híbrida do ExpressRoute conectada ao Gateway do Azure"
-[17]: ./media/best-practices-network-security/example6designexpressroute.png "DMZ com Gateway do Azure usando uma conexão do ExpressRoute"
+[16]: ./media/best-practices-network-security/example6designoptions.png "DMZ com rede híbrida da ExpressRoute conectada ao Gateway do Azure"
+[17]: ./media/best-practices-network-security/example6designexpressroute.png "DMZ com Gateway do Azure usando uma conexão ExpressRoute"
 
 <!--Link References-->
 [Example1]: ./virtual-network/virtual-networks-dmz-nsg-asm.md
@@ -552,6 +552,6 @@ A adição de uma conexão de rede de emparelhamento privado de Rota Expressa po
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

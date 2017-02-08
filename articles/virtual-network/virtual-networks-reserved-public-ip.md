@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 536cb4cd7975283dd61c8c4f2fe1a707a735504e
-ms.openlocfilehash: 9b55a6e994e94257fd506a9d759a820dcd5d84e3
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 66c42ad7ba6339c7d3c537290f0b6349a16f20d8
 
 
 ---
@@ -57,7 +57,7 @@ Para saber mais sobre endereços IP no Azure, leia o artigo [Endereços IP](virt
 
 ## <a name="manage-reserved-vips"></a>Gerenciar VIPs reservados
 
-Certifique-se de ter instalado e configurado o Azure PowerShell seguindo as etapas do artigo [Instalar e configurar o PowerShell](../powershell-install-configure.md). 
+Certifique-se de ter instalado e configurado o Azure PowerShell seguindo as etapas do artigo [Instalar e configurar o PowerShell](/powershell/azureps-cmdlets-docs). 
 
 Antes de poder usar IPs reservados, você deverá adicioná-los à sua assinatura. Para criar um IP reservado do pool de endereços IP públicos disponíveis no local *EUA Central* , execute o seguinte comando:
 
@@ -168,6 +168,6 @@ Você também pode associar um IP reservado a um serviço de nuvem usando um arq
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

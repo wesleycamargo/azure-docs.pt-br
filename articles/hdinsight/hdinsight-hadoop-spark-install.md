@@ -15,16 +15,14 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 1eaea8001477be2ef2ef788bdf1f1bffcf19efe9
+ms.sourcegitcommit: 8a7ca492d846f274019eb228fc027defac0aa390
+ms.openlocfilehash: 98688632c6aaba14b71923dc217f6b0368ae76d8
 
 
 ---
 # <a name="install-and-use-spark-on-hdinsight-hadoop-clusters-using-script-action"></a>Instalar e usar o Spark no cluster Hadoop do HDInsight usando Ação de Script
 > [!IMPORTANT]
 > Este artigo foi substituído. Agora, o HDInsight oferece o Spark como um tipo de cluster de primeira classe para clusters baseados no Windows, o que significa que agora você pode criar diretamente um cluster do Spark sem modificar um cluster do Hadoop usando Ação de Script. Usando o tipo de cluster Spark, você obtém um cluster do HDInsight versão 3.2 com o Spark versão 1.3.1.  Para instalar versões diferentes do Spark, você poderá usar uma Ação de Script. O HDInsight fornece um exemplo de script de Ação de Script.
->
->
 
 Saiba como instalar o Spark no HDInsight baseado no Windows usando a Ação de Script e como executar consultas Spark em clusters HDInsight.
 
@@ -32,7 +30,7 @@ Saiba como instalar o Spark no HDInsight baseado no Windows usando a Ação de S
 
 * [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): informações gerais sobre como criar clusters HDInsight
 * [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md): crie um cluster do Spark no HDInsight.
-* [Personalizar o cluster HDInsight usando a Ação de Script][hdinsight-cluster-customize]: informações gerais sobre como personalizar os clusters HDInsight usando a Ação de Script.
+* [Personalizar clusters HDInsight usando a Ação de Script][hdinsight-cluster-customize]: informações gerais sobre como personalizar os clusters HDInsight usando a Ação de Script.
 * [Desenvolver scripts de Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md)
 
 ## <a name="what-is-spark"></a>O que é Spark?
@@ -52,8 +50,6 @@ Você pode modificar esse script ou criar seu próprio script para instalar outr
 
 > [!NOTE]
 > O script de exemplo funciona apenas com os clusters HDInsight versões 3.1 e 3.2. Para obter mais informações sobre as versões do cluster HDInsight, consulte [Versões do cluster HDInsight](hdinsight-component-versioning.md).
->
->
 
 1. Comece a criar um cluster usando a opção **CUSTOM CREATE**, como descrito em [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md). Selecione a versão do cluster dependendo do seguinte:
 
@@ -61,7 +57,7 @@ Você pode modificar esse script ou criar seu próprio script para instalar outr
    * Se você deseja instalar o **Spark 1.0.2**, crie um cluster HDInsight 3.1.
 2. Na página **Ações de Script** do assistente, clique em **adicionar ação de script** para fornecer detalhes sobre a ação de script, como mostrado abaixo:
 
-    ![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "Use Script Action to customize a cluster")
+    ![Usar Ação de Script para personalizar um cluster](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "Usar Ação de Script para personalizar um cluster")
 
     <table border='1'>
         <tr><th>Propriedade</th><th>Valor</th></tr>
@@ -187,19 +183,15 @@ Nesta seção, você deve usar a <a href="http://www.scala-sbt.org/0.13/docs/ind
 
         libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
 
-
-
-    >[AZURE.NOTE] Lembre-se de manter as linhas em branco no arquivo.
-
+    > [!NOTE]
+    > Lembre-se de manter as linhas em branco no arquivo.
 
 1. Na pasta **SimpleScalaApp**, crie uma estrutura de diretório **\src\main\scala** e cole o programa Scala (**SimpleApp.scala**) criado anteriormente na pasta \src\main\scala.
 2. Abra um prompt de comando, navegue até o diretório SimpleScalaApp e digite o seguinte comando:
 
         sbt package
 
-
     Depois do aplicativo ser compilado, você verá um arquivo **simpleapp_2.10-1.0.jar** criado no diretório **\target\scala-2.10** na pasta-raiz SimpleScalaApp.
-
 
 #### <a name="run-the-job-on-the-cluster"></a>Executar o trabalho no cluster
 Nesta seção, você conecta-se remotamente ao cluster com o Spark instalado e, em seguida, copia a pasta de destino do projeto SimpleScalaApp. Depois, você usará o comando **spark-submit** para enviar o trabalho no cluster.
@@ -215,33 +207,41 @@ Nesta seção, você conecta-se remotamente ao cluster com o Spark instalado e, 
         Lines with a: 21374, Lines with b: 11430
 
 ## <a name="install-spark-using-azure-powershell"></a>Instalar o Spark usando o Azure PowerShell
-Nesta seção, usamos o cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts usando a Ação de Script para personalizar um cluster. Antes de prosseguir, verifique se você instalou e configurou o PowerShell do Azure. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do Azure para HDInsight, consulte [Instalar e configurar o PowerShell do Azure](../powershell-install-configure.md).
+Nesta seção, usamos o cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts usando a Ação de Script para personalizar um cluster. Antes de prosseguir, verifique se você instalou e configurou o PowerShell do Azure. Para obter informações sobre como configurar uma estação de trabalho para executar os cmdlets do PowerShell do Azure para HDInsight, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azureps-cmdlets-docs).
 
 Execute as seguintes etapas:
 
 1. Abra uma janela do PowerShell do Azure e declare as variáveis a seguir:
 
-        # Provide values for these variables
-        $subscriptionName = "<SubscriptionName>"        # Name of the Azure subscription
-        $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
-        $storageAccountName = "<StorageAccountName>"    # Azure Storage account that hosts the default container
-        $storageAccountKey = "<StorageAccountKey>"      # Key for the Storage account
-        $containerName = $clusterName
-        $location = "<MicrosoftDataCenter>"                # Location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $clusterNodes = <ClusterSizeInNumbers>            # Number of nodes in the HDInsight cluster
-        $version = "<HDInsightClusterVersion>"          # For example, "3.2"
+    ```powershell
+    # Provide values for these variables
+    $subscriptionName = "<SubscriptionName>"        # Name of the Azure subscription
+    $clusterName = "<HDInsightClusterName>"            # HDInsight cluster name
+    $storageAccountName = "<StorageAccountName>"    # Azure Storage account that hosts the default container
+    $storageAccountKey = "<StorageAccountKey>"      # Key for the Storage account
+    $containerName = $clusterName
+    $location = "<MicrosoftDataCenter>"                # Location of the HDInsight cluster. It must be in the same data center as the Storage account.
+    $clusterNodes = <ClusterSizeInNumbers>            # Number of nodes in the HDInsight cluster
+    $version = "<HDInsightClusterVersion>"          # For example, "3.2"
+    ```
+
 2. Especifique os valores de configuração como nós no cluster e o armazenamento padrão a ser usado.
 
-        # Specify the configuration options
-        Select-AzureSubscription $subscriptionName
-        $config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
-        $config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
-        $config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
-        $config.DefaultStorageAccount.StorageContainerName=$containerName
+    ```powershell
+    # Specify the configuration options
+    Select-AzureSubscription $subscriptionName
+    $config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes
+    $config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
+    $config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
+    $config.DefaultStorageAccount.StorageContainerName=$containerName
+    ```
+
 3. Use o cmdlet **Add-AzureHDInsightScriptAction** para adicionar uma Ação de Script à configuração do cluster. Mais tarde, quando o cluster estiver sendo criado, a ação de script será executada.
 
-        # Add a script action to the cluster configuration
-        $config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
+    ```powershell
+    # Add a script action to the cluster configuration
+    $config = Add-AzureHDInsightScriptAction -Config $config -Name "Install Spark" -ClusterRoleCollection HeadNode -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1
+    ```
 
     **Add-AzureHDInsightScriptAction** usa os parâmetros a seguir:
 
@@ -266,10 +266,12 @@ Execute as seguintes etapas:
     <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Parâmetros exigidos pelo script. O script de exemplo usado neste tópico não requer nenhum parâmetro e, portanto, você não vir esse parâmetro no trecho acima.
     </td></tr>
     </table>
-4. Por fim, inicie a criação de um cluster personalizado com o Spark instalado.  
+4. Por fim, inicie a criação de um cluster personalizado com o Spark instalado.
 
-        # Start creating a cluster with Spark installed
-        New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
+    ```powershell
+    # Start creating a cluster with Spark installed
+    New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
+    ```
 
 Quando solicitado, insira as credenciais para o cluster. Pode levar alguns minutos até que o cluster seja criado.
 
@@ -282,19 +284,19 @@ Consulte [Personalizar os clusters HDInsight usando a Ação de Script](hdinsigh
 ## <a name="see-also"></a>Confira também
 * [Criar clusters Hadoop no HDInsight](hdinsight-provision-clusters.md): criar clusters HDInsight.
 * [Introdução ao Apache Spark no HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md): introdução ao Spark no HDInsight.
-* [Personalizar o cluster HDInsight usando a Ação de Script][hdinsight-cluster-customize]: personaliza os clusters HDInsight usando a Ação de Script.
+* [Personalizar o cluster HDInsight usando a Ação de Script][hdinsight-cluster-customize]: personalize o cluster HDInsight usando a Ação de Script.
 * [Desenvolver scripts da Ação de Script para o HDInsight](hdinsight-hadoop-script-actions.md): desenvolver scripts da Ação de Script.
-* [Instalar o R nos clusters HDInsight][hdinsight-install-r] fornece instruções sobre como usar a personalização do cluster para instalar e usar o R nos clusters Hadoop do HDInsight. R é uma linguagem e ambiente de software livre para computação estatística. Ele fornece centenas de funções estatísticas internas e sua própria linguagem de programação, que combina aspectos de programação funcional e de programação orientada a objetos. Ele também fornece recursos abrangentes de gráficos.
+* [Instalar o R em clusters HDInsight][hdinsight-install-r] fornece instruções sobre como usar a personalização do cluster para instalar e usar o R em clusters HDInsight Hadoop. R é uma linguagem e ambiente de software livre para computação estatística. Ele fornece centenas de funções estatísticas internas e sua própria linguagem de programação, que combina aspectos de programação funcional e de programação orientada a objetos. Ele também fornece recursos abrangentes de gráficos.
 * [Instalar o Giraph em clusters HDInsight](hdinsight-hadoop-giraph-install.md). Use a personalização do cluster para instalar o Giraph em clusters de Hadoop do HDInsight. O Giraph permite que você realize processamento de tabelas usando o Hadoop, além de poder ser usado com o HDInsight do Azure.
 * [Instalar o Solr em clusters HDInsight](hdinsight-hadoop-solr-install.md). Use a personalização do cluster para instalar o Solr em clusters de Hadoop do HDInsight. O Solr permite executar operações de pesquisa avançadas nos dados armazenados.
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
-[powershell-install-configure]: powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

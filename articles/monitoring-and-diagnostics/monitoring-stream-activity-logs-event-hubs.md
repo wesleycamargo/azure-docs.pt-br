@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 11/28/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c0b974707eadf7d2c3d624c04a4ec94e35c92cbe
+ms.sourcegitcommit: 51a7a274c0cdbec169154bd1100abb4534283cff
+ms.openlocfilehash: ac478dc5c6691ef9f6c4829bd47a81912774d032
 
 
 ---
@@ -30,7 +30,9 @@ Veja algumas maneiras de usar o recurso de streaming para o Log de Atividade:
 * **Compilar uma plataforma de registro em log e telemetria personalizada** – Se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos Hubs de Eventos permite a flexibilidade de ingestão de log de atividade. [Consulte o guia de Dan Rosanova sobre como usar os Hubs de Eventos em uma plataforma de telemetria de escala global.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Habilitar o streaming do Log de Atividades
-Você pode habilitar o streaming do Log de Atividades programaticamente ou por meio do portal. De qualquer forma, você escolhe um namespace de barramento de serviço e uma política de acesso compartilhado para esse namespace e um hub de eventos é criado no namespace quando ocorre o primeiro novo evento de Log de Atividades. Se você não tiver um Namespace do Barramento de Serviço, você precisará primeiro criar um. Se você tiver distribuído anteriormente eventos de Log de Atividades para esse namespace do barramento de serviço, o Hub de Eventos criado anteriormente será reutilizado. A política de acesso compartilhado define as permissões que o mecanismo de streaming tem. Atualmente, o streaming para um Hub de Eventos exige permissões de **Gerenciamento**, **Leitura** e **Envio**. Você pode criar ou modificar políticas de acesso compartilhado do Namespace do Barramento de Serviço no portal clássico, na guia "Configurar" para seu Namespace de Barramento de Serviço. Para atualizar o perfil de registro do Log de Atividades a fim de incluir o streaming, o usuário fazendo a alteração deve ter a permissão ListKey nessa Regra de Autorização do Barramento de Serviço.
+Você pode habilitar o streaming do Log de Atividades programaticamente ou por meio do portal. De qualquer forma, você escolhe um namespace de barramento de serviço e uma política de acesso compartilhado para esse namespace e um hub de eventos é criado no namespace quando ocorre o primeiro novo evento de Log de Atividades. Se você não tiver um Namespace do Barramento de Serviço, você precisará primeiro criar um. Se você tiver distribuído anteriormente eventos de Log de Atividades para esse namespace do barramento de serviço, o Hub de Eventos criado anteriormente será reutilizado. A política de acesso compartilhado define as permissões que o mecanismo de streaming tem. Atualmente, o streaming para um Hub de Eventos exige as **Gerenciar**, **Enviar** e **Escutar**. Você pode criar ou modificar políticas de acesso compartilhado do Namespace do Barramento de Serviço no portal clássico, na guia "Configurar" para seu Namespace de Barramento de Serviço. Para atualizar o perfil de registro do Log de Atividades a fim de incluir o streaming, o usuário fazendo a alteração deve ter a permissão ListKey nessa Regra de Autorização do Barramento de Serviço.
+
+O namespace do barramento de serviço ou do hub de eventos não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 
 ### <a name="via-azure-portal"></a>Via Portal do Azure
 1. Navegue até a folha **Log de Atividades** usando o menu no lado esquerdo do portal.
@@ -81,6 +83,6 @@ A ID da Regra do Barramento de Serviço é uma cadeia de caracteres com este for
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

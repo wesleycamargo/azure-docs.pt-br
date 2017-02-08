@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 04/27/2016
 ms.author: tdykstra
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 606762146d159ecf5d2d94d5d51ddb319c06c8f4
+ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
+ms.openlocfilehash: 9f792f6ea082461f3304516fc9b4c3273e2f50b8
 
 
 ---
@@ -120,7 +120,7 @@ Para um Trabalho Web agendado (e não para Trabalhos Web contínuos), o Visual S
 * O trabalho do agendador se chama *{nomedoaplicativoweb}-{nomedotrabalhoweb}*. Por exemplo: MeuAplicativoWeb-MeuTrabalhoWeb. 
 
 > [!NOTE]
-> * Para obter informações sobre a implantação de linha de comando, consulte [Habilitando a entrega de linha de comando ou contínua de Trabalhos Web do Azure](/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
+> * Para obter informações sobre a implantação de linha de comando, consulte [Habilitando a entrega de linha de comando ou contínua de Trabalhos Web do Azure](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
 > * Se você configurar um **Trabalho Recorrente** e definir a frequência de recorrência como um número de minutos, o serviço Agendador do Azure não estará livre. Outra frequências (horas, dias etc.) estão livres.
 > * Se você implantar um Trabalho Web e, em seguida, decidir que deseja alterar o tipo de Trabalho Web e implantá-lo novamente, você precisará excluir o arquivo webjobs-publish-settings.json. Isso fará com que o Visual Studio exiba novamente as opções de publicação para que você possa alterar o tipo de Trabalho Web.
 > * Se você implantar um Trabalho Web e depois alterar o modo de execução de contínuo para não contínuo ou vice-versa, o Visual Studio criará um novo Trabalho Web no Azure quando você o reimplantar. Se você alterar outras configurações de agendamento, mas deixar o modo de execução igual ou alternar Agendado e Sob Demanda, o Visual Studio atualizará o trabalho existente, em vez de criar um novo.
@@ -179,6 +179,6 @@ Este artigo explicou como implantar WebJobs usando o Visual Studio. Para obter m
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

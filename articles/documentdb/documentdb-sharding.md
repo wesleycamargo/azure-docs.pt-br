@@ -1,22 +1,11 @@
 ---
-title: Como implementar o particionamento do lado no cliente com os SDKs | Microsoft Docs
-description: "Saiba como usar os SDKs do Banco de Dados de Documentos do Azure para particionar (fragmentar) dados e rotear solicitações em várias coleções"
-services: documentdb
-author: arramac
-manager: jhubbard
-editor: cgronlun
-documentationcenter: 
-ms.assetid: ab2a63f0-4601-42d8-b5e5-ba943319c1c8
-ms.service: documentdb
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2016
-ms.author: arramac
+
+redirect_url: https://azure.microsoft.com/services/documentdb/
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c31763a9676ec45e493cdecc76997db8fe64c38a
+ms.sourcegitcommit: d59ebef3cda36ba048b844f0cd2326fff66b4aa5
+ms.openlocfilehash: d0a616d27c653e8d3749d93f565f5e8616fdf909
+
 
 
 ---
@@ -145,7 +134,7 @@ Os exemplos são de software livre e nós o encorajamos a enviar solicitações 
 Sim, o Banco de Dados de Documentos dá suporte ao [particionamento do lado servidor](documentdb-partition-data.md). O Banco de Dados de Documentos também dá suporte para particionamento do lado do cliente por meio de resolvedores de partição do lado do cliente para casos de uso mais avançados.
 
 **Quando devo usar o particionamento do lado do servidor em relação ao particionamento do lado do cliente?**
- Para a maioria dos casos de uso, recomendamos usar o particionamento do lado do servidor, uma vez que ele lida com as tarefas administrativas de particionar dados e rotear solicitações. No entanto, se você precisar de particionamento por intervalos ou tiver um caso de uso especializado para isolamento de desempenho entre os diferentes valores de chaves de partição, particionamento do lado do cliente pode ser a melhor abordagem.
+Para a maioria dos casos de uso, recomendamos usar o particionamento do lado do servidor, uma vez que ele lida com as tarefas administrativas de particionar dados e rotear solicitações. No entanto, se você precisar de particionamento por intervalos ou tiver um caso de uso especializado para isolamento de desempenho entre os diferentes valores de chaves de partição, particionamento do lado do cliente pode ser a melhor abordagem.
 
 **Como adicionar ou remover uma coleção ao meu esquema de particionamento?**
 
@@ -165,12 +154,11 @@ Você pode serializar o estado do particionador como JSON e armazená-lo em arqu
 * [Exemplos de código de particionamento no Github](https://github.com/Azure/azure-documentdb-dotnet/tree/287acafef76ad223577759b0170c8f08adb45755/samples/code-samples/Partitioning)
 * [Documentação do SDK .NET do Banco de Dados de Documentos no MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [Amostras do .NET do Banco de Dados de Documentos](https://github.com/Azure/azure-documentdb-net)
-* [Limites do Banco de Dados de Documentos](documentdb-limits.md)
 * [Blog do Banco de Dados de Documentos sobre dicas de desempenho](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

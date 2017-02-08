@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/07/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 5e6a61011e201dad2220d2851212ac04bed1342c
+ms.sourcegitcommit: 4521a236bfc13e6aca7e13e7400c11d353bc3a66
+ms.openlocfilehash: 9c385adfa3da73bef2d05352049d1f71aa5c5847
 
 
 ---
@@ -49,7 +49,7 @@ O exemplo tem as seguintes entidades de data factory:
 
 O exemplo copia dados de consulta em relação a uma fonte OData para um blob do Azure a cada hora. As propriedades JSON usadas nesses exemplos são descritas nas seções após os exemplos.
 
-**Serviço vinculado ao OData** Esse exemplo usa a autenticação Básica. Consulte a seção [Serviço vinculado a OData](#odata-linked-service-properties) para ver os diferentes tipos de autenticação que você pode usar.
+**Serviço vinculado ao OData** Esse exemplo usa a autenticação Anônima. Consulte a seção [Serviço vinculado a OData](#odata-linked-service-properties) para ver os diferentes tipos de autenticação que você pode usar.
 
     {
         "name": "ODataLinkedService",
@@ -332,6 +332,6 @@ Veja o [Guia de desempenho e ajuste da Atividade de Cópia](data-factory-copy-ac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: Como marcar uma VM | Microsoft Docs
+title: "Como marcar um recurso de máquina virtual do Windows no Azure | Microsoft Docs"
 description: "Aprenda a marcar uma máquina virtual do Windows criada no Azure usando o modelo de implantação do Gerenciador de Recursos"
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 97efb86f31f75d2214e4169d88b792ab189354ed
+ms.sourcegitcommit: 6b80fa78fea505cd22bae2925ce1affbc1e48ab9
+ms.openlocfilehash: 57b88baeeb5c27cfdf142c77aef37b66bb6640d6
 
 
 ---
@@ -27,7 +27,7 @@ Este artigo descreve as diferentes maneiras de marcar uma máquina virtual do Wi
 [!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-powershell"></a>Marcação com o PowerShell
-Para criar, adicionar e excluir marcações pelo PowerShell, primeiramente, você precisa configurar o [ambiente do PowerShell com o Gerenciador de Recursos do Azure][ambiente do PowerShell com o Gerenciador de Recursos do Azure]. Depois de concluir a instalação, você pode colocar marcas em recursos de Computação, Rede e Armazenamento na criação ou depois que o recurso for criado via PowerShell. Este artigo se concentra na exibição/edição de marcas colocadas nas Máquinas Virtuais.
+Para criar, adicionar e excluir marcas pelo PowerShell, primeiramente, você precisa configurar o [ambiente do PowerShell com o Azure Resource Manager][PowerShell environment with Azure Resource Manager]. Depois de concluir a instalação, você pode colocar marcas em recursos de Computação, Rede e Armazenamento na criação ou depois que o recurso for criado via PowerShell. Este artigo se concentra na exibição/edição de marcas colocadas nas Máquinas Virtuais.
 
 Primeiramente, navegue para uma Máquina Virtual usando o cmdlet `Get-AzureRmVM` .
 
@@ -88,23 +88,23 @@ O quinto comando exibe todas as marcas no recurso. Como você pode ver, *Locatio
         Value        MyLocation
         Name        Location
 
-Para saber mais sobre como marcar por meio do PowerShell, confira [Cmdlets de recursos do Azure][Cmdlets de recursos do Azure] (Cmdlets de recursos do Azure).
+Para saber mais sobre marcação usando o PowerShell, confira [Cmdlets de recursos do Azure][Azure Resource Cmdlets].
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre a marcação dos recursos do Azure, confira [Visão geral do Azure Resource Manager][Visão geral do Azure Resource Manager] e [Usando marcas para organizar os recursos do Azure][Usando marcas para organizar os recursos do Azure] (Usando marcas para organizar os Recursos do Azure).
-* Para ver como as marcações podem ajudar a gerenciar o uso de recursos do Azure, confira [Noções básicas de sua fatura do Azure][Noções básicas de sua fatura do Azure] (Noções básicas sobre a Cobrança do Azure) e [Obtenha informações sobre o consumo de recursos do Microsoft Azure][Obtenha informações sobre o consumo de recursos do Microsoft Azure].
+* Para saber mais sobre como marcar seus recursos do Azure, consulte [Visão geral do Azure Resource Manager][Azure Resource Manager Overview] e [Usando marcas para organizar os Recursos do Azure][Using Tags to organize your Azure Resources].
+* Para ver como as marcas podem ajudá-lo a gerenciar seu uso de recursos do Azure, consulte [Noções básicas de sua fatura do Azure][Understanding your Azure Bill] e [Obtenha informações sobre o consumo de recursos do Microsoft Azure][Gain insights into your Microsoft Azure resource consumption].
 
-[ambiente do PowerShell com o Gerenciador de Recursos do Azure]: ../powershell-azure-resource-manager.md
-[Cmdlets de recursos do Azure]: https://msdn.microsoft.com/library/azure/dn757692.aspx
-[Visão geral do Azure Resource Manager]: ../azure-resource-manager/resource-group-overview.md
-[Usando marcas para organizar os recursos do Azure]: ../resource-group-using-tags.md
-[Noções básicas de sua fatura do Azure]: ../billing/billing-understand-your-bill.md
-[Obtenha informações sobre o consumo de recursos do Microsoft Azure]: ../billing-usage-rate-card-overview.md
+[PowerShell environment with Azure Resource Manager]: ../powershell-azure-resource-manager.md
+[Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
+[Azure Resource Manager Overview]: ../azure-resource-manager/resource-group-overview.md
+[Using Tags to organize your Azure Resources]: ../azure-resource-manager/resource-group-using-tags.md
+[Understanding your Azure Bill]: ../billing/billing-understand-your-bill.md
+[Gain insights into your Microsoft Azure resource consumption]: ../billing/billing-usage-rate-card-overview.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

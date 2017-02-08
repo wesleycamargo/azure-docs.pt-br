@@ -13,20 +13,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7cb11ffd583afa75bfd4e76c7f543a81a6ebdcde
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1b1da346a253443c0b5eaf6f8a9a5a399923e760
 
 
 ---
 # <a name="create-a-php-mysql-web-app-in-azure-app-service-and-deploy-using-git"></a>Criar um aplicativo Web PHP-MySQL no Serviço de Aplicativo do Azure e implantá-lo usando o Git
-Este tutorial mostra como criar um aplicativo Web PHP-MySQL e como implantá-lo no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) usando o Git. Você usará o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]) e o [Git][install-git] instalados no computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo Windows, Mac e Linux. Após a conclusão deste guia, você terá um aplicativo Web PHP/MySQL em execução no Azure.
+Este tutorial mostra como criar um aplicativo Web PHP-MySQL e como implantá-lo no [Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) usando o Git. Você usará o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), e [Git][install-git] instalados em seu computador. As instruções deste tutorial podem ser seguidas em qualquer sistema operacional, incluindo Windows, Mac e Linux. Após a conclusão deste guia, você terá um aplicativo Web PHP/MySQL em execução no Azure.
 
 Você aprenderá:
 
-* Como criar um aplicativo Web e um banco de dados MySQL usando o [portal do Azure][management-portal]. Já que o PHP está habilitado nos [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) por padrão, não é necessário nada de especial para executar seu código PHP.
+* Como criar um aplicativo Web e um banco de dados MySQL usando o [Portal do Azure][management-portal]. Já que o PHP está habilitado nos [Aplicativos Web do Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=529714) por padrão, não é necessário nada de especial para executar seu código PHP.
 * Como publicar e publicar novamente o aplicativo no Azure usando o Git.
 * Como habilitar a extensão do Compositor para automatizar tarefas do Compositor em cada `git push`.
 
@@ -35,14 +35,14 @@ Seguindo este tutorial, você compilará um aplicativo Web de registro simples e
 ![Site PHP do Azure][running-app]
 
 ## <a name="set-up-the-development-environment"></a>Configurar o ambiente de desenvolvimento
-Este tutorial pressupõe que você tenha o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]) e o [Git][install-git] instalados no computador.
+O tutorial presume que você usa o [PHP][install-php], a Ferramenta de Linha de Comando do MySQL (parte do [MySQL][install-mysql]), e [Git][install-git] instalados em seu computador.
 
 <a id="create-web-site-and-set-up-git"></a>
 
 ## <a name="create-a-web-app-and-set-up-git-publishing"></a>Criar um aplicativo Web e configurar a publicação Git
 Siga estas etapas para criar um aplicativo Web e um Banco de Dados MySQL:
 
-1. Faça logon no [Portal do Azure][management-portal].
+1. Faça logon no [portal do Azure][management-portal].
 2. Clique no ícone **Novo** .
 3. Clique em **Ver tudo** ao lado de **Marketplace**. 
 4. Clique em **Web + Móvel** e, em seguida, em **Aplicativo Web + MySQL**. Em seguida, clique em **Criar**.
@@ -86,7 +86,7 @@ O aplicativo Registro é um aplicativo simples do PHP que permite que você se r
 
 * **index.php**: exibe um formulário de registro e uma tabela contendo informações sobre o inscrito.
 
-Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas pressupõem que o PHP e a Ferramenta de Linha de Comando do MySQL (parte do MySQL) estão configurados no computador local e que a [extensão PDO para MySQL][pdo-mysql] foi habilitada.
+Para criar e executar o aplicativo localmente, siga as etapas abaixo. Observe que essas etapas pressupõem que o PHP e a ferramenta de linha de comando do MySQL (parte do MySQL) estão configurados no computador local e que a [extensão PDO para MySQL][pdo-mysql] foi habilitada.
 
 1. Conecte-se ao servidor MySQL remoto usando os valores de `Data Source`, `User Id`, `Password` e `Database` que você recuperou anteriormente:
    
@@ -234,7 +234,7 @@ Para publicar alterações em seu aplicativo, siga essas etapas:
     ![Site PHP do Azure][running-app]
 
 > [!NOTE]
-> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](http://go.microsoft.com/fwlink/?LinkId=523751), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
+> Se você deseja começar com o Serviço de Aplicativo do Azure antes de se inscrever em uma conta do Azure, acesse [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), em que você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 > 
 > 
 
@@ -299,6 +299,6 @@ Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/devel
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

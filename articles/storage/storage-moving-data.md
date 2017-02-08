@@ -1,10 +1,10 @@
 ---
-title: Movendo dados para dentro e para fora do Armazenamento do Azure | Microsoft Docs
-description: "Este artigo fornece uma visão geral dos diferentes métodos de mover dados para dentro e para fora do Armazenamento do Azure."
+title: Mover grandes quantidades dados do/para armazenamento em nuvem no Azure | Microsoft Docs
+description: "Uma visão geral dos diferentes métodos para mover dados para dentro e para fora do Armazenamento do Azure."
 services: storage
 documentationcenter: 
-author: micurd
-manager: jahogg
+author: JarrettRenshaw
+manager: msmets
 editor: tysonn
 ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: micurd
+ms.date: 01/30/2017
+ms.author: jarrettr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 26dc2d2269855bcb31bc8f6faf2277ac059b81f5
+ms.sourcegitcommit: 3203358dce9cba95d325ec786e7ba12dd45f5ca1
+ms.openlocfilehash: 8b21bcbea774f7a5107da54081f75db331459b5f
 
 
 ---
@@ -78,6 +78,6 @@ Confira [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

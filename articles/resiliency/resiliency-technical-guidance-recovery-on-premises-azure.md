@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 2890efbfec90ef0e8e205a801c6e9cf6166985f0
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: c3a6df9f91af5227526e06fe7e9ebb3006bd6948
 
 
 ---
@@ -69,7 +69,7 @@ Por fim, você pode fazer o backup de um banco de dados local diretamente para o
 
 ![Fazer backup do SQL Server para o armazenamento de Blobs do Azure em uma arquitetura de nuvem híbrida](./media/resiliency-technical-guidance-recovery-on-premises-azure/SQL_Server_Disaster_Recovery-6.png)
 
-Para obter mais informações, confira [Alta disponibilidade e recuperação de desastre para o SQL Server em máquinas virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [Backup e restauração para o SQL Server em máquinas virtuais do Azure](../virtual-machines/virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para obter mais informações, confira [Alta disponibilidade e recuperação de desastre para o SQL Server em máquinas virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) e [Backup e restauração para o SQL Server em máquinas virtuais do Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md).
 
 ## <a name="checklists-for-on-premises-recovery-in-microsoft-azure"></a>Listas de verificação para recuperação local no Microsoft Azure
 ### <a name="networking"></a>Rede
@@ -99,6 +99,6 @@ Este artigo faz parte de uma série que tem como foco [Orientações técnicas d
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

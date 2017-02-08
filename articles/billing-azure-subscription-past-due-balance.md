@@ -1,5 +1,5 @@
 ---
-title: "Por que você recebeu uma notificação informando que sua assinatura do Azure tem um saldo devido anterior? | Microsoft Docs"
+title: Email de saldo vencido do Azure | Microsoft Docs
 description: Descreve como fazer um pagamento se a sua assinatura do Azure tiver um saldo devido anterior
 services: 
 documentationcenter: 
@@ -13,27 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/24/2017
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7eabdc787322b64dca77022d1f36cc403e3f0a29
+ms.sourcegitcommit: c5a8d378802dfdc0e0a764399f5bb6655e174619
+ms.openlocfilehash: b9f0bdac445c37090bc82218950624b4336c88f0
 
 
 ---
 # <a name="why-have-you-received-a-notification-that-your-azure-subscription-has-a-past-due-balance"></a>Por que você recebeu uma notificação informando que sua assinatura do Azure tem um saldo devido anterior?
-Se você for o Administrador da Conta de sua assinatura do Azure e não tiver feito o pagamento no prazo, receberá uma notificação por email sobre seu saldo devido anterior ou verá um alerta em [https://account.windowsazure.com](https://account.windowsazure.com) ou [https://portal.azure.com](https://portal.azure.com).
-
-> [!NOTE]
-> Se você precisar de mais ajuda a qualquer momento neste artigo, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-> 
-> 
+Se você for o Administrador da Conta de sua assinatura do Azure e não tiver feito o pagamento no prazo, receberá uma notificação por email sobre seu saldo devido anterior ou verá um alerta no [Centro de Contas do Azure](https://account.windowsazure.com) ou no [portal do Azure](https://portal.azure.com).
 
 Se não for possível processar o pagamento por algum motivo, você pode receber um email com uma mensagem semelhante a:
 
 **Não foi possível usar o cartão de crédito para pagar sua assinatura. Para evitar interrupções de serviço, atualize suas informações de pagamento.**
 
-Verifique se que você está recebendo emails de notificação. Se você não estiver recebendo emails de notificação, talvez esteja usando endereços de e-mail diferentes para logon e a Conta de Administrador. O endereço de email no perfil do administrador da conta é usado pela Microsoft para notificá-lo das atualizações importantes relacionadas à cobrança sobre a assinatura. É recomendável que você especifique um endereço de email de contato que verifica regularmente.
+Verifique se que você está recebendo emails de notificação. Se você não estiver recebendo emails de notificação, talvez esteja usando endereços de e-mail diferentes para logon e a Conta do Administrador. O endereço de email no perfil do administrador da conta é usado pela Microsoft para notificá-lo das atualizações importantes relacionadas à cobrança sobre a assinatura. É recomendável que você especifique um endereço de email de contato que verifica regularmente.
 
 ## <a name="what-will-happen-if-you-forget-to-pay"></a>O que acontecerá se você esquecer de fazer o pagamento
 O serviço será cancelado e os recursos não estarão mais disponíveis. Todos os dados serão excluídos 90 dias após o encerramento do serviço.
@@ -51,15 +46,13 @@ Para obter instruções sobre como alterar a forma de pagamento no Azure, veja [
 
 > [!NOTE]
 > Se sua assinatura do Azure for desabilitada, você poderá usar as etapas neste artigo para reabilitá-la: [O que fazer se minha assinatura do Azure for desabilitada?](billing-subscription-become-disable.md)
-> 
-> [!NOTE]
-> Se ainda tiver dúvidas, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-> 
-> 
+>
+
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
+Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

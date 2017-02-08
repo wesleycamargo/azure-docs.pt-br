@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d60ca38364d7ea7991af18e39407f42a8c9abb84
+ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
+ms.openlocfilehash: 4970db1f7b780ed0048f4c1839fff33bed640278
 
 
 ---
@@ -114,7 +114,7 @@ O modelo anterior de Aplicativos de API apresentava APIs para a descoberta de ou
 4. No momento da implantação, preencha as configurações do aplicativo de todos os aplicativos de API (e clientes) com os pontos de extremidade dos outros aplicativos de API. Isso é viável em implantações de modelo e nos Aplicativos de API, já que agora oferecem controle da URL.
 
 ## <a name="using-api-apps-with-logic-apps"></a>Usando aplicativos de API com aplicativos lógicos
-O novo modelo de aplicativos de API funciona bem com [a versão de esquema 2015-08-01 dos Aplicativos Lógicos](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+O novo modelo de aplicativos de API funciona bem com [a versão de esquema 2015-08-01 dos Aplicativos Lógicos](../logic-apps/logic-apps-schema-2015-08-01.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais, leia os artigos na seção [Documentação de Aplicativos de API](https://azure.microsoft.com/documentation/services/app-service/api/). Eles foram atualizados para refletir o novo modelo para Aplicativos de API. Além disso, acesse os fóruns para obter detalhes adicionais ou orientação sobre migração:
@@ -125,6 +125,6 @@ Para saber mais, leia os artigos na seção [Documentação de Aplicativos de AP
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

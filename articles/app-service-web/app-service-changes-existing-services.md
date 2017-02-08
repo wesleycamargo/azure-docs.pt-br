@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
-ms.author: yochayk
+ms.author: yochaykk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 295ee5a3c067010059a0435a8867eb8f4137ccbb
+ms.sourcegitcommit: 75d42f41e6218d83cda00f2ef8926d6ca1f0aacd
+ms.openlocfilehash: 8f458884d0ea649dffa5f92fd459bbaaa9f5e4cf
 
 
 ---
@@ -76,7 +76,7 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 <td align="left"></td>
 <td align="left">Aplicativos Lógicos</td>
 <td align="left">
-<p><li>Os Aplicativos Lógicos são um novo tipo de aplicativo do Serviço de Aplicativo que permite automatizar facilmente o processo corporativo.</p>
+<p><li>Os Aplicativos Lógicos são um novo tipo de aplicativo do Serviço de Aplicativo que permite automatizar facilmente os processos corporativos.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/logic/">Saiba mais sobre os Aplicativos Lógicos</a>.</p></td>
 </tr>
 <tr class="odd">
@@ -84,8 +84,8 @@ A tabela a seguir explica como os serviços existentes do Azure são mapeados pa
 <td align="left">Aplicativos de API do BizTalk</td>
 <td align="left">
 <li><p>Os Serviços BizTalk continuam disponíveis como um serviço autônomo e permanecem com suporte completo.</p>
-<li><p>Todos os recursos dos Serviços BizTalk são integrados ao Serviço de Aplicativo como Aplicativos de API, habilitando os usuários a realizar cenários de integração de aplicativos empresariais e integração B2B com qualquer um dos tipos de aplicativos no Serviço de Aplicativo</p>
-<li><p>Com os Aplicativos Lógicos, agora é possível automatizar processos corporativos usando uma experiência de design visual para criar fluxos de trabalho</p></td>
+<li><p>Todos os recursos dos Serviços BizTalk são integrados ao Serviço de Aplicativo como Aplicativos de API, permitindo aos usuários realizar cenários de integração de aplicativos empresariais e integração B2B com qualquer um dos tipos de aplicativos no Serviço de Aplicativo.</p>
+<li><p>Com os Aplicativos Lógicos, agora é possível automatizar processos corporativos usando uma experiência de design visual para criar fluxos de trabalho.</p></td>
 </tr>
 </tbody>
 </table>
@@ -95,6 +95,6 @@ Para saber mais, acesse a documentação do [Serviço de Aplicativo](https://azu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

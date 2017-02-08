@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: e94ed55941521cf7b8b2dac77cf54835ca8f2829
+ms.sourcegitcommit: e3e4ad430d8941a09543ce2dc97f8e449a39bced
+ms.openlocfilehash: cd29c24c7c1a1bf3bc03543ffd7f0e9e33537edf
 
 
 ---
@@ -120,8 +120,8 @@ Ao instalar o pip, um erro de permissão será lançado quando houver pacotes he
 ## <a name="azure-iot-hub-issues"></a>Problemas do Hub IoT do Azure
 Se você tiver provisionado com êxito o Hub IoT do Azure com a CLI do Azure e precisar de uma ferramenta para gerenciar os dispositivos conectados ao seu Hub IoT, tente as seguintes ferramentas.
 
-### <a name="device-explorer"></a>Gerenciador de Dispositivos
-O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md) é executado no computador local do Windows e se conecta ao seu hub IoT no Azure. Ele se comunica com os seguintes [pontos de extremidade de Hub IoT](iot-hub-devguide.md):
+### <a name="device-explorer"></a>Gerenciador de dispositivos
+O [Gerenciador de dispositivos](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) é executado no computador local do Windows e se conecta ao seu hub IoT no Azure. Ele se comunica com os seguintes [pontos de extremidade de Hub IoT](iot-hub-devguide.md):
 
 * *Gerenciamento de identidade do dispositivo* para provisionar e gerenciar dispositivos registrados com seu hub IoT.
 * *Receber do dispositivo para nuvem* para que você possa monitorar as mensagens enviadas de seu dispositivo ao seu Hub IoT.
@@ -130,11 +130,11 @@ O [Gerenciador de Dispositivos](https://github.com/Azure/azure-iot-sdks/blob/mas
 Configure a cadeia de conexão do Hub IoT dentro desta ferramenta para usar todos os seus recursos.
 
 ### <a name="iothub-explorer"></a>iothub-explorer
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) é uma ferramenta de CLI de várias plataformas de exemplo para gerenciar clientes de dispositivo. Use a ferramenta para gerenciar os dispositivos no registro de identidade, monitorar mensagens de dispositivo para a nuvem e enviar comandos de nuvem para o dispositivo.
+[iothub-explorer](https://github.com/Azure/iothub-explorer) é uma ferramenta de CLI de várias plataformas de exemplo para gerenciar dispositivos. Use a ferramenta para gerenciar os dispositivos no Registro de identidade, monitorar mensagens de dispositivo para a nuvem e enviar mensagens de nuvem para o dispositivo.
 
 Para instalar a versão mais recente (pré-lançamento) da ferramenta Gerenciador do iothub, execute o comando a seguir em seu ambiente de linha de comando:
 
-```
+```bash
 npm install -g iothub-explorer@latest
 ```
 
@@ -153,6 +153,6 @@ Uma experiência completa de CLI ajuda você a criar e gerenciar todos os recurs
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

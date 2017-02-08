@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 16071ba6c99e41af9fe7614fcc3254cd7e786e89
-ms.openlocfilehash: 497f54903bef564bab687103a763c7a7b58da074
+ms.sourcegitcommit: 9919cd4735f1f915ba77d41d8b9e92b3411fef3f
+ms.openlocfilehash: 38d9eca04780493d03bb5ceb79e5b59fab0a93d2
 
 
 ---
@@ -31,7 +31,7 @@ A retransmissão do Conexões Híbridas conecta duas partes, fornecendo um ponto
 Há um ouvinte que primeiro indica a prontidão para lidar com conexões de entrada e, subsequentemente, aceita-as assim que chegam. Do outro lado, há um cliente conectado que se conecta ao ouvinte, esperando que essa conexão seja aceita para estabelecer um caminho de comunicação bidirecional.
 "Conectar", "Ouvir" e "Aceitar" são os mesmos termos que você encontrará na maioria das APIs de soquete.
 
-Qualquer modelo de comunicação retransmitida faz com que uma das partes realize conexões de saída em direção a um ponto de extremidade de serviço, o que torna o "ouvinte" também um "cliente" em uso coloquial e também pode causar outras sobrecargas de terminologia; assim, a terminologia precisa que usamos para as conexões híbridas é da seguinte maneira:
+Qualquer modelo de comunicação retransmitida faz com que uma das partes realize conexões de saída do Guia do Protocolo de Conexões do Azure Relay Hybrid em direção a um ponto de extremidade de serviço, o que torna o "ouvinte" também um "cliente" em uso coloquial e também pode causar outras sobrecargas de terminologia; assim, a terminologia precisa que usamos para as Conexões Híbridas é da seguinte maneira:
 
 Os programas em ambos os lados de uma conexão são chamados de "cliente", pois são clientes para o serviço. O cliente que aguarda e aceita conexões é o "ouvinte", ou diz-se que faz a "função de ouvinte". O cliente que inicia uma nova conexão em direção a um ouvinte por meio do serviço é chamado de "remetente" ou faz a "função de remetente".
 
@@ -231,7 +231,7 @@ As opções de parâmetro de cadeia de consulta são conforme demonstrado a segu
 
 | Param | Obrigatório? | Descrição |
 | --- | --- | --- |
-| sb-hc-action |Sim |Para a função de ouvinte, o parâmetro deve ser `action=connect`. |
+| sb-hc-action |Sim |Para a função de remetente, o parâmetro deve ser `action=connect`. |
 | {caminho} |Sim |(confira no parágrafo a seguir) |
 | sb-hc-token |Sim\* |O ouvinte deve fornecer um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida que confere o direito **Send**. |
 | sb-hc-id |Não |Uma ID opcional que possibilita o rastreamento de diagnóstico de ponta a ponta e é disponibilizada para o ouvinte durante o handshake de aceitação. |
@@ -271,6 +271,6 @@ Se a conexão de soquete da Web for desligada intencionalmente pelo serviço dep
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

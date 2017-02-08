@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: df9897894a2a2a09735b0947fd335959e81a46cd
+ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
+ms.openlocfilehash: 4dd8331ed2fd30d61b4a653f04cae9049385ce3c
 
 
 ---
@@ -32,7 +32,7 @@ Um Hub de Eventos é criado no nível de namespace do Hubs de Eventos, semelhant
 ![Hubs de Eventos](./media/event-hubs-overview/ehoverview2.png)
 
 ## <a name="conceptual-overview"></a>Visão geral conceitual
-O Hub de Evento fornece um fluxo de mensagens por meio de um padrão de consumidor particionado. As filas e tópicos usam um modelo [Consumidor concorrente](https://msdn.microsoft.com/library/dn568101.aspx) no qual cada consumidor tenta ler a partir da mesma fila ou recurso. Essa competição por recursos acaba resultando em complexidade e limites de escala para aplicativos de processamento de fluxo. O Hub de Evento usa um padrão de consumidor particionado no qual cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens. Esse padrão permite a escala horizontal para processamento de eventos e fornece outros recursos centrados no fluxo que não estão disponíveis em filas e tópicos.
+O Hub de Evento fornece um fluxo de mensagens por meio de um padrão de consumidor particionado. As filas e tópicos usam um modelo [*consumidor concorrente*](https://msdn.microsoft.com/library/dn568101.aspx) no qual cada consumidor tenta ler da mesma fila ou recurso. Essa competição por recursos acaba resultando em complexidade e limites de escala para aplicativos de processamento de fluxo. O Hub de Evento usa um padrão de consumidor particionado no qual cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens. Esse padrão permite a escala horizontal para processamento de eventos e fornece outros recursos centrados no fluxo que não estão disponíveis em filas e tópicos.
 
 ### <a name="partitions"></a>Partições
 Uma partição é uma sequência ordenada de eventos que é mantida em um Hub de Eventos. À medida que novos eventos chegam, eles são adicionados ao final dessa sequência. Uma partição pode ser pensada como "log de confirmação".
@@ -58,10 +58,10 @@ Para saber mais sobre como trabalhar com SAS, confira [Autenticação de assinat
 Esta seção descreve as tarefas comuns para editores de eventos.
 
 #### <a name="acquire-a-sas-token"></a>Adquirir um token SAS
-O SAS (Assinatura de Acesso Compartilhado) é o mecanismo de autenticação para Hubs de Evento. O Barramento de Serviço fornece políticas de SAS no namespace e no nível do Hub de Eventos. Um token SAS é gerado a partir de uma chave de SAS e é um hash SHA de uma URL, codificado em um formato específico. Usando o nome da chave (política) e o token, o Barramento de Serviço pode regenerar o hash e, portanto, autenticar o remetente. Normalmente, os tokens SAS para editores de eventos são criados apenas com privilégios de **enviar** em um Hub de Eventos específico. Esse mecanismo de URL de token SAS é a base para a identificação de editor abordada na política do editor. Para saber mais sobre como trabalhar com SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de Serviço](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
+Uma SAS (Assinatura de Acesso Compartilhado) é o mecanismo de autenticação para Hubs de Evento. O Barramento de Serviço fornece políticas de SAS no namespace e no nível do Hub de Eventos. Um token SAS é gerado a partir de uma chave de SAS e é um hash SHA de uma URL, codificado em um formato específico. Usando o nome da chave (política) e o token, o Barramento de Serviço pode regenerar o hash e, portanto, autenticar o remetente. Normalmente, os tokens SAS para editores de eventos são criados apenas com privilégios de **enviar** em um Hub de Eventos específico. Esse mecanismo de URL de token SAS é a base para a identificação de editor abordada na política do editor. Para saber mais sobre como trabalhar com SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de Serviço](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
 
 #### <a name="publishing-an-event"></a>Publicar um evento
-Você pode publicar um evento por meio do AMQP 1.0 ou HTTPS. O Barramento de Serviço fornece uma classe [EventHubClient](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.aspx) de publicação de eventos para um Hub de Eventos de clientes .NET. Para outras plataformas e tempos de execução, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](http://qpid.apache.org/). Você pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados do evento) tem um limite de 256 KB, independentemente de ser um único evento ou um lote. Eventos de publicação maiores que isso resultam em um erro. Uma prática recomendada para editores é não conhecer as partições no Hub de Eventos e especificar apenas uma *chave de partição* (abordada na próxima seção), ou sua identidade por meio de seu token SAS.
+Você pode publicar um evento por meio do AMQP 1.0 ou HTTPS. O Barramento de Serviço fornece uma classe [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient?redirectedfrom=MSDN#microsoft_servicebus_messaging_eventhubclient) de publicação de eventos para um Hub de Eventos de clientes .NET. Para outras plataformas e tempos de execução, você pode usar qualquer cliente AMQP 1.0, como o [Apache Qpid](http://qpid.apache.org/). Você pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados do evento) tem um limite de 256 KB, independentemente de ser um único evento ou um lote. Eventos de publicação maiores que isso resultam em um erro. Uma prática recomendada para editores é não conhecer as partições no Hub de Eventos e especificar apenas uma *chave de partição* (abordada na próxima seção), ou sua identidade por meio de seu token SAS.
 
 A opção de usar AMQP ou HTTPS é específica para o cenário de uso. O AMQP requer o estabelecimento de um soquete bidirecional persistente, além do TLS (segurança de nível de transporte) ou SSL/TLS. Essa pode ser uma operação cara em termos de tráfego de rede, mas só acontece no início de uma sessão de AMQP. O HTTPS tem uma sobrecarga inicial menor, mas exige mais sobrecarga de SSL para cada solicitação. Para editores que publicam eventos frequentemente, o AMQP oferece descontos significativos de taxa de transferência, desempenho e latência.
 
@@ -80,8 +80,10 @@ O mecanismo de publicação/assinatura dos Hubs de Evento é habilitado por meio
 
 Veja estes exemplos de convenção de URI de grupo de consumidores:
 
-    //<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
-    //<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
+```
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
+```
 
 A imagem a seguir mostra os consumidores de evento dentro de grupos de consumidores.
 
@@ -119,7 +121,7 @@ A capacidade de transferência dos Hubs de Eventos é controlada pelas unidades 
 * Entrada: até 1 MB por segundo ou mil eventos por segundo.
 * Saída: até 2 MB por segundo.
 
-A entrada está limitada à quantidade de capacidade fornecida pelo número adquirido de unidades de transferência. O envio de dados acima essa quantidade resulta em uma exceção "cota excedida". Esse valor é 1 MB por segundo ou 1.000 eventos por segundo, o que ocorrer primeiro. A saída não gera exceções de limitação, mas está limitada à quantidade de transferência de dados fornecida pelas unidades adquiridas de transferência: 2 MB por segundo por unidade de transferência. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace no qual o Hub de Eventos foi criado. Para obter mais unidades de produtividade, você pode ajustar a configuração na página **Namespaces** na guia **Escala** no [portal clássico do Azure][portal clássico do Azure]. Você também pode alterar essa configuração usando as APIs do Azure.
+A entrada está limitada à quantidade de capacidade fornecida pelo número adquirido de unidades de transferência. O envio de dados acima essa quantidade resulta em uma exceção "cota excedida". Esse valor é 1 MB por segundo ou 1.000 eventos por segundo, o que ocorrer primeiro. A saída não gera exceções de limitação, mas está limitada à quantidade de transferência de dados fornecida pelas unidades adquiridas de transferência: 2 MB por segundo por unidade de transferência. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace no qual o Hub de Eventos foi criado. Para obter mais unidades de produtividade, você pode ajustar a configuração na página **Namespaces** na guia **Escala** no [Portal Clássico do Azure][Azure classic portal]. Você também pode alterar essa configuração usando as APIs do Azure.
 
 Enquanto as partições são um conceito de organização de dados, as unidades de transferência são puramente um conceito de capacidade. As unidades de taxa de transferência são cobradas por hora e são pré-adquiridas. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. É possível adquirir até 20 unidades de transferência para um namespace dos Hubs de Eventos, e há um limite de conta do Azure de 20 unidades de produtividade. Essas unidades de transferência são compartilhadas em todos os Hubs de Evento em um namespace específico.
 
@@ -127,30 +129,32 @@ As unidades de taxa de transferência são provisionadas da melhor maneira poss�
 
 É recomendável balancear criteriosamente partições e unidades de transferência para obter uma escala ideal com Hubs de Eventos. Uma única partição tem uma escala máxima de uma unidade de transferência. O número de unidades de transferência deve ser menor ou igual ao número de partições em um Hub de Eventos.
 
-Para obter informações sobre preços, consulte [Preços de Hubs de Evento](https://azure.microsoft.com/pricing/details/event-hubs/).
+Para obter informações sobre preços, veja a página [Preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="publisher-policy"></a>Política de editor
 Os Hubs de Eventos permitem um controle granular sobre os editores de eventos por meio de *políticas do editor*. As políticas do editor são um conjunto de recursos de tempo de execução criado para facilitar um grande número de editores de eventos independentes. Com as políticas do editor, cada editor usa seu próprio identificador exclusivo ao publicar eventos em um Hub de Eventos usando o mecanismo a seguir:
 
-    //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
+```
+//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
+```
 
 Você não precisa criar nomes de editor com antecedência, mas eles devem coincidir com o token SAS usado ao publicar um evento, para garantir identidades de editores independentes. Para saber mais sobre SAS, confira [Autenticação de assinatura de acesso compartilhado com o Barramento de serviço](../service-bus-messaging/service-bus-shared-access-signature-authentication.md). Ao usar políticas de editor, o valor **PartitionKey** é definido como o nome do editor. Para funcionar adequadamente, esses valores devem corresponder.
 
 ## <a name="summary"></a>Resumo
-Os Hubs de Eventos do Azure fornecem um evento de hiperescala e um serviço de processamento de telemetria que pode ser usado para monitoramento de fluxo de trabalho do usuário e aplicativos comuns em qualquer escala. Com a capacidade de fornecer recursos de publicação/assinatura com baixa latência e em grande escala, os Hubs de Eventos servem como uma "subida" para Big Data. Com a identidade baseada no editor e listas de revogação, esses recursos são estendidos para cenários comuns de Internet das Coisas. Para obter mais informações sobre como desenvolver aplicativos de Hubs de Eventos, confira o [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md).
+Os Hubs de Eventos do Azure fornecem um evento de hiperescala e um serviço de processamento de telemetria que pode ser usado para monitoramento de fluxo de trabalho do usuário e aplicativos comuns em qualquer escala. Com a capacidade de fornecer recursos de publicação/assinatura com baixa latência e em grande escala, os Hubs de Eventos servem como uma "subida" para Big Data. Com a identidade com base no editor e listas de revogação, esses recursos são estendidos para cenários comuns de [Internet das Coisas](https://docs.microsoft.com/azure/#pivot=services&panel=iot). Para obter mais informações sobre como desenvolver aplicativos de Hubs de Eventos, confira o [Guia de programação dos Hubs de Eventos](event-hubs-programming-guide.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que já aprendeu sobre conceitos de Hubs de Evento, você pode passar para os seguintes cenários:
+Agora que já aprendeu conceitos de Hubs de Eventos, você pode passar para os seguintes cenários:
 
 * Introdução com um [Tutorial de Hubs de Evento].
 * Um [aplicativo de exemplo completo que usa os Hubs de Evento].
 
-[Portal Clássico do Azure]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [Tutorial de Hubs de Evento]: event-hubs-csharp-ephcs-getstarted.md
 [aplicativo de exemplo completo que usa os Hubs de Evento]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

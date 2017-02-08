@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
-ms.openlocfilehash: f6403718f106b5021ea5b41e0e91a11bd92d4830
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1136b0e378cec14a9c899b61ec1dd21ff6720ba5
 
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Como gerenciar as zonas DNS usando o PowerShell
@@ -24,7 +24,7 @@ ms.openlocfilehash: f6403718f106b5021ea5b41e0e91a11bd92d4830
 > * [CLI do Azure](dns-operations-dnszones-cli.md)
 > * [PowerShell](dns-operations-dnszones.md)
 
-Este artigo mostrará como gerenciar sua zona DNS usando o PowerShell. Para usar essas etapas, você precisará instalar a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager (1.0 ou posterior). Consulte [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell.
+Este artigo mostrará como gerenciar sua zona DNS usando o PowerShell. Para usar essas etapas, você precisará instalar a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager (1.0 ou posterior). Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell.
 
 ## <a name="create-a-new-dns-zone"></a>Criar uma nova zona DNS
 
@@ -108,6 +108,6 @@ Após criar uma zona DNS, crie [conjuntos de registros e registros](dns-getstart
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

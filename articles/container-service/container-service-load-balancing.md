@@ -1,28 +1,28 @@
 ---
-title: "Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure | Microsoft Docs"
-description: "Balancear a carga entre vários contêineres em um cluster do Serviço de Contêiner do Azure."
+title: "Balancear a carga de contêineres em um cluster do Azure DC/OS | Microsoft Docs"
+description: "Balancear a carga entre vários contêineres em um cluster do Serviço de Contêiner do Azure DC/OS."
 services: container-service
 documentationcenter: 
 author: rgardler
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: "Contêineres, microsserviços, DC/OS, Azure"
+keywords: "Contêineres, Microsserviços, DC/OS, Azure"
 ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+ms.sourcegitcommit: 0aa9b3ae14f586fc79e6ebee898e794d526c19bd
+ms.openlocfilehash: 27ad7100f6203db3ba3dcc88ffdc191b9b9d45cb
 
 
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure
+# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure DC/OS
 Neste artigo, vamos explorar como criar um balanceador de carga interno em um Serviço de Contêiner do Azure gerenciado por DC/OS usando o Marathon-LB. Isso permitirá que você dimensione horizontalmente seus aplicativos. Também ajudará você a tirar proveito dos clusters de agentes públicos e privados, colocando seus balanceadores de carga no cluster público e seus contêineres de aplicativo no cluster privado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -39,14 +39,14 @@ O Balanceador de Carga do Marathon reconfigura dinamicamente baseado nos contêi
 
 Para instalar o Balanceador de Carga do Marathon, você pode usar a IU da Web do DC/SO ou a linha de comando.
 
-### <a name="install-marathonlb-using-dcos-web-ui"></a>Instalar o Marathon-LB usando a IU da Web do DC/SO
+### <a name="install-marathon-lb-using-dcos-web-ui"></a>Instalar o Marathon-LB usando a IU da Web do DC/SO
 1. Clicar em 'Universo'
 2. Pesquisar 'Marathon-LB'
 3. Clicar em ‘Instalar’
 
 ![Instalando o marathon-lb por meio da Interface da Web do DC/SO](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathonlb-using-the-dcos-cli"></a>Instalar o Marathon-LB usando a CLI do DC/SO
+### <a name="install-marathon-lb-using-the-dcos-cli"></a>Instalar o Marathon-LB usando a CLI do DC/SO
 Depois de instalar a CLI do DC/SO e assegurar que você pode conectar o cluster, execute o seguinte comando a partir do computador cliente:
 
 ```bash
@@ -136,6 +136,6 @@ Veja a documentação do DC/SO para saber mais sobre o [marathon-lb](https://dco
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Soluções de recuperação de desastre na nuvem - Replicação geográfica ativa do Banco de Dados SQL | Microsoft Docs"
-description: "Aprenda a criar soluções de recuperação de desastre em nuvem para planejamento de continuidade de negócios usando a replicação geográfica para backup de dados de aplicativo com o banco de dados SQL."
+title: "Design de aplicativo de recuperação de desastres - Banco de Dados SQL Azure | Microsoft Docs"
+description: "Saiba mais sobre o design de aplicativo para recuperação de desastre usando replicação geográfica no Banco de Dados SQL."
 keywords: "recuperação de desastre em nuvem, soluções de recuperação de desastre, backup de dados de aplicativo, replicação geográfica, planejamento de continuidade de negócios"
 services: sql-database
 documentationcenter: 
@@ -17,12 +17,12 @@ ms.workload: data-management
 ms.date: 07/20/2016
 ms.author: sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 5afcde0df03cb953eb8387cc8beea8851f36c516
+ms.sourcegitcommit: 7e607debe47efb6a22ca6fa47a40554d13d29359
+ms.openlocfilehash: dd56a8d1ee428b1845ed80f0b899cc73c2c4b7f6
 
 
 ---
-# <a name="design-an-application-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>Criar um aplicativo para recuperação de desastre na nuvem usando a Replicação geográfica ativa no Banco de Dados SQL
+# <a name="application-design-for-cloud-disaster-recovery-using-active-geo-replication-in-sql-database"></a>Design de aplicativo para recuperação de desastre na nuvem usando a Replicação Geográfica Ativa no Banco de Dados SQL
 > [!NOTE]
 > A [Replicação Geográfica Ativa](sql-database-geo-replication-overview.md) agora está disponível para todos os bancos de dados em todas as camadas.
 >
@@ -187,6 +187,6 @@ A estratégia específica de recuperação de desastre em nuvem pode combinar ou
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

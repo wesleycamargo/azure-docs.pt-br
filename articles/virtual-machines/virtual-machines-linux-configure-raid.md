@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 2d8caf829d59262ab4802745e61fe6745376001a
+ms.sourcegitcommit: e64f972759173965d389b694ada23720d1182bb8
+ms.openlocfilehash: 92a6c849f5b28581fcac3713e9756dc06d7a251b
 
 
 ---
@@ -210,8 +210,37 @@ Neste exemplo, criamos uma única partição de disco em /dev/sdc. A nova parti�
     Consulte a documentação da distribuição sobre como editar parâmetros de kernel corretamente. Por exemplo, em muitas distribuições (CentOS, Oracle Linux e SLES 11) esses parâmetros podem ser adicionados manualmente ao arquivo “`/boot/grub/menu.lst`”.  No Ubuntu, esse parâmetro pode ser adicionado à variável `GRUB_CMDLINE_LINUX_DEFAULT` em “/etc/default/grub”.
 
 
+## <a name="trimunmap-support"></a>Suporte a TRIM/UNMAP
+Alguns kernels Linux permitem operações TRIM/UNMAP para descartar os blocos não utilizados no disco. Essas operações são úteis principalmente no Armazenamento Standard, para informar o Azure de que as páginas excluídas não são mais válidas e podem ser descartadas. Descartar páginas poderá representar uma economia de dinheiro se você criar arquivos grandes e, em seguida, excluí-los.
+
+> [!NOTE]
+> O RAID não poderá emitir comandos de descarte se o tamanho da parte da matriz for definido como menor que o padrão (512 KB). Isso ocorre porque a granularidade de desmapeamento no Host também é 512KB. Se você modificou o tamanho da parte da matriz por meio do parâmetro `--chunk=` de mdadm, então, as solicitações TRIM/desmapear podem ser ignorados pelo kernel.
+
+Há duas maneiras de habilitar o suporte a TRIM em sua VM do Linux. Como de costume, consulte sua distribuição para obter a abordagem recomendada:
+
+- Use a opção de montagem `discard` em `/etc/fstab`, por exemplo:
+
+    ```bash
+    UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
+    ```
+
+- Em alguns casos a opção `discard` pode afetar o desempenho. Como alternativa, você pode executar o comando `fstrim` manualmente na linha de comando ou adicioná-lo a crontab para ser executado normalmente:
+
+    **Ubuntu**
+
+    ```bash
+    # sudo apt-get install util-linux
+    # sudo fstrim /data
+    ```
+
+    **RHEL/CentOS**
+    ```bash
+    # sudo yum install util-linux
+    # sudo fstrim /data
+    ```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO1-->
 
 

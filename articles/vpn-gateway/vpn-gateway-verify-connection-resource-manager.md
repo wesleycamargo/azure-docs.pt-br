@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 420b193d558d00f574d24c87ab9db6e9e757a952
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: d1b6d12b1976b317e9ed496857439c86e99253f9
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 420b193d558d00f574d24c87ab9db6e9e757a952
 Você pode verificar a conexão de gateway de várias maneiras diferentes. Este artigo mostra como verificar o status de uma conexão de gateway do Resource Manager usando o portal do Azure e usando o PowerShell.
 
 ## <a name="verify-using-powershell"></a>Verificar usando o PowerShell
-Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Gerenciador de Recursos do Azure. Confira [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) para saber mais sobre como instalar os cmdlets do PowerShell. Para saber mais sobre como usar cmdlets do Resource Manager, confira [Usando o Windows PowerShell com o Resource Manager](../powershell-azure-resource-manager.md).
+Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Gerenciador de Recursos do Azure. Confira [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) para saber mais sobre como instalar os cmdlets do PowerShell. Para saber mais sobre como usar cmdlets do Resource Manager, confira [Usando o Windows PowerShell com o Resource Manager](../powershell-azure-resource-manager.md).
 
 ### <a name="step-1-log-in-to-your-azure-account"></a>Etapa 1: fazer logon em sua conta do Azure
 1. Abra o console do PowerShell com privilégios elevados e conecte-se à sua conta.
@@ -50,6 +50,6 @@ Você precisará instalar a versão mais recente dos cmdlets do PowerShell do Ge
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2d31f2643ac39fb6227b57d2b064058af1dbe20d
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: 20f3a8b006e45e3a94e95b516bca292a82c5fd03
 
 
 ---
@@ -139,46 +139,47 @@ Nesta seção, você habilitará o logon único do Azure AD no portal clássico 
     ![Configurar Logon Único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_12.png)
 6. Para configurar o SSO no aplicativo, siga estas etapas:
    
-   a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
+    a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
    
-   b. Clique no botão Administração no painel de navegação superior.
+    b. Clique no botão Administração no painel de navegação superior.
    
-   ![Configurar Logon Único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_06.png) 
    
-   c. Navegue até o menu Integração e clique em Logon Único
+    c. Navegue até o menu Integração e clique em Logon Único
    
-   ![Configurar Logon Único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_07.png) 
    
-   d. Para habilitar as configurações de SAML, clique no botão Editar
+    d. Para habilitar as configurações de SAML, clique no botão Editar
    
-   ![Configurar Logon Único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
+    ![Configurar Logon Único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_08.png) 
    
-   e. **Habilitar** configurações de logon único
+    e. **Habilitar** configurações de logon único
    
-   f. Insira a ID do emissor, que você copiou do assistente de configuração do Azure AD.
+    f. Insira a ID do emissor, que você copiou do assistente de configuração do Azure AD.
    
-   g. Na caixa de texto ID da Entidade, insira a URL como **http://saml.marketo.com/sp**
+    g. Na caixa de texto ID da Entidade, insira a URL como **http://saml.marketo.com/sp**
    
-   h. Selecione o local da ID de usuário como **elemento do Identificador de Nome**
+    h. Selecione o local da ID de usuário como **elemento do Identificador de Nome**
    
-   ![Configurar Logon Único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
+    ![Configurar Logon Único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_09.png)
    
-   > [!NOTE]
-   > Se o identificador de usuário não for um valor de UPN, altere o valor na guia Atributo.
-   > 
-   > 
+    > [!NOTE]
+    > Se o identificador de usuário não for um valor de UPN, altere o valor na guia Atributo.
+    > 
+    > 
    
-   i. Carregue o certificado que você baixou do assistente de configuração do Azure AD. Salve as configurações.
+    i. Carregue o certificado que você baixou do assistente de configuração do Azure AD. Salve as configurações.
    
-   j. Editar as configurações de redirecionamento de páginas
+    j. Editar as configurações de redirecionamento de páginas
    
-   k. Copie a URL de logon do assistente de configuração do Azure AD na caixa de texto **URL de logon** .
+    k. Copie a URL de logon do assistente de configuração do Azure AD na caixa de texto **URL de logon** .
    
-   l. Copie a URL de Logout do assistente de configuração do Azure AD na caixa de texto **URL de Logout** .
+    l. Copie a URL de Logout do assistente de configuração do Azure AD na caixa de texto **URL de Logout** .
    
-   m. Na URL de erro, copie a URL da instância do Marketo e clique no botão Salvar para salvar as configurações.
+    m. Na URL de erro, copie a URL da instância do Marketo e clique no botão Salvar para salvar as configurações.
    
-   ![Configurar Logon Único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
+    ![Configurar Logon Único](./media/active-directory-saas-marketo-tutorial/tutorial_marketo_10.png)
+
 7. Para habilitar o SSO para usuários, conclua as seguintes ações:
    
     a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
@@ -225,17 +226,18 @@ Nesta seção, você criará uma usuária de teste no portal clássico chamada B
     b. Na **caixa de texto** Nome do Usuário, digite **BrendaFernandes**.
    
     c. Clique em **Próximo**.
-6. Na caixa de diálogo **perfil de usuário**, realize as etapas a seguir: ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-marketo-tutorial/create_aaduser_06.png) 
+6. Na caixa de diálogo **perfil de usuário**, realize as etapas a seguir:  ![criação de um usuário de teste do AD do Azure](./media/active-directory-saas-marketo-tutorial/create_aaduser_06.png) 
    
-   a. Na caixa de texto **Nome**, digite **Brenda**.  
+    a. Na caixa de texto **Nome**, digite **Brenda**.  
    
-   b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
+    b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
    
-   c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
+    c. Na caixa de texto **Nome de Exibição**, digite **Brenda Fernandes**.
    
-   d. Na lista **Função**, selecione **Usuário**.
+    d. Na lista **Função**, selecione **Usuário**.
    
-   e. Clique em **Próximo**.
+    e. Clique em **Próximo**.
+
 7. Na página de diálogo **Obter senha temporária**, clique em **criar**.
    
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-marketo-tutorial/create_aaduser_07.png) 
@@ -329,6 +331,6 @@ Quando você clica no bloco Marketo no Painel de Acesso, deve fazer logon automa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

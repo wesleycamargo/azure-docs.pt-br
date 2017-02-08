@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
 
 
 ---
@@ -38,7 +38,7 @@ Use a seguinte chave para cada uma das tabelas.
 FR = Versão Futura  
 PP = Versão prévia pública  
 
-## <a name="onpremises-to-cloud-synchronization"></a>Local para a sincronização de nuvem
+## <a name="on-premises-to-cloud-synchronization"></a>Local para a sincronização de nuvem
 | Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure (sincronização do AAD) | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Conectar-se a única floresta do AD local |● |● |● |● |● |
@@ -52,7 +52,7 @@ PP = Versão prévia pública
 | Conectar-se ao RH local (isto é, SAP, Oracle eBusiness,PeopleSoft) |FR | | |● |● |
 | Oferece suporte a regras de sincronização do FIM e conectores para provisionamento para os sistemas locais. | | | |● |● |
 
-## <a name="cloud-to-onpremises-synchronization"></a>Nuvem para sincronização no local
+## <a name="cloud-to-on-premises-synchronization"></a>Nuvem para sincronização no local
 | Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | O Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Write-back de dispositivos |● | |● | | |
@@ -68,7 +68,7 @@ PP = Versão prévia pública
 | Logon único com federação |● |● |● |● |● |
 | Write-back de senhas (de alteração SSPR e senha) |● |● | | | |
 
-## <a name="setup-and-installation"></a>Instalação e configuração
+## <a name="set-up-and-installation"></a>Instalação e configuração
 | Recurso | Conexão do Active Directory do Azure | Serviços de sincronização do Active Directory do Azure | Ferramenta de sincronização do Active Directory do Azure (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Oferece suporte à instalação em um controlador de domínio |● |● |● | |
@@ -95,6 +95,6 @@ Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do A
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

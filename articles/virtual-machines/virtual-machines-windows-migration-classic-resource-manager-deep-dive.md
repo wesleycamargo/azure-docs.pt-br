@@ -1,6 +1,6 @@
 ---
-title: "Análise técnica aprofundada sobre a migração com suporte da plataforma do clássico para o Azure Resource Manager | Microsoft Docs"
-description: "Este artigo faz uma análise técnica detalhada sobre a migração de recursos com suporte da plataforma do clássico para o Azure Resource Manager"
+title: "Como o Azure migra recursos do modelo clássico para o Azure Resource Manager | Microsoft Docs"
+description: "Descreve como os recursos do Azure são migrados do modelo clássico para o modelo de implantação do Azure Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 1/23/2017
 ms.author: kasing
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 63d8270811797db5283870e4b4d3482271b97793
+ms.sourcegitcommit: 15bea7bdd4d4c0b7dde1415720609428cf45ba75
+ms.openlocfilehash: 5f4013537ab974099a4bc7a766657841b8d1cf35
 
 
 ---
@@ -73,6 +73,6 @@ Agora que você compreende a migração de recursos clássicos de IaaS para o Ge
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

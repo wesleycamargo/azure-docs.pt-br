@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/15/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: febc8fef864f88fa07accf91efc9b87727a48b32
-ms.openlocfilehash: 4d4d49801c84fa585b5e54bb16a9604a4891acc9
+ms.sourcegitcommit: 6b50b65fa1ad86c8e80fff0fb92352b1be52632e
+ms.openlocfilehash: d4589b5e9ca7f08b2152605dc26a96d4b5d656c8
 
 
 ---
@@ -29,9 +29,15 @@ Caso você receba esse erro, o provedor de recursos do Azure Data Factory não f
 
 1. Inicie o Azure PowerShell.
 2. Faça logon na conta do Azure usando o comando a seguir.
-        Login-AzureRmAccount
+
+    ```powershell
+    Login-AzureRmAccount
+    ```
 3. Execute o seguinte comando para registrar o provedor do Azure Data Factory.
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    
+    ```powershell        
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: Erro não autorizado ao executar um cmdlet da Data Factory
 Você provavelmente não está usando a assinatura ou conta do Azure correta com o Azure PowerShell. Use os cmdlets a seguir para selecionar a assinatura e conta do Azure corretas para usar com o Azure PowerShell.
@@ -60,29 +66,31 @@ Consulte o exemplo a seguir para o uso da propriedade **external** . Como opçã
 
 Consulte o artigo [Conjuntos de dados](data-factory-create-datasets.md) para obter mais detalhes sobre essa propriedade.
 
-    {
-      "name": "CustomerTable",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "MyLinkedService",
-        "typeProperties": {
-          "folderPath": "MyContainer/MySubFolder/",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": ";"
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        },
-        "policy": {
-          }
-        }
+```json
+{
+  "name": "CustomerTable",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "MyLinkedService",
+    "typeProperties": {
+      "folderPath": "MyContainer/MySubFolder/",
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "rowDelimiter": ";"
+      }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
       }
     }
+  }
+}
+```
 
 Para resolver o erro, adicione a propriedade **external** e a seção opcional **externalData** à definição de JSON da tabela de entrada e recrie a tabela.
 
@@ -92,7 +100,9 @@ Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>Problema: falha no provisionamento sob demanda do HDInsight
 Ao usar um serviço vinculado do tipo HDInsightOnDemand, você deve especificar um linkedServiceName que aponta para o Armazenamento de Blobs do Azure. O serviço do Data Factory usa esse armazenamento para armazenar logs e arquivos de suporte para seu cluster do HDInsight sob demanda.  Às vezes, o provisionamento de um cluster de HDInsight sob demanda falha com o seguinte erro:
 
-        Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
+```
+Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
+```
 
 Esse erro normalmente indica que o local da conta de armazenamento especificado no linkedServiceName não está no mesmo local de datacenter, no qual o provisionamento do HDInsight está ocorrendo. Exemplo: se seu data factory estiver no Oeste dos EUA e o armazenamento do Azure estiver no Leste dos EUA, o provisionamento sob demanda falhará no Oeste dos EUA.
 
@@ -114,7 +124,7 @@ Consulte [Monitorar pipelines do Data Factory usando o Azure PowerShell](data-fa
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
-[solucionar problemas]: data-factory-troubleshoot.md
+[troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
@@ -143,6 +153,6 @@ Consulte [Monitorar pipelines do Data Factory usando o Azure PowerShell](data-fa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

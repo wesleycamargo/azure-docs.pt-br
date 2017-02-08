@@ -1,5 +1,5 @@
 ---
-title: 'Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho | Microsoft Docs'
+title: "Armazenamento de alto desempenho para as cargas de trabalho de máquina virtual do Azure | Microsoft Docs"
 description: "O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure. As VMs das séries DS, DSv2 e GS do Azure são compatíveis com o Armazenamento Premium."
 services: storage
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2016
+ms.date: 01/23/2017
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: a6a6dcc6db6944b468d5913f531f384b8a22c72a
+ms.sourcegitcommit: d736a081777cea573615c865de45e8f6929a5513
+ms.openlocfilehash: edaa97a40375088adfb7aba93771ef9d41f1a5a0
 
 
 ---
-# <a name="premium-storage-high-performance-storage-for-azure-virtual-machine-workloads"></a>Armazenamento Premium: Armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure
+# <a name="premium-storage-high-performance-storage-for-azure-virtual-machine-workloads"></a>Armazenamento Premium: Armazenamento de alto desempenho para as cargas de trabalho da máquina virtual do Azure
 ## <a name="overview"></a>Visão geral
 O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais executando cargas de trabalho intensivas para entradas e saídas. Discos de VM (máquina virtual) que usam o armazenamento Premium armazenam dados em SSDs (unidades de estado sólido). Você pode migrar os discos de VM do seu aplicativo para o Armazenamento Premium do Azure para aproveitar a velocidade e o desempenho desses discos.
 
@@ -470,6 +470,6 @@ Para obter mais informações sobre o Armazenamento Premium do Azure, confira os
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: amsriva
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 5eb4b01718b47bf7dd2adfcb60b6ddfbe01d5ab6
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: d46c87480fd198bf4f09e48f4d2ea838a350190c
 
 
 ---
@@ -25,8 +25,6 @@ ms.openlocfilehash: 5eb4b01718b47bf7dd2adfcb60b6ddfbe01d5ab6
 > [!div class="op_single_selector"]
 > * [Portal do Azure](application-gateway-create-multisite-portal.md)
 > * [PowerShell do Azure Resource Manager](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-> 
-> 
 
 A hospedagem de vários sites permite que você implante mais de um aplicativo Web no mesmo Application Gateway. Ela depende da presença do cabeçalho de host na solicitação HTTP de entrada, para determinar quais ouvintes devem receber tráfego. O ouvinte, em seguida, direciona o tráfego ao pool de back-end apropriado conforme configurado na definição de regras do gateway. No caso de aplicativos Web habilitados com SSL, o gateway de aplicativo depende da extensão de SNI (Indicação de Nome de Servidor) para escolher o ouvinte correto para o tráfego da Web. Um uso comum para a hospedagem de vários sites é balancear a carga das solicitações para domínios da Web diferentes para pools de servidor back-end diferentes. Da mesma forma, vários subdomínios do mesmo domínio raiz também podem ser hospedados no mesmo Gateway de Aplicativo.
 
@@ -84,7 +82,7 @@ Get-AzureRmSubscription
 Escolha quais das suas assinaturas do Azure deseja usar.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### <a name="step-4"></a>Etapa 4
@@ -107,8 +105,6 @@ No exemplo acima, criamos um grupo de recursos denominado **appgw-RG** com o loc
 
 > [!NOTE]
 > Se você precisar configurar uma investigação personalizada para o gateway de aplicativo, veja [Criar um gateway de aplicativo com investigações personalizadas usando o PowerShell](application-gateway-create-probe-ps.md). Confira [investigações personalizadas e monitoramento de integridade](application-gateway-probe-overview.md) para saber mais.
-> 
-> 
 
 ## <a name="create-a-virtual-network-and-subnets"></a>Crie a rede virtual e as sub-redes
 
@@ -158,7 +154,7 @@ Um endereço IP é atribuído ao application gateway quando o serviço é inicia
 
 ## <a name="create-application-gateway-configuration"></a>Criar uma configuração do gateway de aplicativo
 
-Você deve configurar todos os itens de configuração antes de criar o gateway de aplicativo. As etapas a seguir criam os itens de configuração necessários para um recurso de gateway de aplicativo.
+Você precisa configurar todos os itens de configuração antes de criar o gateway de aplicativo. As etapas a seguir criam os itens de configuração necessários para um recurso de gateway de aplicativo.
 
 ### <a name="step-1"></a>Etapa 1
 
@@ -177,7 +173,7 @@ $pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIP
 $pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 10.0.1.103, 10.0.1.104, 10.0.1.105
 ```
 
-Neste exemplo, haverá dois pools de back-end para rotear o tráfego de rede com base no site solicitado. Um pool recebe o tráfego do site "contoso.com" e outro pool recebe o tráfego do site "fabrikam.com". Você precisa substituir os endereços IP anteriores para adicionar seus próprios pontos de extremidade de endereço IP do aplicativo. Em vez de endereços IP internos, você também pode usar endereços IP públicos, FQDN ou NIC da VM para instâncias de back-end. Use o parâmetro "-BackendFQDNs" no PowerShell para especificar FQDNs em vez de IPs.
+Neste exemplo, haverá dois pools de back-end para rotear o tráfego de rede com base no site solicitado. Um pool recebe o tráfego do site "contoso.com" e outro pool recebe o tráfego do site "fabrikam.com". Você precisa substituir os endereços IP anteriores para adicionar seus próprios pontos de extremidade de endereço IP do aplicativo. Em vez de endereços IP internos, você também pode usar endereços IP públicos, FQDN ou NIC da VM para instâncias de back-end. Para especificar FQDNs em vez de IPs no PowerShell, use o parâmetro "-BackendFQDNs".
 
 ### <a name="step-3"></a>Etapa 3
 
@@ -289,6 +285,6 @@ Saiba como proteger seus sites com o [Gateway de Aplicativo - Firewall de Aplica
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

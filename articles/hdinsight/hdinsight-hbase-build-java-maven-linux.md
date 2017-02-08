@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo de HBase usando Maven e Java e implantar o HDInsight baseado em Linux| Microsoft Docs
+title: Criar um aplicativo HBase Java para Azure HDInsight | Microsoft Docs
 description: "Saiba como usar o Apache Maven para compilar um aplicativo do Apache HBase baseado em Java e depois implantá-lo no HDInsight baseada em Linux na nuvem do Azure."
 services: hdinsight
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0f321065b9c24075837bebb71251cbc5751a1854
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: d91e05e458c6689f04dedd85a3e4adc60e6de72d
 
 
 ---
@@ -25,10 +25,8 @@ Saiba como criar e compilar um aplicativo [HBase no Apache](http://hbase.apache.
 
 [Maven](http://maven.apache.org/) é uma ferramenta de software para compreensão e gerenciamento de projetos que permite a você compilar software, documentação e relatórios para projetos Java. Neste artigo, você aprenderá como usá-lo para criar um aplicativo Java básico que cria, consulta e exclui uma tabela HBase em um cluster HDInsight baseado em Linux.
 
-> [!NOTE]
-> As etapas neste documento pressupõem que você está usando um cluster HDInsight baseado em Linux. Para saber mais sobre como usar um cluster HDInsight baseado em Windows, veja [Usar o Maven para compilar aplicativos Java que usam o HBase com o HDInsight baseado em Windows](hdinsight-hbase-build-java-maven.md)
-> 
-> 
+> [!IMPORTANT]
+> As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para saber mais, veja [Substituição do HDInsight no Windows](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="requirements"></a>Requisitos
 * [Plataforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 ou superior
@@ -391,6 +389,6 @@ Após ter terminado o exemplo, use o comando a seguir na sessão do Azure PowerS
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

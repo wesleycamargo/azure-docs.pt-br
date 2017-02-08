@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 42d71bf43070e08ae287a7b251c5bb94a6a80548
 
 
 ---
@@ -39,12 +39,12 @@ Este tutorial usa o Aprendizado de Máquina do Azure para compilar um modelo de 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para acompanhar este tutorial, você precisará:
 
-* Um SQL Data Warehouse pré-carregado com os dados de exemplo do AdventureWorksDW. Para provisionar isso, consulte [Criar um SQL Data Warehouse][Criar um SQL Data Warehouse] e opte por carregar os dados de exemplo. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][carregar dados de exemplo manualmente].
+* Um SQL Data Warehouse pré-carregado com os dados de exemplo do AdventureWorksDW. Para provisionar isso, consulte [Criar um SQL Data Warehouse][Create a SQL Data Warehouse] e opte por carregar os dados de exemplo. Se você já tiver um data warehouse, mas não tiver dados de exemplo, poderá [carregar dados de exemplo manualmente][load sample data manually].
 
 ## <a name="1-get-data"></a>1. Obter dados
 Os dados estão na exibição dbo.vTargetMail no banco de dados AdventureWorksDW. Para ler esses dados:
 
-1. Entre no [Estúdio de Aprendizado de Máquina do Azure][Estúdio de Aprendizado de Máquina do Azure] e clique em meus testes.
+1. Entre no [Azure Machine Learning Studio][Azure Machine Learning studio] e clique em Meus Testes.
 2. Clique em **+NOVO** e selecione **Teste em Branco**.
 3. Insira um nome para o seu teste: Marketing Direcionado.
 4. Arraste o módulo **Leitor** do painel de módulos na tela.
@@ -124,7 +124,7 @@ Você verá duas ou mais colunas adicionadas ao seu conjunto de dados de teste.
 Ao comparar a coluna BikeBuyer (real) com os Rótulos Pontuados (previsão), é possível ver o desempenho do modelo. Como as próximas etapas, você pode usar esse modelo para fazer previsões para novos clientes e publicar esse modelo como um serviço Web ou gravar os resultados de volta no SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre a criação de modelos de aprendizado de máquina de previsão, consulte [Introdução ao Aprendizado de Máquina no Azure][Introdução ao Aprendizado de Máquina no Azure].
+Para saber mais sobre a criação de modelos de aprendizado de máquina de previsão, consulte [Introdução ao Machine Learning no Azure][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -142,13 +142,13 @@ Para saber mais sobre a criação de modelos de aprendizado de máquina de previ
 
 
 <!--Article references-->
-[Estúdio de Aprendizado de Máquina do Azure]:https://studio.azureml.net/
-[Introdução ao Aprendizado de Máquina no Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[carregar dados de exemplo manualmente]: sql-data-warehouse-load-sample-databases.md
-[Criar um SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Azure Machine Learning studio]:https://studio.azureml.net/
+[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

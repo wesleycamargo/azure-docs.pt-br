@@ -1,6 +1,6 @@
 ---
 title: "Configurar o registro automático de dispositivo para dispositivos ingressados no domínio do Windows 8.1| Microsoft Docs"
-description: " Etapas para configurar a política de grupo para dispositivos Windows 8.1 ingressados no domínio para registrarem-se automaticamente com o Azure AD. "
+description: " Etapas para configurar a política de grupo para dispositivos Windows 8.1 ingressados no domínio para o registro automático no Azure AD. "
 services: active-directory
 documentationcenter: 
 author: femila
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/21/2016
 ms.author: Markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 03585694b3934147f1f5d58615155ba8ae4d1bc0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2117267c409afed40094fadf546d53bf9f5d1ec3
 
 
 ---
@@ -54,7 +54,7 @@ Cancele o registro de computadores Windows 8.1 existentes ingressados no domíni
 
 Este comando deve ser executado no contexto de cada usuário do domínio que tenha entrado no computador.
 
-## <a name="event-viewer-errors-for-windows-81-domain-joined-devices"></a>Visualizador de Eventos e Erros de dispositivos ingressados no domínio do Windows 8.1
+## <a name="event-viewer--errors-for-windows-81-domain-joined-devices"></a>Visualizador de Eventos e Erros de dispositivos ingressados no domínio do Windows 8.1
 O Log de Eventos do Windows em um computador Windows 8.1 exibe mensagens relacionadas ao registro de dispositivos. Você encontrará mensagens para eventos bem-sucedidos e malsucedidos. 
 
 O Log de Eventos pode ser encontrado no Visualizador de Eventos em Aplicativos e Serviços **Logs** > **Microsoft** > **Windows > Workplace Join**.
@@ -70,6 +70,6 @@ A Política de Grupo permite que uma Tarefa Agendada no sistema que é executada
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

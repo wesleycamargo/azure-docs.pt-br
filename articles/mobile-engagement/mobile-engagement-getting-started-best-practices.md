@@ -15,12 +15,12 @@ ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7be266a6f8b3e18f2f6a27908ad75b5c19d3d862
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
 
 
 ---
-# <a name="azure-mobile-engagement-getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Guia de introdução com práticas recomendadas
+# <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - Guia de introdução com práticas recomendadas
 ## <a name="overview"></a>Visão geral
 **A tela do celular é um espaço muito concorrido:** em 2013, um estudo descobriu que o dispositivo móvel médio tinha 27 aplicativos instalados. Os usuários normalmente passam 30 horas por mês em seus aplicativos. A maior parte desse tempo foi passado em redes sociais e em jogos (cerca de 20 horas). Até 2014, o Android disponibilizava cerca de 1,5 milhão de aplicativos para os usuários. A Apple Store continha cerca de 1,2 milhão de aplicativos. O uso de aplicativos móveis não para de aumentar à medida que os desenvolvedores competem nesse mercado em expansão. 
 
@@ -105,7 +105,7 @@ Crie um painel de KPIs que contenha as informações abaixo
 3. Onde esses dados estarão localizados para meu aplicativo (ou seja, tela, configurações, sistema...)?
 4. Posso executar uma sequência de Envolvimento para este KPI?
 
-Você pode usar a planilha **Construtor de KPI** em nosso [Modelo do manual de mídia][Link do manual mídia] para obter exemplos e orientação.
+Você pode usar a planilha **Construtor de KPI** em nosso [Modelo de guia estratégico de mídia][Media Playbook link] para obter exemplos e orientações.
 
 ## <a name="step-2-your-engagement-program"></a>Etapa 2: seu programa de envolvimento
 Um ótimo programa de envolvimento móvel deve ser considerado um componente fundamental de seu aplicativo. Ele deve incluir um excelente programa de boas-vindas que seja executado para um usuário durante os primeiros dias de utilização do aplicativo. Isso costuma ter um efeito muito positivo no envolvimento e na retenção de seu aplicativo. Estudos mostraram que a maioria dos usuários deixa de usar um aplicativo nos primeiros dias após a instalação. Convém tentar atender ou exceder a expectativa do cliente gerando interesse logo no início, enquanto o foco do usuário ainda está em seu aplicativo. Lembre-se de apresentar os principais benefícios e o valor de seu aplicativo para seus clientes. 
@@ -209,13 +209,13 @@ O Azure Mobile Engagement fornece duas maneiras para ajudar a evitar que sua com
 #### <a name="playbook-exercise-2-create-your-engagement-program"></a>Exercício 2 do guia estratégico: Criar o seu programa de envolvimento
 Reserve algum tempo para resumir seus objetivos e definir as campanhas que você pretende aplicar com sequências específicas. Não deixe de aplicar a abordagem 3W às notificações em suas campanhas. 
 
-Use a planilha **Programa de Envolvimento** em nosso [Modelo do manual de mídia][Link do manual de mídia] para obter exemplos e orientação.
+Use a planilha **Programa de envolvimento** em nosso [Modelo de guia estratégico de mídia][Media Playbook link] para obter exemplos e orientações.
 
 ## <a name="step-3-app-integration"></a>Etapa 3: integração do aplicativo
 #### <a name="create-a-tag-plan"></a>Criar um plano de marca
 Para integrar o Azure Mobile Engagement em seu aplicativo, você precisará criar um plano de marca. O plano de marca é a base do projeto. Ele define a relação entre as especificações de marketing, o fluxo de trabalho do aplicativo e os dados reais de marca coletados no aplicativo a fim de medir os KPIs. Ele indica qual análise você poderá ver no portal. Ele também ajuda a definir os segmentos de usuários e a enviar notificações por push a fim de envolver os usuários finais. Após a definição do plano de marca, a adição do código para integrá-lo ao seu aplicativo é bastante simples, basta usar o SDK do Azure Mobile Engagement.
 
-Um plano de marca não deve marcar tudo em um aplicativo. Ele deve incluir apenas os dados de marca que fazem parte de sua estratégia de envolvimento móvel. Provavelmente haverá diferenças entre os aplicativos. O [Modelo do manual de mídia][Link do manual de mídia] fornecido pelo Engajamento Móvel do Azure ajuda você criar um plano de marca com um determinado método. Use a planilha **Plano de Marca** como um guia para a criação de seu plano de marca.
+Um plano de marca não deve marcar tudo em um aplicativo. Ele deve incluir apenas os dados de marca que fazem parte de sua estratégia de envolvimento móvel. Provavelmente haverá diferenças entre os aplicativos. O [Modelo de guia estratégico de mídia][Media Playbook link] fornecido pelo Azure Mobile Engagement ajuda você criar um plano de marca com um determinado método. Use a planilha **Plano de Marca** como um guia para a criação de seu plano de marca.
 
 Ao definir uma seção de marca na planilha, seja bastante específico. Isso é muito importante para evitar confusões. Detalhe cada cenário esperado no qual cada marca será enviada. Inclua o nome da atividade na qual cada marca será inserida. Tudo isso deve ser incluído na parte **Informativa** da planilha. A planilha do plano de marca deve ser a principal referência para a verificação de teste. 
 
@@ -322,10 +322,10 @@ Depois de reunir alguma experiência, adicione o seguinte aos seus programas de 
 
 
 <!--Link references-->
-[Link do manual de mídia]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
+[Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -3,7 +3,7 @@ title: "Como exigir a autenticação multifator | Microsoft Docs"
 description: "Aprenda a exigir MFA (multi-factor authentication) para identidades com privilégios com a extensão de Privileged Identity Management do Azure Active Directory."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 1e3dc4ad-3a6a-4a52-8417-3ca4f84ae05c
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/01/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d36fb97f22802b040d2d527ccfd7a48327fe0cb4
@@ -51,6 +51,6 @@ Alternativamente, se os usuários se autenticarem localmente, você poderá faze
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO5-->
 
 

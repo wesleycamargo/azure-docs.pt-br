@@ -3,8 +3,8 @@ title: Como usar o Armazenamento de Tabelas do Azure por meio do Ruby | Microsof
 description: "Armazene dados estruturados na nuvem usando o Armazenamento de Tabelas do Azure, um repositório de dados NoSQL."
 services: storage
 documentationcenter: ruby
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: 
 ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: c05d8d244f22998113b0fa9c7508ecc287bdbd64
-ms.openlocfilehash: d43160bf1fa7dd08bb6c3fd5e2d0f3111134239b
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: e1df2fcf4478ef7f58c5686e85abd6ae94b5a2d3
 
 
 ---
@@ -62,19 +62,19 @@ Para obter esses valores de uma conta de armazenamento clássico ou do Resource 
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Navegue até a conta de armazenamento que você deseja usar.
 3. Na folha Configurações no lado direito, clique em **Chaves de Acesso**.
-4. Na folha Acessar chaves exibida, você verá as teclas de acesso 1 e 2. Você pode usar qualquer uma das duas. 
-5. Clique no ícone de cópia para copiar a chave para a área de transferência. 
+4. Na folha Acessar chaves exibida, você verá as teclas de acesso 1 e 2. Você pode usar qualquer uma das duas.
+5. Clique no ícone de cópia para copiar a chave para a área de transferência.
 
 Para obter esses valores de uma conta de armazenamento clássico no Portal Clássico do Azure:
 
-1. Faça logon no [Portal Clássico do Azure](https://manage.windowsazure.com).
+1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Navegue até a conta de armazenamento que você deseja usar.
 3. Clique em **GERENCIAR CHAVES DE ACESSO** na parte inferior do painel de navegação.
-4. Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a chave de acesso primária e a chave de acesso secundária. Para a chave de acesso, você pode usar tanto a primária quanto a secundária. 
+4. Na caixa de diálogo pop-up, você verá o nome da conta de armazenamento, a tecla de acesso primária e a tecla de acesso secundária. Para a chave de acesso, você pode usar tanto a primária quanto a secundária.
 5. Clique no ícone de cópia para copiar a chave para a área de transferência.
 
 ## <a name="create-a-table"></a>Criar uma tabela
-O objeto **Azure::TableService** permite trabalhar com tabelas e entidades. Para criar uma tabela, use o método **create\_table()**. O exemplo a seguir cria uma tabela ou imprime o erro, se houver algum.
+O objeto **Azure::TableService** permite trabalhar com tabelas e entidades. Para criar uma tabela, use o método **create\_table()**. O exemplo a seguir cria uma tabela ou imprime o erro, se houver.
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -143,8 +143,8 @@ result, token = azure_table_service.query_entities("testtable", query)
 
 > [!NOTE]
 > Se o conjunto de resultados for muito grande para ser retornado por uma única consulta, um token de continuação será retornado para que você possa usar para recuperar páginas subsequentes.
-> 
-> 
+>
+>
 
 ## <a name="query-a-subset-of-entity-properties"></a>consultar um subconjunto de propriedades da entidade
 Uma consulta a uma tabela pode recuperar apenas algumas propriedades de uma entidade. Essa técnica, chamada "projeção", reduz a largura de banda e pode melhorar o desempenho da consulta, principalmente em grandes entidades. Use a cláusula select e transmita os nomes das propriedades que você gostaria de trazer para o cliente.
@@ -178,6 +178,6 @@ Para saber mais sobre tarefas complexas de armazenamento, siga estes links:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

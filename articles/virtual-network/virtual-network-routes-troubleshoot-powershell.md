@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ecdf6e68a8d2bf7c034b92b57b45ae496a063713
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b568a9bea9679a9edeb708a5f7fcc6d68854574f
 
 
 ---
@@ -57,7 +57,7 @@ Para ver as rotas agregadas aplicadas a uma VM, siga as etapas a seguir:
 ### <a name="view-effective-routes-for-a-network-interface"></a>Exibir rotas em vigor para um adaptador de rede
 Para ver as rotas agregadas aplicadas a um adaptador de rede, siga as etapas a seguir:
 
-1. Inicie uma sessão do Azure PowerShell e faça logon no Azure. Se você não estiver familiarizado com o Azure PowerShell, leia o artigo [Como instalar e configurar o Azure PowerShell](../powershell-install-configure.md) .
+1. Inicie uma sessão do Azure PowerShell e faça logon no Azure. Se você não estiver familiarizado com o Azure PowerShell, leia o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 2. O comando a seguir retorna todas as rotas aplicadas a um adaptador de rede denominado *VM1-NIC1* no grupo de recursos *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1
@@ -139,6 +139,6 @@ Algumas coisas para ter em mente ao examinar a lista de rotas retornadas:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

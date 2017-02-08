@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: 000bc72e5c880abdd455d50cd7ac0bb57a51391d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c67cfcc8b01786dcd39fa683898ba076059be0b4
 
 
 ---
@@ -29,7 +29,7 @@ Este tutorial usa um dispositivo Node.js simples simulado que você pode facilme
 
 Para concluir este tutorial, você precisará de:
 
-* Uma assinatura ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, veja [Avaliação gratuita do Aure][lnk_free_trial].
+* Uma assinatura ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
 * [Node.js][lnk-node] versão 0.12.x ou posterior.
 
 Você pode concluir este tutorial em qualquer sistema operacional, como Windows ou Linux, onde é possível instalar o Node.js.
@@ -38,9 +38,9 @@ Você pode concluir este tutorial em qualquer sistema operacional, como Windows 
 
 ## <a name="configure-the-nodejs-simulated-device"></a>Configurar o dispositivo Node.js simulado
 1. No painel de monitoramento remoto, clique em **+ Adicionar um dispositivo** e, em seguida, adicione um dispositivo personalizado. Anote o nome de host do Hub IoT, id do dispositivo e chave do dispositivo. Você precisará deles mais tarde neste tutorial ao preparar o aplicativo cliente de dispositivo remote_monitoring.js.
-2. Certifique-se de que o Node.js versão 0.12.x ou posterior esteja instalado no computador de desenvolvimento. Execute `node --version` em um prompt de comando ou em um shell para verificar a versão. Para saber mais sobre como usar um gerenciador de pacotes para instalar o Node.js no Linux, confira [Instalação do Node.js por meio do gerenciador de pacotes][node-linux].
-3. Após a instalação do Node.js, clone a versão mais recente do repositório [azure-iot-sdks][lnk-github-repo] no computador de desenvolvimento. Sempre use a ramificação **mestre** para a versão mais recente das bibliotecas e exemplos.
-4. Na cópia local do repositório [azure-iot-sdks][lnk-github-repo], copie os dois arquivos a seguir da pasta node/device/samples em uma pasta vazia no computador de desenvolvimento:
+2. Certifique-se de que o Node.js versão 0.12.x ou posterior esteja instalado no computador de desenvolvimento. Execute `node --version` em um prompt de comando ou em um shell para verificar a versão. Para obter informações sobre como usar um gerenciador de pacotes para instalar o Node.js no Linux, confira [Instalação do Node.js por meio do gerenciador de pacotes][node-linux].
+3. Após a instalação do Node.js, clone a versão mais recente do repositório [azure-iot-sdks][lnk-github-repo] em seu computador de desenvolvimento. Sempre use a ramificação **mestre** para a versão mais recente das bibliotecas e exemplos.
+4. Em sua cópia local do repositório [azure-iot-sdks][lnk-github-repo], copie os dois arquivos a seguir da pasta node/device/samples em uma pasta vazia em seu computador de desenvolvimento:
    
    * packages.json
    * remote_monitoring.js
@@ -249,6 +249,6 @@ Agora que você já viu como usar a telemetria dinâmica, saiba mais sobre como 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

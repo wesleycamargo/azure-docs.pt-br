@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2016
+ms.date: 01/05/2017
 ms.author: seanmck;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d2766c64f4ffdcaf8e583493060116a244e89f3d
+ms.sourcegitcommit: 60d440c75d6352d5e65e0158e439df9db2315ecd
+ms.openlocfilehash: 70c393f1185844bb26ff1f89cb69cb06b51fc155
 
 
 ---
@@ -40,7 +40,7 @@ Por padrão, o Visual Studio remove as instâncias existentes do seu tipo de apl
 #### <a name="to-set-the-application-debug-mode-property"></a>Para definir a propriedade Modo de Depuração do Aplicativo
 1. No menu de atalho do projeto de aplicativo, escolha **Propriedades** (ou pressione a tecla **F4**).
 2. Na janela **Propriedades**, defina a propriedade **Modo de Depuração do Aplicativo**.
-   
+
     ![Definir a Propriedade Modo de Depuração do Aplicativo][debugmodeproperty]
 
 Veja a seguir as opções de **Modo de Depuração do Aplicativo** disponíveis.
@@ -55,8 +55,8 @@ Na **Atualização Automática** , os dados são preservados com a aplicação d
 
 > [!NOTE]
 > Essa propriedade não existe antes da versão 1.1 das Ferramentas do Service Fabric para o Visual Studio. Em versões anteriores a 1.1, use a propriedade **Preservar os Dados ao Iniciar** para obter o mesmo comportamento. A opção "Manter Aplicativo" foi introduzida na versão 1.2 das Ferramentas do Service Fabric para o Visual Studio.
-> 
-> 
+>
+>
 
 ## <a name="add-a-service-to-your-service-fabric-application"></a>Adicione um serviço ao aplicativo da Malha de Serviços
 Você pode adicionar novos serviços a seu aplicativo para estender sua funcionalidade.  Para garantir que o serviço esteja incluído no seu pacote de aplicativos, adicione o serviço usando o item de menu **Novo Serviço de Malha...** .
@@ -81,8 +81,8 @@ Você pode executar operações de gerenciamento de cluster básico no Visual St
 
 > [!TIP]
 > Para funcionalidade de gerenciamento de cluster mais avançada, confira [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-> 
-> 
+>
+>
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas
@@ -102,6 +102,6 @@ Você pode executar operações de gerenciamento de cluster básico no Visual St
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,13 +15,15 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: 033fd0cb3512a22bb05488fe83aa2ffa9d81def3
+ms.sourcegitcommit: 0ab2e30165fe3dca0e00109e9b4e22a9a1433de5
+ms.openlocfilehash: 3c2f1b23f952d6102d8bfa52b536621ef6282ab6
 
 
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua no Serviço de Aplicativo do Azure
 Este tutorial mostra a você como configurar um fluxo de trabalho de implantação contínua para seu aplicativo do [Serviço de Aplicativo do Azure] . A integração do Serviço de Aplicativo com o VSTS (Visual Studio Team Services), GitHub e BitBucket permite um fluxo de trabalho de implantação contínua, no qual o Azure recebe por pull as atualizações mais recentes de seu projeto publicado em um desses serviços. A implantação contínua é uma ótima opção para projetos nos quais várias contribuições frequentes são integradas.
+
+Para saber como configurar a implantação contínua manualmente a partir de um repositório de nuvem que não esteja listado pelo Portal do Azure (como o [GitLab](https://gitlab.com/)), confira [Configurar a implantação contínua usando etapas manuais](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## <a name="a-nameoverviewaenable-continuous-deployment"></a><a name="overview"></a>Habilitar a implantação contínua
 Para habilitar a implantação contínua,
@@ -97,6 +99,6 @@ Para desabilitar a implantação contínua,
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 
