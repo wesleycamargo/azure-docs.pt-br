@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 12/05/2016
+ms.date: 01/24/2017
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3a42093a67fe1ded29e97343affa5df89ea5fd1a
+ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
+ms.openlocfilehash: 9eb581e6180a7ae6a5f24b3a991376264b0ecef9
 
 
 ---
@@ -43,8 +43,8 @@ A tabela abaixo lista os nomes de propriedade e sua descrição para a criação
 <table>
 <tbody>
 <tr>
-<td><B>Nome da Propriedade</B></td>
-<td><B>Descrição</B></td>
+<td><B>NOME DA PROPRIEDADE</B></td>
+<td><B>DESCRIÇÃO</B></td>
 </tr>
 <tr>
 <td>Alias de saída</td>
@@ -303,40 +303,17 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 ## <a name="documentdb"></a>Banco de Dados de Documentos
 [Banco de Dados de Documentos do Azure](https://azure.microsoft.com/services/documentdb/) é um serviço de Banco de Dados de Documentos NoSQL totalmente gerenciado, que oferece transações e consulta de dados sem esquema, desempenho previsível e confiável e rápido desenvolvimento.
 
-A tabela abaixo lista os nomes de propriedade e sua descrição para a criação de uma saída do Banco de Dados de Documentos.
+A lista abaixo detalha os nomes de propriedade e sua descrição para a criação de uma saída do DocumentDB.
 
-<table>
-<tbody>
-<tr>
-<td>Nome da Propriedade</td>
-<td>DESCRIÇÃO</td>
-</tr>
-<tr>
-<td>Nome da conta</td>
-<td>O nome da conta do Banco de Dados de Documentos.  Ele também pode ser o ponto de extremidade da conta.</td>
-</tr>
-<tr>
-<td>Chave de conta</td>
-<td>A chave de acesso compartilhado para a conta do Banco de Dados de Documentos.</td>
-</tr>
-<tr>
-<td>Banco de dados</td>
-<td>O nome do banco de dados do Banco de Dados de Documentos.</td>
-</tr>
-<tr>
-<td>Padrão de nome da coleção</td>
-<td>O padrão de nome da coleção para as coleções a ser usado. O formato de nome da coleção pode ser construído com o token {partição} opcional, em que as partições começam em 0.<BR>Por exemplo Veja abaixo as entradas válidas:<BR>MyCollection{partição}<BR>MyCollection<BR>Observe que as coleções devem existir antes do início do trabalho do Stream Analytics e que elas não serão criadas automaticamente.</td>
-</tr>
-<tr>
-<td>Chave de partição</td>
-<td>O nome do campo nos eventos de saída usado para especificar a chave para o particionamento de saída em várias coleções.</td>
-</tr>
-<tr>
-<td>ID do documento</td>
-<td>O nome do campo em eventos de saída usado para especificar a chave primária na qual se baseiam as operações de inserção ou atualização.</td>
-</tr>
-</tbody>
-</table>
+* **Alias de Saída** : um alias para se referir a essa saída em sua consulta ASA  
+* **Nome da Conta** : o nome ou URI do ponto de extremidade da conta do Banco de Dados de Documentos.  
+* **Chave da Conta** : a chave de acesso compartilhado para a conta do Banco de Dados de Documentos.  
+* **Banco de dados** : o nome do banco de dados do Banco de Dados de Documentos.  
+* **Padrão do Nome de Coleção** – O nome da coleção ou seu padrão que será usado para as coleções. O formato de nome da coleção pode ser construído com o token {partição} opcional, em que as partições começam em 0. A seguir estão as entradas válidas de exemplo:  
+  1\) MyCollection – uma coleção denominada “MyCollection” deve existir.  
+  2\) MyCollection{partition} – estas coleções devem existir – "MyCollection0”, “MyCollection1”, “MyCollection2” e assim por diante.  
+* **Chave de Partição** — Opcional. Isso só será necessário se você estiver usando um token {partition} no seu padrão de nome de coleção. O nome do campo nos eventos de saída usado para especificar a chave para o particionamento de saída em várias coleções. Para uma saída de coleção única, nenhuma coluna de saída arbitrária pode ser usada, por exemplo, PartitionId.  
+* **ID do Documento** : opcional. O nome do campo em eventos de saída usado para especificar a chave primária que serve de base para as operações de inserção ou atualização.  
 
 
 ## <a name="get-help"></a>Obter ajuda
@@ -360,6 +337,6 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

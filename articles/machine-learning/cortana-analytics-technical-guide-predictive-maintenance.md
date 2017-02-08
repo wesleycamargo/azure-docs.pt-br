@@ -1,5 +1,5 @@
 ---
-title: "Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial e em outras empresas | Microsoft Docs"
+title: "Manutenção preditiva no setor aeroespacial com o Azure - Guia técnico da solução do Cortana Intelligence | Microsoft Docs"
 description: "Um guia técnico para o Modelo de Solução com o Microsoft Cortana Intelligence para a manutenção preventiva no setor aeroespacial, de utilitários e de transportes."
 services: cortana-analytics
 documentationcenter: 
@@ -15,12 +15,16 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: fboylu
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f4ad547656bb3675a8a636106b7e95e5392ab4c5
+ms.sourcegitcommit: c78604783bb21f9162939637e04e60aa8131ce11
+ms.openlocfilehash: 6464dbf22fc0084ee7d50f3117dae9b6566614cd
 
 
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial e em outras empresas
+
+## <a name="important"></a>**Importante**
+Este artigo foi preterido. As informações ainda são relevantes para o problema em questão, ou seja, Manutenção Preventiva no Setor Aeroespacial, mas o artigo mais recente com as informações mais atualizadas pode ser encontrado [aqui](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace). 
+
 ## <a name="acknowledgements"></a>**Confirmações**
 Este artigo foi autorizado pelos cientistas de dados Yan Zhang, Gauher Shaheen, Fidan Boylu Uz e o engenheiro de software Dan Grecoe da Microsoft.
 
@@ -235,6 +239,6 @@ As duas ferramentas a seguir estão disponíveis para ajudar você a entender me
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

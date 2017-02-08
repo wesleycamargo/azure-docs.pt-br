@@ -1,6 +1,6 @@
 ---
-title: "Regressão linear multivariada | Microsoft Docs"
-description: "Regressão linear multivariada"
+title: "(preterido) Regressão Linear Multivariada - Azure | Microsoft Docs"
+description: "(preterido) Regressão Linear Multivariada"
 services: machine-learning
 documentationcenter: 
 author: jaymathe
@@ -11,16 +11,23 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/21/2016
+ms.topic: deprecated
+ms.date: 01/06/2017
 ms.author: jaymathe
+ROBOTS: NOINDEX, NOFOLLOW
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 01d90591f61920769dbdca360f69156281145517
+ms.sourcegitcommit: b1ee1eae91185c1893b55be2046343d78dd6c48b
+ms.openlocfilehash: 96780fccdf887548b0f6e525736f1d507cf30486
 
 
 ---
-# <a name="multivariate-linear-regression"></a>Regressão linear multivariada
+# <a name="deprecated-multivariate-linear-regression"></a>(preterido) Regressão Linear Multivariada
+
+> [!NOTE]
+> O Microsoft DataMarket está sendo desativado e essa API foi preterida. 
+> 
+> Você pode encontrar muitos testes de exemplo úteis e APIs na [Galeria do Cortana Intelligence](http://gallery.cortanaintelligence.com). Para saber mais sobre a Galeria, confira [Compartilhar e descobrir soluções na Galeria do Cortana Intelligence](machine-learning-gallery-how-to-use-contribute-publish.md).
+
 Suponha que você tenha um conjunto de dados e gostaria de prever rapidamente uma variável dependente (y) para cada indivíduo (i) com base em outras variáveis independentes. A regressão linear é uma técnica estatística popular usada para essas previsões. Aqui, a variável dependente y é considerada um valor contínuo.  
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -79,7 +86,7 @@ Há várias maneiras de consumir o serviço de forma automática (os aplicativos
 > 
 > 
 
-De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois módulos [Executar Script R][execute-r-script] foram levados ao espaço de trabalho. Esse serviço Web executa um teste de Aprendizado de Máquina do Azure com script R subjacente. Há 2 partes para esse experimento: a definição de esquema e o modelo de treinamento + pontuação. O primeiro módulo define a estrutura esperada do conjunto de entrada, em que a primeira variável é a variável dependente e as variáveis restantes são independentes. O segundo módulo se encaixa em um modelo de regressão linear genérico para os dados de entrada.  
+De dentro do Azure Machine Learning, um novo teste em branco foi criado e dois módulos [Executar Scripts R][execute-r-script] foram levados ao espaço de trabalho. Esse serviço Web executa um teste de Aprendizado de Máquina do Azure com script R subjacente. Há 2 partes para esse experimento: a definição de esquema e o modelo de treinamento + pontuação. O primeiro módulo define a estrutura esperada do conjunto de entrada, em que a primeira variável é a variável dependente e as variáveis restantes são independentes. O segundo módulo se encaixa em um modelo de regressão linear genérico para os dados de entrada.  
 
 ![Fluxo de teste][3]
 
@@ -121,6 +128,6 @@ Para obter as perguntas frequentes sobre o consumo do serviço Web ou a publica�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

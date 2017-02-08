@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar potência de computação no SQL Data Warehouse do Azure (REST) | Microsoft Docs"
+title: Pausar, retomar, dimensionar com o REST no Azure SQL Data Warehouse | Microsoft Docs
 description: "Tarefas do PowerShell para gerenciar o poder de computação. Dimensionar recursos de computação ajustando as DWUs. Ou, para economizar custos, pause e retome os recursos de computação."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcf7fa98ce35e330e88d9263cc71ce85e592be3a
+ms.sourcegitcommit: f589111d3a4da061e1cc3313632dd0b5403dc278
+ms.openlocfilehash: 56651c2eb2f702b2ec51070b25239f1acb415289
 
 
 ---
@@ -30,23 +30,13 @@ ms.openlocfilehash: dcf7fa98ce35e330e88d9263cc71ce85e592be3a
 > 
 > 
 
-Dimensionar o desempenho escalando horizontalmente recursos de computação e memória para atender às demandas de mudança de sua carga de trabalho. Economizar custos reduzindo recursos durante horários que não sejam de pico ou pausando a computação. 
-
-Esta coleção de tarefas usa o portal do Azure para:
-
-* Computação de escala
-* Pausar computação
-* Retomar a computação
-
-Para saber mais sobre isso, consulte [Visão geral sobre gerenciar computação][Visão geral sobre gerenciar computação].
-
 <a name="scale-performance-bk"></a>
 <a name="scale-compute-bk"></a>
 
 ## <a name="scale-compute-power"></a>Dimensionar poder de computação
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-Para alterar DWUs, use a API REST [Criar ou Atualizar Banco de Dados][Criar ou Atualizar Banco de Dados]. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW, que está hospedado no servidor MyServer. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
+Para alterar as DWUs, use a API REST [Criar ou Atualizar Banco de Dados][Create or Update Database]. O exemplo a seguir define o objetivo de nível de serviço como DW1000 para o banco de dados MySQLDW, que está hospedado no servidor MyServer. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/MyServer/databases/MySQLDW?api-version=2014-04-01-preview HTTP/1.1
@@ -64,7 +54,7 @@ Content-Type: application/json; charset=UTF-8
 ## <a name="pause-compute"></a>Pausar computação
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-Para pausar um banco de dados, use a API REST [Pausar o Banco de Dados][Pausar o Banco de Dados]. O exemplo a seguir pausa um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
+Para pausar um banco de dados, use a API REST [Pausar o banco de dados][Pause Database]. O exemplo a seguir pausa um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1.
 
 ```
 POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/pause?api-version=2014-04-01-preview HTTP/1.1
@@ -75,7 +65,7 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ## <a name="resume-compute"></a>Retomar a computação
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-Para iniciar um banco de dados, use a API REST [Retomar o banco de dados][Retomar o banco de dados]. O exemplo a seguir inicia um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1. 
+Para iniciar um banco de dados, use a API REST [Retomar o banco de dados][Resume Database]. O exemplo a seguir inicia um banco de dados chamado Database02 hospedado em um servidor chamado Server01. O servidor está em um grupo de recursos do Azure chamado ResourceGroup1. 
 
 ```
 POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/ResourceGroup1/providers/Microsoft.Sql/servers/Server01/databases/Database02/resume?api-version=2014-04-01-preview HTTP/1.1
@@ -84,25 +74,25 @@ POST https://management.azure.com/subscriptions{subscription-id}/resourceGroups/
 <a name="next-steps-bk"></a>
 
 ## <a name="next-steps"></a>Próximas etapas
-Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][Visão geral de gerenciamento].
+Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][Management overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Visão geral de gerenciamento]: ./sql-data-warehouse-overview-manage.md
-[Visão geral sobre gerenciar computação]: ./sql-data-warehouse-manage-compute-overview.md
+[Management overview]: ./sql-data-warehouse-overview-manage.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
-[Pausar o Banco de Dados]: https://msdn.microsoft.com/library/azure/mt718817.aspx
-[Retomar o banco de dados]: https://msdn.microsoft.com/library/azure/mt718820.aspx
-[Criar ou Atualizar Banco de Dados]: https://msdn.microsoft.com/library/azure/mt163685.aspx
+[Pause Database]: https://msdn.microsoft.com/library/azure/mt718817.aspx
+[Resume Database]: https://msdn.microsoft.com/library/azure/mt718820.aspx
+[Create or Update Database]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 
 <!--Other Web references-->
 
-[Portal do Azure]: http://portal.azure.com/
+[Azure portal]: http://portal.azure.com/
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

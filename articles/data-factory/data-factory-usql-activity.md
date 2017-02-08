@@ -1,6 +1,6 @@
 ---
-title: "Execute o script U-SQL na Análise Azure Data Lake do Azure Data Factory"
-description: "Saiba como processar dados executando scripts U-SQL no serviço de computação da Análise Azure Data Lake."
+title: Transformar dados usando o script U-SQL - Azure | Microsoft Docs
+description: "Saiba como processar ou transformar dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
-ms.openlocfilehash: f2d7655f0e119b524b7fb9a32bee4cc874e265a5
+ms.sourcegitcommit: 7c9f14503a7cf5c0808e26884a73cd2918ff1c74
+ms.openlocfilehash: 7a26b44f1c2c97174fb98ffdf0cb74a71d27710a
 
 
 ---
-# <a name="run-u-sql-script-on-azure-data-lake-analytics-from-azure-data-factory"></a>Execute o script U-SQL na Análise Azure Data Lake do Azure Data Factory
+# <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transforme dados executando scripts U-SQL no serviço de computação do Azure Data Lake Analytics 
 > [!div class="op_single_selector"]
 > * [Hive](data-factory-hive-activity.md)  
 > * [Pig](data-factory-pig-activity.md)  
@@ -303,6 +303,6 @@ Nesse caso, os arquivos de entrada ainda são obtidos da pasta /datalake/input e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

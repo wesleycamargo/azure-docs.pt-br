@@ -1,6 +1,6 @@
 ---
-title: 'Always Encrypted: proteger dados confidenciais no Banco de Dados SQL do Azure com criptografia de banco de dados | Microsoft Docs'
-description: Proteja dados confidenciais no banco de dados SQL em minutos.
+title: 'Always Encrypted: Banco de Dados SQL - Azure Key Vault | Microsoft Docs'
+description: "Este artigo mostra como proteger os dados confidenciais no banco de dados SQL com a criptografia de dados usando o Assistente Always Encrypted no SQL Server Management Studio. Ele também inclui instruções que mostram como armazenar cada chave de criptografia no Cofre de Chaves do Azure."
 keywords: criptografia de dados, chave de criptografia, criptografia de nuvem
 services: sql-database
 documentationcenter: 
@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 6ca16644-5969-497b-a413-d28c3b835c9b
 ms.service: sql-database
+ms.custom: secure and protect
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,8 +17,8 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6a14169076eeb26749d6d1e362fe0301c4da77f2
+ms.sourcegitcommit: 0e28f89917568d90bdd1321720304b3003ff414a
+ms.openlocfilehash: c46d9144a55151284cd8c27370ed0d7aec5e9a1c
 
 
 ---
@@ -49,7 +50,7 @@ Para este tutorial, será necessário:
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versão 13.0.700.242 ou posterior.
 * [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) ou posterior (no computador cliente).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](../powershell-install-configure.md), versão 1.0 ou posterior. Digite **(Get-Module azure -ListAvailable).Version** para ver qual versão do PowerShell você está executando.
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs), versão 1.0 ou posterior. Digite **(Get-Module azure -ListAvailable).Version** para ver qual versão do PowerShell você está executando.
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Habilitar seu aplicativo cliente para acessar o serviço do Banco de Dados SQL
 Você deve primeiro habilitar o aplicativo cliente para acessar o serviço do Banco de Dados SQL configurando a autenticação necessária e adquirindo a *ClientId* e o *Segredo* necessários para autenticar seu aplicativo no código a seguir.
@@ -61,7 +62,7 @@ Você deve primeiro habilitar o aplicativo cliente para acessar o serviço do Ba
 5. Para a **URL DE LOGON** e o **URI DA ID DO APLICATIVO**, basta digitar uma URL válida (por exemplo: *http://myClientApp*) e continuar.
 6. Clique em **CONFIGURAR**.
 7. Copie a **ID DO CLIENTE**. (Posteriormente você precisará desse valor no código)
-8. Na seção **chaves**, selecione **1 ano** na lista suspensa **Selecionar duração**. (Você irá copiar a chave depois de salvar na etapa 14.)
+8. Na seção **chaves**, selecione **1 ano** na lista suspensa **Selecionar duração**. (Você irá copiar a chave depois de salvar na etapa 13).
 9. Role para baixo e clique em **Adicionar aplicativo**.
 10. Deixe **MOSTRAR** definida como **Microsoft Apps** e selecione **Gerenciamento de Serviços do Microsoft Azure**. Clique na marca de seleção para continuar.
 11. Selecione **Acessar Gerenciamento de Serviços do Azure** na lista suspensa **Permissões Delegadas**.
@@ -85,7 +86,7 @@ Você pode criar rapidamente um cofre de chaves executando o script a seguir. Pa
     $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).SubscriptionId
     Set-AzureRmContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup –Name $resourceGroupName –Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
@@ -649,6 +650,6 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

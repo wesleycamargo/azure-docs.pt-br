@@ -1,6 +1,6 @@
 ---
-title: Criar clusters Hadoop baseados em HDInsight sob demanda usando o Azure Data Factory | Microsoft Docs
-description: Saiba como criar clusters HDInsight sob demanda usando o Azure Data Factory.
+title: Criar Azure HDInsight (Hadoop) usando Data FActory | Microsoft Docs
+description: Saiba como criar clusters Hadoop sob demanda usando o Azure Data Factory.
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 01/17/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 938abf03191dec10da8d2fabf27c5db2415d6bc5
-ms.openlocfilehash: 0a70398010bb06590e981430edabffa889c213ae
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: ce32b22d60f89c82f0c416e736f41e3767bd8fc5
 
 
 ---
-# <a name="create-on-demand-linux-based-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Criar clusters Hadoop baseados em Linux sob demanda usando o Azure Data Factory
-[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+# <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Criar clusters Hadoop sob demanda usando o Azure Data Factory
+[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 [Azure Data Factory](../data-factory/data-factory-introduction.md) é um serviço de integração de dados baseado em nuvem que orquestra e automatiza a movimentação e a transformação dos dados. Neste artigo, você aprende a usar o Azure Data Factory para criar um [serviço vinculado do Azure HDInsight sob demanda](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)e a usar o cluster para executar um trabalho do Hive. Este é o fluxo de alto nível:
 
@@ -444,6 +444,6 @@ Neste artigo, você aprendeu a usar o Azure Data Factory para criar o cluster HD
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

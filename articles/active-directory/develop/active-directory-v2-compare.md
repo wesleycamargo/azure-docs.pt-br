@@ -1,5 +1,5 @@
 ---
-title: Ponto de extremidade do Azure AD v2.0 | Microsoft Docs
+title: "O que é diferente no ponto de extremidade v2.0 do Azure AD? | Microsoft Docs"
 description: "Uma comparação entre o Azure AD original e os pontos de extremidade v2.0."
 services: active-directory
 documentationcenter: 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: 8a8f8af9b23c66461385a73f80c148a2fdd652d5
+ms.sourcegitcommit: 47dce83cb4e3e5df92e91f1ca9195326634d6c8b
+ms.openlocfilehash: 9f00013c4eb6c32707489d5f78a5e95b7419bcd2
 
 
 ---
@@ -113,7 +113,7 @@ Se o aplicativo não solicitar o escopo `offline_access`, ele não receberá ref
 
 Para saber mais sobre OAuth 2.0, refresh_tokens e access_tokens, consulte a [referência de protocolo da v2.0](active-directory-v2-protocols.md).
 
-#### <a name="openid-profile--email"></a>OpenID, perfil e email
+#### <a name="openid-profile-and-email"></a>OpenID, perfil e email
 No serviço Active Directory do Azure original, o fluxo de conexão mais básico do OpenID Connect forneceria uma grande quantidade de informações sobre o usuário do id_token resultante.  As declarações em um id_token podem incluir o nome do usuário, nome de usuário preferido, endereço de email, ID do objeto e muito mais.
 
 Agora estamos restringindo as informações que o escopo de `openid` permite que seu aplicativo acesse.  O escopo de “openid” apenas permitirá que seu aplicativo faça logon do usuário e receba um identificador específico do aplicativo para o usuário.  Se você quiser obter informações de identificação pessoal (PII) sobre o usuário em seu aplicativo, seu aplicativo precisará solicitar permissões adicionais do usuário.  Estamos apresentando dois novos escopos, os escopos de `email` e `profile`, que permitem que você faça isso.
@@ -132,6 +132,6 @@ Há algumas restrições que merecem atenção ao usar o ponto v2.0.  Consulte o
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

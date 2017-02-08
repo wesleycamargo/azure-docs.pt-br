@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 0ecbaaf030e5c87ff05228af852477b865329596
-ms.openlocfilehash: 3b06c7c32c6ec27659365ca4da6193457fff7162
+ms.sourcegitcommit: 89d32955506afdfb9c45c5b0ce3d38d40f012e72
+ms.openlocfilehash: 570a0f0a0c0932a00bbe92b1e137951ceffcd660
 
 
 ---
@@ -159,18 +159,13 @@ Para cada entrada, o Azure Active Directory avalia todas as políticas e garante
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>O acesso condicional funciona com o Exchange ActiveSync?
  
-Você pode usar o Exchange ActiveSync em uma política de acesso condicional; no entanto, o suporte para esse cenário é limitado.  
-As seguintes limitações se aplicam a uma política com o Exchange ActiveSync incluído:
+Não, você não pode usar o Exchange ActiveSync em uma política de acesso condicional neste momento.
 
-- Como atribuição de **aplicativos de nuvem**, você tem apenas o **Exchange Online** selecionado.
 
-- Se você precisar definir um **controle**, só poderá selecionar **Exigir dispositivo compatível**. 
- 
-    ![Concessão](./media/active-directory-conditional-access-azure-portal/22.png)
- 
-- Se você precisar configurar um **condição**, só poderá configurar **aplicativos cliente**.   
+### <a name="what-happens-if-i-require-multi-factor-authentication-or-a-compliant-device"></a>O que acontece se eu exigir a autenticação multifator ou um dispositivo compatível?
 
-    ![Condições](./media/active-directory-conditional-access-azure-portal/21.png)
+Atualmente, o autenticação multifator será solicitada ao usuário independentemente do dispositivo.
+
 
 
 ## <a name="common-scenarios"></a>Cenários comuns
@@ -201,6 +196,6 @@ Se você quiser saber como configurar uma política de acesso condicional, veja 
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

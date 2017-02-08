@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: v-sharos
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e37687e44fa80f59a3e95ec0e3051290bd9c0c0
+ms.sourcegitcommit: 9c0a113e50fdb78307b8030f9b0d95b696f3f234
+ms.openlocfilehash: 8490110942741b049b6d44ac93697303cef40e8a
 
 
 ---
@@ -41,7 +41,7 @@ As atualizações regulares são atualizações sem interrupções que podem ser
 > 
 > 
 
-* Para obter detalhes sobre como instalar atualizações regulares através do portal clássico do Azure, consulte [instalar atualizações regulares através do portal(#install-regular-updates-via-the-azure-classic-portal) clássico do Azure.
+* Para obter detalhes sobre como instalar atualizações regulares por meio do portal clássico o Azure, consulte [Instalar atualizações regulares por meio do portal clássico do Azure](#install-regular-updates-via-the-azure-classic-portal).
 * Você também pode instalar atualizações regulares por meio do Windows PowerShell para StorSimple. Para obter detalhes, consulte [Instalar atualizações regulares por meio do Windows PowerShell para StorSimple](#install-regular-updates-via-windows-powershell-for-storsimple).
 
 ### <a name="maintenance-mode-updates"></a>Atualizações no modo de Manutenção
@@ -122,6 +122,6 @@ Se um dispositivo for redefinido para as configurações de fábrica, então tod
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

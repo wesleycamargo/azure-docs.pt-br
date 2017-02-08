@@ -1,10 +1,10 @@
 ---
-title: "Noções básicas sobre sua fatura | Microsoft Docs"
+title: Entendendo sua fatura do Azure | Microsoft Docs
 description: Saiba como ler e entender o uso e a fatura da sua assinatura do Azure
 services: 
 documentationcenter: 
 author: genlin
-manager: stevenpo
+manager: ruchic
 editor: 
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 12/2/2016
 ms.author: erihur;genli
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b107405081429626bf1e758567ae5427e2dbca15
+ms.sourcegitcommit: 71240b7bb978ca0831a4e23cafa64a96d64dc3cd
+ms.openlocfilehash: cf0b3ce6b24eace40138d586378864dd4eeca5b1
 
 
 ---
@@ -77,7 +77,7 @@ A tabela a seguir descreve as instruções de venda e pagamento mostradas em sua
 | Termo | Descrição |
 | --- | --- |
 | Vendido para |Isso é pré-preenchido com o endereço do perfil na conta. Se você precisar alterar isso, confira [Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone](../billing-how-to-change-azure-account-profile.md). |
-| Instruções de pagamento |Se a sua forma de pagamento for fatura, esta seção conterá instruções sobre transferências eletrônicas, pagamentos em 24 horas ou para onde enviar cheques. Para saber mais, confira [Cobrança do Azure – Como faturar](https://azure.microsoft.com/pricing/invoicing/) |
+| Instruções de pagamento |Se a sua forma de pagamento for fatura, esta seção conterá instruções sobre transferências eletrônicas, pagamentos em&24; horas ou para onde enviar cheques. Para saber mais, confira [Cobrança do Azure – Como faturar](https://azure.microsoft.com/pricing/invoicing/) |
 
 ## <a name="a-namecsva-understand-detailed-usage-charges-csv"></a><a name="csv"></a> Entender os encargos de uso detalhados (.csv)
 O arquivo de uso mostra o quanto de cada recurso foi usado no período de faturamento atual. Ele está disponível em um formato de arquivo .csv (valores separados por vírgulas) que pode ser aberto em um aplicativo de planilhas. Se você vir duas versões disponíveis, baixe a versão 2. Esse é o formato de arquivo mais recente. Para ver mais informações, confira [Como baixar sua fatura de cobrança e dados de uso diário do Azure](../billing-download-azure-invoice-daily-usage-date.md).
@@ -131,6 +131,15 @@ A seção de Uso diário do arquivo mostra os detalhes de uso que afetam as taxa
 |Informações do Serviço 1 |O nome do projeto ao qual o serviço pertence em sua assinatura. |
 |Informações do Serviço 2 |Esse é um campo herdado que captura os metadados específicos do serviço opcional. |
 
+## <a name="tips-for-cost-management"></a>Dicas para gerenciamento de custos
+É bom ser proativo sobre como controlar os custos:
+
+- Custos estimados usando a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/), o [custo total de calculadora de propriedade](https://aka.ms/azure-tco-calculator) e quando você adiciona um serviço
+- [Configurar alertas de cobrança](../billing-set-up-alerts.md)
+- [Analise o uso e os custos regularmente no portal do Azure](./billing-getting-started.md#costs)
+
+Para saber mais, veja [Introdução ao gerenciamento de custos e de cobrança do Azure](./billing-getting-started.md).
+
 ## <a name="how-do-i-make-a-payment"></a>Como faço um pagamento?
 Se você tiver configurado um cartão de crédito ou débito como forma de pagamento, o pagamento será feito automaticamente. Se a sua configuração for usar um [modo de pagamento de fatura](https://azure.microsoft.com/pricing/invoicing/), envie seu pagamento para o local indicado na parte inferior de sua fatura. Para obter mais ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -149,6 +158,6 @@ Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.c
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

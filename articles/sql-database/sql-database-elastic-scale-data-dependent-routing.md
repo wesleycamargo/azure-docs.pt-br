@@ -1,6 +1,6 @@
 ---
-title: Roteamento dependente de dados | Microsoft Docs
-description: "Como usar a classe ShardMapManager em aplicativos .NET para o roteamento dependente de dados, um recurso dos bancos de dados elásticos para o Banco de Dados SQL do Azure"
+title: Roteamento dependente de dados com o Banco de Dados SQL do Azure | Microsoft Docs
+description: Como usar a classe ShardMapManager em aplicativos .NET para o roteamento dependente de dados, um recurso dos bancos de dados fragmentados para o Banco de Dados SQL do Azure
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c77996b8dfa0c2ad9785e42758278a621a52c93c
+ms.sourcegitcommit: 5024e5edbfaaf9b070f66e6b009bc6085de3fa7e
+ms.openlocfilehash: b0f700bd742e1a69245711ff7f87d7f35535b3ab
 
 
 ---
@@ -90,7 +90,7 @@ O método **[OpenConnectionForKeyAsync method](https://msdn.microsoft.com/librar
 
 A manipulação de falhas transitórias pode coexistir naturalmente com o padrão de Roteamento dependente de dados. O principal requisito é repetir a solicitação de acesso de dados inteira incluindo o bloqueio **using** que obteve a conexão de roteamento dependente de dados. O exemplo anterior poderia ser reescrito da seguinte maneira (alteração de anotação realçada). 
 
-### <a name="example-data-dependent-routing-with-transient-fault-handling"></a>Exemplo – roteamento com falhas transitórias manipulação dependentes dos dados
+### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>Exemplo – roteamento com falhas transitórias manipulação dependentes dos dados
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 
@@ -130,6 +130,6 @@ Para desanexar um fragmento ou anexar um fragmento novamente, consulte [Usando a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

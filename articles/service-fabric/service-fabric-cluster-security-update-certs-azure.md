@@ -1,6 +1,6 @@
 ---
-title: Adicionar, substituir e remover certificados usados em um cluster do Service Fabric no Azure | Microsoft Docs
-description: "Descreve como carregar um certificado de cluster secundário e substituir o antigo certificado primário."
+title: Gerenciar certificados em um cluster do Azure Service Fabric | Microsoft Docs
+description: Descreve como adicionar novos certificados, sobrepor certificados e remover certificados de e para um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -12,124 +12,197 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2016
+ms.date: 01/11/2017
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 829af0b685f07c2e529edf1a0ef72b741d37a14c
+ms.sourcegitcommit: bb27d279396aa7b670187560cebe2ed074576bad
+ms.openlocfilehash: 86df3e74cd0060652a3223cfbd1516643985275e
 
 
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
-É recomendável que você se familiarize com o modo como o Service Fabric usa certificados X.509; leia [Cenários de segurança do cluster do Service Fabric](service-fabric-cluster-security.md). Você deve entender o que é um certificado de cluster e qual sua finalidade, antes de continuar.
+É recomendável que você se familiarize com o modo como o Service Fabric usa certificados X.509 e com os [Cenários de segurança do cluster do cluster](service-fabric-cluster-security.md). Você deve entender o que é um certificado de cluster e qual sua finalidade, antes de continuar.
 
-O Service Fabric permite especificar dois certificados de cluster, um primário e um secundário, quando você configura a segurança do certificado durante a criação do cluster. Veja [Criar um cluster do Service Fabric no Portal do Azure](service-fabric-cluster-creation-via-portal.md) ou [Criando um cluster do Azure por meio do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter detalhes. Se você estiver realizando a implantação por meio do Resource Manager e especificar apenas um certificado de cluster, ele será usado como o certificado primário. Após a criação do cluster, é possível adicionar um novo certificado como um secundário.
-
-> [!NOTE]
-> Para um cluster seguro, você sempre precisará de, pelo menos, um certificado (primário ou secundário) válido (não revogado ou expirado) implantado; caso contrário, o cluster vai parar de funcionar. Em 90 dias antes que todos os certificados válidos alcancem a expiração, o sistema gera um rastreamento de avisos e também um evento de integridade de aviso no nó. Atualmente, não há nenhum email nem qualquer outra notificação enviada pelo Service Fabric sobre esse tópico. 
-> 
-> 
-
-## <a name="add-a-secondary-certificate-using-the-portal"></a>Adicionar um certificado secundário usando o portal
-Para adicionar outro certificado como um secundário, você deve carregar o certificado em um Cofre de chaves do Azure e implantá-lo nas máquinas virtuais no cluster. Para obter mais informações, veja [Deploy certificates to VMs from a customer-managed key vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx)(Implantar certificados em VMs por meio de um cofre de chaves gerenciado pelo cliente).
-
-1. Consulte [Adicionar certificados ao Cofre de Chaves](service-fabric-cluster-creation-via-arm.md#add-certificate-to-key-vault) para saber como.
-2. Entre no [portal do Azure](https://portal.azure.com/) e navegue até o recurso de cluster ao qual você deseja adicionar esse certificado.
-3. Em **CONFIGURAÇÕES**, clique em **Segurança** para abrir a Folha Segurança do Cluster.
-4. Clique no botão **“+ Certificado”** na parte superior da folha para ir para a folha **“Adicionar Certificado”**.
-5. Selecione “Impressão digital do certificado secundário” no menu suspenso e preencha a impressão digital do certificado secundário que você carregou no cofre de chaves.
+O Service Fabric permite especificar dois certificados de cluster, um primário e um secundário, quando você configura a segurança do certificado durante a criação do cluster, além de certificados de cliente. Veja a [criação de um cluster do Service Fabric por meio do portal](service-fabric-cluster-creation-via-portal.md) ou a [criação de um cluster do azure por meio do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter detalhes sobre a configuração deles no tempo de criação. Se você especificar apenas um certificado de cluster no momento da criação, em seguida, que é usado como o certificado principal. Após a criação do cluster, é possível adicionar um novo certificado como um secundário.
 
 > [!NOTE]
-> Ao contrário do que ocorre durante o fluxo de trabalho de criação do cluster, não usamos os detalhes sobre as informações do cofre de chaves aqui, porque, presume-se que, quando você estiver nessa folha, o certificado das VMs já terá sido implantado e o certificado já estará disponível no repositório de certificados local na instância do VMSS.
+> Para um cluster seguro, você sempre precisará de, pelo menos, um certificado de cluster (primário ou secundário) válido (não revogado ou expirado) implantado; caso contrário, o cluster vai parar de funcionar. Em&90; dias antes que todos os certificados válidos alcancem a expiração, o sistema gera um rastreamento de avisos e também um evento de integridade de aviso no nó. Atualmente, não há nenhum email nem qualquer outra notificação enviada pelo Service Fabric sobre esse tópico. 
 > 
 > 
 
-Clique em **Certificado**. Uma implantação será iniciada, e uma barra de Status azul aparecerá na Folha Segurança do Cluster.
+## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Adicionar um certificado de cluster secundário usando o portal
 
-![Captura de tela das impressões digitais do certificado no portal][SecurityConfigurations_02]
+Certificado de cluster secundário não pode ser adicionado por meio do portal do Azure. Você precisa usar o Azure powershell para isso. O processo será descrito posteriormente neste documento.
 
-Após a conclusão bem-sucedida da implantação, você poderá usar o certificado primário ou secundário para realizar operações de gerenciamento no cluster.
+## <a name="swap-the-cluster-certificates-using-the-portal"></a>Trocar os certificados de cluster usando o portal
 
-![Captura de tela de implantação de certificado em andamento][SecurityConfigurations_03]
+Depois de ter implantado com êxito um certificado de cluster secundário, se você deseja alternar primário e secundário, navegue até a folha de segurança e selecione a opção 'Troca com primário' no menu de contexto para trocar o certificado secundário com o certificado principal.
 
-Esta é uma imagem da aparência da folha de segurança após a conclusão da implantação.
+![Trocar o certificado][Delete_Swap_Cert]
 
-![Captura de tela das impressões digitais do certificado depois da implantação][SecurityConfigurations_08]
+## <a name="remove-a-cluster-certificate-using-the-portal"></a>Remover um certificado de cluster usando o portal
 
-Agora você pode usar o novo certificado que acabou de adicionar para se conectar e realizar operações no cluster.
+Para um cluster seguro, você sempre precisará de, pelo menos, um certificado (primário ou secundário) válido (não revogado ou expirado) implantado; caso contrário, o cluster vai parar de funcionar.
+
+Para remover um certificado secundário sejam usados para segurança de cluster, navegue até a folha de segurança e selecione a opção 'Excluir' no menu de contexto do certificado secundário.
+
+Se sua intenção for remover o certificado que está marcado como primário, você precisará trocá-lo com o secundário primeiro e, em seguida, exclua o secundário após a conclusão da atualização.
+
+## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Adicionar um certificado secundário usando o Powershell do Resource Manager
+
+Estas etapas presumem que você esteja familiarizado com o funcionamento do Resource Manager e tenha implantado, pelo menos, um cluster do Service Fabric usando um modelo do Resource Manager e que o modelo usado para configurar o cluster para uso. Presume-se também que você esteja familiarizado com o uso do JSON.
 
 > [!NOTE]
-> Atualmente, não há nenhuma maneira de alternar os certificados primário e secundário no portal, porém, esse recurso está em andamento. Desde que haja um certificado válido do cluster, o cluster funcionará corretamente.
+> Se você estiver procurando um modelo de exemplo e parâmetros que você pode usar para acompanhar ou como um ponto de partida, baixe-o deste [git-repo.](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
 > 
 > 
 
-## <a name="add-a-secondary-certificate-and-swap-it-to-be-the-primary-using-resource-manager-powershell"></a>Adicione um certificado secundário e alterne-o para ser o primário usando o PowerShell do Resource Manager
-Essas etapas presumem que você esteja familiarizado com o funcionamento do Resource Manager e tenha implantado, pelo menos, um cluster do Service Fabric usando um modelo do Resource Manager e que o modelo usado para configurar o cluster para uso. Presume-se também que você esteja familiarizado com o uso do JSON.
+### <a name="edit-your-resource-manager-template"></a>Editar o modelo do Resource Manager
 
-> [!NOTE]
-> Se você estiver procurando um modelo de exemplo e parâmetros que você pode usar para acompanhar ou como um ponto de partida, baixe-o neste [git-repo]. (https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
-> 
-> 
+Para facilitar o acompanhamento, o exemplo 5-VM-1-NodeTypes-Secure_Step2.JSON contém todas as edições que faremos. o exemplo está disponível em [git-repo.](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample).
 
-#### <a name="edit-your-resource-manager-template"></a>Editar o modelo do Resource Manager
-Se você estiver usando a amostra do [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) para acompanhar, você encontrará essas alterações na amostra 5-VM-1-NodeTypes-Secure_Step2.JSON. Usar o 5-VM-1-NodeTypes-Secure_Step1.JSON para implantar um cluster seguro
+**Certifique-se de seguir todas as etapas**
 
-1. Abra o modelo do Resource Manager que foi usado para implantar o cluster.
-2. Adicione um novo parâmetro “secCertificateThumbprint” do tipo “string”. Caso você esteja usando o modelo do Resource Manager que você baixou no portal durante o momento de criação ou nos modelos de início rápido, basta procurar esse parâmetro, que você já deve encontrar definido.  
-3. Localize a definição de Recurso “Microsoft.ServiceFabric/clusters”. Em propriedades, você encontrará a marcação do JSON “Certificate”, que deve ser parecida com o trecho do JSON a seguir.
+**Etapa 1:** Abra o modelo do Resource Manager que foi usado para implantar o cluster.  (Se você baixou o exemplo do repositório acima, usar 5-VM-1-NodeTypes-Secure_Step1.JSON para implantar um cluster seguro e, em seguida, abra o modelo).
+
+**Etapa 2:** adicione **dois novos parâmetros** "secCertificateThumbprint" e "secCertificateUrlValue" do tipo "string" para a seção de parâmetro do modelo. Você pode copiar o seguinte trecho de código e adicionar ao modelo. Dependendo da fonte do seu modelo, você talvez já tenha esses definido, se assim mover para a próxima etapa. 
+ 
+```JSON
+   "secCertificateThumbprint": {
+      "type": "string",
+      "metadata": {
+        "description": "Certificate Thumbprint"
+      }
+    },
+    "secCertificateUrlValue": {
+      "type": "string",
+      "metadata": {
+        "description": "Refers to the location URL in your key vault where the certificate was uploaded, it is should be in the format of https://<name of the vault>.vault.azure.net:443/secrets/<exact location>"
+      }
+    },
+
+```
+
+**Etapa 3:** faça alterações no recurso **Microsoft.ServiceFabric/clusters** - localize a definição do recurso "Microsoft.ServiceFabric/clusters" em seu modelo. Nas propriedades dessa definição, você encontrará a marcação do JSON “Certificate”, que deve ser parecida com o trecho do JSON a seguir.
+
    
-   ```JSON
+```JSON
       "properties": {
         "certificate": {
           "thumbprint": "[parameters('certificateThumbprint')]",
           "x509StoreName": "[parameters('certificateStoreValue')]"
-        }
-   ``` 
-4. Adicione uma nova marcação “thumbprintSecondary” e atribua a ela um valor de “[parameters('secCertificateThumbprint')]”.  
+     }
+``` 
 
-Agora a definição de recurso deve ser parecida com esta (dependendo da fonte do modelo, ela poderá não ser exatamente como o trecho abaixo). Como você pode ver abaixo, o que você está fazendo aqui é especificar um novo certificado como primário e mover o primário atual como secundário.  Isso resulta na substituição do certificado atual pelo novo certificado em uma etapa de implantação.
+Adicione uma nova marcação “thumbprintSecondary” e atribua a ela um valor de “[parameters('secCertificateThumbprint')]”.  
+
+Agora a definição de recurso deve ser parecida com a seguinte (dependendo da fonte do modelo, ela poderá não ser exatamente como o trecho abaixo). 
 
 ```JSON
-
       "properties": {
         "certificate": {
-            "thumbprint": "[parameters('certificateThumbprint')]",
-            "thumbprintSecondary": "[parameters('secCertificateThumbprint')]",
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
+          "thumbprint": "[parameters('certificateThumbprint')]",
+          "thumbprintSecondary": "[parameters('secCertificateThumbprint')]",
+          "x509StoreName": "[parameters('certificateStoreValue')]"
+     }
+``` 
+
+Se você quiser **substituir o certificado**, especifique o novo certificado como primário e mover a réplica primária atual como secundário.  Isso resulta na substituição do certificado primário atual pelo novo certificado em uma etapa de implantação.
+
+```JSON
+      "properties": {
+        "certificate": {
+          "thumbprint": "[parameters('secCertificateThumbprint')]",
+          "thumbprintSecondary": "[parameters('certificateThumbprint')]",
+          "x509StoreName": "[parameters('certificateStoreValue')]"
+     }
+``` 
+
+
+**Etapa 4:** faça alterações em **todas as** definições de recurso **Microsoft.Compute/virtualMachineScaleSets** - localize a definição do recurso Microsoft.Compute/virtualMachineScaleSets. Role até "publisher": "Microsoft.Azure.ServiceFabric", em "virtualMachineProfile".
+
+Nas configurações de editor do Service Fabric, você verá algo assim.
+
+![Json_Pub_Setting1][Json_Pub_Setting1]
+
+Adicionar novas entradas de cert a ele
+
+```JSON
+               "certificateSecondary": {
+                    "thumbprint": "[parameters('secCertificateThumbprint')]",
+                    "x509StoreName": "[parameters('certificateStoreValue')]"
+                    }
+                  },
 
 ```
 
-#### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Edite o arquivo de modelo para refletir os novos parâmetros adicionados acima
+As propriedades devem ter esta aparência
+
+![Json_Pub_Setting2][Json_Pub_Setting2]
+
+Se você não quiser **substituir o certificado**, especifique o novo certificado como primário e mova a réplica primária atual como secundária. Isso resulta na substituição do certificado atual pelo novo certificado em uma etapa de implantação. 
+
+
+```JSON
+               "certificate": {
+                   "thumbprint": "[parameters('secCertificateThumbprint')]",
+                   "x509StoreName": "[parameters('certificateStoreValue')]"
+                     },
+               "certificateSecondary": {
+                    "thumbprint": "[parameters('certificateThumbprint')]",
+                    "x509StoreName": "[parameters('certificateStoreValue')]"
+                    }
+                  },
+
+```
+As propriedades devem ter esta aparência
+
+![Json_Pub_Setting3][Json_Pub_Setting3]
+
+
+**Etapa 5:** faça alterações em **todas as** definições do recurso **Microsoft.Compute/virtualMachineScaleSets** - localize a definição do recurso Microsoft.Compute/virtualMachineScaleSets. Role até "vaultCertificates":, em "OSProfile". O resultado deve ser semelhante a este.
+
+
+![Json_Pub_Setting4][Json_Pub_Setting4]
+
+Adicione o secCertificateUrlValue a ele. use este trecho:
+
+```Json
+                  {
+                    "certificateStore": "[parameters('certificateStoreValue')]",
+                    "certificateUrl": "[parameters('secCertificateUrlValue')]"
+                  }
+
+```
+Agora o Json resultante deve ter esta aparência.
+![Json_Pub_Setting5][Json_Pub_Setting5]
+
+
+> [!NOTE]
+> Repita as etapas 4 e 5 para todas as definições de recurso Nodetypes/Microsoft.Compute/virtualMachineScaleSets em seu modelo. Se você perder um deles, o certificado será instalado naquele VMSS e você terá resultados imprevisíveis em seu cluster, incluindo o cluster ficar inativo (se você terminar com nenhum certificado válido que o cluster possa usar para segurança. Portanto, verifique, antes de continuar.
+> 
+> 
+
+
+### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>Edite o arquivo de modelo para refletir os novos parâmetros adicionados acima
 Se você estiver usando a amostra do [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) para acompanhar, poderá começar a fazer alterações na amostra 5-VM-1-NodeTypes-Secure.paramters_Step2.JSON 
 
-Edite o arquivo de parâmetro do modelo do Resource Manager, adicione os novos parâmetros ao secCertificate e alterne os detalhes do certificado primário existente pelo secundário e substitua os detalhes do certificado primário pelos detalhes do novo certificado. 
+Editar seu parâmetro de modelo do Resource Manager de arquivo, adicione dois novos parâmetros para secCertificateThumbprint e secCertificateUrlValue. 
 
 ```JSON
     "secCertificateThumbprint": {
-      "value": "OLD Primary Certificate Thumbprint"
-    },
-   "secSourceVaultValue": {
-      "value": "OLD Primary Certificate Key Vault location"
+      "value": "thumbprint value"
     },
     "secCertificateUrlValue": {
-      "value": "OLD Primary Certificate location in the key vault"
-     },
-    "certificateThumbprint": {
-      "value": "New Certificate Thumbprint"
-    },
-    "sourceVaultValue": {
-      "value": "New Certificate Key Vault location"
-    },
-    "certificateUrlValue": {
-      "value": "New Certificate location in the key vault"
+      "value": "Refers to the location URL in your key vault where the certificate was uploaded, it is should be in the format of https://<name of the vault>.vault.azure.net:443/secrets/<exact location>"
      },
 
 ```
 
 ### <a name="deploy-the-template-to-azure"></a>Implantar o modelo no Azure
-1. Agora você está pronto para implantar o modelo no Azure. Abra um prompt de comando do Azure PS versão 1+.
-2. Faça logon em sua Conta do Azure e selecione a assinatura do Azure específica. Essa é uma etapa importante para pessoas que têm acesso a mais de uma assinatura do Azure.
+
+- Agora você está pronto para implantar o modelo no Azure. Abra um prompt de comando do Azure PS versão 1+.
+- Faça logon em sua Conta do Azure e selecione a assinatura do Azure específica. Essa é uma etapa importante para pessoas que têm acesso a mais de uma assinatura do Azure.
 
 ```powershell
 Login-AzureRmAccount
@@ -166,7 +239,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $ResouceGroup2 -TemplatePa
 
 ```
 
-Após a conclusão da implantação, conecte-se ao cluster usando o novo Certificado e realize algumas consultas. Faça isso se conseguir. Em seguida, você pode excluir o antigo certificado primário. 
+Após a conclusão da implantação, conecte-se ao cluster usando o novo Certificado e realize algumas consultas. Faça isso se conseguir. Em seguida, você pode excluir o certificado antigo. 
 
 Se estiver usando um certificado autoassinado, não se esqueça de importá-lo para seu repositório de certificados local TrustedPeople.
 
@@ -196,14 +269,32 @@ Para referência rápida, este é o comando para obter a integridade do cluster
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="remove-the-old-certificate-using-the-portal"></a>Remover o antigo certificado usando o portal
-Este é o processo para remover um certificado antigo para que o cluster não o use:
+## <a name="deploying-application-certificates-to-the-cluster"></a>Implantar certificados de aplicativo para o cluster.
 
-1. Entre no [portal do Azure](https://portal.azure.com/) e navegue até as configurações de segurança do cluster.
-2. Clique com o botão direito do mouse no certificado que deseja remover
-3. Selecione Excluir e siga os avisos. 
+Você pode usar as mesmas etapas conforme descrito nas etapas 5 acima para que os certificados implantados de um keyvault para os nós. apenas é necessário definir e usar parâmetros diferentes.
 
-[SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
+
+## <a name="adding-or-removing-client-certificates"></a>Adicionando ou removendo certificados de cliente
+
+Além de certificados de cluster, você pode adicionar certificados de cliente para realizar operações de gerenciamento em um cluster do Service Fabric.
+
+Você pode adicionar dois tipos de certificados de cliente - Admin ou Somente leitura. Eles então podem ser usados para controlar o acesso a operações de administração e operações de consulta no cluster. Por padrão, os certificados de cluster são adicionados à lista de certificados permitida Admin.
+
+Você pode especificar qualquer número de certificados de cliente. Cada adição ou exclusão resulta em uma atualização de configuração para o cluster de Service Fabric
+
+
+### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>A adição de certificados de cliente - Admin ou somente leitura por meio do portal
+
+1. Navegue até a folha de segurança e selecione o '+ autenticação' botão na parte superior da folha de segurança.
+2. Na folha ‘Adicionar Autenticação’, escolha o 'Tipo de Autenticação' - 'Cliente somente leitura' ou 'cliente Admin'
+3. Agora, escolha o método de autorização. Indica ao Service Fabric se ele precisa buscar esse certificado usando o nome do assunto ou a impressão digital. Em geral, não é uma boa prática de segurança para usar o método de autorização do nome da entidade. 
+
+![Adicionar certificado de cliente][Add_Client_Cert]
+
+### <a name="deletion-of-client-certificates---admin-or-read-only-using-the-portal"></a>Exclusão de certificados de cliente - Admin ou somente leitura usando o portal
+
+Para remover um certificado secundário sejam usados para segurança de cluster, navegue até a folha de segurança e selecione a opção 'Excluir' no menu de contexto do certificado específico.
+
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -213,13 +304,18 @@ Leia estes artigos para obter mais informações sobre gerenciamento de cluster:
 * [Configurar o acesso baseado em funções para clientes](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
-[SecurityConfigurations_02]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_02.png
-[SecurityConfigurations_03]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_03.png
-[SecurityConfigurations_05]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_05.png
-[SecurityConfigurations_08]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_08.png
+[Delete_Swap_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_09.PNG
+[Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG
+[Json_Pub_Setting1]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_14.PNG
+[Json_Pub_Setting2]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_15.PNG
+[Json_Pub_Setting3]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_16.PNG
+[Json_Pub_Setting4]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_17.PNG
+[Json_Pub_Setting5]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_18.PNG
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

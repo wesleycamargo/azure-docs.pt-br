@@ -4,7 +4,7 @@ description: "Saiba como adicionar um diretório do Office 365 (locatário) a um
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: mbaldwin
+manager: vikdesai
 editor: 
 tags: billing,top-support-issue
 ms.assetid: cc9c57c6-7bfd-4dea-9027-c75ef3737589
@@ -16,18 +16,13 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cjiang
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36cd9eac7be2d99971d8d2e227cd4b761df82d08
+ms.sourcegitcommit: 700724a0905c899039eb05c4fe864e9b304b7192
+ms.openlocfilehash: 7c8ae4895c5ae985851e797ebfb5eed415e3b4d4
 
 
 ---
 # <a name="associate-an-office-365-tenant-with-an-azure-subscription"></a>Associar um locatário do Office 365 com uma assinatura do Azure
 Se você adquiriu as assinaturas do Azure e do Office 365 separadamente no passado e agora deseja acessar o locatário do Office 365 a partir da assinatura do Azure, é fácil fazê-lo. Este artigo mostra como fazer isso.
-
-> [!NOTE]
-> Este artigo não se aplica aos clientes do EA (Enterprise Agreement).
-> 
-> 
 
 ## <a name="quick-guidance"></a>Guia rápido
 Para associar seu locatário do Office 365 à assinatura do Azure, use sua conta do Azure para adicionar o locatário do Office 365 e, depois, associe sua assinatura do Azure ao locatário do Office 365.
@@ -42,27 +37,19 @@ Nesse cenário, Clara Barbosa é um usuário que tem uma assinatura do Azure na 
 ### <a name="prerequisites"></a>Pré-requisitos
 Para que a associação funcione corretamente, os seguintes pré-requisitos são necessários:
 
-* Você precisa das credenciais do administrador do serviço da assinatura do Azure. Coadministradores não podem executar um subconjunto das etapas.
+* Você precisa das credenciais do administrador do serviço da assinatura do Azure. Coadministradores não podem executar um subconjunto das etapas. Para alterar o administrador do serviço, veja [Como adicionar ou alterar funções de administrador do Azure](./billing-add-change-azure-subscription-administrator.md#how-to-change-service-administrator-for-a-subscription).
 * Você precisa das credenciais de um administrador global do locatário do Office 365.
 * O endereço de email do administrador do serviço não deve estar contido no locatário do Office 365.
 * O endereço de email do administrador do serviço não deve ser igual ao do administrador global do locatário do Office 365.
 * Se você estiver usando um endereço de email que é uma conta da Microsoft e uma conta organizacional, altere temporariamente o administrador do serviço de sua assinatura do Azure para usar outra conta da Microsoft. Você pode criar uma nova conta da Microsoft na [Página de inscrição de conta da Microsoft](https://signup.live.com/).
 
-Para alterar o administrador do serviço, execute estas etapas:
-
-1. Entre no [Portal de Gerenciamento de Conta](https://account.windowsazure.com/subscriptions).
-2. Selecione a assinatura que deseja alterar.
-3. Selecione **Editar detalhes da assinatura**.
-   
-    ![Captura de tela das informações de assinatura do Azure, com "Editar detalhes da assinatura" realçado](./media/billing-add-office-365-tenant-to-azure-subscription/s33_azure-edit-subscription-details.png)
-4. Na caixa **ADMINISTRADOR DE SERVIÇOS** , insira o endereço de email do novo administrador de serviços.
-   
-    ![Captura de tela da caixa de diálogo "Editar sua assinatura"](./media/billing-add-office-365-tenant-to-azure-subscription/s34_change-subscription-service-admin.png)
-
 ### <a name="associate-the-office-365-tenant-with-the-azure-subscription"></a>Associar o locatário do Office 365 à assinatura do Azure
 Para associar o locatário do Office 365 à assinatura do Azure, siga estas etapas:
 
-1. Entre no [Portal de Gerenciamento de Conta](https://account.windowsazure.com/subscriptions) com as credenciais de administrador do serviço.
+1. Entre no [Portal clássico do Azure](https://manage.windowsazure.com/) com as credenciais de administrador do serviço.
+
+    ![Captura de tela de entrada do Azure](./media/billing-add-office-365-tenant-to-azure-subscription/s313_azure-sign-in-service-admin.png)
+
 2. No painel esquerdo, selecione **ACTIVE DIRECTORY**.
    
    ![Captura de tela da entrada do Active Directory](./media/billing-add-office-365-tenant-to-azure-subscription/s35-classic-portal-active-directory-entry.png)
@@ -95,7 +82,7 @@ Para associar o locatário do Office 365 à assinatura do Azure, siga estas etap
    
     ![Captura de tela de saída](./media/billing-add-office-365-tenant-to-azure-subscription/s312_use-contoso-directory-azure-confirm-and-sign-out.png)
    
-    f. Entre no [Portal de Gerenciamento de Conta](https://account.windowsazure.com/subscriptions) com as credenciais de administrador do serviço.
+    f. Entre no [Portal clássico do Azure](https://manage.windowsazure.com/) com as credenciais de administrador do serviço.
    
     ![Captura de tela de entrada do Azure](./media/billing-add-office-365-tenant-to-azure-subscription/s313_azure-sign-in-service-admin.png)
    
@@ -145,15 +132,11 @@ Para associar o locatário do Office 365 à assinatura do Azure, siga estas etap
     ![Captura de tela da guia administradores](./media/billing-add-office-365-tenant-to-azure-subscription/s321_azure-co-administrator-added.png)
 6. Depois, você pode testar o acesso com o coadministrador.
    
-    a. Saia do portal de Gerenciamento de Conta.
+    a. Saia do portal clássico do Azure.
    
-    b. Abra o [portal de Gerenciamento de Conta](https://account.windowsazure.com/subscriptions) ou o [portal do Azure](https://portal.azure.com/).
+    b. Abra o [Portal do Azure](https://portal.azure.com/).
    
-    c. Se a página de entrada do Azure tiver um link para **Entrar com a conta de sua organização**, selecione o link. Caso contrário, pule essa etapa.
-   
-    ![Captura de tela de página de entrada do Azure](./media/billing-add-office-365-tenant-to-azure-subscription/3-sign-in-to-azure.png)
-   
-    d. Insira as credenciais do coadministrador e, em seguida, selecione **Entrar**.
+    c. Insira as credenciais do coadministrador e, em seguida, selecione **Entrar**.
    
     ![Captura de tela de página de entrada do Azure](./media/billing-add-office-365-tenant-to-azure-subscription/s324_azure-sign-in-with-co-admin.png)
 
@@ -168,6 +151,6 @@ Para saber como realizar essas tarefas, confira [Use sua conta existente do Offi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
