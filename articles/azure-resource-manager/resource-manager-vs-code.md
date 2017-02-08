@@ -32,7 +32,7 @@ Para trabalhar com os modelos JSON no Código VS, você precisará instalar uma 
 2. Abrir com a Abertura Rápida (Ctrl+P) 
 3. Execute o comando a seguir: 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. Reinicie o Código VS quando solicitado para habilitar a extensão. 
    
    Pronto!
