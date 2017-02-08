@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 02/07/2017
 ms.author: genli
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -56,13 +56,13 @@ Para resolver esses problemas, você deve identificar o VHD que está causando o
 ### <a name="step-1-identify-the-problem-vhd-and-the-associated-vm"></a>Etapa 1: Identificar o VHD com problema e a VM associada
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. No menu **Hub**, selecione **Todos os recursos**. Vá para a conta de armazenamento que você deseja excluir e selecione **Blobs** > **vhds**.
-   
+
     ![Captura de tela do portal, com a conta de armazenamento e o contêiner "vhds" realçados](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
 3. Verifique as propriedades de cada VHD no contêiner. Localize o VHD que está no estado **Concedido**. Em seguida, determine qual VM está usando o VHD. Normalmente, você pode determinar qual VM armazena o VHD verificando o nome do VHD:
-   
+
    * Os discos do sistema operacional geralmente seguem esta convenção de nomenclatura: NomeDaVMAAAAMMDDHHMMSS.vhd
    * Os discos de dados geralmente seguem esta convenção de nomenclatura: NomeDaVM-AAAAMMDD-HHMMSS.vhd
-     
+
      ![Captura de tela das informações de contêiner no portal, com o nome da VM, o status de concessão de "Bloqueado", e o estado de concessão de "Concedido" realçado](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/locatevm.png)
 
 ### <a name="step-2-remove-the-lease-from-the-vhd"></a>Etapa 2: Remover a concessão do VHD
@@ -96,7 +96,6 @@ Uma concessão é um bloqueio que pode ser usado para controlar o acesso a um bl
 ## <a name="next-steps"></a>Próximas etapas
 * [Excluir uma conta de armazenamento](storage-create-storage-account.md#delete-a-storage-account)
 * [How to break the locked lease of blob storage in Microsoft Azure (PowerShell) (Como interromper a liberação de bloqueio do armazenamento de blobs no Microsoft Azure (PowerShell))](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
-
 
 
 

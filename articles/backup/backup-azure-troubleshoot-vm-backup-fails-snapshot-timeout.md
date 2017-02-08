@@ -12,7 +12,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 02/07/2017
 ms.author: jimpark; markgal; genli
 translationtype: Human Translation
 ms.sourcegitcommit: 26ea5c6f867165a25dd5aecb01d0a0ce3b213a51
