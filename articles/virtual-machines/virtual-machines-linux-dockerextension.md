@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/25/2016
+ms.date: 02/09/2017
 ms.author: iainfou
 translationtype: Human Translation
 ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
@@ -72,7 +72,6 @@ data:    Provisioning State:  Succeeded
 data:    Tags: null
 data:
 info:    group create command OK
-
 ```
 
 A CLI do Azure retorna você ao prompt após apenas alguns segundos, mas seu host Docker ainda está sendo criado e configurado pela extensão de VM do Docker do Azure. Leva alguns minutos para a conclusão da implantação. Você pode exibir detalhes sobre o status de host de Docker usando o comando `azure vm show`.
