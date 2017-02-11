@@ -526,6 +526,6 @@ Depois de criar um banco de dados que usa o Always Encrypted, convém fazer o se
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -495,6 +495,6 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

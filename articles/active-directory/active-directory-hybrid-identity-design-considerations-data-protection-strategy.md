@@ -172,6 +172,6 @@ Como as opções de reposta a incidentes usam uma abordagem multicamada, a compa
 
 
 
-<!--HONumber=Dec16_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 
