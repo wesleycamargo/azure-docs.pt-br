@@ -29,6 +29,13 @@
 ### [Autenticação serviço a serviço](data-lake-store-authenticate-using-active-directory.md)
 ### [Autenticação do usuário final](data-lake-store-end-user-authenticate-using-active-directory.md)
 
+## Desempenho
+### [Diretrizes de ajuste do desempenho para o Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
+### [Diretrizes de ajuste do desempenho para o Spark no HDInsight e Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
+### [Diretrizes de ajuste do desempenho para o Hive no HDInsight e Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
+### [Diretrizes de ajuste do desempenho para o MapReduce no HDInsight e Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
+### [Diretrizes de ajuste do desempenho para o Storm no HDInsight e Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
+
 ## Integrar-se aos Serviços do Azure
 ### [Acesso de VMs na VNET do Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Usar com Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
@@ -44,7 +51,6 @@
 ## Gerenciar
 ### [Acessar logs de diagnóstico](data-lake-store-diagnostic-logs.md)
 ### [Projetando para alta disponibilidade](data-lake-store-troubleshooting-guidance.md)
-### [Guia de ajuste do desempenho](data-lake-store-performance-tuning-guidance.md)
 
 # Referência
 ## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
@@ -65,6 +71,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
